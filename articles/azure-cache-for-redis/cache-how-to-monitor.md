@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389709"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584630"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Monitorowanie usługi Azure cache for Redis
 
@@ -52,13 +52,13 @@ Aby wyświetlić metryki Redis i utworzyć wykresy niestandardowe przy użyciu A
 
 ![W okienku nawigacji po lewej stronie contoso55 metryki są opcjami w obszarze monitorowanie i jest wyróżniona. Na metrykach znajduje się lista metryk. Wybrano trafień pamięci podręcznej i Chybienia w pamięci podręcznej.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu Azure Monitor, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Aby uzyskać więcej informacji na temat pracy z metrykami przy użyciu Azure Monitor, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Eksportowanie metryk pamięci podręcznej
 
-Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/platform/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
+Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/essentials/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, można [wyznaczyć konto magazynu](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) i określić zasady **przechowywania (dni)** dla metryk pamięci podręcznej. 
 
 Aby skonfigurować konto magazynu dla metryk pamięci podręcznej:
 
@@ -74,10 +74,10 @@ Aby skonfigurować konto magazynu dla metryk pamięci podręcznej:
 ![Diagnostyka Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Oprócz archiwizowania metryk pamięci podręcznej do magazynu można także [przesyłać strumieniowo do centrum zdarzeń lub wysyłać je do dzienników Azure monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>Oprócz archiwizowania metryk pamięci podręcznej do magazynu można także [przesyłać strumieniowo do centrum zdarzeń lub wysyłać je do dzienników Azure monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
-Aby uzyskać dostęp do metryk, można je wyświetlić w Azure Portal, jak opisano wcześniej w tym artykule, a także uzyskać do nich dostęp za pomocą [interfejsu API REST metryk Azure monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Aby uzyskać dostęp do metryk, można je wyświetlić w Azure Portal, jak opisano wcześniej w tym artykule, a także uzyskać do nich dostęp za pomocą [interfejsu API REST metryk Azure monitor](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Jeśli zmienisz konta magazynu, dane na wcześniej skonfigurowanym koncie magazynu pozostaną dostępne do pobrania, ale nie będą wyświetlane w Azure Portal.  
@@ -129,7 +129,7 @@ Aby skonfigurować reguły alertów dla pamięci podręcznej, kliknij pozycję *
 
 ![Monitorowanie](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Aby uzyskać więcej informacji o konfigurowaniu i używaniu alertów, zobacz [Omówienie alertów](../azure-monitor/platform/alerts-classic-portal.md).
+Aby uzyskać więcej informacji o konfigurowaniu i używaniu alertów, zobacz [Omówienie alertów](../azure-monitor/alerts/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
 Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcznej platformy Azure dla wystąpień Redis. Wcześniej była znana jako "dzienniki inspekcji" lub "dzienniki operacyjne". Korzystając z dzienników aktywności, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) podejmowanych w pamięci podręcznej platformy Azure dla wystąpień Redis. 
@@ -140,4 +140,4 @@ Dzienniki aktywności zapewniają wgląd w operacje wykonane w pamięci podręcz
 
 Aby wyświetlić dzienniki aktywności pamięci podręcznej, kliknij pozycję **dzienniki aktywności** w **menu zasób**.
 
-Aby uzyskać więcej informacji na temat dzienników aktywności, zobacz [Omówienie dziennika aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Aby uzyskać więcej informacji na temat dzienników aktywności, zobacz [Omówienie dziennika aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323523"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583360"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analiza użytkowników, sesji i zdarzeń w Application Insights
 
@@ -19,7 +19,7 @@ Dowiedz się, w jaki sposób użytkownicy korzystają z aplikacji sieci Web, jak
 
 ![Zrzut ekranu przedstawiający Application Insights użytkowników](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Jeśli nie widzisz jeszcze danych w blokach użytkownicy, sesje lub zdarzenia w portalu Application Insights, [Dowiedz się, jak rozpocząć pracę z narzędziami użycia](usage-overview.md).
 
@@ -41,10 +41,10 @@ Poznaj różne grupy użytkowników, dostosowując opcje zapytania w górnej cz�
 * Kto użył: wybierz niestandardowe zdarzenia i wyświetlenia stron.
 * W trakcie: Wybierz zakres czasu.
 * Według: Wybierz sposób tworzenia pakietów danych przez okres lub inną właściwość, taką jak Browser lub miasto.
-* Podziel przez: wybierz właściwość, według której chcesz podzielić lub segmentować dane. 
-* Dodaj filtry: Ogranicz zapytania do określonych użytkowników, sesji lub zdarzeń na podstawie ich właściwości, takich jak Browser lub miasto. 
- 
-## <a name="saving-and-sharing-reports"></a>Zapisywanie i udostępnianie raportów 
+* Podziel przez: wybierz właściwość, według której chcesz podzielić lub segmentować dane. 
+* Dodaj filtry: Ogranicz zapytania do określonych użytkowników, sesji lub zdarzeń na podstawie ich właściwości, takich jak Browser lub miasto. 
+ 
+## <a name="saving-and-sharing-reports"></a>Zapisywanie i udostępnianie raportów 
 Możesz zapisywać raporty użytkowników, prywatnie, bezpośrednio w sekcji Moje raporty lub udostępnione wszystkim osobom z dostępem do tego zasobu Application Insights w sekcji Raporty udostępnione.
 
 Aby udostępnić łącze do raportu użytkowników, sesji lub zdarzeń; Kliknij przycisk **Udostępnij** na pasku narzędzi, a następnie skopiuj link.
@@ -60,8 +60,8 @@ Sekcja **zapoznaj się z użytkownikami** zawiera informacje o pięciu przykład
 - Aby włączyć środowiska użycia, Rozpocznij wysyłanie [zdarzeń niestandardowych](./api-custom-events-metrics.md#trackevent) lub [wyświetleń stron](./api-custom-events-metrics.md#page-views).
 - Jeśli masz już wysłane zdarzenia niestandardowe lub widoki stron, zapoznaj się z narzędziami użycia, aby dowiedzieć się, jak użytkownicy korzystają z usługi.
     - [Lejki](usage-funnels.md)
-    - [Przechowywanie](usage-retention.md)
+    - [Noszą](usage-retention.md)
     - [Przepływy użytkownika](usage-flows.md)
-    - [Skoroszyty](../platform/workbooks-overview.md)
+    - [Skoroszyty](../visualize/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

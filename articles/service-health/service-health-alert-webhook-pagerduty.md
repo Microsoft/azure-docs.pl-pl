@@ -3,12 +3,12 @@ title: Wysyłanie alertów usługi Azure Service Health z usługi PagerDuty
 description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usługi do wystąpienia usługi PagerDuty.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ae5141f33ebf4ec6e32029625af3a199a04d67b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091542"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594533"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi PagerDuty przy użyciu elementów webhook
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 
 1.  Wybierz pozycję **Dodaj nową usługę** lub Otwórz istniejącą usługę, która została skonfigurowana.
 
-1.  W obszarze **Ustawienia integracji**wybierz następujące opcje:
+1.  W obszarze **Ustawienia integracji** wybierz następujące opcje:
 
     a. **Typ integracji**: Microsoft Azure
 
@@ -69,7 +69,7 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 1. Wybierz pozycję **Zapisz** po zakończeniu, aby zaktualizować grupę akcji.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testowanie integracji elementu webhook za pośrednictwem żądania HTTP POST
-1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Utwórz żądanie HTTP POST w następujący sposób:
 
@@ -86,6 +86,6 @@ W tym artykule opisano sposób konfigurowania powiadomień o kondycji usługi pl
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problemami](service-health-alert-webhook-guide.md).
-- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](./service-notifications.md).
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

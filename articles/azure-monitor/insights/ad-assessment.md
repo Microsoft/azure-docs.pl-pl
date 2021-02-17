@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069f70d27bd7e721be2bf82f6ef64ce9c531ab8e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318100"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577558"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optymalizowanie środowiska usługi Active Directory za pomocą rozwiązania Active Directory Health Check w usłudze Azure Monitor
 
@@ -46,9 +46,9 @@ Po dodaniu rozwiązania i zakończeniu sprawdzania informacje podsumowujące dot
 
 Aby przeprowadzić kontrolę kondycji na kontrolerach domeny należących do domeny, które mają zostać ocenione, każdy kontroler domeny w tej domenie wymaga agenta i łączności do Azure Monitor przy użyciu jednej z następujących obsługiwanych metod:
 
-1. Zainstaluj [agenta log Analytics dla systemu Windows](../platform/agent-windows.md) , Jeśli kontroler domeny nie jest jeszcze monitorowany przez program System Center 2016 — Operations Manager lub Operations Manager 2012 R2.
+1. Zainstaluj [agenta log Analytics dla systemu Windows](../agents/agent-windows.md) , Jeśli kontroler domeny nie jest jeszcze monitorowany przez program System Center 2016 — Operations Manager lub Operations Manager 2012 R2.
 2. Jeśli jest monitorowana z programem System Center 2016-Operations Manager lub Operations Manager 2012 R2, a grupa zarządzania nie jest zintegrowana z Azure Monitor, kontroler domeny może być wieloadresowy z Azure Monitor do zbierania danych i przekazywania ich do usługi i nadal monitorowany przez Operations Manager.  
-3. W przeciwnym razie, jeśli grupa zarządzania Operations Manager jest zintegrowana z usługą, należy dodać kontrolery domeny dla zbierania danych przez usługę zgodnie z instrukcjami w obszarze [Dodawanie komputerów zarządzanych przez agentów](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) po włączeniu rozwiązania w obszarze roboczym.  
+3. W przeciwnym razie, jeśli grupa zarządzania Operations Manager jest zintegrowana z usługą, należy dodać kontrolery domeny dla zbierania danych przez usługę zgodnie z instrukcjami w obszarze [Dodawanie komputerów zarządzanych przez agentów](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) po włączeniu rozwiązania w obszarze roboczym.  
 
 Agent na kontrolerze domeny, który raportuje do Operations Manager grupy zarządzania, zbiera dane, przekazuje do przypisanego do niego serwera zarządzania, a następnie jest wysyłany bezpośrednio z serwera zarządzania do Azure Monitor.  Dane nie są zapisywane w Operations Manager bazach danych.  
 
@@ -118,7 +118,7 @@ Wyświetl podsumowanie ocen zgodności dla infrastruktury, a następnie zapoznaj
 
     ![obraz przedstawiający zalecenia dotyczące sprawdzania kondycji](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 
-4. W **sugerowanych akcjach**można wykonać akcje naprawcze. Gdy element został rozkierowany, w późniejszych wersjach oceny są uwzględniane zalecane akcje i zostanie zwiększony wynik oceny zgodności. Poprawione elementy są wyświetlane jako **obiekty zakończone**.
+4. W **sugerowanych akcjach** można wykonać akcje naprawcze. Gdy element został rozkierowany, w późniejszych wersjach oceny są uwzględniane zalecane akcje i zostanie zwiększony wynik oceny zgodności. Poprawione elementy są wyświetlane jako **obiekty zakończone**.
 
 ## <a name="ignore-recommendations"></a>Ignorowanie zaleceń
 
@@ -215,5 +215,5 @@ Wyniki można następnie wyeksportować do programu Excel w celu dalszej analizy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj [zapytań dzienników Azure monitor](../log-query/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe dane i zalecenia dotyczące kontroli kondycji usługi AD.
+Użyj [zapytań dzienników Azure monitor](../logs/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe dane i zalecenia dotyczące kontroli kondycji usługi AD.
 

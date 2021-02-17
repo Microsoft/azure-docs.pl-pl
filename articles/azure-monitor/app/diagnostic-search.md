@@ -3,18 +3,18 @@ title: Korzystanie z wyszukiwania w usłudze Azure Application Insights | Micros
 description: Wyszukiwanie i filtrowanie nieprzetworzonej telemetrii wysyłanej przez aplikację sieci Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187021"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579550"
 ---
 # <a name="using-search-in-application-insights"></a>Korzystanie z wyszukiwania w Application Insights
 
 Wyszukiwanie jest funkcją [Application Insights](./app-insights-overview.md) , która służy do znajdowania i eksplorowania poszczególnych elementów telemetrii, takich jak widoki stron, wyjątki lub żądania sieci Web. Można także wyświetlać dane śledzenia i zdarzenia dzienników.
 
-(Aby uzyskać bardziej skomplikowane zapytania dotyczące danych, użyj [analizy](../log-query/log-analytics-tutorial.md)).
+(Aby uzyskać bardziej skomplikowane zapytania dotyczące danych, użyj [analizy](../logs/log-analytics-tutorial.md)).
 
 ## <a name="where-do-you-see-search"></a>Gdzie widzisz wyszukiwanie?
 
@@ -60,7 +60,7 @@ Typy zdarzeń są następujące:
 * Żądania **żądania** — http odbierane przez aplikację serwera, w tym strony, skrypty, obrazy, pliki stylów i dane. Te zdarzenia są używane do tworzenia wykresów przeglądów żądań i odpowiedzi.
 * **Widok strony**  -  [Dane telemetryczne wysyłane przez klienta sieci Web](./javascript.md), używane do tworzenia raportów widoku strony.
 * **Zdarzenie niestandardowe** — w przypadku wstawienia wywołań do poleceń trackEvent () w celu [monitorowania użycia](./api-custom-events-metrics.md)można wyszukiwać je w tym miejscu.
-* **Exception** Nieprzechwycone [wyjątki na serwerze](./asp-net-exceptions.md)oraz te, które są rejestrowane za pomocą funkcji trackexception ().
+*  Nieprzechwycone [wyjątki na serwerze](./asp-net-exceptions.md)oraz te, które są rejestrowane za pomocą funkcji trackexception ().
 * **Zależność**  -  [Wywołania z aplikacji serwerowej](./asp-net-dependencies.md) do innych usług, takich jak interfejsy API REST lub bazy danych, oraz wywołania AJAX z [kodu klienta](./javascript.md).
 * **Dostępność** — wyniki [testów dostępności](./monitor-web-app-availability.md).
 
@@ -81,7 +81,7 @@ Aby znaleźć wszystkie elementy z tą samą wartością właściwości, wpisz j
 ## <a name="search-the-data"></a>Przeszukaj dane
 
 > [!NOTE]
-> Aby napisać bardziej złożone zapytania, Otwórz [**dzienniki (analiza)**](../log-query/log-analytics-tutorial.md) w górnej części bloku wyszukiwania.
+> Aby napisać bardziej złożone zapytania, Otwórz [**dzienniki (analiza)**](../logs/log-analytics-tutorial.md) w górnej części bloku wyszukiwania.
 >
 
 Warunki można wyszukać w dowolnych wartościach właściwości. Jest to przydatne, jeśli masz zapisaną [zdarzenia niestandardowe](./api-custom-events-metrics.md) z wartościami właściwości.
@@ -145,7 +145,7 @@ Dane POST nie są rejestrowane automatycznie, ale można użyć [wywołań Track
 
 ## <a name="next-steps"></a><a name="add"></a>Następne kroki
 
-* [Zapisuj złożone zapytania w analizie](../log-query/log-analytics-tutorial.md)
+* [Zapisuj złożone zapytania w analizie](../logs/log-analytics-tutorial.md)
 * [Wyślij dzienniki i niestandardową telemetrię do Application Insights](./asp-net-trace-logs.md)
 * [Konfigurowanie testów dostępności i czasu odpowiedzi](./monitor-web-app-availability.md)
 * [Rozwiązywanie problemów](../faq.md)

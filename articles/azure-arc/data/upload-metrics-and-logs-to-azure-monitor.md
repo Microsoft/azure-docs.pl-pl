@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac9c8efbe29bf1420a94d486b650758cc22bec2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183434"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575760"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
@@ -42,18 +42,18 @@ Zobacz [Instalowanie narzędzi](./install-client-tools.md).
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Przed przekazaniem metryk lub danych użytkownika do platformy Azure musisz upewnić się, że w subskrypcji platformy Azure `Microsoft.AzureData` zarejestrowano dostawcę zasobów.
+Przed przekazaniem metryk lub danych użytkownika do platformy Azure musisz upewnić się, że w subskrypcji platformy Azure `Microsoft.AzureArcData` zarejestrowano dostawcę zasobów.
 
 Aby sprawdzić dostawcę zasobów, uruchom następujące polecenie:
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 Jeśli dostawca zasobów nie jest obecnie zarejestrowany w Twojej subskrypcji, możesz go zarejestrować. Aby go zarejestrować, uruchom następujące polecenie.  Wykonanie polecenia może potrwać minutę lub dwie.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## <a name="create-service-principal"></a>Tworzenie jednostki usługi
@@ -193,7 +193,7 @@ Operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD) w usługach danych z
 
 W trakcie okresu zapoznawczego ten proces odbywa się nocnie. Ogólne wskazówki to przekazywanie użycia tylko raz dziennie. Gdy informacje o użyciu zostaną wyeksportowane i przekazane wiele razy w tym samym okresie 24 godzin, tylko spis zasobów zostanie zaktualizowany w Azure Portal ale nie w przypadku użycia zasobów.
 
-W przypadku przekazywania metryk usługa Azure monitor akceptuje tylko ostatnie 30 minut danych ([Dowiedz się więcej](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Wskazówki dotyczące przekazywania metryk polegają na przekazaniu metryk bezpośrednio po utworzeniu pliku eksportu, aby można było wyświetlić cały zestaw danych w Azure Portal. Na przykład jeśli zostały wyeksportowane metryki o godzinie 2:00 PM i uruchomiono polecenie przekazywania o godzinie 2:50 PM. Ponieważ Azure Monitor akceptuje tylko dane z ostatnich 30 minut, w portalu mogą nie być widoczne żadne dane. 
+W przypadku przekazywania metryk usługa Azure monitor akceptuje tylko ostatnie 30 minut danych ([Dowiedz się więcej](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Wskazówki dotyczące przekazywania metryk polegają na przekazaniu metryk bezpośrednio po utworzeniu pliku eksportu, aby można było wyświetlić cały zestaw danych w Azure Portal. Na przykład jeśli zostały wyeksportowane metryki o godzinie 2:00 PM i uruchomiono polecenie przekazywania o godzinie 2:50 PM. Ponieważ Azure Monitor akceptuje tylko dane z ostatnich 30 minut, w portalu mogą nie być widoczne żadne dane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

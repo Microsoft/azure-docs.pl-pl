@@ -3,12 +3,12 @@ title: Wysyłanie alertów usługi Azure Service Health za pomocą OpsGenie przy
 description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usługi do wystąpienia OpsGenie.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8867d442d0c7fe563f6429fc1ff4edb212737c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86529101"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594592"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą OpsGenie przy użyciu elementów webhook
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób konfigurowania alertów usługi Azure Service Hea
 
 1.  **Nazwij** alert i Określ pole **Assigned to Team** .
 
-1.  Wypełnij inne pola, takie jak **Adresaci**, **włączone**i **Pomijaj powiadomienia**.
+1.  Wypełnij inne pola, takie jak **Adresaci**, **włączone** i **Pomijaj powiadomienia**.
 
 1.  Skopiuj i Zapisz **adres URL integracji**, który powinien już zawierać `apiKey` dołączony do końca.
 
@@ -67,7 +67,7 @@ W tym artykule opisano sposób konfigurowania alertów usługi Azure Service Hea
 1. Wybierz pozycję **Zapisz** po zakończeniu, aby zaktualizować grupę akcji.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testowanie integracji elementu webhook za pośrednictwem żądania HTTP POST
-1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Utwórz żądanie HTTP POST w następujący sposób:
 
@@ -84,6 +84,6 @@ W tym artykule opisano sposób konfigurowania alertów usługi Azure Service Hea
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problemami](service-health-alert-webhook-guide.md).
-- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](./service-notifications.md).
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

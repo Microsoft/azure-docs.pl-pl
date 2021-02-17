@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011122"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574413"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 
@@ -24,9 +24,9 @@ Zdecydowanie zaleca się włączenie dzienników zasobów dla wszystkich zadań,
 
 Stream Analytics oferuje dwa typy dzienników:
 
-* [Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md) (zawsze włączone), które dają wgląd w operacje wykonywane na zadaniach.
+* [Dzienniki aktywności](../azure-monitor/essentials/platform-logs-overview.md) (zawsze włączone), które dają wgląd w operacje wykonywane na zadaniach.
 
-* [Dzienniki zasobów](../azure-monitor/platform/platform-logs-overview.md) (konfigurowalne), które zapewniają bogatszy wgląd w wszystko, co się dzieje z zadaniami. Dzienniki zasobów zaczynają się, gdy zadanie zostanie utworzone i zakończy się, gdy zadanie zostanie usunięte. Obejmują one zdarzenia, gdy zadanie jest aktualizowane i uruchomione.
+* [Dzienniki zasobów](../azure-monitor/essentials/platform-logs-overview.md) (konfigurowalne), które zapewniają bogatszy wgląd w wszystko, co się dzieje z zadaniami. Dzienniki zasobów zaczynają się, gdy zadanie zostanie utworzone i zakończy się, gdy zadanie zostanie usunięte. Obejmują one zdarzenia, gdy zadanie jest aktualizowane i uruchomione.
 
 > [!NOTE]
 > Aby analizować dane niezgodne, można użyć usług takich jak Azure Storage, Azure Event Hubs i Azure Monitor logs. Opłata jest naliczana na podstawie modelu cen dla tych usług.

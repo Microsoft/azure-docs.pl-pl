@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: cdb43bd8b91881905b1734d0c0b36c33fb27d232
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707694"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577501"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -113,11 +113,11 @@ Skoroszyt usługi Network Insights umożliwia korzystanie z najnowszych możliwo
 
 * Centralna konsola do monitorowania i rozwiązywania problemów z danymi [metryk](../insights/network-insights-overview.md#resource-health-and-metrics) i dzienników.
 
-* Elastyczna Kanwa do obsługi tworzenia niestandardowych bogatych [wizualizacji](../platform/workbooks-overview.md#visualizations).
+* Elastyczna Kanwa do obsługi tworzenia niestandardowych bogatych [wizualizacji](../visualize/workbooks-overview.md#visualizations).
 
-* Możliwość używania i [udostępniania szablonów skoroszytów](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) z szerszym społecznością.
+* Możliwość używania i [udostępniania szablonów skoroszytów](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) z szerszym społecznością.
 
-Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawdź [skoroszyty — Omówienie](../platform/workbooks-overview.md)
+Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawdź [skoroszyty — Omówienie](../visualize/workbooks-overview.md)
 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrowanie z rozwiązania Azure Gateway Analytics do skoroszytów Azure Monitor
 
@@ -129,7 +129,7 @@ Aby uzyskać więcej informacji na temat możliwości nowego skoroszytu, sprawd�
 > [!NOTE]
 > Wszystkie przeszłe dane są już dostępne w skoroszycie z poziomu ustawień diagnostycznych. Nie jest wymagany transfer danych.
 
-2. Uzyskaj dostęp do [domyślnego skoroszytu usługi Insights](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) dla zasobu Application Gateway. Wszystkie istniejące szczegółowe informacje obsługiwane przez rozwiązanie Application Gateway Analytics będą już obecne w skoroszycie. Można to zwiększyć przez dodanie [wizualizacji](../platform/workbooks-overview.md#visualizations) niestandardowych opartych na danych dzienników & metryk.
+2. Uzyskaj dostęp do [domyślnego skoroszytu usługi Insights](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) dla zasobu Application Gateway. Wszystkie istniejące szczegółowe informacje obsługiwane przez rozwiązanie Application Gateway Analytics będą już obecne w skoroszycie. Można to zwiększyć przez dodanie [wizualizacji](../visualize/workbooks-overview.md#visualizations) niestandardowych opartych na danych dzienników & metryk.
 
 3. Po wyświetleniu wszystkich metryk i szczegółowych informacji dzienników aby wyczyścić rozwiązanie Azure Gateway Analytics z obszaru roboczego, możesz usunąć rozwiązanie ze strony zasobów rozwiązania.
 
@@ -232,5 +232,5 @@ Dane zbierane przed zmianą nie będą widoczne w nowym rozwiązaniu. Można kon
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [zapytań dzienników w Azure monitor](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane diagnostyczne platformy Azure.
+* Użyj [zapytań dzienników w Azure monitor](../logs/log-query-overview.md) , aby wyświetlić szczegółowe dane diagnostyczne platformy Azure.
 

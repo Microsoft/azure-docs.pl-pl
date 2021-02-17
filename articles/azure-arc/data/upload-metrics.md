@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f319f912520a69a0c68f89a3d4178f63cc45ca1f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356552"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575682"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Przekaż metryki do Azure Monitor
 
@@ -126,7 +126,7 @@ Aby przekazać metryki dla wystąpień zarządzanych SQL z obsługą usługi Azu
    >[!NOTE]
    >Zaczekaj co najmniej 30 minut po utworzeniu wystąpień danych z włączonym Łukem platformy Azure podczas pierwszego przekazywania.
    >
-   >Upewnij się `upload` , że metryki od razu po `export` jako Azure monitor akceptują tylko metryki w ciągu ostatnich 30 minut. [Dowiedz się więcej](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting).
+   >Upewnij się `upload` , że metryki od razu po `export` jako Azure monitor akceptują tylko metryki w ciągu ostatnich 30 minut. [Dowiedz się więcej](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 Jeśli widzisz błędy wskazujące "Niepowodzenie uzyskiwania informacji o metrykach" podczas eksportowania, sprawdź, czy zbieranie danych jest ustawione na `true` , uruchamiając następujące polecenie:
@@ -199,7 +199,7 @@ Operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD) w usługach danych z
 
 W trakcie okresu zapoznawczego ten proces odbywa się nocnie. Ogólne wskazówki to przekazywanie użycia tylko raz dziennie. Gdy informacje o użyciu zostaną wyeksportowane i przekazane wiele razy w tym samym okresie 24 godzin, tylko spis zasobów zostanie zaktualizowany w Azure Portal ale nie w przypadku użycia zasobów.
 
-W przypadku przekazywania metryk usługa Azure monitor akceptuje tylko ostatnie 30 minut danych ([Dowiedz się więcej](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Wskazówki dotyczące przekazywania metryk polegają na przekazaniu metryk bezpośrednio po utworzeniu pliku eksportu, aby można było wyświetlić cały zestaw danych w Azure Portal. Na przykład jeśli zostały wyeksportowane metryki o godzinie 2:00 PM i uruchomiono polecenie przekazywania o godzinie 2:50 PM. Ponieważ Azure Monitor akceptuje tylko dane z ostatnich 30 minut, w portalu mogą nie być widoczne żadne dane. 
+W przypadku przekazywania metryk usługa Azure monitor akceptuje tylko ostatnie 30 minut danych ([Dowiedz się więcej](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). Wskazówki dotyczące przekazywania metryk polegają na przekazaniu metryk bezpośrednio po utworzeniu pliku eksportu, aby można było wyświetlić cały zestaw danych w Azure Portal. Na przykład jeśli zostały wyeksportowane metryki o godzinie 2:00 PM i uruchomiono polecenie przekazywania o godzinie 2:50 PM. Ponieważ Azure Monitor akceptuje tylko dane z ostatnich 30 minut, w portalu mogą nie być widoczne żadne dane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

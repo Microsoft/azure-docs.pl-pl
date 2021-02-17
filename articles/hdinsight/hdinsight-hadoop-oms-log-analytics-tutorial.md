@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945625"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590831"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
 Dowiedz się, jak włączyć dzienniki Azure Monitor, aby monitorować operacje klastra Hadoop w usłudze HDInsight. I jak dodać rozwiązanie do monitorowania usługi HDInsight.
 
-[Dzienniki Azure monitor](../azure-monitor/log-query/log-query-overview.md) to usługa Azure monitor, która monitoruje środowiska chmurowe i lokalne. Monitorowanie ma na celu zachowanie ich dostępności i wydajności. Zbiera dane generowane przez zasoby w chmurze, w środowiskach lokalnych i innych narzędziach do monitorowania. Dane służą do zapewnienia analiz w wielu źródłach.
+[Dzienniki Azure monitor](../azure-monitor/logs/log-query-overview.md) to usługa Azure monitor, która monitoruje środowiska chmurowe i lokalne. Monitorowanie ma na celu zachowanie ich dostępności i wydajności. Zbiera dane generowane przez zasoby w chmurze, w środowiskach lokalnych i innych narzędziach do monitorowania. Dane służą do zapewnienia analiz w wielu źródłach.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Log Analytics. Ten obszar roboczy można traktować jako unikatowe środowisko dzienników Azure Monitor z własnym repozytorium danych, źródłami danych i rozwiązaniami. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Obszar roboczy usługi Log Analytics. Ten obszar roboczy można traktować jako unikatowe środowisko dzienników Azure Monitor z własnym repozytorium danych, źródłami danych i rozwiązaniami. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego log Analytics](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * Klaster usługi Azure HDInsight. Obecnie można użyć dzienników Azure Monitor z następującymi typami klastrów usługi HDInsight:
 
@@ -144,7 +144,7 @@ Ponieważ klaster jest zupełnie nowym klastrem, raport nie zawiera żadnych dzi
 
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
 
-Usługa Azure monitor obsługuje zbieranie i analizowanie metryk wydajności dla węzłów w klastrze. Aby uzyskać więcej informacji, zobacz [źródła danych wydajności systemu Linux w Azure monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Usługa Azure monitor obsługuje zbieranie i analizowanie metryk wydajności dla węzłów w klastrze. Aby uzyskać więcej informacji, zobacz [źródła danych wydajności systemu Linux w Azure monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Inspekcja klastra
 

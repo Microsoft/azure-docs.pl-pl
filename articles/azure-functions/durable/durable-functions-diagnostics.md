@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168145"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584614"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostyka w usłudze Durable Functions na platformie Azure
 
@@ -20,7 +20,7 @@ Istnieje kilka opcji diagnozowania problemów z [Durable Functions](durable-func
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) jest zalecanym sposobem przeprowadzania diagnostyki i monitorowania w programie Azure Functions. To samo dotyczy Durable Functions. Aby dowiedzieć się, jak korzystać z Application Insights w aplikacji funkcji, zobacz [Azure Functions monitorowania](../functions-monitoring.md).
 
-Azure Functions trwałego rozszerzenia emituje także *zdarzenia śledzenia* , które umożliwiają śledzenie kompleksowego wykonywania aranżacji. Te zdarzenia śledzenia można znaleźć i zbadać przy użyciu narzędzia [Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md) w Azure Portal.
+Azure Functions trwałego rozszerzenia emituje także *zdarzenia śledzenia* , które umożliwiają śledzenie kompleksowego wykonywania aranżacji. Te zdarzenia śledzenia można znaleźć i zbadać przy użyciu narzędzia [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) w Azure Portal.
 
 ### <a name="tracking-data"></a>Śledzenie danych
 
@@ -159,7 +159,7 @@ Podczas przeglądania dzienników emitowanych przez DTFx należy zrozumieć, że
 * **DurableTask. Core**: zawiera informacje o wykonywaniu aranżacji i planowaniu niskiego poziomu.
 * **DurableTask. AzureStorage**: zawiera informacje dotyczące interakcji z artefaktami usługi Azure Storage, w tym wewnętrzne kolejki, obiekty blob i tabele magazynu używane do przechowywania i pobierania wewnętrznego stanu aranżacji.
 
-Te dzienniki można włączyć, aktualizując `logging/logLevel` sekcjęhost.jsaplikacji funkcji ** w** pliku. Poniższy przykład pokazuje, jak włączyć dzienniki ostrzeżeń i błędów zarówno z poziomu programu `DurableTask.Core` , jak i `DurableTask.AzureStorage` :
+Te dzienniki można włączyć, aktualizując `logging/logLevel` sekcjęhost.jsaplikacji funkcji **w** pliku. Poniższy przykład pokazuje, jak włączyć dzienniki ostrzeżeń i błędów zarówno z poziomu programu `DurableTask.Core` , jak i `DurableTask.AzureStorage` :
 
 ```json
 {
@@ -461,7 +461,7 @@ Azure Functions obsługuje kod funkcji debugowania bezpośrednio, a ta sama obs�
 > [!TIP]
 > Jeśli ustawienia punktów przerwania w funkcjach programu Orchestrator mają być przerywane tylko przy wykonywaniu bez powtarzania, można ustawić warunkowy punkt przerwania, który jest dzielony tylko wtedy, gdy wartość "jest odtwarzana" `false` .
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Domyślnie magazyny Durable Functions są przechowywane w usłudze Azure Storage. To zachowanie oznacza, że można sprawdzić stan swoich aranżacji przy użyciu narzędzi, takich jak [Eksplorator usługi Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 

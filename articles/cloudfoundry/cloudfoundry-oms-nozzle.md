@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021592"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571061"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Wdrażanie usługi Azure Log Analytics dysz dla monitorowania systemu Cloud Foundry
 
@@ -183,7 +183,7 @@ Jeśli utworzono ręcznie obszar roboczy Log Analytics, wykonaj poniższe czynno
 
 ### <a name="1-import-the-oms-view"></a>1. Zaimportuj widok pakietu OMS
 
-W portalu pakietu OMS przejdź do **widoku widok**  >  **importowania** projektanta  >  **Browse** i wybierz jeden z plików omsview. Na przykład wybierz *Cloud Foundry. omsview* i Zapisz widok. Teraz kafelek zostanie wyświetlony na stronie **Przegląd** . Wybierz go, aby zobaczyć wizualizacje metryki.
+W portalu pakietu OMS przejdź do **widoku widok**  >  **importowania** projektanta  >  i wybierz jeden z plików omsview. Na przykład wybierz *Cloud Foundry. omsview* i Zapisz widok. Teraz kafelek zostanie wyświetlony na stronie **Przegląd** . Wybierz go, aby zobaczyć wizualizacje metryki.
 
 Można dostosować te widoki lub utworzyć nowe widoki za poorednictwem **projektanta widoków**.
 
@@ -191,7 +191,7 @@ Można dostosować te widoki lub utworzyć nowe widoki za poorednictwem **projek
 
 ### <a name="2-create-alert-rules"></a>2. Utwórz reguły alertów
 
-Możesz [tworzyć alerty](../azure-monitor/platform/alerts-overview.md)i dostosowywać zapytania i wartości progowe odpowiednio do wymagań. Zalecane są następujące alerty:
+Możesz [tworzyć alerty](../azure-monitor/alerts/alerts-overview.md)i dostosowywać zapytania i wartości progowe odpowiednio do wymagań. Zalecane są następujące alerty:
 
 | Zapytanie wyszukiwania                                                                  | Generuj alert na podstawie | Opis                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

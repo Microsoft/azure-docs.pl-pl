@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256885"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574188"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Informacje o sposobie integracji aprowizacji z dziennikami Azure Monitor
 
@@ -24,7 +24,7 @@ Inicjowanie obsługi integruje się z dziennikami Azure Monitor i Log Analytics.
 
 ## <a name="enabling-provisioning-logs"></a>Włączanie dzienników aprowizacji
 
-Powinieneś już znać monitorowanie i Log Analytics platformy Azure. Jeśli nie, przejdź do informacji o nich, a następnie wróć do informacji o dziennikach aprowizacji aplikacji. Aby dowiedzieć się więcej na temat monitorowania platformy Azure, zobacz [Azure monitor Omówienie](../../azure-monitor/overview.md). Aby dowiedzieć się więcej na temat Azure Monitor dzienników i Log Analytics, zobacz [Omówienie zapytań dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+Powinieneś już znać monitorowanie i Log Analytics platformy Azure. Jeśli nie, przejdź do informacji o nich, a następnie wróć do informacji o dziennikach aprowizacji aplikacji. Aby dowiedzieć się więcej na temat monitorowania platformy Azure, zobacz [Azure monitor Omówienie](../../azure-monitor/overview.md). Aby dowiedzieć się więcej na temat Azure Monitor dzienników i Log Analytics, zobacz [Omówienie zapytań dzienników w Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Po skonfigurowaniu monitorowania platformy Azure można włączyć obsługę administracyjną w dziennikach. Ta opcja znajduje się na stronie **Ustawienia diagnostyki** .
 
@@ -47,7 +47,7 @@ Po skonfigurowaniu monitorowania platformy Azure można włączyć obsługę adm
 
 ## <a name="azure-monitor-workbooks"></a>Skoroszyty usługi Azure Monitor
 
-Azure Monitor skoroszyty zapewniają elastyczną kanwę do analizy danych. Umożliwiają one również tworzenie zaawansowanych raportów wizualnych w ramach Azure Portal. Aby dowiedzieć się więcej, zobacz [Azure monitor skoroszyty — Omówienie](../../azure-monitor/platform/workbooks-overview.md).
+Azure Monitor skoroszyty zapewniają elastyczną kanwę do analizy danych. Umożliwiają one również tworzenie zaawansowanych raportów wizualnych w ramach Azure Portal. Aby dowiedzieć się więcej, zobacz [Azure monitor skoroszyty — Omówienie](../../azure-monitor/visualize/workbooks-overview.md).
 
 Inicjowanie obsługi aplikacji zawiera zestaw wstępnie skompilowanych skoroszytów. Można je znaleźć na stronie skoroszytów. Aby wyświetlić dane, należy upewnić się, że wszystkie filtry (timeRange, jobID, nazwa_aplikacji) są wypełnione. Należy również upewnić się, że zainicjowano udostępnianie aplikacji. w przeciwnym razie nie będzie żadnych danych w dziennikach.
 
@@ -57,7 +57,7 @@ Inicjowanie obsługi aplikacji zawiera zestaw wstępnie skompilowanych skoroszyt
 
 ## <a name="custom-queries"></a>Zapytania niestandardowe
 
-Możesz tworzyć niestandardowe zapytania i wyświetlać dane na pulpitach nawigacyjnych platformy Azure. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych danych log Analytics](../../azure-monitor/log-query/get-started-queries.md). Pamiętaj również, aby zapoznać się [z omówieniem zapytań dzienników w Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+Możesz tworzyć niestandardowe zapytania i wyświetlać dane na pulpitach nawigacyjnych platformy Azure. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych danych log Analytics](../../azure-monitor/logs/get-started-queries.md). Pamiętaj również, aby zapoznać się [z omówieniem zapytań dzienników w Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Poniżej przedstawiono przykłady umożliwiające rozpoczęcie pracy z obsługą aplikacji.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor umożliwia skonfigurowanie niestandardowych alertów, aby można było otrzymywać powiadomienia o kluczowym zdarzeniu związanym z obsługą administracyjną. Na przykład może być konieczne otrzymywanie alertu w przypadku wystąpienia błędów. Lub prawdopodobnie zostanie przełączane do wyłączania lub usuwania. Innym przykładem, w którym można chcieć otrzymywać alerty, jest brak ewentualnej aprowizacji, co oznacza, że coś jest niewłaściwe.
 
-Aby dowiedzieć się więcej o alertach, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../../azure-monitor/learn/tutorial-response.md).
+Aby dowiedzieć się więcej o alertach, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../../azure-monitor/alerts/tutorial-response.md).
 
 Zgłoś alert, gdy wystąpią błędy. Zastąp jobID identyfikatorem jobID dla aplikacji.
 
@@ -118,7 +118,7 @@ Podejmujemy podejście oparte na metodzie "open source" i "społeczność" do za
 ## <a name="next-steps"></a>Następne kroki
 
 - [Analiza dzienników](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Rozpoczynanie pracy z zapytaniami w dziennikach Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-- [Tworzenie grup alertów i zarządzanie nimi w Azure Portal](../../azure-monitor/platform/action-groups.md)
+- [Rozpoczynanie pracy z zapytaniami w dziennikach Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+- [Tworzenie grup alertów i zarządzanie nimi w Azure Portal](../../azure-monitor/alerts/action-groups.md)
 - [Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [Interfejs API dzienników aprowizacji](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

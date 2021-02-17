@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380410"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576388"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ W tym artykule opisano sposób monitorowania i debugowania potoków oraz zarząd
 > Aplikacja do zarządzania & monitorowania zapewnia lepszą obsługę monitorowania potoków danych i zarządzania nimi oraz rozwiązywania problemów. Aby uzyskać szczegółowe informacje na temat korzystania z aplikacji, zobacz [monitorowanie potoków Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory wersja 1 używa teraz nowej [infrastruktury alertów Azure monitor](../../azure-monitor/platform/alerts-metric.md). Stara infrastruktura alertów jest przestarzała. W związku z tym istniejące alerty skonfigurowane dla fabryk danych w wersji 1 nie będą już działać. Istniejące alerty dla fabryk danych w wersji 1 nie są migrowane automatycznie. Należy ponownie utworzyć te alerty dla nowej infrastruktury alertów. Zaloguj się do Azure Portal i wybierz pozycję **Monitoruj** , aby utworzyć nowe alerty dotyczące metryk (na przykład nieudanych uruchomień lub przebiegów zakończonych powodzeniem) dla fabryk danych w wersji 1.
+> Azure Data Factory wersja 1 używa teraz nowej [infrastruktury alertów Azure monitor](../../azure-monitor/alerts/alerts-metric.md). Stara infrastruktura alertów jest przestarzała. W związku z tym istniejące alerty skonfigurowane dla fabryk danych w wersji 1 nie będą już działać. Istniejące alerty dla fabryk danych w wersji 1 nie są migrowane automatycznie. Należy ponownie utworzyć te alerty dla nowej infrastruktury alertów. Zaloguj się do Azure Portal i wybierz pozycję **Monitoruj** , aby utworzyć nowe alerty dotyczące metryk (na przykład nieudanych uruchomień lub przebiegów zakończonych powodzeniem) dla fabryk danych w wersji 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

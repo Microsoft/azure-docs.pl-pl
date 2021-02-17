@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 44faaa6f05a325c2c64040938a1c9d0eb3e864e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740452"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574160"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
@@ -38,7 +38,7 @@ Aby uzyskać bardziej szczegółową kontrolę administracyjną w Azure Active D
     ![Zrzut ekranu przedstawiający łącze "Udziel zgody administratora na Eksplorator grafów".](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Użyj wersji zapoznawczej programu Azure AD PowerShell.
+1. Użyj [programu Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="add-an-administrative-unit"></a>Dodaj jednostkę administracyjną
 
@@ -58,7 +58,7 @@ Jednostkę administracyjną można dodać przy użyciu Azure Portal lub programu
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Zainstaluj program Azure AD PowerShell (wersja zapoznawcza) przed podjęciem próby uruchomienia następujących poleceń:
+Zainstaluj program [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) przed podjęciem próby uruchomienia następujących poleceń:
 
 ```powershell
 Connect-AzureAD
@@ -100,7 +100,7 @@ Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 
 Wartości, które są ujęte w znaki cudzysłowu, można modyfikować zgodnie z wymaganiami określonego środowiska.
 
-### <a name="use-the-graph-api"></a>Użyj interfejs API programu Graph
+### <a name="use-the-graph-api"></a>Użycie interfejsu Graph API
 
 ```http
 HTTP request

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574213"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
@@ -22,7 +22,7 @@ Aby ułatwić zrozumienie stanu domeny zarządzanej Azure Active Directory Domai
 
 W tym artykule pokazano, jak używać skoroszytów Azure Monitor do przeglądania zdarzeń inspekcji zabezpieczeń w usłudze Azure AD DS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -46,7 +46,7 @@ Usługa Azure AD DS obejmuje dwa następujące szablony skoroszytu:
 * Raport przegląd zabezpieczeń
 * Raport aktywności konta
 
-Aby uzyskać więcej informacji na temat edytowania skoroszytów i zarządzania nimi, zobacz [Azure monitor skoroszyty — Omówienie](../azure-monitor/platform/workbooks-overview.md).
+Aby uzyskać więcej informacji na temat edytowania skoroszytów i zarządzania nimi, zobacz [Azure monitor skoroszyty — Omówienie](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="use-the-security-overview-report-workbook"></a>Korzystanie z skoroszytu raportu Omówienie zabezpieczeń
 

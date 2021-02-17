@@ -11,17 +11,17 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343845"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574387"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obszaru roboczego usługi log Analytics na potrzeby inspekcji i dzienników logowania
@@ -41,7 +41,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Zapoznaj się z następującymi artykułami:
 
-- [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [Jak zintegrować dzienniki aktywności z Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -49,7 +49,7 @@ Zapoznaj się z następującymi artykułami:
 
 - [Krótki przewodnik dla języka KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor skoroszyty](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 

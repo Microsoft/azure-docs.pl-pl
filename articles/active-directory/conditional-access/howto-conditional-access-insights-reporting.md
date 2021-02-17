@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049421"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574177"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
 
@@ -43,7 +43,7 @@ Użytkownicy muszą także mieć jedną z następujących Log Analytics ról obs
 
 Jeśli dzienniki usługi Azure AD nie zostały zintegrowane z dziennikami Azure Monitor, przed załadowaniem skoroszytu należy wykonać następujące czynności:  
 
-1. [Utwórz obszar roboczy log Analytics w Azure monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Utwórz obszar roboczy log Analytics w Azure monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrowanie dzienników usługi Azure AD z dziennikami Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="how-it-works"></a>Jak to działa 
@@ -51,7 +51,7 @@ Jeśli dzienniki usługi Azure AD nie zostały zintegrowane z dziennikami Azure 
 Aby uzyskać dostęp do szczegółowych informacji i skoroszytu raportów:  
 
 1. Zaloguj się w witrynie **Azure Portal**.
-1. Przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  i raportowanie**dostępu warunkowego**  >  **Insights and reporting**.
+1. Przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  i raportowanie **dostępu warunkowego**  >  .
 
 ### <a name="get-started-select-parameters"></a>Wprowadzenie: Wybieranie parametrów 
 
@@ -105,7 +105,7 @@ Możesz również zbadać logowania określonego użytkownika, wyszukując logow
 Aby skonfigurować zasady dostępu warunkowego w trybie tylko do raportowania:
 
 1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny.
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >    >  **dostępu warunkowego** zabezpieczeń.
 1. Wybierz istniejące zasady lub Utwórz nowe zasady.
 1. W obszarze **Włączanie zasad** ustaw opcję Przełącz do trybu **tylko raportowanie** .
 1. Wybierz pozycję **Zapisz**
@@ -120,7 +120,7 @@ Aby skonfigurować zasady dostępu warunkowego w trybie tylko do raportowania:
 Aby można było uzyskać dostęp do skoroszytu, potrzebne są odpowiednie uprawnienia usługi Azure AD, a także uprawnienia do Log Analytics obszaru roboczego. Aby sprawdzić, czy masz odpowiednie uprawnienia obszaru roboczego, uruchamiając przykładowe zapytanie usługi log Analytics:
 
 1. Zaloguj się w witrynie **Azure Portal**.
-1. Przejdź do **Azure Active Directory**  >  **dzienników**Azure Active Directory.
+1. Przejdź do   >  **dzienników** Azure Active Directory.
 1. Wpisz `SigninLogs` w polu zapytania i wybierz polecenie **Uruchom**.
 1. Jeśli zapytanie nie zwraca żadnych wyników, być może obszar roboczy nie został poprawnie skonfigurowany. 
 

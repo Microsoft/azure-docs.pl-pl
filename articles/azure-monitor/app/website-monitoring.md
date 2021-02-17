@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start dowiesz się, jak skonfigurować mon
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583446"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Szybki Start: Rozpoczynanie monitorowania witryny sieci Web za pomocą Azure Monitor Application Insights
 
@@ -27,7 +27,7 @@ Usługa Azure Monitor Application Insights umożliwia łatwe monitorowanie dost�
 Application Insights może zbierać dane telemetryczne z dowolnej aplikacji połączonej z Internetem działającej lokalnie lub w chmurze. Aby wyświetlić te dane, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Wybierz pozycję **Utwórz**  >  **Application Insights narzędzia do zarządzania**zasobami  >  **Application Insights**.
+1. Wybierz pozycję **Utwórz**  >  **Application Insights narzędzia do zarządzania** zasobami  >  .
 
    > [!NOTE]
    >Jeśli po raz pierwszy utworzysz zasób Application Insights, zobacz [Tworzenie zasobu Application Insights](./create-new-resource.md).
@@ -60,7 +60,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
 ## <a name="configure-application-insights-sdk"></a>Konfigurowanie Application Insights SDK
 
-1. Wybierz pozycję **Przegląd**  >  **podstawowe**, a następnie skopiuj **klucz Instrumentacji**aplikacji.
+1. Wybierz pozycję **Przegląd**  >  **podstawowe**, a następnie skopiuj **klucz Instrumentacji** aplikacji.
 
    ![Formularz nowego zasobu usługi Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
@@ -91,7 +91,7 @@ Application Insights może zbierać dane telemetryczne z dowolnej aplikacji poł
 
    Cztery domyślne wykresy na stronie przeglądu są ograniczone do danych aplikacji po stronie serwera. Ze względu na to, że Instrumentacja jest współdziałanie ze strony klienta/przeglądarki z zestawem JavaScript SDK, ten konkretny widok nie ma zastosowania, chyba że jest zainstalowany zestaw SDK po stronie serwera.
 
-1. Wybierz **Analytics** ![ ikonę mapy aplikacji analizy ](media/website-monitoring/006.png) .  Ta akcja powoduje otwarcie programu **Analytics**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. Aby wyświetlić dane związane z żądaniami przeglądarki po stronie klienta, uruchom następujące zapytanie:
+1. Wybierz  ![ ikonę mapy aplikacji analizy ](media/website-monitoring/006.png) .  Ta akcja powoduje otwarcie programu **Analytics**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. Aby wyświetlić dane związane z żądaniami przeglądarki po stronie klienta, uruchom następujące zapytanie:
 
     ```kusto
     // average pageView duration by name
@@ -137,5 +137,5 @@ Jeśli planujesz kontynuować pracę z dodatkowymi przewodnikami szybki start lu
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wyszukiwanie i diagnozowanie problemów z wydajnością](../log-query/log-query-overview.md)
+> [Wyszukiwanie i diagnozowanie problemów z wydajnością](../logs/log-query-overview.md)
 

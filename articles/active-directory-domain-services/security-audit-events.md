@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618879"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574134"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services
 
@@ -40,7 +40,7 @@ W poniższej tabeli przedstawiono scenariusze dla każdego typu zasobu doceloweg
 |:---|:---|
 |Azure Storage| Tego celu należy używać, gdy głównym wymaganiem jest przechowywanie zdarzeń inspekcji zabezpieczeń w celach archiwalnych. Inne elementy docelowe mogą być używane do celów archiwalnych, ale te elementy docelowe zapewniają możliwości wykraczające poza podstawową potrzebę archiwizowania. <br /><br />Przed włączeniem zdarzeń inspekcji usługi Azure AD DS Security należy najpierw [utworzyć konto usługi Azure Storage](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| Tego celu należy używać, gdy głównym wymaganiem jest udostępnianie zdarzeń inspekcji zabezpieczeń za pomocą dodatkowego oprogramowania, takiego jak oprogramowanie do analizy danych lub informacje o zabezpieczeniach & oprogramowania do zarządzania zdarzeniami (SIEM).<br /><br />Przed włączeniem zdarzeń inspekcji usługi Azure AD DS Security [Utwórz centrum zdarzeń przy użyciu Azure Portal](../event-hubs/event-hubs-create.md)|
-|Obszar roboczy usługi Azure Log Analytics| Tego celu należy używać, gdy głównym wymaganiem jest analizowanie i przeglądanie bezpiecznych inspekcji bezpośrednio z Azure Portal.<br /><br />Przed włączeniem zdarzeń inspekcji usługi Azure AD DS Security należy [utworzyć log Analytics obszar roboczy w Azure Portal.](../azure-monitor/learn/quick-create-workspace.md)|
+|Obszar roboczy usługi Azure Log Analytics| Tego celu należy używać, gdy głównym wymaganiem jest analizowanie i przeglądanie bezpiecznych inspekcji bezpośrednio z Azure Portal.<br /><br />Przed włączeniem zdarzeń inspekcji usługi Azure AD DS Security należy [utworzyć log Analytics obszar roboczy w Azure Portal.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Włączanie zdarzeń inspekcji zabezpieczeń przy użyciu Azure Portal
 
@@ -100,7 +100,7 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
         > [!IMPORTANT]
         > Upewnij się, że zasada autoryzacji jest ustawiona w przestrzeni nazw centrum zdarzeń, a nie w centrum zdarzeń.
 
-    * **Obszary robocze**  -  analityczne dzienników platformy Azure [Utwórz obszar roboczy log Analytics z Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Obszary robocze**  -  analityczne dzienników platformy Azure [Utwórz obszar roboczy log Analytics z Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Pobierz identyfikator zasobu dla domeny zarządzanej platformy Azure AD DS za pomocą polecenia cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Utwórz zmienną o nazwie *$aadds. ResourceId* do przechowywania wartości:
 
@@ -141,9 +141,9 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
 Obszary robocze analityczne dzienników umożliwiają wyświetlanie i analizowanie zdarzeń inspekcji zabezpieczeń przy użyciu Azure Monitor i języka zapytań Kusto. Ten język zapytań jest przeznaczony do użycia tylko do odczytu, który boasts możliwości analityczne, dzięki łatwemu do odczytu składni. Aby uzyskać więcej informacji na temat rozpoczynania pracy z językami zapytań Kusto, zobacz następujące artykuły:
 
 * [Dokumentacja usługi Azure Monitor](../azure-monitor/index.yml)
-* [Wprowadzenie do usługi Log Analytics w usłudze Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Wprowadzenie do usługi Log Analytics w usłudze Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 Następujące przykładowe zapytania mogą służyć do rozpoczęcia analizowania zdarzeń inspekcji zabezpieczeń z usługi Azure AD DS.
 

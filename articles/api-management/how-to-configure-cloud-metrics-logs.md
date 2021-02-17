@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254536"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574051"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie metryk i dzienników w chmurze dla usługi Azure API Management Brama samoobsługowa
 
@@ -49,7 +49,7 @@ Oto Przykładowa konfiguracja:
 
 Brama samoobsługowa obecnie emituje następujące metryki za pomocą Azure Monitor:
 
-| Metryka  | Opis |
+| Metric  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | Czas trwania żądań bramy | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |
@@ -59,7 +59,7 @@ Brama samoobsługowa obecnie emituje następujące metryki za pomocą Azure Moni
 
 Brama samoobsługowa obecnie nie wysyła [dzienników diagnostycznych](./api-management-howto-use-azure-monitor.md#activity-logs) do chmury. Istnieje jednak możliwość [skonfigurowania i utrwalenia dzienników lokalnie](how-to-configure-local-metrics-logs.md) , w których wdrożono bramę samohostowaną. 
 
-Jeśli Brama jest wdrożona w [usłudze Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), można włączyć funkcję [Azure monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) w celu zbierania dzienników z kontenerów i wyświetlania ich w log Analytics. 
+Jeśli Brama jest wdrożona w [usłudze Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/), można włączyć funkcję [Azure monitor dla kontenerów](../azure-monitor/containers/container-insights-overview.md) w celu zbierania dzienników z kontenerów i wyświetlania ich w log Analytics. 
 
 
 ## <a name="next-steps"></a>Następne kroki

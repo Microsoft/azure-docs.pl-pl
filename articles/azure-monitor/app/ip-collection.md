@@ -4,12 +4,12 @@ description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pom
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584076"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
@@ -30,7 +30,7 @@ Takie zachowanie jest zaprojektowane w celu uniknięcia niepotrzebnej kolekcji d
 
 Domyślnie nie są zbierane adresy IP. Nadal zapewniamy elastyczność, aby przesłonić to zachowanie. Jednak zalecamy sprawdzenie, czy kolekcja nie przerywa żadnych wymagań dotyczących zgodności ani lokalnych przepisów. 
 
-Aby dowiedzieć się więcej na temat obsługi danych osobowych w Application Insights, zapoznaj się ze [wskazówkami dotyczącymi danych osobowych](../platform/personal-data-mgmt.md).
+Aby dowiedzieć się więcej na temat obsługi danych osobowych w Application Insights, zapoznaj się ze [wskazówkami dotyczącymi danych osobowych](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Przechowywanie danych adresów IP
 
@@ -245,6 +245,6 @@ W przypadku testowania z hosta lokalnego i wartości dla parametru `customDimens
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [zbieraniu danych osobowych](../platform/personal-data-mgmt.md) w Application Insights.
+* Dowiedz się więcej o [zbieraniu danych osobowych](../logs/personal-data-mgmt.md) w Application Insights.
 
 * Dowiedz się więcej o sposobie działania [zbierania adresów IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) w Application Insights. (W tym artykule znajduje się starszy, zewnętrzny wpis w blogu zapisany przez jednego z naszych inżynierów. Jest to wstępnie bieżące zachowanie domyślne, w którym adres IP jest rejestrowany jako `0.0.0.0` , ale jest bardziej głębokością Mechanics wbudowanego `ClientIpHeaderTelemetryInitializer` .)

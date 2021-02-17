@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c7f72a9b140c68320e221a4cfb20cbf107a5f531
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500975"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572279"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Tworzenie alertów dla Azure SQL Database i usługi Azure Synapse Analytics przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -42,9 +42,9 @@ Można skonfigurować alert, aby wykonać następujące czynności podczas wyzwa
 
 Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 
-* [Witryna Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Program PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Interfejs wiersza polecenia (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Witryna Azure Portal](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [Program PowerShell](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [Interfejs wiersza polecenia (CLI)](../../azure-monitor/alerts/alerts-classic-portal.md)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Tworzenie reguły alertu w ramach metryki z Azure Portal
@@ -73,4 +73,4 @@ W ciągu 10 minut alert jest aktywny i wyzwalacze opisane wcześniej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../../azure-monitor/platform/alerts-webhooks.md).
+* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../../azure-monitor/alerts/alerts-webhooks.md).

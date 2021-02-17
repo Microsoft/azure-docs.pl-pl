@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0be6decf28fcbb2edacd5019f567d26403b1f31
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9da1071686dafa003a5a49d0864b77644493344
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467728"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594467"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Monitorowanie wdrożenia (wersja zapoznawcza) za pomocą Azure Monitor dla pulpitu wirtualnego systemu Windows
 
@@ -98,7 +98,7 @@ Więcej informacji na temat włączania diagnostyki na wszystkich obiektach w ś
 
 ## <a name="configure-log-analytics"></a>Konfigurowanie usługi Log Analytics
 
-Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz także mieć co najmniej jeden Log Analytics obszar roboczy, aby zbierać dane ze środowiska, które planujesz monitorować i dostarczać do skoroszytu. Jeśli masz już skonfigurowaną funkcję, przejdź z wyprzedzeniem, aby [skonfigurować liczniki wydajności](#set-up-performance-counters). Aby skonfigurować nowy obszar roboczy Log Analytics dla subskrypcji platformy Azure zawierającej środowisko pulpitu wirtualnego systemu Windows, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Windows, musisz także mieć co najmniej jeden Log Analytics obszar roboczy, aby zbierać dane ze środowiska, które planujesz monitorować i dostarczać do skoroszytu. Jeśli masz już skonfigurowaną funkcję, przejdź z wyprzedzeniem, aby [skonfigurować liczniki wydajności](#set-up-performance-counters). Aby skonfigurować nowy obszar roboczy Log Analytics dla subskrypcji platformy Azure zawierającej środowisko pulpitu wirtualnego systemu Windows, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 >[!NOTE]
 >Będą stosowane standardowe opłaty za magazyn danych dla Log Analytics. Aby rozpocząć, zalecamy wybranie modelu płatność zgodnie z rzeczywistym użyciem i dostosowanie go w miarę skalowania wdrożenia i przejęcia większej ilości danych. Aby dowiedzieć się więcej, zobacz [cennik Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -107,7 +107,7 @@ Aby rozpocząć korzystanie z Azure Monitor dla pulpitu wirtualnego systemu Wind
 
 Należy włączyć określone liczniki wydajności dla kolekcji w odpowiednim interwale próbkowania w obszarze roboczym Log Analytics. Te liczniki wydajności są jedynymi licznikami, które będą potrzebne do monitorowania pulpitu wirtualnego systemu Windows. Możesz wyłączyć wszystkie inne, aby zaoszczędzić koszty.
 
-Jeśli masz już włączone liczniki wydajności i chcesz je usunąć, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie liczników wydajności](../azure-monitor/platform/data-sources-performance-counters.md) , aby ponownie skonfigurować liczniki wydajności. W tym artykule opisano sposób dodawania liczników, ale można je również usunąć w tej samej lokalizacji.
+Jeśli masz już włączone liczniki wydajności i chcesz je usunąć, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md) , aby ponownie skonfigurować liczniki wydajności. W tym artykule opisano sposób dodawania liczników, ale można je również usunąć w tej samej lokalizacji.
 
 Jeśli nie skonfigurowano jeszcze liczników wydajności, poniżej przedstawiono sposób konfigurowania ich pod kątem Azure Monitor dla pulpitu wirtualnego systemu Windows:
 
@@ -128,7 +128,7 @@ Nowe liczniki wydajności można również dodać po początkowej konfiguracji p
 >[!NOTE]
 >Liczniki wydajności opóźnienia wejścia są zgodne tylko z systemem Windows 10 RS5 lub nowszym lub Windows Server 2019 lub nowszym.
 
-Aby dowiedzieć się więcej na temat ręcznego dodawania liczników wydajności, które nie są już włączone dla kolekcji, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/platform/data-sources-performance-counters.md).
+Aby dowiedzieć się więcej na temat ręcznego dodawania liczników wydajności, które nie są już włączone dla kolekcji, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md).
 
 ### <a name="set-up-windows-events"></a>Konfigurowanie zdarzeń systemu Windows
 
@@ -171,7 +171,7 @@ Aby zainstalować agenta Log Analytics:
 
 ## <a name="optional-configure-alerts"></a>Opcjonalne: Konfigurowanie alertów
 
-Istnieje możliwość skonfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu powiadomienia użytkownika o poważnym Azure Monitor alertach w ramach wybranej subskrypcji. Aby to zrobić, postępuj zgodnie z instrukcjami w temacie [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/learn/tutorial-response.md).
+Istnieje możliwość skonfigurowania Azure Monitor dla pulpitu wirtualnego systemu Windows w celu powiadomienia użytkownika o poważnym Azure Monitor alertach w ramach wybranej subskrypcji. Aby to zrobić, postępuj zgodnie z instrukcjami w temacie [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i użycia
 

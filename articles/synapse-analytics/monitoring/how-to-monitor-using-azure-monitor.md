@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681391"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574295"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Używanie Azure Monitor z obszarem roboczym usługi Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz temat [Azure Monitor — przegląd](../.
 
 Dzięki monitorowi możesz uzyskać wgląd w wydajność i kondycję obciążeń platformy Azure. Najważniejszym typem danych monitorowania jest Metryka, która jest również nazywana licznikiem wydajności. Metryki są emitowane przez większość zasobów platformy Azure. Monitor oferuje kilka sposobów konfigurowania i używania tych metryk do monitorowania i rozwiązywania problemów.
 
-Aby uzyskać dostęp do tych metryk, wykonaj instrukcje podane w temacie [Azure monitor Data Platform](../../azure-monitor/platform/data-platform.md).
+Aby uzyskać dostęp do tych metryk, wykonaj instrukcje podane w temacie [Azure monitor Data Platform](../../azure-monitor/data-platform.md).
 
 ### <a name="workspace-level-metrics"></a>Metryki na poziomie obszaru roboczego
 
@@ -171,7 +171,7 @@ Utwórz lub Dodaj ustawienia diagnostyczne dla obszaru roboczego, dedykowanej pu
 1. Podaj nazwę ustawienia, wybierz pozycję **Wyślij do log Analytics**, a następnie wybierz obszar roboczy z **log Analytics obszarze roboczym**.
 
     > [!NOTE]
-    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [log Analytics znane ograniczenia](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [log Analytics znane ograniczenia](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Wybierz pozycję **Zapisz**.
 

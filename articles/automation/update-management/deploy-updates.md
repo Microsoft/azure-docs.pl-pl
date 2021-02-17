@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632465"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575900"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -59,7 +59,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.
 
-6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/platform/computer-groups.md). W zaplanowanym wdrożeniu aktualizacji można uwzględnić maksymalnie 1000 maszyn.
+6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/logs/computer-groups.md). W zaplanowanym wdrożeniu aktualizacji można uwzględnić maksymalnie 1000 maszyn.
 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.

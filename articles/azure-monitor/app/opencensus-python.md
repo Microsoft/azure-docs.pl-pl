@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323269"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584037"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -33,13 +33,13 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > W przypadku `python -m pip install opencensus-ext-azure` polecenia przyjęto założenie, że masz `PATH` zmienną środowiskową ustawioną dla instalacji języka Python. Jeśli ta zmienna nie została skonfigurowana, należy podać pełną ścieżkę do katalogu, w którym znajduje się plik wykonywalny języka Python. Wynikiem jest następujące polecenie: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .
 
-Zestaw SDK używa trzech Azure Monitor eksportujących do wysyłania różnych typów danych telemetrycznych do Azure Monitor. Są one śledzeniem, metrykami i dziennikami. Aby uzyskać więcej informacji na temat tych typów telemetrii, zobacz [Omówienie platformy danych](../platform/data-platform.md). Aby wysłać te typy telemetrii za pośrednictwem trzech eksporterów, należy wykonać poniższe instrukcje.
+Zestaw SDK używa trzech Azure Monitor eksportujących do wysyłania różnych typów danych telemetrycznych do Azure Monitor. Są one śledzeniem, metrykami i dziennikami. Aby uzyskać więcej informacji na temat tych typów telemetrii, zobacz [Omówienie platformy danych](../data-platform.md). Aby wysłać te typy telemetrii za pośrednictwem trzech eksporterów, należy wykonać poniższe instrukcje.
 
 ## <a name="telemetry-type-mappings"></a>Mapowania typów telemetrii
 
 Poniżej przedstawiono eksporterów, którzy OpenCensus są zamapowane na typy danych telemetrycznych, które są widoczne w Azure Monitor.
 
-| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Objaśnienie                                         |
+| Filar zaobserwowania | Typ telemetrii w Azure Monitor    | Wyjaśnienie                                         |
 |-------------------------|------------------------------------|-----------------------------------------------------|
 | Dzienniki                    | Ślady, wyjątki, customEvents   | Dane telemetryczne dziennika, telemetrię wyjątku, telemetria zdarzeń |
 | Metryki                 | customMetrics, liczniki wydajności | Liczniki wydajności niestandardowych metryk                |
@@ -438,7 +438,7 @@ Jak pokazano, istnieją trzy różne Azure Monitor eksportujących, które obsł
 Każdy eksporter akceptuje te same argumenty dla konfiguracji, przekazane przez konstruktory. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich:
 
 - `connection_string`: Parametry połączenia używane do nawiązania połączenia z zasobem Azure Monitor. Ma priorytet wyższy niż `instrumentation_key` .
-- `enable_standard_metrics`: Używane dla `AzureMetricsExporter` . Informuje eksportera, aby automatycznie wysyłał metryki [licznika wydajności](../platform/app-insights-metrics.md#performance-counters) do Azure monitor. Wartość domyślna to `True` .
+- `enable_standard_metrics`: Używane dla `AzureMetricsExporter` . Informuje eksportera, aby automatycznie wysyłał metryki [licznika wydajności](../essentials/app-insights-metrics.md#performance-counters) do Azure monitor. Wartość domyślna to `True` .
 - `export_interval`: Służy do określania częstotliwości eksportu w sekundach.
 - `instrumentation_key`: Klucz Instrumentacji używany do nawiązywania połączenia z zasobem Azure Monitor.
 - `logging_sampling_rate`: Używane dla `AzureLogHandler` . Zapewnia częstotliwość próbkowania [0, 1.0] do eksportowania dzienników. Wartość domyślna to 1,0.
@@ -458,7 +458,7 @@ Na liście w obszarze **aktywne**:
 - W przypadku danych telemetrycznych wysyłanych za pomocą eksportu metryk Azure Monitor są wyświetlane metryki `customMetrics` .
 - W przypadku danych telemetrycznych wysyłanych z wyeksportowanymi dziennikami Azure Monitor dzienniki są wyświetlane poniżej `traces` . Wyjątki są wyświetlane w sekcji `exceptions` .
 
-Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dzienników, zobacz [dzienniki w Azure monitor](../platform/data-platform-logs.md).
+Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dzienników, zobacz [dzienniki w Azure monitor](../logs/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Dowiedz się więcej na temat OpenCensus for Python
 
@@ -473,11 +473,11 @@ Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dziennik
 * [Śledzenie żądań przychodzących](./opencensus-python-dependency.md)
 * [Śledzenie żądań wychodzących](./opencensus-python-request.md)
 * [Mapa aplikacji](./app-map.md)
-* [Kompleksowe monitorowanie wydajności](../learn/tutorial-performance.md)
+* [Kompleksowe monitorowanie wydajności](../app/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alerty
 
 * [Testy dostępności](./monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
 * [Inteligentne diagnostyki](./proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
-* [Alerty metryk](../platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
+* [Alerty metryk](../alerts/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
 

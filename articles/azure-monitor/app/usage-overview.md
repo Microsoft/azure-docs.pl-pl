@@ -3,12 +3,12 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0888b6743a10c9934ab85a6f2b3b637b857f643a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233852"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583397"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -38,7 +38,7 @@ Najlepsze środowisko jest uzyskiwane przez zainstalowanie Application Insights 
 
     Aby dowiedzieć się więcej na temat zaawansowanych konfiguracji monitorowania witryn sieci Web, zapoznaj się z [artykułem dotyczącym zestawu SDK języka JavaScript](./javascript.md).
 
-3. **Kod aplikacji mobilnej:** Użyj zestawu SDK App Center, aby zbierać zdarzenia z aplikacji, a następnie wysyłać kopie tych zdarzeń do Application Insights do analizy, [postępując zgodnie z tym przewodnikiem](../learn/mobile-center-quickstart.md).
+3. **Kod aplikacji mobilnej:** Użyj zestawu SDK App Center, aby zbierać zdarzenia z aplikacji, a następnie wysyłać kopie tych zdarzeń do Application Insights do analizy, [postępując zgodnie z tym przewodnikiem](../app/mobile-center-quickstart.md).
 
 4. **Pobierz dane telemetryczne:** Uruchom projekt w trybie debugowania przez kilka minut, a następnie wyszukaj wyniki w bloku przegląd w Application Insights.
 
@@ -177,8 +177,8 @@ Wszystkie nowe TelemetryClients automatycznie dodają określoną wartość wła
 ## <a name="next-steps"></a>Następne kroki
    - [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
    - [Lejki](usage-funnels.md)
-   - [Przechowywanie](usage-retention.md)
+   - [Noszą](usage-retention.md)
    - [Przepływy użytkownika](usage-flows.md)
-   - [Skoroszyty](../platform/workbooks-overview.md)
+   - [Skoroszyty](../visualize/workbooks-overview.md)
    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

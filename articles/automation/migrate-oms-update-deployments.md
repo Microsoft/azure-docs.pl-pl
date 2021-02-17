@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576036"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migruj Azure Monitor dzienniki aktualizacji do Azure Portal
 
-Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-monitor/platform/oms-portal-transition.md). Wszystkie funkcje dostępne w portalu pakietu OMS dla Update Management są dostępne w Azure Portal za pomocą dzienników Azure Monitor. Ten artykuł zawiera informacje potrzebne do migracji do Azure Portal.
+Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-monitor/logs/oms-portal-transition.md). Wszystkie funkcje dostępne w portalu pakietu OMS dla Update Management są dostępne w Azure Portal za pomocą dzienników Azure Monitor. Ten artykuł zawiera informacje potrzebne do migracji do Azure Portal.
 
 ## <a name="key-information"></a>Informacje o kluczu
 
@@ -41,7 +41,7 @@ Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-m
 
 ## <a name="recreate-existing-deployments"></a>Utwórz ponownie istniejące wdrożenia
 
-Wszystkie wdrożenia aktualizacji utworzone w portalu pakietu OMS mają [zapisane wyszukiwanie](../azure-monitor/platform/computer-groups.md) znane również jako grupa komputerów o takiej samej nazwie jak wdrożenie aktualizacji, które już istnieje. Zapisane wyszukiwanie zawiera listę maszyn, które zostały zaplanowane we wdrożeniu aktualizacji.
+Wszystkie wdrożenia aktualizacji utworzone w portalu pakietu OMS mają [zapisane wyszukiwanie](../azure-monitor/logs/computer-groups.md) znane również jako grupa komputerów o takiej samej nazwie jak wdrożenie aktualizacji, które już istnieje. Zapisane wyszukiwanie zawiera listę maszyn, które zostały zaplanowane we wdrożeniu aktualizacji.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Zrzut ekranu strony aktualizacji wdrożenia z wyróżnionymi polami nazwa i serwery.":::
 
@@ -59,7 +59,7 @@ Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
     | --- | --- |
     |Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
     |System operacyjny| Wybierz pozycję **Linux** lub **Windows**.|
-    |Maszyny do zaktualizowania |Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz maszynę z listy rozwijanej i wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../azure-monitor/platform/computer-groups.md) |
+    |Maszyny do zaktualizowania |Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz maszynę z listy rozwijanej i wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../azure-monitor/logs/computer-groups.md) |
     |Klasyfikacje aktualizacji|Zaznacz wszystkie wymagane klasyfikacje aktualizacji. CentOS nie obsługuje tego pola.|
     |Aktualizacje do wykluczenia|Wprowadź aktualizacje do wykluczenia. W przypadku systemu Windows wprowadź artykuł KB bez prefiksu **KB** . W przypadku systemu Linux wprowadź nazwę pakietu lub Użyj symbolu wieloznacznego.  |
     |Ustawienia harmonogramu|Wybierz godzinę do uruchomienia, a następnie wybierz **jedno lub** **cykliczne** dla cyklu. | 

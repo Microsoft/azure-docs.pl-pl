@@ -4,12 +4,12 @@ description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdra�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186307"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576439"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
@@ -93,7 +93,7 @@ Oto kilka kroków, które można wykonać, aby upewnić się, że instalacja zak
 
 - Upewnij się, że plik applicationInsights.config znajduje się w docelowym katalogu aplikacji i zawiera iKey.
 
-- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić zapytanie w [analizie](../log-query/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
+- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić zapytanie w [analizie](../logs/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ W przypadku aplikacji już instrumentowanych w czasie kompilacji:
 
 Wyświetlanie telemetrii:
 
-* [Eksplorowanie metryk](../platform/metrics-charts.md) w celu monitorowania wydajności i użycia
+* [Eksplorowanie metryk](../essentials/metrics-charts.md) w celu monitorowania wydajności i użycia
 * [Wyszukiwanie zdarzeń i dzienników][diagnostic] w celu diagnozowania problemów
-* [Analiza](../log-query/log-query-overview.md) dla bardziej zaawansowanych zapytań
+* [Analiza](../logs/log-query-overview.md) dla bardziej zaawansowanych zapytań
 
 Dodawanie kolejnych funkcji telemetrii:
 

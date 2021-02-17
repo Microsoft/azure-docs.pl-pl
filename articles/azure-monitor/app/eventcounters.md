@@ -4,12 +4,12 @@ description: Monitoruj system i niestandardową platformę .NET/.NET Core EventC
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579536"
 ---
 # <a name="eventcounters-introduction"></a>Wprowadzenie do EventCounters
 
@@ -88,14 +88,14 @@ Podobne podejście można również użyć dla zestawu SDK WorkerService, ale pr
 
 ## <a name="event-counters-in-metric-explorer"></a>Liczniki zdarzeń w Eksploratorze metryk
 
-Aby wyświetlić metryki EventCounter w [Eksploratorze metryk](../platform/metrics-charts.md), wybierz pozycję Application Insights Resource i wybrane metryki oparte na dzienniku jako przestrzeń nazw metryki. Następnie metryki EventCounter są wyświetlane w obszarze Kategoria niestandardowa.
+Aby wyświetlić metryki EventCounter w [Eksploratorze metryk](../essentials/metrics-charts.md), wybierz pozycję Application Insights Resource i wybrane metryki oparte na dzienniku jako przestrzeń nazw metryki. Następnie metryki EventCounter są wyświetlane w obszarze Kategoria niestandardowa.
 
 > [!div class="mx-imgBorder"]
 > ![Liczniki zdarzeń raportowane w Eksploratorze metryk Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Liczniki zdarzeń w analizie
 
-Raporty licznika zdarzeń można także wyszukiwać i wyświetlać w [analizie](../log-query/log-query-overview.md)w tabeli **customMetrics** .
+Raporty licznika zdarzeń można także wyszukiwać i wyświetlać w [analizie](../logs/log-query-overview.md)w tabeli **customMetrics** .
 
 Na przykład uruchom następujące zapytanie, aby zobaczyć, jakie liczniki są zbierane i dostępne dla kwerendy:
 
@@ -121,7 +121,7 @@ customMetrics
 Podobnie jak w przypadku innych telemetrii, **customMetrics** ma także kolumnę `cloud_RoleInstance` , która wskazuje tożsamość wystąpienia serwera hosta, na którym działa aplikacja. Powyższe zapytanie pokazuje wartość licznika na wystąpienie i może służyć do porównywania wydajności różnych wystąpień serwera.
 
 ## <a name="alerts"></a>Alerty
-Podobnie jak w przypadku innych metryk, można [ustawić alert](../platform/alerts-log.md) ostrzegający o tym, czy licznik zdarzeń wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
+Podobnie jak w przypadku innych metryk, można [ustawić alert](../alerts/alerts-log.md) ostrzegający o tym, czy licznik zdarzeń wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 

@@ -3,12 +3,12 @@ title: Oceń wpływ nowej definicji Azure Policy
 description: Zapoznaj się z procesem tworzenia nowej definicji zasad w środowisku platformy Azure.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cf52d25aa846388bc387430913a733d5206df82e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873871"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590810"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Oceń wpływ nowej definicji Azure Policy
 
@@ -63,7 +63,7 @@ Wszelkie zmiany zakresu (poziomu lub wykluczeń) powinny być w pełni sprawdzon
 
 ## <a name="monitor-your-policy-and-compliance"></a>Monitorowanie zasad i zgodności
 
-Implementowanie i przypisywanie definicji zasad nie jest ostatnim krokiem. Stale Monitoruj poziom [zgodności](../how-to/get-compliance-data.md) zasobów do nowej definicji zasad i skonfiguruj odpowiednie [Azure monitor alertów i powiadomień](../../../azure-monitor/platform/alerts-overview.md) dla niezgodnych urządzeń. Zalecane jest również, aby regularnie oszacować definicję zasad i powiązane przypisania, aby sprawdzić, czy definicja zasad spełnia wymagania zasad firmy i zgodności. Zasady powinny zostać usunięte, jeśli nie są już potrzebne. Zasady wymagają również aktualizacji od czasu do czasu, gdy podstawowe zasoby platformy Azure są rozwijane i dodają nowe właściwości i możliwości.
+Implementowanie i przypisywanie definicji zasad nie jest ostatnim krokiem. Stale Monitoruj poziom [zgodności](../how-to/get-compliance-data.md) zasobów do nowej definicji zasad i skonfiguruj odpowiednie [Azure monitor alertów i powiadomień](../../../azure-monitor/alerts/alerts-overview.md) dla niezgodnych urządzeń. Zalecane jest również, aby regularnie oszacować definicję zasad i powiązane przypisania, aby sprawdzić, czy definicja zasad spełnia wymagania zasad firmy i zgodności. Zasady powinny zostać usunięte, jeśli nie są już potrzebne. Zasady wymagają również aktualizacji od czasu do czasu, gdy podstawowe zasoby platformy Azure są rozwijane i dodają nowe właściwości i możliwości.
 
 ## <a name="next-steps"></a>Następne kroki
 

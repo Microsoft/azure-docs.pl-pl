@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1b4c10d152afba708eb176e89355ed31ec809168
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020113"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586740"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Użyj Azure Portal, aby skonfigurować alerty dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -25,11 +25,11 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywoływanie elementu webhook.
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Witryna Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu na podstawie metryki z Azure Portal
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu dotyczącej metryki z poziomu witryny Azure Portal
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for PostgreSQL, który chcesz monitorować.
 
 2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** , jak pokazano:
@@ -84,5 +84,5 @@ Po utworzeniu alertu możesz go zaznaczyć i wykonać następujące czynności:
 * **Wyłączenie** lub **włączenie** alertu, jeśli chcesz tymczasowo zatrzymać lub wznowić otrzymywanie powiadomień.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/platform/alerts-webhooks.md).
-* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/platform/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.
+* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/alerts/alerts-webhooks.md).
+* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.

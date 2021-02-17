@@ -3,16 +3,16 @@ title: Azure Monitor Application Insights schemat zasobów oparty na obszarze ro
 description: Zapoznaj się z nową strukturą tabeli i schematem Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385969"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575605"
 ---
 # <a name="workspace-based-resource-changes"></a>Zmiany zasobów na podstawie obszaru roboczego
 
-Przed wprowadzeniem [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md)Application Insights dane były przechowywane oddzielnie od innych danych dziennika w Azure monitor. Oba są oparte na platformie Azure Eksplorator danych i używają tego samego języka zapytań Kusto (KQL). Opisano to w [dziennikach w Azure monitor](../platform/data-platform-logs.md).
+Przed wprowadzeniem [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md)Application Insights dane były przechowywane oddzielnie od innych danych dziennika w Azure monitor. Oba są oparte na platformie Azure Eksplorator danych i używają tego samego języka zapytań Kusto (KQL). Opisano to w [dziennikach w Azure monitor](../logs/data-platform-logs.md).
 
 Za pomocą Application Insights danych zasobów opartych na obszarze roboczym są przechowywane w Log Analytics obszarze roboczym z innymi danymi monitorowania i danymi aplikacji. Upraszcza to konfigurację, co pozwala łatwiej analizować dane w wielu rozwiązaniach i korzystać z możliwości obszarów roboczych.
 
@@ -464,6 +464,6 @@ Starsza tabela: ślady
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksploruj metryki](../platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+* [Eksploruj metryki](../essentials/metrics-charts.md)
+* [Pisanie zapytań analitycznych](../logs/log-query-overview.md)
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183978"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572261"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Dzienniki zasobów usługi Azure Signal Service
 
@@ -20,8 +20,8 @@ W tym samouczku omówiono dzienniki zasobów usługi Azure Signal, sposób ich k
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby włączyć dzienniki zasobów, musisz przechowywać dane dziennika. Ten samouczek używa usługi Azure Storage i Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) — przechowywanie dzienników zasobów na potrzeby inspekcji zasad, analizy statycznej lub tworzenia kopii zapasowej.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
+* [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) — przechowywanie dzienników zasobów na potrzeby inspekcji zasad, analizy statycznej lub tworzenia kopii zapasowej.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) — elastyczne narzędzie do przeszukiwania dzienników i analizy umożliwiające analizę nieprzetworzonych dzienników generowanych przez zasób platformy Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Konfigurowanie dzienników zasobów dla usługi Azure Signal Service
 
@@ -50,7 +50,7 @@ Dzienniki zasobów są domyślnie wyłączone. Aby włączyć dzienniki zasobów
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników zasobów platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników zasobów platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="resource-logs-categories"></a>Kategorie dzienników zasobów
 
@@ -122,7 +122,7 @@ Aby wyświetlić dzienniki zasobów, wykonaj następujące kroki:
 
     ![Element menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Wprowadź `SignalRServiceDiagnosticLogs` i wybierz zakres czasu w celu zbadania dzienników zasobów. Aby uzyskać zaawansowaną kwerendę, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+2. Wprowadź `SignalRServiceDiagnosticLogs` i wybierz zakres czasu w celu zbadania dzienników zasobów. Aby uzyskać zaawansowaną kwerendę, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
     ![Zalogować się Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -136,7 +136,7 @@ OperationName | Nazwa operacji dla zdarzenia
 Lokalizacja | Lokalizacja usługi Azure Signal
 Poziom | Poziom zdarzeń dziennika
 CallerIpAddress | Adres IP serwera/klienta
-Wiadomość | Szczegółowy komunikat zdarzenia dziennika
+Komunikat | Szczegółowy komunikat zdarzenia dziennika
 UserId | Tożsamość użytkownika
 ConnectionId | Tożsamość połączenia
 Element ConnectionType | Typ połączenia. Dozwolone wartości to: `Server` \| `Client` . `Server`: połączenie po stronie serwera; `Client`: połączenie po stronie klienta
