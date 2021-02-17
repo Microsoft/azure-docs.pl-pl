@@ -3,12 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 3233aed895eac269bd34a961728b3302581ff360
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104590"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575621"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -35,7 +35,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Applica
    | **Tryb zasobów** | `Classic` lub `Workspace-based` | Zasoby oparte na obszarze roboczym są obecnie dostępne w publicznej wersji zapoznawczej i umożliwiają wysyłanie danych telemetrycznych Application Insights do wspólnego Log Analytics obszaru roboczego. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący zasobów obszaru roboczego](create-workspace-resource.md).
 
 > [!NOTE]
-> Chociaż można używać tej samej nazwy zasobu w różnych grupach zasobów, może być korzystne użycie globalnie unikatowej nazwy. Może to być przydatne, jeśli planujesz [wykonywać zapytania między zasobami](../log-query/cross-workspace-query.md#identifying-an-application) , ponieważ upraszczają one wymaganą składnię.
+> Chociaż można używać tej samej nazwy zasobu w różnych grupach zasobów, może być korzystne użycie globalnie unikatowej nazwy. Może to być przydatne, jeśli planujesz [wykonywać zapytania między zasobami](../logs/cross-workspace-query.md#identifying-an-application) , ponieważ upraszczają one wymaganą składnię.
 
 Wprowadź odpowiednie wartości w wymaganych polach, a następnie wybierz pozycję **Przegląd + Utwórz**.
 
@@ -159,13 +159,13 @@ Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platform
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wyszukiwanie diagnostyczne](./diagnostic-search.md)
-* [Eksploruj metryki](../platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+* [Eksploruj metryki](../essentials/metrics-charts.md)
+* [Pisanie zapytań analitycznych](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
 

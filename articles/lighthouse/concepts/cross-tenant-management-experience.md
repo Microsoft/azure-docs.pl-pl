@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981089"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573094"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -100,7 +100,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 - [Log Analytics](../../azure-monitor/platform/service-providers.md): wykonywanie zapytań dotyczących danych ze zdalnych obszarów roboczych w wielu dzierżawcach (należy zauważyć, że konta usługi Automation używane do uzyskiwania dostępu do danych z obszarów roboczych w dzierżawach klientów muszą zostać utworzone w tej samej dzierżawie)
 - [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi](../../azure-monitor/platform/alerts-activity-log.md) w dzierżawach klientów
 - Twórz alerty w dzierżawach klientów, które wyzwalają automatyzację, taką jak Azure Automation Runbook lub Azure Functions, w dzierżawie zarządzającej za pomocą elementów webhook
-- Tworzenie [ustawień diagnostycznych](../..//azure-monitor/platform/diagnostic-settings.md) w dzierżawach klientów w celu wysyłania dzienników zasobów do obszarów roboczych w dzierżawie zarządzającej
+- Tworzenie [ustawień diagnostycznych](../..//azure-monitor/essentials/diagnostic-settings.md) w dzierżawach klientów w celu wysyłania dzienników zasobów do obszarów roboczych w dzierżawie zarządzającej
 - W przypadku obciążeń SAP [Monitoruj metryki rozwiązań SAP z zagregowanym widokiem w dzierżawach klientów](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Sieć platformy Azure](../../networking/networking-overview.md):

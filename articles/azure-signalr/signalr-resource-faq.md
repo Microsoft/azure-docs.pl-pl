@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579311"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service — FAQ
 
@@ -54,7 +54,7 @@ Transporty po stronie klienta można skonfigurować zgodnie z opisem w [konfigur
 
 Szczegółowe informacje o tych metrykach można znaleźć w [komunikatach i połączeniach w usłudze Azure Signal Service](signalr-concept-messages-and-connections.md).
 
-W okienku Przegląd zasobów usługi Azure Signal Service został już wybrany odpowiedni typ agregacji. Jeśli przejdziesz do okienka metryki, możesz zastosować typ agregacji do [komunikatów i połączeń w usłudze Azure Signal Service](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) jako odwołanie.
+W okienku Przegląd zasobów usługi Azure Signal Service został już wybrany odpowiedni typ agregacji. Jeśli przejdziesz do okienka metryki, możesz zastosować typ agregacji do [komunikatów i połączeń w usłudze Azure Signal Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) jako odwołanie.
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Co to jest znaczenie dla `Default` `Serverless` trybów usługi, i `Classic` ? Jak mogę wybrać?
 

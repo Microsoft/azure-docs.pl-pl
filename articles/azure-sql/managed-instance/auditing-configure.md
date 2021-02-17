@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505669"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575475"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Wprowadzenie do inspekcji wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
       ![Ikona tworzenia kontenera obiektów BLOB](./media/auditing-configure/2_create_container_button.png)
 
-   1. Podaj **nazwę** kontenera, ustaw **poziom dostępu publicznego** na **prywatny** , a następnie kliknij przycisk **OK**.
+   1. Podaj **nazwę** kontenera, ustaw **poziom dostępu publicznego** na **prywatny**, a następnie kliknij przycisk **OK**.
 
       ![Utwórz konfigurację kontenera obiektów BLOB](./media/auditing-configure/3_create_container_config.png)
 
@@ -79,11 +79,11 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
         - Skonfiguruj sygnaturę dostępu współdzielonego w następujący sposób:
 
-          - **Dozwolone usługi** : obiekt BLOB
+          - **Dozwolone usługi**: obiekt BLOB
 
-          - **Data rozpoczęcia** : aby uniknąć problemów związanych ze strefą czasową, użyj daty wczoraj
+          - **Data rozpoczęcia**: aby uniknąć problemów związanych ze strefą czasową, użyj daty wczoraj
 
-          - **Data zakończenia** : Wybierz datę wygaśnięcia tego tokenu sygnatury dostępu współdzielonego
+          - **Data zakończenia**: Wybierz datę wygaśnięcia tego tokenu sygnatury dostępu współdzielonego
 
             > [!NOTE]
             > Odnów token po wygaśnięciu, aby uniknąć błędów inspekcji.
@@ -126,11 +126,11 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
      1. Rozwiń główną uwagę Eksplorator obiektów.
 
-     1. Rozwiń węzeł **zabezpieczenia** , kliknij prawym przyciskiem myszy węzeł **inspekcje** , a następnie kliknij pozycję **Nowa Inspekcja** :
+     1. Rozwiń węzeł **zabezpieczenia** , kliknij prawym przyciskiem myszy węzeł **inspekcje** , a następnie kliknij pozycję **Nowa Inspekcja**:
 
         ![Rozwiń węzeł Zabezpieczenia i inspekcja](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. Upewnij się, że **adres URL** jest wybrany w **miejscu docelowym inspekcji** , a następnie kliknij przycisk **Przeglądaj** :
+     1. Upewnij się, że **adres URL** jest wybrany w **miejscu docelowym inspekcji** , a następnie kliknij przycisk **Przeglądaj**:
 
         ![Przeglądaj usługę Azure Storage](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,7 +138,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
 
         ![Logowanie do platformy Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Wybierz subskrypcję, konto magazynu i kontener obiektów blob z listy rozwijanej lub Utwórz własny kontener, klikając pozycję **Utwórz**. Po zakończeniu kliknij przycisk **OK** :
+     1. Wybierz subskrypcję, konto magazynu i kontener obiektów blob z listy rozwijanej lub Utwórz własny kontener, klikając pozycję **Utwórz**. Po zakończeniu kliknij przycisk **OK**:
 
         ![Wybierz subskrypcję platformy Azure, konto magazynu i kontener obiektów BLOB](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -223,7 +223,7 @@ Aby można było korzystać z danych dzienników inspekcji z Event Hubs, należy
 
 Jeśli dzienniki inspekcji są zapisywane w dziennikach Azure Monitor, są one dostępne w obszarze roboczym Log Analytics, gdzie można uruchamiać zaawansowane wyszukiwania na danych inspekcji. Jako punkt początkowy przejdź do obszaru roboczego Log Analytics. W sekcji **Ogólne** kliknij pozycję **dzienniki** i wprowadź proste zapytanie, takie jak: `search "SQLSecurityAuditEvents"` Aby wyświetlić dzienniki inspekcji.  
 
-Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/log-query/log-query-overview.md).
+Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

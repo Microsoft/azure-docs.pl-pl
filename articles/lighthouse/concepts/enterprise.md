@@ -3,12 +3,12 @@ title: Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 description: Możliwości usługi Azure Lighthouse umożliwiają uproszczenie zarządzania różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004249"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573022"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 
@@ -38,7 +38,7 @@ W obu przypadkach należy [przestrzegać zasad najniższych uprawnień podczas d
 
 Usługa Azure Lighthouse udostępnia jedynie logiczne linki między zarządzaną dzierżawą i zarządzanymi dzierżawcami, a nie fizycznym przeniesieniem danych ani zasobów. Ponadto dostęp do usługi zawsze odbywa się tylko w jednym kierunku — od dzierżawy zarządzającej do zarządzanych dzierżawców.  Użytkownicy i grupy w dzierżawie zarządzającej powinny nadal korzystać z uwierzytelniania wieloskładnikowego podczas wykonywania operacji zarządzania na zarządzanych zasobach dzierżawy.
 
-Przedsiębiorstwa z wewnętrznym lub zewnętrznym zarządzaniem i zgodnością guardrails mogą korzystać z [dzienników aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) w celu spełnienia wymagań dotyczących przejrzystości. Gdy dzierżawy przedsiębiorstwa ustanowiły zarządzanie relacjami i zarządzasz nimi, użytkownicy w każdej dzierżawie mogą wyświetlić zarejestrowane działanie, aby zobaczyć akcje podejmowane przez użytkowników w dzierżawie zarządzającej.
+Przedsiębiorstwa z wewnętrznym lub zewnętrznym zarządzaniem i zgodnością guardrails mogą korzystać z [dzienników aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) w celu spełnienia wymagań dotyczących przejrzystości. Gdy dzierżawy przedsiębiorstwa ustanowiły zarządzanie relacjami i zarządzasz nimi, użytkownicy w każdej dzierżawie mogą wyświetlić zarejestrowane działanie, aby zobaczyć akcje podejmowane przez użytkowników w dzierżawie zarządzającej.
 
 ## <a name="onboarding-considerations"></a>Zagadnienia dotyczące dołączania
 

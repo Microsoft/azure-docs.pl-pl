@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d54207de9d74944e5b44e9970c1c5b896a56a373
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576248"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560758"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -118,7 +118,7 @@ CreateModels Room
 ```
 
 Ponieważ modeli nie można zastąpić, spowoduje to zwrócenie błędu usługi.
-Aby uzyskać szczegółowe informacje na temat usuwania istniejących modeli, zobacz [*How to: Manage Custom models*](how-to-manage-model.md).
+Aby uzyskać szczegółowe informacje na temat usuwania istniejących modeli, zobacz [*How to: Manage DTDL models*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

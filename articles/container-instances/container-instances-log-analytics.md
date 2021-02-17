@@ -3,12 +3,12 @@ title: Zbieranie & analizowanie dzienników zasobów
 description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w Azure Container Instances do dzienników Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579334"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano sposób tworzenia grupy kontenerów z włączoną
 
 Aby włączyć rejestrowanie w wystąpieniach kontenera, potrzebne są następujące elementy:
 
-* [Log Analytics obszar roboczy](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics obszar roboczy](../azure-monitor/logs/quick-create-workspace.md)
 * [Interfejs poziomu wywołania platformy Azure](/cli/azure/install-azure-cli) (lub usługa [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Uzyskiwanie poświadczeń usługi Log Analytics
@@ -37,7 +37,7 @@ Usługa Azure Container Instances wymaga uprawnień do wysyłania danych do obsz
 Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstawowy:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ustawienia**wybierz pozycję **Zarządzanie agentami** .
+1. W obszarze **Ustawienia** wybierz pozycję **Zarządzanie agentami** .
 1. Zwróć uwagę na następujące elementy:
    * **Identyfikator obszaru roboczego**
    * **Klucz podstawowy**
@@ -105,7 +105,7 @@ Po wdrożeniu grupy kontenerów, może upłynąć kilka minut (do 10), zanim pie
 Aby wyświetlić dzienniki grupy kontenerów w `ContainerInstanceLog_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
+1. W obszarze **Ogólne** wybierz pozycję **dzienniki** .  
 1. Wpisz następujące zapytanie: `ContainerInstanceLog_CL | limit 50`
 1. Wybierz pozycję **Uruchom**
 
@@ -118,7 +118,7 @@ Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze
 Możesz również wyświetlać zdarzenia dla wystąpień kontenera w Azure Portal. Zdarzenia obejmują godzinę utworzenia wystąpienia i momentu jego uruchomienia. Aby wyświetlić dane zdarzenia w `ContainerEvent_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
-1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
+1. W obszarze **Ogólne** wybierz pozycję **dzienniki** .  
 1. Wpisz następujące zapytanie: `ContainerEvent_CL | limit 50`
 1. Wybierz pozycję **Uruchom**
 
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Aby uzyskać więcej informacji dotyczących wykonywania zapytań dla dzienników i konfigurowania alertów w dziennikach usługi Azure Monitor, zobacz:
 
-* [Informacje o przeszukiwaniu dzienników w dziennikach Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md) (Ujednolicone alerty na platformie Azure Monitor)
+* [Informacje o przeszukiwaniu dzienników w dziennikach Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Unified alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) (Ujednolicone alerty na platformie Azure Monitor)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorowanie procesora i pamięci kontenera

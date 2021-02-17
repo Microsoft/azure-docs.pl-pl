@@ -344,7 +344,7 @@
               href: ../virtual-machines/windows/dedicated-hosts-powershell.md
             - name: Portal
               href: ../virtual-machines/dedicated-hosts-portal.md
-        - name: Używanie wystąpienia typu spot
+        - name: Virtual Machines na platformie Azure
           href: use-spot.md
     - name: Zarządzanie
       items:

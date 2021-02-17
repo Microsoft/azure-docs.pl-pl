@@ -1,6 +1,6 @@
 ---
-title: Samouczek — Tworzenie pakietu dostępu — Zarządzanie prawami w usłudze Azure AD
-description: Samouczek krok po kroku dotyczący sposobu tworzenia pierwszego pakietu dostępu w Azure Active Directory Zarządzanie uprawnieniami.
+title: Samouczek — zarządzanie dostępem do zasobów w usłudze Azure AD uprawnienia zarządzania
+description: Samouczek krok po kroku dotyczący sposobu tworzenia pierwszego pakietu dostępu przy użyciu Azure Portal w Azure Active Directory zarządzania uprawnieniami.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937901"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547404"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Samouczek: zarządzanie dostępem do zasobów w usłudze Azure AD uprawnienia zarządzania
 
 Zarządzanie dostępem do wszystkich zasobów wymaganych przez pracowników, takich jak grupy, aplikacje i lokacje, jest ważną funkcją dla organizacji. Aby udzielić pracownikom odpowiedniego poziomu dostępu, muszą one być produktywne i usuwać ich dostęp, gdy nie są już potrzebne.
 
@@ -41,8 +41,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Aby zapoznać się z krok po kroku procesu wdrażania Azure Active Directory Zarządzanie prawami, w tym tworzenia pierwszego pakietu dostępu, zobacz następujące wideo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-Możesz również programowo utworzyć pakiet dostępu przy użyciu Microsoft Graph. Samouczek pokazujący sposób programowego tworzenia pakietu dostępu można znaleźć w temacie [interfejs API zarządzania uprawnieniami](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

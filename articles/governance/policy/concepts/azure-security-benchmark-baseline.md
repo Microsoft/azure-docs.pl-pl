@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573078"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure Policy podstawy zabezpieczeń dla usługi Azure Security Baseline
 
@@ -31,9 +31,9 @@ Azure Policy używa warunku _własności_ zamiast _odpowiedzialności_. Aby uzys
 
 **Wskazówki**: Azure Policy korzysta z dzienników aktywności, które są włączane automatycznie, aby uwzględnić Źródło zdarzenia, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
-* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
@@ -89,7 +89,7 @@ Możesz również włączyć rozwiązanie "just-in-Time/" tylko do odczytu, uży
 
 **Wskazówki**: Użyj Azure monitor z dziennikami aktywności, aby utworzyć alerty, kiedy zmiany są wykonywane w Azure Policy.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne

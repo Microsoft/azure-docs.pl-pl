@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: bc75ee64174957ad6486146b4da6f8a66a2120e5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632050"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570561"
 ---
 # <a name="connect-windows-security-events"></a>Łączenie ze zdarzeniami zabezpieczeń systemu Windows 
 
@@ -56,7 +56,7 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
 
 1. Sprawdź, czy masz odpowiednie uprawnienia, zgodnie z opisem w sekcji **wymagania wstępne** na stronie łącznika.
 
-1. Pobierz i zainstaluj [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) (znanego również jako Microsoft Monitoring Agent lub MMA) na maszynach, dla których chcesz przesyłać strumieniowo zdarzenia zabezpieczeń do usługi Azure wskaźnikowej.
+1. Pobierz i zainstaluj [agenta log Analytics](../azure-monitor/agents/log-analytics-agent.md) (znanego również jako Microsoft Monitoring Agent lub MMA) na maszynach, dla których chcesz przesyłać strumieniowo zdarzenia zabezpieczeń do usługi Azure wskaźnikowej.
 
     W przypadku usługi Azure Virtual Machines:
     
@@ -73,9 +73,9 @@ Aby zebrać zdarzenia zabezpieczeń systemu Windows na platformie Azure — wska
     >
     > Aby zezwolić na używanie systemów Windows bez konieczności łączności z Internetem w celu przesyłania strumieniowego zdarzeń do platformy Azure, należy pobrać i zainstalować **bramę pakietu OMS** na oddzielnym komputerze przy użyciu linku w prawym dolnym rogu, aby działać jako serwer proxy.  Nadal trzeba będzie zainstalować agenta Log Analytics w każdym systemie Windows, którego zdarzenia mają być zbierane.
     >
-    > Aby uzyskać więcej informacji na temat tego scenariusza, zobacz dokumentację usługi [ **log Analytics Gateway**](../azure-monitor/platform/gateway.md).
+    > Aby uzyskać więcej informacji na temat tego scenariusza, zobacz dokumentację usługi [ **log Analytics Gateway**](../azure-monitor/agents/gateway.md).
 
-    Dodatkowe opcje instalacji i dalsze szczegóły znajdują się w [dokumentacji **agenta log Analytics**](../azure-monitor/platform/agent-windows.md).
+    Dodatkowe opcje instalacji i dalsze szczegóły znajdują się w [dokumentacji **agenta log Analytics**](../azure-monitor/agents/agent-windows.md).
 
 1. Wybierz zestaw zdarzeń ([wszystkie, typowe lub minimalne](#event-sets)), które chcesz przesłać strumieniowo.
 

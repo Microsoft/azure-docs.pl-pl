@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/09/2021
 ms.reviewer: sngun
-ms.openlocfilehash: e227e230c4de1234e068f72958367dc2ac709426
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ee05cbdfb2634ed7c299f736b3343ce2dfbd3520
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881977"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548407"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Zmień model ściągania kanału informacyjnego w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "97881977"
 Model ściągania źródła zmian umożliwia korzystanie ze źródła zmian Azure Cosmos DB w swoim własnym tempie. Podobnie jak w przypadku [procesora kanału informacyjnego zmian](change-feed-processor.md)można użyć modelu ściągania źródła zmian, aby zrównoleglanie przetwarzanie zmian wielu odbiorców z podajnikiem zmian.
 
 > [!NOTE]
-> Model ściągania źródła zmian jest obecnie w [wersji zapoznawczej tylko w Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) . Wersja zapoznawcza nie jest jeszcze dostępna dla innych wersji zestawu SDK.
+> Model ściągania źródła zmian jest obecnie w [wersji zapoznawczej tylko w Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) . Wersja zapoznawcza nie jest jeszcze dostępna dla innych wersji zestawu SDK.
 
 ## <a name="comparing-with-change-feed-processor"></a>Porównywanie z procesorem źródła zmian
 
@@ -41,7 +41,7 @@ Należy rozważyć użycie modelu ściągania w następujących scenariuszach:
 
 Oto kilka najważniejszych różnic między procesorem kanału informacyjnego zmiany i modelem ściągania:
 
-|Cechy  | Procesor zestawienia zmian| Model ściągania |
+|Cecha  | Procesor zestawienia zmian| Model ściągania |
 | --- | --- | --- |
 | Śledzenie bieżącego punktu w strumieniu zmian przetwarzania | Dzierżawa (przechowywana w kontenerze Azure Cosmos DB) | Token kontynuacji (przechowywany w pamięci lub ręcznie utrwalony) |
 | Możliwość powtórzenia ostatnich zmian | Tak, przy użyciu modelu wypychania | Tak, z modelem ściągania|
@@ -65,19 +65,19 @@ Znajduje się `FeedIterator` w dwóch wersjach. Oprócz przykładów poniżej, k
 Oto przykład do uzyskania `FeedIterator` , który zwraca obiekty Entity, w tym przypadku `User` obiekt:
 
 ```csharp
-FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
 ```
 
 Oto przykład do uzyskania `FeedIterator` , który zwraca `Stream` :
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
 ```
 
 Jeśli nie podasz elementu `FeedRange` a `FeedIterator` , możesz przetwarzać cały kanał informacyjny zmiany kontenera we własnym tempie. Oto przykład, który rozpoczyna odczyt wszystkich zmian, rozpoczynając od bieżącego czasu:
 
 ```csharp
-FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now());
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Now());
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -103,7 +103,9 @@ Ze względu na to, że źródło zmian jest efektywnie nieograniczoną listą el
 W niektórych przypadkach można tylko przetwarzać zmiany określonego klucza partycji. Możesz uzyskać `FeedIterator` dla określonego klucza partycji i przetworzyć zmiany w taki sam sposób, jak w przypadku całego kontenera.
 
 ```csharp
-FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
+FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(
+    ChangeFeedMode.Incremental, 
+    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -147,7 +149,7 @@ Oto przykład, który pokazuje, jak czytać z początku kanału informacyjnego z
 Maszyna 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
     try {
@@ -169,7 +171,7 @@ while (iteratorA.HasMoreResults)
 Maszyna 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
     try {
@@ -193,7 +195,7 @@ while (iteratorB.HasMoreResults)
 Możesz zapisać pozycję `FeedIterator` przez utworzenie tokenu kontynuacji. Token kontynuacji jest wartością ciągu, która zachowuje śledzenie ostatnio przetworzonych zmian FeedIterator. Pozwala to na `FeedIterator` wznowienie w tym punkcie później. Poniższy kod zostanie odczytany przez źródło zmian od momentu utworzenia kontenera. Gdy nie będą dostępne żadne dodatkowe zmiany, będzie ona utrzymywać token kontynuacji, aby można było później wznowić użycie źródła zmian.
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
 
 string continuation = null;
 
@@ -216,7 +218,7 @@ while (iterator.HasMoreResults)
 }
 
 // Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation));
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.ContinuationToken(continuation));
 ```
 
 Tak długo, jak kontener Cosmos nadal istnieje, token kontynuacji FeedIterator nigdy nie wygasa.

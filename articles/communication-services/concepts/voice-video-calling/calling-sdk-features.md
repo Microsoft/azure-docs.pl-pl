@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492114"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554722"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -96,9 +96,10 @@ Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące
 
 |           |Internet | System Android/iOS|
 |-----------|----|------------|
-|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 wideo + 1 udostępnianie ekranu | 1 film wideo |
-|**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 wideo + 1 udostępnianie ekranu| 6 wideo + 1 udostępnianie ekranu |
+|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 udostępnianie plików audio/wideo lub 1 | 1 dźwięk/wideo | 
+|**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 udostępnianie plików audio/wideo lub 1| 6 audio/wideo lub 1 udostępnianie ekranu |
 
+Należy pamiętać, że w scenariuszach grupy jeden mieszany strumień audio jest używany do obsługi wszystkich uczestników audio.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -106,6 +107,6 @@ Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące
 > [Wprowadzenie do wywoływania](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
-- Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md)
+- Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md) 
 - Informacje o [typach wywołań](../voice-video-calling/about-call-types.md)
 - [Planowanie rozwiązania PSTN](../telephony-sms/plan-solution.md)

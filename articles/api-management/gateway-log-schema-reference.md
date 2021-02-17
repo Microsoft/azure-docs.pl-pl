@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380436"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582502"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Dokumentacja: schemat dziennika zasobów API Management
 
-Ten artykuł zawiera informacje o schemacie dotyczące dziennika zasobów usługi Azure API Management GatewayLogs. Wpisy dziennika zawierają także pola w [wspólnym schemacie najwyższego poziomu](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+Ten artykuł zawiera informacje o schemacie dotyczące dziennika zasobów usługi Azure API Management GatewayLogs. Wpisy dziennika zawierają także pola w [wspólnym schemacie najwyższego poziomu](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Aby włączyć zbieranie danych dziennika zasobów API Management, zobacz [monitorowanie opublikowanych interfejsów API](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Następujące właściwości są rejestrowane dla każdego żądania interfejsu 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje na temat monitorowania interfejsów API w API Management, zobacz [monitorowanie opublikowanych interfejsów API](api-management-howto-use-azure-monitor.md)
-* Dowiedz się więcej [na temat wspólnych i specyficznych dla usługi schematów dla dzienników zasobów platformy Azure](../azure-monitor/platform/resource-logs-schema.md)
+* Dowiedz się więcej [na temat wspólnych i specyficznych dla usługi schematów dla dzienników zasobów platformy Azure](../azure-monitor/essentials/resource-logs-schema.md)
 

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329563"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581540"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor
  Dzienniki Azure Monitor zbierają i analizują dane telemetryczne z aplikacji i usług hostowanych w chmurze oraz udostępniają narzędzia do analizy ułatwiające maksymalizowanie ich dostępności i wydajności. W tym artykule opisano sposób uruchamiania zapytań w dziennikach Azure Monitor w celu uzyskania szczegółowych informacji i rozwiązywania problemów, co dzieje się w klastrze. Następujące często zadawane pytania są rozkierowane:
@@ -34,7 +34,7 @@ Po odebraniu danych przez dzienniki Azure Monitor, platforma Azure ma kilka *roz
 
 W [witrynie Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics.
 
-Wybierz pozycję zasób **servicefabric \<nameOfOMSWorkspace\> **.
+Wybierz pozycję zasób **servicefabric \<nameOfOMSWorkspace\>**.
 
 W programie `Summary` zobaczysz kafelki w formie wykresu dla każdego z włączonych rozwiązań, w tym jeden dla Service Fabric. Kliknij wykres **Service Fabric** , aby kontynuować Service Fabric Analytics rozwiązanie.
 
@@ -103,7 +103,7 @@ Język zapytań Kusto jest zaawansowany. Innym cennym zapytaniem, które można 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby włączyć monitorowanie infrastruktury, np. liczniki wydajności, przejdź do [dodawania agenta log Analytics](service-fabric-diagnostics-oms-agent.md). Agent zbiera liczniki wydajności i dodaje je do istniejącego obszaru roboczego.
-* W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/platform/gateway.md).
-* Skonfiguruj  [Automatyczne alerty](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.
+* W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/agents/gateway.md).
+* Skonfiguruj  [Automatyczne alerty](../azure-monitor/alerts/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.
 * Zapoznaj się z bardziej szczegółowym omówieniem dzienników Azure Monitor i ofert, które oferuje, Przeczytaj [co to jest Azure monitor Logs?](../azure-monitor/overview.md).

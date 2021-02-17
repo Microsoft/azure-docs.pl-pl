@@ -3,12 +3,12 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579297"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
@@ -48,12 +48,12 @@ Po wdrożeniu rozwiązania Azure VMware w ramach subskrypcji [Azure monitor dzie
 
 W chmurze prywatnej można:
 - Zbierz dzienniki na każdej z maszyn wirtualnych.
-- [Pobierz i Zainstaluj agenta MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows.
-- Włącz [rozszerzenie diagnostyki Azure](../azure-monitor/platform/diagnostics-extension-overview.md).
-- [Twórz i uruchamiaj nowe zapytania](../azure-monitor/platform/data-platform-logs.md#log-queries).
+- [Pobierz i Zainstaluj agenta MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows.
+- Włącz [rozszerzenie diagnostyki Azure](../azure-monitor/agents/diagnostics-extension-overview.md).
+- [Twórz i uruchamiaj nowe zapytania](../azure-monitor/logs/data-platform-logs.md#log-queries).
 - Uruchamiaj te same zapytania, które zwykle są uruchamiane na maszynach wirtualnych.
 
-Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do maszyn wirtualnych platformy Azure w ramach platformy IaaS. Aby uzyskać więcej informacji i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do maszyn wirtualnych platformy Azure w ramach platformy IaaS. Aby uzyskać więcej informacji i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

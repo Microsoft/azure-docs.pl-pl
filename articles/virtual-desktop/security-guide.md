@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562620"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581396"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -80,10 +80,10 @@ Włączenie [dostępu warunkowego](../active-directory/conditional-access/overvi
 
 Włączenie zbierania dzienników inspekcji umożliwia wyświetlenie aktywności użytkowników i administratorów związanych z pulpitem wirtualnym systemu Windows. Przykłady dzienników inspekcji kluczy są następujące:
 
--   [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+-   [Dziennik aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 -   [Azure Active Directory dziennik aktywności](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Hosty sesji](../azure-monitor/platform/agent-windows.md)
+-   [Hosty sesji](../azure-monitor/agents/agent-windows.md)
 -   [Dziennik diagnostyczny pulpitu wirtualnego systemu Windows](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Dzienniki Key Vault](../key-vault/general/logging.md)
 

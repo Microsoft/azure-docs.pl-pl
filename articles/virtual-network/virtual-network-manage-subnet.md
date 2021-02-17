@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220579"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558596"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Dodawanie, zmienianie i usuwanie podsieci sieci wirtualnej
 
 Dowiedz się, jak dodać, zmienić lub usunąć podsieć sieci wirtualnej. Wszystkie zasoby platformy Azure wdrożone do sieci wirtualnej są wdrażane w podsieci w ramach sieci wirtualnej. Jeśli dopiero zaczynasz korzystanie z sieci wirtualnych, możesz dowiedzieć się więcej na ich temat w [sieci wirtualnej](virtual-networks-overview.md) lub przez ukończenie [przewodnika Szybki Start](quick-create-portal.md). Aby dowiedzieć się więcej o zarządzaniu siecią wirtualną, zobacz [Tworzenie, zmienianie lub usuwanie sieci wirtualnej](manage-virtual-network.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli go nie masz, skonfiguruj konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Następnie wykonaj jedno z tych zadań przed rozpoczęciem kroków w każdej sekcji tego artykułu: 
 
@@ -81,7 +81,7 @@ Konto, do którego należy się zalogować lub połączyć się z platformą Azu
     | Ustawienie | Opis |
     | --- | --- |
     | **Zakres adresów** | Jeśli w podsieci nie wdrożono żadnych zasobów, można zmienić zakres adresów. Jeśli jakieś zasoby istnieją w podsieci, należy przenieść zasoby do innej podsieci lub najpierw usunąć je z podsieci. Kroki wykonywane w celu przeniesienia lub usunięcia zasobu różnią się w zależności od zasobu. Aby dowiedzieć się, jak przenosić lub usuwać zasoby znajdujące się w podsieciach, zapoznaj się z dokumentacją dla każdego z tych typów zasobów. Zobacz ograniczenia dotyczące **zakresu adresów** w kroku 4 [Dodaj podsieć](#add-a-subnet). |
-    | **Użytkownicy** | Dostęp do podsieci można kontrolować za pomocą wbudowanych ról lub własnych ról niestandardowych. Aby dowiedzieć się więcej na temat przypisywania ról i użytkowników w celu uzyskania dostępu do podsieci, zobacz [Dodawanie przypisania roli](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Użytkownicy** | Dostęp do podsieci można kontrolować za pomocą wbudowanych ról lub własnych ról niestandardowych. Aby dowiedzieć się więcej na temat przypisywania ról i użytkowników w celu uzyskania dostępu do podsieci, zobacz [Przypisywanie ról platformy Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). |
     | **Sieciowa grupa zabezpieczeń** i **Tabela tras** | Zobacz Krok 4 [dodawania podsieci](#add-a-subnet). |
     | **Punkty końcowe usługi** | <p>Zobacz punkty końcowe usługi w kroku 4, [Dodaj podsieć](#add-a-subnet). Podczas włączania punktu końcowego usługi dla istniejącej podsieci upewnij się, że żadne krytyczne zadania nie są uruchomione w żadnym z zasobów podsieci. Punkty końcowe usługi przełączają trasy na każdy interfejs sieciowy w podsieci. Punkty końcowe usługi przechodzą z używania trasy domyślnej z prefiksem adresu *0.0.0.0/0* i typu następnego przeskoku w *Internecie*, aby używać nowej trasy z prefiksami adresów usługi i typem następnego przeskoku *VirtualNetworkServiceEndpoint*.</p><p>W trakcie przełączania można zakończyć wszystkie otwarte połączenia TCP. Punkt końcowy usługi nie jest włączony, dopóki nie zostaną zaktualizowane przepływy ruchu do usługi dla wszystkich interfejsów sieciowych przy użyciu nowej trasy. Aby dowiedzieć się więcej na temat routingu, zobacz [routing ruchu w sieci wirtualnej](virtual-networks-udr-overview.md).</p> |
     | **Delegowanie podsieci** | Zobacz punkty końcowe usługi w kroku 4, [Dodaj podsieć](#add-a-subnet). Delegowanie podsieci można zmodyfikować na zero lub dla niego włączono wiele delegowania. Jeśli zasób dla usługi został już wdrożony w podsieci, delegowanie podsieci nie może zostać dodane lub usunięte, dopóki nie zostaną usunięte wszystkie zasoby usługi. Aby delegować dla innej usługi, wybierz usługę, z którą chcesz delegować z listy **usług** . |

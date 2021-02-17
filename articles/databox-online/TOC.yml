@@ -239,13 +239,13 @@
         - name: Zarządzanie certyfikatami
           items:
             - name: Wymagania
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Korzystanie z własnych
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Tworzenie za pomocą narzędzia sprawdzania gotowości usługi Azure Stack
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Rozwiązywanie problemów z błędami certyfikatów
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Zarządzanie obliczeniami brzegowymi
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Zarządzanie rejestrem kontenerów brzegowych

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362022"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559327"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal
 
 [Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym samouczku udzielisz użytkownikowi praw dostępu do tworzenia maszyn wirtualnych i zarządzania nimi w grupie zasobów.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Udzielanie dostępu użytkownikowi w zakresie grupy zasobów
@@ -58,7 +58,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie roli.
+W celu udzielenia dostępu w usłudze Azure RBAC należy przypisać rolę platformy Azure.
 
 1. Na liście **Grupy zasobów** kliknij nową grupę zasobów **rbac-resource-group**.
 
@@ -82,7 +82,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 1. Z listy **Wybierz** wybierz siebie lub innego użytkownika.
 
-1. Kliknij przycisk **Zapisz**, aby utworzyć przypisanie roli.
+1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
 
    Po kilku chwilach użytkownik zostanie przypisany do roli Współautor maszyny wirtualnej w zakresie grupy zasobów rbac-resource-group.
 
@@ -90,7 +90,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie r
 
 ## <a name="remove-access"></a>Usuwanie dostępu
 
-W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli.
+Aby usunąć dostęp za pomocą kontroli dostępu na podstawie ról platformy Azure, należy usunąć przypisanie roli.
 
 1. Na liście przypisań ról dodaj znacznik wyboru obok użytkownika z rolą Współautor maszyny wirtualnej.
 

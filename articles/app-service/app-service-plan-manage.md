@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58ddf60a842a9583eae25a875f55227cee772a8a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962948"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582533"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Zarządzanie planem App Service na platformie Azure
 
@@ -38,7 +38,7 @@ Można utworzyć pusty plan App Service lub utworzyć plan w ramach tworzenia ap
 
    ![Utwórz plan App Service.][createASP] 
 
-4. Podczas tworzenia planu można wybrać warstwę cenową nowego planu. W obszarze **jednostka SKU i rozmiar**wybierz pozycję **Zmień rozmiar** , aby zmienić warstwę cenową. 
+4. Podczas tworzenia planu można wybrać warstwę cenową nowego planu. W obszarze **jednostka SKU i rozmiar** wybierz pozycję **Zmień rozmiar** , aby zmienić warstwę cenową. 
 
 <a name="move"></a>
 
@@ -58,7 +58,7 @@ Możesz przenieść aplikację do innego planu App Service, o ile plan źródło
 
 3. Na liście rozwijanej **plan App Service** wybierz istniejący plan, do którego chcesz przenieść aplikację. Lista rozwijana zawiera tylko plany, które znajdują się w tej samej grupie zasobów i regionie geograficznym co bieżący plan App Service. Jeśli taki plan nie istnieje, umożliwia utworzenie planu domyślnie. Możesz również utworzyć nowy plan ręcznie, wybierając pozycję **Utwórz nowy**.
 
-4. W przypadku utworzenia planu można wybrać warstwę cenową nowego planu. W obszarze **warstwa cenowa**wybierz istniejącą warstwę, aby ją zmienić. 
+4. W przypadku utworzenia planu można wybrać warstwę cenową nowego planu. W obszarze **warstwa cenowa** wybierz istniejącą warstwę, aby ją zmienić. 
    
    > [!IMPORTANT]
    > Jeśli przenosisz aplikację z planu wyższego poziomu do planu niższego poziomu, takiego jak od **D1** do **F1**, aplikacja może utracić pewne możliwości w planie docelowym. Na przykład jeśli aplikacja używa certyfikatów TLS/SSL, może zostać wyświetlony następujący komunikat o błędzie:
@@ -82,7 +82,7 @@ Region, w którym jest uruchomiona aplikacja, jest regionem App Service planu. N
 
 Aby skalować w górę warstwę cenową planu App Service, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md).
 
-Aby skalować liczbę wystąpień aplikacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md).
+Aby skalować liczbę wystąpień aplikacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="delete"></a>
 
