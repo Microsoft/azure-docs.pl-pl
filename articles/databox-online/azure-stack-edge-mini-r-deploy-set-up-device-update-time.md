@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: ee3805d128a7b6d122f93e692291db1a387cfcf5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9f4d4f4ad27081bb105cdb1698438837fc2fe02
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468492"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546673"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-mini-r"></a>Samouczek: Konfigurowanie ustawień urządzenia dla Azure Stack krawędź mini R
 
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby skonfigurować ustawienia dotyczące urządzeń
         ![Lokalny interfejs użytkownika sieci Web "serwer aktualizacji" — Strona 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 
         > [!NOTE] 
-        > Jeśli jest skonfigurowany oddzielny serwer Windows Update i w przypadku wybrania opcji nawiązywania połączenia za pośrednictwem *protokołu HTTPS* (zamiast *protokołu HTTP*) wymagane jest Podpisywanie certyfikatów łańcucha wymaganych do nawiązania połączenia z serwerem aktualizacji. Aby uzyskać informacje na temat tworzenia i przekazywania certyfikatów, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). Aby pracować w trybie rozłączonym, takim jak Azure Stackowanie warstwy urządzenia brzegowego w modularne centrum danych, Włącz opcję usług WSUS. Podczas aktywacji urządzenie skanuje w poszukiwaniu aktualizacji i jeśli serwer nie jest skonfigurowany, aktywacja zakończy się niepowodzeniem. 
+        > Jeśli jest skonfigurowany oddzielny serwer Windows Update i w przypadku wybrania opcji nawiązywania połączenia za pośrednictwem *protokołu HTTPS* (zamiast *protokołu HTTP*) wymagane jest Podpisywanie certyfikatów łańcucha wymaganych do nawiązania połączenia z serwerem aktualizacji. Aby uzyskać informacje na temat tworzenia i przekazywania certyfikatów, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-gpu-manage-certificates.md). Aby pracować w trybie rozłączonym, takim jak Azure Stackowanie warstwy urządzenia brzegowego w modularne centrum danych, Włącz opcję usług WSUS. Podczas aktywacji urządzenie skanuje w poszukiwaniu aktualizacji i jeśli serwer nie jest skonfigurowany, aktywacja zakończy się niepowodzeniem. 
 
 2. Wybierz przycisk **Zastosuj**.
 3. Po skonfigurowaniu serwera aktualizacji wybierz pozycję **Dalej: czas**.

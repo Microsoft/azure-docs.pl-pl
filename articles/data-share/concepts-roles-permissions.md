@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558123"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -63,7 +63,7 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. W obszarze *Wybierz* wpisz nazwę zasobu udziału danych platformy Azure.
 1. Kliknij pozycję *Zapisz*.
 
-Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Jeśli udostępniasz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, przywołując [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
+Aby dowiedzieć się więcej na temat przypisywania ról, zapoznaj się z tematem [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md). Jeśli udostępniasz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, odwołując [się do przypisywania ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
 
 W przypadku źródeł opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
@@ -83,7 +83,7 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. W obszarze *Wybierz* wpisz nazwę zasobu udziału danych platformy Azure.
 1. Kliknij pozycję *Zapisz*.
 
-Aby dowiedzieć się więcej na temat przypisywania ról, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Jeśli otrzymujesz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, przywołując [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
+Aby dowiedzieć się więcej na temat przypisywania ról, zapoznaj się z tematem [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md). Jeśli otrzymujesz dane przy użyciu interfejsów API REST, możesz utworzyć przypisanie roli przy użyciu interfejsu API, odwołując [się do przypisywania ról platformy Azure przy użyciu interfejsu API REST](../role-based-access-control/role-assignments-rest.md). 
 
 W przypadku obiektów docelowych opartych na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure podczas nawiązywania połączenia z usługą SQL Database przy użyciu uwierzytelniania Azure Active Directory. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania danych opartych na języku SQL można znaleźć w samouczku [Azure SQL Database lub Azure Synapse Analytics](how-to-share-from-sql.md) . 
 
@@ -107,4 +107,4 @@ Aby dowiedzieć się więcej na temat dostawcy zasobów, zapoznaj się z tematem
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o rolach na platformie Azure — [Omówienie definicji ról](../role-based-access-control/role-definitions.md)
+- Dowiedz się więcej o rolach na platformie Azure — [Omówienie definicji ról platformy Azure](../role-based-access-control/role-definitions.md)

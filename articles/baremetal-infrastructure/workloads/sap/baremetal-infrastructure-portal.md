@@ -2,13 +2,13 @@
 title: Jednostki wystąpień BareMetal na platformie Azure
 description: Dowiedz się, jak identyfikować jednostki wystąpień BareMetal i korzystać z nich za pomocą Azure Portal.
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/17/2021
+ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733267"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548169"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Zarządzanie wystąpieniami BareMetal za pomocą witryny Azure Portal
  
@@ -17,25 +17,9 @@ W tym artykule pokazano, jak [Azure Portal](https://portal.azure.com/) są wyśw
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 Dostawca zasobów platformy Azure dla wystąpień BareMetal zapewnia widoczność wystąpień w Azure Portal, obecnie w publicznej wersji zapoznawczej. Domyślnie subskrypcja platformy Azure używana dla wdrożeń wystąpień BareMetal rejestruje dostawcę zasobów *BareMetalInfrastructure* . Jeśli nie widzisz wdrożonych jednostek wystąpienia usługi BareMetal, musisz zarejestrować dostawcę zasobów w ramach subskrypcji. 
 
-Istnieją dwa sposoby rejestrowania dostawcy zasobów wystąpienia BareMetal:
- 
-* [Interfejs wiersza polecenia platformy Azure](#azure-cli)
- 
-* [Witryna Azure Portal](#azure-portal)
- 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
- 
-Zaloguj się do subskrypcji platformy Azure, która jest używana na potrzeby wdrożenia wystąpienia BareMetal za pomocą interfejsu wiersza polecenia platformy Azure. Dostawcę zasobów BareMetalInfrastructure można zarejestrować przy użyciu:
+Dostawcę zasobów wystąpienia BareMetal można zarejestrować za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.BareMetalInfrastructure
-```
- 
-Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell).
- 
-### <a name="azure-portal"></a>Azure Portal
- 
-Dostawcę zasobów BareMetalInfrastructure można zarejestrować za pomocą Azure Portal.
+### <a name="portal"></a>[Portal](#tab/azure-portal)
  
 Musisz wyświetlić swoją subskrypcję w Azure Portal a następnie kliknąć dwukrotnie subskrypcję używaną do wdrożenia jednostek wystąpienia usługi BareMetal.
  
@@ -53,12 +37,32 @@ Musisz wyświetlić swoją subskrypcję w Azure Portal a następnie kliknąć dw
 >Jeśli dostawca zasobów nie jest zarejestrowany, wybierz pozycję **zarejestruj**.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Zrzut ekranu pokazujący zarejestrowaną jednostkę wystąpienia BareMetal":::
- 
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby rozpocząć korzystanie z interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Zaloguj się do subskrypcji platformy Azure, która jest używana na potrzeby wdrożenia wystąpienia BareMetal za pomocą interfejsu wiersza polecenia platformy Azure. Zarejestruj `BareMetalInfrastructure` dostawcę zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider#az_provider_register) :
+
+```azurecli
+az provider register --namespace Microsoft.BareMetalInfrastructure
+```
+
+Możesz użyć polecenia [AZ Provider list](/cli/azure/provider#az_provider_list) , aby wyświetlić wszystkich dostępnych dostawców.
+
+---
+
+Aby uzyskać więcej informacji na temat dostawców zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Jednostki wystąpienia BareMetal w Azure Portal
  
 Po przesłaniu żądania wdrożenia wystąpienia BareMetal należy określić subskrypcję platformy Azure, która nawiązuje połączenie z wystąpieniami BareMetal. Użyj tej samej subskrypcji, która jest używana do wdrażania warstwy aplikacji, która działa w odniesieniu do jednostek wystąpienia BareMetal.
  
 Podczas wdrażania wystąpień usługi BareMetal zostanie utworzona nowa [Grupa zasobów platformy Azure](../../../azure-resource-manager/management/manage-resources-portal.md) w ramach subskrypcji platformy Azure użytej w żądaniu wdrożenia. Ta nowa grupa zasobów zawiera listę wszystkich jednostek wystąpienia usługi BareMetal, które zostały wdrożone w określonej subskrypcji.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. W subskrypcji BareMetal w Azure Portal wybierz pozycję **grupy zasobów**.
  
@@ -75,10 +79,27 @@ Podczas wdrażania wystąpień usługi BareMetal zostanie utworzona nowa [Grupa 
    
    >[!NOTE]
    >Jeśli w ramach tej samej subskrypcji platformy Azure wdrożono kilka dzierżawców wystąpień BareMetal, zobaczysz wiele grup zasobów platformy Azure.
- 
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby wyświetlić wszystkie wystąpienia usługi BareMetal, uruchom polecenie [AZ baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) dla grupy zasobów:
+
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
+
+> [!TIP]
+> `--output`Parametr jest parametrem globalnym, który jest dostępny dla wszystkich poleceń. Wartość **tabeli** przedstawia dane wyjściowe w przyjaznym formacie. Aby uzyskać więcej informacji, zobacz [formaty danych wyjściowych dla poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/format-output-azure-cli).
+
+---
+
 ## <a name="view-the-attributes-of-a-single-instance"></a>Wyświetlanie atrybutów pojedynczego wystąpienia
- 
-Można wyświetlić szczegóły pojedynczej jednostki. Na liście wystąpienia BareMetal wybierz pojedyncze wystąpienie, które chcesz wyświetlić.
+
+Można wyświetlić szczegóły pojedynczej jednostki.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Na liście wystąpienia BareMetal wybierz pojedyncze wystąpienie, które chcesz wyświetlić.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Zrzut ekranu pokazujący atrybuty jednostki wystąpienia BareMetal pojedynczego wystąpienia" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
@@ -101,6 +122,18 @@ Ponadto po prawej stronie znajduje się nazwa [grupy umieszczania usługi Azure 
  
 >[!TIP]
 >Aby zlokalizować warstwę aplikacji w tym samym centrum danych platformy Azure w wersji 4. x, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby wyświetlić szczegóły wystąpienia BareMetal, uruchom polecenie [AZ baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) :
+
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
+
+Jeśli jesteś niepewną nazwą wystąpienia, uruchom `az baremetalinstance list` polecenie opisane powyżej.
+
+---
  
 ## <a name="check-activities-of-a-single-instance"></a>Sprawdź działania pojedynczego wystąpienia
  
@@ -113,11 +146,31 @@ Zmiany metadanych jednostki na platformie Azure są również rejestrowane w dzi
 Po dodaniu lub usunięciu [znacznika](../../../azure-resource-manager/management/tag-resources.md) do wystąpienia jest możliwe inne działanie, które jest rejestrowane.
  
 ## <a name="add-and-delete-an-azure-tag-to-an-instance"></a>Dodawanie i usuwanie tagu platformy Azure do wystąpienia
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
  
 Możesz dodać tagi platformy Azure do jednostki wystąpienia BareMetal lub usunąć je. Sposób przypisywania tagów nie różni się od przypisywania tagów do maszyn wirtualnych. Podobnie jak w przypadku maszyn wirtualnych, znaczniki istnieją w metadanych platformy Azure, a dla wystąpień BareMetal mają takie same ograniczenia jak Tagi maszyn wirtualnych.
  
 Usuwanie tagów działają tak samo jak w przypadku maszyn wirtualnych. Stosowanie i usuwanie tagu są wymienione w dzienniku aktywności jednostki wystąpienia BareMetal.
- 
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Przypisanie tagów do wystąpień BareMetal działa tak samo jak w przypadku maszyn wirtualnych. Tagi istnieją w metadanych platformy Azure, a dla wystąpień BareMetal mają takie same ograniczenia jak Tagi dla maszyn wirtualnych.
+
+Aby dodać tagi do jednostki wystąpienia BareMetal, uruchom polecenie [AZ baremetalinstance Update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+```
+
+Użyj tego samego polecenia, aby usunąć tag:
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+```
+
+---
+
 ## <a name="check-properties-of-an-instance"></a>Sprawdź właściwości wystąpienia
  
 Po uzyskaniu wystąpień możesz przejść do sekcji właściwości, aby wyświetlić zebrane dane o wystąpieniach. Zebrane dane obejmują łączność z platformą Azure, zaplecze magazynu, Identyfikator obwodu ExpressRoute, unikatowy identyfikator zasobu i Identyfikator subskrypcji. Te informacje będą używane w żądaniach obsługi lub podczas konfigurowania konfiguracji migawki magazynu.
@@ -127,15 +180,29 @@ Inną krytyczną informacją, która widzisz, jest adres IP magazynu NFS. Izoluj
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Zrzut ekranu pokazujący ustawienia właściwości wystąpienia BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## <a name="restart-a-unit-through-the-azure-portal"></a>Uruchom ponownie jednostkę za pomocą Azure Portal
- 
-Istnieją różne sytuacje, w których system operacyjny nie kończy ponownego uruchamiania, co wymaga ponownego uruchomienia urządzenia w jednostce wystąpienia BareMetal. Możesz ponownie uruchomić jednostkę bezpośrednio z Azure Portal:
+
+Istnieją różne sytuacje, w których system operacyjny nie kończy ponownego uruchamiania, co wymaga ponownego uruchomienia urządzenia w jednostce wystąpienia BareMetal.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Możesz ponownie uruchomić jednostkę bezpośrednio z Azure Portal:
  
 Wybierz pozycję **Uruchom ponownie** , a następnie przycisk **tak** , aby potwierdzić ponowne uruchomienie jednostki.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Zrzut ekranu pokazujący sposób ponownego uruchomienia jednostki wystąpienia BareMetal":::
  
 Po ponownym uruchomieniu jednostki wystąpienia BareMetal wystąpi opóźnienie. W tym opóźnieniu stan siły jest przenoszony od **początku** do **uruchomionego**, co oznacza, że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu nie można zalogować się do jednostki, gdy tylko stan zostanie **uruchomiony**.
- 
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby ponownie uruchomić jednostkę wystąpienia BareMetal, użyj polecenia [AZ baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
+
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
+
+---
+
 >[!IMPORTANT]
 >W zależności od ilości pamięci w jednostce wystąpienia BareMetal ponowne uruchomienie i ponowne uruchomienie sprzętu i systemu operacyjnego może trwać do godziny.
  

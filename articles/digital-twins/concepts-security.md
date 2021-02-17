@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934546"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547166"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -53,11 +53,6 @@ Platforma Azure udostępnia **dwie wbudowane role platformy Azure** umożliwiaj�
 | --- | --- | --- |
 | Właściciel danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia pełen dostęp za pośrednictwem zasobów usługi Azure Digital bliźniaczych reprezentacji | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Czytnik danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
-
->[!NOTE]
-> Nazwy tych ról zostały ostatnio zmienione przed nazwami w wersji zapoznawczej:
-> * *Właściciel danych Digital bliźniaczych reprezentacji platformy Azure* był wcześniej *właścicielem usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)*.
-> * *Usługa Azure Digital bliźniaczych reprezentacji Data Reader* była wcześniej *usługą Azure Digital bliźniaczych reprezentacji Reader (wersja zapoznawcza)*.
 
 Role można przypisywać na dwa sposoby:
 * za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal*](../role-based-access-control/role-assignments-portal.md))

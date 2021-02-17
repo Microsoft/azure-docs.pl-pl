@@ -1,15 +1,15 @@
 ---
 title: Ciągła integracja z użyciem usługi Azure Pipelines
 description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablony Azure Resource Manager (szablony ARM).
-ms.date: 08/24/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701715"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560904"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines
 
@@ -83,8 +83,8 @@ Folder _CreateWebApp_ jest folderem, w którym przechowywany jest szablon. `pwd`
 
 Zamiast tworzyć szablony, można pobrać szablony i zapisać je w folderze _CreateWebApp_ .
 
-* Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
+* Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
 
 Nazwa folderu i nazwy plików są używane, ponieważ znajdują się w potoku. W przypadku zmiany tych nazw należy zaktualizować nazwy używane w potoku.
 
@@ -105,7 +105,7 @@ _azuredeploy.js_ została dodana do repozytorium lokalnego. Następnie Przekaż 
 
     Może pojawić się ostrzeżenie dotyczące LF. Możesz zignorować to ostrzeżenie. **główny** jest gałęzią główną.  Tworzona jest zwykle gałąź dla każdej aktualizacji. Aby uprościć samouczek, należy bezpośrednio użyć gałęzi głównej.
 
-1. Przejdź do repozytorium GitHub z przeglądarki. Adres URL to `https://github.com/[YourAccountName]/[YourGitHubRepository]` . Zobaczysz folder _CreateWebApp_ i trzy pliki znajdujące się w folderze.
+1. Przejdź do repozytorium GitHub z przeglądarki. Adres URL to `https://github.com/[YourAccountName]/[YourGitHubRepository]` . Zobaczysz folder _CreateWebApp_ i dwa pliki znajdujące się w folderze.
 1. Wybierz pozycję _linkedStorageAccount.js_ , aby otworzyć szablon.
 1. Wybierz przycisk **RAW** . Adres URL zaczyna się od `https://raw.githubusercontent.com` .
 1. Utwórz kopię adresu URL. Należy podać tę wartość podczas konfigurowania potoku w dalszej części tego samouczka.
@@ -134,7 +134,7 @@ Utwórz połączenie usługi używane do wdrażania projektów na platformie Azu
 
 1. Wybierz pozycję **Ustawienia projektu** w dolnej części menu po lewej stronie.
 1. Wybierz pozycję **połączenia usługi** w obszarze **potoki**.
-1. Wybierz pozycję **nowe połączenie usługi**, wybierz pozycję **Azure Resource Manager**, a następnie wybierz pozycję **dalej**.
+1. Wybierz pozycję **Utwórz połączenie usługi**, wybierz pozycję **Azure Resource Manager**, a następnie wybierz pozycję **dalej**.
 1. Wybierz pozycję Nazwa **główna usługi**, a następnie wybierz pozycję **dalej**.
 1. Podaj następujące wartości:
 
@@ -155,7 +155,7 @@ Do tej pory zostały wykonane następujące zadania.  Jeśli pominiesz poprzedni
 Aby utworzyć potok z krokiem do wdrożenia szablonu:
 
 1. Wybierz pozycję **potoki** w menu po lewej stronie.
-1. Wybierz pozycję **Nowy potok**.
+1. Wybierz pozycję **Utwórz potok**.
 1. Na karcie **Connect** (Połączenie) wybierz pozycję **GitHub**. Jeśli zostanie wyświetlony monit, wprowadź swoje poświadczenia usługi GitHub, a następnie postępuj zgodnie z instrukcjami. Jeśli widzisz Poniższy ekran, wybierz opcję **tylko wybierz repozytoria** i sprawdź, czy repozytorium znajduje się na liście przed wybraniem opcji **Zatwierdź & Zainstaluj**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines wybierz tylko repozytoria](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)

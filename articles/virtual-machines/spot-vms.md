@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z maszyn wirtualnych platformy Azure
-description: Dowiedz się, jak oszczędzać koszty przy użyciu maszyn wirtualnych platformy Azure.
+title: Użyj Virtual Machines na platformie Azure
+description: Dowiedz się, jak korzystać z Virtual Machines usługi Azure Spot, aby zaoszczędzić na kosztach.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
@@ -8,23 +8,23 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 460529ab6e3227a998ac04c4819171274307ff9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557828"
 ---
-# <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
+# <a name="use-azure-spot-virtual-machines"></a>Użyj Virtual Machines na platformie Azure 
 
-Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
+Korzystanie z usługi Azure Spot Virtual Machines umożliwia korzystanie z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy Virtual Machines na platformie Azure. Z tego względu Virtual Machines na platformie Azure są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
-Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania maszyn wirtualnych w miejscu platforma Azure przydzieli maszyny wirtualne, jeśli będzie dostępna pojemność, ale nie ma umowy SLA dla tych maszyn wirtualnych. Na maszynie wirtualnej nie są dostępne gwarancje wysokiej dostępności. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy maszyny wirtualne z 30 sekund. 
+Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania usługi Azure Spot Virtual Machines platforma Azure przydzieli maszyny wirtualne, jeśli będzie dostępna pojemność, ale nie ma umowy SLA dla tych maszyn wirtualnych. Maszyna wirtualna w miejscu na platformie Azure nie oferuje gwarancji o wysokiej dostępności. W dowolnym momencie, gdy platforma Azure potrzebuje pojemności z powrotem, infrastruktura platformy Azure wyłączy Virtual Machines platformy Azure z powiadomieniem o 30 sekundach. 
 
 
 ## <a name="eviction-policy"></a>Zasady eksmisji
 
-Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. Podczas tworzenia maszyny wirtualnej na miejscu możesz ustawić zasady wykluczania na *Cofnij przydział* (domyślnie) lub *Usuń*. 
+Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. Podczas tworzenia maszyny wirtualnej platformy Azure w miejscu możesz ustawić zasady wykluczania na *Alokacje* (ustawienie domyślne) lub *delete*. 
 
 Zasada cofania *przydziału* przenosi maszynę wirtualną do stanu zatrzymania bez alokacji, umożliwiając ponowne wdrożenie go później. Nie ma jednak gwarancji, że alokacja powiedzie się. Wycofane maszyny wirtualne będą wliczane do limitu przydziału i będą naliczane opłaty za magazyn dla dysków bazowych. 
 
@@ -47,11 +47,11 @@ Możesz zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za 
 
 ## <a name="limitations"></a>Ograniczenia
 
-Następujące rozmiary maszyn wirtualnych nie są obsługiwane w przypadku maszyn wirtualnych na miejscu:
+Następujące rozmiary maszyn wirtualnych nie są obsługiwane w przypadku Virtual Machines na platformie Azure:
  - Seria B
  - Promocja wersji dowolnego rozmiaru (na przykład Dv2, NV, w obszarze rozmiary promocji)
 
-Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chinach 21Vianet.
+Virtual Machines usługi Azure Spot można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chiny 21Vianet.
 
 <a name="channel"></a>
 
@@ -65,7 +65,7 @@ Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-detai
 
 ## <a name="pricing"></a>Cennik
 
-Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows. 
+Cennik usługi Azure Virtual Machines w miejscu to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows. 
 
 Możesz również zbadać informacje o cenach przy użyciu [interfejsu API cen detalicznych platformy Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) , aby uzyskać informacje o cenach dodatkowych. Elementy `meterName` i `skuName` będą zawierać `Spot` .
 
@@ -87,24 +87,24 @@ Możesz wyświetlić historyczne ceny i stawki wykluczenia według rozmiaru w re
 
 ##  <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**P:** Po utworzeniu, czy na maszynie wirtualnej jest taka sama jak zwykła Standardowa maszyna wirtualna?
+**P:** Po utworzeniu usługa jest maszyną wirtualną platformy Azure w tej samej postaci jak zwykła Standardowa maszyna wirtualna?
 
-Odp **.:** Tak, z tą różnicą, że nie ma umowy SLA dla maszyn wirtualnych i można je wykluczyć w dowolnym momencie.
+Odp **.:** Tak, z tą różnicą, że nie ma umowy SLA dla usługi Azure Virtual Machines i można je wykluczyć w dowolnym momencie.
 
 
 **P:** Co należy zrobić po wykluczeniu, ale nadal potrzebujesz pojemności?
 
-Odp **.:** Zalecamy używanie standardowych maszyn wirtualnych zamiast maszyn wirtualnych na miejscu, jeśli potrzebujesz pojemności od razu.
+Odp **.:** Zalecamy używanie standardowych maszyn wirtualnych zamiast Virtual Machines platformy Azure, jeśli potrzebujesz pojemności od razu.
 
 
-**P:** Jak są zarządzane limity przydziału dla maszyn wirtualnych na miejscu?
+**P:** Jak są zarządzane limity przydziału dla usługi Azure Spot Virtual Machines?
 
-Odp **.:** Maszyny wirtualne na miejscu będą mieć oddzielną pulę przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawów skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Odp **.:** Virtual Machines w miejscu na platformie Azure będzie mieć oddzielną pulę przydziałów. Przydział punktowy będzie współużytkowany między maszynami wirtualnymi i wystąpieniami zestawów skalowania. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**P:** Czy mogę zażądać dodatkowego przydziału na miejscu?
+**P:** Czy mogę zażądać dodatkowego przydziału dla Virtual Machines w miejscu na platformie Azure?
 
-Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu przydziału dla maszyn wirtualnych na miejscu za pośrednictwem [standardowego procesu żądania limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md).
+Odp **.:** Tak, będzie można przesłać żądanie, aby zwiększyć limit przydziału dla Virtual Machines w miejscu na platformie Azure przez [standardowy proces żądania limitu przydziału](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** Gdzie mogę publikować pytania?
@@ -117,8 +117,8 @@ Odp **.:** Możesz ogłosić pytanie i oznaczyć je za pomocą `azure-spot` [ele
 Odp **.:** Aby zmienić cenę maksymalną, należy cofnąć przydział maszyny wirtualnej. Następnie można zmienić maksymalną cenę w portalu, z sekcji **konfiguracji** maszyny wirtualnej. 
 
 ## <a name="next-steps"></a>Następne kroki
-Wdrażaj maszyny wirtualne za pomocą [interfejsu wiersza polecenia](./linux/spot-cli.md), [portalu](spot-portal.md), [ARM](./linux/spot-template.md)lub [programu PowerShell](./windows/spot-powershell.md) .
+Użyj [interfejsu wiersza polecenia](./linux/spot-cli.md), [portalu](spot-portal.md), usługi [ARM](./linux/spot-template.md)lub [programu PowerShell](./windows/spot-powershell.md) , aby wdrożyć Virtual Machines na platformie Azure.
 
-Możesz również wdrożyć [zestaw skalowania z wystąpieniami maszyn wirtualnych](../virtual-machine-scale-sets/use-spot.md).
+[Zestaw skalowania można również wdrożyć za pomocą wystąpień maszyn wirtualnych platformy Azure](../virtual-machine-scale-sets/use-spot.md).
 
 Jeśli wystąpi błąd, zobacz [kody błędów](./error-codes-spot.md).

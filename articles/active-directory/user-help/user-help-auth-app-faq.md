@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226526"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547863"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -94,6 +94,7 @@ Odp.: niektóre organizacje **wymagają, aby** uwierzytelnienie działało z log
 ### <a name="device-registration"></a>Rejestracja urządzenia
 
 **P**: co to jest rejestracja urządzenia?
+
 Odp **.:** organizacja może wymagać zarejestrowania urządzenia w celu śledzenia dostępu do zabezpieczonych zasobów, takich jak pliki i aplikacje. Mogą również włączyć dostęp warunkowy w celu zmniejszenia ryzyka niepożądanego dostępu do tych zasobów. Możesz wyrejestrować urządzenie w **ustawieniach**, ale możesz utracić dostęp do wiadomości e-mail w programie Outlook, w plikach w usłudze OneDrive i utracisz możliwość logowania za pomocą telefonu.
 
 ### <a name="verification-codes-when-connected"></a>Kody weryfikacyjne w przypadku połączenia

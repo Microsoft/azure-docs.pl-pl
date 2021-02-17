@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie kontenerami woluminów dla urządzeń z serii StorSimple 8000
-description: Wyjaśnia, jak można użyć strony kontenery woluminów usługi StorSimple Menedżer urządzeń do dodawania, modyfikowania lub usuwania kontenera woluminów.
+description: Wyjaśnia, jak można użyć strony kontenery woluminów usługi StorSimple Device Manager do dodawania, modyfikowania lub usuwania kontenera woluminów.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 5a6cd904d7baa71c8b383022523909ca30000ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0a0fd48e3717d14a714e42c5566cd7bcf090d5
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515000"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545397"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Use the StorSimple Device Manager service to manage StorSimple volume containers (Zarządzanie kontenerami woluminów StorSimple za pomocą usługi Menedżer urządzeń StorSimple)
 
 ## <a name="overview"></a>Omówienie
-W tym samouczku wyjaśniono, jak używać usługi StorSimple Menedżer urządzeń do tworzenia kontenerów woluminów StorSimple i zarządzania nimi.
+W tym samouczku wyjaśniono, jak używać usługi StorSimple Device Manager do tworzenia kontenerów woluminów StorSimple i zarządzania nimi.
 
 Kontener woluminów na urządzeniu Microsoft Azure StorSimple zawiera jeden lub więcej woluminów, które współużytkują ustawienia kont magazynu, szyfrowania i zużycia przepustowości. Urządzenie może mieć wiele kontenerów woluminów dla wszystkich woluminów. 
 
@@ -58,5 +58,5 @@ Kontener woluminów zawiera woluminy. Można ją usunąć tylko wtedy, gdy wszys
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zarządzaniu woluminami StorSimple](storsimple-8000-manage-volumes-u2.md). 
-* Dowiedz się więcej o [korzystaniu z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej o [korzystaniu z usługi StorSimple Device Manager w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).
 

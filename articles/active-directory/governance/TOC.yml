@@ -14,8 +14,10 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: Tworzenie pierwszego pakietu dostępu
+    - name: Zarządzanie dostępem do zasobów — Azure Portal
       href: entitlement-management-access-package-first.md
+    - name: Zarządzanie dostępem do zasobów — Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Pojęcia
   expanded: true
   items:

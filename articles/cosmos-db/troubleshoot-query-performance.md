@@ -4,16 +4,16 @@ description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524312"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559977"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają 
 | Górny/dolny                         | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. Zostanie zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
 | GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Oblicz bieżącą godzinę przed wykonaniem zapytania i Użyj tej wartości ciągu w `WHERE` klauzuli. |
 | Funkcje matematyczne (inne niż zagregowane) | Jeśli trzeba często obliczać wartość w zapytaniu, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
+
+Te funkcje systemowe mogą używać indeksów, z wyjątkiem przypadków, gdy są używane w zapytaniach z agregacjami:
+
+| **Funkcja systemowa**                     | **Pomysły dotyczące optymalizacji**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Funkcje systemu przestrzennego                        | Przechowywanie wyniku zapytania w widoku z materiałami w czasie rzeczywistym |
 
 W przypadku użycia w `SELECT` klauzuli niewydajne funkcje systemowe nie wpłyną na sposób używania indeksów przez zapytania.
 

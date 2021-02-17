@@ -26,11 +26,7 @@
       href: tutorial-register-applications.md
     - name: 3 — Tworzenie przepływów użytkownika
       href: tutorial-create-user-flows.md
-    - name: Dodawanie dostawców tożsamości
-      href: tutorial-add-identity-providers.md
-    - name: Dostosowywanie interfejsu użytkownika
-      href: tutorial-customize-ui.md
-    - name: Uwierzytelnianie użytkowników
+    - name: 4 — uwierzytelnianie użytkowników
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: Udzielanie dostępu do interfejsu API
+    - name: 5 — udzielanie dostępu do interfejsu API
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -434,20 +430,20 @@
     - name: Zabezpieczanie interfejsu API usługi API Management
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
-    - name: Bezpieczna oparta na telefonie MFA
-      href: phone-based-mfa.md
-      displayName: 'multi-factor authentication, Azure Monitor, Log Analytics'
     - name: Dzienniki i monitorowanie
       items:
         - name: Dzienniki inspekcji
           href: view-audit-logs.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting'
         - name: Azure Monitor
           href: azure-monitor.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
         - name: Analiza użycia
           href: analytics-with-application-insights.md
-          displayName: 'application insights, app insights'
+          displayName: 'application insights, app insights, reports, reporting'
+        - name: Bezpieczna oparta na telefonie MFA
+          href: phone-based-mfa.md
+          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Zgodność
       items:
         - name: Dostęp użytkowników

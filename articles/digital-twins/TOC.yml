@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Pojęcia
   items:
-    - name: Modele niestandardowe
+    - name: Modele DTDL
       href: concepts-models.md
+    - name: Ontologie
+      items:
+        - name: Co to jest Ontology?
+          href: concepts-ontologies.md
+        - name: Przyjmowanie standardowych ontologieów branżowych
+          href: concepts-ontologies-adopt.md
+        - name: Konwertowanie ontologie
+          href: concepts-ontologies-convert.md
+        - name: Rozszerzanie ontologie
+          href: concepts-ontologies-extend.md
     - name: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
       href: concepts-twins-graph.md
     - name: Język zapytań
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Projektowanie modeli
       items:
-        - name: Zarządzanie modelami niestandardowymi
+        - name: Zarządzanie modelami DTDL
           href: how-to-manage-model.md
-        - name: Integrowanie modeli zgodnych ze standardami branżowymi
-          href: how-to-integrate-models.md
         - name: Analizowanie i weryfikowanie modeli
           href: how-to-parse-models.md
         - name: Dodawanie tagów
@@ -249,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Moduł sprawdzania poprawności DTDL (przykład)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Model obiektu przekazującego (przykład)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Wizualizator modelu (przykład)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Konwerter OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Przykład integracji usług DPS i IoT Hub
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Przykład integracji z usługą SignalR

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936696"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557183"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Samouczek rozszerzania Azure AD B2C ochrony lokalnych aplikacji przy użyciu warstwy strat
 
@@ -85,7 +85,7 @@ Aby uzyskać oprogramowanie, którego będziesz używać do integrowania starsze
 
 2. **Utwórz przepływ użytkownika**: Utwórz proces tworzenia [konta i](./tutorial-create-user-flows.md)logowania.
 
-3. **Dodaj dostawcy tożsamości**: Wybierz, aby zalogować się do użytkownika przy użyciu konta lokalnego lub [dostawcy tożsamości](./tutorial-add-identity-providers.md)w wersji społecznej lub korporacyjnej.
+3. **Dodaj dostawcy tożsamości**: Wybierz, aby zalogować się do użytkownika przy użyciu konta lokalnego lub [dostawcy tożsamości](./add-identity-provider.md)w wersji społecznej lub korporacyjnej.
 
 4. **Zdefiniuj atrybuty użytkownika**: Zdefiniuj atrybuty, które mają być zbierane podczas tworzenia konta.
 
