@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491020"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545823"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Używanie nazwanych wartości w zasadach usługi Azure API Management
 
@@ -86,6 +86,8 @@ Zapoznaj się z [wymaganiami wstępnymi dotyczącymi integracji magazynu kluczy]
 
 ### <a name="add-a-plain-or-secret-value"></a>Dodawanie wartości zwykłej lub tajnej
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
 1. W obszarze **interfejsy API** wybierz pozycję **wartości nazwane**  >  **+ Dodaj**.
 1. Wprowadź identyfikator **nazwy** i wprowadź **nazwę wyświetlaną** używaną do odwoływania się do właściwości w zasadach.
@@ -95,6 +97,50 @@ Zapoznaj się z [wymaganiami wstępnymi dotyczącymi integracji magazynu kluczy]
 1. Wybierz przycisk **Utwórz**.
 
 Po utworzeniu nazwanej wartości można ją edytować, wybierając jej nazwę. Jeśli zmienisz nazwę wyświetlaną, wszystkie zasady odwołujące się do tej nazwanej wartości są automatycznie aktualizowane, aby używać nowej nazwy wyświetlanej.
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby rozpocząć korzystanie z interfejsu wiersza polecenia platformy Azure:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Aby dodać nazwaną wartość, użyj polecenia [AZ APIM NV Create](/cli/azure/apim/nv#az_apim_nv_create) :
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+Po utworzeniu nazwanej wartości można ją zaktualizować za pomocą polecenia [AZ APIM NV Update](/cli/azure/apim/nv#az_apim_nv_update) . Aby wyświetlić wszystkie nazwane wartości, uruchom polecenie [AZ APIM NV list](/cli/azure/apim/nv#az_apim_nv_list) :
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Aby wyświetlić szczegóły nazwanej wartości utworzonej w tym przykładzie, uruchom polecenie [AZ APIM NV show](/cli/azure/apim/nv#az_apim_nv_show) :
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Ten przykład jest wartością tajną. Poprzednie polecenie nie zwraca wartości. Aby wyświetlić wartość, uruchom polecenie [AZ APIM NV show-Secret](/cli/azure/apim/nv#az_apim_nv_show_secret) :
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+Aby usunąć nazwaną wartość, użyj polecenia [AZ APIM NV Delete](/cli/azure/apim/nv#az_apim_nv_delete) :
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
 
 ## <a name="use-a-named-value"></a>Użyj nazwanej wartości
 

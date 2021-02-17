@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56e92a698446bd417c74820d6da662ad9ee55c77
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953023"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555678"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web w języku Python za pomocą Azure AD B2C
 
@@ -125,7 +125,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. W konsoli lub terminalu przejdź do katalogu zawierającego przykład. Przykład:
+1. W konsoli lub terminalu przejdź do katalogu zawierającego przykład. Na przykład:
 
     ```console
     cd ms-identity-python-webapp
@@ -185,4 +185,4 @@ W tym samouczku skonfigurowano aplikację sieci Web kolby Python do pracy z prze
 Następnie Dowiedz się, jak dostosować interfejs użytkownika stron przepływu użytkownika wyświetlanych użytkownikom przez Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Dostosowywanie interfejsu środowiska użytkownika w Azure AD B2C >](tutorial-customize-ui.md)
+> [Dostosowywanie interfejsu środowiska użytkownika w Azure AD B2C >](customize-ui.md)

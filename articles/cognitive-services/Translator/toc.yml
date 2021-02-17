@@ -22,7 +22,7 @@
           href: character-counts.md
     - name: Przewodniki z instrukcjami
       items:
-        - name: Rejestrowanie się w celu korzystania z usługi Translator
+        - name: Tworzenie zasobu usługi translator
           href: ./translator-how-to-signup.md
         - name: Migrowanie do interfejsu API V3 tłumaczenia tekstu
           href: migrate-to-v3.md

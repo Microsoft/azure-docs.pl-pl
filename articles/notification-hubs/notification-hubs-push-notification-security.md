@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76263765"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548254"
 ---
 # <a name="notification-hubs-security"></a>Zabezpieczenia Notification Hubs
 
@@ -36,7 +36,7 @@ Notification Hubs implementuje schemat zabezpieczeń na poziomie jednostki nazyw
 Podczas tworzenia centrum automatycznie tworzone są dwie reguły: jeden z prawami do **nasłuchiwania** (używane przez aplikację kliencką) i **jeden z** prawami (których zaplecze aplikacji):
 
 - **DefaultListenSharedAccessSignature**: przyznaje tylko uprawnienia do **nasłuchiwania** .
-- **DefaultFullSharedAccessSignature**: przyznaje uprawnienia do **nasłuchiwania**, **zarządzania**i **wysyłania** . Te zasady mają być używane tylko w zasobie zaplecza aplikacji. Nie należy używać go w aplikacjach klienckich; Użyj zasad z dostępem tylko do **nasłuchiwania** . Aby utworzyć nowe zasady dostępu niestandardowego z nowym tokenem SAS, zobacz [tokeny SAS dla zasad dostępu](#sas-tokens-for-access-policies) w dalszej części tego artykułu.
+- **DefaultFullSharedAccessSignature**: przyznaje uprawnienia do **nasłuchiwania**, **zarządzania** i **wysyłania** . Te zasady mają być używane tylko w zasobie zaplecza aplikacji. Nie należy używać go w aplikacjach klienckich; Użyj zasad z dostępem tylko do **nasłuchiwania** . Aby utworzyć nowe zasady dostępu niestandardowego z nowym tokenem SAS, zobacz [tokeny SAS dla zasad dostępu](#sas-tokens-for-access-policies) w dalszej części tego artykułu.
 
 W przypadku zarządzania rejestracją w aplikacjach klienckich, jeśli informacje wysyłane za pośrednictwem powiadomień nie są poufne (na przykład aktualizacje pogody), typowym sposobem uzyskiwania dostępu do centrum powiadomień jest nadanie wartości klucza reguły dostępu tylko do aplikacji klienckiej, a w celu przyznania wartości klucza reguły pełnego dostępu do zaplecza aplikacji.
 
@@ -46,7 +46,7 @@ Klucz z dostępem do **nasłuchiwania** umożliwia aplikacji klienckiej rejestra
 
 ## <a name="security-claims"></a>Oświadczenia zabezpieczeń
 
-Podobnie jak w przypadku innych jednostek, operacje centrum powiadomień są dozwolone dla trzech oświadczeń zabezpieczeń: **nasłuchiwanie**, **wysyłanie**i **Zarządzanie**.
+Podobnie jak w przypadku innych jednostek, operacje centrum powiadomień są dozwolone dla trzech oświadczeń zabezpieczeń: **nasłuchiwanie**, **wysyłanie** i **Zarządzanie**.
 
 | Claim   | Opis                                          | Dozwolone operacje |
 | ------- | ---------------------------------------------------- | ------------------ |
@@ -64,14 +64,14 @@ Użyj zasad dostępu na poziomie przestrzeni nazw (poświadczeń) dla operacji n
 
 Aby utworzyć nowe zabezpieczenia lub wyświetlić istniejące klucze SAS, wykonaj następujące czynności:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Wybierz pozycję **Wszystkie zasoby**.
 3. Wybierz nazwę centrum powiadomień, dla którego chcesz utworzyć lub wyświetlić klucz sygnatury dostępu współdzielonego.
 4. W menu po lewej stronie wybierz pozycję **zasady dostępu**.
 5. Wybierz pozycję **nowe zasady** , aby utworzyć nowe zabezpieczenia. Nadaj zasadom nazwę i wybierz uprawnienia, które chcesz udzielić. Następnie wybierz przycisk **OK**.
 6. Pełne parametry połączenia (łącznie z nowym kluczem SAS) są wyświetlane w oknie zasady dostępu. Możesz skopiować ten ciąg do Schowka w celu późniejszego użycia.
 
-Aby wyodrębnić klucz sygnatury dostępu współdzielonego z określonych zasad, wybierz przycisk **Kopiuj** obok zasad zawierających odpowiedni klucz SAS. Wklej tę wartość do tymczasowej lokalizacji, a następnie skopiuj część klucza sygnatury dostępu współdzielonego parametrów połączenia. W tym przykładzie używa Notification Hubs przestrzeni nazw o nazwie **mytestnamespace1**i zasad o nazwie **policy2**. Klucz sygnatury dostępu współdzielonego to wartość znajdująca się blisko końca ciągu, określona przez **SharedAccessKey**:
+Aby wyodrębnić klucz sygnatury dostępu współdzielonego z określonych zasad, wybierz przycisk **Kopiuj** obok zasad zawierających odpowiedni klucz SAS. Wklej tę wartość do tymczasowej lokalizacji, a następnie skopiuj część klucza sygnatury dostępu współdzielonego parametrów połączenia. W tym przykładzie używa Notification Hubs przestrzeni nazw o nazwie **mytestnamespace1** i zasad o nazwie **policy2**. Klucz sygnatury dostępu współdzielonego to wartość znajdująca się blisko końca ciągu, określona przez **SharedAccessKey**:
 
 ```shell
 Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=policy2;SharedAccessKey=<SAS key value here>

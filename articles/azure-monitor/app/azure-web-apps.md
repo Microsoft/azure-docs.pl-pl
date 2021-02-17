@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365229"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547239"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -76,7 +76,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1, 3,1 i 5,0. Wersje 2,0, 2,2 i 3,0 zostały wycofane i nie są już obsługiwane. Przeprowadź uaktualnienie do [obsługiwanej wersji](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) programu .NET Core, aby funkcja autoinstrumentacja działała prawidłowo.
+> Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1 i 3,1. Wersje 2,0, 2,2 i 3,0 zostały wycofane i nie są już obsługiwane. Przeprowadź uaktualnienie do [obsługiwanej wersji](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) programu .NET Core, aby funkcja autoinstrumentacja działała prawidłowo.
 
 Ukierunkowanie na pełną strukturę ASP.NET Core, samodzielnego wdrażania i aplikacji opartych na systemie Linux **nie** są obecnie obsługiwane przez monitorowanie oparte na agentach/rozszerzeniach. ([Instrumentacja ręczna](./asp-net-core.md) za pośrednictwem kodu będzie działała we wszystkich poprzednich scenariuszach).
 

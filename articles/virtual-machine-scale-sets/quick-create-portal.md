@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913734"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535284"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
 
@@ -42,7 +42,7 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
     | Nazwa           | *myLoadBalancer*         |
     | Region (Region)         | Wybierz pozycję **Wschodnie stany USA**.       |
     | Typ          | Wybierz pozycję **Publiczna**.       |
-    | Jednostka SKU           | Wybierz pozycję **Standardowy**.       |
+    | SKU           | Wybierz pozycję **Standardowy**.       |
     | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. |
     | Nazwa publicznego adresu IP  | *myPip*   |
     | Przypisanie| Static |
@@ -57,7 +57,7 @@ Najpierw utwórz publiczną usługa Load Balancer w warstwie Standardowa przy u�
 Możesz wdrożyć zestaw skalowania z obrazu systemu Windows Server lub obrazu systemu Linux, takiego jak RHEL, CentOS, Ubuntu i SLES.
 
 1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace** wybierz pozycję **zestawy skalowania maszyn wirtualnych**. Wybierz pozycję **Utwórz** na stronie **zestawy skalowania maszyn wirtualnych** , która spowoduje otwarcie strony **Tworzenie zestawu skalowania maszyn wirtualnych** . 
-1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz *myVMSSResourceGroup* jako nazwę, a następnie wybierz przycisk **OK** . 
+1. Na karcie **podstawy** w obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję i wybierz pozycję *myVMSSResourceGroup* z listy grup zasobów. 
 1. Wpisz *myScaleSet* jako nazwę zestawu skalowania.
 1. W obszarze **region** wybierz region blisko Twojego obszaru.
 1. Wybierz obraz z witryny Marketplace dla **obrazu**. W tym przykładzie wybrano *Ubuntu Server 18,04 LTS*.

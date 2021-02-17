@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652878"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548730"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Jak używać funkcji Twilio do obsługi głosu i programu SMS w języku Java
 W tym przewodniku pokazano, jak wykonywać typowe zadania programistyczne za pomocą usługi interfejsu API Twilio na platformie Azure. Omówione scenariusze obejmują wykonywanie połączeń telefonicznych i wysyłanie wiadomości SMS. Aby uzyskać więcej informacji na temat Twilio i używania programów Voice i SMS w aplikacjach, zobacz sekcję [następne kroki](#NextSteps) .
@@ -76,7 +76,7 @@ Po zarejestrowaniu się w celu skorzystania z konta usługi Twilio zostanie wyś
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Tworzenie aplikacji Java
 1. Uzyskaj Twilio JAR i dodaj go do swojej ścieżki kompilacji Java oraz zestawu wdrożeniowego WAR. Na stronie [https://github.com/twilio/twilio-java][twilio_java] można pobrać źródła usługi GitHub i utworzyć własny plik JAR lub pobrać wstępnie utworzony jar (z zależnościami lub bez).
-2. Upewnij się, że magazyn kluczy **CACERTS** JDK zawiera certyfikat bezpiecznego urzędu certyfikacji z sygnaturą zabezpieczeń MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1b: ec: D4 (numer seryjny to 35: de: F4: CF i odcisk palca SHA1 to D2:32:09: AD: 23: D3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3a). Jest to certyfikat urzędu certyfikacji dla [https://api.twilio.com][twilio_api_service] usługi, który jest wywoływany w przypadku korzystania z interfejsów API Twilio. Aby uzyskać informacje na temat zapewnienia, że magazyn kluczy **CACERTS** JDK zawiera prawidłowy certyfikat urzędu certyfikacji, zobacz [Dodawanie certyfikatu do magazynu certyfikatów urzędu certyfikacji Java][add_ca_cert].
+2. Upewnij się, że magazyn kluczy **CACERTS** JDK zawiera certyfikat bezpiecznego urzędu certyfikacji z sygnaturą zabezpieczeń MD5 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1b: ec: D4 (numer seryjny to 35: de: F4: CF i odcisk palca SHA1 to D2:32:09: AD: 23: D3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3a). Jest to certyfikat urzędu certyfikacji dla [https://api.twilio.com][twilio_api_service] usługi, który jest wywoływany w przypadku korzystania z interfejsów API Twilio.
 
 Szczegółowe instrukcje dotyczące korzystania z biblioteki klienta Twilio dla języka Java są dostępne podczas naliczania [połączenia telefonicznego przy użyciu Twilio w aplikacji Java na platformie Azure][howto_phonecall_java].
 
@@ -217,7 +217,6 @@ Teraz, gdy znasz już podstawy usługi Twilio, Skorzystaj z poniższych linków,
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message

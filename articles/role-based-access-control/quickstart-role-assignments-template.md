@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu Azure Resource Manager — RBAC na platformie Azure'
+title: 'Szybki Start: Przypisywanie roli platformy Azure przy użyciu szablonu Azure Resource Manager — RBAC na platformie Azure'
 description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkownika w zakresie grupy zasobów przy użyciu szablonów Azure Resource Manager i kontroli dostępu opartej na rolach (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690446"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559275"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu ARM
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Szybki Start: Przypisywanie roli platformy Azure przy użyciu szablonu ARM
 
 [Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym przewodniku szybki start utworzysz grupę zasobów i udzielą użytkownikowi dostępu do tworzenia maszyn wirtualnych w grupie zasobów i zarządzania nimi. Ten przewodnik Szybki Start używa szablonu Azure Resource Manager (szablon ARM) do udzielenia dostępu.
 
@@ -29,11 +29,11 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby dodać przypisania ról, musisz mieć:
+Aby przypisać role platformy Azure i usunąć przypisania ról, musisz dysponować:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
-- Aby dodać przypisanie roli, należy określić trzy elementy: podmiot zabezpieczeń, definicja roli i zakres. W tym przewodniku szybki start podmiot zabezpieczeń jest używany przez Ciebie lub innego użytkownika w katalogu, definicja roli to [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor), a zakres to grupa zasobów, którą określisz.
+- Aby przypisać rolę, należy określić trzy elementy: podmiot zabezpieczeń, definicja roli i zakres. W tym przewodniku szybki start podmiot zabezpieczeń jest używany przez Ciebie lub innego użytkownika w katalogu, definicja roli to [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor), a zakres to grupa zasobów, którą określisz.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 

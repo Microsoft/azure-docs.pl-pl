@@ -3,19 +3,19 @@ title: Zapraszanie użytkowników do Video Indexer na platformie Azure
 titleSuffix: Azure Media Services
 description: W tym artykule pokazano, jak zapraszać użytkowników do Video Indexer.
 services: media-services
-author: ReutAmior
+author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 02/03/2021
 ms.author: juliako
-ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7d3415ffad4820d8651841398ec6d47352869ce2
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364148"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534743"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Szybki Start: Zapraszanie użytkowników do Video Indexer
 
@@ -29,26 +29,33 @@ Aby współpracować ze współpracownikami, możesz zaprosić je do konta Video
 1. Zaloguj się w witrynie internetowej usługi [Video Indexer](https://www.videoindexer.ai/). Upewnij się, że nawiązano połączenie z kontem administratora.
 1. Jeśli jesteś administratorem, zobaczysz przycisk **Udostępnij konto** w prawym górnym rogu. Kliknij przycisk i możesz zaprosić użytkowników. 
 
-   ![Zaproś nowych użytkowników](./media/invite-users/share-account.png)
-1. Dodaj adresy e-mail osób, które chcesz dodać do konta Video Indexer:
+    :::image type="content" source="./media/invite-users/share-account.png" alt-text="Udostępnianie konta":::
+1. W oknie dialogowym **udostępnianie tego konta innym osobom** wprowadź adresy e-mail osoby, którą chcesz zaprosić do konta Video Indexer:
 
-    ![Zapraszanie użytkowników do tego konta](./media/invite-users/invite-to-account.png)
-        
-    >[!NOTE]
-    > Wszyscy zaproszeni użytkownicy będą mieć uprawnienia do odczytu i zapisu do wszystkich filmów wideo na Twoim koncie.
-1. Zaproszeni użytkownicy otrzymają wiadomość e-mail z linkiem i będą mogli uzyskać dostęp do konta po kliknięciu linku **Video Indexer sprzężenia** :
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Zapraszanie użytkowników do tego konta":::  
+1. Po naciśnięciu przycisku **Zaproś** osoba zostanie dodana do listy oczekujących zaproszeń. <br/>Możesz wybrać jedną z dwóch opcji dla każdego zaproszenia, który jeszcze nie dołączył do  konta: Usuń **adres URL zaproszenia lub kopiowania zaproszenia**.
 
-    ![Potwierdzenie](./media/invite-users/invite-msg.png)
+    :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Oczekujące zaproszenia":::  
+1. Po dołączeniu zaproszenia do konta zobaczysz trzy opcje do wyboru. Dwie opcje dla ról: **współautor** (wartość domyślna) lub **właściciel**. W programie można wybrać opcję usunięcia zaproszenia przez naciśnięcie przycisku **Usuń**.
 
-    Aby uzyskać dostęp do konta, użytkownik musi kliknąć link do przyłączenia. 
+    :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Przyłączone zaproszenie":::  
 
-## <a name="removing-existing-users"></a>Usuwanie istniejących użytkowników
+    Użytkownicy nie otrzymają powiadomienia po usunięciu. Po usunięciu użytkownicy nie będą autoryzowani do logowania.
 
-Jeśli chcesz usunąć użytkowników, którzy mają dostęp do Twojego konta, możesz kliknąć znak **X** obok jego nazwy:
+## <a name="manage-roles-invite-more-users"></a>Zarządzanie rolami, zapraszanie większej liczby użytkowników
 
-![Usuwanie użytkowników](./media/invite-users/remove-users.png)
+Oprócz wyświetlania okna dialogowego **udostępnianie tego konta innym osobom** , klikając pozycję **Udostępnij konto** (zgodnie z powyższym opisem), można to zrobić z poziomu **ustawień**.
 
-Użytkownicy nie otrzymają powiadomienia po usunięciu. Po usunięciu użytkownicy nie będą autoryzowani do logowania.
+1. Naciśnij przycisk **Ustawienia** w otwartym koncie. 
+
+    :::image type="content" source="./media/invite-users/settings.png" alt-text="Ustawienia konta":::  
+1. Kliknij przycisk **Zarządzaj rolami** .
+1. Aby zaprosić innego użytkownika, kliknij pozycję **Zaproś więcej osób do tego konta**.
+
+    :::image type="content" source="./media/invite-users/invite-more-people.png" alt-text="Zapraszanie większej liczby użytkowników":::  
+1. Po naciśnięciu przycisku **Zaproś więcej osób na to konto** zostanie wyświetlone okno dialogowe zaproszenia
+ 
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Zapraszanie użytkowników do tego konta":::  
 
 ## <a name="next-steps"></a>Następne kroki
 

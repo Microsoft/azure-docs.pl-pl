@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102261"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534684"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -328,6 +328,17 @@ Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetw
 - Są to średnie wartości przy założeniu 30-procentowego nakładania się operacji we/wy.
 - Usługa Site Recovery może obsługiwać większą przepływność na podstawie zakresu nakładania się na siebie, większego rozmiaru operacji zapisu i rzeczywistego zachowania związanego z obciążeniem operacji we/wy.
 - Te liczby zakładają typowy zaległości około pięciu minut. Oznacza to, że przekazane dane są przetwarzane i punkt odzyskiwania jest tworzony w ciągu pięciu minut.
+
+## <a name="storage-account-limits"></a>Limity kont magazynu
+
+Ze względu na to, że średnie zmiany na dyskach rosną, liczba dysków, które może obsłużyć konto magazynu. Poniższa tabela może służyć jako przewodnik podejmowania decyzji dotyczących liczby kont magazynu wymagających aprowizacji.
+ 
+**Typ konta magazynu**    |    **Liczba zmian = 4 MB/s na dysk**    |    **Liczba zmian = 8 MB/s na dysk**
+---    |    ---    |    ---
+Konto magazynu w wersji 1    |    dyski 600    |    dyski 300
+Konto magazynu v2    |    dyski 1500    |    dyski 750
+
+Należy pamiętać, że powyższe limity mają zastosowanie tylko do hybrydowych scenariuszy odzyskiwania po awarii.
 
 ## <a name="vault-tasks"></a>Zadania magazynu
 

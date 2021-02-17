@@ -2,13 +2,13 @@
 title: Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 description: Dowiedz się, jak zaktualizować konfigurację puli do najnowszej i zalecanej konfiguracji
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731503"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546044"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migruj konfigurację puli partii z Cloud Services do Virtual Machines
 
@@ -36,6 +36,19 @@ Podczas aktualizowania konfiguracji puli należy wziąć pod uwagę następując
    > Podobnie jak w przypadku Virtual Machines i Virtual Machine Scale Sets, dysk zarządzany systemu operacyjnego używany dla każdego węzła wiąże się z kosztem, który jest dodatkowym kosztem maszyn wirtualnych. Nie ma kosztu dysku systemu operacyjnego dla węzłów "cloudServiceConfiguration", ponieważ dysk systemu operacyjnego jest tworzony na lokalnym dysku SSD.
 
 - Czasy uruchamiania i usuwania puli i węzła mogą się nieco różnić między pulami "cloudServiceConfiguration" i "virtualMachineConfiguration".
+
+## <a name="azure-data-factory-custom-activity-pools"></a>Azure Data Factory niestandardowe pule działań
+
+Pule Azure Batch mogą służyć do uruchamiania Data Factory działań niestandardowych. Wszystkie pule "cloudServiceConfiguration" używane do uruchamiania działań niestandardowych muszą zostać usunięte i utworzone nowe pule "virtualMachineConfiguration".
+
+- Potoki należy wstrzymać przed usunięciem/ponownym utworzeniem, aby upewnić się, że żadne wykonywanie nie zostanie przerwane.
+- Tego samego identyfikatora puli można użyć, aby uniknąć zmian w konfiguracji połączonej usługi.
+- Wznów potoki po utworzeniu nowych pul.
+
+Aby uzyskać więcej informacji na temat używania Azure Batch do uruchamiania Data Factory działań niestandardowych:
+
+- [Azure Batch połączona usługa](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Działania niestandardowe w potoku Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
