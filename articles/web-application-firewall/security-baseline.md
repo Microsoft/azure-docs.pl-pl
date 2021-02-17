@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807873"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581247"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Podstawowa usługa Azure Security dla zapory aplikacji sieci Web platformy Azure
 
@@ -111,9 +111,9 @@ Wybierz Azure PowerShell lub interfejs wiersza polecenia platformy Azure, aby wy
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian ustawień sieciowych i zasobów związanych z wdrożeniami zapory aplikacji sieci Web platformy Azure (WAF). Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych ustawieniach sieciowych lub zasobach.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -153,9 +153,9 @@ Wskaźnik platformy Azure ma wbudowany skoroszyt usługi Azure WAF, który zawie
 
 - [Omówienie rejestrowania](ag/ag-overview.md#logging)
 
-- [Przegląd zapytania dziennika Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Przegląd zapytania dziennika Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Omówienie dzienników platformy Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Omówienie dzienników platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -192,9 +192,9 @@ Wskaźnik platformy Azure ma wbudowany skoroszyt zdarzeń WAF-zapór, który zaw
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dziennika aktywności platformy Azure oraz ustawień diagnostycznych usługi Azure WAF oraz wysyłanie dzienników do obszaru roboczego log Analytics. Wykonuj zapytania w Log Analytics, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych danych. Tworzenie alertów dotyczących nietypowej aktywności opartej na metrykach WAF. Na przykład jeśli zablokowano liczbę żądań przekroczenia "X", "do" Y ".
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Jak tworzyć alerty na platformie Azure](../azure-monitor/learn/tutorial-response.md)
+- [Jak tworzyć alerty na platformie Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

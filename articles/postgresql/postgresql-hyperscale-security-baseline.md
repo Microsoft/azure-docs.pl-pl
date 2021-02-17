@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ead666cecbc3208fe103aa740578ca36339c3e30
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804975"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588272"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-Citus
 
@@ -60,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez funkcję Citus. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM). 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Metryki w obszarze skalowanie (Citus)](./concepts-hyperscale-monitoring.md)
 
@@ -80,7 +80,7 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 - [Metryki w obszarze skalowanie (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -92,9 +92,9 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 **Wskazówki**: w Azure monitor, w obszarze roboczym log Analytics używanym do przechowywania dzienników Citus, Ustaw okres przechowywania zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -106,9 +106,9 @@ Dodatkowo dzienniki pozyskiwania za pośrednictwem Azure Monitor do agregowania 
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Aby uzyskać więcej informacji na temat Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Aby uzyskać więcej informacji na temat Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -122,7 +122,7 @@ Dołącz obszar roboczy Log Analytics do usługi Azure o, ponieważ zapewnia ona
 
 - [Metryki w obszarze skalowanie (Citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Jak skonfigurować ustawienia diagnostyczne dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak skonfigurować ustawienia diagnostyczne dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Co najmniej raz dziennie Azure Database for PostgreSQL funkcja wieloskalowania (
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wykonywane w wystąpieniach produkcyjnych funkcji Citus) i innych krytycznych lub związanych z nimi zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

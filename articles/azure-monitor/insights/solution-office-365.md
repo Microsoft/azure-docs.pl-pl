@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807754"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587311"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure (wersja zapoznawcza)
 
@@ -118,7 +118,7 @@ Rozwiązanie do zarządzania pakietem Office 365 umożliwia monitorowanie środo
 - Monitoruj działania administratora, aby śledzić zmiany konfiguracji lub operacje o wysokim poziomie uprawnień.
 - Wykrywaj i badaj niepożądane zachowanie użytkowników, które można dostosować do potrzeb organizacji.
 - Zademonstrowanie inspekcji i zgodności. Na przykład można monitorować operacje dostępu do plików dla poufnych plików, co może ułatwić proces inspekcji i zgodności.
-- Rozwiązywanie problemów operacyjnych przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) w oparciu o dane działania pakietu Office 365 w organizacji.
+- Rozwiązywanie problemów operacyjnych przy użyciu [zapytań dzienników](../logs/log-query-overview.md) w oparciu o dane działania pakietu Office 365 w organizacji.
 
 
 ## <a name="uninstall"></a>Odinstalowanie
@@ -473,6 +473,6 @@ Poniższa tabela zawiera przykładowe zapytania dzienników dla rekordów aktual
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj [zapytań dzienników w Azure monitor](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane aktualizacji.
-* [Utwórz własne pulpity nawigacyjne](../learn/tutorial-logs-dashboards.md) , aby wyświetlić ulubione zapytania wyszukiwania pakietu Office 365.
-* [Twórz Alerty](../platform/alerts-overview.md) , aby otrzymywać powiadomienia o ważnych działaniach związanych z pakietem Office 365.  
+* Użyj [zapytań dzienników w Azure monitor](../logs/log-query-overview.md) , aby wyświetlić szczegółowe dane aktualizacji.
+* [Utwórz własne pulpity nawigacyjne](../visualize/tutorial-logs-dashboards.md) , aby wyświetlić ulubione zapytania wyszukiwania pakietu Office 365.
+* [Twórz Alerty](../alerts/alerts-overview.md) , aby otrzymywać powiadomienia o ważnych działaniach związanych z pakietem Office 365.  

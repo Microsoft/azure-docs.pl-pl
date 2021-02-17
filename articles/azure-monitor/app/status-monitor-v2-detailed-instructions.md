@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318984"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587372"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agent Application Insights (dawniej nazwany monitor stanu v2): szczegółowe instrukcje
 
@@ -158,9 +158,9 @@ Jeśli z jakiegoś powodu nie można nawiązać połączenia z modułem programu
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Ręcznie Pobierz najnowszy plik NUPKG
 
-1. Przejdź do adresu https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+1. Przejdź do witryny https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Wybierz najnowszą wersję pliku w tabeli **historii wersji** .
-3. W obszarze **Opcje instalacji**wybierz pozycję **Pobieranie ręczne**.
+3. W obszarze **Opcje instalacji** wybierz pozycję **Pobieranie ręczne**.
 
 ### <a name="option-1-install-into-a-powershell-modules-directory"></a>Opcja 1: Instalowanie w katalogu modułów programu PowerShell
 Zainstaluj ręcznie pobrany moduł programu PowerShell w katalogu programu PowerShell, aby można było go odnajdywać za pomocą sesji programu PowerShell.
@@ -231,9 +231,9 @@ Szczegółowy opis sposobu korzystania z tego polecenia cmdlet można znaleźć 
 
  Wyświetlanie telemetrii:
 
-- [Poznaj metryki](../platform/metrics-charts.md) , aby monitorować wydajność i użycie.
+- [Poznaj metryki](../essentials/metrics-charts.md) , aby monitorować wydajność i użycie.
 - [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md) , aby zdiagnozować problemy.
-- [Użyj analizy](../log-query/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
+- [Użyj analizy](../logs/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
 - [Tworzenie pulpitów nawigacyjnych](./overview-dashboard.md).
 
  Dodawanie kolejnych funkcji telemetrii:

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 59791b72272ccd721a61da88d13b973119cef5d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089982"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596136"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Jak monitorować zasoby w chmurze wiosny przy użyciu alertów i grup akcji
 
@@ -84,15 +84,15 @@ W poprzednich krokach utworzono **grupę akcji** , która używa poczty e-mail. 
 
    ![Portal zrzutów ekranu — Nowa reguła alertu 3](media/alerts-action-groups/alerts-3-2.png)
 
-1. Kliknij pozycję **Gotowe**.
+1. Kliknij przycisk **Gotowe**.
 
    Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options).
 
-1. W obszarze **Akcje**kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
+1. W obszarze **Akcje** kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
 
    ![Nowy alert dotyczący portalu zrzutu ekranu 4](media/alerts-action-groups/alerts-3-3.png) 
 
-1. Przewiń w dół i w obszarze **szczegóły alertu**Nadaj nazwę regule alertu.
+1. Przewiń w dół i w obszarze **szczegóły alertu** Nadaj nazwę regule alertu.
 
 1. Ustaw **ważność**.
 
@@ -113,7 +113,7 @@ Regułę można również utworzyć za pomocą strony **metryki** :
 W tym samouczku przedstawiono sposób konfigurowania alertów i grup akcji dla aplikacji w chmurze ze sprężyną na platformie Azure. Aby dowiedzieć się więcej na temat grup akcji, zobacz:
 
 > [!div class="nextstepaction"]
-> [Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal](../azure-monitor/platform/action-groups.md)
+> [Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal](../azure-monitor/alerts/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [Zachowanie alertów SMS w grupach akcji](../azure-monitor/platform/alerts-sms-behavior.md)
+> [Zachowanie alertów SMS w grupach akcji](../azure-monitor/alerts/alerts-sms-behavior.md)

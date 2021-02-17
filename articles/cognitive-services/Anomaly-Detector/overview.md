@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: wykrywanie anomalii, uczenie maszynowe, algorytmy
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901372"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572077"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Co to jest interfejs API narzędzia do wykrywania anomalii?
 
@@ -33,7 +33,7 @@ Korzystanie z detektora anomalii nie wymaga wcześniejszego doświadczenia w ucz
 
 Dzięki detektorowi anomalii można automatycznie wykrywać anomalie w danych szeregów czasowych lub w miarę ich występowania w czasie rzeczywistym.
 
-|Cechy  |Opis  |
+|Cecha  |Opis  |
 |---------|---------|
 |Wykrywanie anomalii w czasie rzeczywistym. | Wykrywaj anomalie w danych przesyłanych strumieniowo, używając wcześniej zaobserwowanych punktów danych w celu ustalenia, czy Najnowsza z nich jest nieaktualna. Ta operacja generuje model przy użyciu wysyłanych punktów danych i określa, czy punkt docelowy jest anomalią. Wywołując interfejs API z każdym wygenerowanym nowym punktem danych, można monitorować dane w miarę ich tworzenia. |
 |Wykrywaj anomalie w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć ewentualne anomalie, które mogą istnieć w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.         |
@@ -53,13 +53,13 @@ Aby dowiedzieć się, jak wywołać interfejs API wykrywania anomalii, Wypróbuj
 Aby uruchomić Notes, wykonaj następujące czynności:
 
 1. Pobierz prawidłowy klucz subskrypcji interfejsu API wykrywania anomalii i punkt końcowy interfejsu API. W poniższej sekcji znajdują się instrukcje dotyczące rejestrowania się.
-1. Zaloguj się, a następnie kliknij pozycję Klonuj w prawym górnym rogu.
+1. Zaloguj się, a następnie wybierz pozycję Klonuj w prawym górnym rogu.
 1. Usuń zaznaczenie opcji "publiczny" w oknie dialogowym przed ukończeniem operacji klonowania, w przeciwnym razie Notes, w tym wszystkie klucze subskrypcji, będzie publiczny.
-1. Kliknij pozycję **Uruchom przy bezpłatnej obliczeń**
+1. Wybierz opcję **Uruchom przy bezpłatnej obliczeń**
 1. Wybierz jeden z notesów.
 1. Dodaj do zmiennej prawidłowy klucz subskrypcji interfejsu API wykrywania anomalii `subscription_key` .
 1. Zmień `endpoint` zmienną na punkt końcowy. Na przykład: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Na górnym pasku menu kliknij **komórkę**, a następnie **Uruchom wszystkie**.
+1. Na górnym pasku menu wybierz **komórkę**, a następnie **Uruchom wszystkie**.
 
 ## <a name="workflow"></a>Przepływ pracy
 
@@ -97,7 +97,7 @@ W celu włączenia odporności stref nie trzeba wykonywać żadnych czynności k
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Wdrażanie lokalnie przy użyciu kontenerów platformy Docker
 
-[Używanie kontenerów wykrywania anomalii](anomaly-detector-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Kontenery platformy Docker umożliwiają przełączenie usługi do danych pod kątem zgodności, bezpieczeństwa lub innych przyczyn operacyjnych.
+[Używanie kontenerów wykrywania anomalii](anomaly-detector-container-howto.md) do wdrażania funkcji interfejsu API w środowisku lokalnym. Kontenery platformy Docker umożliwiają przełączenie usługi do danych pod kątem zgodności, zabezpieczeń lub innych przyczyn operacyjnych.
 
 ## <a name="join-the-anomaly-detector-community"></a>Dołączanie do społeczności narzędzia do wykrywania anomalii
 

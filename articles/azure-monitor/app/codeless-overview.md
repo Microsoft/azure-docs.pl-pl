@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: fe57174f1b090cbaa2196930f5ddd252074f1978
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0dda015d820d81fdd13eced384f97362e2ee3339
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587557"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Co to jest autoinstrumentation lub bezkodowe Azure Monitor Application Insights?
 
@@ -89,5 +89,5 @@ Uniwersalny Agent autonomiczny Java działa w dowolnym środowisku, nie ma potrz
 
 * [Przegląd Application Insights](./app-insights-overview.md)
 * [Mapa aplikacji](./app-map.md)
-* [Kompleksowe monitorowanie wydajności](../learn/tutorial-performance.md)
+* [Kompleksowe monitorowanie wydajności](../app/tutorial-performance.md)
 

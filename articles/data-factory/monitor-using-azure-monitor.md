@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373151"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586856"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Data Factory monitorowania i alertów za pomocą Azure Monitor
 
@@ -76,7 +76,7 @@ Utwórz lub Dodaj ustawienia diagnostyczne dla fabryki danych.
    ![Nadaj nazwę ustawieniom i wybierz obszar roboczy usługi log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [log Analytics znane ograniczenia](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Ponieważ tabela dzienników platformy Azure nie może mieć więcej niż 500 kolumn, **zdecydowanie** zalecamy wybranie _trybu określonego dla zasobu_. Aby uzyskać więcej informacji, zobacz [log Analytics znane ograniczenia](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -151,7 +151,7 @@ Poniżej przedstawiono niektóre metryki emitowane przez Azure Data Factory w we
 | SSISPackageExecutionFailed           | Metryki wykonywania pakietu SSIS zakończone niepowodzeniem    | Liczba    | Łącznie                | Łączna Liczba wykonań pakietów SSIS, które zakończyły się niepowodzeniem w oknie minuty. |
 | SSISPackageExecutionSucceeded        | Metryki wykonywania pakietu SSIS zakończone powodzeniem | Liczba    | Łącznie                | Łączna Liczba wykonań pakietów SSIS zakończonych powodzeniem w oknie minuty. |
 
-Aby uzyskać dostęp do metryk, wykonaj instrukcje podane w temacie [Azure monitor Data Platform](../azure-monitor/platform/data-platform.md).
+Aby uzyskać dostęp do metryk, wykonaj instrukcje podane w temacie [Azure monitor Data Platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
 > Emitowane są tylko zdarzenia z ukończonej, wyzwolone działania i uruchomienia potoku. W toku, a uruchomienia debugowania **nie** są emitowane. Z drugiej strony są emitowane zdarzenia ze **wszystkich** wykonań pakietów usług SSIS, w tym te, które są wykonywane i w toku, niezależnie od ich metod wywoływania. Można na przykład wywołać wykonywanie pakietów na platformie Azure z włączoną funkcją SQL Server Data Tools (SSDT) przy użyciu języka T-SQL w programie SSMS, SQL Server Agent lub innych wydzielonych narzędziach, a także jako wyzwalane lub debugowania uruchomienia działań pakietu SSIS w potokach ADF.
@@ -848,7 +848,7 @@ Aby podnieść & przesunięcia obciążeń usług SSIS, możesz [udostępnić ś
 
 Po zainicjowaniu obsługi administracyjnej można [sprawdzić stan operacyjny usługi SSIS IR przy użyciu Azure PowerShell lub na koncentratorze **monitora** modułu ADF](./monitor-integration-runtime.md#azure-ssis-integration-runtime). W modelu wdrażania projektu dzienniki wykonywania pakietów usług SSIS są przechowywane w SSISDB wewnętrznych tabelach lub widokach, dzięki czemu możesz wysyłać zapytania, analizować i wizualnie przedstawić je za pomocą wydzielonych narzędzi, takich jak program SSMS. Dzięki modelowi wdrażania pakietów dzienniki wykonywania pakietów SSIS mogą być przechowywane w systemie plików lub Azure Files jako pliki CSV, które nadal trzeba analizować i przetwarzać przy użyciu innych wydzielonych narzędzi, zanim będzie można wykonywać zapytania, analizować i wizualnie je przedstawić.
 
-Teraz dzięki integracji [Azure monitor](../azure-monitor/platform/data-platform.md) możesz wysyłać zapytania, analizować i wizualnie przedstawić wszystkie metryki i dzienniki wygenerowane przez operacje w usłudze SSIS IR i wykonania pakietów ssis na Azure Portal. Ponadto można również zgłaszać na nich alerty.
+Teraz dzięki integracji [Azure monitor](../azure-monitor/data-platform.md) możesz wysyłać zapytania, analizować i wizualnie przedstawić wszystkie metryki i dzienniki wygenerowane przez operacje w usłudze SSIS IR i wykonania pakietów ssis na Azure Portal. Ponadto można również zgłaszać na nich alerty.
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>Konfigurowanie ustawień diagnostycznych i obszaru roboczego dla operacji SSIS
 
@@ -856,9 +856,9 @@ Aby wysłać wszystkie metryki i dzienniki wygenerowane z operacji programu SSIS
 
 ### <a name="ssis-operational-metrics"></a>Metryki operacyjne SSIS
 
-[Metryki](../azure-monitor/platform/data-platform-metrics.md) operacyjne usług SSIS to liczniki wydajności lub wartości liczbowe, które opisują stan operacji uruchamiania i zatrzymywania w środowisku SSIS w środowisku SSI, a także wykonywanie pakietów SSIS w określonym momencie. Są one częścią [metryki ADF w Azure monitor](#data-factory-metrics).
+[Metryki](../azure-monitor/essentials/data-platform-metrics.md) operacyjne usług SSIS to liczniki wydajności lub wartości liczbowe, które opisują stan operacji uruchamiania i zatrzymywania w środowisku SSIS w środowisku SSI, a także wykonywanie pakietów SSIS w określonym momencie. Są one częścią [metryki ADF w Azure monitor](#data-factory-metrics).
 
-Po skonfigurowaniu ustawień diagnostycznych i obszaru roboczego dla funkcji ADF na Azure Monitor, zaznaczenie pola wyboru _AllMetrics_ spowoduje udostępnienie metryk operacyjnych usług SSIS do [analizy interaktywnej przy użyciu usługi Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md), [prezentacji na pulpicie nawigacyjnym platformy Azure](../azure-monitor/learn/tutorial-app-dashboards.md)i [alertów niemal](../azure-monitor/platform/alerts-metric.md)w czasie rzeczywistym.
+Po skonfigurowaniu ustawień diagnostycznych i obszaru roboczego dla funkcji ADF na Azure Monitor, zaznaczenie pola wyboru _AllMetrics_ spowoduje udostępnienie metryk operacyjnych usług SSIS do [analizy interaktywnej przy użyciu usługi Azure Eksplorator metryk](../azure-monitor/essentials/metrics-getting-started.md), [prezentacji na pulpicie nawigacyjnym platformy Azure](../azure-monitor/app/tutorial-app-dashboards.md)i [alertów niemal](../azure-monitor/alerts/alerts-metric.md)w czasie rzeczywistym.
 
 ![Nadaj nazwę ustawieniom i wybierz obszar roboczy usługi log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -874,9 +874,9 @@ Aby zgłosić alerty dotyczące metryk operacyjnych usług SSIS z Azure Portal, 
 
 ### <a name="ssis-operational-logs"></a>Dzienniki operacyjne SSIS
 
-[Dzienniki](../azure-monitor/platform/data-platform-logs.md) operacyjne usług SSIS to zdarzenia generowane przez operacje podczerwieni usług SSIS i wykonania pakietów SSIS, które zapewniają wystarczającą ilość kontekstu dla zidentyfikowanych problemów i są przydatne do analizy głównych przyczyn. 
+[Dzienniki](../azure-monitor/logs/data-platform-logs.md) operacyjne usług SSIS to zdarzenia generowane przez operacje podczerwieni usług SSIS i wykonania pakietów SSIS, które zapewniają wystarczającą ilość kontekstu dla zidentyfikowanych problemów i są przydatne do analizy głównych przyczyn. 
 
-W przypadku konfigurowania ustawień diagnostycznych i obszaru roboczego dla Twojego ADF na Azure Monitor można wybrać odpowiednie dzienniki operacyjne SSIS i wysłać je do Log Analytics na podstawie Eksplorator danych platformy Azure. W tym miejscu zostaną one udostępnione do [analizy przy użyciu zaawansowanego języka zapytań](../azure-monitor/log-query/log-query-overview.md), [prezentacji na pulpicie nawigacyjnym platformy Azure](../azure-monitor/learn/tutorial-app-dashboards.md)i [alertów niemal](../azure-monitor/platform/alerts-log.md)w czasie rzeczywistym.
+W przypadku konfigurowania ustawień diagnostycznych i obszaru roboczego dla Twojego ADF na Azure Monitor można wybrać odpowiednie dzienniki operacyjne SSIS i wysłać je do Log Analytics na podstawie Eksplorator danych platformy Azure. W tym miejscu zostaną one udostępnione do [analizy przy użyciu zaawansowanego języka zapytań](../azure-monitor/logs/log-query-overview.md), [prezentacji na pulpicie nawigacyjnym platformy Azure](../azure-monitor/app/tutorial-app-dashboards.md)i [alertów niemal](../azure-monitor/alerts/alerts-log.md)w czasie rzeczywistym.
 
 ![Nadaj nazwę ustawieniom i wybierz obszar roboczy usługi log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 

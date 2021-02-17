@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 56a04a7f689846fc8688d9a3144882fff3a809ad
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 48df40d6f1e3030435a7ac1236d3dcda298920ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201318"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596911"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 
@@ -144,9 +144,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Jak rozpocząć pracę z usługą Azure Monitor i integracją SIEM innej firmy](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -158,9 +158,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dla Data Lake Analytics w celu uzyskania dostępu do dzienników inspekcji i żądań. Obejmują one dane, takie jak źródło zdarzeń, Data, użytkownik, sygnatura czasowa i inne przydatne elementy.
 
-* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -178,7 +178,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania obszaru roboczego log Analytics zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego i archiwizowania.
 
-* [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -192,9 +192,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-* [Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -206,7 +206,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-* [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 * [Accessing diagnostic logs for Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md) (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 
@@ -488,7 +488,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych Azure Data Lake Analytics zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

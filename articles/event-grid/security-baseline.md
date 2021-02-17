@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e085c5c2dbb608692ff7e766744743d3f640387b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ef0f308c3ea2986301b0247111ef96bb133b57f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633209"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571930"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Podstawa zabezpieczeń platformy Azure dla Event Grid
 
@@ -163,9 +163,9 @@ Mogą również używać wbudowanych definicji zasad związanych z Azure Event G
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z Azure Event Grid. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -209,7 +209,7 @@ Mogą również używać wbudowanych definicji zasad związanych z Azure Event G
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z zasobami Azure Event Grid zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -227,9 +227,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -249,7 +249,7 @@ Ponadto możesz dołączyć obszar roboczy Log Analytics do funkcji wskaźnikowe
 
 - [Szczegóły schematu dziennika diagnostyki Event Grid](diagnostic-logs.md)
 
-- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -513,7 +513,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych zasobów Azure Event Grid i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

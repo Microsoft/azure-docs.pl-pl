@@ -3,12 +3,12 @@ title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558504"
+ms.locfileid: "100580878"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -110,7 +110,7 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowa
 Agent połączonej maszyny dla systemów Linux i Windows komunikuje się z ruchem wychodzącym bezpiecznie do usługi Azure Arc przez port TCP 443. Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikacji przez Internet, zapoznaj się z poniższymi tematami, aby poznać wymagania dotyczące konfiguracji sieci.
 
 > [!NOTE]
-> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/platform/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
+> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/agents/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
 >
 
 Jeśli łączność wychodząca jest ograniczona przez zaporę lub serwer proxy, upewnij się, że adresy URL wymienione poniżej nie są blokowane. W przypadku zezwolenia na komunikację z usługą tylko zakresom adresów IP lub nazwami domen, które są wymagane przez agenta, należy zezwolić na dostęp do następujących tagów usługi i adresów URL.

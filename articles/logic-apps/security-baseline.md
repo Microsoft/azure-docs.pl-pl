@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e47dfeab7466faf9a60b161b05d8b3bf39ebdb6a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: cf4e02f925e0c8c4024137589c0c9c4074c0aa11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203307"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596761"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
 
@@ -216,9 +216,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z wystąpieniami Azure Logic Apps. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -242,7 +242,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak skonfigurować Azure Monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm. 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak skonfigurować Azure Monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -284,7 +284,7 @@ W Azure Monitor Ustaw okres przechowywania dziennika dla dzienników skojarzonyc
 
 - [Jak monitorować stan uruchomienia, przeglądać historię wyzwalaczy i konfigurować alerty dla Azure Logic Apps](monitor-logic-apps.md)
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -300,9 +300,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak skonfigurować Azure Monitor dzienników i zbierać dane diagnostyczne dla Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Jak zbierać i analizować dzienniki aktywności platformy Azure w Log Analytics w Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Jak zbierać i analizować dzienniki aktywności platformy Azure w Log Analytics w Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md) 
 
@@ -320,7 +320,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -685,7 +685,7 @@ Podczas tworzenia środowiska usługi integracji (ISE) na potrzeby hostowania ap
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla momentu wprowadzenia zmian w Azure Logic Apps, jak również inne krytyczne lub pokrewne zasoby.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

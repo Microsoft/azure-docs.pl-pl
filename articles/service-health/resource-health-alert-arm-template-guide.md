@@ -3,18 +3,18 @@ title: Szablon do tworzenia alertów Resource Health
 description: Programowe tworzenie alertów powiadamiających o stanie niedostępności zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1cbe1e2d2c185906feb4ccba380cb31df864f5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537433"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588208"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów dotyczących kondycji zasobów przy użyciu szablonów usługi Resource Manager
 
 W tym artykule opisano sposób tworzenia alertów dziennika aktywności Resource Health programowo przy użyciu szablonów Azure Resource Manager i Azure PowerShell.
 
-Azure Resource Health informuje o aktualnym i historycznym stanie kondycji zasobów platformy Azure. Alerty Azure Resource Health mogą powiadamiać niemal w czasie rzeczywistym o zmianie stanu kondycji tych zasobów. Tworzenie alertów Resource Health programowo pozwala użytkownikom na tworzenie i dostosowywanie alertów zbiorczo.
+Azure Resource Health informuje o aktualnym i historycznym stanie kondycji zasobów platformy Azure. Alerty usługi Azure Resource Health mogą powiadamiać użytkownika niemal w czasie rzeczywistym o zmianie stanu kondycji tych zasobów. Tworzenie alertów Resource Health programowo pozwala użytkownikom na tworzenie i dostosowywanie alertów zbiorczo.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -23,7 +23,7 @@ Azure Resource Health informuje o aktualnym i historycznym stanie kondycji zasob
 Aby postępować zgodnie z instrukcjami na tej stronie, musisz skonfigurować kilka rzeczy z wyprzedzeniem:
 
 1. Należy zainstalować [moduł Azure PowerShell](/powershell/azure/install-az-ps)
-2. Należy [utworzyć lub ponownie użyć grupy akcji](../azure-monitor/platform/action-groups.md) skonfigurowanej do powiadamiania użytkownika
+2. Należy [utworzyć lub ponownie użyć grupy akcji](../azure-monitor/alerts/action-groups.md) skonfigurowanej do powiadamiania użytkownika
 
 ## <a name="instructions"></a>Instrukcje
 1. Korzystając z programu PowerShell, zaloguj się do platformy Azure przy użyciu swojego konta i wybierz subskrypcję, z którą chcesz korzystać
@@ -452,4 +452,4 @@ Dowiedz się więcej o Resource Health:
 
 Utwórz alerty Service Health:
 -  [Konfigurowanie alertów dla Service Health](./alerts-activity-log-service-notifications-portal.md) 
--  [Schemat zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Schemat zdarzeń dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log-schema.md)

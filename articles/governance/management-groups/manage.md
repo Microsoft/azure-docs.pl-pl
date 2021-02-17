@@ -3,12 +3,12 @@ title: Jak korzystać z grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwać hierarchię grup zarządzania.
 ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 33c7da1d7484056eb1bb2fd4b00d892137ed2b64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787372"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596485"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
 
@@ -357,7 +357,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Inspekcja grup zarządzania przy użyciu dzienników aktywności
 
-Grupy zarządzania są obsługiwane w [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md). Możesz badać wszystkie zdarzenia, które wystąpiły do grupy zarządzania w tej samej centralnej lokalizacji co inne zasoby platformy Azure. Na przykład widoczne są wszystkie przypisania ról i zmiany przypisań zasad w określonej grupie zarządzania.
+Grupy zarządzania są obsługiwane w [dzienniku aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md). Możesz badać wszystkie zdarzenia, które wystąpiły do grupy zarządzania w tej samej centralnej lokalizacji co inne zasoby platformy Azure. Na przykład widoczne są wszystkie przypisania ról i zmiany przypisań zasad w określonej grupie zarządzania.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Zrzut ekranu dzienników aktywności i operacji związanych z wybraną grupą zarządzania." border="false":::
 

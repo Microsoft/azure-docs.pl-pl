@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488048"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596303"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Rejestrowanie inspekcji w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -21,7 +21,7 @@ Rejestrowanie inspekcji działań bazy danych w ramach Azure Database for Postgr
 > pgAudit jest w wersji zapoznawczej na Azure Database for PostgreSQL.
 > Rozszerzenie można włączyć tylko na serwerach Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
-Jeśli chcesz, aby w dziennikach na poziomie zasobów platformy Azure były wykonywane operacje, takie jak skalowanie obliczeniowe i magazynowe, zobacz [Dziennik aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Jeśli chcesz, aby w dziennikach na poziomie zasobów platformy Azure były wykonywane operacje, takie jak skalowanie obliczeniowe i magazynowe, zobacz [Dziennik aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Zagadnienia dotyczące użycia
 Domyślnie instrukcje rejestrowania rozszerzenia pgAudit są emitowane wraz z normalnymi instrukcjami rejestrowania przy użyciu standardowej funkcji rejestrowania bazy danych Postgres. W usłudze Azure Database for PostgreSQL pliki LOG można pobrać z poziomu witryny Azure Portal lub interfejsu wiersza polecenia. Maksymalny rozmiar magazynu dla kolekcji plików to 1 GB, a każdy plik jest dostępny przez maksymalnie siedem dni (wartość domyślna to trzy dni). Ta usługa jest krótkoterminową opcją magazynu.
@@ -88,9 +88,9 @@ Aby szybko rozpocząć pracę, ustaw `pgaudit.log` na `WRITE` , a następnie otw
 ## <a name="viewing-audit-logs"></a>Wyświetlanie dzienników inspekcji
 Jeśli używasz plików. log, dzienniki inspekcji zostaną uwzględnione w tym samym pliku, w którym znajdują się dzienniki błędów PostgreSQL. Pliki dzienników można pobrać z witryny Azure [Portal](howto-configure-server-logs-in-portal.md) lub [interfejsu wiersza polecenia](howto-configure-server-logs-using-cli.md). 
 
-W przypadku korzystania z funkcji rejestrowania zasobów platformy Azure sposób uzyskiwania dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+W przypadku korzystania z funkcji rejestrowania zasobów platformy Azure sposób uzyskiwania dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md) .
+W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../azure-monitor/logs/log-query-overview.md) .
 
 Możesz użyć tego zapytania, aby rozpocząć. Alerty można skonfigurować na podstawie zapytań.
 

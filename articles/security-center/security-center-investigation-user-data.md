@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 88fd707d769c7aed53160a9f22fefd15cce19a4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 89d47f1fe941dad6a2450df86bfed2d25a1d8f7d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340737"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595672"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Zarządzanie danymi użytkownika w badaniu Azure Security Centernym
-Ten artykuł zawiera informacje na temat zarządzania danymi użytkownika znalezionymi w funkcji badania Azure Security Center. Dane badania są przechowywane w [Azure monitor dziennikach](../azure-monitor/log-query/log-query-overview.md) i udostępniane w Security Center. Zarządzanie danymi użytkownika obejmuje możliwość usuwania lub eksportowania danych.
+Ten artykuł zawiera informacje na temat zarządzania danymi użytkownika znalezionymi w funkcji badania Azure Security Center. Dane badania są przechowywane w [Azure monitor dziennikach](../azure-monitor/logs/log-query-overview.md) i udostępniane w Security Center. Zarządzanie danymi użytkownika obejmuje możliwość usuwania lub eksportowania danych.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -57,4 +57,4 @@ Użytkownik Security Center przypisany do roli właściciela, współautora lub 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat zarządzania danymi użytkowników, zobacz [Zarządzanie danymi użytkowników w Azure Security Center](security-center-privacy.md).
-Aby dowiedzieć się więcej o usuwaniu danych prywatnych w dziennikach Azure Monitor, zobacz [Jak eksportować i usuwać dane prywatne](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Aby dowiedzieć się więcej o usuwaniu danych prywatnych w dziennikach Azure Monitor, zobacz [Jak eksportować i usuwać dane prywatne](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).

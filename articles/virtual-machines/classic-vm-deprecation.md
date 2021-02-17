@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499309"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587912"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrowanie zasobów IaaS do Azure Resource Manager 1 marca 2023 
 
@@ -30,7 +30,7 @@ Maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania będą zg
 - 1 marca 2023, subskrypcje, które nie zostały zmigrowane do Azure Resource Manager, będą otrzymywać informacje dotyczące osi czasu na potrzeby usuwania pozostałych maszyn wirtualnych (klasycznych).  
 
 Wycofanie *nie ma wpływu na* następujące usługi i funkcje platformy Azure: 
-- usług Azure Cloud Services 
+- [Cloud Services platformy Azure (wersja klasyczna)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
 - *Konta magazynu* nieużywane przez maszyny wirtualne (klasyczne) 
 - *Sieci wirtualne* nieużywane przez maszyny wirtualne (klasyczne) 
 - Inne zasoby klasyczne
@@ -49,9 +49,9 @@ Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj.
 
 1. Zalecamy rozpoczęcie planowania przy użyciu [Narzędzia do migracji platformy obsługiwanej przez platformę](./migration-classic-resource-manager-overview.md) w celu migrowania istniejących maszyn wirtualnych z trzema łatwymi krokami: Weryfikuj, przygotuj i zatwierdzaj. Narzędzie jest przeznaczone do migrowania maszyn wirtualnych w minimalnym stopniu do przestoju. 
 
-   1. Pierwszy krok, weryfikowanie, nie ma wpływu na istniejące wdrożenie i zawiera listę wszystkich nieobsługiwanych scenariuszy migracji. 
-   1. Zapoznaj się z [listą obejść](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) , aby naprawić wdrożenie i przygotować je do migracji. 
-   1. Najlepiej po naprawieniu wszystkich błędów walidacji nie należy napotkać żadnych problemów podczas kroków przygotowywania i zatwierdzania. Po pomyślnym zatwierdzeniu wdrożenie jest migrowane na żywo do Azure Resource Manager i może być zarządzane za pomocą nowych interfejsów API udostępnianych przez Azure Resource Manager. 
+   - Pierwszy krok, weryfikowanie, nie ma wpływu na istniejące wdrożenie i zawiera listę wszystkich nieobsługiwanych scenariuszy migracji. 
+   - Zapoznaj się z [listą obejść](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) , aby naprawić wdrożenie i przygotować je do migracji. 
+   - Najlepiej po naprawieniu wszystkich błędów walidacji nie należy napotkać żadnych problemów podczas kroków przygotowywania i zatwierdzania. Po pomyślnym zatwierdzeniu wdrożenie jest migrowane na żywo do Azure Resource Manager i może być zarządzane za pomocą nowych interfejsów API udostępnianych przez Azure Resource Manager. 
 
    Jeśli narzędzie migracji nie jest odpowiednie do migracji, można zapoznać się z [innymi ofertami obliczeniowymi](/azure/architecture/guide/technology-choices/compute-decision-tree) dotyczącymi migracji. Ponieważ istnieje wiele ofert obliczeniowych platformy Azure, które różnią się od siebie, nie możemy udostępnić im ścieżki migracji obsługiwanej przez platformę.  
 
@@ -65,6 +65,6 @@ Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj.
 
 - [Obsługa migracji platformy Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedykowany zespół pomocy technicznej w zakresie pomocy technicznej podczas migracji.
 
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Funkcja Fast Track może pomóc uprawnionym klientom w planowaniu & wykonywania tej migracji. Wyznacz [siebie](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Funkcja Fast Track może pomóc uprawnionym klientom w planowaniu & wykonywania tej migracji. Wyznacz [siebie](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) dla programu migracji kontrolera domeny.  
 
 - Jeśli firma/organizacja ma partnerów firmy Microsoft lub współpracuje z przedstawicielami firmy Microsoft (takimi jak Architekt rozwiązań w chmurze (CSAs) lub menedżerami technicznymi (TAMs)), należy pracować z nimi w celu uzyskania dodatkowych zasobów na potrzeby migracji.

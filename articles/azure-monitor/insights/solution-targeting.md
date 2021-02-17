@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498682"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587230"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Kierowanie rozwiązań do monitorowania w Azure Monitor (wersja zapoznawcza)
 Po dodaniu rozwiązania do monitorowania do subskrypcji jest ono automatycznie wdrażane domyślnie dla wszystkich agentów systemu Windows i Linux połączonych z obszarem roboczym Log Analytics.  Możesz chcieć zarządzać kosztami i ograniczyć ilość danych zbieranych dla rozwiązania, ograniczając je do określonego zestawu agentów.  W tym artykule opisano sposób korzystania z funkcji **określania celu rozwiązania** , która umożliwia zastosowanie zakresu do rozwiązań.
@@ -23,7 +23,7 @@ Istnieją trzy kroki umożliwiające kierowanie rozwiązania zgodnie z opisem w 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Utwórz grupę komputerów
-Należy określić komputery, które mają zostać dołączone do zakresu przez utworzenie [grupy komputerów](../platform/computer-groups.md) w Azure monitor.  Grupa komputerów może opierać się na zapytaniach dziennika lub zaimportowaniu z innych źródeł, takich jak Active Directory lub grupy programu WSUS. Jak [opisano poniżej](#solutions-and-agents-that-cant-be-targeted), tylko komputery, które są podłączone bezpośrednio do Azure monitor zostaną uwzględnione w zakresie.
+Należy określić komputery, które mają zostać dołączone do zakresu przez utworzenie [grupy komputerów](../logs/computer-groups.md) w Azure monitor.  Grupa komputerów może opierać się na zapytaniach dziennika lub zaimportowaniu z innych źródeł, takich jak Active Directory lub grupy programu WSUS. Jak [opisano poniżej](#solutions-and-agents-that-cant-be-targeted), tylko komputery, które są podłączone bezpośrednio do Azure monitor zostaną uwzględnione w zakresie.
 
 Po utworzeniu grupy komputerów w obszarze roboczym zostanie ona uwzględniona w konfiguracji zakresu, którą można zastosować do jednego lub kilku rozwiązań.
  
@@ -69,4 +69,4 @@ Obiektów docelowych rozwiązania nie można używać z następującymi rozwiąz
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat monitorowania rozwiązań, w tym rozwiązań dostępnych do zainstalowania w środowisku, w temacie [Dodawanie rozwiązań monitorowania log Analytics platformy Azure do obszaru roboczego](solutions.md).
-- Dowiedz się więcej na temat tworzenia grup komputerów w [grupach komputerów w zapytaniach dziennika Azure monitor](../platform/computer-groups.md).
+- Dowiedz się więcej na temat tworzenia grup komputerów w [grupach komputerów w zapytaniach dziennika Azure monitor](../logs/computer-groups.md).

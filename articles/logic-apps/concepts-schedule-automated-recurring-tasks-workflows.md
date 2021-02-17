@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018796"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581817"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Planowanie i uruchamianie cyklicznych automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps
 
@@ -90,8 +90,8 @@ Poniżej przedstawiono niektóre wzorce pokazujące, jak można kontrolować cyk
 | Godzina rozpoczęcia | Cykl bez harmonogramu | Cykl z harmonogramem (tylko wyzwalacz cykliczny) |
 |------------|-----------------------------|----------------------------------------------------|
 | dawaj | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia na podstawie czasu ostatniego uruchomienia. | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. |
-| Godzina rozpoczęcia w przeszłości | Wyzwalacz **cyklu** : oblicza czasy wykonywania na podstawie określonego czasu rozpoczęcia i odrzuca czas wykonywania. Uruchamia pierwsze obciążenie w następnym przyszłym czasie wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń od czasu ostatniego uruchomienia. <p><p>Wyzwalacz **okna przewijania** : oblicza czasy uruchamiania na podstawie określonego czasu rozpoczęcia i trwają czas wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń z określonego czasu rozpoczęcia. <p><p>Aby uzyskać więcej wyjaśnień, zobacz przykład poniżej tej tabeli. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, Logic Apps oblicza przyszłe czasy wykonywania, używając odpowiednio godzin lub minut z pierwszego uruchomienia. |
-| Czas rozpoczęcia teraz lub w przyszłości | Uruchamia pierwsze obciążenie o określonej godzinie rozpoczęcia. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń od czasu ostatniego uruchomienia. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, Logic Apps oblicza przyszłe czasy wykonywania, używając odpowiednio godzin lub minut z pierwszego uruchomienia. |
+| Godzina rozpoczęcia w przeszłości | Wyzwalacz **cyklu** : oblicza czasy wykonywania na podstawie określonego czasu rozpoczęcia i odrzuca czas wykonywania. <p><p>Uruchamia pierwsze obciążenie w następnym przyszłym czasie wykonywania. <p><p>Uruchamia przyszłe obciążenia na podstawie czasu ostatniego uruchomienia. <p><p>Wyzwalacz **okna przewijania** : oblicza czasy uruchamiania na podstawie określonego czasu rozpoczęcia i trwają czas wykonywania. <p><p>Uruchamia przyszłe obciążenia w oparciu o określony czas rozpoczęcia. <p><p>Aby uzyskać więcej wyjaśnień, zobacz przykład poniżej tej tabeli. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p><p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p><p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, Logic Apps oblicza przyszłe czasy wykonywania, używając odpowiednio godzin lub minut z pierwszego uruchomienia. |
+| Czas rozpoczęcia teraz lub w przyszłości | Uruchamia pierwsze obciążenie o określonej godzinie rozpoczęcia. <p><p>Wyzwalacz **cyklu** : uruchamia przyszłe obciążenia na podstawie czasu ostatniego uruchomienia. <p><p>Wyzwalacz **okna przewijania** : uruchamia przyszłe obciążenia w oparciu o określony czas rozpoczęcia. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p><p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, Logic Apps oblicza przyszłe czasy wykonywania, używając odpowiednio godzin lub minut z pierwszego uruchomienia. |
 ||||
 
 *Przykład minionego czasu rozpoczęcia i cyklu, ale bez harmonogramu*
@@ -152,7 +152,7 @@ Jeśli te aplikacje logiki korzystają ze strefy czasu UTC-6:00 (Stany Zjednoczo
 
   * #1 aplikacji logiki
 
-    | Data | Czas (lokalny) | Czas (UTC) | Uwagi |
+    | Date (Data) | Czas (lokalny) | Czas (UTC) | Uwagi |
     |------|--------------|------------|-------|
     | 03/09/2019 | 1:30:00 AM | 7:30:00 AM | UTC przed dniem, w którym obowiązuje czas letni. |
     | 03/10/2019 | 1:30:00 AM | 7:30:00 AM | Czas UTC jest taki sam, ponieważ nie został wprowadzony. |
@@ -161,7 +161,7 @@ Jeśli te aplikacje logiki korzystają ze strefy czasu UTC-6:00 (Stany Zjednoczo
 
   * #2 aplikacji logiki
 
-    | Data | Czas (lokalny) | Czas (UTC) | Uwagi |
+    | Date (Data) | Czas (lokalny) | Czas (UTC) | Uwagi |
     |------|--------------|------------|-------|
     | 03/09/2019 | 2:30:00 AM | 8:30:00 AM | UTC przed dniem, w którym obowiązuje czas letni. |
     | 03/10/2019 | 3:30:00 AM * | 8:30:00 AM | DST są już w mocy, więc czas lokalny został przesunięty o jedną godzinę do przodu, ponieważ strefa czasowa UTC-6:00 zmienia się na UTC-5:00. Aby uzyskać więcej informacji, zobacz [wyzwalacze, które zaczynają się od 2:00 am-3:00 am](#dst-window). |
@@ -174,7 +174,7 @@ Jeśli te aplikacje logiki korzystają ze strefy czasu UTC-6:00 (Stany Zjednoczo
 
   * #1 aplikacji logiki
 
-    | Data | Czas (lokalny) | Czas (UTC) | Uwagi |
+    | Date (Data) | Czas (lokalny) | Czas (UTC) | Uwagi |
     |------|--------------|------------|-------|
     | 11/02/2019 | 1:30:00 AM | 6:30:00 AM ||
     | 11/03/2019 | 1:30:00 AM | 6:30:00 AM ||
@@ -183,7 +183,7 @@ Jeśli te aplikacje logiki korzystają ze strefy czasu UTC-6:00 (Stany Zjednoczo
 
   * #2 aplikacji logiki
 
-    | Data | Czas (lokalny) | Czas (UTC) | Uwagi |
+    | Date (Data) | Czas (lokalny) | Czas (UTC) | Uwagi |
     |------|--------------|------------|-------|
     | 11/02/2019 | 2:30:00 AM | 7:30:00 AM ||
     | 11/03/2019 | 2:30:00 AM | 8:30:00 AM ||

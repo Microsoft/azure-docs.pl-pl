@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785824"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596799"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Dzienniki Azure Monitor dla usługi Azure usługa Load Balancer w warstwie Standardowa
 
@@ -63,7 +63,7 @@ Rejestrowanie aktywności jest automatycznie włączone dla wszystkich zasobów 
      5. Z listy rozwijanej **Wybierz nazwę zasad centrum zdarzeń** wybierz nazwę.
      6. Wybierz przycisk **OK**.
 
-   * **Wyślij do log Analytics**. Musisz mieć już utworzony i skonfigurowany obszar roboczy usługi log Analytics dla tego procesu. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+   * **Wyślij do log Analytics**. Musisz mieć już utworzony i skonfigurowany obszar roboczy usługi log Analytics dla tego procesu. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
      1. Zaznacz pole wyboru **Wyślij do usługi Log Analytics**.
      2. Z listy rozwijanej **subskrypcja** wybierz subskrypcję, w której znajduje się obszar roboczy log Analytics.
      3. Z listy rozwijanej **obszar roboczy log Analytics** wybierz obszar roboczy.
@@ -100,10 +100,10 @@ Jeśli eksportujesz do magazynu, Połącz się z kontem magazynu i Pobierz wpisy
 > Jeśli znasz program Visual Studio i podstawowe pojęcia dotyczące zmieniania wartości dla stałych i zmiennych w języku C#, możesz użyć [narzędzi konwerterów dzienników](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostępnych w witrynie GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Przesyłaj strumieniowo do centrum zdarzeń
-Gdy informacje diagnostyczne są przesyłane strumieniowo do centrum zdarzeń, można użyć go do scentralizowanej analizy dzienników w narzędziu partner SIEM z integracją Azure Monitor. Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+Gdy informacje diagnostyczne są przesyłane strumieniowo do centrum zdarzeń, można użyć go do scentralizowanej analizy dzienników w narzędziu partner SIEM z integracją Azure Monitor. Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Wysyłanie do usługi Log Analytics
-Informacje diagnostyczne dotyczące zasobów na platformie Azure można wysyłać bezpośrednio do obszaru roboczego Log Analytics. W tym obszarze roboczym można uruchamiać złożone zapytania względem informacji dotyczących rozwiązywania problemów i analizy. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników zasobów platformy Azure w obszarze roboczym log Analytics w Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Informacje diagnostyczne dotyczące zasobów na platformie Azure można wysyłać bezpośrednio do obszaru roboczego Log Analytics. W tym obszarze roboczym można uruchamiać złożone zapytania względem informacji dotyczących rozwiązywania problemów i analizy. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników zasobów platformy Azure w obszarze roboczym log Analytics w Azure monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Ograniczenia
 Funkcja eksportu metryk do dzienników dla Azure Load Balancer ma następujące ograniczenia:

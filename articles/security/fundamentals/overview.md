@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693736"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580462"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -81,12 +81,12 @@ Application Insights tworzy wykresy i tabele, które pokazują Ci, na przykład 
 W przypadku awarii, błędów lub problemów z wydajnością można wyszukać szczegółowe dane telemetryczne, aby zdiagnozować przyczynę. A usługa wysyła wiadomości e-mail, jeśli istnieją jakiekolwiek zmiany w zakresie dostępności i wydajności aplikacji. Usługa Application Insights w ten sposób będzie cennym narzędziem zabezpieczeń, ponieważ ułatwia dostęp do Triad zabezpieczeń, integralności i dostępności.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure monitor](/azure/monitoring-and-diagnostics/) oferuje wizualizacje, zapytania, routing, alerty, automatyczne skalowanie i automatyzację danych zarówno z infrastruktury platformy Azure ([Dziennik aktywności](../../azure-monitor/platform/platform-logs-overview.md)), jak i poszczególnych zasobów platformy Azure ([dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)). Za pomocą Azure Monitor można ostrzec o zdarzeniach związanych z zabezpieczeniami, które są generowane w dziennikach platformy Azure.
+[Azure monitor](/azure/monitoring-and-diagnostics/) oferuje wizualizacje, zapytania, routing, alerty, automatyczne skalowanie i automatyzację danych zarówno z infrastruktury platformy Azure ([Dziennik aktywności](../../azure-monitor/essentials/platform-logs-overview.md)), jak i poszczególnych zasobów platformy Azure ([dzienników diagnostycznych](../../azure-monitor/essentials/platform-logs-overview.md)). Za pomocą Azure Monitor można ostrzec o zdarzeniach związanych z zabezpieczeniami, które są generowane w dziennikach platformy Azure.
 
 ### <a name="azure-monitor-logs"></a>Dzienniki usługi Azure Monitor
 [Dzienniki Azure monitor](https://azure.microsoft.com/documentation/services/log-analytics/) — udostępnia rozwiązanie do zarządzania IT dla infrastruktury lokalnej i opartej na chmurze innej firmy (na przykład AWS) oprócz zasobów platformy Azure. Dane z Azure Monitor mogą być kierowane bezpośrednio do dzienników Azure Monitor, dzięki czemu można zobaczyć metryki i dzienniki dla całego środowiska w jednym miejscu.
 
-Dzienniki Azure Monitor mogą być użytecznym narzędziem w śledczej i inne analizy zabezpieczeń, ponieważ narzędzie umożliwia szybkie przeszukiwanie dużych ilości wpisów związanych z zabezpieczeniami przy użyciu elastycznego podejścia zapytania. Ponadto na [platformie Azure można eksportować lokalne Dzienniki zapory i serwera proxy i udostępnić je do analizy przy użyciu dzienników Azure monitor.](../../azure-monitor/platform/agent-windows.md)
+Dzienniki Azure Monitor mogą być użytecznym narzędziem w śledczej i inne analizy zabezpieczeń, ponieważ narzędzie umożliwia szybkie przeszukiwanie dużych ilości wpisów związanych z zabezpieczeniami przy użyciu elastycznego podejścia zapytania. Ponadto na [platformie Azure można eksportować lokalne Dzienniki zapory i serwera proxy i udostępnić je do analizy przy użyciu dzienników Azure monitor.](../../azure-monitor/agents/agent-windows.md)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../../advisor/index.yml) to spersonalizowany konsultant ds. chmury, który pomaga zoptymalizować wdrożenia platformy Azure. Analizuje on konfigurację zasobów i dane telemetryczne użycia. Następnie zaleca rozwiązania pomagające ulepszyć [wydajność](../../advisor/advisor-performance-recommendations.md), [bezpieczeństwo](../../advisor/advisor-security-recommendations.md)i [wysoką dostępność](../../advisor/advisor-high-availability-recommendations.md) zasobów, a jednocześnie poszukuje możliwości [zredukowania ogólnych wydatków związanych z platformą Azure](../../advisor/advisor-cost-recommendations.md). Azure Advisor zawiera zalecenia dotyczące zabezpieczeń, co może znacząco poprawić ogólne stan zabezpieczeń dla rozwiązań wdrażanych na platformie Azure. Te zalecenia są rysowane na podstawie analizy zabezpieczeń wykonywanej przez [Azure Security Center.](../../security-center/security-center-introduction.md)
@@ -101,7 +101,7 @@ Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji zabezpie
 ### <a name="web-application-vulnerability-scanning"></a>Skanowanie luk w zabezpieczeniach aplikacji sieci Web
 Jednym z najprostszych sposobów rozpoczęcia testowania pod kątem luk w zabezpieczeniach [aplikacji App Service](../../app-service/overview.md) jest użycie [integracji z zabezpieczeniami usługa TINFOIL](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) w celu wykonania skanowania w aplikacji za pomocą jednego kliknięcia. Możesz wyświetlić wyniki testów w łatwym w zrozumieniu raporcie i dowiedzieć się, jak rozwiązać każdą lukę w instrukcje krok po kroku.
 
-### <a name="penetration-testing"></a>Testowanie penetracji
+### <a name="penetration-testing"></a>Testy penetracyjne
 Jeśli wolisz przeprowadzić własne testy penetracji lub chcesz użyć innego pakietu lub dostawcy skanera, musisz postępować zgodnie z [procesem zatwierdzania testowania w ramach platformy Azure](./pen-testing.md) i uzyskać wcześniejsze zatwierdzenie w celu przeprowadzenia żądanych testów penetracji.
 
 ### <a name="web-application-firewall"></a>Zapora aplikacji sieci Web
@@ -155,7 +155,7 @@ Szyfrowanie podczas przesyłania jest mechanizmem ochrony danych przesyłanych m
 
 -   Szyfrowanie po stronie klienta umożliwia szyfrowanie danych przed ich przesłaniem do magazynu oraz odszyfrowanie danych po ich przeniesieniu poza magazyn.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+### <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 W przypadku wielu organizacji szyfrowanie danych w spoczynku stanowi obowiązkowy krok w kierunku prywatności, zgodności i suwerenności danych. Istnieją trzy funkcje zabezpieczeń usługi Azure Storage, które zapewniają szyfrowanie danych "w spoczynku":
 
 -   [Szyfrowanie usługi Storage](../../storage/common/storage-service-encryption.md) pozwala na zażądanie, aby usługa magazynu automatycznie szyfruje dane podczas ich zapisywania do usługi Azure Storage.
@@ -165,7 +165,7 @@ W przypadku wielu organizacji szyfrowanie danych w spoczynku stanowi obowiązkow
 -   [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) umożliwia szyfrowanie dysków systemu operacyjnego i dysków danych używanych przez maszynę wirtualną IaaS.
 
 ### <a name="storage-analytics"></a>Analityka magazynu
-[Analityka magazynu platformy Azure](/rest/api/storageservices/fileservices/storage-analytics) wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu. Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku. Rejestrowane są następujące typy żądań uwierzytelnionych:
+[Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics) wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu. Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku. Rejestrowane są następujące typy żądań uwierzytelnionych:
 -   Pomyślne żądania.
 
 -   Żądania zakończone niepowodzeniem, takie jak limit czasu, ograniczanie przepustowości, Sieć, autoryzacja i inne błędy.

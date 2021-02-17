@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046043"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581119"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -26,9 +26,9 @@ Aby zapewnić bezpieczeństwo danych podczas przesyłania do Azure Automation, z
 
 * Węzły DSC
 
-Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
+Starsze wersje protokołu TLS/Secure Sockets Layer (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
 
-Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
+Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Wskazówki dotyczące platformy
 

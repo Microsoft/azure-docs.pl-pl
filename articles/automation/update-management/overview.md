@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 8c25e54143f0a0815a523bb923b7a7442de2a3d2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007741"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587871"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -30,7 +30,7 @@ Przed wdrożeniem Update Management i włączeniem maszyn w celu zarządzania na
 
 Maszyny zarządzane przez Update Management polegają na następujących kwestiach w celu przeprowadzenia oceny i wdrożenia aktualizacji:
 
-* [Agent log Analytics](../../azure-monitor/platform/log-analytics-agent.md) dla systemu Windows lub Linux
+* [Agent log Analytics](../../azure-monitor/agents/log-analytics-agent.md) dla systemu Windows lub Linux
 * Platforma PowerShell Desired State Configuration (DSC) dla systemu Linux
 * Hybrydowy proces roboczy elementu Runbook usługi Automation (automatycznie instalowany po włączeniu Update Management na maszynie)
 * Microsoft Update lub [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) dla maszyn z systemem Windows
@@ -53,7 +53,7 @@ Update Management raportuje, jak to jest aktualność maszyny, na podstawie źr�
 
 Aktualizacje oprogramowania można wdrożyć i zainstalować na komputerach, które wymagają aktualizacji przez utworzenie zaplanowanego wdrożenia. Aktualizacje sklasyfikowane jako opcjonalne nie są uwzględnione w zakresie wdrożenia dla maszyn z systemem Windows. Zakres wdrożenia obejmuje tylko wymagane aktualizacje.
 
-Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](../../azure-monitor/platform/computer-groups.md) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [zapytaniu platformy Azure](query-logs.md) , które dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](../../azure-monitor/insights/solution-targeting.md), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
+Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](../../azure-monitor/logs/computer-groups.md) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [zapytaniu platformy Azure](query-logs.md) , które dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](../../azure-monitor/insights/solution-targeting.md), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
 
 Podczas definiowania wdrożenia należy również określić harmonogram zatwierdzania i ustawiania przedziału czasu, w którym można zainstalować aktualizacje. Ten okres jest nazywany oknem obsługi. 20-minutowy zakres okna obsługi jest zarezerwowany dla ponownych uruchomień, przy założeniu, że jest to wymagane i wybrano odpowiednią opcję ponownego uruchomienia. Jeśli stosowanie poprawek trwa dłużej niż oczekiwano, a w oknie obsługi jest mniej niż 20 minut, ponowne uruchomienie nie zostanie przeprowadzone.
 
@@ -82,7 +82,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 LTS (x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
 
 > [!NOTE]
-> Zestawy skalowania maszyn wirtualnych platformy Azure mogą być zarządzane za pomocą Update Management. Update Management działa na samych wystąpieniach, a nie na obrazie podstawowym. Należy zaplanować aktualizacje w sposób przyrostowy, aby nie wszystkie wystąpienia maszyn wirtualnych były aktualizowane jednocześnie. Węzły dla zestawów skalowania maszyn wirtualnych można dodać, wykonując czynności opisane w sekcji [Dodawanie maszyny spoza platformy Azure do Change Tracking i spisu](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
+> Update Management nie obsługuje bezpiecznego automatyzowania zarządzania aktualizacjami dla wszystkich wystąpień w zestawie skalowania maszyn wirtualnych platformy Azure. [Automatyczne uaktualnienia obrazu systemu operacyjnego](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to zalecana metoda zarządzania uaktualnieniami obrazu systemu operacyjnego w zestawie skalowania.
 
 ### <a name="unsupported-operating-systems"></a>Nieobsługiwane systemy operacyjne
 
@@ -107,7 +107,7 @@ Wymagania dotyczące oprogramowania:
 
 Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. W przypadku maszyn hybrydowych zaleca się zainstalowanie agenta Log Analytics dla systemu Windows, najpierw łącząc maszynę z [włączonymi serwerami usługi Azure Arc](../../azure-arc/servers/overview.md), a następnie używając Azure Policy do przypisywania [agenta wdrożenia log Analytics do zasad wbudowanych dla maszyn usługi Windows Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternatywnie, jeśli planujesz monitorowanie maszyn przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [Enable Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
-Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager.
+Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/agents/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager.
 
 Domyślnie maszyny wirtualne z systemem Windows wdrożone w witrynie Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
 
@@ -147,7 +147,7 @@ Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów robocz
 
 ### <a name="management-packs"></a>Pakiety administracyjne
 
-Jeśli grupa zarządzania Operations Manager jest [połączona z obszarem roboczym log Analytics](../../azure-monitor/platform/om-agents.md), następujące pakiety administracyjne są instalowane w Operations Manager. Te pakiety administracyjne są również zainstalowane dla Update Management na urządzeniach z systemem Windows podłączonych bezpośrednio. Pakietów administracyjnych nie trzeba konfigurować ani zarządzać nimi.
+Jeśli grupa zarządzania Operations Manager jest [połączona z obszarem roboczym log Analytics](../../azure-monitor/agents/om-agents.md), następujące pakiety administracyjne są instalowane w Operations Manager. Te pakiety administracyjne są również zainstalowane dla Update Management na urządzeniach z systemem Windows podłączonych bezpośrednio. Pakietów administracyjnych nie trzeba konfigurować ani zarządzać nimi.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -156,7 +156,7 @@ Jeśli grupa zarządzania Operations Manager jest [połączona z obszarem robocz
 > [!NOTE]
 > Jeśli grupa zarządzania programu Operations Manager 1807 lub 2019 jest połączona z obszarem roboczym Log Analytics z agentami skonfigurowanymi w grupie zarządzania w celu zbierania danych dziennika, należy zastąpić parametr `IsAutoRegistrationEnabled` i ustawić dla niego wartość true w regule **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** .
 
-Aby uzyskać więcej informacji o aktualizacjach pakietów administracyjnych, zobacz [Connect Operations Manager to Azure monitor Logs](../../azure-monitor/platform/om-agents.md).
+Aby uzyskać więcej informacji o aktualizacjach pakietów administracyjnych, zobacz [Connect Operations Manager to Azure monitor Logs](../../azure-monitor/agents/om-agents.md).
 
 > [!NOTE]
 > Aby uzyskać Update Management w pełni zarządzać maszynami przy użyciu agenta Log Analytics, należy zaktualizować agenta Log Analytics dla systemu Windows lub agenta Log Analytics w systemie Linux. Aby dowiedzieć się, jak zaktualizować agenta, zobacz [jak uaktualnić agenta Operations Manager](/system-center/scom/deploy-upgrade-agents). W środowiskach, w których jest używana Operations Manager, musi być uruchomiony program System Center Operations Manager 2012 R2 UR 14 lub nowszy.
@@ -181,7 +181,7 @@ Update Management skanuje zarządzane maszyny pod kątem danych przy użyciu nas
 
 * Każda maszyna z systemem Linux Update Management skanuje co godzinę.
 
-Średnie użycie danych przez Azure Monitor dzienników dla maszyny używającej Update Management wynosi około 25 MB miesięcznie. Ta wartość jest tylko przybliżeniem i może ulec zmianie, w zależności od środowiska. Zalecamy monitorowanie środowiska, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/platform/manage-cost-storage.md).
+Średnie użycie danych przez Azure Monitor dzienników dla maszyny używającej Update Management wynosi około 25 MB miesięcznie. Ta wartość jest tylko przybliżeniem i może ulec zmianie, w zależności od środowiska. Zalecamy monitorowanie środowiska, aby śledzić dokładne użycie. Aby uzyskać więcej informacji na temat analizowania danych dzienników Azure Monitor, zobacz [Zarządzanie użyciem i kosztem](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Planowanie sieci
 
@@ -193,7 +193,7 @@ W przypadku maszyn z systemem Red Hat Linux zapoznaj [się z tematem adresy IP d
 
 Aby uzyskać więcej informacji na temat portów wymaganych dla hybrydowego procesu roboczego elementu Runbook, zobacz [adresy Update Management dla hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem, można skonfigurować [bramę log Analytics](../../azure-monitor/platform/gateway.md) , a następnie skonfigurować maszynę do nawiązywania połączeń za pomocą bramy w celu Azure Automation i Azure monitor.
+Jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem, można skonfigurować [bramę log Analytics](../../azure-monitor/agents/gateway.md) , a następnie skonfigurować maszynę do nawiązywania połączeń za pomocą bramy w celu Azure Automation i Azure monitor.
 
 ## <a name="update-classifications"></a>Klasyfikacje aktualizacji
 

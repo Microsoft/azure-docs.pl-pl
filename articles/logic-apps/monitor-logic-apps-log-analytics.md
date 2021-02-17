@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d72e3ffc8698d9f3a2df170bd87f2969475ca9ed
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580685"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps
 
-Aby uzyskać bogatsze informacje o debugowaniu aplikacji logiki w czasie wykonywania, można skonfigurować i użyć [dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można tworzyć [zapytania dziennika](../azure-monitor/log-query/log-query-overview.md) , które pomagają zbierać i przeglądać te informacje. Możesz również [używać tych danych diagnostycznych z innymi usługami platformy Azure](#extend-data), takimi jak Azure Storage i Azure Event Hubs.
+Aby uzyskać bogatsze informacje o debugowaniu aplikacji logiki w czasie wykonywania, można skonfigurować i użyć [dzienników Azure monitor](../azure-monitor/logs/data-platform-logs.md) do rejestrowania i przechowywania informacji dotyczących danych i zdarzeń środowiska uruchomieniowego, takich jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji w [obszarze roboczym log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). [Azure monitor](../azure-monitor/overview.md) ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Korzystając z dzienników Azure Monitor, można tworzyć [zapytania dziennika](../azure-monitor/logs/log-query-overview.md) , które pomagają zbierać i przeglądać te informacje. Możesz również [używać tych danych diagnostycznych z innymi usługami platformy Azure](#extend-data), takimi jak Azure Storage i Azure Event Hubs.
 
 Aby skonfigurować rejestrowanie dla aplikacji logiki, możesz [włączyć log Analytics podczas tworzenia aplikacji logiki](#logging-for-new-logic-apps)lub [zainstalować rozwiązanie do zarządzania Logic Apps](#install-management-solution) w obszarze roboczym log Analytics dla istniejących aplikacji logiki. To rozwiązanie zawiera zagregowane informacje o uruchomieniach aplikacji logiki i zawiera szczegółowe informacje, takie jak stan, czas wykonywania, stan ponownego przesłania i identyfikatory korelacji. Następnie, aby włączyć rejestrowanie i utworzyć zapytania dotyczące tych informacji, [Skonfiguruj dzienniki Azure monitor](#set-up-resource-logs).
 
@@ -23,7 +23,7 @@ W tym artykule pokazano, jak włączyć Log Analytics w nowych aplikacjach logik
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem potrzebny jest [obszar roboczy log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Jeśli nie masz obszaru roboczego, Dowiedz się, [jak utworzyć obszar roboczy log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Przed rozpoczęciem potrzebny jest [obszar roboczy log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Jeśli nie masz obszaru roboczego, Dowiedz się, [jak utworzyć obszar roboczy log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -33,7 +33,7 @@ Log Analytics można włączyć podczas tworzenia aplikacji logiki.
 
 1. W [Azure Portal](https://portal.azure.com), w okienku, w którym są podane informacje służące do utworzenia aplikacji logiki, wykonaj następujące kroki:
 
-   1. W obszarze **log Analytics**wybierz pozycję **włączone**.
+   1. W obszarze **log Analytics** wybierz pozycję **włączone**.
 
    1. Z listy **obszarów roboczych log Analytics** wybierz obszar roboczy, w którym chcesz wysłać dane z aplikacji logiki.
 
@@ -55,15 +55,15 @@ Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten k
 
    ![Wybierz pozycję "Log Analytics obszary robocze"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. W obszarze **obszary robocze log Analytics**wybierz swój obszar roboczy.
+1. W obszarze **obszary robocze log Analytics** wybierz swój obszar roboczy.
 
    ![Wybierz obszar roboczy Log Analytics](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. W okienku **Przegląd** w obszarze **wprowadzenie do log Analytics**  >  **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
+1. W okienku **Przegląd** w obszarze **wprowadzenie do log Analytics**  >  **konfigurowania rozwiązań monitorowania** wybierz pozycję **Wyświetl rozwiązania**.
 
    ![W okienku Przegląd wybierz pozycję "Wyświetl rozwiązania"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
-1. W obszarze **Przegląd**wybierz pozycję **Dodaj**.
+1. W obszarze **Przegląd** wybierz pozycję **Dodaj**.
 
    ![W okienku Przegląd Dodaj nowe rozwiązanie](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
@@ -87,14 +87,14 @@ Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten k
 
 ## <a name="set-up-azure-monitor-logs"></a>Konfigurowanie dzienników Azure Monitor
 
-Podczas przechowywania informacji o zdarzeniach i danych środowiska uruchomieniowego w [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md)można utworzyć [zapytania dziennika](../azure-monitor/log-query/log-query-overview.md) , które ułatwiają znajdowanie i przeglądanie tych informacji.
+Podczas przechowywania informacji o zdarzeniach i danych środowiska uruchomieniowego w [dziennikach Azure monitor](../azure-monitor/logs/data-platform-logs.md)można utworzyć [zapytania dziennika](../azure-monitor/logs/log-query-overview.md) , które ułatwiają znajdowanie i przeglądanie tych informacji.
 
 > [!NOTE]
 > Po włączeniu ustawień diagnostycznych dane diagnostyczne mogą nie przepływać przez maksymalnie 30 minut do dzienników w określonym miejscu docelowym, na przykład Log Analytics, centrum zdarzeń lub koncie magazynu. To opóźnienie oznacza, że dane diagnostyczne z tego okresu mogą nie być dostępne do przeglądu. Ukończone zdarzenia i [śledzone właściwości](#extend-data) mogą nie być wyświetlane w obszarze roboczym Log Analytics przez 10-15 minut.
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz aplikację logiki.
 
-1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne**.
+1. W menu aplikacji logiki w obszarze **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne**.
 
    ![W obszarze "monitorowanie" Wybierz pozycję "Ustawienia diagnostyczne" > "Dodaj ustawienie diagnostyczne"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
@@ -104,13 +104,13 @@ Podczas przechowywania informacji o zdarzeniach i danych środowiska uruchomieni
 
    1. Wybierz pozycję **Wyślij do log Analytics**.
 
-   1. W obszarze **subskrypcja**wybierz subskrypcję platformy Azure, która jest skojarzona z obszarem roboczym log Analytics.
+   1. W obszarze **subskrypcja** wybierz subskrypcję platformy Azure, która jest skojarzona z obszarem roboczym log Analytics.
 
-   1. W **obszarze obszar roboczy log Analytics**wybierz obszar roboczy, którego chcesz użyć.
+   1. W **obszarze obszar roboczy log Analytics** wybierz obszar roboczy, którego chcesz użyć.
 
-   1. W obszarze **Dziennik**wybierz kategorię element **WorkflowRuntime** , która określa kategorię zdarzenia, która ma zostać zarejestrowana.
+   1. W obszarze **Dziennik** wybierz kategorię element **WorkflowRuntime** , która określa kategorię zdarzenia, która ma zostać zarejestrowana.
 
-   1. Aby zaznaczyć wszystkie metryki, w obszarze **Metryka**wybierz pozycję **AllMetrics**.
+   1. Aby zaznaczyć wszystkie metryki, w obszarze **Metryka** wybierz pozycję **AllMetrics**.
 
    1. Po zakończeniu wybierz pozycję **Zapisz**.
 
@@ -178,10 +178,10 @@ Po uruchomieniu aplikacji logiki można wyświetlić dane dotyczące tych przebi
 
 Wraz z Azure Monitorymi dziennikami możesz dołożyć, jak używać danych diagnostycznych aplikacji logiki z innymi usługami platformy Azure, na przykład:
 
-* [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-* [Przesyłanie strumieniowe dzienników platformy Azure do usługi Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+* [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+* [Przesyłanie strumieniowe dzienników platformy Azure do usługi Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Następnie można uzyskać monitorowanie w czasie rzeczywistym, korzystając z danych telemetrycznych i analiz z innych usług, takich jak [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) i [Power BI](../azure-monitor/platform/powerbi.md). Na przykład:
+Następnie można uzyskać monitorowanie w czasie rzeczywistym, korzystając z danych telemetrycznych i analiz z innych usług, takich jak [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) i [Power BI](../azure-monitor/visualize/powerbi.md). Na przykład:
 
 * [Przesyłanie strumieniowe danych z Event Hubs do Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizowanie danych przesyłanych strumieniowo za pomocą Stream Analytics i tworzenie pulpitu nawigacyjnego analizy w czasie rzeczywistym w programie Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -194,7 +194,7 @@ Na podstawie lokalizacji, w których chcesz wysyłać dane diagnostyczne, należ
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor zdarzenia diagnostyki
 
-Każde zdarzenie diagnostyczne zawiera szczegółowe informacje o aplikacji logiki oraz o tym zdarzeniu, na przykład o stanie, czasie rozpoczęcia, czasie zakończenia itd. Aby programowo skonfigurować monitorowanie, śledzenie i rejestrowanie, można użyć tych informacji z [interfejsem API REST dla Azure Logic Apps](/rest/api/logic) i [interfejsu api REST dla Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Można również użyć `clientTrackingId` `trackedProperties` właściwości i, które pojawiają się w 
+Każde zdarzenie diagnostyczne zawiera szczegółowe informacje o aplikacji logiki oraz o tym zdarzeniu, na przykład o stanie, czasie rozpoczęcia, czasie zakończenia itd. Aby programowo skonfigurować monitorowanie, śledzenie i rejestrowanie, można użyć tych informacji z [interfejsem API REST dla Azure Logic Apps](/rest/api/logic) i [interfejsu api REST dla Azure monitor](../azure-monitor/essentials/metrics-supported.md#microsoftlogicworkflows). Można również użyć `clientTrackingId` `trackedProperties` właściwości i, które pojawiają się w 
 
 * `clientTrackingId`: Jeśli nie zostanie podany, platforma Azure automatycznie generuje ten identyfikator i skorelowanie zdarzeń w ramach przebiegu aplikacji logiki, w tym wszystkich zagnieżdżonych przepływów pracy, które są wywoływane z aplikacji logiki. Można ręcznie określić ten identyfikator w wyzwalaczu, przekazując `x-ms-client-tracking-id` Nagłówek z wartością NIESTANDARDOWEGO identyfikatora w żądaniu wyzwalacza. Można użyć wyzwalacza żądania, wyzwalacza HTTP lub wyzwalacza elementu webhook.
 

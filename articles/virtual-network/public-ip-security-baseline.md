@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806922"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596495"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Podstawa zabezpieczeń Azure dla publicznego adresu IP platformy Azure
 
@@ -52,7 +52,7 @@ Publiczny adres IP zawiera narzędzia do monitorowania, diagnozowania, wyświetl
 
 Zamiast tego można włączać i dołączać dane do produktów wskaźnikowych platformy Azure lub SIEM innych firm.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ Zamiast tego można włączać i dołączać dane do produktów wskaźnikowych p
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień publicznych adresów IP. Poza płaszczyzną kontroli (na przykład Azure Portal), publiczny adres IP nie generuje dzienników inspekcji. Publiczny adres IP zawiera narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -74,7 +74,7 @@ Zamiast tego można włączać i dołączać dane do produktów wskaźnikowych p
 
 **Wskazówki**: Użyj Azure monitor, aby ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z wystąpieniami publicznych adresów IP zgodnie ze zobowiązaniami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -88,7 +88,7 @@ Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykr
 
 Publiczny adres IP nie generuje dzienników związanych z ruchem sieciowym innym niż na płaszczyźnie kontroli (na przykład Azure Portal).
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

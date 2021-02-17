@@ -3,16 +3,16 @@ title: Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witry
 description: Wyświetl powiadomienia dotyczące kondycji usługi w Azure Portal. Powiadomienia o kondycji usługi są publikowane przez infrastrukturę platformy Azure w dzienniku aktywności platformy Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f9f3e7b10d9aa0014e4e00e7bfa72c9dc66e142
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587998"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal
 
-Powiadomienia o kondycji usługi są publikowane przez infrastrukturę platformy Azure w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).  Powiadomienia zawierają informacje o zasobach w ramach subskrypcji. W przypadku potencjalnie dużej ilości informacji przechowywanych w dzienniku aktywności istnieje oddzielny interfejs użytkownika ułatwiający wyświetlanie i Konfigurowanie alertów dotyczących powiadomień o kondycji usługi. 
+Powiadomienia o kondycji usługi są publikowane przez infrastrukturę platformy Azure w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).  Powiadomienia zawierają informacje o zasobach w ramach subskrypcji. W przypadku potencjalnie dużej ilości informacji przechowywanych w dzienniku aktywności istnieje oddzielny interfejs użytkownika ułatwiający wyświetlanie i Konfigurowanie alertów dotyczących powiadomień o kondycji usługi. 
 
 Powiadomienia o kondycji usługi mogą być informacyjne lub funkcjonalne w zależności od klasy.
 
@@ -30,8 +30,8 @@ Aby uzyskać więcej informacji na temat różnych klas powiadomień dotyczącyc
 
     ![Zrzut ekranu przedstawiający dziennik aktywności monitora z wybranymi alertami](./media/service-notifications/service-health-summary.png)
 
-1. Wybierz pozycję **+ Dodaj alert dziennika aktywności**i skonfiguruj alert, aby upewnić się, że otrzymujesz powiadomienie o przyszłych powiadomieniach dotyczących usług. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dziennika aktywności w powiadomieniach usługi](./alerts-activity-log-service-notifications-portal.md).
+1. Wybierz pozycję **+ Dodaj alert dziennika aktywności** i skonfiguruj alert, aby upewnić się, że otrzymujesz powiadomienie o przyszłych powiadomieniach dotyczących usług. Aby uzyskać więcej informacji, zobacz [tworzenie alertów dziennika aktywności w powiadomieniach usługi](./alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [alertach dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md).
+* Dowiedz się więcej o [alertach dziennika aktywności](../azure-monitor/alerts/activity-log-alerts.md).
