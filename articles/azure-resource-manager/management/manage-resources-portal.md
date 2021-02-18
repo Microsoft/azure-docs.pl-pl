@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12d704b0a3d92aa0585fb120f969000def282396
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894036"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092206"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Zarządzanie zasobami platformy Azure przy użyciu Azure Portal
 
@@ -29,12 +29,12 @@ Po utworzeniu szablonu Menedżer zasobów można użyć Azure Portal do wdrożen
 
 ## <a name="open-resources"></a>Otwarte zasoby
 
-Zasoby platformy Azure są zorganizowane według usług platformy Azure i grup zasobów. Poniższe procedury pokazują, jak otworzyć konto magazynu o nazwie **mystorage0207** . Maszyna wirtualna znajduje się w grupie zasobów o nazwie **mystorage0207rg** .
+Zasoby platformy Azure są zorganizowane według usług platformy Azure i grup zasobów. Poniższe procedury pokazują, jak otworzyć konto magazynu o nazwie **mystorage0207**. Maszyna wirtualna znajduje się w grupie zasobów o nazwie **mystorage0207rg**.
 
 Aby otworzyć zasób według typu usługi:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W okienku po lewej stronie wybierz usługę platformy Azure. W tym przypadku **konta magazynu** .  Jeśli nie widzisz usługi na liście, wybierz pozycję **wszystkie usługi** , a następnie wybierz typ usługi.
+2. W okienku po lewej stronie wybierz usługę platformy Azure. W tym przypadku **konta magazynu**.  Jeśli nie widzisz usługi na liście, wybierz pozycję **wszystkie usługi**, a następnie wybierz typ usługi.
 
     ![Otwórz zasób platformy Azure w portalu](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
@@ -63,17 +63,17 @@ Zrzut ekranu przedstawia opcje zarządzania dla maszyny wirtualnej platformy Azu
 ## <a name="delete-resources"></a>Usuwanie zasobów
 
 1. Otwórz zasób w portalu. Aby zapoznać się z procedurami, zobacz [Open Resources](#open-resources).
-2. Wybierz pozycję **Usuń** . Poniższy zrzut ekranu przedstawia opcje zarządzania dla maszyny wirtualnej.
+2. Wybierz pozycję **Usuń**. Poniższy zrzut ekranu przedstawia opcje zarządzania dla maszyny wirtualnej.
 
     ![Usuń zasób platformy Azure](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
-3. Wpisz nazwę zasobu, aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń** .
+3. Wpisz nazwę zasobu, aby potwierdzić usunięcie, a następnie wybierz pozycję **Usuń**.
 
 Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Resource Manager kolejności usuwania zasobów, zobacz [Azure Resource Manager Usuwanie grupy zasobów](delete-resource-group.md).
 
 ## <a name="move-resources"></a>Przenoszenie zasobów
 
 1. Otwórz zasób w portalu. Aby zapoznać się z procedurami, zobacz [Open Resources](#open-resources).
-2. Wybierz pozycję **Przenieś** . Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
+2. Wybierz pozycję **Przenieś**. Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
 
     ![Przenoszenie zasobu platformy Azure](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Wybierz pozycję **Przenieś do innej grupy zasobów** lub **Przenieś do innej subskrypcji** w zależności od potrzeb.
@@ -85,10 +85,10 @@ Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or
 Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usuwanie lub modyfikowanie krytycznych zasobów, takich jak subskrypcja platformy Azure, Grupa zasobów lub zasób. 
 
 1. Otwórz zasób w portalu. Aby zapoznać się z procedurami, zobacz [Open Resources](#open-resources).
-2. Wybierz pozycję **blokady** . Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
+2. Wybierz pozycję **blokady**. Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
 
     ![Zablokuj zasób platformy Azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Wybierz pozycję **Dodaj** , a następnie określ właściwości blokady.
+3. Wybierz pozycję **Dodaj**, a następnie określ właściwości blokady.
 
 Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
 
@@ -97,10 +97,10 @@ Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Mana
 Tagowanie pomaga w logicznym organizowaniu grupy zasobów i zasobów. 
 
 1. Otwórz zasób w portalu. Aby zapoznać się z procedurami, zobacz [Open Resources](#open-resources).
-2. Wybierz pozycję **Tagi** . Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
+2. Wybierz pozycję **Tagi**. Poniższy zrzut ekranu przedstawia opcje zarządzania dla konta magazynu.
 
     ![Oznacz zasób platformy Azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Określ właściwości tagu, a następnie wybierz pozycję **Zapisz** .
+3. Określ właściwości tagu, a następnie wybierz pozycję **Zapisz**.
 
 Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](tag-resources.md#portal).
 
@@ -114,7 +114,7 @@ Możesz wybrać ikonę pinezki w prawym górnym rogu wykresów, aby przypiąć w
 
 ## <a name="manage-access-to-resources"></a>Zarządzanie dostępem do zasobów
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

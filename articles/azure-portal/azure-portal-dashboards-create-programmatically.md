@@ -3,12 +3,12 @@ title: Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 description: Użyj pulpitu nawigacyjnego w Azure Portal jako szablonu do programistycznego tworzenia pulpitów nawigacyjnych platformy Azure. Zawiera odwołanie JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745812"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095177"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 
@@ -46,7 +46,7 @@ Po skonfigurowaniu pulpitu nawigacyjnego następnym krokiem jest opublikowanie p
 
 ![Udostępnianie pulpitu nawigacyjnego](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Po wybraniu pozycji **Udostępnij** zostanie wyświetlony komunikat z prośbą o wybranie subskrypcji i grupy zasobów, w których ma zostać opublikowany. Musisz mieć dostęp do zapisu do wybranej subskrypcji i grupy zasobów. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Po wybraniu pozycji **Udostępnij** zostanie wyświetlony komunikat z prośbą o wybranie subskrypcji i grupy zasobów, w których ma zostać opublikowany. Musisz mieć dostęp do zapisu do wybranej subskrypcji i grupy zasobów. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ![wprowadzanie zmian w celu udostępniania i dostępu](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

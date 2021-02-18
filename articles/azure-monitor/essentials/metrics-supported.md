@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 51cd3bf3349e1880d4dc9f5d98d2d9b5dc5bb228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616680"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091785"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -154,21 +154,21 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Active-Timer-Count|Tak|System. Runtime|Active-Timer-Count|Liczba|Średnia|Liczba czasomierzy, które są obecnie aktywne|Wdrożenie, nazwa_aplikacji, pod|
-|Alokacja — stawka|Tak|System. Runtime|Alokacja — stawka|Bajty|Średnia|Liczba bajtów przydzielono w zarządzanej stercie|Wdrożenie, nazwa_aplikacji, pod|
+|Active-Timer-Count|Tak|Active-Timer-Count|Liczba|Średnia|Liczba czasomierzy, które są obecnie aktywne|Wdrożenie, nazwa_aplikacji, pod|
+|Alokacja — stawka|Tak|Alokacja — stawka|Bajty|Średnia|Liczba bajtów przydzielono w zarządzanej stercie|Wdrożenie, nazwa_aplikacji, pod|
 |AppCpuUsage|Tak|Użycie procesora CPU aplikacji (wersja zapoznawcza)|Procent|Średnia|Ostatnie użycie procesora CPU dla aplikacji|Wdrożenie, nazwa_aplikacji, pod|
-|liczba zestawów|Tak|System. Runtime|liczba zestawów|Liczba|Średnia|Liczba załadowanych zestawów|Wdrożenie, nazwa_aplikacji, pod|
-|Użycie procesora CPU|Tak|System. Runtime|Użycie procesora CPU|Procent|Średnia|% czasu, w którym proces używał procesora CPU|Wdrożenie, nazwa_aplikacji, pod|
-|bieżące żądania|Tak|Microsoft. AspNetCore. hosting|bieżące żądania|Liczba|Średnia|Łączna liczba żądań przetwarzanych w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
-|Liczba wyjątków|Tak|System. Runtime|Liczba wyjątków|Liczba|Łącznie|Liczba wyjątków|Wdrożenie, nazwa_aplikacji, pod|
-|Nieudane żądania|Tak|Microsoft. AspNetCore. hosting|Nieudane żądania|Liczba|Średnia|Łączna liczba żądań zakończonych niepowodzeniem w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
-|GC-sterta-rozmiar|Tak|System. Runtime|GC-sterta-rozmiar|Liczba|Średnia|Łączny rozmiar sterty raportowany przez GC (MB)|Wdrożenie, nazwa_aplikacji, pod|
-|Gen-0-GC-Count|Tak|System. Runtime|Gen-0-GC-Count|Liczba|Średnia|Liczba operacje odzyskiwania pamięciów generacji 0|Wdrożenie, nazwa_aplikacji, pod|
-|rozmiar generacji (0)|Tak|System. Runtime|rozmiar generacji (0)|Bajty|Średnia|Rozmiar sterty generacji 0|Wdrożenie, nazwa_aplikacji, pod|
-|Gen-1-GC-Count|Tak|System. Runtime|Gen-1-GC-Count|Liczba|Średnia|System. Runtime|Liczba generacji 1 operacje odzyskiwania pamięci|Wdrożenie, nazwa_aplikacji, pod|
-|Gen-1-size|Tak|System. Runtime|Gen-1-size|Bajty|Średnia|Rozmiar sterty generacji 1|Wdrożenie, nazwa_aplikacji, pod|
-|Gen-2-GC-Count|Tak|System. Runtime|Gen-2-GC-Count|Liczba|Średnia|Liczba operacje odzyskiwania pamięci generacji 2|Wdrożenie, nazwa_aplikacji, pod|
-|Gen-2 — rozmiar|Tak|System. Runtime|Gen-2 — rozmiar|Bajty|Średnia|Rozmiar sterty generacji 2|Wdrożenie, nazwa_aplikacji, pod|
+|liczba zestawów|Tak|liczba zestawów|Liczba|Średnia|Liczba załadowanych zestawów|Wdrożenie, nazwa_aplikacji, pod|
+|Użycie procesora CPU|Tak|Użycie procesora CPU|Procent|Średnia|% czasu, w którym proces używał procesora CPU|Wdrożenie, nazwa_aplikacji, pod|
+|bieżące żądania|Tak|bieżące żądania|Liczba|Średnia|Łączna liczba żądań przetwarzanych w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
+|Liczba wyjątków|Tak|Liczba wyjątków|Liczba|Łącznie|Liczba wyjątków|Wdrożenie, nazwa_aplikacji, pod|
+|Nieudane żądania|Tak|Nieudane żądania|Liczba|Średnia|Łączna liczba żądań zakończonych niepowodzeniem w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
+|GC-sterta-rozmiar|Tak|GC-sterta-rozmiar|Liczba|Średnia|Łączny rozmiar sterty raportowany przez GC (MB)|Wdrożenie, nazwa_aplikacji, pod|
+|Gen-0-GC-Count|Tak|Gen-0-GC-Count|Liczba|Średnia|Liczba operacje odzyskiwania pamięciów generacji 0|Wdrożenie, nazwa_aplikacji, pod|
+|rozmiar generacji (0)|Tak|rozmiar generacji (0)|Bajty|Średnia|Rozmiar sterty generacji 0|Wdrożenie, nazwa_aplikacji, pod|
+|Gen-1-GC-Count|Tak|Gen-1-GC-Count|Liczba|Średnia|Liczba generacji 1 operacje odzyskiwania pamięci|Wdrożenie, nazwa_aplikacji, pod|
+|Gen-1-size|Tak|Gen-1-size|Bajty|Średnia|Rozmiar sterty generacji 1|Wdrożenie, nazwa_aplikacji, pod|
+|Gen-2-GC-Count|Tak|Gen-2-GC-Count|Liczba|Średnia|Liczba operacje odzyskiwania pamięci generacji 2|Wdrożenie, nazwa_aplikacji, pod|
+|Gen-2 — rozmiar|Tak|Gen-2 — rozmiar|Bajty|Średnia|Rozmiar sterty generacji 2|Wdrożenie, nazwa_aplikacji, pod|
 |JVM. GC. Live. Data. size|Tak|JVM. GC. Live. Data. size|Bajty|Średnia|Rozmiar starej puli pamięci generacji po pełnej operacji GC|Wdrożenie, nazwa_aplikacji, pod|
 |JVM. GC. max. Data. size|Tak|JVM. GC. max. Data. size|Bajty|Średnia|Maksymalny rozmiar puli pamięci starej generacji|Wdrożenie, nazwa_aplikacji, pod|
 |JVM. GC. Memory. przydzielono|Tak|JVM. GC. Memory. przydzielono|Bajty|Maksimum|Zwiększa się w celu zwiększenia rozmiaru puli pamięci młodej generacji po jednej operacji GC do wcześniejszej|Wdrożenie, nazwa_aplikacji, pod|
@@ -178,15 +178,15 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |JVM. Memory. Committed|Tak|JVM. Memory. Committed|Bajty|Średnia|Pamięć przypisana do JVM w bajtach|Wdrożenie, nazwa_aplikacji, pod|
 |JVM. Memory. Max|Tak|JVM. Memory. Max|Bajty|Maksimum|Maksymalna ilość pamięci w bajtach, która może być używana do zarządzania pamięcią|Wdrożenie, nazwa_aplikacji, pod|
 |JVM. Memory. użyty|Tak|JVM. Memory. użyty|Bajty|Średnia|Pamięć aplikacji użyta w bajtach|Wdrożenie, nazwa_aplikacji, pod|
-|LOH — rozmiar|Tak|System. Runtime|LOH — rozmiar|Bajty|Średnia|Rozmiar sterty LOH|Wdrożenie, nazwa_aplikacji, pod|
-|monitorowanie-blokowanie-rywalizacja-liczba|Tak|System. Runtime|monitorowanie-blokowanie-rywalizacja-liczba|Liczba|Średnia|Liczba przypadków rywalizacji podczas próby przeprowadzenia blokady monitora|Wdrożenie, nazwa_aplikacji, pod|
+|LOH — rozmiar|Tak|LOH — rozmiar|Bajty|Średnia|Rozmiar sterty LOH|Wdrożenie, nazwa_aplikacji, pod|
+|monitorowanie-blokowanie-rywalizacja-liczba|Tak|monitorowanie-blokowanie-rywalizacja-liczba|Liczba|Średnia|Liczba przypadków rywalizacji podczas próby przeprowadzenia blokady monitora|Wdrożenie, nazwa_aplikacji, pod|
 |Process. CPU. Usage|Tak|Process. CPU. Usage|Procent|Średnia|Ostatnie użycie procesora CPU przez proces JVM|Wdrożenie, nazwa_aplikacji, pod|
-|Liczba żądań na sekundę|Tak|Microsoft. AspNetCore. hosting|żądania — stawka|Liczba|Średnia|Częstotliwość żądań|Wdrożenie, nazwa_aplikacji, pod|
+|Liczba żądań na sekundę|Tak|żądania — stawka|Liczba|Średnia|Częstotliwość żądań|Wdrożenie, nazwa_aplikacji, pod|
 |System. CPU. Usage|Tak|System. CPU. Usage|Procent|Średnia|Ostatnie użycie procesora CPU całego systemu|Wdrożenie, nazwa_aplikacji, pod|
-|z puli wątków — liczba elementów zakończonych|Tak|System. Runtime|z puli wątków — liczba elementów zakończonych|Liczba|Średnia|Liczba elementów roboczych ukończonych w ramach puli wątków|Wdrożenie, nazwa_aplikacji, pod|
-|puli wątków — długość kolejki|Tak|System. Runtime|puli wątków — długość kolejki|Liczba|Średnia|Długość kolejki elementów roboczych puli wątków|Wdrożenie, nazwa_aplikacji, pod|
-|wątków — liczba wątków|Tak|System. Runtime|wątków — liczba wątków|Liczba|Średnia|Liczba wątków puli wątków|Wdrożenie, nazwa_aplikacji, pod|
-|czas pracy w pamięci podręcznej|Tak|System. Runtime|czas pracy w pamięci podręcznej|Procent|Średnia|% czasu w GC od czasu ostatniego GC|Wdrożenie, nazwa_aplikacji, pod|
+|z puli wątków — liczba elementów zakończonych|Tak|z puli wątków — liczba elementów zakończonych|Liczba|Średnia|Liczba elementów roboczych ukończonych w ramach puli wątków|Wdrożenie, nazwa_aplikacji, pod|
+|puli wątków — długość kolejki|Tak|puli wątków — długość kolejki|Liczba|Średnia|Długość kolejki elementów roboczych puli wątków|Wdrożenie, nazwa_aplikacji, pod|
+|wątków — liczba wątków|Tak|wątków — liczba wątków|Liczba|Średnia|Liczba wątków puli wątków|Wdrożenie, nazwa_aplikacji, pod|
+|czas pracy w pamięci podręcznej|Tak|czas pracy w pamięci podręcznej|Procent|Średnia|% czasu w GC od czasu ostatniego GC|Wdrożenie, nazwa_aplikacji, pod|
 |Tomcat. Global. Error|Tak|Tomcat. Global. Error|Liczba|Łącznie|Błąd globalny Tomcat|Wdrożenie, nazwa_aplikacji, pod|
 |Tomcat. Global. Receives|Tak|Tomcat. Global. Receives|Bajty|Łącznie|Całkowita liczba odebranych bajtów Tomcat|Wdrożenie, nazwa_aplikacji, pod|
 |Tomcat. Global. Request. AVG. Time|Tak|Tomcat. Global. Request. AVG. Time|)|Średnia|Średni czas żądania Tomcat|Wdrożenie, nazwa_aplikacji, pod|
@@ -202,8 +202,8 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Tomcat. Sessions. rejected|Tak|Tomcat. Sessions. rejected|Liczba|Łącznie|Liczba odrzuconych sesji Tomcat|Wdrożenie, nazwa_aplikacji, pod|
 |tomcat.threads.config. Max|Tak|tomcat.threads.config. Max|Liczba|Łącznie|Maksymalna liczba wątków w konfiguracji Tomcat|Wdrożenie, nazwa_aplikacji, pod|
 |Tomcat. Threads. Current|Tak|Tomcat. Threads. Current|Liczba|Łącznie|Tomcat bieżąca liczba wątków|Wdrożenie, nazwa_aplikacji, pod|
-|łącznie — żądania|Tak|Microsoft. AspNetCore. hosting|łącznie — żądania|Liczba|Średnia|Łączna liczba żądań w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
-|zestaw roboczy|Tak|System. Runtime|zestaw roboczy|Liczba|Średnia|Ilość zestawu roboczego używanego przez proces (MB)|Wdrożenie, nazwa_aplikacji, pod|
+|łącznie — żądania|Tak|łącznie — żądania|Liczba|Średnia|Łączna liczba żądań w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
+|zestaw roboczy|Tak|zestaw roboczy|Liczba|Średnia|Ilość zestawu roboczego używanego przez proces (MB)|Wdrożenie, nazwa_aplikacji, pod|
 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft. Automation/automationAccounts

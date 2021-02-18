@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653078"
+ms.locfileid: "101092407"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń taryfowych
 
@@ -50,7 +50,7 @@ Model działa przez wygenerowanie interwałów zaufania z mocą wsteczną. Progn
 
 ## <a name="anomaly-detection-notification"></a>Powiadomienie o wykryciu anomalii
 
-Można oszacować, zarządzać i potwierdzać anomalie w centrum partnerskim. Aby dowiedzieć się, jak to zrobić, zobacz [wykrywanie anomalii w przypadku naliczanych opłat](../anomaly-detection.md).
+Można oszacować, zarządzać i potwierdzać anomalie w centrum partnerskim. Aby dowiedzieć się, jak to zrobić, zobacz [Zarządzanie anomaliami rozliczeń naliczanych w centrum partnerskim](../anomaly-detection.md).
 
 Aby zapewnić, że klienci nie są obciążeni opłatami za użycie taryfowe, należy sprawdzić, czy wykryte anomalie są prawdziwymi problemami. W takim przypadku można potwierdzić nieprawidłowe użycie w centrum partnerskim.
 
@@ -83,4 +83,4 @@ Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobac
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [interfejsie API usługi pomiaru Marketplace](marketplace-metering-service-apis.md).
-- [Wykrywanie anomalii dla rozliczeń naliczanych](../anomaly-detection.md)
+- [Zarządzanie anomaliami rozliczeń naliczanych w centrum partnerskim](../anomaly-detection.md)

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371256"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093695"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure Portal
 
@@ -62,7 +62,7 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określaj
 ## <a name="open-resource-groups"></a>Otwórz grupy zasobów
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **grupy zasobów**.
+2. Wybierz pozycję **Grupy zasobów**.
 3. Wybierz grupę zasobów, którą chcesz otworzyć.
 
 ## <a name="delete-resource-groups"></a>Usuwanie grup zasobów
@@ -89,7 +89,7 @@ Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usuwanie 
 1. Otwórz grupę zasobów, którą chcesz zablokować.  Zobacz [otwieranie grup zasobów](#open-resource-groups).
 2. W lewym okienku wybierz pozycję **blokady**.
 3. Aby dodać blokadę do grupy zasobów, wybierz pozycję **Dodaj**.
-4. Wprowadź **nazwę blokady**, **Typ blokady**i **notatki**. Typy blokad obejmują **tylko do odczytu**i **delete**.
+4. Wprowadź **nazwę blokady**, **Typ blokady** i **notatki**. Typy blokad obejmują **tylko do odczytu** i **delete**.
 
     ![Zablokuj grupę zasobów platformy Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
@@ -105,7 +105,7 @@ Aby uzyskać informacje na temat eksportowania szablonów, zobacz [jeden i wiele
 
 ## <a name="manage-access-to-resource-groups"></a>Zarządzanie dostępem do grup zasobów
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

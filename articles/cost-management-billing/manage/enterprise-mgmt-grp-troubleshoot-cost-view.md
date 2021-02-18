@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: bd0abadb624bced7f603fcbd112f7c422e88fc0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
-ms.translationtype: HT
+ms.openlocfilehash: d78621697d53f429624dc22a8e91ba4367dcfd18
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371851"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093960"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Rozwiązywanie problemów z widokami kosztów przedsiębiorstwa
 
@@ -41,7 +41,7 @@ Jeśli podczas próby uzyskania dostępu do subskrypcji lub grupy zarządzania z
 
 ![Zrzut ekranu przedstawiający komunikat „Zasób jest niedostępny”.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Poproś administratora subskrypcji platformy Azure lub administratora grupy zarządzania o udzielenie dostępu. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Poproś administratora subskrypcji platformy Azure lub administratora grupy zarządzania o udzielenie dostępu. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 - Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).

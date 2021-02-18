@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905319"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094092"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
 
@@ -62,7 +62,7 @@ Po odebraniu tokenu dostępu przez aplikację zestaw SDK i/lub aplikacja wysyła
 | Nazwa nagłówka    | Wartość               |
 | :------------- | :------------------ |
 | x-ms-client-id | 30d7cc….9f55        |
-| Authorization  | Bearer eyJ0e….HNIVN |
+| Autoryzacja  | Bearer eyJ0e….HNIVN |
 
 > [!NOTE]
 > `x-ms-client-id` jest identyfikatorem GUID opartym na koncie Azure Maps, który pojawia się na stronie uwierzytelnianie Azure Maps.
@@ -84,7 +84,7 @@ Azure Maps obsługuje dostęp do wszystkich typów podmiotów dla [kontroli dost
 
 W następnych sekcjach omówiono koncepcje i składniki Azure Maps integrację z usługą Azure RBAC. W ramach procesu konfigurowania konta Azure Maps katalog usługi Azure AD jest skojarzony z subskrypcją platformy Azure, w której znajduje się konto Azure Maps. 
 
-Podczas konfigurowania usługi Azure RBAC należy wybrać podmiot zabezpieczeń i zastosować go do przypisania roli. Aby dowiedzieć się, jak dodać przypisania ról na Azure Portal, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure](../role-based-access-control/role-assignments-portal.md).
+Podczas konfigurowania usługi Azure RBAC należy wybrać podmiot zabezpieczeń i zastosować go do przypisania roli. Aby dowiedzieć się, jak dodać przypisania ról na Azure Portal, zobacz [Przypisywanie ról platformy Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Wybieranie definicji roli
 

@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956127"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093467"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji
 
@@ -27,7 +27,7 @@ W Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, nal
 
 W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i utworzyć adres URL przesyłania strumieniowego przy użyciu zestawów SDK języka Java i platformy .NET.
 
-## <a name="prerequisite"></a>Wymaganie wstępne 
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Podgląd [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md)
 

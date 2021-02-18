@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ca92e6e888ead6bbd79c7a8d524516ee95e8c45d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602380"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092935"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
 W tym artykule przedstawiono sposób przygotowania obrazu głównego wirtualnego dysku twardego (VHD) do przekazania do platformy Azure, w tym sposobu tworzenia maszyn wirtualnych i instalowania na nich oprogramowania. Te instrukcje dotyczą konfiguracji specyficznej dla pulpitu wirtualnego systemu Windows, która może być używana z istniejącymi procesami w organizacji.
 
 >[!IMPORTANT]
->Zalecamy używanie obrazu z galerii obrazów platformy Azure. Jeśli jednak potrzebujesz użyć niestandardowego obrazu, upewnij się, że na urządzeniu nie jest jeszcze zainstalowany agent pulpitu wirtualnego systemu WIndows. Używanie niestandardowego obrazu z agentem pulpitu wirtualnego systemu Windows może spowodować problemy z obrazem.  
+>Zalecamy używanie obrazu z galerii obrazów platformy Azure. Jeśli jednak potrzebujesz użyć niestandardowego obrazu, upewnij się, że na maszynie wirtualnej nie jest jeszcze zainstalowany agent pulpitu wirtualnego systemu Windows. Użycie niestandardowego obrazu z agentem pulpitu wirtualnego systemu Windows może spowodować problemy z obrazem, np. blokowanie rejestracji i zapobieganie nawiązywaniu połączeń sesji użytkownika.  
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
@@ -216,3 +216,5 @@ Teraz, gdy masz obraz, możesz utworzyć lub zaktualizować pule hostów. Aby do
 - [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md)
 - [Tworzenie kontenera profilu dla puli hostów za pomocą udziału plików](create-host-pools-user-profile.md)
 - [Konfigurowanie metody równoważenia obciążenia usługi Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+
+Jeśli podczas przygotowywania lub dostosowywania obrazu wirtualnego dysku twardego wystąpił problem z łącznością, zapoznaj się z [przewodnikiem rozwiązywania problemów](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) , aby uzyskać pomoc.

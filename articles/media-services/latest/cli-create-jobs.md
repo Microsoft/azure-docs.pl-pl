@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9291d53822f0fbb80f759908933db58f2224c3d7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98891424"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091917"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Przykład interfejsu wiersza polecenia: tworzenie i przesyłanie zadania
 
@@ -31,8 +31,6 @@ W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
 [Utwórz konto Media Services](./create-account-howto.md).
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Przykładowy skrypt
 

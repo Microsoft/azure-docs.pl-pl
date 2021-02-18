@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu usługi Azure Security test Foundation
 description: Kroki wdrażania przykładowego planu usługi Azure Security test Foundation, w tym szczegóły parametru artefaktu planu.
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aaaabc8767c6d80548a26d64d8557587180fb6f3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633958"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095299"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Wdróż przykład planu usługi Azure Security test Foundation
 
@@ -92,6 +92,9 @@ Po pomyślnym **opublikowaniu** kopii przykładowej strategii można ją przypis
      - **Nazwa Network Watcher**: nazwa zasobu Network Watcher
      - **Nazwa grupy zasobów Network Watcher**: Nazwa Network Watcher grupy zasobów
      - **Włącz ochronę DDoS**: wprowadź wartość "prawda" lub "fałsz", aby określić, czy DDoS Protection jest włączona w sieci wirtualnej
+     
+    > [!NOTE] 
+    > Jeśli Network Watcher jest już włączona, zaleca się użycie istniejącej Network Watcher grupy zasobów. Należy również podać lokalizację istniejącej Network Watcher grupy zasobów dla parametru artefaktu **Network Watcher lokalizacji grupy zasobów**.
 
    - Parametry artefaktu
 
@@ -132,8 +135,14 @@ Poniższa tabela zawiera listę parametrów strategii:
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Nazwy adresów podsieci (opcjonalnie)|Tablica nazw podsieci do wdrożenia w sieci wirtualnej szprychy; na przykład "subnet1", "podsieci subnet2"|
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Prefiksy adresów podsieci (opcjonalnie)|Tablica prefiksów adresów IP dla opcjonalnych podsieci dla sieci wirtualnej szprychy; na przykład "10.0.7.0/24", "10.0.8.0/24"|
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Wdróż szprychę|Wprowadź wartość "true" lub "false", aby określić, czy przypisanie wdraża składniki szprych architektury|
-|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja Network Watcher|Jeśli Network Watcher jest już włączona, wartość tego parametru **musi** być zgodna z lokalizacją istniejącej Network Watcher grupy zasobów.|
+|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja Network Watcher|Lokalizacja zasobu Network Watcher|
 |Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja grupy zasobów Network Watcher|Jeśli Network Watcher jest już włączona, wartość tego parametru **musi** być zgodna z nazwą istniejącej Network Watcher grupy zasobów.|
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli wystąpi błąd `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.` , sprawdź, czy parametr planu **Network Watcher nazwa grupy zasobów** określa istniejącą Network Watcher nazwę grupy zasobów i czy parametr artefaktu **Network Watcher lokalizacji grupy zasobów** określa istniejącą lokalizację Network Watcher grupy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

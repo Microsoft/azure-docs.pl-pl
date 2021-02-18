@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a39340f44e2c6eeae5b5f1a8e687bc73b3b0fe
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028414"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094289"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji
 
@@ -37,7 +37,7 @@ Wszyscy użytkownicy mają jeden katalog *macierzysty* na potrzeby uwierzytelnia
 >
 > Przeniesienie klastra usługi Azure Kubernetes Service (AKS) do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem klastra do nowej dzierżawy powoduje utratę funkcjonalności klastra z powodu utraty przypisań ról i uprawnień jednostki usługi. Aby uzyskać więcej informacji na temat AKS, zobacz [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby można było skojarzyć lub dodać subskrypcję, wykonaj następujące zadania:
 
@@ -52,7 +52,7 @@ Aby można było skojarzyć lub dodać subskrypcję, wykonaj następujące zadan
 
 - Zaloguj się przy użyciu konta, które:
 
-  - Ma przypisanie roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) do subskrypcji. Aby uzyskać informacje na temat sposobu przypisywania roli właściciela, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+  - Ma przypisanie roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) do subskrypcji. Aby uzyskać informacje na temat sposobu przypisywania roli właściciela, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
   - Istnieje zarówno w bieżącym katalogu, jak i w nowym katalogu. Bieżący katalog jest skojarzony z subskrypcją. Nowy katalog zostanie skojarzony z subskrypcją. Aby uzyskać więcej informacji o uzyskiwaniu dostępu do innego katalogu, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../external-identities/add-users-administrator.md).
 
 - Upewnij się, że nie używasz subskrypcji dostawcy usług w chmurze (CSP) platformy Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), wewnętrznej subskrypcji firmy Microsoft (MS-AZR-0015P) ani subskrypcji Microsoft Imagine (MS-AZR-0144P).

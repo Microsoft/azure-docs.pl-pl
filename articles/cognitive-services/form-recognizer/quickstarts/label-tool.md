@@ -2,22 +2,26 @@
 title: 'Szybki Start: formularze etykiet, uczenie modelu i analizowanie formularzy przy użyciu narzędzia do etykietowania przykładowego'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start będziesz używać narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy do ręcznego etykietowania dokumentów. Następnie nauczysz model przetwarzania dokumentu niestandardowego z oznaczonymi dokumentami i użyj modelu, aby wyodrębnić pary klucz/wartość.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3814eb9d71f38406533d0bcecf594bbdcd42d5b7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364805"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095805"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy z przykładowym narzędziem do etykietowania do uczenia niestandardowego modelu przetwarzania dokumentów z ręcznie oznaczonymi danymi. Zapoznaj się z sekcją [uczenie z etykietami](../overview.md#train-with-labels) , aby dowiedzieć się więcej na temat nadzorowanej nauki z aparatem rozpoznawania formularzy.
@@ -30,8 +34,8 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+  * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+  * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 * Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip*) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
@@ -42,27 +46,28 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 Aby wypróbować narzędzie do etykietowania próbek aparatu rozpoznawania w trybie online, przejdź do [witryny sieci Web FOTT](https://fott-preview.azurewebsites.net/).
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Wypróbuj wbudowane modele](https://fott.azurewebsites.net/)
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Wypróbuj wbudowane modele](https://fott-preview.azurewebsites.net/)
 
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Wypróbuj wbudowane modele](https://fott.azurewebsites.net/)
+
 ---
 
-Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi rozpoznawania formularzy. 
-
+Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)) i punkt końcowy [zasobu aparatu rozpoznawania formularzy](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) oraz klucz służący do wypróbowania usługi rozpoznawania formularzy.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurowanie przykładowego narzędzia do etykietowania
 
 Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do etykietowania. Wykonaj następujące kroki, aby skonfigurować kontener platformy Docker. Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).
 
 > [!TIP]
-> Narzędzie do etykietowania formularza OCR jest również dostępne jako projekt Open Source w witrynie GitHub. Narzędzie to aplikacja sieci Web języka TypeScript skompilowana przy użyciu reakcji i Redux. Aby dowiedzieć się więcej lub współtworzyć, zobacz repozytorium [narzędzi do etykietowania formularzy OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) . Aby wypróbować narzędzie w trybie online, przejdź do [witryny sieci Web FOTT](https://fott.azurewebsites.net/).   
+> Narzędzie do etykietowania formularza OCR jest również dostępne jako projekt Open Source w witrynie GitHub. Narzędzie to aplikacja sieci Web języka TypeScript skompilowana przy użyciu reakcji i Redux. Aby dowiedzieć się więcej lub współtworzyć, zobacz repozytorium [narzędzi do etykietowania formularzy OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) . Aby wypróbować narzędzie w trybie online, przejdź do [witryny sieci Web FOTT](https://fott.azurewebsites.net/).
 
-1. Najpierw zainstaluj platformę Docker na komputerze-hoście. W tym przewodniku pokazano, jak używać komputera lokalnego jako hosta. Jeśli chcesz używać usługi hostingu platformy Docker na platformie Azure, zobacz Przewodnik dotyczący [wdrażania przykładowego narzędzia do etykietowania](../deploy-label-tool.md) . 
+1. Najpierw zainstaluj platformę Docker na komputerze-hoście. W tym przewodniku pokazano, jak używać komputera lokalnego jako hosta. Jeśli chcesz używać usługi hostingu platformy Docker na platformie Azure, zobacz Przewodnik dotyczący [wdrażania przykładowego narzędzia do etykietowania](../deploy-label-tool.md) .
 
    Komputer hosta musi spełniać następujące wymagania sprzętowe:
 
@@ -70,38 +75,43 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
     |:--|:--|:--|
     |Przykładowe narzędzie do etykietowania|2 rdzeń, 4 GB pamięci|4 rdzenie, 8 GB pamięci|
 
-   Zainstaluj platformę Docker na maszynie, postępując zgodnie z odpowiednimi instrukcjami dla danego systemu operacyjnego: 
+   Zainstaluj platformę Docker na maszynie, postępując zgodnie z odpowiednimi instrukcjami dla danego systemu operacyjnego:
+
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-
-
 1. Pobierz kontener narzędzia do etykietowania przykładowego za pomocą `docker pull` polecenia.
 
-    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-    ```
-    # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
-    ```
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
-    ---
+```console
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
+```
 
-1. Teraz możesz przystąpić do uruchamiania kontenera za pomocą `docker run` .
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 
-    # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-    ```
-    # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
-    ```
+```console
+docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+```
 
-    --- 
+---
+</br>
+  3. Teraz możesz przystąpić do uruchamiania kontenera za pomocą `docker run` .
+
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+
+```console
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept
+```
+
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+```console
+docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+```
+
+---
 
    To polecenie spowoduje udostępnienie przykładowego narzędzia do etykietowania za pomocą przeglądarki sieci Web. Przejdź do witryny `http://localhost:3000`.
 
@@ -116,10 +126,10 @@ Najpierw upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format.
 
 Włącz funkcję CORS na koncie magazynu. Wybierz konto magazynu w Azure Portal a następnie kliknij kartę **CORS** w okienku po lewej stronie. W dolnej linii Wypełnij poniższe wartości. Następnie kliknij przycisk **Zapisz** u góry.
 
-* Dozwolone źródła = * 
+* Dozwolone źródła = *
 * Dozwolone metody = \[ Zaznacz wszystko\]
 * Dozwolone nagłówki = *
-* Uwidocznione nagłówki = * 
+* Uwidocznione nagłówki = *
 * Maksymalny wiek = 200
 
 > [!div class="mx-imgBorder"]
@@ -164,7 +174,7 @@ Po utworzeniu lub otwarciu projektu zostanie otwarte okno edytora tagów główn
 
 * Okienko podglądu o zmiennym rozmiarze, które zawiera przewijaną listę formularzy ze źródła połączenia.
 * Główne okienko edytora, które pozwala na stosowanie tagów.
-* Okienko edytora tagów, które pozwala użytkownikom modyfikować, blokować, zmieniać kolejność i usuwać Tagi. 
+* Okienko edytora tagów, które pozwala użytkownikom modyfikować, blokować, zmieniać kolejność i usuwać Tagi.
 
 ### <a name="identify-text-elements"></a>Zidentyfikuj elementy tekstowe
 
@@ -178,7 +188,29 @@ Zostaną również wyświetlone tabele, które zostały wyodrębnione automatycz
 
 Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, które mają być analizowane przez model.
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+
+1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować:
+   * Kliknij **+** , aby utworzyć nowy tag.
+   * Wprowadź nazwę tagu.
+   * Naciśnij klawisz ENTER, aby zapisać tag.
+1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W interfejsie API programu _v 2.1 Preview. 2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
+1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
+    > [!Tip]
+    > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach:
+    >
+    > * Do każdego zaznaczonego elementu tekstowego można zastosować tylko jeden tag.
+    > * Każdy tag można zastosować tylko raz na stronę. Jeśli wartość pojawia się wiele razy w tym samym formularzu, Utwórz różne Tagi dla każdego wystąpienia. Na przykład: "Invoice nr 1", "Invoice nr 2" i tak dalej.
+    > * Znaczniki nie mogą obejmować między stronami.
+    > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
+    > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
+    > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
+    > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
+    > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
+    >
+
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
 1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
    1. Kliknij **+** , aby utworzyć nowy tag.
    1. Wprowadź nazwę tagu.
@@ -186,7 +218,8 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
 1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych.
 1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
     > [!Tip]
-    > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.
+    > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach:
+    >
     > * Do każdego zaznaczonego elementu tekstowego można zastosować tylko jeden tag.
     > * Każdy tag można zastosować tylko raz na stronę. Jeśli wartość pojawia się wiele razy w tym samym formularzu, Utwórz różne Tagi dla każdego wystąpienia. Na przykład: "Invoice nr 1", "Invoice nr 2" i tak dalej.
     > * Znaczniki nie mogą obejmować między stronami.
@@ -195,31 +228,11 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
     > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
     > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
     > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
-
-
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
-1. Najpierw użyj okienka edytora tagów, aby utworzyć Tagi, które chcesz zidentyfikować.
-   1. Kliknij **+** , aby utworzyć nowy tag.
-   1. Wprowadź nazwę tagu.
-   1. Naciśnij klawisz ENTER, aby zapisać tag.
-1. W edytorze głównym kliknij, aby wybrać słowa z wyróżnionych elementów tekstowych. W interfejsie API programu _v 2.1 Preview. 2_ można również kliknąć, aby wybrać _znaczniki wyboru_ , takie jak przyciski radiowe i pola wyboru jako pary klucz wartość. Aparat rozpoznawania formularzy zidentyfikuje, czy jako wartość jest zaznaczona opcja "wybrane" lub "niezaznaczona".
-1. Kliknij tag, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klucze liczb są przypisywane jako klawisze dostępu dla pierwszych 10 tagów. Można zmienić kolejność tagów przy użyciu ikon strzałek w górę i w dół w okienku Edytora tagów.
-    > [!Tip]
-    > Podczas etykietowania formularzy należy pamiętać o następujących wskazówkach.
-    > * Do każdego zaznaczonego elementu tekstowego można zastosować tylko jeden tag.
-    > * Każdy tag można zastosować tylko raz na stronę. Jeśli wartość pojawia się wiele razy w tym samym formularzu, Utwórz różne Tagi dla każdego wystąpienia. Na przykład: "Invoice nr 1", "Invoice nr 2" i tak dalej.
-    > * Znaczniki nie mogą obejmować między stronami.
-    > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
-    > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
-    > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
-    > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
-    > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
-
+>
 
 ---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Główne okno edytora przykładowego narzędzia do etykietowania.":::
-
 
 Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formularzy.
 
@@ -231,35 +244,43 @@ Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz men
 > ![Wybór typu wartości z przykładowym narzędziem do etykietowania](../media/whats-new/value-type.png)
 
 Następujące typy wartości i różnice są obecnie obsługiwane:
+
 * `string`
-    * domyślne, `no-whitespaces` , `alphanumeric`
+  * domyślne, `no-whitespaces` , `alphanumeric`
+
 * `number`
-    * wartooć `currency`
-* `date` 
-    * domyślne, `dmy` , `mdy` , `ymd`
+  * wartooć `currency`
+
+* `date`
+  * domyślne, `dmy` , `mdy` , `ymd`
+
 * `time`
 * `integer`
 * `selectionMark` — _Nowość w wersji 2.1 — wersja zapoznawcza. 1!_
 
 > [!NOTE]
 > Zobacz te reguły formatowania dat:
-> 
+>
 > `dmy`Aby formatowanie daty działało, należy określić format (, `mdy` , `ymd` ).
 >
 > Jako ograniczników dat można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Na przykład:
+>
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
 >
 > Każdy dzień i miesiąc mogą być zapisywane jako jedną lub dwie cyfry, a rok może składać się z dwóch lub czterech cyfr:
+>
 > * 1-1-2020
 > * 1-01-20
 >
 > Jeśli ciąg daty ma osiem cyfr, ogranicznik jest opcjonalny:
+>
 > * 01012020
 > * 01 01 2020
 >
 > Miesiąc można również zapisać jako jego pełną lub krótką nazwę. Jeśli nazwa jest używana, znaki ogranicznika są opcjonalne. Jednak ten format może być rozpoznawany mniej więcej niż inne.
+>
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 stycznia 2020
@@ -282,21 +303,22 @@ Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśl
 
 ## <a name="compose-trained-models"></a>Twórz przeszkolone modele
 
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)  
-
-Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania. 
-
-# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1) 
+### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
 
 Funkcja Redagowanie modelu umożliwia utworzenie nawet 100 modeli w ramach jednego identyfikatora modelu. Po wywołaniu funkcji analizy z tym utworzonym identyfikatorem modelu usługa Rozpoznawanie formularzy najpierw sklasyfikuje przesłany formularz, dopasowując go do najlepiej dopasowanego modelu, a następnie zwróci wyniki dla tego modelu. Jest to przydatne, gdy formularze przychodzące mogą należeć do jednego z kilku szablonów.
 
-Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
+Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele.
+Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
 
+### <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+Ta funkcja jest obecnie dostępna w wersji 2.1. przeglądania.
+
 ---
 
-## <a name="analyze-a-form"></a>Analizowanie formularza 
+## <a name="analyze-a-form"></a>Analizowanie formularza
 
 Kliknij ikonę przewidywania (żarówki) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkoleniowym. Następnie kliknij przycisk **predykcyjny** po prawej stronie, aby uzyskać prognozy klucza/wartości dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
 
@@ -311,13 +333,15 @@ Raportowane średnia dokładność, wyniki pewności i rzeczywista dokładność
 
 ## <a name="save-a-project-and-resume-later"></a>Zapisz projekt i Wznów później
 
-Aby wznowić projekt w innym czasie lub w innej przeglądarce, musisz zapisać token zabezpieczający projektu i ponownie wprowadzić go później. 
+Aby wznowić projekt w innym czasie lub w innej przeglądarce, musisz zapisać token zabezpieczający projektu i ponownie wprowadzić go później.
 
 ### <a name="get-project-credentials"></a>Pobierz poświadczenia projektu
+
 Przejdź do strony ustawień projektu (ikona suwaka) i zanotuj nazwę tokenu zabezpieczającego. Następnie przejdź do ustawień aplikacji (ikony koła zębatego), które pokazują wszystkie tokeny zabezpieczające w bieżącym wystąpieniu przeglądarki. Znajdź token zabezpieczający projektu i skopiuj jego nazwę i wartość klucza do bezpiecznej lokalizacji.
 
 ### <a name="restore-project-credentials"></a>Przywróć poświadczenia projektu
-Gdy chcesz wznowić projekt, musisz najpierw utworzyć połączenie z tym samym kontenerem usługi BLOB Storage. Powtórz powyższe kroki, aby to zrobić. Następnie przejdź do strony ustawień aplikacji (ikony koła zębatego) i sprawdź, czy jest tam używany token zabezpieczający projektu. Jeśli tak nie jest, Dodaj nowy token zabezpieczający i skopiuj go przy użyciu nazwy i klucza tokenu z poprzedniego kroku. Następnie kliknij przycisk Zapisz ustawienia. 
+
+Gdy chcesz wznowić projekt, musisz najpierw utworzyć połączenie z tym samym kontenerem usługi BLOB Storage. Powtórz powyższe kroki, aby to zrobić. Następnie przejdź do strony ustawień aplikacji (ikony koła zębatego) i sprawdź, czy jest tam używany token zabezpieczający projektu. Jeśli tak nie jest, Dodaj nowy token zabezpieczający i skopiuj go przy użyciu nazwy i klucza tokenu z poprzedniego kroku. Następnie kliknij przycisk Zapisz ustawienia.
 
 ### <a name="resume-a-project"></a>Wznów projekt
 

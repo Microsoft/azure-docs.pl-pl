@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518831"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095863"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -2176,6 +2176,6 @@ Czytnik raportów podsumowujących użycia | &nbsp; | :heavy_check_mark: | :heav
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o sposobie przypisywania użytkownika jako administratora subskrypcji platformy Azure, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Aby dowiedzieć się więcej o sposobie przypisywania użytkownika jako administratora subskrypcji platformy Azure, zobacz [Przypisywanie użytkownika jako administratora subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
 * Aby dowiedzieć się więcej o sposobach kontroli dostępu do zasobów w Microsoft Azure, zobacz [Omówienie różnych ról](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD lub instrukcje dotyczące kojarzenia lub dodawania subskrypcji, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy usługi Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

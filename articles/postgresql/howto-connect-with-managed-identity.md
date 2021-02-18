@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 444fbb08dfa535980c4012858b675e700ffa29d8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b0d6b083228ddab9d958bf3480b592f7ee0d892d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745096"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092633"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for PostgreSQL
 
@@ -27,7 +27,7 @@ Omawiane kwestie:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie znasz funkcji tożsamości zarządzanych dla zasobów platformy Azure, zobacz to [omówienie](../../articles/active-directory/managed-identities-azure-resources/overview.md). Jeśli nie masz jeszcze konta platformy Azure, przed kontynuowaniem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
-- Aby móc wykonywać wymagane operacje tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, zobacz temat [Używanie kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby zarządzania dostępem do zasobów subskrypcji platformy Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Aby móc wykonywać wymagane operacje tworzenia zasobów i zarządzania rolami, Twoje konto musi mieć uprawnienia "właściciel" w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, zobacz [Przypisywanie ról platformy Azure do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Wymagana jest maszyna wirtualna platformy Azure (na przykład uruchomienie Ubuntu Linux), która ma być używana do uzyskiwania dostępu do bazy danych przy użyciu tożsamości zarządzanej
 - Potrzebujesz serwera bazy danych Azure Database for PostgreSQL, na którym skonfigurowano [uwierzytelnianie usługi Azure AD](howto-configure-sign-in-aad-authentication.md)
 - Aby postępować zgodnie z przykładem w języku C#, najpierw Uzupełnij Przewodnik jak [nawiązać połączenie przy użyciu języka c#](connect-csharp.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: c49ee2778d3198cc7109c34bceb1591756d82b1c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653452"
+ms.locfileid: "101091470"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -191,6 +191,7 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 | Fiński (Finlandia) | `fi-FI` | Kobiety | `fi-FI-SelmaNeural` <sup>Nowy</sup> | Ogólne |
 | Fiński (Finlandia) | `fi-FI` | Mężczyźni | `fi-FI-HarriNeural` <sup>Nowy</sup> | Ogólne |
 | francuski (Kanada) | `fr-CA` | Kobiety | `fr-CA-SylvieNeural` | Ogólne |
+| francuski (Kanada) | `fr-CA` | Mężczyźni | `fr-CA-AntoineNeural` <sup>Nowy</sup> | Ogólne |
 | francuski (Kanada) | `fr-CA` | Mężczyźni | `fr-CA-JeanNeural` | Ogólne |
 | Francuski (Francja) | `fr-FR` | Kobiety | `fr-FR-DeniseNeural` | Ogólne |
 | Francuski (Francja) | `fr-FR` | Mężczyźni | `fr-FR-HenriNeural` | Ogólne |

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954433"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095942"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
@@ -29,7 +29,7 @@ Należy pamiętać o przetwarzanej zawartości i dostosowaniu i dostosowywaniu d
 
 [Adaptacyjne ustawienia wstępne przesyłania strumieniowego](autogen-bitrate-ladder.md) firmy Microsoft częściowo odnoszą się do problemu zmienności jakości i rozdzielczości źródłowych filmów wideo. Nasi klienci mają zróżnicowaną zawartość, kilka o godzinie 1080p, inne w firmie 720, a kilka w SD i niższych rozdzielczościach. Ponadto nie cała zawartość źródłowa to Mezzanine o wysokiej jakości — od kliszy i TV Studios. Adaptacyjne ustawienie wstępne przesyłania strumieniowego eliminuje te problemy, upewniając się, że Drabinka szybkości transmisji nigdy nie przekracza rozdzielczości ani średniej szybkości transmisji bitów danych wejściowych Mezzanine. Jednak to ustawienie wstępne nie bada właściwości źródłowych niż rozdzielczość i szybkość transmisji bitów.
 
-## <a name="the-content-aware-encoding"></a>Kodowanie z uwzględnieniem zawartości 
+## <a name="the-content-aware-encoding"></a>Kodowanie z uwzględnieniem zawartości
 
 Ustawienia wstępne kodowania z obsługą zawartości rozszerzają mechanizm przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów, włączając logikę niestandardową, która umożliwia koderowi wyszukiwanie optymalnej szybkości transmisji bitów dla danego rozwiązania, ale bez konieczności przeprowadzania obszernej analizy obliczeniowej. To ustawienie wstępne tworzy zestaw grupę GOP wyrównanych pliki MP4. Mając daną zawartość wejściową, usługa wykonuje wstępną lekkie analizy zawartości wejściowej i używa wyników do określenia optymalnej liczby warstw, odpowiedniej szybkości transmisji bitów i ustawień rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. To ustawienie wstępne jest szczególnie przydatne w przypadku wideo z niską i średnią złożonością, gdzie pliki wyjściowe będą mieć mniejszą szybkość transmisji bitów niż adaptacyjne ustawienie wstępne przesyłania strumieniowego, ale z jakością, która nadal zapewnia dobre doświadczenie dla osób przeglądających. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio
 
@@ -57,7 +57,7 @@ Poniżej znajdują się wyniki dla innej kategorii zawartości źródłowej, w k
 
 Można tworzyć przekształcenia, które używają tego ustawienia wstępnego w następujący sposób. 
 
-Zobacz sekcję [następne kroki](#next-steps) , aby zapoznać się z samouczkami, które korzystają z danych wyjściowych przekształcenia. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
+Zobacz sekcję [następne kroki](#next-steps) , aby poznać samouczki korzystające z wyjścia transformacji. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
 
 > [!NOTE]
 > Upewnij się, że używasz ustawienia wstępnego **ContentAwareEncoding** , które nie jest ContentAwareEncodingExperimental.

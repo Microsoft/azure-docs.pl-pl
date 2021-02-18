@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0fffe763f77fffcec6010d43deb92ffea9ece15d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946096"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094926"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Tworzenie aplikacji usługi HDInsight platformy .NET z uwierzytelnianiem nieinterakcyjnym
 
@@ -28,7 +28,7 @@ HDInsight An klaster. Zobacz [samouczek wprowadzający](hadoop/apache-hadoop-lin
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Przypisywanie roli do aplikacji usługi Azure AD
 
-Przypisywanie [roli](../role-based-access-control/built-in-roles.md)do aplikacji usługi Azure AD w celu udzielenia uprawnień do wykonywania akcji. Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Uprawnienia są dziedziczone do niższych poziomów zakresu. Na przykład dodanie aplikacji do roli czytelnik dla grupy zasobów oznacza, że aplikacja może odczytać grupę zasobów i wszystkie znajdujące się w niej zasoby. W tym artykule ustawisz zakres na poziomie grupy zasobów. Aby uzyskać więcej informacji, zobacz [Korzystanie z przypisań ról w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../role-based-access-control/role-assignments-portal.md).
+Przypisywanie [roli](../role-based-access-control/built-in-roles.md)do aplikacji usługi Azure AD w celu udzielenia uprawnień do wykonywania akcji. Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Uprawnienia są dziedziczone do niższych poziomów zakresu. Na przykład dodanie aplikacji do roli czytelnik dla grupy zasobów oznacza, że aplikacja może odczytać grupę zasobów i wszystkie znajdujące się w niej zasoby. W tym artykule ustawisz zakres na poziomie grupy zasobów. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure do zarządzania dostępem do zasobów subskrypcji platformy Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Aby dodać rolę właściciela do aplikacji usługi Azure AD**
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fde4f236a48e00b20817a812810fc3ad7d4b227f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 81cd2ca1cb47e6fdfb4858df930b73c1bd10118a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521887"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091832"
 ---
 # <a name="change-iot-central-application-settings"></a>Zmień ustawienia IoT Central aplikacji
 
@@ -39,7 +39,7 @@ Jeśli administrator utworzy niestandardowy motyw dla aplikacji, ta strona zawie
 Aby trwale usunąć aplikację IoT Central, użyj przycisku **Usuń** . Ta akcja powoduje trwałe usunięcie wszystkich danych, które są skojarzone z aplikacją.
 
 > [!Note]
-> Aby usunąć aplikację, musisz mieć również uprawnienia do usuwania zasobów w ramach subskrypcji platformy Azure wybranej podczas tworzenia aplikacji. Aby dowiedzieć się więcej, zobacz [Korzystanie z kontroli dostępu opartej na rolach w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
+> Aby usunąć aplikację, musisz mieć również uprawnienia do usuwania zasobów w ramach subskrypcji platformy Azure wybranej podczas tworzenia aplikacji. Aby dowiedzieć się więcej, zobacz [Przypisywanie ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="manage-programmatically"></a>Zarządzanie programistyczne
 

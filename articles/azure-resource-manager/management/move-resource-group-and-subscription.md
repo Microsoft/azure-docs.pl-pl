@@ -4,12 +4,12 @@ description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319558"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093623"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -37,7 +37,7 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki 
 
 1. W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
 
-    Informacje o sposobach zarządzania przypisaniami ról można znaleźć w temacie [Lista przypisań ról platformy Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) i [Dodawanie lub usuwanie przypisań ról platformy Azure](../../role-based-access-control/role-assignments-portal.md).
+    Informacje o sposobach zarządzania przypisaniami ról można znaleźć w temacie [Lista przypisań ról platformy Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) i [Przypisywanie ról platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Subskrypcje źródłowe i docelowe muszą być aktywne. Jeśli masz problemy z włączeniem wyłączonego konta, [Utwórz żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Wybierz pozycję **Zarządzanie subskrypcją** dla typu problemu.
 
@@ -178,11 +178,11 @@ Podczas wyświetlania grupy zasobów opcja Move jest wyłączona.
 
 Aby włączyć opcję Przenieś, wybierz zasoby, które chcesz przenieść. Aby zaznaczyć wszystkie zasoby, zaznacz pole wyboru znajdujące się u góry listy. Lub zaznacz opcję zasoby pojedynczo. Po wybraniu zasobów opcja Move jest włączona.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Opcja przenoszenia wyłączona":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Wybieranie zasobów":::
 
 Wybierz przycisk **Przenieś** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Opcja przenoszenia wyłączona":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Opcje przenoszenia":::
 
 Ten przycisk udostępnia trzy opcje:
 
@@ -194,11 +194,11 @@ Wybierz, czy przenosisz zasoby do nowej grupy zasobów, czy do nowej subskrypcji
 
 Wybierz docelową grupę zasobów. Potwierdź, że musisz zaktualizować skrypty dla tych zasobów, a następnie wybierz **przycisk OK**. W przypadku wybrania opcji przejścia do nowej subskrypcji należy również wybrać subskrypcję docelową.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Opcja przenoszenia wyłączona":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Wybierz lokalizację docelową":::
 
 Po zweryfikowaniu, że zasoby można przenieść, zobaczysz powiadomienie, że operacja przenoszenia jest uruchomiona.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Opcja przenoszenia wyłączona":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="zawiadomienie":::
 
 Po zakończeniu otrzymasz powiadomienie o wyniku.
 

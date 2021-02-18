@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547166"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094568"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -55,7 +55,7 @@ Platforma Azure udostępnia **dwie wbudowane role platformy Azure** umożliwiaj�
 | Czytnik danych Digital bliźniaczych reprezentacji systemu Azure | Zapewnia dostęp tylko do odczytu do zasobów usługi Azure Digital bliźniaczych reprezentacji | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Role można przypisywać na dwa sposoby:
-* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal*](../role-based-access-control/role-assignments-portal.md))
+* za pośrednictwem okienka kontroli dostępu (IAM) dla usługi Azure Digital bliźniaczych reprezentacji w Azure Portal (zobacz [*Przypisywanie ról platformy Azure przy użyciu Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * za pomocą poleceń interfejsu wiersza polecenia w celu dodania lub usunięcia roli
 
 Aby uzyskać bardziej szczegółowe instrukcje, jak to zrobić, wypróbuj w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md).

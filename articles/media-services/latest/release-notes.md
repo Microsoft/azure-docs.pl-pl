@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2254762ec2cc9d99946afaef12f452fdfbfea9e2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 14bc7b6f45b04f230252e85cd10b7246529cb751
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898243"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095159"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -434,12 +434,11 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie](media-services-overview.md)
-- [Aktualizacje dokumentacji Media Services v3](docs-release-notes.md)
 - [Informacje o wersji Media Services V2](../previous/media-services-release-notes.md)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d85aa1b66170acb25bd88435b83b1d28cda954f0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945807"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093597"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
@@ -68,7 +68,7 @@ Ktoś, który ma co najmniej dostęp współautora do subskrypcji platformy Azur
 Uzyskaj więcej informacji na temat pracy z zarządzaniem dostępem:
 
 - [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../role-based-access-control/overview.md)
-- [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../role-based-access-control/role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="methods-for-using-script-actions"></a>Metody używania akcji skryptu
 
@@ -118,7 +118,7 @@ Status            : Succeeded
 
 Skrypty akcji skryptu mogą być używane w następujących narzędziach:
 
-* Witryna Azure Portal
+* Azure Portal
 * Azure PowerShell
 * Interfejs wiersza polecenia platformy Azure
 * Zestaw SDK usługi HDInsight dla platformy .NET

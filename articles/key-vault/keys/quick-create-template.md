@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d68ec580f25bfd5f9c1a994efc15abd8835ac8a5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934989"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093508"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Szybki Start: Tworzenie magazynu kluczy platformy Azure i klucza przy użyciu szablonu ARM (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ ms.locfileid: "97934989"
 Aby ukończyć ten artykuł:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Użytkownik musi mieć przypisaną rolę Bult kontroli dostępu współdzielonego. trybu. [Dowiedz się więcej tutaj](../../role-based-access-control/role-assignments-portal.md)
+- Użytkownik musi mieć przypisaną rolę wbudowaną na platformie Azure. trybu. [Dowiedz się więcej tutaj](../../role-based-access-control/role-assignments-portal.md)
 - Szablon wymaga Twojego identyfikatora obiektu użytkownika z usługi Azure Active Directory w celu skonfigurowania uprawnień. Poniższa procedura pozwala pobrać identyfikator obiektu (GUID).
 
     1. Uruchom następujące Azure PowerShell lub polecenie interfejsu wiersza polecenia platformy Azure, wybierając pozycję **Wypróbuj**, a następnie wklej skrypt do okienka powłoki. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**.

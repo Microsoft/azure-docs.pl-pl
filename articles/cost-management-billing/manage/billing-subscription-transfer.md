@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c3142fd41830487453a3cc980a87cdca72cf7213
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367201"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094140"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -66,7 +66,7 @@ Subskrypcje programu Visual Studio i Microsoft Partner Network zawierają comies
 
 Jeśli zaakceptujesz własność rozliczeń subskrypcji platformy Azure, zalecamy zapoznanie się z następującymi krokami:
 
-1. Przejrzyj i zaktualizuj role administratora usługi, współadministratorów i przypisania ról platformy Azure. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md) i [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+1. Przejrzyj i zaktualizuj role administratora usługi, współadministratorów i przypisania ról platformy Azure. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md) oraz [Przypisywanie ról platformy azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 1. Zaktualizuj poświadczenia skojarzone z usługami tej subskrypcji, w tym:
    1. Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
    1. Klucze dostępu dla usług, takich jak Storage. Więcej informacji — zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
@@ -126,4 +126,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj i zaktualizuj role administratora usługi, współadministratorów i przypisania ról platformy Azure. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md) i [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+- Przejrzyj i zaktualizuj role administratora usługi, współadministratorów i przypisania ról platformy Azure. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](add-change-subscription-administrator.md) oraz [Przypisywanie ról platformy azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).

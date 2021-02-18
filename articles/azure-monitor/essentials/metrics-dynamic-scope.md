@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 176acea34dead929986acb807b465593f9ffda5a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 23507a01f3ed0015690d9655fde92a875f89c2da
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615123"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095480"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Wyświetlanie wielu zasobów w Eksploratorze metryk platformy Azure
 
@@ -33,7 +33,7 @@ Niektóre typy zasobów mogą wykonywać zapytania dotyczące metryk dla wielu z
 ![Zrzut ekranu pokazujący menu zasobów, które są zgodne z wieloma zasobami.](./media/metrics-dynamic-scope/020.png)
 
 > [!WARNING] 
-> Musisz mieć uprawnienia do monitorowania czytnika na poziomie subskrypcji, aby wizualizować metryki dla wielu zasobów, grup zasobów lub subskrypcji. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+> Musisz mieć uprawnienia do monitorowania czytnika na poziomie subskrypcji, aby wizualizować metryki dla wielu zasobów, grup zasobów lub subskrypcji. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 Aby wizualizować metryki dla wielu zasobów, Zacznij od wybrania wielu zasobów w selektorze zakresu zasobów. 
 
@@ -81,7 +81,7 @@ W tym przykładzie filtruje według TailspinToysDemo. W tym miejscu filtr usuwa 
 
 ## <a name="pin-multiple-resource-charts"></a>Przypnij wykresy z wieloma zasobami 
 
-Wykresy obejmujące wiele zasobów, które wizualizują metryki w grupach zasobów i subskrypcjach, wymagają, aby użytkownik miał uprawnienia do *monitorowania czytnika* na poziomie subskrypcji. Upewnij się, że wszyscy użytkownicy pulpitów nawigacyjnych, do których są przypinane wykresy z wieloma zasobami, mają wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Wykresy obejmujące wiele zasobów, które wizualizują metryki w grupach zasobów i subskrypcjach, wymagają, aby użytkownik miał uprawnienia do *monitorowania czytnika* na poziomie subskrypcji. Upewnij się, że wszyscy użytkownicy pulpitów nawigacyjnych, do których są przypinane wykresy z wieloma zasobami, mają wystarczające uprawnienia. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 Aby przypiąć wykres z wieloma zasobami do pulpitu nawigacyjnego, zobacz [przypinanie do pulpitów nawigacyjnych](../essentials/metrics-charts.md#pinning-to-dashboards). 
 

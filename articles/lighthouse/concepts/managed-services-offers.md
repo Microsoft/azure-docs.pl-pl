@@ -1,14 +1,14 @@
 ---
 title: Oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Oferty usługi zarządzanej umożliwiają sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375548"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092991"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Oferty usługi zarządzanej w witrynie Azure Marketplace
 
@@ -20,9 +20,12 @@ Oferty usługi zarządzanej usprawniają proces dołączania klientów do usług
 
 Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z dzierżawy zarządzającej za pośrednictwem [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z [rolami](tenants-users-roles.md) , które definiują poziom dostępu.
 
+> [!NOTE]
+> Oferty usług zarządzanych mogą nie być dostępne w Azure Government i innych chmurach narodowych.
+
 ## <a name="public-and-private-offers"></a>Oferty publiczne i prywatne
 
-Każda oferta usług zarządzanych obejmuje jeden lub więcej planów. Plany mogą być prywatne lub publiczne.
+Każda oferta usługi zarządzanej zawiera jeden lub więcej planów. Plany mogą być prywatne lub publiczne.
 
 Jeśli chcesz ograniczyć ofertę do określonych klientów, możesz opublikować plan prywatny. Po wykonaniu tej czynności plan można kupić tylko dla określonych identyfikatorów subskrypcji, które podano. Aby uzyskać więcej informacji, zobacz [prywatne oferty](../../marketplace/private-offers.md).
 
@@ -38,9 +41,9 @@ W razie potrzeby można uwzględnić zarówno plany publiczne, jak i prywatne w 
 
 ## <a name="publish-managed-service-offers"></a>Publikuj oferty usługi zarządzanej
 
-Aby dowiedzieć się, jak opublikować ofertę usług zarządzanych, zobacz temat [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).
+Aby dowiedzieć się, jak opublikować ofertę usługi zarządzanej, zobacz temat [Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat funkcji [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md) i [zarządzania wieloma dzierżawcami](cross-tenant-management-experience.md).
-- [Publikowanie usług zarządzanych jest dostępne](../how-to/publish-managed-services-offers.md) w witrynie Azure Marketplace.
+- [Publikuj oferty usługi zarządzanej](../how-to/publish-managed-services-offers.md) w witrynie Azure Marketplace.

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 66958e275a6dee13244f0f283b1ee1dbb5d40470
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761008"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093459"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -194,9 +194,9 @@ az role assignment create \
 
 Aby uzyskać więcej informacji na temat korzystania z usługi Azure RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz następujące artykuły:
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Korzystanie z dostępu warunkowego
 

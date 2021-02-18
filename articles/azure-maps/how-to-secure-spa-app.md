@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684076"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092718"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym
 
@@ -111,7 +111,7 @@ Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany prz
 
 2. Na karcie **przypisania roli** w obszarze **rola** wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do** wybierz pozycję **aplikacja funkcji**. Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz**.
 
-   * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](../role-based-access-control/role-assignments-portal.md).
+   * Zobacz szczegóły dotyczące [przypisywania ról platformy Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > Azure Maps wbudowane definicje ról zapewniają bardzo duże uprawnienia dostępu do wielu Azure Maps interfejsów API REST. Aby ograniczyć dostęp interfejsów API do minimum, zobacz [Tworzenie niestandardowej definicji roli i przypisywanie tożsamości przypisanej do systemu](../role-based-access-control/custom-roles.md) do definicji roli niestandardowej. Spowoduje to włączenie najniższych uprawnień niezbędnych do uzyskania dostępu do Azure Maps przez aplikację.

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203266"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091481"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft
 
@@ -21,7 +21,7 @@ Aby zapewnić jedną połączoną fakturę za usługi zarządzane i użycie plat
 
 Ta funkcja jest dostępna tylko dla partnerów rozliczających się bezpośrednio, którzy mają certyfikat [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). Podlega to ładowi i zasadom firmy Microsoft i może wymagać weryfikacji oraz zatwierdzenia w przypadku niektórych klientów.
 
-Aby zawnioskować o własność rozliczeń, użytkownik musi mieć rolę **administratora globalnego** lub **agenta administratora** . Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
+Aby zawnioskować o własność rozliczeń, użytkownik musi mieć rolę **administratora globalnego** lub **agenta administratora**. Aby dowiedzieć się więcej, zobacz [Centrum partnerskie — Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
 Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft Te konta są tworzone dla dostawców rozwiązań w chmurze w celu zarządzania rozliczeniami dla klientów w nowym środowisku handlowym. To nowe środowisko jest dostępne tylko dla partnerów mających co najmniej jednego klienta, który zaakceptował umowę klienta firmy Microsoft i ma plan platformy Azure. [Sprawdź, czy masz dostęp do umowy partnerskiej firmy Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
@@ -34,18 +34,18 @@ Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft
 ## <a name="request-billing-ownership"></a>Żądanie własności rozliczeń
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) przy użyciu poświadczeń agenta administratora dostawcy usług w chmurze w dzierżawie dostawcy usług w chmurze.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .  
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost management + Billing w witrynie Azure Portal w celu zażądania własności rozliczeń.](./media/mpa-request-ownership/search-cmb.png)
 1. Wybierz pozycję **Klienci** po lewej stronie, a następnie wybierz klienta z listy.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie** .  
+1. Wybierz pozycję **Żądania przeniesienia** w lewym dolnym rogu, a następnie wybierz pozycję **Dodaj nowe żądanie**.  
     [![Zrzut ekranu pokazujący wybieranie żądań przeniesienia](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Wprowadź adres e-mail użytkownika w organizacji klienta, który będzie akceptował żądanie przeniesienia. Użytkownik musi być właścicielem konta umowy Enterprise Agreement. Wybierz pozycję **Wyślij żądanie przeniesienia** .  
+1. Wprowadź adres e-mail użytkownika w organizacji klienta, który będzie akceptował żądanie przeniesienia. Użytkownik musi być właścicielem konta umowy Enterprise Agreement. Wybierz pozycję **Wyślij żądanie przeniesienia**.  
     [![Zrzut ekranu przedstawiający wysyłanie żądania przeniesienia](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. Użytkownik otrzymuje wiadomość e-mail z instrukcjami dotyczącymi przeglądania żądania transferu.  
     ![Zrzut ekranu przedstawiający wiadomość e-mail z prośbą o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Aby zatwierdzić żądanie przeniesienia, użytkownik wybiera link w wiadomości e-mail i postępuje zgodnie z instrukcjami.  
-    [![Zrzut ekranu przedstawiający prośbę o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) Użytkownik może wybrać konto rozliczeniowe, z którego chce przenieść produkty platformy Azure. Po jego wybraniu zostaną wyświetlone kwalifikujące się produkty, które można przenieść. **Uwaga:** Wyłączonych subskrypcji nie można przenieść i będą one wyświetlane na liście „Produkty platformy Azure, których nie można przenieść”, jeśli ma to zastosowanie. Po wybraniu produktów platformy Azure do przeniesienia wybierz pozycję **Waliduj** .
+    [![Zrzut ekranu przedstawiający prośbę o przejrzenie żądania przeniesienia](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) Użytkownik może wybrać konto rozliczeniowe, z którego chce przenieść produkty platformy Azure. Po jego wybraniu zostaną wyświetlone kwalifikujące się produkty, które można przenieść. **Uwaga:** Wyłączonych subskrypcji nie można przenieść i będą one wyświetlane na liście „Produkty platformy Azure, których nie można przenieść”, jeśli ma to zastosowanie. Po wybraniu produktów platformy Azure do przeniesienia wybierz pozycję **Waliduj**.
 1. W obszarze **Wynik walidacji przeniesienia** zostanie wyświetlony wpływ produktów platformy Azure, które mają zostać przeniesione. Oto możliwe stany:
     * **Zakończone pomyślnie** — walidacja dla tego produktu platformy Azure zakończyła się pomyślnie i można go przenieść.
     * **Ostrzeżenie** — istnieje ostrzeżenie dotyczące wybranego produktu platformy Azure. Chociaż produkt nadal może zostać przeniesiony, będzie to miało pewien wpływ, o którym użytkownik powinien wiedzieć w przypadku, gdyby chciał podjąć akcje korygujące. Na przykład przenoszona subskrypcja platformy Azure korzysta z wystąpienia zarezerwowanego. Po przeniesieniu subskrypcja nie będzie już otrzymywać tej korzyści. Aby zmaksymalizować oszczędności, upewnij się, że wystąpienie zarezerwowane jest skojarzone z inną subskrypcją, która może korzystać z jego korzyści. Zamiast tego użytkownik może również wrócić do strony wyboru i usunąć zaznaczenie tej subskrypcji platformy Azure.
@@ -55,7 +55,7 @@ Ten artykuł dotyczy kont rozliczeniowych dla umów partnerskich firmy Microsoft
 ## <a name="check-the-transfer-request-status"></a>Sprawdzanie stanu żądania przeniesienia
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .  
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie narzędzia Cost Management + Billing w witrynie Azure Portal dla stanu żądania przeniesienia.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Wybierz pozycję **Klienci** po lewej stronie.  
     [![Zrzut ekranu pokazujący wybieranie klientów](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -174,4 +174,4 @@ Jeśli potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://port
 ## <a name="next-steps"></a>Następne kroki
 
 * Własność rozliczeń subskrypcji platformy Azure zostaje przeniesiona na użytkownika. Śledź opłaty za te subskrypcje w witrynie [Azure Portal](https://portal.azure.com).
-* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Dodaj lub usuń przypisania ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+* Skontaktuj się z klientem, aby uzyskać dostęp do przeniesionych subskrypcji platformy Azure. [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).

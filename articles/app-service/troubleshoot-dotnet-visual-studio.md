@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 65eb4e8fefb74219c927fe507baceca7c55462be
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576586"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095712"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -28,7 +28,7 @@ Dowiesz się:
 
 Jeśli masz Visual Studio Ultimate, możesz również użyć [IntelliTrace](/visualstudio/debugger/intellitrace) do debugowania. IntelliTrace nie jest uwzględniony w tym samouczku.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Wymagany
+## <a name="prerequisites"></a><a name="prerequisites"></a>Wymagania wstępne
 Ten samouczek współpracuje ze środowiskiem programistycznym, projektem sieci Web i aplikacją App Service, która została skonfigurowana w temacie [Tworzenie aplikacji ASP.NET w programie Azure App Service](quickstart-dotnet-framework.md). W przypadku sekcji zadań WebJob potrzebna jest aplikacja utworzona w programie wprowadzenie do [zestawu SDK Azure WebJobs][GetStartedWJ].
 
 Przykłady kodu przedstawione w tym samouczku dotyczą aplikacji sieci Web w języku C# MVC, ale procedury rozwiązywania problemów są takie same dla aplikacji Visual Basic i formularzy sieci Web.
@@ -49,7 +49,7 @@ Program Visual Studio zapewnia dostęp do podzbioru funkcji zarządzania aplikac
    >
    >
 
-    Aby uzyskać więcej informacji na temat nawiązywania połączenia z zasobami platformy Azure z poziomu programu Visual Studio, zobacz [Zarządzanie kontami, subskrypcjami i rolami administracyjnymi](../role-based-access-control/role-assignments-portal.md).
+    Aby uzyskać więcej informacji na temat nawiązywania połączenia z zasobami platformy Azure z poziomu programu Visual Studio, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. W **Eksplorator serwera** rozwiń węzeł **Azure** i rozwiń pozycję **App Service**.
 3. Rozwiń grupę zasobów zawierającą aplikację utworzoną w temacie [Tworzenie aplikacji ASP.NET w Azure App Service](quickstart-dotnet-framework.md), a następnie kliknij prawym przyciskiem myszy węzeł aplikacji, a następnie kliknij pozycję **Wyświetl ustawienia**.
 

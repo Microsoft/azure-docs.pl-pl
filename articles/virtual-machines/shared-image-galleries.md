@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730326"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091896"
 ---
 # <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 
@@ -24,7 +24,7 @@ Shared Image Gallery to usługa, która ułatwia tworzenie struktury i organizac
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania.
 - Obrazy o wysokiej dostępności z kontami magazynu Strefowo nadmiarowego (ZRS) w regionach, które obsługują Strefy dostępności. ZRS zapewnia lepszą odporność na awarie stref.
 - Wsparcie Premium Storage (Premium_LRS).
-- Udostępnianie między subskrypcjami, a nawet między dzierżawami Active Directory (AD) przy użyciu RBAC.
+- Udostępnianie między subskrypcjami, a nawet między dzierżawami Active Directory (AD) przy użyciu funkcji RBAC platformy Azure.
 - Skalowanie wdrożeń przy użyciu replik obrazów w każdym regionie.
 
 Za pomocą udostępnionej galerii obrazów możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi AD w organizacji. Obrazy udostępnione mogą być replikowane do wielu regionów, co umożliwia szybsze skalowanie wdrożeń.
@@ -146,14 +146,14 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ## <a name="access"></a>Access
 
-Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
+Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Korzystając z funkcji RBAC platformy Azure, można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
 | Udostępnione użytkownikowi     | Galeria obrazów udostępnionych | Definicja obrazu | Wersja obrazu |
 |----------------------|----------------------|--------------|----------------------|
 | Galeria obrazów udostępnionych | Tak                  | Tak          | Tak                  |
 | Definicja obrazu     | Nie                   | Tak          | Tak                  |
 
-Zalecamy udostępnianie na poziomie galerii w celu uzyskania najlepszego środowiska. Nie zaleca się udostępniania poszczególnych wersji obrazu. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC](../role-based-access-control/role-assignments-portal.md).
+Zalecamy udostępnianie na poziomie galerii w celu uzyskania najlepszego środowiska. Nie zaleca się udostępniania poszczególnych wersji obrazu. Aby uzyskać więcej informacji na temat funkcji RBAC platformy Azure, zobacz [Przypisywanie ról platformy Azure](../role-based-access-control/role-assignments-portal.md).
 
 Obrazy mogą być również udostępniane na dużą skalę, nawet między dzierżawcami przy użyciu rejestracji aplikacji wielodostępnej. Aby uzyskać więcej informacji na temat udostępniania obrazów między dzierżawcami, zobacz "udostępnianie obrazów maszyn wirtualnych z galerii w dzierżawach platformy Azure" przy użyciu [interfejsu wiersza polecenia platformy Azure](./linux/share-images-across-tenants.md) lub [programu PowerShell](./windows/share-images-across-tenants.md).
 

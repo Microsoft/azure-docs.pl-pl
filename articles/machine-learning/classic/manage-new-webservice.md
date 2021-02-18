@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 8b04119f4a9ff702356f942cec5bebed1e23926b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: d3aea23c816b9d8b32b0563d3116cdc2b92e080f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515941"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094306"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning Studio (klasyczny)
 
@@ -44,7 +44,7 @@ Jeśli użytkownik nie ma odpowiednich uprawnień dostępu do zasobów w portalu
 
 Aby uzyskać więcej informacji na temat tworzenia obszaru roboczego, zobacz temat [Tworzenie i udostępnianie obszaru roboczego Azure Machine Learning Studio (klasycznego)](create-workspace.md).
 
-Aby uzyskać więcej informacji na temat ustawiania uprawnień dostępu, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby uzyskać więcej informacji na temat ustawiania uprawnień dostępu, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Zarządzanie nowymi usługami sieci Web

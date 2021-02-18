@@ -1,17 +1,17 @@
 ---
 title: Wysoka dostępność — Azure Database for MySQL
 description: Ten artykuł zawiera informacje o wysokiej dostępności w Azure Database for MySQL
-author: mksuni
-ms.author: sumuth
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242300"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092959"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Wysoka dostępność w Azure Database for MySQL
 Usługa Azure Database for MySQL zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/mysql) czasu. Azure Database for MySQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for MySQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -22,9 +22,9 @@ Azure Database for MySQL jest odpowiednia do uruchamiania krytycznych baz danych
 
 | **Składnik** | **Opis**|
 | ------------ | ----------- |
-| <b>Serwer bazy danych MySQL | Azure Database for MySQL zapewnia zabezpieczenia, izolację, zabezpieczenia zasobów i funkcję szybkiego ponownego uruchamiania dla serwerów baz danych. Te funkcje ułatwiają wykonywanie operacji, takich jak skalowanie i odzyskiwanie serwera bazy danych, po awarii w kilka sekund. <br/> Modyfikacje danych na serwerze bazy danych zwykle występują w kontekście transakcji bazy danych. Wszystkie zmiany bazy danych są rejestrowane synchronicznie w postaci zapisu z wyprzedzeniem (ib_log) w usłudze Azure Storage, która jest dołączona do serwera bazy danych. Podczas procesu tworzenia [punktu kontrolnego](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) bazy danych strony danych z pamięci serwera bazy danych są również opróżniane do magazynu. |
-| <b>Magazyn zdalny | Wszystkie pliki dzienników i pliki danych fizycznych MySQL są przechowywane w usłudze Azure Storage, co jest zaprojektowane w celu przechowywania trzech kopii danych w obrębie regionu w celu zapewnienia nadmiarowości, dostępności i niezawodności danych. Warstwa magazynowania jest również niezależna od serwera bazy danych. Można go odłączyć od nieuszkodzonego serwera bazy danych i ponownie dołączyć do nowego serwera bazy danych w ciągu kilku sekund. Ponadto usługa Azure Storage ciągle monitoruje się pod kątem błędów magazynu. W przypadku wykrycia uszkodzenia bloku zostanie ono automatycznie naprawione przez utworzenie wystąpienia nowej kopii magazynu. |
-| <b>Punkt | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
+| <b>Serwer bazy danych MySQL | Azure Database for MySQL zapewnia zabezpieczenia, izolację, zabezpieczenia zasobów i funkcję szybkiego ponownego uruchamiania dla serwerów baz danych. Te funkcje ułatwiają wykonywanie operacji, takich jak skalowanie i odzyskiwanie serwera bazy danych, po awarii w ciągu 60-120 sekund w zależności od aktywności transakcyjnej w bazie danych. <br/> Modyfikacje danych na serwerze bazy danych zwykle występują w kontekście transakcji bazy danych. Wszystkie zmiany bazy danych są rejestrowane synchronicznie w postaci zapisu z wyprzedzeniem (ib_log) w usłudze Azure Storage, która jest dołączona do serwera bazy danych. Podczas procesu tworzenia [punktu kontrolnego](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) bazy danych strony danych z pamięci serwera bazy danych są również opróżniane do magazynu. |
+| <b>Magazyn zdalny | Wszystkie pliki dzienników i pliki danych fizycznych MySQL są przechowywane w usłudze Azure Storage, co jest zaprojektowane w celu przechowywania trzech kopii danych w obrębie regionu w celu zapewnienia nadmiarowości, dostępności i niezawodności danych. Warstwa magazynowania jest również niezależna od serwera bazy danych. Może zostać odłączony od nieuszkodzonego serwera bazy danych i ponownie dołączony do nowego serwera bazy danych w ciągu 60 sekund. Ponadto usługa Azure Storage ciągle monitoruje się pod kątem błędów magazynu. W przypadku wykrycia uszkodzenia bloku zostanie ono automatycznie naprawione przez utworzenie wystąpienia nowej kopii magazynu. |
+| <b>Brama | Brama działa jako serwer proxy bazy danych, przekierowuje wszystkie połączenia klientów do serwera bazy danych. |
 
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
 Azure Database for MySQL jest zaprojektowany w celu zapewnienia wysokiej dostępności podczas planowanych operacji przestojów. 
@@ -38,15 +38,15 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 | <b>Skalowanie w górę/w dół | Gdy użytkownik wykonuje operację skalowania w górę/w dół, nowy serwer bazy danych jest inicjowany przy użyciu skalowanej konfiguracji obliczeniowej. W starym serwerze bazy danych można zakończyć aktywne punkty kontrolne, połączenia klientów są opróżniane, wszystkie niezatwierdzone transakcje są anulowane, a następnie wyłączone. Magazyn zostanie odłączony od starego serwera bazy danych i dołączony do nowego serwera bazy danych. Gdy aplikacja kliencka ponawia próbę połączenia lub próbuje utworzyć nowe połączenie, Brama kieruje żądanie połączenia do nowego serwera bazy danych.|
 | <b>Skalowanie w górę magazynu | Skalowanie w górę magazynu jest operacją online i nie przerywa serwera bazy danych.|
 | <b>Nowe wdrożenie oprogramowania (Azure) | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
-| <b>Uaktualnienia wersji pomocniczej | Azure Database for MySQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
+| <b>Uaktualnienia wersji pomocniczej | Azure Database for MySQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Podczas planowanej konserwacji mogą wystąpić ponowne uruchomienia serwera bazy danych lub przełączenia w tryb failover, co może prowadzić do krótkich niedostępności serwerów baz danych dla użytkowników końcowych. Serwery Azure Database for MySQL są uruchomione w kontenerach, więc ponowne uruchomienia serwera bazy danych są zwykle szybkie, oczekiwane zwykle w ciągu 60-120 sekund. Całe planowane zdarzenie konserwacji, w tym każde ponowne uruchomienie serwera, jest starannie monitorowane przez Zespół inżynieryjny. Czas pracy awaryjnej serwera zależy od czasu odzyskiwania bazy danych, co może spowodować, że baza danych będzie przełączona w tryb online, jeśli na serwerze w momencie przejścia w tryb failover występuje intensywna aktywność transakcyjna. Aby uniknąć dłuższego czasu ponownego uruchomienia, zaleca się uniknięcie wolnych długotrwałych transakcji (ładowania zbiorczego) podczas planowanych zdarzeń konserwacji. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją](concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
 
-Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, w ciągu kilku sekund zostanie automatycznie zainicjowany nowy serwer bazy danych. Magazyn zdalny jest automatycznie dołączany do nowego serwera bazy danych. Aparat MySQL wykonuje operację odzyskiwania przy użyciu plików WAL i Database, a następnie otwiera serwer baz danych, aby umożliwić klientom nawiązywanie połączeń. Niezatwierdzone transakcje są tracone i muszą być ponawiane przez aplikację. Nie można uniknąć nieplanowanych przestojów, Azure Database for MySQL ogranicza przestoje przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka. 
+Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, zostanie automatycznie zainicjowany nowy serwer bazy danych w ciągu 60-120 sekund. Magazyn zdalny jest automatycznie dołączany do nowego serwera bazy danych. Aparat MySQL wykonuje operację odzyskiwania przy użyciu plików WAL i Database, a następnie otwiera serwer baz danych, aby umożliwić klientom nawiązywanie połączeń. Niezatwierdzone transakcje są tracone i muszą być ponawiane przez aplikację. Nie można uniknąć nieplanowanych przestojów, Azure Database for MySQL ogranicza przestoje przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Widok elastycznego skalowania w usłudze Azure MySQL":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Widok wysokiej dostępności w usłudze Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Nieplanowany przestój: scenariusze awarii i odzyskiwanie usługi
 Poniżej przedstawiono niektóre scenariusze awarii i sposób automatycznego odzyskiwania Azure Database for MySQL:

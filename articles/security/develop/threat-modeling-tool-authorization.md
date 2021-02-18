@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693162"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094006"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Ramka zabezpieczeń: Autoryzacja | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -237,7 +237,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Dodawanie i usuwanie przypisań ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Odwołania**              | [Przypisywanie ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Kroki** | Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Korzystając z funkcji RBAC systemu Azure, można przyznać tylko dostęp, który użytkownicy potrzebują do wykonywania swoich zadań.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Ograniczanie dostępu klienta do operacji klastra przy użyciu Service Fabric RBAC

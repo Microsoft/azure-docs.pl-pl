@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585512"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095363"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -71,33 +71,34 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
       Central US  
       Chiny Wschodnie 2  
       Chiny Północne 2  
+      Azja Wschodnia       
    :::column-end:::
    :::column span="":::
-      Azja Wschodnia  
       East US  
       Wschodnie stany USA 2  
       Wschodnie stany USA 2 — EUAP  
       Francja Środkowa  
-      Japonia Wschodnia  
+      Niemcy Środkowo-Zachodnie Japonia Wschodnia  
       Japonia Zachodnia  
       Korea Środkowa  
       Korea Południowa  
       Północno-środkowe stany USA  
+      Europa Północna    
    :::column-end:::
    :::column span="":::
-      Europa Północna  
       Północna Republika Południowej Afryki  
       South Central US  
       Indie Południowe  
       Southeast Asia  
       Szwajcaria Północna  
       Szwajcaria Zachodnia  
+      Północne Zjednoczone Emiraty Arabskie  
       Południowe Zjednoczone Królestwo  
-      Zachodnie Zjednoczone Królestwo  
+      Zachodnie Zjednoczone Królestwo   
       USGov Arizona  
+      USGov Teksas
    :::column-end:::
    :::column span="":::
-      USGov Teksas  
       USGov Wirginia  
       USNat wschód  
       USNat zachodni  
@@ -143,14 +144,15 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Szwajcaria Północna  
       Szwajcaria Zachodnia  
       Środkowy Zjednoczone Emiraty Arabskie  
+      Północne Zjednoczone Emiraty Arabskie  
       Południowe Zjednoczone Królestwo  
-      Zachodnie Zjednoczone Królestwo  
+      Zachodnie Zjednoczone Królestwo   
       USGov Arizona  
       USGov Wirginia  
-      USNat wschód  
-      USNat zachodni  
+      USNat wschód   
    :::column-end:::
    :::column span="":::
+      USNat zachodni   
       USSec wschód  
       USSec zachodni  
       Zachodnio-środkowe stany USA  

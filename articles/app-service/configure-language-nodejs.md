@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696017"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095210"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurowanie aplikacji Node.js dla Azure App Service
 
@@ -161,7 +161,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Uruchom npm
 
-Aby rozpocząć korzystanie z aplikacji `npm start` , upewnij się, że `start` skrypt znajduje się w *package.js* pliku. Przykład:
+Aby rozpocząć korzystanie z aplikacji `npm start` , upewnij się, że `start` skrypt znajduje się w *package.js* pliku. Na przykład:
 
 ```json
 {
@@ -209,7 +209,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Możesz debugować aplikację Node.js zdalnie w [Visual Studio Code](https://code.visualstudio.com/) , jeśli skonfigurujesz ją do [uruchamiania z PM2](#run-with-pm2), z wyjątkiem sytuacji, gdy zostanie ona uruchomiona przy użyciu * .config.js, *. yml lub *. YAML*.
 
-W większości przypadków dla aplikacji nie jest wymagana dodatkowa konfiguracja. Jeśli aplikacja jest uruchamiana z *process.jsw* pliku (domyślnie lub niestandardowym), musi mieć `script` Właściwość w katalogu głównym JSON. Przykład:
+W większości przypadków dla aplikacji nie jest wymagana dodatkowa konfiguracja. Jeśli aplikacja jest uruchamiana z *process.jsw* pliku (domyślnie lub niestandardowym), musi mieć `script` Właściwość w katalogu głównym JSON. Na przykład:
 
 ```json
 {
@@ -239,7 +239,7 @@ process.env.NODE_ENV
 
 Domyślnie program App Service Build Automation jest uruchamiany, `npm install --production` gdy rozpoznaje aplikację Node.js wdrożoną za pomocą narzędzia Git lub wdrożenia zip z włączonym automatyzacją kompilacji. Jeśli aplikacja wymaga dowolnego ze popularnych narzędzi do automatyzacji, takich jak grunt, Bower lub Gulp, należy podać [niestandardowy skrypt wdrożenia](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) , aby go uruchomić.
 
-Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Przykład:
+Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Na przykład:
 
 ```json
 "dependencies": {
@@ -342,12 +342,25 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## <a name="monitor-with-application-insights"></a>Monitorowanie za pomocą usługi Application Insights
+
+Application Insights pozwala monitorować wydajność, wyjątki i użycie aplikacji bez wprowadzania żadnych zmian w kodzie. Aby dołączyć agenta usługi App Insights, przejdź do aplikacji sieci Web w portalu i wybierz **Application Insights** w obszarze **Ustawienia**, a następnie wybierz pozycję **Włącz Application Insights**. Następnie wybierz istniejący zasób usługi App Insights lub Utwórz nowy. Na koniec wybierz pozycję **Zastosuj** u dołu. Aby instrumentować aplikację internetową przy użyciu programu PowerShell, zobacz [te instrukcje](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell) .
+
+Ten agent będzie monitorować aplikację Node.js po stronie serwera. Aby monitorować kod JavaScript po stronie klienta, [Dodaj zestaw JavaScript SDK do projektu](../azure-monitor/app/javascript.md). 
+
+Aby uzyskać więcej informacji, zobacz informacje o [wersji rozszerzenia Application Insights](../azure-monitor/app/web-app-extension-release-notes.md).
+
+::: zone-end
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Gdy działająca aplikacja Node.js działa inaczej w App Service lub zawiera błędy, spróbuj wykonać następujące czynności:
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
-- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node.js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
+- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node.js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Na przykład:
     - W zależności od *package.jsw systemie* można zainstalować różne pakiety dla trybu produkcyjnego ( `dependencies` vs. `devDependencies` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.
@@ -370,4 +383,3 @@ Gdy działająca aplikacja Node.js działa inaczej w App Service lub zawiera bł
 > [App Service dla systemu Linux — często zadawane pytania](faq-app-service-linux.md)
 
 ::: zone-end
-

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 1ceed171b0516e293ffe58bca0225d3d3dfdb414
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560529"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094665"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Zarządzanie rolami w umowie Enterprise Agreement platformy Azure
 
@@ -197,12 +197,12 @@ W poniższej tabeli przedstawiono relację między rolami administracyjnymi umó
 |Właściciel konta LUB administrator działu|✘ Wyłączone |brak|Brak cen|
 |Brak|Nie dotyczy |Właściciel|Ceny detaliczne|
 
-Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawiane w witrynie Enterprise Portal. Rolę na platformie Azure można zaktualizować w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie dostępem przy użyciu kontroli RBAC i witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Rola administratora przedsiębiorstwa i zasady wyświetlania opłat są ustawiane w witrynie Enterprise Portal. Rolę na platformie Azure można zaktualizować w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Manage access to billing information for Azure (Zarządzanie dostępem do informacji rozliczeniowych dla platformy Azure)](manage-billing-access.md)
-- [Manage access using RBAC and the Azure portal (Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach i witryny Azure Portal)](../../role-based-access-control/role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
 - [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)

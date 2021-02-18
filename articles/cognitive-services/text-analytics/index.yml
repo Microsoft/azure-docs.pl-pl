@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 48d045fb89a4b04826ecb9fd0c7d0b2ac676d64a
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  ms.openlocfilehash: 322be97658752fb1fd6c775ba25fc74f4e04e50d
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98944969"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101093292"
 landingContent:
 - title: Informacje o interfejsie API analizy tekstu
   linkLists:
@@ -114,6 +114,36 @@ landingContent:
     links:
     - text: Rozpoznawanie jednostek
       url: how-tos/text-analytics-how-to-entity-linking.md
+- title: Odpowiedzialne użycie sztucznej inteligencji
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Uwaga dotycząca przejrzystości dla analiza tekstu
+      url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Przejrzystość uwagi dotyczącej kondycji
+      url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Przejrzystość uwagi dla celów osobowych
+      url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Uwaga dotycząca przejrzystości dla analiza tonacji
+      url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+  - linkListType: concept
+    links:
+    - text: Integracja i odpowiedzialne użycie
+      url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+- title: Używanie kontenerów platformy Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Instalowanie i uruchamianie kontenerów analizy tekstu
+      url: how-tos/text-analytics-how-to-install-containers.md
+    - text: Konfigurowanie kontenerów analizy tekstu
+      url: text-analytics-resource-container-config.md
+    - text: Użyj kontenera analizy tekstu dla opieki zdrowotnej
+      url: How-tos/text-analytics-for-health.md
+    - text: Wdrażanie wystąpienia kontenera na platformie Azure
+      url: ../containers/azure-container-instance-recipe.md
+    - text: Wdrażanie kontenera w usłudze Azure Kubernetes Service (AKS)
+      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Dokumentacja
   linkLists:
   - linkListType: reference
@@ -134,20 +164,6 @@ landingContent:
       url: /powershell/module/az.cognitiveservices
     - text: Interfejs wiersza polecenia platformy Azure
       url: /cli/azure/cognitiveservices?view=azure-cli-latest
-- title: Używanie kontenerów platformy Docker
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Instalowanie i uruchamianie kontenerów analizy tekstu
-      url: how-tos/text-analytics-how-to-install-containers.md
-    - text: Konfigurowanie kontenerów analizy tekstu
-      url: text-analytics-resource-container-config.md
-    - text: Użyj kontenera analizy tekstu dla opieki zdrowotnej
-      url: How-tos/text-analytics-for-health.md
-    - text: Wdrażanie wystąpienia kontenera na platformie Azure
-      url: ../containers/azure-container-instance-recipe.md
-    - text: Wdrażanie kontenera w usłudze Azure Kubernetes Service (AKS)
-      url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: Pomoc i opinie
   linkLists:
   - linkListType: reference

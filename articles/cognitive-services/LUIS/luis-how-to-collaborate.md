@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/21/2021
-ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681098"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095190"
 ---
 # <a name="add-contributors-to-your-app"></a>Dodawanie współautorów do aplikacji
 
@@ -37,7 +37,7 @@ Przeprowadzono migrację, jeśli środowisko tworzenia LUIS jest powiązane z za
 
     Po znalezieniu adresu e-mail użytkownika wybierz konto i wybierz pozycję **Zapisz**.
 
-    Jeśli masz problemy z tym przypisaniem roli, przejrzyj [przydziały ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) i [Rozwiązywanie problemów z kontrolą dostępu do platformy Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+    Jeśli masz problemy z tym przypisaniem roli, przejrzyj temat [Przypisywanie ról platformy Azure](../../role-based-access-control/role-assignments-portal.md) i [Rozwiązywanie problemów z usługą Azure Access Control](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
 ## <a name="view-the-app-as-a-contributor"></a>Wyświetlanie aplikacji jako współautora
 

@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56f4cb49f42936e7b9f64c2546b94c99d16bac79
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677057"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092095"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Samouczek: Konfigurowanie środowiska Azure Time Series Insights Gen2
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia Azure Time Series Insights Gen2 *w trybie płatność zgodnie z rzeczywistym* użyciem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Utwórz konto [bezpłatnej subskrypcji platformy Azure](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Co najmniej musisz mieć rolę **współautor** dla subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj temat [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* Co najmniej musisz mieć rolę **współautor** dla subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj temat [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Tworzenie symulacji urządzeń
 
@@ -91,8 +91,8 @@ W tej sekcji opisano sposób tworzenia środowiska Azure Time Series Insights Ge
     | **Grupa zasobów** | Wybierz istniejącą grupę zasobów lub Utwórz nową grupę zasobów dla zasobu środowiska Azure Time Series Insights Gen2. Grupa zasobów jest kontenerem zasobów platformy Azure. Najlepszym rozwiązaniem jest użycie tej samej grupy zasobów co inne zasoby IoT, które są tworzone przez symulatora urządzeń. |
     | **Lokalizacja** | Wybierz region centrum danych dla środowiska Azure Time Series Insights Gen2. Aby uniknąć dodatkowego opóźnienia, najlepszym rozwiązaniem jest utworzenie środowiska Azure Time Series Insights Gen2 w tym samym regionie, w którym znajduje się centrum IoT utworzone w symulatorze urządzeń. |
     | **Warstwa** |  Wybierz pozycję **Gen2 (L1)**. Jest to jednostka SKU dla produktu Azure Time Series Insights Gen2. |
-    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. W tym samouczku wpisz **_iothub-Connection-Device-ID_* _. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./how-to-select-tsid.md). |
-    | _ *Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
+    | **Nazwa właściwości identyfikatora szeregów czasowych** | Wprowadź nazwę właściwości, która zawiera wartości, które jednoznacznie identyfikują wystąpienia szeregów czasowych. Nie można później zmienić wartości wprowadzonej w polu **Nazwa właściwości** jako identyfikatora szeregów czasowych. Na potrzeby tego samouczka wprowadź **_iothub-Connection-Device-ID_**. Aby dowiedzieć się więcej na temat identyfikatora szeregów czasowych, w tym złożonego identyfikatora szeregów czasowych, zobacz [najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych](./how-to-select-tsid.md). |
+    | **Nazwa konta magazynu** | Wprowadź globalnie unikatową nazwę nowego konta magazynu.|
     | **Rodzaj konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. Zalecamy StorageV2|
     | **Replikacja konta magazynu** | Wybierz rodzaj magazynu dla nowego konta magazynu. W zależności od wybranej lokalizacji można wybrać jedną z LRS, GRS i ZRS. Na potrzeby tego samouczka można wybrać LRS|
     | **Hierarchiczna przestrzeń nazw** |Ta opcja jest zaznaczona, po wybraniu rodzaju magazynu, który ma zostać StorageV2. Domyślnie jest on wyłączony. W tym samouczku można pozostawić go w domyślnym stanie *Disabled*|
@@ -287,8 +287,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
         | Parametr | Akcja |
         | --- | --- |
         | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-        | **Trzeciego** | Wprowadź **Stan USA** |
-        | **—** | Wprowadź **Seattle** |
+        | **Kraj** | Wprowadź **Stan USA** |
+        | **City (Miasto)** | Wprowadź **Seattle** |
         | **Budowaniu** | Wprowadź **wskazówkę miejsca** |
 
     1. Wybierz pozycję **Zapisz**.
@@ -303,8 +303,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 2**|
     | **Opis** | Wprowadź **wystąpienie dla wind 2** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Trzeciego** | Wprowadź **Stan USA** |
-    | **—** | Wprowadź **Seattle** |
+    | **Kraj** | Wprowadź **Stan USA** |
+    | **City (Miasto)** | Wprowadź **Seattle** |
     | **Budowaniu** | Wprowadź **centrum nauki Pacyfiku** |
 
     **Dla windy 3:**
@@ -315,8 +315,8 @@ W tej sekcji zastosujesz model, aby ustrukturyzować dane. Do utworzenia modelu 
     | **Nazwa** | Wprowadź **windę 3**|
     | **Opis** | Wprowadź **wystąpienie dla wind 3** |
     | **Hierarchie** | Wybierz **hierarchię lokalizacji** |
-    | **Trzeciego** | Wprowadź **Stan USA** |
-    | **—** | Wprowadź **Nowy Jork** |
+    | **Kraj** | Wprowadź **Stan USA** |
+    | **City (Miasto)** | Wprowadź **Nowy Jork** |
     | **Budowaniu** | Wprowadź **kompilację stanu Empire** |
 
     [![Wyświetl zaktualizowane wystąpienia.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)

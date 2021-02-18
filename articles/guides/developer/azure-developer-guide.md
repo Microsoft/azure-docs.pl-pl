@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1c28ed90c041a65b2ff8dd08a3aac799795171eb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897463"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091205"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -238,7 +238,7 @@ Platforma Azure oferuje dwa sposoby zarządzania aplikacjami i usługami z pozio
 
 * [Azure PowerShell](/powershell/azure/): zawiera zestaw modułów z poleceniami cmdlet, które umożliwiają zarządzanie zasobami platformy Azure przy użyciu programu Windows PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 [Azure Portal](https://portal.azure.com) jest aplikacją opartą na sieci Web. Za pomocą Azure Portal można tworzyć i usuwać zasoby i usługi platformy Azure oraz zarządzać nimi. Obejmuje:
 
@@ -306,7 +306,7 @@ Gdy zezwolisz na dostęp do zasobów platformy Azure, zawsze najlepszym rozwiąz
 
   > **Kiedy należy używać**: Jeśli potrzebujesz szczegółowych zarządzania dostępem dla użytkowników i grup lub jeśli chcesz, aby użytkownik był właścicielem subskrypcji.
   >
-  > **Wprowadzenie**: Aby dowiedzieć się więcej, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+  > **Wprowadzenie**: Aby dowiedzieć się więcej, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 - **Obiekty główne usługi**: wraz z zapewnianiem dostępu do podmiotów zabezpieczeń i grup użytkowników można przyznać ten sam dostęp do nazwy głównej usługi.
 

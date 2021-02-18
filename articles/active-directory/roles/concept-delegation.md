@@ -15,12 +15,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9074fdbf31cdd8516b8d42f7cc13b4bc16f6634a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740316"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095742"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegowanie administracji w Azure Active Directory
 
@@ -38,7 +38,7 @@ W miarę rozwoju organizacji może być trudne śledzenie użytkowników, którz
 
 W portalu usługi Azure AD można [wyświetlić wszystkich członków dowolnej roli](manage-roles-portal.md), co może pomóc w szybkim sprawdzeniu uprawnień do wdrożenia i delegowania.
 
-Jeśli interesuje Cię delegowanie dostępu do zasobów platformy Azure zamiast dostępu administracyjnego w usłudze Azure AD, zobacz [Przypisywanie roli platformy Azure](../../role-based-access-control/role-assignments-portal.md).
+Jeśli interesuje Cię delegowanie dostępu do zasobów platformy Azure zamiast dostępu administracyjnego w usłudze Azure AD, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Planowanie delegowania
 

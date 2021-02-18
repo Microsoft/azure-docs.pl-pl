@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055080"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095460"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
@@ -98,7 +98,7 @@ Jeśli spróbujesz nawiązać połączenie z programem Outlook przy użyciu inne
 
   1. W menu Grupa zasobów aplikacji logiki wybierz pozycję **Kontrola dostępu (IAM)**. Skonfiguruj inne konto z rolą **współautor** . 
   
-     Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md).
+     Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
   1. Po skonfigurowaniu tej roli Zaloguj się do Azure Portal przy użyciu konta, które ma teraz uprawnienia współautora. Możesz teraz użyć tego konta, aby utworzyć połączenie z programem Outlook.
 

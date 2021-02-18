@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693191"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093976"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Najlepsze rozwiązania dotyczące zabezpieczania aplikacji PaaS Web i Mobile przy użyciu usługi Azure Storage
 W tym artykule omówiono zbiór najlepszych rozwiązań z zakresu bezpieczeństwa usługi Azure Storage na potrzeby zabezpieczania aplikacji internetowych i mobilnych platformy jako usługi (PaaS). Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z platformą Azure i klientami.
@@ -64,8 +64,8 @@ Organizacje, które nie wymuszają kontroli dostępu do danych za pomocą funkcj
 
 Aby dowiedzieć się więcej na temat usługi Azure RBAC, zobacz:
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Wbudowane role platformy Azure](../../role-based-access-control/built-in-roles.md)
 - [Azure Storage security guide](../../storage/blobs/security-recommendations.md) (Przewodnik po zabezpieczeniach usługi Azure Storage) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Korzystanie z szyfrowania po stronie klienta dla danych o wysokiej wartości

@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962030"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095844"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Udostępnianie i wdrażanie mikrousług na platformie Azure
 Ten samouczek pokazuje, jak zainicjować i wdrożyć aplikację składającą się z [mikrousług](https://en.wikipedia.org/wiki/Microservices) w [Azure App Service](https://azure.microsoft.com/services/app-service/) jako pojedynczą jednostkę i w sposób przewidywalny przy użyciu szablonów grup zasobów JSON i skryptów programu PowerShell. 
@@ -45,14 +45,14 @@ Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z Azure Reso
 To [Narzędzie do podglądu](https://resources.azure.com) umożliwia zapoznanie się z definicjami JSON wszystkich grup zasobów w ramach subskrypcji i poszczególnych zasobów. W narzędziu można edytować definicje JSON zasobu, usuwać całą hierarchię zasobów i tworzyć nowe zasoby.  Informacje, które są łatwo dostępne w tym narzędziu, są bardzo przydatne w przypadku tworzenia szablonów, ponieważ pokazują, jakie właściwości należy ustawić dla określonego typu zasobu, prawidłowych wartości itd. Możesz nawet utworzyć grupę zasobów w [witrynie Azure Portal](https://portal.azure.com/), a następnie sprawdzić jej definicje JSON w narzędziu Eksplorator, aby ułatwić templatize grupy zasobów.
 
 ### <a name="deploy-to-azure-button"></a>Przycisk Wdróż na platformie Azure
-Jeśli używasz usługi GitHub do kontroli źródła, możesz umieścić [przycisk Wdróż na platformie Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) w pliku Readme. MD, który umożliwia interfejs użytkownika wdrożenia z kluczem na platformie Azure. Można to zrobić dla dowolnej prostej aplikacji, która pozwala na wdrożenie całej grupy zasobów przez umieszczenie azuredeploy.jsw pliku w katalogu głównym repozytorium. Ten plik JSON, który zawiera szablon grupy zasobów, będzie używany przez przycisk Wdróż na platformie Azure w celu utworzenia grupy zasobów. Aby zapoznać się z przykładem, zobacz [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) przykład, który będzie używany w tym samouczku.
+Jeśli używasz usługi GitHub do kontroli źródła, możesz umieścić [przycisk Wdróż na platformie Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) w pliku Readme. MD, który umożliwia interfejs użytkownika wdrożenia z kluczem na platformie Azure. Można to zrobić dla dowolnej prostej aplikacji, która pozwala na wdrożenie całej grupy zasobów przez umieszczenie azuredeploy.jsw pliku w katalogu głównym repozytorium. Ten plik JSON, który zawiera szablon grupy zasobów, będzie używany przez przycisk Wdróż na platformie Azure w celu utworzenia grupy zasobów. Aby zapoznać się z przykładem, zobacz [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) przykład, który będzie używany w tym samouczku.
 
 ## <a name="get-the-sample-resource-group-template"></a>Pobierz szablon przykładowej grupy zasobów
 Teraz przyjrzyjmy się do niego.
 
 1. Przejdź do przykładu App Service [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) .
 2. W readme.md kliknij pozycję **Wdróż na platformie Azure**.
-3. Nastąpi przekierowanie do witryny [wdrożenia na platformę Azure](https://deploy.azure.com) i poproszenie o wprowadzenie parametrów wdrożenia. Należy zauważyć, że większość pól jest wypełniana nazwą repozytorium i kilka losowych ciągów. Możesz zmienić wszystkie pola, jeśli chcesz, ale jedyną czynnością, którą trzeba wprowadzić, są SQL Server logowania administracyjnego i hasło, a następnie kliknij przycisk **dalej**.
+3. Nastąpi przekierowanie do witryny [wdrożenia na platformę Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) i poproszenie o wprowadzenie parametrów wdrożenia. Należy zauważyć, że większość pól jest wypełniana nazwą repozytorium i kilka losowych ciągów. Możesz zmienić wszystkie pola, jeśli chcesz, ale jedyną czynnością, którą trzeba wprowadzić, są SQL Server logowania administracyjnego i hasło, a następnie kliknij przycisk **dalej**.
    
    ![Przedstawia parametry wdrożenia wejściowego w lokacji wdrożenia na platformie Azure.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Następnie kliknij przycisk **Wdróż** , aby rozpocząć proces wdrażania. Po zakończeniu działania procesu, kliknij http://todoapp link *XXXX*. azurewebsites.NET, aby przejrzeć wdrożoną aplikację. 
@@ -183,10 +183,10 @@ Ponownie zagnieżdżone zasoby powinny mieć hierarchię podobną do tych w plik
 Przycisk **Wdróż na platformie Azure** jest świetny, ale umożliwia wdrożenie szablonu grupy zasobów w azuredeploy.jstylko wtedy, gdy została już wypchnięci azuredeploy.jsw usłudze GitHub. Zestaw Azure .NET SDK udostępnia także narzędzia do wdrażania dowolnego pliku szablonu JSON bezpośrednio z komputera lokalnego. W tym celu wykonaj poniższe kroki:
 
 1. W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
-2. Kliknij **Visual C#** pozycję  >  **Cloud**  >  **Grupa zasobów platformy Azure**w chmurze Visual C#, a następnie kliknij przycisk **OK**.
+2. Kliknij pozycję  >    >  **Grupa zasobów platformy Azure** w chmurze Visual C#, a następnie kliknij przycisk **OK**.
    
    ![Utwórz nowy projekt jako grupę zasobów platformy Azure w zestawie SDK platformy Azure.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
-3. W obszarze **Wybierz szablon platformy Azure**wybierz pozycję **pusty szablon** i kliknij przycisk **OK**.
+3. W obszarze **Wybierz szablon platformy Azure** wybierz pozycję **pusty szablon** i kliknij przycisk **OK**.
 4. Przeciągnij azuredeploy.jsdo folderu **Template** w nowym projekcie.
    
    ![Pokazuje wynik przeciągnięcia azuredeploy.jsw pliku do folderu szablonów projektu.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
@@ -249,7 +249,7 @@ W DevOps, powtarzalność i przewidywalność to klucze do każdego pomyślnego 
 
 <a name="resources"></a>
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 * [Język szablonu Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Funkcje szablonu Azure Resource Manager](../azure-resource-manager/templates/template-functions.md)

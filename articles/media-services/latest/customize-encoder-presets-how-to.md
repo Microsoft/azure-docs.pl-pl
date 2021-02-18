@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954280"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092298"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Jak kodować przy użyciu przekształcenia niestandardowego — .NET
 
@@ -32,7 +32,7 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 * Wszystkie wartości wysokości i szerokości dla zawartości AVC muszą być wielokrotnością 4.
 * W Azure Media Services V3 wszystkie szybkości transmisji bitów są w bitach na sekundę. Różni się to od ustawień predefiniowanych za pomocą naszych interfejsów API v2, które używały kilobitów/s jako jednostki. Na przykład, jeśli szybkość transmisji bitów w wersji 2 została określona jako 128 (kilobity/sekundę), w v3 zostanie ustawiona wartość 128000 (BITS/s).
 
-## <a name="prerequisites"></a>Wymagania wstępne 
+## <a name="prerequisites"></a>Wymagania wstępne
 
 [Tworzenie konta usługi Media Services](./create-account-howto.md)
 
@@ -46,7 +46,7 @@ Sklonuj repozytorium GitHub zawierające pełną przykładową platformę .NET C
  
 Przykład niestandardowego ustawienia wstępnego znajduje się w folderze [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/) .
 
-## <a name="create-a-transform-with-a-custom-preset"></a>Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym 
+## <a name="create-a-transform-with-a-custom-preset"></a>Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym
 
 Podczas tworzenia nowej [transformacji](/rest/api/media/transforms)należy określić, co chcesz utworzyć jako dane wyjściowe. Wymagany parametr to obiekt [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), jak pokazano w poniższym kodzie. Każdy obiekt **TransformOutput** zawiera element **Preset**. **Ustawienie wstępne** zawiera instrukcje krok po kroku dotyczące operacji przetwarzania wideo i/lub audio, które mają być używane do generowania żądanych **TransformOutput**. Poniższy **TransformOutput** tworzy niestandardowe ustawienia kodera-dekoder i wyjście warstwy.
 

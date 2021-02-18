@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565929"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095510"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Aby można było wykonać wymagane tworzenie zasobów i zarządzanie rolami, Twoje konto musi mieć `Owner` uprawnienia w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, Dowiedz się, [jak dodać lub usunąć przypisania roli platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
+> Aby można było wykonać wymagane tworzenie zasobów i zarządzanie rolami, Twoje konto musi mieć `Owner` uprawnienia w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, Dowiedz się, [jak przypisywać role platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 Użyj następujących poleceń lub [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) , aby przyznać zarządzaną tożsamość aplikacji funkcji dostęp do Twoich magazynów konfiguracji aplikacji. Użyj tych ról:
 - Przypisz `App Configuration Data Reader` rolę w podstawowym magazynie konfiguracji aplikacji.

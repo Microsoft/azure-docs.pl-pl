@@ -4,18 +4,18 @@ description: Dowiedz się, jak zabezpieczyć Azure Policy program Kubernetes w u
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 34f2bfe346d7163a254e2ccecd1d7ef63ddb4194
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348529"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092621"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników przy użyciu usługi Azure Policy
 
 Aby zwiększyć bezpieczeństwo klastra AKS, można kontrolować, jakie funkcje są przyznawane i czy wszystkie są uruchomione względem zasad firmy. Ten dostęp jest definiowany za pomocą wbudowanych zasad udostępnianych przez [dodatek Azure Policy dla AKS][kubernetes-policy-reference]. Dzięki zapewnieniu dodatkowej kontroli nad aspektami zabezpieczeń w zakresie specyfikacji, takich jak uprawnienia główne, zapewnia ściślejszy poziom bezpieczeństwa i wgląd w to, co jest wdrażane w klastrze. Jeśli pod warunkiem nie spełniają warunków określonych w zasadach, Azure Policy może nie zezwalać na uruchamianie lub Flagowanie naruszenia. W tym artykule opisano sposób użycia Azure Policy w celu ograniczenia wdrożenia w programie AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -60,7 +60,7 @@ Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dl
 Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
 
 - Nie można jednocześnie włączyć [zasad zabezpieczeń AKS (wersja zapoznawcza)](use-pod-security-policies.md) i dodatku Azure Policy dla AKS. 
-- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_ , _strażnik-system_ i _AKS-Periscope_.
+- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_, _strażnik-system_ i _AKS-Periscope_. Jeśli używasz zasad sieciowych Calico z Kubernetes w wersji 1,20 lub nowszej, zostaną automatycznie wykluczone 2 obszary nazw, które są _Calico-system_ i _Tiger_.
 
 ### <a name="recommendations"></a>Zalecenia
 
@@ -151,9 +151,9 @@ If the built-in initiatives to address pod security do not match your requiremen
 
 Usługa AKS wymaga, aby w klastrze działały systemowe w celu zapewnienia krytycznych usług, takich jak rozpoznawanie nazw DNS. Zasady ograniczające funkcjonalność pod mogą mieć wpływ na stabilność systemu. W związku z tym następujące przestrzenie nazw są **wykluczone z oceny zasad podczas żądania przyjmowania podczas tworzenia, aktualizacji i inspekcji zasad**. Wymusza to wykluczenie nowych wdrożeń do tych przestrzeni nazw z zasad platformy Azure.
 
-1. polecenia — system
+1. kube-system
 1. Strażnik — system
-1. Azure — łuk
+1. azure-arc
 1. AKS — Periscope
 
 Dodatkowe niestandardowe przestrzenie nazw mogą być wykluczone z oceny podczas tworzenia, aktualizowania i inspekcji. Te wykluczenia należy stosować w przypadku wyspecjalizowanych zasobników, które są uruchamiane w oficjalnie zaakceptowanej przestrzeni nazw i chcą uniknąć wyzwalania naruszeń inspekcji.
@@ -252,7 +252,7 @@ Utwórz pod za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] i okre
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-Pomyślnie zaplanowano zadanie pod. Po sprawdzeniu stanu usługi pod za pomocą [polecenia kubectl Get-zasobnikowego][kubectl-get] , pod jest *uruchomiony* :
+Pomyślnie zaplanowano zadanie pod. Po sprawdzeniu stanu usługi pod za pomocą [polecenia kubectl Get-zasobnikowego][kubectl-get] , pod jest *uruchomiony*:
 
 ```console
 $ kubectl get pods

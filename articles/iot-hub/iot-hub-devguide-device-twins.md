@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400932"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093025"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Zrozumienie i używanie bliźniaczych reprezentacji urządzeń w IoT Hub
 
@@ -42,6 +42,8 @@ Użyj bliźniaczych reprezentacji urządzenia, aby:
 Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między urządzeniami i chmurą](iot-hub-devguide-d2c-guidance.md) , aby uzyskać wskazówki dotyczące korzystania z raportowanych właściwości, komunikatów przesyłanych z urządzeń do chmury lub przekazywania plików.
 
 Zapoznaj się ze [wskazówkami dotyczącymi komunikacji między chmurą i urządzeniami](iot-hub-devguide-c2d-guidance.md) , aby uzyskać wskazówki dotyczące używania żądanych właściwości, metod bezpośrednich lub komunikatów z chmury do urządzenia.
+
+Aby dowiedzieć się, jak bliźniaczych reprezentacji urządzenia odnoszą się do modelu urządzenia używanego przez urządzenie usługi Azure IoT Plug and Play, zobacz [Opis usługi IoT Plug and Play Digital bliźniaczych reprezentacji](../iot-pnp/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Bliźniaczych reprezentacji urządzenia
 

@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Automatyczne przetwarzanie danych, przetwarzanie dokumentów, automatyczne wprowadzanie danych, przetwarzanie formularzy
-ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 95bbc33035ca99a64242274570be5c9263029aef
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584570"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094381"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -27,26 +27,27 @@ Aparat rozpoznawania formularzy platformy Azure to usługa poznawcze, która umo
 Aparat rozpoznawania formularzy składa się z modeli przetwarzania dokumentów niestandardowych, wstępnie utworzonych modeli dla faktur, przyjęć i kart służbowych oraz modelu układu. Można wywołać modele aparatu rozpoznawania formularzy przy użyciu interfejsu API REST lub zestawów SDK biblioteki klienta, aby zmniejszyć złożoność i zintegrować ją z przepływem pracy lub aplikacją.
 
 Aparat rozpoznawania formularzy składa się z następujących usług:
+
 * **[Interfejs API układu](#layout-api)** — Wyodrębnianie tekstu, znaczników wyboru i struktur tabel wraz ze współrzędnymi pola ograniczenia, z dokumentów.
 * **[Modele niestandardowe](#custom-models)** — Wyodrębnij pary tekstu, par klucz/wartość, znaczniki wyboru i dane tabeli z formularzy. Te modele są przeszkolone przy użyciu własnych danych, dzięki czemu są dostosowane do Twoich formularzy.
 * Wstępnie **[utworzone modele](#prebuilt-models)** — Wyodrębnij dane z unikatowych typów formularzy przy użyciu wbudowanych modeli. Obecnie dostępne są następujące modele wbudowane
-    * [Faktury](./concept-invoices.md)
-    * [Przyjęcia sprzedaży](./concept-receipts.md)
-    * [Wizytówki](./concept-business-cards.md)
-
+  * [Faktury](./concept-invoices.md)
+  * [Przyjęcia sprzedaży](./concept-receipts.md)
+  * [Wizytówki](./concept-business-cards.md)
 
 ## <a name="try-it-out"></a>Czas to wypróbować
 
 Aby wypróbować usługę aparat rozpoznawania formularzy, przejdź do narzędzia przykładowego interfejsu użytkownika w trybie online:
-
-
-# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Wypróbuj aparat rozpoznawania formularzy](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Wypróbuj aparat rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
+
+# <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Wypróbuj aparat rozpoznawania formularzy](https://fott.azurewebsites.net/)
 
 ---
 
@@ -137,12 +138,11 @@ Poniższe interfejsy API służą do uczenia modeli i wyodrębnienia danych stru
 | **Analizuj potwierdzenie** | Analizuj dokument paragonu w celu wyodrębnienia informacji o kluczu i innego tekstu paragonu.|
 | **Analizuj wizytówkę** | Analizuj kartę biznesową, aby wyodrębnić informacje o kluczu i tekst.|
 
+# <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/v2-1)
+Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
 
 # <a name="v20"></a>[Wersja 2.0](#tab/v2-0)
 Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
-
-# <a name="v21"></a>[Wersja 2.1](#tab/v2-1)
-Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
 
 ---
 
