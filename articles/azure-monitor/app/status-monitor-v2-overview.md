@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186222"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583814"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdróż agenta Azure Monitor Application Insights dla serwerów lokalnych
 
@@ -67,7 +67,7 @@ Każda z tych opcji została opisana w [szczegółowym instrukcji](status-monito
   - Polecenia cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) można użyć do sprawdzenia, czy Włączanie powiodło się.
   - Zalecamy używanie metryk na [żywo](./live-stream.md) , aby szybko określić, czy aplikacja wysyła dane telemetryczne.
 
-  - Możesz również użyć [log Analytics](../log-query/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:
+  - Możesz również użyć [log Analytics](../logs/log-analytics-tutorial.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Każda z tych opcji została opisana w [szczegółowym instrukcji](status-monito
 
 Wyświetlanie telemetrii:
 
-* [Poznaj metryki](../platform/metrics-charts.md) , aby monitorować wydajność i użycie.
+* [Poznaj metryki](../essentials/metrics-charts.md) , aby monitorować wydajność i użycie.
 * [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md) , aby zdiagnozować problemy.
-* [Użyj analizy](../log-query/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
+* [Użyj analizy](../logs/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
 * [Tworzenie pulpitów nawigacyjnych](./overview-dashboard.md).
 
 Dodawanie kolejnych funkcji telemetrii:

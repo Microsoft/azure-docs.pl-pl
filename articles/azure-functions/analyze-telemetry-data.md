@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać i wykonywać zapytania dotyczące Az
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549562"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591187"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizuj dane telemetryczne Azure Functions w Application Insights 
 
@@ -64,12 +64,12 @@ Następujące obszary Application Insights mogą być pomocne podczas oceny zach
 | ---- | ----------- |
 | **[Niepowodzenia](../azure-monitor/app/asp-net-exceptions.md)** |  Twórz wykresy i alerty na podstawie błędów funkcji i wyjątków serwera. **Nazwa operacji** to nazwa funkcji. Błędy w zależnościach nie są wyświetlane, chyba że zaimplementowano niestandardową telemetrię dla zależności. |
 | **[Wydajność](../azure-monitor/app/performance-counters.md)** | Analizuj problemy z wydajnością, wyświetlając wykorzystanie zasobów i przepływność dla **wystąpień ról w chmurze**. Te dane dotyczące wydajności mogą być przydatne w scenariuszach debugowania, w których funkcje boggingją bazowe zasoby. |
-| **[Metryki](../azure-monitor/platform/metrics-charts.md)** | Tworzenie wykresów i alertów opartych na metrykach. Metryki obejmują liczbę wywołań funkcji, czas wykonywania i współczynnik sukcesu. |
+| **[Metryki](../azure-monitor/essentials/metrics-charts.md)** | Tworzenie wykresów i alertów opartych na metrykach. Metryki obejmują liczbę wywołań funkcji, czas wykonywania i współczynnik sukcesu. |
 | **[Metryki na żywo](../azure-monitor/app/live-stream.md)** | Wyświetlanie danych metryk w miarę ich tworzenia w czasie niemal rzeczywistym. |
 
 ## <a name="query-telemetry-data"></a>Zapytanie danych telemetrycznych
 
-[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analiza zawiera język zapytań służący do wyodrębniania, manipulowania i wizualizacji danych. 
+[Application Insights Analytics](../azure-monitor/logs/log-query-overview.md) zapewnia dostęp do wszystkich danych telemetrycznych w formie tabel w bazie danych. Analiza zawiera język zapytań służący do wyodrębniania, manipulowania i wizualizacji danych. 
 
 Wybierz pozycję **dzienniki** , aby zbadać lub zbadać zarejestrowane zdarzenia.
 

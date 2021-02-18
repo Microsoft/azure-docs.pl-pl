@@ -77,6 +77,8 @@
       href: manage-manual-qos-capacity-pool.md
     - name: Delegowanie podsieci do usługi Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
+    - name: Tworzenie połączeń Active Directory i zarządzanie nimi
+      href: create-active-directory-connections.md
     - name: Tworzenie woluminu NFS i zarządzanie nim
       items:
         - name: Tworzenie woluminu NFS

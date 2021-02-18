@@ -3,16 +3,16 @@ title: Wdróż aplikację Java z otwartą wolnością/WebSphereą w klastrze Red
 description: Wdróż aplikację Java z otwartą wolnością/WebSphereą w klastrze Red Hat OpenShift 4.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, JavaEE, mikroprofil, Open-wolności, WebSphere-wolności, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493949"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633890"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Wdróż aplikację Java z otwartą wolnością/WebSphereą w klastrze Red Hat OpenShift 4
 
@@ -64,7 +64,7 @@ Te elementy należy zanotować po wykonaniu kroków, aby włączyć wbudowany re
 ### <a name="create-an-openshift-namespace-for-the-java-app"></a>Tworzenie przestrzeni nazw OpenShift dla aplikacji Java
 
 1. Zaloguj się do konsoli sieci Web OpenShift z poziomu przeglądarki przy użyciu `kubeadmin` poświadczeń.
-2. Przejdź do **Administration**  >  obszaru **nazw** Administracja  >  **Utwórz przestrzeń nazw**.
+2. Przejdź do   >  obszaru **nazw** Administracja  >  **Utwórz przestrzeń nazw**.
 3. Wypełnij pola `open-liberty-demo` **Nazwa** i wybierz pozycję **Utwórz**, jak pokazano poniżej.
 
    ![Utwórz przestrzeń nazw](./media/howto-deploy-java-liberty-app/create-namespace.png)
@@ -241,7 +241,7 @@ Ze względu na to, że korzystamy z operatora Open wolności do zarządzania apl
    ![Zawiera środowisko Java wyaro](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Wybierz pozycję **Utwórz OpenLibertyApplication**
 1. Zastąp wygenerowany YAML własnym, który znajduje się w lokalizacji `<path-to-repo>/2-simple/openlibertyapplication.yaml` .
-1. Wybierz pozycję **Utwórz**. Nastąpi powrót do listy OpenLibertyApplications.
+1. Wybierz przycisk **Utwórz**. Nastąpi powrót do listy OpenLibertyApplications.
 1. Wybierz pozycję **JavaEE-kawiarni-Simple**.
 1. W środku strony wybierz pozycję **zasoby**.
 1. W tabeli wybierz link do **JavaEE-kawiarni-Simple** z **rodzajem** **trasy**.

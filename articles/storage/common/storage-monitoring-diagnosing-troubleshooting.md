@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585219"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -94,7 +94,7 @@ Sekcja "[wskazówki dotyczące rozwiązywania problemów]" zawiera wskazówki do
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitorowanie usługi magazynu
 Jeśli wiesz już, jak działa program Windows Performance Monitoring, możesz traktować metryki magazynu jako odpowiednik usługi Azure Storage w zakresie liczników wydajności systemu Windows. W metrykach magazynu znajduje się kompleksowy zestaw metryk (liczniki w terminologii monitora wydajności systemu Windows), takie jak dostępność usługi, Łączna liczba żądań do obsługi lub procent pomyślnych żądań do usługi. Aby uzyskać pełną listę dostępnych metryk, zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). Można określić, czy usługa magazynu ma zbierać i agregowanie metryk co godzinę, czy co minutę. Aby uzyskać więcej informacji o sposobie włączania metryk i monitorowania kont magazynu, zobacz [Włączanie metryk magazynu i wyświetlanie danych metryk](../blobs/monitor-blob-storage.md).
 
-Możesz wybrać metryki godzinowe, które mają być wyświetlane w [Azure Portal](https://portal.azure.com) i skonfigurować reguły, które powiadamiają administratorów pocztą e-mail za każdym razem, gdy Metryka godzinowa przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [Odbieranie powiadomień o alertach](../../azure-monitor/platform/alerts-overview.md).
+Możesz wybrać metryki godzinowe, które mają być wyświetlane w [Azure Portal](https://portal.azure.com) i skonfigurować reguły, które powiadamiają administratorów pocztą e-mail za każdym razem, gdy Metryka godzinowa przekroczy określony próg. Aby uzyskać więcej informacji, zobacz [Odbieranie powiadomień o alertach](../../azure-monitor/alerts/alerts-overview.md).
 
 Zalecamy zapoznanie się [Azure monitor z magazynem](../../azure-monitor/insights/storage-insights-overview.md) (wersja zapoznawcza). Jest to funkcja Azure Monitor, która oferuje kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. Nie wymaga to włączania ani konfigurowania niczego i można od razu wyświetlać te metryki ze wstępnie zdefiniowanych wykresów interaktywnych i innych wizualizacji.
 

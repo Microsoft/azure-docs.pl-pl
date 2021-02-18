@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4c6d8fabbd236a2653fff8168ad73c0b45f09d64
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593650"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Wtyczka dla Application Insights JavaScript SDK
 
@@ -75,11 +75,11 @@ class MyComponent extends React.Component {
 export default withAITracking(reactPlugin, MyComponent);
 ```
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 | Nazwa    | Domyślne | Opis                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| historia | wartość null    | Reagowanie na historię routera. Aby uzyskać więcej informacji, zobacz [dokumentację pakietu do reagowania na routery](https://reactrouter.com/web/api/history). Aby dowiedzieć się, jak uzyskać dostęp do obiektu historii poza składnikami, zobacz [często zadawane pytania dotyczące routera](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
+| historia | null    | Reagowanie na historię routera. Aby uzyskać więcej informacji, zobacz [dokumentację pakietu do reagowania na routery](https://reactrouter.com/web/api/history). Aby dowiedzieć się, jak uzyskać dostęp do obiektu historii poza składnikami, zobacz [często zadawane pytania dotyczące routera](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
 ### <a name="react-components-usage-tracking"></a>Śledzenie użycia składników reagowania
 
@@ -226,4 +226,4 @@ Zapoznaj się z [pokazem Application Insights reagują](https://github.com/Azure
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się więcej na temat zestawu SDK języka JavaScript, zapoznaj się z [dokumentacją zestawu SDK w Application Insights JavaScript](javascript.md).
-- Aby dowiedzieć się więcej na temat języka zapytań Kusto i wykonywania zapytań dotyczących danych w Log Analytics, zobacz [Omówienie zapytania dziennika](../../azure-monitor/log-query/log-query-overview.md).
+- Aby dowiedzieć się więcej na temat języka zapytań Kusto i wykonywania zapytań dotyczących danych w Log Analytics, zobacz [Omówienie zapytania dziennika](../../azure-monitor/logs/log-query-overview.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585279"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -35,7 +35,7 @@ Korzystając z jednego obszaru roboczego, można w pełni wykorzystać możliwo�
 | Własność danych | Granice własności danych, na przykład przez podmioty zależne lub firmy stowarzyszone, są lepiej nakreślone przy użyciu oddzielnych obszarów roboczych. |  |
 | Wiele dzierżawców platformy Azure | Usługa Azure — wskaźnik wiedzy obsługuje zbieranie danych z zasobów firmy Microsoft i platformy Azure SaaS tylko w ramach Azure Active Directory własnej granicy dzierżawy usługi Azure AD. Zatem każda dzierżawa usługi Azure AD wymaga oddzielnego obszaru roboczego. |  |
 | Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Na przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Korzystanie z [zasobów RBAC na platformie Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub na [poziomie tabeli Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| Ustawienia przechowywania szczegółowego | W przeszłości wiele obszarów roboczych była jedynym sposobem ustawiania różnych okresów przechowywania dla różnych typów danych. Nie jest to już potrzebne w wielu przypadkach dzięki wprowadzeniu ustawień przechowywania poziomu tabeli. | Korzystanie z [ustawień przechowywania na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) lub Automatyzowanie [usuwania danych](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Ustawienia przechowywania szczegółowego | W przeszłości wiele obszarów roboczych była jedynym sposobem ustawiania różnych okresów przechowywania dla różnych typów danych. Nie jest to już potrzebne w wielu przypadkach dzięki wprowadzeniu ustawień przechowywania poziomu tabeli. | Korzystanie z [ustawień przechowywania na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) lub Automatyzowanie [usuwania danych](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Podział rozliczeń | Umieszczając obszary robocze w osobnych subskrypcjach, można je rozliczać na różne strony. | Raportowanie użycia i naliczanie krzyżowe |
 | Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralna decyzja projektowa, którą można zmienić, aby lepiej dostosować się do wymagań usługi Azure Sentinel.<br><br>Przykłady obejmują:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Zmiana architektury obszarów roboczych |
 
@@ -81,12 +81,12 @@ Centrum kontrolne platformy Azure obsługuje [wiele obszarów roboczych](./multi
 
 ### <a name="cross-workspace-querying"></a>Zapytania między obszarami roboczymi
 
-Na platformie Azure badanie obejmuje wykonywanie zapytań dotyczących [wielu obszarów roboczych w jednym zapytaniu](../azure-monitor/log-query/cross-workspace-query.md), co pozwala na wyszukiwanie i skorelowanie danych z wielu obszarów roboczych w jednym zapytaniu. 
+Na platformie Azure badanie obejmuje wykonywanie zapytań dotyczących [wielu obszarów roboczych w jednym zapytaniu](../azure-monitor/logs/cross-workspace-query.md), co pozwala na wyszukiwanie i skorelowanie danych z wielu obszarów roboczych w jednym zapytaniu. 
 
-- Użyj [wyrażenia Workspace ()](../azure-monitor/log-query/workspace-expression.md) , aby odwołać się do tabeli w innym obszarze roboczym. 
+- Użyj [wyrażenia Workspace ()](../azure-monitor/logs/workspace-expression.md) , aby odwołać się do tabeli w innym obszarze roboczym. 
 - Użyj [operatora Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) obok wyrażenia obszaru roboczego (), aby zastosować zapytanie między tabelami w wielu obszarach roboczych.
 
-Przy użyciu zapisanych [funkcji](../azure-monitor/log-query/functions.md) można uprościć zapytania między obszarami roboczymi. Na przykład, jeśli odwołanie do obszaru roboczego jest długie, możesz chcieć zapisać wyrażenie `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` jako funkcję o nazwie `SecurityEventCustomerA` . Następnie można pisać zapytania jako `SecurityEventCustomerA | where ...` .
+Przy użyciu zapisanych [funkcji](../azure-monitor/logs/functions.md) można uprościć zapytania między obszarami roboczymi. Na przykład, jeśli odwołanie do obszaru roboczego jest długie, możesz chcieć zapisać wyrażenie `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` jako funkcję o nazwie `SecurityEventCustomerA` . Następnie można pisać zapytania jako `SecurityEventCustomerA | where ...` .
 
 Funkcja może również uprościć powszechnie używaną Unię. Można na przykład zapisać następujące wyrażenie jako funkcję o nazwie `unionSecurityEvent` :
 

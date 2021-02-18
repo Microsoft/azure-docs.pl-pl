@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573368"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593989"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planowanie i zarządzanie kosztami Azure App Service
 
@@ -38,7 +38,7 @@ W zależności od funkcji, która jest używana w App Service, można utworzyć 
 - **Plan App Service**  Wymagane do hostowania aplikacji App Service.
 - **Warstwa izolowana**  Dla środowiska App Service jest wymagany [Virtual Network](../virtual-network/index.yml) .
 - **Kopia zapasowa**  Do tworzenia kopii zapasowych wymagane jest [konto magazynu](../storage/index.yml) .
-- **Dzienniki diagnostyczne**  Możesz wybrać [konto magazynu](../storage/index.yml) jako opcję rejestrowania lub zintegrować z [usługą Azure log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Dzienniki diagnostyczne**  Możesz wybrać [konto magazynu](../storage/index.yml) jako opcję rejestrowania lub zintegrować z [usługą Azure log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **App Service certyfikaty**  Certyfikaty zakupione na platformie Azure muszą być utrzymywane w [Azure Key Vault](../key-vault/index.yml).
 
 Inne zasoby dotyczące kosztów App Service są (zobacz [App Service cennika](https://azure.microsoft.com/pricing/details/app-service/) , aby uzyskać szczegółowe informacje):
@@ -114,7 +114,7 @@ Obciążenia produkcyjne są dostarczane z zaleceniem dedykowanej warstwy cenowe
 > [!NOTE]
 > **Wersja Premium v3** obsługuje zarówno kontenery systemu Windows, jak i Linux. 
 
-Po wybraniu warstwy cenowej należy zminimalizować wystąpienia bezczynności. W przypadku wdrożenia skalowalnego w poziomie można tracić pieniądze za nieużywane wystąpienia obliczeniowe. Należy [skonfigurować skalowanie](../azure-monitor/platform/autoscale-get-started.md)automatyczne, dostępne w warstwie **standardowa** i powyżej. Tworząc harmonogramy skalowania w poziomie, a także reguły skalowania w poziomie oparte na metrykach, płacisz tylko za wystąpienia, które naprawdę potrzebujesz w danym momencie.
+Po wybraniu warstwy cenowej należy zminimalizować wystąpienia bezczynności. W przypadku wdrożenia skalowalnego w poziomie można tracić pieniądze za nieużywane wystąpienia obliczeniowe. Należy [skonfigurować skalowanie](../azure-monitor/autoscale/autoscale-get-started.md)automatyczne, dostępne w warstwie **standardowa** i powyżej. Tworząc harmonogramy skalowania w poziomie, a także reguły skalowania w poziomie oparte na metrykach, płacisz tylko za wystąpienia, które naprawdę potrzebujesz w danym momencie.
 
 ### <a name="azure-reservations"></a>Rezerwacje platformy Azure
 

@@ -5,12 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256496"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591707"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnozowanie typowych błędów pakietów kodu przy użyciu Service Fabric
 
@@ -58,5 +58,5 @@ Kod zakończenia | Wartość szesnastkowa | Krótki opis | Główna przyczyna | 
 
 * Dowiedz się więcej o [diagnozowaniu innych typowych scenariuszy](service-fabric-diagnostics-common-scenarios.md).
 * Zapoznaj się z bardziej szczegółowym omówieniem dzienników Azure Monitor i ich oferty, odczytując [Azure monitor przegląd](../azure-monitor/overview.md).
-* Dowiedz się więcej o dziennikach Azure Monitor [alerty](../azure-monitor/platform/alerts-overview.md) dotyczące pomocy w wykrywaniu i diagnostyce.
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.
+* Dowiedz się więcej o dziennikach Azure Monitor [alerty](../azure-monitor/alerts/alerts-overview.md) dotyczące pomocy w wykrywaniu i diagnostyce.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.

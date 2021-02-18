@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210379"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573456"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis
 
@@ -186,6 +186,6 @@ Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule doty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
+* Skonfiguruj [alerty metryk](../alerts/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
 
-* Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
+* Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../visualize/workbooks-overview.md).

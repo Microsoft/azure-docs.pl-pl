@@ -3,21 +3,21 @@ title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379237"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593124"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
 Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usługi Azure Lighthouse](../overview.md). Usługa Azure Lighthouse umożliwia dostawcom usług wykonywanie operacji na dużą skalę w wielu dzierżawcach, co sprawia, że zadania zarządzania są bardziej wydajne.
 
-W tym temacie przedstawiono sposób korzystania z [dzienników Azure monitor](../../azure-monitor/platform/data-platform-logs.md) w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz. Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
+W tym temacie przedstawiono sposób korzystania z [dzienników Azure monitor](../../azure-monitor/logs/data-platform-logs.md) w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz. Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
 
 > [!NOTE]
-> Upewnij się, że użytkownicy w dzierżawach zarządzali mają przypisane [role niezbędne do zarządzania obszarami roboczymi log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) w delegowanych subskrypcjach klientów.
+> Upewnij się, że użytkownicy w dzierżawach zarządzali mają przypisane [role niezbędne do zarządzania obszarami roboczymi log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) w delegowanych subskrypcjach klientów.
 
 ## <a name="create-log-analytics-workspaces"></a>Tworzenie Log Analytics obszarów roboczych
 
@@ -28,7 +28,7 @@ Zalecamy tworzenie tych obszarów roboczych bezpośrednio w dzierżawach klient�
 > [!TIP]
 > Wszystkie konta usługi Automation używane do uzyskiwania dostępu do danych z obszaru roboczego Log Analytics muszą zostać utworzone w tej samej dzierżawie, w której znajduje się obszar roboczy.
 
-Obszar roboczy Log Analytics można utworzyć przy użyciu [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), przy użyciu [interfejsu wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)lub przy użyciu [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+Obszar roboczy Log Analytics można utworzyć przy użyciu [Azure Portal](../../azure-monitor/logs/quick-create-workspace.md), przy użyciu [interfejsu wiersza polecenia platformy Azure](../../azure-monitor/logs/quick-create-workspace-cli.md)lub przy użyciu [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > Nawet jeśli wszystkie obszary robocze są tworzone w dzierżawie klienta, dostawca zasobów Microsoft. Insights musi być również zarejestrowany w ramach subskrypcji zarządzania.
@@ -43,11 +43,11 @@ Po ustaleniu zasad, które mają zostać wdrożone, można [je wdrożyć w ramac
 
 ## <a name="analyze-the-gathered-data"></a>Analizowanie zebranych danych
 
-Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych.
+Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics utworzonych w każdej dzierżawie klienta. Aby uzyskać szczegółowe informacje na temat wszystkich zarządzanych klientów, można użyć narzędzi, takich jak [Azure monitor skoroszyty](../../azure-monitor/visualize/workbooks-overview.md) do zbierania i analizowania informacji z wielu źródeł danych.
 
 ## <a name="view-alerts-across-customers"></a>Wyświetlanie alertów dla klientów
 
-[Alerty](../../azure-monitor/platform/alerts-overview.md) dla delegowanych subskrypcji można wyświetlać w dzierżawach klientów zarządzanych przez użytkownika.
+[Alerty](../../azure-monitor/alerts/alerts-overview.md) dla delegowanych subskrypcji można wyświetlać w dzierżawach klientów zarządzanych przez użytkownika.
 
 Z poziomu dzierżawy zarządzającej możesz [tworzyć i wyświetlać alerty dzienników aktywności oraz zarządzać nimi](../../azure-monitor/platform/alerts-activity-log.md) w Azure Portal lub za pośrednictwem interfejsów API i narzędzi do zarządzania.
 
