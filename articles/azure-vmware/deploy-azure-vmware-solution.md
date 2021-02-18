@@ -1,35 +1,27 @@
 ---
 title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
-description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
+description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć i skonfigurować chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382059"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652738"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
-W tym artykule przedstawiono informacje z [sekcji Planowanie](production-ready-deployment-steps.md) w celu wdrożenia rozwiązania VMware dla platformy Azure. 
+W tym artykule opisano sposób wdrażania i konfigurowania rozwiązania Azure VMware przy użyciu informacji z [sekcji Planowanie](production-ready-deployment-steps.md) . 
 
 >[!IMPORTANT]
 >Jeśli nie zdefiniowano jeszcze informacji, Wróć do [sekcji Planowanie](production-ready-deployment-steps.md) przed kontynuowaniem.
 
-## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Utwórz chmurę prywatną rozwiązania Azure VMware
 
-
-## <a name="deploy-azure-vmware-solution"></a>Wdrażanie usługi Azure VMware Solution
-
-Skorzystaj z informacji zebranych w artykule [Planowanie rozwiązania Azure VMware Solution Deployment](production-ready-deployment-steps.md) :
-
->[!NOTE]
->Aby wdrożyć rozwiązanie VMware dla platformy Azure, musisz mieć co najmniej poziom współautor w subskrypcji.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Postępuj zgodnie z wymaganiami wstępnymi i krokami opisanymi w samouczku [Tworzenie chmury prywatnej rozwiązania Azure VMware](tutorial-create-private-cloud.md) . Chmurę prywatną rozwiązania Azure VMware można utworzyć za pomocą [Azure Portal](tutorial-create-private-cloud.md#azure-portal) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz temat [rozwiązanie Azure VMware:](https://www.youtube.com/embed/gng7JjxgayI) film wideo dotyczący wdrażania.
@@ -60,7 +52,7 @@ Jeśli nie zdefiniowano sieci wirtualnej w kroku wdrożenia, a zamierzasz połą
 
 Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware nawiązuje połączenie za pomocą obwodu usługi ExpressRoute.  Na platformie Azure przejdź do interfejsu sieciowego pola skoku i [Sprawdź obowiązujące trasy](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) w [kroku wdrożenia](#deploy-azure-vmware-solution) wcześniej w tym artykule.
+Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) podczas [tworzenia chmury prywatnej](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Sprawdź trasy sieciowe anonsowane z rozwiązania Azure VMware do platformy Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

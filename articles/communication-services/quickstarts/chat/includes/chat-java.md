@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1548b878d5b1261d2d4b91ed6c081c27845d99d1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379680"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653562"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -83,6 +83,8 @@ Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki k
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 Aby utworzyć klienta programu chat, należy użyć punktu końcowego usługi komunikacyjnej i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Po wygenerowaniu tych tokenów na serwerze Przekaż je z powrotem do urządzenia klienckiego. Aby przekazać token do klienta czatu, należy użyć klasy CommunicationTokenCredential ze wspólnej biblioteki klienta. 
+
+Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.md)
 
 Podczas dodawania instrukcji import należy pamiętać, aby tylko dodać importy z przestrzeni nazw com. Azure. Communications. chat i com. Azure. Communications. chat. Models, a nie z obszaru nazw com. Azure. Communications. chat. Implementation. W pliku App. Java, który został wygenerowany za pośrednictwem Maven, można użyć następującego kodu, aby rozpocząć od:
 

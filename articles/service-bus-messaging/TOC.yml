@@ -7,7 +7,7 @@
     - name: Porównanie usług obsługi wiadomości
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: Używanie usługi Service Bus z usługą Java Message Service (JMS) 2.0 (wersja zapoznawcza)
+    - name: 'Używanie Service Bus z usługą komunikatów języka Java (JMS) 2,0'
       href: how-to-use-java-message-service-20.md
 - name: Przewodniki Szybki start
   items:
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Pojęcia
   items:
+    - name: 'Kolejki, tematy i subskrypcje'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Filtry tematów i akcje
+      href: topic-filters.md
     - name: Obsługa komunikatów Premium
       href: service-bus-premium-messaging.md
     - name: Porównanie kolejek platformy Azure i kolejek usługi Service Bus
@@ -158,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Programowanie
       items:
+        - name: Ustaw filtry i akcje subskrypcji
+          href: service-bus-filter-examples.md
         - name: Obsługa komunikatów
           items:
             - name: 'Kolejki, tematy i subskrypcje'
               href: service-bus-queues-topics-subscriptions.md
-            - name: Jednostki usługi Java Message Service (JMS) 2.0 (wersja zapoznawcza)
+            - name: 'Jednostki usługi wiadomości Java (JMS) 2,0'
               href: java-message-service-20-entities.md
+            - name: Usługa wiadomości języka Java (JMS) Developer guide.md
+              href: jms-developer-guide.md
             - name: 'Komunikaty, ładunki i serializacja'
               href: service-bus-messages-payloads.md
             - name: 'Transferowanie, blokady i uzgadnianie komunikatów'
@@ -172,8 +180,6 @@
               href: message-sequencing.md
             - name: Wygaśnięcie komunikatu (czas wygaśnięcia)
               href: message-expiration.md
-        - name: Filtry tematów i akcje
-          href: topic-filters.md
         - name: Migrowanie z przestrzeni nazw w warstwie Standardowa do przestrzeni nazw w warstwie Premium
           href: service-bus-migrate-standard-premium.md
         - name: Partycjonowane kolejki i tematy
