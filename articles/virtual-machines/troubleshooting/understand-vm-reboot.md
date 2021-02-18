@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3dcb4a7b92f5aab1336e49a7d299614855b48fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591156"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Opis ponownego uruchomienia systemu dla maszyny wirtualnej platformy Azure
 
@@ -64,7 +64,7 @@ Aktualizacje wielu wystąpień (dla maszyn wirtualnych w zestawie dostępności)
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Zainicjowane przez użytkownika akcje ponownego uruchomienia lub zamknięcia
 
-W przypadku ponownego uruchomienia z Azure Portal, Azure PowerShell, interfejsu wiersza polecenia lub interfejsu API REST można znaleźć zdarzenie w [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).
+W przypadku ponownego uruchomienia z Azure Portal, Azure PowerShell, interfejsu wiersza polecenia lub interfejsu API REST można znaleźć zdarzenie w [dzienniku aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Jeśli wykonujesz akcję z systemu operacyjnego maszyny wirtualnej, możesz znaleźć zdarzenie w dziennikach systemu.
 

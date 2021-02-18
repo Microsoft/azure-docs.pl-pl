@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833171"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570891"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
 
@@ -186,7 +186,7 @@ W Azure Portal, aby utworzyć alerty dla monitora połączeń, należy określi�
 
 - **Nazwa warunku**: alert jest tworzony w ramach `Test Result(preview)` metryki. Gdy wynik testu monitora połączeń ma wynik niepowodzeniem, reguła alertu zostanie wyzwolona. 
 
-- **Nazwa grupy akcji**: możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](../azure-monitor/platform/action-groups.md). Po utworzeniu alertu możesz [zarządzać alertami](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
+- **Nazwa grupy akcji**: możesz wprowadzić swój adres e-mail bezpośrednio lub można utworzyć alerty za pomocą grup akcji. Jeśli adres e-mail zostanie wprowadzony bezpośrednio, zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** . Identyfikator e-mail zostanie dodany do tej grupy akcji. W przypadku wybrania opcji używania grup akcji należy wybrać wcześniej utworzoną grupę akcji. Aby dowiedzieć się, jak utworzyć grupę akcji, zobacz [Tworzenie grup akcji w Azure Portal](../azure-monitor/alerts/action-groups.md). Po utworzeniu alertu możesz [zarządzać alertami](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nazwa reguły alertu**: Nazwa monitora połączeń.
 

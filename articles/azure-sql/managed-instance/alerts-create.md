@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592705"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego usługi Azure SQL przy użyciu witryny Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Można skonfigurować alert, aby wykonać następujące czynności podczas wyzwa
 * Wywoływanie elementu Runbook platformy Azure
 * Wywołaj zewnętrzny bilet narzędzia ITSM zgodny z systemem
 
-Można skonfigurować i uzyskać informacje o regułach alertów za pomocą [Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure lub usługi](../../azure-monitor/platform/alerts-classic-portal.md) [Azure Monitor API REST](/rest/api/monitor/alertrules). 
+Można skonfigurować i uzyskać informacje o regułach alertów za pomocą [Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure lub usługi](../../azure-monitor/alerts/alerts-classic-portal.md) [Azure Monitor API REST](/rest/api/monitor/alertrules). 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>Metryki alertów dostępne dla wystąpienia zarządzanego
 
@@ -50,7 +50,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów za pomocą [Azu
 
 Następujące metryki wystąpienia zarządzanego są dostępne dla konfiguracji alertów:
 
-| Metryka | Opis | Wartość jednostki miary \ możliwe wartości |
+| Metric | Opis | Wartość jednostki miary \ możliwe wartości |
 | :--------- | --------------------- | ----------- |
 | Średni procent procesora CPU | Średni procent użycia procesora CPU w wybranym okresie. | 0-100 (procent) |
 | Odczytane bajty we/wy | Bajty we/wy odczytane w wybranym okresie. | Bajty |
@@ -113,7 +113,7 @@ Nowa reguła alertu stanie się aktywna w ciągu kilku minut i zostanie wyzwolon
 ## <a name="verifying-alerts"></a>Weryfikowanie alertów
 
 > [!NOTE]
-> Aby Pomijaj alerty, zobacz [pominięcia alertów za pomocą reguł akcji](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> Aby Pomijaj alerty, zobacz [pominięcia alertów za pomocą reguł akcji](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Po skonfigurowaniu reguły alertów Sprawdź, czy jest spełniony wyzwalacz alertów i jego częstotliwość. Aby zapoznać się z przykładem wyświetlanym na tej stronie w celu skonfigurowania alertu dotyczącego miejsca do magazynowania, jeśli opcja alertów została wysłana pocztą e-mail, możesz otrzymać wiadomość e-mail, która jest pokazana poniżej.
 
@@ -142,8 +142,8 @@ Aby wyświetlać, wstrzymywać, uaktywniać, modyfikować i usuwać istniejące 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje o systemie Azure Monitor alertów można znaleźć [w temacie Omówienie alertów w programie Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-* Dowiedz się więcej na temat alertów metryk, zobacz [Opis działania alertów metryk w Azure monitor](../../azure-monitor/platform/alerts-metric-overview.md)
-* Dowiedz się więcej o konfigurowaniu elementu webhook w alertach, zobacz [wywoływanie elementu webhook przy użyciu klasycznego alertu metryki](../../azure-monitor/platform/alerts-webhooks.md)
+* Informacje o systemie Azure Monitor alertów można znaleźć [w temacie Omówienie alertów w programie Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+* Dowiedz się więcej na temat alertów metryk, zobacz [Opis działania alertów metryk w Azure monitor](../../azure-monitor/alerts/alerts-metric-overview.md)
+* Dowiedz się więcej o konfigurowaniu elementu webhook w alertach, zobacz [wywoływanie elementu webhook przy użyciu klasycznego alertu metryki](../../azure-monitor/alerts/alerts-webhooks.md)
 * Informacje na temat konfigurowania alertów i zarządzania nimi przy użyciu programu PowerShell, zobacz [reguły akcji](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * Informacje na temat konfigurowania alertów i zarządzania nimi za pomocą interfejsu API, zobacz [Azure monitor dokumentacja interfejsu API REST](/rest/api/monitor/)

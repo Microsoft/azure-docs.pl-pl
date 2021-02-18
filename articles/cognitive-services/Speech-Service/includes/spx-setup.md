@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514906"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645407"
 ---
 ## <a name="download-and-install"></a>Pobieranie i instalowanie
 
@@ -19,11 +19,12 @@ ms.locfileid: "100514906"
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Windows:
 
 1. W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Zainstalowanie tego po raz pierwszy może wymagać ponownego uruchomienia.
-1. Zainstaluj program [.NET Core 3,1](/dotnet/core/install/linux).
+1. Zainstaluj [zestaw SDK platformy .NET Core 3,1](/dotnet/core/install/linux).
 2. Zainstaluj interfejs wiersza polecenia mowy przy użyciu NuGet, wprowadzając następujące polecenie:
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
 > [!NOTE]

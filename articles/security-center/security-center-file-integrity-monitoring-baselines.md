@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439557"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634716"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Porównanie planów bazowych przy użyciu monitorowania integralności plików (FIM)
 
@@ -62,23 +62,22 @@ Linie bazowe programu FIM zaczynają się od określenia cech znanego dobrego st
 > [!NOTE]
 > Aby dowiedzieć się więcej na temat ustawień rejestru obsługiwanych przez różne wersje systemu operacyjnego, zapoznaj się z [arkuszem kalkulacyjnym informacje o ustawieniach zasady grupy](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Aby skonfigurować FIM do monitorowania planów bazowych rejestru:*
+Aby skonfigurować FIM do monitorowania planów bazowych rejestru:
 
-1. W oknie dialogowym **Dodawanie rejestru systemu Windows dla Change Tracking** w polu tekstowym **klucz rejestru systemu Windows** wprowadź klucz rejestru.
+1. W oknie dialogowym **Dodawanie rejestru systemu Windows dla Change Tracking** w polu tekstowym **klucz rejestru systemu Windows** wprowadź następujący klucz rejestru:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Włączanie programu FIM w rejestrze](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Włączanie programu FIM w rejestrze":::
 
 ## <a name="track-changes-to-windows-files"></a>Śledzenie zmian w plikach systemu Windows
 
 1. W oknie **Dodawanie pliku systemu Windows dla Change Tracking** w polu tekstowym **wprowadź ścieżkę** wprowadź folder zawierający pliki, które chcesz śledzić. W przykładzie na poniższej ilustracji znajduje się **aplikacja sieci Web firmy Contoso** w D:\ dysk w strukturze folderów **ContosWebApp** .  
 1. Utwórz niestandardowy wpis w pliku systemu Windows, podając nazwę klasy ustawień, włączając rekursję i określając folder Top z sufiksem symboli wieloznacznych (*).
 
-    ![Włącz program FIM na pliku](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Włącz program FIM na pliku":::
 
 ## <a name="retrieve-change-data"></a>Pobieranie danych zmiany
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693616"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595497"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 
@@ -94,7 +94,7 @@ Security Center ocenia konfigurację zasobów w celu zidentyfikowania problemów
 >[!Note]
 >Aby dowiedzieć się więcej o rolach i dozwolonych akcjach w Security Center, zobacz [uprawnienia w Azure Security Center](../../security-center/security-center-permissions.md).
 
-Security Center używa Microsoft Monitoring Agent. Jest to ten sam Agent, którego używa usługa Azure Monitor. Dane zbierane z tego agenta są przechowywane w istniejącym [obszarze roboczym](../../azure-monitor/platform/manage-access.md) log Analytics skojarzonym z subskrypcją platformy Azure lub nowym obszarem roboczym, biorąc pod uwagę GEOLOKALIZACJĘ maszyny wirtualnej.
+Security Center używa Microsoft Monitoring Agent. Jest to ten sam Agent, którego używa usługa Azure Monitor. Dane zbierane z tego agenta są przechowywane w istniejącym [obszarze roboczym](../../azure-monitor/logs/manage-access.md) log Analytics skojarzonym z subskrypcją platformy Azure lub nowym obszarem roboczym, biorąc pod uwagę GEOLOKALIZACJĘ maszyny wirtualnej.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ Azure Monitor obejmuje następujące składniki.
 
 ### <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
 
-[Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Wcześniej była znana jako "dziennik inspekcji" lub "dziennik operacyjny", ponieważ zgłasza zdarzenia płaszczyzny kontroli dla subskrypcji.
+[Dziennik aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Wcześniej była znana jako "dziennik inspekcji" lub "dziennik operacyjny", ponieważ zgłasza zdarzenia płaszczyzny kontroli dla subskrypcji.
 
 ### <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
 
-[Dzienniki diagnostyczne platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Zawartość tych dzienników różni się w zależności od typu zasobu.
+[Dzienniki diagnostyczne platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) są emitowane przez zasób i zapewniają rozbudowane, częste dane dotyczące operacji tego zasobu. Zawartość tych dzienników różni się w zależności od typu zasobu.
 
 Dzienniki systemu zdarzeń systemu Windows to jedna kategoria dzienników diagnostycznych dla maszyn wirtualnych. Dzienniki obiektów blob, tabel i kolejek są kategoriami dzienników diagnostycznych dla kont magazynu.
 
-Dzienniki diagnostyczne różnią się od [dziennika aktywności](../../azure-monitor/platform/platform-logs-overview.md). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób.
+Dzienniki diagnostyczne różnią się od [dziennika aktywności](../../azure-monitor/essentials/platform-logs-overview.md). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne zapewniają wgląd w operacje wykonywane przez zasób.
 
 ### <a name="metrics"></a>Metryki
 
-Azure Monitor udostępnia dane telemetryczne, które zapewniają wgląd w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest [metryki](../../azure-monitor/platform/data-platform.md) (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych metryk do monitorowania i rozwiązywania problemów.
+Azure Monitor udostępnia dane telemetryczne, które zapewniają wgląd w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest [metryki](../../azure-monitor/data-platform.md) (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych metryk do monitorowania i rozwiązywania problemów.
 
 ### <a name="azure-diagnostics"></a>Diagnostyka Azure
 
-Diagnostyka Azure umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych źródeł. Obecnie obsługiwane są [role usługi w chmurze platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [maszyny wirtualne platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) z systemem Microsoft Windows i [Service Fabric platformy Azure](../../azure-monitor/platform/diagnostics-extension-overview.md).
+Diagnostyka Azure umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych źródeł. Obecnie obsługiwane są [role usługi w chmurze platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [maszyny wirtualne platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) z systemem Microsoft Windows i [Service Fabric platformy Azure](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

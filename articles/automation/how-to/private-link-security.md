@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579808"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Automation
 
@@ -34,7 +34,7 @@ Za pomocą linku prywatnego można:
 - Połącz się prywatnie z Azure Monitor Log Analytics obszaru roboczego bez otwierania dostępu do sieci publicznej.
 
     >[!NOTE]
-    >Jeśli konto usługi Automation jest połączone z obszarem roboczym Log Analytics do przesyłania danych o zadaniach, a także włączone funkcje, takie jak Update Management, Change Tracking i spisu, konfiguracja stanu lub Start/Stop VMs during off-hours, jest wymagane oddzielny prywatny punkt końcowy dla obszaru roboczego Log Analytics. Aby uzyskać więcej informacji na temat prywatnego linku do Azure Monitor, zobacz [bezpieczne łączenie sieci do Azure monitor za pomocą prywatnego linku platformy Azure](../../azure-monitor/platform/private-link-security.md).
+    >Jeśli konto usługi Automation jest połączone z obszarem roboczym Log Analytics do przesyłania danych o zadaniach, a także włączone funkcje, takie jak Update Management, Change Tracking i spisu, konfiguracja stanu lub Start/Stop VMs during off-hours, jest wymagane oddzielny prywatny punkt końcowy dla obszaru roboczego Log Analytics. Aby uzyskać więcej informacji na temat prywatnego linku do Azure Monitor, zobacz [bezpieczne łączenie sieci do Azure monitor za pomocą prywatnego linku platformy Azure](../../azure-monitor/logs/private-link-security.md).
 
 - Upewnij się, że dane automatyzacji są dostępne tylko za poorednictwem autoryzowanych sieci prywatnych.
 - Zapobiegaj eksfiltracji danych z sieci prywatnych przez definiowanie zasobów Azure Automation, które łączą się za pośrednictwem prywatnego punktu końcowego.
@@ -46,8 +46,8 @@ Aby uzyskać więcej informacji, zobacz  [najważniejsze zalety linku prywatnego
 ## <a name="limitations"></a>Ograniczenia
 
 - W bieżącej implementacji linku prywatnego konta usługi Automation zadania chmury nie mogą uzyskać dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego punktu końcowego. Na przykład Azure Key Vault, Azure SQL, konto usługi Azure Storage itd. Aby obejść ten sposób, zamiast tego użyj [hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md) .
-- Musisz użyć najnowszej wersji [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md) dla systemu Windows lub Linux.
-- [Brama log Analytics](../../azure-monitor/platform/gateway.md) nie obsługuje prywatnego linku.
+- Musisz użyć najnowszej wersji [agenta log Analytics](../../azure-monitor/agents/log-analytics-agent.md) dla systemu Windows lub Linux.
+- [Brama log Analytics](../../azure-monitor/agents/gateway.md) nie obsługuje prywatnego linku.
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -76,7 +76,7 @@ Aby zrozumieć & konfigurowania Update Management przegląd [Update Management](
 
 Jeśli chcesz, aby maszyny skonfigurowane do zarządzania aktualizacjami łączyły się z programem Automation & Log Analytics obszarze roboczym w bezpieczny sposób za pośrednictwem kanału linku prywatnego, musisz włączyć prywatny link do obszaru roboczego Log Analytics połączonego z kontem usługi Automation skonfigurowanym za pomocą linku prywatnego.
 
-Można kontrolować sposób, w jaki można uzyskać dostęp do obszaru roboczego Log Analytics spoza zakresów linków prywatnych, wykonując kroki opisane w temacie [konfigurowanie log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym.
+Można kontrolować sposób, w jaki można uzyskać dostęp do obszaru roboczego Log Analytics spoza zakresów linków prywatnych, wykonując kroki opisane w temacie [konfigurowanie log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej na potrzeby** pozyskiwania na **nie**, maszyny spoza połączonych zakresów nie mogą przekazywać danych do tego obszaru roboczego. Jeśli ustawisz opcję **Zezwalaj na dostęp do sieci publicznej dla zapytań** na wartość **nie**, wówczas maszyny spoza zakresów nie mogą uzyskać dostępu do danych w tym obszarze roboczym.
 
 Użyj podzasobu **DSCAndHybridWorker** Target w celu włączenia prywatnego linku dla hybrydowych procesów roboczych użytkownika &.
 
@@ -114,7 +114,7 @@ W tej sekcji utworzysz prywatny punkt końcowy dla konta usługi Automation.
     | Grupa zasobów | Wybierz pozycję **myResourceGroup**. Utworzono to w poprzedniej sekcji.  |
     | **SZCZEGÓŁY WYSTĄPIENIA** |  |
     | Nazwa | Wprowadź *PrivateEndpoint*. |
-    | Region | Wybierz pozycję **YourRegion**. |
+    | Region (Region) | Wybierz pozycję **YourRegion**. |
     |||
 
 4. Wybierz pozycję **Dalej: zasób**.

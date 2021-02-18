@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567524"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581577"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
@@ -117,7 +117,7 @@ Aby monitorować stan bazy danych i włączyć alerty na potrzeby utraty dostęp
 * [Azure Resource Health](../service-health/resource-health-overview.md): niedostępna baza danych, która utraciła dostęp do klucza klienta, jest wyświetlana jako "niedostępna" po odmowie pierwszego połączenia z bazą danych.
 * [Dziennik aktywności](../service-health/alerts-activity-log-service-notifications-portal.md): Jeśli dostęp do klucza klienta w Key Vault zarządzanym przez klienta nie powiedzie się, wpisy zostaną dodane do dziennika aktywności. Można przywrócić dostęp najszybciej, jak to możliwe, w przypadku tworzenia alertów dla tych zdarzeń.
 
-* [Grupy akcji](../azure-monitor/platform/action-groups.md): Zdefiniuj te grupy w celu wysyłania powiadomień i alertów na podstawie Twoich preferencji.
+* [Grupy akcji](../azure-monitor/alerts/action-groups.md): Zdefiniuj te grupy w celu wysyłania powiadomień i alertów na podstawie Twoich preferencji.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Przywracanie i replikowanie z kluczem zarządzanym klienta w Key Vault
 

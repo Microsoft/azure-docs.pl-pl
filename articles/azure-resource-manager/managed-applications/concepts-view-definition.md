@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592062"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Wyświetl artefakt definicji w Azure Managed Applications
 
@@ -107,7 +107,7 @@ Przykładowy kod JSON dla definicji widoku:
 
 `"kind": "Overview"`
 
-Po udostępnieniu tego widoku w **viewDefinition.js**on zastępuje domyślną stronę przeglądu w aplikacji zarządzanej.
+Po udostępnieniu tego widoku w **viewDefinition.js** on zastępuje domyślną stronę przeglądu w aplikacji zarządzanej.
 
 ```json
 {
@@ -128,7 +128,7 @@ Po udostępnieniu tego widoku w **viewDefinition.js**on zastępuje domyślną st
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |header|Nie|Nagłówek strony przegląd.|
-|description|Nie|Opis aplikacji zarządzanej.|
+|description (opis)|Nie|Opis aplikacji zarządzanej.|
 |polecenia|Nie|Tablica dodatkowych przycisków paska narzędzi na stronie Przegląd, zobacz [polecenia](#commands).|
 
 ![Zrzut ekranu przedstawia przegląd aplikacji zarządzanej z kontrolką akcji testowej w celu uruchomienia aplikacji demonstracyjnej.](./media/view-definition/overview.png)
@@ -137,7 +137,7 @@ Po udostępnieniu tego widoku w **viewDefinition.js**on zastępuje domyślną st
 
 `"kind": "Metrics"`
 
-Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zarządzanych w ramach [metryk Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zarządzanych w ramach [metryk Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -168,7 +168,7 @@ Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zar
 |---------|---------|---------|
 |displayName|Nie|Wyświetlany tytuł widoku.|
 |Wersja|Nie|Wersja platformy używana do renderowania widoku.|
-|schematy|Tak|Tablica wykresów na stronie metryk.|
+|elementy chart|Tak|Tablica wykresów na stronie metryk.|
 
 ### <a name="chart"></a>Wykres
 
@@ -176,9 +176,9 @@ Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zar
 |---------|---------|---------|
 |displayName|Tak|Wyświetlany tytuł wykresu.|
 |wykrestype|Nie|Wizualizacja, która ma być używana na potrzeby tego wykresu. Domyślnie używa wykresu liniowego. Obsługiwane typy wykresów: `Bar, Line, Area, Scatter` .|
-|metrics|Tak|Tablica metryk do wykreślenia na tym wykresie. Aby dowiedzieć się więcej o metrykach obsługiwanych w Azure Portal, zobacz temat [obsługiwane metryki z Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
+|metrics|Tak|Tablica metryk do wykreślenia na tym wykresie. Aby dowiedzieć się więcej o metrykach obsługiwanych w Azure Portal, zobacz temat [obsługiwane metryki z Azure monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
-### <a name="metric"></a>Metryka
+### <a name="metric"></a>Metric
 
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|

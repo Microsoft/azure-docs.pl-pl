@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986043"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571041"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -54,7 +54,7 @@ Utwórz obszar roboczy w subskrypcji, który ma link sieci wirtualnych do obwod�
 1. W [Azure Portal](https://portal.azure.com)wybierz subskrypcję, która ma sieci wirtualnych komunikację równorzędną z obwodem usługi ExpressRoute. Następnie przeszukaj listę usług w **witrynie Marketplace** dla "Network Performance Monitor". W polu Wróć kliknij, aby otworzyć stronę **Network Performance Monitor** .
 
    >[!NOTE]
-   >Można utworzyć nowy obszar roboczy lub użyć istniejącego obszaru roboczego. Jeśli chcesz użyć istniejącego obszaru roboczego, musisz upewnić się, że obszar roboczy został zmigrowany do nowego języka zapytań. [Więcej informacji...](../azure-monitor/log-query/log-query-overview.md)
+   >Można utworzyć nowy obszar roboczy lub użyć istniejącego obszaru roboczego. Jeśli chcesz użyć istniejącego obszaru roboczego, musisz upewnić się, że obszar roboczy został zmigrowany do nowego języka zapytań. [Więcej informacji...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -118,7 +118,7 @@ Zalecamy zainstalowanie co najmniej dwóch agentów po każdej stronie połącze
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2,3: Skonfiguruj ustawienia serwera proxy (opcjonalnie)
 
-Jeśli używasz serwera proxy sieci Web do uzyskiwania dostępu do Internetu, wykonaj następujące kroki, aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [Konfigurowanie ustawień serwera proxy dla Microsoft Monitoring Agent przy użyciu skryptu](../azure-monitor/platform/agent-windows.md).
+Jeśli używasz serwera proxy sieci Web do uzyskiwania dostępu do Internetu, wykonaj następujące kroki, aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [Konfigurowanie ustawień serwera proxy dla Microsoft Monitoring Agent przy użyciu skryptu](../azure-monitor/agents/agent-windows.md).
 
 Aby skonfigurować ustawienia serwera proxy dla Microsoft Monitoring Agent przy użyciu panelu sterowania:
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581605"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570970"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorowanie danych IoT Hub platformy Azure
 
@@ -24,25 +24,48 @@ Ta sekcja zawiera listę wszystkich automatycznie zebranych metryk platformy dla
 
 Poniższe podsekcje dzielą metryki platformy IoT Hub według ogólnej kategorii i wyświetlają je według nazwy, która pojawia się w Azure Portal za pomocą. Informacje są również dostępne dla metryk, które pojawiają się w każdej podsekcji.
 
-Możesz również znaleźć jedną tabelę zawierającą wszystkie IoT Hub metryki platformy według nazwy metryki w obszarze [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) w dokumentacji Azure monitor. Należy pamiętać, że ta tabela nie zawiera niektórych informacji, takich jak [obsługiwane agregacje](#supported-aggregations) dla niektórych metryk, które są dostępne w tym artykule.
+Możesz również znaleźć jedną tabelę zawierającą wszystkie IoT Hub metryki platformy według nazwy metryki w obszarze [Microsoft. Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) w dokumentacji Azure monitor. Należy pamiętać, że ta tabela nie zawiera niektórych informacji, takich jak [obsługiwane agregacje](#supported-aggregations) dla niektórych metryk, które są dostępne w tym artykule.
 
-Aby dowiedzieć się więcej o metrykach obsługiwanych przez inne usługi platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](../azure-monitor/platform/metrics-supported.md).
+Aby dowiedzieć się więcej o metrykach obsługiwanych przez inne usługi platformy Azure, zobacz temat [obsługiwane metryki w Azure monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Tematy w tej sekcji**
 
-- [Obsługiwane agregacje](#supported-aggregations)
-- [Metryki poleceń z chmury do urządzenia](#cloud-to-device-command-metrics)
-- [Metryki metod bezpośrednich z chmury do urządzenia](#cloud-to-device-direct-methods-metrics)
-- [Metryki operacji w chmurze do urządzenia](#cloud-to-device-twin-operations-metrics)
-- [Metryki konfiguracji](#configurations-metrics)
-- [Metryki dziennego limitu przydziału](#daily-quota-metrics)
-- [Metryki urządzeń](#device-metrics)
-- [Metryki telemetrii urządzenia](#device-telemetry-metrics)
-- [Metryki dotyczące urządzeń z przędzą w chmurze](#device-to-cloud-twin-operations-metrics)
-- [Metryki dotyczące siatki zdarzeń](#event-grid-metrics)
-- [Metryki zadań](#jobs-metrics)
-- [Metryki routingu](#routing-metrics)
-- [Metryki zapytań bliźniaczych](#twin-query-metrics)
+- [Monitorowanie danych IoT Hub platformy Azure](#monitoring-azure-iot-hub-data-reference)
+  - [Metryki](#metrics)
+    - [Obsługiwane agregacje](#supported-aggregations)
+    - [Metryki poleceń z chmury do urządzenia](#cloud-to-device-command-metrics)
+    - [Metryki metod bezpośrednich z chmury do urządzenia](#cloud-to-device-direct-methods-metrics)
+    - [Metryki operacji w chmurze do urządzenia](#cloud-to-device-twin-operations-metrics)
+    - [Metryki konfiguracji](#configurations-metrics)
+    - [Metryki dziennego limitu przydziału](#daily-quota-metrics)
+    - [Metryki urządzeń](#device-metrics)
+    - [Metryki telemetrii urządzenia](#device-telemetry-metrics)
+    - [Metryki dotyczące urządzeń z przędzą w chmurze](#device-to-cloud-twin-operations-metrics)
+    - [Metryki dotyczące siatki zdarzeń](#event-grid-metrics)
+    - [Metryki zadań](#jobs-metrics)
+    - [Metryki routingu](#routing-metrics)
+    - [Metryki zapytań bliźniaczych](#twin-query-metrics)
+  - [Wymiary metryk](#metric-dimensions)
+  - [Dzienniki zasobów](#resource-logs)
+    - [Połączenia](#connections)
+    - [Dane telemetryczne urządzenia](#device-telemetry)
+    - [Polecenia chmura-urządzenie](#cloud-to-device-commands)
+    - [Operacje tożsamości urządzeń](#device-identity-operations)
+    - [Operacje przekazywania plików](#file-upload-operations)
+    - [Trasy](#routes)
+    - [Operacje wieloosiowe między urządzeniami a chmurą](#device-to-cloud-twin-operations)
+    - [Operacje na sznurze z chmury do urządzenia](#cloud-to-device-twin-operations)
+    - [Zapytania bliźniaczye](#twin-queries)
+    - [Operacje zadań](#jobs-operations)
+    - [Metody bezpośrednie](#direct-methods)
+    - [Śledzenie rozproszone (wersja zapoznawcza)](#distributed-tracing-preview)
+      - [Dzienniki IoT Hub D2C (urządzenie-chmura)](#iot-hub-d2c-device-to-cloud-logs)
+      - [IoT Hub dzienniki danych wejściowych](#iot-hub-ingress-logs)
+      - [Dzienniki wychodzące IoT Hub](#iot-hub-egress-logs)
+    - [Konfiguracje](#configurations)
+    - [Strumienie urządzeń (wersja zapoznawcza)](#device-streams-preview)
+  - [Tabele dzienników Azure Monitor](#azure-monitor-logs-tables)
+  - [Zobacz również](#see-also)
 
 ### <a name="supported-aggregations"></a>Obsługiwane agregacje
 
@@ -226,31 +249,50 @@ Usługa Azure IoT Hub ma następujące wymiary skojarzone z niektórymi metrykam
 |**Wynik**| **Powodzenie** lub **Niepowodzenie**.|
 |**RoutingSource**| Komunikaty urządzenia<br>Zdarzenia zmiany bliźniaczych<br>Zdarzenia cyklu życia urządzenia|
 
-Aby dowiedzieć się więcej na temat wymiarów metryk, zobacz [wielowymiarowe metryki](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+Aby dowiedzieć się więcej na temat wymiarów metryk, zobacz [wielowymiarowe metryki](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-Ta sekcja zawiera listę wszystkich typów kategorii dzienników zasobów i schematów zebranych dla IoT Hub platformy Azure. Dostawca zasobów i typ wszystkich dzienników IoT Hub to [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs).
+Ta sekcja zawiera listę wszystkich typów kategorii dzienników zasobów i schematów zebranych dla IoT Hub platformy Azure. Dostawca zasobów i typ wszystkich dzienników IoT Hub to [Microsoft. Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs).
 
 **Tematy w tej sekcji**
 
-- [Połączenia](#connections)
-- [Dane telemetryczne urządzenia](#device-telemetry)
-- [Polecenia chmura-urządzenie](#cloud-to-device-commands)
-- [Operacje tożsamości urządzeń](#device-identity-operations)
-- [Operacje przekazywania plików](#file-upload-operations)
-- [Trasy](#routes)
-- [Operacje wieloosiowe między urządzeniami a chmurą](#device-to-cloud-twin-operations)
-- [Operacje na sznurze z chmury do urządzenia](#cloud-to-device-twin-operations)
-- [Zapytania bliźniaczye](#twin-queries)
-- [Operacje zadań](#jobs-operations)
-- [Metody bezpośrednie](#direct-methods)
-- [Śledzenie rozproszone (wersja zapoznawcza)](#distributed-tracing-preview)
-  - [Dzienniki IoT Hub D2C (urządzenie-chmura)](#iot-hub-d2c-device-to-cloud-logs)
-  - [IoT Hub dzienniki danych wejściowych](#iot-hub-ingress-logs)
-  - [Dzienniki wychodzące IoT Hub](#iot-hub-egress-logs)
-- [Konfiguracje](#configurations)
-- [Strumienie urządzeń (wersja zapoznawcza)](#device-streams-preview)
+- [Monitorowanie danych IoT Hub platformy Azure](#monitoring-azure-iot-hub-data-reference)
+  - [Metryki](#metrics)
+    - [Obsługiwane agregacje](#supported-aggregations)
+    - [Metryki poleceń z chmury do urządzenia](#cloud-to-device-command-metrics)
+    - [Metryki metod bezpośrednich z chmury do urządzenia](#cloud-to-device-direct-methods-metrics)
+    - [Metryki operacji w chmurze do urządzenia](#cloud-to-device-twin-operations-metrics)
+    - [Metryki konfiguracji](#configurations-metrics)
+    - [Metryki dziennego limitu przydziału](#daily-quota-metrics)
+    - [Metryki urządzeń](#device-metrics)
+    - [Metryki telemetrii urządzenia](#device-telemetry-metrics)
+    - [Metryki dotyczące urządzeń z przędzą w chmurze](#device-to-cloud-twin-operations-metrics)
+    - [Metryki dotyczące siatki zdarzeń](#event-grid-metrics)
+    - [Metryki zadań](#jobs-metrics)
+    - [Metryki routingu](#routing-metrics)
+    - [Metryki zapytań bliźniaczych](#twin-query-metrics)
+  - [Wymiary metryk](#metric-dimensions)
+  - [Dzienniki zasobów](#resource-logs)
+    - [Połączenia](#connections)
+    - [Dane telemetryczne urządzenia](#device-telemetry)
+    - [Polecenia chmura-urządzenie](#cloud-to-device-commands)
+    - [Operacje tożsamości urządzeń](#device-identity-operations)
+    - [Operacje przekazywania plików](#file-upload-operations)
+    - [Trasy](#routes)
+    - [Operacje wieloosiowe między urządzeniami a chmurą](#device-to-cloud-twin-operations)
+    - [Operacje na sznurze z chmury do urządzenia](#cloud-to-device-twin-operations)
+    - [Zapytania bliźniaczye](#twin-queries)
+    - [Operacje zadań](#jobs-operations)
+    - [Metody bezpośrednie](#direct-methods)
+    - [Śledzenie rozproszone (wersja zapoznawcza)](#distributed-tracing-preview)
+      - [Dzienniki IoT Hub D2C (urządzenie-chmura)](#iot-hub-d2c-device-to-cloud-logs)
+      - [IoT Hub dzienniki danych wejściowych](#iot-hub-ingress-logs)
+      - [Dzienniki wychodzące IoT Hub](#iot-hub-egress-logs)
+    - [Konfiguracje](#configurations)
+    - [Strumienie urządzeń (wersja zapoznawcza)](#device-streams-preview)
+  - [Tabele dzienników Azure Monitor](#azure-monitor-logs-tables)
+  - [Zobacz również](#see-also)
 
 ### <a name="connections"></a>Połączenia
 
@@ -690,4 +732,4 @@ Aby uzyskać informacje na temat wszystkich Azure Monitor dzienników/tabel Log 
 ## <a name="see-also"></a>Zobacz też
 
 * Aby uzyskać opis monitorowania IoT Hub platformy Azure, zobacz artykuł [monitorowanie usługi azure IoT Hub](monitor-iot-hub.md) .
-* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .
+* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/essentials/monitor-azure-resource.md) .

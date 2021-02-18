@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać informacje dotyczące rozwiązywania
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 2ef38aa76f4ef9152e7bc55a1d74c84ef426f0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31605d1b6129c03dcd860d78f937a41ae36502a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578609"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Pobieranie dzienników agenta kubelet z węzłów klastra usługi Azure Kubernetes Service
 
@@ -75,4 +75,4 @@ Jeśli potrzebujesz dodatkowych informacji dotyczących rozwiązywania problemó
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-master-logs]: view-master-logs.md
-[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: 'Wysyłanie powiadomień push do wszystkich rejestracji (zestaw SDK w wersji 1.0.0, wersja zapoznawcza 1)'
+            - name: Wysyłanie powiadomień wypychanych do wszystkich rejestracji (bieżący zestaw SDK)
               href: android-sdk.md
-            - name: Wysyłanie powiadomień push do wszystkich rejestracji (zestaw SDK w wersji 0.6)
+            - name: Wysyłanie powiadomień wypychanych do wszystkich rejestracji (starsza wersja zestawu SDK)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Wysyłanie powiadomień push do konkretnych urządzeń
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Wymagania wstępne samouczków systemu iOS
               href: ios-sdk-get-started.md
-            - name: Objective-C (wersja 3.0.0-preview1)
-              href: ios-sdk-300.md
-            - name: Objective-C (wersja 2.0.4)
-              href: ios-sdk-204.md
+            - name: Cel-C (bieżący zestaw SDK)
+              href: ios-sdk-current.md
+            - name: Cel-C (starsza wersja zestawu SDK)
+              href: ios-sdk-legacy.md
         - name: Wysyłanie powiadomień push do konkretnych urządzeń
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Wysyłanie powiadomień push do konkretnych użytkowników

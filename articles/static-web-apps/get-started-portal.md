@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030369"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650573"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej lokacji statycznej w Azure Portal
 
@@ -92,7 +92,7 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
     ---
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 

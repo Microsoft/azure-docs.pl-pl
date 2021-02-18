@@ -2,13 +2,13 @@
 title: Service Fabric zarządzane klastry (wersja zapoznawcza)
 description: Service Fabric zarządzanych klastrów to ewolucja modelu zasobów klastra usługi Azure Service Fabric, który usprawnia zarządzanie wdrażaniem i klastrem.
 ms.topic: overview
-ms.date: 09/28/2020
-ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 02/15/2021
+ms.openlocfilehash: 8b90b73ef5f3202788ac7857875427673ebb562b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91410489"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635149"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Service Fabric zarządzane klastry (wersja zapoznawcza)
 
@@ -62,17 +62,22 @@ Service Fabric zarządzane klastry są dostępne zarówno w podstawowych, jak i 
 | Dodawanie/usuwanie typów węzłów | Nie | Tak |
 | Nadmiarowość stref | Nie | Tak |
 
-## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Service Fabric plan funkcji zarządzanych klastrów
-Ponieważ jest to wczesna wersja zapoznawcza Service Fabric klastry zarządzane są pewne luki, z którymi należy się zapoznać. Te funkcje staną się dostępne w przyszłych wydaniach. 
+## <a name="whats-new-for-service-fabric-managed-clusters"></a>Co nowego w Service Fabric zarządzanych klastrów
 
-* Publikowanie aplikacji w klastrach bezpośrednio z programu Visual Studio
-* Tożsamości zarządzane 
-* Wdrożenia aplikacji ARM 
-* Strefy dostępności 
-* Zwrotny serwer proxy 
-* Skalowanie automatyczne 
-* Aktualizowanie reguł sieciowej grupy zabezpieczeń 
-* Aktualizacje systemu operacyjnego
+Najnowsze funkcje dla Service Fabric zarządzanych klastrów zapoznawczą obejmują:
+
+* [Wdrażanie aplikacji przy użyciu szablonów ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Automatyczne uaktualnienia systemu operacyjnego](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Szyfrowanie dysków](how-to-enable-managed-cluster-disk-encryption.md)
+* [Stosowanie reguł sieciowej grupy zabezpieczeń](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+
+Funkcje, które mają zostać dodane w przyszłych wydaniach, obejmują:
+
+* Wdrażanie aplikacji przy użyciu programu Visual Studio
+* Obsługa tożsamości zarządzanych
+* Strefy dostępności
+* Zwrotny serwer proxy
+* Skalowanie automatyczne
 
 ## <a name="next-steps"></a>Następne kroki
 

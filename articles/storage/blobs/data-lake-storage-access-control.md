@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c1e2b6abe378df1450967ee0e1df6021ca0d5744
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185907"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650375"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listy kontroli dostępu (ACL) w Azure Data Lake Storage Gen2
 
@@ -28,18 +28,20 @@ Azure Data Lake Storage Gen2 implementuje model kontroli dostępu, który obsłu
 > [!NOTE]
 > Listy ACL dotyczą tylko podmiotów zabezpieczeń w tej samej dzierżawie i nie mają zastosowania do użytkowników korzystających z uwierzytelniania za pomocą klucza współużytkowanego lub sygnatury dostępu współdzielonego (SAS). Dzieje się tak dlatego, że żadna tożsamość nie jest skojarzona z obiektem wywołującym i dlatego nie można wykonać autoryzacji podmiotu zabezpieczeń na podstawie uprawnień.  
 
+<a id="set-access-control-lists"></a>
+
 ## <a name="how-to-set-acls"></a>Jak ustawić listy ACL
 
 Aby ustawić uprawnienia na poziomie plików i katalogów, zobacz dowolny z następujących artykułów:
 
 | Środowisko | Artykuł |
 |--------|-----------|
-|Eksplorator usługi Azure Storage |[Zarządzanie katalogami, plikami i listami ACL w usłudze Azure Data Lake Storage Gen2 za pomocą Eksploratora usługi Azure Storage](data-lake-storage-explorer.md#managing-access)|
-|.NET |[Użyj programu .NET do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Używanie języka Java do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Interfejs wiersza polecenia platformy Azure|[Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Eksplorator usługi Azure Storage |[Użyj Eksplorator usługi Azure Storage, aby ustawić listy ACL w Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|.NET |[Korzystanie z platformy .NET do ustawiania list ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Używanie języka Java do ustawiania list ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Używanie języka Python do ustawiania list ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|PowerShell|[Ustawianie list kontroli dostępu w Azure Data Lake Storage Gen2 przy użyciu programu PowerShell](data-lake-storage-acl-powershell.md)|
+|Interfejs wiersza polecenia platformy Azure|[Używanie interfejsu wiersza polecenia platformy Azure do ustawiania list kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |Interfejs API REST |[Ścieżka — aktualizacja](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -200,7 +202,7 @@ Jak pokazano w algorytmie kontroli dostępu, maska ogranicza dostęp dla użytko
 
 W przypadku nowego kontenera Data Lake Storage Gen2 maska listy ACL dostępu katalogu głównego ("/") domyślnie **750** dla katalogów i **640** dla plików. W poniższej tabeli przedstawiono notację symboliczną tych poziomów uprawnień.
 
-|Jednostka|Katalogi|Files|
+|Jednostka|Katalogi|Pliki|
 |--|--|--|
 |Użytkownik będący właścicielem|`rwx`|`r-w`|
 |Grupa będąca właścicielem|`r-x`|`r--`|
@@ -255,7 +257,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Czy muszę włączyć obsługę list ACL?
 
@@ -273,7 +275,7 @@ Aby dowiedzieć się, jak system oblicza RBAC i listy ACL platformy Azure, aby p
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Jakie są limity przypisań ról platformy Azure i wpisów listy ACL?
 
-Poniższa tabela zawiera podsumowanie limitów, które należy wziąć pod uwagę podczas korzystania z funkcji RBAC platformy Azure do zarządzania "określonymi" uprawnieniami (uprawnienia dotyczące kont magazynu lub kontenerów) i korzystania z list ACL do zarządzania szczegółowymi uprawnieniami (uprawnienia dotyczące plików i katalogów). Użyj grup zabezpieczeń dla przypisań listy ACL. Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję i maksymalną liczbę wpisów listy ACl na plik lub katalog. 
+Poniższa tabela zawiera podsumowanie limitów, które należy wziąć pod uwagę podczas korzystania z funkcji RBAC platformy Azure do zarządzania "określonymi" uprawnieniami (uprawnienia dotyczące kont magazynu lub kontenerów) i korzystania z list ACL do zarządzania szczegółowymi uprawnieniami (uprawnienia dotyczące plików i katalogów). Użyj grup zabezpieczeń dla przypisań listy ACL. Korzystanie z grup zmniejsza maksymalną liczbę przypisań ról na subskrypcję i maksymalną liczbę wpisów listy ACL na plik lub katalog. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -344,6 +346,6 @@ Interfejs API REST usługi Azure Storage zawiera operację o nazwie [list ACL ko
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Model kontroli dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831777"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581070"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -341,10 +341,10 @@ Kliknij pozycję **reguły alertów** , aby skonfigurować alerty oparte na usł
 
 ### <a name="diagnostics"></a>Diagnostyka
 
-Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/platform/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, kliknij pozycję **Diagnostyka** , aby [skonfigurować konto magazynu](cache-how-to-monitor.md#export-cache-metrics) używane do przechowywania diagnostyki pamięci podręcznej.
+Domyślnie metryki pamięci podręcznej w Azure Monitor są [przechowywane przez 30 dni](../azure-monitor/essentials/data-platform-metrics.md) , a następnie usuwane. Aby zachować metryki pamięci podręcznej przez dłużej niż 30 dni, kliknij pozycję **Diagnostyka** , aby [skonfigurować konto magazynu](cache-how-to-monitor.md#export-cache-metrics) używane do przechowywania diagnostyki pamięci podręcznej.
 
 >[!NOTE]
->Oprócz archiwizowania metryk pamięci podręcznej do magazynu można także [przesyłać strumieniowo do centrum zdarzeń lub wysyłać je do dzienników Azure monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Oprócz archiwizowania metryk pamięci podręcznej do magazynu można także [przesyłać strumieniowo do centrum zdarzeń lub wysyłać je do dzienników Azure monitor](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
 >
 

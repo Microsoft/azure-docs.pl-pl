@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dbd2d6dc3034ff64ef6b5d4d36d836ce8462b154
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888797"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591407"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Omówienie autoskalowania w zestawach skalowania maszyn wirtualnych platformy Azure
 Zestaw skalowania maszyn wirtualnych platformy Azure może automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych, na których działa aplikacja. To automatyczne i elastyczne zachowanie zmniejsza obciążenie związane z zarządzaniem w celu monitorowania i optymalizowania wydajności aplikacji. Tworzysz reguły, które definiują akceptowalną wydajność dla pozytywnego środowiska klienta. Po spełnieniu tych zdefiniowanych progów reguły automatycznego skalowania podejmują działania w celu dostosowania pojemności zestawu skalowania. Możesz również zaplanować zdarzenia, aby automatycznie zwiększać lub zmniejszać pojemność zestawu skalowania w ustalonych odstępach czasu. Ten artykuł zawiera omówienie dostępnych metryk wydajności i działań, które mogą być wykonywane automatycznie.
@@ -142,4 +142,4 @@ W tym omówieniu szczegółowo opisano sposób używania reguł skalowania autom
 
 Aby uzyskać informacje na temat zarządzania wystąpieniami maszyn wirtualnych, zobacz [Zarządzanie zestawami skalowania maszyn wirtualnych za pomocą Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/platform/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../azure-monitor/platform/alerts-log-webhook.md).
+Aby dowiedzieć się, jak generować alerty podczas wyzwalacza reguł skalowania automatycznego, zobacz [Używanie akcji automatycznego skalowania do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). [Dzienników inspekcji można także używać do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w programie Azure monitor](../azure-monitor/alerts/alerts-log-webhook.md).

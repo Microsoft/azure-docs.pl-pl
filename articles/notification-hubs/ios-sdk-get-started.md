@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c18814230eda6624e8ab1040797c66108f630e30
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001324"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581744"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs
 
@@ -250,7 +250,7 @@ W tej sekcji utworzysz centrum powiadomień i skonfigurujesz uwierzytelnianie za
    2. Wprowadź nazwę w polu **Utwórz nową przestrzeń nazw**. Przestrzeń nazw zawiera jeden lub więcej centrów powiadomień.
    3. Wybierz wartość z listy rozwijanej **Lokalizacja** . Ta wartość określa lokalizację, w której ma zostać utworzone centrum powiadomień.
    4. Wybierz istniejącą grupę zasobów w **grupie zasobów** lub Utwórz nową grupę zasobów.
-   5. Wybierz pozycję **Utwórz**.
+   5. Wybierz przycisk **Utwórz**.
 
    :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Ustawianie właściwości":::
 
@@ -309,4 +309,4 @@ Twoje centrum powiadomień zostało już skonfigurowane za pomocą usługi APNS.
 
 W tym samouczku utworzono i skonfigurowano centrum powiadomień na platformie Azure i skonfigurowano go w taki sposób, aby zezwalał na wysyłanie powiadomień do aplikacji za pomocą Apple Push Notification Service (APNS). Następnie utworzymy przykładową aplikację dla systemu iOS i zintegrujemy zestaw SDK centrów powiadomień platformy Azure, dzięki czemu będzie można odbierać powiadomienia wypychane wysyłane przez Azure Portal. Przejdź do następującego samouczka w zależności od wybranego języka:
 
-- [Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-300.md)
+- [Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-current.md)

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4d32e0b939731d64f3ef2495ab606b5dc0780e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231099"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592284"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretuj schemat dzienników inspekcji usługi Azure AD w Azure Monitor (wersja zapoznawcza)
 
@@ -169,9 +169,9 @@ W tym artykule opisano schemat dziennika inspekcji usługi Azure Active Director
 
 | Nazwa właściwości | Opis |
 |---------------|-------------|
-| AuditEventCategory | Typ zdarzenia inspekcji. Może to być *Zarządzanie użytkownikami*, *Zarządzanie aplikacjami*lub inny typ.|
+| AuditEventCategory | Typ zdarzenia inspekcji. Może to być *Zarządzanie użytkownikami*, *Zarządzanie aplikacjami* lub inny typ.|
 | Typ tożsamości | Typ może być *aplikacją* lub *użytkownikiem*. |
-| Typ operacji | Typ może być *dodawany*, *Aktualizowanie*i *usuwanie*. lub *inne*. |
+| Typ operacji | Typ może być *dodawany*, *Aktualizowanie* i *usuwanie*. lub *inne*. |
 | Typ zasobu docelowego | Określa typ zasobu docelowego, na którym wykonano operację. Typem może być *aplikacja*, *użytkownik*, *rola*, *zasady* | 
 | Nazwa zasobu docelowego | Nazwa zasobu docelowego. Może to być nazwa aplikacji, nazwa roli, główna nazwa użytkownika lub nazwa główna usługi. |
 | additionalTargets | Wyświetla wszystkie dodatkowe właściwości dla określonych operacji. Na przykład w przypadku operacji aktualizacji stare wartości i nowe wartości są wyświetlane w obszarze *targetUpdatedProperties*. | 
@@ -179,5 +179,5 @@ W tym artykule opisano schemat dziennika inspekcji usługi Azure Active Director
 ## <a name="next-steps"></a>Następne kroki
 
 * [Interpret sign-in logs schema in Azure Monitor (Interpretowanie schematu dzienników logowania w usłudze Azure Monitor)](reference-azure-monitor-sign-ins-log-schema.md)
-* [Dzienniki diagnostyczne platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Dzienniki diagnostyczne platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 * [Często zadawane pytania i znane problemy](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

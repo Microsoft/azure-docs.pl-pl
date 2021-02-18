@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592519"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Zbierz pliki dziennika potoku uczenia maszynowego w Application Insights na potrzeby alertów i debugowania
 
@@ -164,6 +164,6 @@ Niektóre z zapytań poniżej używają elementu "customDimensions. Level". Te p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po umieszczeniu dzienników w wystąpieniu Application Insights mogą one służyć do ustawiania [alertów Azure monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) na podstawie wyników zapytania.
+Po umieszczeniu dzienników w wystąpieniu Application Insights mogą one służyć do ustawiania [alertów Azure monitor](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) na podstawie wyników zapytania.
 
-Możesz również dodawać wyniki z zapytań do [pulpitu nawigacyjnego platformy Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) , aby uzyskać dodatkowe informacje.
+Możesz również dodawać wyniki z zapytań do [pulpitu nawigacyjnego platformy Azure](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) , aby uzyskać dodatkowe informacje.

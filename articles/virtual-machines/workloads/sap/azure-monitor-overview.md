@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 411a95154c9ca36595dff4472e9ab8e1ae8a767e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693828"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571373"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor dla rozwiązań SAP (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Obsługiwane bazy danych:
 - Baza danych SAP HANA
 - Program Microsoft SQL Server
 
-Azure Monitor dla rozwiązań SAP używa mocy istniejących funkcji [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/platform/workbooks-overview.md) , aby zapewnić więcej możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/platform/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/log-query/log-analytics-tutorial.md) i twórz [niestandardowe alerty](../../../azure-monitor/learn/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
+Azure Monitor dla rozwiązań SAP używa mocy istniejących funkcji [Azure monitor](../../../azure-monitor/overview.md) , takich jak log Analytics i [skoroszyty](../../../azure-monitor/visualize/workbooks-overview.md) , aby zapewnić więcej możliwości monitorowania. Klienci mogą tworzyć [niestandardowe wizualizacje](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) , edytując domyślne skoroszyty udostępniane przez Azure monitor dla rozwiązań SAP, pisać [zapytania niestandardowe](../../../azure-monitor/logs/log-analytics-tutorial.md) i twórz [niestandardowe alerty](../../../azure-monitor/alerts/tutorial-response.md) przy użyciu obszaru roboczego usługi Azure log Analytics, korzystaj z [elastycznego okresu przechowywania](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) i łącz dane monitorowania z systemem biletów.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Jakie dane są Azure Monitor na potrzeby zbierania rozwiązań SAP?
 
@@ -91,9 +91,9 @@ Kluczowe składniki architektury są następujące:
    - Maszyna wirtualna platformy Azure: znana także jako *maszyna wirtualna modułu zbierającego*. To jest maszyna wirtualna Standard_B2ms. Głównym celem tej maszyny wirtualnej jest hostowanie *ładunku monitorowania*. Ładunek monitorowania odnosi się do logiki zbierania danych telemetrycznych z systemów źródłowych i przesyłania zebranych dane do struktury monitorowania. Na powyższym diagramie ładunek monitorowania zawiera logikę do łączenia się z bazą danych SAP HANA za pośrednictwem portu SQL.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): ten zasób został wdrożony w celu bezpiecznego przechowywania poświadczeń bazy danych SAP HANA i przechowywania informacji o [dostawcach](./azure-monitor-providers.md).
    - Obszar roboczy Log Analytics: miejsce docelowe, w którym znajdują się dane telemetryczne.
-      - Wizualizacja jest oparta na danych telemetrycznych w Log Analytics przy użyciu [skoroszytów platformy Azure](../../../azure-monitor/platform/workbooks-overview.md). Klienci mogą dostosować wizualizację. Klienci mogą także przypinać swoje skoroszyty lub konkretne wizualizacje w obrębie skoroszytów do pulpitu nawigacyjnego platformy Azure w celu zapewnienia możliwości autoodświeżania o najniższym poziomie szczegółowości 30 minut.
+      - Wizualizacja jest oparta na danych telemetrycznych w Log Analytics przy użyciu [skoroszytów platformy Azure](../../../azure-monitor/visualize/workbooks-overview.md). Klienci mogą dostosować wizualizację. Klienci mogą także przypinać swoje skoroszyty lub konkretne wizualizacje w obrębie skoroszytów do pulpitu nawigacyjnego platformy Azure w celu zapewnienia możliwości autoodświeżania o najniższym poziomie szczegółowości 30 minut.
       - Klienci mogą korzystać z istniejącego obszaru roboczego w ramach tej samej subskrypcji co zasób monitora SAP przez wybranie tej opcji w czasie wdrażania.
-      - Klienci mogą używać języka Kusto Query Language (KQL) do uruchamiania [zapytań](../../../azure-monitor/log-query/log-query-overview.md) względem nieprzetworzonych tabel w obszarze roboczym log Analytics. Sprawdź *dzienniki niestandardowe*.
+      - Klienci mogą używać języka Kusto Query Language (KQL) do uruchamiania [zapytań](../../../azure-monitor/logs/log-query-overview.md) względem nieprzetworzonych tabel w obszarze roboczym log Analytics. Sprawdź *dzienniki niestandardowe*.
 
 > [!Note]
 > Klienci są odpowiedzialni za stosowanie poprawek i konserwacji maszyn wirtualnych wdrożonych w zarządzanej grupie zasobów.

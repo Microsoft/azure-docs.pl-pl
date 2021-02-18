@@ -1,34 +1,37 @@
 ---
-title: Korzystanie z interfejsu wiersza polecenia platformy Azure dla plików & list ACL w Azure Data Lake Storage Gen2
-description: Użyj interfejsu wiersza polecenia platformy Azure do zarządzania katalogami oraz list kontroli dostępu do plików i katalogów (ACL) na kontach magazynu, które mają hierarchiczną przestrzeń nazw.
+title: Zarządzanie danymi (Azure Data Lake Storage Gen2) za pomocą interfejsu wiersza polecenia platformy Azure
+description: Użyj interfejsu wiersza polecenia platformy Azure do zarządzania katalogami i plikami na kontach magazynu, które mają hierarchiczną przestrzeń nazw.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 42359eb8a2bfdad23589e0302b80e7806b388510
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3e9afd4617eb7445ba83948d46eef0890832e2be
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913610"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650358"
 ---
-# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
+# <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami i plikami w Azure Data Lake Storage Gen2
 
-W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy Command-Line Azure](/cli/azure/) można tworzyć katalogi, pliki i uprawnienia oraz zarządzać nimi w ramach kont magazynu, które mają hierarchiczną przestrzeń nazw. 
+W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy Command-Line Azure](/cli/azure/) można tworzyć katalogi i pliki oraz zarządzać nimi w ramach kont magazynu, które mają hierarchiczną przestrzeń nazw.
+
+Aby dowiedzieć się, jak pobierać, ustawiać i aktualizować listy kontroli dostępu (ACL) katalogów i plików, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do zarządzania listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md).
 
 [Przykłady](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Przekaż opinię](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!div class="checklist"]
-> * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](../common/storage-account-create.md) instrukcjami, aby je utworzyć.
-> * Interfejs wiersza polecenia platformy Azure w wersji `2.6.0` lub nowszej.
+- Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+- Konto magazynu, dla którego włączono hierarchiczną przestrzeń nazw. Postępuj zgodnie z [tymi](create-data-lake-storage-account.md) instrukcjami, aby je utworzyć.
+
+- Interfejs wiersza polecenia platformy Azure w wersji `2.6.0` lub nowszej.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Upewnij się, że masz zainstalowaną odpowiednią wersję interfejsu wiersza polecenia platformy Azure
 
@@ -39,6 +42,7 @@ W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy 
    ```azurecli
     az --version
    ```
+
    Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.6.0` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Połącz z kontem
@@ -64,7 +68,7 @@ W tym artykule pokazano, jak za pomocą [interfejsu wiersza polecenia platformy 
    Zastąp `<subscription-id>` wartość symbolu zastępczego identyfikatorem subskrypcji.
 
 > [!NOTE]
-> W przykładzie przedstawionym w tym artykule przedstawiono autoryzację Azure Active Directory (AD). Aby dowiedzieć się więcej o metodach autoryzacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md).
+> W przykładzie przedstawionym w tym artykule przedstawiono autoryzację Azure Active Directory (Azure AD). Aby dowiedzieć się więcej o metodach autoryzacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](./authorize-data-operations-cli.md).
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
@@ -216,106 +220,9 @@ Ten przykład usuwa plik o nazwie `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-access-control-lists-acls"></a>Zarządzanie listami kontroli dostępu (ACL)
-
-Uprawnienia dostępu do katalogów i plików można uzyskiwać, ustawiać i aktualizować.
-
-> [!NOTE]
-> Jeśli używasz Azure Active Directory (Azure AD) do autoryzacji poleceń, upewnij się, że podmiot zabezpieczeń ma przypisaną [rolę właściciela danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz  [Kontrola dostępu w Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-### <a name="get-an-acl"></a>Pobieranie listy ACL
-
-Pobierz listę kontroli dostępu do **katalogu** za pomocą `az storage fs access show` polecenia.
-
-Ten przykład pobiera listę ACL katalogu, a następnie drukuje listę kontroli dostępu do konsoli programu.
-
-```azurecli
-az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Uzyskaj uprawnienia dostępu do **pliku** za pomocą `az storage fs access show` polecenia. 
-
-Ten przykład pobiera listę ACL pliku, a następnie drukuje listę kontroli dostępu do konsoli programu.
-
-```azurecli
-az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Na poniższej ilustracji przedstawiono dane wyjściowe po uzyskaniu listy ACL katalogu.
-
-![Pobieranie danych wyjściowych listy ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
-
-W tym przykładzie użytkownik będący właścicielem ma uprawnienia do odczytu, zapisu i wykonania. Grupa będąca właścicielem ma tylko uprawnienia do odczytu i wykonywania. Aby uzyskać więcej informacji na temat list kontroli dostępu, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### <a name="set-an-acl"></a>Ustawianie listy ACL
-
-Użyj `az storage fs access set` polecenia, aby ustawić listę kontroli dostępu dla **katalogu**. 
-
-Ten przykład ustawia listę ACL dla katalogu dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Ten przykład ustawia *domyślną* listę ACL dla katalogu dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
-
-```azurecli
-az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Użyj `az storage fs access set` polecenia, aby ustawić listę kontroli dostępu do **pliku**. 
-
-Ten przykład ustawia listę ACL dla pliku dla użytkownika będącego właścicielem, grupy będącej właścicielem lub innych użytkowników, a następnie drukuje listę kontroli dostępu do konsoli programu.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Na poniższej ilustracji przedstawiono dane wyjściowe po ustawieniu listy ACL pliku.
-
-![Pobierz dane wyjściowe listy ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
-
-W tym przykładzie użytkownik będący właścicielem i grupa będąca właścicielem mają tylko uprawnienia do odczytu i zapisu. Wszyscy inni użytkownicy mają uprawnienia do zapisu i wykonywania. Aby uzyskać więcej informacji na temat list kontroli dostępu, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### <a name="update-an-acl"></a>Aktualizowanie listy ACL
-
-Innym sposobem ustawienia tego uprawnienia jest użycie `az storage fs access set` polecenia. 
-
-Aktualizowanie listy ACL katalogu lub pliku przez ustawienie `-permissions` parametru na krótką postać listy ACL.
-
-Ten przykład aktualizuje listę ACL **katalogu**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Ten przykład aktualizuje listę ACL **pliku**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Możesz również zaktualizować użytkownika i grupę będącą właścicielem katalogu lub pliku, ustawiając `--owner` `group` parametry lub dla identyfikatora jednostki lub głównej nazwy użytkownika (UPN) użytkownika. 
-
-Ten przykład zmienia właściciela katalogu. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Ten przykład zmienia właściciela pliku. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-
-```
-
-### <a name="set-an-acl-recursively"></a>Ustawianie listy ACL rekursywnie
-
-Można dodawać, aktualizować i usuwać listy ACL cyklicznie na istniejących elementach podrzędnych katalogu nadrzędnego bez konieczności wprowadzania tych zmian indywidualnie dla każdego elementu podrzędnego. Więcej informacji można znaleźć w sekcji [Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
-
 ## <a name="see-also"></a>Zobacz też
 
-* [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-* [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
-* [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
+- [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
+- [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Używanie interfejsu wiersza polecenia platformy Azure do zarządzania listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753449"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581799"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -22,7 +22,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów z oceną i wizualizacją zależn
 
 Rozwiąż problemy z gotowością do oceny w następujący sposób:
 
-**Problem** | **Wprowadzanie poprawek**
+**Wykonaj** | **Wprowadzanie poprawek**
 --- | ---
 Nieobsługiwany typ rozruchu | Platforma Azure nie obsługuje maszyn wirtualnych z typem rozruchu EFI. Przed uruchomieniem migracji zalecamy przekonwertowanie typu rozruchu na system BIOS. <br/><br/>Do obsługi migracji takich maszyn wirtualnych można użyć migracji serwera Azure Migrate. Spowoduje to przekonwertowanie typu rozruchowego maszyny wirtualnej na system BIOS podczas migracji.
 Warunkowo obsługiwany system operacyjny Windows | System operacyjny przeszedłł datę końca okresu obsłudze i potrzebuje niestandardowej umowy pomocy technicznej (CSA) w celu uzyskania [pomocy technicznej na platformie Azure](/troubleshoot/azure/virtual-machines/server-software-support). Przed przeprowadzeniem migracji na platformę Azure Rozważ uaktualnienie. [Przejrzyj]() informacje o [przygotowywaniu maszyn z systemem Windows Server 2003](prepare-windows-server-2003-migration.md) do migracji na platformę Azure.
@@ -75,7 +75,7 @@ Ocena serwera Azure Migrate może zalecać jednostki SKU maszyny wirtualnej plat
 
 - Zalecenie dotyczące jednostki SKU maszyny wirtualnej zależy od właściwości oceny.
 - Ma to wpływ na typ oceny wykonywanej w ocenie serwera: *oparty na wydajności* lub w środowisku *lokalnym*.
-- W przypadku ocen opartych na wydajności Ocena serwera traktuje dane użycia lokalnych maszyn wirtualnych (procesora CPU, pamięci, dysku i wykorzystania sieci) w celu określenia odpowiedniej docelowej jednostki SKU maszyny wirtualnej dla lokalnych maszyn wirtualnych. Dodaje również współczynnik komfortu podczas określania efektywnego wykorzystania.
+- W przypadku ocen Na podstawie wydajności narzędzie Server Assessment uwzględnia dane użycia lokalnych maszyn wirtualnych (procesor CPU, pamięć, dysk i sieć), aby określić właściwą docelową jednostkę SKU maszyny wirtualnej dla Twoich lokalnych maszyn wirtualnych. Dodaje również współczynnik komfortu podczas określania efektywnego wykorzystania.
 - W przypadku lokalnego określania wielkości dane wydajności nie są brane pod uwagę, a docelowa jednostka SKU jest zalecana na podstawie przydziału lokalnego.
 
 Aby pokazać, jak to może mieć wpływ na zalecenia, przyjrzyjmy się przykładowi:
@@ -160,12 +160,12 @@ Dla maszyn wirtualnych z systemem Windows:
 
     ![Stan MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacji programu MMA i agenta zależności powiodły się. [Tutaj](../azure-monitor/insights/service-map.md#post-installation-issues)znajdziesz więcej wskazówek dotyczących rozwiązywania problemów.
+W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacji programu MMA i agenta zależności powiodły się. [Tutaj](../azure-monitor/vm/service-map.md#post-installation-issues)znajdziesz więcej wskazówek dotyczących rozwiązywania problemów.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)i [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
-- **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
+- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)i [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) .
+- **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) .
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
 

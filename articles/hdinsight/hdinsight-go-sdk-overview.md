@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945980"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582763"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for go (wersja zapoznawcza)
 
@@ -362,7 +362,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Włącz monitorowanie pakietu OMS
 
 > [!NOTE]  
-> Aby włączyć monitorowanie pakietu OMS, musisz mieć istniejący obszar roboczy Log Analytics. Jeśli jeszcze tego nie zrobiono, możesz dowiedzieć się, jak to zrobić tutaj: [Utwórz obszar roboczy log Analytics w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+> Aby włączyć monitorowanie pakietu OMS, musisz mieć istniejący obszar roboczy Log Analytics. Jeśli jeszcze tego nie zrobiono, możesz dowiedzieć się, jak to zrobić tutaj: [Utwórz obszar roboczy log Analytics w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 Aby włączyć monitorowanie pakietu OMS w klastrze:
 

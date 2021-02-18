@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250134"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650454"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny VuePress w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [VuePress](https://vuepress.vuejs.org/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowa aplikacja usługi Azure static Web Apps ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -71,7 +71,7 @@ Tworzenie aplikacji VuePress przy użyciu interfejsu wiersza polecenia (CLI):
    ...
    ```
 
-1. Utwórz plik _. gitignore_ , aby wykluczyć folder _ \_ modułów węzła_ .
+1. Utwórz plik _. gitignore_ , aby wykluczyć folder _\_ modułów węzła_ .
 
     ```bash
     echo 'node_modules' > .gitignore
@@ -100,7 +100,7 @@ Aby nawiązać połączenie z usługą Azure static Web Apps, potrzebujesz repoz
 1. Wypychanie lokalnego repozytorium do serwisu GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Wdrażanie aplikacji sieci Web
@@ -117,17 +117,17 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
    :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
-1. W obszarze **subskrypcja**Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
+1. W obszarze **subskrypcja** Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
 
-1. W obszarze _Grupa zasobów_wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_wprowadź **vuepress-static-App** , a następnie wybierz **przycisk OK**.
+1. W obszarze _Grupa zasobów_ wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_ wprowadź **vuepress-static-App** , a następnie wybierz **przycisk OK**.
 
 1. Następnie wpisz nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` .
 
-1. W _obszarze region_wybierz dostępny region blisko siebie.
+1. W _obszarze region_ wybierz dostępny region blisko siebie.
 
-1. W obszarze _jednostka SKU_wybierz pozycję **bezpłatnie**.
+1. W obszarze _jednostka SKU_ wybierz pozycję **bezpłatnie**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Szczegóły wypełnione":::
 
 1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** .
 
@@ -135,9 +135,9 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 1. Wybierz **vuepress-static-App** jako _repozytorium_ .
 
-1. Dla _gałęzi_ wybierz gałąź **główna**.
+1. Dla _gałęzi_ wybierz pozycję **Main**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -151,7 +151,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Ustawienia kompilacji":::
 
 ### <a name="review-and-create"></a>Przegląd i tworzenie
 
@@ -163,7 +163,7 @@ Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwil
 
 1. Na ekranie zasób kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację. Może być konieczne poczekanie minutę lub dwie, aby wykonać akcję usługi GitHub.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
 

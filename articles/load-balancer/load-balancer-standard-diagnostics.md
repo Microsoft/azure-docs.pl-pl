@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805994"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581887"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -72,7 +72,7 @@ Aby wyświetlić metryki dla zasobów usługa Load Balancer w warstwie Standardo
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Programowe pobieranie metryk wielowymiarowych za pośrednictwem interfejsów API
 
-Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki mogą być zapisywane na koncie magazynu przez dodanie [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) dla kategorii "wszystkie metryki". 
+Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki mogą być zapisywane na koncie magazynu przez dodanie [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) dla kategorii "wszystkie metryki". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurowanie alertów dla wielowymiarowych metryk ###
 

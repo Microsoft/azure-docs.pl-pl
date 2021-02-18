@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222942"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596666"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
 
 Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Omówienie grup zabezpieczeń sieci](./network-security-groups-overview.md). Następnie Ukończ samouczek [Filtruj ruch sieciowy](tutorial-filter-network-traffic.md) , aby uzyskać pewne doświadczenie z sieciowymi grupami zabezpieczeń.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ W obszarze **monitorowanie** można włączyć lub wyłączyć **Ustawienia diag
 
 Aby dowiedzieć się więcej na temat typowych ustawień platformy Azure, zobacz następujące artykuły:
 
-- [Dziennik aktywności](../azure-monitor/platform/platform-logs-overview.md)
+- [Dziennik aktywności](../azure-monitor/essentials/platform-logs-overview.md)
 - [Kontrola dostępu (IAM)](../role-based-access-control/overview.md)
 - [Tagi](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Blokady](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: b80e50cb4823632f054de3b7f9da71392f8578d7
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 23cd42458c396afd31741c648d713934250a4112
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560180"
+ms.locfileid: "100587796"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Korzystanie z usługi Azure Policy na potrzeby stosowania konfiguracji klastra na dużą skalę (wersja zapoznawcza)
 
@@ -74,4 +74,4 @@ W przypadku istniejących klastrów należy ręcznie uruchomić zadanie korygowa
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Skonfiguruj Azure Monitor dla kontenerów z włączonymi Kubernetes klastrami](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+* [Skonfiguruj Azure Monitor dla kontenerów z włączonymi Kubernetes klastrami](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)
