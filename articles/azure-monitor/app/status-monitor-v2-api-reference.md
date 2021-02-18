@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319001"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587527"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Dokumentacja interfejsu API agenta Application Insights Azure Monitor
 
@@ -392,7 +392,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Możesz sprawdzić proces na komputerze z instrumentacją, aby sprawdzić, czy wszystkie biblioteki DLL zostały załadowane. Jeśli monitorowanie działa, należy załadować co najmniej 12 bibliotek DLL.
 
-Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
+Uruchom polecenie `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Następne kroki
 
   Wyświetlanie telemetrii:
- - [Poznaj metryki](../platform/metrics-charts.md) , aby monitorować wydajność i użycie.
+ - [Poznaj metryki](../essentials/metrics-charts.md) , aby monitorować wydajność i użycie.
 - [Wyszukaj zdarzenia i dzienniki](./diagnostic-search.md) , aby zdiagnozować problemy.
-- Użyj [analizy](../log-query/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
+- Użyj [analizy](../logs/log-query-overview.md) , aby uzyskać bardziej zaawansowane zapytania.
 - [Tworzenie pulpitów nawigacyjnych](./overview-dashboard.md).
  
  Dodawanie kolejnych funkcji telemetrii:

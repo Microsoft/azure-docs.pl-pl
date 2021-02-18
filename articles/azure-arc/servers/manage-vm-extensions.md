@@ -3,12 +3,12 @@ title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą serwerów z obs
 description: Serwery z obsługą usługi Azure Arc mogą zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
 ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5430b1c1318747cccfb95f031700fddaad716284
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b39149eb7ac572ac3bd50bb6303f28d2340f387d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020625"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580863"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Zarządzanie rozszerzeniami maszyn wirtualnych na serwerach z obsługą usługi Azure Arc
 
@@ -27,9 +27,9 @@ Obsługa rozszerzenia maszyny wirtualnej z obsługą usługi Azure Arc zapewnia 
 
 - Użyj [konfiguracji stanu Azure Automation](../../automation/automation-dsc-overview.md) , aby centralnie przechowywać konfiguracje i zachować żądany stan maszyn połączonych hybrydowo włączonych przy użyciu rozszerzenia maszyny wirtualnej DSC.
 
-- Zbieraj dane dziennika do analizy z [dziennikami w Azure monitor](../../azure-monitor/platform/data-platform-logs.md) włączone za pomocą rozszerzenia maszyny wirtualnej log Analytics Agent. Jest to przydatne w przypadku wykonywania złożonej analizy między danymi z różnych rodzajów źródeł.
+- Zbieraj dane dziennika do analizy z [dziennikami w Azure monitor](../../azure-monitor/logs/data-platform-logs.md) włączone za pomocą rozszerzenia maszyny wirtualnej log Analytics Agent. Jest to przydatne w przypadku wykonywania złożonej analizy między danymi z różnych rodzajów źródeł.
 
-- Dzięki [Azure monitor dla maszyn wirtualnych](../../azure-monitor/insights/vminsights-overview.md)analizuje wydajność maszyn wirtualnych z systemami Windows i Linux oraz monitorują procesy i zależności od innych zasobów i procesów zewnętrznych. Jest to realizowane przez włączenie zarówno rozszerzenia agenta Log Analytics, jak i agenta zależności maszyny wirtualnej.
+- Dzięki [Azure monitor dla maszyn wirtualnych](../../azure-monitor/vm/vminsights-overview.md)analizuje wydajność maszyn wirtualnych z systemami Windows i Linux oraz monitorują procesy i zależności od innych zasobów i procesów zewnętrznych. Jest to realizowane przez włączenie zarówno rozszerzenia agenta Log Analytics, jak i agenta zależności maszyny wirtualnej.
 
 - Pobieranie i wykonywanie skryptów na maszynach połączonych hybrydowo przy użyciu niestandardowego rozszerzenia skryptu. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania lub innych zadań związanych z konfiguracją lub zarządzaniem.
 
@@ -55,7 +55,7 @@ Aby dowiedzieć się więcej na temat pakietu agenta połączonego z platformą 
 |Agent usługi Log Analytics |Microsoft. EnterpriseCloud. Monitoring |MicrosoftMonitoringAgent |[Log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../../virtual-machines/extensions/oms-windows.md)|
 |Azure Monitor dla maszyn wirtualnych (szczegółowe dane) |Microsoft. Azure. Monitoring. DependencyAgent |DependencyAgentWindows | [Rozszerzenie maszyny wirtualnej agenta zależności dla systemu Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Azure Key Vault synchronizację certyfikatów | Microsoft. Azure. Key. magazyn |KeyVaultForWindows | [Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows](../../virtual-machines/extensions/key-vault-windows.md) |
-|Agent usługi Azure Monitor |Microsoft. Azure. Monitor |AzureMonitorWindowsAgent |[Zainstaluj agenta Azure Monitor (wersja zapoznawcza)](../../azure-monitor/platform/azure-monitor-agent-install.md) |
+|Agent usługi Azure Monitor |Microsoft. Azure. Monitor |AzureMonitorWindowsAgent |[Zainstaluj agenta Azure Monitor (wersja zapoznawcza)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
 ### <a name="linux-extensions"></a>Rozszerzenia systemu Linux
 
@@ -67,7 +67,7 @@ Aby dowiedzieć się więcej na temat pakietu agenta połączonego z platformą 
 |Agent usługi Log Analytics |Microsoft. EnterpriseCloud. Monitoring |OmsAgentForLinux |[Log Analytics rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Azure Monitor dla maszyn wirtualnych (szczegółowe dane) |Microsoft. Azure. Monitoring. DependencyAgent |DependencyAgentLinux |[Rozszerzenie maszyny wirtualnej agenta zależności dla systemu Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault synchronizację certyfikatów | Microsoft. Azure. Key. magazyn |KeyVaultForLinux | [Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux](../../virtual-machines/extensions/key-vault-linux.md) |
-|Agent usługi Azure Monitor |Microsoft. Azure. Monitor |AzureMonitorLinuxAgent |[Zainstaluj agenta Azure Monitor (wersja zapoznawcza)](../../azure-monitor/platform/azure-monitor-agent-install.md) |
+|Agent usługi Azure Monitor |Microsoft. Azure. Monitor |AzureMonitorLinuxAgent |[Zainstaluj agenta Azure Monitor (wersja zapoznawcza)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

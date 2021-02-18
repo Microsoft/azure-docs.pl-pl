@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546452"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591744"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -196,7 +196,7 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 
 - [Pobierz metryki Azure monitor przy użyciu platformy .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Ten przykład używa nazwy użytkownika i hasła. Aby użyć certyfikatu, przeciąż metodę FromServicePrincipal, aby dostarczyć certyfikat, jak pokazano w [tym przykładzie](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Pobieranie metryk i dzienników aktywności dla zasobu](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Przewodnik po interfejsie API REST usługi Azure Monitoring](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Przewodnik po interfejsie API REST usługi Azure Monitoring](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Pomyślne powiadomienia oznaczają, że powiadomienia wypychane zostały dostarczone do zewnętrznego PNS (na przykład APN dla systemów iOS i macOS lub FCM dla urządzeń z systemem Android). Jest odpowiedzialny za PNS do dostarczania powiadomień do urządzeń docelowych. Zazwyczaj PNS nie ujawnia metryk dostarczania podmiotom trzecim.  
@@ -211,7 +211,7 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 [Model zabezpieczeń Notification Hubs]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Samouczek bezpiecznego wypychania Notification Hubs]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Rozwiązywanie problemów Notification Hubs]: ./notification-hubs-push-notification-fixer.md
-[Metryki Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Metryki Notification Hubs]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Eksportowanie/Importowanie rejestracji]: ./export-modify-registrations-bulk.md
 [Witryna Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

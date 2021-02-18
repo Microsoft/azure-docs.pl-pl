@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060723"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576137"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -168,7 +168,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 
@@ -333,7 +333,7 @@ Application Gateway obsługuje do 100 certyfikatów uwierzytelniania.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Czy Application Gateway natywnie integrowana z usługą Azure Key Vault?
 
-Tak, jednostka SKU Application Gateway v2 obsługuje Key Vault. Aby uzyskać więcej informacji, zobacz temat [zakończenie protokołu TLS z certyfikatami Key Vault](key-vault-certs.md).
+Tak, jednostka SKU Application Gateway v2 obsługuje Key Vault. Aby uzyskać więcej informacji, zobacz [Zakończenie szyfrowania TLS z certyfikatami usługi Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Jak mogę skonfigurować odbiorniki HTTPS dla witryn com i .NET? 
 
@@ -454,7 +454,7 @@ W portalu w bloku menu bramy aplikacji wybierz pozycję **Dziennik aktywności**
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Czy mogę ustawić alerty z Application Gateway?
 
-Tak. W Application Gateway alerty są konfigurowane na metrykach. Aby uzyskać więcej informacji, zobacz [Application Gateway metryki](./application-gateway-metrics.md) i [Odbieranie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md).
+Tak. W Application Gateway alerty są konfigurowane na metrykach. Aby uzyskać więcej informacji, zobacz [Application Gateway metryki](./application-gateway-metrics.md) i [Odbieranie powiadomień o alertach](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Jak mogę analizować statystyki ruchu dla Application Gateway?
 

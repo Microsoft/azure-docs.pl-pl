@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f13909d3835bdbd2931277a88244abfae3f80759
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467733"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576617"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Słownik Azure Monitor dla systemu Windows Virtual Desktop (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ W tym artykule wymieniono i krótko opisano najważniejsze pojęcia i koncepcje 
 
 ## <a name="alerts"></a>Alerty
 
-Wszystkie aktywne alerty Azure Monitor skonfigurowane w ramach subskrypcji i sklasyfikowane jako [ważność 1](#severity-1-alerts) zostaną wyświetlone na stronie Przegląd. Aby dowiedzieć się, jak skonfigurować alerty, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/learn/tutorial-response.md).
+Wszystkie aktywne alerty Azure Monitor skonfigurowane w ramach subskrypcji i sklasyfikowane jako [ważność 1](#severity-1-alerts) zostaną wyświetlone na stronie Przegląd. Aby dowiedzieć się, jak skonfigurować alerty, zobacz [reagowanie na zdarzenia przy użyciu alertów Azure monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Dostępne sesje
 
@@ -128,7 +128,7 @@ Poniższa tabela zawiera listę zalecanych liczników wydajności i przedziałó
 |Sieć funkcji RemoteFX ( \* ) \\ bieżący RTT TCP|30 sekund|
 |Sieć funkcji RemoteFX ( \* ) \\ Bieżąca przepustowość UDP|30 sekund|
 
-Aby dowiedzieć się więcej o sposobie odczytywania liczników wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/platform/data-sources-performance-counters.md).
+Aby dowiedzieć się więcej o sposobie odczytywania liczników wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md).
 
 Aby dowiedzieć się więcej o licznikach wydajności opóźnienia wejścia, zobacz [liczniki wydajności opóźnienia danych wejściowych użytkownika](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -186,7 +186,7 @@ W poniższej tabeli wymieniono wymagane zdarzenia systemu Windows dotyczące Azu
 | Microsoft-FSLogix-Apps/Operational|Błąd, ostrzeżenie i informacje|
 |Microsoft-FSLogix-Apps/administrator|Błąd, ostrzeżenie i informacje|
 
-Aby dowiedzieć się więcej na temat zdarzeń systemu Windows, zobacz [Właściwości rekordów zdarzeń systemu Windows](../azure-monitor/platform/data-sources-windows-events.md).
+Aby dowiedzieć się więcej na temat zdarzeń systemu Windows, zobacz [Właściwości rekordów zdarzeń systemu Windows](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

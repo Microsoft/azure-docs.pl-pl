@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833018"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587277"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
@@ -43,7 +43,7 @@ Możliwość monitorowania sieci przy użyciu węzłów opartych na systemie Lin
 Aby można było uruchomić rozwiązanie NPM na maszynach wirtualnych węzła do monitorowania sieci, węzły powinny mieć co najmniej 500 MB pamięci i jeden rdzeń. Nie musisz używać oddzielnych węzłów do uruchamiania NPM. Rozwiązanie można uruchomić na węzłach, które mają uruchomione inne obciążenia. Rozwiązanie ma możliwość zatrzymania procesu monitorowania, jeśli używa więcej niż 5% procesora CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Aby użyć NPM, czy należy połączyć węzły jako bezpośredni Agent czy za pośrednictwem System Center Operations Manager?
-Zarówno Monitor wydajności, jak i funkcje monitora łączności usług obsługują węzły [połączone jako agenci bezpośredni](../platform/agent-windows.md) i [połączone za pośrednictwem Operations Manager](../platform/om-agents.md).
+Zarówno Monitor wydajności, jak i funkcje monitora łączności usług obsługują węzły [połączone jako agenci bezpośredni](../agents/agent-windows.md) i [połączone za pośrednictwem Operations Manager](../agents/om-agents.md).
 
 W przypadku możliwości monitorowania ExpressRoute węzły platformy Azure powinny być połączone tylko z agentami bezpośrednimi. Węzły platformy Azure, które są połączone za pomocą Operations Manager nie są obsługiwane. W przypadku węzłów lokalnych węzły połączone jako agenci bezpośredni i za pośrednictwem Operations Manager są obsługiwane na potrzeby monitorowania obwodu usługi ExpressRoute.
 
@@ -98,7 +98,7 @@ Jeśli przeskok ma kolor czerwony, oznacza to, że jest on częścią co najmnie
 NPM używa mechanizmu probabilistyczne do przypisywania prawdopodobieństwa błędów do każdej ścieżki sieciowej, segmentu sieci i przeskoków sieci w zależności od liczby ścieżek w złej kondycji, które są częścią. Ponieważ segmenty i przeskoki sieciowe stają się częścią większej liczby ścieżek w złej kondycji, wzrasta prawdopodobieństwo wystąpienia błędu. Ten algorytm działa najlepiej, gdy istnieje wiele węzłów z NPM agentem podłączonym do siebie, ponieważ zwiększa to punkty danych do obliczenia prawdopodobieństwa błędów.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Jak mogę utworzyć alerty w programie NPM?
-Obecnie tworzenie alertów z interfejsu użytkownika NPM kończy się niepowodzeniem z powodu znanego problemu. [Utwórz alerty ręcznie](../platform/alerts-log.md).
+Obecnie tworzenie alertów z interfejsu użytkownika NPM kończy się niepowodzeniem z powodu znanego problemu. [Utwórz alerty ręcznie](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Jakie są domyślne Log Analytics zapytania dotyczące alertów
 Zapytanie monitora wydajności

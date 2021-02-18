@@ -4,18 +4,18 @@ description: W tym samouczku przedstawiono Konfigurowanie dzienników Azure Moni
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588233"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Samouczek: monitorowanie kontenerów systemu Windows na Service Fabric przy użyciu dzienników Azure Monitor
 
 Jest to trzecia część samouczka i przeprowadzi Cię przez proces konfigurowania dzienników Azure Monitor do monitorowania kontenerów systemu Windows zorganizowanych w Service Fabric.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie dzienników Azure Monitor dla klastra Service Fabric
@@ -75,7 +75,7 @@ Wprowadź następujące zmiany w szablonie *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Dodaj program Microsoft Monitoring Agent jako rozszerzenie maszyny wirtualnej. Znajdź zasób zestawu skalowania maszyn wirtualnych: *zasoby*  >  *"apiVersion": "[zmienne (" vmssApiVersion ")]"*. W obszarze *Właściwości*  >  *rozszerzenia virtualMachineProfile*  >  *extensionProfile*  >  *extensions*Dodaj następujący Opis rozszerzenia w rozszerzeniu *ServiceFabricNode* : 
+3. Dodaj program Microsoft Monitoring Agent jako rozszerzenie maszyny wirtualnej. Znajdź zasób zestawu skalowania maszyn wirtualnych: *zasoby*  >  *"apiVersion": "[zmienne (" vmssApiVersion ")]"*. W obszarze *Właściwości*  >  *rozszerzenia virtualMachineProfile*  >  *extensionProfile*  >  Dodaj następujący Opis rozszerzenia w rozszerzeniu *ServiceFabricNode* : 
     
     ```json
     {
@@ -185,7 +185,7 @@ Aby skonfigurować rozwiązanie kontenera w obszarze roboczym, wyszukaj wyrażen
 
 ![Dodawanie rozwiązania kontenerów](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Po wyświetleniu monitu o *obszar roboczy log Analytics*wybierz obszar roboczy, który został utworzony w grupie zasobów, a następnie wybierz pozycję **Utwórz**. Spowoduje to dodanie *rozwiązania do monitorowania kontenerów* do obszaru roboczego, co spowoduje zainicjowanie agenta log Analytics wdrożonego przez szablon w celu rozpoczęcia zbierania dzienników platformy Docker i statystyk.
+Po wyświetleniu monitu o *obszar roboczy log Analytics* wybierz obszar roboczy, który został utworzony w grupie zasobów, a następnie wybierz pozycję **Utwórz**. Spowoduje to dodanie *rozwiązania do monitorowania kontenerów* do obszaru roboczego, co spowoduje zainicjowanie agenta log Analytics wdrożonego przez szablon w celu rozpoczęcia zbierania dzienników platformy Docker i statystyk.
 
 Przejdź z powrotem do *grupy zasobów*, gdzie powinno zostać wyświetlone nowo dodane rozwiązanie do monitorowania. W przypadku wybrania tej opcji strona docelowa powinna zawierać liczbę uruchomionych obrazów kontenerów.
 
@@ -230,6 +230,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Teraz, po skonfigurowaniu monitorowania aplikacji w kontenerze, spróbuj wykonać następujące polecenie:
 
 * Konfigurowanie dzienników Azure Monitor dla klastra systemu Linux, wykonując podobne kroki, jak w tym samouczku. Utwórz odwołanie do [tego szablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS), aby wprowadzić zmiany w szablonie usługi Resource Manager.
-* Skonfiguruj dzienniki Azure Monitor, aby skonfigurować [Automatyczne alerty](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
+* Skonfiguruj dzienniki Azure Monitor, aby skonfigurować [Automatyczne alerty](../azure-monitor/alerts/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
 * Zapoznaj się z listą [zalecanych liczników wydajności](service-fabric-diagnostics-event-generation-perf.md) usługi Service Fabric w celu skonfigurowania ich na potrzeby klastrów.
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor.

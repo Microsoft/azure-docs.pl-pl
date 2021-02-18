@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41412a4ec95bb9b89df5fded6962965594e823fc
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 131469a955190561d8854aad4a7f77c8ca15a222
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248517"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578782"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu programu PowerShell
 
@@ -235,7 +235,7 @@ Aby wyświetlić działającą aplikację Azure Vote, otwórz zewnętrzny adres 
 
 ![Aplikacja do głosowania wdrożona w usłudze Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-Po utworzeniu klastra AKS [Azure monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) umożliwił przechwycenie metryk kondycji zarówno dla węzłów klastra, jak i dla każdego z nich. Te metryki kondycji są dostępne w witrynie Azure Portal.
+Po utworzeniu klastra AKS [Azure monitor dla kontenerów](../azure-monitor/containers/container-insights-overview.md) umożliwił przechwycenie metryk kondycji zarówno dla węzłów klastra, jak i dla każdego z nich. Te metryki kondycji są dostępne w witrynie Azure Portal.
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

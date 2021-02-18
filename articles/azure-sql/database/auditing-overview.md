@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509591"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572280"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log An
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Aby uzyskać więcej informacji na temat Azure Monitor Log Analytics obszarze roboczym, zobacz [projektowanie dzienników Azure monitor Deployment](../../azure-monitor/platform/design-logs-deployment.md)
+Aby uzyskać więcej informacji na temat Azure Monitor Log Analytics obszarze roboczym, zobacz [projektowanie dzienników Azure monitor Deployment](../../azure-monitor/logs/design-logs-deployment.md)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja w miejscu docelowym centrum zdarzeń
 
@@ -170,7 +170,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji do Azure Monitor dzie
     ![Log Analytics szczegółowe informacje o zabezpieczeniach](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Alternatywnie można również uzyskać dostęp do dzienników inspekcji w bloku Log Analytics. Otwórz obszar roboczy Log Analytics i w sekcji **Ogólne** kliknij pozycję **dzienniki**. Możesz zacząć od prostego zapytania, takiego jak: *Search "SQLSecurityAuditEvents"* , aby wyświetlić dzienniki inspekcji.
-    W tym miejscu możesz również użyć [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md)  , aby uruchomić zaawansowane wyszukiwania w danych dziennika inspekcji. Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/log-query/log-query-overview.md).
+    W tym miejscu możesz również użyć [dzienników Azure monitor](../../azure-monitor/logs/log-query-overview.md)  , aby uruchomić zaawansowane wyszukiwania w danych dziennika inspekcji. Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/logs/log-query-overview.md).
 
 W przypadku wybrania opcji zapisania dzienników inspekcji do centrum zdarzeń:
 

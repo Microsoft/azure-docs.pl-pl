@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: cde84a018d307bada6a6b6f3b5467b8addd007b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573313"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571434"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Rozwiązywanie problemów z wydajnością maszyny wirtualnej platformy Azure w systemie Linux lub Windows
 
@@ -30,7 +30,7 @@ Ten artykuł przeprowadzi Cię przez proces monitorowania w celu zdiagnozowania 
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitorowanie maszyn wirtualnych IAAS platformy Azure
 
-Aby monitorować maszynę wirtualną gościa, należy użyć monitorowania maszyn wirtualnych platformy Azure, które będzie powiadamiać o określonych warunkach zasobów wysokiego poziomu. Aby sprawdzić, czy włączono diagnostykę maszyny wirtualnej, zobacz [Omówienie dzienników zasobów platformy Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Jeśli zobaczysz następujące polecenie, najprawdopodobniej nie masz włączonej diagnostyki:
+Aby monitorować maszynę wirtualną gościa, należy użyć monitorowania maszyn wirtualnych platformy Azure, które będzie powiadamiać o określonych warunkach zasobów wysokiego poziomu. Aby sprawdzić, czy włączono diagnostykę maszyny wirtualnej, zobacz [Omówienie dzienników zasobów platformy Azure](../../azure-monitor/essentials/tutorial-resource-logs.md). Jeśli zobaczysz następujące polecenie, najprawdopodobniej nie masz włączonej diagnostyki:
 
 ![Monitorowanie nie jest włączone](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -101,7 +101,7 @@ Aby określić, czy masz jakieś wąskie gardła zasobów, Przejrzyj dane. Jeśl
 
 ### <a name="cpu-observe-trends"></a>Trendy dotyczące procesora CPU
 
-Analizując problemy z wydajnością, weź pod uwagę trendy i zapoznaj się z nimi. W następnych sekcjach użyjemy wykresów monitorowania z portalu do wyświetlania trendów. Mogą być również przydatne w przypadku zachowań krzyżowego odwołujących się do różnic w tym samym okresie czasu. Aby dostosować wykresy, kliknij pozycję [Azure monitor Data Platform](../../azure-monitor/platform/data-platform.md).
+Analizując problemy z wydajnością, weź pod uwagę trendy i zapoznaj się z nimi. W następnych sekcjach użyjemy wykresów monitorowania z portalu do wyświetlania trendów. Mogą być również przydatne w przypadku zachowań krzyżowego odwołujących się do różnic w tym samym okresie czasu. Aby dostosować wykresy, kliknij pozycję [Azure monitor Data Platform](../../azure-monitor/data-platform.md).
 
 Skok — skok może być powiązany z zaplanowanym zadaniem/znanym zdarzeniem. Jeśli możesz zidentyfikować zadanie, ustal, czy zadanie jest uruchamiane na wymaganym poziomie wydajności. W przypadku akceptowalnej wydajności może nie być konieczne zwiększenie ilości zasobów.
 

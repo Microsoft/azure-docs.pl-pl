@@ -3,12 +3,12 @@ title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519103"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570567"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
@@ -21,9 +21,9 @@ Azure Monitor zapewnia ujednolicone interfejsy użytkownika do monitorowania ró
 
 ## <a name="access-metrics"></a>Metryki dostępu
 
-Azure Monitor zapewnia wiele sposobów uzyskiwania dostępu do metryk. Możesz uzyskać dostęp do metryk przy użyciu [Azure Portal](https://portal.azure.com)lub użyć interfejsów API Azure monitor (REST i .NET) oraz rozwiązań do analizy, takich jak dzienniki Azure Monitor i Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+Azure Monitor zapewnia wiele sposobów uzyskiwania dostępu do metryk. Możesz uzyskać dostęp do metryk przy użyciu [Azure Portal](https://portal.azure.com)lub użyć interfejsów API Azure monitor (REST i .NET) oraz rozwiązań do analizy, takich jak dzienniki Azure Monitor i Event Hubs. Aby uzyskać więcej informacji, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
-Metryki są domyślnie włączone i można uzyskać dostęp do najnowszych danych z ostatnich 30 dni. Jeśli chcesz przechowywać dane przez dłuższy czas, możesz zarchiwizować dane metryk na koncie usługi Azure Storage. Ta wartość jest konfigurowana w [ustawieniach diagnostycznych](../azure-monitor/platform/diagnostic-settings.md) w Azure monitor.
+Metryki są domyślnie włączone i można uzyskać dostęp do najnowszych danych z ostatnich 30 dni. Jeśli chcesz przechowywać dane przez dłuższy czas, możesz zarchiwizować dane metryk na koncie usługi Azure Storage. Ta wartość jest konfigurowana w [ustawieniach diagnostycznych](../azure-monitor/essentials/diagnostic-settings.md) w Azure monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Dostęp do metryk w portalu
 
@@ -100,7 +100,7 @@ Następujące dwa typy błędów są klasyfikowane jako błędy użytkownika:
 > [!NOTE] 
 > Następujące metryki są dostępne tylko w warstwie **Premium** . 
 > 
-> Ważne metryki do monitorowania dla przestrzeni nazw warstwy Premium są następujące: **użycie procesora CPU na przestrzeń** nazw i **rozmiar pamięci na przestrzeń nazw**. [Skonfiguruj alerty](../azure-monitor/platform/alerts-metric.md) dla tych metryk przy użyciu Azure monitor.
+> Ważne metryki do monitorowania dla przestrzeni nazw warstwy Premium są następujące: **użycie procesora CPU na przestrzeń** nazw i **rozmiar pamięci na przestrzeń nazw**. [Skonfiguruj alerty](../azure-monitor/alerts/alerts-metric.md) dla tych metryk przy użyciu Azure monitor.
 > 
 > Inną metryką, którą można monitorować, jest: **żądania ograniczone**. Nie powinno to być problemem, o ile przestrzeń nazw pozostaje w limitach połączeń z pamięcią, PROCESORem i brokerem. Aby uzyskać więcej informacji, zobacz [ograniczanie przepustowości w Azure Service Bus warstwie Premium](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 

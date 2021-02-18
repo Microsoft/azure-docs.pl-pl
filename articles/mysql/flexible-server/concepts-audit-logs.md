@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542222"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591754"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Śledź aktywność bazy danych za pomocą dzienników inspekcji w Azure Database for MySQL elastycznym serwerze
 
@@ -50,7 +50,7 @@ Inne parametry, które można dostosować do kontroli inspekcji, obejmują:
 
 ## <a name="access-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji
 
-Dzienniki inspekcji są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników inspekcji na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Dzienniki inspekcji są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników inspekcji na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/essentials/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
 W poniższych sekcjach opisano dane wyjściowe dzienników inspekcji programu MySQL na podstawie typu zdarzenia. W zależności od metody Output pola uwzględnione i kolejność ich wyświetlania mogą się różnić.
 

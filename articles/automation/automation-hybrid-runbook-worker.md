@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581262"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -25,7 +25,7 @@ Istnieją dwa typy procesów roboczych elementów Runbook — system i użytkown
 |**System** |Obsługuje zestaw ukrytych elementów Runbook używanych przez funkcję Update Management, które są przeznaczone do instalowania aktualizacji określonych przez użytkownika na maszynach z systemem Windows i Linux.<br> Ten typ hybrydowego procesu roboczego elementu Runbook nie jest członkiem grupy hybrydowych procesów roboczych elementu Runbook, dlatego nie uruchamia elementów Runbook przeznaczonych dla grupy procesów roboczych elementu Runbook. |
 |**Użytkownik** |Program obsługuje zdefiniowane przez użytkownika elementy Runbook przeznaczone do uruchomienia bezpośrednio na komputerze z systemem Windows i Linux, które są członkami co najmniej jednej grupy procesów roboczych elementów Runbook. |
 
-Hybrydowy proces roboczy elementu Runbook można uruchomić w systemie operacyjnym Windows lub Linux, a ta rola opiera się na [log Analytics raportowania agenta](../azure-monitor/platform/log-analytics-agent.md) do Azure monitor [obszaru roboczego log Analytics](../azure-monitor/platform/design-logs-deployment.md). Obszar roboczy nie tylko monitoruje maszynę pod kątem obsługiwanego systemu operacyjnego, ale również pobiera składniki wymagane do zainstalowania hybrydowego procesu roboczego elementu Runbook.
+Hybrydowy proces roboczy elementu Runbook można uruchomić w systemie operacyjnym Windows lub Linux, a ta rola opiera się na [log Analytics raportowania agenta](../azure-monitor/agents/log-analytics-agent.md) do Azure monitor [obszaru roboczego log Analytics](../azure-monitor/logs/design-logs-deployment.md). Obszar roboczy nie tylko monitoruje maszynę pod kątem obsługiwanego systemu operacyjnego, ale również pobiera składniki wymagane do zainstalowania hybrydowego procesu roboczego elementu Runbook.
 
 Po włączeniu [Update Management](./update-management/overview.md) Azure Automation, każda maszyna połączona z obszarem roboczym log Analytics zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook systemu. Aby skonfigurować go jako użytkownika hybrydowego procesu roboczego elementu Runbook systemu Windows, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Windows](automation-windows-hrw-install.md) i dla systemu Linux, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](automation-linux-hrw-install.md).
 
@@ -62,7 +62,7 @@ Jeśli serwer proxy jest używany do komunikacji między Azure Automation i komp
 
 ### <a name="firewall-use"></a>Użycie zapory
 
-W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych elementów Runbook usługi Automation](../azure-monitor/platform/gateway.md).
+W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych elementów Runbook usługi Automation](../azure-monitor/agents/gateway.md).
 
 ### <a name="service-tags"></a>Tagi usługi
 

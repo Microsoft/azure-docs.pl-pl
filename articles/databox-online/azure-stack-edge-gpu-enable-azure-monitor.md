@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595974"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Włączanie Azure Monitor na urządzeniu z systemem Azure Stack Edge
 
@@ -49,7 +49,7 @@ Wykonaj poniższe czynności, aby utworzyć obszar roboczy usługi log Analytics
 
         ![Przegląd + tworzenie dla Log Analytics obszaru roboczego](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-Aby uzyskać więcej informacji, zapoznaj się ze szczegółowymi krokami w temacie [tworzenie log Analytics obszaru roboczego za pośrednictwem Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Aby uzyskać więcej informacji, zapoznaj się ze szczegółowymi krokami w temacie [tworzenie log Analytics obszaru roboczego za pośrednictwem Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji, zapoznaj się ze szczegółowymi krokami w tema
 
 Wykonaj następujące kroki, aby włączyć usługi Container Insights w obszarze roboczym. 
 
-1. Postępuj zgodnie ze szczegółowymi krokami, [Aby dodać rozwiązanie Azure monitor Containers](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Użyj następującego pliku szablonu `containerSolution.json` :
+1. Postępuj zgodnie ze szczegółowymi krokami, [Aby dodać rozwiązanie Azure monitor Containers](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Użyj następującego pliku szablonu `containerSolution.json` :
 
     ```yml
     {

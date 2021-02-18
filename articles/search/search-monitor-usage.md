@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935011"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592364"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure
 
@@ -37,7 +37,7 @@ Usługa Azure Wyszukiwanie poznawcze przechowuje dane wewnętrzne w ramach 30-dn
 Poniższy zrzut ekranu ułatwia lokalizowanie informacji o monitorowaniu w portalu. Dane staną się dostępne zaraz po rozpoczęciu korzystania z usługi. Strony portalu są odświeżane co kilka minut.
 
 * Karta **monitorowanie** na głównej stronie przeglądu pokazuje ilość zapytań, opóźnienia i informacje o tym, czy usługa podlega ciśnieniu.
-* **Dziennik aktywności**w okienku nawigacji po lewej stronie jest połączony z Azure Resource Manager. Dziennik aktywności raportuje działania podejmowane przez Menedżer zasobów: dostępność i stan usługi, zmiany pojemności (repliki i partycje) oraz działania związane z kluczami interfejsu API.
+* **Dziennik aktywności** w okienku nawigacji po lewej stronie jest połączony z Azure Resource Manager. Dziennik aktywności raportuje działania podejmowane przez Menedżer zasobów: dostępność i stan usługi, zmiany pojemności (repliki i partycje) oraz działania związane z kluczami interfejsu API.
 * Ustawienia **monitorowania** , w dalszej postaci, umożliwiają Konfigurowanie alertów, metryk i dzienników diagnostycznych. Utwórz je, gdy będą potrzebne. Po zebraniu i zapisaniu danych można wykonywać zapytania lub wizualizować informacje w celu uzyskania szczegółowych informacji.
 
 ![Azure Monitor integrację w usłudze wyszukiwania](./media/search-monitor-usage/azure-monitor-search.png
@@ -59,7 +59,7 @@ Korzystając z następujących interfejsów API, można pobrać te same informac
 
 ### <a name="activity-logs-and-service-health"></a>Dzienniki aktywności i kondycja usługi
 
-Na stronie [**Dziennik aktywności**](../azure-monitor/platform/activity-log.md#view-the-activity-log) w portalu zbierane są informacje z Azure Resource Manager i raportów o zmianach w kondycji usługi. Dziennik aktywności można monitorować pod kątem krytycznych, błędów i ostrzeżeń związanych z kondycją usługi.
+Na stronie [**Dziennik aktywności**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) w portalu zbierane są informacje z Azure Resource Manager i raportów o zmianach w kondycji usługi. Dziennik aktywności można monitorować pod kątem krytycznych, błędów i ostrzeżeń związanych z kondycją usługi.
 
 Typowe wpisy obejmują odwołania do kluczy interfejsu API — ogólne powiadomienia informacyjne, takie jak *Pobieranie klucza administratora* i *Uzyskiwanie kluczy zapytań*. Te działania wskazują żądania, które zostały wykonane przy użyciu klucza administratora (Tworzenie lub usuwanie obiektów) lub klucza zapytania, ale nie wyświetlają samego żądania. Aby uzyskać informacje dotyczące tego ziarna, należy skonfigurować rejestrowanie diagnostyczne.
 
@@ -90,7 +90,7 @@ Azure Monitor oferuje kilka opcji magazynu, a wybór określa, jak można wykorz
 * Wybierz pozycję Azure Blob Storage, aby [wizualizować dane dziennika](search-monitor-logs-powerbi.md) w raportach Power BI.
 * Wybierz Log Analytics, jeśli chcesz eksplorować dane za poorednictwem zapytań Kusto.
 
-Azure Monitor ma własną strukturę rozliczeń i dzienniki diagnostyczne, do których odwołuje się ta sekcja, mają skojarzony koszt. Aby uzyskać więcej informacji, zobacz [użycie i szacowane koszty w Azure monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor ma własną strukturę rozliczeń i dzienniki diagnostyczne, do których odwołuje się ta sekcja, mają skojarzony koszt. Aby uzyskać więcej informacji, zobacz [użycie i szacowane koszty w Azure monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Monitorowanie dostępu użytkowników
 
@@ -107,4 +107,4 @@ Nie ma możliwości rejestrowania tych informacji niezależnie od ciągu zapytan
 Fluency z Azure Monitor jest niezbędne do nadzoru dowolnej usługi platformy Azure, w tym takich zasobów jak Azure Wyszukiwanie poznawcze. Jeśli nie znasz Azure Monitor, poświęć trochę czasu na zapoznanie się z artykułami dotyczącymi zasobów. Oprócz samouczków, w tym miejscu warto zacząć od artykułu.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)

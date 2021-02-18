@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20683808c81b32560170b175edf1c37c332f47ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183621"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581199"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -26,13 +26,13 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy.
 
 ### <a name="a-log-analytics-workspace"></a>Obszar roboczy Log Analytics
 
-Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego Log Analytics Azure Monitor, aby zainstalować i skonfigurować rolę. Można go utworzyć za pomocą [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), za pomocą [programu PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)lub [Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego Log Analytics Azure Monitor, aby zainstalować i skonfigurować rolę. Można go utworzyć za pomocą [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), za pomocą [programu PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)lub [Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/platform/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
+Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/logs/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 
-Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) dla obsługiwanego systemu operacyjnego Linux. W przypadku serwerów lub maszyn hostowanych poza platformą Azure można zainstalować agenta Log Analytics przy użyciu [serwerów z obsługą usługi Azure Arc](../azure-arc/servers/overview.md).
+Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics](../azure-monitor/agents/log-analytics-agent.md) dla obsługiwanego systemu operacyjnego Linux. W przypadku serwerów lub maszyn hostowanych poza platformą Azure można zainstalować agenta Log Analytics przy użyciu [serwerów z obsługą usługi Azure Arc](../azure-arc/servers/overview.md).
 
 >[!NOTE]
 >Po zainstalowaniu agenta Log Analytics dla systemu Linux nie należy zmieniać uprawnień do `sudoers.d` folderu ani jego własności. Dla konta **nxautomation** jest wymagane uprawnienie sudo, które jest kontekstem użytkownika, w którym działa hybrydowy proces roboczy elementu Runbook. Uprawnień nie należy usuwać. Ograniczenie tego do określonych folderów lub poleceń może spowodować powstanie istotnej zmiany.

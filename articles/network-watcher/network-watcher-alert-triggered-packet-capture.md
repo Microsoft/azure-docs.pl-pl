@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570986"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Używanie funkcji przechwytywania pakietów do aktywnego monitorowania sieci z alertami i Azure Functions
 
@@ -68,7 +68,7 @@ W tym scenariuszu są przeprowadzane następujące czynności:
 
 Pierwszym krokiem jest utworzenie funkcji platformy Azure w celu przetworzenia alertu i utworzenia przechwycenia pakietu.
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**  >  **aplikacja funkcji obliczeniowy**  >  **Function App**.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**  >  **aplikacja funkcji obliczeniowy**  >  .
 
     ![Tworzenie aplikacji funkcji][1-1]
 
@@ -332,7 +332,7 @@ Poniższy przykład to kod programu PowerShell, który może być używany w fun
 
     ![Kopiowanie adresu URL funkcji][2]
 
-Jeśli wymagane są właściwości niestandardowe w ładunku żądania POST elementu webhook, zapoznaj się z tematem [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/platform/alerts-webhooks.md).
+Jeśli wymagane są właściwości niestandardowe w ładunku żądania POST elementu webhook, zapoznaj się z tematem [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Konfigurowanie alertu na maszynie wirtualnej
 
@@ -340,7 +340,7 @@ Alerty można skonfigurować w taki sposób, aby powiadamiać osoby, gdy określ
 
 ### <a name="create-the-alert-rule"></a>Tworzenie reguły alertu
 
-Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu. Bardziej szczegółową dokumentację dotyczącą konfigurowania alertów można znaleźć [w temacie Tworzenie alertów w Azure monitor dla usług platformy Azure — Azure Portal](../azure-monitor/platform/alerts-classic-portal.md). Wprowadź następujące wartości w bloku **reguła alertu** , a następnie wybierz przycisk **OK**.
+Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu. Bardziej szczegółową dokumentację dotyczącą konfigurowania alertów można znaleźć [w temacie Tworzenie alertów w Azure monitor dla usług platformy Azure — Azure Portal](../azure-monitor/alerts/alerts-classic-portal.md). Wprowadź następujące wartości w bloku **reguła alertu** , a następnie wybierz przycisk **OK**.
 
   |**Ustawienie** | **Wartość** | **Szczegóły** |
   |---|---|---|
