@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 6bb787084d4396737d3002bb98fe50e283c5764a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582895"
+ms.locfileid: "100635493"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), protokołu SMB3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin protokołu SMB3.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz 
-Potrzebujesz skonfigurowanej puli pojemności.   
-[Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
-Podsieć musi być delegowana do usługi Azure NetApp Files.  
-[Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
+* Potrzebujesz skonfigurowanej puli pojemności. Zobacz [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md).     
+* Podsieć musi być delegowana do usługi Azure NetApp Files. Zobacz [delegowanie podsieci do Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="configure-active-directory-connections"></a>Konfigurowanie połączeń Active Directory 
 

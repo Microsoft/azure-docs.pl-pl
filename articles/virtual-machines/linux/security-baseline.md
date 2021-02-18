@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62030d1c208fc778476f49e5b3165e46e6aa0d66
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e1569cf4c7e91fd0c90d407846a9165d4b7b3776
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878854"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592956"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Linux Virtual Machines
 
@@ -176,9 +176,9 @@ Możesz użyć Azure Security Center dostęp do sieci w czasie, aby ograniczyć 
 
 Użyj Azure Policy, aby zweryfikować konfiguracje (i/lub skorygować) dla zasobów sieciowych związanych z Linux Virtual Machines.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -208,7 +208,7 @@ Użyj Azure Policy, aby zweryfikować konfiguracje (i/lub skorygować) dla zasob
 
 * [Zbieranie danych w usłudze Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [W celu przechwycenia danych dziennika systemowego do monitorowania należy włączyć rozszerzenie Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [W celu przechwycenia danych dziennika systemowego do monitorowania należy włączyć rozszerzenie Log Analytics](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -224,13 +224,13 @@ Aby uzyskać zaawansowaną widoczność aplikacji i usług obsługiwanych przez 
 
 Ponadto Włącz Azure Monitor, aby uzyskać dostęp do dzienników inspekcji i aktywności, które obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
-* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+* [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Omówienie agenta usługi log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Omówienie agenta usługi log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Rozszerzenie maszyny wirtualnej usługi log Analytics dla systemu Linux](../extensions/oms-linux.md)
 
-* [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Omówienie usługi Application Insights](../../azure-monitor/app/app-insights-overview.md)
 
@@ -246,7 +246,7 @@ Jeśli organizacja chce zachować dane dziennika zdarzeń zabezpieczeń z maszyn
 
 * [Zbieranie danych w usłudze Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-* [W celu przechwycenia danych dziennika systemowego do monitorowania należy włączyć rozszerzenie Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [W celu przechwycenia danych dziennika systemowego do monitorowania należy włączyć rozszerzenie Log Analytics](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -256,9 +256,9 @@ Jeśli organizacja chce zachować dane dziennika zdarzeń zabezpieczeń z maszyn
 
 **Wskazówki**: Upewnij się, że wszystkie konta magazynów lub log Analytics obszary robocze używane do przechowywania dzienników maszyn wirtualnych mają ustawiony okres przechowywania dziennika zgodnie z przepisami obowiązującymi w organizacji.
 
-* [Jak monitorować maszyny wirtualne na platformie Azure](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Jak monitorować maszyny wirtualne na platformie Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
+* [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -272,15 +272,15 @@ Analizuj i monitoruj dzienniki pod kątem nietypowego zachowania i regularnie Pr
 
 Alternatywnie możesz włączyć i przejrzeć dane na platformie Azure, aby monitorować i przeglądać dzienniki.
 
-* [Omówienie agenta usługi log Analytics](../../azure-monitor/platform/log-analytics-agent.md)
+* [Omówienie agenta usługi log Analytics](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Rozszerzenie maszyny wirtualnej usługi log Analytics dla systemu Linux](../extensions/oms-linux.md)
 
 * [Jak dołączyć wskaźnik na platformie Azure](../../sentinel/quickstart-onboard.md)
 
-* [Informacje o obszarze roboczym Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Informacje o obszarze roboczym Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -296,7 +296,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak zarządzać alertami w Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -326,9 +326,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: można ręcznie skonfigurować rejestrowanie konsoli na poszczególnych węzłach i użyć dziennika systemowego do przechowywania danych. Należy również użyć obszaru roboczego Log Analytics Azure Monitor do przeglądania dzienników i wykonywania zapytań dotyczących danych dziennika systemowego z maszyn wirtualnych platformy Azure.
 
-* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -416,7 +416,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../../azure-monitor/platform/action-groups.md)
+* [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../../azure-monitor/alerts/action-groups.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -458,13 +458,13 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 **Wskazówki**: Konfigurowanie ustawień diagnostycznych dla Azure Active Directory w celu wysyłania dzienników inspekcji i dzienników logowania do log Analytics obszaru roboczego. Należy również użyć Azure Monitor do przeglądania dzienników i wykonywania zapytań dotyczących danych dziennika systemowego uwierzytelniania z maszyn wirtualnych platformy Azure.
 
-* [Informacje o obszarze roboczym Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Informacje o obszarze roboczym Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+* [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor (Źródła danych usługi Syslog w usłudze Azure Monitor)](../../azure-monitor/agents/data-sources-syslog.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -598,9 +598,9 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące sytuacji, w których zmiany dotyczą maszyn wirtualnych i powiązanych zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Rejestrowanie usługi Azure Storage Analytics](../../storage/common/storage-analytics-logging.md)
 

@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131466"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593383"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Zarządzanie kosztami przy użyciu budżetów platformy Azure
 
 Kontrola kosztów to kluczowy składnik umożliwiający maksymalizowanie wartości inwestycji w chmurze. Istnieje kilka scenariuszy, w których widoczność kosztów, raportowanie i aranżacja oparta na kosztach mają kluczowe znaczenie dla zachowania ciągłości operacji biznesowych. [Interfejsy API usługi Azure Cost Management](/rest/api/consumption/) udostępniają zestaw interfejsów API do obsługi każdego z tych scenariuszy. Interfejsy API udostępniają szczegółowe informacje dotyczące użycia, co pozwala na wyświetlanie szczegółowych kosztów na poziomie wystąpienia.
 
-Budżety są często używane jako część kontroli kosztów. Budżety mogą być objęte zakresem na platformie Azure. Na przykład możesz zawęzić widok budżetu na podstawie subskrypcji, grup zasobów lub kolekcji zasobów. Oprócz używania interfejsu API budżetów do powiadamiania użytkownika za pośrednictwem poczty e-mail, gdy próg budżetu zostanie osiągnięty, można użyć [grup akcji usługi Azure Monitor](../../azure-monitor/platform/action-groups.md) do wyzwolenia zorganizowanego zestawu akcji w wyniku zdarzenia budżetu.
+Budżety są często używane jako część kontroli kosztów. Budżety mogą być objęte zakresem na platformie Azure. Na przykład możesz zawęzić widok budżetu na podstawie subskrypcji, grup zasobów lub kolekcji zasobów. Oprócz używania interfejsu API budżetów do powiadamiania użytkownika za pośrednictwem poczty e-mail, gdy próg budżetu zostanie osiągnięty, można użyć [grup akcji usługi Azure Monitor](../../azure-monitor/alerts/action-groups.md) do wyzwolenia zorganizowanego zestawu akcji w wyniku zdarzenia budżetu.
 
 Typowy scenariusz budżetów dla klienta uruchamiającego obciążenie inne niż krytyczne może wystąpić, gdy chce on zarządzać budżetem, a także uzyskać informacje o przewidywalnym koszcie podczas przeglądania faktury miesięcznej. Ten scenariusz wymaga opartej na kosztach aranżacji zasobów, które są częścią środowiska platformy Azure. W tym scenariuszu ustawiono miesięczny budżet dla subskrypcji wynoszący 1000 USD. Ponadto progi powiadomień zostały ustawione tak, aby wyzwalać kilka aranżacji. Ten scenariusz rozpoczyna się od progu kosztów wynoszącego 80%, co spowoduje zatrzymanie wszystkich maszyn wirtualnych w grupie zasobów **Opcjonalna**. Następnie przy progu kosztów wynoszącym 100% wszystkie wystąpienia maszyn wirtualnych zostaną zatrzymane.
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bac363e020826e34df3cb0b4e3d3582990302
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564496"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595451"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Połącz dane z dziennika aktywności platformy Azure
 
-Dzienniki [aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md) można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia. Dziennik aktywności jest dziennikiem subskrypcji, który rejestruje i wyświetla zdarzenia na poziomie subskrypcji na platformie Azure, od Azure Resource Manager danych operacyjnych do aktualizacji Service Health zdarzeń. Za pomocą dziennika aktywności można określić, kto i kiedy "dla operacji zapisu (PUT, POST, DELETE) wykonanych dla zasobów w subskrypcji. Możesz również poznać stan operacji i inne istotne właściwości. Dziennik aktywności nie obejmuje operacji odczytu (GET) ani operacji dla zasobów, które używają modelu klasycznego/"FRONTONu". 
+Dzienniki [aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md) można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia. Dziennik aktywności jest dziennikiem subskrypcji, który rejestruje i wyświetla zdarzenia na poziomie subskrypcji na platformie Azure, od Azure Resource Manager danych operacyjnych do aktualizacji Service Health zdarzeń. Za pomocą dziennika aktywności można określić, kto i kiedy "dla operacji zapisu (PUT, POST, DELETE) wykonanych dla zasobów w subskrypcji. Możesz również poznać stan operacji i inne istotne właściwości. Dziennik aktywności nie obejmuje operacji odczytu (GET) ani operacji dla zasobów, które używają modelu klasycznego/"FRONTONu". 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

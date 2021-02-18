@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aab1f99984ed5286692cbf9dae39fb4f7d28599c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104352"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652466"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Konfigurowanie roszczeń ról wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -27,6 +27,9 @@ Korzystając z Azure Active Directory (Azure AD), można dostosować typ wystąp
 
 - Subskrypcja usługi Azure AD z konfiguracją katalogu.
 - Subskrypcja z włączonym logowaniem jednokrotnym (SSO). Musisz skonfigurować Logowanie jednokrotne za pomocą aplikacji.
+
+> [!NOTE]
+> W tym artykule opisano sposób tworzenia/aktualizowania/usuwania ról aplikacji w jednostce usługi przy użyciu interfejsów API w usłudze Azure AD. Jeśli chcesz użyć nowego interfejsu użytkownika dla ról aplikacji, zobacz szczegóły [tutaj](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
 
 ## <a name="when-to-use-this-feature"></a>Kiedy używać tej funkcji
 

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827560"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593844"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Dzienniki zapytań z rozwiązania Start/Stop VMs during off-hours
 
-Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics obszaru roboczego: dzienniki zadań i strumienie zadań. Ten artykuł przegląda dane dostępne dla [zapytania](../azure-monitor/log-query/log-query-overview.md) w Azure monitor.
+Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics obszaru roboczego: dzienniki zadań i strumienie zadań. Ten artykuł przegląda dane dostępne dla [zapytania](../azure-monitor/logs/log-query-overview.md) w Azure monitor.
 
 ## <a name="job-logs"></a>Dzienniki zadań
 
@@ -72,5 +72,5 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów zad
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby skonfigurować tę funkcję, zobacz [Konfigurowanie zatrzymywania/uruchamiania maszyn wirtualnych poza godzinami pracy](automation-solution-vm-management-config.md).
-* Aby uzyskać informacje dotyczące alertów dziennika podczas wdrażania funkcji, zobacz [tworzenie alertów dziennika przy użyciu Azure monitor](../azure-monitor/platform/alerts-log.md).
+* Aby uzyskać informacje dotyczące alertów dziennika podczas wdrażania funkcji, zobacz [tworzenie alertów dziennika przy użyciu Azure monitor](../azure-monitor/alerts/alerts-log.md).
 * Aby rozwiązać błędy funkcji, zobacz [Rozwiązywanie problemów Start/Stop VMS during off-hours](troubleshoot/start-stop-vm.md).

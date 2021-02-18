@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d006168de89a2709ed607568f36cacf5f924efcb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379681"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653550"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -120,6 +120,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 Zamień `<ACS_RESOURCE_ENDPOINT>` na punkt końcowy zasobu ACS.
 Zamień `<ACCESS_TOKEN>` na prawidłowy token dostępu ACS.
+
+Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami dla aplikacji czatu, chociaż jest to zalecane. Więcej szczegółowych informacji o [architekturze rozmowy](../../../concepts/chat/concepts.md) można znaleźć w następującej dokumentacji
+
+Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
 
 ## <a name="object-model"></a>Model obiektów 
 Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta czatu usługi Azure Communication Services dla języka JavaScript.

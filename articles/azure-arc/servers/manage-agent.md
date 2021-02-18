@@ -3,12 +3,12 @@ title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: cc42830fc73612e744942bdd8b353832e0ccbf2a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587632"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -312,7 +312,7 @@ Jeśli planujesz zatrzymanie zarządzania komputerem za pomocą usług pomocnicz
 Aby skonfigurować agenta do komunikowania się z usługą za pomocą serwera proxy lub usunąć tę konfigurację po wdrożeniu, lub użyć jednej z następujących metod, aby wykonać to zadanie.
 
 > [!NOTE]
-> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/platform/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
+> Serwery z włączonymi łukiemmi nie obsługują używania [bramy log Analytics](../../azure-monitor/agents/gateway.md) jako serwera proxy dla agenta połączonego maszyny.
 >
 
 ### <a name="windows"></a>Windows
@@ -355,6 +355,6 @@ sudo azcmagent_proxy remove
 
 * Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z agentem podłączonych komputerów](troubleshoot-agent-onboard.md).
 
-* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
+* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/vm/vminsights-enable-policy.md)i wiele więcej.
 
-* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia, zarządzać nimi za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub korzystać z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-introduction.md).
+* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/agents/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia, zarządzać nimi za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub korzystać z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-introduction.md).

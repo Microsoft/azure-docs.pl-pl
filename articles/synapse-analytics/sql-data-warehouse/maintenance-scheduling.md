@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 886e99d6f56a008c694b3bcb366cfb4049f3528e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920379"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590207"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Korzystanie z harmonogramów konserwacji do zarządzania aktualizacjami i konserwacją usług
 
@@ -96,7 +96,7 @@ W trakcie okresu zapoznawczego niektóre regiony mogą jeszcze nie obsługiwać 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) na temat tworzenia i wyświetlania alertów oraz zarządzania nimi przy użyciu Azure monitor.
-- [Dowiedz się więcej](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o akcjach elementu webhook dla reguł alertów dziennika.
-- [Dowiedz się więcej](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Tworzenie grup akcji i zarządzanie nimi.
+- [Dowiedz się więcej](../../azure-monitor/alerts/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) na temat tworzenia i wyświetlania alertów oraz zarządzania nimi przy użyciu Azure monitor.
+- [Dowiedz się więcej](../..//azure-monitor/alerts/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o akcjach elementu webhook dla reguł alertów dziennika.
+- [Dowiedz się więcej](../..//azure-monitor/alerts/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Tworzenie grup akcji i zarządzanie nimi.
 - [Dowiedz się więcej](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o Azure Service Health.

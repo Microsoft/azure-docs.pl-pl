@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 04e658e3107ac0c9622ca1601eb93b01b9986fef
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1db7eeb61bc4ded2d7015baecaacd974d7767812
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645528"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653561"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -60,7 +60,11 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu 
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
-Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z `Administration` biblioteki klienta, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu. Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
+Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z `Administration` biblioteki klienta, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
+
+Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
+
+Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami dla aplikacji czatu, chociaż jest to zalecane. Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.md)
 
 ```csharp
 using Azure.Communication.Identity;

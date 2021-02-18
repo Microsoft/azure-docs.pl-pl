@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 822a4249b6ed054f36605d0367803da68bab090b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524540"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652262"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Custom Vision szyfrowanie danych magazynowanych
 
@@ -24,15 +24,6 @@ Usługa Azure Custom Vision automatycznie szyfruje dane po utrwaleniu ich w chmu
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta są dostępne tylko dla zasobów utworzonych po 11 maja, 2020. Aby użyć CMK z Custom Vision, należy utworzyć nowy zasób Custom Vision. Po utworzeniu zasobu możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
-
-## <a name="regional-availability"></a>Dostępność regionalna
-
-Klucze zarządzane przez klienta są obecnie dostępne w następujących regionach:
-
-* Południowo-środkowe stany USA
-* Zachodnie stany USA 2
-* East US
-* US Gov Wirginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

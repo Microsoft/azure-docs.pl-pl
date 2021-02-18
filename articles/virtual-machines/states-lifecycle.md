@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f91d5eebfae990f60b47f2c98f364046bafbf04
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963299"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594360"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cykl życia i Stany maszyn wirtualnych
 
@@ -31,7 +31,7 @@ Poniższa tabela zawiera opis każdego stanu wystąpienia i wskazuje, czy jest r
 :::row:::
    :::column span="":::
 
-   **State**
+   **Stan**
    
    :::column-end:::
    :::column span="":::
@@ -232,7 +232,7 @@ Poniżej znajdują się Stany operacji przejściowych po zaakceptowaniu przez pl
 :::row:::
    :::column span="":::
 
-   **State**
+   **Stan**
    
    :::column-end:::
    :::column span="2":::
@@ -428,4 +428,4 @@ Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o monitorowaniu maszyny wirtualnej, zobacz [monitorowanie maszyn wirtualnych na platformie Azure](../azure-monitor/insights/monitor-vm-azure.md).
+Aby dowiedzieć się więcej o monitorowaniu maszyny wirtualnej, zobacz [monitorowanie maszyn wirtualnych na platformie Azure](../azure-monitor/vm/monitor-vm-azure.md).

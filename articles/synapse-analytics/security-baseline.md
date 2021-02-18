@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e2f6d8ca1f3911959f396eb1ed77ce8377c0e3c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 9831f70a88aba497eb7d6a759233c3d7d7be62c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585122"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Synapse Analytics
 
@@ -167,9 +167,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z dedykowaną pulą SQL. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -237,7 +237,7 @@ Inspekcję można włączyć zarówno na poziomie bazy danych, jak i na serwerze
 
 * [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Jak ustawić parametry przechowywania dzienników w obszarze roboczym Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dzienników w obszarze roboczym Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Przechwytywanie zdarzeń przesyłania strumieniowego w Event Hubs](../event-hubs/event-hubs-capture-overview.md)
 
@@ -629,7 +629,7 @@ Autoryzacja jest kontrolowana za pomocą członkostw roli bazy danych konta uży
 
 Ponadto można skonfigurować alerty dla baz danych w puli usługi SQL Synapse przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Tworzenie alertów dotyczących usługi Azure SQL Synapse](../azure-sql/database/alerts-insights-configure-portal.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c922ae19c496d9f377b47ec43d38807f494593bc
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 59eef7654e677ccfef79445f4a9cab26800bdfc5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589143"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Podstawowa baza zabezpieczeń Azure dla drzwi platformy Azure
 
@@ -222,9 +222,9 @@ Drzwi frontonu platformy Azure rejestrują cały ruch sieciowy, który przetwarz
 
 Włącz dzienniki zasobów platformy Azure dla drzwi frontonu platformy Azure. Za pomocą Azure Security Center i Azure Policy można włączyć zbieranie danych dzienników zasobów i dzienników. Te dzienniki mogą być niezbędne do późniejszego badania zdarzeń związanych z bezpieczeństwem i wykonywania ćwiczeń śledczej.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Omówienie zbierania danych Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
