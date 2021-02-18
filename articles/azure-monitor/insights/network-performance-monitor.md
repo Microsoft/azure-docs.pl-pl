@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573427"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
@@ -76,7 +76,7 @@ Lista obsługiwanych regionów dla monitora ExpressRoute jest dostępna w [dokum
 
 ### <a name="install-and-configure-agents"></a>Instalacja i konfiguracja agentów 
 
-Użyj podstawowych procesów, aby zainstalować agentów na [komputerach z systemem Windows w celu Azure monitor](../platform/agent-windows.md), [podłączyć komputery z systemem Linux do Azure monitor (wersja zapoznawcza)](../../virtual-machines/extensions/oms-linux.md) i [nawiązać Operations Manager z Azure monitor](../platform/om-agents.md).
+Użyj podstawowych procesów, aby zainstalować agentów na [komputerach z systemem Windows w celu Azure monitor](../agents/agent-windows.md), [podłączyć komputery z systemem Linux do Azure monitor (wersja zapoznawcza)](../../virtual-machines/extensions/oms-linux.md) i [nawiązać Operations Manager z Azure monitor](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Gdzie zainstalować agentów 
 
@@ -266,13 +266,13 @@ Topologia wyświetlana na mapie jest topologią warstwy 3 i nie zawiera urządze
 
 ## <a name="log-queries-in-azure-monitor"></a>Rejestruj zapytania w Azure Monitor
 
-Wszystkie dane, które są udostępniane graficznie za pomocą pulpitu nawigacyjnego Network Performance Monitor i stron przechodzenia do szczegółów, są również dostępne natywnie w [kwerendach dzienników](../log-query/log-query-overview.md). Można przeprowadzić interaktywną analizę danych w repozytorium i skorelować dane z różnych źródeł. Można również tworzyć niestandardowe alerty i widoki oraz eksportować dane do programu Excel, Power BI lub link możliwego do udostępniania. Obszar **typowe zapytania** na pulpicie nawigacyjnym zawiera kilka przydatnych zapytań, których można użyć jako punktu wyjścia do tworzenia własnych zapytań i raportów. 
+Wszystkie dane, które są udostępniane graficznie za pomocą pulpitu nawigacyjnego Network Performance Monitor i stron przechodzenia do szczegółów, są również dostępne natywnie w [kwerendach dzienników](../logs/log-query-overview.md). Można przeprowadzić interaktywną analizę danych w repozytorium i skorelować dane z różnych źródeł. Można również tworzyć niestandardowe alerty i widoki oraz eksportować dane do programu Excel, Power BI lub link możliwego do udostępniania. Obszar **typowe zapytania** na pulpicie nawigacyjnym zawiera kilka przydatnych zapytań, których można użyć jako punktu wyjścia do tworzenia własnych zapytań i raportów. 
 
 ## <a name="alerts"></a>Alerty
 
-Network Performance Monitor używa funkcji alertów [Azure monitor](../platform/alerts-overview.md).
+Network Performance Monitor używa funkcji alertów [Azure monitor](../alerts/alerts-overview.md).
 
-Oznacza to, że wszystkie powiadomienia są zarządzane przy użyciu [grup akcji](../platform/action-groups.md).  
+Oznacza to, że wszystkie powiadomienia są zarządzane przy użyciu [grup akcji](../alerts/action-groups.md).  
 
 Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Log Analytics: 
 1. Zobaczysz link, który przekieruje Cię do Azure Portal. Kliknij go, aby uzyskać dostęp do portalu.
@@ -283,7 +283,7 @@ Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Log Analytic
 Jeśli jesteś użytkownikiem NPM, tworzysz alert za pośrednictwem Azure Portal:  
 1. Możesz wybrać opcję bezpośredniego wprowadzania wiadomości e-mail lub można utworzyć alerty za pomocą grup akcji.
 2. W przypadku wybrania bezpośredniej wiadomości e-mail zostanie utworzona grupa akcji z grupą **akcji poczty E-mail npm** , a identyfikator e-mail zostanie dodany do tej grupy akcji.
-3. Jeśli zdecydujesz się użyć grup akcji, musisz wybrać wcześniej utworzoną grupę akcji. W [tym miejscu](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) możesz dowiedzieć się, jak utworzyć grupę akcji. 
+3. Jeśli zdecydujesz się użyć grup akcji, musisz wybrać wcześniej utworzoną grupę akcji. W [tym miejscu](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) możesz dowiedzieć się, jak utworzyć grupę akcji. 
 4. Po pomyślnym utworzeniu alertu możesz użyć linku Zarządzanie alertami w celu zarządzania alertami. 
 
 Za każdym razem, gdy tworzysz alert, NPM tworzy regułę alertu dziennika na podstawie zapytania w Azure Monitor. To zapytanie jest domyślnie wyzwalane co 5 minut. Usługa Azure monitor nie jest naliczana w przypadku pierwszych utworzonych reguł alertów dziennika 250, a wszystkie reguły alertów przekraczające limit alertów dziennika 250 są rozliczane zgodnie z [cennikiem na stronie Azure monitor cenowej](https://azure.microsoft.com/pricing/details/monitor/).

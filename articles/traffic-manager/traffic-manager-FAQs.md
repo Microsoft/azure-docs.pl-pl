@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184581"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576682"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
 
@@ -347,7 +347,7 @@ Azure Resource Manager wymaga, aby wszystkie grupy zasobów określiły lokaliza
 
 Bieżący stan monitorowania każdego punktu końcowego, oprócz ogólnego profilu, jest wyświetlany w Azure Portal. Te informacje są również dostępne za pośrednictwem [interfejsu API REST](/rest/api/trafficmanager/)monitora ruchu, [poleceń cmdlet programu PowerShell](/powershell/module/az.trafficmanager)i [międzyplatformowego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-classic-cli).
 
-Możesz również użyć Azure Monitor do śledzenia kondycji punktów końcowych i wyświetlania wizualnej reprezentacji. Aby uzyskać więcej informacji na temat korzystania z Azure Monitor, zobacz [dokumentację dotyczącą monitorowania platformy Azure](../azure-monitor/platform/data-platform.md).
+Możesz również użyć Azure Monitor do śledzenia kondycji punktów końcowych i wyświetlania wizualnej reprezentacji. Aby uzyskać więcej informacji na temat korzystania z Azure Monitor, zobacz [dokumentację dotyczącą monitorowania platformy Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Czy mogę monitorować punkty końcowe HTTPS?
 
@@ -458,7 +458,7 @@ Liczba Traffic Manager kontroli kondycji docierających do punktu końcowego zal
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Jak mogę otrzymywać powiadomienia, jeśli jeden z punktów końcowych ulegnie awarii?
 
-Jedną z metryk dostarczonych przez Traffic Manager jest stan kondycji punktów końcowych w profilu. Można to zobaczyć jako zagregowane wszystkie punkty końcowe w profilu (na przykład 75% punktów końcowych jest w dobrej kondycji) lub, na poziomie na punkt końcowy. Metryki Traffic Manager są udostępniane za pomocą Azure Monitor i można korzystać z [funkcji alertów](../azure-monitor/platform/alerts-metric.md) , aby otrzymywać powiadomienia o zmianie stanu kondycji punktu końcowego. Aby uzyskać więcej informacji, zobacz [Traffic Manager metryki i alerty](traffic-manager-metrics-alerts.md).  
+Jedną z metryk dostarczonych przez Traffic Manager jest stan kondycji punktów końcowych w profilu. Można to zobaczyć jako zagregowane wszystkie punkty końcowe w profilu (na przykład 75% punktów końcowych jest w dobrej kondycji) lub, na poziomie na punkt końcowy. Metryki Traffic Manager są udostępniane za pomocą Azure Monitor i można korzystać z [funkcji alertów](../azure-monitor/alerts/alerts-metric.md) , aby otrzymywać powiadomienia o zmianie stanu kondycji punktu końcowego. Aby uzyskać więcej informacji, zobacz [Traffic Manager metryki i alerty](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager zagnieżdżonych profilów
 

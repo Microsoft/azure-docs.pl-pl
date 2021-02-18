@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633182"
 ---
 # <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
 
@@ -200,7 +200,7 @@ Jeśli zobaczysz komunikat "tożsamość modułu nie istnieje dla tego modułu",
 Aby przejrzeć i edytować sznurek modułu:
 
 1. Jeśli jeszcze nie zainstalowano, zainstaluj [rozszerzenie narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) dla Visual Studio Code.
-1. W **Eksploratorze**rozwiń węzeł **Azure IoT Hub**, a następnie rozwiń urządzenie przy użyciu modułu, który chcesz monitorować.
+1. W **Eksploratorze** rozwiń węzeł **Azure IoT Hub**, a następnie rozwiń urządzenie przy użyciu modułu, który chcesz monitorować.
 1. Kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Edytuj sznurek modułu**. Tymczasowy plik sznurka modułu jest pobierany na komputer i wyświetlany w Visual Studio Code.
 
   ![Pobierz sznurek modułu do edycji w Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
@@ -213,7 +213,7 @@ Jeśli wprowadzisz zmiany, wybierz pozycję **Aktualizuj sznurek modułu** powy�
 
 Aby sprawdzić, czy IoT Edge jest uruchomiona, użyj polecenia [AZ IoT Hub Invoke-module-Method](how-to-edgeagent-direct-method.md#ping) , aby wysłać polecenie ping do agenta IoT Edge.
 
-Polecenie [AZ IoT Hub module-sznuring](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) udostępnia następujące polecenia:
+Polecenie [AZ IoT Hub module-sznuring](/cli/azure/ext/azure-iot/iot/hub/module-twin) udostępnia następujące polecenia:
 
 * **AZ IoT Hub module-sznury show** -show a module — definicja
 * **AZ IoT Hub module-splot Update** -Update a module — definicja

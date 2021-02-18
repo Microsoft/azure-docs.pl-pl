@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a478d9c620219a768983570897715f924565a80f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736671"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594301"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Samouczek: monitorowanie zmian i aktualizowanie maszyny wirtualnej z systemem Windows na platformie Azure
 
 Dzięki platformie Azure [Change Tracking](../../automation/change-tracking/overview.md) i [Update Management](../../automation/update-management/overview.md)można łatwo identyfikować zmiany w maszynach wirtualnych z systemem Windows na platformie Azure oraz zarządzać aktualizacjami systemu operacyjnego dla tych maszyn wirtualnych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Zarządzaj aktualizacjami systemu Windows.
@@ -76,7 +76,7 @@ Aby włączyć Update Management dla maszyny wirtualnej:
 
 Sprawdzanie poprawności jest wykonywane, aby określić, czy Update Management jest włączona dla tej maszyny wirtualnej. Sprawdzanie poprawności obejmuje sprawdzanie Log Analytics obszaru roboczego, dla połączonego konta usługi Automation oraz tego, czy rozwiązanie znajduje się w obszarze roboczym.
 
-Obszar roboczy [log Analytics](../../azure-monitor/log-query/log-query-overview.md) służy do zbierania danych generowanych przez funkcje i usługi, takie jak Update Management. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+Obszar roboczy [log Analytics](../../azure-monitor/logs/log-query-overview.md) służy do zbierania danych generowanych przez funkcje i usługi, takie jak Update Management. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
 Aby wykonać dodatkowe akcje na maszynach wirtualnych, które wymagają aktualizacji, można użyć Azure Automation do uruchamiania elementów Runbook na maszynach wirtualnych. Takie czynności obejmują pobieranie lub stosowanie aktualizacji.
 
@@ -86,7 +86,7 @@ W oknie **włączanie Update Management** wybierz obszar roboczy log Analytics i
 
 Podczas dołączania automatycznie dodawane są następujące wymagania wstępne, które nie są spełnione:
 
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) obszar roboczy
+* [Log Analytics](../../azure-monitor/logs/log-query-overview.md) obszar roboczy
 * [Automatyzacja](../../automation/index.yml)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md), który jest włączony na maszynie wirtualnej
 
@@ -113,7 +113,7 @@ Aby zaplanować nowe wdrożenie aktualizacji dla maszyny wirtualnej, wybierz poz
 | **Nazwa** |Wprowadź unikatową nazwę identyfikującą wdrożenie aktualizacji. |
 |**System operacyjny**| Wybierz system **Linux** lub **Windows**.|
 | **Grupy do zaktualizowania** |W przypadku maszyn wirtualnych hostowanych na platformie Azure Zdefiniuj zapytanie na podstawie kombinacji subskrypcji, grup zasobów, lokalizacji i tagów. To zapytanie tworzy dynamiczną grupę maszyn wirtualnych hostowanych na platformie Azure do uwzględnienia we wdrożeniu. </br></br>W przypadku maszyn wirtualnych, które nie są hostowane na platformie Azure, wybierz istniejące zapisane wyszukiwanie. Korzystając z tego wyszukiwania, możesz wybrać grupę tych maszyn wirtualnych, które mają zostać uwzględnione we wdrożeniu. </br></br> Aby dowiedzieć się więcej, zobacz [grupy dynamiczne](../../automation/update-management/configure-groups.md).|
-| **Maszyny do zaktualizowania** |Wybierz pozycję **zapisane wyszukiwanie**, **zaimportowana Grupa** lub **maszyny**.<br/><br/>W przypadku wybrania opcji **maszyny** można wybrać poszczególne komputery z listy rozwijanej. Gotowość poszczególnych maszyn jest pokazywana w kolumnie **Aktualizuj gotowość agenta** tabeli.</br></br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/platform/computer-groups.md) |
+| **Maszyny do zaktualizowania** |Wybierz pozycję **zapisane wyszukiwanie**, **zaimportowana Grupa** lub **maszyny**.<br/><br/>W przypadku wybrania opcji **maszyny** można wybrać poszczególne komputery z listy rozwijanej. Gotowość poszczególnych maszyn jest pokazywana w kolumnie **Aktualizuj gotowość agenta** tabeli.</br></br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../../azure-monitor/logs/computer-groups.md) |
 |**Klasyfikacje aktualizacji**|Wybierz wszystkie niezbędne klasyfikacje aktualizacji.|
 |**Uwzględnij/Wyklucz aktualizacje**|Wybierz tę opcję, aby otworzyć okienko **Uwzględnij/wykluczania** . Aktualizacje do uwzględnienia, które mają zostać wykluczone, znajdują się na oddzielnych kartach. Aby uzyskać więcej informacji na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Ustawienia harmonogramu**|Wybierz godzinę do uruchomienia i wybierz **jeden raz** lub **cyklicznie**.|

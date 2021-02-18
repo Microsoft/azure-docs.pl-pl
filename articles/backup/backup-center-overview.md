@@ -3,12 +3,12 @@ title: Omówienie centrum kopii zapasowych
 description: Ten artykuł zawiera omówienie centrum kopii zapasowych na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592022"
 ---
 # <a name="overview-of-backup-center-preview"></a>Omówienie centrum kopii zapasowych (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ Niektóre z najważniejszych zalet centrum kopii zapasowych obejmują:
 
 * **Pojedyncze okienko szkła do zarządzania kopiami zapasowymi** — centrum kopii zapasowych jest przeznaczone do prawidłowego działania w ramach dużego i rozproszonego środowiska platformy Azure. Możesz użyć centrum usługi Backup do wydajnego zarządzania kopiami zapasowymi obejmującymi wiele typów obciążeń, magazynów, subskrypcje, regiony i dzierżawy [usługi Azure Lighthouse](../lighthouse/overview.md) .
 * **Zarządzanie zorientowane na źródła danych** — centrum kopii zapasowych udostępnia widoki i filtry, które są wyśrodkowane w źródłach danych, których kopię zapasową utworzono Dzięki temu Właściciel zasobu lub administrator kopii zapasowej może monitorować i obsługiwać kopie zapasowe elementów bez potrzeby skoncentrowania się na tym magazynie, w którym jest tworzona kopia zapasowa elementu. Kluczową cechą tego projektu jest możliwość filtrowania widoków według właściwości specyficznych dla źródła danych, takich jak subskrypcja źródła danych, Grupa zasobów źródła danych i Tagi DataSource. Na przykład jeśli organizacja korzysta z rozwiązania do przypisywania różnych tagów do maszyn wirtualnych należących do różnych działów, można użyć centrum kopii zapasowych do filtrowania informacji o kopii zapasowej na podstawie tagów źródłowych maszyn wirtualnych, których kopię zapasową nie trzeba skupić na tagu magazynu.
-* **Połączone środowiska** — centrum kopii zapasowych zapewnia natywne integracje z istniejącymi usługami platformy Azure, które umożliwiają zarządzanie na dużą skalę. Na przykład centrum kopii zapasowych używa środowiska [Azure Policy](../governance/policy/overview.md) , aby ułatwić zarządzanie kopiami zapasowymi. Używa również [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md) i [dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) , aby ułatwić Wyświetlanie szczegółowych raportów dotyczących kopii zapasowych. Dlatego nie musisz uczyć się żadnych nowych zasad, aby korzystać z różnych funkcji oferowanych przez centrum kopii zapasowych.
+* **Połączone środowiska** — centrum kopii zapasowych zapewnia natywne integracje z istniejącymi usługami platformy Azure, które umożliwiają zarządzanie na dużą skalę. Na przykład centrum kopii zapasowych używa środowiska [Azure Policy](../governance/policy/overview.md) , aby ułatwić zarządzanie kopiami zapasowymi. Używa również [skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md) i [dzienników Azure monitor](../azure-monitor/logs/data-platform-logs.md) , aby ułatwić Wyświetlanie szczegółowych raportów dotyczących kopii zapasowych. Dlatego nie musisz uczyć się żadnych nowych zasad, aby korzystać z różnych funkcji oferowanych przez centrum kopii zapasowych.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 

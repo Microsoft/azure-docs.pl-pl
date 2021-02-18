@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917747"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592603"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Rozwiązywanie problemów z używaniem Azure Policy
 
@@ -87,7 +87,7 @@ Jeśli nadal masz problem z zduplikowaną i dostosowaną definicją zasad lub de
 
 #### <a name="issue"></a>Problem
 
-Zasób, którego oczekujesz, Azure Policy na działanie nie działa, a w [dzienniku aktywności platformy Azure](../../../azure-monitor/platform/platform-logs-overview.md)nie ma wpisu.
+Zasób, którego oczekujesz, Azure Policy na działanie nie działa, a w [dzienniku aktywności platformy Azure](../../../azure-monitor/essentials/platform-logs-overview.md)nie ma wpisu.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -123,7 +123,7 @@ Przypisanie zasad do zakresu nowego lub zaktualizowanego zasobu spełnia kryteri
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Komunikat o błędzie z przypisania zasad Odmów obejmuje definicję zasad i identyfikatory przypisań zasad. Jeśli informacje o błędzie w wiadomości nie zostaną pominięte, są również dostępne w [dzienniku aktywności](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Korzystając z tych informacji, można uzyskać więcej szczegółowych informacji, aby zrozumieć ograniczenia zasobów i dostosować właściwości zasobów w żądaniu w celu dopasowania do wartości dozwolonych.
+Komunikat o błędzie z przypisania zasad Odmów obejmuje definicję zasad i identyfikatory przypisań zasad. Jeśli informacje o błędzie w wiadomości nie zostaną pominięte, są również dostępne w [dzienniku aktywności](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Korzystając z tych informacji, można uzyskać więcej szczegółowych informacji, aby zrozumieć ograniczenia zasobów i dostosować właściwości zasobów w żądaniu w celu dopasowania do wartości dozwolonych.
 
 ## <a name="template-errors"></a>Błędy szablonów
 

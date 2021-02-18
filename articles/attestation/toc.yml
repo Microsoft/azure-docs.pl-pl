@@ -65,3 +65,6 @@
       href: troubleshoot-guide.md
     - name: Protokół zaświadczania modułu TPM i VBS
       href: virtualization-based-security-protocol.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

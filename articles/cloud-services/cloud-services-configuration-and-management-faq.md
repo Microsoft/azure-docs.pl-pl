@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742594"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578214"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemy związane z konfiguracją i zarządzaniem w usłudze Azure Cloud Services (wersja klasyczna): często zadawane pytania
 
@@ -240,9 +240,9 @@ Automatyczne skalowanie na podstawie metryk pamięci dla Cloud Services nie jest
 
 Aby obejść ten problem, można użyć Application Insights. Automatyczne skalowanie obsługuje Application Insights jako źródło metryk i może skalować liczbę wystąpień roli na podstawie metryki gościa, na przykład "pamięć".  Musisz skonfigurować Application Insights w pliku pakietu projektu usługi w chmurze (*. cspkg) i włączyć rozszerzenie Diagnostyka Azure w usłudze w celu zaimplementowania tego feat.
 
-Aby uzyskać więcej informacji na temat używania metryki niestandardowej za pośrednictwem Application Insights do konfigurowania automatycznego skalowania na Cloud Services, zobacz Wprowadzenie do [automatycznego skalowania według metryki niestandardowej na platformie Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+Aby uzyskać więcej informacji na temat używania metryki niestandardowej za pośrednictwem Application Insights do konfigurowania automatycznego skalowania na Cloud Services, zobacz Wprowadzenie do [automatycznego skalowania według metryki niestandardowej na platformie Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-Aby uzyskać więcej informacji na temat integrowania Diagnostyka Azure z Application Insights dla Cloud Services, zobacz [wysyłanie danych diagnostycznych usługi w chmurze, maszyny wirtualnej lub Service Fabric do Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Aby uzyskać więcej informacji na temat integrowania Diagnostyka Azure z Application Insights dla Cloud Services, zobacz [wysyłanie danych diagnostycznych usługi w chmurze, maszyny wirtualnej lub Service Fabric do Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 Aby uzyskać więcej informacji na temat włączania Application Insights dla Cloud Services, zobacz [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 

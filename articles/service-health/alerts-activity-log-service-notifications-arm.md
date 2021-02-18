@@ -4,12 +4,12 @@ description: Otrzymuj powiadomienia za pośrednictwem wiadomości SMS, poczty e-
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594950"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Szybki Start: tworzenie alertów dziennika aktywności dla powiadomień usługi przy użyciu szablonu ARM
 
@@ -17,7 +17,7 @@ W tym artykule opisano sposób konfigurowania alertów dziennika aktywności dla
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Powiadomienia o kondycji usługi są przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md). W przypadku potencjalnie dużej ilości informacji przechowywanych w dzienniku aktywności istnieje oddzielny interfejs użytkownika ułatwiający wyświetlanie i Konfigurowanie alertów dotyczących powiadomień o kondycji usługi.
+Powiadomienia o kondycji usługi są przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md). W przypadku potencjalnie dużej ilości informacji przechowywanych w dzienniku aktywności istnieje oddzielny interfejs użytkownika ułatwiający wyświetlanie i Konfigurowanie alertów dotyczących powiadomień o kondycji usługi.
 
 Możesz otrzymać Alert, gdy platforma Azure wyśle powiadomienia o kondycji usługi do subskrypcji platformy Azure. Alert można skonfigurować na podstawie:
 
@@ -34,7 +34,7 @@ Możesz również skonfigurować osobę, do której ma być wysyłany Alert:
 - Wybierz istniejącą grupę akcji.
 - Utwórz nową grupę akcji (która może być używana w przyszłych alertach).
 
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Dowiedz się, jak [skonfigurować mobilne powiadomienia wypychane dla Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problemami](service-health-alert-webhook-guide.md).
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](service-notifications.md).
-- Dowiedz się więcej na temat [ograniczania liczby powiadomień](../azure-monitor/platform/alerts-rate-limiting.md).
-- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Dowiedz się więcej na temat [ograniczania liczby powiadomień](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/alerts/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5141c7fcfe1128574145930548f41731529c2ad8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012465"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572965"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -26,7 +26,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 ![Pulpit nawigacyjny monitorowania zadania Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Metryki dostępne dla Stream Analytics
-| Metryka                 | Definicja                               |
+| Metric                 | Definicja                               |
 | ---------------------- | ---------------------------------------- |
 | Zaległe zdarzenia wejściowe       | Liczba zarejestrowanych zdarzeń wejściowych. Wartość różna od zera dla tej metryki oznacza, że zadanie nie jest w stanie zachować liczby zdarzeń przychodzących. Jeśli ta wartość jest powoli zwiększana lub konsekwentnie różna od zera, należy przeskalować zadanie. Więcej informacji można znaleźć w [opisie i dostosowaniu jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
 | Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Drop", aby porzucić zdarzenia, które napotykają ten scenariusz. |
@@ -48,7 +48,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Dostosowywanie monitorowania w Azure Portal
-Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniach edycji wykresu. Aby uzyskać szczegółowe informacje, zobacz [How to Dostosowywanie monitorowania](../azure-monitor/platform/data-platform.md).
+Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniach edycji wykresu. Aby uzyskać szczegółowe informacje, zobacz [How to Dostosowywanie monitorowania](../azure-monitor/data-platform.md).
 
   ![Wykres Stream Analytics czasu monitora zapytania](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 

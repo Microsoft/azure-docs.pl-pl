@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0003384676f420c5ece043b1eb6120ed8ee2435
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937291"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574900"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Zapobiegaj Anonimowemu dostępowi do odczytu do kontenerów i obiektów BLOB
 
@@ -35,7 +35,7 @@ Aby zrozumieć, jak nie zezwalać na dostęp publiczny do aplikacji klienckich, 
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitoruj anonimowe żądania za pomocą Eksplorator metryk
 
-Aby śledzić anonimowe żądania na koncie magazynu, Użyj usługi Azure Eksplorator metryk w Azure Portal. Aby uzyskać więcej informacji na temat Eksplorator metryk, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md).
+Aby śledzić anonimowe żądania na koncie magazynu, Użyj usługi Azure Eksplorator metryk w Azure Portal. Aby uzyskać więcej informacji na temat Eksplorator metryk, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Wykonaj następujące kroki, aby utworzyć metrykę, która śledzi żądania anonimowe:
 
@@ -61,7 +61,7 @@ Po skonfigurowaniu metryki anonimowe żądania pojawią się na wykresie. Na pon
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Zrzut ekranu przedstawiający zagregowane żądania anonimowe względem magazynu obiektów BLOB":::
 
-Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o wprowadzeniu pewnej liczby żądań anonimowych do konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o wprowadzeniu pewnej liczby żądań anonimowych do konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-containers-receiving-anonymous-requests"></a>Analizuj dzienniki, aby identyfikować kontenery otrzymujące anonimowe żądania
 
@@ -69,7 +69,7 @@ Dzienniki usługi Azure Storage przechwytują szczegółowe informacje o żądan
 
 Aby rejestrować żądania na koncie usługi Azure Storage w celu ocenienia żądań anonimowych, możesz użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](./monitor-blob-storage.md).
 
-Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 > [!NOTE]
 > Wersja zapoznawcza usługi Azure Storage w Azure Monitor jest obsługiwana tylko w chmurze publicznej platformy Azure. Chmury rządowe nie obsługują rejestrowania w usłudze Azure Storage za pomocą Azure Monitor.
@@ -79,7 +79,7 @@ Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapy
 Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizować je za pomocą usługi Azure Log Analytics, należy najpierw utworzyć ustawienie diagnostyczne wskazujące typy żądań i usługi magazynu, dla których mają być rejestrowane dane. Aby utworzyć ustawienie diagnostyczne w Azure Portal, wykonaj następujące kroki:
 
 1. Zarejestruj się w [usłudze Azure Storage w wersji zapoznawczej Azure monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 1. Wybierz pozycję **obiekt BLOB** , aby rejestrować żądania skierowane do magazynu obiektów BLOB.
@@ -90,7 +90,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 
     :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
-Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure Storage w Azure Monitor, zobacz [dzienniki zasobów (wersja zapoznawcza)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -106,7 +106,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-Możesz również skonfigurować regułę alertu na podstawie tego zapytania, aby powiadomić o anonimowych żądaniach. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-log.md).
+Możesz również skonfigurować regułę alertu na podstawie tego zapytania, aby powiadomić o anonimowych żądaniach. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-anonymous-public-access"></a>Koryguj anonimowy dostęp publiczny
 
@@ -290,13 +290,13 @@ Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby u
 
 ## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Uprawnienia do zezwalania lub niezezwalania na dostęp publiczny
 
-Aby ustawić właściwość **AllowBlobPublicAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+Aby ustawić właściwość **AllowBlobPublicAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, to: **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/** Action. Role wbudowane z tą akcją obejmują:
 
 - Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak **firmę Microsoft. Storage/storageAccounts/ListKeys/Action**, która udziela dostępu do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
 
 Przypisania ról muszą być ograniczone do poziomu konta magazynu lub wyższe, aby zezwolić użytkownikowi na dostęp do konta magazynu lub go nie zezwalać. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
 

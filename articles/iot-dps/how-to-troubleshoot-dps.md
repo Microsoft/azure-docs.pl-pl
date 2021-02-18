@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2d27c4eb1ea4586e0f2eac48930d86217052b2d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585444"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Rozwiązywanie problemów z usługą Azure IoT Hub Device Provisioning Service
 
@@ -44,7 +44,7 @@ Poniższa procedura opisuje sposób wyświetlania i konfigurowania alertu dotycz
 
 7. Wybierz pozycję **Dodaj warunek**, a następnie wybierz żądaną metrykę i próg, postępując zgodnie z poniższymi instrukcjami.
 
-Aby dowiedzieć się więcej, zobacz [co to są klasyczne alerty w Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+Aby dowiedzieć się więcej, zobacz [co to są klasyczne alerty w Microsoft Azure?](../azure-monitor/alerts/alerts-overview.md)
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Wyświetlanie i rozwiązywanie błędów przy użyciu usługi log Analytics
 

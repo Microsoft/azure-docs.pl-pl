@@ -3,12 +3,12 @@ title: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracj
 description: Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu natywnych narzędzi zabezpieczeń platformy Azure z poziomu pulpitu nawigacyjnego Azure Security Center.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516366"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578261"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure z integracją Azure Security Center
 
@@ -50,7 +50,7 @@ Obszar roboczy Log Analytics można skonfigurować przy użyciu funkcji wskaźni
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
-Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics przy użyciu Azure Portal](../azure-monitor/learn/quick-create-workspace.md). 
+Do zbierania danych z różnych źródeł potrzebny jest obszar roboczy Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics przy użyciu Azure Portal](../azure-monitor/logs/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Wdrażanie Security Center i Konfigurowanie maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -243,5 +243,5 @@ Możesz tworzyć zapytania lub użyć dostępnego wstępnie zdefiniowanego zapyt
 Teraz, gdy zawarto ochronę maszyn wirtualnych rozwiązań VMware platformy Azure, warto zapoznać się z tematem:
 
 - Korzystanie z [pulpitu nawigacyjnego usługi Azure Defender](../security-center/azure-defender-dashboard.md).
-- [Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik](../azure-monitor/learn/quick-create-workspace.md).
+- [Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik](../azure-monitor/logs/quick-create-workspace.md).
 - [Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure](lifecycle-management-of-azure-vmware-solution-vms.md).

@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31a411cbcecab8192643f86b6b54d09ac03e7f45
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017257"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581717"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu SDK Firebase w wersji 1.0.0-zestawu
 
@@ -37,7 +37,7 @@ Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure
 Potrzebne są również następujące elementy:
 
 - Zalecana jest Najnowsza wersja [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797) .
-- Minimalna obsługa to poziom interfejsu API 16.
+- Minimalna obsługa to poziom interfejsu API 19.
 
 ## <a name="create-an-android-studio-project"></a>Tworzenie projektu Android Studio
 
@@ -106,7 +106,7 @@ Pierwszym krokiem jest utworzenie projektu w Android Studio:
 
    4. Wybierz istniejącą grupę zasobów w **grupie zasobów** lub Utwórz nową.
 
-   5. Wybierz pozycję **Utwórz**.
+   5. Wybierz przycisk **Utwórz**.
 
       :::image type="content" source="media/android-sdk/create-hub.png" alt-text="Utwórz centrum":::
 
@@ -162,12 +162,8 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą Firebas
 1. W pliku **Build. Gradle** dla aplikacji Dodaj następujące wiersze w sekcji zależności:
 
    ```gradle
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.0.0-preview1@aar'
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:1.1.4'
    implementation 'androidx.appcompat:appcompat:1.0.0'
-
-   implementation 'com.google.firebase:firebase-messaging:20.1.5'
-
-   implementation 'com.android.volley:volley:1.1.1'
    ```
 
 2. Dodaj następujące repozytorium po sekcji zależności:
@@ -198,18 +194,23 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą Firebas
    public class CustomNotificationListener implements NotificationHubListener {
 
       @override
+      public void onNotificationReceived(Context context, RemoteMessage message) {
+    
+         /* The following notification properties are available. */
+         Notification notification = message.getNotification();
+         String title = notification.getTitle();
+         String body = notification.getBody();
+         Map<String, String> data = message.getData();
+    
+         if (message != null) {
+            Log.d(TAG, "Message Notification Title: " + title);
+            Log.d(TAG, "Message Notification Body: " + message);
+         }
 
-      public void onNotificationReceived(Context context, NotificationMessage message) {
-
-      /* The following notification properties are available. */
-
-      String title = message.getTitle();
-      String message = message.getMessage();
-      Map<String, String> data = message.getData();
-
-      if (message != null) {
-         Log.d(TAG, "Message Notification Title: " + title);
-         Log.d(TAG, "Message Notification Body: " + message);
+         if (data != null) {
+             for (Map.Entry<String, String> entry : data.entrySet()) {
+                 Log.d(TAG, "key, " + entry.getKey() + " value " + entry.getValue());
+             }
          }
       }
    }

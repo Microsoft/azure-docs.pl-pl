@@ -66,8 +66,8 @@
               href: build-enrollment-app.md
 - name: Dokumentacja
   items:
-    - name: Interfejs API REST
-      href: 'https://docs.microsoft.com/rest/api/face/'
+    - name: Interfejs API rozpoznawania twarzy
+      href: APIReference.md
     - name: Zestawy SDK
       items:
         - name: .NET

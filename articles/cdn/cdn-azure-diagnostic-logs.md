@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352120"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573221"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Dzienniki diagnostyczne — Content Delivery Network platformy Azure
 
@@ -78,7 +78,7 @@ Aby użyć konta magazynu do przechowywania dzienników, wykonaj następujące c
 Aby użyć Log Analytics dzienników, wykonaj następujące kroki:
 
 >[!NOTE] 
->Do wykonania tych kroków jest wymagany obszar roboczy usługi log Analytics. Aby uzyskać więcej informacji, zapoznaj się z tematem: **[Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/learn/quick-create-workspace.md)** .
+>Do wykonania tych kroków jest wymagany obszar roboczy usługi log Analytics. Aby uzyskać więcej informacji, zapoznaj się z tematem: **[Tworzenie obszaru roboczego log Analytics w Azure Portal](../azure-monitor/logs/quick-create-workspace.md)** .
     
 1. W obszarze **Nazwa ustawienia diagnostycznego** wprowadź nazwę ustawień dziennika diagnostycznego.
 
@@ -210,7 +210,7 @@ Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i 
 |Nazwa grupy zasobów |Nazwa grupy zasobów, do której należą zasoby sieci CDN.|
 |Profile Name (Nazwa profilu) |Nazwa profilu CDN|
 |Nazwa punktu końcowego |Nazwa punktu końcowego usługi CDN|
-|Rok|  Czwarta reprezentacja roku, na przykład 2017|
+|Year (Rok)|  Czwarta reprezentacja roku, na przykład 2017|
 |Month (Miesiąc)| Dwucyfrowa reprezentacja numeru miesiąca. 01 = styczeń... 12 = grudzień|
 |Dzień|   Dwucyfrowa reprezentacja dnia miesiąca|
 |PT1H.jsna| Rzeczywisty plik JSON, w którym są przechowywane dane analizy|
@@ -367,9 +367,9 @@ Przykładowe właściwości:
 
 ```
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dzienniki diagnostyczne platformy Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Dzienniki diagnostyczne platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](./cdn-analyze-usage-patterns.md)
-* [Dzienniki usługi Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Dzienniki usługi Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Interfejs API REST usługi Azure Log Analytics](/rest/api/loganalytics)

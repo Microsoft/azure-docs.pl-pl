@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026458"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577079"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for PostgreSQL-Citus
 
@@ -26,11 +26,11 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywoływanie elementu webhook.
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Witryna Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Interfejs wiersza polecenia platformy Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu na podstawie metryki z Azure Portal
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Tworzenie reguły alertu dotyczącej metryki z poziomu witryny Azure Portal
 1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for PostgreSQL, który chcesz monitorować.
 
 2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** , jak pokazano:
@@ -109,5 +109,5 @@ Ponieważ dysk zbliża się do limitu miejsca, wypróbuj te metody, aby uzyskać
 Monitorowanie użycia procesora CPU jest przydatne do ustanowienia podstawy wydajności. Na przykład można zauważyć, że użycie procesora CPU jest zwykle około 40-60%. Jeśli użycie procesora nagle rozpocznie się w pobliżu 95%, można rozpoznać anomalię. Użycie procesora CPU może odzwierciedlać wzrost organiczny, ale może również ujawniać nieujawnione zapytanie. Podczas tworzenia alertu dotyczącego procesora CPU Ustaw długi stopień szczegółowości agregacji, aby przechwycić długotrwałe wzrosty i zignorować liczby chwilowe.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/platform/alerts-webhooks.md).
-* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/platform/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.
+* Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../azure-monitor/alerts/alerts-webhooks.md).
+* Zapoznaj się z [omówieniem kolekcji metryk](../azure-monitor/data-platform.md) , aby upewnić się, że usługa jest dostępna i odpowiada.

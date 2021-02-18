@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577384"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
 
@@ -91,7 +91,7 @@ Jeśli na urządzeniu nie widzisz powiadomień wypychanych, istnieją trzy miejs
 
 Poniżej znajduje się pierwsze miejsce, w którym można porzucić powiadomienie (usługa Azure Notification Hubs nie zaakceptował powiadomień z usług Azure Communications Services). W przypadku innych dwóch miejsc należy zapoznać się z tematem [diagnozowanie porzuconych powiadomień na platformie Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-Jednym ze sposobów, aby sprawdzić, czy zasób usług komunikacyjnych wysyła powiadomienia do usługi Azure Notification Hubs polega na wyszukiwaniu `incoming messages` metryki z połączonych [metryk centrum powiadomień platformy Azure](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
+Jednym ze sposobów, aby sprawdzić, czy zasób usług komunikacyjnych wysyła powiadomienia do usługi Azure Notification Hubs polega na wyszukiwaniu `incoming messages` metryki z połączonych [metryk centrum powiadomień platformy Azure](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs).
 
 Poniżej przedstawiono kilka typowych błędów konfiguracji, które mogą być przyczyną, dlaczego usługa Azure Notification Hub nie akceptuje powiadomień z zasobu usług komunikacyjnych.
 

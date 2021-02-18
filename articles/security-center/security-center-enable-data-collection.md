@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813619"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596165"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -38,7 +38,7 @@ Dane są zbierane przy użyciu:
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stan wydania:          | **Funkcja**: obsługa autoaprowizacji jest ogólnie dostępna (ga)<br>**Agent i rozszerzenia**: usługa log Analytics Agent dla maszyn wirtualnych platformy Azure jest w wersji zapoznawczej, a dodatek zasad dla Kubernetes został rozbudowany                |
 | Wpisaną                | Bezpłatna                                                                                                                                                                                                                         |
-| Obsługiwane miejsca docelowe: | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure<br>![Nie](./media/icons/no-icon.png) Maszyny usługi Azure Arc<br>![Nie](./media/icons/no-icon.png) Kubernetes węzły<br>![Nie](./media/icons/no-icon.png) Usługa Virtual Machine Scale Sets |
+| Obsługiwane miejsca docelowe: | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure<br>![Nie](./media/icons/no-icon.png) Maszyny usługi Azure Arc<br>![Nie](./media/icons/no-icon.png) Kubernetes węzły<br>![Nie](./media/icons/no-icon.png) Virtual Machine Scale Sets |
 | Połączeń                 | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, Chiny gov, inne gov                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
@@ -83,7 +83,7 @@ Aby włączyć funkcję autoaprowizacji agenta Log Analytics:
 
     - **Łączenie maszyn wirtualnych platformy Azure z innym obszarem roboczym** — z listy rozwijanej wybierz obszar roboczy, w którym mają być przechowywane zebrane dane. Lista rozwijana zawiera wszystkie obszary robocze we wszystkich Twoich subskrypcjach. Za pomocą tej opcji można zbierać dane z maszyn wirtualnych działających w różnych subskrypcjach i przechować je w wybranym obszarze roboczym.  
 
-        Jeśli masz już istniejący obszar roboczy Log Analytics, możesz chcieć użyć tego samego obszaru roboczego (wymagane są uprawnienia do odczytu i zapisu w obszarze roboczym). Ta opcja jest przydatna, jeśli używasz scentralizowanego obszaru roboczego w organizacji i chcesz używać go do zbierania danych zabezpieczeń. Dowiedz się więcej w temacie [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](../azure-monitor/platform/manage-access.md).
+        Jeśli masz już istniejący obszar roboczy Log Analytics, możesz chcieć użyć tego samego obszaru roboczego (wymagane są uprawnienia do odczytu i zapisu w obszarze roboczym). Ta opcja jest przydatna, jeśli używasz scentralizowanego obszaru roboczego w organizacji i chcesz używać go do zbierania danych zabezpieczeń. Dowiedz się więcej w temacie [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](../azure-monitor/logs/manage-access.md).
 
         Jeśli w wybranym obszarze roboczym jest już włączone rozwiązanie Security lub SecurityCenterFree, Cennik zostanie ustawiony automatycznie. Jeśli nie, Zainstaluj rozwiązanie Security Center w obszarze roboczym:
 
@@ -218,7 +218,7 @@ Aby ręcznie zainstalować agenta Log Analytics:
    - [Zainstaluj agenta Log Analytics dla systemu Windows](../virtual-machines/extensions/oms-windows.md)
    - [Zainstaluj agenta Log Analytics dla systemu Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. Aby wdrożyć agentów na istniejących maszynach wirtualnych, postępuj zgodnie z instrukcjami podanymi w temacie [zbieranie danych dotyczących platformy Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md) (sekcja **zbieranie danych dotyczących zdarzeń i wydajności** jest opcjonalne).
+1. Aby wdrożyć agentów na istniejących maszynach wirtualnych, postępuj zgodnie z instrukcjami podanymi w temacie [zbieranie danych dotyczących platformy Azure Virtual Machines](../azure-monitor/vm/quick-collect-azurevm.md) (sekcja **zbieranie danych dotyczących zdarzeń i wydajności** jest opcjonalne).
 
 1. Aby wdrożyć agentów przy użyciu programu PowerShell, Skorzystaj z instrukcji z dokumentacji dotyczącej maszyn wirtualnych:
 

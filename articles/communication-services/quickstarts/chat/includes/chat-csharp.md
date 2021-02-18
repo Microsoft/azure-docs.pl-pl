@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 04e658e3107ac0c9622ca1601eb93b01b9986fef
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816744"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645528"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -46,7 +46,7 @@ dotnet build
 Zainstaluj bibliotekę kliencką rozmowy komunikacyjnej platformy Azure dla platformy .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
 ``` 
 
 ## <a name="object-model"></a>Model obiektów
@@ -56,7 +56,7 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ChatClient | Ta klasa jest wymagana dla funkcji rozmowy. Tworzysz wystąpienie go przy użyciu informacji o subskrypcji i użyj go do tworzenia, pobierania i usuwania wątków. |
-| ChatThreadClient | Ta klasa jest wymagana dla funkcjonalności wątku rozmowy. Możesz uzyskać wystąpienie za pośrednictwem ChatClient i używać go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania/pobierania użytkowników, wysyłania powiadomień o wpisywaniu i otrzymywania potwierdzeń. |
+| ChatThreadClient | Ta klasa jest wymagana dla funkcjonalności wątku rozmowy. Możesz uzyskać wystąpienie za pośrednictwem ChatClientu i używać go do wysyłania/odbierania/aktualizowania/usuwania komunikatów, dodawania/usuwania i pobierania uczestników, wysyłania powiadomień o wpisywaniu i otrzymywania potwierdzeń. |
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
@@ -69,24 +69,25 @@ using Azure.Communication.Chat;
 // Your unique Azure Communication service endpoint
 Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
+CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
 ```
 
 ## <a name="start-a-chat-thread"></a>Rozpocznij wątek rozmowy
 
-Użyj `createChatThread` metody, aby utworzyć wątek rozmowy.
-- Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
-- Użyj `members` właściwości, aby przekazać listę `ChatThreadMember` obiektów do dodania do wątku rozmowy. `ChatThreadMember`Obiekt jest inicjowany z `CommunicationUser` obiektem. Aby uzyskać `CommunicationUser` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-an-identity)
+Użyj `createChatThread` metody z chatClient, aby utworzyć wątek rozmowy
+- Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateTopic` funkcji.
+- Użyj `participants` właściwości, aby przekazać listę `ChatParticipant` obiektów do dodania do wątku rozmowy. `ChatParticipant`Obiekt jest inicjowany z `CommunicationIdentifier` obiektem. `CommunicationIdentifier` może być typu `CommunicationUserIdentifier` `MicrosoftTeamsUserIdentifier` lub `PhoneNumberIdentifier` . Na przykład aby uzyskać `CommunicationIdentifier` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-an-identity)
 
-Odpowiedź `chatThreadClient` jest używana do wykonywania operacji w utworzonym wątku czatu: Dodawanie członków do wątku rozmowy, wysyłanie wiadomości, usuwanie wiadomości itd. Zawiera atrybut, `Id` który jest unikatowym identyfikatorem wątku rozmowy. 
+Obiekt Response z metody createChatThread zawiera szczegóły chatThread. Aby współdziałać z operacjami wątku rozmowy, takimi jak dodawanie uczestników, wysyłanie komunikatu, usuwanie komunikatu itp., wystąpienie klienta chatThreadClient musi zostać utworzone przy użyciu metody GetChatThreadClient na kliencie ChatClient. 
 
 ```csharp
-var chatThreadMember = new ChatThreadMember(new CommunicationUser("<Access_ID>"))
+var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
-ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync(topic: "Chat Thread topic C# sdk", members: new[] { chatThreadMember });
+CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -100,21 +101,24 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Wyślij wiadomość do wątku rozmowy
 
-Użyj `SendMessage` metody, aby wysłać komunikat do wątku identyfikowanego przez ThreadID.
+Użyj `SendMessage` , aby wysłać komunikat do wątku.
 
-- Użyj `content` , aby podać zawartość wiadomości czatu, jest to wymagane.
-- Użyj, `priority` Aby określić poziom priorytetu wiadomości, taki jak "normal" lub "High", jeśli nie zostanie określony, zostanie użyta wartość "normal".
-- Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy, jeśli nie zostanie określony, zostanie użyta pusta nazwa.
-
-`SendChatMessageResult` czy odpowiedź zwrócona przez wysłanie komunikatu, zawiera identyfikator, który jest unikatowym IDENTYFIKATORem komunikatu.
+- Użyj `content` , aby podać zawartość wiadomości, jest to wymagane.
+- Użyj `type` dla typu zawartości komunikatu, takiego jak "text" lub "HTML". Jeśli nie zostanie określony, zostanie ustawiona wartość "text".
+- Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy. Jeśli nie zostanie określony, zostanie ustawiony pusty ciąg.
 
 ```csharp
-var content = "hello world";
-var priority = ChatMessagePriority.Normal;
-var senderDisplayName = "sender name";
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: );
+```
+## <a name="get-a-message"></a>Pobierz komunikat
 
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content, priority, senderDisplayName);
-string messageId = sendChatMessageResult.Id;
+Użyj `GetMessage` , aby pobrać komunikat z usługi.
+`messageId` jest unikatowym IDENTYFIKATORem komunikatu.
+
+`ChatMessage` czy odpowiedź zwrócona przez pobranie komunikatu, zawiera identyfikator, który jest unikatowym identyfikatorem komunikatu, między innymi polami. Zapoznaj się z tematem Azure. Communications. chat. ChatMessage
+
+```csharp
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Odbieranie komunikatów rozmowy z wątku rozmowy
@@ -137,11 +141,13 @@ await foreach (ChatMessage message in allMessages)
 
 - `Text`: Zwykły komunikat rozmowy Wysłany przez element członkowski wątku.
 
-- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat.
+- `Html`: Sformatowana wiadomość tekstowa. Należy zauważyć, że użytkownicy usług komunikacyjnych obecnie nie mogą wysyłać komunikatów o postaci tekstu sformatowanego. Ten typ komunikatu jest obsługiwany przez komunikaty wysyłane przez zespoły użytkowników do użytkowników usług komunikacyjnych w scenariuszach międzyoperacyjności zespołów.
 
-- `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy.
+- `TopicUpdated`: Komunikat systemowy wskazujący, że Zaktualizowano temat. trybie
 
-- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy.
+- `ParticipantAdded`: Komunikat systemowy wskazujący, że co najmniej jeden uczestnik został dodany do wątku rozmowy. trybie
+
+- `ParticipantRemoved`: Komunikat systemowy wskazujący, że uczestnik został usunięty z wątku rozmowy.
 
 Aby uzyskać więcej informacji, zobacz [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
@@ -164,31 +170,77 @@ string id = "id-of-message-to-delete";
 await chatThreadClient.DeleteMessageAsync(id);
 ```
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>Dodawanie użytkownika jako elementu członkowskiego do wątku rozmowy
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Dodawanie użytkownika jako uczestnika do wątku czatu
 
-Po utworzeniu wątku można następnie dodawać i usuwać użytkowników. Dodanie użytkowników daje im możliwość dostępu do wysyłania komunikatów do wątku oraz dodawania/usuwania innych członków. Przed wywołaniem `AddMembers` upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
+Po utworzeniu wątku można następnie dodawać i usuwać użytkowników. Dodanie użytkowników daje im możliwość dostępu do wysyłania komunikatów do wątku oraz dodawania/usuwania innego uczestnika. Przed wywołaniem `AddParticipants` upewnij się, że uzyskano nowy token dostępu i tożsamość dla tego użytkownika. Użytkownik będzie potrzebować tego tokenu dostępu, aby można było zainicjować klienta rozmowy.
 
-Użyj `AddMembers` metody, aby dodać elementy członkowskie wątku do wątku identyfikowanego przez ThreadID.
-
- - Użyj, `members` Aby wyświetlić listę elementów członkowskich, które mają zostać dodane do wątku rozmowy.
- - `User`, wymagane, jest tożsamością uzyskaną dla nowego użytkownika.
- - `DisplayName`, opcjonalnie, jest nazwą wyświetlaną dla elementu członkowskiego wątku.
- - `ShareHistoryTime`, opcjonalnie, czas, od którego historia rozmowy jest udostępniana członkowi. Aby udostępnić historię od początku wątku rozmowy, ustaw dla niego wartość DateTime. MinValue. Aby udostępnić historię braku historii, poprzedni do momentu dodania elementu członkowskiego, ustaw go na bieżącą godzinę. Aby udostępnić historię częściową, ustaw ją na punkt w czasie między utworzeniem wątku a bieżącym czasem.
+Służy `AddParticipants` do dodawania jednego lub kilku uczestników do wątku rozmowy. Obsługiwane są następujące atrybuty dla każdego uczestnika wątku:
+- `communicationUser`, wymagane, jest tożsamością uczestnika wątku.
+- `displayName`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
+- `shareHistoryTime`, opcjonalnie, godzinę, z której historia rozmowy jest udostępniana uczestnikowi.
 
 ```csharp
-ChatThreadMember member = new ChatThreadMember(communicationUser);
-member.DisplayName = "display name member 1";
-member.ShareHistoryTime = DateTime.MinValue; // share all history
-await chatThreadClient.AddMembersAsync(members: new[] {member});
+var josh = new CommunicationUserIdentifier(id: "<Access_ID_For_Josh>");
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+var amy = new CommunicationUserIdentifier(id: "<Access_ID_For_Amy>");
+
+var participants = new[]
+{
+    new ChatParticipant(josh) { DisplayName = "Josh" },
+    new ChatParticipant(gloria) { DisplayName = "Gloria" },
+    new ChatParticipant(amy) { DisplayName = "Amy" }
+};
+
+await chatThreadClient.AddParticipantsAsync(participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>Usuwanie użytkownika z wątku rozmowy
 
-Podobnie jak w przypadku dodawania użytkownika do wątku, można usunąć użytkowników z wątku rozmowy. W tym celu należy śledzić tożsamość (CommunicationUser) dodanych członków.
+Podobnie jak w przypadku dodawania użytkownika do wątku, można usunąć użytkowników z wątku rozmowy. W tym celu należy śledzić tożsamość `CommunicationUser` dodanego uczestnika.
 
 ```csharp
-await chatThreadClient.RemoveMemberAsync(communicationUser);
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+await chatThreadClient.RemoveParticipantAsync(gloria);
 ```
 
+## <a name="get-thread-participants"></a>Pobierz uczestników wątku
+
+Służy `GetParticipants` do pobierania uczestników wątku rozmowy.
+
+```csharp
+AsyncPageable<ChatParticipant> allParticipants = chatThreadClient.GetParticipantsAsync();
+await foreach (ChatParticipant participant in allParticipants)
+{
+    Console.WriteLine($"{((CommunicationUserIdentifier)participant.User).Id}:{participant.DisplayName}:{participant.ShareHistoryTime}");
+}
+```
+
+## <a name="send-typing-notification"></a>Wyślij powiadomienie o wpisaniu
+
+Użyj `SendTypingNotification` , aby wskazać, że użytkownik pisze odpowiedź w wątku.
+
+```csharp
+await chatThreadClient.SendTypingNotificationAsync();
+```
+
+## <a name="send-read-receipt"></a>Wyślij potwierdzenie odczytania
+
+Służy `SendReadReceipt` do powiadamiania innych uczestników, że wiadomość jest odczytywana przez użytkownika.
+
+```csharp
+await chatThreadClient.SendReadReceiptAsync(messageId);
+```
+
+## <a name="get-read-receipts"></a>Pobierz potwierdzenia odczytu
+
+Użyj `GetReadReceipts` do sprawdzenia stanu komunikatów, aby zobaczyć, które z nich są odczytywane przez innych uczestników wątku rozmowy.
+
+```csharp
+AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
+await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
+{
+    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
+}
+```
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
 Uruchom aplikację z katalogu aplikacji za pomocą `dotnet run` polecenia.

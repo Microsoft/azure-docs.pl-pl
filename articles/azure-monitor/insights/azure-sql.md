@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577464"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -33,11 +33,11 @@ Azure SQL Analytics to rozwiązanie do monitorowania tylko w chmurze obsługują
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| [Ustawienia diagnostyki](../platform/diagnostic-settings.md) | **Tak** | Dane dotyczące metryk i dzienników usługi Azure są wysyłane do dzienników Azure Monitor bezpośrednio przez platformę Azure. |
-| [Konto usługi Azure Storage](../platform/resource-logs.md#send-to-log-analytics-workspace) | Nie | Azure Monitor nie odczytuje danych z konta magazynu. |
-| [Agenci dla systemu Windows](../platform/agent-windows.md) | Nie | Bezpośredni agenci systemu Windows nie są używani przez Azure SQL Analytics. |
-| [Agenci dla systemu Linux](../learn/quick-collect-linux-computer.md) | Nie | Agenci bezpośredniego systemu Linux nie są używani przez Azure SQL Analytics. |
-| [Grupa zarządzania programu System Center Operations Manager](../platform/om-agents.md) | Nie | Połączenie bezpośrednie od agenta Operations Manager do Azure Monitor nie jest używane przez Azure SQL Analytics. |
+| [Ustawienia diagnostyki](../essentials/diagnostic-settings.md) | **Tak** | Dane dotyczące metryk i dzienników usługi Azure są wysyłane do dzienników Azure Monitor bezpośrednio przez platformę Azure. |
+| [Konto usługi Azure Storage](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Nie | Azure Monitor nie odczytuje danych z konta magazynu. |
+| [Agenci dla systemu Windows](../agents/agent-windows.md) | Nie | Bezpośredni agenci systemu Windows nie są używani przez Azure SQL Analytics. |
+| [Agenci dla systemu Linux](../vm/quick-collect-linux-computer.md) | Nie | Agenci bezpośredniego systemu Linux nie są używani przez Azure SQL Analytics. |
+| [Grupa zarządzania programu System Center Operations Manager](../agents/om-agents.md) | Nie | Połączenie bezpośrednie od agenta Operations Manager do Azure Monitor nie jest używane przez Azure SQL Analytics. |
 
 ## <a name="azure-sql-analytics-options"></a>Opcje Azure SQL Analytics
 
@@ -47,14 +47,14 @@ W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu n
 | --- | ------- | ----- | ----- |
 | Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Tak |
 | Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Tak |
-| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
+| błędy | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
 | Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Tak | Nie |
 | Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Tak | Nie |
 | Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Tak | Nie |
 | Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Tak |
 | Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Tak |
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md) .
 
@@ -170,13 +170,13 @@ Po utworzeniu nowej roli Przypisz tę rolę każdemu użytkownikowi, który będ
 
 ## <a name="analyze-data-and-create-alerts"></a>Analizowanie danych i tworzenie alertów
 
-Analiza danych w Azure SQL Analytics opiera się na [log Analytics języku](../log-query/get-started-queries.md) dla niestandardowych zapytań i raportowania. Znajdź opis dostępnych danych zebranych z zasobu bazy danych na potrzeby niestandardowych zapytań w [dostępnych metrykach i dziennikach](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
+Analiza danych w Azure SQL Analytics opiera się na [log Analytics języku](../logs/get-started-queries.md) dla niestandardowych zapytań i raportowania. Znajdź opis dostępnych danych zebranych z zasobu bazy danych na potrzeby niestandardowych zapytań w [dostępnych metrykach i dziennikach](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Automatyczne generowanie alertów w Azure SQL Analytics opiera się na pisaniu Log Analytics kwerendy, która wyzwala alert po spełnieniu warunku. Znajdź poniżej kilka przykładów na Log Analytics zapytaniach, na których można skonfigurować alerty w Azure SQL Analytics.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Tworzenie alertów dla Azure SQL Database
 
-Możesz łatwo [tworzyć alerty](../platform/alerts-metric.md) z danymi pochodzącymi z zasobów Azure SQL Database. Oto kilka przydatnych [zapytań dzienników](../log-query/log-query-overview.md) , których można użyć w przypadku alertu dziennika:
+Możesz łatwo [tworzyć alerty](../alerts/alerts-metric.md) z danymi pochodzącymi z zasobów Azure SQL Database. Oto kilka przydatnych [zapytań dzienników](../logs/log-query-overview.md) , których można użyć w przypadku alertu dziennika:
 
 #### <a name="high-cpu"></a>Wysokie wykorzystanie procesora CPU
 
@@ -297,7 +297,7 @@ Gdy usługa Azure SQL Analytics jest bezpłatna, użycie danych telemetrycznych 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Użyj [zapytań dzienników](../log-query/log-query-overview.md) w Azure monitor, aby wyświetlić szczegółowe dane SQL platformy Azure.
-- [Utwórz własne pulpity nawigacyjne](../learn/tutorial-logs-dashboards.md) pokazujące dane usługi Azure SQL.
-- [Utwórz alerty](../platform/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń SQL platformy Azure.
+- Użyj [zapytań dzienników](../logs/log-query-overview.md) w Azure monitor, aby wyświetlić szczegółowe dane SQL platformy Azure.
+- [Utwórz własne pulpity nawigacyjne](../visualize/tutorial-logs-dashboards.md) pokazujące dane usługi Azure SQL.
+- [Utwórz alerty](../alerts/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń SQL platformy Azure.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560105"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633601"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Sprawdzanie poprawności alertu w Azure Security Center
 Ten dokument zawiera informacje dotyczące sposobu weryfikacji systemu pod kątem prawidłowej konfiguracji alertów usługi Azure Security Center.
@@ -28,7 +28,7 @@ Alerty to powiadomienia generowane przez usługę Security Center w razie wykryc
 Aby uzyskać więcej informacji, zobacz [alerty zabezpieczeń w Security Center](security-center-alerts-overview.md) i [Zarządzanie alertami zabezpieczeń i reagowanie na](security-center-managing-and-responding-alerts.md) nie
 
 
-## <a name="generate-sample-azure-defender-alerts"></a>Generuj przykładowe alerty usługi Azure Defender
+## <a name="generate-sample-azure-defender-alerts"></a>Generowanie przykładowych alertów usługi Azure Defender
 
 W przypadku korzystania z nowych, zapoznawczych alertów, zgodnie z opisem w temacie [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md), można utworzyć przykładowe alerty za pomocą kilku kliknięć na stronie Alerty zabezpieczeń w Azure Portal.
 
@@ -36,11 +36,6 @@ Użyj przykładowych alertów, aby:
 
 - Oceń wartość i możliwości usługi Azure Defender
 - Sprawdź poprawność konfiguracji wykonanych dla alertów zabezpieczeń (takich jak integracje SIEM, Automatyzacja przepływu pracy i powiadomienia e-mail)
-
-> [!NOTE]
-> Ta procedura wymaga, aby nowe środowisko alertów (wersja zapoznawcza) było dostępne na transparencie w górnej części strony **alertów zabezpieczeń** .
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Transparent z linkiem do nowego środowiska obsługi alertów w wersji zapoznawczej":::
 
 Aby utworzyć przykładowe alerty:
 

@@ -3,12 +3,12 @@ title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917425"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594643"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -25,7 +25,7 @@ Wykrywanie zmian i szczegółowe informacje są przydatne dla następujących pr
 - Przechowywanie bazy danych zarządzania konfiguracją, znanej jako CMDB, na bieżąco. Zamiast odświeżania wszystkich zasobów i ich pełnych zestawów właściwości zgodnie z zaplanowaną częstotliwością, należy uzyskać tylko te zmiany.
 - Informacje o innych właściwościach, które mogły zostać zmienione w przypadku zmiany stanu zgodności zasobu. Ocena tych dodatkowych właściwości może zapewnić wgląd w inne właściwości, które mogą być potrzebne do zarządzania za pośrednictwem definicji Azure Policy.
 
-W tym artykule pokazano, jak zbierać te informacje za poorednictwem zestawu SDK grafu zasobów. Aby wyświetlić te informacje w Azure Portal, zobacz [historię zmian](../../policy/how-to/determine-non-compliance.md#change-history) Azure Policy lub [historię zmian](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)dziennika aktywności platformy Azure. Aby uzyskać szczegółowe informacje o zmianach w aplikacjach z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji, zobacz [Korzystanie z analizy zmian aplikacji (wersja zapoznawcza)](../../../azure-monitor/app/change-analysis.md) w Azure monitor.
+W tym artykule pokazano, jak zbierać te informacje za poorednictwem zestawu SDK grafu zasobów. Aby wyświetlić te informacje w Azure Portal, zobacz [historię zmian](../../policy/how-to/determine-non-compliance.md#change-history) Azure Policy lub [historię zmian](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log)dziennika aktywności platformy Azure. Aby uzyskać szczegółowe informacje o zmianach w aplikacjach z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji, zobacz [Korzystanie z analizy zmian aplikacji (wersja zapoznawcza)](../../../azure-monitor/app/change-analysis.md) w Azure monitor.
 
 > [!NOTE]
 > Szczegóły zmiany w grafie zasobów są przeznaczone dla Menedżer zasobów właściwości. Aby śledzić zmiany wewnątrz maszyny wirtualnej, zobacz Azure Automation [śledzenie zmian](../../../automation/change-tracking/overview.md) lub [konfiguracja gościa Azure Policy dla maszyn wirtualnych](../../policy/concepts/guest-configuration.md).
