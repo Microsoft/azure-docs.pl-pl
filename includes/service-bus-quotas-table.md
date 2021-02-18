@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 07/15/2020
+ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 46e5400627e4d2896265ed95410c8afcb918043b
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106320"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651951"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -28,15 +28,15 @@ W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure
 | Liczba [podzielonych tematów lub kolejek](../articles/service-bus-messaging/service-bus-partitioning.md) na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania utworzenia nowego podzielonego tematu lub kolejki w przestrzeni nazw są odrzucane. W związku z tym, jeśli zostanie on skonfigurowany za pomocą [Azure Portal][Azure portal], zostanie wygenerowany komunikat o błędzie. W przypadku wywołania z interfejsu API zarządzania wyjątek **QuotaExceededException** jest odbierany przez wywoływany kod. |Warstwy Podstawowa i standardowa: 100.<br/><br/>Partycjonowane jednostki nie są obsługiwane w warstwie [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) .<br/><br />Każda podzielona Kolejka lub temat ma do przydziału liczby jednostek 1 000 na przestrzeń nazw. |
 | Maksymalny rozmiar dowolnej ścieżki jednostki obsługi komunikatów: kolejki lub tematu |Jednostka |- |260 znaków. |
 | Maksymalny rozmiar każdej nazwy jednostki obsługi komunikatów: przestrzeń nazw, subskrypcja lub reguła subskrypcji |Jednostka |- |50 znaków. |
-| Maksymalny rozmiar [identyfikatora komunikatu](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Jednostka |- | 128 |
-| Maksymalny rozmiar [identyfikatora sesji](/dotnet/api/microsoft.azure.servicebus.message.sessionid) komunikatu | Jednostka |- | 128 |
+| Maksymalny rozmiar identyfikatora komunikatu | Jednostka |- | 128 |
+| Maksymalny rozmiar identyfikatora sesji komunikatu | Jednostka |- | 128 |
 | Rozmiar komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka |Komunikaty przychodzące, które przekraczają te przydziały, są odrzucane i występuje wyjątek przez wywoływany kod. |Maksymalny rozmiar komunikatu: 256 KB dla [warstwy Standardowa](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB dla [warstwy Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Ze względu na obciążenie systemu ten limit jest mniejszy niż te wartości.<br /><br />Maksymalny rozmiar nagłówka: 64 KB.<br /><br />Maksymalna liczba właściwości nagłówka w zbiorze właściwości: **Byte/int. MaxValue**.<br /><br />Maksymalny rozmiar właściwości w zbiorze właściwości: brak jawnego limitu. Ograniczone przez maksymalny rozmiar nagłówka. |
-| Rozmiar właściwości komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka | Wyjątek `SerializationException` jest generowany. |Maksymalny rozmiar właściwości komunikatu dla każdej właściwości to 32 000. Łączny rozmiar wszystkich właściwości nie może przekroczyć 64 000. Ten limit dotyczy całego nagłówka komunikatu obsługiwanego przez [brokera](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), który ma zarówno właściwości użytkownika, jak i właściwości systemu, takie jak [numer sekwencyjny](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [etykieta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)i [Identyfikator wiadomości](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
+| Rozmiar właściwości komunikatu dla jednostki kolejki, tematu lub subskrypcji |Jednostka | Wyjątek `SerializationException` jest generowany. |Maksymalny rozmiar właściwości komunikatu dla każdej właściwości to 32 000. Łączny rozmiar wszystkich właściwości nie może przekroczyć 64 000. Ten limit dotyczy całego nagłówka komunikatu obsługiwanego przez brokera, który ma zarówno właściwości użytkownika, jak i właściwości systemu, takie jak numer sekwencyjny, etykieta i identyfikator wiadomości. |
 | Liczba subskrypcji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych subskrypcji dla tematu są odrzucane. W związku z tym, jeśli zostanie skonfigurowany za pomocą portalu, zostanie wyświetlony komunikat o błędzie. Jeśli wywoływana z interfejsu API zarządzania, kod wywołujący otrzymuje wyjątek. |2 000 na temat dla warstwy Standardowa i warstwy Premium. |
 | Liczba filtrów SQL na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |2000 |
 | Liczba filtrów korelacji na temat |Jednostka |Kolejne żądania utworzenia dodatkowych filtrów w temacie są odrzucane i występuje wyjątek przez wywoływany kod. |100 000 |
 | Rozmiar filtrów SQL lub akcji |Przestrzeń nazw |Kolejne żądania utworzenia dodatkowych filtrów są odrzucane i występuje wyjątek w wywołaniu kodu. |Maksymalna długość ciągu warunku filtru: 1 024 (1 K).<br /><br />Maksymalna długość ciągu akcji reguły: 1 024 (1 K).<br /><br />Maksymalna liczba wyrażeń na akcję reguły: 32. |
-| Liczba reguł [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) na przestrzeń nazw, kolejkę lub temat |Jednostka, przestrzeń nazw |Kolejne żądania utworzenia dodatkowych reguł są odrzucane i występuje wyjątek przez wywoływany kod. |Maksymalna liczba reguł na typ jednostki: 12. <br /><br /> Reguły, które są skonfigurowane w przestrzeni nazw Service Bus, mają zastosowanie do wszystkich typów: Queues, tematy. |
+| Liczba reguł autoryzacji dostępu współdzielonego na przestrzeń nazw, kolejkę lub temat |Jednostka, przestrzeń nazw |Kolejne żądania utworzenia dodatkowych reguł są odrzucane i występuje wyjątek przez wywoływany kod. |Maksymalna liczba reguł na typ jednostki: 12. <br /><br /> Reguły, które są skonfigurowane w przestrzeni nazw Service Bus, mają zastosowanie do wszystkich typów: Queues, tematy. |
 | Liczba komunikatów na transakcję | Transakcja | Dodatkowe komunikaty przychodzące są odrzucane, a wyjątek "nie może wysyłać więcej niż 100 komunikatów w jednej transakcji" jest odbierany przez wywoływany kod. | 100 <br /><br /> Dla operacji **Send ()** i **SendAsync ()** . |
 | Liczba reguł filtrów sieci wirtualnej i IP | Przestrzeń nazw | &nbsp; | 128 | 
 

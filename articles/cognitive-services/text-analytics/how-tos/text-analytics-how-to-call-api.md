@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092132"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650732"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
@@ -37,7 +37,7 @@ Przed użyciem interfejs API analizy tekstu należy utworzyć zasób platformy A
 
 ## <a name="change-your-pricing-tier"></a>Zmień warstwę cenową 
 
-Jeśli masz istniejący zasób analiza tekstu za pomocą warstwy cenowej S0 za pośrednictwem S4, możesz ją zaktualizować do korzystania z [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+Jeśli masz istniejący zasób analiza tekstu za pomocą warstwy cenowej S0 za pośrednictwem S4, należy ją zaktualizować do korzystania z [warstwy cenowej](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)standardowa. Warstwy cenowe S0 za pomocą S4 zostaną wycofane. Aby zaktualizować Cennik zasobu:
 
 1. Przejdź do zasobu analiza tekstu w [Azure Portal](https://portal.azure.com/).
 2. Wybierz pozycję **warstwa cenowa** w menu nawigacji po lewej stronie. Będzie on niższy niż **Zarządzanie zasobami**. 

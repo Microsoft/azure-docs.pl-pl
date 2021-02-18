@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: f6b68ea756253a30f006983c214e287c75637278
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642446"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650783"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -98,7 +98,7 @@ Należy  [**utworzyć kontenery**](/azure/storage/blobs/storage-quickstart-blobs
 
 * Utwórz nowy projekt Node.js.
 * Zainstaluj bibliotekę Axios za pomocą programu `npm i axios` .
-* Skopiuj wklejony kod poniżej do projektu.
+* Kopiuj wklej poniższy kod do projektu.
 * Ustaw wartości w punktach końcowych, klucz subskrypcji i adres URL kontenera.
 * Uruchomisz program.
 
@@ -108,7 +108,7 @@ Należy  [**utworzyć kontenery**](/azure/storage/blobs/storage-quickstart-blobs
 * Skopiuj i wklej kod z jednego z przykładów do projektu.
 * Ustaw wartości w punktach końcowych, klucz subskrypcji i adres URL kontenera.
 * Uruchomisz program. Na przykład: `python translate.py`.
-  
+
 ### <a name="java"></a>[Java](#tab/java)
 
 * Utwórz katalog roboczy dla projektu. Na przykład:
@@ -127,7 +127,7 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Pliki źródłowe Java (na przykład przykład _. Java_) na żywo w src/Main/**Java**.
+**Uwaga**: pliki źródłowe Java (na przykład przykład _. Java_) na żywo w src/Main/**Java**.
 
 * W katalogu głównym (na przykład przykład *-Project*) zainicjuj projekt przy użyciu Gradle:
 
@@ -136,6 +136,7 @@ gradle init --type basic
 ```
 
 * Po wyświetleniu monitu wybierz pozycję **Język DSL**, a następnie **Kotlin**.
+
 * Zaktualizuj `build.gradle.kts`  plik. Pamiętaj, że musisz zaktualizować w `mainClassName` zależności od przykładu:
 
   ```java
@@ -155,7 +156,8 @@ gradle init --type basic
   ```
 
 * Utwórz plik Java w katalogu **Java** i skopiuj/Wklej kod z podanego przykładu. Nie zapomnij dodać klucza subskrypcji i punktu końcowego.
-**Kompiluj i uruchamiaj przykład z katalogu głównego**:
+
+* **Kompiluj i uruchamiaj przykład z katalogu głównego**:
 
 ```powershell
 gradle build
@@ -172,7 +174,7 @@ gradle run
 * Skompiluj plik, na przykład: "przejdź do przykładu kompilacji — Code. go".
 * Uruchom plik, na przykład: "przykładowy kod".
 
----
+ ---
 
 ## <a name="make-document-translation-requests"></a>Utwórz żądania tłumaczenia dokumentu
 

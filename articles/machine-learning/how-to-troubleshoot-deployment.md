@@ -10,16 +10,24 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071667"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651684"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Rozwiązywanie problemów z wdrożeniem modelu zdalnego 
 
 Dowiedz się, jak rozwiązywać problemy i rozwiązywać te typowe błędy, które mogą wystąpić podczas wdrażania modelu w Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
+
+> [!NOTE]
+> W przypadku wdrażania modelu w usłudze Azure Kubernetes Service (AKS) zaleca się włączenie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) dla tego klastra. Ułatwi to zrozumienie ogólnej kondycji klastra i użycia zasobów. Przydatne może być również znalezienie następujących zasobów:
+>
+> * [Sprawdzaj, czy Resource Health zdarzenia mające wpływ na klaster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
+> * [Diagnostyka usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+>
+> Jeśli próbujesz wdrożyć model w złej kondycji lub przeciążonym klastrze, oczekiwano problemów. Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z klastrem AKS, skontaktuj się z pomocą techniczną AKS.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

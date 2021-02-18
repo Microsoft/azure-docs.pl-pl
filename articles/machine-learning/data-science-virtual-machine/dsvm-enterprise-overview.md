@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: a22b253081a6695758a737a506620f2f56e90227
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 28dea7c28f47a9850486877571672cbd717e9f1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519698"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596768"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Analiza zespołu oparta na Data Science Virtual Machineach i środowisko AI 
 [Data Science Virtual Machine](overview.md) (DSVM) zapewnia rozbudowane środowisko na platformie Azure z wbudowanym oprogramowaniem do sztucznej analizy (AI) i analizy danych.
@@ -37,7 +37,7 @@ Kluczowymi blokami konstrukcyjnymi środowiska analizy zespołu przedsiębiorstw
 Ta seria zawiera wskazówki i wskaźniki dla każdego z powyższych tematów. Nie dotyczy to wszystkich zagadnień i wymagań dotyczących wdrażania DSVMs w dużych konfiguracjach przedsiębiorstwa. Oto kilka innych zasobów platformy Azure, których można użyć podczas implementowania wystąpień DSVM w przedsiębiorstwie:
 
 * [Bezpieczeństwo sieci](../../security/fundamentals/network-overview.md)
-* [Monitorowanie](../../azure-monitor/insights/monitor-vm-azure.md) i [Zarządzanie](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Monitorowanie](../../azure-monitor/vm/monitor-vm-azure.md) i [Zarządzanie](../../virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Rejestrowanie i przeprowadzanie inspekcji](../../security/fundamentals/log-audit.md)
 * [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Ustawienie zasad i wymuszanie](../../governance/policy/overview.md)

@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fee285aa3beb308f5e6b3b233d40597c2a287eb7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392769"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651973"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -195,3 +195,4 @@ Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i za
 
 - Należy rozważyć skonfigurowanie [inspekcji usługi Azure SQL](../../azure-sql/database/auditing-overview.md) na potrzeby monitorowania i inspekcji dostępu do danych poufnych.
 - Aby poznać prezentację obejmującą &ą klasyfikację, zobacz [odnajdywanie, klasyfikowanie, etykietowanie & Ochrona danych SQL | Dane uwidocznione](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- Aby sklasyfikować bazy danych Azure SQL Database i analizy Synapse Azure za pomocą etykiet usługi Azure kontrolą przy użyciu poleceń języka T-SQL, zobacz artykuł [klasyfikowanie danych usługi Azure SQL przy użyciu etykiet kontrolą na platformie Azure](https://docs.microsoft.com/azure/sql-database/scripts/sql-database-import-purview-labels).
