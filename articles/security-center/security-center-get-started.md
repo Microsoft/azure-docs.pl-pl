@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 5e39093e0472705111907e72b70446db53770012
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809551"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634496"
 ---
 # <a name="quickstart-set-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
@@ -42,7 +42,7 @@ Aby włączyć usługę Azure Defender w ramach subskrypcji, musisz mieć przypi
 
 ## <a name="enable-security-center-on-your-azure-subscription"></a>Włączanie Security Center w ramach subskrypcji platformy Azure
 
-1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
 1. Z menu portalu wybierz pozycję **Security Center**. 
 
@@ -88,7 +88,7 @@ Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 
 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz odpowiednią subskrypcję.
-1. Na stronie **zbieranie danych** ustaw opcję **samoobsługowego udostępniania** na wartość **włączone**.
+1. Na stronie **autozastrzeganie** dla **agenta log Analytics dla maszyn wirtualnych platformy Azure** Ustaw stan na **włączone**.
 1. Wybierz pozycję **Zapisz**.
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::

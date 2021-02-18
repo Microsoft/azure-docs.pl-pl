@@ -3,15 +3,15 @@ title: Cykl życia pomocy technicznej usługi Azure Red Hat OpenShift
 description: Poznaj cykl wsparcia technicznego i obsługiwane wersje usługi Azure Red Hat OpenShift
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 5b5ae695ac11ae687a9b076005a765feaa46f83c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049511"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634332"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
 
@@ -100,7 +100,7 @@ Zapoznaj się z następującym przewodnikiem dotyczącym [historycznej wersji pl
 |4.3|Styczeń 2020 r.|Kwiecień 2020 r.| Sierpień 2020 r.|
 |4.4|Maj 2020 r.|Lipiec 2020 r.|4,6 GA|
 |4.5|Lipiec 2020 r.| Listopad 2020 r.|4,7 GA
-|4,6|Październik 2020 r.| Luty 2021|4,8 GA|
+|4,6|Październik 2020 r.| Luty 2021 r.|4,8 GA|
 
 ## <a name="faq"></a>Często zadawane pytania
 

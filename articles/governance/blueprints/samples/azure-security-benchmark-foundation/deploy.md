@@ -3,12 +3,12 @@ title: Przykład wdrażania planu usługi Azure Security test Foundation
 description: Kroki wdrażania przykładowego planu usługi Azure Security test Foundation, w tym szczegóły parametru artefaktu planu.
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: e1a5e011f5b53d35971fa43613914c0a43549600
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100421973"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633958"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Wdróż przykład planu usługi Azure Security test Foundation
 
@@ -132,10 +132,8 @@ Poniższa tabela zawiera listę parametrów strategii:
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Nazwy adresów podsieci (opcjonalnie)|Tablica nazw podsieci do wdrożenia w sieci wirtualnej szprychy; na przykład "subnet1", "podsieci subnet2"|
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Prefiksy adresów podsieci (opcjonalnie)|Tablica prefiksów adresów IP dla opcjonalnych podsieci dla sieci wirtualnej szprychy; na przykład "10.0.7.0/24", "10.0.8.0/24"|
 |Szablon usługi Azure Virtual Network szprych|Szablon usługi Resource Manager|Wdróż szprychę|Wprowadź wartość "true" lub "false", aby określić, czy przypisanie wdraża składniki szprych architektury|
-|Grupa zasobów Network Watcher|Grupa zasobów|Nazwa grupy zasobów|Zablokowane — używa nazwy grupy zasobów Network Watcher|
-|Grupa zasobów Network Watcher|Grupa zasobów|Lokalizacja grupy zasobów|Zablokowane — używa lokalizacji centrum|
-|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja Network Watcher|Lokalizacja zasobu Network Watcher|
-|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja grupy zasobów Network Watcher|Lokalizacja grupy zasobów Network Watcher|
+|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja Network Watcher|Jeśli Network Watcher jest już włączona, wartość tego parametru **musi** być zgodna z lokalizacją istniejącej Network Watcher grupy zasobów.|
+|Szablon Network Watcher platformy Azure|Szablon usługi Resource Manager|Lokalizacja grupy zasobów Network Watcher|Jeśli Network Watcher jest już włączona, wartość tego parametru **musi** być zgodna z nazwą istniejącej Network Watcher grupy zasobów.|
 
 ## <a name="next-steps"></a>Następne kroki
 

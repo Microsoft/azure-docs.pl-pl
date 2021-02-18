@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f1761851f91e6d0c0aadb3315dbb7980a00bba5b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633822"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Korzyść użycia hybrydowego platformy Azure-Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -85,12 +85,12 @@ Korzyść użycia hybrydowego platformy Azure SQL Server różni się od przenos
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Jakie są określone prawa Korzyść użycia hybrydowego platformy Azure dla SQL Server?
 
-SQL Database klienci mają następujące prawa skojarzone z Korzyść użycia hybrydowego platformy Azure dla SQL Server:
+SQL Database i klienci wystąpienia zarządzanego przez usługę SQL mają następujące prawa skojarzone z Korzyść użycia hybrydowego platformy Azure dla SQL Server:
 
 |Wpływ na licencję|Co Korzyść użycia hybrydowego platformy Azure na SQL Server uzyskać użytkownika?|
 |---|---|
 |Klienci z wersjami SQL Server Enterprise Core z pakietem SA|<li>Może uiścić stawkę podstawową dla Ogólnego przeznaczenia lub Krytyczne dla działania firmy jednostki SKU</li><br><li>1 rdzeń lokalnego = 4 rdzenie w ramach jednostki SKU w skali</li><br><li>1 rdzeń lokalnego = 4 rdzenie w jednostce SKU Ogólnego przeznaczenia</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Krytyczne dla działania firmy</li>|
-|Klienci z wersjami SQL Server Standard Core z pakietem SA|<li>Może uiścić stawkę bazową na skalę podstawową i Ogólnego przeznaczenia tylko jednostki SKU</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU skalowania</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Ogólnego przeznaczenia</li>|
+|Klienci z wersjami SQL Server Standard Core z pakietem SA|<li>Może uiścić stawkę podstawową dla Ogólnego przeznaczenia lub Krytyczne dla działania firmy jednostki SKU</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU skalowania</li><br><li>1 rdzeń lokalnego = 1 rdzeń w jednostce SKU Ogólnego przeznaczenia</li><br><li>4 rdzenie lokalne = 1 rdzeń w Krytyczne dla działania firmy SKU</li>|
 |||
 
 

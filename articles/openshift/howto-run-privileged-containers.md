@@ -3,16 +3,16 @@ title: Uruchamianie uprzywilejowanych kontenerów w klastrze Red Hat OpenShift p
 description: Uruchom uprzywilejowane kontenery, aby monitorować zabezpieczenia i zgodność.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: ARO, OpenShift, aquasec, TwistLock, Red Hat
-ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 77e75232b7f9d23f1d07931cc7dc231174e1312d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218871"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633566"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Uruchamianie uprzywilejowanych kontenerów w klastrze usługi Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ W tym dokumencie opisano różnice między ogólną dokumentacją wdrożenia Ope
 Przeczytaj te instrukcje przed wykonaniem instrukcji dotyczących dostawcy.
 Tytuły sekcji w krokach specyficznych dla produktu odnoszą się bezpośrednio do tytułów sekcji w dokumentacji dostawcy.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W dokumentacji większości produktów zabezpieczeń założono, że masz uprawnienia do administrowania klastrem.
 Administratorzy klienta nie mają wszystkich uprawnień na platformie Azure Red Hat OpenShift. Uprawnienia wymagane do modyfikacji zasobów na poziomie klastra są ograniczone.

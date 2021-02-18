@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920447"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634173"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Pomijanie alertów z usługi Azure Defender
 
@@ -60,9 +60,7 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
 
 1. Na stronie alertów zabezpieczeń portalu Security Center:
 
-    - Znajdź konkretny alert, którego nie chcesz już zobaczyć, a następnie z menu wielokropka (...) dla alertu wybierz pozycję **Utwórz regułę pomijania**:
-
-        [![* * Tworzenie reguły pomijania * * — opcja](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Wybierz konkretny alert, którego nie chcesz już wyświetlać, a następnie w okienku szczegółów wybierz pozycję **podejmij akcję**.
 
     - Lub wybierz łącze **reguły pomijania** w górnej części strony, a następnie na stronie reguły pomijania wybierz pozycję **Utwórz nową regułę pomijania**:
 
@@ -85,9 +83,9 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
 1. Zapisz regułę. 
 
 
-## <a name="edit-a-suppression-rules"></a>Edytowanie reguł pomijania
+## <a name="edit-a-suppression-rule"></a>Edytowanie reguły pomijania
 
-Aby edytować utworzone reguły, użyj strony reguły pomijania.
+Aby edytować utworzoną regułę, użyj strony reguły pomijania.
 
 1. Na stronie Alerty zabezpieczeń Security Center wybierz łącze **reguły pomijania** w górnej części strony.
 1. Zostanie otwarta strona reguły pomijania ze wszystkimi regułami dla wybranych subskrypcji.
@@ -106,20 +104,6 @@ Aby usunąć co najmniej jedną utworzoną regułę, użyj strony reguły pomija
 1. Aby usunąć pojedynczą regułę, otwórz menu wielokropka (...) dla reguły i wybierz polecenie **Usuń**.
 1. Aby usunąć wiele reguł, zaznacz pola wyboru dla reguł, które mają zostać usunięte, a następnie wybierz pozycję **Usuń**.
     ![Usuwanie co najmniej jednej reguły pomijania](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>Wyświetl pominięte alerty
-
-Alerty zgodne z włączonymi regułami pomijania będą nadal generowane, ale ich stan zostanie ustawiony na **odrzucony**. Stan można sprawdzić w Azure Portal lub uzyskać dostęp do Security Center alertów zabezpieczeń. 
-
-> [!TIP]
-> [Wskaźnik na platformie Azure](https://azure.microsoft.com/services/azure-sentinel/) nie będzie tworzyć zdarzeń dla pominiętych alertów. W przypadku innych rozwiązań Siem można filtrować pominięte alerty przy użyciu stanu alertów (odrzucono ").
-
-Użyj filtru Security Center, aby wyświetlić alerty, które zostały odrzucone przez reguły.
-
-* Na stronie Alerty zabezpieczeń Security Center Otwórz opcje filtru i wybierz pozycję **odrzucone**.  
-
-   [![Wyświetlanie odrzuconych alertów](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Tworzenie reguł pomijania i zarządzanie nimi za pomocą interfejsu API
 

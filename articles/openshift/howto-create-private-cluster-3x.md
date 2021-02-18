@@ -3,16 +3,16 @@ title: Tworzenie prywatnego klastra przy użyciu systemu Azure Red Hat OpenShift
 description: Tworzenie prywatnego klastra przy użyciu usługi Azure Red Hat OpenShift 3,11
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: ARO, OpenShift, prywatny klaster, Red Hat
-ms.openlocfilehash: 37e9dc996fddf2b592ea6bf7fff1e1f4825f3ca8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 28a21635da770a990a21e0da2a8034c754f4f7aa
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220632"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633244"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Tworzenie prywatnego klastra przy użyciu usługi Azure Red Hat OpenShift 3,11
 
@@ -27,7 +27,7 @@ Klastry prywatne zapewniają następujące korzyści:
 * Klastry prywatne nie ujawniają składników płaszczyzny kontroli klastra (takich jak serwery interfejsu API) na publicznym adresie IP.
 * Sieć wirtualna klastra prywatnego jest konfigurowana przez klientów, co pozwala na skonfigurowanie sieci w taki sposób, aby zezwalała na komunikację równorzędną z innymi sieciami wirtualnymi, w tym w środowiskach ExpressRoute. Możesz również skonfigurować niestandardowy serwer DNS w sieci wirtualnej, aby zintegrować z usługami wewnętrznymi.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Pola w poniższym fragmencie kodu konfiguracji są nowe i muszą być dołączone do konfiguracji klastra. `managementSubnetCidr` Program musi znajdować się w sieci wirtualnej klastra i jest używany przez platformę Azure do zarządzania klastrem.
 
