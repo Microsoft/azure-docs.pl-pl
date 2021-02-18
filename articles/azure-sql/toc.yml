@@ -991,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: Ręczne inicjowanie trybu failover dla wystąpienia zarządzanego
           href: managed-instance/user-initiated-failover.md
+        - name: Migrowanie bazy danych za pomocą usługi powtarzania dzienników
+          href: managed-instance/log-replay-service-migrate.md
     - name: Samples
       items:
         - name: Interfejs wiersza polecenia platformy Azure

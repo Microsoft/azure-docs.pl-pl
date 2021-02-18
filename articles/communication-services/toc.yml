@@ -74,7 +74,7 @@
           href: concepts/telephony-sms/concepts.md
         - name: Koncepcje dotyczące telefonii
           href: concepts/telephony-sms/telephony-concept.md
-        - name: Typy numerów telefonów w usłudze Azure Communications Services
+        - name: Typy numerów telefonów
           href: concepts/telephony-sms/plan-solution.md
         - name: Wymagania dotyczące infrastruktury interfejsu SIP
           href: concepts/telephony-sms/sip-interface-infrastructure.md

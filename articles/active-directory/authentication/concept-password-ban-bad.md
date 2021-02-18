@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743891"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652024"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminowanie nieprawidłowych haseł przy użyciu ochrony hasłem Azure Active Directory
 
@@ -174,7 +174,7 @@ Rozpatrzmy następujący przykład:
 Następnym krokiem jest zidentyfikowanie wszystkich wystąpień zakazanych haseł w znormalizowanym nowym haśle użytkownika. Punkty są przypisywane na podstawie następujących kryteriów:
 
 1. Każde z zakazanych haseł, które znajdują się w haśle użytkownika, otrzymuje jeden punkt.
-1. Każdy pozostały unikatowy znak jest przyznany jeden punkt.
+1. Każdy pozostały znak, który nie jest częścią zakazanego hasła, otrzymuje jeden punkt.
 1. Hasło musi zawierać co najmniej pięć (5) punktów do zaakceptowania.
 
 W przypadku następnych dwóch przykładowych scenariuszy firma Contoso korzysta z ochrony hasłem usługi Azure AD i ma "contoso" na swojej niestandardowej liście zakazanych haseł. Załóżmy również, że na globalnej liście znajduje się wartość "puste".

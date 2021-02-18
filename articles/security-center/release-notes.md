@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379034"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634264"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -35,11 +35,29 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 
 Aktualizacje w lutym obejmują:
 
+- [Nowa strona alerty zabezpieczeń w Azure Portal wydawana na potrzeby ogólnej dostępności](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
 - [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [Ulepszenia strony spisu zasobów](#asset-inventory-page-enhancements)
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nowa strona alerty zabezpieczeń w Azure Portal wydawana na potrzeby ogólnej dostępności
+
+Strona alertów zabezpieczeń Azure Security Center została przeprojektowana w celu zapewnienia:
+
+- **Udoskonalone środowisko Klasyfikacja dla alertów** — pomaga zmniejszyć zmęczenie alertów i skupić się na najważniejszych zagrożeniach, a lista zawiera dostosowywalne filtry i opcje grupowania.
+- **Więcej informacji na liście alertów** — takich jak MITRE ATT&ACK taktykę.
+- **Przycisk umożliwiający tworzenie przykładowych alertów** — w celu ocenienia możliwości usługi Azure Defender i testowania alertów. Konfiguracja (na potrzeby integracji SIEM, powiadomień e-mail i automatyzacji przepływu pracy) można tworzyć przykładowe alerty ze wszystkich planów usługi Azure Defender.
+- **Wyrównywanie za pomocą doświadczenia ze zdarzeniami platformy Azure** — w przypadku klientów, którzy korzystają z obu tych produktów, przełączają się między nimi
+- **Lepsza wydajność** dla list dużych alertów.
+- **Nawigacja** przy użyciu klawiatury przez listę alertów.
+- **Alerty z grafu zasobów platformy Azure** — możesz wysyłać zapytania dotyczące alertów na wykresie zasobów platformy Azure, interfejsu API przypominającego Kusto dla wszystkich zasobów. Jest to przydatne również w przypadku tworzenia własnych pulpitów nawigacyjnych alertów. [Dowiedz się więcej o usłudze Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Funkcja tworzenia przykładowych alertów** — aby utworzyć przykładowe alerty z nowego środowiska alertów, zobacz [generowanie przykładowych alertów usługi Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista alertów zabezpieczeń Azure Security Center":::
+
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)
 

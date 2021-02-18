@@ -3,12 +3,12 @@ title: Składnia akcji SQL Azure Service Bus reguły subskrypcji | Microsoft Doc
 description: Ten artykuł zawiera odwołanie do składni akcji reguły SQL. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana w odniesieniu do komunikatu.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742690"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652840"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Składnia akcji SQL reguły subskrypcji
 
@@ -199,7 +199,8 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 `property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Przykłady
+Przykłady można znaleźć w temacie [Service Bus Filter przykłady](service-bus-filter-examples.md).
   
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 

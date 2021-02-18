@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900777"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652348"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Ostatnim wynikiem jest nowa statyczna aplikacja internetowa platformy Azure ze skojarzonymi akcjami GitHub, która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -88,7 +88,7 @@ Aby nawiązać połączenie z usługą Azure static Web Apps, potrzebujesz repoz
 1. Wypychanie lokalnego repozytorium do serwisu GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Wdrażanie aplikacji sieci Web
@@ -123,7 +123,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Wybierz **Hugo-static-App** jako _repozytorium_ .
 
-1. Dla _gałęzi_ wybierz gałąź **główna**.
+1. Dla _gałęzi_ wybierz pozycję **Main**.
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
 

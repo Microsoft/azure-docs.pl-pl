@@ -2,18 +2,18 @@
 title: Konfiguracje i GitOps — usługa Azure ARC z włączonym Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera ogólne omówienie możliwości GitOps i konfiguracji na platformie Azure Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery, konfiguracja, GitOps
-ms.openlocfilehash: 780c3c5c578c8a9b12eb7dda711070790477ac5f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f8fe1522eee4cc855ae1f396d9c98323114a25ce
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561705"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652551"
 ---
 # <a name="configurations-and-gitops-with-azure-arc-enabled-kubernetes"></a>Konfiguracje i GitOps za pomocą usługi Azure Arc Kubernetes
 
@@ -29,7 +29,7 @@ W odniesieniu do Kubernetes, GitOps jest celem deklarowania żądanego stanu kon
 
 Połączenie między klastrem a repozytorium git jest tworzone jako `Microsoft.KubernetesConfiguration/sourceControlConfigurations` zasób rozszerzenia na górze zasobu Kubernetes z włączoną funkcją Azure ARC (reprezentowane przez `Microsoft.Kubernetes/connectedClusters` ) w Azure Resource Manager. 
 
-`sourceControlConfiguration`Właściwości zasobów służą do wdrażania operatora strumienia w klastrze z odpowiednimi parametrami, takimi jak repozytorium git, z którego mają być pobierane manifesty, oraz interwału sondowania, w którym mają być ściągane. `sourceControlConfiguration`Dane są przechowywane w postaci zaszyfrowanej w bazie danych Azure Cosmos DB w celu zapewnienia poufności danych.
+`sourceControlConfiguration`Właściwości zasobów służą do wdrażania operatora strumienia w klastrze z odpowiednimi parametrami, takimi jak repozytorium git, z którego mają być pobierane manifesty, oraz interwału sondowania, w którym mają być ściągane. `sourceControlConfiguration`Dane są przechowywane w postaci zaszyfrowanej i w bazie danych Azure Cosmos DB, aby zapewnić poufność danych.
 
 `config-agent`Działający w klastrze jest odpowiedzialny za:
 * Śledzenie nowych lub zaktualizowanych `sourceControlConfiguration` zasobów rozszerzeń w zasobie usługi Azure ARC z włączonym Kubernetes.
@@ -39,14 +39,14 @@ Połączenie między klastrem a repozytorium git jest tworzone jako `Microsoft.K
 Można utworzyć wiele zasobów o zakresie przestrzeni nazw `sourceControlConfiguration` w tym samym klastrze Kubernetes z obsługą usługi Azure Arc w celu osiągnięcia wielu dzierżawców.
 
 > [!NOTE]
-> * Ponieważ `config-agent` Monitory dla nowych lub zaktualizowanych `sourceControlConfiguration` zasobów rozszerzeń są dostępne dla zasobu Kubernetes z włączoną funkcją Azure ARC, agenci muszą mieć łączność dla żądanego stanu do ściągnięcia do klastra. Gdy agenci nie będą mogli nawiązywać połączeń z platformą Azure, właściwości żądanego stanu zadeklarowane w `sourceControlConfiguration` zasobie w Azure Resource Manager nie są stosowane w klastrze.
-> * Poufne dane dotyczące klienta, takie jak klucz prywatny, znane hosty zawartości, nazwa użytkownika protokołu HTTPS i token/hasło, nie są przechowywane dłużej niż 48 godzin w ramach usług Azure Arc Kubernetes Services. Jeśli używasz poufnych danych wejściowych do konfiguracji, zaleca się przełączenie klastra w tryb online tak jak to możliwe.
+> * `config-agent` ciągle monitoruje nowe lub zaktualizowane `sourceControlConfiguration` zasoby rozszerzeń dostępne w zasobie usługi Azure Arc Kubernetes. W ten sposób Agenci muszą mieć spójną łączność, aby ściągnąć właściwości żądanego stanu do klastra. Jeśli agenci nie mogą połączyć się z platformą Azure, żądany stan nie zostanie zastosowany w klastrze.
+> * Poufne dane dotyczące klienta, takie jak klucz prywatny, znane hosty zawartości, nazwa użytkownika protokołu HTTPS i token lub hasło, są przechowywane przez maksymalnie 48 godzin w ramach usług Azure Arc Kubernetes Services. Jeśli używasz poufnych danych wejściowych do konfiguracji, przełącz klastry w tryb online tak jak to możliwe.
 
 ## <a name="apply-configurations-at-scale"></a>Zastosuj konfiguracje na dużą skalę
 
-Ponieważ Azure Resource Manager zarządza konfiguracjami, można użyć Azure Policy, aby zautomatyzować tworzenie tej samej konfiguracji we wszystkich zasobach Kubernetes z obsługą usługi Azure Arc w zakresie subskrypcji lub grupy zasobów. 
+Ponieważ Azure Resource Manager zarządza konfiguracjami, można zautomatyzować tworzenie tej samej konfiguracji we wszystkich zasobach Kubernetes z obsługą usługi Azure ARC przy użyciu Azure Policy, w zakresie subskrypcji lub grupy zasobów. 
 
-To wymuszanie skalowania zapewnia, że typowa konfiguracja linii bazowej (zawierająca konfiguracje takie jak ClusterRoleBindings, RoleBindings i NetworkPolicy) może być stosowana w całej floty lub spisie klastrów Kubernetes z włączonym systemem Azure Arc.
+To wymuszenie skalowania w poziomie zapewnia wspólną konfigurację linii bazowej (zawierającą konfiguracje, takie jak ClusterRoleBindings, RoleBindings i NetworkPolicy), które mogą być stosowane do całej floty lub spisu klastrów Kubernetes z włączoną funkcją Azure Arc.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886077"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653819"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
 
@@ -60,7 +60,7 @@ Komunikacja przez system telefonii może znacząco zwiększyć zasięg aplikacji
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę PSTN usług komunikacyjnych.":::
 
-Aby uzyskać więcej informacji na temat rozwiązań PSTN i SMS, zobacz [Planowanie rozwiązań PSTN i SMS](../concepts/telephony-sms/plan-solution.md)
+Aby uzyskać więcej informacji na temat numerów telefonów PSTN, zobacz [typy numerów telefonów](../concepts/telephony-sms/plan-solution.md)
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Ludzie komunikują się z botów i innymi usługami
 
@@ -83,7 +83,7 @@ Możesz chcieć zamieścić dowolne dane między użytkownikami, aby na przykła
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Informacje o [uwierzytelnianiu](../concepts/authentication.md)
-- Informacje o [rozwiązaniach PSTN i SMS](../concepts/telephony-sms/plan-solution.md)
+- Dowiedz się więcej o [typach numerów telefonów](../concepts/telephony-sms/plan-solution.md)
 
 - [Dodawanie czatu do aplikacji](../quickstarts/chat/get-started.md)
 - [Dodawanie połączenia głosowego do aplikacji](../quickstarts/voice-video-calling/getting-started-with-calling.md)

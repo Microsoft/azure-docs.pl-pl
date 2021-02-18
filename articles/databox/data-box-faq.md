@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655479"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652789"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -68,6 +68,10 @@ Na przykład w scenariuszu importu, jeśli masz dane źródłowe w Kanadzie, kt�
 2. Po zakończeniu kopiowania danych Premium do urządzenie Data Box należy zwrócić urządzenie do centrum danych platformy Azure w Kanadzie. Dane znajdujące się na urządzenie Data Box są następnie przekazywane do docelowego konta magazynu w regionie usługi Azure Kanada wybranym podczas tworzenia zamówienia.
 
 3. Następnie możesz użyć narzędzia, takiego jak AzCopy, aby skopiować dane na konto magazynu w regionie zachodnie stany USA. Ten krok wiąże się ze [standardowymi](https://azure.microsoft.com/pricing/details/storage/) [opłatami za](https://azure.microsoft.com/pricing/details/bandwidth/) magazyn i przepustowość, które nie są uwzględnione w rozliczeniach urządzenie Data Box.
+
+### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>PYTANIE: Jak można odzyskać dane, jeśli cały region ulegnie awarii?
+
+A. W skrajnych okolicznościach, gdy region zostanie utracony ze względu na znaczną awarię, firma Microsoft może zainicjować regionalną pracę w trybie failover. W tym przypadku nie jest wymagana żadna akcja. Zamówienie zostanie zrealizowane w regionie trybu failover, jeśli znajduje się w tym samym kraju lub na granicy handlu. Jednak niektóre regiony platformy Azure nie mają sparowanego regionu w tej samej granicy geograficznej lub handlowej. Jeśli w dowolnym z tych regionów występuje awaria, należy ponownie utworzyć zamówienie urządzenie Data Box z innego dostępnego regionu i skopiować dane na platformę Azure w nowym regionie. Aby uzyskać więcej informacji, zobacz [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md) (Ciągłość działalności biznesowej i odzyskiwanie po awarii — BCDR: regiony sparowane platformy Azure).
 
 ### <a name="q-who-should-i-contact-if-i-come-across-any-issues-with-data-box"></a>PYTANIE: Z kim mam się skontaktować, jeśli wystąpiły problemy z urządzenie Data Box?
 A. Jeśli występują problemy z urządzenie Data Box, [skontaktuj się z pomoc techniczna firmy Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -201,7 +205,7 @@ A.  Aby przyspieszyć proces kopiowania:
 - Użyj wielu strumieni kopiowania danych. Na przykład w programie `Robocopy` należy użyć opcji wielowątkowej. Aby uzyskać więcej informacji na temat konkretnego polecenia, zobacz [Samouczek: kopiowanie danych na urządzenie Data Box i ich weryfikacja](data-box-deploy-copy-data.md).
 - Użyj wielu sesji.
 - Zamiast kopiowania za pośrednictwem udziału sieciowego (w którym szybkość sieci może ograniczyć szybkość kopiowania), należy przechowywać dane lokalnie na komputerze, do którego jest podłączona urządzenie Data Box.
-- Wykonaj test porównawczy wydajności komputera używanego do kopiowania danych. Pobierz [ `Bluestop` Narzędzie FIO](https://ci.appveyor.com/project/axboe/fio) i użyj go do oceny wydajności sprzętu serwera. Wybierz najnowszą kompilację x86 lub x64, wybierz kartę **artefakty** i Pobierz plik msi.
+- Wykonaj test porównawczy wydajności komputera używanego do kopiowania danych. Pobierz [ `Bluestop` `FIO` Narzędzie](https://ci.appveyor.com/project/axboe/fio) i użyj go do oceny wydajności sprzętu serwera. Wybierz najnowszą kompilację x86 lub x64, wybierz kartę **artefakty** i Pobierz plik msi.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

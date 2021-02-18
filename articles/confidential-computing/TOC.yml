@@ -38,7 +38,7 @@
     - name: Zasoby obliczeniowe kontenera
       expanded: true
       items:
-        - name: Kontenery poufne (migrowane metodą „lift-and-shift”)
+        - name: Kontenery poufne
           items:
             - name: Wprowadzenie
               href: confidential-containers.md
@@ -58,7 +58,7 @@
       href: how-to-fortanix-enclave-manager.md
 - name: Odwołania
   items:
-    - name: Funkcja pomocnika ofert SGX
+    - name: Funkcja pomocnika cytatu SGX
       href: confidential-nodes-out-of-proc-attestation.md
 - name: Zasoby
   items:

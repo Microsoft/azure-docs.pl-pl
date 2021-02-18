@@ -2,22 +2,22 @@
 title: Wdrażanie konfiguracji przy użyciu metodyki GitOps w klastrach platformy Kubernetes z włączoną usługą Azure Arc (wersja zapoznawcza)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Użyj GitOps, aby skonfigurować klaster Kubernetes z włączonym usługą Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, AKS, kontenery
-ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b30ecde0e128a955967638828dcb7bec008205ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560166"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652483"
 ---
 # <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie konfiguracji przy użyciu GitOps w klastrze z włączonym łukiem Kubernetes (wersja zapoznawcza)
 
-W tym artykule pokazano, jak zastosować konfiguracje w klastrze Kubernetes z włączoną funkcją Azure Arc. Przegląd koncepcyjny tego samego programu można znaleźć [tutaj](./conceptual-configurations.md).
+W tym artykule pokazano, jak zastosować konfiguracje w klastrze Kubernetes z włączoną funkcją Azure Arc. Aby uzyskać informacje o pojęciach związanych z tym procesem, zobacz [artykuł konfiguracje i GitOps — usługa Azure ARC z włączoną obsługą Kubernetes](./conceptual-configurations.md).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -85,13 +85,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
   ```
 
-#### <a name="use-a-public-git-repo"></a>Używanie publicznego repozytorium git
+#### <a name="use-a-public-git-repository"></a>Używanie publicznego repozytorium git
 
 | Parametr | Format |
 | ------------- | ------------- |
 | `--repository-url` | http [s]://Server/repo [. git] lub git://Server/repo [. git]
 
-#### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>Korzystanie z prywatnego repozytorium git z użyciem kluczy SSH i strumieniowego tworzenia
+#### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>Korzystanie z prywatnego repozytorium git z użyciem kluczy SSH i strumieniowego tworzenia
 
 | Parametr | Format | Uwagi
 | ------------- | ------------- | ------------- |
@@ -100,7 +100,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > Klucz publiczny wygenerowany przez strumień musi zostać dodany do konta użytkownika w dostawcy usługi git. Jeśli klucz zostanie dodany do repozytorium zamiast konta użytkownika, użyj `git@` zamiast `user@` adresu URL. Aby uzyskać więcej informacji, przejdź do sekcji [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository) .
 
-#### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>Korzystanie z prywatnego repozytorium git z kluczami SSH i dostarczonymi przez użytkownika
+#### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>Korzystanie z prywatnego repozytorium git z kluczami SSH i dostarczonymi przez użytkownika
 
 | Parametr | Format | Uwagi |
 | ------------- | ------------- | ------------- |
@@ -122,7 +122,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > Aby można było uwierzytelnić repozytorium git przed ustanowieniem połączenia SSH, operator strumieni przechowuje listę typowych hostów Git w rozpoznawanym pliku Hosts. Jeśli używasz nietypowego repozytorium Git lub własnego hosta git, może być konieczne podanie klucza hosta, aby upewnić się, że strumień może identyfikować repozytorium. Zawartość known_hosts można dostarczyć bezpośrednio lub w pliku. Użyj [known_hosts specyfikacji formatu zawartości](https://aka.ms/KnownHostsFormat) w połączeniu z jednym z określonych powyżej scenariuszy SSH podczas udostępniania zawartości.
 
-#### <a name="use-a-private-git-repo-with-https"></a>Korzystanie z prywatnego repozytorium git z protokołem HTTPS
+#### <a name="use-a-private-git-repository-with-https"></a>Korzystanie z prywatnego repozytorium git z protokołem HTTPS
 
 | Parametr | Format | Uwagi |
 | ------------- | ------------- | ------------- |
@@ -155,13 +155,13 @@ Dostosuj konfigurację przy użyciu następujących parametrów opcjonalnych:
 | `--git-path`  | Ścieżka względna w repozytorium Git na potrzeby strumieniowego lokalizowania manifestów Kubernetes. |
 | `--git-readonly` | Repozytorium Git będzie uznawane za tylko do odczytu; Strumień nie będzie próbować zapisywać do niego. |
 | `--manifest-generation`  | Jeśli ta funkcja jest włączona, strumień będzie szukać metadanych. strumień. YAML i Run Kustomize lub innych generatorów manifestów. |
-| `--git-poll-interval`  | Okres, w którym można sondować repozytorium git dotyczące nowych zatwierdzeń. Wartość domyślna to `5m` (5 minut). |
+| `--git-poll-interval`  | Okres, w którym ma być sondowanie repozytorium git dla nowych zatwierdzeń. Wartość domyślna to `5m` (5 minut). |
 | `--sync-garbage-collection`  | Jeśli ta funkcja jest włączona, strumień spowoduje usunięcie utworzonych przez siebie zasobów, ale nie są już dostępne w usłudze git. |
 | `--git-label`  | Etykieta do śledzenia postępu synchronizacji. Używane do tagowania gałęzi git.  Wartość domyślna to `flux-sync`. |
 | `--git-user`  | Nazwa użytkownika dla zatwierdzenia git. |
 | `--git-email`  | Wiadomość e-mail do użycia na potrzeby zatwierdzenia git. 
 
-Jeśli nie chcesz, aby strumieniowo zapisywać w repozytorium i `--git-user` lub `--git-email` nie zostały ustawione, `--git-readonly` zostanie automatycznie ustawione.
+Jeśli nie chcesz, aby strumieniowo zapisywać w repozytorium i `--git-user` lub `--git-email` nie zostały ustawione, `--git-readonly` zostanie automatycznie ustawiony.
 
 Aby uzyskać więcej informacji, zobacz [dokumentację strumienia](https://aka.ms/FluxcdReadme).
 
@@ -237,7 +237,7 @@ Podczas procesu aprowizacji `sourceControlConfiguration` wystąpią pewne zmiany
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Zastosuj konfigurację z prywatnego repozytorium git
 
-Jeśli używasz prywatnego repozytorium git, musisz skonfigurować klucz publiczny SSH w repozytorium. Klucz publiczny SSH będzie to ten, który generuje strumień lub który jest udostępniany przez użytkownika. Klucz publiczny można skonfigurować w odniesieniu do określonego repozytorium Git lub użytkownika git, który ma dostęp do repozytorium. 
+Jeśli używasz prywatnego repozytorium git, musisz skonfigurować klucz publiczny SSH w repozytorium. Klucz publiczny SSH będzie to ten, który generuje strumień lub który jest udostępniany przez użytkownika. Klucz publiczny można skonfigurować w określonym repozytorium Git lub na użytkowniku git, który ma dostęp do repozytorium. 
 
 ### <a name="get-your-own-public-key"></a>Pobierz swój własny klucz publiczny
 

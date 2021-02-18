@@ -4,12 +4,12 @@ description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure ap
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263933"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652007"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
@@ -17,7 +17,7 @@ ms.locfileid: "91263933"
 
 ## <a name="automatically-tracked-dependencies"></a>Automatycznie śledzone zależności
 
-Zestawy SDK Application Insights dla platform .NET i .NET Core są dostarczane z systemem `DependencyTrackingTelemetryModule` , który jest modułem telemetrii, który automatycznie zbiera zależności. Ta kolekcja zależności jest włączana automatycznie dla aplikacji [ASP.NET](./asp-net.md) i [ASP.NET Core](./asp-net-core.md) , gdy jest skonfigurowana zgodnie z powiązanymi oficjalnymi dokumentami. `DependencyTrackingTelemetryModule`program jest dostarczany [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) jako pakiet NuGet i zostaje automatycznie uruchomiony w przypadku używania jednego z pakietów NuGet `Microsoft.ApplicationInsights.Web` lub `Microsoft.ApplicationInsights.AspNetCore` .
+Zestawy SDK Application Insights dla platform .NET i .NET Core są dostarczane z systemem `DependencyTrackingTelemetryModule` , który jest modułem telemetrii, który automatycznie zbiera zależności. Ta kolekcja zależności jest włączana automatycznie dla aplikacji [ASP.NET](./asp-net.md) i [ASP.NET Core](./asp-net-core.md) , gdy jest skonfigurowana zgodnie z powiązanymi oficjalnymi dokumentami. `DependencyTrackingTelemetryModule`program jest dostarczany [](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) jako pakiet NuGet i zostaje automatycznie uruchomiony w przypadku używania jednego z pakietów NuGet `Microsoft.ApplicationInsights.Web` lub `Microsoft.ApplicationInsights.AspNetCore` .
 
  `DependencyTrackingTelemetryModule` obecnie śledzi następujące zależności automatycznie:
 
@@ -109,9 +109,10 @@ W przypadku aplikacji ASP.NET cały tekst zapytania SQL jest zbierany przy użyc
 Oprócz kroków specyficznych dla platformy należy **również jawnie zadecydować, aby włączyć zbieranie poleceń SQL** , modyfikując plik applicationInsights.config:
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 W powyższych przypadkach poprawna metoda sprawdzania poprawności aparatu Instrumentacji jest poprawnie zainstalowana, sprawdzając, czy wersja zestawu SDK zebrana `DependencyTelemetry` to "rddp". element "rdddsd" lub "rddf" wskazuje zależności, które są zbierane za pośrednictwem wywołania zwrotnego DiagnosticSource lub EventSource, i dlatego pełne zapytanie SQL nie zostanie przechwycone.

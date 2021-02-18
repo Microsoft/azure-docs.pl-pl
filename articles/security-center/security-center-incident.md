@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341350"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652110"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Zarządzanie zdarzeniami zabezpieczeń w Azure Security Center
 
@@ -29,11 +29,19 @@ W usłudze Security Center zdarzenie zabezpieczeń to agregacja wszystkich alert
 
 ## <a name="managing-security-incidents"></a>Zarządzanie zdarzeniami naruszenia zabezpieczeń
 
-1. Na stronie Przegląd Security Center wybierz kafelek **alerty zabezpieczeń** . Zdarzenia i alerty są wymienione na liście. Zwróć uwagę, że zdarzenia zabezpieczeń mają inną ikonę dla alertów zabezpieczeń.
+1. Na stronie alerty na Security Center Użyj przycisku **Dodaj filtr** , aby filtrować według nazwy alertu do zdarzenia zabezpieczeń Nazwa alertu **wykrytego dla wielu zasobów**. 
 
-    ![Wyświetl zdarzenia dotyczące zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Lokalizowanie zdarzeń na stronie alertów w Azure Security Center":::
 
-1. Aby wyświetlić szczegóły, wybierz zdarzenie. Strona **incydentu zabezpieczeń** zawiera więcej szczegółów. 
+    Lista jest teraz filtrowana, aby pokazać tylko zdarzenia. Zwróć uwagę, że zdarzenia zabezpieczeń mają inną ikonę dla alertów zabezpieczeń.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Lista zdarzeń na stronie Alerty w Azure Security Center":::
+
+1. Aby wyświetlić szczegóły zdarzenia, wybierz jedną z listy. Zostanie wyświetlone okienko boczne zawierające więcej szczegółów dotyczących zdarzenia.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Okienko boczne przedstawiające szczegóły zdarzenia":::
+
+1. Aby wyświetlić więcej szczegółów, wybierz opcję **Wyświetl pełne szczegóły**.
 
     [![Reagowanie na zdarzenia związane z bezpieczeństwem w Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

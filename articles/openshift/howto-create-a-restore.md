@@ -1,19 +1,19 @@
 ---
 title: Tworzenie aplikacji klastra usługi Azure Red Hat OpenShift 4 przy użyciu Velero
 description: Dowiedz się, jak utworzyć Przywracanie aplikacji klastra Red Hat OpenShift platformy Azure przy użyciu usługi Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: a4b22036612aac3d2b67e299881ba11b896979e5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a4c226527f94a9fca4c8106df3827c9222657a1
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492407"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633227"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Tworzenie aplikacji klastra usługi Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ W tym artykule opisano przygotowanie środowiska w celu utworzenia przywracania 
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="create-an-azure-red-hat-openshift-4-application-backup"></a>Tworzenie kopii zapasowej aplikacji usługi Azure Red Hat OpenShift 4
 

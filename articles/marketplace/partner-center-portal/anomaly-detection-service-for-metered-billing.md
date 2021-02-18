@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280538"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653078"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Usługa wykrywania anomalii dla rozliczeń taryfowych
 
@@ -50,32 +50,37 @@ Model działa przez wygenerowanie interwałów zaufania z mocą wsteczną. Progn
 
 ## <a name="anomaly-detection-notification"></a>Powiadomienie o wykryciu anomalii
 
-Powiadomienia o wykryciu anomalii są wysyłane co tydzień. Obejmuje ona wszystkie anomalie wykryte przez tydzień dla wszystkich liczników i klientów. Ta wiadomość e-mail jest wysyłana do kontaktów **inżynieryjnych** i **pomocy technicznej** dostarczonych podczas tworzenia oferty.
+Można oszacować, zarządzać i potwierdzać anomalie w centrum partnerskim. Aby dowiedzieć się, jak to zrobić, zobacz [wykrywanie anomalii w przypadku naliczanych opłat](../anomaly-detection.md).
 
-Oczekujesz, że wykryte anomalie są rzeczywistymi problemami, a jeśli tak, skontaktuj się z firmą Microsoft, aby zgłosić nieprawidłowe użycie (zobacz sekcję dotyczącą pomocy technicznej poniżej).
+Aby zapewnić, że klienci nie są obciążeni opłatami za użycie taryfowe, należy sprawdzić, czy wykryte anomalie są prawdziwymi problemami. W takim przypadku można potwierdzić nieprawidłowe użycie w centrum partnerskim.
 
-Jeśli użytkownik potwierdzi, że wykryte anomalie są normalnym użyciem, nie jest wymagana żadna dodatkowa akcja. Jeśli jednak anomalia reprezentuje potencjalnie wysokie ryzyko finansowe, firma Microsoft może skontaktować się z Tobą w celu potwierdzenia użycia.  
+Zalecamy potwierdzenie, czy wykryte anomalie są normalnym użyciem. Wykonanie tej czynności poprawi dane anomalii, które zapewniamy. Jeśli anomalia reprezentuje potencjalnie wysokie ryzyko finansowe, firma Microsoft może skontaktować się z Tobą w celu potwierdzenia użycia.
 
 ## <a name="when-and-how-to-get-support"></a>Kiedy i jak uzyskać pomoc techniczną
 
-Jeśli w firmie Microsoft zostało wysłane nieprawidłowe użycie, a to nastąpi naliczenie opłaty od klienta, firma Microsoft nie będzie inicjować rachunku dla klienta w ramach zgłoszonego użycia lub uiszczania tego użycia. Twoim obowiązkiem będzie wyrównanie straty przychodu powstałej z powodu zaniżenia raportowanych wartości.
+Jeśli wysłałeś nam nieprawidłowe użycie taryfowe lub nastąpi naliczenie opłat dla klienta, nie zainicjujemy rachunku dla klienta w ramach zgłoszonego użycia lub płacisz za to użycie. Twoim obowiązkiem będzie wyrównanie straty przychodu powstałej z powodu zaniżenia raportowanych wartości.
 
-Jeśli jeden z następujących przypadków ma zastosowanie, możesz otworzyć bilet pomocy technicznej w celu zażądania zwrotu lub korekty rozliczeń dla klientów:
+W przypadku zastosowania jednego z następujących przypadków można dostosować kwotę użycia w centrum partnerskim, co spowoduje korektę zwrotną lub rozliczenia dla klientów:
 
-- Potwierdzono, że jedna ze znalezionych anomalii jest rzeczywistym problemem i nieprawidłowe użycie spowoduje **Przeciążenie** klienta.
-- Użytkownik stwierdzi, że do nas wysłano nieprawidłowe użycie, a niewłaściwe użycie spowoduje **Przeciążenie** klienta.
-- Należy poprosić o zwrot opłaty za użycie naliczanych opłat przez klienta.
+- Potwierdzono, że jedna ze znalezionych anomalii jest rzeczywistym problemem i nieprawidłowe użycie spowoduje Przeciążenie klienta.
+- Użytkownik stwierdzi, że do nas wysłano nieprawidłowe użycie, a niewłaściwe użycie spowoduje Przeciążenie klienta.
 
-Aby przesłać bilet:
+Aby przesłać bilet pomocy technicznej dotyczącej anomalii rozliczeń naliczanych:
 
-1. Przejdź do strony pomocy technicznej. W **polu powiedz nam o Twoim problemie**wprowadź wartość "Nieprawidłowe użycie".
-2. W obszarze Tematy pomocy technicznej na liście rozwijanej wyniki wyszukiwania wybierz jedną z następujących opcji:
-    - **Komercyjne witryny Marketplace**  >  **Naliczanie opłat**  >  **Wysłano nieprawidłowe użycie dla oferty aplikacji platformy Azure**lub
-    - **Komercyjne witryny Marketplace**  >  **Naliczanie opłat**  >  **Wysłano nieprawidłowe użycie dla oferty SaaS**
-3. W **następnym kroku**wybierz przycisk **Przejrzyj rozwiązania** , aby skierować do Centrum partnerskiego, aby przesłać bilet pomocy technicznej.
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) przy użyciu swojego konta służbowego.
+1. W menu w prawym górnym rogu strony wybierz ikonę **Pomoc techniczna** . Okienko **Pomoc i obsługa techniczna** pojawia się po prawej stronie strony.
+1. Aby uzyskać pomoc dotyczącą komercyjnej witryny Marketplace, wybierz pozycję **Marketing komercyjny**.
+   ![Ilustruje okienko pomoc techniczna.](../media/support/commercial-marketplace-support-pane.png)
+1. W polu **Podsumowanie problemu** wprowadź **komercyjne rozliczenia > Marketplace**.
+1. W polu **typ problemu** wybierz jedną z następujących opcji:
+    - **Komercyjne >owe rozliczanie w witrynie Marketplace > błędne użycie wysłane dla oferty aplikacji platformy Azure**
+    - **Komercyjne >owe rozliczanie w witrynie Marketplace > nieprawidłowe użycie wysłane dla oferty SaaS**
+1. W **następnym kroku** wybierz pozycję **Przejrzyj rozwiązania**.
+1. Przejrzyj zalecane dokumenty, jeśli istnieją lub wybierz opcję **Podaj szczegóły problemu** , aby przesłać bilet pomocy technicznej.
 
 Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](../support.md).
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [interfejsie API usługi pomiaru Marketplace](marketplace-metering-service-apis.md).
+- [Wykrywanie anomalii dla rozliczeń naliczanych](../anomaly-detection.md)

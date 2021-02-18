@@ -1,19 +1,19 @@
 ---
-title: Obsługa zaświadczania poza procesem przy użyciu usługi Intel SGX Quote pomocnik elementu daemonset na platformie Azure
+title: Obsługa zaświadczania poza procesem przy użyciu funkcji Intel SGX Quote Helper elementu daemonset na platformie Azure (wersja zapoznawcza)
 description: Elementu daemonset do generowania oferty poza procesem aplikacji SGX. W tym artykule wyjaśniono, w jaki sposób zaświadczenie out-of-proc jest udostępniane dla poufnych obciążeń uruchomionych wewnątrz kontenera.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 89890740b06a399bad4678ff6ddd9be09c1cda0e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564161"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653333"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Zarządzanie oprogramowaniem platformy przy użyciu zestawu demona pomocnika cytatu SGX
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Zarządzanie oprogramowaniem platformy przy użyciu zestawu demona pomocnika cytatu SGX (wersja zapoznawcza)
 
 [Enklawy aplikacje](confidential-computing-enclaves.md) , które wykonują zaświadczanie zdalne, wymagają wygenerowania oferty. Ta oferta zapewnia kryptograficzną weryfikację tożsamości i stanu aplikacji oraz środowisko, w którym enklawy jest uruchomiona. Generowanie oferty wymaga składników oprogramowania zaufanych, które są częścią oprogramowania platformy firmy Intel (PSW).
 
@@ -22,11 +22,18 @@ ms.locfileid: "94564161"
 Intel obsługuje dwa tryby zaświadczania, aby uruchomić generowanie cytatu:
 - **w** procesie: hostuje składniki zaufanego oprogramowania w ramach procesu aplikacji enklawy
 
-- **out-of-proc** : udostępnia zaufane składniki oprogramowania spoza aplikacji enklawy.
+- **out-of-proc**: udostępnia zaufane składniki oprogramowania spoza aplikacji enklawy.
  
 Aplikacje SGX utworzone przy użyciu zestawu SDK open enklawy domyślnie używają trybu zaświadczania w procesie. Aplikacje oparte na SGX umożliwiają korzystanie z usługi i wymagają dodatkowego hostingu i uwidaczniają wymagane składniki, takie jak enklawy architektury Service Manager (AESM), zewnętrzne dla aplikacji.
 
-Korzystanie z tej funkcji jest **zdecydowanie zalecane** , ponieważ zwiększa to czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP.
+Korzystanie z tej funkcji jest **zdecydowanie zalecane**, ponieważ zwiększa to czas pracy aplikacji enklawy podczas aktualizacji platformy Intel lub aktualizacji sterowników DCAP.
+
+Aby włączyć tę funkcję w klastrze AKS, należy zmodyfikować polecenie Add--Enable-sgxquotehelper w interfejsie wiersza polecenia podczas włączania dodatku do obsługi poufnych danych. Szczegółowe instrukcje interfejsu wiersza [polecenia są następujące](confidential-nodes-aks-get-started.md): 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Dlaczego i jakie są korzyści z używania poza procesem?
 

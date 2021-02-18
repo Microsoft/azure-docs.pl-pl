@@ -5,16 +5,16 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6c68dd341e0794a690b41b73ecc4be954db7359
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504818"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653853"
 ---
 # <a name="manage-an-azure-support-request"></a>Zarządzanie wnioskiem o pomoc techniczną platformy Azure
 
-Po [utworzeniu żądania pomocy technicznej platformy Azure](how-to-create-azure-support-request.md)można nim zarządzać w [Azure Portal](https://portal.azure.com), który jest objęty tym artykułem. Żądania można także tworzyć programowo i zarządzać nimi za pomocą [interfejsu API REST biletów pomocy technicznej platformy Azure](/rest/api/support).
+Po [utworzeniu żądania pomocy technicznej platformy Azure](how-to-create-azure-support-request.md)można nim zarządzać w [Azure Portal](https://portal.azure.com), który jest objęty tym artykułem. Żądania można także tworzyć programowo i zarządzać nimi przy użyciu [interfejsu API REST biletów pomocy technicznej platformy Azure](/rest/api/support)lub przy użyciu [wiersza polecenia platformy Azure](/cli/azure/azure-cli-support-request).
 
 ## <a name="view-support-requests"></a>Wyświetlanie wszystkich żądań pomocy technicznej
 
@@ -76,7 +76,7 @@ Możesz użyć opcji przekazywania plików, aby przekazać pliki diagnostyczne l
 
 1. Na stronie **żądanie pomocy technicznej** Wyszukaj plik, a następnie wybierz pozycję **Przekaż**. Powtórz ten proces, jeśli masz wiele plików.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Przekazywanie pliku":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Przekaż plik":::
 
 ### <a name="file-upload-guidelines"></a>Wskazówki dotyczące przekazywania plików
 
@@ -127,7 +127,7 @@ Jeśli musisz zamknąć żądanie pomocy technicznej, [Wyślij komunikat z](#sen
 
 Jeśli musisz ponownie otworzyć zamknięte żądanie obsługi, Utwórz [Nowy komunikat](#send-a-message), który automatycznie ponownie otworzy żądanie.
 
-## <a name="cancel-a-support-plan"></a>Anuluj plan pomocy technicznej
+## <a name="cancel-a-support-plan"></a>Anulowanie planu pomocy technicznej
 
 Aby anulować plan pomocy technicznej, zobacz sekcję [anulowanie planu pomocy technicznej](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 

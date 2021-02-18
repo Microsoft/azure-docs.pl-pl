@@ -1,18 +1,18 @@
 ---
-title: Samouczek — wdrażanie klastra vSphere na platformie Azure
-description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMware
+title: Samouczek — Tworzenie i wdrażanie chmury prywatnej rozwiązania Azure VMware
+description: Dowiedz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093951"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653140"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej rozwiązania Azure VMware na platformie Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Samouczek: Tworzenie chmury prywatnej rozwiązania Azure VMware
 
-Rozwiązanie Azure VMware umożliwia wdrażanie klastra vSphere na platformie Azure. Minimalne początkowe wdrożenie to trzy hosty. Dodatkowe hosty mogą być dodawane pojedynczo do maksymalnie 16 hostów na klaster. 
+W tym samouczku dowiesz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware. Minimalne początkowe wdrożenie hostów to trzy. Dodatkowe hosty mogą być dodawane pojedynczo do maksymalnie 16 hostów na klaster. 
 
 Ponieważ rozwiązanie Azure VMware nie pozwala na zarządzanie chmurą prywatną przy użyciu lokalnego programu vCenter podczas uruchamiania, wymagana jest dodatkowa konfiguracja. Te procedury i powiązane z nim wymagania wstępne zostały omówione w tym samouczku.
 
@@ -25,13 +25,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Odpowiednie prawa administracyjne i uprawnienia do tworzenia chmury prywatnej.
+- Odpowiednie prawa administracyjne i uprawnienia do tworzenia chmury prywatnej. Musisz mieć co najmniej poziom współautor w subskrypcji.
+- Postępuj zgodnie z informacjami w artykule [Planowanie](production-ready-deployment-steps.md) , aby wdrożyć rozwiązanie VMware dla platformy Azure.
 - Upewnij się, że skonfigurowano odpowiednią sieć, zgodnie z opisem w [samouczku: Lista kontrolna sieci](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- Hosty zostały wdrożone i dostawca zasobów Microsoft. Automatyczna synchronizacja został zarejestrowany zgodnie z opisem w artykule [Żądaj hostów i Włącz dostawcę zasobów Microsoft. Automatyczna synchronizacja](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Tworzenie chmury prywatnej
 

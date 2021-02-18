@@ -3,12 +3,12 @@ title: Eksportowanie za pomocą Stream Analytics z platformy Azure Application I
 description: Stream Analytics mogą w sposób ciągły przekształcać, filtrować i kierować dane eksportowane z Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8486d7e5656a7770aec4a50739d3a9160e123e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979175"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584323"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jest idealnym narzędziem do przetwarzania danych [wyeksportowanych z Application Insights](export-telemetry.md). Stream Analytics może pobierać dane z różnych źródeł. Może on przekształcać i filtrować dane, a następnie kierować je do różnych zlewów.
@@ -55,10 +55,10 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
 
     ![Wybieranie typów zdarzeń](./media/export-stream-analytics/080.png)
 
-1. Umożliwia gromadzenie danych. Powróć i pozwól, aby użytkownicy korzystali z aplikacji przez pewien czas. Dane telemetryczne będą dostępne, a wykresy statystyczne są wyświetlane w [Eksploratorze metryk](../platform/metrics-charts.md) i w poszczególnych zdarzeniach w [przeszukiwaniu diagnostycznym](./diagnostic-search.md). 
+1. Umożliwia gromadzenie danych. Powróć i pozwól, aby użytkownicy korzystali z aplikacji przez pewien czas. Dane telemetryczne będą dostępne, a wykresy statystyczne są wyświetlane w [Eksploratorze metryk](../essentials/metrics-charts.md) i w poszczególnych zdarzeniach w [przeszukiwaniu diagnostycznym](./diagnostic-search.md). 
    
     Ponadto dane zostaną wyeksportowane do magazynu. 
-2. Sprawdź wyeksportowane dane. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury**i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
+2. Sprawdź wyeksportowane dane. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury** i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
    
     ![Zrzut ekranu przedstawiający sposób ustawiania typów zdarzeń, które mają być wyświetlane.](./media/export-stream-analytics/04-data.png)
    
@@ -107,7 +107,7 @@ W tym przykładzie:
 > 
 
 ## <a name="add-new-output"></a>Dodaj nowe dane wyjściowe
-Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  **Add**.
+Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  .
 
 ![Zrzut ekranu pokazujący Wybieranie zadania Stream Analytics, aby dodać nowe dane wyjściowe.](./media/export-stream-analytics/SA006.png)
 

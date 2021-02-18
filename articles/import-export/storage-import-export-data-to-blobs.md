@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706801"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652959"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do platformy Azure Blob Storage przy użyciu usługi Azure Import/Export
 
@@ -101,13 +101,13 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
 1. Zaloguj się do https://portal.azure.com/ .
-2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
+2. Wyszukaj **zadania importowania/eksportowania**.
 
-    ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Wyszukiwanie w zadaniach importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
+3. Wybierz pozycję **+ Nowe**.
 
-    ![Kliknij pozycję Utwórz zadanie importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Wybierz pozycję Nowy, aby utworzyć nowy ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Na stronie **Podstawy**:
 
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
    * Wybierz subskrypcję.
    * Wprowadź lub wybierz grupę zasobów.
 
-     ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. W **szczegółach zadania**:
 
@@ -126,7 +126,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
    * Wybierz docelowe konto magazynu, na którym będą przechowywane dane.
    * Lokalizacja Dropoff jest automatycznie wypełniana na podstawie regionu wybranego konta magazynu.
 
-   ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. W oknie **Informacje o wysyłce zwrotu**:
 
@@ -137,14 +137,14 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
        > [!TIP]
        > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-     ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. **Podsumowanie**:
 
    * Przejrzyj informacje o zadaniu podane w podsumowaniu. Zanotuj nazwę zadania i adres wysyłkowy centrum danych platformy Azure, aby dostarczać dyski z powrotem do platformy Azure. Te informacje są używane później na etykiecie wysyłkowej.
    * Kliknij przycisk **OK** , aby utworzyć zadanie importowania.
 
-     ![Tworzenie zadania importowania — krok 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Tworzenie zadania importowania — krok 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
