@@ -3,12 +3,12 @@ title: Szacowanie kosztów planu zużycia w Azure Functions
 description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać naliczone podczas uruchamiania aplikacji funkcji w planie zużycia na platformie Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934887"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578563"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
 
@@ -67,11 +67,11 @@ Na [fakturze](../cost-management-billing/understand/download-azure-invoice.md)mo
 
 ### <a name="function-app-level-metrics"></a>Metryki na poziomie aplikacji funkcji
 
-Aby lepiej zrozumieć wpływ kosztów funkcji, możesz użyć Azure Monitor, aby wyświetlić metryki związane z kosztami, które są obecnie generowane przez aplikacje funkcji. Aby uzyskać te dane, można użyć narzędzia [Azure monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) w [Azure Portal] lub interfejsie API REST.
+Aby lepiej zrozumieć wpływ kosztów funkcji, możesz użyć Azure Monitor, aby wyświetlić metryki związane z kosztami, które są obecnie generowane przez aplikacje funkcji. Aby uzyskać te dane, można użyć narzędzia [Azure monitor Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) w [Azure Portal] lub interfejsie API REST.
 
 #### <a name="monitor-metrics-explorer"></a>Monitorowanie Eksploratora metryk
 
-Użyj [Eksploratora metryk Azure monitor](../azure-monitor/platform/metrics-getting-started.md) , aby wyświetlić dane dotyczące kosztów dla aplikacji funkcji planu zużycia w formacie graficznym. 
+Użyj [Eksploratora metryk Azure monitor](../azure-monitor/essentials/metrics-getting-started.md) , aby wyświetlić dane dotyczące kosztów dla aplikacji funkcji planu zużycia w formacie graficznym. 
 
 1. W górnej części [Azure Portal] w **usługach wyszukiwania, zasobach i witrynie docs**  Wyszukaj `monitor` i wybierz pozycję **monitor** w obszarze **usługi**.
 

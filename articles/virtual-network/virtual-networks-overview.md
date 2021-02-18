@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 849127ed0846928a77795ac0a1ea3f7a091468b5
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218538"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635952"
 ---
 # <a name="what-is-azure-virtual-network"></a>Co to jest usługa Azure Virtual Network?
 
 Usługa Azure Virtual Network (VNet) to podstawowy blok konstrukcyjny dla sieci prywatnej na platformie Azure. Sieć wirtualna umożliwia bezpieczne komunikowanie się ze sobą za pomocą Internetu i sieci lokalnych w wielu typach zasobów platformy Azure, takich jak Azure Virtual Machines (VM). Sieć wirtualna jest podobna do tradycyjnej sieci, która działa w Twoim centrum danych, ale oferuje dodatkowe korzyści wynikające z infrastruktury platformy Azure, takiej jak skalowanie, dostępność i izolacja.
 
 ## <a name="why-use-an-azure-virtual-network"></a>Dlaczego warto używać sieci wirtualnej platformy Azure?
-Usługa Azure Virtual Network umożliwia zasobom platformy Azure bezpieczne komunikowanie się ze sobą, z Internetu i sieciami lokalnymi. Najważniejsze scenariusze, w których można wykonać sieć wirtualną, obejmują komunikację z zasobami platformy Azure z Internetem, komunikację między zasobami platformy Azure, komunikację z zasobami lokalnymi, filtrowanie ruchu sieciowego, kierowanie ruchu sieciowego i integrację z usługami platformy Azure.
+Usługa Azure Virtual Network umożliwia zasobom platformy Azure bezpieczne komunikowanie się ze sobą, z Internetu i sieciami lokalnymi. Najważniejsze scenariusze, które można osiągnąć dzięki sieci wirtualnej, obejmują komunikację z zasobami platformy Azure z Internetem, komunikację między zasobami platformy Azure, komunikację z zasobami lokalnymi, filtrowanie ruchu sieciowego, kierowanie ruchu sieciowego i integrację z usługami platformy Azure.
 
 ### <a name="communicate-with-the-internet"></a>Komunikacja z Internetem
 

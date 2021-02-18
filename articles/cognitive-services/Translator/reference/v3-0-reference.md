@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582205"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650766"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
 
@@ -35,7 +35,7 @@ Usługi Microsoft Translator są obsługiwane z wielu lokalizacji centrów danyc
 
 * **Ameryka Północna:** Wschodnie stany USA, Południowo-środkowe stany USA, zachodnio-środkowe stany USA i zachodnie stany USA 2 
 * **Azja i Pacyfik:** Korea Południowa, Japonia Wschodnia, Azja Południowo-Wschodnia i Australia Wschodnia
-* **Europa:** Europa Północna i Europa Zachodnia
+* **Europa:** Europa Północna, Europa Zachodnia, Szwajcaria Północna <sup>1, 2</sup>i Szwajcaria Zachodnia <sup>1, 2</sup>
 
 Żądania kierowane do usługi Microsoft Translator są w większości przypadków obsługiwane przez centrum danych, które znajdują się najbliżej lokalizacji, z której pochodzi żądanie. W przypadku awarii centrum danych żądanie może być kierowane poza lokalizację geograficzną platformy Azure.
 
@@ -47,6 +47,17 @@ Aby wymusić obsługę żądania przez określoną lokalizację geograficzną pl
 |Azure|Stany Zjednoczone|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Azja i Pacyfik|    api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> klient z zasobem znajdującym się w Szwajcaria Północna lub Szwajcaria Zachodnia może zapewnić, że ich żądania interfejsu API tekstu są obsługiwane w Szwajcarii. Aby upewnić się, że żądania są obsługiwane w Szwajcarii, należy utworzyć zasób usługi Translator w obszarze zasobów "Szwajcaria Północna" lub "Szwajcaria Zachodnia", a następnie użyć niestandardowego punktu końcowego zasobu w żądaniach interfejsu API. Na przykład: Jeśli utworzysz zasób usługi Translator w Azure Portal z "regionem zasobów" jako "Szwajcaria Północna", a nazwa zasobu to "My-ch-n", niestandardowy punkt końcowy to " https://my-ch-n.cognitiveservices.azure.com ". A przykładowe żądanie przetłumaczenia to:
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup> Translator niestandardowy nie jest obecnie dostępny w Szwajcarii.
 
 ## <a name="authentication"></a>Authentication
 

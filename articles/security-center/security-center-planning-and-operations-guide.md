@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0868c99a29b8da4376b639a54988fc821433e26d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576985"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -40,7 +40,7 @@ W zależności od rozmiaru i struktury organizacji wiele osób oraz zespołów m
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Przykład:
+Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Na przykład:
 
 **Jan (właściciel obciążenia)**
 
@@ -135,7 +135,7 @@ Azure Security Center używa agenta Log Analytics — jest to ten sam Agent, kt�
 
 ### <a name="agent"></a>Agent
 
-W przypadku włączenia automatycznej obsługi administracyjnej w zasadach zabezpieczeń Agent Log Analytics (dla [systemu Windows](../azure-monitor/platform/agent-windows.md) lub [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) jest instalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i tworzonych nowych. Jeśli na maszynie wirtualnej lub komputerze jest już zainstalowany agent Log Analytics, Azure Security Center będzie korzystać z aktualnie zainstalowanego agenta. Proces agenta został zaprojektowany jako nieinwazyjny i ma minimalny wpływ na wydajność maszyny wirtualnej.
+W przypadku włączenia automatycznej obsługi administracyjnej w zasadach zabezpieczeń Agent Log Analytics (dla [systemu Windows](../azure-monitor/agents/agent-windows.md) lub [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) jest instalowany na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i tworzonych nowych. Jeśli na maszynie wirtualnej lub komputerze jest już zainstalowany agent Log Analytics, Azure Security Center będzie korzystać z aktualnie zainstalowanego agenta. Proces agenta został zaprojektowany jako nieinwazyjny i ma minimalny wpływ na wydajność maszyny wirtualnej.
 
 Agent Log Analytics dla systemu Windows wymaga użycia portu TCP 443. Przeczytaj [artykuł na temat rozwiązywania problemów](security-center-troubleshooting-guide.md), aby uzyskać więcej informacji.
 

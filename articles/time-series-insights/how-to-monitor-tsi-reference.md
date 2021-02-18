@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 0b564ddfdea2cf24b7f9b1bc608d47fa4cfe541b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632797"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591385"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Informacje o monitorowaniu Azure Time Series Insights danych
 
@@ -23,7 +23,7 @@ Dowiedz się więcej na temat danych i zasobów zebranych przez Azure Monitor ze
 
 ## <a name="metrics"></a>Metryki
 
-W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebrane dla Azure Time Series Insights. Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Time Series Insights), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/platform/metrics-supported.md). Dostawcą zasobów dla tych metryk są [Microsoft. TimeSeriesInsights/Environments/eventsources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) i [Microsoft. TimeSeriesInsights/](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments)Environments.
+W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebrane dla Azure Time Series Insights. Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Time Series Insights), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/essentials/metrics-supported.md). Dostawcą zasobów dla tych metryk są [Microsoft. TimeSeriesInsights/Environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) i [Microsoft. TimeSeriesInsights/](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments)Environments.
 
 
 ### <a name="ingress"></a>Ruch przychodzący
@@ -38,7 +38,7 @@ W tej sekcji wymieniono wszystkie automatycznie zbierane metryki platformy zebra
 |IngressStoredBytes|Bajty przechowywane w ruchu przychodzącym|Bajty|Łącznie|Łączny rozmiar zdarzeń pomyślnie przetworzonych i dostępnych dla zapytania|
 |IngressStoredEvents|Zdarzenia związane z transferem danych przychodzących|Liczba|Łącznie|Liczba zdarzeń spłaszczonych pomyślnie przetworzonych i dostępnych dla zapytania|
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 |Metric|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
@@ -67,7 +67,7 @@ Następujące schematy są używane przez Azure Time Series Insights
 | CorrelationId | Identyfikator korelacji żądania. |
 | Poziom | Poziom ważności zdarzenia. |
 | ResultDescription | Opis wyniku operacji, taki jak "Odebrano błąd zabroniony". |
-| Wiadomość | Komunikat skojarzony z błędem. Zawiera szczegółowe informacje o błędach i sposobach łagodzenia błędu. |
+| Komunikat | Komunikat skojarzony z błędem. Zawiera szczegółowe informacje o błędach i sposobach łagodzenia błędu. |
 | ErrorCode | Kod skojarzony z błędem |
 | EventSourcetype | Typ źródła zdarzenia. Może to być centrum zdarzeń lub Centrum IoT Hub. |
 | EventSourceProperties | Kolekcja właściwości specyficznych dla źródła zdarzenia. Zawiera szczegółowe informacje, takie jak grupa odbiorców i nazwa klucza dostępu. |

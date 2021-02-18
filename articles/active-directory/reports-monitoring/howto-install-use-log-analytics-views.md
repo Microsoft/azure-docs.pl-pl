@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180476"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580009"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory
 
@@ -35,7 +35,7 @@ Widoki usługi log Analytics ułatwiają analizowanie i wyszukiwanie dzienników
 
 Aby można było korzystać z widoków usługi log Analytics, potrzebne są:
 
-* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 * Najpierw wykonaj kroki umożliwiające [kierowanie dzienników aktywności usługi Azure AD do obszaru roboczego log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Pobierz widoki z [repozytorium GitHub](https://aka.ms/AADLogAnalyticsviews) na komputer lokalny.
 
@@ -67,11 +67,11 @@ Aby można było korzystać z widoków usługi log Analytics, potrzebne są:
 
     ![Tworzenie reguły](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Wybierz grupę akcji do alertu. Ogólnie rzecz biorąc, może to być zespół, który ma być powiadamiany za pośrednictwem wiadomości e-mail lub wiadomości SMS, lub może być zautomatyzowanym zadaniem korzystającym z elementów webhook, Runbook, Functions, Logic Apps lub zewnętrznych rozwiązań narzędzia ITSM. Dowiedz się, jak [tworzyć grupy akcji i zarządzać nimi w Azure Portal](../../azure-monitor/platform/action-groups.md).
+6. Wybierz grupę akcji do alertu. Ogólnie rzecz biorąc, może to być zespół, który ma być powiadamiany za pośrednictwem wiadomości e-mail lub wiadomości SMS, lub może być zautomatyzowanym zadaniem korzystającym z elementów webhook, Runbook, Functions, Logic Apps lub zewnętrznych rozwiązań narzędzia ITSM. Dowiedz się, jak [tworzyć grupy akcji i zarządzać nimi w Azure Portal](../../azure-monitor/alerts/action-groups.md).
 
 7. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert. Za każdym razem, gdy wystąpi błąd logowania, zostanie wysłany alert.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak analizować dzienniki aktywności przy użyciu dzienników Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Rozpocznij pracę z dziennikami Azure Monitor w Azure Portal](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Rozpocznij pracę z dziennikami Azure Monitor w Azure Portal](../../azure-monitor/logs/log-analytics-tutorial.md)

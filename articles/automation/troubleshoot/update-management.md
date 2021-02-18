@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890785"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579748"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -135,7 +135,7 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
 
 1. Uruchom narzędzie do rozwiązywania problemów dla [systemu Windows](update-agent-issues.md#troubleshoot-offline) lub [Linux](update-agent-issues-linux.md#troubleshoot-offline), w zależności od systemu operacyjnego.
 
-2. Upewnij się, że komputer jest raportowany do prawidłowego obszaru roboczego. Aby uzyskać wskazówki dotyczące weryfikacji tego aspektu, zobacz [Weryfikowanie łączności agenta z Azure monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Upewnij się również, że ten obszar roboczy jest połączony z kontem Azure Automation. Aby potwierdzić, przejdź do konta usługi Automation i wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
+2. Upewnij się, że komputer jest raportowany do prawidłowego obszaru roboczego. Aby uzyskać wskazówki dotyczące weryfikacji tego aspektu, zobacz [Weryfikowanie łączności agenta z Azure monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Upewnij się również, że ten obszar roboczy jest połączony z kontem Azure Automation. Aby potwierdzić, przejdź do konta usługi Automation i wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
 
 3. Upewnij się, że maszyny są widoczne w obszarze roboczym Log Analytics połączonym z kontem usługi Automation. Uruchom następujące zapytanie w obszarze roboczym Log Analytics.
 
@@ -144,7 +144,7 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
    | summarize by Computer, Solutions
    ```
 
-    Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
     Jeśli komputer znajduje się na liście wyników zapytania, sprawdź, czy znajduje się w obszarze właściwości **rozwiązania** , na której znajdują się **aktualizacje** . Spowoduje to sprawdzenie, czy jest on zarejestrowany w Update Management. Jeśli tak nie jest, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/scope-configuration.md) określa, które maszyny są skonfigurowane do Update Management. Aby skonfigurować konfigurację zakresu dla maszyny docelowej, zobacz [Włączanie maszyn w obszarze roboczym](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 

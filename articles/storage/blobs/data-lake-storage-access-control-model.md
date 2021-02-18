@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017716"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650392"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Model kontroli dostępu w Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Ten artykuł koncentruje się na RBAC i listach kontroli dostępu platformy Azur
 
 Funkcja RBAC platformy Azure używa przypisań ról do stosowania zestawów uprawnień do [podmiotów zabezpieczeń](../../role-based-access-control/overview.md#security-principal). Podmiot zabezpieczeń to obiekt, który reprezentuje użytkownika, grupę, jednostkę usługi lub zarządzaną tożsamość, która jest zdefiniowana w Azure Active Directory (AD). Zestaw uprawnień może dać podmiotowi zabezpieczeń "duże ziarno" poziom dostępu, taki jak dostęp do odczytu lub zapisu do **wszystkich** danych na koncie magazynu lub **wszystkich** danych w kontenerze. 
 
-Poniższe role zezwalają podmiotowi zabezpieczeń na dostęp do danych na koncie magazynu. 
+Poniższe role zezwalają podmiotowi zabezpieczeń na dostęp do danych na koncie magazynu.
 
 |Rola|Opis|
 |--|--|
@@ -71,7 +71,7 @@ Na poniższym diagramie przedstawiono przepływ uprawnień dla trzech typowych o
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabela uprawnień: łączenie RBAC i listy ACL platformy Azure
 
-W poniższej tabeli przedstawiono sposób łączenia ról platformy Azure i wpisów listy kontroli dostępu, dzięki czemu podmiot zabezpieczeń może wykonywać operacje wymienione w kolumnie **operacja** . W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `/` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. Pojawiające się w tych kolumnach są [krótkimi](data-lake-storage-access-control.md#short-forms-for-permissions) reprezentacjami wpisów listy kontroli dostępu wymaganych do udzielenia uprawnień. **N/A** _Nie dotyczy (nie ma zastosowania_) pojawia się w kolumnie, Jeśli wpis listy ACL nie jest wymagany do wykonania operacji.
+W poniższej tabeli przedstawiono sposób łączenia ról platformy Azure i wpisów listy kontroli dostępu, dzięki czemu podmiot zabezpieczeń może wykonywać operacje wymienione w kolumnie **operacja** . W tej tabeli przedstawiono kolumnę, która reprezentuje każdy poziom fikcyjnej hierarchii katalogów. Istnieje kolumna katalogu głównego kontenera ( `/` ), podkatalog o nazwie **Oregon**, podkatalog katalogu Oregon o nazwie **Portland** oraz plik tekstowy w katalogu w Portland o nazwie **Data.txt**. Pojawiające się w tych kolumnach są [krótkimi](data-lake-storage-access-control.md#short-forms-for-permissions) reprezentacjami wpisów listy kontroli dostępu wymaganych do udzielenia uprawnień.  _Nie dotyczy (nie ma zastosowania_) pojawia się w kolumnie, Jeśli wpis listy ACL nie jest wymagany do wykonania operacji.
 
 |    Operacja             | Przypisana rola platformy Azure               |    /        | Oregon     | Biura | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|

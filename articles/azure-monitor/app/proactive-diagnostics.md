@@ -3,12 +3,12 @@ title: Inteligentne wykrywanie na platformie Azure Application Insights | Micros
 description: Application Insights przeprowadza automatyczne głębokiej analizy danych telemetrycznych aplikacji i ostrzega o potencjalnych problemach.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 974795e853416ff7a4c051530b050fc663c9423d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585660"
 ---
 # <a name="smart-detection-in-application-insights"></a>Wykrywanie inteligentne w usłudze Application Insights
  Inteligentne wykrywanie automatycznie ostrzega o potencjalnych problemach z wydajnością i anomaliach niepowodzeń w aplikacji sieci Web. Wykonuje proaktywnie analizę danych telemetrycznych wysyłanych przez aplikację do [Application Insights](./app-insights-overview.md). W przypadku nagłego wzrostu współczynnika błędów lub nietypowych wzorców wydajności klienta lub serwera zostanie wyświetlony alert. Ta funkcja nie wymaga konfiguracji. Działa, gdy aplikacja wysyła wystarczającą ilość danych telemetrycznych.
@@ -53,11 +53,11 @@ Alternatywnie można zmienić konfigurację przy użyciu szablonów Azure Resour
 ## <a name="next-steps"></a>Następne kroki
 Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z aplikacji:
 
-* [Eksplorator metryk](../platform/metrics-charts.md)
+* [Eksplorator metryk](../essentials/metrics-charts.md)
 * [Eksplorator wyszukiwania](./diagnostic-search.md)
-* [Analiza — zaawansowany język zapytań](../log-query/log-analytics-tutorial.md)
+* [Analiza — zaawansowany język zapytań](../logs/log-analytics-tutorial.md)
 
 Inteligentne wykrywanie jest całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
+* [Ręcznie skonfigurowane alerty metryk](../alerts/alerts-log.md)
 * [Testy dostępności sieci Web](./monitor-web-app-availability.md)

@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591835"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrowanie IoT Hub z monitorowania operacji do Azure Monitor dzienników zasobów
 
-Klienci korzystający z [monitorowania operacji](iot-hub-operations-monitoring.md) do śledzenia stanu operacji w IoT Hub mogą migrować ten przepływ pracy do [Azure monitor dzienników zasobów](../azure-monitor/platform/platform-logs-overview.md), funkcji Azure monitor. Dzienniki zasobów dostarczają informacje diagnostyczne na poziomie zasobów dla wielu usług platformy Azure.
+Klienci korzystający z [monitorowania operacji](iot-hub-operations-monitoring.md) do śledzenia stanu operacji w IoT Hub mogą migrować ten przepływ pracy do [Azure monitor dzienników zasobów](../azure-monitor/essentials/platform-logs-overview.md), funkcji Azure monitor. Dzienniki zasobów dostarczają informacje diagnostyczne na poziomie zasobów dla wielu usług platformy Azure.
 
 **Funkcja monitorowania operacji IoT Hub jest przestarzała** i została usunięta z portalu. W tym artykule przedstawiono procedurę przenoszenia obciążeń z monitorowania operacji do Azure Monitor dzienników zasobów. Aby uzyskać więcej informacji na temat osi czasu wycofania, zobacz [monitorowanie rozwiązań usługi Azure IoT za pomocą Azure monitor i Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,9 +49,9 @@ Aby zaktualizować IoT Hub w Azure Portal, najpierw Utwórz ustawienie diagnosty
 
 1. Wybierz pozycję **Zapisz**, aby zapisać ustawienia.
 
-Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym. Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym. Aby uzyskać więcej informacji o konfigurowaniu diagnostyki, zobacz [zbieranie i korzystanie z danych dzienników z zasobów platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych, w tym programu PowerShell i interfejsu wiersza polecenia platformy Azure, zobacz [Ustawienia diagnostyczne](../azure-monitor/platform/diagnostic-settings.md) w dokumentacji Azure monitor.
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych, w tym programu PowerShell i interfejsu wiersza polecenia platformy Azure, zobacz [Ustawienia diagnostyczne](../azure-monitor/essentials/diagnostic-settings.md) w dokumentacji Azure monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Wyłącz monitorowanie operacji
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519409"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572785"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra usługi AKS
 
@@ -100,9 +100,9 @@ Przy użyciu `containerd` for AKS nodes, pod kątem opóźnień uruchamiania, zw
 * W przypadku programu `containerd` zalecamy używanie [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) jako zastępczego interfejsu wiersza polecenia zamiast interfejsu wiersza polecenia platformy Docker w celu **rozwiązywania problemów** z magazynami, kontenerami i obrazami kontenerów w węzłach Kubernetes (na przykład `crictl ps` ). 
    * Nie zapewnia to pełnej funkcjonalności interfejsu wiersza polecenia platformy Docker. Jest ona przeznaczona tylko do rozwiązywania problemów.
    * `crictl` oferuje bardziej przyjazny kubernetesy widok kontenerów z pojęciami, takimi jak zasobniki itp.
-* `Containerd` konfiguruje rejestrowanie przy użyciu standardowego `cri` formatu rejestrowania (który jest inny niż to, co jest obecnie uzyskiwane ze sterownika JSON platformy Docker). Twoje rozwiązanie do rejestrowania musi obsługiwać `cri` Format rejestrowania (na przykład [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* `Containerd` konfiguruje rejestrowanie przy użyciu standardowego `cri` formatu rejestrowania (który jest inny niż to, co jest obecnie uzyskiwane ze sterownika JSON platformy Docker). Twoje rozwiązanie do rejestrowania musi obsługiwać `cri` Format rejestrowania (na przykład [Azure monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * Nie można już uzyskiwać dostępu do aparatu platformy Docker `/var/run/docker.sock` lub używać platformy Docker-Docker (DinD).
-  * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
+  * W przypadku obecnie wyodrębniania dzienników aplikacji lub monitorowania danych z aparatu platformy Docker należy zamiast tego użyć takich elementów jak [Azure monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md) . Ponadto AKS nie obsługuje uruchamiania jakichkolwiek poleceń poza pasmem w węzłach agenta, które mogą spowodować niestabilność.
   * Nawet w przypadku korzystania z Moby/Docker nie zaleca się tworzenia obrazów i bezpośrednio wykorzystujących aparat platformy Docker za pomocą powyższych metod. Kubernetes nie jest w pełni świadomy tych używanych zasobów, a te podejścia omawiają wiele problemów szczegółowych [tutaj](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) [, a na](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)przykład.
 * Tworzenie obrazów — możesz nadal używać bieżącego przepływu pracy kompilacji platformy Docker jako normalnego, chyba że tworzysz obrazy wewnątrz klastra AKS. W takim przypadku Rozważ przełączenie do zalecanej metody tworzenia obrazów przy użyciu [zadań ACR](../container-registry/container-registry-quickstart-task-cli.md)lub bezpieczniejszej opcji w klastrze, takiej jak [Docker buildx](https://github.com/docker/buildx).
 

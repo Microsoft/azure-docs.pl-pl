@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: d05503c2a22c476d9ab08e8aeb058ca1b9826778
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b15e39b55dfe49a3fb3c1e0e38798570efdf46bd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592761"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurowanie zestawu SDK usługi Application Insights za pomocą pliku ApplicationInsights.config lub xml
 Zestaw SDK Application Insights platformy .NET składa się z kilku pakietów NuGet. [Pakiet Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights) udostępnia interfejs API do wysyłania danych telemetrycznych do Application Insights. [Dodatkowe pakiety](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) udostępniają *moduły* telemetrii i *inicjatory* umożliwiające automatyczne śledzenie danych telemetrycznych z aplikacji i jej kontekstu. Dostosowując plik konfiguracji, można włączać lub wyłączać moduły telemetrii i inicjatory oraz ustawiać parametry dla niektórych z nich.
@@ -121,7 +121,7 @@ Standardowe inicjatory są ustawiane przez pakiety NuGet sieci Web lub WindowsSe
 * `OperationNameTelemetryInitializer` aktualizuje `Name` Właściwość `RequestTelemetry` i `Name` właściwości `Operation` kontekstu wszystkich elementów telemetrii na podstawie metody http, a także nazwy kontrolera i akcji ASP.NET MVC do przetworzenia żądania.
 * `OperationIdTelemetryInitializer` lub `OperationCorrelationTelemetryInitializer` aktualizuje `Operation.Id` Właściwość kontekstu wszystkich elementów telemetrii śledzonych podczas obsługi żądania wygenerowanego automatycznie `RequestTelemetry.Id` .
 * `SessionTelemetryInitializer` aktualizuje `Id` Właściwość `Session` kontekstu dla wszystkich elementów telemetrycznych o wartości wyodrębnionej z `ai_session` pliku cookie wygenerowanego przez kod Instrumentacji JavaScript ApplicationInsights uruchomiony w przeglądarce użytkownika.
-* `SyntheticTelemetryInitializer` lub `SyntheticUserAgentTelemetryInitializer` aktualizuje `User` właściwości, `Session` i `Operation` kontekstowe wszystkich elementów telemetrii śledzonych podczas obsługi żądania ze źródła syntetycznego, takiego jak Test dostępności lub Wyszukiwarka bot. Domyślnie [Eksplorator metryk](../platform/metrics-charts.md) nie wyświetla syntetycznej danych telemetrycznych.
+* `SyntheticTelemetryInitializer` lub `SyntheticUserAgentTelemetryInitializer` aktualizuje `User` właściwości, `Session` i `Operation` kontekstowe wszystkich elementów telemetrii śledzonych podczas obsługi żądania ze źródła syntetycznego, takiego jak Test dostępności lub Wyszukiwarka bot. Domyślnie [Eksplorator metryk](../essentials/metrics-charts.md) nie wyświetla syntetycznej danych telemetrycznych.
 
     `<Filters>`Ustawianie właściwości identyfikacyjnych żądań.
 * `UserTelemetryInitializer` aktualizuje `Id` właściwości i `AcquisitionDate` `User` kontekstu dla wszystkich elementów telemetrycznych o wartościach wyodrębnionych z `ai_user` pliku cookie wygenerowanego przez kod Instrumentacji JavaScript Application Insights uruchomiony w przeglądarce użytkownika.

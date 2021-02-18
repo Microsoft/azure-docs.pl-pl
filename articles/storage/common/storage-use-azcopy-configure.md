@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881048"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596950"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -183,7 +183,7 @@ Po wznowieniu zadania AzCopy przegląda plik planu zadań. Plik planu zawiera li
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Zmień lokalizację planu i plików dziennika
 
-Domyślnie pliki planu i dziennika znajdują się w katalogu w `%USERPROFILE%\.azcopy` systemie Windows lub w `$HOME$\.azcopy` katalogu na komputerach Mac i Linux. Można zmienić tę lokalizację.
+Domyślnie pliki planu i dziennika znajdują się w katalogu w `%USERPROFILE%\.azcopy` systemie Windows lub w `$HOME/.azcopy` katalogu na komputerach Mac i Linux. Można zmienić tę lokalizację.
 
 ### <a name="change-the-location-of-plan-files"></a>Zmień lokalizację plików planu
 

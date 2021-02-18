@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808528"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580391"
 ---
 ![Wykres przedstawiający specyfikacje D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ W takim przypadku aplikacja uruchomiona na Standard_D8s_v3 maszynie wirtualnej w
 - Ponieważ trzy dyski używające buforowania hosta znajdują się w pamięci podręcznej o limicie 16 000, te żądania zostały pomyślnie zakończone. Nie występuje żaden pułap wydajności magazynu.
 - Ponieważ dwa dyski, które nie używają buforowania hosta, znajdują się w granicach niebuforowanych 12 800, te żądania również zostały pomyślnie ukończone. Nie ma żadnego pułapek.
 
-## <a name="disk-performance-metrics"></a>Metryki wydajności dysku
-
-Mamy metryki na platformie Azure, które zapewniają wgląd w sposób działania maszyn wirtualnych i dysków. Te metryki można przeglądać za pomocą Azure Portal. Mogą być również pobierane za poorednictwem wywołania interfejsu API. Metryki są obliczane w odstępach jednej minuty. Następujące metryki są dostępne w celu uzyskania szczegółowych informacji na temat maszyn wirtualnych i operacji we/wy na dysku, a także wydajności przepływności:
-
-- **Głębokość kolejki dysku systemu operacyjnego**: liczba bieżących oczekujących żądań we/wy, które oczekują na odczytanie lub zapis na dysku systemu operacyjnego.
-- **Bajty odczytu z dysku systemu operacyjnego/s**: liczba bajtów odczytanych w drugim z dysku systemu operacyjnego.
-- **Operacje odczytu z dysku systemu operacyjnego/s**: liczba operacji wejściowych, które są odczytywane w drugim z dysku systemu operacyjnego.
-- **Bajty zapisu na dysku systemu operacyjnego/s**: liczba bajtów zapisanych w drugim z dysku systemu operacyjnego.
-- **Operacje zapisu na dysku systemu operacyjnego/s**: liczba operacji wyjściowych, które są zapisywane w drugim z dysku systemu operacyjnego.
-- **Głębokość kolejki dysku danych**: liczba bieżących oczekujących żądań we/wy, które oczekują na odczyt lub zapis na dyskach danych.
-- **Bajty odczytu z dysku danych/s**: liczba bajtów odczytanych w s z dysku danych.
-- **Operacje odczytu z dysku danych/s**: liczba operacji wejściowych, które są odczytywane w s z dysku danych.
-- **Bajty zapisu na dysku danych/s**: liczba bajtów zapisanych sekundowo z dysków danych.
-- **Operacje zapisu na dysku danych/s**: liczba operacji wyjściowych, które są zapisywane w s z dysku danych.
-- **Bajty odczytu dysku/s**: całkowita liczba bajtów odczytywanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Operacje odczytu z dysku/s**: liczba operacji wejścia, które są odczytywane w sekundę ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Bajty zapisu dysku/s**: liczba bajtów napisanych w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
-- **Operacje zapisu na dysku/s**: liczba operacji wyjściowych, które są zapisywane w drugim ze wszystkich dysków dołączonych do maszyny wirtualnej.
-
-## <a name="storage-io-utilization-metrics"></a>Metryki wykorzystania operacji we/wy magazynu
-Następujące metryki pomagają zdiagnozować wąskie gardło w maszynie wirtualnej i w kombinacji dysków. Te metryki są dostępne tylko w przypadku korzystania z maszyny wirtualnej z włączoną obsługą Premium. Te metryki są dostępne dla wszystkich typów dysków z wyjątkiem Ultra. 
-
-Metryki pomagające zdiagnozować limitów operacji we/wy dysku:
-
-- **Procent zużywanych operacji we/wy dysku danych**: procent obliczony przez operacje we/wy dysku danych wykonanych przez operacje we/wy na dysku danych zainicjowanych. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach limitu liczby operacji we/wy na dysku danych.
-- **Procent zużywanej przepustowości dysku danych**: procent obliczony przez przepływność dysku danych w ramach przepływności dysku danych z zainicjowaną obsługą. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona we/wy z ograniczenia przepustowości dysku danych.
-- **Procent zużytych operacji we/wy dysku systemu operacyjnego**: procent obliczony przez operacje we/wy dysku systemu operacyjnego wykonany przez operacje we/wy na dysku systemu operacyjnego. Jeśli ta kwota ma wartość 100%, uruchomiona aplikacja ma limit operacji we/wy na dysku systemu operacyjnego.
-- **Procent zużytej przepustowości dysku systemu operacyjnego**: wartość procentowa obliczona przez przepływność dysku systemu operacyjnego została zakończona przez zainicjowaną przepływność dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach limitu przepustowości dysku systemu operacyjnego.
-
-Metryki pomagające zdiagnozować limitów operacji we/wy maszyny wirtualnej:
-
-- **Procent zużytych operacji we/wy w pamięci podręcznej maszyny** wirtualnej: procent obliczony przez łączną liczbę IOPS zakończonych przez maksymalną liczbę IOPS w pamięci podręcznej Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu operacji wejścia/wyjścia pamięci maszyny wirtualnej.
-- **Procent zajętej pamięci podręcznej maszyny wirtualnej**: procent obliczony przez łączną przepływność dysku ukończoną przez maksymalną przepływność maszyny wirtualnej w pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona we/wy ograniczonego limitu przepustowości w pamięci podręcznej maszyny wirtualnej.
-- **Procent zużytych operacji we/wy pamięci podręcznej maszyny** wirtualnej: procent obliczony przez łączną liczbę operacji we/wy na maszynach wirtualnych zakończonych maksymalną liczbą IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi od 100%, aplikacja jest uruchomiona w ramach operacji we/wy z limitu liczby IOPS niebuforowanej maszyny wirtualnej.
-- **Procent wykorzystania przepustowości niebuforowanej przez maszynę** wirtualną: procent obliczony przez łączną przepływność dysku maszyny wirtualnej, która została zakończona przez maksymalną zainicjowaną przepływność maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja jest uruchomiona w ramach operacji we/wy ograniczonej do limitu przepustowości niebuforowanej maszyny wirtualnej.
-
-## <a name="storage-io-utilization-metrics-example"></a>Przykład metryk użycia operacji we/wy magazynu
-
-Uruchommy Przykładowo, jak korzystać z nowych metryk użycia operacji we/wy magazynu, aby pomóc nam w debugowaniu, gdzie wąskie gardło w naszym systemie. Konfiguracja systemu jest taka sama jak w poprzednim przykładzie, z wyjątkiem tego, że dołączony dysk systemu operacyjnego *nie* jest buforowany.
-
-**Instalator**
-
-- Standardowa_D8s_v3
-  - Buforowane operacje we/wy: 16 000
-  - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
-- Dysk systemu operacyjnego P30
-  - OPERACJE WE/WY: 5 000
-  - Buforowanie hosta: **wyłączone**
-- Dwa dyski z danymi P30 × 2
-  - OPERACJE WE/WY: 5 000
-  - Buforowanie hosta: **Odczyt/zapis**
-- Dwa dyski z danymi P30 × 2
-  - OPERACJE WE/WY: 5 000
-  - Buforowanie hosta: **wyłączone**

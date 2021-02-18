@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4f28665998dcac9f641d4142a0dea60707fb02e9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 579baa611db47215c8ada554328d254ce99f17cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805364"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579750"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Podstawa zabezpieczeń Azure dla usługi Azure Application Gateway
 
@@ -188,9 +188,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian ustawień sieciowych i zasobów związanych z wdrożeniami Application Gateway platformy Azure. Utwórz alerty w Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych ustawieniach sieciowych lub zasobach.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -216,7 +216,7 @@ Oprócz dzienników aktywności można skonfigurować ustawienia diagnostyczne d
 
 Usługa Azure Application Gateway oferuje również wbudowaną integrację z usługą Azure Application Insights. Application Insights zbiera dane o dzienniku, wydajności i błędach. Application Insights automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu używania aplikacji sieci Web. Możesz włączyć eksport ciągły, aby eksportować dane telemetryczne z Application Insights do scentralizowanej lokalizacji, aby zapewnić czas dłuższy niż standardowy okres przechowywania.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Jak włączyć ustawienia diagnostyczne dla Application Gateway platformy Azure](./application-gateway-diagnostics.md)
 
@@ -236,7 +236,7 @@ Oprócz dzienników aktywności można skonfigurować ustawienia diagnostyczne d
 
 Usługa Azure Application Gateway oferuje również wbudowaną integrację z usługą Azure Application Insights. Application Insights zbiera dane o dzienniku, wydajności i błędach. Application Insights automatycznie wykrywa anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie sposobu używania aplikacji sieci Web. Możesz włączyć eksport ciągły, aby eksportować dane telemetryczne z Application Insights do scentralizowanej lokalizacji, aby zapewnić czas dłuższy niż standardowy okres przechowywania.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Jak włączyć ustawienia diagnostyczne dla Application Gateway platformy Azure](./application-gateway-diagnostics.md)
 
@@ -260,7 +260,7 @@ Usługa Azure Application Gateway oferuje również wbudowaną integrację z us�
 
 **Wskazówki**: w obszarze Azure monitor Ustaw okres przechowywania log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania.
 
-* [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -274,7 +274,7 @@ Użyj Azure Monitor dla sieci, aby uzyskać Kompleksowy wgląd w kondycję i met
 
 Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Jak włączyć ustawienia diagnostyczne dla Application Gateway platformy Azure](./application-gateway-diagnostics.md)
 
@@ -294,13 +294,13 @@ Użyj Azure Monitor dla sieci, aby uzyskać Kompleksowy wgląd w kondycję i met
 
 * [Jak wdrożyć usługę Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Jak włączyć ustawienia diagnostyczne dla Application Gateway platformy Azure](./application-gateway-diagnostics.md)
 
 * [Jak używać Azure Monitor dla sieci](../azure-monitor/insights/network-insights-overview.md)
 
-* [Jak tworzyć alerty na platformie Azure](../azure-monitor/learn/tutorial-response.md)
+* [Jak tworzyć alerty na platformie Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -591,7 +591,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure Applicat
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany są wprowadzane do produkcyjnych wystąpień Application Gateway platformy Azure, a także innych krytycznych lub powiązanych zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

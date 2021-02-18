@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093625"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572652"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **c:\Temp \\ \* . txt**. Można również używać zmiennych środowiskowych, takich jak `%winDir%\System32\\\*.*` .       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i folder.        |    
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |    
@@ -82,7 +82,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **/etc/*. conf**.       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i katalog.        |
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |
@@ -152,7 +152,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie kluczy rejestru na ko
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli jest stosowane ustawienie i w przeciwnym razie ma wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa klucza rejestru do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
     |Klucz rejestru systemu Windows   | Nazwa klucza z ścieżką, na przykład `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` .      |
 
 ## <a name="search-logs-for-change-records"></a>Wyszukaj w dziennikach zmiany rekordów
@@ -167,7 +167,7 @@ Możesz wykonywać różne wyszukiwania względem dzienników Azure Monitor pod 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje na temat konfiguracji zakresów, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](manage-scope-configurations.md).
-* Jeśli musisz przeszukać dzienniki przechowywane w dziennikach Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../../azure-monitor/log-query/log-query-overview.md)dziennikach Azure monitor.
+* Jeśli musisz przeszukać dzienniki przechowywane w dziennikach Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../../azure-monitor/logs/log-query-overview.md)dziennikach Azure monitor.
 * Jeśli zakończono wdrożenia, zobacz [usuwanie Change Tracking i spisu](remove-feature.md).
 * Aby usunąć maszyny wirtualne ze Change Tracking i spisu, zobacz [usuwanie maszyn wirtualnych z Change Tracking i spisu](remove-vms-from-change-tracking.md).
 * Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](../troubleshoot/change-tracking.md).
