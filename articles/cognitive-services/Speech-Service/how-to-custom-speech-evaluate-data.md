@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591887"
+ms.locfileid: "100634587"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Ocenianie i poprawianie dokładności usługi Custom Speech
 
@@ -119,7 +119,7 @@ Należy wziąć pod uwagę następujące szczegóły:
 * Ukończenie operacji szkoleniowej może potrwać kilka dni. Aby zwiększyć szybkość szkolenia, pamiętaj, aby utworzyć subskrypcję usługi mowy w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 
 > [!NOTE]
-> Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
+> Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio. Nawet jeśli model podstawowy obsługuje szkolenia z danymi audio, usługa może korzystać tylko z części audio. Nadal będzie używać wszystkich transkrypcji.
 
 > [!NOTE]
 > W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.

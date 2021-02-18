@@ -3,18 +3,18 @@ title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089425"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593142"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
 Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [usługi Azure Lighthouse](../overview.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
 
-W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
+W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
 
 W tym temacie objaśniono uprawnienia potrzebne do monitorowania działania delegowania dla dzierżawy (dla wszystkich klientów). Zawiera również przykładowy skrypt, który pokazuje jedną metodę wykonywania zapytań i raportowania na tych danych.
 
@@ -104,7 +104,7 @@ Podczas wykonywania zapytania o te dane należy pamiętać o następujących kwe
 - W przypadku delegowania wielu grup zasobów w jednym wdrożeniu dla każdej grupy zasobów zostaną zwrócone oddzielne wpisy.
 - Zmiany wprowadzone do poprzedniego delegowania (takie jak aktualizacja struktury uprawnień) będą rejestrowane jako dodane delegowanie.
 - Jak wspomniano powyżej, konto musi mieć wbudowaną rolę czytnika monitorowania Azure w zakresie głównym (/), aby uzyskać dostęp do tych danych na poziomie dzierżawy.
-- Te dane mogą być używane we własnych przepływach pracy i w raportach. Na przykład możesz użyć [interfejsu API modułu zbierającego dane http (publiczna wersja zapoznawcza)](../../azure-monitor/platform/data-collector-api.md) do rejestrowania danych do Azure monitor z klienta interfejsu API REST, a następnie użyć [grup akcji](../../azure-monitor/platform/action-groups.md) do tworzenia powiadomień lub alertów.
+- Te dane mogą być używane we własnych przepływach pracy i w raportach. Na przykład możesz użyć [interfejsu API modułu zbierającego dane http (publiczna wersja zapoznawcza)](../../azure-monitor/logs/data-collector-api.md) do rejestrowania danych do Azure monitor z klienta interfejsu API REST, a następnie użyć [grup akcji](../../azure-monitor/alerts/action-groups.md) do tworzenia powiadomień lub alertów.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak dołączyć klientów do [usługi Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
-- Dowiedz się więcej o [Azure monitor](../../azure-monitor/index.yml) i [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Dowiedz się więcej o [Azure monitor](../../azure-monitor/index.yml) i [dzienniku aktywności platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Przejrzyj [dzienniki aktywności według](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) przykładowego skoroszytu domeny, aby dowiedzieć się, jak wyświetlać dzienniki aktywności platformy Azure w ramach subskrypcji za pomocą opcji filtrowania według nazwy domeny.

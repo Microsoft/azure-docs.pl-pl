@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595604"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Podstawowa usługa Azure Security dla Skrytka klienta dla Microsoft Azure
 
@@ -164,7 +164,7 @@ Dołącz dzienniki aktywności wygenerowane przez Skrytka klienta do centrum kon
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z skrytka klienta zgodnie z regulacjami zgodności w organizacji.
 
-* [Jak ustawić parametry przechowywania dziennika](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dziennika](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -186,7 +186,7 @@ Dołącz dzienniki aktywności wygenerowane przez Skrytka klienta do centrum kon
 
 * [Inspekcja dzienników w Skrytka klienta](./customer-lockbox-overview.md#auditing-logs)
 
-* [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/learn/tutorial-response.md)
+* [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -461,9 +461,9 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla Azure Active
 
 * [Jak włączyć inspekcję w Skrytka klienta](./customer-lockbox-overview.md)
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

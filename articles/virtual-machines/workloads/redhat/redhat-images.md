@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0f3b36729fb07c6f5ae03a46e199e4cadb44a25e
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635595"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -65,6 +65,9 @@ To porównanie wersji obrazu jest wykonywane przez porównanie wartości jako ob
 
 ## <a name="rhel-6-image-types"></a>RHEL 6 — typy obrazów
 
+>[!NOTE]
+> Od grudnia 30 2020 RHEL 6,10 wszedł w życie (EOL). Aby uzyskać dalszą pomoc techniczną, Włącz ELS w ramach fazy rozszerzonej pomocy technicznej cyklu życia, zobacz [dokumentację Red Hat Els](./redhat-extended-lifecycle-support.md).
+
 W przypadku obrazów RHEL 6. x typy obrazów przedstawiono w poniższej tabeli.
 
 |Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
@@ -106,7 +109,15 @@ Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 |RedHat | RHEL | 8 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191023) | Są to obrazy z RHEL 8 LVM na partycje połączone z standardowymi repozytoriami Red Hat.
 |RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../../generation-2.md).
 
-## <a name="rhel-longer-support-add-ons"></a>RHEL dłużej obsługiwać Dodatki
+## <a name="rhel-extended-support-add-ons"></a>Dodatki obsługi rozszerzonej RHEL
+
+### <a name="extended-life-cycle-support"></a>Rozszerzona obsługa cyklu życiowego
+
+Dodatek z rozszerzonym cyklem życia (ELS) jest opcjonalną subskrypcją, która umożliwia wykonywanie krytycznych i ważnych poprawek zabezpieczeń dla wydań, które osiągnęły koniec cyklu życia (EOL). Więcej informacji na temat RHEL EUS jest dostępnych w [dokumentacji Red Hat](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS jest obecnie dostępna tylko dla RHEL 6,10. W przypadku obrazów z opcją płatność zgodnie z rzeczywistym użyciem ELS można włączyć, wykonując kroki opisane w [dokumentacji Red Hat Els](./redhat-extended-lifecycle-support.md).
+
+Jeśli korzystasz ze starszej wersji, przed włączeniem ELS należy uaktualnić do RHEL 6,10.
 
 ### <a name="extended-update-support"></a>Rozszerzona obsługa aktualizacji
 

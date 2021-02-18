@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223444"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582821"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -164,7 +164,7 @@ Aby monitorować stan bazy danych i włączyć alert o utracie dostępu do funkc
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Niedostępna baza danych, która utraciła dostęp do funkcji ochrony TDE, będzie wyświetlana jako "niedostępna" po odmowie pierwszego połączenia z bazą danych.
 - [Dziennik aktywności](../../service-health/alerts-activity-log-service-notifications-portal.md) , gdy dostęp do funkcji ochrony TDE w magazynie kluczy zarządzanych przez klienta nie powiedzie się, wpisy są dodawane do dziennika aktywności.  Utworzenie alertów dla tych zdarzeń umożliwi przywrócenie dostępu tak szybko, jak to możliwe.
-- [Grupy akcji](../../azure-monitor/platform/action-groups.md) można definiować w celu wysyłania powiadomień i alertów na podstawie preferencji, np. wiadomości E-mail/SMS/wypychania/głosu, aplikacji logiki, elementu webhook, narzędzia ITSM lub elementu Runbook usługi Automation.
+- [Grupy akcji](../../azure-monitor/alerts/action-groups.md) można definiować w celu wysyłania powiadomień i alertów na podstawie preferencji, np. wiadomości E-mail/SMS/wypychania/głosu, aplikacji logiki, elementu webhook, narzędzia ITSM lub elementu Runbook usługi Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Tworzenie kopii zapasowej i przywracanie bazy danych za pomocą TDE zarządzanych przez klienta
 

@@ -3,29 +3,29 @@ title: Monitorowanie — Azure Database for MariaDB
 description: W tym artykule opisano metryki dotyczące monitorowania i generowania alertów dla Azure Database for MariaDB, w tym danych statystycznych dotyczących procesora, magazynu i połączeń.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 3d2cf88dba44a7f18f73fbafb66381d2ef8b29c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f63b0b523184917097c73c852a7624b366fbbb24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664286"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595202"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorowanie w Azure Database for MariaDB
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for MariaDB oferuje różne metryki, które dają wgląd w zachowanie serwera.
 
 ## <a name="metrics"></a>Metryki
-Wszystkie metryki platformy Azure mają częstotliwość jednominutową, a każda Metryka zapewnia 30-dniową historię. Można skonfigurować alerty dotyczące metryk. Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/platform/data-platform.md).
+Wszystkie metryki platformy Azure mają częstotliwość jednominutową, a każda Metryka zapewnia 30-dniową historię. Można skonfigurować alerty dotyczące metryk. Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, wykonywanie zaawansowanych analiz i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/data-platform.md).
 
 Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Lista metryk
 Te metryki są dostępne dla Azure Database for MariaDB:
 
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
+|Metric|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 |cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
 |memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
@@ -67,6 +67,6 @@ Dowiedz się więcej na temat sposobu konfigurowania powiadomień w dokumencie [
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metryk i eksportowania ich przy użyciu Azure Portal, interfejsu API REST, lub interfejsu wiersza polecenia, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/platform/data-platform.md).
+- Aby uzyskać więcej informacji na temat uzyskiwania dostępu do metryk i eksportowania ich przy użyciu Azure Portal, interfejsu API REST, lub interfejsu wiersza polecenia, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/data-platform.md).
 - Zobacz [jak skonfigurować alerty](howto-alert-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.
 - Dowiedz się więcej o [zaplanowanych powiadomieniach konserwacyjnych](./concepts-planned-maintenance-notification.md) w Azure Database for MariaDB.

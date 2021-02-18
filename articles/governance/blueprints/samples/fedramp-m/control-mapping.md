@@ -3,12 +3,12 @@ title: Kontrolki przykładowe FedRAMP umiarkowanego planu
 description: Sterowanie mapowaniem przykładowej strategii FedRAMP umiarkowanej. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034802"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594702"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Sterowanie mapowaniem przykładowej strategii FedRAMP umiarkowanej
 
@@ -284,7 +284,7 @@ Po przejrzeniu mapowania kontroli FedRAMP umiarkowanej zapoznaj się z następuj
 
 > [!div class="nextstepaction"]
 > [FedRAMP umiarkowane — Omówienie](./index.md) 
->  [FodRAMP umiarkowane — etapy wdrażania](./deploy.md)
+>  [FedRAMP umiarkowane — etapy wdrażania](./deploy.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

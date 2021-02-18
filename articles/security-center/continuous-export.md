@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916792"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590617"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -185,7 +185,7 @@ Aby wyświetlić schematy zdarzeń wyeksportowanych typów danych, odwiedź [log
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Wyświetlanie wyeksportowanych alertów i zaleceń w Azure Monitor
 
-Możesz również wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](../azure-monitor/platform/alerts-overview.md). 
+Możesz również wyświetlić wyeksportowane alerty zabezpieczeń i/lub zalecenia w [Azure monitor](../azure-monitor/alerts/alerts-overview.md). 
 
 Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów platformy Azure, w tym dzienników diagnostycznych, alertów metryk i alertów niestandardowych opartych na zapytaniach Log Analytics obszaru roboczego.
 
@@ -195,13 +195,13 @@ Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfigur
 
     ![Strona alertów Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Na stronie Tworzenie reguły Skonfiguruj nową regułę (w taki sam sposób jak w przypadku konfigurowania [reguły alertu dziennika w Azure monitor](../azure-monitor/platform/alerts-unified-log.md)):
+1. Na stronie Tworzenie reguły Skonfiguruj nową regułę (w taki sam sposób jak w przypadku konfigurowania [reguły alertu dziennika w Azure monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
     * W obszarze **zasób** wybierz obszar roboczy log Analytics, do którego wyeksportowano alerty zabezpieczeń i zalecenia.
 
     * W obszarze **warunek** wybierz opcję **Wyszukiwanie w dzienniku niestandardowym**. Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
     
-    * Opcjonalnie Skonfiguruj [grupę akcji](../azure-monitor/platform/action-groups.md) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
+    * Opcjonalnie Skonfiguruj [grupę akcji](../azure-monitor/alerts/action-groups.md) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
     ![Reguła alertu Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Zobaczysz teraz nowe alerty i zalecenia dotyczące Azure Security Center (w zależności od skonfigurowanych reguł eksportu ciągłego i warunku zdefiniowanego w regule alertu Azure Monitor) w Azure Monitor alertach z automatycznym wyzwalaniem grupy akcji (jeśli została podana).

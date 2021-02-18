@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8015f610dfd9404810a1fa19c951078ebb45ac4f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295431"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588492"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schematy dzienników diagnostycznych
 
@@ -26,13 +26,13 @@ ms.locfileid: "89295431"
 
 [Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Można monitorować Media Services dzienników diagnostycznych oraz tworzyć alerty i powiadomienia dotyczące zebranych metryk i dzienników. Możesz wysyłać dzienniki do usługi [Azure Storage](https://azure.microsoft.com/services/storage/), przesyłać strumieniowo do [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)i eksportować je do [log Analytics](https://azure.microsoft.com/services/log-analytics/)lub korzystać z usług innych firm.
 
-Aby uzyskać szczegółowe informacje, zobacz [Azure monitor metryki](../../azure-monitor/platform/data-platform.md) i [Azure monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md).
+Aby uzyskać szczegółowe informacje, zobacz [Azure monitor metryki](../../azure-monitor/data-platform.md) i [Azure monitor dzienników diagnostycznych](../../azure-monitor/essentials/platform-logs-overview.md).
 
 W tym artykule opisano Media Services schematy dzienników diagnostycznych.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schemat dzienników diagnostycznych najwyższego poziomu
 
-Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../azure-monitor/platform/resource-logs-schema.md).
+Aby uzyskać szczegółowy opis schematu dzienników diagnostycznych najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników diagnostycznych platformy Azure](../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Schemat dziennika dostarczania kluczy
 

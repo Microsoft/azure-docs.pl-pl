@@ -3,12 +3,12 @@ title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 73f58dbda0e7c073cf4a8d2e846132a102192e93
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656975"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635918"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -223,7 +223,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | anonymousapiusers | Nie | Nie |
 > | konfiguracja | Nie | Nie |
 > | dzienniki | Nie | Nie |
-> | reports | Nie | Nie |
+> | raporty | Nie | Nie |
 > | servicehealthmetrics | Nie | Nie |
 > | services | Nie | Nie |
 
@@ -1565,6 +1565,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | obszary robocze/modele/wersje | Nie | Nie |
 > | obszary robocze/onlineEndpoints | Tak | Tak |
 > | obszary robocze/onlineEndpoints/wdrożenia | Tak | Tak |
+ 
+> [!NOTE]
+> Tagi obszaru roboczego nie są propagowane do klastrów obliczeniowych i wystąpień obliczeniowych. 
 
 ## <a name="microsoftmaintenance"></a>Microsoft. Maintenance
 

@@ -4,22 +4,22 @@ description: Rejestruj i Analizuj zdarzenia dziennika diagnostycznego dla zasob�
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994115"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592671"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
 
-W tym artykule wyjaśniono, jak monitorować konto usługi Batch przy użyciu funkcji programu [Azure monitor](../azure-monitor/overview.md). Azure Monitor zbiera [metryki](../azure-monitor/platform/data-platform-metrics.md) i [dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md) dla zasobów na koncie usługi Batch. Zbieraj te dane i korzystaj z nich na wiele sposobów, aby monitorować konto w usłudze Batch i diagnozować problemy. Możesz również skonfigurować [alerty metryk](../azure-monitor/platform/alerts-overview.md) , aby otrzymywać powiadomienia, gdy Metryka osiągnie określoną wartość.
+W tym artykule wyjaśniono, jak monitorować konto usługi Batch przy użyciu funkcji programu [Azure monitor](../azure-monitor/overview.md). Azure Monitor zbiera [metryki](../azure-monitor/essentials/data-platform-metrics.md) i [dzienniki diagnostyczne](../azure-monitor/essentials/platform-logs-overview.md) dla zasobów na koncie usługi Batch. Zbieraj te dane i korzystaj z nich na wiele sposobów, aby monitorować konto w usłudze Batch i diagnozować problemy. Możesz również skonfigurować [alerty metryk](../azure-monitor/alerts/alerts-overview.md) , aby otrzymywać powiadomienia, gdy Metryka osiągnie określoną wartość.
 
 ## <a name="batch-metrics"></a>Metryki wsadowe
 
 Metryki to dane telemetryczne platformy Azure (nazywane również licznikami wydajności), które są emitowane przez zasoby platformy Azure i zużywane przez usługę Azure Monitor. Przykłady metryk na koncie w usłudze Batch to zdarzenia tworzenia puli, Low-Priority liczbę węzłów i zdarzenia ukończenia zadania.
 
-Zapoznaj się z [listą obsługiwanych metryk wsadowych](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
+Zapoznaj się z [listą obsługiwanych metryk wsadowych](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Metryki to:
 
@@ -68,9 +68,9 @@ Aby skonfigurować alert dotyczący metryki w Azure Portal:
 5. W sekcji **szczegóły reguły alertu** wprowadź nazwę i **Opis** **reguły alertu** , a następnie wybierz **ważność**
 6. Wybierz pozycję **Utwórz regułę alertu**.
 
-Aby uzyskać więcej informacji na temat tworzenia alertów metryk, zobacz informacje o tym, [jak alerty metryk działają w Azure monitor](../azure-monitor/platform/alerts-metric-overview.md) i [tworzyć, wyświetlać i zarządzać alertami metryk przy użyciu Azure monitor](../azure-monitor/platform/alerts-metric.md).
+Aby uzyskać więcej informacji na temat tworzenia alertów metryk, zobacz informacje o tym, [jak alerty metryk działają w Azure monitor](../azure-monitor/alerts/alerts-metric-overview.md) i [tworzyć, wyświetlać i zarządzać alertami metryk przy użyciu Azure monitor](../azure-monitor/alerts/alerts-metric.md).
 
-Możesz również skonfigurować alert niemal w czasie rzeczywistym za pomocą [interfejsu API REST](/rest/api/monitor/)Azure monitor. Aby uzyskać więcej informacji, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Aby uwzględnić w alertach informacje dotyczące zadania, zadania lub puli, zobacz informacje na temat wyszukiwania zapytań w odpowiedzi na [zdarzenia z alertami Azure monitor](../azure-monitor/learn/tutorial-response.md).
+Możesz również skonfigurować alert niemal w czasie rzeczywistym za pomocą [interfejsu API REST](/rest/api/monitor/)Azure monitor. Aby uzyskać więcej informacji, zobacz [Omówienie alertów w Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Aby uwzględnić w alertach informacje dotyczące zadania, zadania lub puli, zobacz informacje na temat wyszukiwania zapytań w odpowiedzi na [zdarzenia z alertami Azure monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Diagnostyka usługi Batch
 
@@ -88,7 +88,7 @@ Typowym scenariuszem jest wybranie konta usługi Azure Storage jako miejsca doce
 Alternatywnie można:
 
 - Zdarzenia dziennika diagnostycznego usługi Stream Part strumienia do [centrum zdarzeń platformy Azure](../event-hubs/event-hubs-about.md). Event Hubs może pozyskać miliony zdarzeń na sekundę, które można następnie przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym.
-- Wyślij dzienniki diagnostyczne do [dzienników Azure monitor](../azure-monitor/log-query/log-query-overview.md), gdzie można je analizować lub wyeksportować do analizy w programie Power BI lub Excel.
+- Wyślij dzienniki diagnostyczne do [dzienników Azure monitor](../azure-monitor/logs/log-query-overview.md), gdzie można je analizować lub wyeksportować do analizy w programie Power BI lub Excel.
 
 > [!NOTE]
 > Za pomocą usług platformy Azure mogą być naliczane dodatkowe koszty związane z przechowywaniem lub przetwarzaniem danych dzienników diagnostycznych.
@@ -105,7 +105,7 @@ Aby utworzyć nowe ustawienie diagnostyczne w Azure Portal, wykonaj poniższe kr
 6. Wybierz opcję **ServiceLog**, **AllMetrics** lub Both.
 7. Wybierz pozycję **Zapisz** , aby utworzyć ustawienie diagnostyczne.
 
-Można również [włączyć zbieranie za pośrednictwem Azure monitor w Azure Portal w](../azure-monitor/platform/diagnostic-settings.md) celu skonfigurowania ustawień diagnostycznych, przy użyciu [szablonu Menedżer zasobów](../azure-monitor/samples/resource-manager-diagnostic-settings.md)lub z Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie dzienników platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Można również [włączyć zbieranie za pośrednictwem Azure monitor w Azure Portal w](../azure-monitor/essentials/diagnostic-settings.md) celu skonfigurowania ustawień diagnostycznych, przy użyciu [szablonu Menedżer zasobów](../azure-monitor/essentials/resource-manager-diagnostic-settings.md)lub z Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie dzienników platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Dostęp do dzienników diagnostyki w magazynie
 
@@ -135,7 +135,7 @@ Poniżej znajduje się przykład `PoolResizeCompleteEvent` wpisu w `PT1H.json` p
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Aby uzyskać więcej informacji na temat schematu dzienników diagnostycznych na koncie magazynu, zobacz [Archiwizowanie dzienników zasobów platformy Azure na koncie magazynu](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Aby programowo uzyskać dostęp do dzienników na koncie magazynu, Użyj interfejsów API magazynu.
+Aby uzyskać więcej informacji na temat schematu dzienników diagnostycznych na koncie magazynu, zobacz [Archiwizowanie dzienników zasobów platformy Azure na koncie magazynu](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Aby programowo uzyskać dostęp do dzienników na koncie magazynu, Użyj interfejsów API magazynu.
 
 ### <a name="service-log-events"></a>Zdarzenia dziennika usługi
 

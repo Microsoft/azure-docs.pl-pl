@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83ffab432be038a2fbec8672e5e0de8f5c902654
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2d0fef2f2c9832b27b11552bc343a0b76068ff95
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880882"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581758"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Podstawa zabezpieczeń platformy Azure dla Azure Migrate
 
@@ -335,9 +335,9 @@ Usługa Azure Security Center może również wysyłać alerty dotyczące okreś
 
 Dzienniki aktywności, które są automatycznie dostępne, zawierają wszystkie operacje zapisu (PUT, POST, DELETE) dla zasobów Azure Migrate z wyjątkiem operacji odczytu (GET). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki użytkownik w organizacji zmodyfikował zasób.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -353,7 +353,7 @@ Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub
 
 Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 

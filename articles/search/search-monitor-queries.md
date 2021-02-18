@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169a90c12b30e0d083ce5c53ab7c6dd2495c4c23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935079"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592381"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorowanie żądań zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -42,7 +42,7 @@ Często zapytania są wykonywane w milisekundach, dlatego w metrykach są wyświ
 | Liczba | Liczba metryk emitowanych do dziennika w ramach interwału jednej minuty. |
 | Maksimum | Najwyższa liczba zapytań wyszukiwania na sekundę zarejestrowanych w ciągu minuty. |
 | Minimum | Najmniejsza liczba zapytań wyszukiwania na sekundę zarejestrowanych w ciągu minuty.  |
-| Suma | Suma wszystkich zapytań wykonanych w ciągu minuty.  |
+| Sum | Suma wszystkich zapytań wykonanych w ciągu minuty.  |
 
 Na przykład w ciągu jednej minuty może istnieć wzorzec podobny do tego: jedna sekunda wysokiego obciążenia, która jest maksymalną wartością dla SearchQueriesPerSecond, a następnie 58 sekund średniego obciążenia, a wreszcie jedna sekunda z tylko jednym zapytaniem, co jest minimalne.
 
@@ -100,7 +100,7 @@ Na poniższym zrzucie ekranu pierwszy numer jest liczbą (lub liczbą metryk wys
 
 Aby uzyskać szybki przegląd z bieżącymi numerami, na karcie **monitorowanie** na stronie Przegląd usługi są wyświetlane trzy metryki (**opóźnienie wyszukiwania**, **zapytania wyszukiwania na sekundę (za jednostkę wyszukiwania)**, **procent kwerend wyszukiwania ograniczonego**, wyrażone w godzinach, dni i tygodnie, z możliwością zmiany typu agregacji.
 
-W celu uzyskania bardziej szczegółowej eksploracji Otwórz Eksploratora metryk z menu **monitorowanie** , tak aby można było warstwować, powiększać i wizualizować dane w celu eksplorowania trendów i anomalii. Dowiedz się więcej o Eksploratorze metryk, wykonując ten [samouczek na temat tworzenia wykresu metryk](../azure-monitor/learn/tutorial-metrics-explorer.md).
+W celu uzyskania bardziej szczegółowej eksploracji Otwórz Eksploratora metryk z menu **monitorowanie** , tak aby można było warstwować, powiększać i wizualizować dane w celu eksplorowania trendów i anomalii. Dowiedz się więcej o Eksploratorze metryk, wykonując ten [samouczek na temat tworzenia wykresu metryk](../azure-monitor/essentials/tutorial-metrics-explorer.md).
 
 1. W sekcji monitorowanie wybierz pozycję **metryki** , aby otworzyć Eksploratora metryk z zakresem ustawionym na usługę wyszukiwania.
 

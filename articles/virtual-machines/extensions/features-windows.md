@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 44d071c635967e4ce3078be8419414bc9ff0c653
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016458"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580137"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
@@ -36,7 +36,7 @@ Ten artykuł zawiera Omówienie rozszerzeń maszyn wirtualnych, wymagania wstęp
 Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretnym przypadkiem użycia. Oto niektóre przykłady:
 
 - Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Windows. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](dsc-overview.md).
-- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
+- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej agenta Log Analytics. Aby uzyskać więcej informacji, zobacz [łączenie maszyn wirtualnych platformy Azure z dziennikami Azure monitor](../../azure-monitor/vm/quick-collect-azurevm.md).
 - Skonfiguruj maszynę wirtualną platformy Azure przy użyciu Chef. Aby uzyskać więcej informacji, zobacz [Automatyzowanie wdrożenia maszyny wirtualnej platformy Azure za pomocą Chef](/azure/developer/chef/windows-vm-configure).
 - Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia usługi Datadog. Aby uzyskać więcej informacji, zobacz [blog usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -55,11 +55,11 @@ Aby uzyskać informacje dotyczące obsługiwanych systemów operacyjnych i instr
 
 #### <a name="supported-agent-versions"></a>Obsługiwane wersje agentów
 
-Aby zapewnić najlepsze możliwe środowisko, istnieją minimalne wersje agenta. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Aby zapewnić najlepsze możliwe środowisko, istnieją minimalne wersje agenta. Więcej informacji znajduje się w [tym artykule](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Obsługiwane systemów operacyjnych
 
-Agent gościa systemu Windows działa na wielu systemów operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
+Agent gościa systemu Windows działa na wielu systemów operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych. Więcej informacji znajduje się w [tym artykule](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Niektóre rozszerzenia nie są obsługiwane przez wszystkie systemów operacyjnych i mogą emitować *Kod błędu 51, "nieobsługiwany system operacyjny"*. Zapoznaj się z dokumentacją poszczególnych rozszerzeń, aby uzyskać pomoc techniczną.

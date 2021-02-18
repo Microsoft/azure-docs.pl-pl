@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585896"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Włączanie śledzenia zmian i spisu na koncie usługi Automation
 
@@ -53,7 +53,7 @@ Nie trzeba ręcznie dodawać maszyn, które nie są na platformie Azure. Zaleca 
 
 1. Z poziomu konta usługi Automation wybierz pozycję **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
 
-2. Kliknij pozycję **Dodaj maszynę spoza platformy Azure**. Ta akcja powoduje otwarcie nowego okna przeglądarki z [instrukcjami dotyczącymi instalowania i konfigurowania agenta log Analytics dla systemu Windows](../../azure-monitor/platform/log-analytics-agent.md) , tak aby komputer mógł rozpocząć raportowanie operacji Change Tracking i spisu. W przypadku włączenia komputera, który jest obecnie zarządzany przez Operations Manager, nowy Agent nie jest wymagany, a informacje o obszarze roboczym zostaną wprowadzone do istniejącego agenta.
+2. Kliknij pozycję **Dodaj maszynę spoza platformy Azure**. Ta akcja powoduje otwarcie nowego okna przeglądarki z [instrukcjami dotyczącymi instalowania i konfigurowania agenta log Analytics dla systemu Windows](../../azure-monitor/agents/log-analytics-agent.md) , tak aby komputer mógł rozpocząć raportowanie operacji Change Tracking i spisu. W przypadku włączenia komputera, który jest obecnie zarządzany przez Operations Manager, nowy Agent nie jest wymagany, a informacje o obszarze roboczym zostaną wprowadzone do istniejącego agenta.
 
 ## <a name="enable-machines-in-the-workspace"></a>Włączanie maszyn w obszarze roboczym
 

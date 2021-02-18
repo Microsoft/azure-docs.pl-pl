@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208645"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587360"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -266,8 +266,8 @@ Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
+* Konfigurowanie [alertów metryk](../alerts/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 
-* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
+* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../visualize/workbooks-overview.md).
 
 * Aby uzyskać szczegółowy przewodnik dotyczący używania analityka magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

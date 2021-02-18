@@ -2,13 +2,13 @@
 title: Przechwytywanie zdarzeń przesyłania strumieniowego — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera omówienie funkcji przechwytywania, która umożliwia przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 32741fdd98ec79c38568ff5a6c4fa476f27d794b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 02/16/2021
+ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912620"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595956"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage
 Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesyłanych strumieniowo w Event Hubs w usłudze [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub w ramach wybranego konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) , z dodatkową elastycznością określania interwału czasu lub rozmiaru. Konfigurowanie przechwytywania jest szybkie, nie ma kosztów administracyjnych do uruchomienia i jest automatycznie skalowane przy użyciu [jednostek przepływności](event-hubs-scalability.md#throughput-units)Event Hubs. Przechwytywanie Event Hubs jest najprostszym sposobem ładowania danych przesyłanych strumieniowo na platformę Azure i umożliwia skoncentrowanie się na przetwarzaniu danych, a nie na przechwytywaniu danych.
@@ -79,13 +79,7 @@ Dostępna jest Natywna obsługa magazynu obiektów blob platformy Azure, która 
 
 [Funkcja drążenia Apache: wtyczka Blob Storage platformy Azure][Apache Drill: Azure Blob Storage Plugin]
 
-Aby łatwo zbadać przechwycone pliki, możesz utworzyć i wykonać maszynę wirtualną z włączoną funkcją drążenia oprogramowania Apache za pośrednictwem kontenera, aby uzyskać dostęp do usługi Azure Blob Storage:
-
-https://github.com/yorek/apache-drill-azure-blob
-
-Pełny kompletny przykład jest dostępny w repozytorium przesyłania strumieniowego w skali:
-
-[Przesyłanie strumieniowe na dużą skalę: Przechwytywanie Event Hubs]
+Aby łatwo zbadać przechwycone pliki, możesz utworzyć i wykonać maszynę wirtualną z włączoną funkcją drążenia Apache za pośrednictwem kontenera, aby uzyskać dostęp do usługi Azure Blob Storage. Zapoznaj się z poniższym przykładem: [przesyłanie strumieniowe na dużą skalę przy użyciu funkcji przechwytywania Event Hubs](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture).
 
 ### <a name="use-apache-spark"></a>Użyj Apache Spark
 
@@ -160,4 +154,4 @@ Dowiedz się, jak włączyć tę funkcję przy użyciu szablonu Azure Portal i A
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[Przesyłanie strumieniowe na dużą skalę: Przechwytywanie Event Hubs]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

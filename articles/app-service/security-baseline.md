@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807856"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586295"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -241,9 +241,9 @@ Przejrzyj szczegółowe alerty zabezpieczeń i zalecenia w Security Center w por
 
 Zaleca się utworzenie procesu z zautomatyzowanymi narzędziami do monitorowania konfiguracji zasobów sieciowych i szybkiego wykrywania zmian.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Eksportowanie alertów zabezpieczeń i zaleceń](../security-center/continuous-export.md)
 
@@ -280,7 +280,7 @@ Użyj Microsoft Azure wskaźnikiem, skalowalnej, natywnej w chmurze usługi zarz
 
 Ponadto Azure Key Vault zapewnia scentralizowane zarządzanie kluczami tajnymi przy użyciu zasad dostępu i historii inspekcji. 
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak włączyć ustawienia diagnostyczne dla Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -293,7 +293,7 @@ Ponadto Azure Key Vault zapewnia scentralizowane zarządzanie kluczami tajnymi p
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z zasobami App Service zgodnie z regulacjami zgodności w organizacji.
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -309,7 +309,7 @@ Jeśli wdrożono zaporę aplikacji sieci Web (WAF), można monitorować ataki do
 
 Skorzystaj z platformy Azure, skalowalnej i natywnej w chmurze zarządzania zdarzeniami informacji o zabezpieczeniach (SIEM), aby zintegrować z różnymi źródłami danych i łącznikami zgodnie z wymaganiami. Opcjonalnie możesz włączyć i dołączyć dane do rozwiązania do zarządzania zdarzeniami dotyczącymi zabezpieczeń innych firm w witrynie Azure Marketplace.
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Jak włączyć Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -640,7 +640,7 @@ Należy pamiętać, że w przypadku, gdy lokalnie dołączone dyski mogą być u
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące wszelkich zmian w środowisku produkcyjnym App Service aplikacje i inne krytyczne lub pokrewne zasoby.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

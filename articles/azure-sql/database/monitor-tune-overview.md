@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490571"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592686"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -99,11 +99,11 @@ Ustawienia diagnostyczne można skonfigurować do przesyłania strumieniowego ka
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics obszar roboczy w Azure Monitor
 
-Metryki i dzienniki zasobów można przesyłać do [obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Przesyłane strumieniowo dane mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md), która jest rozwiązaniem do monitorowania tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia zaradcze. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje.
+Metryki i dzienniki zasobów można przesyłać do [obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Przesyłane strumieniowo dane mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md), która jest rozwiązaniem do monitorowania tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia zaradcze. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-Metryki i dzienniki zasobów można przesyłać strumieniowo do [usługi Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Przesyłaj strumieniowo dane telemetryczne diagnostyki do centrów zdarzeń, aby zapewnić następujące funkcje:
+Metryki i dzienniki zasobów można przesyłać strumieniowo do [usługi Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Przesyłaj strumieniowo dane telemetryczne diagnostyki do centrów zdarzeń, aby zapewnić następujące funkcje:
 
 - **Przesyłanie strumieniowe dzienników do systemów rejestrowania i telemetrii innych firm**
 
@@ -117,7 +117,7 @@ Metryki i dzienniki zasobów można przesyłać strumieniowo do [usługi Azure E
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Przesyłaj strumieniowo metryki i dzienniki zasobów do [usługi Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Usługa Azure Storage umożliwia archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
+Przesyłaj strumieniowo metryki i dzienniki zasobów do [usługi Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Usługa Azure Storage umożliwia archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
 
 ## <a name="use-extended-events"></a>Korzystanie z zdarzeń rozszerzonych 
 

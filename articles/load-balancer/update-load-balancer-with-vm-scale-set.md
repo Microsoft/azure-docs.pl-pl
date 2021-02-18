@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593035"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Aktualizowanie lub usuwanie modułu równoważenia obciążenia używanego przez zestawy skalowania maszyn wirtualnych
 
@@ -83,14 +83,15 @@ az network lb inbound-nat-pool update
 
 ## <a name="delete-inbound-nat-rules"></a>Usuwanie reguł NAT dla ruchu przychodzącego
 
-Nie można usunąć pojedynczych reguł NAT dla ruchu przychodzącego, ale można usunąć cały zestaw reguł NAT dla ruchu przychodzącego.
+Nie można usunąć pojedynczych reguł NAT dla ruchu przychodzącego, ale można usunąć cały zestaw reguł NAT dla ruchu przychodzącego, usuwając pulę NAT dla ruchu przychodzącego.
 
-Aby usunąć cały zestaw reguł NAT dla ruchu przychodzącego używany przez zestaw skalowania, najpierw usuń pulę NAT z zestawu skalowania. W tym miejscu pokazano pełny przykład użycia interfejsu wiersza polecenia:
-    
+Aby usunąć pulę NAT, najpierw usuń ją z zestawu skalowania. W tym miejscu pokazano pełny przykład użycia interfejsu wiersza polecenia:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f885416c5e9cb656d01a65b9c503f8897d2f9f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83743759"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593896"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Włączanie rozwiązania Start/Stop VMs during off-hours
 
@@ -50,7 +50,7 @@ Po utworzeniu zasobu zostanie wyświetlona strona Dodawanie rozwiązania. Zostan
 
    - Określ nazwę nowego obszaru roboczego Log Analytics, na przykład **ContosoLAWorkspace**.
    - Wybierz **subskrypcję** , z którą chcesz utworzyć łącze, wybierając z listy rozwijanej opcję, jeśli wybrana wartość domyślna nie jest odpowiednia.
-   - W obszarze **Grupa zasobów**można utworzyć nową grupę zasobów lub wybrać istniejącą.
+   - W obszarze **Grupa zasobów** można utworzyć nową grupę zasobów lub wybrać istniejącą.
    - Wybierz **lokalizację**.
    - Wybierz **warstwę cenową**. Wybierz opcję **na GB (autonomiczne)** . W przypadku dzienników Azure Monitor Zaktualizowano [Cennik](https://azure.microsoft.com/pricing/details/log-analytics/) i jedyną opcją jest warstwa za GB.
 
@@ -65,7 +65,7 @@ Uzyskaj ponownie dostęp do strony Dodaj rozwiązanie i wybierz pozycję **konto
 
 Wszystkie inne opcje są wypełniane automatycznie zgodnie z wybranym obszarem roboczym Log Analytics. Tych opcji nie można modyfikować. Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla elementów Runbook dostępnych w ramach tej funkcji. 
 
-Po kliknięciu przycisku **OK**opcje konfiguracji są weryfikowane i tworzone jest konto usługi Automation. Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu.
+Po kliknięciu przycisku **OK** opcje konfiguracji są weryfikowane i tworzone jest konto usługi Automation. Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu.
 
 ## <a name="define-feature-parameters"></a>Definiowanie parametrów funkcji
 
@@ -82,7 +82,7 @@ Po kliknięciu przycisku **OK**opcje konfiguracji są weryfikowane i tworzone je
   
 4. Użyj pola **harmonogram** , aby wybrać harmonogram zarządzania maszyną wirtualną przez funkcję. Wybierz datę i godzinę rozpoczęcia harmonogramu, aby utworzyć cykliczny dzienny harmonogram, zaczynając od wybranego czasu. Wybór innego regionu nie jest dostępny. Aby skonfigurować harmonogram do określonej strefy czasowej po skonfigurowaniu tej funkcji, zobacz [Modyfikowanie harmonogramów uruchamiania i zamykania](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Aby otrzymywać powiadomienia e-mail z [grupy akcji](../azure-monitor/platform/action-groups.md), Zaakceptuj wartość domyślną **tak** w polu  **powiadomienia e-mail** i Podaj prawidłowy adres e-mail. Jeśli wybierzesz pozycję **nie** , ale zdecydujesz się na późniejszą datę otrzymywania powiadomień e-mail, możesz zaktualizować grupę akcji utworzoną przy użyciu prawidłowych adresów e-mail rozdzielonych przecinkami. 
+5. Aby otrzymywać powiadomienia e-mail z [grupy akcji](../azure-monitor/alerts/action-groups.md), Zaakceptuj wartość domyślną **tak** w polu  **powiadomienia e-mail** i Podaj prawidłowy adres e-mail. Jeśli wybierzesz pozycję **nie** , ale zdecydujesz się na późniejszą datę otrzymywania powiadomień e-mail, możesz zaktualizować grupę akcji utworzoną przy użyciu prawidłowych adresów e-mail rozdzielonych przecinkami. 
 
 6. Włącz następujące reguły alertów:
 
@@ -92,13 +92,13 @@ Po kliknięciu przycisku **OK**opcje konfiguracji są weryfikowane i tworzone je
 
 ## <a name="create-alerts"></a>Tworzenie alertów
 
-Start/Stop VMs during off-hours nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dziennika za pomocą Azure monitor](../azure-monitor/platform/alerts-log.md) , aby dowiedzieć się, jak utworzyć alerty dotyczące nieudanych zadań i procedur.
+Start/Stop VMs during off-hours nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dziennika za pomocą Azure monitor](../azure-monitor/alerts/alerts-log.md) , aby dowiedzieć się, jak utworzyć alerty dotyczące nieudanych zadań i procedur.
 
 ## <a name="deploy-the-feature"></a>Wdróż funkcję
 
 1. Po skonfigurowaniu początkowych ustawień wymaganych dla tej funkcji kliknij przycisk **OK** , aby zamknąć stronę parametry.
 
-2. Kliknij przycisk **Utwórz**. Po zweryfikowaniu wszystkich ustawień funkcja zostanie wdrożona w ramach subskrypcji. Ten proces może potrwać kilka sekund, a postęp można śledzić w obszarze **powiadomienia** z menu.
+2. Kliknij pozycję **Utwórz**. Po zweryfikowaniu wszystkich ustawień funkcja zostanie wdrożona w ramach subskrypcji. Ten proces może potrwać kilka sekund, a postęp można śledzić w obszarze **powiadomienia** z menu.
 
     > [!NOTE]
     > Jeśli masz subskrypcję dostawcy rozwiązań w chmurze platformy Azure (CSP), po zakończeniu wdrożenia na koncie usługi Automation przejdź do pozycji **zmienne** w obszarze **zasoby udostępnione** i ustaw dla zmiennej [External_EnableClassicVMs](automation-solution-vm-management.md#variables) **wartość false**. To uniemożliwia rozwiązanie wyszukiwanie klasycznych zasobów maszyn wirtualnych.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898100"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593051"
 ---
 # <a name="read-nsg-flow-logs"></a>Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń
 
@@ -189,6 +189,6 @@ W tym scenariuszu przedstawiono przykład sposobu odczytywania wpisów w dzienni
 
 Odwiedź stronę [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Użyj Grafana](network-watcher-nsg-grafana.md)i [Skorzystaj z z narzędzia graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) , aby dowiedzieć się więcej na temat sposobów wyświetlania dzienników przepływu sieciowej grupy zabezpieczeń. Podejście funkcji platformy Azure typu open source do konsumowania obiektów BLOB bezpośrednio i emitowania do różnych odbiorców usługi log Analytics można znaleźć tutaj: [Łącznik usługi Azure Network Watcher sieciowej grupy zabezpieczeń Flow Logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Możesz użyć [usługi Azure Analiza ruchu](./traffic-analytics.md) , aby uzyskać wgląd w przepływy ruchu. Analiza ruchu używa [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) , aby przepływ ruchu queryable.
+Możesz użyć [usługi Azure Analiza ruchu](./traffic-analytics.md) , aby uzyskać wgląd w przepływy ruchu. Analiza ruchu używa [log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) , aby przepływ ruchu queryable.
 
 Aby dowiedzieć się więcej na temat obiektów blob magazynu, odwiedź: [Azure Functions powiązania magazynu obiektów BLOB](../azure-functions/functions-bindings-storage-blob.md)

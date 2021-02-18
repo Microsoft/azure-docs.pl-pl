@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cd43b6c7b11cde17bc9f9923374baf3416e5b370
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 449fc686fb30cde0d15759036b58fea3bcfc6723
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791866"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596889"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Lighthouse
 
@@ -360,9 +360,9 @@ Za pomocą usługi Azure Lighthouse można korzystać z dzienników Azure Monito
 
 Klienci, którzy mają delegowane subskrypcje usługi Azure Lighthouse, mogą wyświetlać dane dziennika aktywności platformy Azure, aby zobaczyć wszystkie wykonane akcje. Zapewnia to klientom pełny wgląd w operacje wykonywane przez dostawców usług oraz operacje podejmowane przez użytkowników w ramach dzierżawy Azure Active Directory (Azure AD) klienta.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Monitorowanie delegowanych zasobów na dużą skalę](how-to/monitor-at-scale.md)
 
@@ -386,7 +386,7 @@ Klienci, którzy mają delegowane subskrypcje usługi Azure Lighthouse, mogą wy
 
 Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Monitorowanie delegowanych zasobów na dużą skalę](how-to/monitor-at-scale.md)
 
@@ -404,7 +404,7 @@ Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby dan
 
 W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Użyj usługi Azure Storage Data Lake lub Log Analytics konta obszaru roboczego do przechowywania długoterminowego i archiwizowania.
 
-- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

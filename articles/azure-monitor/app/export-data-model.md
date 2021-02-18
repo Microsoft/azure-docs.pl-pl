@@ -3,17 +3,17 @@ title: Model danych usługi Azure Application Insights | Microsoft Docs
 description: Opisuje właściwości eksportowane z eksportu ciągłego w formacie JSON i używane jako filtry.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324390"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584213"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights eksportowanie modelu danych
 Ta tabela zawiera listę właściwości telemetrii wysyłanych z zestawów SDK [Application Insights](./app-insights-overview.md) do portalu.
 Te właściwości będą widoczne w danych wyjściowych z [eksportu ciągłego](export-telemetry.md).
-Są one również wyświetlane w filtrach właściwości w [Eksploratorze metryk](../platform/metrics-charts.md) i w [przeszukiwaniu diagnostycznym](./diagnostic-search.md).
+Są one również wyświetlane w filtrach właściwości w [Eksploratorze metryk](../essentials/metrics-charts.md) i w [przeszukiwaniu diagnostycznym](./diagnostic-search.md).
 
 Punkty do uwagi:
 
@@ -107,7 +107,7 @@ Punkty do uwagi:
 ## <a name="context"></a>Kontekst
 Wszystkie typy danych telemetrycznych są dołączone do sekcji kontekstowej. Nie wszystkie z tych pól są przesyłane do każdego punktu danych.
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | Context. Custom. Dimensions [0] |Obiekt [] |Pary ciągów klucz-wartość ustawione przez parametr właściwości niestandardowych. Maksymalna długość klucza 100, Maksymalna długość wartości 1024. Więcej niż 100 wartości unikatowych, właściwość można wyszukać, ale nie można jej użyć do segmentacji. Maksymalna 200 kluczy na iKey. |
 | Context. Custom. Metrics [0] |Obiekt [] |Pary klucz-wartość są ustawiane za pomocą parametru pomiarów niestandardowych i TrackMetrics. Maksymalna długość klucza 100, wartość może być wartością numeryczną. |
@@ -154,7 +154,7 @@ Wszystkie typy danych telemetrycznych są dołączone do sekcji kontekstowej. Ni
 ## <a name="events"></a>Zdarzenia
 Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent).
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | liczba zdarzeń [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
 | Nazwa zdarzenia [0] |ciąg |Nazwa zdarzenia.  Maksymalna długość 250. |
@@ -165,7 +165,7 @@ Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custo
 ## <a name="exceptions"></a>Wyjątki
 Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | zestaw basicexception [0] |ciąg | |
 | Licznik basicexception [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
@@ -194,7 +194,7 @@ Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 ## <a name="trace-messages"></a>Komunikaty śledzenia
 Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | komunikat [0] rejestratorname |ciąg | |
 | komunikat [0] parametry |ciąg | |
@@ -204,7 +204,7 @@ Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty 
 ## <a name="remote-dependency"></a>Zależność zdalna
 Wysłane przez TrackDependency. Służy do zgłaszania wydajności i użycia [wywołań do zależności](./asp-net-dependencies.md) na serwerze i wywołań AJAX w przeglądarce.
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | remoteDependency [0] Async |boolean | |
 | remoteDependency [0] basename |ciąg | |
@@ -225,7 +225,7 @@ Wysłane przez TrackDependency. Służy do zgłaszania wydajności i użycia [wy
 ## <a name="requests"></a>Żądania
 Wysłane przez [TrackRequest](./api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportowania czasu odpowiedzi serwera, mierzoną na serwerze.
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | Liczba żądań [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład: 4 = &gt; 25%. |
 | żądanie [0] durationMetric. Value |liczba |Czas od żądania do odpowiedzi. 1e7 = = 1S |
@@ -243,7 +243,7 @@ Wysyłane przez przeglądarkę. Mierzy czas przetwarzania strony od użytkownika
 
 Wartości kontekstu pokazują system operacyjny klienta i wersję przeglądarki.
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess. Value |liczba całkowita |Czas od końca odebrania kodu HTML w celu wyświetlenia strony. |
 | clientPerformance [0] nazwa |ciąg | |
@@ -260,7 +260,7 @@ Wartości kontekstu pokazują system operacyjny klienta i wersję przeglądarki.
 ## <a name="page-views"></a>Wyświetlenia strony
 Wysłane przez trackPageView () lub [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | Widok [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
 | Widok [0] durationMetric. Value |liczba całkowita |Wartość Opcjonalnie ustawiona w trackPageView () lub przez startTrackPage ()-stopTrackPage (). Nie są takie same jak wartości clientPerformance. |
@@ -273,7 +273,7 @@ Wysłane przez trackPageView () lub [stopTrackPage](./api-custom-events-metrics.
 ## <a name="availability"></a>Dostępność
 Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).
 
-| Ścieżka | Type | Uwagi |
+| Ścieżka | Typ | Uwagi |
 | --- | --- | --- |
 | Dostępność [0] availabilityMetric.name |ciąg |availability |
 | Dostępność [0] availabilityMetric. Value |liczba |1,0 lub 0,0 |
