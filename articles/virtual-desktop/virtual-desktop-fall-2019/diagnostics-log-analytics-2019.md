@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfe8026f099c341b68a1aa1fc5e3fac425e29403
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997680"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578902"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Używanie Log Analytics dla funkcji diagnostyki na pulpicie wirtualnym systemu Windows (klasyczny)
 
@@ -32,9 +32,9 @@ Zalecamy używanie Log Analytics do analizowania danych diagnostycznych w klienc
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
 
-Aby można było używać Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
+Aby można było używać Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../../azure-monitor/vm/quick-collect-windows-computer.md#create-a-workspace).
 
-Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) uzyskać następujące informacje:
+Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) uzyskać następujące informacje:
 
 - Identyfikator obszaru roboczego
 - Klucz podstawowy obszaru roboczego

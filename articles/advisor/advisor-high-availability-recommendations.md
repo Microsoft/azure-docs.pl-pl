@@ -3,12 +3,12 @@ title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078038"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579979"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
@@ -68,7 +68,7 @@ W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwó
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Upewnij się, że odporność na błędy zestawu dostępności (tymczasowo wyłączona)
 
-W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje zestawy dostępności, które zawierają pojedynczą maszynę wirtualną i zaleca dodanie do niej co najmniej jednej maszyny wirtualnej.Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure.Można utworzyć maszynę wirtualną lub dodać istniejącą maszynę wirtualną do zestawu dostępności.  
+W celu zapewnienia nadmiarowości aplikacji zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Doradca identyfikuje zestawy dostępności, które zawierają pojedynczą maszynę wirtualną i zaleca dodanie do niej co najmniej jednej maszyny wirtualnej. Ta konfiguracja gwarantuje, że podczas planowanej lub nieplanowanej konserwacji jest dostępna co najmniej jedna maszyna wirtualna i będzie ona zgodna z umową SLA maszyny wirtualnej platformy Azure. Można utworzyć maszynę wirtualną lub dodać istniejącą maszynę wirtualną do zestawu dostępności.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Korzystanie z dysków zarządzanych w celu zwiększenia niezawodności danych (tymczasowo wyłączone)
 
@@ -76,7 +76,7 @@ Maszyny wirtualne znajdujące się w zestawie dostępności z dyskami, które ws
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 
-Azure Advisor wykrywa reguły alertów dziennika, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dziennika Azure Monitor uruchamiają zapytania z określoną częstotliwością i wyzwalają alerty na podstawie wyników. Zapytania mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawki dla zapytań dotyczących alertów, aby zapobiec automatycznemu wyłączaniu reguł oraz w celu zapewnienia pokrycia monitorowania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z regułami alertów](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+Azure Advisor wykrywa reguły alertów dziennika, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dziennika Azure Monitor uruchamiają zapytania z określoną częstotliwością i wyzwalają alerty na podstawie wyników. Zapytania mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawki dla zapytań dotyczących alertów, aby zapobiec automatycznemu wyłączaniu reguł oraz w celu zapewnienia pokrycia monitorowania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z regułami alertów](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Skonfiguruj spójny tryb indeksowania w kolekcji Azure Cosmos DB
 

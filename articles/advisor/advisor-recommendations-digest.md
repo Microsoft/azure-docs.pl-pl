@@ -4,12 +4,12 @@ description: Pobierz okresowe podsumowanie Twoich aktywnych zaleceń
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c82abf3c8bea07941f860b94fcfe92954fb7641
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579822"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Skonfiguruj okresowe Podsumowanie dla zaleceń
 
@@ -21,7 +21,7 @@ Skróty doradcze **rekomendacji** zapewniają łatwy i aktywny sposób, aby zach
 Środowisko tworzenia podsumowania **rekomendacji** pomaga skonfigurować podsumowanie. Dla konfiguracji można wybrać następujące parametry:
 1. Kategoria: mamy takie kategorie, jak koszt, wysoka dostępność, wydajność i doskonałości operacyjne. Ta funkcja nie jest jeszcze dostępna w przypadku zaleceń dotyczących zabezpieczeń.
 2. Częstotliwość Digest: częstotliwość dla powiadomień podsumowujących może być co tydzień, co dwa tygodnie i co miesiąc.
-3. Grupa akcji: możesz wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+3. Grupa akcji: możesz wybrać istniejącą grupę akcji lub utworzyć nową grupę akcji. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
 4. Język dla skrótu
 5. Nazwa skrócona zalecenia: można użyć ciągu przyjaznego dla użytkownika, aby lepiej śledzić i monitorować skróty.
 
@@ -44,11 +44,11 @@ Poniżej przedstawiono procedurę tworzenia **podsumowania rekomendacji:**
 
    ![Podaj warunki wejściowe podsumowania rekomendacji](./media/digest-2.png)
 
-* **Krok 5.** W sekcji **Grupa akcji** wybierz **grupę akcji** dla tego podsumowania. Więcej informacji można znaleźć tutaj — [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md)
+* **Krok 5.** W sekcji **Grupa akcji** wybierz **grupę akcji** dla tego podsumowania. Więcej informacji można znaleźć tutaj — [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md)
 
    ![Podaj grupę akcji wejścia podsumowania rekomendacji](./media/digest-3.png)
 
-* **Krok 6.** W tej ostatniej sekcji dla **szczegółów podsumowania**można przypisać nazwę i stan do podsumowania rekomendacji. Naciśnij pozycję **Utwórz skrót rekomendacji** , aby zakończyć konfigurację.
+* **Krok 6.** W tej ostatniej sekcji dla **szczegółów podsumowania** można przypisać nazwę i stan do podsumowania rekomendacji. Naciśnij pozycję **Utwórz skrót rekomendacji** , aby zakończyć konfigurację.
    ![Ukończ tworzenie podsumowania rekomendacji](./media/digest-4.png)
 
 ## <a name="next-steps"></a>Następne kroki
