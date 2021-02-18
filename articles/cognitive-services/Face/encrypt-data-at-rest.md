@@ -9,16 +9,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 8c6f4f7db312355b719deb434bf6a46fa55eec9d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: a46253e586aaf90a85bc10e2c62ab6eb238f2ead
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524570"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650817"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Szyfrowanie usługi do obsługi danych w spoczynku
 
-Usługa twarzy automatycznie szyfruje dane po utrwaleniu jej w chmurze. Szyfrowanie usługi programu Front Data chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji.
+Usługa twarzy automatycznie szyfruje dane po utrwaleniu w chmurze. Szyfrowanie usługi programu Front Data chroni dane i pomaga sprostać wymaganiom dotyczącym zabezpieczeń i zgodności w organizacji.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 

@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 58e31cfa42faabbfab217a451e14d33f2cf45863
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554816"
+ms.locfileid: "100591046"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -745,7 +745,7 @@ Podczas pracy z funkcjami JavaScript należy pamiętać o zagadnieniach w poniż
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Wybierz plany App Service pojedynczego vCPU
 
-Po utworzeniu aplikacji funkcji, która korzysta z planu App Service, zalecamy wybranie planu pojedynczego vCPU zamiast planu z wieloma procesorów wirtualnych vCPU. Obecnie funkcje języka JavaScript działają wydajniej na maszynach wirtualnych z systemem Single-vCPU, a użycie większych maszyn wirtualnych nie daje oczekiwanych ulepszeń wydajności. W razie potrzeby można ręcznie skalować w poziomie, dodając więcej wystąpień maszyn wirtualnych o pojedynczej vCPU, lub można włączyć automatyczne skalowanie. Aby uzyskać więcej informacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json).
+Po utworzeniu aplikacji funkcji, która korzysta z planu App Service, zalecamy wybranie planu pojedynczego vCPU zamiast planu z wieloma procesorów wirtualnych vCPU. Obecnie funkcje języka JavaScript działają wydajniej na maszynach wirtualnych z systemem Single-vCPU, a użycie większych maszyn wirtualnych nie daje oczekiwanych ulepszeń wydajności. W razie potrzeby można ręcznie skalować w poziomie, dodając więcej wystąpień maszyn wirtualnych o pojedynczej vCPU, lub można włączyć automatyczne skalowanie. Aby uzyskać więcej informacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json).
 
 ### <a name="cold-start"></a>Zimne uruchomienie
 

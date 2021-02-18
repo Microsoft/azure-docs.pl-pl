@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84690380"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582671"
 ---
 # <a name="monitor-server-metrics"></a>Monitorowanie metryk serwera
 
-Analysis Services dostarcza metryki na platformie Azure Eksplorator metryk, bezpłatnego narzędzia w portalu, które ułatwia monitorowanie wydajności i kondycji serwerów. Na przykład Monitoruj użycie pamięci i procesora, liczbę połączeń klientów i użycie zasobów zapytań. Analysis Services korzysta z tego samego środowiska monitorowania co w przypadku większości innych usług platformy Azure. Aby dowiedzieć się więcej, zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md).
+Analysis Services dostarcza metryki na platformie Azure Eksplorator metryk, bezpłatnego narzędzia w portalu, które ułatwia monitorowanie wydajności i kondycji serwerów. Na przykład Monitoruj użycie pamięci i procesora, liczbę połączeń klientów i użycie zasobów zapytań. Analysis Services korzysta z tego samego środowiska monitorowania co w przypadku większości innych usług platformy Azure. Aby dowiedzieć się więcej, zobacz Rozpoczynanie [pracy z usługą Azure Eksplorator metryk](../azure-monitor/essentials/metrics-getting-started.md).
 
 Aby bardziej szczegółowo przeprowadzić diagnostykę, śledzić wydajność i identyfikować trendy wielu zasobów usług w grupie zasobów lub subskrypcji, użyj [Azure monitor](../azure-monitor/overview.md). Azure Monitor (usługa) może spowodować powstanie usługi do rozliczenia.
 
@@ -27,7 +27,7 @@ Aby bardziej szczegółowo przeprowadzić diagnostykę, śledzić wydajność i 
 
     ![Monitorowanie w witrynie Azure Portal](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. W obszarze **Metryka**wybierz metryki do uwzględnienia na wykresie. 
+2. W obszarze **Metryka** wybierz metryki do uwzględnienia na wykresie. 
 
     ![Monitorowanie wykresu](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -37,7 +37,7 @@ Aby bardziej szczegółowo przeprowadzić diagnostykę, śledzić wydajność i 
 
 Użyj tej tabeli, aby określić, które metryki najlepiej sprawdzają się w scenariuszu monitorowania. Na tym samym wykresie może być pokazywanych tylko metryki tej samej jednostki.
 
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
+|Metric|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Długość kolejki zadań puli poleceń|Liczba|Średnia|Liczba zadań w kolejce puli wątków poleceń.|
 |Wartości CurrentConnections|Połączenie: bieżące połączenia|Liczba|Średnia|Bieżąca liczba ustanowionych połączeń klientów.|
@@ -89,5 +89,5 @@ Użyj tej tabeli, aby określić, które metryki najlepiej sprawdzają się w sc
 
 ## <a name="next-steps"></a>Następne kroki
 [Przegląd Azure Monitor](../azure-monitor/overview.md)      
-[Wprowadzenie do usługi Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md)      
+[Wprowadzenie do usługi Azure Eksplorator metryk](../azure-monitor/essentials/metrics-getting-started.md)      
 [Metryki w interfejsie API REST Azure Monitor](/rest/api/monitor/metrics)

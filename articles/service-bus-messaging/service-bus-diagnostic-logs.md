@@ -3,12 +3,12 @@ title: Dzienniki diagnostyki Azure Service Bus | Microsoft Docs
 description: Ten artykuł zawiera omówienie wszystkich dzienników operacyjnych i diagnostycznych, które są dostępne dla Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064438"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585268"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Włączanie dzienników diagnostycznych dla Service Bus
 
@@ -76,7 +76,7 @@ Następujące operacje zarządzania są przechwytywane w dziennikach operacyjnyc
 
 Dzienniki operacyjne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Azure Service Bus, a następnie w obszarze **monitorowanie**wybierz pozycję  **Ustawienia diagnostyczne**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Azure Service Bus, a następnie w obszarze **monitorowanie** wybierz pozycję  **Ustawienia diagnostyczne**.
 
    ![Łącze "Ustawienia diagnostyczne"](./media/service-bus-diagnostic-logs/image1.png)
 
@@ -89,9 +89,9 @@ Dzienniki operacyjne są domyślnie wyłączone. Aby włączyć dzienniki diagno
    a. W polu **Nazwa** wprowadź nazwę ustawień diagnostycznych.  
 
    b. Wybierz jeden z następujących trzech miejsc docelowych dla dzienników diagnostycznych:  
-   - W przypadku wybrania opcji **Archiwizuj na koncie magazynu**należy skonfigurować konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
-   - W przypadku wybrania **strumienia do centrum zdarzeń**należy skonfigurować centrum zdarzeń, do którego mają być przesyłane strumieniowo dzienniki diagnostyczne.
-   - W przypadku wybrania opcji **Wyślij do log Analytics**należy określić wystąpienie log Analytics, do którego zostanie wysłana Diagnostyka.  
+   - W przypadku wybrania opcji **Archiwizuj na koncie magazynu** należy skonfigurować konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
+   - W przypadku wybrania **strumienia do centrum zdarzeń** należy skonfigurować centrum zdarzeń, do którego mają być przesyłane strumieniowo dzienniki diagnostyczne.
+   - W przypadku wybrania opcji **Wyślij do log Analytics** należy określić wystąpienie log Analytics, do którego zostanie wysłana Diagnostyka.  
 
    c. Zaznacz pole wyboru **OperationalLogs** .
 
@@ -101,7 +101,7 @@ Dzienniki operacyjne są domyślnie wyłączone. Aby włączyć dzienniki diagno
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

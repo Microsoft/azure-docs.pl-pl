@@ -3,18 +3,18 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2e3d33be487b6a92cb7038d814e17fcd5a10064
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186290"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589808"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](./app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](./monitor-web-app-availability.md), konfigurować [alerty](../platform/alerts-log.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
+W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](./app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](./monitor-web-app-availability.md), konfigurować [alerty](../alerts/alerts-log.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
 
 Kluczem do tworzenia tych zasobów są szablony JSON dla [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). Podstawowa procedura: pobieranie definicji JSON istniejących zasobów; Sparametryzuj pewne wartości, takie jak Names; a następnie uruchom szablon, gdy chcesz utworzyć nowy zasób. Można spakować wiele zasobów razem, aby utworzyć je wszystkie w jednym miejscu, na przykład monitor aplikacji z testami dostępności, alertami i magazynem na potrzeby eksportu ciągłego. Istnieje kilka subtleties niektórych parameterizations, które wyjaśnimy tutaj.
 
@@ -404,12 +404,12 @@ Ustawi dzienny limit na 200 GB/dzień, skonfiguruj dzienny czas resetowania do 1
 
 ## <a name="add-a-metric-alert"></a>Dodawanie alertu metryki
 
-Aby zautomatyzować tworzenie alertów metryk, zapoznaj się z [artykułem szablon alertów dotyczących metryk](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
+Aby zautomatyzować tworzenie alertów metryk, zapoznaj się z [artykułem szablon alertów dotyczących metryk](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Dodaj Test dostępności
 
-Aby zautomatyzować testy dostępności, zapoznaj się z [artykułem szablon alertów dotyczących metryk](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+Aby zautomatyzować testy dostępności, zapoznaj się z [artykułem szablon alertów dotyczących metryk](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Dodaj więcej zasobów
 
@@ -469,6 +469,6 @@ Platforma Azure powinna skonfigurować zasoby w ścisłej kolejności. Aby upewn
 Inne artykuły dotyczące usługi Automation:
 
 * Utwórz szybką metodę [Application Insights zasobów](./create-new-resource.md#creating-a-resource-automatically) bez użycia szablonu.
-* [Utwórz testy sieci Web](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
+* [Utwórz testy sieci Web](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](powershell-azure-diagnostics.md)
 * [Utwórz adnotacje wydania](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

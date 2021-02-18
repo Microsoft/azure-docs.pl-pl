@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855077"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589548"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -478,7 +478,7 @@ Jeśli warunki używania innych form próbkowania nie mają zastosowania, zaleca
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Jak sprawdzić, czy próbkowanie jest w toku
 
-Aby wykryć rzeczywistą częstotliwość próbkowania niezależnie od tego, gdzie została ona zastosowana, należy użyć [zapytania analitycznego](../log-query/log-query-overview.md) , takiego jak:
+Aby wykryć rzeczywistą częstotliwość próbkowania niezależnie od tego, gdzie została ona zastosowana, należy użyć [zapytania analitycznego](../logs/log-query-overview.md) , takiego jak:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

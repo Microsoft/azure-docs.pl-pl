@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a8cb997337d26a166b4c73d33965820da5ae2a86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807228"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596308"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
@@ -98,4 +98,4 @@ Masz szereg opcji wyświetlania alertów poza Security Center, w tym:
 
 Ten artykuł zawiera informacje o różnych typach alertów dostępnych w Security Center. Aby uzyskać więcej informacji, zobacz:
 
-- **Alerty zabezpieczeń w dzienniku aktywności platformy Azure** — oprócz dostępnych w Azure Portal lub programowo, alerty zabezpieczeń i zdarzenia są poddawane inspekcji jako zdarzenia w [dzienniku aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log). Aby uzyskać więcej informacji o schemacie zdarzeń, zobacz [alerty zabezpieczeń w dzienniku aktywności platformy Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Alerty zabezpieczeń w dzienniku aktywności platformy Azure** — oprócz dostępnych w Azure Portal lub programowo, alerty zabezpieczeń i zdarzenia są poddawane inspekcji jako zdarzenia w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log). Aby uzyskać więcej informacji o schemacie zdarzeń, zobacz [alerty zabezpieczeń w dzienniku aktywności platformy Azure](https://go.microsoft.com/fwlink/?linkid=2114113)

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e52f0f22065d89788d08659476d14af0351cc493
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492356"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590590"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -40,13 +40,13 @@ Aby włączyć dzienniki zasobów przy użyciu Azure Portal:
 
 7. Zapisz ustawienie.
 
-Aby włączyć dzienniki zasobów przy użyciu programu PowerShell lub interfejsu wiersza polecenia, przejdź do artykułu [ustawień diagnostycznych](../../azure-monitor/platform/diagnostic-settings.md) .
+Aby włączyć dzienniki zasobów przy użyciu programu PowerShell lub interfejsu wiersza polecenia, przejdź do artykułu [ustawień diagnostycznych](../../azure-monitor/essentials/diagnostic-settings.md) .
 
 ### <a name="access-resource-logs"></a>Dostęp do dzienników zasobów
 
-Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+Sposób dostępu do dzienników zależy od wybranego punktu końcowego. W przypadku usługi Azure Storage zapoznaj się z artykułem [Logs (dzienniki konta magazynu](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) ). Aby uzyskać Event Hubs, zobacz artykuł [przesyłanie strumieniowe dzienników platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
+W przypadku dzienników Azure Monitor dzienniki są wysyłane do wybranego obszaru roboczego. Dzienniki Postgres używają trybu zbierania **AzureDiagnostics** , dzięki czemu można wykonywać zapytania z tabeli AzureDiagnostics. Pola w tabeli są opisane poniżej. Więcej informacji o wysyłaniu zapytań i alertach znajduje się w temacie Omówienie [zapytań dotyczących dzienników Azure monitor](../../azure-monitor/logs/log-query-overview.md) .
 
 Poniżej przedstawiono zapytania, w których można spróbować rozpocząć pracę. Alerty można skonfigurować na podstawie zapytań.
 
@@ -71,5 +71,5 @@ W powyższym zapytaniu zostaną wyświetlone wyniki w ciągu ostatnich 6 godzin 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do zapytań usługi log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Wprowadzenie do zapytań usługi log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 - Informacje o [centrach zdarzeń platformy Azure](../../event-hubs/event-hubs-about.md)

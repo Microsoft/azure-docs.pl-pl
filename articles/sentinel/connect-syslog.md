@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: d35a97b0008a7ce3069185dd557a60221776b0ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530522"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595461"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Zbieranie danych z źródeł opartych na systemie Linux przy użyciu dziennika systemowego
 
@@ -34,7 +34,7 @@ Zdarzenia z maszyn lub urządzeń obsługujących system Linux można przesyła�
 
 **Dziennik** systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Po zainstalowaniu **agenta log Analytics dla systemu Linux** na maszynie wirtualnej lub urządzeniu, procedura instalacji konfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta na porcie TCP 25224. Następnie Agent wysyła komunikat do obszaru roboczego Log Analytics za pośrednictwem protokołu HTTPS, który jest analizowany w pozycji dziennika zdarzeń w tabeli dziennika systemowego w **dziennikach usługi Azure wskaźnik >**.
 
-Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego w Azure monitor](../azure-monitor/platform/data-sources-syslog.md).
+Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego w Azure monitor](../azure-monitor/agents/data-sources-syslog.md).
 
 ## <a name="configure-syslog-collection"></a>Konfigurowanie kolekcji dziennika systemowego
 
@@ -83,7 +83,7 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 
 1. Aby wykonać zapytanie dotyczące danych dzienników dziennika systemu w **dziennikach**, wpisz `Syslog` w oknie zapytania.
 
-1. Aby przeanalizować komunikaty dziennika systemowego, można użyć parametrów zapytania opisanych w temacie [using Functions in Azure monitor Query log](../azure-monitor/log-query/functions.md) . Następnie można zapisać zapytanie jako nową funkcję Log Analytics i użyć go jako nowego typu danych.
+1. Aby przeanalizować komunikaty dziennika systemowego, można użyć parametrów zapytania opisanych w temacie [using Functions in Azure monitor Query log](../azure-monitor/logs/functions.md) . Następnie można zapisać zapytanie jako nową funkcję Log Analytics i użyć go jako nowego typu danych.
 
 > [!NOTE]
 > **Używanie tego samego komputera do przesyłania zarówno zwykłego dziennika systemowego *, jak i* komunikatów CEF**
@@ -92,7 +92,7 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 >
 >    Już skonfigurowano [zbieranie danych ze źródeł CEF](connect-common-event-format.md)i skonfigurowano agenta log Analytics w taki sam sposób:
 >
-> 1. Na każdym komputerze, który wysyła dzienniki w formacie CEF, należy edytować plik konfiguracji dziennika systemowego w celu usunięcia obiektów używanych do wysyłania komunikatów CEF. W ten sposób obiekty, które są wysyłane w CEF, nie będą również wysyłane w dzienniku systemu. Szczegółowe instrukcje można znaleźć w temacie [Konfigurowanie dziennika systemowego w agencie systemu Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) .
+> 1. Na każdym komputerze, który wysyła dzienniki w formacie CEF, należy edytować plik konfiguracji dziennika systemowego w celu usunięcia obiektów używanych do wysyłania komunikatów CEF. W ten sposób obiekty, które są wysyłane w CEF, nie będą również wysyłane w dzienniku systemu. Szczegółowe instrukcje można znaleźć w temacie [Konfigurowanie dziennika systemowego w agencie systemu Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) .
 >
 > 1. Na tych maszynach należy uruchomić następujące polecenie, aby wyłączyć synchronizację agenta z konfiguracją dziennika systemowego na platformie Azure. Dzięki temu zmiana konfiguracji wprowadzona w poprzednim kroku nie zostanie zastępować.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

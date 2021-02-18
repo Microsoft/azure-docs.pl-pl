@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d8940d791920daca6ef0af186a4bb5e17009637b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182924"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586117"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Obsługa dużego natężenia ruchu usługi Application Gateway
 
@@ -23,7 +23,7 @@ Za pomocą Application Gateway za pomocą zapory aplikacji sieci Web (WAF) możn
 
 Ważne jest, aby skalować Application Gateway zgodnie z ruchem i z bitowym buforem, dzięki czemu można przystąpić do dowolnych lub większej ilości ruchu i zminimalizować wpływ, jaki może on znajdować się w funkcji QoS. Poniższe sugestie pomogą Ci w konfigurowaniu Application Gateway przy użyciu WAF do obsługi dodatkowego ruchu sieciowego.
 
-Zapoznaj się z [dokumentacją metryk](./application-gateway-metrics.md) , aby zapoznać się z pełną listą metryk oferowanych przez Application Gateway. Zapoznaj się z tematem [Wizualizacja metryk](./application-gateway-metrics.md#metrics-visualization) w Azure Portal i [dokumentacji usługi Azure monitor](../azure-monitor/platform/alerts-metric.md) dotyczącej sposobu ustawiania alertów dotyczących metryk.
+Zapoznaj się z [dokumentacją metryk](./application-gateway-metrics.md) , aby zapoznać się z pełną listą metryk oferowanych przez Application Gateway. Zapoznaj się z tematem [Wizualizacja metryk](./application-gateway-metrics.md#metrics-visualization) w Azure Portal i [dokumentacji usługi Azure monitor](../azure-monitor/alerts/alerts-metric.md) dotyczącej sposobu ustawiania alertów dotyczących metryk.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Skalowanie dla jednostki SKU Application Gateway V1 (jednostka SKU standardowa/WAF)
 
@@ -65,7 +65,7 @@ Sprawdź metrykę jednostki obliczeniowej przez ostatni miesiąc. Metryka jednos
 
 ## <a name="monitoring-and-alerting"></a>Monitorowanie i zgłaszanie alertów
 
-Aby otrzymywać powiadomienia o wszelkich anomaliach dotyczących ruchu lub wykorzystania, można skonfigurować alerty dla określonych metryk. Zobacz [dokumentację metryk](./application-gateway-metrics.md) , aby zapoznać się z pełną listą metryk oferowanych przez Application Gateway. Zapoznaj się z tematem [Wizualizacja metryk](./application-gateway-metrics.md#metrics-visualization) w Azure Portal i [dokumentacji usługi Azure monitor](../azure-monitor/platform/alerts-metric.md) dotyczącej sposobu ustawiania alertów dotyczących metryk.
+Aby otrzymywać powiadomienia o wszelkich anomaliach dotyczących ruchu lub wykorzystania, można skonfigurować alerty dla określonych metryk. Zobacz [dokumentację metryk](./application-gateway-metrics.md) , aby zapoznać się z pełną listą metryk oferowanych przez Application Gateway. Zapoznaj się z tematem [Wizualizacja metryk](./application-gateway-metrics.md#metrics-visualization) w Azure Portal i [dokumentacji usługi Azure monitor](../azure-monitor/alerts/alerts-metric.md) dotyczącej sposobu ustawiania alertów dotyczących metryk.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Alerty dla jednostki SKU Application Gateway V1 (standard/WAF)
 

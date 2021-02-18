@@ -3,12 +3,12 @@ title: Usługa Azure Service Fabric diagnozowanie typowych scenariuszy
 description: Dowiedz się więcej na temat rozwiązywania typowych scenariuszy monitorowania i diagnostyki w aplikacjach Service Fabric platformy Azure.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257740"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580480"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnozuj typowe scenariusze za pomocą Service Fabric
 
@@ -133,9 +133,9 @@ Sprawdź te linki, aby uzyskać pełną listę liczników wydajności dla niezaw
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wyszukaj typowe błędy aktywacji pakietu kodu](./service-fabric-diagnostics-code-package-errors.md)
-* [Konfigurowanie alertów w programie AI](../azure-monitor/platform/alerts-log.md) do powiadamiania o zmianach wydajności lub użycia
+* [Konfigurowanie alertów w programie AI](../azure-monitor/alerts/alerts-log.md) do powiadamiania o zmianach wydajności lub użycia
 * [Inteligentne wykrywanie w Application Insights](../azure-monitor/app/proactive-diagnostics.md) wykonuje aktywną analizę danych telemetrycznych wysyłanych do systemu AI w celu ostrzegania o potencjalnych problemach z wydajnością
-* Dowiedz się więcej o dziennikach Azure Monitor [alerty](../azure-monitor/platform/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
-* W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/platform/gateway.md)
-* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/log-query/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
+* Dowiedz się więcej o dziennikach Azure Monitor [alerty](../azure-monitor/alerts/alerts-overview.md) w celu ułatwienia wykrywania i diagnostyki.
+* W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/agents/gateway.md)
+* Zapoznaj się z funkcjami [przeszukiwania dzienników i wykonywania zapytań](../azure-monitor/logs/log-query-overview.md) , które są oferowane w ramach dzienników Azure monitor
 * Zapoznaj się z bardziej szczegółowym omówieniem dzienników Azure Monitor i ofert, które oferuje, Przeczytaj [co to jest Azure monitor Logs?](../azure-monitor/overview.md)

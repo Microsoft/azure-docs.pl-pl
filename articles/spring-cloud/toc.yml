@@ -59,7 +59,7 @@
   items:
     - name: Programowanie
       items:
-        - name: Przygotowywanie aplikacji Java Spring do wdrożenia
+        - name: Przygotowywanie aplikacji do wdrożenia
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Konfigurowanie serwera konfiguracji
           href: spring-cloud-tutorial-config-server.md
