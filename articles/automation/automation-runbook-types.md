@@ -3,14 +3,14 @@ title: Azure Automation typy elementów Runbook
 description: W tym artykule opisano typy elementów Runbook, których można użyć w Azure Automation i zagadnienia dotyczące określania, który typ ma być używany.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050973"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634893"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation typy elementów Runbook
 
@@ -101,6 +101,11 @@ Elementy Runbook przepływu pracy programu PowerShell są tekstowymi elementami 
 ## <a name="python-runbooks"></a>Elementy Runbook języka Python
 
 Kompilacja elementów Runbook języka Python w języku Python 2 i Python 3. Elementy Runbook języka Python 3 są obecnie dostępne w wersji zapoznawczej. Kod elementu Runbook można edytować bezpośrednio przy użyciu edytora tekstu w Azure Portal. Możesz również użyć edytora tekstu w trybie offline i [zaimportować element Runbook](manage-runbooks.md) do Azure Automation.
+
+Elementy Runbook języka Python 3 są obsługiwane w następujących infrastrukturach globalnych platformy Azure:
+
+* Globalne platformy Azure
+* Azure Government
 
 ### <a name="advantages"></a>Zalety
 

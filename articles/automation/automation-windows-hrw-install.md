@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006993"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651361"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
-Za pomocą funkcji hybrydowego procesu roboczego elementu Runbook programu Azure Automation można uruchamiać elementy Runbook bezpośrednio na platformie Azure lub na maszynach spoza platformy Azure, w tym na serwerach zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../azure-arc/servers/overview.md). Na komputerze lub serwerze, na którym znajduje się rola, można uruchamiać elementy Runbook bezpośrednio i z zasobami w środowisku, aby zarządzać tymi zasobami lokalnymi.
+Za pomocą funkcji hybrydowego procesu roboczego elementu Runbook programu Azure Automation można uruchamiać elementy Runbook bezpośrednio na platformie Azure lub na maszynach spoza platformy Azure, w tym na serwerach zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../azure-arc/servers/overview.md). Na komputerze lub serwerze, na którym znajduje się rola, można uruchamiać elementy Runbook bezpośrednio względem niego i w odniesieniu do zasobów w środowisku, aby zarządzać tymi zasobami lokalnymi.
 
 Azure Automation przechowuje elementy Runbook i zarządza nimi, a następnie dostarcza je do co najmniej jednej wyznaczeniu maszyn. W tym artykule opisano sposób wdrażania hybrydowego procesu roboczego elementu Runbook użytkownika na komputerze z systemem Windows, sposobu usuwania procesu roboczego oraz usuwania grupy hybrydowych procesów roboczych elementu Runbook.
 
@@ -26,13 +26,13 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy.
 
 ### <a name="a-log-analytics-workspace"></a>Obszar roboczy Log Analytics
 
-Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego Log Analytics Azure Monitor, aby zainstalować i skonfigurować rolę. Można go utworzyć za pomocą [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), za pomocą [programu PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)lub [Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Rola hybrydowego procesu roboczego elementu Runbook zależy od obszaru roboczego Log Analytics Azure Monitor, aby zainstalować i skonfigurować rolę. Można go utworzyć za pomocą [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), za pomocą [programu PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)lub [Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/platform/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
+Jeśli nie masz obszaru roboczego Log Analytics Azure Monitor, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/logs/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 
-Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md) dla obsługiwanego systemu operacyjnego Windows. W przypadku serwerów lub maszyn hostowanych poza platformą Azure można zainstalować agenta Log Analytics przy użyciu [serwerów z obsługą usługi Azure Arc](../azure-arc/servers/overview.md).
+Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics](../azure-monitor/agents/log-analytics-agent.md) dla obsługiwanego systemu operacyjnego Windows. W przypadku serwerów lub maszyn hostowanych poza platformą Azure można zainstalować agenta Log Analytics przy użyciu [serwerów z obsługą usługi Azure Arc](../azure-arc/servers/overview.md).
 
 ### <a name="supported-windows-operating-system"></a>Obsługiwany system operacyjny Windows
 

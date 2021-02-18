@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937422"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585949"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -151,7 +151,7 @@ Kliknij wiersz wyjątku, aby wyświetlić szczegóły wyjątku po stronie serwer
 
 ![Diagnostyka po stronie serwera](./media/monitor-web-app-availability/open-instance-4.png)
 
-Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dostępności klucza w [Eksplorator metryk](../platform/metrics-getting-started.md):
+Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dostępności klucza w [Eksplorator metryk](../essentials/metrics-getting-started.md):
 
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
@@ -159,7 +159,7 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 ## <a name="automation"></a>Automation
 
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](./powershell.md#add-an-availability-test).
-* Konfigurowanie [elementu webhook](../platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.
+* Konfigurowanie [elementu webhook](../alerts/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

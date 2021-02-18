@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250168"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652376"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Gatsby w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Gatsby](https://gatsbyjs.org) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest Nowa lokacja statyczna Web Apps (ze skojarzonymi akcjami GitHub), która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -75,7 +75,7 @@ Musisz mieć repozytorium w usłudze GitHub, aby utworzyć nowy zasób usługi A
 1. Wypychanie lokalnego repozytorium do serwisu GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Wdrażanie aplikacji sieci Web
@@ -92,17 +92,17 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
-1. W obszarze _subskrypcja_Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
+1. W obszarze _subskrypcja_ Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
 
-1. W obszarze _Grupa zasobów_wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_wprowadź **Gatsby-static-Web-App** , a następnie wybierz **przycisk OK**.
+1. W obszarze _Grupa zasobów_ wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_ wprowadź **Gatsby-static-Web-App** , a następnie wybierz **przycisk OK**.
 
 1. Następnie wpisz nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` .
 
-1. W _obszarze region_wybierz dostępny region blisko siebie.
+1. W _obszarze region_ wybierz dostępny region blisko siebie.
 
-1. W obszarze _jednostka SKU_wybierz pozycję **bezpłatnie**.
+1. W obszarze _jednostka SKU_ wybierz pozycję **bezpłatnie**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Szczegóły wypełnione":::
 
 1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** .
 
@@ -110,9 +110,9 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Wybierz pozycję **Gatsby-static-Web-App** jako _repozytorium_ .
 
-1. Dla _gałęzi_ wybierz gałąź **główna**.
+1. Dla _gałęzi_ wybierz pozycję **Main**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -126,7 +126,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Ustawienia kompilacji":::
 
 ### <a name="review-and-create"></a>Przegląd i tworzenie
 
@@ -138,7 +138,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Na ekranie zasób kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację. Może być konieczne poczekanie minutę lub dwie, aby wykonać akcję usługi GitHub.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

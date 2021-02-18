@@ -3,18 +3,18 @@ title: Utwórz alerty Azure Advisor dla nowych zaleceń przy użyciu Azure Porta
 description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973660"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590105"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Utwórz Azure Advisor alerty dotyczące nowych zaleceń przy użyciu Azure Portal 
 
 W tym artykule opisano sposób konfigurowania alertu dotyczącego nowych zaleceń z Azure Advisor przy użyciu Azure Portal. 
 
-Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty. 
+Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty. 
 
 Możesz również określić typy zaleceń, korzystając z następujących właściwości:
 
@@ -27,13 +27,13 @@ Możesz również skonfigurować akcję, która będzie wykonywana po wyzwoleniu
 * Wybieranie istniejącej grupy akcji
 * Tworzenie nowej grupy akcji
 
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE] 
 > Alerty usługi Advisor są obecnie dostępne tylko w celu uzyskania wysokiej dostępności, wydajności i zaleceń dotyczących kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane. 
 
 ## <a name="create-alert-rule"></a>Tworzenie reguły alertu
-1. W **portalu**wybierz pozycję **Azure Advisor**.
+1. W **portalu** wybierz pozycję **Azure Advisor**.
 
     ![Azure Advisor w portalu](./media/advisor-alerts/create1.png)
 
@@ -57,7 +57,7 @@ Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i
 
     ![Grupa akcji alertu klasyfikatora](./media/advisor-alerts/create6.png)
 
-7. W sekcji **grupy akcji** wybierz pozycję **Dodaj istniejący** , aby użyć grupy akcji, która została już utworzona, lub wybierz pozycję **Utwórz nową** , aby skonfigurować nową [grupę akcji](../azure-monitor/platform/action-groups.md). 
+7. W sekcji **grupy akcji** wybierz pozycję **Dodaj istniejący** , aby użyć grupy akcji, która została już utworzona, lub wybierz pozycję **Utwórz nową** , aby skonfigurować nową [grupę akcji](../azure-monitor/alerts/action-groups.md). 
 
     ![Alert klasyfikatora — Dodawanie istniejących](./media/advisor-alerts/create7.png)
 
@@ -185,13 +185,13 @@ Oto niektóre z innych ważnych pól, których warto użyć:
 
 W Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty dotyczące zaleceń. 
 
-1. W **portalu**wybierz pozycję **Azure Advisor**.
+1. W **portalu** wybierz pozycję **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Zrzut ekranu przedstawiający sekcję Szczegóły alertu.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym zaznaczono Azure Advisor.":::
 
 2. W sekcji **monitorowanie** w menu po lewej stronie wybierz pozycję **alerty**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Zrzut ekranu przedstawiający sekcję Szczegóły alertu.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym są zaznaczone alerty.":::
 
 3. Aby edytować alert, kliknij nazwę alertu, aby otworzyć alert i edytować pola, które chcesz edytować.
 
@@ -199,5 +199,5 @@ W Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty do
  
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/alerts/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 801f4840d0d1447f839e5c2c4bc3168741b62b63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586252"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Rozwiązywanie problemów z błędami HTTP "502 złej Gateway" i "503 Usługa niedostępna" w Azure App Service
 "502 zła brama" i "503 Usługa niedostępna" to typowe błędy w aplikacji hostowanej w [Azure App Service](./overview.md). Ten artykuł pomaga rozwiązywać te błędy.
@@ -60,7 +60,7 @@ Niektóre metryki, które mogą być monitorowane dla aplikacji, to
 Aby uzyskać więcej informacji, zobacz:
 
 * [Monitorowanie aplikacji w Azure App Service](web-sites-monitor.md)
-* [Otrzymywanie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md)
+* [Otrzymywanie powiadomień o alertach](../azure-monitor/alerts/alerts-overview.md)
 
 <a name="collect"></a>
 

@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure i ich 
 description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorować je za pomocą usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002917"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635081"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
 
@@ -97,7 +97,7 @@ Można uruchomić kopię zapasową maszyny wirtualnej na żądanie po skonfiguro
 * Zakres przechowywania kopii zapasowej na żądanie jest wartością przechowywania określoną podczas wyzwalania kopii zapasowej.
 
 > [!NOTE]
-> Usługa Azure Backup obsługuje do dziewięciu kopii zapasowych na żądanie dziennie, ale firma Microsoft nie zaleca więcej niż czterech codziennych kopii zapasowych na żądanie w celu zapewnienia najlepszej wydajności.
+> Usługa Azure Backup obsługuje maksymalnie trzy kopie zapasowe na żądanie dziennie oraz jedną dodatkową zaplanowaną kopię zapasową.
 
 Aby wyzwolić kopię zapasową na żądanie:
 

@@ -4,12 +4,12 @@ description: Monitoruj system i niestandardowe liczniki wydajności .NET w Appli
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937383"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583888"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Liczniki wydajności w analizie
-W [analizie](../log-query/log-query-overview.md)można wyszukiwać i wyświetlać raporty liczników wydajności.
+W [analizie](../logs/log-query-overview.md)można wyszukiwać i wyświetlać raporty liczników wydajności.
 
 Schemat **liczniki wydajności** uwidacznia `category` , `counter` nazwę i `instance` nazwę każdego licznika wydajności.  W telemetrii dla każdej aplikacji zobaczysz tylko liczniki dla tej aplikacji. Na przykład, aby zobaczyć, jakie liczniki są dostępne: 
 
@@ -148,7 +148,7 @@ Obsługa liczników wydajności w ASP.NET Core jest ograniczona:
 * Wersje SDK 2.8.0 i nowsze obsługują licznik procesora/pamięci w systemie Linux. Żaden inny licznik nie jest obsługiwany w systemie Linux. Zalecanym sposobem uzyskiwania liczników systemowych w systemie Linux (i innych środowiskach innych niż Windows) jest użycie [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alerty
-Podobnie jak w przypadku innych metryk, można [ustawić alert](../platform/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
+Podobnie jak w przypadku innych metryk, można [ustawić alert](../alerts/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 

@@ -4,14 +4,14 @@ description: Dowiedz się, jak utworzyć Microsoft Azure klaster Red Hat OpenShi
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b690d3b3c29d2943e28a0992730d932b35c20734
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072239"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653044"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -26,6 +26,8 @@ W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia kla
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Do utworzenia i uruchomienia klastra OpenShift na platformie Azure Red Hat OpenShift jest wymagany co najmniej 40 rdzeni. Domyślny przydział zasobów platformy Azure dla nowej subskrypcji platformy Azure nie spełnia tego wymagania. Aby zażądać zwiększenia limitu zasobów, zobacz [przydział standardowy: zwiększanie limitów przez serię maszyn wirtualnych](../azure-portal/supportability/per-vm-quota-requests.md).
+
+Klucz tajny ściągania nie zmienia kosztu OpenShift licencji RH na potrzeby ARO.
 
 ### <a name="verify-your-permissions"></a>Sprawdzanie uprawnień
 

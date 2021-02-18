@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 772be332af1476975d91eb270bec24d6d241a616
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8ccc7b641e2bfcb4ea8733b9d4f793229c430bc0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706844"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652877"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
 
@@ -43,13 +43,13 @@ Należy:
 Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
 1. Zaloguj się do <https://portal.azure.com/> .
-2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
+2. Wyszukaj **zadania importowania/eksportowania**.
 
-    ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+    ![Wyszukaj zadania importu/eksportu](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Kliknij pozycję **Utwórz zadanie importu/eksportu**.
+3. Wybierz pozycję **+ Nowe**.
 
-    ![Kliknij przycisk Importuj/Eksportuj zadanie](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![Wybierz pozycję + Nowy, aby utworzyć nowy ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Na stronie **Podstawy**:
 
@@ -60,7 +60,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
     - Wybierz subskrypcję.
     - Wprowadź lub wybierz grupę zasobów.
 
-        ![Podstawy](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Podstawy](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
 5. W **szczegółach zadania**:
 
@@ -69,17 +69,17 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
     - Określ dane obiektów blob, które mają zostać wyeksportowane z konta magazynu do pustego dysku lub dysków.
     - Wybierz, aby **wyeksportować wszystkie** dane obiektów BLOB na koncie magazynu.
 
-         ![Eksportuj wszystko](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
+         ![Eksportuj wszystko](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
     - Możesz określić kontenery i obiekty blob do wyeksportowania.
         - **Aby określić obiekt BLOB do wyeksportowania**: Użyj selektora **równego** . Określ ścieżkę względną do obiektu BLOB, rozpoczynając od nazwy kontenera. Użyj *$root* , aby określić kontener główny.
         - **Aby określić wszystkie obiekty blob zaczynające się od prefiksu**: Użyj elementu **Start with** Selector. Określ prefiks, zaczynając od ukośnika "/". Prefiks może być prefiksem nazwy kontenera, pełną nazwą kontenera lub pełną nazwą kontenera, po którym następuje prefiks nazwy obiektu BLOB. Musisz podać ścieżki obiektów BLOB w prawidłowym formacie, aby uniknąć błędów podczas przetwarzania, jak pokazano na poniższym zrzucie ekranu. Aby uzyskać więcej informacji, zobacz [przykłady prawidłowych ścieżek obiektów BLOB](#examples-of-valid-blob-paths).
 
-           ![Eksportuj wybrane kontenery i obiekty blob](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
+           ![Eksportuj wybrane kontenery i obiekty blob](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - Możesz wyeksportować z pliku listy obiektów BLOB.
 
-        ![Eksportuj z pliku listy obiektów BLOB](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
+        ![Eksportuj z pliku listy obiektów BLOB](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > Jeśli obiekt BLOB do wyeksportowania jest używany podczas kopiowania danych, usługa Azure Import/Export wykonuje migawkę obiektu BLOB i kopiuje migawkę.

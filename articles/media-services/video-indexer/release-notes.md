@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560509"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653311"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,33 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+### <a name="multiple-account-owners"></a>Wielu właścicieli kont 
+
+Rola właściciela konta została dodana do Video Indexer. Możesz dodawać, zmieniać i usuwać użytkowników. Zmień ich rolę. Aby uzyskać szczegółowe informacje na temat udostępniania konta, zobacz [Zapraszanie użytkowników](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Wykrywanie zdarzeń audio (publiczna wersja zapoznawcza)
+
+> [!NOTE]
+> Ta funkcja jest dostępna tylko na kontach wersji próbnej. 
+
+Video Indexer teraz wykrywa następujące efekty audio w segmentach niebędących literami mowy zawartości: gunshot, szkło rozbicie, alarm, Siren, wybuch, Dog kora, wyróżniony, Laughter, reakcje na zjawisko (cheering, clapping i booing) i wyciszenie. 
+
+Nowo dodana funkcja wpływająca na dźwięk jest dostępna podczas indeksowania pliku przez wybranie **opcji Zaawansowane**  ->  **Zaawansowane** ustawienia predefiniowane audio (w obszarze wideo i indeksowanie audio). Standardowe indeksowanie będzie obejmować tylko **wyciszenie** i **odporność**. 
+
+Typ zdarzenia **clapping** , który został uwzględniony w poprzednim modelu efektów audio, jest teraz rozpakowywany częścią typu zdarzenia **reakcji** na działanie.
+
+Po wybraniu **opcji wyświetlania zawartości wideo w witrynie internetowej** [Video Indexer](https://www.videoindexer.ai/) efekty audio są wyświetlane na stronie.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Wykrywanie zdarzeń audio":::
+
+### <a name="named-entities-enhancement"></a>Rozszerzanie nazwanych jednostek  
+
+Wyodrębniona lista osób i lokalizacji została rozszerzona i zaktualizowana ogólnie. 
+
+Ponadto model zawiera teraz osoby i lokalizacje w kontekście, które nie są sławę, takie jak "sam" lub "Home" w filmie wideo. 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

@@ -68,7 +68,7 @@
     - name: Szablony usługi Resource Manager
       items:
         - name: Omówienie
-          href: /resource-manager-samples.md
+          href: resource-manager-samples.md
         - name: Agenci
           href: agents/resource-manager-agent.md
         - name: Alerty
@@ -102,9 +102,9 @@
         - name: Usługa Azure Monitor dla maszyn wirtualnych
           href: vm/resource-manager-vminsights.md
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli-samples.md
+      href: cli-samples.md
     - name: Azure PowerShell
-      href: /powershell-samples.md
+      href: powershell-samples.md
 - name: Pojęcia
   items:
     - name: Co można monitorować?
@@ -114,7 +114,7 @@
     - name: Źródła danych
       href: agents/data-sources.md
     - name: Platforma danych
-      href: /data-platform.md
+      href: data-platform.md
     - name: Bezpieczeństwo danych
       items:
         - name: Dane dziennika
@@ -142,7 +142,7 @@
     - name: Wizualizowanie danych
       href: visualizations.md
     - name: Integracje partnerów
-      href: /partners.md
+      href: partners.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń
@@ -169,14 +169,14 @@
     - name: Zarządzanie i konfigurowanie
       items:
         - name: Uprawnienia ról i bezpieczeństwo
-          href: /roles-permissions-security.md
+          href: roles-permissions-security.md
         - name: Adresy IP
           href: app/ip-addresses.md
           displayname: 'firewall, firewall exceptions, whitelist'
         - name: Użycie i koszty
           items:
             - name: Użycie i szacunkowe koszty
-              href: /usage-estimated-costs.md
+              href: usage-estimated-costs.md
             - name: Użycie aplikacji i koszty
               href: app/pricing.md
             - name: Rejestrowanie użycia danych i kosztów
@@ -1399,7 +1399,7 @@
           href: /azure/templates/microsoft.operationalinsights/allversions
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
-      href: /policy-reference.md
+      href: policy-reference.md
     - name: Wycofywanie funkcji i interfejsu API
       items:
         - name: Interfejs OperationalInsights API

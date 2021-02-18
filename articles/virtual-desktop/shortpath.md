@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876702"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571588"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP shortpath (wersja zapoznawcza)
 
@@ -151,7 +151,8 @@ Aby zezwolić na dostęp do odbiornika shortpath protokołu RDP w granicach zabe
 Postępuj zgodnie z [dokumentacją sieciowej grupy zabezpieczeń](../virtual-machines/windows/nsg-quickstart-portal.md) , aby utworzyć regułę zabezpieczeń dla ruchu przychodzącego zezwalającą na ruch z następującymi parametrami:
 
 * **Źródło**  -  **Dowolny** lub zakres adresów IP, w których znajdują się klienci
-* **Zakresy portów źródłowych** -* *\** _ _ dowolna **Lokalizacja docelowa**  -  
+* **Zakresy portów źródłowych** - **\***
+* **Miejsce docelowe**  -  **Wszystkie**
 * **Docelowe zakresy portów**  -  **3390**
 * **Protokół**  -  **Protokół UDP**
 * **Akcja**  -  **Zezwalaj**
@@ -188,7 +189,7 @@ Możliwe wartości są następujące:
 * **0** — połączenie użytkownika nie używa protokołu RDP shortpath
 * połączenie **1** -użytkownika korzysta z protokołu RDP shortpath
   
-Poniższa lista zapytań umożliwia przejrzenie informacji o połączeniu. To zapytanie można uruchomić w [Edytorze zapytań log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Dla każdego zapytania Zastąp `userupn` nazwę UPN użytkownika, który chcesz wyszukać.
+Poniższa lista zapytań umożliwia przejrzenie informacji o połączeniu. To zapytanie można uruchomić w [Edytorze zapytań log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). Dla każdego zapytania Zastąp `userupn` nazwę UPN użytkownika, który chcesz wyszukać.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

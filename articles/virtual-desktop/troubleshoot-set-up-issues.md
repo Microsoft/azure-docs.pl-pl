@@ -3,15 +3,16 @@ title: Tworzenie puli hostów środowiska pulpitu wirtualnego systemu Windows �
 description: Rozwiązywanie problemów i rozwiązywanie problemów z pulą dzierżaw i hostów podczas instalacji środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539633"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652449"
 ---
 # <a name="host-pool-creation"></a>Tworzenie puli hostów
 
@@ -49,9 +50,21 @@ Jeśli operacja przekracza limit przydziału, można wykonać jedną z następuj
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Błąd: nie można wyświetlić przypisań użytkowników w grupach aplikacji.
 
-Przyczyna: ten błąd występuje zwykle po przeniesieniu subskrypcji z 1 Azure Active Directory (AD) dzierżawy do innej. Jeśli stare przypisania są nadal powiązane ze starą dzierżawą usługi Azure AD, Azure Portal utraci ich śledzenie.
+**Przyczyna**: ten błąd występuje zwykle po przeniesieniu subskrypcji z 1 Azure Active Directory (AD) dzierżawy do innej. Jeśli stare przypisania są nadal powiązane ze starą dzierżawą usługi Azure AD, Azure Portal utraci ich śledzenie.
 
-Poprawka: należy ponownie przypisać użytkowników do grup aplikacji.
+**Poprawka**: należy ponownie przypisać użytkowników do grup aplikacji.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Po ustawieniu lokalizacji dla obiektów usługi są wyświetlane tylko stany USA
+
+**Przyczyna**: platforma Azure nie obsługuje obecnie tego regionu dla usługi pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, które lokalizacje geograficzne obsługuje, sprawdź [lokalizacje danych](data-locations.md). Jeśli pulpit wirtualny systemu Windows obsługuje lokalizację, ale nadal nie jest wyświetlany podczas próby wybrania lokalizacji, oznacza to, że dostawca zasobów nie został jeszcze zaktualizowany.
+
+**Poprawka**: Aby uzyskać najnowszą listę regionów, należy ponownie zarejestrować dostawcę zasobów:
+
+1. Przejdź do pozycji **subskrypcje** i wybierz odpowiednią subskrypcję.
+2. Wybierz pozycję **dostawca zasobów**.
+3. Wybierz pozycję **Microsoft. DesktopVirtualization**, a następnie wybierz pozycję **zarejestruj ponownie** z menu Akcja.
+
+Po ponownym zarejestrowaniu dostawcy zasobów nie będą wyświetlane żadne informacje zwrotne interfejsu użytkownika ani aktualizacje. Proces ponownej rejestracji nie zakłóca również istniejących środowisk.
 
 ## <a name="azure-resource-manager-template-errors"></a>Błędy szablonu Azure Resource Manager
 

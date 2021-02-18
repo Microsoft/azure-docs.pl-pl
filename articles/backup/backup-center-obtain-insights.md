@@ -3,16 +3,16 @@ title: Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasow
 description: Dowiedz się, jak analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych przy użyciu centrum kopii zapasowych.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893697"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592020"
 ---
 # <a name="obtain-insights-using-backup-center-preview"></a>Uzyskaj wgląd w dane za pomocą centrum kopii zapasowych (wersja zapoznawcza)
 
-Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych, usługa Backup Center udostępnia interfejs do [raportów kopii zapasowych (wersja zapoznawcza)](configure-reports.md), który używa [dzienników Azure monitor](../azure-monitor/platform/data-platform-logs.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Raporty kopii zapasowych oferują następujące możliwości:
+Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopiach zapasowych, usługa Backup Center udostępnia interfejs do [raportów kopii zapasowych (wersja zapoznawcza)](configure-reports.md), który używa [dzienników Azure monitor](../azure-monitor/logs/data-platform-logs.md) i [skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md). Raporty kopii zapasowych oferują następujące możliwości:
 
 - Przydzielanie i prognozowanie zużytego magazynu w chmurze.
 

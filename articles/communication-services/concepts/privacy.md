@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572027"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653469"
 ---
 # <a name="region-availability-and-data-residency"></a>Dostępność w poszczególnych regionach i miejsce przechowywania danych
 
@@ -23,7 +23,11 @@ Usługi komunikacyjne Azure są zaangażowane w pomaganie naszym klientom spełn
 
 ## <a name="data-residency"></a>Rezydencja danych
 
-Podczas tworzenia zasobu usług komunikacyjnych należy określić lokalizację geograficzną **(nie** centrum danych platformy Azure). Wszystkie dane przechowywane przez usługi komunikacyjne w czasie spoczynku będą przechowywane w tej lokalizacji geograficznej w centrum danych wybranym wewnętrznie przez usługi komunikacyjne. Jednakże dane mogą być tranzytowe lub przetwarzane w innych lokalizacje geograficzneach, te globalne punkty końcowe są niezbędne do zapewnienia wysokiej wydajności i małych opóźnień dla użytkowników końcowych bez względu na ich lokalizację.
+Podczas tworzenia zasobu usług komunikacyjnych należy określić lokalizację geograficzną **(nie** centrum danych platformy Azure). Wszystkie dane przechowywane przez usługi komunikacyjne w czasie spoczynku będą przechowywane w tej lokalizacji geograficznej w centrum danych wybranym wewnętrznie przez usługi komunikacyjne. Dane mogą być przesyłane lub przetwarzane w innym lokalizacje geograficzne. Te globalne punkty końcowe są niezbędne do zapewnienia wysokiej wydajności i małych opóźnień dla użytkowników końcowych bez względu na ich lokalizację.
+
+## <a name="data-residency-and-events"></a>Miejsca zamieszkania i zdarzenia
+
+Każdy temat systemu Event Grid skonfigurowany przy użyciu usług Azure Communications Services zostanie utworzony w lokalizacji globalnej. Aby zapewnić obsługę niezawodnego dostarczania, globalny temat System Event Grid może przechowywać dane zdarzenia w dowolnym centrum danych firmy Microsoft. W przypadku konfigurowania Event Grid przy użyciu usług Azure Communications Services dane zdarzenia są dostarczane do Event Grid, co jest zasobem platformy Azure. Usługi komunikacyjne platformy Azure mogą być skonfigurowane do korzystania z Azure Event Grid, ale użytkownik jest odpowiedzialny za zarządzanie zasobem Event Grid i przechowywanymi w nim danymi.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Odnosi się do tożsamości usług Azure Communications Services
 

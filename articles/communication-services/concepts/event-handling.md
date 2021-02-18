@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e661b99e3c5028f40ea69ddedc22c7ee2895acec
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: b4e600581880ccca4f8716db02064e5bb353787c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888729"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653785"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Obsługa zdarzeń w usłudze Azure Communications Services
 
@@ -25,6 +25,9 @@ Usługi komunikacyjne platformy Azure integrują się z [Azure Event Grid](https
 Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która używa modelu publikowania/subskrybowania. Event Grid ma wbudowaną obsługę usług platformy Azure, takich jak [Azure Functions](../../azure-functions/functions-overview.md) i [Azure Logic Apps](../../azure-functions/functions-overview.md). Może ona dostarczać alerty zdarzeń do usług innych niż Azure przy użyciu elementów webhook. Aby zapoznać się z pełną listą programów obsługi zdarzeń obsługiwanych przez Event Grid, zobacz [wprowadzenie do Azure Event Grid](../../event-grid/overview.md).
 
 :::image type="content" source="https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png" alt-text="Diagram przedstawiający model zdarzeń Azure Event Grid.":::
+
+> [!NOTE]
+> Aby dowiedzieć się więcej o tym, jak zapamiętasz dane względem obsługi zdarzeń, zapoznaj się z [dokumentacją dotyczącą pojęć zamieszkania](./privacy.md)
 
 ## <a name="events-types"></a>Typy zdarzeń
 

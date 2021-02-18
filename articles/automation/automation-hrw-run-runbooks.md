@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220977"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633312"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook
 
@@ -96,7 +96,7 @@ Aby określić konto Uruchom jako dla grupy hybrydowych procesów roboczych elem
 W ramach zautomatyzowanego procesu kompilacji na potrzeby wdrażania zasobów na platformie Azure może być konieczne uzyskanie dostępu do systemów lokalnych w celu obsługi zadania lub zestawu kroków w sekwencji wdrożenia. Aby zapewnić uwierzytelnianie na platformie Azure przy użyciu konta Uruchom jako, należy zainstalować certyfikat konta Uruchom jako.
 
 >[!NOTE]
->Ten element Runbook programu PowerShell obecnie nie działa na maszynach z systemem LInux. Działa tylko na maszynach z systemem Windows.
+>Ten element Runbook programu PowerShell obecnie nie działa na maszynach z systemem Linux. Działa tylko na maszynach z systemem Windows.
 >
 
 Następujący element Runbook programu PowerShell o nazwie **Export-RunAsCertificateToHybridWorker** eksportuje certyfikat Uruchom jako z konta Azure Automation. Element Runbook pobiera i importuje certyfikat do magazynu certyfikatów na komputerze lokalnym w hybrydowym procesie roboczym elementu Runbook, który jest podłączony do tego samego konta. Po zakończeniu tego kroku element Runbook sprawdzi, czy proces roboczy może pomyślnie uwierzytelnić się na platformie Azure przy użyciu konta Uruchom jako.

@@ -4,31 +4,29 @@ description: Dowiedz się, jak automatyczne wykrywanie anomalii w rozliczeniach 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/17/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989468"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653010"
 ---
 # <a name="anomaly-detection-for-metered-billing"></a>Wykrywanie anomalii dla rozliczeń naliczanych
 
-Ten artykuł zawiera szczegółowe informacje na temat usługi pomiaru w portalu Marketplace i skojarzonej z nią automatycznej funkcji wykrywania anomalii, aby pomóc w zapewnieniu poprawnego użycia naliczanej przez nas klientów. Opcja naliczania opłat jest obecnie dostępna dla [usług SaaS (Software as a Service](plan-saas-offer.md) ) i [Azure Applications](plan-azure-application-offer.md#types-of-plans) z zarządzanym planem aplikacji. Ta opcja umożliwia partnerom Tworzenie ofert w komercyjnym programie Marketplace, który jest rozliczany zgodnie z jednostkami niestandardowymi.
+Opcja Niestandardowa opłata naliczana jest obecnie dostępna dla usług SaaS ( [Software as a Service](plan-saas-offer.md) ) i [aplikacji platformy Azure](plan-azure-application-offer.md#types-of-plans) z zarządzanym planem aplikacji.
 
-Partnerzy, którzy mają niestandardowe liczniki wdrożone dla SaaS i aplikacji zarządzanych, mogą zobaczyć odchylenie od oczekiwanego zachowania użycia jako anomalie dla _zdarzeń nadwyżki_ w określonych _niestandardowych licznikach_ w centrum partnerskim. W celu ograniczenia ryzyka centrum partnerskie korzysta z usługi wykrywania anomalii, która stosuje algorytmy uczenia maszynowego w celu określenia normalnych zachowań dotyczących rozliczeń, analizować użycie naliczanych rozliczeń i wykryć anomalie z minimalną interwencją użytkownika. W przypadku korzystania z _modeli wykrywania anomalii_ w zestawach danych dotyczących obciążeń taryfowych centrum partnerskie ma na celu informowanie wydawcy o przekroczeniu oczekiwanego użycia przez zgłaszane użycie.
+Jeśli używasz opcji rozliczania naliczanych w przypadku tworzenia ofert w komercyjnym programie Marketplace, który umożliwia naliczanie opłat za użycie w oparciu o jednostki niestandardowe, musisz wiedzieć, kiedy Klient użył więcej usług niż oczekiwano.
 
-## <a name="usability-experience"></a>Środowisko użyteczności
+## <a name="use-the-anomaly-detection-feature"></a>Korzystanie z funkcji wykrywania anomalii
 
-Firma Microsoft korzysta z partnera, aby zgłosić użycie nadwyżkowe przez klienta usług SaaS lub aplikacji zarządzanych platformy Azure przed fakturą firmy Microsoft. Jeśli zgłoszono nieprawidłowe użycie, klient może potencjalnie otrzymać niepoprawną fakturę, a jednocześnie uzyskać wiarygodność firmy Microsoft i jej partnera.
+Firma Microsoft korzysta z naszych partnerów, aby zgłosić użycie nadwyżkowe przez klientów usług SaaS lub aplikacji zarządzanych platformy Azure przed fakturą firmy Microsoft. Jeśli zgłoszono nieprawidłowe użycie, klient może potencjalnie otrzymać niepoprawną fakturę, a jednocześnie uzyskać wiarygodność firmy Microsoft i jej partnera.
 
-Aby pomóc w ograniczeniu tego problemu, zautomatyzowana funkcja wykrywania anomalii jest udostępniana zarówno dla aplikacji SaaS, jak i planów aplikacji zarządzanych przez aplikacje platformy Azure. Ta funkcja jest modelem uczenia maszynowego, który aktywnie monitoruje użycie w odniesieniu do naliczanych rozliczeń i przewiduje oczekiwaną wartość użycia w oczekiwanym zakresie. Jeśli użycie wykracza poza oczekiwany zakres, jest traktowany jako anomalia, a powiadomienie o alercie do partnera na stronie Przegląd oferty w komercyjnym programie partnerskim w portalu Marketplace.
+Aby zapewnić, że klienci są rozliczani prawidłowo, użyj funkcji **wykrywania anomalii** zarówno dla aplikacji SaaS, jak i planów aplikacji zarządzanych przez aplikacje platformy Azure. Ta funkcja służy do monitorowania użycia w ramach naliczanych opłat i przewidywania oczekiwanej wartości użycia w oczekiwanym zakresie. Jeśli użycie wykracza poza oczekiwany zakres, jest traktowany jako nieoczekiwany (anomalia), a użytkownik otrzyma powiadomienie o alercie na stronie przeglądu oferty w komercyjnym programie partnerskim usługi Partner Center. Możesz śledzić dzienne użycie klientów dla wszystkich ustawionych niestandardowych wymiarów miernika.
 
-Model uczenia maszynowego analizuje dzienne użycie. Wydawca może zobaczyć wszystkie anomalie raportowane względem użycia nadwyżki klientów dla wszystkich wymiarów mierników niestandardowych każdej oferty.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Wyświetlaj anomalie użycia taryfowego i zarządzaj nimi
+## <a name="view-and-manage-metered-usage-anomalies"></a>Wyświetlaj anomalie użycia taryfowego i zarządzaj nimi
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjna**  >  **Analiza** Marketplace.

@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: a16846b8859f93a2d376691115e4b2dd0a7163b6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3bf0831084b9dd6f16d8208def87033fc0be2900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633320"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645353"
 ---
 ## <a name="download-code"></a>Pobierz kod
 
@@ -74,13 +74,13 @@ Teraz będziemy instalować biblioteki usług Azure Communication Services.
 
 ### <a name="install-communication-services-libraries"></a>Instalowanie bibliotek usług komunikacyjnych
 
-Użyjemy `Administration` biblioteki do wygenerowania `User Access Tokens` .
+Użyjemy `Identity` biblioteki do wygenerowania `User Access Tokens` .
 
 Użyj `npm install` polecenia, aby zainstalować bibliotekę kliencką klienta usługi Azure Communications Services dla języka JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -89,7 +89,7 @@ npm install @azure/communication-administration --save
 W górnej części `index.js` pliku zaimportuj interfejs dla `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## <a name="access-token-generation"></a>Generowanie tokenu dostępu
@@ -136,7 +136,7 @@ Otwórz adres URL w przeglądarce i dla tokenu powinna zostać wyświetlona tre�
 
 Aby wdrożyć funkcję platformy Azure, możesz wykonać [instrukcje krok po kroku](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
-Ogólnie rzecz biorąc, konieczne będzie:
+Podsumowując, konieczne będzie:
 1. Logowanie do platformy Azure z poziomu programu Visual Studio
 2. Opublikuj projekt na koncie platformy Azure. W tym miejscu musisz wybrać istniejącą subskrypcję.
 3. Utwórz nowy zasób funkcji platformy Azure za pomocą Kreatora programu Visual Studio lub Użyj istniejącego zasobu. W przypadku nowego zasobu należy skonfigurować go w żądanym regionie, czasie wykonywania i unikatowym identyfikatorze.

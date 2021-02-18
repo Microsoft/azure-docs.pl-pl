@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551642"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653586"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -88,24 +88,7 @@ Utwórz plik w katalogu głównym projektu o nazwie **client.js** , aby zawiera�
 
 Aby utworzyć klienta programu chat w aplikacji sieci Web, należy użyć **punktu końcowego** usługi komunikacyjnej i **tokenu dostępu** , który został wygenerowany w ramach kroków wymagań wstępnych. 
 
-Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services.
-
-##### <a name="server-vs-client-side"></a>Serwer a po stronie klienta
-
-Zalecamy generowanie tokenów dostępu przy użyciu składnika po stronie serwera, który przekazuje je do aplikacji klienckiej. W tym scenariuszu po stronie serwera będzie odpowiedzialna za tworzenie i zarządzanie użytkownikami oraz wystawianie ich tokenów. Po stronie klienta można następnie odbierać tokeny dostępu z usługi i używać ich do uwierzytelniania bibliotek klienckich usług Azure Communications Services.
-
-Tokeny mogą być również wydawane po stronie klienta przy użyciu biblioteki administracyjnej usługi Azure Communication dla języka JavaScript. W tym scenariuszu po stronie klienta należy znać użytkowników w celu wystawiania ich tokenów.
-
-Więcej szczegółowych informacji o [architekturze klienta i serwera](../../../concepts/client-and-server-architecture.md) można znaleźć w następującej dokumentacji
-
-Na diagramie poniżej aplikacji po stronie klienta odbiera token dostępu z zaufanej warstwy usług. Aplikacja używa tokenu do uwierzytelniania bibliotek usług komunikacyjnych. Po uwierzytelnieniu aplikacja może teraz korzystać z bibliotek po stronie klienta usług komunikacyjnych w celu wykonywania operacji, takich jak czatowanie z innymi użytkownikami.
-
-:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagram przedstawiający architekturę tokenu dostępu użytkowników.":::
-
-##### <a name="instructions"></a>Instrukcje
-Ten pokaz nie obejmuje tworzenia warstwy usług dla aplikacji czatu. 
-
-Jeśli nie Wygenerowano użytkowników i ich tokenów, wykonaj poniższe instrukcje, aby to zrobić: [token dostępu użytkownika](../../access-tokens.md). Pamiętaj, aby ustawić zakres na "chat", a nie "VoIP".
+Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami aplikacji czatu. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [pojęcia dotyczące rozmowy](../../../concepts/chat/concepts.md) , aby uzyskać więcej informacji o architekturze rozmowy i [tokenach dostępu użytkowników](../../access-tokens.md) .
 
 Wewnątrz **client.js** Użyj punktu końcowego i tokenu dostępu w poniższym kodzie, aby dodać możliwość rozmowy przy użyciu biblioteki klienckiej usługi Azure Communication Chat dla języka JavaScript.
 

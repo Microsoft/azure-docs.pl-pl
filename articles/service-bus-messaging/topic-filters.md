@@ -2,17 +2,17 @@
 title: Filtry tematu Azure Service Bus | Microsoft Docs
 description: W tym artykule wyjaśniono, jak subskrybenci mogą definiować komunikaty, które chcą otrzymywać z tematu przez określenie filtrów.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742968"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651667"
 ---
 # <a name="topic-filters-and-actions"></a>Filtry tematów i akcje
 
-Subskrybenci mogą zdefiniować, które komunikaty chcą odbierać z tematu. Komunikaty te są określone w formie co najmniej jednej nazwanej reguły subskrypcji. Każda reguła składa się z warunku **filtru** , który wybiera określone komunikaty i **Opcjonalnie** zawiera **akcję** , która umożliwia dodawanie adnotacji do wybranego komunikatu. 
+Subskrybenci mogą zdefiniować, które komunikaty chcą odbierać z tematu. Komunikaty te są określone w formie co najmniej jednej nazwanej reguły subskrypcji. Każda reguła składa się z **warunku filtru** , który wybiera określone komunikaty i **Opcjonalnie** zawiera **akcję** , która umożliwia dodawanie adnotacji do wybranego komunikatu. 
 
 Wszystkie reguły **bez akcji** są łączone za pomocą `OR` warunku i powodują powstanie **jednej wiadomości** w subskrypcji, nawet jeśli istnieje wiele pasujących reguł. 
 
@@ -32,9 +32,7 @@ Każda nowo utworzona subskrypcja tematu ma wstępną regułę domyślnej subskr
 Service Bus obsługuje trzy warunki filtrowania:
 
 -   *Filtry SQL* — element **sqlfilter** zawiera wyrażenie warunkowe podobne do programu SQL, które jest oceniane w brokerze względem przychodzących komunikatów i właściwości systemu, które zostały zdefiniowane przez użytkownika. Wszystkie właściwości systemu muszą być poprzedzone prefiksem `sys.` w wyrażeniu warunkowym. [Podzbiór języka SQL na potrzeby testów warunków filtru](service-bus-messaging-sql-filter.md) dla istnienia właściwości ( `EXISTS` ), wartości null ( `IS NULL` ), logicznego not/i/lub operatorów relacyjnych, prostej arytmetycznej liczbowej i prostego dopasowania do wzorca tekstu `LIKE` .
-
 -   *Filtry logiczne* — **TrueFilter** i **FalseFilter** powodują, że wszystkie przychodzące komunikaty (**true**) lub żaden z przychodzących komunikatów (**false**) do wybrania dla subskrypcji. Te dwa filtry pochodzą z filtru SQL. 
-
 -   *Filtry korelacji* — **CorrelationFilter** przechowuje zestaw warunków, które są dopasowane do co najmniej jednej właściwości użytkownika i systemu przychodzącego komunikatu. Typowym zastosowaniem jest dopasowanie do właściwości **Identyfikator korelacji** , ale aplikacja może również dopasować się do następujących właściwości:
 
     - **ContentType**
@@ -66,7 +64,8 @@ Partycjonowanie używa filtrów do dystrybuowania komunikatów w kilku istnieją
 
 Funkcja routingu używa filtrów do dystrybuowania komunikatów między subskrypcjami tematów w przewidywalny sposób, ale niekoniecznie na wyłączność. W połączeniu z funkcją [autoprzekazywania](service-bus-auto-forwarding.md) filtry tematu mogą służyć do tworzenia złożonych wykresów routingu w ramach przestrzeni nazw Service Bus na potrzeby dystrybucji komunikatów w regionie świadczenia usługi Azure. W przypadku Azure Functions lub Azure Logic Apps działającego jako Most między przestrzeniami nazw Azure Service Bus można tworzyć złożone topologie globalne z bezpośrednią integracją z aplikacjami biznesowymi.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Przykłady
+Przykłady można znaleźć w temacie [Service Bus Filter przykłady](service-bus-filter-examples.md).
 
 
 

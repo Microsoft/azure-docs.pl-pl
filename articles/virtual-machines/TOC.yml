@@ -328,12 +328,12 @@
         - name: Utwórz stos lampy
           href: ./linux/tutorial-lamp-stack.md
         - name: Zabezpieczanie serwera sieci Web za pomocą TLS\SSL
-          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
             - name: Windows
               href: ./windows/tutorial-secure-web-server.md
+          displayname: SSL TLS
     - name: Nawiązywanie połączenia z maszynami wirtualnymi z systemem Linux
       items:
         - name: Maszyny wirtualne SSH dla systemu Linux
@@ -362,8 +362,8 @@
           href: /azure/developer/chef/windows-vm-configure
         - name: Korzystanie z języka Java
           href: ./windows/java.md
-        - name: Korzystanie z języka Python
-          href: ./windows/python.md
+        - name: Python
+          href: 'https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context'
         - name: Korzystanie z szablonu usługi Resource Manager
           displayName: Azure Resource Manager template
           href: ./windows/ps-template.md

@@ -3,15 +3,16 @@ title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — 
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735184"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651463"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -67,6 +68,9 @@ Aby rozpocząć tworzenie nowej puli hostów:
 
      > [!div class="mx-imgBorder"]
      > ![Zrzut ekranu przedstawiający Azure Portal wyświetlania pola Location z wybraną lokalizacją Wschodnie stany USA. Obok pola jest wyświetlany tekst "metadane będą przechowywane w regionie Wschodnie stany USA".](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Jeśli chcesz utworzyć pulę hostów w [obsługiwanym regionie](data-locations.md) poza stanem USA, należy ponownie zarejestrować dostawcę zasobów. Po ponownym zarejestrowaniu należy zobaczyć inne regiony na liście rozwijanej, aby wybrać lokalizację. Dowiedz się, jak ponownie zarejestrować się w artykule dotyczącym rozwiązywania problemów z [tworzeniem puli hostów](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) .
 
 8. W obszarze Typ puli hostów wybierz, czy pula hostów ma być **osobista** , czy w **puli**.
 
