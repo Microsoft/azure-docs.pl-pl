@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 64a9bc3cf00af66c65b06b9edbed4621668b05bc
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 917508f1fee4e4a53083a29e2459a442f7fddccd
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100365025"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100650239"
 landingContent:
 - title: Usługa Azure App Configuration — informacje
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: overview.md
     - text: Często zadawane pytania
       url: faq.yml
+    - text: Najlepsze rozwiązania
+      url: howto-best-practices.md
   - linkListType: video
     links:
     - text: Wprowadzenie do korzystania z usługi Azure App Configuration
@@ -52,15 +54,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Tworzenie kodu aplikacji ASP.NET Core
+      url: quickstart-aspnet-core-app.md
     - text: Tworzenie kodu aplikacji .NET Core
       url: quickstart-dotnet-core-app.md
     - text: Tworzenie kodu aplikacji .NET Framework
       url: quickstart-dotnet-app.md
-    - text: Tworzenie kodu aplikacji ASP.NET Core
-      url: quickstart-aspnet-core-app.md
     - text: Tworzenie kodu aplikacji Azure Functions w języku C#
       url: quickstart-azure-functions-csharp.md
-    - text: Tworzenie kodu aplikacji Spring Boot
+    - text: Tworzenie kodu aplikacji Java Spring
       url: quickstart-java-spring-app.md
     - text: Tworzenie kodu aplikacji w języku Python
       url: quickstart-python.md
@@ -78,6 +80,8 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Używanie konfiguracji dynamicznej na platformie Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
+    - text: Integrowanie konfiguracji dynamicznej przy użyciu modelu wypychania
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Integracja z potokiem ciągłej integracji/ciągłego wdrażania
@@ -102,10 +106,10 @@ landingContent:
       url: concept-feature-management.md
   - linkListType: quickstart
     links:
-    - text: Aplikacja .NET Core
-      url: use-feature-flags-dotnet-core.md
     - text: Aplikacja ASP.NET Core
       url: quickstart-feature-flag-aspnet-core.md
+    - text: Aplikacja .NET Core
+      url: use-feature-flags-dotnet-core.md
     - text: Aplikacja .NET Framework
       url: quickstart-feature-flag-dotnet.md
     - text: Aplikacja Spring Boot
@@ -114,6 +118,12 @@ landingContent:
     links:
     - text: Zarządzanie flagami funkcji
       url: manage-feature-flags.md
+    - text: Korzystanie z flag funkcji w ASP.NET Core
+      url: use-feature-flags-dotnet-core.md
+    - text: Korzystanie z flag funkcji w rozruchu sprężynowym
+      url: use-feature-flags-spring-boot.md
+    - text: Włączanie funkcji dla określonych użytkowników/grup
+      url: howto-targetingfilter-aspnet-core.md
   - linkListType: reference
     links:
     - text: Biblioteka platformy .NET Core

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101726"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590654"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Samouczek: Media Services zaufanego magazynu
 
@@ -23,6 +23,9 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 > - Jak zapewnić usługom platformy Azure dostęp do konta magazynu w przypadku korzystania z kontroli dostępu do sieci, takiej jak zapora lub sieć VPN
 
 Za pomocą interfejsu API 2020-05-01 można włączyć zaufany magazyn, kojarząc zarządzaną tożsamość z kontem Media Services.
+
+>[!NOTE]
+>Magazyn zaufany jest dostępny tylko w interfejsie API i nie jest obecnie włączony w Azure Portal.
 
 Media Services może automatycznie uzyskiwać dostęp do konta magazynu przy użyciu uwierzytelniania systemu. Media Services sprawdza, czy konto Media Services i konto magazynu znajdują się w tej samej subskrypcji. Sprawdza również, czy użytkownik, który doda skojarzenie, ma dostęp do konta magazynu przy użyciu Azure Resource Manager RBAC.
 

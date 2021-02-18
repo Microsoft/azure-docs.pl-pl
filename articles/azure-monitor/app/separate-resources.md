@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536357"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589529"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -86,7 +86,7 @@ Potrzebne są klucze Instrumentacji wszystkich zasobów, do których aplikacja b
 ## <a name="filter-on-build-number"></a>Filtruj według numeru kompilacji
 Po opublikowaniu nowej wersji aplikacji należy mieć możliwość oddzielenia danych telemetrycznych od różnych kompilacji.
 
-Właściwość wersji aplikacji można ustawić tak, aby można było filtrować wyniki [wyszukiwania](../../azure-monitor/app/diagnostic-search.md) i [Eksploratora metryk](../../azure-monitor/platform/metrics-charts.md) .
+Właściwość wersji aplikacji można ustawić tak, aby można było filtrować wyniki [wyszukiwania](../../azure-monitor/app/diagnostic-search.md) i [Eksploratora metryk](../../azure-monitor/essentials/metrics-charts.md) .
 
 Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 
@@ -132,7 +132,7 @@ Aby śledzić wersje aplikacji, upewnij się, że plik `buildinfo.config` jest g
 </PropertyGroup>
 ```
 
-Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Application Insights automatycznie dodaje **wersję aplikacji** jako właściwość do każdego elementu telemetrii. Pozwala to na filtrowanie według wersji podczas przeprowadzania [wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md) lub [eksplorowania metryk](../../azure-monitor/platform/metrics-charts.md).
+Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Application Insights automatycznie dodaje **wersję aplikacji** jako właściwość do każdego elementu telemetrii. Pozwala to na filtrowanie według wersji podczas przeprowadzania [wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md) lub [eksplorowania metryk](../../azure-monitor/essentials/metrics-charts.md).
 
 Należy jednak zauważyć, że numer wersji kompilacji jest generowany tylko przez Microsoft Build Engine, a nie przez kompilację dewelopera z programu Visual Studio.
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780930"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592316"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Informacje o danych monitorowania Azure Files
 
@@ -36,9 +36,9 @@ Azure Files oferuje następujące metryki pojemności w Azure Monitor.
 
 #### <a name="azure-files"></a>Azure Files
 
-W tej tabeli przedstawiono [Azure Files metryki](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+W tej tabeli przedstawiono [Azure Files metryki](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | FileCapacity | Ilość miejsca w magazynie plików używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | FileCount   | Liczba plików na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -85,7 +85,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Aby uzyskać opis monitorowania usługi Azure Storage, zobacz [Azure Files monitorowania](storage-files-monitoring-reference.md) .
-- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md) .

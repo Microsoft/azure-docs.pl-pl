@@ -2,17 +2,17 @@
 title: Koncepcje — aktualizacje i uaktualnienia w chmurze prywatnej
 description: Dowiedz się więcej na temat podstawowych procesów uaktualniania i funkcji w rozwiązaniu VMware platformy Azure.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/16/2021
+ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006706"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634996"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Aktualizacje i uaktualnienia chmury prywatnej rozwiązania VMware platformy Azure
 
-Jedną z najważniejszych zalet chmur prywatnych rozwiązań platformy Azure VMware jest to, że platforma jest utrzymywana. Obsługa platformy obejmuje automatyczne aktualizacje pakietu oprogramowania zweryfikowanego przez oprogramowanie VMware, pomagając w upewnieniu się, że korzystasz z najnowszej wersji zweryfikowanego oprogramowania platformy Azure w chmurze prywatnej.
+Jedną z korzyści związanych z chmurą prywatną rozwiązań Azure VMware jest to, że platforma jest obsługiwana. Konserwacja obejmuje zautomatyzowane aktualizacje pakietu oprogramowania VMware zweryfikowanego w celu zapewnienia, że korzystasz z najnowszej wersji oprogramowania Azure VMware w chmurze prywatnej.
 
 W przypadku chmury prywatnej Azure VMware rozwiązanie to obejmuje:
 
@@ -22,7 +22,7 @@ W przypadku chmury prywatnej Azure VMware rozwiązanie to obejmuje:
 - Magazyn danych VMware sieci vSAN dla maszyn wirtualnych obciążeń vSphere  
 - VMware HCX na potrzeby mobilności obciążeń  
 
-Oprócz tych składników Chmura prywatna rozwiązania Azure VMware obejmuje zasoby w usłudze Azure underlay, które są wymagane do łączności i obsługują chmurę prywatną. Rozwiązanie VMware firmy Azure stale monitoruje kondycję zarówno underlay, jak i składników programu VMware. Gdy rozwiązanie VMware firmy Azure wykryje błąd, podejmuje działania w celu naprawy składników zakończonych niepowodzeniem. 
+Chmura prywatna rozwiązania Azure VMware obejmuje również zasoby w usłudze Azure underlay, które są wymagane do łączności i obsługują chmurę prywatną. Rozwiązanie VMware firmy Azure stale monitoruje kondycję zarówno underlay, jak i składników programu VMware. Gdy rozwiązanie VMware firmy Azure wykryje błąd, podejmuje działania w celu naprawy składników zakończonych niepowodzeniem. 
 
 ## <a name="what-components-get-updated"></a>Jakie składniki są aktualizowane?   
 
@@ -46,12 +46,12 @@ Otrzymasz powiadomienie przed zastosowaniem poprawek do chmur prywatnych. Pomoż
 
 ## <a name="vmware-appliance-backup"></a>Kopia zapasowa urządzenia VMware 
 
-Oprócz dokonywania aktualizacji rozwiązanie VMware firmy Azure pobiera kopię zapasową konfiguracji tych składników programu VMware:
+Rozwiązanie VMware firmy Azure pobiera również kopię zapasową konfiguracji następujących składników programu VMware:
 
 - Program vCenter Server 
 - Menedżer NSX-T 
 
-W razie awarii rozwiązanie VMware firmy Azure może przywrócić te z kopii zapasowej konfiguracji. 
+W razie awarii rozwiązanie VMware firmy Azure może przywrócić te składniki z kopii zapasowej konfiguracji. 
 
 Aby uzyskać więcej informacji na temat wersji oprogramowania VMware, zapoznaj się z [artykułem dotyczącym chmur prywatnych i klastrów](concepts-private-clouds-clusters.md) oraz [często zadawanych pytań](faq.yml).
 

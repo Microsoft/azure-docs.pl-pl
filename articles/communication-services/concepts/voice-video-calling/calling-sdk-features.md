@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554722"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650937"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
@@ -109,4 +109,4 @@ Należy pamiętać, że w scenariuszach grupy jeden mieszany strumień audio jes
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md) 
 - Informacje o [typach wywołań](../voice-video-calling/about-call-types.md)
-- [Planowanie rozwiązania PSTN](../telephony-sms/plan-solution.md)
+- Dowiedz się więcej o [typach numerów telefonów](../telephony-sms/plan-solution.md)

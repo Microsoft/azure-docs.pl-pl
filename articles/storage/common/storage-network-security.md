@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 17a2d04fd6519dfdaf3c97c4ef56e87e162c9e9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371791"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591566"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -567,7 +567,7 @@ Zasoby niektórych usług, które są **rejestrowane w ramach subskrypcji**, mog
 | Azure File Sync          | Microsoft. StorageSync      | Umożliwia przekształcenie serwera plików Premium na pamięć podręczną dla udziałów plików platformy Azure. Umożliwienie synchronizacji obejmujących wiele witryn, szybkie odzyskiwanie po awarii i tworzenie kopii zapasowej po stronie chmury. [Dowiedz się więcej](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft. HDInsight        | Zainicjuj wstępną zawartość domyślnego systemu plików dla nowego klastra usługi HDInsight. [Dowiedz się więcej](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Eksportowanie importu platformy Azure      | Microsoft. ImportExport     | Umożliwia importowanie danych do usługi Azure Storage lub eksportowanie danych z usługi Azure Storage w usłudze Azure Storage Import/Export. [Dowiedz się więcej](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | Microsoft. Insights         | Umożliwia zapisywanie danych monitorowania na zabezpieczonym koncie magazynu, w tym dzienników zasobów, Azure Active Directory logowania i dzienników inspekcji oraz dzienników Microsoft Intune. [Dowiedz się więcej](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure Monitor            | Microsoft. Insights         | Umożliwia zapisywanie danych monitorowania na zabezpieczonym koncie magazynu, w tym dzienników zasobów, Azure Active Directory logowania i dzienników inspekcji oraz dzienników Microsoft Intune. [Dowiedz się więcej](../../azure-monitor/roles-permissions-security.md). |
 | Sieć platformy Azure         | Microsoft.Network          | Przechowywanie i analizowanie dzienników ruchu sieciowego, w tym za pomocą usług Network Watcher i Analiza ruchu. [Dowiedz się więcej](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Włącz replikację na potrzeby odzyskiwania po awarii maszyn wirtualnych platformy Azure IaaS w przypadku korzystania z pamięci podręcznej z włączoną zaporą, źródła lub docelowego konta magazynu.  [Dowiedz się więcej](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 

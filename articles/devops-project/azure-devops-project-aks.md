@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855456"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590856"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Wdrażanie aplikacji ASP.NET Core w usłudze Azure Kubernetes za pomocą usługi Azure DevOps Starter
 
@@ -24,9 +24,9 @@ DevOps Starter również:
 * Automatycznie tworzy zasoby platformy Azure, takie jak usługa Azure Kubernetes Service (AKS).
 * Tworzy i konfiguruje potok wydania w usłudze Azure DevOps, który konfiguruje potok kompilacji i wydania na potrzeby ciągłej integracji/ciągłego wdrażania.
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
-* Włącza [usługę Azure Monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) w celu monitorowania wydajności dla obciążeń kontenerów w klastrze usługi AKS
+* Włącza [usługę Azure Monitor dla kontenerów](../azure-monitor/containers/container-insights-overview.md) w celu monitorowania wydajności dla obciążeń kontenerów w klastrze usługi AKS
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Użyj DevOps Starter do wdrożenia aplikacji ASP.NET Core w usłudze AKS
@@ -53,7 +53,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure P
 
 1. Wybierz pozycję **.NET**, a następnie wybierz pozycję **Dalej**.
 
-1. W obszarze **Wybierz platformę aplikacji**wybierz pozycję **ASP.NET Core** a następnie wybierz pozycję **dalej**.
+1. W obszarze **Wybierz platformę aplikacji** wybierz pozycję **ASP.NET Core** a następnie wybierz pozycję **dalej**.
 
 1. Wybierz pozycję **Kubernetes Service**, a następnie wybierz przycisk **Dalej**. 
 
@@ -93,7 +93,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...).  Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Kliknij pozycję **Edytuj**.
+1. Wybierz pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie kodu źródłowego z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych na potrzeby wdrażania.
 
@@ -134,7 +134,7 @@ DevOps Starter automatycznie tworzy i konfiguruje kroki niezbędne do wdrożenia
 
 Teraz możesz rozpocząć współpracę z zespołem nad aplikacją w języku Python w ramach procesu ciągłej integracji/ciągłego wdrażania, który automatycznie wdraża najnowszy kod w witrynie internetowej. Każda zmiana w repozytorium Git rozpoczyna kompilację w usłudze Azure DevOps, a potok ciągłego wdrażania wykonuje wdrażanie na platformie Azure. Wykonaj procedurę opisaną w tej sekcji lub użyj innej techniki, aby zatwierdzić zmiany w repozytorium. Możesz na przykład sklonować repozytorium Git za pomocą ulubionego narzędzia lub środowiska IDE, a następnie wypchnąć zmiany do tego repozytorium.
 
-1. W menu Azure DevOps wybierz pozycję pliki **kodu**  >  **Files**, a następnie przejdź do repozytorium.
+1. W menu Azure DevOps wybierz pozycję pliki **kodu**  >  , a następnie przejdź do repozytorium.
 
 1. Przejdź do katalogu *Views\Home*, wybierz symbol wielokropka (...) obok pliku *Index.cshtml* i wybierz pozycję **Edytuj**.
 

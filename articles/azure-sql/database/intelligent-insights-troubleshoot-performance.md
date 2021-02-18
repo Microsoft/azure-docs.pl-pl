@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 17ea6716f090144e8dfef16721bfb69dc23e9912
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220392"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589335"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Ta strona zawiera informacje dotyczące Azure SQL Database i problemów z wydajnością wystąpienia zarządzanego usługi Azure SQL wykrytych w dzienniku [Intelligent Insights](intelligent-insights-overview.md) zasobów. Metryki i dzienniki zasobów można przesyłać strumieniowo do [Azure monitor dzienników](../../azure-monitor/insights/azure-sql.md), [platformy Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [usługi Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)lub rozwiązania innej firmy w celu uzyskania niestandardowych funkcji alertów DevOps i raportowania.
+Ta strona zawiera informacje dotyczące Azure SQL Database i problemów z wydajnością wystąpienia zarządzanego usługi Azure SQL wykrytych w dzienniku [Intelligent Insights](intelligent-insights-overview.md) zasobów. Metryki i dzienniki zasobów można przesyłać strumieniowo do [Azure monitor dzienników](../../azure-monitor/insights/azure-sql.md), [platformy Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs), [usługi Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)lub rozwiązania innej firmy w celu uzyskania niestandardowych funkcji alertów DevOps i raportowania.
 
 > [!NOTE]
 > Aby uzyskać szybki Przewodnik rozwiązywania problemów dotyczących wydajności przy użyciu Intelligent Insights, zapoznaj się ze schematem blokowym [przepływu rozwiązywania problemów](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) w tym dokumencie.
@@ -335,4 +335,4 @@ Intelligent Insights zwykle potrzebuje jednej godziny, aby przeprowadzić analiz
 - Poznaj [Intelligent Insights](intelligent-insights-overview.md) pojęcia.
 - Użyj [dziennika diagnostyki wydajności Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
 - Monitoruj przy użyciu [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
-- Dowiedz się [, jak zbierać dane dzienników z zasobów platformy Azure i korzystać z nich](../../azure-monitor/platform/platform-logs-overview.md).
+- Dowiedz się [, jak zbierać dane dzienników z zasobów platformy Azure i korzystać z nich](../../azure-monitor/essentials/platform-logs-overview.md).

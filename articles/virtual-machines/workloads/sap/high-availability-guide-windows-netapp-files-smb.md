@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b04dacfdedded417e2557d1568e01bc9fa8f5745
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590134"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP
 
@@ -81,7 +81,7 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 * [Architektura Azure Virtual Machines wysoka dostępność i scenariusze dla oprogramowania SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Dodaj port sondy w konfiguracji klastra ASCS](sap-high-availability-installation-wsfc-file-share.md)
 * [Instalacja wystąpienia programu (A) SCS w klastrze trybu failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Tworzenie woluminu SMB dla usługi Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Tworzenie woluminu SMB dla usługi Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]
 
 ## <a name="overview"></a>Omówienie
@@ -114,9 +114,9 @@ Wykonaj następujące kroki, jak przygotowanie do korzystania z Azure NetApp Fil
 4. Zasoby Azure NetApp Files muszą znajdować się w delegowanej podsieci. Postępuj zgodnie z instrukcjami w temacie [delegowanie podsieci do Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) , aby utworzyć delegowaną podsieć.  
 
    > [!IMPORTANT]
-   > Przed utworzeniem woluminu SMB należy utworzyć połączenia Active Directory. Zapoznaj się z [wymaganiami dotyczącymi połączeń Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > Przed utworzeniem woluminu SMB należy utworzyć połączenia Active Directory. Zapoznaj się z [wymaganiami dotyczącymi połączeń Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
 
-5. Utwórz połączenie Active Directory, zgodnie z opisem w temacie [Tworzenie połączenia Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+5. Utwórz połączenie Active Directory, zgodnie z opisem w temacie [Tworzenie połączenia Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Utwórz wolumin SMB Azure NetApp Files SMB, postępując zgodnie z instrukcjami w temacie [Dodawanie woluminu SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Zainstaluj wolumin SMB na maszynie wirtualnej z systemem Windows.
 

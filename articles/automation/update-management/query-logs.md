@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 833e2f7808b4b8efa210bc6a903ed30fe9ac53e0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222573"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592868"
 ---
 # <a name="query-update-management-logs"></a>Wykonywanie zapytań względem dzienników rozwiązania Update Management
 
@@ -39,7 +39,7 @@ Tworzony jest rekord typu `RequiredUpdate` , który reprezentuje aktualizacje wy
 | TenantId | Unikatowy identyfikator reprezentujący wystąpienie organizacji Azure Active Directory. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
 | Typ | *Aktualizowanie* |
-| UpdateClassification | Wskazuje typ aktualizacji, które mogą być stosowane. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *Narzędzia*<br> *Aktualizacje*. Dla systemu Linux:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne* |
+| UpdateClassification | Wskazuje typ aktualizacji, które mogą być stosowane. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *Narzędzia*<br> *Aktualizacje*. W przypadku systemu Linux:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne* |
 | UpdateSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> *Krytyczne*<br> *Ważne*<br> *Umiarkowane*<br> *Niski* |
 | UpdateTitle | Tytuł aktualizacji.|
 
@@ -60,7 +60,7 @@ Tworzony jest rekord typu `Update` , który reprezentuje dostępne aktualizacje 
 | ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | UpdateID | Unikatowy identyfikator aktualizacji oprogramowania. |
 | RevisionNumber | Numer poprawki określonej poprawki aktualizacji. |
-| Optional | Ma wartość true, jeśli rekord jest opcjonalny lub w przeciwnym razie ma wartość false. |
+| Opcjonalne | Ma wartość true, jeśli rekord jest opcjonalny lub w przeciwnym razie ma wartość false. |
 | RebootBehavior | Zachowanie ponownego uruchomienia po zainstalowaniu/odinstalowaniu aktualizacji. |
 | _ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
 | Typ | Typ rekordu. Wartość to Update. |
@@ -193,9 +193,9 @@ Na komputerze z systemem Windows można przejrzeć następujące informacje w ce
 
 1. W panelu sterowania Otwórz **Microsoft Monitoring Agent**. Na karcie **log Analytics Azure** Agent wyświetli następujący komunikat: **Microsoft Monitoring Agent pomyślnie nawiązał połączenie z log Analytics**.
 
-1. Otwórz dziennik zdarzeń systemu Windows. Przejdź do pozycji **Application and Services Logs\Operations Manager** i Wyszukaj zdarzenia o identyfikatorze 3000 i identyfikatorze 5002 z **łącznika usługi**źródłowej. Te zdarzenia informują o tym, że komputer został zarejestrowany w obszarze roboczym usługi Log Analytics i odbiera konfigurację.
+1. Otwórz dziennik zdarzeń systemu Windows. Przejdź do pozycji **Application and Services Logs\Operations Manager** i Wyszukaj zdarzenia o identyfikatorze 3000 i identyfikatorze 5002 z **łącznika usługi** źródłowej. Te zdarzenia informują o tym, że komputer został zarejestrowany w obszarze roboczym usługi Log Analytics i odbiera konfigurację.
 
-Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jest skonfigurowany do komunikacji z Internetem za pomocą zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy zostały prawidłowo skonfigurowane. Aby dowiedzieć się, jak upewnić się, że zapora lub serwer proxy są prawidłowo skonfigurowane, zobacz [Konfiguracja sieci dla agenta systemu Windows](../../azure-monitor/platform/agent-windows.md) lub [Konfiguracja sieci dla agentów](../../azure-monitor/learn/quick-collect-linux-computer.md)z systemem Linux.
+Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jest skonfigurowany do komunikacji z Internetem za pomocą zapory lub serwera proxy, upewnij się, że zapora lub serwer proxy zostały prawidłowo skonfigurowane. Aby dowiedzieć się, jak upewnić się, że zapora lub serwer proxy są prawidłowo skonfigurowane, zobacz [Konfiguracja sieci dla agenta systemu Windows](../../azure-monitor/agents/agent-windows.md) lub [Konfiguracja sieci dla agentów](../../azure-monitor/vm/quick-collect-linux-computer.md)z systemem Linux.
 
 > [!NOTE]
 > Jeśli systemy Linux są skonfigurowane do komunikacji z serwerem proxy lub Log Analytics bramą i włączasz Update Management, zaktualizuj uprawnienia, `proxy.conf` Aby przyznać grupie omiuser uprawnienia do odczytu w pliku przy użyciu następujących poleceń:
@@ -205,7 +205,7 @@ Jeśli Agent nie może komunikować się z dziennikami Azure Monitor i Agent jes
 
 Nowo dodani agenci systemu Linux pokazują stan **aktualizacji** po wykonaniu oceny. Ten proces może potrwać do 6 godzin.
 
-Aby upewnić się, że Operations Manager grupy zarządzania komunikuje się z dziennikami Azure Monitor, zobacz temat [Weryfikuj integrację Operations Manager z dziennikami Azure monitor](../../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Aby upewnić się, że Operations Manager grupy zarządzania komunikuje się z dziennikami Azure Monitor, zobacz temat [Weryfikuj integrację Operations Manager z dziennikami Azure monitor](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Pojedyncze zapytania oceny maszyny wirtualnej platformy Azure (system Windows)
 
@@ -410,5 +410,5 @@ Update
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje dotyczące dzienników Azure Monitor, zobacz [dzienniki Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+* Aby uzyskać szczegółowe informacje dotyczące dzienników Azure Monitor, zobacz [dzienniki Azure monitor](../../azure-monitor/logs/log-query-overview.md).
 * Aby uzyskać pomoc dotyczącą alertów, zobacz [Konfigurowanie alertów](configure-alerts.md).

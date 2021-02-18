@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490824"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592733"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -58,17 +58,17 @@ Dane telemetryczne diagnostyki mogą być przesyłane strumieniowo do jednego z 
 
 - **[Log Analytics obszar roboczy](#stream-into-sql-analytics)**:
 
-  Dane przesyłane strumieniowo do [obszaru roboczego log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Analiza SQL to rozwiązanie monitorujące tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia dotyczące ograniczenia. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje
+  Dane przesyłane strumieniowo do [obszaru roboczego log Analytics](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Analiza SQL to rozwiązanie monitorujące tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia dotyczące ograniczenia. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje
 - **[Event Hubs platformy Azure](#stream-into-event-hubs)**:
 
-  Dane przesyłane strumieniowo do [centrum zdarzeń platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)zapewniają następujące funkcje:
+  Dane przesyłane strumieniowo do [centrum zdarzeń platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)zapewniają następujące funkcje:
 
   - **Przesyłaj strumieniowo dzienniki do systemów rejestrowania i telemetrii innej firmy**: Prześlij strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia Siem lub log Analytics innej firmy.
   - **Utwórz niestandardową platformę telemetrii i rejestrowania**: wysoce skalowalna natura publikowania/subskrybowania centrów zdarzeń umożliwia elastyczne pozyskiwanie metryk i dzienników zasobów na niestandardową platformę telemetrii. Aby uzyskać szczegółowe informacje [, zobacz Projektowanie i ustalanie rozmiaru globalnej platformy telemetrii w usłudze Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
   - **Wyświetl informacje o kondycji usługi przez przesyłanie strumieniowe danych do Power BI**: Użyj Event Hubs, Stream Analytics i Power BI do przekształcania danych diagnostycznych na szczegółowe informacje w czasie rzeczywistym w ramach usług platformy Azure. Zobacz [Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym na potrzeby przesyłania strumieniowego danych](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w celu uzyskania szczegółowych informacji dotyczących tego rozwiązania.
 - **[Usługa Azure Storage](#stream-into-azure-storage)**:
 
-  Dane przesyłane strumieniowo do [usługi Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) umożliwiają archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
+  Dane przesyłane strumieniowo do [usługi Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) umożliwiają archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
 
 To dane telemetryczne diagnostyki przesyłane do jednego z tych miejsc docelowych mogą służyć do oceny użycia zasobów i statystyk wykonywania zapytań w celu ułatwienia monitorowania wydajności.
 
@@ -89,7 +89,7 @@ Za pomocą jednej z następujących metod można włączyć metryki i rejestrowa
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Konfiguruj eksport przesyłania danych telemetrycznych diagnostyki
 
-Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć i skonfigurować przesyłanie strumieniowe telemetrii diagnostyki. Ponadto można użyć programu PowerShell, [interfejsu](/rest/api/monitor/diagnosticsettings)wiersza polecenia platformy Azure oraz [szablonów Menedżer zasobów](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) w celu skonfigurowania przesyłania strumieniowego danych telemetrycznych diagnostyki. Można ustawić następujące miejsca docelowe, aby przesyłać strumieniowo dane telemetryczne diagnostyki: Azure Storage, Azure Event Hubs i Azure Monitor logs.
+Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć i skonfigurować przesyłanie strumieniowe telemetrii diagnostyki. Ponadto można użyć programu PowerShell, [interfejsu](/rest/api/monitor/diagnosticsettings)wiersza polecenia platformy Azure oraz [szablonów Menedżer zasobów](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md) w celu skonfigurowania przesyłania strumieniowego danych telemetrycznych diagnostyki. Można ustawić następujące miejsca docelowe, aby przesyłać strumieniowo dane telemetryczne diagnostyki: Azure Storage, Azure Event Hubs i Azure Monitor logs.
 
 > [!IMPORTANT]
 > Eksport przesyłania strumieniowego diagnostyki danych diagnostycznych nie jest domyślnie włączony.
@@ -335,7 +335,7 @@ Kolekcję baz danych i kolekcji baz danych można monitorować za pomocą Azure 
 2. Utwórz obszar roboczy Log Analytics w rozwiązaniu.
 3. Skonfiguruj bazy danych do przesyłania strumieniowego telemetrii diagnostyki do obszaru roboczego.
 
-Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfigurować przy użyciu wbudowanej opcji **Wyślij do log Analytics** na karcie Ustawienia diagnostyki w Azure Portal. Możesz również włączyć przesyłanie strumieniowe do obszaru roboczego Log Analytics przy użyciu ustawień diagnostycznych za pośrednictwem [poleceń cmdlet programu PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), interfejsu [wiersza polecenia platformy Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor API REST](/rest/api/monitor/diagnosticsettings)lub [szablonów Menedżer zasobów](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
+Eksport przesyłania strumieniowego tej diagnostyki diagnostycznej można skonfigurować przy użyciu wbudowanej opcji **Wyślij do log Analytics** na karcie Ustawienia diagnostyki w Azure Portal. Możesz również włączyć przesyłanie strumieniowe do obszaru roboczego Log Analytics przy użyciu ustawień diagnostycznych za pośrednictwem [poleceń cmdlet programu PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), interfejsu [wiersza polecenia platformy Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor API REST](/rest/api/monitor/diagnosticsettings)lub [szablonów Menedżer zasobów](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Tworzenie zasobu Azure SQL Analytics
 
@@ -428,7 +428,7 @@ Jeśli używasz Azure SQL Analytics, możesz monitorować użycie pozyskiwania d
 
 ## <a name="metrics-and-logs-available"></a>Dostępne metryki i dzienniki
 
-Dane telemetryczne monitorowania dostępne dla pojedynczych baz danych, baz danych w puli, pul elastycznych, wystąpienia zarządzanego i baz danych wystąpień zostały udokumentowane w tej części artykułu. Zebrane dane telemetryczne monitorowania w usłudze SQL Analytics mogą służyć do własnej niestandardowej analizy i opracowywania aplikacji przy użyciu języka [zapytań dzienników Azure monitor](../../azure-monitor/log-query/get-started-queries.md) .
+Dane telemetryczne monitorowania dostępne dla pojedynczych baz danych, baz danych w puli, pul elastycznych, wystąpienia zarządzanego i baz danych wystąpień zostały udokumentowane w tej części artykułu. Zebrane dane telemetryczne monitorowania w usłudze SQL Analytics mogą służyć do własnej niestandardowej analizy i opracowywania aplikacji przy użyciu języka [zapytań dzienników Azure monitor](../../azure-monitor/logs/get-started-queries.md) .
 
 ### <a name="basic-metrics"></a>Metryki podstawowe
 
@@ -747,8 +747,8 @@ Dowiedz się więcej o [formacie dziennika Intelligent Insights](intelligent-ins
 
 Aby dowiedzieć się, jak włączyć rejestrowanie i zrozumieć metryki i kategorie dzienników obsługiwane przez różne usługi platformy Azure, zobacz:
 
-- [Przegląd metryk w Microsoft Azure](../../azure-monitor/platform/data-platform.md)
-- [Omówienie dzienników platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Przegląd metryk w Microsoft Azure](../../azure-monitor/data-platform.md)
+- [Omówienie dzienników platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 Aby dowiedzieć się więcej na temat Event Hubs, Przeczytaj:
 

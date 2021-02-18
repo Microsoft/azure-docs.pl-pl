@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: d37b39f596a9986f001663847e0b8e6ae8adb987
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545517"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590557"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -25,6 +25,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 |------------------------------|---------------|---------------|
 | [Resetuj dokumenty (wersja zapoznawcza)](search-howto-run-reset-indexers.md) |  Przetwarza ponownie pojedyncze wybrane dokumenty wyszukiwania w obciążeniach indeksatora. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/index-preview) |
 | [Strefy dostępności](search-performance-optimization.md#availability-zones)| Usługi wyszukiwania z co najmniej dwiema replikami w niektórych regionach, jak wymieniono w obszarze [skalowanie pod kątem wydajności, zapewnianie](search-performance-optimization.md#availability-zones)odporności przez posiadanie replik w dwóch lub większej liczbie różnych lokalizacji fizycznych.  | Aby określić dostępność, region i Data tworzenia usługi wyszukiwania. Szczegółowe informacje znajdują się w artykule skalowanie do wydajności. |
+| [Interfejs wiersza polecenia platformy Azure](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | Nowe wersje zawierają teraz pełen zakres operacji w interfejsie API REST zarządzania 2020-08-01, w tym obsługę reguł zapory IP i prywatnego punktu końcowego. | Ogólnie dostępna. |
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

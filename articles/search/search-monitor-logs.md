@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499938"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592469"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Podczas konfigurowania rejestrowania diagnostycznego zostanie wyświetlony monit
 
 | Zasób | Sposób użycia |
 |----------|----------|
-| [Wysyłanie do obszaru roboczego usługi Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Wysyłanie do obszaru roboczego usługi Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Archiwizowanie przy użyciu magazynu obiektów BLOB](../storage/blobs/storage-blobs-overview.md) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów blob i przechowywane w plikach JSON. Dzienniki mogą być bardzo szczegółowe (przez godzinę/minutę), przydatne do przeszukiwania konkretnego zdarzenia, ale nie dla badania otwartego. Użyj edytora JSON, aby wyświetlić Nieprzetworzony plik dziennika lub Power BI do agregowania i wizualizacji danych dziennika.|
 | [Przesyłanie strumieniowe do centrum zdarzeń](../event-hubs/index.yml) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Event Hubs platformy Azure. Wybierz tę opcję jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
 
@@ -33,7 +33,7 @@ Podczas konfigurowania rejestrowania diagnostycznego zostanie wyświetlony monit
 
 Utwórz zasoby z wyprzedzeniem, aby można było wybrać co najmniej jeden podczas konfigurowania rejestrowania diagnostycznego.
 
-+ [Tworzenie obszaru roboczego usługi log Analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Tworzenie obszaru roboczego usługi log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Tworzenie konta magazynu](../storage/common/storage-account-create.md)
 

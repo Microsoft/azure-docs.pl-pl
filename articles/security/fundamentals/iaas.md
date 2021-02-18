@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e7e8d51b8227acd033c95583d6e61d78a56d62a3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698788"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590274"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Najlepsze rozwiązania dotyczące zabezpieczeń dla obciążeń IaaS na platformie Azure
 W tym artykule opisano najlepsze rozwiązania w zakresie zabezpieczeń dotyczące maszyn wirtualnych i systemów operacyjnych.
@@ -130,17 +130,17 @@ Aby monitorować stan zabezpieczeń [maszyn wirtualnych](../../security-center/s
 
 Security Center może aktywnie monitorować zagrożenia, a potencjalne zagrożenia są ujawniane w alertach zabezpieczeń. Skorelowane zagrożenia są agregowane w jednym widoku zwanym zdarzeniem zabezpieczeń.
 
-Security Center przechowuje dane w [dziennikach Azure monitor](../../azure-monitor/log-query/log-query-overview.md). Dzienniki Azure Monitor udostępniają język zapytań i aparat analityczny, który zapewnia wgląd w działanie aplikacji i zasobów. Dane są również zbierane z [Azure monitor](../../batch/monitoring-overview.md), rozwiązań do zarządzania i agentów zainstalowanych na maszynach wirtualnych w chmurze lub lokalnych. Ta wspólna funkcjonalność pomaga utworzyć pełny obraz środowiska.
+Security Center przechowuje dane w [dziennikach Azure monitor](../../azure-monitor/logs/log-query-overview.md). Dzienniki Azure Monitor udostępniają język zapytań i aparat analityczny, który zapewnia wgląd w działanie aplikacji i zasobów. Dane są również zbierane z [Azure monitor](../../batch/monitoring-overview.md), rozwiązań do zarządzania i agentów zainstalowanych na maszynach wirtualnych w chmurze lub lokalnych. Ta wspólna funkcjonalność pomaga utworzyć pełny obraz środowiska.
 
 Organizacje, które nie wymuszają mocnych zabezpieczeń dla swoich maszyn wirtualnych, pozostają nieświadome potencjalnych prób spowodowanych przez nieautoryzowanych użytkowników do obejścia kontroli zabezpieczeń.
 
 ## <a name="monitor-vm-performance"></a>Monitorowanie wydajności maszyny wirtualnej
 Użycie zasobów może być problemem, gdy procesy maszyny wirtualnej zużywają więcej zasobów niż powinny. Problemy z wydajnością maszyny wirtualnej mogą prowadzić do przerw w działaniu usługi, co narusza zasadę zabezpieczeń. Jest to szczególnie ważne w przypadku maszyn wirtualnych, które obsługują usługi IIS lub inne serwery sieci Web, ponieważ duże użycie procesora lub pamięci może wskazywać na atak typu "odmowa usługi" (DoS). Jest to konieczne, aby monitorować dostęp do maszyny wirtualnej nie tylko w sposób nieaktywny w trakcie wystąpienia problemu, ale również aktywnie z wydajnością bazową mierzoną podczas normalnego działania.
 
-Zalecamy używanie [Azure monitor](../../azure-monitor/platform/data-platform.md) , aby uzyskać wgląd w kondycję zasobu. Funkcje Azure Monitor:
+Zalecamy używanie [Azure monitor](../../azure-monitor/data-platform.md) , aby uzyskać wgląd w kondycję zasobu. Funkcje Azure Monitor:
 
-- [Pliki dziennika diagnostyki zasobów](../../azure-monitor/platform/platform-logs-overview.md): monitoruje zasoby maszyn wirtualnych i identyfikuje potencjalne problemy, które mogą naruszyć wydajność i dostępność.
-- [Rozszerzenie Diagnostyka Azure](../../azure-monitor/platform/diagnostics-extension-overview.md): oferuje funkcje monitorowania i diagnostyki na maszynach wirtualnych z systemem Windows. Te możliwości można włączyć, dołączając rozszerzenie jako część [szablonu Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md).
+- [Pliki dziennika diagnostyki zasobów](../../azure-monitor/essentials/platform-logs-overview.md): monitoruje zasoby maszyn wirtualnych i identyfikuje potencjalne problemy, które mogą naruszyć wydajność i dostępność.
+- [Rozszerzenie Diagnostyka Azure](../../azure-monitor/agents/diagnostics-extension-overview.md): oferuje funkcje monitorowania i diagnostyki na maszynach wirtualnych z systemem Windows. Te możliwości można włączyć, dołączając rozszerzenie jako część [szablonu Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md).
 
 Organizacje, które nie monitorują wydajności maszyn wirtualnych, nie mogą określić, czy pewne zmiany wzorców wydajności są normalne, czy nietypowe. Maszyna wirtualna, która zużywa więcej zasobów niż normalna, może wskazywać na atak z zasobów zewnętrznych lub zagrożony proces uruchomiony na maszynie wirtualnej.
 

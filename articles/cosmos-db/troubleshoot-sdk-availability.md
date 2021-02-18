@@ -8,12 +8,12 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559697"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650987"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,17 @@ Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie bę
 | Wiele regionów zapisu | Region podstawowy  | Region podstawowy  |
 
 > [!NOTE]
-> Region podstawowy odwołuje się do pierwszego regionu na [liście regionów konta usługi Azure Cosmos](distribute-data-globally.md)
+> Region podstawowy odwołuje się do pierwszego regionu na [liście regionów konta usługi Azure Cosmos](distribute-data-globally.md).
+> Jeśli wartości określone jako preferencja regionalna nie są zgodne z żadnym z istniejących regionów świadczenia usługi Azure, zostaną zignorowane. Jeśli są one zgodne z istniejącym regionem, ale konto nie jest replikowane do niego, klient będzie łączył się z następnym preferowanym regionem zgodnym lub z regionem podstawowym.
+
+> [!WARNING]
+> Wyłączenie ponownego odnajdywania punktu końcowego (ustawienie na wartość false) w konfiguracji klienta spowoduje wyłączenie wszystkich logiki trybu failover i dostępności opisanych w tym dokumencie.
+> Dostęp do tej konfiguracji można uzyskać za pomocą następujących parametrów w poszczególnych zestawach SDK usługi Azure Cosmos:
+>
+> * Właściwość [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) w zestawie SDK platformy .net v2.
+> * Metoda [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) w zestawie SDK języka Java v4.
+> * Parametr [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) w zestawie SDK języka Python.
+> * [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) w zestawie SDK js.
 
 W normalnych warunkach klient zestawu SDK będzie łączył się z preferowanym regionem (Jeśli ustawiona jest preferencja regionalna) lub do regionu podstawowego (jeśli nie ustawiono preferencji), a operacje będą ograniczone do tego regionu, chyba że wystąpi którykolwiek z poniższych scenariuszy.
 
@@ -59,7 +69,7 @@ Aby uzyskać szczegółowe informacje na temat gwarancji SLA w ramach tych zdarz
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Usuwanie regionu z konta
 
-Po usunięciu regionu z konta usługi Azure Cosmos każdy klient zestawu SDK, który aktywnie korzysta z tego konta, będzie wykrywał usuwanie regionu za pośrednictwem kodu odpowiedzi zaplecza. Następnie klient oznacza region punktu końcowego jako niedostępny. Klient ponawia próbę wykonania bieżącej operacji, a wszystkie przyszłe operacje są trwale kierowane do następnego regionu w kolejności preferencji.
+Po usunięciu regionu z konta usługi Azure Cosmos każdy klient zestawu SDK, który aktywnie korzysta z tego konta, będzie wykrywał usuwanie regionu za pośrednictwem kodu odpowiedzi zaplecza. Następnie klient oznacza region punktu końcowego jako niedostępny. Klient ponawia próbę wykonania bieżącej operacji, a wszystkie przyszłe operacje są trwale kierowane do następnego regionu w kolejności preferencji. W przypadku gdy lista preferencji ma tylko jeden wpis (lub był pusty), ale konto ma inne dostępne regiony, zostanie ono rozesłane do następnego regionu na liście kont.
 
 ## <a name="adding-a-region-to-an-account"></a>Dodawanie regionu do konta
 
