@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677567"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591532"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji na temat interpretacji żądań z sygnaturą dos
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Monitoruj liczbę żądań autoryzowanych za pomocą klucza współużytkowanego
 
-Aby śledzić sposób autoryzacji żądań do konta magazynu, Użyj usługi Azure Eksplorator metryk w Azure Portal. Aby uzyskać więcej informacji na temat Eksplorator metryk, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md).
+Aby śledzić sposób autoryzacji żądań do konta magazynu, Użyj usługi Azure Eksplorator metryk w Azure Portal. Aby uzyskać więcej informacji na temat Eksplorator metryk, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Wykonaj następujące kroki, aby utworzyć metrykę, która śledzi żądania wykonane z kluczem udostępnionym lub SYGNATURą dostępu współdzielonego:
 
@@ -67,7 +67,7 @@ Po skonfigurowaniu metryki żądania kierowane do konta magazynu rozpoczną się
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Zrzut ekranu przedstawiający zagregowane żądania autoryzowane za pomocą klucza współużytkowanego":::
 
-Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o określonej liczbie żądań autoryzowanych za pomocą klucza współużytkowanego dla konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+Istnieje również możliwość skonfigurowania reguły alertu w celu powiadomienia użytkownika o określonej liczbie żądań autoryzowanych za pomocą klucza współużytkowanego dla konta magazynu. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Analizuj dzienniki, aby identyfikować klientów, którzy autoryzują żądania z kluczem udostępnionym lub SYGNATURą dostępu współdzielonego
 
@@ -75,14 +75,14 @@ Dzienniki usługi Azure Storage przechwytują szczegółowe informacje o żądan
 
 Aby rejestrować żądania na koncie usługi Azure Storage w celu ocenienia sposobu ich autoryzacji, możesz użyć usługi Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](../blobs/monitor-blob-storage.md).
 
-Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Utwórz ustawienie diagnostyczne w Azure Portal
 
 Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizować je za pomocą usługi Azure Log Analytics, należy najpierw utworzyć ustawienie diagnostyczne wskazujące typy żądań i usługi magazynu, dla których mają być rejestrowane dane. Aby utworzyć ustawienie diagnostyczne w Azure Portal, wykonaj następujące kroki:
 
 1. Zarejestruj się w [usłudze Azure Storage w wersji zapoznawczej Azure monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage lub Użyj istniejącego Log Analytics obszaru roboczego. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage lub Użyj istniejącego Log Analytics obszaru roboczego. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 1. Wybierz usługę Azure Storage, dla której chcesz rejestrować żądania. Na przykład wybierz **obiekt BLOB** , aby rejestrować żądania do magazynu obiektów BLOB.
@@ -95,7 +95,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 
 Możesz utworzyć ustawienia diagnostyczne dla każdego typu zasobu usługi Azure Storage na koncie magazynu.
 
-Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure Storage w Azure Monitor, zobacz [dzienniki zasobów (wersja zapoznawcza)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +110,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-Możesz również skonfigurować regułę alertu na podstawie tego zapytania, aby poinformować użytkownika o żądaniach autoryzowanych za pomocą klucza współużytkowanego lub SYGNATURy dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-log.md).
+Możesz również skonfigurować regułę alertu na podstawie tego zapytania, aby poinformować użytkownika o żądaniach autoryzowanych za pomocą klucza współużytkowanego lub SYGNATURy dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Koryguj autoryzację za pomocą klucza współużytkowanego
 
@@ -193,13 +193,13 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Uprawnienia do zezwalania lub niezezwalania na dostęp do klucza współużytkowanego
 
-Aby ustawić właściwość **AllowSharedKeyAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+Aby ustawić właściwość **AllowSharedKeyAccess** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, to: **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/** Action. Role wbudowane z tą akcją obejmują:
 
 - Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak **firmę Microsoft. Storage/storageAccounts/ListKeys/Action**, która udziela dostępu do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
 
 Przypisania ról muszą być ograniczone do poziomu konta magazynu lub wyższe, aby zezwolić użytkownikowi na dostęp do konta magazynu lub go nie zezwala. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
 
