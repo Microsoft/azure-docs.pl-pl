@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 7149233782815deebebde53767a3c654ac2321bb
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547761"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651990"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
 [Azure wyszukiwanie poznawcze](search-what-is-azure-search.md) to zasób platformy Azure używany do dodawania obsługi wyszukiwania pełnotekstowego do aplikacji niestandardowych. Można łatwo zintegrować ją z innymi usługami platformy Azure, które zapewniają dane lub dodatkowe przetwarzanie, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
 
-Usługę wyszukiwania można utworzyć przy użyciu [Azure Portal](https://portal.azure.com/)omówionej w tym artykule. Możesz również użyć [Azure PowerShell](search-manage-powershell.md), [interfejsu wiersza polecenia platformy Azure](/cli/azure/search)lub [szablonu usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+Usługę wyszukiwania można utworzyć przy użyciu [Azure Portal](https://portal.azure.com/), która została omówiona w tym artykule. Można również użyć [Azure PowerShell](search-manage-powershell.md), interfejsu [wiersza polecenia platformy Azure](/cli/azure/search), [API REST zarządzania](/rest/api/searchmanagement/)lub [szablonu usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![Animowany plik GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -27,9 +27,9 @@ Usługę wyszukiwania można utworzyć przy użyciu [Azure Portal](https://porta
 
 Następujące właściwości usługi są rozwiązane w okresie istnienia usługi — zmiana któregokolwiek z nich wymaga nowej usługi. Ze względu na to, że są stałe, należy wziąć pod uwagę skutki użycia podczas wypełniania każdej właściwości:
 
-* Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
-* [Warstwa usługi](search-sku-tier.md) ma wpływ na rozliczenia i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
-* Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz utworzyć wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
++ Nazwa usługi jest częścią punktu końcowego adresu URL ([Przejrzyj wskazówki](#name-the-service) dotyczące przydatnych nazw usług).
++ [Warstwa usługi](search-sku-tier.md) ma wpływ na rozliczenia i ustawia limit w górę dla pojemności. Niektóre funkcje nie są dostępne w warstwie Bezpłatna.
++ Region usługi może ustalić dostępność niektórych scenariuszy. Jeśli potrzebujesz [wysokich funkcji zabezpieczeń](search-security-overview.md) lub [wzbogacania AI](cognitive-search-concept-intro.md), musisz utworzyć wyszukiwanie poznawcze platformy Azure w tym samym regionie co inne usługi lub w regionach, które udostępniają daną funkcję. 
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (bezpłatna lub płatna)
 
@@ -72,30 +72,30 @@ W obszarze Szczegóły wystąpienia Podaj nazwę usługi w polu **adres URL** . 
 
 Wymagania dotyczące nazwy usługi:
 
-* Musi być unikatowa w obrębie przestrzeni nazw search.windows.net
-* Długość musi należeć do zakresu od 2 do 60 znaków
-* Musisz użyć małych liter, cyfr lub kresek ("-")
-* Nie używaj kresek ("-") w pierwszych 2 znakach ani jako ostatni pojedynczy znak
-* Nie można używać kolejnych kresek ("--") w dowolnym miejscu
++ Musi być unikatowa w obrębie przestrzeni nazw search.windows.net
++ Długość musi należeć do zakresu od 2 do 60 znaków
++ Musisz użyć małych liter, cyfr lub kresek ("-")
++ Nie używaj kresek ("-") w pierwszych 2 znakach ani jako ostatni pojedynczy znak
++ Nie można używać kolejnych kresek ("--") w dowolnym miejscu
 
 > [!TIP]
 > Jeśli uważasz, że będziesz korzystać z wielu usług, zalecamy uwzględnienie regionu (lub lokalizacji) w nazwie usługi jako konwencji nazewnictwa. Usługi w ramach tego samego regionu mogą bezpłatnie wymieniać dane, więc jeśli platforma Azure Wyszukiwanie poznawcze jest w regionie zachodnie stany USA i masz inne usługi również w regionie zachodnie stany USA, nazwa, na przykład, `mysearchservice-westus` może zaoszczędzić na stronie właściwości podczas decydowania o sposobie łączenia lub dołączania zasobów.
 
 ## <a name="choose-a-location"></a>Wybierz lokalizację
 
-Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów, zgodnie z opisem na [stronie cennika](https://azure.microsoft.com/pricing/details/search/).
+Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów, zgodnie z opisem w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=search). Ogólnie rzecz biorąc, jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
 
-Ogólnie rzecz biorąc, jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
++ [Wzbogacanie AI](cognitive-search-concept-intro.md) wymaga, aby Cognitive Services znajdować się w tym samym regionie fizycznym co platforma Azure wyszukiwanie poznawcze. Istnieje tylko kilka regionów, które nie zapewniają obu tych wartości. Na stronie [dostępne są produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=search) jest wyświetlana podwójna dostępność, pokazując dwa skumulowane znaczniki wyboru. Niedostępna kombinacja ma Brak znacznika wyboru:
 
-Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Dostępność regionalna" border="true":::
 
-Następujące funkcje są dostępne tylko w niektórych regionach:
++ Wymagania dotyczące ciągłości działania i odzyskiwania po awarii (BCDR) powinny zostać spełnione przez utworzenie wielu usług wyszukiwania w [parach regionalnym](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA lub Północno-środkowe stany USA i Central w firmie dla każdej usługi wyszukiwania.
 
-* Wzbogacanie AI wymaga, aby Cognitive Services znajdować się w tym samym regionie co usługa Azure Wyszukiwanie poznawcze. Najpierw wybierz [region dla Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) (lista jest mniejsza), a następnie wybierz ten sam region dla usługi wyszukiwania.
+Niektóre funkcje mają ograniczoną dostępność w oparciu o regiony. Ograniczenia są opisane w dokumentacji funkcji:
 
-* Podwójne szyfrowanie jest dostępne tylko w określonych regionach. Aby uzyskać więcej informacji, zobacz [podwójne szyfrowanie](search-security-overview.md#double-encryption)
++ [Podwójne szyfrowanie](search-security-overview.md#double-encryption)
 
-* Obsługa stref dostępności jest oferowana w określonych regionach w usługach utworzonych po określonych datach. Aby uzyskać więcej informacji, zobacz ["strefy dostępności" w obszarze skalowanie wydajności](search-performance-optimization.md#availability-zones).
++ ["Strefy dostępności" w skali na potrzeby wydajności](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Wybierz warstwę cenową
 
@@ -121,7 +121,7 @@ Jeśli nie korzystasz z portalu, dostęp programistyczny do nowej usługi wymaga
 
 1. Na stronie **Przegląd** zlokalizuj i skopiuj punkt końcowy adresu URL po prawej stronie strony.
 
-2. Na stronie **klucze** Skopiuj jeden z kluczy administratora (są one równoważne). Klucze interfejsu API administratora są wymagane do tworzenia, aktualizowania i usuwania obiektów w usłudze. Z kolei klucze zapytań zapewniają dostęp do odczytu do zawartości indeksu.
+1. Na stronie **klucze** Skopiuj jeden z kluczy administratora (są one równoważne). Klucze interfejsu API administratora są wymagane do tworzenia, aktualizowania i usuwania obiektów w usłudze. Z kolei klucze zapytań zapewniają dostęp do odczytu do zawartości indeksu.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Strona przeglądu usługi z punktem końcowym adresu URL" border="false":::
 
@@ -141,8 +141,8 @@ Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Ka
 > Usługa musi mieć [2 repliki w ramach umowy SLA tylko do odczytu oraz 3 repliki w ramach umowy SLA do odczytu/zapisu](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Przejdź do strony usługi wyszukiwania w witrynie Azure Portal.
-2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
-3. Użyj suwaka, aby dodać zasoby wybranego typu.
+1. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
+1. Użyj suwaka, aby dodać zasoby wybranego typu.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Dodawanie pojemności przy użyciu replik i partycji" border="false":::
 

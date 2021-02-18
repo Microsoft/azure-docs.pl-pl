@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445238"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653904"
 ---
 # <a name="managed-hsm-access-control"></a>Kontrola dostępu zarządzanego modułu HSM
 
@@ -63,7 +63,7 @@ W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i p�
 | &nbsp;Płaszczyzna dostępu | Punkty końcowe dostępu | Operacje | Mechanizm kontroli dostępu |
 | --- | --- | --- | --- |
 | Płaszczyzna zarządzania | **Globalne**<br> management.azure.com:443<br> | Tworzenie, odczytywanie, aktualizowanie, usuwanie i przenoszenie zarządzanych sprzętowych modułów zabezpieczeń<br>Ustawianie zarządzanych tagów modułu HSM | Kontrola dostępu na podstawie ról platformy Azure |
-| Płaszczyzna danych | **Globalne**<br> &lt;HSM-Name &gt; . Vault.Azure.NET:443<br> | **Klucze** : Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, sprawdzanie, podpisywanie, pobieranie, wyświetlanie, aktualizowanie, tworzenie, importowanie, usuwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br/><br/> **Zarządzanie rolami płaszczyzny danych (zarządzana lokalna RBAC modułu HSM)**_: lista definicji ról, przypisywanie ról, usuwanie przypisań ról, <br/> <br/> Definiowanie ról niestandardowych_ * kopia zapasowa/przywracanie **: kopia zapasowa, przywracanie <br/> <br/> , sprawdzanie stanu kopii zapasowej/przywracanie** — domena zabezpieczeń * *: pobieranie i przekazywanie domeny zabezpieczeń | Zarządzane lokalne RBAC modułu HSM |
+| Płaszczyzna danych | **Globalne**<br> &lt;HSM-Name &gt; . managedhsm.Azure.NET:443<br> | **Klucze**: Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, sprawdzanie, podpisywanie, pobieranie, wyświetlanie, aktualizowanie, tworzenie, importowanie, usuwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br/><br/> **Zarządzanie rolami płaszczyzny danych (zarządzana lokalna RBAC modułu HSM)**_: lista definicji ról, przypisywanie ról, usuwanie przypisań ról, <br/> <br/> Definiowanie ról niestandardowych_* kopia zapasowa/przywracanie **: kopia zapasowa, przywracanie <br/> <br/> , sprawdzanie stanu kopii zapasowej/przywracanie**— domena zabezpieczeń * *: pobieranie i przekazywanie domeny zabezpieczeń | Zarządzane lokalne RBAC modułu HSM |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Płaszczyzna zarządzania i kontrola RBAC platformy Azure
 
@@ -71,10 +71,10 @@ W płaszczyźnie zarządzania korzystasz z usługi Azure RBAC do autoryzacji ope
 
 Należy utworzyć magazyn kluczy w grupie zasobów i zarządzać dostępem przy użyciu Azure Active Directory. Użytkownicy lub grupy mogą zarządzać magazynami kluczy w grupie zasobów. Przyznanie dostępu na określonym poziomie zakresu przez przypisanie odpowiednich ról platformy Azure. Aby udzielić użytkownikowi dostępu do zarządzania magazynami kluczy, należy przypisać wstępnie zdefiniowaną `key vault Contributor` rolę do użytkownika w określonym zakresie. Do roli platformy Azure można przypisać następujące poziomy zakresów:
 
-- **Grupa zarządzania** : rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich subskrypcji w tej grupie zarządzania.
-- **Subskrypcja** : rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
-- **Grupa zasobów** : rola platformy Azure przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
-- **Określony zasób** : dla danego zasobu jest stosowana rola platformy Azure przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
+- **Grupa zarządzania**: rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich subskrypcji w tej grupie zarządzania.
+- **Subskrypcja**: rola platformy Azure przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
+- **Grupa zasobów**: rola platformy Azure przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
+- **Określony zasób**: dla danego zasobu jest stosowana rola platformy Azure przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
 
 Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola nie spełnia Twoich potrzeb, możesz zdefiniować własną rolę. Aby uzyskać więcej informacji, zobacz [Azure RBAC: role wbudowane](../../role-based-access-control/built-in-roles.md).
 
@@ -82,8 +82,8 @@ Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola
 
 Przyznaje podmiotowi zabezpieczeń dostęp do wykonywania określonych operacji kluczowych, przypisując rolę. Dla każdego przypisania roli należy określić rolę i zakres, w których ma zastosowanie to przypisanie. W przypadku zarządzanych modułów HSM Local RBAC dostępne są dwa zakresy.
 
-- **"/" lub "/Keys"** : zakres poziomu modułu HSM. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w roli dla wszystkich obiektów (kluczy) w zarządzanym module HSM.
-- **"/Keys/ &lt; Key Name &gt; "** : zakres poziomu klucza. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w tej roli tylko dla wszystkich wersji określonego klucza.
+- **"/" lub "/Keys"**: zakres poziomu modułu HSM. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w roli dla wszystkich obiektów (kluczy) w zarządzanym module HSM.
+- **"/Keys/ &lt; Key Name &gt; "**: zakres poziomu klucza. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w tej roli tylko dla wszystkich wersji określonego klucza.
 
 ## <a name="next-steps"></a>Następne kroki
 

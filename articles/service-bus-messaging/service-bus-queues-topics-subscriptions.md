@@ -1,14 +1,14 @@
 ---
 title: Azure Service Bus Messaging — kolejki, tematy i subskrypcje
 description: Ten artykuł zawiera omówienie jednostek obsługi komunikatów Azure Service Bus (kolejek, tematów i subskrypcji).
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791603"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652823"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Kolejki, tematy i subskrypcje usługi Service Bus
 Azure Service Bus obsługuje zestaw opartych na chmurze technologii oprogramowania pośredniczącego, w tym niezawodnej usługi kolejkowania komunikatów i trwałego przesyłania komunikatów publikowania/subskrybowania. Te możliwości obsługi komunikatów obsługiwanych przez brokera mogą być traktowane jako funkcje obsługi komunikatów, które obsługują publikowanie-subskrybowanie, oddzielanie danych czasowych i scenariusze równoważenia obciążenia przy użyciu obciążenia Service Bus Messaging. Komunikacja oddzielona ma wiele zalet. Na przykład klienci i serwery mogą łączyć się w razie potrzeby i wykonywać operacje w sposób asynchroniczny.
@@ -26,19 +26,16 @@ Używanie kolejek do pośrednich między producentami i konsumentami komunikató
 Kolejki można tworzyć przy użyciu szablonów [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [interfejsu wiersza polecenia](service-bus-quickstart-cli.md)lub [Menedżer zasobów](service-bus-resource-manager-namespace-queue.md). Następnie wysyłaj i odbieraj komunikaty przy użyciu klientów pisanych w [językach C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [php](service-bus-php-how-to-use-queues.md)i [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Tryby odbierania
-Można określić dwa różne tryby, w których Service Bus odbiera komunikaty: **ReceiveAndDelete** lub **PeekLock**. W trybie [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) , gdy Service Bus otrzymuje żądanie od konsumenta, oznacza komunikat jako używany i zwraca go do aplikacji konsumenta. Ten tryb jest najprostszym modelem. Najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku wystąpienia błędu. Aby zrozumieć ten scenariusz, Rozważmy scenariusz, w którym odbiorca wysyła żądanie odebrania, a następnie ulega awarii przed jego przetworzeniem. Jak Service Bus oznacza komunikat jako używany, aplikacja zacznie zużywać komunikaty po ponownym uruchomieniu. Spowoduje to odrzucenie wiadomości, która była używana przed awarią.
+Można określić dwa różne tryby, w których Service Bus odbiera komunikaty.
 
-W trybie [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) operacja odbierania staje się dwuetapowa, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Po odebraniu żądania Service Bus wykonuje następujące operacje:
+- **Odbierz i Usuń**. W tym trybie, gdy Service Bus otrzyma żądanie od konsumenta, oznacza komunikat jako używany i zwraca go do aplikacji konsumenta. Ten tryb jest najprostszym modelem. Najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku wystąpienia błędu. Aby zrozumieć ten scenariusz, Rozważmy scenariusz, w którym odbiorca wysyła żądanie odebrania, a następnie ulega awarii przed jego przetworzeniem. Jak Service Bus oznacza komunikat jako używany, aplikacja zacznie zużywać komunikaty po ponownym uruchomieniu. Spowoduje to odrzucenie wiadomości, która była używana przed awarią.
+- **Zablokuj blokadę**. W tym trybie operacja odbierania staje się dwuetapowa, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. 
+    1. Znajduje następny komunikat do użycia, **blokuje** go, aby uniemożliwić innym konsumentom otrzymywanie go, a następnie zwrócić komunikat do aplikacji. 
+    1. Po zakończeniu przetwarzania komunikatu aplikacja zażąda usługi Service Bus, aby ukończyć drugi etap procesu odbierania. Następnie usługa **oznacza komunikat jako używany**. 
 
-1. Znajduje następny komunikat do użycia.
-1. Blokuje go, aby uniemożliwić innym konsumentom otrzymywanie go.
-1. Następnie Zwróć komunikat do aplikacji. 
+        Jeśli aplikacja nie może przetworzyć komunikatu z jakiegoś powodu, może zażądać usługi Service Bus, aby **porzucić** komunikat. Service Bus **odblokowywanie** wiadomości i udostępnienie jej do ponownego odbierania przez tego samego klienta lub przez innego użytkownika konkurującego. Po drugie, istnieje **limit czasu** skojarzony z blokadą. Jeśli aplikacja nie będzie przetwarzać komunikatu przed upływem limitu czasu blokady, Service Bus odblokowuje komunikat i udostępni go do ponownego odebrania.
 
-Po zakończeniu przetwarzania komunikatu przez aplikację lub niezawodnym zapisaniu go do użytku w przyszłości wykonuje drugi etap procesu odbierania, wywołując [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) komunikat. Gdy Service Bus odbiera żądanie **CompleteAsync** , oznacza komunikat jako używany.
-
-Jeśli aplikacja nie może przetworzyć komunikatu z jakiegoś powodu, może wywołać [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) metodę w komunikacie (zamiast [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) ). Ta metoda umożliwia Service Bus odblokowywanie wiadomości i udostępnienie jej do ponownego odbierania przez tego samego klienta lub przez innego konkurującego użytkownika. Po drugie, istnieje limit czasu skojarzony z blokadą. Jeśli aplikacja nie będzie przetwarzać komunikatu przed upływem limitu czasu blokady, Service Bus odblokowuje komunikat i udostępni go do ponownego odebrania.
-
-Jeśli aplikacja ulegnie awarii po przetworzeniu komunikatu, ale przed wywołaniem programu [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) , program Service Bus ponownie dostarczy komunikat do aplikacji po jej ponownym uruchomieniu. Ten proces jest często wywoływany **co najmniej raz podczas** przetwarzania. Oznacza to, że każdy komunikat jest przetwarzany co najmniej jeden raz. Jednak w niektórych sytuacjach ten sam komunikat może zostać dostarczony. Jeśli scenariusz nie może tolerować zduplikowanego przetwarzania, Dodaj dodatkową logikę w aplikacji, aby wykryć duplikaty. Można to osiągnąć przy użyciu właściwości [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid) komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia. Ta funkcja jest znana **dokładnie po** przetworzeniu.
+        Jeśli aplikacja ulegnie awarii po przetworzeniu komunikatu, ale przed zażądaniem usługi Service Bus, aby zakończyć ten komunikat, Service Bus ponownie dostarczy komunikat do aplikacji po jej ponownym uruchomieniu. Ten proces jest często wywoływany **co najmniej raz podczas** przetwarzania. Oznacza to, że każdy komunikat jest przetwarzany co najmniej jeden raz. Jednak w niektórych sytuacjach ten sam komunikat może zostać dostarczony. Jeśli scenariusz nie może tolerować zduplikowanego przetwarzania, Dodaj dodatkową logikę w aplikacji, aby wykryć duplikaty. Aby uzyskać więcej informacji, zobacz [Wykrywanie duplikatów](duplicate-detection.md). Ta funkcja jest znana **dokładnie po** przetworzeniu.
 
 ## <a name="topics-and-subscriptions"></a>Tematy i subskrypcje
 Kolejka umożliwia przetwarzanie komunikatu przez pojedynczego konsumenta. W przeciwieństwie do kolejek, tematy i subskrypcje zapewniają formę komunikacji typu "jeden do wielu" w wzorcu **publikowania i subskrybowania** . Jest to przydatne w przypadku skalowania do dużej liczby odbiorców. Każdy opublikowany komunikat jest udostępniany każdej subskrypcji zarejestrowanej w temacie. Wydawca wysyła komunikat do tematu, a co najmniej jeden subskrybent otrzymuje kopię wiadomości, w zależności od reguł filtru ustawionych w tych subskrypcjach. Subskrypcje mogą używać dodatkowych filtrów, aby ograniczyć liczbę wiadomości, które mają zostać odebrane. Wydawcy wysyłają komunikaty do tematu w taki sam sposób, w jaki wysyłają komunikaty do kolejki. Jednak konsumenci nie odbierają wiadomości bezpośrednio z tematu. Zamiast tego odbiorcy odbierają wiadomości z subskrypcji tematu. Subskrypcja tematu jest podobna do kolejki wirtualnej, która odbiera kopie komunikatów wysyłanych do tematu. Odbiorcy odbierają wiadomości z subskrypcji identycznie do sposobu, w jaki odbierają komunikaty z kolejki.
@@ -55,7 +52,7 @@ Aby uzyskać pełny przykład pracy, zobacz [przykład TopicSubscriptionWithRule
 
 Aby uzyskać więcej informacji na temat możliwych wartości filtru, zobacz dokumentację klas [sqlfilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) i [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) .
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Jednostki usługi wiadomości Java (JMS) 2,0 (wersja zapoznawcza)
+## <a name="java-message-service-jms-20-entities"></a>Jednostki usługi wiadomości Java (JMS) 2,0
 Następujące jednostki są dostępne za pomocą interfejsu API usługi wiadomości Java (JMS) 2,0.
 
   * Kolejki tymczasowe

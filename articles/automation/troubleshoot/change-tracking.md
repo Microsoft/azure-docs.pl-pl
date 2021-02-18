@@ -3,18 +3,63 @@ title: Rozwiązywanie problemów z Azure Automation Change Tracking i spisu
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Change Tracking i funkcji spisu.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c9f70d837b32c88d3c7a501bcb1a62aa006ebe41
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572468"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651168"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Rozwiązywanie problemów ze śledzeniem zmian i spisem
 
 W tym artykule opisano sposób rozwiązywania problemów i rozwiązywania problemów z Azure Automation Change Tracking i spisu. Aby uzyskać ogólne informacje na temat Change Tracking i spisu, zobacz [omówienie Change Tracking i spisu](../change-tracking/overview.md).
+
+## <a name="general-errors"></a>Błędy ogólne
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Scenariusz: maszyna jest już zarejestrowana na innym koncie
+
+### <a name="issue"></a>Problem
+
+Zostanie wyświetlony następujący komunikat o błędzie:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>Przyczyna
+
+Maszyna została już wdrożona w innym obszarze roboczym dla Change Tracking.
+
+### <a name="resolution"></a>Rozwiązanie
+
+1. Upewnij się, że komputer jest raportowany do prawidłowego obszaru roboczego. Aby uzyskać wskazówki dotyczące sposobu weryfikacji, zobacz [Weryfikowanie łączności agenta z Azure monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Upewnij się również, że ten obszar roboczy jest połączony z kontem Azure Automation. Aby potwierdzić, przejdź do konta usługi Automation i wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
+
+1. Upewnij się, że maszyny są widoczne w obszarze roboczym Log Analytics połączonym z kontem usługi Automation. Uruchom następujące zapytanie w obszarze roboczym Log Analytics.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną. Należy ponownie zainstalować agenta Log Analytics.
+
+   Jeśli Twoja maszyna jest wymieniona w wynikach zapytania, sprawdź Właściwość Solutions, która **śledzenia zmian** jest wymieniona na liście. Spowoduje to sprawdzenie, czy jest on zarejestrowany w Change Tracking i spisie. Jeśli tak nie jest, sprawdź, czy występują problemy z konfiguracją zakresu. Konfiguracja zakresu określa, które maszyny są skonfigurowane do Change Tracking i spisu. Aby skonfigurować konfigurację zakresu dla maszyny docelowej, zobacz [włączanie Change Tracking i spisu na podstawie konta usługi Automation](../change-tracking/enable-from-automation-account.md).
+
+   W obszarze roboczym Uruchom to zapytanie.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. Jeśli otrzymasz ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` wynik, zostanie osiągnięty limit przydziału zdefiniowany w obszarze roboczym, w którym zarejestrowano dane. W obszarze roboczym przejdź do pozycji **użycie i szacowane koszty**. Wybierz nową **warstwę cenową** , która umożliwia użycie większej ilości danych, lub kliknij pozycję **dzienny limit** i Usuń limit.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Użycie i szacowane koszty." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+Jeśli problem nadal nie zostanie rozwiązany, wykonaj kroki opisane w sekcji [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md) w celu ponownego zainstalowania hybrydowego procesu roboczego dla systemu Windows. W przypadku systemu Linux wykonaj kroki opisane w sekcji  [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux](../automation-linux-hrw-install.md).
 
 ## <a name="windows"></a>Windows
 

@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202542"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589670"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -21,9 +21,9 @@ W przypadku używania Application Insights Profiler lub Snapshot Debugger artefa
 W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do konta magazynu, które kontrolujesz. Oznacza to, że steruje zasadami szyfrowania w czasie spoczynku, zasadami zarządzania okresem istnienia i dostępem do sieci. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu.
 
 > [!NOTE]
-> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](../platform/private-link-security.md)
+> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](../logs/private-link-security.md)
 >
-> W przypadku włączenia kluczy Customer-Managed należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat Customer-Managed kluczy dla Application Insights, [zapoznaj się z dokumentacją.](../platform/customer-managed-keys.md)
+> W przypadku włączenia kluczy Customer-Managed należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat Customer-Managed kluczy dla Application Insights, [zapoznaj się z dokumentacją.](../logs/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Jak będzie uzyskiwany dostęp do konta magazynu?
 1. Agenci działający w Virtual Machines lub App Service będą przekazywać artefakty (profile, migawki i symbole) do kontenerów obiektów BLOB na Twoim koncie. Ten proces obejmuje kontaktowanie się z usługą Application Insights Profiler lub Snapshot Debugger w celu uzyskania tokenu sygnatury dostępu współdzielonego do nowego obiektu BLOB na koncie magazynu.

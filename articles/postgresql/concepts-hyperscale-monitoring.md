@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 544f871f62481243cda2409db24b0d067df28c32
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580581"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -22,13 +22,13 @@ Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i
 
 Funkcja Citus) udostępnia metryki dla każdego węzła w grupie serwerów. Metryki zapewniają wgląd w zachowanie obsługi zasobów. Każda Metryka jest emitowana z częstotliwością jednej minuty i ma do 30 dni historii.
 
-Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/platform/data-platform.md).
+Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista metryk
 
 Te metryki są dostępne dla węzłów ze skalowaniem (Citus):
 
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
+|Metric|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|
 |cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|

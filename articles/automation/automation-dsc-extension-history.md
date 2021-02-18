@@ -1,25 +1,48 @@
 ---
 title: Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
-description: W tym artykule opisano sposób pracy z historią wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
-ms.date: 07/22/2020
+description: Ten artykuł udostępnia informacje o historii wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
+ms.date: 02/17/2021
 keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e51bce6e015ef7367625b010b74e5d2422b35051
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079761"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651806"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
-Rozszerzenie maszyny wirtualnej konfiguracji żądanego stanu (DSC) platformy Azure jest aktualizowane w miarę potrzeb w celu obsługi ulepszeń i nowych funkcji dostarczanych przez platformę Azure, system Windows Server oraz środowisko Windows Management Framework (WMF), które zawiera program Windows PowerShell.
+[Rozszerzenie](../virtual-machines/extensions/dsc-overview.md) maszyny wirtualnej konfiguracji żądanego stanu (DSC) platformy Azure jest aktualizowane w miarę potrzeb w celu obsługi ulepszeń i nowych funkcji dostarczanych przez platformę Azure, system Windows Server oraz środowisko Windows Management Framework (WMF), które zawiera program Windows PowerShell.
 
 Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej usługi Azure DSC, obsługiwanych środowiskach oraz komentarzach i uwagach dotyczących nowych funkcji lub zmian.
 
 ## <a name="latest-version"></a>Najnowsza wersja
+
+### <a name="version-283"></a>Wersja 2,83
+
+- **Data wydania:**
+  - Luty 2021 r.
+- **Obsługa systemu operacyjnego:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 z dodatkiem R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Klient z systemem Windows 7/8.1/10
+  - Nano Server
+- **Obsługa WMF:**
+  - WMF 5.1
+  - WMF 5,0 RTM
+  - Aktualizacja WMF 4,0
+  - WMF 4.0
+- **Naturalne**
+  - Azure
+  - Azure Chiny Vianet 21
+  - Azure Government
+- **Uwagi:** Ta wersja zawiera poprawkę dla niepodpisanych plików binarnych z rozszerzeniem maszyny wirtualnej systemu Windows.
 
 ### <a name="version-280"></a>Wersja 2,80
 
@@ -64,15 +87,15 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
   - Azure
   - Azure Chiny Vianet 21
   - Azure Government
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
   - Poprawa w metadanych rozszerzenia dla podstanów i innych poprawek drobnych błędów.
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 
 > [!WARNING]
-> Wersje 2,4 do 2,13 korzystają z programu WMF 5,0 publiczną wersję zapoznawczą, której certyfikaty podpisywania wygasły w sierpniu
-> 2016. Aby uzyskać więcej informacji o tym problemie, zobacz [wpis w blogu](https://devblogs.microsoft.com/powershell/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
+> Wersje 2,4 do 2,13 korzystają z wersji zapoznawczej WMF 5,0, której certyfikaty podpisywania wygasły w sierpniu 2016.
+> Aby uzyskać więcej informacji o tym problemie, zobacz następujący [artykuł w blogu](https://devblogs.microsoft.com/powershell/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
 
 ### <a name="version-275"></a>Wersja 2,75
 
@@ -80,9 +103,9 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
-  - Po ostatnim przejściu do usługi TLS 1,2 nie można dołączyć maszyny wirtualnej do Azure Automation DSC przy użyciu szablonów Menedżer zasobów możesz dostępnych w witrynie Azure Marketplace lub użyć rozszerzenia DSC w celu pobrania dowolnej konfiguracji hostowanej w witrynie GitHub. Podczas wdrażania rozszerzenia zostanie wyświetlony komunikat o błędzie podobny do poniższego:
+  - Po wymuszeniu protokołu TLS 1,2 w witrynie GitHub nie można dodać maszyny wirtualnej do Azure Automation konfiguracji stanu przy użyciu szablonów Menedżer zasobów możesz dostępnych w portalu Azure Marketplace lub użyć rozszerzenia DSC w celu pobrania wszystkich konfiguracji hostowanych w witrynie GitHub. Zwracany jest błąd podobny do poniższego podczas wdrażania rozszerzenia:
 
     ```json
     {
@@ -109,7 +132,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
     }
     ```
 
-  - W nowej wersji rozszerzenia protokół TLS 1,2 jest teraz wymuszany. Gdy wdrożenie rozszerzenia ma już włączoną flagą autoupgrademinorversion = true w szablonie Menedżer zasobów, rozszerzenie zostanie uaktualnione do 2,75. W przypadku ręcznych aktualizacji Określ `TypeHandlerVersion = 2.75` w szablonie Menedżer zasobów.
+  - W nowej wersji rozszerzenia protokół TLS 1,2 jest teraz wymuszany. Po wdrożeniu rozszerzenia, jeśli zostało już określone `AutoUpgradeMinorVersion = true` w szablonie Menedżer zasobów, rozszerzenie jest autouaktualniane do 2,75. W przypadku ręcznych aktualizacji Określ `TypeHandlerVersion = 2.75` w szablonie Menedżer zasobów.
 
 ### <a name="version-270---272"></a>Wersja 2,70-2,72
 
@@ -117,9 +140,9 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
-  - Poprawki błędów & usprawnienia, które upraszczają korzystanie z Azure Automation DSC za pośrednictwem interfejsu użytkownika portalu, a także szablonu Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [domyślny skrypt konfiguracji](../virtual-machines/extensions/dsc-overview.md) w dokumentacji rozszerzenia DSC.
+  - Poprawki błędów & usprawnienia, które upraszczają korzystanie z konfiguracji stanu Azure Automation w portalu i z szablonem Menedżer zasobów. Aby uzyskać więcej informacji, zobacz [domyślny skrypt konfiguracji](../virtual-machines/extensions/dsc-overview.md) w dokumentacji rozszerzenia DSC.
 
 ### <a name="version-226"></a>Wersja 2,26
 
@@ -127,7 +150,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
   - Udoskonalenia telemetrii.
 
@@ -137,7 +160,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
   - Dodano kilka poprawek usterek i innych drobnych ulepszeń.
 
@@ -147,7 +170,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
   - Udostępnia identyfikator UUID & maszyny wirtualnej jako metadane rozszerzenia. Dodano inne drobne ulepszenia.
 
@@ -157,9 +180,9 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
-  - Dodano wiele poprawek błędów i innych ulepszeń.
+  - Dodano poprawki błędów i inne ulepszenia.
 
 ### <a name="version-222"></a>Wersja 2,22
 
@@ -167,9 +190,9 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Nano Server
 - **Obsługa WMF:** WMF 5,1, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest program [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
-  - Rozszerzenie DSC ma teraz obsługę programu WMF 5,1.
+  - Rozszerzenie DSC obsługuje teraz program WMF 5,1.
   - Dodano drobne inne ulepszenia.
 
 ### <a name="version-221"></a>Wersja 2,21
@@ -178,7 +201,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Nano Server
 - **Obsługa WMF:** WMF 5,1 w wersji zapoznawczej, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
+- **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
   - Rozszerzenie DSC jest teraz dostępne na serwerze nano Server. Ta wersja zawiera głównie zmiany w kodzie dotyczące uruchamiania rozszerzenia na serwerze nano Server.
   - Dodano drobne inne ulepszenia.
@@ -189,7 +212,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,1 w wersji zapoznawczej, WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
   - Obsługa wersji zapoznawczej WMF 5,1. Podczas pierwszej publikacji ta wersja była uaktualnieniem opcjonalnym i należy określić Wmfversion = "5.1 PP" w szablonach Menedżer zasobów, aby zainstalować wersję zapoznawczą WMF 5,1.
     Wmfversion = "Najnowsza" nadal instaluje pakiet [WMF 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/).
@@ -202,9 +225,9 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure, Azure Chiny Vianet 21, Azure Government
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
-  - Rozszerzenie DSC zostało teraz dołączone do platformy Azure w Chinach Vianet 21. Ta wersja zawiera głównie poprawki do uruchamiania rozszerzenia na platformie Azure (Chiny) Vianet 21.
+  - Rozszerzenie DSC jest teraz dostępne na platformie Azure (Chiny) Vianet 21. Ta wersja zawiera poprawki do uruchamiania rozszerzenia na platformie Azure (Chiny) Vianet 21.
 
 ### <a name="version-218"></a>Wersja 2,18
 
@@ -212,11 +235,10 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
   - Utwórz nieblokującą telemetrię, gdy wystąpi błąd podczas pobierania poprawki telemetrycznej (znany problem Azure DNS) lub podczas instalacji.
-  - Poprawka dla sporadycznego problemu, w którym rozszerzenie przestaje przetwarzać konfigurację po ponownym uruchomieniu.
-    Spowodowało to, że rozszerzenie DSC pozostanie w stanie "przechodzenie".
+  - Poprawka dla sporadycznego problemu, w którym rozszerzenie przestaje przetwarzać konfigurację po ponownym uruchomieniu. Spowodowało to, że rozszerzenie DSC pozostanie w stanie "przechodzenie".
   - Dodano drobne inne poprawki i ulepszenia.
 
 ### <a name="version-217"></a>Wersja 2,17
@@ -225,10 +247,13 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
   - Obsługa aktualizacji WMF 4,0. Aby uzyskać więcej informacji na temat aktualizacji WMF 4,0, zobacz [ten blog](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/).
-  - Wykonaj ponowną próbę logiki w przypadku błędów, które wystąpiły podczas instalacji rozszerzenia DSC, lub stosując instalację rozszerzenia konfiguracji DSC. W ramach tej zmiany rozszerzenie ponowi próbę instalacji, jeśli poprzednia instalacja zakończyła się niepowodzeniem lub ponownie przetworzyć konfigurację DSC, która wcześniej zakończyła się niepowodzeniem, przez maksymalnie trzy razy do momentu osiągnięcia stanu ukończenia (powodzenie/błąd) lub jeśli nowe żądanie zostanie wykonane. Jeśli rozszerzenie nie powiedzie się z powodu nieprawidłowych ustawień użytkownika/danych wejściowych użytkownika, próba nie zostanie ponowiona. W takim przypadku rozszerzenie musi zostać wywołane ponownie z nowym żądaniem i prawidłowymi ustawieniami użytkownika. Uwaga: rozszerzenie DSC jest zależne od agenta maszyny wirtualnej platformy Azure na potrzeby ponownych prób. Agent maszyny wirtualnej platformy Azure wywołuje rozszerzenie przy ostatnim niepomyślnym żądaniu, dopóki nie osiągnie stanu powodzenia lub błędu.
+  - Wykonaj ponowną próbę logiki w przypadku błędów, które wystąpiły podczas instalacji rozszerzenia DSC, lub stosując instalację rozszerzenia konfiguracji DSC. W ramach tej zmiany rozszerzenie ponowi próbę instalacji, jeśli poprzednia instalacja zakończyła się niepowodzeniem lub ponownie przetworzyć konfigurację DSC, która wcześniej zakończyła się niepowodzeniem, przez maksymalnie trzy razy do momentu osiągnięcia stanu ukończenia (powodzenie/błąd) lub jeśli nowe żądanie zostanie wykonane. Jeśli rozszerzenie nie powiedzie się z powodu nieprawidłowych ustawień użytkownika/danych wejściowych użytkownika, próba nie zostanie ponowiona. W takim przypadku rozszerzenie musi zostać wywołane ponownie z nowym żądaniem i prawidłowymi ustawieniami użytkownika. 
+
+  > [!NOTE]
+   > Rozszerzenie DSC jest zależne od agenta maszyny wirtualnej platformy Azure na potrzeby ponownych prób. Agent maszyny wirtualnej platformy Azure wywołuje rozszerzenie przy ostatnim niepomyślnym żądaniu, dopóki nie osiągnie stanu powodzenia lub błędu.
 
 ### <a name="version-216"></a>Wersja 2,16
 
@@ -236,10 +261,10 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
   - Poprawa obsługi błędów i innych mniejszych poprawek błędów.
-  - Nowa właściwość w ustawieniach rozszerzenia DSC. Element "ForcePullAndApply" w AdvancedOptions został dodany, aby włączyć rozszerzenie DSC w celu skonfigurowania konfiguracji DSC, gdy zostanie pobrany tryb odświeżania (w przeciwieństwie do domyślnego trybu wypychania). Aby uzyskać więcej informacji, zobacz [ten blog](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/) , aby uzyskać więcej informacji na temat ustawień rozszerzenia DSC.
+  - Nowa właściwość w ustawieniach rozszerzenia DSC. `ForcePullAndApply` w programie AdvancedOptions został dodany, aby włączyć rozszerzenie DSC w celu skonfigurowania konfiguracji DSC, gdy zostanie pobrany tryb odświeżania (w przeciwieństwie do domyślnego trybu wypychania). Więcej informacji o ustawieniach rozszerzenia DSC można znaleźć w [tym blogu](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/).
 
 ### <a name="version-215"></a>Wersja 2,15
 
@@ -247,10 +272,10 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
-  - W przypadku rozszerzenia w wersji 2,14 wprowadzono zmiany w celu zainstalowania pakietu WMF RTM. Podczas uaktualniania z rozszerzenia Version 2.13.2.0 do 2.14.0.0 można zauważyć, że niektóre polecenia cmdlet DSC kończą się niepowodzeniem lub Konfiguracja kończy się niepowodzeniem z powodu błędu — "nie znaleziono wystąpienia z podaną wartością właściwości". Aby uzyskać więcej informacji, zobacz informacje o [wersji DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Obejścia tych problemów zostały dodane w wersji 2,15.
-  - Niestety, jeśli zainstalowano już wersję 2,14 i uruchomiono jeden z powyższych dwóch problemów, należy wykonać te kroki ręcznie. W sesji programu PowerShell z podwyższonym poziomem uprawnień:
+  - W przypadku rozszerzenia w wersji 2,14 wprowadzono zmiany w celu zainstalowania pakietu WMF RTM. Podczas uaktualniania z rozszerzenia Version 2.13.2.0 do 2.14.0.0 można zauważyć, że niektóre polecenia cmdlet DSC kończą się niepowodzeniem lub Konfiguracja kończy się niepowodzeniem z powodu błędu — "nie znaleziono wystąpienia z podaną wartością właściwości". Aby uzyskać więcej informacji, zobacz informacje o [wersji DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Obejścia tych problemów zostały dodane w wersji 2,15. 
+  - Jeśli zainstalowano już wersję 2,14 i uruchomiono jeden z powyższych dwóch problemów, należy wykonać te kroki ręcznie. W sesji programu PowerShell z podwyższonym poziomem uprawnień uruchom następujące polecenia:
     - `Remove-Item -Path $env:SystemRoot\system32\Configuration\DSCEngineCache.mof`
     - `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
 
@@ -260,16 +285,16 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0
 - **Środowisko:** Azure
-- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
+- **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych usługi Windows OSs instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
   - Używa pakietu WMF RTM.
-  - Umożliwia zbieranie danych w celu poprawienia jakości rozszerzenia DSC. Aby uzyskać więcej informacji, zapoznaj [się z blogiem](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
-  - Udostępnia zaktualizowany format ustawień dla rozszerzenia w szablonie Menedżer zasobów. Aby uzyskać więcej informacji, zapoznaj [się z blogiem](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/).
+  - Umożliwia zbieranie danych w celu poprawienia jakości rozszerzenia DSC. Aby uzyskać więcej informacji, zobacz ten [artykuł w blogu](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
+  - Udostępnia zaktualizowany format ustawień dla rozszerzenia w szablonie Menedżer zasobów. Aby uzyskać więcej informacji, zobacz ten [artykuł w blogu](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/).
   - Poprawki błędów i inne ulepszenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat programu PowerShell DSC, zobacz [centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview).
 - Zapoznaj się z [szablonem Menedżer zasobów dla rozszerzenia DSC](../virtual-machines/extensions/dsc-template.md).
-- Aby uzyskać więcej funkcji i zasobów, którymi można zarządzać za pomocą programu PowerShell DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Aby uzyskać inne funkcje i zasoby, którymi można zarządzać za pomocą programu PowerShell DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Aby uzyskać szczegółowe informacje o przekazywaniu poufnych parametrów do konfiguracji, zobacz [Zarządzanie poświadczeniami bezpiecznie przy użyciu programu obsługi rozszerzeń DSC](../virtual-machines/extensions/dsc-credentials.md).

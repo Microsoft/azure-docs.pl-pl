@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076131"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588370"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Windows
 > [!div class="op_single_selector"]
@@ -346,7 +346,7 @@ W "WadCfg" szablonu Menedżer zasobów Dodaj "ujścia", uwzględniając następu
 
 W przypadku powyższych fragmentów kodu nazwa "applicationInsights" została użyta do opisania ujścia. Nie jest to wymagane i tak długo, jak nazwa ujścia jest zawarta w "ujścia", można ustawić nazwę na dowolny ciąg.
 
-Obecnie dzienniki z klastra są wyświetlane jako **ślady** w przeglądarce dzienników Application Insights. Ponieważ większość śladów pochodzących z platformy ma poziom "informacyjny", można również rozważyć zmianę konfiguracji ujścia tak, aby tylko wysyłali dzienniki typu "ostrzeżenie" lub "błąd". Można to zrobić, dodając "kanały" do ujścia, jak pokazano w [tym artykule](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Obecnie dzienniki z klastra są wyświetlane jako **ślady** w przeglądarce dzienników Application Insights. Ponieważ większość śladów pochodzących z platformy ma poziom "informacyjny", można również rozważyć zmianę konfiguracji ujścia tak, aby tylko wysyłali dzienniki typu "ostrzeżenie" lub "błąd". Można to zrobić, dodając "kanały" do ujścia, jak pokazano w [tym artykule](../azure-monitor/agents/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Jeśli używasz nieprawidłowego klucza Application Insights w portalu lub w szablonie Menedżer zasobów, musisz ręcznie zmienić klucz i zaktualizować klaster/wdrożyć go ponownie.

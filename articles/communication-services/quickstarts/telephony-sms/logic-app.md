@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 24926640de3b50823dfeaf195500f33b49aebc18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801667"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652721"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Szybki Start: wysyłanie wiadomości SMS w Azure Logic Apps przy użyciu usług Azure Communications Services
 
@@ -39,6 +39,8 @@ Mimo że ten przewodnik Szybki Start koncentruje się na używaniu łącznika do
 
 - Numer telefonu z włączoną obsługą wiadomości SMS lub [Uzyskaj numer telefonu](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## <a name="add-an-sms-action"></a>Dodaj akcję SMS
 
 Aby dodać akcję **Wyślij wiadomość SMS** jako nowy krok w przepływie pracy przy użyciu łącznika programu SMS usługi Azure Communications Services, wykonaj następujące kroki w [Azure Portal](https://portal.azure.com) za pomocą przepływu pracy aplikacji logiki, który jest otwarty w Projektancie aplikacji logiki:
@@ -47,7 +49,7 @@ Aby dodać akcję **Wyślij wiadomość SMS** jako nowy krok w przepływie pracy
 
 1. W polu wyszukiwania **Wybierz operację** wprowadź wartość `Azure Communication Services` . Z listy Akcje wybierz pozycję **Wyślij wiadomość SMS**.
 
-   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Zrzut ekranu pokazujący Azure Portal, który jest otwarty w Projektancie aplikacji logiki, i pokazuje przykładową aplikację logiki, która używa akcji Wyślij wiadomość SMS dla łącznika usługi Azure Communications Services.":::
+   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Zrzut ekranu przedstawiający projektanta aplikacji logiki i łącznik usługi Azure Communications Services z wybraną akcją Wyślij wiadomość SMS.":::
 
 1. Teraz Utwórz połączenie z zasobem usług komunikacyjnych.
 
@@ -55,9 +57,9 @@ Aby dodać akcję **Wyślij wiadomość SMS** jako nowy krok w przepływie pracy
 
    1. Wybierz zasób usługi Azure Communications Services.
 
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Zrzut ekranu pokazujący Azure Portal, który jest otwarty w Projektancie aplikacji logiki, i pokazuje przykładową aplikację logiki, która używa akcji Wyślij wiadomość SMS dla łącznika usługi Azure Communications Services.":::
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Zrzut ekranu pokazujący konfigurację akcji wysyłania SMS z przykładowymi informacjami.":::
 
 1. W akcji **Wyślij wiadomość SMS** podaj następujące informacje: 
 
@@ -67,7 +69,7 @@ Aby dodać akcję **Wyślij wiadomość SMS** jako nowy krok w przepływie pracy
 
    Oto Akcja **wysyłania wiadomości SMS** z przykładowymi informacjami:
 
-   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Zrzut ekranu pokazujący Azure Portal, który jest otwarty w Projektancie aplikacji logiki, i pokazuje przykładową aplikację logiki, która używa akcji Wyślij wiadomość SMS dla łącznika usługi Azure Communications Services.":::
+   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Zrzut ekranu pokazujący akcję Wyślij wiadomość SMS z przykładowymi informacjami.":::
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -93,5 +95,5 @@ W tym przewodniku szybki start przedstawiono sposób wysyłania wiadomości SMS 
 Aby uzyskać więcej informacji na temat programu SMS w usłudze Azure Communications Services, zobacz następujące artykuły:
 
 - [Pojęcia dotyczące wiadomości SMS](../../concepts/telephony-sms/concepts.md)
-- [Planowanie rozwiązania do obsługi telefonii i wiadomości SMS](../../concepts/telephony-sms/plan-solution.md)
+- [Typy numerów telefonów](../../concepts/telephony-sms/plan-solution.md)
 - [ZESTAW SDK PROGRAMU SMS](../../concepts/telephony-sms/sdk-features.md)

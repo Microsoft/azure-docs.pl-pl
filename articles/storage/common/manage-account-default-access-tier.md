@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166498"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653836"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Zarządzanie domyślną warstwą dostępu konta usługi Azure Storage
 
-Każde konto usługi Azure Storage ma domyślną warstwę dostępu (gorąca, chłodna lub archiwalna). Warstwa dostępu jest przypisywana podczas tworzenia konta magazynu. Domyślna Warstwa dostępu to gorąca.
+Każde konto usługi Azure Storage ma domyślną warstwę dostępu, gorącą lub chłodną. Warstwa dostępu jest przypisywana podczas tworzenia konta magazynu. Domyślna Warstwa dostępu to gorąca.
 
 Domyślną warstwę konta można zmienić, ustawiając atrybut **Warstwa dostępu** na koncie magazynu. Zmiana warstwy konta ma zastosowanie do wszystkich obiektów przechowywanych na koncie, które nie mają jawnie ustawionej warstwy. Przełączenie warstwy konta z gorąca na chłodnie powoduje operacje zapisu (na 10 000) dla wszystkich obiektów Blob bez zestawu warstwy tylko na kontach GPv2 i przełączanie z chłodnej na gorącą operację odczytu (za 10 000) i pobieranie danych (za GB) dla wszystkich obiektów BLOB w ramach kont Blob Storage i GPv2.
 

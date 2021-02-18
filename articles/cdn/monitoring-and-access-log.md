@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575443"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Monitorowanie, metryki i dzienniki dostępu w czasie rzeczywistym dla Azure CDN
 Dzięki Azure CDN firmy Microsoft można monitorować zasoby w następujący sposób, aby ułatwić rozwiązywanie problemów, śledzenie i debugowanie. 
@@ -215,7 +215,7 @@ Metryki są wyświetlane na wykresach i dostępne za pośrednictwem programu Pow
 
 Azure CDN od miar firmy Microsoft i wysyła je do 60 sekund. Metryki mogą pojawić się w portalu dopiero po 3 minutach. 
 
-Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor/platform/data-platform-metrics.md).
+Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Metryki obsługiwane przez Azure CDN od firmy Microsoft**
 
@@ -226,7 +226,7 @@ Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor
 | ResponseSize | Liczba bajtów wysłanych jako odpowiedzi z usługi CDN Edge do klientów. |Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP. |
 | TotalLatency | Łączny czas od żądania klienta odebranego przez usługę CDN **do momentu wysłania ostatniego bajtu odpowiedzi z sieci CDN do klienta**. |Punkt końcowy </br> Kraj klienta. </br> Region klienta. </br> Stan HTTP. </br> Grupa stanu HTTP. |
 
-**_Liczba bajtów trafień = (ruch wychodzący z krawędzi od brzegu do punktu początkowego)/egress z krawędzi_*
+***Liczba bajtów trafień = (ruch wychodzący z krawędzi od brzegu do punktu początkowego)/egress z krawędzi**
 
 Scenariusze wykluczone ze współczynnika trafień w bajtach:
 
@@ -265,7 +265,7 @@ Wybierz **nową regułę alertu** dla metryk wymienionych w sekcji metryki:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Skonfiguruj alerty dla punktu końcowego usługi CDN." border="true":::
 
-Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](../azure-monitor/platform/alerts-overview.md).
+Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Dodatkowe metryki
 Dodatkowe metryki można włączyć za pomocą usługi Azure Log Analytics i dzienników pierwotnych w celu uzyskania dodatkowego kosztu.
@@ -299,4 +299,4 @@ Aby uzyskać więcej informacji na temat Azure CDN i innych usług platformy Azu
 
 * Dowiedz się więcej o [Azure monitor](../azure-monitor/overview.md).
 
-* Skonfiguruj [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Skonfiguruj [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md).

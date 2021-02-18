@@ -3,12 +3,12 @@ title: Tworzenie i uruchamianie niestandardowych testów dostępności przy uży
 description: Ten dokument zawiera informacje dotyczące sposobu tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, jeśli nie jest on dostępny w Twoim regionie.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945655"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589947"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
@@ -175,7 +175,7 @@ Jeśli uruchomiono wszystko (bez dodawania logiki biznesowej), zobaczysz, że te
 
 ## <a name="query-in-logs-analytics"></a>Zapytanie w dziennikach (analiza)
 
-Dzienników (analiz) można używać do wyświetlania wyników dostępności, zależności i innych. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie zapytania dziennika](../log-query/log-query-overview.md).
+Dzienników (analiz) można używać do wyświetlania wyników dostępności, zależności i innych. Aby dowiedzieć się więcej o dziennikach, odwiedź stronę [Omówienie zapytania dziennika](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Wyniki dostępności](media/availability-azure-functions/availabilityresults.png)
