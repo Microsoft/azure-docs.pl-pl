@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587983"
 ---
 # <a name="monitoring-time-series-insights"></a>Time Series Insights monitorowania
 
@@ -29,7 +29,7 @@ Strona **Przegląd** w Azure Portal dla każdego środowiska Time Series Insight
 
 Time Series Insights tworzy dane monitorowania przy użyciu [Azure monitor](../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
 
-Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md), który opisuje następujące pojęcia:
+Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/essentials/monitor-azure-resource.md), który opisuje następujące pojęcia:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
@@ -40,11 +40,11 @@ Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure mo
 Poniższe sekcje zostały skompilowane w tym artykule, opisując szczegółowe dane zebrane dla Azure Time Series Insights. Te sekcje zawierają również przykłady konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
 
 > [!TIP]
-> Aby zrozumieć koszty związane z Azure Monitor, zobacz [użycie i szacowane koszty](../azure-monitor/platform/usage-estimated-costs.md). Aby zrozumieć czas, w jakim dane mają być wyświetlane w Azure Monitor, zobacz czas pozyskiwania [danych dziennika](../azure-monitor/platform/data-ingestion-time.md).
+> Aby zrozumieć koszty związane z Azure Monitor, zobacz [użycie i szacowane koszty](../azure-monitor//usage-estimated-costs.md). Aby zrozumieć czas, w jakim dane mają być wyświetlane w Azure Monitor, zobacz czas pozyskiwania [danych dziennika](../azure-monitor/logs/data-ingestion-time.md).
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Monitorowanie danych z Azure Time Series Insights
 
-Azure Time Series Insights gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights gromadzi te same rodzaje danych monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Aby uzyskać szczegółowe informacje o dziennikach i metrykach, które można zbierać, zobacz [Azure Time Series Insights informacje o danych monitorowania](how-to-monitor-tsi-reference.md) .
 
@@ -53,7 +53,7 @@ Aby uzyskać szczegółowe informacje o dziennikach i metrykach, które można z
 Metryki platformy są zbierane i przechowywane automatycznie, ale mogą być kierowane do innych lokalizacji przy użyciu ustawienia diagnostycznego.
 
 Dzienniki zasobów nie są zbierane i przechowywane do momentu utworzenia ustawienia diagnostycznego i skierowania ich do co najmniej jednej lokalizacji.
-Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../azure-monitor/platform/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell. Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane.
+Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../azure-monitor/essentials/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell. Podczas tworzenia ustawienia diagnostycznego należy określić, które kategorie dzienników mają być zbierane.
 
 Dzienniki można zbierać z następujących kategorii dla Azure Time Series Insights:
 
@@ -80,7 +80,7 @@ Można uzyskać dostęp do dzienników zasobów jako obiektów BLOB na koncie ma
 
 Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każda tabela ma swój własny zestaw unikatowych właściwości.
 
-Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Listę typów dzienników zasobów zbieranych dla Azure Time Series Insights można znaleźć w temacie [Azure Time Series Insights monitorowanie danych](how-to-monitor-tsi-reference.md#resource-logs).
+Wszystkie dzienniki zasobów w Azure Monitor mają te same pola, a następnie pola specyficzne dla usługi. Wspólny schemat został przedstawiony w [schemacie dziennika zasobów Azure monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Listę typów dzienników zasobów zbieranych dla Azure Time Series Insights można znaleźć w temacie [Azure Time Series Insights monitorowanie danych](how-to-monitor-tsi-reference.md#resource-logs).
 
 Azure Time Series Insights przechowuje dane w poniższych tabelach.
 
@@ -122,4 +122,4 @@ Podczas tworzenia reguły alertu na podstawie metryk platformy należy pamięta�
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać informacje o dziennikach i metrykach utworzonych przez Azure Time Series Insights, zobacz temat [Informacje o danych monitorowania Azure Time Series Insights](how-to-monitor-tsi-reference.md) .
-* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .
+* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/essentials/monitor-azure-resource.md) .

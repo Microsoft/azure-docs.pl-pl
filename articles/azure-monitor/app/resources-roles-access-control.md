@@ -4,12 +4,12 @@ description: Właściciele, współautorzy i czytelnicy w sprawie wglądu w dane
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076688"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589597"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Zasoby, role i kontrola dostępu w Application Insights
 
@@ -76,7 +76,7 @@ Tam, gdzie ma to zastosowanie, prowadzimy do powiązanej oficjalnej dokumentacji
 | [Czytelnik](../../role-based-access-control/built-in-roles.md#reader) |Może wyświetlać, ale nie zmieniać żadnych elementów. |
 | [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Nadaje użytkownikowi uprawnienia do korzystania z funkcji Snapshot Debugger Application Insights. Należy zauważyć, że ta rola jest zawarta w roli właściciel lub współautor. |
 | Współautor Release Management wdrożenia usługi platformy Azure | Rola współautor dla usług wdrażanych za pomocą usługi Azure Service Deploy. |
-| [Przeczyszczanie danych](../../role-based-access-control/built-in-roles.md#data-purger) | Specjalna rola służąca do przeczyszczania danych osobowych. Aby uzyskać więcej informacji, zobacz nasze [wskazówki dotyczące danych osobowych](../platform/personal-data-mgmt.md) .   |
+| [Przeczyszczanie danych](../../role-based-access-control/built-in-roles.md#data-purger) | Specjalna rola służąca do przeczyszczania danych osobowych. Aby uzyskać więcej informacji, zobacz nasze [wskazówki dotyczące danych osobowych](../logs/personal-data-mgmt.md) .   |
 | ExpressRoute administrator | Można utworzyć usuwanie tras ekspresowych i zarządzać nimi.|
 | [Współautor usługi Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych; Odczytywanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage; Tworzenie i Konfigurowanie kont usługi Automation; Dodawanie rozwiązań; i Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure.  |
 | [Czytelnik usługi Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics Reader może wyświetlać i przeszukiwać wszystkie dane monitorowania, a także wyświetlać ustawienia monitorowania, w tym Wyświetlanie konfiguracji diagnostyki platformy Azure na wszystkich zasobach platformy Azure. |

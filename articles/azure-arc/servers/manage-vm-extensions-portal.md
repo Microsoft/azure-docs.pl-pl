@@ -3,12 +3,12 @@ title: Włącz rozszerzenie maszyny wirtualnej na podstawie Azure Portal
 description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z obsługą usługi Azure ARC z systemem w środowiskach chmury hybrydowej z poziomu Azure Portal.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587666"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Włącz rozszerzenia maszyny wirtualnej platformy Azure z poziomu Azure Portal
 
@@ -33,7 +33,7 @@ Rozszerzenia maszyny wirtualnej mogą być stosowane do Twojego łuku dla maszyn
 
     ![Zainstaluj rozszerzenie maszyny wirtualnej Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Aby ukończyć instalację, należy podać identyfikator obszaru roboczego i klucz podstawowy. Jeśli nie wiesz, jak znaleźć te informacje, zobacz temat [Uzyskiwanie identyfikatora i klucza obszaru roboczego](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+    Aby ukończyć instalację, należy podać identyfikator obszaru roboczego i klucz podstawowy. Jeśli nie wiesz, jak znaleźć te informacje, zobacz temat [Uzyskiwanie identyfikatora i klucza obszaru roboczego](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 4. Po potwierdzeniu wymaganych informacji wybierz pozycję **Utwórz**. Zostanie wyświetlone podsumowanie wdrożenia i można sprawdzić stan wdrożenia.
 

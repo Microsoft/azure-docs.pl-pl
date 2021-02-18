@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc31cd4f492a4e95ce8232a8df28f07206e23b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450393"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587172"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
 
@@ -33,14 +33,14 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
 vSphere ESXi host 5,5, 6,0 i 6,5
 
 #### <a name="prepare-a-linux-server"></a>Przygotowywanie serwera z systemem Linux
-Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszystkie dane dziennika systemu z hostów ESXi. [Agent log Analytics Linux](../learn/quick-collect-linux-computer.md) to punkt kolekcji dla wszystkich danych dziennika systemowego hosta ESXi. Do przesyłania dzienników do jednego serwera z systemem Linux można użyć wielu hostów ESXi, jak w poniższym przykładzie.
+Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszystkie dane dziennika systemu z hostów ESXi. [Agent log Analytics Linux](../vm/quick-collect-linux-computer.md) to punkt kolekcji dla wszystkich danych dziennika systemowego hosta ESXi. Do przesyłania dzienników do jednego serwera z systemem Linux można użyć wielu hostów ESXi, jak w poniższym przykładzie.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
    ![przepływ dziennika systemowego](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Konfigurowanie kolekcji dziennika systemowego
-1. Skonfiguruj przekazywanie dziennika systemowego do usługi VSphere. Aby uzyskać szczegółowe informacje ułatwiające skonfigurowanie przekazywania dziennika systemu, zobacz [Konfigurowanie dziennika systemowego na ESXi 5,0 i wyższych (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Przejdź do pozycji **Konfiguracja hosta ESXi**  >  **oprogramowanie**  >  **Zaawansowane ustawienia**  >  **dziennika**systemowego.
+1. Skonfiguruj przekazywanie dziennika systemowego do usługi VSphere. Aby uzyskać szczegółowe informacje ułatwiające skonfigurowanie przekazywania dziennika systemu, zobacz [Konfigurowanie dziennika systemowego na ESXi 5,0 i wyższych (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Przejdź do pozycji **Konfiguracja hosta ESXi**  >  **oprogramowanie**  >  **Zaawansowane ustawienia**  >  **dziennika** systemowego.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. W polu *Dziennik system. Global. logHost* Dodaj serwer z systemem Linux i numer portu *1514*. Na przykład `tcp://hostname:1514` lub `tcp://123.456.789.101:1514`
 1. Otwórz Zaporę hosta ESXi dla dziennika systemowego. **Konfiguracja**  >  hosta ESXi **Oprogramowanie**  >  **Profil zabezpieczeń**  >  **Zapora** i otwarte **Właściwości**.  
@@ -81,7 +81,7 @@ W poniższej tabeli przedstawiono metody zbierania danych oraz inne szczegóły 
 
 W poniższej tabeli przedstawiono przykłady pól danych zbieranych przez rozwiązanie VMware Monitoring:
 
-| Nazwa pola | description |
+| Nazwa pola | description (opis) |
 | --- | --- |
 | Device_s |Urządzenia magazynujące VMware |
 | ESXIFailure_s |typy błędów |
@@ -122,7 +122,7 @@ W widoku pulpitu nawigacyjnego **VMware** bloki są zorganizowane według:
 
 Kliknij dowolny blok, aby otworzyć okienko wyszukiwania Log Analytics, które zawiera szczegółowe informacje specyficzne dla bloku.
 
-W tym miejscu można edytować zapytanie dziennika w celu zmodyfikowania go dla określonego elementu. Aby uzyskać szczegółowe informacje na temat tworzenia zapytań dziennika, zobacz [Znajdowanie danych przy użyciu zapytań dzienników w Azure monitor](../log-query/log-query-overview.md).
+W tym miejscu można edytować zapytanie dziennika w celu zmodyfikowania go dla określonego elementu. Aby uzyskać szczegółowe informacje na temat tworzenia zapytań dziennika, zobacz [Znajdowanie danych przy użyciu zapytań dzienników w Azure monitor](../logs/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Znajdź zdarzenia hosta ESXi
 Pojedynczy Host ESXi generuje wiele dzienników w oparciu o ich procesy. Rozwiązanie VMware Monitoring pozwala na ich scentralizowane i podsumowywanie liczby zdarzeń. Ten scentralizowany widok pomaga zrozumieć, który host ESXi ma dużą ilość zdarzeń i jakie zdarzenia często występują w danym środowisku.
@@ -151,12 +151,12 @@ Rozwiązanie obejmuje inne przydatne zapytania, które mogą ułatwić Zarządza
 
 
 #### <a name="save-queries"></a>Zapisywanie zapytań
-Zapisywanie zapytań dzienników jest standardową funkcją w Azure Monitor i ułatwia zachowanie wszelkich zapytań, które okazały się przydatne. Po utworzeniu kwerendy, która jest przydatna, Zapisz ją, klikając przycisk **Ulubione**. Zapisane zapytanie pozwala z łatwością użyć go później na stronie [mój pulpit nawigacyjny](../learn/tutorial-logs-dashboards.md) , na której można tworzyć własne niestandardowe pulpity nawigacyjne.
+Zapisywanie zapytań dzienników jest standardową funkcją w Azure Monitor i ułatwia zachowanie wszelkich zapytań, które okazały się przydatne. Po utworzeniu kwerendy, która jest przydatna, Zapisz ją, klikając przycisk **Ulubione**. Zapisane zapytanie pozwala z łatwością użyć go później na stronie [mój pulpit nawigacyjny](../visualize/tutorial-logs-dashboards.md) , na której można tworzyć własne niestandardowe pulpity nawigacyjne.
 
 ![Zrzut ekranu przedstawia część niestandardowego pulpitu nawigacyjnego z etykietą wyszukiwanie w dzienniku z ikonami Cofnij, Eksportuj, alert, Save, Ulubione i History.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Tworzenie alertów z zapytań
-Po utworzeniu zapytań możesz chcieć użyć zapytań w celu wygenerowania alertów w przypadku wystąpienia określonych zdarzeń. Aby uzyskać informacje o sposobach tworzenia alertów, zobacz [alerty w log Analytics](../platform/alerts-overview.md) . Przykłady zapytań dotyczących alertów i innych przykładów zapytań można znaleźć w blogu [monitorowanie oprogramowania VMware przy użyciu log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) .
+Po utworzeniu zapytań możesz chcieć użyć zapytań w celu wygenerowania alertów w przypadku wystąpienia określonych zdarzeń. Aby uzyskać informacje o sposobach tworzenia alertów, zobacz [alerty w log Analytics](../alerts/alerts-overview.md) . Przykłady zapytań dotyczących alertów i innych przykładów zapytań można znaleźć w blogu [monitorowanie oprogramowania VMware przy użyciu log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) .
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Co należy zrobić w ustawieniu hosta ESXi? Jaki wpływ będzie miał w bieżącym środowisku?
@@ -197,7 +197,7 @@ Może istnieć wiele przyczyn:
      d. Jeśli plik nie istnieje lub ustawienia użytkownika i grupy są błędne, wykonaj działania naprawcze, [przygotowując serwer z systemem Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [zapytań dzienników](../log-query/log-query-overview.md) w log Analytics, aby wyświetlić szczegółowe dane hosta VMware.
-* [Utwórz własne pulpity nawigacyjne](../learn/tutorial-logs-dashboards.md) przedstawiające dane hosta VMware.
-* [Utwórz alerty](../platform/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń hosta VMware.
+* Użyj [zapytań dzienników](../logs/log-query-overview.md) w log Analytics, aby wyświetlić szczegółowe dane hosta VMware.
+* [Utwórz własne pulpity nawigacyjne](../visualize/tutorial-logs-dashboards.md) przedstawiające dane hosta VMware.
+* [Utwórz alerty](../alerts/alerts-overview.md) w przypadku wystąpienia określonych zdarzeń hosta VMware.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 05d312296b48f35ea87c5443cc587989e2d11fd5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515642"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587968"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego pulpitu wirtualnego systemu Windows (klasycznego)
 
@@ -116,7 +116,7 @@ Poniżej przedstawiono sposób ręcznego konfigurowania zalecanych liczników wy
     -   Informacje o procesorze ( \* ) \\ czas procesora
     -   Opóźnienie wejściowe użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejściowe
 
-Dowiedz się więcej o licznikach wydajności w [źródłach danych wydajności systemu Windows i Linux w Azure monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Dowiedz się więcej o licznikach wydajności w [źródłach danych wydajności systemu Windows i Linux w Azure monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Wszystkie skonfigurowane dodatkowe liczniki nie będą wyświetlane w samym narzędziu diagnostyki. Aby pojawił się w narzędziu diagnostycznym, należy skonfigurować plik konfiguracyjny narzędzia. Instrukcje dotyczące sposobu wykonania tej czynności z zaawansowaną administracją będą dostępne w serwisie GitHub w późniejszym terminie.
@@ -199,7 +199,7 @@ Aby ustawić identyfikator URI przekierowania:
 
 Przed udostępnieniem narzędzi diagnostycznych użytkownikom upewnij się, że mają one następujące uprawnienia:
 
-- Użytkownicy potrzebują dostępu do odczytu usługi log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](../../azure-monitor/platform/roles-permissions-security.md).
+- Użytkownicy potrzebują dostępu do odczytu usługi log Analytics. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](../../azure-monitor/roles-permissions-security.md).
 -  Użytkownicy muszą również mieć dostęp do odczytu dla dzierżawy pulpitu wirtualnego systemu Windows (rola czytnika usług pulpitu zdalnego). Aby uzyskać więcej informacji, zobacz [delegowany dostęp w programie Virtual Desktop systemu Windows](delegated-access-virtual-desktop-2019.md).
 
 Należy również nadać użytkownikom następujące informacje:

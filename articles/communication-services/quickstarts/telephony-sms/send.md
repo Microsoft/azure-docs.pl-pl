@@ -11,20 +11,22 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d665df8eacfa575cd8dc50251662730e58fa7b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659696"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653435"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Szybki Start: wysyłanie wiadomości SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 
 > [!IMPORTANT]
 > Wiadomości SMS mogą być wysyłane do numerów telefonów i odbierane z nich Stany Zjednoczone. Numery telefonów znajdujące się w innych lokalizacje geograficzne nie są jeszcze obsługiwane przez program SMS usług komunikacyjnych.
-> Aby uzyskać więcej informacji, zobacz **[Planowanie rozwiązania do zarządzania telefonami i programem SMS](../../concepts/telephony-sms/plan-solution.md)**.
+> Aby uzyskać więcej informacji, zobacz **[typy numerów telefonów](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -58,7 +60,7 @@ W tym przewodniku szybki start przedstawiono sposób wysyłania wiadomości SMS 
 > [Subskrybowanie zdarzeń SMS](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Planowanie rozwiązania PSTN](../../concepts/telephony-sms/plan-solution.md)
+> [Typy numerów telefonów](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o programie SMS](../../concepts/telephony-sms/concepts.md)

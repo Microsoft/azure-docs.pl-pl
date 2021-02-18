@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586780"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -258,7 +258,7 @@ Ta tabela zawiera podstawowe pola dotyczące chronionych kontenerów. (Was Prote
 | ProtectedContainerType_s |Tekst |Czy chroniony kontener jest serwerem lub kontenerem |
 | ProtectedContainerProtectionState_s "  |Tekst |Stan ochrony chronionego kontenera |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 
@@ -462,7 +462,7 @@ Poniżej przedstawiono kilka przykładów ułatwiających pisanie zapytań dotyc
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schemat wersji V1 schematu vs v2
 
-Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure zostały wysłane do tabeli Diagnostyka Azure w schemacie nazywanym ***schematem V1***. Następnie dodano nowe kolumny do obsługi innych scenariuszy i obciążeń, a dane diagnostyczne zostały wypchnięte w nowym schemacie nazywanym ***schematem v2***.  
+Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure zostały wysłane do tabeli Diagnostyka Azure w schemacie określonym jako ***V1 Schema** _. Następnie dodano nowe kolumny do obsługi innych scenariuszy i obciążeń, a dane diagnostyczne zostały wypchnięte w nowym schemacie, o ile w _schemacie _ * v2 schemat_* *.  
 
 Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika.
 
@@ -495,4 +495,4 @@ Ponieważ schemat V1 znajduje się w ścieżce przestarzałej, zaleca się używ
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po przejrzeniu modelu danych możesz rozpocząć [Tworzenie niestandardowych zapytań](../azure-monitor/learn/tutorial-logs-dashboards.md) w dziennikach Azure monitor, aby utworzyć własny pulpit nawigacyjny.
+Po przejrzeniu modelu danych możesz rozpocząć [Tworzenie niestandardowych zapytań](../azure-monitor/visualize/tutorial-logs-dashboards.md) w dziennikach Azure monitor, aby utworzyć własny pulpit nawigacyjny.

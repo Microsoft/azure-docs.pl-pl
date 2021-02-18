@@ -3,19 +3,19 @@ title: Automatyzacja procesów Application Insights platformy Azure przy użyciu
 description: Dowiedz się, jak szybko zautomatyzować powtarzalne procesy przez dodanie łącznika Application Insights do aplikacji logiki.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970875"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589916"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatyzacja procesów Application Insights przy użyciu Logic Apps
 
 Czy na danych telemetrycznych można wielokrotnie uruchamiać te same zapytania, aby sprawdzić, czy usługa działa prawidłowo? Czy chcesz zautomatyzować te zapytania do znajdowania trendów i anomalii, a następnie utworzyć własne przepływy pracy? Łącznik usługi Azure Application Insights dla Logic Apps jest odpowiednim narzędziem do tego celu.
 
 > [!NOTE]
-> Łącznik usługi Azure Application Insights został zastąpiony [łącznikiem Azure monitor](../platform/logicapp-flow-connector.md) , który jest zintegrowany z Azure Active Directory zamiast wymagać klucza interfejsu API, a także umożliwia pobieranie danych z obszaru roboczego log Analytics.
+> Łącznik usługi Azure Application Insights został zastąpiony [łącznikiem Azure monitor](../logs/logicapp-flow-connector.md) , który jest zintegrowany z Azure Active Directory zamiast wymagać klucza interfejsu API, a także umożliwia pobieranie danych z obszaru roboczego log Analytics.
 
 Dzięki tej integracji można zautomatyzować wiele procesów bez konieczności pisania jednego wiersza kodu. Można utworzyć aplikację logiki za pomocą łącznika Application Insights, aby szybko zautomatyzować każdy proces Application Insights. 
 
@@ -32,11 +32,11 @@ W tym samouczku dowiesz się, jak utworzyć aplikację logiki, która używa alg
     ![Nowe okno aplikacji logiki](./media/automate-with-logic-apps/1createlogicapp.png)
 
 ### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Krok 2. Tworzenie wyzwalacza dla aplikacji logiki
-1. W oknie **Projektant aplikacji logiki** w obszarze **Rozpocznij ze wspólnym wyzwalaczem**wybierz pozycję **cykl**.
+1. W oknie **Projektant aplikacji logiki** w obszarze **Rozpocznij ze wspólnym wyzwalaczem** wybierz pozycję **cykl**.
 
     ![Okno projektanta aplikacji logiki](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. W polu  **Interwał** wpisz **1** , a następnie pole**częstotliwość** , a następnie wybierz pozycję **dzień**.
+1. W polu  **Interwał** wpisz **1** , a następnie pole **częstotliwość** , a następnie wybierz pozycję **dzień**.
 
     ![Okno "cykl" projektanta aplikacji logiki](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -45,7 +45,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację logiki, która używa alg
 
 1. W polu wyszukiwania **Wybierz akcję** wpisz **Application Insights platformy Azure**.
 
-1. W obszarze **Akcje**kliknij pozycję **Azure Application Insights-Wizualizuj zapytanie analityczne**.
+1. W obszarze **Akcje** kliknij pozycję **Azure Application Insights-Wizualizuj zapytanie analityczne**.
 
     ![Okno projektanta aplikacji logiki "Wybieranie akcji"](./media/automate-with-logic-apps/4visualize.png)
 
@@ -118,7 +118,7 @@ Podczas tworzenia własnych zapytań Sprawdź, czy działają prawidłowo w anal
       ![Ekran konfiguracji poczty e-mail pakietu Office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>Krok 7. Zapisywanie i testowanie aplikacji logiki
-* Kliknij pozycję **Zapisz**, aby zapisać zmiany.
+* Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 Możesz poczekać na uruchomienie aplikacji logiki przez wyzwalacz lub uruchomić aplikację logiki natychmiast, wybierając pozycję **Uruchom**.
 
@@ -130,7 +130,7 @@ Po uruchomieniu aplikacji logiki adresaci określeni na liście wiadomości e-ma
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../log-query/get-started-queries.md).
+- Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../logs/get-started-queries.md).
 - Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
