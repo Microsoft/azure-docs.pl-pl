@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Dokumentacja dotycząca tworzenia urządzeń i aplikacji IoT
+summary: Zapoznaj się z dokumentacją usługi Azure IoT w celu opracowania urządzeń osadzonych i tworzenia aplikacji w chmurze obsługujących urządzenia.
+metadata:
+  title: Opracowywanie urządzeń i aplikacji IoT
+  description: Dowiedz się, jak korzystać z usługi Azure IoT do projektowania urządzeń osadzonych i kompilowania aplikacji w chmurze obsługujących urządzenia.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656244"
+landingContent:
+- title: Informacje o tworzeniu urządzeń i aplikacji IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest projektowanie urządzeń i aplikacji w usłudze Azure IoT?
+      url: about-iot-develop.md
+    - text: Którego zestawu SDK należy użyć?
+      url: about-iot-sdks.md
+- title: Wprowadzenie do tworzenia aplikacji dla urządzeń
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Wyślij dane telemetryczne urządzenia do IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Wyślij dane telemetryczne urządzenia do IoT Hub
+      url: quickstart-send-telemetry-cli-python.md
+- title: Wprowadzenie do projektowania urządzeń osadzonych
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Wprowadzenie do projektowania urządzeń osadzonych
+      url: quickstart-device-development.md

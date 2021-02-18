@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 02/03/2021
-ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575447"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581974"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Włączanie rejestrowania diagnostycznego w interfejsie API platformy Azure dla usługi FHIR
 
-W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interfejsie API platformy Azure dla usługi FHIR i móc przeglądać przykładowe zapytania dotyczące tych dzienników. Dostęp do dzienników diagnostycznych jest istotny dla każdej usługi opieki zdrowotnej, w której zgodność z wymaganiami prawnymi (takimi jak HIPAA) jest wymagana. Funkcja interfejsu API platformy Azure dla usługi FHIR, która umożliwia logowanie dzienników diagnostycznych, to [**Ustawienia diagnostyczne**](../azure-monitor/platform/diagnostic-settings.md) w Azure Portal. 
+W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interfejsie API platformy Azure dla usługi FHIR i móc przeglądać przykładowe zapytania dotyczące tych dzienników. Dostęp do dzienników diagnostycznych jest istotny dla każdej usługi opieki zdrowotnej, w której zgodność z wymaganiami prawnymi (takimi jak HIPAA) jest wymagana. Funkcja interfejsu API platformy Azure dla usługi FHIR, która umożliwia logowanie dzienników diagnostycznych, to [**Ustawienia diagnostyczne**](../azure-monitor/essentials/diagnostic-settings.md) w Azure Portal. 
 
 ## <a name="enable-audit-logs"></a>Włączanie dzienników inspekcji
 1. Aby włączyć rejestrowanie diagnostyczne w interfejsie API platformy Azure dla FHIR, wybierz usługę Azure API for FHIR w Azure Portal 
@@ -45,7 +45,7 @@ W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interf
 > [!Note] 
 > Aby pierwsze dzienniki były wyświetlane w Log Analytics, może upłynąć do 15 minut.  
  
-Aby uzyskać więcej informacji na temat pracy z dziennikami diagnostycznymi, zapoznaj się z [dokumentacją dotyczącą dzienników zasobów platformy Azure](../azure-monitor/platform/platform-logs-overview.md) .
+Aby uzyskać więcej informacji na temat pracy z dziennikami diagnostycznymi, zapoznaj się z [dokumentacją dotyczącą dzienników zasobów platformy Azure](../azure-monitor/essentials/platform-logs-overview.md) .
 
 ## <a name="audit-log-details"></a>Szczegóły dziennika inspekcji
 W tej chwili usługa Azure API for FHIR zwraca następujące pola w dzienniku inspekcji: 

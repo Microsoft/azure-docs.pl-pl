@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38214174fd4e3aa6859f05fd24737d9e9d1f963
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085352"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587220"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorowanie urządzeń Surface Hub przy użyciu Azure Monitor do śledzenia ich kondycji
 
@@ -26,7 +26,7 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
 
 * Poziom [subskrypcji log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) , który będzie obsługiwał liczbę urządzeń, które mają być monitorowane. Ceny Log Analytics różnią się w zależności od liczby zarejestrowanych urządzeń i ilości przetwarzanych danych. W tym celu należy wziąć pod uwagę podczas planowania wdrożenia Surface Hub.
 
-Następnie dodasz istniejący obszar roboczy Log Analytics lub utworzysz nowy. Szczegółowe instrukcje dotyczące korzystania z jednej z tych metod znajdują się w [obszarze roboczym log Analytics w Azure Portal](../learn/quick-create-workspace.md). Po skonfigurowaniu obszaru roboczego Log Analytics istnieją dwa sposoby rejestrowania urządzeń Surface Hub:
+Następnie dodasz istniejący obszar roboczy Log Analytics lub utworzysz nowy. Szczegółowe instrukcje dotyczące korzystania z jednej z tych metod znajdują się w [obszarze roboczym log Analytics w Azure Portal](../logs/quick-create-workspace.md). Po skonfigurowaniu obszaru roboczego Log Analytics istnieją dwa sposoby rejestrowania urządzeń Surface Hub:
 
 * Automatycznie za poorednictwem usługi Intune
 * Ręcznie za poorednictwem **ustawień** na urządzeniu Surface Hub.
@@ -57,7 +57,7 @@ Jeśli nie korzystasz z usługi Intune do zarządzania środowiskiem, możesz za
 
 1. W Surface Hub Otwórz pozycję **Ustawienia**.
 2. Po wyświetleniu monitu wprowadź poświadczenia administratora urządzenia.
-3. Kliknij **to urządzenie**, a następnie w obszarze **monitorowanie**kliknij pozycję **Konfiguruj log Analytics ustawienia**.
+3. Kliknij **to urządzenie**, a następnie w obszarze **monitorowanie** kliknij pozycję **Konfiguruj log Analytics ustawienia**.
 4. Wybierz pozycję **Włącz monitorowanie**.
 5. W oknie dialogowym Ustawienia Log Analytics wpisz Log Analytics **Identyfikator obszaru roboczego** i wpisz **klucz obszaru roboczego**.  
    ![Zrzut ekranu przedstawia ustawienia zestawu Microsoft Operations Manager z opcją Włącz monitorowanie i pola tekstowe dla identyfikatora obszaru roboczego i klucza obszaru roboczego.](./media/surface-hubs/settings.png)
@@ -74,8 +74,8 @@ Po kliknięciu kafelka Surface Hub zostanie wyświetlony stan kondycji urządzen
 
    ![Pulpit nawigacyjny Surface Hub](./media/surface-hubs/surface-hub-dashboard.png)
 
-Możesz tworzyć [alerty](../platform/alerts-overview.md) na podstawie istniejących lub niestandardowych wyszukiwań w dziennikach. Korzystając z Azure Monitor danych zbieranych z centrów Surface Hub, można wyszukiwać problemy i alerty dotyczące warunków zdefiniowanych dla urządzeń.
+Możesz tworzyć [alerty](../alerts/alerts-overview.md) na podstawie istniejących lub niestandardowych wyszukiwań w dziennikach. Korzystając z Azure Monitor danych zbieranych z centrów Surface Hub, można wyszukiwać problemy i alerty dotyczące warunków zdefiniowanych dla urządzeń.
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [zapytań dzienników w Azure monitor](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe dane Surface Hub.
-* Utwórz [alerty](../platform/alerts-overview.md) , aby powiadomić Cię, gdy wystąpią problemy z centrami Surface Hub.
+* Użyj [zapytań dzienników w Azure monitor](../logs/log-query-overview.md) , aby wyświetlić szczegółowe dane Surface Hub.
+* Utwórz [alerty](../alerts/alerts-overview.md) , aby powiadomić Cię, gdy wystąpią problemy z centrami Surface Hub.

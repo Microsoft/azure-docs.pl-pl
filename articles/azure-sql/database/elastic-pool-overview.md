@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732698"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653639"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pule elastyczne ułatwiają zarządzanie wieloma bazami danych w Azure SQL Database i skalowanie ich.
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ W przypadku warstw usług i limitów zasobów w każdym modelu zakupu zapoznaj s
 Poniższe kroki ułatwiają oszacowanie, czy pula jest bardziej opłacalna niż pojedyncze bazy danych:
 
 1. Oszacuj jednostek eDTU lub rdzeni wirtualnych wymagany dla puli w następujący sposób:
-
-W przypadku modelu zakupu opartego na jednostkach DTU:
-
-MAKS. (<*całkowita liczba baz danych* x *średnia użycie jednostek DTU na bazę danych*>, <*liczbę WSPÓŁBIEŻNIE szczytowego* *użycia jednostek DTU baz danych X na bazę danych*>)
-
-W przypadku modelu zakupu opartego na rdzeń wirtualny:
-
-MAX (<*całkowita liczba baz danych* x *średnia rdzeń wirtualny na bazę danych*>, <*liczbę współbieżnie szczytowego* *użycia rdzeń wirtualny baz danych x na bazę danych*>)
-
+   - W przypadku modelu zakupu opartego na jednostkach DTU:
+     - Maks. (<*całkowita liczba baz danych* &times; *średnich użycia jednostek DTU na bazę danych*>, <*liczbę współbieżnie szczytowego* &times; *wykorzystania jednostek DTU na bazę danych*>).
+   - W przypadku modelu zakupu opartego na rdzeń wirtualny:
+     - Maks. (<*całkowita liczba* &times; *rdzeń wirtualny wykorzystania baz danych na bazę danych*>, <*liczbę współbieżnie szczytowego* &times; *użycia baz danych rdzeń wirtualny na bazę danych*>)
 2. Oszacowanie całkowitego miejsca do magazynowania wymaganego dla puli przez dodanie rozmiaru danych wymaganego dla wszystkich baz danych w puli. W przypadku modelu zakupu jednostek DTU Określ rozmiar puli jednostek eDTU, który zapewnia tę ilość miejsca w magazynie.
 3. W przypadku modelu zakupu opartego na jednostkach DTU należy uzyskać więcej wartości szacunkowych jednostek eDTU z kroku 1 i 2. W przypadku modelu zakupu opartego na rdzeń wirtualny należy uzyskać oszacowanie rdzeń wirtualny z kroku 1.
 4. Zapoznaj się z [cennikiem SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) i Znajdź najmniejszy rozmiar puli większy niż oszacowanie od kroku 3.

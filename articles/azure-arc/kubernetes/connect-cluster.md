@@ -2,23 +2,23 @@
 title: Połącz klaster Kubernetes z włączonym usługą Azure ARC (wersja zapoznawcza)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 5e2058c5128075de4c37eb9768b204532cd09ffa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 876bc15a3f4db1d12afec37c69656c431e5e6773
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558555"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652517"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z włączonym usługą Azure ARC (wersja zapoznawcza)
 
-Ten artykuł zawiera instrukcje dotyczące łączenia dowolnego istniejącego klastra Kubernetes z usługą Azure Arc. Przegląd koncepcyjny tego samego programu można znaleźć [tutaj](./conceptual-agent-architecture.md).
+Ten artykuł przeprowadzi Cię przez proces łączenia istniejącego klastra Kubernetes z usługą Azure Arc. Aby uzyskać informacje o koncepcji dotyczące łączenia klastrów, zobacz [artykuł architektura agenta Kubernetes z funkcją Azure Arc](./conceptual-agent-architecture.md).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
@@ -28,12 +28,12 @@ Sprawdź, czy zostały przygotowane następujące wymagania wstępne:
   * Utwórz klaster Kubernetes przy użyciu [Kubernetes w Docker (rodzaj)](https://kind.sigs.k8s.io/).
   * Tworzenie klastra Kubernetes przy użyciu platformy Docker dla [komputerów Mac](https://docs.docker.com/docker-for-mac/#kubernetes) lub [Windows](https://docs.docker.com/docker-for-windows/#kubernetes).
 * Plik kubeconfig, który umożliwia dostęp do roli klastra i klastra w klastrze w celu wdrożenia agentów Kubernetes z włączonym łukiem.
-* Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters". Rola "klaster Kubernetes — dołączanie do usługi Azure ARC" ma te uprawnienia i może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi.
+* Uprawnienia "read" i "Write" dla nazwy głównej użytkownika lub usługi używane z `az login` i `az connectedk8s connect` poleceń dla `Microsoft.Kubernetes/connectedclusters` typu zasobu. Rola "klaster Kubernetes — dołączanie do usługi Azure ARC" ma te uprawnienia i może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi.
 * Helm 3 do dołączania klastra przy użyciu `connectedk8s` rozszerzenia. [Zainstaluj najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install) , aby spełnić to wymaganie.
 * Interfejs wiersza polecenia platformy Azure w wersji 2.15 + w celu zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) lub zaktualizuj do najnowszej wersji.
-* Zainstaluj rozszerzenia interfejsu wiersza polecenia Kubernetes z funkcją Azure ARC:
+* Rozszerzenia interfejsu wiersza polecenia Kubernetes z funkcją Azure ARC:
   
-  * Zainstaluj `connectedk8s` rozszerzenie, które ułatwia łączenie klastrów Kubernetes z platformą Azure:
+  * Zainstaluj `connectedk8s` rozszerzenie, aby ułatwić łączenie klastrów Kubernetes z platformą Azure:
   
   ```azurecli
   az extension add --name connectedk8s
@@ -70,7 +70,7 @@ Agenci usługi Azure Arc wymagają następujących protokołów/portów/wychodz�
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Punkt końcowy płaszczyzny danych dla agenta do wypychania stanu i pobrania informacji o konfiguracji.                                      |
 | `https://login.microsoftonline.com`                                                                            | Wymagane do pobierania i aktualizowania tokenów Azure Resource Manager.                                                                                    |
 | `https://mcr.microsoft.com`                                                                            | Wymagane do ściągania obrazów kontenerów dla agentów usługi Azure Arc.                                                                  |
-| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Wymagane do ściągania certyfikatów tożsamości zarządzanych przypisanych przez system.                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Wymagany do ściągania certyfikatów tożsamość usługi zarządzanej (MSI) przypisanych do systemu.                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Zarejestruj dwóch dostawców z włączoną funkcją Azure Arc Kubernetes
 
@@ -177,7 +177,9 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-Możesz również wyświetlić ten zasób na [Azure Portal](https://portal.azure.com/). Otwórz Portal w przeglądarce i przejdź do grupy zasobów i zasobu Kubernetes z obsługą usługi Azure Arc na podstawie nazwy zasobu i nazwy grupy zasobów używanych wcześniej w `az connectedk8s connect` poleceniu.  
+Możesz również wyświetlić ten zasób na [Azure Portal](https://portal.azure.com/).
+1. Otwórz Portal w przeglądarce.
+1. Przejdź do grupy zasobów i zasobu Kubernetes z obsługą usługi Azure Arc na podstawie nazwy zasobu i nazwy grupy zasobów używanych wcześniej w `az connectedk8s connect` poleceniu.  
 > [!NOTE]
 > Po dołączeniu klastra trwa około 5 – 10 minut w przypadku metadanych klastra (wersja klastra, wersja agenta, liczba węzłów itd.) do powierzchni na stronie Przegląd zasobu Kubernetes z włączoną funkcją Azure Arc w Azure Portal.
 
@@ -220,7 +222,7 @@ Jeśli klaster znajduje się za wychodzącym serwerem proxy, interfejs wiersza p
 > [!NOTE]
 > * Określenie `excludedCIDR` w obszarze `--proxy-skip-range` jest ważne, aby zapewnić, że komunikacja w klastrze nie jest uszkodzona dla agentów.
 > * Chociaż `--proxy-http` , `--proxy-https` i `--proxy-skip-range` są oczekiwane dla większości środowisk serwera proxy wychodzącego, `--proxy-cert` jest to wymagane tylko w przypadku, gdy zaufane certyfikaty z serwera proxy muszą zostać wprowadzone do magazynu zaufanych certyfikatów w obszarze agentów.
-> * Powyższa Specyfikacja serwera proxy jest obecnie stosowana tylko dla agentów ARC, a nie dla zasobników strumieni używanych w sourceControlConfiguration. Zespół usługi Azure ARC z obsługą Kubernetes aktywnie pracuje nad tą funkcją i będzie dostępny wkrótce.
+> * Powyższa Specyfikacja serwera proxy jest obecnie stosowana tylko w przypadku agentów usługi Azure ARC, a nie do zasobników strumieni używanych w systemie `sourceControlConfiguration` . Zespół Kubernetes z obsługą usługi Azure Arc aktywnie pracuje nad tą funkcją.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agenci Azure ARC dla Kubernetes
 

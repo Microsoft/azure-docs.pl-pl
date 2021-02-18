@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować alert dotyczący nowych zaleceń z
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629900"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590057"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Szybki Start: tworzenie alertów Azure Advisor na temat nowych zaleceń przy użyciu szablonu ARM
 
@@ -17,7 +17,7 @@ W tym artykule opisano sposób konfigurowania alertu dotyczącego nowych zalece�
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty.
+Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty.
 
 Możesz również określić typy zaleceń, korzystając z następujących właściwości:
 
@@ -30,7 +30,7 @@ Możesz również skonfigurować akcję, która będzie wykonywana po wyzwoleniu
 - Wybieranie istniejącej grupy akcji
 - Tworzenie nowej grupy akcji
 
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Alerty usługi Advisor są obecnie dostępne tylko w celu uzyskania wysokiej dostępności, wydajności i zaleceń dotyczących kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane.
@@ -146,7 +146,7 @@ Szablon definiuje dwa zasoby:
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**i **EmailAddress** z odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
+Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów** i **EmailAddress** z odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Zapoznaj się z [omówieniem alertów dziennika aktywności](../azure-monitor/alerts/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

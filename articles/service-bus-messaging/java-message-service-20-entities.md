@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus Messaging — jednostki usługi komunikatów Java (wersja zapoznawcza)
+title: Azure Service Bus Messaging — jednostki usługi komunikatów języka Java
 description: Ten artykuł zawiera omówienie Azure Service Bus jednostek komunikatów dostępnych za pomocą interfejsu API usługi komunikatów języka Java.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 1a7fe3d6355146ccf0fce50266a6f3b8da5231b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87801804"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652585"
 ---
-# <a name="java-message-service-jms-20-entities-preview"></a>Jednostki usługi wiadomości Java (JMS) 2,0 (wersja zapoznawcza)
+# <a name="java-message-service-jms-20-entities"></a>Jednostki usługi wiadomości Java (JMS) 2,0
 
-Aplikacje klienckie łączące się z Azure Service Bus Premium i wykorzystujące [bibliotekę Azure Service Bus JMS](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) mogą korzystać z poniższych jednostek.
+Aplikacje klienckie łączące się z Azure Service Bus Premium i przy użyciu [biblioteki Azure Service Bus JMS](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) mogą używać poniższych jednostek.
 
 ## <a name="queues"></a>Kolejki
 
@@ -36,7 +36,7 @@ Topic createTopic(String topicName)
 
 ## <a name="temporary-queues"></a>Kolejki tymczasowe
 
-Gdy aplikacja kliencka wymaga tymczasowej jednostki, która istnieje w okresie istnienia aplikacji, może używać kolejek tymczasowych. Są one wykorzystywane w wzorcu [żądanie-odpowiedź](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) .
+Jeśli aplikacja kliencka wymaga tymczasowej jednostki, która istnieje w okresie istnienia aplikacji, może używać kolejek tymczasowych. Te jednostki są używane w wzorcu [żądanie-odpowiedź](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) .
 
 Aby utworzyć tymczasową kolejkę, Użyj poniższych metod w `JMSContext` klasie-
 
@@ -48,7 +48,7 @@ TemporaryQueue createTemporaryQueue()
 
 Podobnie jak w przypadku kolejek tymczasowych, tematy tymczasowe są dostępne, aby umożliwić publikowanie/subskrybowanie przez tymczasową jednostkę, która istnieje w okresie istnienia aplikacji.
 
-Aby utworzyć temat tymczasowy, Użyj poniższych metod w `JMSContext` klasie —
+Aby utworzyć temat tymczasowy, Użyj poniższych metod w `JMSContext` klasie-
 
 ```java
 TemporaryTopic createTemporaryTopic()
@@ -56,19 +56,19 @@ TemporaryTopic createTemporaryTopic()
 
 ## <a name="java-message-service-jms-subscriptions"></a>Subskrypcje usługi wiadomości Java (JMS)
 
-Chociaż są one semantycznie podobne do [subskrypcji](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (tj. istnieją w temacie i umożliwiają włączenie semantyki publikowania/subskrybowania), Specyfikacja usługi wiadomości języka Java wprowadza koncepcje dotyczące **współużytkowanych**, **nieudostępnianych**, **trwałych** i **nietrwałych** atrybutów dla danej subskrypcji.
+Chociaż są one semantycznie podobne do [subskrypcji](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (które istnieją w temacie i umożliwiają włączenie semantyki publikowania/subskrybowania), Specyfikacja usługi wiadomości Java wprowadza koncepcje dotyczące **współużytkowanych**, **nieudostępnianych**, * * trwałych i **nietrwałych** atrybutów dla danej subskrypcji.
 
 > [!NOTE]
-> Poniższe subskrypcje są dostępne w Azure Service Bus warstwie Premium na potrzeby wersji zapoznawczej dla aplikacji klienckich łączących się z Azure Service Bus przy użyciu [biblioteki Azure Service Bus JMS](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+> Poniższe subskrypcje są dostępne w Azure Service Bus warstwie Premium dla aplikacji klienckich łączących się z Azure Service Bus przy użyciu [biblioteki Azure Service Bus JMS](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
 >
-> W publicznej wersji zapoznawczej te subskrypcje nie mogą być tworzone przy użyciu Azure Portal.
+> Za pomocą Azure Portal można tworzyć tylko trwałe subskrypcje.
 >
 
 ### <a name="shared-durable-subscriptions"></a>Udostępnione trwałe subskrypcje
 
 Udostępniona trwała subskrypcja jest używana, gdy wszystkie komunikaty opublikowane w temacie są odbierane i przetwarzane przez aplikację, niezależnie od tego, czy aplikacja aktywnie zużywa się z subskrypcji przez cały czas.
 
-Ponieważ jest to udostępniona subskrypcja, każda aplikacja, która została uwierzytelniona do odbierania z Service Bus może otrzymywać z subskrypcji.
+Wszystkie aplikacje, które zostały uwierzytelnione do odbierania z Service Bus mogą otrzymywać z udostępnionej subskrypcji trwałej.
 
 Aby utworzyć udostępnioną subskrypcję trwałą, Użyj poniższych metod `JMSContext` klasy-
 
@@ -86,7 +86,7 @@ void unsubscribe(String name)
 
 ### <a name="unshared-durable-subscriptions"></a>Nieudostępniane trwałe subskrypcje
 
-Podobnie jak w przypadku udostępnionej subskrypcji trwałej, nieudostępniona subskrypcja jest używana, gdy wszystkie komunikaty opublikowane w temacie są odbierane i przetwarzane przez aplikację, niezależnie od tego, czy aplikacja aktywnie zużywa się z subskrypcji przez cały czas.
+Podobnie jak w przypadku udostępnionej subskrypcji trwałej, nieudostępniona subskrypcja jest używana, gdy wszystkie komunikaty opublikowane w temacie są odbierane i przetwarzane przez aplikację, niezależnie od tego, czy aplikacja aktywnie zużywa się z subskrypcji.
 
 Jednak ponieważ jest to nieudostępniona subskrypcja, z niej można odbierać tylko aplikację, która utworzyła subskrypcję.
 
@@ -126,7 +126,7 @@ Udostępniona nietrwała subskrypcja będzie nadal istnieć, dopóki nie otrzyma
 
 ### <a name="unshared-non-durable-subscriptions"></a>Nieudostępniane subskrypcje nietrwałe
 
-Nieudostępniana subskrypcja nietrwała jest używana, gdy aplikacja kliencka musi odebrać i przetworzyć komunikat z subskrypcji, tylko dopóki nie będzie aktywnie z niego korzystać. W tej subskrypcji może istnieć tylko jeden odbiorca, czyli klient, który utworzył subskrypcję.
+Nieudostępniana subskrypcja nietrwała jest używana, gdy aplikacja kliencka musi odebrać i przetworzyć komunikat z subskrypcji, tylko dopóki nie będzie aktywnie z niego korzystać. W tej subskrypcji może istnieć tylko jeden użytkownik, czyli klient, który utworzył subskrypcję.
 
 Ponieważ subskrypcja nie jest trwała, nie jest utrwalona. Wiadomości nie są odbierane przez tę subskrypcję, jeśli nie ma żadnych aktywnych użytkowników.
 
@@ -152,12 +152,55 @@ Podobnie jak **filtry i akcje** istnieją dla zwykłych subskrypcji Service Bus,
 
 Selektory komunikatów można skonfigurować dla każdej subskrypcji JMS i istnieć jako warunek filtru we właściwościach nagłówka komunikatu. Dostarczane są tylko komunikaty z właściwościami nagłówka, które pasują do wyrażenia selektora komunikatów. Wartość null lub pusty ciąg wskazuje, że nie istnieje selektor komunikatów dla subskrypcji/konsumenta JMS.
 
+## <a name="additional-concepts-for-java-message-service-jms-20-subscriptions"></a>Dodatkowe koncepcje dotyczące subskrypcji 2,0 usługi wiadomości w języku Java (JMS)
+
+### <a name="client-scoping"></a>Określanie zakresu klientów
+
+Subskrypcje, jak określono w interfejsie API 2,0 usługi wiadomości Java (JMS), mogą lub nie mogą być *ograniczone do określonych aplikacji klienckich/s* (określonych z odpowiednią `clientId` ).
+
+Gdy subskrypcja zostanie objęta zakresem, **można uzyskać do niej dostęp tylko** z aplikacji klienckich, które mają ten sam identyfikator klienta. 
+
+Wszelkie próby uzyskania dostępu do subskrypcji w zakresie określonego identyfikatora klienta (Powiedz clientId1) z aplikacji o innym IDENTYFIKATORze klienta (Powiedz clientId2) spowodują utworzenie innej subskrypcji w zakresie innego identyfikatora klienta (clientId2).
+
+> [!NOTE]
+> Identyfikator klienta może mieć wartość null lub być pusty, ale musi być zgodny z IDENTYFIKATORem klienta ustawionym w aplikacji klienckiej JMS. W perspektywie Azure Service Bus identyfikator klienta o wartości null i pusty identyfikator klienta mają takie samo zachowanie.
+>
+> Jeśli identyfikator klienta ma wartość null lub jest pusty, jest dostępny tylko dla aplikacji klienckich, których identyfikator klienta ma również wartość null lub jest pusty.
+>
+
+### <a name="shareability"></a>Wymagających środowisku współdzielonym
+
+**Udostępnione** subskrypcje zezwalają wielu klientom/konsumentom (czyli JMSConsumer obiektów) na odbieranie komunikatów z nich.
+
+>[!NOTE]
+> Udostępnione subskrypcje zakresu do określonego identyfikatora klienta nadal są dostępne dla wielu klientów/odbiorców (tj. obiektów JMSConsumer), ale każda aplikacja kliencka musi mieć ten sam identyfikator klienta.
+>
+ 
+
+**Nieudostępnione** subskrypcje zezwalają na odbieranie z nich komunikatów przy użyciu tylko jednego klienta/konsumenta (czyli obiektu JMSConsumer). Jeśli `JMSConsumer` jest tworzony w nieudostępnionej subskrypcji, gdy ma już aktywne `JMSConsumer` nasłuchiwanie na komunikatach, `JMSException` jest zgłaszany.
+
+
+### <a name="durability"></a>Trwałość
+
+**Trwałe** subskrypcje są utrwalane i kontynuują zbieranie komunikatów z tematu, niezależnie od tego, czy aplikacja ( `JMSConsumer` ) zużywa z niej komunikaty.
+
+**Nietrwałe** subskrypcje nie są utrwalane i zbierają komunikaty z tematu tak długo, jak aplikacja ( `JMSConsumer` ) zużywa z niej komunikaty. 
+
+## <a name="representation-of-client-scoped-subscriptions"></a>Reprezentacja subskrypcji z zakresem klienta
+
+Mając na względzie, że subskrypcje z zakresu klienta (JMS) muszą współistnieć z istniejącymi [subskrypcjami](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), sposób, w jaki subskrypcje w zakresie klienta (JMS) są reprezentowane zgodnie z poniższym formatem.
+
+   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**D** (w przypadku subskrypcji trwałych)
+   * **\<SUBSCRIPTION-NAME\>**$**\<CLIENT-ID\>**$**ND** (w przypadku subskrypcji nietrwałych)
+
+Oto **$** ogranicznik.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji i przykłady używania Service Bus Messaging, zobacz następujące tematy zaawansowane:
 
 * [Przegląd komunikatów Service Bus](service-bus-messaging-overview.md)
-* [Korzystanie z interfejsu API usługi wiadomości języka Java 2,0 w usłudze Azure Service Bus Premium (wersja zapoznawcza)](how-to-use-java-message-service-20.md)
+* [Używanie interfejsu API usługi wiadomości języka Java 2,0 z usługą Azure Service Bus Premium](how-to-use-java-message-service-20.md)
 
 
 

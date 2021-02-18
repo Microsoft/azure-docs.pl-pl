@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150332"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594236"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
 
-Podczas wdrażania aplikacji sieci Web, aplikacji sieci Web w systemie Linux, zaplecza mobilnego lub aplikacji interfejsu API do [Azure App Service](./overview.md)można użyć oddzielnego miejsca wdrożenia zamiast domyślnego miejsca produkcyjnego, gdy jest uruchomiony w warstwie planu warstwy **standardowa**, **Premium**lub App Service **izolowana** . Miejsca wdrożenia to aplikacje na żywo z własnymi nazwami hostów. Elementy zawartości i konfiguracji aplikacji można wymieniać między dwoma miejscami wdrożenia, w tym z miejscem produkcyjnym. 
+Podczas wdrażania aplikacji sieci Web, aplikacji sieci Web w systemie Linux, zaplecza mobilnego lub aplikacji interfejsu API do [Azure App Service](./overview.md)można użyć oddzielnego miejsca wdrożenia zamiast domyślnego miejsca produkcyjnego, gdy jest uruchomiony w warstwie planu warstwy **standardowa**, **Premium** lub App Service **izolowana** . Miejsca wdrożenia to aplikacje na żywo z własnymi nazwami hostów. Elementy zawartości i konfiguracji aplikacji można wymieniać między dwoma miejscami wdrożenia, w tym z miejscem produkcyjnym. 
 
 Wdrażanie aplikacji w gnieździe nieprodukcyjnym ma następujące zalety:
 
@@ -30,7 +30,7 @@ Aby skalować aplikację do innej warstwy, upewnij się, że warstwa docelowa ob
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Dodawanie miejsca
-Aplikacja musi być uruchomiona w warstwie **standardowa**, **Premium**lub **izolowanej** , aby można było włączyć wiele miejsc wdrożenia.
+Aplikacja musi być uruchomiona w warstwie **standardowa**, **Premium** lub **izolowanej** , aby można było włączyć wiele miejsc wdrożenia.
 
 
 1. w [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz pozycję **App Services** i wybierz aplikację. 
@@ -43,7 +43,7 @@ Aplikacja musi być uruchomiona w warstwie **standardowa**, **Premium**lub **izo
     ![Dodawanie nowego miejsca wdrożenia](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Jeśli aplikacja nie jest jeszcze w warstwie **standardowa**, **Premium**lub **izolowana** , zostanie wyświetlony komunikat z informacją o obsługiwanych warstwach umożliwiających publikowanie etapowe. W tym momencie możesz wybrać opcję **Uaktualnij** i przejść do karty **Skala** aplikacji przed kontynuowaniem.
+   > Jeśli aplikacja nie jest jeszcze w warstwie **standardowa**, **Premium** lub **izolowana** , zostanie wyświetlony komunikat z informacją o obsługiwanych warstwach umożliwiających publikowanie etapowe. W tym momencie możesz wybrać opcję **Uaktualnij** i przejść do karty **Skala** aplikacji przed kontynuowaniem.
    > 
 
 3. W oknie dialogowym **Dodaj gniazdo** Nadaj nazwę gnieździe i wybierz, czy chcesz sklonować konfigurację aplikacji z innego miejsca wdrożenia. Wybierz pozycję **Dodaj** , aby kontynuować.
@@ -183,9 +183,9 @@ Funkcja autoswap usprawnia scenariusze usługi Azure DevOps, w której aplikacja
 
 Aby skonfigurować funkcję autoswap:
 
-1. Przejdź do strony zasobów aplikacji. Wybierz pozycję Konfiguracja **miejsc wdrożenia**  >  *\<desired source slot>*  >  **Configuration**  >  **Ustawienia ogólne**.
+1. Przejdź do strony zasobów aplikacji. Wybierz pozycję Konfiguracja **miejsc wdrożenia**  >  *\<desired source slot>*  >    >  **Ustawienia ogólne**.
    
-2. W przypadku opcji **autoswap włączone**wybierz pozycję **włączone**. Następnie wybierz żądane miejsce docelowe dla **miejsca wdrożenia autoswap**, a następnie wybierz pozycję **Zapisz** na pasku poleceń. 
+2. W przypadku opcji **autoswap włączone** wybierz pozycję **włączone**. Następnie wybierz żądane miejsce docelowe dla **miejsca wdrożenia autoswap**, a następnie wybierz pozycję **Zapisz** na pasku poleceń. 
    
     ![Opcje konfigurowania opcji autoswap](./media/web-sites-staged-publishing/AutoSwap02.png)
 
@@ -222,7 +222,7 @@ Jeśli masz jakieś problemy, zobacz [Rozwiązywanie problemów z wymianą](#tro
 
 ## <a name="monitor-a-swap"></a>Monitorowanie wymiany
 
-Jeśli [operacja wymiany](#AboutConfiguration) trwa długo, możesz uzyskać informacje o operacji wymiany w [dzienniku aktywności](../azure-monitor/platform/platform-logs-overview.md).
+Jeśli [operacja wymiany](#AboutConfiguration) trwa długo, możesz uzyskać informacje o operacji wymiany w [dzienniku aktywności](../azure-monitor/essentials/platform-logs-overview.md).
 
 Na stronie zasobów aplikacji w portalu w lewym okienku wybierz pozycję **Dziennik aktywności**.
 
@@ -274,7 +274,7 @@ Domyślnie nowe gniazda otrzymują regułę routingu `0%` wyświetloną w kolorz
 
 ## <a name="delete-a-slot"></a>Usuń gniazdo
 
-Wyszukaj i wybierz aplikację. Wybierz pozycję Omówienie **miejsc wdrożenia**  >  *\<slot to delete>*  >  **Overview**. Typ aplikacji jest wyświetlany jako **App Service (gniazdo)** , aby przypominać, że oglądasz miejsce wdrożenia. Na pasku poleceń wybierz pozycję **Usuń** .  
+Wyszukaj i wybierz aplikację. Wybierz pozycję Omówienie **miejsc wdrożenia**  >  *\<slot to delete>*  >  . Typ aplikacji jest wyświetlany jako **App Service (gniazdo)** , aby przypominać, że oglądasz miejsce wdrożenia. Na pasku poleceń wybierz pozycję **Usuń** .  
 
 ![Usuń miejsce wdrożenia](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

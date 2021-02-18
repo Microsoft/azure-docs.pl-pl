@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580276"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Monitorowanie metryk i dzienników przy użyciu rozszerzenia diagnostycznego systemu Linux 4,0
 
@@ -827,6 +827,6 @@ Zapoznaj się z odpowiednią [dokumentacją EventHubs](../../event-hubs/event-hu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Utwórz alerty metryk w [Azure monitor](../../azure-monitor/platform/alerts-classic-portal.md) dla zbieranych metryk.
-* Utwórz [wykresy monitorowania](../../azure-monitor/platform/data-platform.md) dla metryk.
+* Utwórz alerty metryk w [Azure monitor](../../azure-monitor/alerts/alerts-classic-portal.md) dla zbieranych metryk.
+* Utwórz [wykresy monitorowania](../../azure-monitor/data-platform.md) dla metryk.
 * Dowiedz się, jak [utworzyć zestaw skalowania maszyn wirtualnych](../linux/tutorial-create-vmss.md) przy użyciu metryk do sterowania skalowaniem automatycznym.

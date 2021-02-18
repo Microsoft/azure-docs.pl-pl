@@ -4,12 +4,12 @@ description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, st
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 881c657b25d04834d83221c738c578b8281752b7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927823"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593742"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -108,7 +108,7 @@ W projektach Node.js można użyć `new applicationInsights.TelemetryClient(inst
 
 ## <a name="trackevent"></a>Poleceń trackEvent
 
-W Application Insights *zdarzeniu niestandardowym* jest punkt danych, który można wyświetlić w [Eksplorator metryk](../platform/metrics-charts.md) jako zagregowana liczba, a w przypadku [wyszukiwania diagnostycznego](./diagnostic-search.md) jako pojedyncze wystąpienia. (Nie jest to związane ze zdarzeniami MVC ani innymi platformami ").
+W Application Insights *zdarzeniu niestandardowym* jest punkt danych, który można wyświetlić w [Eksplorator metryk](../essentials/metrics-charts.md) jako zagregowana liczba, a w przypadku [wyszukiwania diagnostycznego](./diagnostic-search.md) jako pojedyncze wystąpienia. (Nie jest to związane ze zdarzeniami MVC ani innymi platformami ").
 
 Wstaw `TrackEvent` wywołania w kodzie, aby obliczyć różne zdarzenia. Jak często użytkownicy wybierają konkretną funkcję, jak często osiągają określone cele, lub mogą często wprowadzać określone typy błędów.
 
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Zdarzenia niestandardowe w analizie
 
-Dane telemetryczne są dostępne w `customEvents` tabeli na [karcie Dzienniki Application Insights](../log-query/log-query-overview.md) lub [środowisko użycia](usage-overview.md). Zdarzenia mogą pochodzić z `trackEvent(..)` lub [kliknąć wtyczki autokolekcji analizy](javascript-click-analytics-plugin.md).
+Dane telemetryczne są dostępne w `customEvents` tabeli na [karcie Dzienniki Application Insights](../logs/log-query-overview.md) lub [środowisko użycia](usage-overview.md). Zdarzenia mogą pochodzić z `trackEvent(..)` lub [kliknąć wtyczki autokolekcji analizy](javascript-click-analytics-plugin.md).
 
  
 
@@ -204,7 +204,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Metryki niestandardowe w analizie
 
-Dane telemetryczne są dostępne w `customMetrics` tabeli w [Application Insights Analytics](../log-query/log-query-overview.md). Każdy wiersz reprezentuje wywołanie `trackMetric(..)` w aplikacji.
+Dane telemetryczne są dostępne w `customMetrics` tabeli w [Application Insights Analytics](../logs/log-query-overview.md). Każdy wiersz reprezentuje wywołanie `trackMetric(..)` w aplikacji.
 
 * `valueSum` -Suma pomiarów. Aby uzyskać wartość średnią, Podziel przez `valueCount` .
 * `valueCount` -Liczba pomiarów, które zostały zagregowane w tym `trackMetric(..)` wywołaniu.
@@ -274,7 +274,7 @@ Powstałe czasy trwania ładowania stron wyświetlane w Eksplorator metryk pocho
 
 ### <a name="page-telemetry-in-analytics"></a>Dane telemetryczne strony w analizie
 
-W obszarze [Analiza](../log-query/log-query-overview.md) dwie tabele zawierają dane z operacji przeglądarki:
+W obszarze [Analiza](../logs/log-query-overview.md) dwie tabele zawierają dane z operacji przeglądarki:
 
 * `pageViews`Tabela zawiera dane o adresie URL i tytule strony
 * `browserTimings`Tabela zawiera dane o wydajności klienta, takie jak czas przetwarzania danych przychodzących
@@ -310,7 +310,7 @@ Jednak zalecanym sposobem wysłania telemetrii żądania jest miejsce, gdzie ż�
 
 ## <a name="operation-context"></a>Kontekst operacji
 
-Elementy telemetrii można skorelować ze sobą, kojarząc je z kontekstem operacji. Standardowy moduł śledzenia żądań wykonuje te wyjątki i inne zdarzenia, które są wysyłane podczas przetwarzania żądania HTTP. W obszarze [Wyszukiwanie](./diagnostic-search.md) i [Analiza](../log-query/log-query-overview.md)możesz łatwo znaleźć wszystkie zdarzenia skojarzone z żądaniem przy użyciu identyfikatora operacji.
+Elementy telemetrii można skorelować ze sobą, kojarząc je z kontekstem operacji. Standardowy moduł śledzenia żądań wykonuje te wyjątki i inne zdarzenia, które są wysyłane podczas przetwarzania żądania HTTP. W obszarze [Wyszukiwanie](./diagnostic-search.md) i [Analiza](../logs/log-query-overview.md)możesz łatwo znaleźć wszystkie zdarzenia skojarzone z żądaniem przy użyciu identyfikatora operacji.
 
 Aby uzyskać więcej informacji na temat korelacji, zobacz [korelacja telemetrii w Application Insights](./correlation.md) .
 
@@ -348,7 +348,7 @@ Aby uzyskać więcej informacji na temat niestandardowego śledzenia operacji, z
 
 ### <a name="requests-in-analytics"></a>Żądania w analizie
 
-W [Application Insights Analytics](../log-query/log-query-overview.md)żądania są wyświetlane w `requests` tabeli.
+W [Application Insights Analytics](../logs/log-query-overview.md)żądania są wyświetlane w `requests` tabeli.
 
 Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount będzie zawierać wartość większą niż 1. Na przykład itemCount = = 10 oznacza, że z 10 wywołań do trackRequest () proces próbkowania przekazał tylko jeden z nich. Aby uzyskać poprawną liczbę żądań i średni czas trwania segmentów przez nazwy żądań, należy użyć kodu takiego jak:
 
@@ -361,7 +361,7 @@ requests
 
 Wyślij wyjątki do Application Insights:
 
-* Aby [je zliczyć](../platform/metrics-charts.md), jako wskazanie częstotliwości problemu.
+* Aby [je zliczyć](../essentials/metrics-charts.md), jako wskazanie częstotliwości problemu.
 * Aby [przejrzeć poszczególne wystąpienia](./diagnostic-search.md).
 
 Raporty obejmują ślady stosu.
@@ -430,7 +430,7 @@ Zestawy SDK automatycznie przechwytują wiele wyjątków, więc nie zawsze trzeb
 
 ### <a name="exceptions-in-analytics"></a>Wyjątki w analizie
 
-W [Application Insights Analytics](../log-query/log-query-overview.md)wyjątki są wyświetlane w `exceptions` tabeli.
+W [Application Insights Analytics](../logs/log-query-overview.md)wyjątki są wyświetlane w `exceptions` tabeli.
 
 Jeśli [próbkowanie](./sampling.md) jest w operacji, `itemCount` Właściwość pokazuje wartość większą niż 1. Na przykład itemCount = = 10 oznacza, że z 10 wywołań do śledzeniaexception () proces próbkowania przekazał tylko jeden z nich. Aby uzyskać poprawną liczbę wyjątków ujętych przez typ wyjątku, należy użyć kodu takiego jak:
 
@@ -525,7 +525,7 @@ W obszarze [wyszukiwania](./diagnostic-search.md)można łatwo odfiltrować wszy
 
 ### <a name="traces-in-analytics"></a>Ślady w analizie
 
-W programie [Application Insights Analytics](../log-query/log-query-overview.md)wywołania TrackTrace są wyświetlane w `traces` tabeli.
+W programie [Application Insights Analytics](../logs/log-query-overview.md)wywołania TrackTrace są wyświetlane w `traces` tabeli.
 
 Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount pokazuje wartość większą niż 1. Na przykład itemCount = = 10 oznacza, że z 10 wywołań do `trackTrace()` , proces próbkowania przesyła tylko jeden z nich. Aby uzyskać poprawną liczbę wywołań śledzenia, należy użyć tego kodu, takiego jak `traces | summarize sum(itemCount)` .
 
@@ -607,7 +607,7 @@ Aby wyłączyć standardowy moduł śledzenia zależności w języku C#, Edytuj 
 
 ### <a name="dependencies-in-analytics"></a>Zależności w analizie
 
-W [Application Insights analizie](../log-query/log-query-overview.md)wywołania trackDependency są wyświetlane w `dependencies` tabeli.
+W [Application Insights analizie](../logs/log-query-overview.md)wywołania trackDependency są wyświetlane w `dependencies` tabeli.
 
 Jeśli [próbkowanie](./sampling.md) jest w operacji, właściwość itemCount pokazuje wartość większą niż 1. Na przykład itemCount = = 10 oznacza, że z 10 wywołań do trackDependency () proces próbkowania przekazał tylko jeden z nich. Aby uzyskać poprawną liczbę zależności ujętych przez składnik docelowy, należy użyć kodu takiego jak:
 
@@ -695,7 +695,7 @@ Jeśli aplikacja grupuje użytkowników, możesz również przekazać identyfika
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-W [Eksplorator metryk](../platform/metrics-charts.md)można utworzyć wykres, który zlicza **użytkowników, uwierzytelnione** i **konta użytkowników**.
+W [Eksplorator metryk](../essentials/metrics-charts.md)można utworzyć wykres, który zlicza **użytkowników, uwierzytelnione** i **konta użytkowników**.
 
 Możesz również [wyszukać](./diagnostic-search.md) punkty danych klienta przy użyciu określonych nazw użytkowników i kont.
 
@@ -816,7 +816,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Niestandardowe pomiary i właściwości w analizie
 
-W [analizie](../log-query/log-query-overview.md)metryki niestandardowe i właściwości są wyświetlane `customMeasurements` w `customDimensions` atrybutach i poszczególnych rekordach telemetrii.
+W [analizie](../logs/log-query-overview.md)metryki niestandardowe i właściwości są wyświetlane `customMeasurements` w `customDimensions` atrybutach i poszczególnych rekordach telemetrii.
 
 Na przykład, jeśli dodano właściwość o nazwie "Game" do danych telemetrycznych żądania, ta kwerenda zlicza wystąpienia różnych wartości "Game" i pokaże średnią metryki niestandardowej "Score":
 

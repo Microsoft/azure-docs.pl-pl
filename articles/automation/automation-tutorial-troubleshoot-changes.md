@@ -7,12 +7,12 @@ keywords: zmiany, śledzenie, śledzenie zmian, spis, Automatyzacja
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587941"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure
 
@@ -54,7 +54,7 @@ Najpierw należy włączyć Change Tracking i spis dla tego samouczka. Jeśli fu
 
     ![Włącz zmianę](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Wybierz obszar roboczy [log Analytics](../azure-monitor/log-query/log-query-overview.md) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+3. Wybierz obszar roboczy [log Analytics](../azure-monitor/logs/log-query-overview.md) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dziennika usługi Azure Monitor, zobacz [Dzienniki usługi Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dziennika usługi Azure Monitor, zobacz [Dzienniki usługi Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Konfigurowanie śledzenia zmian
 
@@ -194,11 +194,11 @@ Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, 
 
     To zapytanie zwraca informacje o komputerach, na których w określonym przedziale czasu została zatrzymana usługa W3SVC.
 
-9. W polu **próg** w obszarze **logika alertu**wprowadź **wartość 0**. Po zakończeniu kliknij przycisk **gotowe**.
+9. W polu **próg** w obszarze **logika alertu** wprowadź **wartość 0**. Po zakończeniu kliknij przycisk **gotowe**.
 
     ![Konfigurowanie logiki sygnału](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Wybierz pozycję **Utwórz nowy** w obszarze **grupy akcji**. Grupa akcji to grupa składająca się z akcji, których można używać w wielu alertach. Akcje mogą obejmować powiadomienia e-mail, elementy runbook i webhook oraz wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+10. Wybierz pozycję **Utwórz nowy** w obszarze **grupy akcji**. Grupa akcji to grupa składająca się z akcji, których można używać w wielu alertach. Akcje mogą obejmować powiadomienia e-mail, elementy runbook i webhook oraz wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/alerts/action-groups.md).
 
 11. W obszarze **Szczegóły alertu** wprowadź nazwę i opis alertu. 
 
@@ -206,9 +206,9 @@ Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, 
 
 13. W polu **Nazwa grupy akcji** wprowadź nazwę alertu oraz krótką nazwę. Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
 
-14. W polu **Akcje**wprowadź nazwę akcji, na przykład **administratorów poczty e-mail**. 
+14. W polu **Akcje** wprowadź nazwę akcji, na przykład **administratorów poczty e-mail**. 
 
-15. W obszarze **Typ akcji**wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. 
+15. W obszarze **Typ akcji** wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. 
 
 16. Aby uzyskać **szczegółowe informacje**, wybierz pozycję **Edytuj szczegóły**.
 
@@ -218,7 +218,7 @@ Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, 
 
 18. Aby dostosować temat wiadomości e-mail dotyczącej alertu, wybierz pozycję **Dostosuj akcje**. 
 
-19. W obszarze **Utwórz regułę**wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykład wiadomości e-mail otrzymanej po zatrzymaniu usługi W3SVC.
+19. W obszarze **Utwórz regułę** wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykład wiadomości e-mail otrzymanej po zatrzymaniu usługi W3SVC.
 
     ![Przechwytywanie ekranu pokazuje powiadomienie e-mail odebrane, gdy usługi W wersji 3 S V są zatrzymane.](./media/automation-tutorial-troubleshoot-changes/email.png)
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1c803ed24542cbc4a2f0aaaee82ac0f57559cb9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591863"
 ---
 # <a name="communication-services-logs"></a>Dzienniki usług komunikacyjnych
 
@@ -30,7 +30,7 @@ Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki będą wyśw
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opcje ustawień diagnostycznych ACS.":::
 
-Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie Omówienie [dzienników zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie Omówienie [dzienników zasobów platformy Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Kategorie dzienników zasobów
 
@@ -45,7 +45,7 @@ Usługi komunikacyjne oferują trzy typy dzienników, które można włączyć:
 
 | Właściwość | Opis |
 | -------- | ---------------|
-| Timestamp | Sygnatura czasowa (UTC) wygenerowania dziennika. |
+| Znacznik czasu | Sygnatura czasowa (UTC) wygenerowania dziennika. |
 | Nazwa operacji | Operacja skojarzona z rekordem dziennika. |
 | Wersja operacji | `api-version`Skojarzona z operacją, jeśli operacjaname została wykonana przy użyciu interfejsu API. Jeśli nie ma interfejsu API odpowiadającego tej operacji, wersja reprezentuje wersję tej operacji w przypadku, gdy właściwości skojarzone z operacją zmieniają się w przyszłości. |
 | Kategoria | Kategoria dziennika zdarzenia. Kategoria to stopień szczegółowości, w którym można włączyć lub wyłączyć dzienniki dla określonego zasobu. Właściwości, które pojawiają się w obiekcie blob właściwości zdarzenia są takie same w określonej kategorii dziennika i typie zasobu. |

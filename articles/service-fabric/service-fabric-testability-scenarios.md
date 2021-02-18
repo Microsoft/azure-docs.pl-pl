@@ -1,17 +1,15 @@
 ---
 title: Tworzenie testów chaos i trybu failover dla usługi Azure Service Fabric
 description: Przy użyciu scenariuszy testowania Service Fabric chaos i przełączenia w tryb failover w celu wywołania błędów i zweryfikowania niezawodności usług.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78e613e9d86c44ad7daf8778b35e6af49abb7d38
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9939ef12dcbcc2b5d8733a68166c8e7162c4b0ea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546367"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594989"
 ---
 # <a name="testability-scenarios"></a>Scenariusze testowania
 Duże systemy rozproszone, takie jak infrastruktury chmury, są z natury zawodowe. Dzięki platformie Azure Service Fabric deweloperzy mogą pisać usługi do uruchamiania w oparciu o niezawodną infrastrukturę. Aby można było napisać wysokiej jakości usługi, deweloperzy muszą mieć możliwość wywołujący taką niezawodną infrastrukturę w celu przetestowania stabilności usług.

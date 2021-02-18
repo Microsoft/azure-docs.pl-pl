@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593346"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -238,9 +238,9 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
   * Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
 * W dodatku
-  * Możesz wysyłać dane (na przykład zadania, zasady itd.) do obszaru roboczego **log Analytics** . Spowoduje to włączenie funkcji dzienników Azure Monitor, aby umożliwić korelację danych z innymi danymi monitorowania zebranymi przez Azure Monitor, Konsoliduj wpisy dziennika z wielu subskrypcji platformy Azure i dzierżawców w jedną lokalizację do analizy razem, użyj zapytań dzienników do przeprowadzenia złożonej analizy i uzyskania szczegółowych informacji na temat wpisów dziennika. [Więcej informacji można znaleźć tutaj](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Dane można wysyłać do centrum zdarzeń w celu wysyłania wpisów poza platformą Azure, na przykład do SIEM innych firm (informacji o zabezpieczeniach i zarządzania zdarzeniami) lub innych rozwiązań usługi log Analytics. [Więcej informacji można znaleźć tutaj](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * Możesz wysłać dane do konta usługi Azure Storage, jeśli dane dziennika mają być przechowywane dłużej niż 90 dni na potrzeby inspekcji, statycznej analizy lub tworzenia kopii zapasowej. Jeśli musisz tylko zachować zdarzenia przez 90 dni lub mniej, nie musisz konfigurować archiwów na koncie magazynu, ponieważ zdarzenia dziennika aktywności są przechowywane na platformie Azure przez 90 dni. [Dowiedz się więcej](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * Możesz wysyłać dane (na przykład zadania, zasady itd.) do obszaru roboczego **log Analytics** . Spowoduje to włączenie funkcji dzienników Azure Monitor, aby umożliwić korelację danych z innymi danymi monitorowania zebranymi przez Azure Monitor, Konsoliduj wpisy dziennika z wielu subskrypcji platformy Azure i dzierżawców w jedną lokalizację do analizy razem, użyj zapytań dzienników do przeprowadzenia złożonej analizy i uzyskania szczegółowych informacji na temat wpisów dziennika. [Więcej informacji można znaleźć tutaj](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * Dane można wysyłać do centrum zdarzeń w celu wysyłania wpisów poza platformą Azure, na przykład do SIEM innych firm (informacji o zabezpieczeniach i zarządzania zdarzeniami) lub innych rozwiązań usługi log Analytics. [Więcej informacji można znaleźć tutaj](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * Możesz wysłać dane do konta usługi Azure Storage, jeśli dane dziennika mają być przechowywane dłużej niż 90 dni na potrzeby inspekcji, statycznej analizy lub tworzenia kopii zapasowej. Jeśli musisz tylko zachować zdarzenia przez 90 dni lub mniej, nie musisz konfigurować archiwów na koncie magazynu, ponieważ zdarzenia dziennika aktywności są przechowywane na platformie Azure przez 90 dni. [Dowiedz się więcej](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Generowanie alertów
 

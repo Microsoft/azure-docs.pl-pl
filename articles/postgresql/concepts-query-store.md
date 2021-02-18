@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657026"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581562"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorowanie wydajności za pomocą magazynu zapytań
 
@@ -88,7 +88,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Parametr** | **Opis** | **Domyślny** | **Zakres**|
+| **Parametr** | **Opis** | **Wartooć** | **Zakres**|
 |---|---|---|---|
 | pg_qs pg_qs.query_capture_mode | Ustawia, które instrukcje są śledzone. | brak | Brak, Góra, wszystkie |
 | pg_qs pg_qs.max_query_text_length | Ustawia maksymalną długość zapytania, którą można zapisać. Dłuższe zapytania zostaną obcięte. | 6000 | 100 – 10 tys. |
@@ -97,7 +97,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Parametr** | **Opis** | **Domyślny** | **Zakres**|
+| **Parametr** | **Opis** | **Wartooć** | **Zakres**|
 |---|---|---|---|
 | pgms_wait_sampling pgms_wait_sampling.query_capture_mode | Ustawia, które instrukcje są śledzone pod kątem statystyk oczekiwania. | brak | Brak, wszystkie|
 | Pgms_wait_sampling Pgms_wait_sampling.history_period | Ustaw częstotliwość próbkowania zdarzeń oczekiwania (w milisekundach). | 100 | 1-600000 |
@@ -178,7 +178,7 @@ Query_store Query_store.staging_data_reset () zwraca wartość void
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-Azure Database for PostgreSQL jest zintegrowany z [Azure monitor ustawień diagnostycznych](../azure-monitor/platform/diagnostic-settings.md). Ustawienia diagnostyczne umożliwiają wysyłanie dzienników Postgres w formacie JSON do [Azure monitor dzienników](../azure-monitor/log-query/log-query-overview.md) na potrzeby analiz i alertów, Event Hubs do przesyłania strumieniowego i usługi Azure Storage w celu archiwizacji.
+Azure Database for PostgreSQL jest zintegrowany z [Azure monitor ustawień diagnostycznych](../azure-monitor/essentials/diagnostic-settings.md). Ustawienia diagnostyczne umożliwiają wysyłanie dzienników Postgres w formacie JSON do [Azure monitor dzienników](../azure-monitor/logs/log-query-overview.md) na potrzeby analiz i alertów, Event Hubs do przesyłania strumieniowego i usługi Azure Storage w celu archiwizacji.
 
 >[!IMPORTANT]
 > Ta funkcja diagnostyczna dla programu jest dostępna tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
@@ -195,7 +195,7 @@ Aby włączyć dzienniki zasobów przy użyciu Azure Portal:
 5. Wybierz typy dzienników **QueryStoreRuntimeStatistics** i **QueryStoreWaitStatistics**.
 6. Zapisz ustawienie.
 
-Aby włączyć to ustawienie za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST, zapoznaj się z [artykułem ustawienia diagnostyczne](../azure-monitor/platform/diagnostic-settings.md).
+Aby włączyć to ustawienie za pomocą programu PowerShell, interfejsu wiersza polecenia lub API REST, zapoznaj się z [artykułem ustawienia diagnostyczne](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="json-log-format"></a>Format dziennika JSON
 W poniższych tabelach opisano pola dla dwóch typów dzienników. W zależności od wybranego wyjściowego punktu końcowego pola zawarte i kolejność ich wyświetlania mogą się różnić.

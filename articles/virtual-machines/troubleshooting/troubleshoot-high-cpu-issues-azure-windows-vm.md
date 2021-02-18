@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z wysokim procesorem CPU w przypadku maszyn wirtualnych z systemem Windows Azure
+title: Rozwiązywanie problemów z wysokim obciążeniem procesora CPU maszyny wirtualnej z systemem Windows na platformie Azure
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 124650f4570608efabba3d8002c14ad06c4782ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977259"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571498"
 ---
-# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Rozwiązywanie problemów z wysokim procesorem CPU w przypadku maszyn wirtualnych z systemem Windows Azure
+# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Rozwiązywanie problemów z wysokim obciążeniem procesora CPU maszyny wirtualnej z systemem Windows na platformie Azure
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -108,15 +108,15 @@ Przeglądaj w celu **zdiagnozowania i rozwiązania problemów** w bloku maszyny 
 
   ![Rozwiązywanie problemów z wydajnością maszyn wirtualnych](./media/troubleshoot-high-cpu-issues-azure-windows-vm/2-troubleshoot-vm-performance-issues.png)
 
-W przypadku wybrania opcji **Rozwiązywanie problemów**zostanie załadowany ekran instalacji że program perfinsights.
+W przypadku wybrania opcji **Rozwiązywanie problemów** zostanie załadowany ekran instalacji że program perfinsights.
 
-W przypadku wybrania opcji **Zainstaluj**instalacja oferuje różne opcje kolekcji.
+W przypadku wybrania opcji **Zainstaluj** instalacja oferuje różne opcje kolekcji.
 
   ![Analiza wydajności](./media/troubleshoot-high-cpu-issues-azure-windows-vm/3-performance-analysis.png)
 
 Opcje numerowane na zrzucie ekranu odnoszą się do następujących komentarzy:
 
-1. W przypadku opcji **High-CPU**wybierz pozycję **Analiza wydajności** lub **Zaawansowane**.
+1. W przypadku opcji **High-CPU** wybierz pozycję **Analiza wydajności** lub **Zaawansowane**.
 
 2. Gdy dodasz tutaj objawy, zostaną one dodane do raportu, co pomoże Ci udostępnić informacje z pomocą techniczną platformy Azure.
 
@@ -204,7 +204,7 @@ W przypadku procesów związanych z maszyną wirtualną platformy Azure, takich 
 
 - Można je zbierać zdalnie.
 
-- **Zadanie**można zaplanować za jego podstawie.
+- **Zadanie** można zaplanować za jego podstawie.
 
 - Może być zbierane przez dłuższy czas lub w trybie ciągłym przy użyciu funkcji przejęcia.
 
@@ -225,7 +225,7 @@ W Monitorze wydajności nie ma żadnych domyślnych raportów gotowych dla użyt
 
 Aby rozpocząć, wybierz kategorię **Dodawanie liczników** .
 
-1. W obszarze **dostępne liczniki**wybierz licznik **% ProcessorTime** w kategorii **Informacje o procesorze** .
+1. W obszarze **dostępne liczniki** wybierz licznik **% ProcessorTime** w kategorii **Informacje o procesorze** .
 
 1. Wybierz pozycję **_Total**, która zapewnia statystykę wszystkich połączonych rdzeni.
 
@@ -237,7 +237,7 @@ Po załadowaniu liczników zobaczysz wykresy trendu liniowego w przedziale czasu
 
   ![Ustawienia monitora wydajności](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-Każdy licznik będzie miał wartości **średnie**, **minimum**i **maksimum** . Skup się na wartościach **średnich** i **maksymalnych** , ponieważ średnia wartość może się różnić w zależności od czasu trwania zbierania danych. Jeśli działanie wysokiego procesora CPU było widoczne przez 10 minut, podczas gdy Ogólna kolekcja była 40 minut, średnia wartość będzie znacznie niższa.
+Każdy licznik będzie miał wartości **średnie**, **minimum** i **maksimum** . Skup się na wartościach **średnich** i **maksymalnych** , ponieważ średnia wartość może się różnić w zależności od czasu trwania zbierania danych. Jeśli działanie wysokiego procesora CPU było widoczne przez 10 minut, podczas gdy Ogólna kolekcja była 40 minut, średnia wartość będzie znacznie niższa.
 
 Poprzedni wykres trendu pokazuje, że **całkowity procesor** był w przybliżeniu zbliżony do 80% przez około 15 minut.
 
@@ -289,7 +289,7 @@ Po włączeniu ustawień można wyświetlić te liczniki **gościa** w sekcji **
 
   ![Przestrzeń nazw metryk](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Aby uzyskać więcej informacji na temat korzystania z usługi Azure monitor do zarządzania maszynami wirtualnymi platformy Azure, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../../azure-monitor/insights/monitor-vm-azure.md).
+Aby uzyskać więcej informacji na temat korzystania z usługi Azure monitor do zarządzania maszynami wirtualnymi platformy Azure, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../../azure-monitor/vm/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Rozwiązywanie problemów z reaktywnymi
 
@@ -303,7 +303,7 @@ Jeśli chodzi o powtarzający się wzorzec, Zbierz dane w czasie, w którym praw
 
 ### <a name="logman-command"></a>Logman — polecenie
 
-Polecenie **Logman Create Counter** służy do uruchamiania kolekcji perfmon przy użyciu wiersza polecenia, w celu zaplanowania go za pomocą **Menedżera zadań**lub do zdalnego uruchomienia.
+Polecenie **Logman Create Counter** służy do uruchamiania kolekcji perfmon przy użyciu wiersza polecenia, w celu zaplanowania go za pomocą **Menedżera zadań** lub do zdalnego uruchomienia.
 
 **Przykład** (obejmuje tryb kolekcji zdalnej)
 

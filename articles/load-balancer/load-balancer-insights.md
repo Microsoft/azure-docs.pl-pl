@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589108"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Korzystanie z usługi Insights do monitorowania i konfigurowania Azure Load Balancer
 
@@ -40,7 +40,7 @@ W przypadku standardowych modułów równoważenia obciążenia zasoby puli zapl
 
 ## <a name="metrics-dashboard"></a>Pulpit nawigacyjny aplikacji Metryki
 
-W bloku wglądu w dane Load Balancer możesz wybrać bardziej szczegółowe metryki, aby wyświetlić wstępnie skonfigurowany [skoroszyt Azure monitor](../azure-monitor/platform/workbooks-overview.md) zawierający wizualizacje metryk odpowiednie dla określonych aspektów Load Balancer. Ten pulpit nawigacyjny wyświetli stan Load Balancer i linki do odpowiedniej dokumentacji w górnej części strony.
+W bloku wglądu w dane Load Balancer możesz wybrać bardziej szczegółowe metryki, aby wyświetlić wstępnie skonfigurowany [skoroszyt Azure monitor](../azure-monitor/visualize/workbooks-overview.md) zawierający wizualizacje metryk odpowiednie dla określonych aspektów Load Balancer. Ten pulpit nawigacyjny wyświetli stan Load Balancer i linki do odpowiedniej dokumentacji w górnej części strony.
 
 W pierwszej kolejności zostanie wyświetlona karta przegląd. Możesz przechodzić przez dostępne karty, z których każdy zawiera wizualizacje istotne dla określonego aspektu Load Balancer. Jawne wskazówki dla każdej z nich są dostępne na pulpicie nawigacyjnym u dołu każdej karty.
 
@@ -80,4 +80,4 @@ Karta definicje metryk zawiera wszystkie informacje przedstawione w [artykule me
 * Zapoznaj się z pulpitem nawigacyjnym i podaj opinię, korzystając z poniższego linku, jeśli wszystko, co można ulepszyć
 * [Zapoznaj się z dokumentacją metryk, aby dowiedzieć się, jak jest obliczana każda Metryka](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Utwórz monitory połączeń dla Load Balancer](../network-watcher/connection-monitor.md)
-* [Utwórz własne skoroszyty](../azure-monitor/platform/workbooks-overview.md), a następnie kliknij przycisk Edytuj w szczegółowym pulpicie nawigacyjnym metryk
+* [Utwórz własne skoroszyty](../azure-monitor/visualize/workbooks-overview.md), a następnie kliknij przycisk Edytuj w szczegółowym pulpicie nawigacyjnym metryk

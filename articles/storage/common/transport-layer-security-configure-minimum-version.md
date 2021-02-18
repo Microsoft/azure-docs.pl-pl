@@ -10,12 +10,12 @@ ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e5ab583330b46b8f53223500076aa04780e6deac
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3a44466f04e598080662599e785eb71698265f87
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108725"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592330"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -35,11 +35,11 @@ Po wymuszeniu minimalnej wersji protokołu TLS dla konta magazynu ryzyko odrzuce
 
 Aby rejestrować żądania na koncie usługi Azure Storage i określać wersję protokołu TLS używaną przez klienta, można użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](../blobs/monitor-blob-storage.md).
 
-Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizować je za pomocą usługi Azure Log Analytics, należy najpierw utworzyć ustawienie diagnostyczne wskazujące typy żądań i usługi magazynu, dla których mają być rejestrowane dane. Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Aby utworzyć ustawienie diagnostyczne w Azure Portal, wykonaj następujące kroki:
 
-1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
 1. Wybierz usługę Azure Storage, dla której chcesz rejestrować żądania. Na przykład wybierz **obiekt BLOB** , aby rejestrować żądania do magazynu obiektów BLOB.
@@ -50,7 +50,7 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
-Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure Storage w Azure Monitor, zobacz [dzienniki zasobów (wersja zapoznawcza)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -344,13 +344,13 @@ Na poniższej ilustracji przedstawiono błąd występujący w przypadku próby u
 
 ## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Uprawnienia wymagane do wymagania minimalnej wersji protokołu TLS
 
-Aby ustawić właściwość **MinimumTlsVersion** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, obejmują akcję **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/* _. Role wbudowane z tą akcją obejmują:
+Aby ustawić właściwość **MinimumTlsVersion** dla konta magazynu, użytkownik musi mieć uprawnienia do tworzenia kont magazynu i zarządzania nimi. Role kontroli dostępu opartej na rolach (Azure RBAC), które udostępniają te uprawnienia, to: **Microsoft. Storage/storageAccounts/Write** lub **Microsoft. Storage \* /storageAccounts/** Action. Role wbudowane z tą akcją obejmują:
 
 - Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager
 - Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) Azure Resource Manager
 - Rola [współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak _ * Microsoft. Storage/storageAccounts/ListKeys/Action * *, które przyznaje dostęp do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
+Te role nie zapewniają dostępu do danych na koncie magazynu za pośrednictwem Azure Active Directory (Azure AD). Obejmują one jednak **firmę Microsoft. Storage/storageAccounts/ListKeys/Action**, która udziela dostępu do kluczy dostępu do konta. Za pomocą tego uprawnienia użytkownik może korzystać z kluczy dostępu do konta w celu uzyskania dostępu do wszystkich danych na koncie magazynu.
 
 Przypisania ról muszą być ograniczone do poziomu konta magazynu lub nowszego, aby umożliwić użytkownikowi wymaganie minimalnej wersji protokołu TLS dla konta magazynu. Aby uzyskać więcej informacji na temat zakresu roli, zobacz [Opis zakresu kontroli RBAC platformy Azure](../../role-based-access-control/scope-overview.md).
 

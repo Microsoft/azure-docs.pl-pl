@@ -3,12 +3,12 @@ title: Ciągły eksport danych telemetrycznych z Application Insights | Microsof
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674141"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584245"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
@@ -21,7 +21,7 @@ Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alte
 
 * Przycisk Eksportuj w górnej części metryk lub karty wyszukiwania umożliwia transfer tabel i wykresów do arkusza kalkulacyjnego programu Excel.
 
-* [Analiza](../log-query/log-query-overview.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
+* [Analiza](../logs/log-query-overview.md) zapewnia zaawansowany język zapytań na potrzeby telemetrii. Może również eksportować wyniki.
 * Jeśli chcesz [eksplorować dane w Power BI](./export-power-bi.md), możesz to zrobić bez korzystania z eksportu ciągłego.
 * [Interfejs API REST dostępu do danych](https://dev.applicationinsights.io/) umożliwia programistyczne uzyskiwanie dostępu do telemetrii.
 * Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
@@ -64,7 +64,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).  |
-| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
+| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.

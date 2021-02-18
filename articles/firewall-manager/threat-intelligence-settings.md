@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530645"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651729"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Konfiguracja analizy zagrożeń zapory platformy Azure
 
@@ -24,21 +24,33 @@ W przypadku skonfigurowania filtrowania opartego na analizie zagrożeń skojarzo
 
 ## <a name="threat-intelligence-mode"></a>Tryb analizy zagrożeń
 
-Można wybrać opcję rejestrowania alertu tylko w przypadku wyzwolenia reguły lub można wybrać opcję alert i tryb odmowy.
+Analizę zagrożeń można skonfigurować w jednym z trzech trybów, które są opisane w poniższej tabeli. Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu.
 
-Domyślnie filtrowanie oparte na analizie zagrożeń jest włączone w trybie alertu.
+|Tryb |Opis  |
+|---------|---------|
+|`Off`     | Funkcja analizy zagrożeń nie jest włączona dla zapory. |
+|`Alert only`     | Będziesz otrzymywać alerty o wysokim poziomie pewności dla ruchu przechodzącego przez zaporę do lub ze znanych złośliwych adresów IP i domen. |
+|`Alert and deny`     | Ruch jest blokowany i otrzymasz alerty o wysokim poziomie pewności, gdy zostanie wykryta próba przechodzenia przez zaporę do lub ze znanych złośliwych adresów IP i domen. |
 
-## <a name="allowed-list-addresses"></a>Adresy listy dozwolonych
+> [!NOTE]
+> Tryb analizy zagrożeń jest Dziedziczony z zasad nadrzędnych do zasad podrzędnych. Zasady podrzędne muszą być skonfigurowane przy użyciu tego samego lub rygorystycznego trybu niż zasady nadrzędne.
 
-Można skonfigurować listę dozwolonych adresów IP, aby analiza zagrożeń nie odfiltrować żadnego z określonych adresów, zakresów lub podsieci.
+## <a name="allowlist-addresses"></a>Adresy dozwolonych
 
+Analiza zagrożeń może wyzwolić fałszywie dodatnie i blokować ruch, który faktycznie jest prawidłowy. Można skonfigurować listę dozwolonych adresów IP, aby analiza zagrożeń nie odfiltrować żadnego z określonych adresów, zakresów lub podsieci.  
 
+![Adresy dozwolonych](media/threat-intelligence-settings/allow-list.png)
+
+Możesz zaktualizować dozwolonych z wieloma wpisami jednocześnie, przekazując plik CSV. Plik CSV może zawierać tylko adresy IP i zakresy. Plik nie może zawierać nagłówków.
+
+> [!NOTE]
+> Adresy dozwolonych analizy zagrożeń są dziedziczone z zasad nadrzędnych do zasad podrzędnych. Każdy adres IP lub zakres dodany do zasad nadrzędnych również zostaną zastosowane do wszystkich zasad podrzędnych.
 
 ## <a name="logs"></a>Dzienniki
 
-Poniższy fragment dziennika przedstawia wyzwalaną regułę:
+Poniższy fragment dziennika przedstawia wyzwalaną regułę dla ruchu wychodzącego do złośliwej lokacji:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

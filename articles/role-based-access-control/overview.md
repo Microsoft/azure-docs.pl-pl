@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559329"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650868"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji, zobacz [kroki umożliwiające przypisanie roli 
 
 ## <a name="multiple-role-assignments"></a>Przypisania wielu ról
 
-Co więc się dzieje w przypadku wielu nakładających się przypisań ról? Azure RBAC jest modelem dodatku, więc Twoje czynne uprawnienia są sumą przypisań ról. Rozważmy poniższy przykład, w którym użytkownikowi przypisano rolę Współautor w zakresie subskrypcji i rolę Czytelnik w grupie zasobów. Suma uprawnień współautora i uprawnień czytelnika jest efektywnie rolą współautor dla grupy zasobów. Dlatego w tym przypadku przypisanie roli Czytelnik nie ma żadnego znaczenia.
+Co więc się dzieje w przypadku wielu nakładających się przypisań ról? Azure RBAC jest modelem dodatku, więc Twoje czynne uprawnienia są sumą przypisań ról. Rozważmy poniższy przykład, w którym użytkownikowi przypisano rolę Współautor w zakresie subskrypcji i rolę Czytelnik w grupie zasobów. Suma uprawnień współautora i uprawnień czytelnika jest efektywnie rolą współautor dla subskrypcji. Dlatego w tym przypadku przypisanie roli Czytelnik nie ma żadnego znaczenia.
 
 ![Przypisania wielu ról](./media/overview/rbac-multiple-roles.png)
 

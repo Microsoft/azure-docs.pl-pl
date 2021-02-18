@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a935b34c4fcebe9128d8af0316658072e20ddfbe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596215"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
 
@@ -69,7 +69,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Edytuj zapytanie, aby usunąć klauzule WHERE, które ograniczają wyświetlanie do dzienników ostrzeżeń i błędów.
 
-1. Następnie wybierz pozycję, a zobaczysz pozycję `Run` dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/log-query/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
+1. Następnie wybierz pozycję, a zobaczysz pozycję `Run` dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/logs/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
 
    [![Zapytanie usługi Logs Analytics — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -83,7 +83,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Używanie filtru w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. Odrzuć filtr utworzony w poprzednim kroku, wybierz pozycję **Zastosuj podział** , a następnie wybierz pozycję `App` **wartości** , aby wyświetlić użycie procesora przez różne aplikacje.
+1. Odrzuć filtr utworzony w poprzednim kroku, wybierz pozycję **Zastosuj podział**, a następnie wybierz pozycję `App` **wartości** , aby wyświetlić użycie procesora przez różne aplikacje.
 
    [![Zastosuj podział w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
@@ -142,7 +142,7 @@ Zostaną wyświetlone następujące dzienniki:
 
 Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
-1. Wybierz opcję **Eksplorator platformy Azure** , a następnie pozycję **chmura Wiosenna** .
+1. Wybierz opcję **Eksplorator platformy Azure**, a następnie pozycję **chmura Wiosenna**.
 
 1. Kliknij prawym przyciskiem myszy działającą aplikację.
 
@@ -150,7 +150,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    ![Wybieranie dzienników przesyłania strumieniowego](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Wybierz **wystąpienie** .
+1. Wybierz **wystąpienie**.
 
    ![Wybierz wystąpienie](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -165,7 +165,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Następnie zostaną wyświetlone odfiltrowane dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/log-query/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
+1. Następnie zostaną wyświetlone odfiltrowane dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/logs/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
 
    [![Zapytanie ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
@@ -226,4 +226,4 @@ Aby poznać więcej możliwości monitorowania chmury wiosennej platformy Azure,
 >
 > [Rozproszone śledzenie](spring-cloud-tutorial-distributed-tracing.md)
 >
-> [Rejestrowanie strumieni w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)
+> [Przesyłanie strumieniowe dzienników w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)
