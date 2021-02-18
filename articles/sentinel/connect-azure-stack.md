@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5999e8da5dffce85dd12ecd01cd5991ea4abc098
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807432"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590246"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Łączenie maszyn wirtualnych Azure Stack Hub z platformą Azure — wskaźnikiem
 
@@ -50,9 +50,9 @@ Dodaj rozszerzenie maszyny wirtualnej **Azure monitor, aktualizacji i zarządzan
 
 1. Po zakończeniu instalacji rozszerzenia jego stan wskazuje, że **Inicjowanie obsługi powiodło się**. Aby maszyna wirtualna mogła zostać wyświetlona w portalu wskaźnikowym platformy Azure, może upłynąć do godziny.
 
-Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
-Rozwiązywanie problemów z agentami w systemie Linux można znaleźć w temacie [Rozwiązywanie problemów z usługą Azure log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
+Rozwiązywanie problemów z agentami w systemie Linux można znaleźć w temacie [Rozwiązywanie problemów z usługą Azure log Analytics Linux Agent](../azure-monitor/agents/agent-linux-troubleshoot.md).
 
 W portalu wskaźnikowym platformy Azure na platformie Azure w obszarze **Virtual Machines** masz przegląd wszystkich maszyn wirtualnych i komputerów wraz z ich stanem. 
 

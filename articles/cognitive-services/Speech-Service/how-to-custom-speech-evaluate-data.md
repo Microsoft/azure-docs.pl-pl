@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388944"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591887"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Ocenianie i poprawianie dokładności usługi Custom Speech
 
@@ -109,12 +109,13 @@ Dźwięk z transkrypcjami z etykietami ludzkimi oferuje większość ulepszeń, 
 
 Należy wziąć pod uwagę następujące szczegóły:
 
-* Custom Speech może przechwycić tylko kontekst słowa, aby zmniejszyć liczbę błędów podstawiania, bez błędów wstawiania ani usuwania.
+* Szkolenia przy użyciu dźwięku zapewniają największą korzyść, jeśli dźwięk jest również trudny do zrozumienia dla ludzi. W większości przypadków należy zacząć uczenie się, korzystając tylko z pokrewnego tekstu.
+* W przypadku korzystania z jednego z najbardziej intensywnie używanych języków, takich jak Stany Zjednoczone (angielski), istnieje dobry szansa, że nie ma potrzeby uczenia się z danymi audio. W przypadku takich języków modele podstawowe oferują już bardzo dobre wyniki rozpoznawania w większości scenariuszy. prawdopodobnie wystarczy pouczenie się z powiązanym tekstem.
+* Custom Speech może przechwytywać tylko kontekst słowa, aby zmniejszyć liczbę błędów podstawiania, bez wstawiania ani usuwania.
 * Unikaj przykładów zawierających błędy transkrypcji, ale Uwzględnij różnorodność jakości audio.
 * Unikaj zdań, które nie są związane z Twoją domeną problemu. Niepowiązane zdania mogą uszkodzić model.
 * Gdy jakość transkrypcji jest różna, można zduplikować wyjątkowo dobre zdania (na przykład doskonałe transkrypcje zawierające kluczowe frazy) w celu zwiększenia ich wagi.
 * Usługa Speech automatycznie użyje transkrypcji w celu usprawnienia rozpoznawania słów i fraz specyficznych dla domeny, tak jakby były one dodane jako powiązane teksty.
-* Szkolenia przy użyciu dźwięku zapewniają największą korzyść, jeśli dźwięk jest również trudny do zrozumienia dla ludzi. W większości przypadków należy zacząć uczenie się, korzystając tylko z pokrewnego tekstu.
 * Ukończenie operacji szkoleniowej może potrwać kilka dni. Aby zwiększyć szybkość szkolenia, pamiętaj, aby utworzyć subskrypcję usługi mowy w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 
 > [!NOTE]

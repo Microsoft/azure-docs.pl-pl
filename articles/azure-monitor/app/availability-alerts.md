@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cbafa7997d203cf06a3e91965355258f0088d77e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043375"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589896"
 ---
 # <a name="availability-alerts"></a>Alerty dostępności
 
@@ -24,7 +24,7 @@ Alerty są teraz automatycznie włączane domyślnie, ale w celu pełnego skonfi
 ![Tworzenie środowiska](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Dzięki [nowym ujednoliconym alertom](../platform/alerts-overview.md)ważność reguły alertu i preferencje powiadamiania z [grupami akcji](../platform/action-groups.md) **musi być** skonfigurowana w środowisku alertów. Bez poniższych kroków będziesz otrzymywać tylko powiadomienia w portalu.
+>  Dzięki [nowym ujednoliconym alertom](../alerts/alerts-overview.md)ważność reguły alertu i preferencje powiadamiania z [grupami akcji](../alerts/action-groups.md) **musi być** skonfigurowana w środowisku alertów. Bez poniższych kroków będziesz otrzymywać tylko powiadomienia w portalu.
 
 1. Po zapisaniu testu dostępności na karcie Szczegóły kliknij wielokropek przez właśnie wykonany test. Kliknij pozycję "Edytuj Alert".
 
@@ -39,7 +39,7 @@ Alerty są teraz automatycznie włączane domyślnie, ale w celu pełnego skonfi
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alert dotyczący niepowodzeń zgłaszania lokalizacji X poza Y
 
-Reguła alertu dotyczącego liczby lokalizacji X poza Y jest domyślnie włączona w [nowym środowisku ujednoliconych alertów](../platform/alerts-overview.md)podczas tworzenia nowego testu dostępności. Możesz zrezygnować z wyboru opcji "klasyczny" lub wybrać wyłączenie reguły alertu.
+Reguła alertu dotyczącego liczby lokalizacji X poza Y jest domyślnie włączona w [nowym środowisku ujednoliconych alertów](../alerts/alerts-overview.md)podczas tworzenia nowego testu dostępności. Możesz zrezygnować z wyboru opcji "klasyczny" lub wybrać wyłączenie reguły alertu.
 
 > [!NOTE]
 > Skonfiguruj grupy akcji, aby otrzymywać powiadomienia o alertach, które są wyzwalane przez wykonanie powyższych kroków. Bez tego kroku powiadomienia w portalu będą odbierane tylko wtedy, gdy reguła jest wyzwalana.
@@ -47,7 +47,7 @@ Reguła alertu dotyczącego liczby lokalizacji X poza Y jest domyślnie włączo
 
 ### <a name="alert-on-availability-metrics"></a>Alert dotyczący metryk dostępności
 
-Przy użyciu [nowych ujednoliconych alertów](../platform/alerts-overview.md)można generować alerty dotyczące metryk zagregowanych dostępności i testów oraz czasu trwania testu:
+Przy użyciu [nowych ujednoliconych alertów](../alerts/alerts-overview.md)można generować alerty dotyczące metryk zagregowanych dostępności i testów oraz czasu trwania testu:
 
 1. Wybierz zasób Application Insights w środowisku metryk i wybierz metrykę dostępności:
 
@@ -57,7 +57,7 @@ Przy użyciu [nowych ujednoliconych alertów](../platform/alerts-overview.md)mo�
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alert dotyczący niestandardowych zapytań analitycznych
 
-Przy użyciu [nowych ujednoliconych alertów](../platform/alerts-overview.md)można generować alerty dotyczące [niestandardowych zapytań dzienników](../platform/alerts-unified-log.md). Za pomocą zapytań niestandardowych można otrzymywać alerty dotyczące dowolnego dowolnego warunku, który pomaga uzyskać najbardziej niezawodny sygnał związany z dostępnością. Ma to zastosowanie również w przypadku wysyłania niestandardowych wyników dostępności przy użyciu zestawu SDK TrackAvailability.
+Przy użyciu [nowych ujednoliconych alertów](../alerts/alerts-overview.md)można generować alerty dotyczące [niestandardowych zapytań dzienników](../alerts/alerts-unified-log.md). Za pomocą zapytań niestandardowych można otrzymywać alerty dotyczące dowolnego dowolnego warunku, który pomaga uzyskać najbardziej niezawodny sygnał związany z dostępnością. Ma to zastosowanie również w przypadku wysyłania niestandardowych wyników dostępności przy użyciu zestawu SDK TrackAvailability.
 
 > [!Tip]
 > Metryki dotyczące danych dostępności obejmują wszystkie niestandardowe wyniki dostępności, które mogą być przesyłane przez wywołanie naszego zestawu SDK TrackAvailability. Możesz użyć alertu dotyczącego obsługi metryk, aby otrzymywać alerty dotyczące niestandardowych wyników dostępności.
@@ -65,7 +65,7 @@ Przy użyciu [nowych ujednoliconych alertów](../platform/alerts-overview.md)mo�
 
 ## <a name="automate-alerts"></a>Automatyzowanie alertów
 
-Aby zautomatyzować ten proces za pomocą szablonów Azure Resource Manager, zapoznaj się z dokumentacją dotyczącą [tworzenia alertu metryki z szablonem Menedżer zasobów](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
+Aby zautomatyzować ten proces za pomocą szablonów Azure Resource Manager, zapoznaj się z dokumentacją dotyczącą [tworzenia alertu metryki z szablonem Menedżer zasobów](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

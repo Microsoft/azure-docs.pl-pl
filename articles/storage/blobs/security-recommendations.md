@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878091"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592358"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
 
@@ -71,7 +71,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
 | Śledzenie sposobu autoryzacji żądań | Włącz rejestrowanie usługi Azure Storage, aby śledzić, w jaki sposób każde żądanie skierowane do usługi Azure Storage zostało autoryzowane. Dzienniki wskazują, czy żądanie zostało wykonane anonimowo, przy użyciu tokenu OAuth 2,0 przy użyciu klucza współużytkowanego lub przy użyciu sygnatury dostępu współdzielonego (SAS). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Blob Storage za pomocą Azure monitor](monitor-blob-storage.md) lub [Rejestrowanie analizy usługi Azure Storage przy użyciu klasycznego monitorowania](../common/storage-analytics-logging.md). | - |
-| Konfigurowanie alertów w Azure Monitor | Skonfiguruj alerty dzienników w celu oszacowania dzienników zasobów z ustawioną częstotliwością i wyzwalania alertu na podstawie wyników. Aby uzyskać więcej informacji, zobacz [Rejestrowanie alertów w Azure monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Konfigurowanie alertów w Azure Monitor | Skonfiguruj alerty dzienników w celu oszacowania dzienników zasobów z ustawioną częstotliwością i wyzwalania alertu na podstawie wyników. Aby uzyskać więcej informacji, zobacz [Rejestrowanie alertów w Azure monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
 ## <a name="next-steps"></a>Następne kroki
 

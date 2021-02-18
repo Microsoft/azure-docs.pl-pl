@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584910"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571632"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Dokumentacja monitorowania magazynu obiektów blob platformy Azure
 
@@ -36,7 +36,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="blob-storage"></a>Blob Storage
 
-W tej tabeli przedstawiono [metryki magazynu obiektów BLOB](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
+W tej tabeli przedstawiono [metryki magazynu obiektów BLOB](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Opis |
 | ------------------- | ----------------- |
@@ -176,4 +176,4 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 ## <a name="see-also"></a>Zobacz też
 
 - Zobacz [monitorowanie usługi Azure Storage](monitor-blob-storage.md) , aby zapoznać się z opisem monitorowania usługi Azure Storage.
-- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md) .

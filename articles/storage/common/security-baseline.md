@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195725"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591557"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -158,7 +158,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -180,7 +180,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: pobieranie dzienników za pośrednictwem Azure monitor do agregowania danych zabezpieczeń wygenerowanych przez urządzenia punktów końcowych, zasoby sieciowe i inne systemy zabezpieczeń. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego/archiwizowania, opcjonalnie z funkcjami zabezpieczeń, takimi jak niezmienny magazyn i wymuszonymi blokadami przechowywania.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -188,7 +188,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-**Wskazówki**: analityka magazynu platformy Azure zawiera dzienniki dla obiektów blob, kolejek i tabel. Za pomocą Azure Portal można skonfigurować dzienniki, które są rejestrowane dla Twojego konta. 
+**Wskazówki**: Azure Storage Analytics zawiera dzienniki dla obiektów blob, kolejek i tabel. Za pomocą Azure Portal można skonfigurować dzienniki, które są rejestrowane dla Twojego konta. 
 
 - [Jak skonfigurować monitorowanie dla konta usługi Azure Storage](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
 
@@ -210,7 +210,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 - [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](./storage-monitor-storage-account.md#configure-logging)
 
-- [Zmień okres przechowywania danych w Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -238,7 +238,7 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 - [Jak zarządzać alertami w Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Jak ostrzec dane dziennika usługi log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Rejestrowanie usługi Azure Storage Analytics](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 - [Omówienie wykrywania ryzyka usługi Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../../azure-monitor/platform/action-groups.md)
+- [Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień](../../azure-monitor/alerts/action-groups.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -572,7 +572,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące wprowadzania zmian do zasobów konta magazynu. Możesz również włączyć rejestrowanie usługi Azure Storage, aby śledzić, w jaki sposób każde żądanie skierowane do usługi Azure Storage zostało autoryzowane. Dzienniki wskazują, czy żądanie zostało wykonane anonimowo, przy użyciu tokenu OAuth 2,0 przy użyciu klucza współużytkowanego lub przy użyciu sygnatury dostępu współdzielonego (SAS). Ponadto należy użyć Azure Monitor do alertu dotyczącego dostępu anonimowego dla kont magazynu przy użyciu warunku uwierzytelniania anonimowego.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Rejestrowanie usługi Azure Storage Analytics](./storage-analytics-logging.md)
 

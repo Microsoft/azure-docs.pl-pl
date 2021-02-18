@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985760"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634298"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ Aktywna replikacja geograficzna to Azure SQL Database funkcja, która umożliwia
 
 > [!NOTE]
 > Aktywna replikacja geograficzna nie jest obsługiwana przez wystąpienie zarządzane usługi Azure SQL. W przypadku geograficznego trybu failover wystąpień wystąpienia zarządzanego SQL należy użyć [grup z obsługą trybu failover](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Aby migrować bazy danych SQL z platformy Azure (Niemcy) przy użyciu aktywnej replikacji geograficznej, zobacz [migrowanie SQL Database przy użyciu aktywnej replikacji geograficznej](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 Aktywna replikacja geograficzna została zaprojektowana jako rozwiązanie do ciągłej ciągłości biznesowej, które pozwala aplikacji na szybkie odzyskiwanie awaryjne poszczególnych baz danych w przypadku awarii regionalnej lub dużej skali. Jeśli włączono replikację geograficzną, aplikacja może zainicjować przejście w tryb failover do pomocniczej bazy danych w innym regionie świadczenia usługi Azure. Do czterech serwerów pomocniczych są obsługiwane w tym samym lub różnych regionach, a serwery pomocnicze mogą być również używane na potrzeby zapytań dostępu tylko do odczytu. Praca w trybie failover musi zostać zainicjowana ręcznie przez aplikację lub użytkownika. Po przejściu w tryb failover nowy element podstawowy ma inny punkt końcowy połączenia.
 
@@ -292,6 +295,9 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 | [Linki replikacji — lista według bazy danych](/rest/api/sql/replicationlinks/listbydatabase) | Pobiera wszystkie linki replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys.geo_replication_links. |
 | [Usuń łącze replikacji](/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
 |  | |
+
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

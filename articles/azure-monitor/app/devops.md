@@ -3,12 +3,12 @@ title: Monitorowanie wydajności aplikacji sieci Web — Application Insights pl
 description: Jak Application Insights pasuje do cyklu devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc897cc0259894964e0b6164219b1e5459e824b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324492"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579569"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Szczegółowa diagnostyka dla aplikacji internetowych i usług dzięki usłudze Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Dlaczego potrzebuję Application Insights?
@@ -110,7 +110,7 @@ Mapa aplikacji automatycznie odnajduje topologię aplikacji, na podstawie jej in
 ![Mapa aplikacji](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Analiza Application Insights
-Dzięki [analizie](../log-query/log-query-overview.md)można pisać dowolne zapytania w zaawansowanym języku podobnym do bazy danych SQL.  Diagnozowanie całego stosu aplikacji jest proste, ponieważ różne perspektywy są połączone i można zadać odpowiednie pytania, aby skorelować wydajność usługi z użyciem metryk firmy i środowiska klienta. 
+Dzięki [analizie](../logs/log-query-overview.md)można pisać dowolne zapytania w zaawansowanym języku podobnym do bazy danych SQL.  Diagnozowanie całego stosu aplikacji jest proste, ponieważ różne perspektywy są połączone i można zadać odpowiednie pytania, aby skorelować wydajność usługi z użyciem metryk firmy i środowiska klienta. 
 
 Możesz wykonywać zapytania dotyczące wszystkich wystąpień telemetrii i danych nieprzetworzonych metryk przechowywanych w portalu. Język zawiera filtrowanie, łączenie, agregację i inne operacje. Można obliczyć pola i przeprowadzać analizę statystyczną. Istnieją zarówno wizualizacje tabelaryczne, jak i graficzne.
 

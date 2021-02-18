@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6c4d2698cef45d1776ededf0e5281b015ac6725e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4b27adbbfa68fc3a9b0c017d07580f416674e432
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591484"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorowanie usługi Azure Table Storage
 
@@ -30,7 +30,7 @@ Strona **Przegląd** w Azure Portal dla każdego zasobu magazynu tabel zawiera k
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 Usługa Azure Table Storage tworzy dane monitorowania za pomocą [Azure monitor](../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure. Azure Monitor oferuje pełny zestaw funkcji służących do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnych. 
 
-Rozpocznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) , w którym opisano następujące kwestie:
+Rozpocznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md) , w którym opisano następujące kwestie:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
@@ -42,7 +42,7 @@ Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z
 
 ## <a name="monitoring-data"></a>Dane monitorowania
 
-Usługa Azure Table Storage zbiera te same dane monitorowania co inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Usługa Azure Table Storage zbiera te same dane monitorowania co inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Aby uzyskać szczegółowe informacje na temat metryk i dzienników tworzonych przez usługę Azure Table Storage, zobacz temat informacje o [danych monitorowania usługi Azure Table Storage](monitor-table-storage-reference.md) .
 
@@ -66,7 +66,7 @@ Aby zbierać dzienniki zasobów, należy utworzyć ustawienie diagnostyczne. Po 
 
 Ustawienie diagnostyczne można utworzyć przy użyciu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonu Azure Resource Manager. 
 
-Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Aby uzyskać ogólne wskazówki, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
 > Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Ta funkcja jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Zobacz [Omówienie konta magazynu](../common/storage-account-overview.md).
@@ -108,7 +108,7 @@ Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płaci
 2. Z listy rozwijanej **konto magazynu** wybierz konto magazynu, w którym mają być archiwizowane dzienniki, kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
 
    > [!NOTE]
-   > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) , aby poznać wymagania wstępne na koncie magazynu.
+   > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) , aby poznać wymagania wstępne na koncie magazynu.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Przesyłanie strumieniowe dzienników do usługi Azure Event Hubs
 
@@ -162,7 +162,7 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Aby uzyskać więcej informacji na temat archiwizowania dzienników zasobów do usługi Azure Storage, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Aby uzyskać więcej informacji na temat archiwizowania dzienników zasobów do usługi Azure Storage, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
 
@@ -178,7 +178,7 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Aby uzyskać więcej informacji na temat wysyłania dzienników zasobów do centrów zdarzeń, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Aby uzyskać więcej informacji na temat wysyłania dzienników zasobów do centrów zdarzeń, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Wysyłanie dzienników do usługi Log Analytics
 
@@ -192,7 +192,7 @@ Oto przykład:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -250,18 +250,18 @@ Oto przykład:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników zasobów platformy Azure do obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="template"></a>[Szablon](#tab/template)
 
-Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
 
 ## <a name="analyzing-metrics"></a>Analizowanie metryk
 
-Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure, korzystając z Eksplorator metryk. Otwórz Eksplorator metryk, wybierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md). 
+Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure, korzystając z Eksplorator metryk. Otwórz Eksplorator metryk, wybierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/essentials/metrics-getting-started.md). 
 
 Ten przykład pokazuje sposób wyświetlania **transakcji** na poziomie konta.
 
@@ -278,7 +278,7 @@ Metryki dla usługi Azure Table Storage znajdują się w następujących obszara
 - Microsoft. Storage/storageAccounts
 - Microsoft. Storage/storageAccounts/tableServices
 
-Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym Azure Table Storage, zobacz [Azure monitor obsługiwane metryki](../../azure-monitor/platform/metrics-supported.md).
+Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym Azure Table Storage, zobacz [Azure monitor obsługiwane metryki](../../azure-monitor/essentials/metrics-supported.md).
 
 
 ### <a name="accessing-metrics"></a>Uzyskiwanie dostępu do metryk
@@ -523,22 +523,22 @@ Dzienniki wysyłane do centrum zdarzeń nie są przechowywane jako plik, ale mo�
 
 ![Dzienniki inspekcji](media/monitor-table-storage/event-hub-log.png)
 
-Możesz uzyskiwać dostęp do danych dziennika, które są wysyłane do centrum zdarzeń, i je odczytywać, korzystając z informacji o zabezpieczeniach i narzędzi do monitorowania. Aby uzyskać więcej informacji, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Możesz uzyskiwać dostęp do danych dziennika, które są wysyłane do centrum zdarzeń, i je odczytywać, korzystając z informacji o zabezpieczeniach i narzędzi do monitorowania. Aby uzyskać więcej informacji, zobacz [dzienniki zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Uzyskiwanie dostępu do dzienników w obszarze roboczym Log Analytics
 
 Można uzyskać dostęp do dzienników wysyłanych do obszaru roboczego Log Analytics przy użyciu zapytań dziennika Azure Monitor.
 
-Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń i partnerów zewnętrznych](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń i partnerów zewnętrznych](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 Dane są przechowywane w tabeli **StorageTableLogs** . 
 
 #### <a name="sample-kusto-queries"></a>Przykładowe zapytania Kusto
 
-Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku **przeszukiwania dzienników** , aby ułatwić monitorowanie magazynu tabel. Te zapytania działają w [nowym języku](../../azure-monitor/log-query/log-query-overview.md).
+Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku **przeszukiwania dzienników** , aby ułatwić monitorowanie magazynu tabel. Te zapytania działają w [nowym języku](../../azure-monitor/logs/log-query-overview.md).
 
 > [!IMPORTANT]
-> Po wybraniu opcji **dzienniki** z menu Grupa zasobów konta magazynu zostanie otwarty log Analytics z zakresem zapytania ustawionym na bieżącą grupę zasobów. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tej grupy zasobów. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych zasobów lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) .
+> Po wybraniu opcji **dzienniki** z menu Grupa zasobów konta magazynu zostanie otwarty log Analytics z zakresem zapytania ustawionym na bieżącą grupę zasobów. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tej grupy zasobów. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych zasobów lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) .
 
 Użyj tych zapytań, aby ułatwić monitorowanie kont usługi Azure Storage:
 
@@ -597,5 +597,5 @@ Nie. Usługa Azure COMPUTE obsługuje metryki na dyskach. Aby uzyskać więcej i
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje na temat dzienników i metryk utworzonych przez usługę Azure Table Storage, zobacz [dokumentacja danych monitorowania usługi Azure Table Storage](monitor-table-storage-reference.md).
-- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - Aby uzyskać więcej informacji na temat migracji metryk, zobacz [migracja metryk usługi Azure Storage](../common/storage-metrics-migration.md).

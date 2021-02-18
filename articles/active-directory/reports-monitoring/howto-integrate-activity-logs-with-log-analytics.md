@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591137"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrowanie dzienników usługi Azure AD z dziennikami Azure Monitor
 
@@ -59,7 +59,7 @@ Do korzystania z tej funkcji są potrzebne następujące elementy:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/).
 * Dzierżawa usługi Azure AD.
 * Użytkownik będący *administratorem globalnym* lub *administratorem zabezpieczeń* dla tej dzierżawy usługi Azure AD.
-* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+* Log Analytics obszar roboczy w ramach subskrypcji platformy Azure. Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="licensing-requirements"></a>Wymagania dotyczące licencjonowania
 
@@ -69,7 +69,7 @@ Korzystanie z tej funkcji wymaga licencji na Azure AD — wersja Premium P1 lub 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
-2. Wybierz **Azure Active Directory** pozycję  >  **Ustawienia diagnostyczne** Azure Active Directory  ->  **Dodaj ustawienie diagnostyczne**. Możesz również wybrać opcję **Eksportuj ustawienia** na stronie **dzienniki inspekcji** lub **logowania** , aby przejść do strony Konfiguracja ustawień diagnostycznych.  
+2. Wybierz pozycję  >  **Ustawienia diagnostyczne** Azure Active Directory  ->  **Dodaj ustawienie diagnostyczne**. Możesz również wybrać opcję **Eksportuj ustawienia** na stronie **dzienniki inspekcji** lub **logowania** , aby przejść do strony Konfiguracja ustawień diagnostycznych.  
     
 3. W menu **Ustawienia diagnostyczne** zaznacz pole wyboru **Wyślij do log Analytics obszar roboczy** , a następnie wybierz pozycję **Konfiguruj**.
 
@@ -81,7 +81,7 @@ Korzystanie z tej funkcji wymaga licencji na Azure AD — wersja Premium P1 lub 
 
 6. Wybierz pozycję **Zapisz**, aby zapisać ustawienie.
 
-    ![Ustawienia diagnostyczne](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
+    ![Ustawienia diagnostyki](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
 7. Po około 15 minutach Sprawdź, czy zdarzenia są przesyłane strumieniowo do obszaru roboczego Log Analytics.
 

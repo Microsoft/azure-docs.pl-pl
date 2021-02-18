@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42c1d06051c283f0e911c4cd166884ddd060f45
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201229"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633278"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -78,4 +78,4 @@ Element **BuildingBlocks** zawiera następujące elementy, które muszą być ok
 
 - [Lokalizacja](localization.md) — umożliwia obsługę wielu języków. Obsługa lokalizacji w ramach zasad umożliwia skonfigurowanie listy obsługiwanych języków w zasadach i wybranie języka domyślnego. Obsługiwane są również ciągi i kolekcje charakterystyczne dla języka.
 
-- [DisplayControls](display-controls.md) — definiuje kontrolki, które mają być wyświetlane na stronie. Kontrolki wyświetlania mają specjalne funkcje i współdziałają z profilami technicznymi weryfikacji zaplecza. Kontrolki wyświetlania są obecnie dostępne w **wersji zapoznawczej**.
+- [DisplayControls](display-controls.md) — definiuje kontrolki, które mają być wyświetlane na stronie. Kontrolki wyświetlania mają specjalne funkcje i współdziałają z profilami technicznymi weryfikacji zaplecza. 

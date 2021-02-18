@@ -3,15 +3,15 @@ title: Azure Active Directory integrację z usługą Azure Red Hat OpenShift
 description: Dowiedz się, jak utworzyć grupę zabezpieczeń i użytkownika usługi Azure AD na potrzeby testowania aplikacji na Microsoft Azure klastrze Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ee8613d0300a941f80577c98be106173d5d3ced1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f0bf28d61d4c9ad95a485fb4b60e370c16ace16c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220707"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633329"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory integrację z usługą Azure Red Hat OpenShift
 
@@ -29,7 +29,7 @@ Microsoft Azure Red Hat OpenShift potrzebuje uprawnień do wykonywania zadań w 
 
 W [Azure Portal](https://portal.azure.com)upewnij się, że dzierżawa jest wyświetlana pod nazwą użytkownika w prawym górnym rogu portalu:
 
-![Zrzut ekranu portalu z dzierżawą wymienioną w prawym górnym rogu ](./media/howto-create-tenant/tenant-callout.png) , jeśli zostanie wyświetlona niewłaściwa dzierżawa, kliknij nazwę użytkownika w prawym górnym rogu, a następnie kliknij pozycję **Przełącz katalog**i wybierz poprawną dzierżawę z listy **wszystkie katalogi** .
+![Zrzut ekranu portalu z dzierżawą wymienioną w prawym górnym rogu ](./media/howto-create-tenant/tenant-callout.png) , jeśli zostanie wyświetlona niewłaściwa dzierżawa, kliknij nazwę użytkownika w prawym górnym rogu, a następnie kliknij pozycję **Przełącz katalog** i wybierz poprawną dzierżawę z listy **wszystkie katalogi** .
 
 Utwórz nowego użytkownika Azure Active Directory "właściciel", aby zalogować się do klastra Red Hat OpenShift platformy Azure.
 
@@ -109,7 +109,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia nowej aplikacji usługi
 5. Rozwiń **katalog** znajdujący się na poniższej liście i Włącz **katalog. readal**.
 6. Kliknij przycisk **Dodaj uprawnienia** , aby zaakceptować zmiany.
 7. Panel uprawnień interfejsu API powinien teraz wyświetlać zarówno *użytkownika. Read* i *Directory. readal*. Zwróć uwagę na ostrzeżenie w kolumnie **wymagana zgoda administratora** obok *katalogu Directory. readal*.
-8. Jeśli jesteś *administratorem subskrypcji platformy Azure*, kliknij przycisk **Udziel zgody administratora na *nazwę subskrypcji* ** poniżej. Jeśli nie jesteś *administratorem subskrypcji platformy Azure*, zażądaj zgody od administratora.
+8. Jeśli jesteś *administratorem subskrypcji platformy Azure*, kliknij przycisk **Udziel zgody administratora na *nazwę subskrypcji*** poniżej. Jeśli nie jesteś *administratorem subskrypcji platformy Azure*, zażądaj zgody od administratora.
 
 ![Zrzut ekranu przedstawiający panel uprawnień interfejsu API. Uprawnienia User. Read i Directory. readal dodane, zgoda administratora wymagana dla katalogu.](./media/howto-aad-app-configuration/permissions-required.png)
 

@@ -3,20 +3,20 @@ title: Dzienniki diagnostyczne dla Połączenia hybrydowe
 description: Ten artykuł zawiera omówienie wszystkich dzienników działań i diagnostyki, które są dostępne dla Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590875"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Włączanie dzienników diagnostycznych dla Azure Relay Połączenia hybrydowe
 Po rozpoczęciu korzystania z Azure Relay Połączenia hybrydowe można monitorować, jak i kiedy odbiorniki i nadawcy są otwierane i zamykane oraz Połączenia hybrydowe jak są tworzone i wysyłane wiadomości. Ten artykuł zawiera omówienie dzienników działań i diagnostyki dostarczonych przez usługę Azure Relay. 
 
 Można wyświetlić dwa typy dzienników dla Azure Relay:
 
-- [Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md): te dzienniki zawierają informacje o operacjach wykonywanych w odniesieniu do przestrzeni nazw w Azure Portal lub za pomocą szablonu Azure Resource Manager. Te dzienniki są zawsze włączone. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj połączenie hybrydowe". 
-- [Dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md): można skonfigurować dzienniki diagnostyczne, aby uzyskać bogatszy widok wszystkich elementów, które są wykonywane z operacjami i akcjami, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API lub zestawu SDK języka.
+- [Dzienniki aktywności](../azure-monitor/essentials/platform-logs-overview.md): te dzienniki zawierają informacje o operacjach wykonywanych w odniesieniu do przestrzeni nazw w Azure Portal lub za pomocą szablonu Azure Resource Manager. Te dzienniki są zawsze włączone. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj połączenie hybrydowe". 
+- [Dzienniki diagnostyczne](../azure-monitor/essentials/platform-logs-overview.md): można skonfigurować dzienniki diagnostyczne, aby uzyskać bogatszy widok wszystkich elementów, które są wykonywane z operacjami i akcjami, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API lub zestawu SDK języka.
 
 ## <a name="view-activity-logs"></a>Wyświetlanie dzienników aktywności
 Aby wyświetlić dzienniki aktywności dla obszaru nazw Azure Relay, przejdź do strony **dziennika aktywności** w Azure Portal.
@@ -30,7 +30,7 @@ Aby wyświetlić dzienniki aktywności dla obszaru nazw Azure Relay, przejdź do
 
 Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Azure Relay, a następnie w obszarze **monitorowanie**wybierz pozycję  **Ustawienia diagnostyczne**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Azure Relay, a następnie w obszarze **monitorowanie** wybierz pozycję  **Ustawienia diagnostyczne**.
 1. Na stronie **Ustawienia diagnostyki** wybierz pozycję **Dodaj ustawienie diagnostyczne**.  
 
    ![Link "Dodaj ustawienie diagnostyczne"](./media/diagnostic-logs/add-diagnostic-setting.png)
@@ -39,14 +39,14 @@ Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
     1. W polu **Nazwa** wprowadź nazwę ustawień diagnostycznych.  
     2. W polu Typ dziennika wybierz pozycję **HybridConnectionsEvent** . 
     3. Wybierz jeden z następujących trzech **miejsc docelowych** dla dzienników diagnostycznych:  
-        1. W przypadku wybrania opcji **Archiwizuj na koncie magazynu**Skonfiguruj konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
-        2. W przypadku wybrania **strumienia do centrum zdarzeń**Skonfiguruj centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki diagnostyczne.
-        3. W przypadku wybrania opcji **Wyślij do log Analytics**Określ, które wystąpienie log Analytics zostanie wysłane do diagnostyki.  
+        1. W przypadku wybrania opcji **Archiwizuj na koncie magazynu** Skonfiguruj konto magazynu, na którym będą przechowywane dzienniki diagnostyczne.  
+        2. W przypadku wybrania **strumienia do centrum zdarzeń** Skonfiguruj centrum zdarzeń, do którego chcesz przesyłać strumieniowo dzienniki diagnostyczne.
+        3. W przypadku wybrania opcji **Wyślij do log Analytics** Określ, które wystąpienie log Analytics zostanie wysłane do diagnostyki.  
 
         ![Przykładowe ustawienia diagnostyki](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia.
 
-Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** . Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Nowe ustawienia zaczną obowiązywać od około 10 minut. Dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** . Więcej informacji o konfigurowaniu ustawień diagnostycznych znajduje się w temacie [Omówienie dzienników diagnostyki platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schemat zdarzeń połączeń hybrydowych
@@ -54,12 +54,12 @@ Ciągi JSON połączeń hybrydowych dziennika zdarzeń zawierają elementy wymie
 
 | Nazwa | Opis |
 | ------- | ------- |
-| ResourceId | Identyfikator zasobu Azure Resource Manager |
-| ActivityId | Wewnętrzny identyfikator używany do identyfikowania określonej operacji. Może być również znana jako "TrackingId" |
-| Punkt końcowy | Adres zasobu przekaźnika |
-| OperationName | Typ rejestrowanej operacji Połączenia hybrydowe |
-| EventTimeString | Sygnatura czasowa UTC rekordu dziennika |
-| Wiadomość | Szczegółowy komunikat zdarzenia |
+| ResourceId | Identyfikator zasobu Azure Resource Manager |
+| ActivityId | Wewnętrzny identyfikator używany do identyfikowania określonej operacji. Może być również znana jako "TrackingId" |
+| Punkt końcowy | Adres zasobu przekaźnika |
+| OperationName | Typ rejestrowanej operacji Połączenia hybrydowe |
+| EventTimeString | Sygnatura czasowa UTC rekordu dziennika |
+| Komunikat | Szczegółowy komunikat zdarzenia |
 | Kategoria | Kategoria zdarzenia. Obecnie występuje tylko `HybridConnectionsEvents` . 
 
 
@@ -86,13 +86,13 @@ Oto przykładowe zdarzenie połączeń hybrydowych w formacie JSON.
 | InvalidSasToken | Nieprawidłowy token sygnatury dostępu współdzielonego. | 
 | ListenerAcceptingConnection | Odbiornik akceptuje połączenie. |
 | ListenerAcceptingConnectionTimeout | Upłynął limit czasu połączenia akceptującego odbiornik. |
-| ListenerAcceptingHttpRequestFailed | Żądanie HTTP akceptujące odbiornik nie powiodło się z powodu wyjątku. |
-| ListenerAcceptingRequestTimeout | Upłynął limit czasu żądania akceptacji odbiornika. |  
-| ListenerClosingFromExpiredToken | Odbiornik jest zamykany, ponieważ token zabezpieczający wygasł. | 
+| ListenerAcceptingHttpRequestFailed | Żądanie HTTP akceptujące odbiornik nie powiodło się z powodu wyjątku. |
+| ListenerAcceptingRequestTimeout | Upłynął limit czasu żądania akceptacji odbiornika. |  
+| ListenerClosingFromExpiredToken | Odbiornik jest zamykany, ponieważ token zabezpieczający wygasł. | 
 | ListenerRejectedConnection | Odbiornik odrzucił połączenie. |
-| ListenerReturningHttpResponse | Odbiornik zwraca odpowiedź HTTP. |  
+| ListenerReturningHttpResponse | Odbiornik zwraca odpowiedź HTTP. |  
 | ListenerReturningHttpResponseFailed | Odbiornik zwraca odpowiedź HTTP z kodem błędu. | 
- ListenerSentHttpResponse | Usługa przekaźnika odebrała odpowiedź HTTP od odbiornika. | 
+ ListenerSentHttpResponse | Usługa przekaźnika odebrała odpowiedź HTTP od odbiornika. | 
 | ListenerUnregistered | Odbiornik nie jest zarejestrowany. | 
 | ListenerUnresponsive | Odbiornik nie odpowiada podczas zwracania odpowiedzi. | 
 | MessageSendingToListener | Wiadomość jest wysyłana do odbiornika. |

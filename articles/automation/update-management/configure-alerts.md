@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 150269dd2cc6a25a507f03c7d6b47544a89da12a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 74207fe088034ff8d102fb2254d8ab78a6d57671
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222732"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579694"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Jak utworzyć alerty dla Update Management
 
@@ -18,7 +18,7 @@ Alerty w usłudze Azure proaktywnie powiadamiają o wynikach z zadań elementów
 
 ## <a name="available-metrics"></a>Dostępne metryki
 
-Azure Automation tworzy dwie odrębne metryki platformy dotyczące Update Management zbieranych i przesyłanych dalej do Azure Monitor. Ta Metryka jest dostępna do analizy przy użyciu [Eksplorator metryk](../../azure-monitor/platform/metrics-charts.md) i dla alertów przy użyciu [reguły alertu metryki](../../azure-monitor/platform/alerts-metric.md).
+Azure Automation tworzy dwie odrębne metryki platformy dotyczące Update Management zbieranych i przesyłanych dalej do Azure Monitor. Ta Metryka jest dostępna do analizy przy użyciu [Eksplorator metryk](../../azure-monitor/essentials/metrics-charts.md) i dla alertów przy użyciu [reguły alertu metryki](../../azure-monitor/alerts/alerts-metric.md).
 
 Emitowane są dwie metryki:
 
@@ -34,7 +34,7 @@ W przypadku korzystania z alertów obydwie metryki obsługują wymiary, które z
 
 ## <a name="create-alert"></a>Tworzenie alertu
 
-Wykonaj poniższe kroki, aby skonfigurować alerty w celu poinformowania o stanie wdrożenia aktualizacji. Jeśli jesteś nowym tematem alertów platformy Azure, zobacz [Omówienie usługi Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+Wykonaj poniższe kroki, aby skonfigurować alerty w celu poinformowania o stanie wdrożenia aktualizacji. Jeśli jesteś nowym tematem alertów platformy Azure, zobacz [Omówienie usługi Azure Alerts](../../azure-monitor/alerts/alerts-overview.md).
 
 1. Na koncie usługi Automation wybierz pozycję **alerty** w obszarze **monitorowanie**, a następnie wybierz pozycję **Nowa reguła alertu**.
 
@@ -46,11 +46,11 @@ Wykonaj poniższe kroki, aby skonfigurować alerty w celu poinformowania o stani
 
 5. Wybierz pozycję **Dodaj warunek** , aby wybrać sygnał, który jest odpowiedni dla danego wymagania.
 
-6. Dla wymiaru Wybierz prawidłową wartość z listy. Jeśli potrzebna wartość nie znajduje się na liście, wybierz pozycję **\+** obok wymiaru i wpisz nazwę niestandardową. Następnie wybierz wartość do wyszukania. Jeśli chcesz wybrać wszystkie wartości dla wymiaru, wybierz przycisk **Wybierz \* ** . Jeśli nie wybierzesz wartości wymiaru, Update Management zignoruje ten wymiar.
+6. Dla wymiaru Wybierz prawidłową wartość z listy. Jeśli potrzebna wartość nie znajduje się na liście, wybierz pozycję **\+** obok wymiaru i wpisz nazwę niestandardową. Następnie wybierz wartość do wyszukania. Jeśli chcesz wybrać wszystkie wartości dla wymiaru, wybierz przycisk **Wybierz \*** . Jeśli nie wybierzesz wartości wymiaru, Update Management zignoruje ten wymiar.
 
     ![Konfigurowanie logiki sygnału](./media/manage-updates-for-vm/signal-logic.png)
 
-7. W obszarze **logika alertu**wprowadź wartości w polach **agregacja czasu** i **próg** , a następnie wybierz pozycję **gotowe**.
+7. W obszarze **logika alertu** wprowadź wartości w polach **agregacja czasu** i **próg** , a następnie wybierz pozycję **gotowe**.
 
 8. Na następnej stronie Wprowadź nazwę i opis alertu.
 
@@ -62,15 +62,15 @@ Wykonaj poniższe kroki, aby skonfigurować alerty w celu poinformowania o stani
 
 ## <a name="configure-action-groups-for-your-alerts"></a>Konfigurowanie grup akcji dla alertów
 
-Po skonfigurowaniu alertów można skonfigurować grupę akcji, która jest grupą akcji do użycia w ramach wielu alertów. Akcje mogą obejmować powiadomienia e-mail, elementy Runbook, webhook i wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../../azure-monitor/platform/action-groups.md).
+Po skonfigurowaniu alertów można skonfigurować grupę akcji, która jest grupą akcji do użycia w ramach wielu alertów. Akcje mogą obejmować powiadomienia e-mail, elementy Runbook, webhook i wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../../azure-monitor/alerts/action-groups.md).
 
 1. Wybierz Alert, a następnie wybierz pozycję **Utwórz nowy** w obszarze **grupy akcji**.
 
 2. Wprowadź pełną nazwę i krótką nazwę grupy akcji. Update Management używa krótkiej nazwy podczas wysyłania powiadomień przy użyciu określonej grupy.
 
-3. W obszarze **Akcje**wprowadź nazwę określającą akcję, na przykład **powiadomienie e-mail**.
+3. W obszarze **Akcje** wprowadź nazwę określającą akcję, na przykład **powiadomienie e-mail**.
 
-4. W **polu Typ akcji**wybierz odpowiedni typ, na przykład **e-mail/SMS/wypychanie/głos**.
+4. W **polu Typ akcji** wybierz odpowiedni typ, na przykład **e-mail/SMS/wypychanie/głos**.
 
 5. Wybierz pozycję **Edytuj szczegóły**.
 
@@ -86,8 +86,8 @@ Po skonfigurowaniu alertów można skonfigurować grupę akcji, która jest grup
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [alertach w Azure monitor](../../azure-monitor/platform/alerts-overview.md).
+* Dowiedz się więcej o [alertach w Azure monitor](../../azure-monitor/alerts/alerts-overview.md).
 
-* Dowiedz się więcej na temat [zapytań dzienników](../../azure-monitor/log-query/log-query-overview.md) dotyczących pobierania i analizowania danych z obszaru roboczego log Analytics.
+* Dowiedz się więcej na temat [zapytań dzienników](../../azure-monitor/logs/log-query-overview.md) dotyczących pobierania i analizowania danych z obszaru roboczego log Analytics.
 
-* Zarządzanie [użyciem i kosztami za pomocą dzienników Azure monitor](../../azure-monitor/platform/manage-cost-storage.md) opisuje sposób kontrolowania kosztów przez zmianę okresu przechowywania danych oraz analizowanie i zgłaszanie alertów dotyczących użycia danych.
+* Zarządzanie [użyciem i kosztami za pomocą dzienników Azure monitor](../../azure-monitor/logs/manage-cost-storage.md) opisuje sposób kontrolowania kosztów przez zmianę okresu przechowywania danych oraz analizowanie i zgłaszanie alertów dotyczących użycia danych.

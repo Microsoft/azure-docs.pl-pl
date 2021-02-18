@@ -4,12 +4,12 @@ description: Ustawienia domyślne Azure Portal można zmienić, aby spełniały 
 keywords: Ustawienia, limit czasu, język, regionalne
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094114"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588802"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Zarządzanie ustawieniami i preferencjami witryny Azure Portal
 
@@ -71,7 +71,7 @@ Aby odczytać wszystkie powiadomienia odebrane podczas bieżącej sesji, wybierz
 
 ![Zrzut ekranu przedstawiający nagłówek globalny Azure Portal z wyróżnionymi powiadomieniami](./media/set-preferences/read-notifications.png)
 
-Jeśli chcesz odczytywać powiadomienia z poprzednich sesji, poszukaj zdarzeń w dzienniku aktywności. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dziennika aktywności](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+Jeśli chcesz odczytywać powiadomienia z poprzednich sesji, poszukaj zdarzeń w dzienniku aktywności. Aby uzyskać więcej informacji, zobacz [Wyświetlanie dziennika aktywności](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>Zmień ustawienie limitu czasu nieaktywności
 

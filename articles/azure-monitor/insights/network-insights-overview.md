@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573522"
 ---
 # <a name="azure-monitor-for-networks"></a>Usługa Azure Monitor dla sieci
 
-Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](../../service-health/resource-health-checks-resource-types.md) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-overview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../../network-watcher/traffic-analytics.md). Zapewnia inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
+Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](../../service-health/resource-health-checks-resource-types.md) i [metryki](../essentials/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych, bez konieczności konfigurowania. Zapewnia również dostęp do funkcji monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-overview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)i [Analiza ruchu](../../network-watcher/traffic-analytics.md). Zapewnia inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
 
 Azure Monitor dla sieci ma strukturę następujących najważniejszych składników monitorowania:
 - [Kondycja sieci i metryki](#networkhealth)
@@ -149,4 +149,4 @@ Można edytować skoroszyt widoczny w dowolnym panelu bocznym lub szczegółowym
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o monitorowaniu sieci: [co to jest platforma Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Zapoznaj się ze scenariuszami skoroszytów, które są przeznaczone do obsługi, tworzenia raportów i dostosowywania istniejących raportów oraz nie tylko: [Tworzenie interaktywnych raportów za pomocą skoroszytów Azure monitor](../platform/workbooks-overview.md)
+- Zapoznaj się ze scenariuszami skoroszytów, które są przeznaczone do obsługi, tworzenia raportów i dostosowywania istniejących raportów oraz nie tylko: [Tworzenie interaktywnych raportów za pomocą skoroszytów Azure monitor](../visualize/workbooks-overview.md)

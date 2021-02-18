@@ -4,12 +4,12 @@ description: Automatyzowanie niestandardowych raportów codziennych/cotygodniowy
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590044"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatyzowanie niestandardowych raportów za pomocą usługi Azure Application Insights Data
 
@@ -31,7 +31,7 @@ Każde przedsiębiorstwo ma swoje unikatowe potrzeby związane z raportowaniem, 
 
 Można [programowo wykonywać zapytania dotyczące Application Insights](https://dev.applicationinsights.io/) danych, aby generować raporty niestandardowe zgodnie z harmonogramem. Następujące opcje mogą pomóc szybko rozpocząć pracę:
 
-* [Automatyzowanie raportów za pomocą automatyzacji](../platform/logicapp-flow-connector.md)
+* [Automatyzowanie raportów za pomocą automatyzacji](../logs/logicapp-flow-connector.md)
 * [Automatyzowanie raportów za pomocą Logic Apps](automate-with-logic-apps.md)
 * Użyj szablonu [funkcji platformy Azure](../../azure-functions/functions-get-started.md) "Application Insights zaplanowanego skrótu" w scenariuszu monitorowania. Ta funkcja używa SendGrid do dostarczania wiadomości e-mail. 
 
@@ -150,7 +150,7 @@ Te kroki mają zastosowanie tylko wtedy, gdy nie masz jeszcze skonfigurowanego k
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../log-query/get-started-queries.md).
+* Dowiedz się więcej na temat tworzenia [zapytań analitycznych](../logs/get-started-queries.md).
 * Dowiedz się więcej na temat [programowo przeszukiwania danych Application Insights](https://dev.applicationinsights.io/)
 * Dowiedz się więcej na temat usługi [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Dowiedz się więcej o [programie Microsoft PowerShell](https://ms.flow.microsoft.com).

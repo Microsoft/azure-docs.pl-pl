@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897279"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591973"
 ---
 # <a name="configure-azure-backup-reports-preview"></a>Skonfiguruj raporty Azure Backup (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ Typowym wymaganiem dla administratorów kopii zapasowych jest uzyskanie wglądu 
 - Inspekcja kopii zapasowych i przywracania.
 - Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
-Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) i [skoroszytów platformy Azure](../azure-monitor/platform/workbooks-overview.md). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
+Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) i [skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -41,9 +41,9 @@ Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
 Skonfiguruj co najmniej jeden obszar roboczy Log Analytics do przechowywania danych raportowania kopii zapasowych. Lokalizację i subskrypcję, w której można utworzyć ten obszar roboczy Log Analytics, są niezależne od lokalizacji i subskrypcji, w której istnieją Twoje magazyny.
 
-Aby skonfigurować obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
+Aby skonfigurować obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md).
 
-Domyślnie dane w obszarze roboczym Log Analytics są przechowywane przez 30 dni. Aby wyświetlić dane przez dłuższy czas, należy zmienić okres przechowywania obszaru roboczego Log Analytics. Aby zmienić okres przechowywania, zobacz [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/platform/manage-cost-storage.md).
+Domyślnie dane w obszarze roboczym Log Analytics są przechowywane przez 30 dni. Aby wyświetlić dane przez dłuższy czas, należy zmienić okres przechowywania obszaru roboczego Log Analytics. Aby zmienić okres przechowywania, zobacz [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Skonfiguruj ustawienia diagnostyki dla swoich magazynów
 
