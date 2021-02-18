@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393058"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648607"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Zarządzaj uprawnieniami do przywracania konta Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -61,7 +61,7 @@ Następujące uprawnienia są wymagane do wykonywania różnych działań związ
 |Uprawnienie  |Wpływ  |Zakres minimalny  |Zakres maksymalny  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Te uprawnienia są wymagane do wdrożenia szablonu ARM w celu utworzenia przywróconego konta. Aby ustawić tę rolę, zobacz przykładowe uprawnienia [RestorableAction](#custom-restorable-action) poniżej. | Nie dotyczy | Nie dotyczy  |
-|Microsoft.DocumentDB/databaseAccounts/zapis | To uprawnienie jest wymagane do przywrócenia konta do grupy zasobów | Grupa zasobów, w ramach której zostało utworzone przywrócone konto. | Subskrypcja, w ramach której zostało utworzone przywrócone konto |
+|`Microsoft.DocumentDB/databaseAccounts/write` | To uprawnienie jest wymagane do przywrócenia konta do grupy zasobów | Grupa zasobów, w ramach której zostało utworzone przywrócone konto. | Subskrypcja, w ramach której zostało utworzone przywrócone konto |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |To uprawnienie jest wymagane w zakresie konta źródłowej bazy danych dostępnych, aby umożliwić wykonywanie na nim akcji przywracania.  | Zasób *RestorableDatabaseAccount* należący do przywracanego konta źródłowego. Ta wartość jest również określona przez `ID` Właściwość zasobu konta bazy danych dostępnych. Przykładem konta dostępnych jest */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>* | Subskrypcja zawierająca konto bazy danych dostępnych. Nie można wybrać grupy zasobów jako zakresu.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |To uprawnienie jest wymagane w zakresie konta źródłowej bazy danych dostępnych w celu wyświetlenia listy kont bazy danych, które mogą zostać przywrócone.  | Zasób *RestorableDatabaseAccount* należący do przywracanego konta źródłowego. Ta wartość jest również określona przez `ID` Właściwość zasobu konta bazy danych dostępnych. Przykładem konta dostępnych jest */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| Subskrypcja zawierająca konto bazy danych dostępnych. Nie można wybrać grupy zasobów jako zakresu.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | To uprawnienie jest wymagane w zakresie konta źródłowego dostępnych, aby umożliwić odczytywanie zasobów dostępnych, takich jak lista baz danych i kontenerów dla konta dostępnych.  | Zasób *RestorableDatabaseAccount* należący do przywracanego konta źródłowego. Ta wartość jest również określona przez `ID` Właściwość zasobu konta bazy danych dostępnych. Przykładem konta dostępnych jest */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| Subskrypcja zawierająca konto bazy danych dostępnych. Nie można wybrać grupy zasobów jako zakresu. |

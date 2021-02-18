@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737239"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593313"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 
@@ -142,7 +142,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 - [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -200,7 +200,7 @@ W razie potrzeby można połączyć się z węzłami poszczególnych pul za poś
 
 - [Jak skonfigurować Azure Batch monitorowania i rejestrowania](monitoring-overview.md)
 
-- [Jak skonfigurować okres przechowywania obszaru roboczego usługi Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Jak skonfigurować okres przechowywania obszaru roboczego usługi Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -514,7 +514,7 @@ Usługa Azure Disk Encryption może służyć do ochrony i zabezpieczania danych
 
 Skonfiguruj ustawienia diagnostyczne dla kont magazynu skojarzonych z pulą Azure Batch, aby monitorować i rejestrować wszystkie operacje CRUD na danych puli.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Jak włączyć dodatkowe rejestrowanie/inspekcję dla konta usługi Azure Storage](../storage/common/storage-monitor-storage-account.md)
 

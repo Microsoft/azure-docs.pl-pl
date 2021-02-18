@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097694"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594391"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -109,7 +109,7 @@ Odp **.: 135**% jest współużytkowany przez 8 vCPU, które tworzą rozmiar mas
 
 Odp.: Metryka **kredytowa** umożliwia wyświetlenie liczby **środków, które** zostały zgłoszone przez maszynę wirtualną, a Metryka **CONSUMEDCREDIT** pokazuje, ile kredytów CPU zużywał przez maszynę wirtualną od banku.    Te metryki będą widoczne w okienku metryki w portalu lub programowo za pośrednictwem interfejsów API Azure Monitor.
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych metryk dla platformy Azure, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych metryk dla platformy Azure, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: w jaki sposób są sumowane i zużywane środki?
 

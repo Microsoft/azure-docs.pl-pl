@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207567"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593781"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Odkryj, jakie oprogramowanie jest zainstalowane na maszynach wirtualnych
 
@@ -48,7 +48,7 @@ Najpierw należy włączyć śledzenie zmian i spisu na potrzeby tego samouczka.
 
 1. Przejdź do konta usługi Automation i wybierz pozycję **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
 
-2. Wybierz obszar roboczy [log Analytics](../azure-monitor/log-query/log-query-overview.md) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+2. Wybierz obszar roboczy [log Analytics](../azure-monitor/logs/log-query-overview.md) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ Po włączeniu tej funkcji informacje o zainstalowanym oprogramowaniu i zmianach
 
 Aby włączyć maszyny spoza platformy Azure dla tej funkcji:
 
-1. W zależności od używanego systemu operacyjnego zainstaluj [agenta log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) lub [agenta log Analytics w systemie Linux](automation-linux-hrw-install.md). 
+1. W zależności od używanego systemu operacyjnego zainstaluj [agenta log Analytics dla systemu Windows](../azure-monitor/agents/agent-windows.md) lub [agenta log Analytics w systemie Linux](automation-linux-hrw-install.md). 
 
 2. Przejdź do konta usługi Automation i przejdź do pozycji **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**. 
 
@@ -122,7 +122,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dziennika usługi Azure Monitor, zobacz [Dzienniki usługi Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dziennika usługi Azure Monitor, zobacz [Dzienniki usługi Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="see-the-software-inventory-for-a-single-machine"></a>Zobacz Spis oprogramowania dla jednej maszyny
 

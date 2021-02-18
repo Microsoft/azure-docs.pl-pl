@@ -3,12 +3,12 @@ title: Przykład planu wpływu na poziom 4
 description: Wdróż kroki dla przykładowego poziomu wpływu na wartość DoD 4, w tym szczegóły parametru artefaktu strategii.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594802"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Wdrażanie przykładu planu wpływu na poziom DoD 4
 
@@ -109,7 +109,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Wdrażanie agenta Log Analytics dla maszyn wirtualnych z systemem Windows|Przypisanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych: \[\]|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Członkowie do uwzględnienia w lokalnej grupie administratorów|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Elementy członkowskie, które powinny być wykluczone w grupie lokalnej Administratorzy|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne|To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne.|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Długoterminowa geograficznie nadmiarowa kopia zapasowa powinna być włączona dla baz danych Azure SQL Database|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|
 |\[Wersja zapoznawcza \] : poziom wpływu na dod 4|Przypisanie zasad|Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL|Informacje dotyczące efektów zasad można znaleźć w [opisie efektów Azure Policy](../../../policy/concepts/effects.md).|

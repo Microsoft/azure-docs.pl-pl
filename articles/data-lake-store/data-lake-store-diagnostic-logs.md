@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 07bf22cfc683d8c6f2c765364334ed1594e2fdaa
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745888"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582798"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla Azure Data Lake Storage Gen1
 Dowiedz się, jak włączyć rejestrowanie diagnostyczne dla konta Azure Data Lake Storage Gen1 i jak wyświetlić dzienniki zebrane dla Twojego konta.
@@ -46,7 +46,7 @@ Organizacje mogą włączyć rejestrowanie diagnostyczne dla swojego konta Azure
         
         * Wybierz opcję **przesyłania strumieniowego do centrum zdarzeń** w celu przesyłania strumieniowego danych dziennika do centrum zdarzeń platformy Azure. Najprawdopodobniej użyjesz tej opcji, jeśli masz potok przetwarzania podrzędnego do analizowania dzienników przychodzących w czasie rzeczywistym. W przypadku wybrania tej opcji należy podać szczegóły centrum zdarzeń platformy Azure, którego chcesz użyć.
 
-        * Wybierz opcję **wysyłania do log Analytics** , aby użyć usługi Azure monitor do analizowania wygenerowanych danych dziennika. W przypadku wybrania tej opcji należy podać szczegóły dotyczące obszaru roboczego Log Analytics, w którym będzie używana Analiza dzienników. Aby uzyskać szczegółowe informacje na temat korzystania z dzienników Azure Monitor [, zobacz Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) .
+        * Wybierz opcję **wysyłania do log Analytics** , aby użyć usługi Azure monitor do analizowania wygenerowanych danych dziennika. W przypadku wybrania tej opcji należy podać szczegóły dotyczące obszaru roboczego Log Analytics, w którym będzie używana Analiza dzienników. Aby uzyskać szczegółowe informacje na temat korzystania z dzienników Azure Monitor [, zobacz Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) .
      
    * Określ, czy chcesz pobrać dzienniki inspekcji, czy Dzienniki żądań czy oba te elementy.
    * Określ liczbę dni, przez jaką dane muszą zostać zachowane. Przechowywanie jest stosowane tylko w przypadku korzystania z konta usługi Azure Storage do archiwizowania danych dziennika.
@@ -185,7 +185,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 | StreamName |Ciąg |Ścieżka, na której wykonano operację |
 
 ## <a name="samples-to-process-the-log-data"></a>Przykłady do przetwarzania danych dziennika
-W przypadku wysyłania dzienników z usługi Azure Data Lake Storage Gen1 do dzienników Azure Monitor (zobacz [Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor wyszukiwanie](../azure-monitor/log-query/log-analytics-tutorial.md) szczegółowych informacji dotyczących korzystania z dzienników Azure monitor), następujące zapytanie zwróci tabelę zawierającą listę nazw wyświetlanych użytkowników, czas zdarzeń oraz liczbę zdarzeń w czasie zdarzenia wraz z wykresem wizualnym. Można łatwo zmodyfikować, aby pokazać identyfikator GUID użytkownika lub inne atrybuty:
+W przypadku wysyłania dzienników z usługi Azure Data Lake Storage Gen1 do dzienników Azure Monitor (zobacz [Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor wyszukiwanie](../azure-monitor/logs/log-analytics-tutorial.md) szczegółowych informacji dotyczących korzystania z dzienników Azure monitor), następujące zapytanie zwróci tabelę zawierającą listę nazw wyświetlanych użytkowników, czas zdarzeń oraz liczbę zdarzeń w czasie zdarzenia wraz z wykresem wizualnym. Można łatwo zmodyfikować, aby pokazać identyfikator GUID użytkownika lub inne atrybuty:
 
 ```
 search *
@@ -196,6 +196,6 @@ search *
 
 Azure Data Lake Storage Gen1 zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)

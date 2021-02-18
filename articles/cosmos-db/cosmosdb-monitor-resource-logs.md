@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 561375eb41600ba1404bba2bcbf15b6cbfc61851
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684862"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595339"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych usługi Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,7 +103,7 @@ Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku
 
 * **Żądania**: zaznacz tę opcję, aby zbierać dane metryk z Azure Cosmos DB do miejsc docelowych w ustawieniu diagnostyki. Są to te same dane, które są zbierane automatycznie w ramach metryk platformy Azure. Zbieraj dane metryk z dziennikami zasobów, aby analizować jednocześnie oba rodzaje danych i wysyłać dane metryk poza Azure Monitor.
 
-Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk platformy w artykule platformy Azure](../azure-monitor/platform/diagnostic-settings.md) .
+Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk platformy w artykule platformy Azure](../azure-monitor/essentials/diagnostic-settings.md) .
 
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Rozwiązywanie problemów z zapytaniami diagnostycznymi

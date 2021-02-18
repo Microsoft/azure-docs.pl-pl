@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ff4c3c5ae8629879fca6e9e683a9c77d0e2f144b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596107"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Przejście do metryk w Azure Monitor
 
@@ -35,7 +35,7 @@ Aby przejść do metryk w Azure Monitor, zalecamy następujące podejście.
    > [!NOTE]
    > Metryki w Azure Monitor są domyślnie włączone, więc nie trzeba wykonywać operacji przechwytywania metryk. Należy jednak utworzyć wykresy lub pulpity nawigacyjne, aby wyświetlić te metryki. 
  
-5. Jeśli utworzono reguły alertów oparte na klasycznych metrykach magazynu, [Utwórz reguły alertów](../../azure-monitor/platform/alerts-overview.md) oparte na metrykach w Azure monitor. 
+5. Jeśli utworzono reguły alertów oparte na klasycznych metrykach magazynu, [Utwórz reguły alertów](../../azure-monitor/alerts/alerts-overview.md) oparte na metrykach w Azure monitor. 
 
 6. Gdy będzie można zobaczyć wszystkie metryki w Azure Monitor, można wyłączyć rejestrowanie klasyczne. 
 
@@ -53,7 +53,7 @@ W odniesieniu do metryk, klasyczne metryki zapewniają metryki **pojemności** t
 
 Jeśli działanie na koncie nie wyzwala metryki, w przypadku tej metryki metryki klasyczne wyświetlą wartość zero (0). Metryki w Azure Monitor będą całkowicie pomijać dane, co prowadzi do raportów dotyczących czyszczenia. Na przykład w przypadku metryk klasycznych, jeśli nie zostaną zgłoszone błędy limitu czasu serwera, `ServerTimeoutError` wartość w tabeli metryk jest równa 0. Azure Monitor nie zwraca żadnych danych podczas wykonywania zapytania o wartość metryki `Transactions` z wymiarem `ResponseType` równym `ServerTimeoutError` . 
 
-Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

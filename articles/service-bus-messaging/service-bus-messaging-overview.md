@@ -2,13 +2,13 @@
 title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft Docs
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219166"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570467"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 Microsoft Azure Service Bus to w pełni zarządzany Broker komunikatów przedsiębiorstwa z kolejkami komunikatów i tematami publikowania/subskrybowania. Service Bus służy do rozdzielania aplikacji i usług od siebie, co zapewnia następujące korzyści:
@@ -118,11 +118,10 @@ Tworzenie wsadowe po stronie klienta umożliwia klientowi kolejki lub tematu gro
 Grupy transakcji grupuje dwie lub więcej operacji jednocześnie do *zakresu wykonywania*. Service Bus pozwala grupować operacje na wielu jednostkach obsługi komunikatów w ramach jednej transakcji. Jednostką wiadomości może być kolejka, temat lub subskrypcja. Aby uzyskać więcej informacji, zobacz [Omówienie przetwarzania transakcji Service Bus](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Autodelete przy bezczynności
-
-Autodelete w trybie bezczynności umożliwia określenie interwału bezczynności, po upływie którego automatycznie zostanie usunięta subskrypcja kolejki lub tematu. Minimalny czas trwania wynosi 5 minut. Aby uzyskać więcej informacji, zobacz [Właściwość QueueDescription. AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+Autodelete w trybie bezczynności umożliwia określenie interwału bezczynności, po upływie którego automatycznie zostanie usunięta subskrypcja kolejki lub tematu. Minimalny czas trwania wynosi 5 minut. 
 
 ### <a name="duplicate-detection"></a>Wykrywanie duplikatów
-Funkcja wykrywania duplikatów umożliwia nadawcy ponowne wysłanie tego samego komunikatu i dla brokera, aby porzucić potencjalne duplikaty. Wykrywanie duplikatów opiera się na śledzeniu `message-id` Właściwości komunikatu, co oznacza, że aplikacja musi mieć ostrożność, aby użyć tej samej wartości przy ponownym wysyłaniu wiadomości, która może być bezpośrednio uzyskana z niektórych kontekstów specyficznych dla aplikacji. Aby uzyskać więcej informacji, zobacz [Wykrywanie duplikatów](duplicate-detection.md).
+Funkcja wykrywania duplikatów umożliwia nadawcy ponowne wysłanie tego samego komunikatu i dla brokera, aby porzucić potencjalne duplikaty. Aby uzyskać więcej informacji, zobacz [Wykrywanie duplikatów](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Geograficzne odzyskiwanie po awarii
 

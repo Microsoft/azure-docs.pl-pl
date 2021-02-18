@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584194"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
@@ -109,7 +109,7 @@ Jeśli sprawdzimy nasz zasób Application Insights w środowisku dzienników (an
 > [!NOTE]
 > Nieprzetworzony element telemetrii nie zawierał jawnej sumy właściwości/pola po pobraniu dla Ciebie nowej wartości. W tym przypadku zarówno `value` Właściwość, jak i `valueSum` reprezentuje to samo.
 
-Dostęp do danych telemetrycznych metryk niestandardowych można uzyskać również w sekcji [_metryki_](../platform/metrics-charts.md) portalu. Zarówno jako [Metryka oparta na dzienniku, jak i niestandardowa](pre-aggregated-metrics-log-metrics.md). (Poniższy zrzut ekranu przedstawia przykład opartego na dzienniku). ![Widok Eksploratora metryk](./media/get-metric/metrics-explorer.png)
+Dostęp do danych telemetrycznych metryk niestandardowych można uzyskać również w sekcji [_metryki_](../essentials/metrics-charts.md) portalu. Zarówno jako [Metryka oparta na dzienniku, jak i niestandardowa](pre-aggregated-metrics-log-metrics.md). (Poniższy zrzut ekranu przedstawia przykład opartego na dzienniku). ![Widok Eksploratora metryk](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Odwołanie do pamięci podręcznej dla użycia o wysokiej przepływności
 
@@ -188,7 +188,7 @@ Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są wł�
 
 ### <a name="enable-multi-dimensional-metrics"></a>Włącz metryki wielowymiarowe
 
-Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty**.  >  **metryki niestandardowe**  >  **umożliwiają powiadamianie o niestandardowych wymiarach metryk**  >  **OK**. Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty**.  >  **metryki niestandardowe**  >  **umożliwiają powiadamianie o niestandardowych wymiarach metryk**  >  . Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć możliwość **zastosowania dzielenia**.
 
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * [Dowiedz się więcej ](./worker-service.md)o monitorowaniu aplikacji usługi Worker.
 * Aby uzyskać więcej szczegółowych informacji na temat [metryk opartych na dzienniku i wstępnie agregowanych](./pre-aggregated-metrics-log-metrics.md).
-* [Eksplorator metryk](../platform/metrics-getting-started.md)
+* [Eksplorator metryk](../essentials/metrics-getting-started.md)
 * Jak włączyć Application Insights [aplikacji ASP.NET Core](asp-net-core.md)
 * Jak włączyć Application Insights dla [aplikacji ASP.NET](asp-net.md)

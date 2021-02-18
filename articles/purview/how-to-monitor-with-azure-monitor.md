@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588341"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Metryki usługi Azure kontrolą w Azure Monitor
 
@@ -24,7 +24,7 @@ Administratorzy usługi Azure kontrolą mogą używać Azure Monitor do śledzen
 
 ## <a name="aggregated-metrics"></a>Zagregowane metryki
 
-Dostęp do metryk można uzyskać z Azure Portal dla konta kontrolą. Dostęp do metryk są kontrolowane przez przypisanie roli konta kontrolą. Aby wyświetlić metryki, użytkownicy muszą być częścią roli "monitorowanie czytnika" w usłudze Azure kontrolą. Sprawdź [uprawnienia roli czytelnik monitorowania](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) , aby dowiedzieć się więcej na temat poziomów dostępu do ról.
+Dostęp do metryk można uzyskać z Azure Portal dla konta kontrolą. Dostęp do metryk są kontrolowane przez przypisanie roli konta kontrolą. Aby wyświetlić metryki, użytkownicy muszą być częścią roli "monitorowanie czytnika" w usłudze Azure kontrolą. Sprawdź [uprawnienia roli czytelnik monitorowania](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) , aby dowiedzieć się więcej na temat poziomów dostępu do ról.
 
 Osoba, która utworzyła konto kontrolą, automatycznie uzyskuje uprawnienia do wyświetlania metryk. Jeśli ktoś inny chce zobaczyć metryki, Dodaj je do roli **czytelnik monitorowania** , wykonując następujące czynności:
 
@@ -58,7 +58,7 @@ Użytkownicy usługi Azure kontrolą mogą również uzyskiwać dostęp do stron
 
 ### <a name="available-metrics"></a>Dostępne metryki
 
-Aby zapoznać się z sposobem korzystania z sekcji Metryka w Azure Portal, przeczytaj następujące dwa dokumenty. [Wprowadzenie do Eksploratora metryk](../azure-monitor/platform/metrics-getting-started.md) i [zaawansowanych funkcji Eksploratora metryk](../azure-monitor/platform/metrics-charts.md).
+Aby zapoznać się z sposobem korzystania z sekcji Metryka w Azure Portal, przeczytaj następujące dwa dokumenty. [Wprowadzenie do Eksploratora metryk](../azure-monitor/essentials/metrics-getting-started.md) i [zaawansowanych funkcji Eksploratora metryk](../azure-monitor/essentials/metrics-charts.md).
 
 Poniższa tabela zawiera listę metryk dostępnych do zbadania w Azure Portal:
 
@@ -75,7 +75,7 @@ Zdarzenia nieprzetworzonych danych telemetrycznych są emitowane do Azure Monito
 
 Postępuj zgodnie z instrukcjami, aby utworzyć ustawienia diagnostyczne dla konta usługi Azure kontrolą.
 
-1. Utwórz nowe ustawienie diagnostyczne, aby zbierać dzienniki platformy i metryki, wykonując następujące czynności: [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/platform/diagnostic-settings.md). Wybierz lokalizację docelową tylko jako konto usługi Azure Storage.
+1. Utwórz nowe ustawienie diagnostyczne, aby zbierać dzienniki platformy i metryki, wykonując następujące czynności: [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/essentials/diagnostic-settings.md). Wybierz lokalizację docelową tylko jako konto usługi Azure Storage.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający tworzenie dziennika diagnostycznego." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 

@@ -4,12 +4,12 @@ description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usłu
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588195"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi ServiceNow przy użyciu elementów webhook
 
@@ -178,7 +178,7 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 1. Wybierz pozycję **Zapisz** po zakończeniu, aby zaktualizować grupę akcji.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testowanie integracji elementu webhook za pośrednictwem żądania HTTP POST
-1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Utwórz ładunek kondycji usługi, który chcesz wysłać. Możesz znaleźć przykładowy ładunek elementu webhook kondycji usługi w [elementach webhook dla alertów dziennika aktywności platformy Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Utwórz żądanie HTTP POST w następujący sposób:
 
@@ -195,6 +195,6 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [skonfigurować powiadomienia elementu webhook dla istniejących systemów zarządzania problemami](service-health-alert-webhook-guide.md).
-- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](./service-notifications.md).
-- Dowiedz się więcej na temat [grup akcji](../azure-monitor/platform/action-groups.md).
+- Dowiedz się więcej na temat [grup akcji](../azure-monitor/alerts/action-groups.md).

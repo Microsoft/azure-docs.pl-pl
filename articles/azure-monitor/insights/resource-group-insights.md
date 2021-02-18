@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573442"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorowanie grup zasobów przy użyciu Azure Monitor (wersja zapoznawcza)
 
@@ -46,9 +46,9 @@ Strona szczegółowe informacje o grupie zasobów zawiera kilka innych narzędzi
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerty**](../platform/alerts-overview.md)      |  Wyświetlaj i twórz Alerty oraz zarządzaj nimi. |
-   | [**Metryki**](../platform/data-platform.md) | Wizualizowanie i Eksplorowanie danych opartych na metrykach.    |
-   | [**Dzienniki aktywności**](../platform/platform-logs-overview.md) | Zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure.  |
+   | [**Alerty**](../alerts/alerts-overview.md)      |  Wyświetlaj i twórz Alerty oraz zarządzaj nimi. |
+   | [**Metryki**](../data-platform.md) | Wizualizowanie i Eksplorowanie danych opartych na metrykach.    |
+   | [**Dzienniki aktywności**](../essentials/platform-logs-overview.md) | Zdarzenia poziomu subskrypcji, które wystąpiły na platformie Azure.  |
    | [**Mapa aplikacji**](../app/app-map.md) | Przejdź do topologii aplikacji rozproszonej, aby zidentyfikować wąskie gardła wydajności lub punkty awarii. |
 
 ## <a name="failures-and-performance"></a>Awarie i wydajność
@@ -117,6 +117,6 @@ Azure Monitor grupy zasobów bazują na systemie zarządzania alertami Azure Mon
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Azure Monitor skoroszyty](../platform/workbooks-overview.md)
+- [Azure Monitor skoroszyty](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alerty usługi Azure Monitor](../platform/alerts-overview.md)
+- [Alerty usługi Azure Monitor](../alerts/alerts-overview.md)

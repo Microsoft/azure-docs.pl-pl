@@ -4,12 +4,12 @@ description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579579"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w usłudze Application Insights
 
@@ -120,7 +120,7 @@ Tak, niektóre kanały telemetrii będą utrzymywać dane lokalnie, jeśli nie m
 
 Kanały telemetrii używające lokalnego magazynu tworzą pliki tymczasowe w katalogach TEMP lub APPDATA, które są ograniczone do określonego konta, na którym działa aplikacja. Może się tak zdarzyć, gdy punkt końcowy był tymczasowo niedostępny lub osiągnięto limit ograniczania. Po rozwiązaniu tego problemu kanał telemetrii zostanie wznowiony, wysyłając wszystkie nowe i utrwalone dane.
 
-Te utrwalone dane nie są szyfrowane lokalnie. Jeśli jest to problem, Przejrzyj dane i Ogranicz zbieranie danych prywatnych. (Aby uzyskać więcej informacji, zobacz [Jak eksportować i usuwać dane prywatne](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)).
+Te utrwalone dane nie są szyfrowane lokalnie. Jeśli jest to problem, Przejrzyj dane i Ogranicz zbieranie danych prywatnych. (Aby uzyskać więcej informacji, zobacz [Jak eksportować i usuwać dane prywatne](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data)).
 
 Jeśli klient musi skonfigurować ten katalog z określonymi wymaganiami dotyczącymi zabezpieczeń, można go skonfigurować na platformę. Upewnij się, że proces z uruchomioną aplikacją ma dostęp do zapisu w tym katalogu, ale upewnij się również, że ten katalog jest chroniony, aby uniknąć odczytania danych telemetrycznych przez niezamierzonych użytkowników.
 
@@ -199,7 +199,7 @@ AzureLogHandler(
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Jak mogę wysyłać dane do Application Insights przy użyciu protokołu TLS 1,2?
 
-Aby zapewnić bezpieczeństwo danych przesyłanych do Application Insightsych punktów końcowych, zdecydowanie zachęcamy klientów do konfigurowania aplikacji do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsza wersja protokołu TLS/SSL (SSL) została uznana za narażoną, a mimo to nadal pracują w celu zapewnienia zgodności z poprzednimi wersjami, nie jest to **zalecane**, a branża szybko przenosi się do porzucenia, aby uzyskać pomoc techniczną dla tych starszych protokołów. 
+Aby zapewnić bezpieczeństwo danych przesyłanych do Application Insightsych punktów końcowych, zdecydowanie zachęcamy klientów do konfigurowania aplikacji do korzystania z co najmniej Transport Layer Security (TLS) 1,2. Starsza wersja protokołu TLS/Secure Sockets Layer (SSL) została uznana za narażoną, a mimo to nadal pracują w celu zapewnienia zgodności z poprzednimi wersjami, nie jest to **zalecane**, a branża szybko przenosi się do porzucenia, aby uzyskać pomoc techniczną dla tych starszych protokołów. 
 
 [Rada normy zabezpieczeń PCI](https://www.pcisecuritystandards.org/) ustawił [termin ostateczny 30 czerwca 2018,](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) aby wyłączyć starsze wersje protokołu TLS/SSL i uaktualnić je do bezpieczniejsze protokoły. Gdy platforma Azure pozostanie w starszej wersji, jeśli aplikacja/klienci nie mogą komunikować się za pomocą co najmniej protokołu TLS 1,2, nie będzie możliwe wysyłanie danych do Application Insights. Podejście wykonywane do testowania i weryfikowania obsługi protokołu TLS aplikacji będzie się różnić w zależności od systemu operacyjnego/platformy, a także od języka/platformy używanej przez aplikację.
 
@@ -212,7 +212,7 @@ Firma Microsoft nie zaleca jawnie ustawienia aplikacji do używania protokołu T
 | Azure App Services  | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Aplikacje funkcji platformy Azure | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Obsługiwane, konfiguracja zależy od wersji. | Aby uzyskać szczegółowe informacje o konfiguracji dla programu .NET 4,7 i jego wcześniejszych wersji, zobacz [te instrukcje](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor stanu | Obsługiwane, wymagana konfiguracja | Monitor stanu korzysta z [OS Configuration](/windows-server/security/tls/tls-registry-settings)  +  [konfiguracji platformy .NET](/dotnet/framework/network-programming/tls#support-for-tls-12) konfiguracji systemu operacyjnego w celu zapewnienia obsługi protokołu TLS 1,2.
+|Monitor stanu | Obsługiwane, wymagana konfiguracja | Monitor stanu korzysta z [](/windows-server/security/tls/tls-registry-settings)  +  [konfiguracji platformy .NET](/dotnet/framework/network-programming/tls#support-for-tls-12) konfiguracji systemu operacyjnego w celu zapewnienia obsługi protokołu TLS 1,2.
 |Node.js |  Obsługiwane w programie v 10.5.0 może być wymagana konfiguracja. | Użyj [oficjalnej Node.js protokołu TLS/SSL](https://nodejs.org/api/tls.html) dla każdej konfiguracji specyficznej dla aplikacji. |
 |Java | Obsługiwane, JDK support for TLS 1,2 zostało dodane w [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) i [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 [domyślnie używa protokołu TLS 1,2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2.  | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dane osobowe przechowywane w Application Insights
 
-Nasz [artykuł dotyczący danych osobowych w Application Insights](../platform/personal-data-mgmt.md) zawiera szczegółowe omówienie tego problemu.
+Nasz [artykuł dotyczący danych osobowych w Application Insights](../logs/personal-data-mgmt.md) zawiera szczegółowe omówienie tego problemu.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Czy moi użytkownicy mogą wyłączyć Application Insights?
 Nie bezpośrednio. Nie udostępniamy przełącznika, który użytkownicy mogą wykonywać, aby wyłączyć Application Insights.
@@ -293,7 +293,7 @@ W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 [Niektóre dane można wyłączyć, edytując ApplicationInsights.config][config]
 
 > [!NOTE]
-> Adres IP klienta jest używany do wywnioskowania lokalizacji geograficznej, ale domyślnie dane IP nie są już przechowywane i wszystkie zera są zapisywane w skojarzonym polu. Aby dowiedzieć się więcej na temat obsługi danych osobowych, zalecamy korzystanie z tego [artykułu](../platform/personal-data-mgmt.md#application-data). Jeśli zachodzi potrzeba zapisania danych adresów IP w [artykule dotyczącym zbierania adresów IP](./ip-collection.md) , przeprowadzisz Cię przez opcje.
+> Adres IP klienta jest używany do wywnioskowania lokalizacji geograficznej, ale domyślnie dane IP nie są już przechowywane i wszystkie zera są zapisywane w skojarzonym polu. Aby dowiedzieć się więcej na temat obsługi danych osobowych, zalecamy korzystanie z tego [artykułu](../logs/personal-data-mgmt.md#application-data). Jeśli zachodzi potrzeba zapisania danych adresów IP w [artykule dotyczącym zbierania adresów IP](./ip-collection.md) , przeprowadzisz Cię przez opcje.
 
 ## <a name="credits"></a>Środki
 Ten produkt zawiera dane GeoLite2 utworzone przez MaxMind, dostępne z [https://www.maxmind.com](https://www.maxmind.com) .

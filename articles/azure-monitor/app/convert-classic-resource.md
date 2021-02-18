@@ -3,12 +3,12 @@ title: Migrowanie Azure Monitor Application Insights zasobów klasycznych do zas
 description: Informacje o krokach wymaganych do uaktualnienia Azure Monitor Application Insights zasobów klasycznych do nowego modelu opartego na obszarze roboczym.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945109"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584248"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrowanie do zasobów Application Insights opartych na obszarze roboczym
 
@@ -22,21 +22,21 @@ Zasoby oparte na obszarze roboczym umożliwiają wspólną kontrolę dostępu op
 
 Application Insights oparte na obszarze roboczym pozwala korzystać ze wszystkich najnowszych możliwości Azure Monitor i Log Analytics w tym:
 
-* [Klucze zarządzane przez klienta (CMK)](../platform/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
-* [Link prywatny platformy Azure](../platform/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
+* [Klucze zarządzane przez klienta (CMK)](../logs/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
+* [Link prywatny platformy Azure](../logs/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
 * Udostępnienie [własnego magazynu (BYOS) dla programu Profiler, a Snapshot Debugger](./profiler-bring-your-own-storage.md) zapewnia pełną kontrolę nad zasadami szyfrowania w trybie spoczynku, zasadami zarządzania istnieniem i dostępem sieciowym dla wszystkich danych skojarzonych z Application Insights Profiler i Snapshot Debugger. 
-* [Warstwy rezerwacji zdolności produkcyjnych](../platform/manage-cost-storage.md#pricing-model) pozwalają zaoszczędzić o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. 
+* [Warstwy rezerwacji zdolności produkcyjnych](../logs/manage-cost-storage.md#pricing-model) pozwalają zaoszczędzić o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. 
 * Szybsze pozyskiwanie danych przy użyciu pozyskiwania strumieniowego Log Analytics.
 
 ## <a name="migration-process"></a>Proces migracji
 
 Podczas migracji do zasobów opartych na obszarze roboczym nie są przesyłane żadne dane z magazynu zasobów klasycznych do nowego magazynu opartego na obszarze roboczym. Wybranie migracji spowoduje zmianę lokalizacji, w której nowe dane są zapisywane w obszarze roboczym Log Analytics przy zachowaniu dostępu do klasycznych danych zasobów. 
 
-Twoje klasyczne dane zasobów będą utrwalane i podlegają ustawieniom przechowywania dla klasycznego zasobu Application Insights. Wszystkie nowe dane pozyskiwane po migracji będą podlegać [ustawieniom przechowywania](../platform/manage-cost-storage.md#change-the-data-retention-period) skojarzonego obszaru roboczego log Analytics, który również obsługuje [różne ustawienia przechowywania według typu danych](../platform/manage-cost-storage.md#retention-by-data-type).
+Twoje klasyczne dane zasobów będą utrwalane i podlegają ustawieniom przechowywania dla klasycznego zasobu Application Insights. Wszystkie nowe dane pozyskiwane po migracji będą podlegać [ustawieniom przechowywania](../logs/manage-cost-storage.md#change-the-data-retention-period) skojarzonego obszaru roboczego log Analytics, który również obsługuje [różne ustawienia przechowywania według typu danych](../logs/manage-cost-storage.md#retention-by-data-type).
 Proces migracji jest **trwały i nie można go cofnąć**. Po przeprowadzeniu migracji zasobu do Application Insights opartego na obszarze roboczym zawsze będzie to zasób oparty na obszarze roboczym. Jednak po przeprowadzeniu migracji można zmienić docelowy obszar roboczy tak często, jak jest to konieczne. 
 
 > [!NOTE]
-> Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest [rozliczane za pośrednictwem log Analytics obszaru roboczego](../platform/manage-cost-storage.md) , w którym znajdują się dane. W przypadku wybrania przechowywania danych przez ponad 90 dni przed rozpoczęciem migracji dane pobrane do klasycznego Application Insights zasobów i przechowywania danych będą nadal rozliczane w ramach tego zasobu Application Insights. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.
+> Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest [rozliczane za pośrednictwem log Analytics obszaru roboczego](../logs/manage-cost-storage.md) , w którym znajdują się dane. W przypadku wybrania przechowywania danych przez ponad 90 dni przed rozpoczęciem migracji dane pobrane do klasycznego Application Insights zasobów i przechowywania danych będą nadal rozliczane w ramach tego zasobu Application Insights. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.
 
 Jeśli nie musisz migrować istniejącego zasobu i chcesz utworzyć nowy zasób Application Insights oparty na obszarze roboczym, użyj [przewodnika tworzenia zasobów opartego na obszarze roboczym](create-workspace-resource.md).
 
@@ -44,12 +44,12 @@ Jeśli nie musisz migrować istniejącego zasobu i chcesz utworzyć nowy zasób 
 
 - Obszar roboczy Log Analytics z trybem kontroli dostępu ustawionym na **`use resource or workspace permissions`** ustawienie. 
 
-    - Zasoby Application Insights oparte na obszarze roboczym nie są zgodne z obszarami roboczymi ustawionymi na ustawienie dedykowane **`workspace based permissions`** . Aby dowiedzieć się więcej na temat kontroli dostępu do obszaru roboczego Log Analytics, zapoznaj się z tematem [log Analytics skonfigurować wskazówki dotyczące trybu kontroli dostępu](../platform/manage-access.md#configure-access-control-mode)
+    - Zasoby Application Insights oparte na obszarze roboczym nie są zgodne z obszarami roboczymi ustawionymi na ustawienie dedykowane **`workspace based permissions`** . Aby dowiedzieć się więcej na temat kontroli dostępu do obszaru roboczego Log Analytics, zapoznaj się z tematem [log Analytics skonfigurować wskazówki dotyczące trybu kontroli dostępu](../logs/manage-access.md#configure-access-control-mode)
 
-    - Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../learn/quick-create-workspace.md).
+    - Jeśli nie masz jeszcze istniejącego obszaru roboczego Log Analytics, [zapoznaj się z dokumentacją dotyczącą tworzenia obszaru roboczego log Analytics](../logs/quick-create-workspace.md).
     
 - Eksport ciągły nie jest obsługiwany w przypadku zasobów opartych na obszarze roboczym i musi być wyłączony.
-Po zakończeniu migracji można użyć [ustawień diagnostycznych](../platform/diagnostic-settings.md) w celu skonfigurowania archiwizowania danych na koncie magazynu lub przesyłania strumieniowego do usługi Azure Event Hub.  
+Po zakończeniu migracji można użyć [ustawień diagnostycznych](../essentials/diagnostic-settings.md) w celu skonfigurowania archiwizowania danych na koncie magazynu lub przesyłania strumieniowego do usługi Azure Event Hub.  
 
 - Sprawdź bieżące ustawienia przechowywania w obszarze **Ogólne**  >  **użycie i szacowane koszty**  >  **przechowywania danych** dla obszaru roboczego log Analytics. To ustawienie będzie miało wpływ na to, jak długo nowe pozyskiwane dane są przechowywane po przeprowadzeniu migracji zasobu Application Insights. Jeśli dane Application Insights są obecnie przechowywane przez czas dłuższy niż domyślna 90 dni i chcesz zachować ten większy okres przechowywania, może być konieczne dostosowanie ustawień przechowywania obszaru roboczego.
 
@@ -209,7 +209,7 @@ W okienku zasobów Application Insights wybierz pozycję **Właściwości**  >  
 
 **Komunikat o błędzie:** *wybrany obszar roboczy jest skonfigurowany z trybem dostępu opartym na obszarze roboczym. Może to mieć wpływ na niektóre funkcje APM. Wybierz inny obszar roboczy lub Zezwalaj na dostęp oparty na zasobach w ustawieniach obszaru roboczego. Ten błąd można zastąpić za pomocą interfejsu wiersza polecenia.* 
 
-Aby zasób Application Insights oparty na obszarze roboczym działał prawidłowo, należy zmienić tryb kontroli dostępu dla docelowego obszaru roboczego Log Analytics do ustawienia **uprawnienia zasobu lub obszaru roboczego** . To ustawienie znajduje się w interfejsie użytkownika obszaru roboczego log Analytics w obszarze **Właściwości**  >  **Tryb kontroli dostępu**. Aby uzyskać szczegółowe instrukcje, zapoznaj się z tematem [log Analytics skonfigurować wskazówki dotyczące trybu kontroli dostępu](../platform/manage-access.md#configure-access-control-mode). Jeśli tryb kontroli dostępu zostanie ustawiony na wyłączne ustawienie **uprawnień obszaru roboczego wymagane** , migracja za pośrednictwem środowiska migracji portalu pozostanie zablokowana.
+Aby zasób Application Insights oparty na obszarze roboczym działał prawidłowo, należy zmienić tryb kontroli dostępu dla docelowego obszaru roboczego Log Analytics do ustawienia **uprawnienia zasobu lub obszaru roboczego** . To ustawienie znajduje się w interfejsie użytkownika obszaru roboczego log Analytics w obszarze **Właściwości**  >  **Tryb kontroli dostępu**. Aby uzyskać szczegółowe instrukcje, zapoznaj się z tematem [log Analytics skonfigurować wskazówki dotyczące trybu kontroli dostępu](../logs/manage-access.md#configure-access-control-mode). Jeśli tryb kontroli dostępu zostanie ustawiony na wyłączne ustawienie **uprawnień obszaru roboczego wymagane** , migracja za pośrednictwem środowiska migracji portalu pozostanie zablokowana.
 
 Jeśli nie możesz zmienić trybu kontroli dostępu ze względów bezpieczeństwa dla bieżącego docelowego obszaru roboczego, zalecamy utworzenie nowego obszaru roboczego Log Analytics do użycia podczas migracji. 
 
@@ -229,7 +229,7 @@ Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów o
 
 - Po wybraniu opcję Wyłącz możesz przejść z powrotem do interfejsu użytkownika migracji. Jeśli strona Edytuj eksport ciągły wyświetli monit z pytaniem, że ustawienia nie zostaną zapisane, możesz wybrać opcję OK dla tego monitu, ponieważ nie dotyczy to wyłączenia/włączenia eksportu ciągłego.
 
-- Po pomyślnym przeprowadzeniu migracji zasobu Application Insights do obszaru roboczego można użyć ustawień diagnostycznych, aby zastąpić funkcje, które są używane do dostarczania ciągłego eksportu. Wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne** z poziomu zasobu Application Insights. Można wybrać wszystkie tabele lub podzbiór tabel do zarchiwizowania na koncie magazynu lub do przesyłania strumieniowego do centrum zdarzeń platformy Azure. Aby uzyskać szczegółowe wskazówki na temat ustawień diagnostycznych, zapoznaj się z tematem [wskazówki dotyczące ustawień diagnostycznych Azure monitor](../platform/diagnostic-settings.md).
+- Po pomyślnym przeprowadzeniu migracji zasobu Application Insights do obszaru roboczego można użyć ustawień diagnostycznych, aby zastąpić funkcje, które są używane do dostarczania ciągłego eksportu. Wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne** z poziomu zasobu Application Insights. Można wybrać wszystkie tabele lub podzbiór tabel do zarchiwizowania na koncie magazynu lub do przesyłania strumieniowego do centrum zdarzeń platformy Azure. Aby uzyskać szczegółowe wskazówki na temat ustawień diagnostycznych, zapoznaj się z tematem [wskazówki dotyczące ustawień diagnostycznych Azure monitor](../essentials/diagnostic-settings.md).
 
 ### <a name="retention-settings"></a>Ustawienia przechowywania
 
@@ -241,5 +241,5 @@ Bieżące ustawienia przechowywania można sprawdzić dla log Analytics w obszar
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksploruj metryki](../platform/metrics-charts.md)
-* [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
+* [Eksploruj metryki](../essentials/metrics-charts.md)
+* [Pisanie zapytań analitycznych](../logs/log-query-overview.md)
