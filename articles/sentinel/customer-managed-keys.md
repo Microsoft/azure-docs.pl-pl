@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: b346a23ccde6abd0f76982a4d19e00e28e8511a7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a1c2754fcae5768c6b87d6280fc882acd46d9a0a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930875"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585336"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta na platformie Azure
 
@@ -30,13 +30,13 @@ Ten artykuł zawiera ogólne informacje i kroki konfigurowania klucza zarządzan
 >
 > - Dostęp do tej możliwości jest kontrolowany przez rejestrację funkcji platformy Azure. Aby zażądać dostępu, skontaktuj się z pomocą techniczną azuresentinelCMK@microsoft.com . Oczekujące żądania zostaną zatwierdzone zgodnie z dostępną pojemnością.
 >
-> - Funkcja CMK jest dostępna tylko dla klientów, którzy wysyłają 1 TB dziennie lub dłużej. Po zastosowaniu do firmy Microsoft informacji o dodatkowych cenach otrzymasz informacje o dodatkowym cenniku w celu udostępnienia CMK w ramach subskrypcji platformy Azure. Dowiedz się więcej o [cenach log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - Funkcja CMK jest dostępna tylko dla klientów, którzy wysyłają 1 TB dziennie lub dłużej. Po zastosowaniu do firmy Microsoft informacji o dodatkowych cenach otrzymasz informacje o dodatkowym cenniku w celu udostępnienia CMK w ramach subskrypcji platformy Azure. Dowiedz się więcej o [cenach log Analytics](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Jak działa CMK 
 
 Rozwiązanie Azure wskaźnikowego używa kilku zasobów magazynu dla zbierania i funkcji dzienników, w tym Log Analytics i innych. W ramach konfiguracji usługi Azure wskaźnikowej CMK należy również skonfigurować ustawienia CMK dla powiązanych zasobów magazynu. Dane zapisane w zasobach magazynu innych niż Log Analytics również będą szyfrowane.
 
-Dowiedz się więcej o [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
+Dowiedz się więcej o [CMK](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > W przypadku włączenia CMK na platformie Azure — żadna publiczna funkcja w wersji zapoznawczej, która nie obsługuje CMK, nie będzie włączona.
@@ -71,7 +71,7 @@ Aby udostępnić CMK, wykonaj następujące kroki:
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>Krok 2. Włączanie CMK w obszarze roboczym Log Analytics
 
-Postępuj zgodnie z instrukcjami w temacie [Azure monitor konfiguracja klucza zarządzanego przez klienta](../azure-monitor/platform/customer-managed-keys.md) w celu utworzenia obszaru roboczego CMK, który będzie używany jako obszar roboczy Azure wskaźnikowego, w poniższych krokach.
+Postępuj zgodnie z instrukcjami w temacie [Azure monitor konfiguracja klucza zarządzanego przez klienta](../azure-monitor/logs/customer-managed-keys.md) w celu utworzenia obszaru roboczego CMK, który będzie używany jako obszar roboczy Azure wskaźnikowego, w poniższych krokach.
 
 ### <a name="step-3-register-for-cosmos-db"></a>Krok 3. rejestrowanie Cosmos DB
 
@@ -114,7 +114,7 @@ Jedyną operacją, którą można wykonać po odwołaniu klucza szyfrowania lub 
 
 Jeśli dostęp zostanie przywrócony po odwołaniu, wskaźnik na platformie Azure będzie przywracał dostęp do danych w ciągu godziny.
 
-Aby dowiedzieć się więcej o tym, jak działa Azure Monitor, zobacz [Azure monitor CMK](../azure-monitor/platform/customer-managed-keys.md#key-revocation).
+Aby dowiedzieć się więcej o tym, jak działa Azure Monitor, zobacz [Azure monitor CMK](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
 ## <a name="key-encryption-key-rotation"></a>Rotacja klucza szyfrowania klucza
 
@@ -127,7 +127,7 @@ W Key Vault można dokonać rotacji kluczy, tworząc nową wersję klucza:
 
 Poprzednia wersja klucza można wyłączyć po 24 godzinach lub w dziennikach inspekcji Azure Key Vault nie będą już wyświetlane żadne działania używające poprzedniej wersji.
 
-Jeśli używasz tego samego klucza na platformie Azure wskaźnikowej i w Log Analytics, konieczne jest przeprowadzenie kluczowych rotacji należy jawnie zaktualizować zasób klastra w Log Analytics za pomocą nowej wersji klucza Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Azure monitor obrotu CMK](../azure-monitor/platform/customer-managed-keys.md#key-rotation).
+Jeśli używasz tego samego klucza na platformie Azure wskaźnikowej i w Log Analytics, konieczne jest przeprowadzenie kluczowych rotacji należy jawnie zaktualizować zasób klastra w Log Analytics za pomocą nowej wersji klucza Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Azure monitor obrotu CMK](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób konfigurowania klucza zarządzanego przez klienta w usłudze Azure wskaźnikowej. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

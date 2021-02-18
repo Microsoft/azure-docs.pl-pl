@@ -4,12 +4,12 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763778"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573738"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
@@ -70,12 +70,12 @@ Wiadomości e-mail dotyczące anomalii dotyczących wydajności wykrywania intel
 * *Czy mogę utworzyć własne reguły wykrywania anomalii lub dostosować istniejące reguły?*
 
   * Jeszcze nie, ale możesz:
-    * [Skonfiguruj alerty](../platform/alerts-log.md) informujące o przekroczeniu progu przez metrykę.
+    * [Skonfiguruj alerty](../alerts/alerts-log.md) informujące o przekroczeniu progu przez metrykę.
     * [Wyeksportuj dane telemetryczne](./export-telemetry.md) do [bazy danych](./code-sample-export-sql-stream-analytics.md) lub [do Power BI](./export-power-bi.md), gdzie możesz ją przeanalizować.
 * *Jak często przeprowadzana jest analiza?*
 
   * Przeprowadzamy analizę codziennie na danych telemetrycznych od poprzedniego dnia (pełny dzień w strefie czasowej UTC).
-* *Czy te zastępują [alerty metryk](../platform/alerts-log.md)?*
+* *Czy te zastępują [alerty metryk](../alerts/alerts-log.md)?*
   * Nie.  Nie zobowiązujemy się do wykrywania wszystkich zachowań, które mogą być rozważane nietypowe.
 
 
@@ -175,10 +175,10 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z apli
 
 * [Profiler](profiler.md) 
 * [Debuger migawek](./snapshot-debugger.md)
-* [Analiza](../log-query/log-analytics-tutorial.md)
-* [Inteligentna diagnostyka analityczna](../log-query/log-query-overview.md)
+* [Analiza](../logs/log-analytics-tutorial.md)
+* [Inteligentna diagnostyka analityczna](../logs/log-query-overview.md)
 
 Inteligentne wykrywanie są całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../platform/alerts-log.md)
+* [Ręcznie skonfigurowane alerty metryk](../alerts/alerts-log.md)
 * [Testy dostępności sieci Web](./monitor-web-app-availability.md)

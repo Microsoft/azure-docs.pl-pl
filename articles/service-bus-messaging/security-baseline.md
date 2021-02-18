@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 00d19d7b554e8a867412cfb982e1377fd90bd936
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8b3a67fc06594a4782ba55c17ab36c0bad9cf2a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624527"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574925"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Podstawa zabezpieczeń platformy Azure dla Service Bus
 
@@ -143,9 +143,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z Azure Service Bus. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -161,7 +161,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 - [Jak skonfigurować ustawienia diagnostyczne dla Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [Informacje o dzienniku aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o dzienniku aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md) 
 
@@ -177,7 +177,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 - [Jak włączyć ustawienia diagnostyczne dla Azure Service Bus](service-bus-diagnostic-logs.md)
 
-- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+- [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -187,7 +187,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania log Analytics obszaru roboczego zgodnie z przepisami organizacji dotyczącymi zgodności, aby przechwytywać i przeglądać zdarzenia związane z Service Bus.
 
-- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -197,9 +197,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: analizowanie i monitorowanie dzienników pod kątem nietypowego zachowania oraz regularnego przeglądu wyników związanych z Service Bus jednostkami. Użyj Azure Monitor, aby przejrzeć dzienniki i wykonać zapytania dotyczące danych dziennika związanych z Service Bus.
 
-- [Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -215,7 +215,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 - [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -491,7 +491,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych Azure Service Bus i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

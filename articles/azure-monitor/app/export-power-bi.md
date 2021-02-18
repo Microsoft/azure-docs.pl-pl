@@ -3,12 +3,12 @@ title: Eksportuj do Power BI z poziomu platformy Azure Application Insights | Mi
 description: Zapytania analityczne mogą być wyświetlane w Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 1e88d60cd9a9d0e6267998237b33a361b12ffd84
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4bdae09d193d5ae9c59fe9352e07b8219a76841d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187004"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584318"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI kanału informacyjnego z Application Insights
 [Power BI](https://www.powerbi.com/) to pakiet narzędzi firmy, który ułatwia analizowanie danych i udostępnianie szczegółowych informacji. Rozbudowane pulpity nawigacyjne są dostępne na każdym urządzeniu. Możesz połączyć dane z wielu źródeł, w tym zapytania analityczne z [usługi Azure Application Insights](./app-insights-overview.md).
@@ -31,7 +31,7 @@ Aby zaimportować zapytanie Application Insights, należy użyć wersji programu
 Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Eksportowanie zapytania analitycznego
-1. [Otwórz analizę i napisz zapytanie](../log-query/log-analytics-tutorial.md).
+1. [Otwórz analizę i napisz zapytanie](../logs/log-analytics-tutorial.md).
 2. Przetestuj i Uściślij zapytanie do momentu, aż będziesz zadowolony z wyników. Przed wyeksportowaniem zapytania upewnij się, że zostało prawidłowo uruchomione w analizie.
 3. W menu **Eksportuj** wybierz **Power BI (M)**. Zapisz plik tekstowy.
    
@@ -146,4 +146,4 @@ Po początkowym imporcie pulpit nawigacyjny i raporty są nadal aktualizowane co
 
 ## <a name="next-steps"></a>Następne kroki
 * [Power BI — informacje](https://www.powerbi.com/learning/)
-* [Samouczek analizy](../log-query/log-analytics-tutorial.md)
+* [Samouczek analizy](../logs/log-analytics-tutorial.md)

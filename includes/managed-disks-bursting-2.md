@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061148"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585091"
 ---
 ## <a name="common-scenarios"></a>Typowe scenariusze
 Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:
@@ -37,7 +37,8 @@ Istnieją trzy stany, w których zasób może być używany z włączonym rozruc
 - **Stała** — ruch zasobu jest dokładnie w miejscu docelowym wydajności.
 
 ## <a name="examples-of-bursting"></a>Przykłady dotyczące przenoszenia
-W poniższych przykładach pokazano, jak działa rozbicie z różnymi maszynami wirtualnymi i kombinacjami dysków. Aby ułatwić wykonywanie przykładów, należy skoncentrować się na MB/s, ale ta sama logika jest stosowana niezależnie dla operacji we/wy.
+
+W poniższych przykładach pokazano, jak działa rozbicie przy użyciu różnych maszyn wirtualnych i kombinacji dysków. Aby ułatwić wykonywanie przykładów, należy skoncentrować się na MB/s, ale ta sama logika jest stosowana niezależnie dla operacji we/wy.
 
 ### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Maszyna wirtualna niewymienna z dyskami z możliwością przełożenia
 **Kombinacja maszyn wirtualnych i dysków:** 
@@ -50,17 +51,17 @@ W poniższych przykładach pokazano, jak działa rozbicie z różnymi maszynami 
     - Liczba zainicjowanych MB/s: 100
     - Maksymalna liczba MB/s: 170
 
- Po uruchomieniu maszyny wirtualnej program pobierze dane z dysku systemu operacyjnego. Ponieważ dysk systemu operacyjnego jest częścią maszyny wirtualnej, która rozpoczyna pracę, dysk systemu operacyjnego będzie w pełni zapełniony. Te kredyty umożliwią ponowne uruchomienie dysku systemu operacyjnego o 170 MB/s sekund, jak pokazano poniżej:
+ Po uruchomieniu maszyny wirtualnej pobiera dane z dysku systemu operacyjnego. Ponieważ dysk systemu operacyjnego jest częścią maszyny wirtualnej, która jest uruchamiana, dysk systemu operacyjnego będzie pełen kredyty na rozerwanie. Te kredyty umożliwią ponowne uruchomienie dysku systemu operacyjnego o 170 MB/s sekund.
 
-![Uruchamianie dysku z maszyną wirtualną bez rozłożenia](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![Maszyna wirtualna wysyła żądanie o 192 MB/s do dysku systemu operacyjnego, dysk systemu operacyjnego reaguje na dane 170 MB/s.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
-Po zakończeniu rozruchu aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 15 MB/S, które jest równomiernie rozłożone na wszystkie dyski:
+Po zakończeniu rozruchu aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 15 MB/S, które jest równomiernie rozłożone na wszystkich dyskach.
 
-![Nieprzenoszenie dysku do przenoszenia maszyn wirtualnych](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![Aplikacja wysyła żądanie o 15 MB/s do maszyny wirtualnej, maszyna wirtualna przyjmuje żądanie i wysyła do każdego z nich żądanie dotyczące 5 MB/s, a każdy dysk zwraca 5 MB/s, maszyna wirtualna zwraca 15 MB/s do aplikacji.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
-Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 192 MB/s. Dysk systemu operacyjnego jest używany 2 MB/s, a reszta jest równomiernie dzielona między dyskami danych:
+Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 192 MB/s. dysk systemu operacyjnego jest używany 2 MB/s, a reszta jest równomiernie dzielona między dyskami danych.
 
-![Przenoszenie maszyn wirtualnych na rozerwanie dysku](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![Aplikacja wysyła żądanie dotyczące 192 MB/s przepływności do maszyny wirtualnej, maszyna wirtualna żąda i wysyła zbiorczo żądanie do dysków danych (95 MB/s każdy) i 2 MB/s do dysku systemu operacyjnego, seria dysków danych w celu spełnienia wymagań i wszystkich dysków zwróci żądaną przepływność do maszyny wirtualnej, która zwraca ją do aplikacji.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>Maszyna wirtualna do maszyn wirtualnych z dyskami niewymiennymi
 **Kombinacja maszyn wirtualnych i dysków:** 
@@ -72,11 +73,12 @@ Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 192 MB/s. Dys
 - 2 P10 dyski danych 
     - Liczba zainicjowanych MB/s: 250
 
- Po rozruchu początkowym aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 30 MB/s, które jest równomiernie rozłożone na wszystkie dyski: rozłożenie ![ dysku maszyny wirtualnej, która nie jest w stanie bezczynności](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Po rozruchu początkowym aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 30 MB/s, które jest równomiernie rozłożone na wszystkich dyskach.
+![Aplikacja wysyła żądanie o 30 MB/s na maszynę wirtualną, a następnie wysyła do każdego z nich żądanie o 10 MB/s, a każdy dysk zwróci 10 MB/s, maszyna wirtualna zwróci 30 MB/s do aplikacji.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
-Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 600 MB/s. Standard_L8s_v2 serii, aby spełnić to żądanie, a następnie żądania dotyczące dysków można równomiernie rozłożyć na dyski P50:
+Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 600 MB/s. Standard_L8s_v2 serii, aby spełnić to żądanie, a następnie żądania do dysków można równomiernie rozłożyć na dyski P50.
 
-![Rozrywanie dysku maszyny wirtualnej bez rozłożenia](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+![Aplikacja wysyła żądanie dotyczące 600 MB/s przepływności do maszyny wirtualnej, maszyna wirtualna zajmuje się seriami, aby przetworzyć żądanie i wysyła do każdego z nich dysk żądania dla 200 MB/s, a każdy dysk zwraca 200 MB/s, szeregi maszyn wirtualnych w celu 600 zwrócenia wydajności do aplikacji.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>Maszyna wirtualna z możliwością przerywającą z dyskami z możliwością przenoszenia
 **Kombinacja maszyn wirtualnych i dysków:** 
 - Standard_L8s_v2 
@@ -89,14 +91,14 @@ Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 600 MB/s. Sta
     - Liczba zainicjowanych MB/s: 25
     - Maksymalna liczba MB/s: 170 
 
-Po uruchomieniu maszyny wirtualnej będzie ona mogła zażądać limitu seryjnego wynoszącego 1 280 MB/s z dysku systemu operacyjnego, a dysk systemu operacyjnego reaguje na wydajność z serii 170 MB/s:
+Po uruchomieniu maszyny wirtualnej będzie ona żądała przekroczenia limitu 1 280 MB/s z dysku systemu operacyjnego, a dysk systemu operacyjnego reaguje na wydajność z serii 170 MB/s.
 
-![Rozrywanie uruchamiania dysku do przenoszenia maszyn wirtualnych](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![Podczas uruchamiania maszyny wirtualne mogą wysyłać żądania o 1 280 MB/s do dysku systemu operacyjnego, a dyski systemu operacyjnego zwracały 1 280 MB/s.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-Następnie po zakończeniu rozruchu aplikacja jest uruchamiana na maszynie wirtualnej. Aplikacja ma niekrytyczne obciążenie, które wymaga 15 MB/s, które są równomiernie rozłożone na wszystkie dyski:
+Po uruchomieniu należy uruchomić aplikację, która ma niekrytyczne obciążenie. Ta aplikacja wymaga 15 MB/s, która umożliwia równomierne rozmieszczenie na wszystkich dyskach.
 
-![Rozrywanie dysku do przenoszenia maszyn wirtualnych](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![Aplikacja wysyła żądanie o 15 MB/s do maszyny wirtualnej, maszyna wirtualna przyjmuje żądanie i wysyła do każdego z nich żądanie dotyczące 5 MB/s, a każdy dysk zwraca 5 MB/s, maszyna wirtualna zwraca 15 MB/s do aplikacji.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 360 MB/s. Standard_L8s_v2 serii, aby spełnić te zapotrzebowanie, a następnie żądania. Dysk systemu operacyjnego wymaga tylko 20 MB/s. Pozostałe 340 MB/s są obsługiwane przez P4 dyski z danymi:  
+Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 360 MB/s. Standard_L8s_v2 serii, aby spełnić te zapotrzebowanie, a następnie żądania. Dysk systemu operacyjnego wymaga tylko 20 MB/s. Pozostałe 340 MB/s są obsługiwane przez dyski danych P4.
 
-![Rozrywanie serii dysku maszyny wirtualnej](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![Aplikacja wysyła żądanie o 360 MB/s do maszyny wirtualnej, maszyna wirtualna zajmuje się seriami, aby przetworzyć żądanie i wysyła do każdego z nich dyski danych żądanie o 170 MB/s i 20 MB/s z dysku systemu operacyjnego, każdy dysk zwróci żądane MB/s, a następnie ponownie przy360 wróci do aplikacji.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)

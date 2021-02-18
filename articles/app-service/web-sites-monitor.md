@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509557"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586098"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](./overview.md) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -136,7 +136,7 @@ Istnieją dwie metryki odzwierciedlające użycie procesora CPU:
 **Procent użycia procesora CPU**: przydatne w przypadku aplikacji hostowanych w planach Basic, standard i Premium, ponieważ mogą one być skalowane w poziomie. Wartość procentowa procesora CPU jest dobrym wskaźnikiem ogólnego użycia we wszystkich wystąpieniach.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Zasady szczegółowości i przechowywania metryk
-Metryki dla aplikacji i planu usługi App Service są rejestrowane i agregowane przez usługę i [przechowywane zgodnie z tymi regułami](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
+Metryki dla aplikacji i planu usługi App Service są rejestrowane i agregowane przez usługę i [przechowywane zgodnie z tymi regułami](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitorowanie przydziałów i metryk w Azure Portal
 Aby sprawdzić stan różnych przydziałów i metryk, które mają wpływ na aplikację, przejdź do [Azure Portal](https://portal.azure.com).
@@ -153,14 +153,14 @@ Aby znaleźć przydziały, wybierz pozycję **Ustawienia**  >  **limity przydzia
 
 Kliknięcie dowolnego z tych wykresów spowoduje przejście do widoku metryk, w którym można tworzyć niestandardowe wykresy, wysyłać zapytania o różne metryki i wiele innych. 
 
-Aby dowiedzieć się więcej o metrykach, zobacz [monitorowanie metryk usług](../azure-monitor/platform/data-platform.md).
+Aby dowiedzieć się więcej o metrykach, zobacz [monitorowanie metryk usług](../azure-monitor/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alerty i automatyczne skalowanie
-Metryki dla aplikacji lub planu App Service mogą być podłączane do alertów. Aby uzyskać więcej informacji, zobacz [Receive alert notifications](../azure-monitor/platform/alerts-classic-portal.md) (Otrzymywanie powiadomień o alertach).
+Metryki dla aplikacji lub planu App Service mogą być podłączane do alertów. Aby uzyskać więcej informacji, zobacz [Receive alert notifications](../azure-monitor/alerts/alerts-classic-portal.md) (Otrzymywanie powiadomień o alertach).
 
 App Service aplikacje hostowane w planach App Service w warstwie Podstawowa lub wyższa obsługują automatyczne skalowanie. Funkcja automatycznego skalowania umożliwia skonfigurowanie reguł, które monitorują metryki planu App Service. Reguły mogą zwiększyć lub zmniejszyć liczbę wystąpień, co może zapewnić dodatkowe zasoby w razie konieczności. Reguły mogą również ułatwić oszczędność pieniędzy, gdy aplikacja jest nadmiernie obsługiwana.
 
-Aby uzyskać więcej informacji na temat automatycznego skalowania, zobacz [Jak skalować](../azure-monitor/platform/autoscale-get-started.md) i [najlepsze rozwiązania dotyczące Azure monitor skalowanie](../azure-monitor/platform/autoscale-best-practices.md)automatyczne.
+Aby uzyskać więcej informacji na temat automatycznego skalowania, zobacz [Jak skalować](../azure-monitor/autoscale/autoscale-get-started.md) i [najlepsze rozwiązania dotyczące Azure monitor skalowanie](../azure-monitor/autoscale/autoscale-best-practices.md)automatyczne.
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

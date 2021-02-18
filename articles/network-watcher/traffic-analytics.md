@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585512"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -46,8 +46,8 @@ Usługi Azure Virtual Networks zawierają dzienniki przepływu sieciowej grupy z
 
 - **Network Security Group (sieciowej grupy zabezpieczeń)**: zawiera listę reguł zabezpieczeń, które zezwalają na ruch sieciowy lub odmawiają go zasobom podłączonym do Virtual Network platformy Azure. Sieciowe grupy zabezpieczeń można skojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi (model klasyczny) lub poszczególnymi interfejsami sieciowymi (NIC) dołączonymi do maszyn wirtualnych (model usługi Resource Manager). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Dzienniki przepływu sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)**: umożliwiają wyświetlanie informacji dotyczących ruchu przychodzącego i wychodzącego IP za pomocą sieciowej grupy zabezpieczeń. Dzienniki przepływu sieciowej grupy zabezpieczeń są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły, karta sieciowa przepływu ma zastosowanie do pięciu informacji o przepływie (źródłowy/docelowy adres IP, port źródłowy/docelowy i protokół) oraz jeśli ruch był dozwolony lub zabroniony. Aby uzyskać więcej informacji na temat dzienników przepływów sieciowej grupy zabezpieczeń, zobacz [dzienniki przepływu sieciowej grupy zabezpieczeń](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: usługa platformy Azure, która zbiera dane monitorowania i zapisuje dane w centralnym repozytorium. Te dane mogą obejmować zdarzenia, dane dotyczące wydajności lub dane niestandardowe udostępniane za pomocą interfejsu API platformy Azure. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. Aplikacje monitorujące, takie jak Monitor wydajności sieci i Analiza ruchu, są tworzone przy użyciu Azure Monitor dzienników jako podstawy. Aby uzyskać więcej informacji, zobacz [dzienniki Azure monitor](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Obszar roboczy log Analytics**: wystąpienie dzienników Azure monitor, w których są przechowywane dane odnoszące się do konta platformy Azure. Aby uzyskać więcej informacji na temat obszarów roboczych Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: usługa platformy Azure, która zbiera dane monitorowania i zapisuje dane w centralnym repozytorium. Te dane mogą obejmować zdarzenia, dane dotyczące wydajności lub dane niestandardowe udostępniane za pomocą interfejsu API platformy Azure. Zebrane dane są dostępne na potrzeby alertów, analizy i eksportu. Aplikacje monitorujące, takie jak Monitor wydajności sieci i Analiza ruchu, są tworzone przy użyciu Azure Monitor dzienników jako podstawy. Aby uzyskać więcej informacji, zobacz [dzienniki Azure monitor](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Obszar roboczy log Analytics**: wystąpienie dzienników Azure monitor, w których są przechowywane dane odnoszące się do konta platformy Azure. Aby uzyskać więcej informacji na temat obszarów roboczych Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: usługa regionalna, która umożliwia monitorowanie i diagnozowanie warunków na poziomie scenariusza sieci na platformie Azure. Dzienniki przepływu sieciowej grupy zabezpieczeń można włączać i wyłączać za pomocą Network Watcher. Aby uzyskać więcej informacji, zobacz [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Jak działa Analiza ruchu
@@ -64,7 +64,7 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazil South  
+      Brazylia Południowa  
       Kanada Środkowa  
       Kanada Wschodnia  
       Indie Środkowe  
@@ -118,7 +118,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Australia Środkowa  
       Australia Wschodnia  
       Australia Południowo-Wschodnia  
-      Brazil South  
+      Brazylia Południowa  
       Kanada Środkowa  
       Indie Środkowe  
       Central US  
@@ -131,7 +131,7 @@ Obszar roboczy Log Analytics musi istnieć w następujących regionach:
       Wschodnie stany USA 2 — EUAP  
       Francja Środkowa  
       Niemcy Środkowo-Zachodnie  
-      Japan East  
+      Japonia Wschodnia  
       Korea Środkowa  
       Północno-środkowe stany USA  
       Europa Północna  
@@ -232,7 +232,7 @@ Wybierz poniższe opcje, jak pokazano na ilustracji:
 4. Ustaw wartość **przechowywanie** na liczbę dni, przez którą mają być przechowywane dane. Jeśli chcesz przechowywać dane w nieskończoność, ustaw wartość na *0*. Opłaty za usługę Azure Storage są naliczane za konto magazynu. 
 5. Wybierz pozycję *włączone* , aby uzyskać **stan Analiza ruchu**.
 6. Wybierz interwał przetwarzania. W zależności od wybranych dzienników przepływów będą zbierane z konta magazynu i przetwarzane przez Analiza ruchu. Można wybrać interwał przetwarzania co 1 godzinę lub co 10 minut. 
-7. Wybierz istniejący obszar roboczy usługi Log Analytics (OMS) lub wybierz pozycję **Utwórz nowy obszar roboczy** , aby utworzyć nowy. Obszar roboczy Log Analytics jest używany przez Analiza ruchu do przechowywania zagregowanych i indeksowanych danych, które są następnie używane do generowania analizy. Jeśli wybierzesz istniejący obszar roboczy, musi on znajdować się w jednym z [obsługiwanych regionów](#supported-regions-log-analytics-workspaces) i został uaktualniony do nowego języka zapytań. Jeśli nie chcesz uaktualnić istniejącego obszaru roboczego lub nie masz obszaru roboczego w obsługiwanym regionie, Utwórz nowy. Aby uzyskać więcej informacji na temat języków zapytań, zobacz [Azure log Analytics Upgrade to New Search log](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Wybierz istniejący obszar roboczy usługi Log Analytics (OMS) lub wybierz pozycję **Utwórz nowy obszar roboczy** , aby utworzyć nowy. Obszar roboczy Log Analytics jest używany przez Analiza ruchu do przechowywania zagregowanych i indeksowanych danych, które są następnie używane do generowania analizy. Jeśli wybierzesz istniejący obszar roboczy, musi on znajdować się w jednym z [obsługiwanych regionów](#supported-regions-log-analytics-workspaces) i został uaktualniony do nowego języka zapytań. Jeśli nie chcesz uaktualnić istniejącego obszaru roboczego lub nie masz obszaru roboczego w obsługiwanym regionie, Utwórz nowy. Aby uzyskać więcej informacji na temat języków zapytań, zobacz [Azure log Analytics Upgrade to New Search log](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
 >Obszar roboczy usługi log Analytics obsługujący rozwiązanie do analizy ruchu i sieciowych grup zabezpieczeń nie muszą znajdować się w tym samym regionie. Na przykład możesz mieć dostęp do analizy ruchu w obszarze roboczym w regionie Europa Zachodnia, a ty możesz mieć sieciowych grup zabezpieczeń w regionach Wschodnie stany USA i zachodnie stany USA. W tym samym obszarze roboczym można skonfigurować wiele sieciowych grup zabezpieczeń.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5ef40b048fbc50174afb662aecd3335d97eb0106
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 07a0aed7d1839c84ead0c3b2c5f8282a1dc228c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095976"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593223"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Podstawa zabezpieczeń Azure dla Menedżera zapory platformy Azure
 
@@ -403,9 +403,9 @@ Obecnie działania otaczające grupy kolekcji reguł zasad zapory nie są obsłu
 
 Obecnie działania otaczające grupy kolekcji reguł zasad zapory nie są obsługiwane przez dziennik aktywności, jest to znany problem i jest rozwiązywany w przyszłych aktualizacjach.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -421,7 +421,7 @@ Ponadto należy włączyć i dołączyć dane dziennika do usługi Azure wskaźn
 
 Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -435,7 +435,7 @@ Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby dan
 
 W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Używanie usługi Azure Storage, Data Lake lub Log Analytics konta obszaru roboczego do przechowywania długoterminowego i archiwizowania.
 
-- [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Przechowywanie dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 

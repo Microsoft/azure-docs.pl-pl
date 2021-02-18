@@ -6,16 +6,18 @@ ms.date: 05/18/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: fb91662dfcdeb404f51f91c1fef893dc72dcac73
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4013b60a5718de6c196e806f894503f63ec9dafd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601054"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593676"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Eksplorowanie dzienników śledzenia Java w Application Insights
 
 > [!IMPORTANT]
+> Nie zaleca się już podejścia opisanego w tym dokumencie.
+>
 > Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 Jeśli używasz programu Logback lub Log4J (w wersji 1.2 lub 2.0) do śledzenia, dzienniki śledzenia mogą być automatycznie wysyłane do Application Insights, w którym można eksplorować i wyszukiwać.

@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787163"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635578"
 ---
-# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikacja, badanie i reagowanie na alerty zabezpieczeń
+# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikowanie i badanie alertów zabezpieczeń oraz odpowiadanie na nie
 Security Center stale analizuje obciążenia chmury hybrydowej dzięki zaawansowanej analizie i analizie zagrożeń, aby otrzymywać alerty o potencjalnie złośliwych działaniach w zasobach w chmurze. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center. Po podniesieniu alertu w celu zbadania i skorygowania potencjalnego problemu z zabezpieczeniami jest wymagana akcja Swift. 
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -42,7 +42,7 @@ Usługa Security Center zapewnia spójny widok wszystkich alertów zabezpieczeń
 
 Klasyfikacja swoje alerty na stronie **alertów zabezpieczeń** :
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Strona listy alertów zabezpieczeń" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista alertów zabezpieczeń Azure Security Center":::
 
 Ta strona służy do przeglądania aktywnych alertów zabezpieczeń w środowisku, aby zdecydować, który alert należy zbadać jako pierwszy.
 
@@ -60,7 +60,7 @@ Po podjęciu decyzji o tym, który alert należy zbadać jako pierwszy:
 1. Na stronie Przegląd alertów wybierz zasób do zbadania jako pierwszy.
 1. Rozpocznij badanie z okienka po lewej stronie, które pokazuje ogólne informacje dotyczące alertu zabezpieczeń.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Strona listy alertów zabezpieczeń":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="W lewym okienku strony szczegółów alertu wyróżniono informacje wysokiego poziomu":::
 
     W tym okienku są wyświetlane:
     - Ważność alertu, stan i czas działania
@@ -80,24 +80,24 @@ Po zbadaniu alertu i zrozumieniu jego zakresu można odpowiedzieć na alert zabe
 
 1.  Otwórz kartę **podejmij działanie** , aby wyświetlić zalecane odpowiedzi.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Strona listy alertów zabezpieczeń" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Karta akcja z alertami zabezpieczeń" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Zapoznaj się z sekcją **ograniczanie zagrożenia** , aby zapoznać się z ręcznymi krokami w celu rozwiązania problemu.
 1.  W celu zabezpieczenia zasobów i zapobiegania przyszłym atakom tego rodzaju należy skorygować zalecenia dotyczące zabezpieczeń w sekcji **zapobieganie atakom w przyszłości** .
 1.  Aby wyzwolić aplikację logiki z zautomatyzowanymi krokami odpowiedzi, użyj sekcji **wyzwalanie automatycznej odpowiedzi** .
 1.  Jeśli wykryte działanie *nie jest* złośliwe, możesz pominąć przyszłe alerty tego rodzaju za pomocą sekcji **Pomiń podobne alerty** .
 
-1.  Po zakończeniu badania do alertu i odpowiedziano w odpowiedni sposób, Zmień stan na **odrzucony** .
+1.  Po zakończeniu badania do alertu i odpowiedziano w odpowiedni sposób, Zmień stan na **odrzucony**.
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Strona listy alertów zabezpieczeń":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Ustawianie stanu alertu":::
 
     Spowoduje to usunięcie alertu z głównej listy alertów. Możesz użyć filtru na stronie listy alertów, aby wyświetlić wszystkie alerty z **odrzuconym** stanem.
 
 1.  Zachęcamy do przekazywania informacji zwrotnych o alercie do firmy Microsoft:
-    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego** .
+    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego**.
     1. Wybierz przyczynę i Dodaj komentarz.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Strona listy alertów zabezpieczeń":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Prześlij opinię do firmy Microsoft na temat użyteczności alertu":::
 
     > [!TIP]
     > Przeglądamy Twoją opinię, aby ulepszyć nasze algorytmy i zapewnić lepsze alerty zabezpieczeń.
@@ -108,11 +108,11 @@ Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym prze
 
 Jeśli nie planujesz kontynuować pracy lub chcesz wyłączyć jedną z następujących funkcji:
 
-1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia** .
+1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia**.
 1. Wybierz odpowiednią subskrypcję.
-1. Aby zmienić wersję, wybierz pozycję **Azure Defender off** .
+1. Aby zmienić wersję, wybierz pozycję **Azure Defender off**.
 1. Aby **wyłączyć automatyczne** Inicjowanie obsługi, Otwórz stronę **zbieranie danych** i ustaw **Automatyczne Inicjowanie obsługi** .
-4. Wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
 > Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, które już mają agenta. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.

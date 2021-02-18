@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 387c5e70d50e53f922530cfb1fa91494fa7cc624
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab4f92c9723dc98d0b6c32d3a49df8d4f724ebfa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376313"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585470"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -175,9 +175,9 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z wystąpieniami Azure Data Factory. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -201,7 +201,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub zdarzenia związane z zabezpieczeniami innych firm (SIEM). Możesz także zintegrować Azure Data Factory z usługą git, aby korzystać z kilku korzyści z kontroli źródła, takich jak możliwość śledzenia i inspekcji zmian oraz możliwość przywracania zmian wprowadzających błędy.
 
-* [Jak skonfigurować ustawienia diagnostyczne](../azure-monitor/platform/diagnostic-settings.md)
+* [Jak skonfigurować ustawienia diagnostyczne](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -219,7 +219,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Ustawienia diagnostyczne służą do konfigurowania dzienników diagnostycznych dla zasobów nieobliczeniowych w Azure Data Factory, takich jak metryki i dane uruchamiania potoków. Azure Data Factory przechowuje dane przebiegu potoku przez 45 dni. Aby zachować te dane przez dłuższy czas, Zapisz dzienniki diagnostyczne na koncie magazynu na potrzeby inspekcji lub inspekcji ręcznej i określ czas przechowywania w dniach. Możesz również przesłać strumieniowo dzienniki do usługi Azure Event Hubs lub wysłać dzienniki do obszaru roboczego Log Analytics w celu przeprowadzenia analizy.
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md)
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Informacje o dziennikach diagnostycznych Azure Data Factory](./monitor-using-azure-monitor.md)
 
@@ -233,7 +233,7 @@ Ustawienia diagnostyczne służą do konfigurowania dzienników diagnostycznych 
 
 Jeśli organizacja ma zachować dane dziennika zdarzeń zabezpieczeń, może być przechowywana w ramach warstwy zbierania danych. w tym momencie można wykonać zapytanie w Log Analytics.
 
-* [Jak zbierać dane z usługi Azure Virtual Machines w programie Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Jak zbierać dane z usługi Azure Virtual Machines w programie Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Włączanie zbierania danych w Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -247,7 +247,7 @@ Jeśli organizacja ma zachować dane dziennika zdarzeń zabezpieczeń, może by�
 
 * [Jak włączyć dzienniki diagnostyczne w Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -263,7 +263,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Schemat Log Analytics](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [Jak zbierać dane z maszyny wirtualnej platformy Azure za pomocą Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Jak zbierać dane z maszyny wirtualnej platformy Azure za pomocą Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -281,9 +281,9 @@ Ponadto upewnij się, że ustawienia diagnostyczne są włączone dla usług zwi
 
 * [Alerty w Azure Data Factory](./monitor-visually.md#alerts)
 
-* [Wszystkie obsługiwane strony metryk](../azure-monitor/platform/metrics-supported.md)
+* [Wszystkie obsługiwane strony metryk](../azure-monitor/essentials/metrics-supported.md)
 
-* [Jak skonfigurować alerty w obszarze roboczym Log Analytics](../azure-monitor/platform/alerts-log.md)
+* [Jak skonfigurować alerty w obszarze roboczym Log Analytics](../azure-monitor/alerts/alerts-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -652,9 +652,9 @@ Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i uży
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dotyczące wprowadzania zmian do Azure Data Factory i powiązanych zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Rejestrowanie usługi Azure Storage Analytics](../storage/common/storage-analytics-logging.md)
 

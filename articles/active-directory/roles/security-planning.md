@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090794"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594285"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -212,7 +212,7 @@ Konta Microsoft z innych programów, takich jak Xbox, Live i Outlook, nie powinn
 
 #### <a name="monitor-azure-activity"></a>Monitorowanie aktywności platformy Azure
 
-Dziennik aktywności platformy Azure zawiera historię zdarzeń na poziomie subskrypcji na platformie Azure. Zawiera ona informacje o tym, kto utworzył, zaktualizował i usunął zasoby oraz kiedy wystąpiły te zdarzenia. Aby uzyskać więcej informacji, zobacz [Inspekcja i odbieranie powiadomień o ważnych akcjach w ramach subskrypcji platformy Azure](../../azure-monitor/platform/alerts-activity-log.md).
+Dziennik aktywności platformy Azure zawiera historię zdarzeń na poziomie subskrypcji na platformie Azure. Zawiera ona informacje o tym, kto utworzył, zaktualizował i usunął zasoby oraz kiedy wystąpiły te zdarzenia. Aby uzyskać więcej informacji, zobacz [Inspekcja i odbieranie powiadomień o ważnych akcjach w ramach subskrypcji platformy Azure](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Dodatkowe kroki dla organizacji zarządzających dostępem do innych aplikacji w chmurze za pośrednictwem usługi Azure AD
 

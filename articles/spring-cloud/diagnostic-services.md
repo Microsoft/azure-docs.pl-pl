@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499530"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585207"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -31,7 +31,7 @@ Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 ## <a name="logs"></a>Dzienniki
 
-|Log | Opis |
+|Dziennik | Opis |
 |----|----|
 | **ApplicationConsole** | Dziennik konsoli wszystkich aplikacji klienta. |
 | **SystemLogs** | Obecnie w tej kategorii znajdują się tylko [źródła dzienników serwera konfiguracji chmury](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) . |
@@ -40,7 +40,7 @@ Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 Aby uzyskać pełną listę metryk, zobacz [sprężynowe metryki w chmurze](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Aby rozpocząć, włącz jedną z tych usług, aby otrzymywać dane. Aby dowiedzieć się więcej o konfigurowaniu Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+Aby rozpocząć, włącz jedną z tych usług, aby otrzymywać dane. Aby dowiedzieć się więcej o konfigurowaniu Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Konfigurowanie ustawień diagnostycznych
 
@@ -131,11 +131,11 @@ Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do konta ma
 1. Aby przejrzeć dzienniki aplikacji, Wyszukaj centrum zdarzeń o nazwie **Insights-Logs-applicationconsole**.
 1. Aby przejrzeć metryki aplikacji, Wyszukaj centrum zdarzeń o nazwie **Insights-Metrics-pt1m**.
 
-Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do centrum zdarzeń, zobacz [przesyłanie strumieniowe danych Diagnostyka Azure w ścieżce gorąca przy użyciu Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
+Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do centrum zdarzeń, zobacz [przesyłanie strumieniowe danych Diagnostyka Azure w ścieżce gorąca przy użyciu Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analizowanie dzienników
 
-Usługa Azure Log Analytics działa z aparatem Kusto, dzięki czemu możesz wysyłać zapytania do dzienników w celu analizy. Aby zapoznać się z krótkim wprowadzeniem do wykonywania zapytań dotyczących dzienników przy użyciu Kusto, zapoznaj się z [samouczkiem log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+Usługa Azure Log Analytics działa z aparatem Kusto, dzięki czemu możesz wysyłać zapytania do dzienników w celu analizy. Aby zapoznać się z krótkim wprowadzeniem do wykonywania zapytań dotyczących dzienników przy użyciu Kusto, zapoznaj się z [samouczkiem log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Dzienniki aplikacji zawierają informacje krytyczne i pełne dzienniki dotyczące kondycji, wydajności i innych aplikacji. W następnych sekcjach znajdują się pewne proste zapytania, które pomagają zrozumieć bieżące i wcześniejsze Stany aplikacji.
 
@@ -176,7 +176,7 @@ AppPlatformLogsforSpring
 
 ### <a name="learn-more-about-querying-application-logs"></a>Dowiedz się więcej o wysyłaniu zapytań do dzienników aplikacji
 
-Azure Monitor zapewnia szeroką pomoc techniczną dotyczącą wykonywania zapytań dotyczących dzienników aplikacji przy użyciu Log Analytics. Aby dowiedzieć się więcej na temat tej usługi, zobacz [Rozpoczynanie pracy z kwerendami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md). Aby uzyskać więcej informacji na temat tworzenia zapytań w celu analizowania dzienników aplikacji, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
+Azure Monitor zapewnia szeroką pomoc techniczną dotyczącą wykonywania zapytań dotyczących dzienników aplikacji przy użyciu Log Analytics. Aby dowiedzieć się więcej na temat tej usługi, zobacz [Rozpoczynanie pracy z kwerendami dzienników w Azure monitor](../azure-monitor/logs/get-started-queries.md). Aby uzyskać więcej informacji na temat tworzenia zapytań w celu analizowania dzienników aplikacji, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 

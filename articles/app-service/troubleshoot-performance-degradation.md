@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763812"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586232"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service
 Ten artykuł pomaga rozwiązywać problemy związane z wydajnością aplikacji w [Azure App Service](./overview.md).
@@ -61,7 +61,7 @@ Niektóre metryki, które mogą być monitorowane dla aplikacji, to
 Aby uzyskać więcej informacji, zobacz:
 
 * [Monitorowanie aplikacji w Azure App Service](web-sites-monitor.md)
-* [Otrzymywanie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md)
+* [Otrzymywanie powiadomień o alertach](../azure-monitor/alerts/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorowanie stanu punktu końcowego sieci Web
 Jeśli aplikacja jest uruchamiana w warstwie cenowej **standardowa** , App Service pozwala monitorować dwa punkty końcowe z trzech lokalizacji geograficznych.

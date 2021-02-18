@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184471"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593399"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Zalecenia dotyczące testu wydajności dla usługi Azure NetApp Files
 
@@ -113,7 +113,7 @@ Możesz również utworzyć pulpit nawigacyjny w Azure Monitor dla Azure NetApp 
 
 ### <a name="azure-monitor-api-access"></a>Azure Monitor dostęp do interfejsu API
 
-Dostęp do liczników Azure NetApp Files można uzyskać przy użyciu wywołań interfejsu API REST. Zobacz [obsługiwane metryki z Azure Monitor: Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for Counters i Volumes.
+Dostęp do liczników Azure NetApp Files można uzyskać przy użyciu wywołań interfejsu API REST. Zobacz [obsługiwane metryki z Azure Monitor: Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for Counters i Volumes.
 
 W poniższym przykładzie przedstawiono adres URL pobierania na potrzeby wyświetlania rozmiaru woluminu logicznego:
 

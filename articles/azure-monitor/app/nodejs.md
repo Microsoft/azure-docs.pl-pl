@@ -4,12 +4,12 @@ description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za p
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611019"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585754"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
@@ -383,7 +383,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Można utworzyć wiele zasobów Application Insights i wysyłać do nich różne dane przy użyciu odpowiednich kluczy Instrumentacji ("iKey").
 
- Przykład:
+ Na przykład:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -425,7 +425,7 @@ Te właściwości są specyficzne dla klienta, dlatego można je skonfigurować 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Monitorowanie telemetrii w portalu](./overview-dashboard.md)
-* [Zapisywanie zapytań analizy za pośrednictwem danych telemetrycznych](../log-query/log-analytics-tutorial.md)
+* [Zapisywanie zapytań analizy za pośrednictwem danych telemetrycznych](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

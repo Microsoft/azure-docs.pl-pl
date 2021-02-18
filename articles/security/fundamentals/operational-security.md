@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408519"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575011"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -108,7 +108,7 @@ Chronione dane w usłudze Azure Backup są przechowywane w magazynie kopii zapas
 
 ![Rozwiązania do zarządzania](./media/operational-security/azure-operational-security-fig4.png)
 
-Dobrym przykładem rozwiązania korzystającego z wielu usług w celu zapewnienia dodatkowej funkcjonalności jest [rozwiązanie Update Management](../../automation/update-management/overview.md). To rozwiązanie używa agenta [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) dla systemów Windows i Linux w celu zbierania informacji na temat wymaganych aktualizacji na każdym agencie. Zapisuje te dane w repozytorium dzienników Azure Monitor, w którym można je analizować za pomocą dołączonego pulpitu nawigacyjnego.
+Dobrym przykładem rozwiązania korzystającego z wielu usług w celu zapewnienia dodatkowej funkcjonalności jest [rozwiązanie Update Management](../../automation/update-management/overview.md). To rozwiązanie używa agenta [dzienników Azure monitor](../../azure-monitor/logs/log-query-overview.md) dla systemów Windows i Linux w celu zbierania informacji na temat wymaganych aktualizacji na każdym agencie. Zapisuje te dane w repozytorium dzienników Azure Monitor, w którym można je analizować za pomocą dołączonego pulpitu nawigacyjnego.
 
 Podczas tworzenia wdrożenia elementy Runbook w [Azure Automation](../../automation/automation-intro.md) są używane do instalowania wymaganych aktualizacji. Możesz zarządzać całym procesem w portalu, dzięki czemu nie musisz przejmować się szczegółami.
 
@@ -148,19 +148,19 @@ Usługa Security Center zbiera dane z maszyn wirtualnych w celu oceny ich stanu 
 
 Aby ułatwić klientom zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie, usługa Azure Security Center zbiera i przetwarza dane dotyczące zabezpieczeń, w tym informacje o konfiguracji, metadane, dzienniki zdarzeń, pliki zrzutu awaryjnego i inne. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi.
 
--   **Podział danych** : dane są logicznie oddzielone dla każdego składnika w całej usłudze. Wszystkie dane są otagowane informacjami o organizacji. To tagowanie jest obecne przez cały cykl życia danych i jest wymuszane w każdej warstwie usługi.
+-   **Podział danych**: dane są logicznie oddzielone dla każdego składnika w całej usłudze. Wszystkie dane są otagowane informacjami o organizacji. To tagowanie jest obecne przez cały cykl życia danych i jest wymuszane w każdej warstwie usługi.
 
--   **Dostęp do danych** : aby zapewnić zalecenia dotyczące zabezpieczeń i zbadać potencjalne zagrożenia bezpieczeństwa, personel firmy Microsoft może uzyskać dostęp do informacji zbieranych lub analizowanych przez usługi platformy Azure, w tym plików zrzutu awaryjnego, zdarzeń tworzenia procesów, migawek dysków maszyny wirtualnej i artefaktów, co może przypadkowo obejmować dane klienta lub dane osobowe z maszyn wirtualnych. Stosujemy się do [warunków i zasad zachowania poufności informacji w usługach online firmy Microsoft](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), co oznacza, że firma Microsoft nie korzysta z danych klientów ani nie udostępnia informacji z nich na potrzeby reklamy lub podobnych celów komercyjnych.
+-   **Dostęp do danych**: aby zapewnić zalecenia dotyczące zabezpieczeń i zbadać potencjalne zagrożenia bezpieczeństwa, personel firmy Microsoft może uzyskać dostęp do informacji zbieranych lub analizowanych przez usługi platformy Azure, w tym plików zrzutu awaryjnego, zdarzeń tworzenia procesów, migawek dysków maszyny wirtualnej i artefaktów, co może przypadkowo obejmować dane klienta lub dane osobowe z maszyn wirtualnych. Stosujemy się do [warunków i zasad zachowania poufności informacji w usługach online firmy Microsoft](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), co oznacza, że firma Microsoft nie korzysta z danych klientów ani nie udostępnia informacji z nich na potrzeby reklamy lub podobnych celów komercyjnych.
 
--   **Użycie danych** : firma Microsoft używa wzorców i analizy zagrożeń obecnych w wielu dzierżawach, aby zwiększyć możliwości wykrywania zagrożeń i zapobiegania im — robimy to zgodnie ze zobowiązaniami co do prywatności opisanymi w [zasadach zachowania poufności informacji](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Użycie danych**: firma Microsoft używa wzorców i analizy zagrożeń obecnych w wielu dzierżawach, aby zwiększyć możliwości wykrywania zagrożeń i zapobiegania im — robimy to zgodnie ze zobowiązaniami co do prywatności opisanymi w [zasadach zachowania poufności informacji](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Lokalizacja danych
 
 Usługa Azure Security Center zbiera efemeryczne kopie plików zrzutu awaryjnego i analizuje je pod kątem dowodów na próby ich naruszenia i pomyślnie przeprowadzonych ataków. Usługa Azure Security Center dokonuje tej analizy w ramach tego samego obszaru geograficznego, co obszar roboczy, i usuwa efemeryczne kopie po zakończeniu analizy. Artefakty maszyny są przechowywane centralnie w tym samym regionie, co maszyna wirtualna.
 
--   **Konta magazynu** : konto magazynu jest określone dla każdego regionu, w którym działają maszyny wirtualne. Dzięki temu można przechowywać dane w tym samym regionie co maszyna wirtualna, z której zbierane są dane.
+-   **Konta magazynu**: konto magazynu jest określone dla każdego regionu, w którym działają maszyny wirtualne. Dzięki temu można przechowywać dane w tym samym regionie co maszyna wirtualna, z której zbierane są dane.
 
--   **Magazyn usługi Azure Security Center Storage** : informacje dotyczące alertów zabezpieczeń, w tym alerty partnerów, zalecenia oraz stan kondycji zabezpieczeń, są przechowywane centralnie, obecnie na terenie Stanów Zjednoczonych. Do informacji zebranych z maszyn wirtualnych mogą należeć informacje dotyczące konfiguracji oraz zdarzeń związanych z zabezpieczeniami, dzięki którym możliwe jest przekazanie użytkownikowi danych na temat alertu zabezpieczeń, ewentualnych zaleceń postępowania oraz stanu kondycji zabezpieczeń.
+-   **Magazyn usługi Azure Security Center Storage**: informacje dotyczące alertów zabezpieczeń, w tym alerty partnerów, zalecenia oraz stan kondycji zabezpieczeń, są przechowywane centralnie, obecnie na terenie Stanów Zjednoczonych. Do informacji zebranych z maszyn wirtualnych mogą należeć informacje dotyczące konfiguracji oraz zdarzeń związanych z zabezpieczeniami, dzięki którym możliwe jest przekazanie użytkownikowi danych na temat alertu zabezpieczeń, ewentualnych zaleceń postępowania oraz stanu kondycji zabezpieczeń.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -195,17 +195,17 @@ Te dzienniki są emitowane przez zasób i zapewniają rozbudowane, częste dane 
 
 Na przykład Dzienniki systemu zdarzeń systemu Windows są jedną kategorią dziennika diagnostycznego dla maszyn wirtualnych i dzienników obiektów blob, tabel i kolejek są kategorie dzienników diagnostycznych dla kont magazynu.
 
-Dzienniki diagnostyczne różnią się od [dziennika aktywności (dawniej zwanego dziennikiem inspekcji lub dziennikiem operacji)](../../azure-monitor/platform/platform-logs-overview.md). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne udostępniają szczegółowe dane operacji wykonanych przez sam zasób.
+Dzienniki diagnostyczne różnią się od [dziennika aktywności (dawniej zwanego dziennikiem inspekcji lub dziennikiem operacji)](../../azure-monitor/essentials/platform-logs-overview.md). Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach w ramach subskrypcji. Dzienniki diagnostyczne udostępniają szczegółowe dane operacji wykonanych przez sam zasób.
 
 ### <a name="metrics"></a>Metryki
 
-Azure Monitor umożliwia korzystanie z telemetrii w celu uzyskania wglądu w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest metryki (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych [metryk](../../azure-monitor/platform/data-platform.md) do monitorowania i rozwiązywania problemów. Metryki są cennym źródłem danych telemetrycznych i umożliwiają wykonywanie następujących zadań:
+Azure Monitor umożliwia korzystanie z telemetrii w celu uzyskania wglądu w wydajność i kondycję obciążeń na platformie Azure. Najważniejszym typem danych telemetrii platformy Azure jest metryki (nazywane również licznikami wydajności) emitowane przez większość zasobów platformy Azure. Azure Monitor oferuje kilka sposobów konfigurowania i używania tych [metryk](../../azure-monitor/data-platform.md) do monitorowania i rozwiązywania problemów. Metryki są cennym źródłem danych telemetrycznych i umożliwiają wykonywanie następujących zadań:
 
 -   **Śledź wydajność** zasobów (takich jak maszyna wirtualna, witryna sieci Web lub aplikacja logiki) przez wykreślenie jej metryk na wykresie portalu i Przypinanie tego wykresu do pulpitu nawigacyjnego.
 
 -   **Otrzymuj powiadomienia o problemie** , który ma wpływ na wydajność zasobu, gdy Metryka przekroczy określony próg.
 
--   **Skonfiguruj akcje automatyczne** , takie jak automatyczne skalowanie zasobu lub wyzwalanie elementu Runbook, gdy Metryka przekroczy określony próg.
+-   **Skonfiguruj akcje automatyczne**, takie jak automatyczne skalowanie zasobu lub wyzwalanie elementu Runbook, gdy Metryka przekroczy określony próg.
 
 -   **Wykonaj zaawansowaną analizę** lub Raportowanie dotyczące trendów wydajności i użycia zasobów.
 
@@ -213,7 +213,7 @@ Azure Monitor umożliwia korzystanie z telemetrii w celu uzyskania wglądu w wyd
 
 ### <a name="azure-diagnostics"></a>Diagnostyka Azure
 
-Jest to możliwość na platformie Azure, która umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych różnych źródeł. Obecnie obsługiwane są [role sieci Web i procesu roboczego usługi w chmurze platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [platforma Azure Virtual Machines](../../virtual-machines/windows/overview.md) z systemem Microsoft Windows i [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Inne usługi platformy Azure mają własną osobną diagnostykę.
+Jest to możliwość na platformie Azure, która umożliwia zbieranie danych diagnostycznych we wdrożonej aplikacji. Można użyć rozszerzenia diagnostyki z różnych różnych źródeł. Obecnie obsługiwane są [role sieci Web i procesu roboczego usługi w chmurze platformy Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [platforma Azure Virtual Machines](../../virtual-machines/windows/overview.md) z systemem Microsoft Windows i [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Inne usługi platformy Azure mają własną osobną diagnostykę.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
@@ -225,7 +225,7 @@ Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniac
 
 Network Watcher obecnie ma następujące możliwości:
 
--   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Dzienniki inspekcji</a>** — operacje wykonywane w ramach konfiguracji sieci są rejestrowane. Te dzienniki można wyświetlać w Azure Portal lub pobrać przy użyciu narzędzi firmy Microsoft, takich jak Power BI lub narzędzi innych firm. Dzienniki inspekcji są dostępne za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Aby uzyskać więcej informacji na temat dzienników inspekcji, zobacz operacje inspekcji z Menedżer zasobów. Dzienniki inspekcji są dostępne dla operacji wykonywanych na wszystkich zasobach sieciowych.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Dzienniki inspekcji</a>**— operacje wykonywane w ramach konfiguracji sieci są rejestrowane. Te dzienniki można wyświetlać w Azure Portal lub pobrać przy użyciu narzędzi firmy Microsoft, takich jak Power BI lub narzędzi innych firm. Dzienniki inspekcji są dostępne za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Aby uzyskać więcej informacji na temat dzienników inspekcji, zobacz operacje inspekcji z Menedżer zasobów. Dzienniki inspekcji są dostępne dla operacji wykonywanych na wszystkich zasobach sieciowych.
 
 
 -   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">Sprawdzanie przepływów IP</a>** — sprawdza, czy pakiet jest dozwolony, czy odrzucany na podstawie informacji o przepływie 5-parametry pakietu (docelowy adres IP, źródłowy adres IP, port docelowy, port źródłowy i protokół). Jeśli pakiet zostanie odrzucony przez grupę zabezpieczeń sieci, zwracana jest reguła i sieciowa Grupa zabezpieczeń, która odrzuciła pakiet.
@@ -236,11 +236,11 @@ Network Watcher obecnie ma następujące możliwości:
 
 -   **<a href="/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Rejestrowanie przepływu sieciowej grupy zabezpieczeń</a>** — dzienniki przepływu dla sieciowych grup zabezpieczeń umożliwiają przechwytywanie dzienników związanych z ruchem, które są dozwolone lub odrzucane przez reguły zabezpieczeń w grupie. Przepływ jest definiowany przy użyciu 5-informacje o spójnej kolekcji — źródłowy adres IP, docelowy adres IP, port źródłowy, port docelowy i protokół.
 
-## <a name="azure-storage-analytics"></a>analityka magazynu platformy Azure
+## <a name="azure-storage-analytics"></a>Azure Storage Analytics
 
 [Analityka magazynu](/rest/api/storageservices/fileservices/storage-analytics) mogą przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane pojemności dotyczące żądań do usługi magazynu. Transakcje są raportowane zarówno na poziomie operacji interfejsu API, jak i na poziomie usługi magazynu, a pojemność jest raportowana na poziomie usługi magazynu. Dane metryk umożliwiają analizowanie użycia usługi magazynu, diagnozowanie problemów z żądaniami dotyczącymi usługi Storage oraz Poprawianie wydajności aplikacji korzystających z usługi.
 
-[Analityka magazynu platformy Azure](/rest/api/storageservices/fileservices/storage-analytics) wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu. Rejestrowanie analityka magazynu jest dostępne dla [usług obiektów blob, kolejek i tabel](../../storage/common/storage-introduction.md). Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem.
+[Azure Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics) wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu. Rejestrowanie analityka magazynu jest dostępne dla [usług obiektów blob, kolejek i tabel](../../storage/common/storage-introduction.md). Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem.
 
 Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku. Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, tworzone są tylko dzienniki dotyczące Blob service.
 

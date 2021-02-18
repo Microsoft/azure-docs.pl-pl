@@ -3,21 +3,21 @@ title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | M
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131988"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573168"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
 Możesz wyświetlić dwa typy dzienników dla Event Hubs platformy Azure:
 
-* **[Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md)**: te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone. Wpisy dziennika aktywności można wyświetlić, wybierając pozycję **Dziennik aktywności** w lewym okienku dla przestrzeni nazw centrum zdarzeń w Azure Portal. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj centrum zdarzeń".
+* **[Dzienniki aktywności](../azure-monitor/essentials/platform-logs-overview.md)**: te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone. Wpisy dziennika aktywności można wyświetlić, wybierając pozycję **Dziennik aktywności** w lewym okienku dla przestrzeni nazw centrum zdarzeń w Azure Portal. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj centrum zdarzeń".
 
     ![Dziennik aktywności dla Event Hubs przestrzeni nazw](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md)**: dzienniki diagnostyczne zawierają bogatsze informacje o operacjach i akcjach, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API, lub za pośrednictwem klientów zarządzania w zestawie SDK języka. 
+* **[Dzienniki diagnostyczne](../azure-monitor/essentials/platform-logs-overview.md)**: dzienniki diagnostyczne zawierają bogatsze informacje o operacjach i akcjach, które są wykonywane w odniesieniu do przestrzeni nazw za pomocą interfejsu API, lub za pośrednictwem klientów zarządzania w zestawie SDK języka. 
     
     W poniższej sekcji przedstawiono sposób włączania dzienników diagnostycznych dla przestrzeni nazw Event Hubs.
 
@@ -36,7 +36,7 @@ Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki dia
 
     Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-    Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Kategorie dzienników diagnostycznych
 

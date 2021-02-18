@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564773"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594444"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
 
@@ -28,7 +28,7 @@ Platforma Azure okresowo przeprowadza aktualizacje, aby zwiększyć niezawodnoś
 
 Planowana konserwacja wymagająca ponownego uruchomienia jest zaplanowana na fale. Każda fala ma inny zakres (regiony):
 
-- Fala rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienia są wysyłane do właściciela subskrypcji i współwłaścicieli. Za pomocą [alertów dziennika aktywności](../azure-monitor/platform/platform-logs-overview.md)platformy Azure Możesz dodać adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, wiadomości SMS i elementy webhook do powiadomień.  
+- Fala rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienia są wysyłane do właściciela subskrypcji i współwłaścicieli. Za pomocą [alertów dziennika aktywności](../azure-monitor/essentials/platform-logs-overview.md)platformy Azure Możesz dodać adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, wiadomości SMS i elementy webhook do powiadomień.  
 - Z powiadomieniem jest udostępniane *okno* samoobsługowe. W tym oknie, które jest zwykle 35 dni, można znaleźć, które maszyny wirtualne znajdują się w tej fazie. Możesz proaktywnie rozpocząć konserwację zgodnie z własnymi potrzebami w zakresie planowania.
 - Po włączeniu okna samoobsługowego zostanie rozpoczęte *zaplanowane okno obsługi* . W pewnym momencie w tym oknie usługa Azure planuje i stosuje wymaganą konserwację na maszynie wirtualnej. 
 
@@ -73,9 +73,9 @@ Najlepiej używać samoobsługowej konserwacji w następujących przypadkach:
 Po zaplanowaniu planowanej fazy konserwacji można wyświetlić listę zestawów skalowania maszyn wirtualnych, na które ma wpływ nadchodząca fala konserwacji, przy użyciu Azure Portal. 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **zestawy skalowania maszyn wirtualnych**.
+2. W menu po lewej stronie wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **zestawy skalowania maszyn wirtualnych**.
 3. W obszarze **zestawy skalowania maszyn wirtualnych** wybierz pozycję **Edytuj kolumny** , aby otworzyć listę dostępnych kolumn.
-4. W sekcji **Dostępne kolumny** wybierz opcję **konserwacja** samoobsługowa, a następnie przenieś ją na listę **wybrane kolumny** . Wybierz pozycję **Zastosuj**.  
+4. W sekcji **Dostępne kolumny** wybierz opcję **konserwacja** samoobsługowa, a następnie przenieś ją na listę **wybrane kolumny** . Wybierz przycisk **Zastosuj**.  
 
     Aby ułatwić znalezienie elementu **konserwacji samoobsługowej** , można zmienić opcję listy rozwijanej w sekcji **Dostępne kolumny** ze **wszystkich** na **Właściwości**.
 
@@ -89,17 +89,17 @@ Na liście zestawów skalowania maszyn wirtualnych jest teraz wyświetlana kolum
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Powiadomienia i alerty w portalu
 
-Platforma Azure komunikuje harmonogram planowanej konserwacji, wysyłając wiadomość e-mail do właściciela subskrypcji i grupy współwłaścicieli. Aby dodać adresatów i kanały do tej komunikacji, można utworzyć alerty dziennika aktywności. Aby uzyskać więcej informacji, zobacz [monitorowanie aktywności subskrypcji przy użyciu dziennika aktywności platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+Platforma Azure komunikuje harmonogram planowanej konserwacji, wysyłając wiadomość e-mail do właściciela subskrypcji i grupy współwłaścicieli. Aby dodać adresatów i kanały do tej komunikacji, można utworzyć alerty dziennika aktywności. Aby uzyskać więcej informacji, zobacz [monitorowanie aktywności subskrypcji przy użyciu dziennika aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu po lewej stronie wybierz pozycję **Monitoruj**. 
 3. W okienku **monitorowanie — alerty (klasyczne)** wybierz pozycję **+ Dodaj alert dziennika aktywności**.
 4. Na stronie **Dodawanie alertu dziennika aktywności** wybierz lub wprowadź żądane informacje. W obszarze **kryteria** upewnij się, że ustawisz następujące wartości:
-   - **Kategoria zdarzenia** : wybierz pozycję **Service Health**.
-   - **Usługi** : Wybierz **Virtual Machine Scale Sets i Virtual Machines**.
-   - **Typ** : wybierz pozycję **Planowana konserwacja**. 
+   - **Kategoria zdarzenia**: wybierz pozycję **Service Health**.
+   - **Usługi**: Wybierz **Virtual Machine Scale Sets i Virtual Machines**.
+   - **Typ**: wybierz pozycję **Planowana konserwacja**. 
     
-Aby dowiedzieć się więcej o konfigurowaniu alertów dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md)
+Aby dowiedzieć się więcej o konfigurowaniu alertów dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności](../azure-monitor/alerts/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Rozpocznij konserwację na zestawie skalowania maszyn wirtualnych z poziomu portalu
@@ -120,7 +120,7 @@ Informacje o konserwacji są zwracane tylko wtedy, gdy konserwacja jest zaplanow
 Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
-Następujące właściwości są zwracane w obszarze **MaintenanceRedeployStatus** : 
+Następujące właściwości są zwracane w obszarze **MaintenanceRedeployStatus**: 
 
 | Wartość | Opis   |
 |-------|---------------|
@@ -165,7 +165,7 @@ Następujące właściwości są zwracane w obszarze **MaintenanceRedeployStatus
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Uruchom konserwację wystąpienia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia
 
-Następujące wywołanie inicjuje konserwację w wystąpieniu maszyny wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` jest ustawione na **wartość true** :
+Następujące wywołanie inicjuje konserwację w wystąpieniu maszyny wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` jest ustawione na **wartość true**:
 
 ```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id

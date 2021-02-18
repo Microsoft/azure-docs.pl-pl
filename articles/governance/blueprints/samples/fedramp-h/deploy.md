@@ -3,12 +3,12 @@ title: Przykład wdrażania FedRAMP High plan
 description: Wdróż kroki dla przykładu FedRAMP High plan, w tym szczegóły parametru artefaktu strategii.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 065f1343066f5d0ac9b0846de790124e907a5e24
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 53d48eff79f7227373c1e7dfb0c34ef17a00e125
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034870"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594766"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Wdróż przykład FedRAMP High plan
 
@@ -94,7 +94,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
 |\[Wersja zapoznawcza \] : Inspekcja FedRAMP wysoka kontrola i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Log Analytics identyfikator obszaru roboczego, dla którego należy skonfigurować maszyny wirtualne|To jest identyfikator (GUID) obszaru roboczego Log Analytics, dla którego należy skonfigurować maszyny wirtualne.|
-|\[Wersja zapoznawcza \] : Inspekcja FedRAMP wysoka kontrola i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Wersja zapoznawcza \] : Inspekcja FedRAMP wysoka kontrola i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Wersja zapoznawcza \] : Inspekcja FedRAMP wysoka kontrola i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista użytkowników, którzy powinni być wykluczeni z grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być wykluczone w grupie lokalnej Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : Inspekcja FedRAMP wysoka kontrola i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Linux (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|

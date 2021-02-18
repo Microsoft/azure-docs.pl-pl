@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804992"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574432"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Podstawa zabezpieczeń platformy Azure dla Network Watcher
 
@@ -118,9 +118,9 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania zmian wprowadzonych w usłudze Azure Network Watcher. Możesz tworzyć alerty w ramach Azure Monitor, które będą wyzwalać, gdy zmiany zostaną wykonane.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -142,7 +142,7 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników związanych z ruchem sieciowym. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Opis Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników inspekcji. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Opis Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z platformą Azure Network Watcher zgodnie z regulacjami zgodności w organizacji.
 
-* [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -184,7 +184,7 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian dla wystąpień Network Watcher platformy Azure. Poza płaszczyzną kontroli (np. Azure Portal) Network Watcher sama nie generuje dzienników związanych z ruchem sieciowym. Network Watcher udostępnia narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 
-* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Opis Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Aby można było korzystać z funkcji Network Watcher, konto, które logujesz si
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany są wprowadzane do usługi Azure Network Watcher i innych krytycznych lub powiązanych zasobów.
 
-* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

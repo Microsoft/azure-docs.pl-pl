@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 08aa69db90901447297e06cd111b6b0174e6637a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881320"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575096"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Podstawa zabezpieczeń platformy Azure dla Azure Machine Learning
 
@@ -155,9 +155,9 @@ W przypadku zasobu w Azure Machine Learning sieci wirtualnej, który obsługuje 
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z Azure Machine Learning. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -193,9 +193,9 @@ W przypadku zasobu w Azure Machine Learning sieci wirtualnej, który obsługuje 
 
 Można również skorelować dzienniki operacji usługi Machine Learning w celu zapewnienia bezpieczeństwa i zgodności.
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Włącz rejestrowanie w Azure Machine Learning](./how-to-track-experiments.md)
 
@@ -211,7 +211,7 @@ Można również skorelować dzienniki operacji usługi Machine Learning w celu 
 
 Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych, a nawet własnych zasobów obliczeniowych. W przypadku wszystkich zasobów obliczeniowych należących do organizacji Użyj Azure Security Center do monitorowania systemu operacyjnego. 
 
-- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Jak zbierać dzienniki wewnętrznego hosta maszyny wirtualnej platformy Azure z Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Omówienie zbierania danych Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
@@ -223,7 +223,7 @@ Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure Machine Learning zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -241,9 +241,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -257,7 +257,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Aby uzyskać więcej informacji na temat alertów Azure Machine Learning](monitor-azure-machine-learning.md#alerts)
 
-- [Jak otrzymywać alerty dotyczące Log Analytics danych dziennika obszaru roboczego](../azure-monitor/learn/tutorial-response.md)
+- [Jak otrzymywać alerty dotyczące Log Analytics danych dziennika obszaru roboczego](../azure-monitor/alerts/tutorial-response.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -565,7 +565,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Machine Learning i ma 
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych Azure Machine Learning i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
