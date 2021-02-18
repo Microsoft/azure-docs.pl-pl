@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027802"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095684"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -55,9 +55,9 @@ Poniższa tabela zawiera linki do przykładów kodu dla każdego obsługiwanego 
 | Język | Parametr protokołu MQTT | MQTT przez parametr protokołu sieci Web Sockets
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | Azure-IoT-Device-MQTT. MQTT | Azure-IoT-Device-MQTT. MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable&preserve-view=true). MQTT | IotHubClientProtocol.MQTT_WS |
 | [S](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). MQTT | TransportType. MQTT powraca do MQTT za pośrednictwem gniazd sieci Web, jeśli MQTT się nie powiedzie. Aby określić MQTT tylko dla gniazd sieci Web, użyj TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet&preserve-view=true). MQTT | TransportType. MQTT powraca do MQTT za pośrednictwem gniazd sieci Web, jeśli MQTT się nie powiedzie. Aby określić MQTT tylko dla gniazd sieci Web, użyj TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Domyślnie obsługuje MQTT | Dodaj `websockets=True` w wywołaniu, aby utworzyć klienta |
 
 Poniższy fragment przedstawia sposób określania MQTT przez protokół Web Sockets w przypadku korzystania z zestawu SDK usługi Azure IoT Node.js:
@@ -111,6 +111,8 @@ W [przykładowym repozytorium IoT MQTT](https://github.com/Azure-Samples/IoTMQTT
 
 Te przykłady umożliwiają wysyłanie komunikatów do brokera MQTT zaimplementowane w usłudze IoT Hub przy użyciu biblioteki Mosquitto.
 
+Aby dowiedzieć się, jak dostosować przykłady do korzystania z Konwencji [usługi Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) , zobacz [samouczek — Użyj MQTT do opracowania klienta urządzenia IoT Plug and Play](../iot-pnp/tutorial-use-mqtt.md).
+
 To repozytorium zawiera:
 
 **Dla systemu Windows:**
@@ -158,7 +160,7 @@ Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawią
 
   Więcej informacji o sposobach generowania tokenów SAS znajduje się w sekcji Device of [Using IoT Hub tokeny zabezpieczające](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Podczas testowania można także użyć wieloplatformowych [narzędzi Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub rozszerzenia interfejsu wiersza polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) , aby szybko wygenerować token sygnatury dostępu współdzielonego, który można skopiować i wkleić do własnego kodu.
+  Podczas testowania można także użyć wieloplatformowych [narzędzi Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub rozszerzenia interfejsu wiersza polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) , aby szybko wygenerować token sygnatury dostępu współdzielonego, który można skopiować i wkleić do własnego kodu.
 
 ### <a name="for-azure-iot-tools"></a>Dla narzędzi Azure IoT Tools
 
@@ -285,7 +287,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Wysyłanie komunikatów z urządzenia do chmury
 
-Po pomyślnym nawiązaniu połączenia urządzenie może wysyłać komunikaty do IoT Hub przy użyciu `devices/{device_id}/messages/events/` lub `devices/{device_id}/messages/events/{property_bag}` jako **nazwy tematu**. `{property_bag}`Element umożliwia urządzeniu wysyłanie komunikatów z dodatkowymi właściwościami w formacie zakodowanym w adresie URL. Przykład:
+Po pomyślnym nawiązaniu połączenia urządzenie może wysyłać komunikaty do IoT Hub przy użyciu `devices/{device_id}/messages/events/` lub `devices/{device_id}/messages/events/{property_bag}` jako **nazwy tematu**. `{property_bag}`Element umożliwia urządzeniu wysyłanie komunikatów z dodatkowymi właściwościami w formacie zakodowanym w adresie URL. Na przykład:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -355,7 +357,7 @@ Możliwe kody stanu to:
 
 |Stan | Opis |
 | ----- | ----------- |
-| 200 | Success |
+| 200 | Powodzenie |
 | 429 | Zbyt wiele żądań (z ograniczeniami), zgodnie z [ograniczeniami IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5 * * | Błędy serwera |
 
@@ -373,7 +375,7 @@ Poniższa sekwencja zawiera opis sposobu aktualizowania przez urządzenie raport
 
 3. Następnie usługa wysyła komunikat odpowiedzi zawierający nową wartość ETag dla raportowanych kolekcji właściwości w temacie `$iothub/twin/res/{status}/?$rid={request id}` . Ten komunikat odpowiedzi używa tego samego **identyfikatora żądania** co żądanie.
 
-Treść komunikatu żądania zawiera dokument JSON, który zawiera nowe wartości raportowanych właściwości. Każdy element członkowski w dokumencie JSON aktualizuje lub dodaje odpowiadający mu element członkowski w dokumencie przędzy urządzenia. Zestaw elementów członkowskich, aby `null` usunąć element członkowski z zawierającego go obiektu. Przykład:
+Treść komunikatu żądania zawiera dokument JSON, który zawiera nowe wartości raportowanych właściwości. Każdy element członkowski w dokumencie JSON aktualizuje lub dodaje odpowiadający mu element członkowski w dokumencie przędzy urządzenia. Zestaw elementów członkowskich, aby `null` usunąć element członkowski z zawierającego go obiektu. Na przykład:
 
 ```json
 {
@@ -411,7 +413,7 @@ Aby uzyskać więcej informacji, zobacz [przewodnik dewelopera urządzenia bliź
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Otrzymywanie powiadomień o aktualizacji żądanych właściwości
 
-Gdy urządzenie jest połączone, IoT Hub wysyła powiadomienia do tematu `$iothub/twin/PATCH/properties/desired/?$version={new version}` , który zawiera zawartość aktualizacji wykonywanej przez zaplecze rozwiązania. Przykład:
+Gdy urządzenie jest połączone, IoT Hub wysyła powiadomienia do tematu `$iothub/twin/PATCH/properties/desired/?$version={new version}` , który zawiera zawartość aktualizacji wykonywanej przez zaplecze rozwiązania. Na przykład:
 
 ```json
 {

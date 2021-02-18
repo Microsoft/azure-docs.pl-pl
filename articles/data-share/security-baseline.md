@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 58aabd52b8c5493671e0a76d0032a6d7c3081f40
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f28020ba431d3dfdc79c2d4a98b6e6138f563aeb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582040"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096481"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Podstawa zabezpieczeń Azure dla udziału danych platformy Azure
 
@@ -199,7 +199,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zarządzać dostępem do danych i zasobów związanych z zasobami udziałów danych platformy Azure. w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi.
 
-- [Jak skonfigurować kontrolę RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388213"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092919"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -192,7 +192,7 @@ explained_variance|Wyjaśnione odchylenie mierzy zakres, do którego model jest 
 mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a przewidywaniam.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) <br><br> Typ <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, mean_absolute_error podzielona przez zakres danych. | [Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Średni bezwzględny błąd procentu (MAPE) to miara średniej różnicy między wartością przewidywaną a wartością rzeczywistą.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf) ||
 median_absolute_error|Średni błąd bezwzględny to mediana wszystkich bezwzględnych różnic między obiektem docelowym a przewidywaniam. Ta utrata jest niezawodna dla wartości odstających.<br><br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ <br> `median_absolute_error`<br> `normalized_median_absolute_error`: median_absolute_error podzielona przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R ^ 2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1] <br><br> Uwaga: język R ^ 2 często ma zakres (-inf, 1], ale automatyczne klipy ML zawierają wartości ujemne dla bardzo nieprawidłowych modeli na-1.|[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (współczynnik wyznaczania) mierzy proporcjonalną redukcję w przypadku błędu kwadratowego (MSE) względem łącznej wariancji obserwowanych danych. <br> <br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]<br><br>Uwaga: R<sup>2</sup> często ma zakres (-inf, 1]. Program MSE może być większy od zaobserwowanej wariancji, więc R<sup>2</sup> może mieć arbitralnie duże wartości ujemne, w zależności od danych i prognoz modeli. Automatyczne klipy ML zgłosiły wyniki R<sup>2</sup> o wartości-1, więc wartość-1 dla r<sup>2</sup> prawdopodobnie oznacza, że wynik true R<sup>2</sup> jest mniejszy niż-1. Należy wziąć pod uwagę inne wartości metryk i właściwości danych przy interpretacji ujemnego wyniku R<sup>2</sup> .|[Obliczenia](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Pierwiastek średniej wartości "RMSE" oznacza pierwiastek kwadratowy oczekiwanej różnicy kwadratowej między obiektem docelowym a przewidywaniam. W przypadku nieobciążonego szacowania wartość RMSE jest równa odchyleniu standardowemu.<br> <br> **Cel:** Bliżej 0 <br> **Zakres:** [0, inf)<br><br>Typ<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: root_mean_squared_error podzielona przez zakres danych. |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Pierwiastek średnika błędu w postaci logarytmu głównego jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmu.<br><br>**Cel:** Bliżej 0 <br> **Zakres:** [0, inf) <br> <br>Typ <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: root_mean_squared_log_error podzielona przez zakres danych.  |[Obliczenia](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, Spearman różni się od-1 do 1 z 0 oznacza brak korelacji. Korelacje-1 lub 1 implikują dokładną relację monotoniczny. <br><br> Spearman jest metryką korelacji porządku rangi, co oznacza, że zmiany wartości przewidywanych lub rzeczywistych nie zmienią wyniku Spearman, jeśli nie zmienią kolejności wartości przewidywanych lub rzeczywistych.<br> <br> **Cel:** Bliżej 1 <br> **Zakres:** [-1, 1]|[Obliczenia](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

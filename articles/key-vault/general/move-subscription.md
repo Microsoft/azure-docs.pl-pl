@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790295"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096070"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przenoszenie magazynu kluczy platformy Azure do innej subskrypcji
 
@@ -106,9 +106,9 @@ Aby przypisywać zasady, zobacz:
 - [Przypisywanie zasad dostępu przy użyciu programu PowerShell](assign-access-policy-powershell.md)
 
 Aby dodać przypisania ról, zobacz:
-- [Dodawanie przypisania roli przy użyciu portalu](../../role-based-access-control/role-assignments-portal.md)
-- [Dodawanie przypisania roli przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
-- [Dodawanie przypisania roli przy użyciu programu PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Przypisywanie ról platformy Azure przy użyciu programu PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Aktualizowanie tożsamości zarządzanych

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: bbd3e5774c6effa45888f6e59874d29f3b55b45f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545585"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096435"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalowanie pod kątem wydajności na platformie Azure Wyszukiwanie poznawcze
 
@@ -100,6 +100,7 @@ Usługa Azure Wyszukiwanie poznawcze obecnie obsługuje Strefy dostępności dla
 + Australia Wschodnia (Data utworzenia: 30 stycznia 2021 lub nowszej)
 + Kanada Środkowa (Data i 30 stycznia 2021 lub nowsza)
 + Środkowe stany USA (utworzono 4 grudnia 2020 lub nowsze)
++ Wschodnie stany USA (utworzono 27 stycznia 2021 lub nowszej)
 + Wschodnie stany USA 2 (utworzono 30 stycznia 2021 lub nowsze)
 + Francja Środkowa (Data 23 października 2020 lub nowsza)
 + Japonia Wschodnia (Data i 30 stycznia 2021 lub nowsza)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f21c819f82051572e8a3dd01664053ade9196484
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586295"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095035"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Podstawa zabezpieczeń platformy Azure dla App Service
 
@@ -347,7 +347,7 @@ Monitoruj ataki na App Service aplikacje, używając dziennika zapory aplikacji 
 
 - [Jak używać tożsamości zarządzanych do App Service i Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md)
+- [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -612,9 +612,9 @@ Firma Microsoft zarządza podstawową platformą i traktuje wszystkie dane klien
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: Funkcja kontroli dostępu opartej na ROLACH (RBAC) w Azure Active Directory (Azure AD) umożliwia kontrolowanie dostępu do App Service płaszczyzny kontroli w Azure Portal.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) w Azure Active Directory (Azure AD), aby kontrolować dostęp do App Service płaszczyzny kontroli w Azure Portal.
 
-- [Jak skonfigurować kontrolę RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

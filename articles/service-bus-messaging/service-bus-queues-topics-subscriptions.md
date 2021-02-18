@@ -3,12 +3,12 @@ title: Azure Service Bus Messaging — kolejki, tematy i subskrypcje
 description: Ten artykuł zawiera omówienie jednostek obsługi komunikatów Azure Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652823"
+ms.locfileid: "101096324"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Kolejki, tematy i subskrypcje usługi Service Bus
 Azure Service Bus obsługuje zestaw opartych na chmurze technologii oprogramowania pośredniczącego, w tym niezawodnej usługi kolejkowania komunikatów i trwałego przesyłania komunikatów publikowania/subskrybowania. Te możliwości obsługi komunikatów obsługiwanych przez brokera mogą być traktowane jako funkcje obsługi komunikatów, które obsługują publikowanie-subskrybowanie, oddzielanie danych czasowych i scenariusze równoważenia obciążenia przy użyciu obciążenia Service Bus Messaging. Komunikacja oddzielona ma wiele zalet. Na przykład klienci i serwery mogą łączyć się w razie potrzeby i wykonywać operacje w sposób asynchroniczny.
@@ -36,6 +36,9 @@ Można określić dwa różne tryby, w których Service Bus odbiera komunikaty.
         Jeśli aplikacja nie może przetworzyć komunikatu z jakiegoś powodu, może zażądać usługi Service Bus, aby **porzucić** komunikat. Service Bus **odblokowywanie** wiadomości i udostępnienie jej do ponownego odbierania przez tego samego klienta lub przez innego użytkownika konkurującego. Po drugie, istnieje **limit czasu** skojarzony z blokadą. Jeśli aplikacja nie będzie przetwarzać komunikatu przed upływem limitu czasu blokady, Service Bus odblokowuje komunikat i udostępni go do ponownego odebrania.
 
         Jeśli aplikacja ulegnie awarii po przetworzeniu komunikatu, ale przed zażądaniem usługi Service Bus, aby zakończyć ten komunikat, Service Bus ponownie dostarczy komunikat do aplikacji po jej ponownym uruchomieniu. Ten proces jest często wywoływany **co najmniej raz podczas** przetwarzania. Oznacza to, że każdy komunikat jest przetwarzany co najmniej jeden raz. Jednak w niektórych sytuacjach ten sam komunikat może zostać dostarczony. Jeśli scenariusz nie może tolerować zduplikowanego przetwarzania, Dodaj dodatkową logikę w aplikacji, aby wykryć duplikaty. Aby uzyskać więcej informacji, zobacz [Wykrywanie duplikatów](duplicate-detection.md). Ta funkcja jest znana **dokładnie po** przetworzeniu.
+
+        > [!NOTE]
+        > Aby uzyskać więcej informacji na temat tych dwóch trybów, zobacz [rozliczanie operacji odbioru](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Tematy i subskrypcje
 Kolejka umożliwia przetwarzanie komunikatu przez pojedynczego konsumenta. W przeciwieństwie do kolejek, tematy i subskrypcje zapewniają formę komunikacji typu "jeden do wielu" w wzorcu **publikowania i subskrybowania** . Jest to przydatne w przypadku skalowania do dużej liczby odbiorców. Każdy opublikowany komunikat jest udostępniany każdej subskrypcji zarejestrowanej w temacie. Wydawca wysyła komunikat do tematu, a co najmniej jeden subskrybent otrzymuje kopię wiadomości, w zależności od reguł filtru ustawionych w tych subskrypcjach. Subskrypcje mogą używać dodatkowych filtrów, aby ograniczyć liczbę wiadomości, które mają zostać odebrane. Wydawcy wysyłają komunikaty do tematu w taki sam sposób, w jaki wysyłają komunikaty do kolejki. Jednak konsumenci nie odbierają wiadomości bezpośrednio z tematu. Zamiast tego odbiorcy odbierają wiadomości z subskrypcji tematu. Subskrypcja tematu jest podobna do kolejki wirtualnej, która odbiera kopie komunikatów wysyłanych do tematu. Odbiorcy odbierają wiadomości z subskrypcji identycznie do sposobu, w jaki odbierają komunikaty z kolejki.

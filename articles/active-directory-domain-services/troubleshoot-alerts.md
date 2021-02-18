@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618624"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092885"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Znane problemy: typowe alerty i rozwiązania w Azure Active Directory Domain Services
 
@@ -162,7 +162,7 @@ Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domen�
 
 Niektóre automatycznie generowane jednostki usługi są używane do zarządzania zasobami i tworzenia ich dla domeny zarządzanej. Jeśli uprawnienia dostępu dla jednej z tych jednostek usługi zostaną zmienione, domena nie będzie mogła prawidłowo zarządzać zasobami. Poniższe kroki pokazują, jak zrozumieć, a następnie udzielić uprawnień dostępu do jednostki usługi:
 
-1. Przeczytaj o [kontroli dostępu opartej na rolach i sposobach udzielania dostępu do aplikacji w Azure Portal](../role-based-access-control/role-assignments-portal.md).
+1. Przeczytaj o [kontroli dostępu opartej na rolach na platformie Azure i sposobach udzielania dostępu do aplikacji w Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. Przejrzyj dostęp, który jednostka usługi o IDENTYFIKATORze *abba844e-bc0e-44b0-947a-dc74e5d09022* , i Udziel dostępu, który został odrzucony w wcześniejszym terminie.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: brak wystarczającej liczby adresów IP w domenie zarządzanej

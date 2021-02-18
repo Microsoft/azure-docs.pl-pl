@@ -212,8 +212,10 @@
               href: application-proxy-integrate-with-microsoft-cloud-application-security.md
             - name: Integracja z pulpitem zdalnym
               href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: Integracja z programem SharePoint
+            - name: Integracja z programem SharePoint (Kerberos)
               href: application-proxy-integrate-with-sharepoint-server.md
+            - name: Integracja z programem SharePoint (SAML)
+              href: application-proxy-integrate-with-sharepoint-server-saml.md
             - name: Integracja z aplikacją Teams
               href: application-proxy-integrate-with-teams.md
             - name: Integracja z rozwiązaniem Tableau

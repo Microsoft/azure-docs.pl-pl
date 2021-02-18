@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591813"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096560"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Podstawa zabezpieczeń Azure dla usługi Azure Wyszukiwanie poznawcze
 
@@ -495,7 +495,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
 **Wskazówki**: w celu administrowania usługą Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zarządzać dostępem do kluczy i konfiguracji. W przypadku operacji związanych z zawartością, takich jak indeksowanie i kwerendy, Wyszukiwanie poznawcze używa kluczy zamiast modelu kontroli dostępu opartego na tożsamości. Użyj funkcji RBAC platformy Azure, aby kontrolować dostęp do kluczy.
-- [Jak skonfigurować kontrolę RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Jak używać ról na potrzeby dostępu administracyjnego do Wyszukiwanie poznawcze](./search-security-rbac.md)

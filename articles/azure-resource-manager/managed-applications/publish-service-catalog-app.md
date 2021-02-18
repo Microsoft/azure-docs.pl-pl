@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650650"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093644"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Szybki start: Tworzenie i publikowanie definicji aplikacji zarządzanej
 
@@ -315,7 +315,7 @@ Aby można było wdrożyć definicję aplikacji zarządzanej na koncie magazynu,
 1. Wybierz pozycję **Kontrola dostępu (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla konta magazynu. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę **współautor** .
 1. W polu **Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.
-1. W obszarze **Wybierz**Wyszukaj rolę **dostawca zasobów urządzenia** i wybierz ją.
+1. W obszarze **Wybierz** Wyszukaj rolę **dostawca zasobów urządzenia** i wybierz ją.
 1. Zapisz przypisanie roli.
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Wdróż definicję aplikacji zarządzanej przy użyciu szablonu ARM
@@ -401,7 +401,7 @@ Można sprawdzić, czy pliki definicji aplikacji są zapisywane na podanym konci
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Upewnij się, że użytkownicy będą mogli zobaczyć definicję
 
-Masz dostęp do definicji aplikacji zarządzanej, ale chcesz mieć pewność, że inni użytkownicy w Twojej organizacji również mają do niej dostęp. Z definicji przyznaj im co najmniej rolę czytelnika. Użytkownicy mogą odziedziczyć ten poziom dostępu z subskrypcji lub grupy zasobów. Aby sprawdzić, kto ma dostęp do definicji i dodać użytkowników lub grupy, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Masz dostęp do definicji aplikacji zarządzanej, ale chcesz mieć pewność, że inni użytkownicy w Twojej organizacji również mają do niej dostęp. Z definicji przyznaj im co najmniej rolę czytelnika. Użytkownicy mogą odziedziczyć ten poziom dostępu z subskrypcji lub grupy zasobów. Aby sprawdzić, kto ma dostęp do definicji i dodać użytkowników lub grupy, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

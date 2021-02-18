@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390576"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095558"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
@@ -268,7 +268,7 @@ Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zda
 
 - Zmiany rekordów zdarzeń, gdzie `eventType` ma wartość, `Control` są wewnętrznymi rekordami systemu i nie odzwierciedlają zmiany w obiektach na koncie. Można bezpiecznie zignorować te rekordy.
 
-- Wartości w `storageDiagnonstics` zbiorze właściwości są przeznaczone wyłącznie do użytku wewnętrznego i nie są przeznaczone do użytku przez aplikację. Twoje aplikacje nie powinny mieć umownej zależności od tych danych. Można bezpiecznie zignorować te właściwości.
+- Wartości w `storageDiagnostics` zbiorze właściwości są przeznaczone wyłącznie do użytku wewnętrznego i nie są przeznaczone do użytku przez aplikację. Twoje aplikacje nie powinny mieć umownej zależności od tych danych. Można bezpiecznie zignorować te właściwości.
 
 - Czas reprezentowany przez segment jest **przybliżony** z granicami wynoszącymi 15 minut. Aby zapewnić użycie wszystkich rekordów w określonym czasie, użyj kolejnego i następnego segmentu godzin.
 

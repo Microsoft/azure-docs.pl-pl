@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 1996f4c6c73040fa16a1c5a0468ebcced3ab1641
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: c41c5350e29555a11bb74eeca9af62a6b87cfced
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516485"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094275"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Zarządzanie obszarem roboczym Azure Machine Learning Studio (klasycznym)
 
@@ -48,7 +48,7 @@ Aby zarządzać usługami sieci Web skojarzonymi z tym obszarem roboczym program
 > [!NOTE]
 > Aby wdrożyć nowe usługi sieci Web lub zarządzać nimi, musisz mieć przypisaną rolę współautora lub administratora w subskrypcji, w której wdrożono usługę sieci Web. Jeśli zapraszasz innego użytkownika do obszaru roboczego usługi Machine Learning Studio (klasycznego), musisz przypisać go do roli współautor lub administrator w subskrypcji, aby można było wdrożyć usługi sieci Web lub zarządzać nimi. 
 > 
->Aby uzyskać więcej informacji na temat ustawiania uprawnień dostępu, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+>Aby uzyskać więcej informacji na temat ustawiania uprawnień dostępu, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [wdrażaniu Machine Learning z szablonami Azure Resource Manager](deploy-with-resource-manager-template.md).

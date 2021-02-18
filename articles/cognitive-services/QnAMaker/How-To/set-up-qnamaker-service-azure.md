@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 0f03cd536d329a94ec80ef884c380c79b5687289
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592266"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096643"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -111,6 +111,8 @@ Ta procedura służy do tworzenia zasobów platformy Azure wymaganych do zarząd
       * Pobierz [zakresy adresów IP dla wszystkich tagów usługi](https://www.microsoft.com/download/details.aspx?id=56519).
       * Wybierz adresy IP elementu "CognitiveServicesManagement".
       * Przejdź do sekcji Sieć zasobu App Service i kliknij opcję "Konfiguruj ograniczenie dostępu", aby dodać adresy IP do dozwolonych.
+
+    ![wyjątki portów przychodzących](../media/inbound-ports.png)    
 
     Mamy również zautomatyzowany skrypt do wykonania tych samych App Service. [Skrypt programu PowerShell można znaleźć w celu skonfigurowania usługi dozwolonych](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) w witrynie GitHub. Musisz wprowadzić identyfikator subskrypcji, grupę zasobów i rzeczywistą App Serviceową nazwę jako parametry skryptu. Uruchomienie skryptu spowoduje automatyczne dodanie adresów IP do App Service dozwolonych.
 

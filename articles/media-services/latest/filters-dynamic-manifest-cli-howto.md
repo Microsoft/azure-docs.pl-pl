@@ -14,33 +14,31 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897581"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093432"
 ---
 # <a name="creating-filters-with-cli"></a>Tworzenie filtrów za pomocą interfejsu wiersza polecenia
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co zostało opisane w pliku manifestu domyślnego elementu zawartości. Azure Media Services umożliwia zdefiniowanie filtrów kont i filtrów zasobów dla zawartości. 
+W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co zostało opisane w pliku manifestu domyślnego elementu zawartości. Azure Media Services umożliwia zdefiniowanie filtrów kont i filtrów zasobów dla zawartości.
 
 Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](/cli/azure/ams/account-filter?view=azure-cli-latest) i [filtry zasobów](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](/cli/azure/ams/account-filter?view=azure-cli-latest) i [filtry zasobów](/cli/azure/ams/asset-filter?view=azure-cli-latest).
 
 > [!NOTE]
 > Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Wymagania wstępne 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- [Utwórz konto Media Services](./create-account-howto.md). Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## <a name="define-a-filter"></a>Zdefiniuj filtr 
+## <a name="define-a-filter"></a>Zdefiniuj filtr
 
 W poniższym przykładzie zdefiniowano warunki wyboru śledzenia, które są dodawane do manifestu końcowego. Ten filtr zawiera wszystkie ścieżki audio, które są zgodne ze standardem EC-3 i wszystkie ścieżki wideo, które mają szybkość transmisji bitów w zakresie 0-1000000.
 
@@ -82,7 +80,7 @@ W poniższym przykładzie zdefiniowano warunki wyboru śledzenia, które są dod
 
 ## <a name="create-account-filters"></a>Tworzenie filtrów konta
 
-Następujące polecenie [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie. 
+Następujące polecenie [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie.
 
 Polecenie pozwala przekazać opcjonalny `--tracks` parametr zawierający kod JSON reprezentujący wybrane opcje śledzenia.  Użyj @ {File}, aby załadować plik JSON z pliku. Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, określ pełną ścieżkę pliku:
 
@@ -130,8 +128,8 @@ W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
 ## <a name="next-step"></a>Następny krok
 
-[Strumieniowe przesyłanie wideo](stream-files-tutorial-with-api.md) 
+[Strumieniowe przesyłanie wideo](stream-files-tutorial-with-api.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895258"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093043"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -140,7 +140,7 @@ Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu re
 
 Jedną z zalet korzystania z platformy Azure jest możliwość wdrażania aplikacji w różnych centrach danych na całym świecie. Wybrany region może mieć wpływ na wydajność aplikacji. Najlepiej wybrać region, który jest bliżej większości klientów, aby zmniejszyć opóźnienia w żądaniach sieciowych. Możesz również wybrać region spełniający wymagania prawne dotyczące dystrybucji aplikacji w określonych krajach/regionach.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal jest aplikacją opartą na sieci Web, która może służyć do tworzenia i usuwania zasobów i usług platformy Azure oraz zarządzania nimi. Azure Portal znajduje się w [Portal.Azure.com](https://portal.azure.com). Obejmuje to dostosowywalny pulpit nawigacyjny i narzędzia służące do zarządzania zasobami platformy Azure. Zawiera również informacje dotyczące rozliczeń i subskrypcji. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Portal Omówienie](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) i [Zarządzanie zasobami platformy Azure za pomocą portalu](../../azure-resource-manager/management/manage-resources-portal.md).
 
@@ -200,7 +200,7 @@ W przypadku przekroczenia kwoty środków usługa zostanie wyłączona do moment
 
 Funkcja RBAC platformy Azure ma kilka wbudowanych ról, których można użyć do przypisywania uprawnień. Aby użytkownik był administratorem subskrypcji platformy Azure, przypisz im rolę [właściciela](../../role-based-access-control/built-in-roles.md#owner) w zakresie subskrypcji. Rola właściciela daje użytkownikowi pełen dostęp do wszystkich zasobów w subskrypcji, w tym prawo do przydzielania dostępu innym osobom.
 
-Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Wyświetl informacje dotyczące rozliczeń w Azure Portal
 
@@ -304,7 +304,7 @@ Oto kilka przykładów [wbudowanych ról na platformie Azure](../../role-based-a
 
 - **Współautor konta magazynu**: użytkownik mający tę rolę może zarządzać kontami magazynu, ale nie może zarządzać dostępem do kont magazynu.
 
-Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Aby uzyskać więcej informacji, zobacz [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

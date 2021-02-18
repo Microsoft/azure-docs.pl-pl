@@ -1,0 +1,127 @@
+### YamlMime:Landing
+title: Dokumentacja platformy Azure Front-Standard/Premium (wersja zapoznawcza)
+summary: Azure Front-Standard/Premium (wersja zapoznawcza) to nowoczesnej bezpiecznej platformy sieciowej dostarczania aplikacji, która zapewnia skalowalną sieć CDN, DSA, GLB dla globalnych aplikacji sieci Web.
+metadata:
+  title: Dokumentacja standardowa lub Premium platformy Azure
+  description: Platforma Azure Front-Standard/Premium (wersja zapoznawcza) zapewnia skalowalny i bezpieczny punkt wejścia do szybkiego dostarczania globalnych aplikacji sieci Web. Dowiedz się, jak używać usługi Front Door, korzystając z przewodników Szybki start, samouczków i przykładów.
+  services: frontdoor
+  ms.service: frontdoor
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 02/18/2020
+  ms.openlocfilehash: b11cf6b0fe8c0f1cdf711ee3b9ef6c92e5bc71bb
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101100969"
+landingContent:
+- title: Więcej informacji na temat platformy Azure — warstwa standardowa/Premium (wersja zapoznawcza)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
+      url: overview.md
+- title: Tworzenie profilu frontu drzwi
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie profilu Standard/Premium z przodu
+      url: create-front-door-portal.md
+- title: Konfigurowanie Menedżera punktów końcowych
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Menedżer punktów końcowych
+      url: concept-endpoint-manager.md
+    - text: Trasa
+      url: concept-route.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie Menedżera punktów końcowych
+      url: how-to-configure-endpoint-manager.md
+- title: Dodawanie domen niestandardowych
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Dodawanie domeny niestandardowej
+      url: how-to-add-custom-domain.md
+- title: Zarządzanie grupami pochodzenia
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Origin
+      url: concept-origin.md
+    - text: Sondy kondycji
+      url: concept-health-probes.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie grupy pochodzenia
+      url: how-to-create-origin.md
+- title: Konfigurowanie zestawu reguł
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Co to jest zestaw reguł?
+      url: concept-rule-set.md
+    - text: Warunki dopasowania zestawu reguł
+      url: concept-rule-set-match-conditions.md
+    - text: Akcje zestawu reguł
+      url: concept-rule-set-actions.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie zestawu reguł
+      url: how-to-configure-rule-set.md
+- title: Zabezpieczanie aplikacji
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Private Link
+      url: concept-private-link.md
+    - text: WAF na platformie Azure — warstwa czołowa — warstwa standardowa/Premium
+      url: ../../web-application-firewall/afds/afds-overview.md
+    - text: Ochrona przed atakami DDOS
+      url: concept-ddos.md
+  - linkListType: how-to-guide
+    links:
+    - text: Włącz link prywatny
+      url: how-to-enable-private-link.md
+    - text: Konfigurowanie zasad WAFymi
+      url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
+- title: Raporty, metryki i dzienniki
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Raporty
+      url: how-to-reports.md
+    - text: Monitorowanie metryk i alertów
+      url: how-to-monitor-metrics.md
+    - text: Rejestrowanie
+      url: how-to-logs.md
+- title: Buforowanie i optymalizacja
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Buforowanie
+      url: concept-caching.md
+  - linkListType: how-to-guide
+    links:
+    - text: Przeczyszczanie pamięci podręcznej
+      url: how-to-cache-purge.md
+    - text: Kompresja
+      url: how-to-compression.md
+- title: Rozwiązywanie problemów z usługą Azure Front Door
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Typowe problemy z routingiem
+      url: troubleshoot-route-issues.md
+    - text: Dozwolone urzędy certyfikacji
+      url: troubleshoot-allowed-certificate-authority.md
+- title: Dowiedz się więcej o usłudze Azure Front Door
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Front Door?
+      url: ../front-door-overview.md

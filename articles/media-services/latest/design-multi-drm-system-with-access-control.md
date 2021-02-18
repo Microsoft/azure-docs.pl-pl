@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954905"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092439"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu
 
@@ -66,8 +66,8 @@ Aby wybrać tę opcję, należy pamiętać o następujących kwestiach:
 * Widevine jest natywnie implementowany w każdym urządzeniu z systemem Android, w przeglądarce Chrome i w niektórych innych urządzeniach. Widevine jest również obsługiwane w przeglądarkach przeglądarki Firefox i Opera.
 * FairPlay jest dostępny w systemach iOS, macOS i systemu tvOS.
 
-
 ## <a name="a-reference-design"></a>Projekt referencyjny
+
 W tej części przedstawiono projekt referencyjny, który jest niezależny od do technologii użytych do jego wdrożenia.
 
 Podsystem DRM może zawierać następujące składniki:

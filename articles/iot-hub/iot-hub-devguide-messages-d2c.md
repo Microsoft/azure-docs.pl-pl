@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 19ae5dc24e0a08548f4914114c9c0a6be65f4f0b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547779"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096087"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych
 
@@ -24,7 +24,7 @@ ms.locfileid: "92547779"
 
 Routing komunikatów umożliwia wysyłanie komunikatów z urządzeń do usług w chmurze w sposób zautomatyzowany, skalowalny i niezawodny. Routingu wiadomości można używać w programie: 
 
-* **Wysyłanie komunikatów telemetrycznych urządzenia** oraz zdarzeń, a w tym zdarzeń związanych z cyklem życia urządzenia oraz zdarzeń zmiany obszaru urządzenia do wbudowanego punktu końcowego i niestandardowych punktów końcowych. Dowiedz się więcej o [punktach końcowych routingu](#routing-endpoints).
+* **Wysyłanie komunikatów telemetrycznych urządzeń** oraz zdarzeń, a w tym zdarzeń dotyczących cyklu życia urządzenia, zdarzeń zmiany sznurów urządzeń oraz zdarzeń zmiany cyfrowych sznurów do wbudowanych i niestandardowych punktów końcowych. Dowiedz się więcej o [punktach końcowych routingu](#routing-endpoints). Aby dowiedzieć się więcej o zdarzeniach wysyłanych z urządzeń Plug and Play IoT, zobacz [Opis usługi iot Plug and Play Digital bliźniaczych reprezentacji](../iot-pnp/concepts-digital-twin.md).
 
 * **Filtrowanie danych przed ich kierowaniem do różnych punktów końcowych** przez zastosowanie rozbudowanych zapytań. Routing komunikatów umożliwia wykonywanie zapytań dotyczących właściwości komunikatów i treści wiadomości, a także znaczników sznurka urządzenia i właściwości sznurów urządzenia. Dowiedz się więcej o używaniu [zapytań w routingu komunikatów](iot-hub-devguide-routing-query-syntax.md).
 
@@ -34,7 +34,7 @@ IoT Hub definiuje [typowy format](iot-hub-devguide-messages-construct.md) dla ws
 
 ## <a name="routing-endpoints"></a>Punkty końcowe routingu
 
-Centrum IoT Hub ma domyślny wbudowany punkt końcowy ( **komunikaty/zdarzenia** ), który jest zgodny z Event Hubs. Można utworzyć [niestandardowe punkty końcowe](iot-hub-devguide-endpoints.md#custom-endpoints) , do których będą kierowane komunikaty, łącząc inne usługi w ramach subskrypcji z IoT Hub. 
+Centrum IoT Hub ma domyślny wbudowany punkt końcowy (**komunikaty/zdarzenia**), który jest zgodny z Event Hubs. Można utworzyć [niestandardowe punkty końcowe](iot-hub-devguide-endpoints.md#custom-endpoints) , do których będą kierowane komunikaty, łącząc inne usługi w ramach subskrypcji z IoT Hub. 
 
 Każdy komunikat jest kierowany do wszystkich punktów końcowych, których zapytania routingu są zgodne. Innymi słowy, komunikat można skierować do wielu punktów końcowych.
 
@@ -49,7 +49,7 @@ IoT Hub obecnie obsługuje następujące punkty końcowe:
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Wbudowany punkt końcowy jako punkt końcowy routingu
 
-Możesz użyć standardowej [integracji i zestawów sdk Event Hubs,](iot-hub-devguide-messages-read-builtin.md) aby odbierać komunikaty z urządzenia do chmury z wbudowanego punktu końcowego ( **komunikaty/zdarzenia** ). Po utworzeniu trasy dane przestają przepływać do wbudowanego punktu końcowego, o ile nie zostanie utworzona trasa do tego punktu końcowego.
+Możesz użyć standardowej [integracji i zestawów sdk Event Hubs,](iot-hub-devguide-messages-read-builtin.md) aby odbierać komunikaty z urządzenia do chmury z wbudowanego punktu końcowego (**komunikaty/zdarzenia**). Po utworzeniu trasy dane przestają przepływać do wbudowanego punktu końcowego, o ile nie zostanie utworzona trasa do tego punktu końcowego.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Usługa Azure Storage jako punkt końcowy routingu
 
@@ -120,13 +120,13 @@ Skorzystaj z poniższych samouczków, aby dowiedzieć się, jak odczytać komuni
 
 ## <a name="fallback-route"></a>Trasa rezerwowa
 
-Trasa rezerwowa wysyła wszystkie komunikaty, które nie spełniają warunków zapytania na żadnej z istniejących tras do wbudowanych Event Hubs ( **komunikaty/zdarzenia** ), które są zgodne z [Event Hubs](../event-hubs/index.yml). Jeśli jest włączona funkcja routingu wiadomości, można włączyć funkcję trasy rezerwowej. Po utworzeniu trasy dane przestają przepływać do wbudowanego punktu końcowego, chyba że trasa zostanie utworzona do tego punktu końcowego. Jeśli nie ma tras do wbudowanego punktu końcowego, a trasa rezerwowa jest włączona, tylko komunikaty, które nie pasują do żadnych warunków zapytania dotyczące tras, będą wysyłane do wbudowanego punktu końcowego. Ponadto jeśli wszystkie istniejące trasy zostaną usunięte, należy włączyć trasy rezerwowe, aby odbierać wszystkie dane w wbudowanym punkcie końcowym.
+Trasa rezerwowa wysyła wszystkie komunikaty, które nie spełniają warunków zapytania na żadnej z istniejących tras do wbudowanych Event Hubs (**komunikaty/zdarzenia**), które są zgodne z [Event Hubs](../event-hubs/index.yml). Jeśli jest włączona funkcja routingu wiadomości, można włączyć funkcję trasy rezerwowej. Po utworzeniu trasy dane przestają przepływać do wbudowanego punktu końcowego, chyba że trasa zostanie utworzona do tego punktu końcowego. Jeśli nie ma tras do wbudowanego punktu końcowego, a trasa rezerwowa jest włączona, tylko komunikaty, które nie pasują do żadnych warunków zapytania dotyczące tras, będą wysyłane do wbudowanego punktu końcowego. Ponadto jeśli wszystkie istniejące trasy zostaną usunięte, należy włączyć trasy rezerwowe, aby odbierać wszystkie dane w wbudowanym punkcie końcowym.
 
 Można włączyć/wyłączyć trasę alternatywną w bloku routing wiadomości Azure Portal->. Można również użyć Azure Resource Manager do [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) , aby użyć niestandardowego punktu końcowego dla trasy rezerwowej.
 
 ## <a name="non-telemetry-events"></a>Zdarzenia inne niż telemetrii
 
-Oprócz danych telemetrycznych urządzenia Routing komunikatów umożliwia również wysyłanie zdarzeń zmiany sznurka urządzenia, zdarzeń cyklu życia urządzenia i cyfrowych dróg zmiany. Na przykład jeśli zostanie utworzona trasa ze źródłem danych ustawionym na **zdarzenia zmiany sznurka urządzenia** , IoT Hub wysyła komunikaty do punktu końcowego, który zawiera zmiany w bliźniaczych urządzeniach. Podobnie w przypadku utworzenia trasy ze źródłem danych ustawionym na **zdarzenia cyklu życia urządzenia** IoT Hub wysyła komunikat informujący o tym, czy urządzenie zostało usunięte lub utworzone. Na koniec w ramach [Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md)deweloperzy mogą tworzyć trasy ze źródłem danych ustawionym na **cyfrowe, wieloosiowe zdarzenia zmiany** i IoT Hub wysyłają komunikaty za każdym razem, gdy [Właściwość](../iot-pnp/iot-plug-and-play-glossary.md) pojedynczej sieci dwuosiowej jest ustawiona lub zmieniana, zostaje zastąpiona [cyfrą elektroniczną](../iot-pnp/iot-plug-and-play-glossary.md) lub w przypadku wystąpienia zmiany w przypadku podstawowego sznurka urządzenia.
+Oprócz danych telemetrycznych urządzenia Routing komunikatów umożliwia również wysyłanie zdarzeń zmiany sznurka urządzenia, zdarzeń cyklu życia urządzenia i cyfrowych dróg zmiany. Na przykład jeśli zostanie utworzona trasa ze źródłem danych ustawionym na **zdarzenia zmiany sznurka urządzenia**, IoT Hub wysyła komunikaty do punktu końcowego, który zawiera zmiany w bliźniaczych urządzeniach. Podobnie w przypadku utworzenia trasy ze źródłem danych ustawionym na **zdarzenia cyklu życia urządzenia** IoT Hub wysyła komunikat informujący o tym, czy urządzenie zostało usunięte lub utworzone. Na koniec w ramach [usługi Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)deweloperzy mogą tworzyć trasy ze źródłem danych ustawionym na **cyfrowe, wieloosiowe zdarzenia zmiany** i IoT Hub wysyłają komunikaty za każdym razem, gdy zostanie ustawiona lub zmieniona [Właściwość](../iot-pnp/iot-plug-and-play-glossary.md) dwuosiowa cyfra, zostanie zastąpiona [cyfra](../iot-pnp/iot-plug-and-play-glossary.md) cyfrowa lub w przypadku wystąpienia zmiany w odniesieniu do podstawowego sznurka urządzenia.
 
 [IoT Hub integruje się również z Azure Event Grid](iot-hub-event-grid.md) , aby publikować zdarzenia urządzeń w celu obsługi integracji w czasie rzeczywistym i automatyzacji przepływów pracy na podstawie tych zdarzeń. Zobacz podstawowe [różnice między routingiem komunikatów i Event Grid](iot-hub-event-grid-routing-comparison.md) , aby dowiedzieć się, co najlepiej sprawdza się w przypadku danego scenariusza.
 

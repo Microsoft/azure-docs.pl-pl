@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ea57a623546df99408d488da4522411f55ab0dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023228"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094365"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Samouczek: Tworzenie środowiska Azure Time Series Insights Gen1
 
@@ -36,7 +36,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia środowiska Azure Time Se
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto logowania platformy Azure musi być również członkiem roli **właściciela** subskrypcji. Aby uzyskać więcej informacji, przeczytaj temat [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* Konto logowania platformy Azure musi być również członkiem roli **właściciela** subskrypcji. Aby uzyskać więcej informacji, przeczytaj temat [Przypisywanie ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Przejrzyj wideo
 
@@ -164,7 +164,7 @@ W tej ostatniej sekcji można sprawdzić, czy dane telemetryczne zostały wygene
 
 1. Na stronie **Przegląd** środowiska Azure Time Series Insights wybierz **adres URL Eksploratora Time Series Insights** , aby otworzyć Eksploratora Azure Time Series Insights.
 
-   [![Eksplorator Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [![Eksplorator usługi Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
 1. Eksplorator Azure Time Series Insights ładuje i uwierzytelnia się przy użyciu konta Azure Portal. Początkowo zostanie wyświetlony obszar wykresu, w którym zapełnił się środowisko Azure Time Series Insights wraz z symulowanymi danymi telemetrycznymi. Aby odfiltrować węższy zakres czasu, zaznacz listę rozwijaną w lewym górnym rogu. Wprowadź wystarczająco duży zakres czasu, aby przekroczyć czas trwania symulacji urządzenia. Następnie wybierz opcję wyszukiwania Lupa.
 

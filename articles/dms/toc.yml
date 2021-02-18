@@ -37,10 +37,8 @@
   items:
     - name: Migracja z programu SQL Server
       items:
-        - name: do usługi Azure SQL Database (offline)
+        - name: Aby Azure SQL Database
           href: tutorial-sql-server-to-azure-sql.md
-        - name: do usługi Azure SQL Database (online)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: do wystąpienia zarządzanego Azure SQL (offline)
           href: tutorial-sql-server-to-managed-instance.md
         - name: do wystąpienia zarządzanego Azure SQL (online)

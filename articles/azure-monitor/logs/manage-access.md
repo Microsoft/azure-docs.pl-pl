@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 184d5c98b2b434c87e112c569ff4e8ab347344c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613980"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091198"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
@@ -120,7 +120,7 @@ Następujące działania również wymagają uprawnień platformy Azure:
 
 ## <a name="manage-access-using-azure-permissions"></a>Zarządzanie dostępem przy użyciu uprawnień platformy Azure
 
-Aby udzielić dostępu do obszaru roboczego usługi Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w części [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../../role-based-access-control/role-assignments-portal.md). Przykład ról niestandardowych można znaleźć w temacie [przykład role niestandardowe](#custom-role-examples)
+Aby udzielić dostępu do obszaru roboczego Log Analytics przy użyciu uprawnień platformy Azure, wykonaj kroki opisane w sekcji [Przypisywanie ról platformy Azure w celu zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md). Przykład ról niestandardowych można znaleźć w temacie [przykład role niestandardowe](#custom-role-examples)
 
 Platforma Azure ma dwie wbudowane role użytkowników dla Log Analytics obszarów roboczych:
 
