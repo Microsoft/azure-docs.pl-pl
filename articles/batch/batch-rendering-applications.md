@@ -3,12 +3,12 @@ title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362237"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635340"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania wsadowego obrazów maszyn wirtualnych
 
@@ -20,7 +20,7 @@ Niektóre aplikacje obsługują tylko system Windows, ale większość z nich je
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplikacje na najnowszym obrazie renderowania CentOS 7
 
-Poniższa lista ma zastosowanie do obrazu renderowania CentOS w wersji 1.1.7.
+Poniższa lista ma zastosowanie do obrazu renderowania CentOS w wersji 1.2.0.
 
 * Autodesk Maya operacji we/wy 2020 Update 4,6
 * Autodesk Arnold for Maya 2020 (Arnold Version 6.2.0.0) MtoA-4.2.0-2020

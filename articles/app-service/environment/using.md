@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209733"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586406"
 ---
 # <a name="using-an-app-service-environment"></a>Korzystanie z App Service Environment
 
@@ -116,7 +116,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Wiadomość |
+| Istniał | Komunikat |
 |---------|----------|
 | Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
@@ -143,7 +143,7 @@ W przypadku integracji z usługą Log Analytics można zobaczyć dzienniki, wybi
 
 **Tworzenie alertu**
 
-Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../../azure-monitor/platform/alerts-log.md). W skrócie:
+Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../../azure-monitor/alerts/alerts-log.md). W skrócie:
 
 * Otwieranie strony alertów w portalu ASE
 * Wybierz **nową regułę alertu**
@@ -206,4 +206,4 @@ Aby usunąć środowisko ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

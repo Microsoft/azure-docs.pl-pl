@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498473"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570394"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
@@ -91,7 +91,7 @@ W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sen
 
 - Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Możesz użyć Log Analytics zaawansowanej kontroli dostępu opartej na rolach platformy Azure dla danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno opartego na typie danych kontroli RBAC, jak i skoncentrowanej na zasobach platformy Azure. Aby uzyskać więcej informacji na temat ról Log Analytics, zobacz [Zarządzanie danymi dzienników i obszarami roboczymi w programie Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Możesz użyć Log Analytics zaawansowanej kontroli dostępu opartej na rolach platformy Azure dla danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to kontroli dostępu na podstawie ról na platformie Azure zarówno w oparciu o typ danych, jak i skoncentrowanej na zasobach. Aby uzyskać więcej informacji o rolach usługi Log Analytics, zobacz [Zarządzanie danymi dziennika i obszarami roboczymi w usłudze Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Następne kroki
 

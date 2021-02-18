@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526674"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594180"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie lokalnych metryk i dzienników dla usługi Azure API Management Brama samoobsługowa
 
@@ -204,7 +204,7 @@ Brama samoobsługowa domyślnie wyprowadza dzienniki do `stdout` i `stderr` . Dz
 kubectl logs <pod-name>
 ```
 
-Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](../azure-monitor/insights/container-insights-overview.md) do zbierania `stdout` i pobierania `stderr` obciążeń oraz wyświetlać dzienniki w log Analytics. 
+Jeśli Brama własna jest wdrożona w usłudze Azure Kubernetes, można włączyć [Azure monitor dla kontenerów](../azure-monitor/containers/container-insights-overview.md) do zbierania `stdout` i pobierania `stderr` obciążeń oraz wyświetlać dzienniki w log Analytics. 
 
 Brama samoobsługowa obsługuje również wiele protokołów `localsyslog` , w tym, `rfc5424` i `journal` . Poniższa tabela podsumowuje wszystkie obsługiwane opcje. 
 

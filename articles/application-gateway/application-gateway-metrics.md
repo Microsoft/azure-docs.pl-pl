@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: surmb
-ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437069"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576117"
 ---
 # <a name="metrics-for-application-gateway"></a>Metryki dla Application Gateway
 
-Application Gateway publikuje punkty danych o nazwie Metrics, aby [Azure monitor](../azure-monitor/overview.md) wydajności Application Gateway i wystąpień zaplecza. Te metryki to wartości liczbowe w uporządkowanym zestawie danych szeregów czasowych, które opisują kilka aspektów bramy aplikacji w danym momencie. Jeśli istnieją żądania przepływające przez Application Gateway, miary i wysyłają metryki w 60 sekund. Jeśli nie ma żadnych żądań przepływających przez Application Gateway lub Brak danych dla metryki, Metryka nie zostanie zgłoszona. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor/platform/data-platform-metrics.md).
+Application Gateway publikuje punkty danych o nazwie Metrics, aby [Azure monitor](../azure-monitor/overview.md) wydajności Application Gateway i wystąpień zaplecza. Te metryki to wartości liczbowe w uporządkowanym zestawie danych szeregów czasowych, które opisują kilka aspektów bramy aplikacji w danym momencie. Jeśli istnieją żądania przepływające przez Application Gateway, miary i wysyłają metryki w 60 sekund. Jeśli nie ma żadnych żądań przepływających przez Application Gateway lub Brak danych dla metryki, Metryka nie zostanie zgłoszona. Aby uzyskać więcej informacji, zobacz [Azure monitor metryki](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metryki obsługiwane przez jednostkę SKU Application Gateway v2
 
@@ -200,7 +200,7 @@ Na poniższej ilustracji przedstawiono przykład z trzema metrykami wyświetlony
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Widok metryki." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-Aby wyświetlić bieżącą listę metryk, zobacz temat [obsługiwane metryki z Azure monitor](../azure-monitor/platform/metrics-supported.md).
+Aby wyświetlić bieżącą listę metryk, zobacz temat [obsługiwane metryki z Azure monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="alert-rules-on-metrics"></a>Reguły alertów dla metryk
 
@@ -230,9 +230,9 @@ Po utworzeniu alertu dotyczącego metryki pojawia się lista alertów. Zawiera p
 
 ![Lista alertów i reguł][9]
 
-Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [Odbieranie powiadomień o alertach](../azure-monitor/platform/alerts-overview.md).
+Aby dowiedzieć się więcej na temat powiadomień o alertach, zobacz [Odbieranie powiadomień o alertach](../azure-monitor/alerts/alerts-overview.md).
 
-Aby dowiedzieć się więcej o elementach webhook i sposobach ich użycia z alertami, odwiedź stronę [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/platform/alerts-webhooks.md).
+Aby dowiedzieć się więcej o elementach webhook i sposobach ich użycia z alertami, odwiedź stronę [Konfigurowanie elementu webhook w ramach alertu dotyczącego metryki platformy Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

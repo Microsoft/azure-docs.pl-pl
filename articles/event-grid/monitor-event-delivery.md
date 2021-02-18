@@ -3,12 +3,12 @@ title: Wyświetlanie metryk Azure Event Grid i Ustawianie alertów
 description: W tym artykule opisano, jak używać Azure Portal do wyświetlania metryk dotyczących Azure Event Grid tematów i subskrypcji, a następnie tworzyć na nich alerty.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008960"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577407"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorowanie dostarczania komunikatów Event Grid 
 W tym artykule opisano, jak używać portalu do wyświetlania metryk dotyczących tematów i subskrypcji Event Grid oraz tworzenia na nich alertów. 
@@ -52,7 +52,7 @@ Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki*
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temat — Strona metryk":::
 
-Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md)
+Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarzeń** .
 
@@ -91,7 +91,7 @@ Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki*
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temat systemu-Strona metryki":::
 
-Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md)
+Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 
 ## <a name="next-steps"></a>Następne kroki

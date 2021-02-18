@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986484"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577029"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -70,7 +70,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 | Azure Automation  | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe |  | Wersja zapoznawcza </br> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla IoT Hub platformy Azure.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | WSCHODNIE STANY USA, POŁUDNIOWO-ŚRODKOWE STANY USA,<br/>ZACHODNIe stany USA 2, wszystkie regiony Chin      |  | Wersja zapoznawcza   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla usługi Azure Signal.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | Wszystkie regiony publiczne z wyjątkiem: Niemcy środkowe, Niemcy PÓŁNOCno-Wschodnie <br/> Wszystkie regiony rządowe  | | Ogólna dostępność <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | Poświadczenia muszą być przechowywane w magazynie kluczy platformy Azure| Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Dyski zarządzane platformy Azure | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin    | [Kliknij tutaj, aby uzyskać znane ograniczenia](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Managed Disks platformy Azure.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

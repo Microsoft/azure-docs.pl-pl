@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807618"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636428"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak za pomocą zadania usługi Azure DevOps wstrzykną�
 ## <a name="devops-task-versions"></a>Wersje zadań DevOps
 Istnieją dwa zadania usługi Azure VM Image Builder (AIB) DevOps:
 
-* ["Stabilne" AIB zadanie](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), dzięki czemu można wdrożyć najnowsze aktualizacje i funkcje, zezwolić klientom na ich testowanie przed przekazaniem ich do zadania "stabilnego", co około 1 tydzień później. 
+* ["Stabilne" AIB zadanie](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), jest to najnowsza stabilna kompilacja, która została przetestowana, a dane telemetryczne nie zawierają żadnych problemów. 
 
 
 * [Zadanie AIB "niestabilne"](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)pozwala nam wprowadzić najnowsze aktualizacje i funkcje, zezwolić klientom na ich testowanie przed podwyższeniem poziomu do zadania "stabilne". Jeśli nie występują żadne zgłoszone problemy, a nasze dane telemetryczne nie wyświetlają żadnych problemów, w ciągu 1 tygodnia później zostanie podwyższyć poziom kodu zadania do "stabilnych". 

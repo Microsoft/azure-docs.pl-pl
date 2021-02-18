@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202304"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570861"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Podstawa zabezpieczeń Azure dla usługi Azure IoT Hub
 
@@ -148,9 +148,9 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z usługą Azure IoT Hub. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -185,9 +185,9 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 - [Konfigurowanie dzienników usługi Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -205,7 +205,7 @@ W celu wykrycia i/lub zablokowania złośliwego ruchu należy wdrożyć wybrane 
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z wystąpieniami IoT Hub platformy Azure zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -220,9 +220,9 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 - [Monitorowanie kondycji usługi Azure IoT](monitor-iot-hub.md)
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
   
-- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Wprowadzenie do Log Analytics zapytań](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [ Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [ Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -236,7 +236,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 - [Azure Security Center alertów IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 
@@ -527,7 +527,7 @@ Usługa Azure IoT Hub zapewnia szyfrowanie danych przechowywanych i przesyłanyc
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych platformy Azure IoT Hub i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 461d7a82854ce62ee99eef1227c13c7a8f0371e2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616606"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594872"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: alerty
 
 Usługa Azure Digital bliźniaczych reprezentacji zbiera [metryki](troubleshoot-metrics.md) dla wystąpienia usługi, które zawierają informacje o stanie zasobów. Za pomocą tych metryk można ocenić ogólną kondycję usługi Azure Digital bliźniaczych reprezentacji i połączone z nią zasoby.
 
-**Alerty** z wyprzedzeniem powiadamiają użytkownika o znalezieniu w danych metryk ważnych warunków. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Więcej informacji na temat alertów można znaleźć w temacie [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+**Alerty** z wyprzedzeniem powiadamiają użytkownika o znalezieniu w danych metryk ważnych warunków. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Więcej informacji na temat alertów można znaleźć w temacie [*Omówienie alertów w Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="turn-on-alerts"></a>Włącz alerty
 
@@ -38,7 +38,7 @@ Poniżej przedstawiono sposób włączania alertów dla wystąpienia usługi Azu
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku, grupy akcji i szczegółów reguły alertu" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Poniżej przedstawiono kilka przykładów, które będą wyglądały tak, jak w przypadku usługi Azure Digital bliźniaczych reprezentacji.
+Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*Omówienie alertów w Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md). Poniżej przedstawiono kilka przykładów, które będą wyglądały tak, jak w przypadku usługi Azure Digital bliźniaczych reprezentacji.
 
 ### <a name="select-conditions"></a>Wybierz warunki
 
@@ -58,6 +58,6 @@ Po skonfigurowaniu alertów zostaną one wyświetlone na stronie *alerty* dla da
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat alertów z Azure Monitor, zobacz [*Omówienie alertów w programie Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* Aby uzyskać więcej informacji na temat alertów z Azure Monitor, zobacz [*Omówienie alertów w programie Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 * Aby uzyskać informacje na temat metryk bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*Rozwiązywanie problemów: wyświetlanie metryk z Azure monitor*](troubleshoot-metrics.md).
 * Aby dowiedzieć się, jak włączyć rejestrowanie diagnostyczne dla metryk, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).

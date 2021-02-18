@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546758"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583724"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -62,7 +62,7 @@ Sprawdź konfigurację klasycznych alertów, aby potwierdzić, że poczta e-mail
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Nie otrzymałem powiadomienia elementu webhook?
 
-Upewnij się, że aplikacja otrzymująca powiadomienie elementu webhook jest dostępna i pomyślnie przetwarza żądania elementu webhook. Aby uzyskać więcej informacji, zobacz [ten](../platform/alerts-log-webhook.md) temat.
+Upewnij się, że aplikacja otrzymująca powiadomienie elementu webhook jest dostępna i pomyślnie przetwarza żądania elementu webhook. Aby uzyskać więcej informacji, zobacz [ten](../alerts/alerts-log-webhook.md) temat.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Otrzymuję błędy dotyczące niedostępności do 403. co to znaczy?
 
@@ -113,7 +113,7 @@ Nie jest to obecnie obsługiwane.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Kto otrzymuje powiadomienia o alertach (klasyczny)?
 
-Ta sekcja ma zastosowanie tylko do klasycznych alertów i pomoże zoptymalizować swoje powiadomienia o alertach, aby upewnić się, że tylko żądani adresaci otrzymają powiadomienia. Aby dowiedzieć się więcej o różnicach między [klasycznymi alertami](../platform/alerts-classic.overview.md)i nowym działaniem alertów, zapoznaj się z [artykułem przegląd alertów](../platform/alerts-overview.md). Aby sterować powiadomieniami o alertach w nowych działaniach związanych z alertami, użyj [grup akcji](../platform/action-groups.md).
+Ta sekcja ma zastosowanie tylko do klasycznych alertów i pomoże zoptymalizować swoje powiadomienia o alertach, aby upewnić się, że tylko żądani adresaci otrzymają powiadomienia. Aby dowiedzieć się więcej o różnicach między [klasycznymi alertami](../alerts/alerts-classic.overview.md)i nowym działaniem alertów, zapoznaj się z [artykułem przegląd alertów](../alerts/alerts-overview.md). Aby sterować powiadomieniami o alertach w nowych działaniach związanych z alertami, użyj [grup akcji](../alerts/action-groups.md).
 
 * Zalecamy użycie określonych odbiorców w przypadku klasycznych powiadomień o alertach.
 
@@ -124,7 +124,7 @@ Ta sekcja ma zastosowanie tylko do klasycznych alertów i pomoże zoptymalizowa�
 > [!NOTE]
 > Jeśli obecnie używasz opcji **zbiorczych/grupowych** pól wyboru i go wyłączysz, nie będzie można przywrócić zmiany.
 
-Jeśli musisz powiadomić użytkowników na podstawie ich ról, Użyj nowego środowiska alertu/alertów w czasie rzeczywistym. Za pomocą [grup akcji](../platform/action-groups.md)można skonfigurować powiadomienia e-mail dla użytkowników z dowolnymi rolami współautor/właściciela/czytnika (nie razem ze sobą jako pojedynczą opcją).
+Jeśli musisz powiadomić użytkowników na podstawie ich ról, Użyj nowego środowiska alertu/alertów w czasie rzeczywistym. Za pomocą [grup akcji](../alerts/action-groups.md)można skonfigurować powiadomienia e-mail dla użytkowników z dowolnymi rolami współautor/właściciela/czytnika (nie razem ze sobą jako pojedynczą opcją).
 
 ## <a name="next-steps"></a>Następne kroki
 

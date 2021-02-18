@@ -6,16 +6,18 @@ ms.date: 3/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 71858be97404344bad88ea20e31b17fa44f669a2
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 35a95ac32fc4390e08d3c7fee2b9f9ff52202e4b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131189"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573813"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
 
 > [!IMPORTANT]
+> Nie zaleca się już podejścia opisanego w tym dokumencie.
+>
 > Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 Filtry umożliwiają wybranie danych telemetrycznych [wysyłanych przez aplikację internetową Java do Application Insights](java-get-started.md). Istnieje kilka wbudowanych filtrów, których można użyć, i można również pisać własne filtry niestandardowe.

@@ -1,23 +1,23 @@
 ---
-title: Wprowadzenie do analizy przestrzennej przetwarzanie obrazów
+title: Przegląd analizy przestrzennej
 titleSuffix: Azure Cognitive Services
 description: W tym dokumencie wyjaśniono podstawowe pojęcia i funkcje kontenera analizy przestrzennej przetwarzanie obrazów.
 services: cognitive-services
-author: tchristiani
+author: nitinme
 manager: nitinme
-ms.author: terrychr
+ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: f90e4e5e187977f0ee77a565ff9143902ea3a10d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/01/2021
+ms.openlocfilehash: ad05dd59c925242baf5c2b0e36c1f51bc4fec5d4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575364"
 ---
-# <a name="introduction-to-computer-vision-spatial-analysis"></a>Wprowadzenie do analizy przestrzennej przetwarzanie obrazów
+# <a name="overview-of-computer-vision-spatial-analysis"></a>Przegląd analizy przestrzennej przetwarzanie obrazów
 
 Przetwarzanie obrazów Analiza przestrzenna to nowa funkcja usługi Azure Cognitive Services przetwarzanie obrazów, która ułatwia organizacjom maksymalizowanie wartości miejsc fizycznych przez zrozumienie ruchów i obecności osób w danym obszarze. Pozwala to na pozyskiwanie wideo z kamer CCTV lub nadzoru, uruchamianie operacji AI w celu wyodrębnienia szczegółowych informacji z strumieni wideo oraz generowanie zdarzeń, które mają być używane przez inne systemy. W przypadku danych wejściowych ze strumienia aparatów operacja AI może posłużyć do policzania liczby osób wprowadzających miejsce lub mierzenia zgodności z maską powierzchni i wskazówkami distancing społecznościowych.
 
@@ -35,37 +35,9 @@ Obecnie podstawowe operacje związane z analizą przestrzenną są zbudowane na 
 | Region zainteresowania | Jest to strefa lub linia zdefiniowana w wejściowym wideo w ramach konfiguracji. Gdy osoba współdziała z regionem wideo, system generuje zdarzenie. Na przykład dla operacji PersonCrossingLine wiersz jest zdefiniowany w filmie wideo. Gdy osoba przecina ten wiersz, generowane jest zdarzenie. |
 | Zdarzenie | Zdarzenie to podstawowy wynik analizy przestrzennej. Każda operacja emituje określone zdarzenie okresowo (np. raz na minutę) lub w przypadku wystąpienia określonego wyzwalacza. Zdarzenie zawiera informacje o tym, co się stało w wejściowym filmie wideo, ale nie zawiera obrazów ani filmów wideo. Na przykład operacja PeopleCount może emitować zdarzenie zawierające zaktualizowaną liczbę za każdym razem, gdy liczba osób ulegnie zmianie (wyzwalacz) lub co minutę (okresowo). |
 
-## <a name="example-use-cases-for-spatial-analysis"></a>Przykładowe przypadki użycia na potrzeby analizy przestrzennej
+## <a name="responsible-use-of-spatial-analysis-technology"></a>Odpowiedzialne użycie technologii analizy przestrzennej
 
-Poniżej przedstawiono przykładowe przypadki użycia, które mamy na uwadze w przypadku zaprojektowanych i przetestowanych analiz przestrzennych.
-
-**Zgodność ze społecznością Distancing** — Przestrzeń biurowa zawiera kilka kamer, które wykorzystują analizę przestrzenną do monitorowania zgodności społeczności społecznej, mierząc odległość między osobami. Kierownik ds. infrastruktury może używać map cieplnych, które przedstawiają zagregowane dane statystyczne zgodności społecznej distancing w miarę upływu czasu, aby dostosować obszar roboczy i uprościć distancing społecznościowe.
-
-**Analiza klientów** — w sklepie spożywczym są wykorzystywane kamery wskazane na wyświetlaczach produktów, aby zmierzyć wpływ zmian w ruchu w sklepie. System umożliwia menedżerowi magazynu zidentyfikowanie, które nowe produkty są dyskami z największą zmianą zaangażowania.
-
-**Zarządzanie kolejką** — kamery wskazywane w kolejkach wyewidencjonowania zapewniają alerty menedżerom, gdy czas oczekiwania jest zbyt długi, co pozwala na otwieranie większej liczby wierszy. Dane historyczne dotyczące odrzucenia kolejki dają wgląd w zachowanie konsumenta.
-
-**Zgodność z maską czołową** — sklepy detaliczne mogą korzystać z kamer wskazujących przód w sklepie, aby sprawdzać, czy klienci przeanalizują dane w sklepie, czy są one w stanie zapewnić zgodność z bezpieczeństwem i analizować zagregowane dane statystyczne w celu uzyskania wglądu w trendy dotyczące użycia masek. 
-
-**Kompilowanie &ego analizy** — Kompilowanie pakietu Office korzysta z kamer ukierunkowanych na wejścia, aby mierzyć FootFall oraz jak ludzie korzystają z miejsca pracy. Usługa Insights umożliwia menedżerowi kompilacji dostosowanie usługi i układu w celu lepszego obkorzystania przez użytkowników.
-
-**Minimalne wykrywanie pracowników** — w centrum danych — działanie monitora kamer wokół serwerów. Gdy pracownicy są fizycznie naprawianie poufnego sprzętu, dwie osoby zawsze muszą być obecne podczas naprawy ze względów bezpieczeństwa. Aparaty fotograficzne są używane do weryfikacji, czy te wytyczne są przestrzegane.
-
-**Optymalizacja w miejscu pracy** — w szybkiej restauracji, kamery w kuchni są używane do generowania zagregowanych informacji o przepływie pracy pracownika. Jest on używany przez menedżerów, aby usprawnić procesy i szkolenia dla zespołu.
-
-## <a name="considerations-when-choosing-a-use-case"></a>Zagadnienia dotyczące wybierania przypadku użycia
-
-**Unikaj krytycznego alertu** dotyczącego bezpieczeństwa — Analiza przestrzenna nie została zaprojektowana w celu zapewnienia krytycznego alertu w czasie rzeczywistym. Nie należy polegać na scenariuszach, gdy alerty w czasie rzeczywistym są niezbędne do wyzwalania interwencji, aby zapobiec powstaniu szkody, np. wyłączaniu dużej liczby maszyn, gdy dana osoba jest obecna. Może służyć do zmniejszenia ryzyka przy użyciu statystyk i interwencji w celu zmniejszenia ryzyka związanego z zachowaniem, takich jak ludzie wprowadzający obszar ograniczony/zabroniony.
-
-**Unikaj stosowania decyzji związanych z zatrudnieniem** — Analiza przestrzenna zawiera metryki probabilistyczne dotyczące lokalizacji i przenoszenia osób w obrębie miejsca. Chociaż te dane mogą być przydatne do poprawy procesu agregowania, dane nie są dobrym wskaźnikiem wydajności poszczególnych procesów roboczych i nie powinny być używane do podejmowania decyzji związanych z zatrudnieniem.
-
-**Unikaj stosowania w przypadku decyzji związanych z opieką zdrowotną** — Analiza przestrzenna zapewnia probabilistyczne i częściowe dane związane z ruchem osób. Dane nie są odpowiednie do podejmowania decyzji związanych z kondycją.
-
-**Unikaj używania funkcji chronionych miejsc** — Ochrona prywatności osób przez ocenianie lokalizacji i pozycji aparatu, Ustawianie kątów i regionu zainteresowania, tak aby nie zapomina obszarów chronionych, takich jak restrooms.
-
-**Ostrożnie rozważaj korzystanie z szkół lub udogodnień dla osób starszych** — Analiza przestrzenna nie przetestowano z danymi zawierającymi niewielkie wartości w wieku 18 lub dorosłym w wieku 65. Zalecamy, aby klienci mogli dokładnie oceniać stawki błędów dla ich scenariusza w środowiskach, w których ten wiek jest wyższy.
-
-**Uważnie Rozważ użycie w miejscach publicznych** — Oceń lokalizacje i położenia kamer, dostosowując kąty i regiony zainteresowania, aby zminimalizować liczbę kolekcji z miejsc publicznych. Oświetlenie i Pogoda w miejscach publicznych, takich jak ulice i Parky, znacząco wpłyną na wydajność systemu analizy przestrzennej i niezwykle trudno jest zapewnić skuteczne ujawnienie w miejscach publicznych.
+Aby dowiedzieć się, jak korzystać z technologii analizy przestrzennej, zapoznaj się z [uwagami](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)dotyczącymi przejrzystości. Przejrzyste notatki firmy Microsoft mają na celu ułatwienie zrozumienia sposobu działania technologii AI. właściciele systemu wyboru mogą mieć wpływ na wydajność i zachowanie systemu oraz znaczenie dla całego systemu, w tym technologii, osób i środowiska.
 
 ## <a name="spatial-analysis-gating-for-public-preview"></a>Kontroli analizy przestrzennej dla publicznej wersji zapoznawczej
 
@@ -76,4 +48,4 @@ Dostęp do publicznej wersji zapoznawczej analizy przestrzennej jest uzależnion
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Charakterystyki i ograniczenia dotyczące analizy przestrzennej](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Wprowadzenie do kontenera analizy przestrzennej](spatial-analysis-container.md)

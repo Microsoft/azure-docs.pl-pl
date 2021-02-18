@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807211"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571657"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Podstawa podstawy zabezpieczeń platformy Azure dla platformy Azure
 
@@ -37,9 +37,9 @@ Ta linia bazowa zabezpieczeń ma zastosowanie do wskazówek dotyczących usługi
 
 - [Jak włączyć inspekcję na platformie Azure — wskaźnik](resources.md)
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -73,7 +73,7 @@ Ta linia bazowa zabezpieczeń ma zastosowanie do wskazówek dotyczących usługi
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z obszarami roboczymi wskaźnikowymi platformy Azure zgodnie z regulacjami zgodności w organizacji.
 
-- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Jak ustawić parametry przechowywania dziennika](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
@@ -341,7 +341,7 @@ Ponadto każdy skoroszyt wskaźnikowy jest zasobem platformy Azure i można przy
 
 **Wskazówki**: obszary robocze platformy Azure i Azure Monitor Log Analytics obszarów roboczych używają kluczy zarządzanych przez firmę Microsoft do szyfrowania danych zawartych w spoczynku. Możliwość przeniesienia własnego klucza nie jest jeszcze w pełni obsługiwana w przypadku kontrolki wskaźnikowej, ale będzie w najbliższej przyszłości.
 
-- [Azure Monitor — Omówienie klucza zarządzanego przez klienta](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Azure Monitor — Omówienie klucza zarządzanego przez klienta](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Informacje o kluczach zarządzanych przez klienta w systemie Azure (wersja zapoznawcza)](customer-managed-keys.md)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 685bf35bfb6d6e85d70bd1f1b446370d66a320f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004912"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573399"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizowanie środowiska za pomocą rozwiązania System Center Operations Manager Health Check (wersja zapoznawcza)
 
@@ -229,7 +229,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     ```
 
     >[!NOTE]
-    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
+    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../logs/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     ```
 
     >[!NOTE]
-    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../log-query/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
+    > Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań log Analytics](../logs/log-query-overview.md), powyższe zapytanie zmieni się na poniższe.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +295,5 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyszukaj dzienniki](../log-query/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe System Center Operations Manager Health Check dane i zalecenia.
+- [Wyszukaj dzienniki](../logs/log-query-overview.md) , aby dowiedzieć się, jak analizować szczegółowe System Center Operations Manager Health Check dane i zalecenia.
 

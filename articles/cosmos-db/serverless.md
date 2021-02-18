@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059225"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571001"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,7 +64,7 @@ Podczas przeglądania okienka **metryk** konta zostanie wyszukany wykres o nazwi
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Wykres przedstawiający zużyte jednostki żądań" border="false":::
 
-Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z opisem w [tym miejscu](monitor-request-unit-usage.md). Należy pamiętać, że Azure Monitor umożliwia konfigurowanie [alertów](../azure-monitor/platform/alerts-metric-overview.md), które mogą być używane do powiadamiania, gdy użycie jednostki żądania przekazało określony próg.
+Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z opisem w [tym miejscu](monitor-request-unit-usage.md). Należy pamiętać, że Azure Monitor umożliwia konfigurowanie [alertów](../azure-monitor/alerts/alerts-metric-overview.md), które mogą być używane do powiadamiania, gdy użycie jednostki żądania przekazało określony próg.
 
 ## <a name="performance"></a><a id="performance"></a>Wydajność
 

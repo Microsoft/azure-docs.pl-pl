@@ -3,12 +3,12 @@ title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platform
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572206"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -45,9 +45,9 @@ Na poniższym diagramie przedstawiono zintegrowaną architekturę monitorowania 
 Jeśli dopiero zaczynasz na platformie Azure lub nie znasz żadnej z wymienionych powyżej usług, zapoznaj się z następującymi artykułami:
 
 - [Omówienie uwierzytelniania konta usługi Automation](../automation/automation-security-overview.md)
-- [Projektowanie wdrożenia dzienników Azure monitor](../azure-monitor/platform/design-logs-deployment.md) i [Azure monitor](../azure-monitor/overview.md)
+- [Projektowanie wdrożenia dzienników Azure monitor](../azure-monitor/logs/design-logs-deployment.md) i [Azure monitor](../azure-monitor/overview.md)
 - [Planowanie](../security-center/security-center-planning-and-operations-guide.md) i [obsługiwane platformy](../security-center/security-center-os-coverage.md) dla Azure Security Center
-- [Włącz przegląd Azure Monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-enable-overview.md)
+- [Włącz przegląd Azure Monitor dla maszyn wirtualnych](../azure-monitor/vm/vminsights-enable-overview.md)
 - [Co to są serwery z włączonym usługą Azure Arc?](../azure-arc/servers/overview.md) a [co to jest usługa Azure Arc Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Omówienie rozwiązania Update Management](../automation/update-management/overview.md)
 
@@ -59,7 +59,7 @@ Usługa Azure Update Management w Azure Automation zarządza aktualizacjami syst
 
 1.  Aby można było dodać Log Analytics do usługi Azure Update Management, należy najpierw [utworzyć konto Azure Automation](../automation/automation-create-standalone-account.md). Jeśli wolisz utworzyć konto przy użyciu szablonu, zobacz [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](../automation/quickstart-create-automation-account-template.md).
 
-2. **Log Analytics obszar roboczy** umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu agenta log Analytics lub rozszerzeń. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md). Jeśli wolisz, możesz również utworzyć obszar roboczy za pomocą szablonu [interfejsu wiersza polecenia](../azure-monitor/learn/quick-create-workspace-cli.md), [programu PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)lub [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
+2. **Log Analytics obszar roboczy** umożliwia zbieranie dzienników i zbieranie danych licznika wydajności przy użyciu agenta log Analytics lub rozszerzeń. Aby utworzyć obszar roboczy Log Analytics, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/logs/quick-create-workspace.md). Jeśli wolisz, możesz również utworzyć obszar roboczy za pomocą szablonu [interfejsu wiersza polecenia](../azure-monitor/logs/quick-create-workspace-cli.md), [programu PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md)lub [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
 
 3. Aby włączyć Update Management platformy Azure dla maszyn wirtualnych, zobacz [włączanie Update Management na podstawie konta usługi Automation](../automation/update-management/enable-from-automation-account.md). W procesie zostanie połączony obszar roboczy Log Analytics z kontem usługi Automation. 
  
@@ -99,22 +99,14 @@ Maszyny wirtualne rozwiązań VMware platformy Azure mogą być monitorowane za 
 
 Azure Monitor to kompleksowe rozwiązanie do zbierania i analizowania danych telemetrycznych w środowiskach chmurowych i lokalnych. Nie wymaga wdrożenia. Za pomocą Azure Monitor można monitorować wydajność systemu operacyjnego gościa oraz odnajdywać i mapować zależności aplikacji dla rozwiązań VMware platformy Azure lub lokalnych maszyn wirtualnych.
 
-- Azure Monitor umożliwia zbieranie danych z różnych źródeł do monitorowania i analizowania. Aby uzyskać więcej informacji, zobacz [źródła danych monitorowania dla Azure monitor](../azure-monitor/platform/data-sources.md).
+- Azure Monitor umożliwia zbieranie danych z różnych źródeł do monitorowania i analizowania. Aby uzyskać więcej informacji, zobacz [źródła danych monitorowania dla Azure monitor](../azure-monitor/agents/data-sources.md).
 
-- Zbieraj różne typy danych do analizy, wizualizacji i tworzenia alertów. Aby uzyskać więcej informacji, zobacz [Azure monitor platformę danych](../azure-monitor/platform/data-platform.md).
+- Zbieraj różne typy danych do analizy, wizualizacji i tworzenia alertów. Aby uzyskać więcej informacji, zobacz [Azure monitor platformę danych](../azure-monitor/data-platform.md).
 
-- Aby skonfigurować Azure Monitor przy użyciu obszaru roboczego Log Analytics, zobacz [Konfigurowanie obszaru roboczego log Analytics dla Azure monitor dla maszyn wirtualnych](../azure-monitor/insights/vminsights-configure-workspace.md).
+- Aby skonfigurować Azure Monitor przy użyciu obszaru roboczego Log Analytics, zobacz [Konfigurowanie obszaru roboczego log Analytics dla Azure monitor dla maszyn wirtualnych](../azure-monitor/vm/vminsights-configure-workspace.md).
 
 - Można tworzyć reguły alertów w celu identyfikowania problemów w środowisku, takich jak wysokie wykorzystanie zasobów, brak poprawek, mała ilość miejsca na dysku i pulsy maszyn wirtualnych. Możesz również ustawić automatyczną odpowiedź na wykryte zdarzenia, wysyłając alert do narzędzi do zarządzania usługami IT (narzędzia ITSM). Powiadomienie o wykryciu alertu można również wysłać za pośrednictwem poczty e-mail. Aby utworzyć takie reguły, zobacz:
-    - [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../azure-monitor/platform/alerts-metric.md).
-    - [Twórz i wyświetlaj alerty dzienników oraz zarządzaj nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-log.md).
-    - [Reguły akcji](../azure-monitor/platform/alerts-action-rules.md) do ustawiania zautomatyzowanych akcji i powiadomień.
-    - [Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu Łącznik zarządzania usługami IT](../azure-monitor/platform/itsmc-overview.md).
-    
- ## <a name="next-steps"></a>Następne kroki
-
-Teraz, gdy korzystasz z natywnych narzędzi platformy Azure do zarządzania maszynami wirtualnymi rozwiązań VMware platformy Azure w całym cyklu życia, warto dowiedzieć się więcej na temat:
-
-- [Ochrona maszyn wirtualnych rozwiązań VMware platformy Azure za pomocą Azure Security Center](azure-security-integration.md).
-- [Konfigurowanie Azure Backup Server rozwiązania VMware dla platformy Azure](set-up-backup-server-for-azure-vmware-solution.md).
-- [Integrowanie rozwiązania VMware z platformą Azure w architekturze gwiazdy i szprych](concepts-hub-and-spoke.md).
+    - [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../azure-monitor/alerts/alerts-metric.md).
+    - [Twórz i wyświetlaj alerty dzienników oraz zarządzaj nimi przy użyciu Azure monitor](../azure-monitor/alerts/alerts-log.md).
+    - [Reguły akcji](../azure-monitor/alerts/alerts-action-rules.md) do ustawiania zautomatyzowanych akcji i powiadomień.
+    - [Połącz platformę Azure z narzędziami narzędzia ITSM przy użyciu Łącznik zarządzania usługami IT](../azure-monitor/alerts/itsmc-overview.md).

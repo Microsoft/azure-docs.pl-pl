@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586554"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576768"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -56,7 +56,7 @@ Następujące metryki dla Azure File Sync są dostępne w Azure Monitor:
 
 ### <a name="alerts"></a>Alerty
 
-Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 **Jak utworzyć alerty dla Azure File Sync**
 

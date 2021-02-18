@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi AAD zarządzane tożsamości z
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: f5b5095e95115ce5a28d81d83b725349d43ecc8f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557355"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635544"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Korzystanie z Azure Active Directory tożsamości zarządzanych w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -79,6 +79,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## <a name="assign-permissions-for-the-managed-identity"></a>Przypisywanie uprawnień dla tożsamości zarządzanej
+
+Tożsamość zarządzana *IDENTITY_CLIENT_ID* musi mieć uprawnienia czytelnika w grupie zasobów zawierającej zestaw skalowania maszyn wirtualnych w klastrze AKS.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## <a name="create-a-pod-identity"></a>Tworzenie tożsamości pod

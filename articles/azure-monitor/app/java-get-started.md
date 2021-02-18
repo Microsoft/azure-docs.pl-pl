@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131784"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593724"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki start: Wprowadzenie do usługi Application Insights w projekcie internetowym w języku Java
 
@@ -168,7 +168,7 @@ Kliknij określony typ żądania, aby wyświetlić poszczególne wystąpienia.
 ![Przechodzenie do szczegółów konkretnego widoku przykładowego](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analiza: zaawansowany język zapytań
-W miarę zgromadzenia większej ilości danych można uruchamiać zapytania zarówno w celu agregowania danych, jak i w celu znajdowania poszczególnych wystąpień.  [Analiza](../log-query/log-query-overview.md) jest zaawansowanym narzędziem, którego można używać zarówno w celu poznania wydajności i użycia, jak i do celów diagnostycznych.
+W miarę zgromadzenia większej ilości danych można uruchamiać zapytania zarówno w celu agregowania danych, jak i w celu znajdowania poszczególnych wystąpień.  [Analiza](../logs/log-query-overview.md) jest zaawansowanym narzędziem, którego można używać zarówno w celu poznania wydajności i użycia, jak i do celów diagnostycznych.
 
 ![Przykład analizy](./media/java-get-started/0025.png)
 
@@ -292,7 +292,7 @@ Usługa Application Insights może służyć do testowania witryny sieci Web w r
 * [Monitorowanie liczników wydajności sytemu Unix](java-collectd.md)
 * Dodawanie [monitorowania do stron sieci Web](javascript.md) w celu monitorowania czasów ładowania stron, wywołań AJAX i wyjątków przeglądarki
 * Zapisywanie [niestandardowych danych telemetrycznych](./api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
-* Korzystanie z  [analizy](../log-query/log-query-overview.md) na potrzeby zaawansowanych zapytań dotyczących telemetrii z aplikacji
+* Korzystanie z  [analizy](../logs/log-query-overview.md) na potrzeby zaawansowanych zapytań dotyczących telemetrii z aplikacji
 * Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 
 <!--Link references-->
@@ -302,5 +302,5 @@ Usługa Application Insights może służyć do testowania witryny sieci Web w r
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md
