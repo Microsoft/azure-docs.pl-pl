@@ -3,16 +3,16 @@ title: Wdróż wystąpienie Prometheus w klastrze Red Hat OpenShift platformy Az
 description: Utwórz wystąpienie Prometheus w klastrze Red Hat OpenShift platformy Azure, aby monitorować metryki aplikacji.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, ARO, OpenShift, Metrics, Red Hat
-ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 974096e515401ab5e292dbad4c9beba7f1611a8a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996852"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633448"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Wdrażanie autonomicznego wystąpienia Prometheus w klastrze Red Hat OpenShift platformy Azure
 
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Nowe aplikacje powinny być wyświetlane jako prawidłowe elementy docelowe na stronie odnajdowania usługi w ciągu 30 sekund od wdrożenia.
 
-Aby uzyskać więcej szczegółów, **Status** wybierz pozycję  >  **cele** stanu.
+Aby uzyskać więcej szczegółów, wybierz pozycję  >  **cele** stanu.
 
 > [!NOTE]
 > Dla każdego pomyślnie wypadków, Prometheus dodaje punkt danych w metryce w górę. W lewym górnym rogu wybierz pozycję **Prometheus** **, wprowadź wartość w polu** wyrażenie, a następnie wybierz pozycję **Execute (wykonaj**).

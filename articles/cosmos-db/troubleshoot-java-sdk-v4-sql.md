@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683117"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596463"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Rozwiązywanie problemów podczas korzystania z Azure Cosmos DB Java SDK v4 z kontami interfejsu API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Rozpocznij od tej listy:
 * Zapoznaj się z resztą tego artykułu, jeśli nie odnaleziono rozwiązania. Następnie należy [rozwiązać problem](https://github.com/Azure/azure-sdk-for-java/issues)z usługą GitHub. Jeśli jest dostępna opcja dodania tagów do problemu w usłudze GitHub, Dodaj tag *Cosmos: v4-Item* .
 
 ### <a name="retry-logic"></a>Logika ponawiania <a id="retry-logics"></a>
-Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
+Zestaw Cosmos DB SDK w przypadku dowolnego błędy we/wy podejmie próbę ponowienia operacji zakończonej niepowodzeniem, jeśli jest możliwe jej ponowienie. Ponowienie próby w przypadku jakiegokolwiek błędu jest dobrym sposobem, ale w przypadku niepowodzenia przetwarzania/ponawiania próby zapisu jest to konieczne. Zalecane jest korzystanie z najnowszego zestawu SDK, ponieważ logika ponowień jest ciągle ulepszana.
 
 1. Błędy we/wy odczytu i zapytania zostaną ponowione przez zestaw SDK bez obsłużynia ich użytkownikowi końcowemu.
 2. Operacje zapisu (Create, Upsert, Replace, Delete) nie są idempotentne, a tym samym zestaw SDK nie zawsze może niemniej ponowić próbę wykonania nieudanych operacji zapisywania. Wymagane jest, aby logika aplikacji użytkownika mogła obsłużyć błąd, i ponowić próbę.
@@ -54,7 +54,7 @@ Zestaw Cosmos DB SDK na dowolnym błędzie we/wy podejmie próbę ponowienia ope
 W celu uzyskania najlepszej wydajności:
 * Upewnij się, że aplikacja działa w tym samym regionie co konto Azure Cosmos DB. 
 * Sprawdź użycie procesora na hoście, na którym działa aplikacja. Jeśli użycie procesora CPU wynosi 50% lub więcej, uruchom aplikację na hoście o wyższej konfiguracji. Można też rozłożyć obciążenie na więcej maszyn.
-    * Jeśli uruchamiasz aplikację w usłudze Azure Kubernetes, możesz [użyć Azure monitor do monitorowania użycia procesora CPU](../azure-monitor/insights/container-insights-analyze.md).
+    * Jeśli uruchamiasz aplikację w usłudze Azure Kubernetes, możesz [użyć Azure monitor do monitorowania użycia procesora CPU](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Ograniczanie połączeń
 Możliwe jest ograniczenie połączenia z powodu [limitu połączeń na komputerze hosta lub w] [wyczerpaniu portów usługi Azure translator adresów sieciowych].
