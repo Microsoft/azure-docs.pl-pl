@@ -1,19 +1,19 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411737"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102941"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -35,6 +35,31 @@ ms.locfileid: "89411737"
 | Długość nazwy pliku cookie zapory aplikacji sieci Web | 256 |
 | Inspekcja rozmiaru treści żądania HTTP zapory aplikacji sieci Web | 128 KB |
 | Długość treści niestandardowej odpowiedzi zapory aplikacji sieci Web | 2 KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Limity usługi Azure Front-Standard/Premium (wersja zapoznawcza)
+
+*** *Maksymalna **500** profilów Standard i Premium na subskrypcję.*
+
+| Zasób | Limit standardowej jednostki SKU | Limit jednostki SKU w warstwie Premium |
+| --- | --- | --- |
+| Maksymalny punkt końcowy na profil  | 10 | 25 |
+| Maksymalna domena niestandardowa na profil | 100 | 200 |
+| Maksymalna Grupa pierwotna na profil | 100 | 200 |
+| Maksymalna liczba wpisów tajnych na profil | 100 | 200 |
+| Maksymalna liczba zasad zabezpieczeń na profil | 100 | 200 |
+| Maksymalna liczba zestawów reguł na profil | 100 | 200 |
+| Maksymalna liczba reguł na zestaw reguł | 100 | 100 |
+| Maksymalna liczba źródeł na grupę pochodzenia | 50 | 50 |
+| Maksymalna liczba tras na punkt końcowy | 100 | 200 |
+| Warunki dopasowania zapory aplikacji sieci Web na regułę niestandardową | 10 | 10 |
+| Zakresy adresów IP zapory aplikacji sieci Web na warunek dopasowania | 600 | 600 |
+| Wartości parametrów zapory aplikacji sieci Web na warunek dopasowania | 10 | 10 |
+| Długość wartości ciągu zapory aplikacji sieci Web | 256 | 256 |
+| Długość nazwy parametru treści wpisu zapory aplikacji sieci Web | 256 | 256 |
+| Długość nazwy nagłówka HTTP zapory aplikacji sieci Web | 256 | 256 |
+| Długość nazwy pliku cookie zapory aplikacji sieci Web | 256 | 256|
+| Inspekcja rozmiaru treści żądania HTTP zapory aplikacji sieci Web | 128 KB | 128 KB |
+| Długość treści niestandardowej odpowiedzi zapory aplikacji sieci Web | 2 KB | 2 KB |
 
 ### <a name="timeout-values"></a>Wartości limitu czasu
 #### <a name="client-to-front-door"></a>Klient do przednich drzwi

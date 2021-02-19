@@ -2,21 +2,26 @@
 title: 'Szybki Start: Biblioteka klienta aparatu rozpoznawania formularzy dla języka Python'
 description: Biblioteka klienta aparatu rozpoznawania formularzy dla języka Python służy do tworzenia aplikacji przetwarzającej formularze, która wyodrębnia pary klucz/wartość i dane tabeli z dokumentów niestandardowych.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
-ms.author: pafarley
-ms.openlocfilehash: d0c26a4b0cc860b959afc6703ee3e709c606f209
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: 5e7197208289e03502368c0988676bf3d2016070
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584621"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102924"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
+>
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
 
 [Dokumentacja](/python/api/azure-ai-formrecognizer)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  źródłowy biblioteki [Pakiet (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
@@ -27,8 +32,8 @@ ms.locfileid: "99584621"
 * [Python 3.x](https://www.python.org/)
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451) (pobierz i Wyodrębnij *sample_data.zip*).
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+  * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+  * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -36,23 +41,23 @@ ms.locfileid: "99584621"
 
 Po zainstalowaniu języka Python można zainstalować najnowszą wersję biblioteki klienta aparatu rozpoznawania formularzy z:
 
-#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
-
-```console
-pip install azure-ai-formrecognizer
-```
-
-> [!NOTE]
-> Najnowszy aparat rozpoznawania formularzy odzwierciedla wersję interfejsu API 2,0
-
-#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
+#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> Zestaw SDK w wersji zapoznawczej aparatu rozpoznawania formularzy odzwierciedla wersję API 2,1 Preview
+> Zestaw SDK 3.1.0 usługi rozpoznawania formularzy odzwierciedla interfejs API w wersji 2,1 Preview
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+```console
+pip install azure-ai-formrecognizer
+```
+
+> [!NOTE]
+> Zestaw 3.0.0 SDK aparatu rozpoznawania formularzy odzwierciedla interfejs API v 2.0
 
 ---
 
@@ -65,24 +70,24 @@ Utwórz nową aplikację w języku Python przy użyciu preferowanego edytora lub
 > [!TIP]
 > Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można je znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py), która zawiera przykłady kodu w tym przewodniku Szybki Start.
 
-
 Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_creds)]
 
-
-## <a name="object-model"></a>Model obiektów 
+## <a name="object-model"></a>Model obiektów
 
 Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy klientów. Pierwszy `form_recognizer_client` jest używany do wysyłania zapytań do usługi do rozpoznanych pól formularzy i zawartości. Drugi — `form_training_client` służy do tworzenia modeli niestandardowych i zarządzania nimi, których można użyć w celu usprawnienia rozpoznawania. 
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
+
 `form_recognizer_client` zawiera operacje dla:
 
- * Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu analizowania formularzy niestandardowych. 
- * Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu. 
- * Rozpoznawanie typowych pól z przyjęć przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy.
+* Rozpoznawanie pól formularzy i zawartości przy użyciu modeli niestandardowych przeszkolonych w celu analizowania formularzy niestandardowych.
+* Rozpoznawanie zawartości formularza, w tym tabel, wierszy i słów, bez konieczności uczenia modelu.
+* Rozpoznawanie typowych pól z przyjęć przy użyciu wstępnie przeszkolonego modelu paragonów w usłudze aparat rozpoznawania formularzy.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
+
 `form_training_client` zawiera operacje dla:
 
 * Szkolenie modeli niestandardowych w celu przeanalizowania wszystkich pól i wartości znalezionych w formularzach niestandardowych. Zapoznaj się z [dokumentacją usługi dotyczącą nieoznaczonego szkolenia modelu](#train-a-model-without-labels) , aby uzyskać bardziej szczegółowy opis tworzenia zestawu danych szkoleniowych.
@@ -96,23 +101,24 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 ## <a name="code-examples"></a>Przykłady kodu
 
 Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za pomocą biblioteki klienckiej aparatu rozpoznawania formularzy dla języka Python:
-
-#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
-
-* [Uwierzytelnianie klienta](#authenticate-the-client)
-* [Analizowanie układu](#analyze-layout)
-* [Analizuj potwierdzenia](#analyze-receipts)
-* [Trenowanie modelu niestandardowego](#train-a-custom-model)
-* [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
-* [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
-
-#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analizowanie układu](#analyze-layout)
 * [Analizuj potwierdzenia](#analyze-receipts)
 * [Analizowanie kart służbowych](#analyze-business-cards)
 * [Analizuj faktury](#analyze-invoices)
+* [Trenowanie modelu niestandardowego](#train-a-custom-model)
+* [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
+* [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+* [Uwierzytelnianie klienta](#authenticate-the-client)
+* [Analizowanie układu](#analyze-layout)
+* [Analizuj potwierdzenia](#analyze-receipts)
 * [Trenowanie modelu niestandardowego](#train-a-custom-model)
 * [Analizowanie formularzy przy użyciu modelu niestandardowego](#analyze-forms-with-a-custom-model)
 * [Zarządzanie modelami niestandardowymi](#manage-your-custom-models)
@@ -125,10 +131,10 @@ W tym miejscu będziesz uwierzytelniać dwa obiekty klienckie przy użyciu zdefi
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_auth)]
 
-
 ## <a name="get-assets-for-testing"></a>Pobierz zasoby do testowania
 
 Musisz dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
+
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
   
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Pobieranie adresu URL SAS":::
@@ -171,22 +177,21 @@ Confidence score: 1.0
 
 ```
 
-
 ## <a name="analyze-invoices"></a>Analizuj faktury
 
-#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
-
-> [!IMPORTANT]
-> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
-
-#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
+#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
 
 W tej sekcji przedstawiono sposób analizowania i wyodrębniania typowych pól z faktur sprzedaży przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy faktur, zobacz [Przewodnik dotyczący pojęć dotyczących faktur](../../concept-invoices.md). Aby analizować faktury z adresu URL, użyj `begin_recognize_invoices_from_url` metody. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> Możesz również analizować obrazy faktur lokalnych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_invoices` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować obrazy faktur lokalnych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) , takie jak `begin_recognize_invoices` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
 
 ---
 
@@ -329,7 +334,7 @@ W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z paragonów 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_receipts` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) , takie jak `begin_recognize_receipts` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 ### <a name="output"></a>Dane wyjściowe
 
@@ -353,22 +358,21 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-
 ## <a name="analyze-business-cards"></a>Analizowanie kart służbowych
 
-#### <a name="version-20"></a>[Wersja 2,0](#tab/ga)
-
-> [!IMPORTANT]
-> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
-
-#### <a name="version-21-preview"></a>[Wersja 2,1 Preview](#tab/preview)
+#### <a name="v21-preview"></a>[wersja zapoznawcza wersji 2.1](#tab/preview)
 
 W tej sekcji pokazano, jak analizować i wyodrębniać typowe pola z angielskiej karty biznesowej przy użyciu wstępnie nauczonego modelu. Aby uzyskać więcej informacji na temat analizy karty biznesowej, zobacz [Przewodnik po pojęciach dotyczących wizytówek](../../concept-business-cards.md). Aby analizować karty biznesowe na podstawie adresu URL, użyj `begin_recognize_business_cards_from_url` metody. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> Możesz również analizować obrazy lokalnych kart służbowych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) , takie jak `begin_recognize_business_cards` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować obrazy lokalnych kart służbowych. Zobacz metody [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true) , takie jak `begin_recognize_business_cards` . Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) , aby poznać scenariusze dotyczące obrazów lokalnych.
+
+#### <a name="v20"></a>[Wersja 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Ta funkcja jest niedostępna w wybranej wersji interfejsu API.
 
 ---
 
