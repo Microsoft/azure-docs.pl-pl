@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 618efc8d2c3784a487c302661f35d5a284c68178
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475639"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682443"
 ---
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -74,8 +74,8 @@ W celach demonstracyjnych ten przykład używa publicznie dostępnego punktu ko�
 W przypadku dodatkowej konfiguracji ten przykład obsługuje łączenie się z chronionym punktem końcowym usługi **Azure Active Directory** (Azure AD), aby umożliwić aplikacji pobranie tokenu usługi Azure Communications Services. Zobacz poniższe kroki:
 
 1. Włącz uwierzytelnianie Azure Active Directory w aplikacji.  
-   - [Zarejestruj aplikację w obszarze Azure Active Directory (przy użyciu ustawień platformy iOS/macOS)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-    - [Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Zarejestruj aplikację w obszarze Azure Active Directory (przy użyciu ustawień platformy iOS/macOS)](../../../active-directory/develop/tutorial-v2-ios.md) 
+    - [Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD](../../../app-service/configure-authentication-provider-aad.md)
 2. Przejdź do strony przeglądu zarejestrowanej aplikacji w obszarze Azure Active Directory rejestracje aplikacji. Zanotuj `Application (client) ID` , `Directory (tenant) ID` , `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory konfigurację Azure Portal.":::

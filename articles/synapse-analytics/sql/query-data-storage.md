@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d299afca0bd8070a1da738e02812b64c41a7101c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735385"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675048"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu z pulą SQL bezserwerowych w usłudze Azure Synapse Analytics
 
 Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
 
-- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
+- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
 - Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
 
 Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, przeczytaj artykuł [Omówienie puli SQL bezserwerowej](on-demand-workspace-overview.md) lub następujące artykuły:
@@ -184,21 +184,21 @@ Domyślnie `OPENROWSET` Funkcja jest zgodna z nazwą pola źródłowego i ście�
 - Funkcja zwraca wartość skalarną, taką jak int, Decimal i varchar, z określonego elementu i w określonej ścieżce dla wszystkich typów Parquet, które nie należą do grupy typów zagnieżdżonych.
 - Jeśli ścieżka wskazuje element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, zaczynając od górnego elementu w określonej ścieżce. Fragment JSON jest typu varchar (8000).
 - Jeśli nie można odnaleźć właściwości w określonym column_name, funkcja zwróci błąd.
-- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
+- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
 
 Aby zapoznać się z przykładami zapytań, zapoznaj się z sekcją elementy dostępu z zagnieżdżonych kolumn w artykule [Parquet typów zagnieżdżonych](query-parquet-nested-types.md#read-properties-from-nested-object-columns) .
 
 #### <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtórzonych kolumn
 
-Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
+Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
 
 - Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
-Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
+Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest&preserve-view=true) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
 
 - Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
 Zobacz fragment składni poniżej:
 
@@ -219,7 +219,7 @@ Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtór
 
 Możesz dowiedzieć się więcej o wysyłaniu zapytań do różnych typów danych przy użyciu przykładowych zapytań.
 
-### <a name="tools"></a>Narzędzia
+### <a name="tools"></a>narzędzia
 
 Narzędzia potrzebne do wysyłania zapytań:
     - Azure Synapse Studio 
