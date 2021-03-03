@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 0a4421ed548e6066338977260ed062e6ab14893f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 27064ecfce0114f7d80e464e2a51928a24919856
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103706"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653409"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w przypadku SPA, przy użyciu przepływu kodu uwierzytelniania
 
@@ -139,7 +139,7 @@ Ten przewodnik Szybki Start używa MSAL kątowy v2 z przepływem kodu autoryzacj
 >
 > Przewiń w dół do tego samego pliku i zaktualizuj `graphMeEndpoint` . 
 > - Zastąp ciąg `Enter_the_Graph_Endpoint_Herev1.0/me` ciągiem `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Więcej informacji zawiera strona [dokumentacji](https://docs.microsoft.com/graph/deployments).
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Więcej informacji zawiera strona [dokumentacji](/graph/deployments).
 >
 >
 > ```javascript

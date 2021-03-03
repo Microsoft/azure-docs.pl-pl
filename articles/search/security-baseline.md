@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096560"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668354"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Podstawa zabezpieczeń Azure dla usługi Azure Wyszukiwanie poznawcze
 
@@ -207,7 +207,7 @@ W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodn
 
 - [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitorowanie usługi Azure Security Center**: Yes
 

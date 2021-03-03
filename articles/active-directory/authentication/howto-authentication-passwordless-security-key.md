@@ -1,42 +1,39 @@
 ---
-title: Logowanie za klucz zabezpieczeń bezhasło (wersja zapoznawcza) — Azure Active Directory
-description: Włącz logowanie za pomocą klucza zabezpieczeń bezhasła do usługi Azure AD przy użyciu kluczy zabezpieczeń FIDO2 (wersja zapoznawcza)
+title: Logowanie za klucz zabezpieczeń bezhasło-Azure Active Directory
+description: Włącz logowanie za pomocą klucza zabezpieczeń bezhasła do usługi Azure AD przy użyciu kluczy zabezpieczeń FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ac8cf172a13e7198233170634ee4a3954793cd2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743432"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653834"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
+# <a name="enable-passwordless-security-key-sign-in"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło 
 
 W przypadku przedsiębiorstw korzystających dzisiaj z haseł i mających udostępnione środowisko komputera klucze zabezpieczeń umożliwiają bezproblemowe uwierzytelnianie procesów roboczych bez wprowadzania nazwy użytkownika lub hasła. Klucze zabezpieczeń zapewniają lepszą produktywność dla pracowników i mają lepsze zabezpieczenia.
 
 Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego na kluczu zabezpieczeń. Na końcu tego artykułu będzie można zalogować się do aplikacji sieci Web za pomocą konta usługi Azure AD przy użyciu klucza zabezpieczeń FIDO2.
 
-> [!NOTE]
-> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz temat [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="requirements"></a>Wymagania
 
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
-- Włącz [Podgląd rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
+- Włącz [rejestrację informacji o zabezpieczeniach połączonych](concept-registration-mfa-sspr-combined.md)
 - Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej * *
 
 Aby używać kluczy zabezpieczeń do logowania się do usługi Web Apps i usług, musisz mieć przeglądarkę obsługującą protokół WebAuthN. Obejmują one programy Microsoft Edge, Chrome, Firefox i Safari.
 
-## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
+## <a name="prepare-devices"></a>Przygotowywanie urządzeń
 
 W przypadku urządzeń przyłączonych do usługi Azure AD najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
 
@@ -46,12 +43,12 @@ Urządzenia dołączone do hybrydowej usługi Azure AD muszą korzystać z syste
 
 ### <a name="enable-the-combined-registration-experience"></a>Włącz połączone środowisko rejestracji
 
-Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji rejestracji połączonej. Wykonaj kroki opisane w artykule [Włączanie rejestracji informacji o zabezpieczeniach połączonych (wersja zapoznawcza)](howto-registration-mfa-sspr-combined.md), aby umożliwić rejestrację połączoną.
+Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji rejestracji połączonej. Wykonaj kroki opisane w artykule [Włączanie rejestracji informacji o zabezpieczeniach połączonych](howto-registration-mfa-sspr-combined.md), aby włączyć rejestrację łączną.
 
 ### <a name="enable-fido2-security-key-method"></a>Włącz metodę klucza zabezpieczeń FIDO2
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **metodami** uwierzytelniania zabezpieczeń  >  **Metoda uwierzytelniania (wersja zapoznawcza)**.
+1. Przejdź do **Azure Active Directory**  >    >  **metodami** uwierzytelniania zabezpieczeń metody  >  **uwierzytelniania**.
 1. W obszarze **klucz zabezpieczeń metody FIDO2** wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
@@ -79,19 +76,19 @@ W przykładzie poniżej Użytkownik zainicjowano już swój klucz zabezpieczeń 
 
 ## <a name="troubleshooting-and-feedback"></a>Rozwiązywanie problemów i opinie
 
-Jeśli chcesz udostępnić opinię lub napotkać problemy podczas wyświetlania podglądu tej funkcji, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
+Jeśli chcesz udostępnić opinię lub napotkać problemy związane z tą funkcją, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
 
 1. Uruchom **centrum opinii** i upewnij się, że użytkownik jest zalogowany.
 1. Prześlij opinię poniżej następującej kategoryzacji:
    - Kategoria: zabezpieczenia i prywatność
    - Podkategoria: FIDO
-1. Aby przechwytywać dzienniki, użyj opcji, aby **ponownie utworzyć mój problem**
+1. Aby przechwytywać dzienniki, użyj opcji w celu **ponownego utworzenia mojego problemu**.
 
 ## <a name="known-issues"></a>Znane problemy
 
 ### <a name="security-key-provisioning"></a>Inicjowanie obsługi kluczy zabezpieczeń
 
-W publicznej wersji zapoznawczej nie jest dostępna obsługa administracyjna i dezaktywowanie kluczy zabezpieczeń przez administratora.
+Inicjowanie obsługi administracyjnej kluczy zabezpieczeń przez administratora i niedostępność nie jest możliwe.
 
 ### <a name="upn-changes"></a>Zmiany nazwy UPN
 

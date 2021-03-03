@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365450"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649322"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Realizacja zaproszenia do współpracy B2B w usłudze Azure Active Directory
 
@@ -28,21 +28,19 @@ Po dodaniu użytkownika-gościa do katalogu konto użytkownika-gościa ma stan z
    > - **Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
    > - **Od października 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
-## <a name="redemption-through-the-invitation-email"></a>Wykup za pośrednictwem wiadomości e-mail z zaproszeniem
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Wypełnianie i logowanie za pomocą wspólnego punktu końcowego
 
-Po dodaniu użytkownika-gościa do katalogu przy [użyciu Azure Portal](./b2b-quickstart-add-guest-users-portal.md)do gościa w procesie jest wysyłana wiadomość e-mail z zaproszeniem. Możesz również wysyłać wiadomości e-mail z zaproszeniem, gdy [korzystasz z programu PowerShell](./b2b-quickstart-invite-powershell.md) , aby dodać użytkowników-Gości do katalogu. Poniżej znajduje się opis środowiska gościa, gdy korzystają z linku w wiadomości e-mail.
+Użytkownicy-Goście mogą teraz zalogować się do aplikacji firmowych z wieloma dzierżawcami lub aplikacjami firmy Microsoft za pomocą wspólnego punktu końcowego (na przykład adresu URL) `https://myapps.microsoft.com` . Wcześniej wspólny adres URL przekieruje użytkownika-gościa do swojej dzierżawy domowej zamiast dzierżawy zasobów w celu uwierzytelnienia, dlatego wymagane jest łącze specyficzne dla dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` ). Teraz użytkownik-Gość może przejść do wspólnego adresu URL aplikacji, wybrać **Opcje logowania**, a następnie wybrać opcję Zaloguj się **do organizacji**. Następnie użytkownik wpisze nazwę organizacji.
 
-1. Gość otrzymuje [wiadomość e-mail z zaproszeniem](./invitation-email-elements.md) , która jest wysyłana z **zaproszeń firmy Microsoft**.
-2. Gość wybierze opcję **Akceptuj zaproszenie** w wiadomości e-mail.
-3. Gość będzie używać swoich własnych poświadczeń do logowania się do katalogu. Jeśli gość nie ma konta, które może być federacyjne dla katalogu i nie jest włączona funkcja [jednorazowego kodu dostępu (OTP) wiadomości e-mail](./one-time-passcode.md) . Gość jest monitowany o utworzenie osobistego elementu [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) lub [konta samoobsługi usługi Azure AD](../enterprise-users/directory-self-service-signup.md). Szczegóły można znaleźć w [przepływie wykupu zaproszenia](#invitation-redemption-flow) .
-4. Gościa jest przeprowadzana [w opisany poniżej](#consent-experience-for-the-guest) sposób.
+![Logowanie wspólnego punktu końcowego](media/redemption-experience/common-endpoint-flow-small.png)
 
+Użytkownik zostanie następnie przekierowany do dzierżawcy punktu końcowego, gdzie może zalogować się przy użyciu adresu e-mail lub wybrać skonfigurowany dostawcę tożsamości.
 ## <a name="redemption-through-a-direct-link"></a>Umorzenie za pośrednictwem bezpośredniego linku
 
-Alternatywą dla wiadomości e-mail z zaproszeniem jest nadanie gościa bezpośredniego linku do aplikacji lub portalu. Najpierw musisz dodać użytkownika-gościa do katalogu za pośrednictwem [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) lub [PowerShell](./b2b-quickstart-invite-powershell.md). Następnie możesz użyć dowolnie [dostosowywalnych metod wdrażania aplikacji dla użytkowników](../manage-apps/end-user-experiences.md), w tym bezpośrednich linków logowania. Gdy gość korzysta ze bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie przeprowadzany po raz pierwszy.
+Jako alternatywę dla wiadomości e-mail z zaproszeniem lub wspólnego adresu URL aplikacji można udzielić gościa bezpośredniego linku do aplikacji lub portalu. Najpierw musisz dodać użytkownika-gościa do katalogu za pośrednictwem [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) lub [PowerShell](./b2b-quickstart-invite-powershell.md). Następnie możesz użyć dowolnie [dostosowywalnych metod wdrażania aplikacji dla użytkowników](../manage-apps/end-user-experiences.md), w tym bezpośrednich linków logowania. Gdy gość korzysta ze bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie przeprowadzany po raz pierwszy.
 
-> [!IMPORTANT]
-> Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, taki jak https://myapps.microsoft.com nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
+> [!NOTE]
+> Link bezpośredni jest specyficzny dla dzierżawy. Innymi słowy zawiera identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
  > - Panel dostępu do aplikacji: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - Panel dostępu aplikacje dla zweryfikowanej domeny: `https://myapps.microsoft.com/<;verified domain>`
  > - Witryna Azure Portal: `https://portal.azure.com/<tenant id>`
@@ -53,6 +51,14 @@ Istnieją sytuacje, w których wiadomość e-mail z zaproszeniem zaleca się za 
  - Czasami obiekt zaproszony użytkownik może nie mieć adresu e-mail z powodu konfliktu z obiektem Contact (na przykład obiektem Contact programu Outlook). W takim przypadku użytkownik musi kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem.
  - Użytkownik może zalogować się przy użyciu aliasu zaproszonego adresu e-mail. (Alias to dodatkowy adres e-mail skojarzony z kontem e-mail). W takim przypadku użytkownik musi kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem.
 
+## <a name="redemption-through-the-invitation-email"></a>Wykup za pośrednictwem wiadomości e-mail z zaproszeniem
+
+Po dodaniu użytkownika-gościa do katalogu przy [użyciu Azure Portal](./b2b-quickstart-add-guest-users-portal.md)do gościa w procesie jest wysyłana wiadomość e-mail z zaproszeniem. Możesz również wysyłać wiadomości e-mail z zaproszeniem, gdy [korzystasz z programu PowerShell](./b2b-quickstart-invite-powershell.md) , aby dodać użytkowników-Gości do katalogu. Poniżej znajduje się opis środowiska gościa, gdy korzystają z linku w wiadomości e-mail.
+
+1. Gość otrzymuje [wiadomość e-mail z zaproszeniem](./invitation-email-elements.md) , która jest wysyłana z **zaproszeń firmy Microsoft**.
+2. Gość wybierze opcję **Akceptuj zaproszenie** w wiadomości e-mail.
+3. Gość będzie używać swoich własnych poświadczeń do logowania się do katalogu. Jeśli gość nie ma konta, które może być federacyjne dla katalogu i nie jest włączona funkcja [jednorazowego kodu dostępu (OTP) wiadomości e-mail](./one-time-passcode.md) . Gość jest monitowany o utworzenie osobistego elementu [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) lub [konta samoobsługi usługi Azure AD](../enterprise-users/directory-self-service-signup.md). Szczegóły można znaleźć w [przepływie wykupu zaproszenia](#invitation-redemption-flow) .
+4. Gościa jest przeprowadzana [w opisany poniżej](#consent-experience-for-the-guest) sposób.
 ## <a name="invitation-redemption-flow"></a>Przepływ wykupu zaproszeń
 
 Gdy użytkownik kliknie link **Zaakceptuj zaproszenie** w [wiadomości e-mail z zaproszeniem](invitation-email-elements.md), usługa Azure AD automatycznie zrealizuje zaproszenie na podstawie przepływu wykupu, jak pokazano poniżej:

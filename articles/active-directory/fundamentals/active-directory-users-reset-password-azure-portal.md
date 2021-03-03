@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370903"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651891"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Resetowanie hasła użytkownika przy użyciu usługi Azure Active Directory
 
@@ -50,6 +50,10 @@ Jako administrator możesz zresetować hasło użytkownika, jeśli hasło jest z
 
     >[!Note]
     >Tymczasowe hasło nigdy nie wygasa. Po następnym zalogowaniu się użytkownika hasło będzie nadal działało, niezależnie od tego, jak dużo czasu upłynął od momentu wygenerowania hasła tymczasowego.
+
+> [!IMPORTANT]
+> Jeśli administrator nie może zresetować hasła użytkownika, a w dziennikach zdarzeń aplikacji na serwerze Azure AD Connect jest widoczny następujący kod błędu HR = 80231367, sprawdź atrybuty użytkownika w Active Directory.  Jeśli atrybut **AdminCount** jest ustawiony na 1, uniemożliwi to administratorowi zresetowanie hasła użytkownika.  Atrybut **AdminCount** musi mieć wartość 0, aby administratorzy mogli zresetować hasło użytkownika.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

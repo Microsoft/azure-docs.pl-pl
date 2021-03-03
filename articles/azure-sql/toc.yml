@@ -33,6 +33,16 @@
           href: database/features-comparison.md
         - name: Funkcje wielu modeli
           href: multi-model-features.md
+        - name: Konserwacja zaplanowana
+          items:
+            - name: Okno obsługi
+              href: database/maintenance-window.md
+            - name: Konfiguruj okno obsługi
+              href: database/maintenance-window-configure.md
+            - name: Okno obsługi — często zadawane pytania
+              href: database/maintenance-window-faq.yml
+            - name: Powiadomienia z wyprzedzeniem
+              href: database/advance-notifications.md
         - name: Przetwarzanie OLTP w pamięci
           href: in-memory-oltp-overview.md
         - name: Tabele danych czasowych

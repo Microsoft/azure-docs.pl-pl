@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434643"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666228"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Rozwiązywanie problemów z obsługą maszyny wirtualnej za pomocą funkcji Cloud-init
 
@@ -58,7 +58,7 @@ Gdy maszyna wirtualna jest uruchomiona, potrzebne będą dzienniki z maszyny wir
 
 - [Konsola szeregowa](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Włącz diagnostykę rozruchu](./tutorial-monitor.md#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](./tutorial-monitor.md#view-boot-diagnostics) je w trakcie rozruchu.
+- [Włącz diagnostykę rozruchu](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) je w trakcie rozruchu.
 
 - [Uruchom polecenie AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) , aby dołączyć i zainstalować dysk systemu operacyjnego, co umożliwi zbieranie tych dzienników:
 ```bash
@@ -133,4 +133,4 @@ Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsł
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](./cloud-init-deep-dive.md) . 
+Jeśli nadal nie można izolować, dlaczego usługa Cloud-init nie uruchomiła konfiguracji, należy dokładniej zapoznać się z informacjami o tym, co się dzieje w każdym etapie inicjowania chmury i po uruchomieniu modułów. Aby uzyskać więcej informacji, Zobacz szczegółowe informacje o [konfiguracji usługi Cloud-init](./cloud-init-deep-dive.md) .

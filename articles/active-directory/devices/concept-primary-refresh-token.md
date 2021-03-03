@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837267"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644939"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -33,7 +33,7 @@ Poniższe składniki systemu Windows odgrywają kluczową rolę w żądaniu i pr
 * **Wtyczka usługi Azure AD CloudAP**: określona Wtyczka usługi Azure AD oparta na platformie CloudAP, która weryfikuje poświadczenia użytkownika w usłudze Azure AD podczas logowania do systemu Windows.
 * **Wtyczka usługi Azure AD wam**: wtyczka specyficzna dla usługi Azure AD oparta na ARCHITEKTURZE Menedżera wam, która umożliwia logowanie jednokrotne do aplikacji korzystających z usługi Azure AD na potrzeby uwierzytelniania.
 * **Dsreg**: specyficzny dla systemu Windows 10 składnik usługi Azure AD, który obsługuje proces rejestracji urządzeń dla wszystkich stanów urządzeń.
-* **Moduł TPM** (TPM): moduł TPM to składnik sprzętowy wbudowany w urządzenie, który zapewnia funkcje zabezpieczeń oparte na sprzęcie dla wpisów tajnych użytkowników i urządzeń. Więcej informacji można znaleźć w artykule [moduł TPM Omówienie technologii](/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): moduł TPM to składnik sprzętowy wbudowany w urządzenie, który zapewnia funkcje zabezpieczeń oparte na sprzęcie dla wpisów tajnych użytkowników i urządzeń. Więcej informacji można znaleźć w artykule [Trusted Platform Module Omówienie technologii](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## <a name="what-does-the-prt-contain"></a>Co zawiera PRT?
 
@@ -103,7 +103,7 @@ PRT jest chroniony przez powiązanie go z urządzeniem, do którego użytkownik 
 * **Podczas pierwszego logowania**: podczas pierwszego logowania PRT jest wystawiane przez żądania podpisywania przy użyciu klucza urządzenia, który został wygenerowany kryptograficznie podczas rejestracji urządzenia. Na urządzeniu z prawidłowym i działającym modułem TPM klucz urządzenia jest zabezpieczony przez moduł TPM zapobiegający złośliwemu dostępowi. PRT nie zostanie wystawiony, jeśli nie można zweryfikować odpowiedniej sygnatury klucza urządzenia.
 * **Podczas żądania tokenu i odnawiania**: po wystawieniu PRT usługa Azure AD wygeneruje również zaszyfrowany klucz sesji na urządzeniu. Jest on szyfrowany za pomocą publicznego klucza transportowego (tkpub) wygenerowanego i wysyłanego do usługi Azure AD w ramach rejestracji urządzeń. Ten klucz sesji może zostać odszyfrowany tylko przez prywatny klucz transportu (tkpriv) zabezpieczony przez moduł TPM. Klucz sesji to klucz dowodu posiadania (POP) dla wszystkich żądań wysyłanych do usługi Azure AD.  Klucz sesji jest również chroniony przez moduł TPM i żaden inny składnik systemu operacyjnego nie może uzyskać do niego dostępu. Żądania tokenów lub żądania odnowienia PRT są bezpiecznie podpisane przez ten klucz sesji za pomocą modułu TPM, dlatego nie mogą być modyfikowane za pomocą programu. Usługa Azure AD unieważnia wszystkie żądania z urządzenia, które nie są podpisane przy użyciu odpowiedniego klucza sesji.
 
-Dzięki zabezpieczeniu tych kluczy w module TPM złośliwe osoby nie mogą wykraść kluczy ani powtarzać PRT w innym miejscu, gdy moduł TPM jest niedostępny, nawet jeśli osoba atakująca dysponuje fizycznymi urządzeniami.  W rezultacie użycie modułu TPM znacznie podnosi poziom bezpieczeństwa przyłączonych do usługi Azure AD, dołączono hybrydową usługę Azure AD i zarejestrowane urządzenia usługi Azure AD przed kradzieżą poświadczeń. W przypadku wydajności i niezawodności zalecaną wersją dla wszystkich scenariuszy rejestracji urządzeń usługi Azure AD w systemie Windows 10 jest moduł TPM 2,0.
+Zabezpieczając te klucze przy użyciu modułu TPM, ulepszamy zabezpieczenia PRT ze złośliwych aktorów próbujących ukraść klucze lub powtórzyć PRT.  Dlatego użycie modułu TPM znacznie podnosi poziom bezpieczeństwa przyłączonych do usługi Azure AD, dołączono hybrydową usługę Azure AD i zarejestrowane urządzenia usługi Azure AD przed kradzieżą poświadczeń. W przypadku wydajności i niezawodności zalecaną wersją dla wszystkich scenariuszy rejestracji urządzeń usługi Azure AD w systemie Windows 10 jest moduł TPM 2,0. Począwszy od systemu Windows 10, 1903 Update, usługa Azure AD nie używa modułu TPM 1,2 dla żadnego z powyższych kluczy ze względu na problemy z niezawodnością. 
 
 ### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>Jak są chronione tokeny aplikacji i pliki cookie przeglądarki?
 
@@ -111,7 +111,7 @@ Dzięki zabezpieczeniu tych kluczy w module TPM złośliwe osoby nie mogą wykra
 
 **Pliki cookie przeglądarki**: w systemie Windows 10 usługa Azure AD obsługuje logowanie jednokrotne w przeglądarce Internet Explorer i Microsoft Edge natywnie lub w Google Chrome za pomocą rozszerzenia kont systemu Windows 10. Zabezpieczenia są tworzone nie tylko w celu ochrony plików cookie, ale również punktów końcowych, do których są wysyłane pliki cookie. Pliki cookie przeglądarki są chronione w taki sam sposób, jak PRT, przy użyciu klucza sesji do podpisywania i ochrony plików cookie.
 
-Gdy użytkownik inicjuje interakcję z przeglądarką, przeglądarka (lub rozszerzenie) wywołuje natywnego hosta klienta COM. Natywny Host klienta zapewnia, że strona pochodzi z jednej z dozwolonych domen. Przeglądarka może wysłać inne parametry do natywnego hosta klienta, w tym identyfikatora jednorazowego, ale natywny Host klienta gwarantuje weryfikację nazwy hosta. Natywny Host klienta żąda PRT-cookie z wtyczki CloudAP, która tworzy i podpisuje go przy użyciu klucza sesji chronionego przez moduł TPM. Ponieważ plik PRT-cookie jest podpisany przez klucz sesji, nie może zostać naruszony. Ten PRT-cookie jest zawarty w nagłówku żądania dla usługi Azure AD w celu sprawdzenia poprawności urządzenia, z którego pochodzi. W przypadku korzystania z przeglądarki Chrome tylko rozszerzenie jawnie zdefiniowane w manifeście natywnego hosta klienta może wywoływać te żądania, uniemożliwiając dowolnych rozszerzeń. Gdy usługa Azure AD zweryfikuje plik cookie PRT, wysyła plik cookie sesji do przeglądarki. Ten plik cookie sesji zawiera również ten sam klucz sesji, który został wystawiony przez PRT. Podczas kolejnych żądań klucz sesji jest weryfikowany w sposób efektywny powiązany z plikiem cookie na urządzeniu i uniemożliwia odtwarzanie z innego miejsca.
+Gdy użytkownik inicjuje interakcję z przeglądarką, przeglądarka (lub rozszerzenie) wywołuje natywnego hosta klienta COM. Natywny Host klienta zapewnia, że strona pochodzi z jednej z dozwolonych domen. Przeglądarka może wysłać inne parametry do natywnego hosta klienta, w tym identyfikatora jednorazowego, ale natywny Host klienta gwarantuje weryfikację nazwy hosta. Natywny Host klienta żąda PRT-cookie z wtyczki CloudAP, która tworzy i podpisuje go przy użyciu klucza sesji chronionego przez moduł TPM. Ponieważ plik PRT-cookie jest podpisywany przez klucz sesji, jest bardzo trudne do manipulowania. Ten PRT-cookie jest zawarty w nagłówku żądania dla usługi Azure AD w celu sprawdzenia poprawności urządzenia, z którego pochodzi. W przypadku korzystania z przeglądarki Chrome tylko rozszerzenie jawnie zdefiniowane w manifeście natywnego hosta klienta może wywoływać te żądania, uniemożliwiając dowolnych rozszerzeń. Gdy usługa Azure AD zweryfikuje plik cookie PRT, wysyła plik cookie sesji do przeglądarki. Ten plik cookie sesji zawiera również ten sam klucz sesji, który został wystawiony przez PRT. Podczas kolejnych żądań klucz sesji jest weryfikowany w sposób efektywny powiązany z plikiem cookie na urządzeniu i uniemożliwia odtwarzanie z innego miejsca.
 
 ## <a name="when-does-a-prt-get-an-mfa-claim"></a>Kiedy usługa PRT Pobiera wystąpienie usługi MFA?
 
@@ -196,7 +196,7 @@ Na poniższych diagramach przedstawiono podstawowe informacje dotyczące wydawan
 | A | Użytkownik loguje się do systemu Windows przy użyciu swoich poświadczeń w celu uzyskania PRT. Gdy użytkownik otworzy przeglądarkę, przeglądarka (lub rozszerzenie) ładuje adresy URL z rejestru. |
 | B | Gdy użytkownik otworzy adres URL logowania do usługi Azure AD, przeglądarka lub rozszerzenie zweryfikuje adres URL przy użyciu tych uzyskanych z rejestru. Jeśli są one zgodne, przeglądarka wywołuje natywnego hosta klienta w celu uzyskania tokenu. |
 | C | Natywny Host klienta sprawdza, czy adresy URL należą do dostawców tożsamości firmy Microsoft (konto Microsoft lub Azure AD), wyodrębniają identyfikator jednorazowy wysłany z adresu URL i tworzy wywołanie CloudAP wtyczki, aby uzyskać plik cookie PRT. |
-| D | Wtyczka CloudAP utworzy plik cookie PRT, zaloguj się przy użyciu klucza sesji powiązanego z modułem TPM i wyśle go z powrotem do natywnego hosta klienta. Ponieważ plik cookie jest podpisany przez klucz sesji, nie może zostać naruszony. |
+| D | Wtyczka CloudAP utworzy plik cookie PRT, zaloguj się przy użyciu klucza sesji powiązanego z modułem TPM i wyśle go z powrotem do natywnego hosta klienta. |
 | E | Natywny Host klienta zwróci ten plik cookie PRT do przeglądarki, który będzie zawierać go jako część nagłówka żądania o nazwie x-MS-RefreshTokenCredential i zażądać tokenów z usługi Azure AD. |
 | F | Usługa Azure AD sprawdza poprawność sygnatury klucza sesji w pliku cookie PRT, sprawdza poprawność identyfikatora nonce, weryfikuje, czy urządzenie jest prawidłowe w dzierżawie, i wystawia token identyfikatora dla strony sieci Web oraz pliku cookie zaszyfrowanej sesji dla przeglądarki. |
 

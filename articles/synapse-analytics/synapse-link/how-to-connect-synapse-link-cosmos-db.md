@@ -1,20 +1,20 @@
 ---
-title: Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
+title: Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Azure Cosmos DB
 description: Dowiedz się, jak połączyć bazę danych Azure Cosmos DB z obszarem roboczym usługi Azure Synapse za pomocą usługi Azure Synapse link.
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 04/21/2020
+ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5316f74ee38f597592ae4582aef31837f0f05fda
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5850644aac9c3324d9ffb17817195cbaaa6020ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119836"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667551"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Nawiązywanie połączenia z usługą Azure Synapse Link dla usługi Azure Cosmos DB
 
@@ -26,9 +26,6 @@ Przed nawiązaniem połączenia z bazą danych Azure Cosmos DB z obszarem robocz
 
 * Istniejąca baza danych Azure Cosmos DB lub Utwórz nowe konto, wykonując czynności opisane w [przewodniku szybki start: Zarządzanie kontem Azure Cosmos DB](../../cosmos-db/how-to-manage-database-account.md).
 * Istniejący obszar roboczy usługi Azure Synapse lub Utwórz nowy obszar roboczy, wykonując czynności opisane w [przewodniku szybki start: Tworzenie obszaru roboczego Synapse](../quickstart-create-workspace.md).
-
-> [!IMPORTANT]
-> Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w przypadku obszarów roboczych, dla których nie włączono zarządzanej sieci wirtualnej.
 
 ## <a name="enable-synapse-link-on-an-azure-cosmos-db-database-account"></a>Włącz link Synapse na koncie bazy danych Azure Cosmos DB
 
@@ -70,4 +67,5 @@ Klikając prawym przyciskiem myszy kontener, masz listę gestów, które będą 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, co jest obsługiwane między usługą Azure Synapse i Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Skonfiguruj prywatne punkty końcowe dla Azure Cosmos DB magazynu analitycznego](../cosmos-db/analytical-store-private-endpoints.md)
 * [Dowiedz się, jak badać magazyn analityczny przy użyciu platformy Spark](./how-to-query-analytical-store-spark.md)

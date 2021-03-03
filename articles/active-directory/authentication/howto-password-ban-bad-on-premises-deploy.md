@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8cae19bd07e1cc87a0aaa25e47cf5f431d566ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091044"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653817"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -102,7 +102,8 @@ Następujące wymagania dotyczą agenta DC ochrony hasłem usługi Azure AD:
 
 * Na wszystkich maszynach, na których zostanie zainstalowane oprogramowanie agenta DC ochrony hasłem usługi Azure AD, musi działać system Windows Server 2012 lub nowszy, w tym wersje systemu Windows Server Core.
     * Domena lub las Active Directory nie musi być na poziomie funkcjonalności domeny systemu Windows Server 2012 lub poziomu funkcjonalności lasu (FFL). Jak wspomniano w [zasadach projektowania](concept-password-ban-bad-on-premises.md#design-principles), nie ma minimalnych DFL lub FFL wymaganych do uruchomienia agenta lub oprogramowania serwera proxy.
-* Na wszystkich maszynach z uruchomionym agentem usługi Azure AD Password Protection musi być zainstalowany program .NET 4,5.
+* Na wszystkich maszynach, na których zostanie zainstalowana usługa serwera proxy ochrony hasłem usługi Azure AD, musi być zainstalowany program .NET 4.7.2.
+    * Jeśli program .NET 4.7.2 nie jest jeszcze zainstalowany, Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline usługi .NET Framework 4.7.2 dla systemu Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Wszystkie domeny Active Directory z uruchomioną usługą agenta DC ochrony hasłem usługi Azure AD muszą używać replikacji rozproszony system plików (DFSR) do replikacji folderu SYSVOL.
    * Jeśli domena nie korzysta już z usług DFSR, przed zainstalowaniem ochrony hasłem usługi Azure AD należy przeprowadzić migrację. Aby uzyskać więcej informacji, zobacz temat [Przewodnik migracji replikacji folderu SYSVOL: usługa FRS do replikacja systemu plików DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
@@ -122,8 +123,8 @@ Poniższe wymagania dotyczą usługi proxy ochrony hasłem w usłudze Azure AD:
     > [!NOTE]
     > Wdrożenie usługi serwera proxy ochrony hasłem w usłudze Azure AD jest wymaganym warunkiem wdrożenia ochrony hasłem usługi Azure AD, mimo że kontroler domeny może mieć bezpośrednią łączność z Internetem.
 
-* Na wszystkich maszynach, na których zostanie zainstalowana usługa serwera proxy ochrony hasłem usługi Azure AD, musi być zainstalowany program .NET 4,7.
-    * Środowisko .NET 4,7 powinno być już zainstalowane w w pełni zaktualizowanym systemie Windows Server. W razie potrzeby Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline .NET Framework 4,7 dla systemu Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Na wszystkich maszynach, na których zostanie zainstalowana usługa serwera proxy ochrony hasłem usługi Azure AD, musi być zainstalowany program .NET 4.7.2.
+    * Jeśli program .NET 4.7.2 nie jest jeszcze zainstalowany, Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline usługi .NET Framework 4.7.2 dla systemu Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalać kontrolerom domeny na logowanie do usługi proxy. Ta możliwość jest kontrolowana przez przypisanie przywileju "uzyskaj dostęp do tego komputera z sieci".
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalały na ruch HTTP 1,2 wychodzący TLS
 * Konto *administratora globalnego* lub *administratora zabezpieczeń* w celu zarejestrowania usługi i lasu proxy ochrony haseł w usłudze Azure AD za pomocą usługi Azure AD.
@@ -157,7 +158,7 @@ W następnej sekcji instalujesz agentów DC ochrony hasłem usługi Azure AD na 
 Wybierz co najmniej jeden serwer, na którym ma być Hostowana usługa serwera proxy ochrony hasła usługi Azure AD. Następujące zagadnienia dotyczą serwerów:
 
 * Każda taka usługa może udostępniać tylko zasady haseł dla jednego lasu. Komputer hosta musi być przyłączony do dowolnej domeny w tym lesie.
-* Jest ona obsługiwana w celu zainstalowania serwera proxy usługi w domenach głównych lub podrzędnych lub ich kombinacji.
+* Usługę serwera proxy można zainstalować w domenach głównych lub podrzędnych lub w obu tych przypadkach.
 * Wymagana jest łączność sieciowa między co najmniej jednym KONTROLERem domeny w każdej domenie lasu i jednym serwerem proxy ochrony hasłem.
 * Na kontrolerze domeny można uruchomić usługę proxy ochrony hasłem usługi Azure AD, ale ten kontroler domeny wymaga połączenia z Internetem. To połączenie może stanowić problem z zabezpieczeniami. Zalecamy tę konfigurację tylko do celów testowych.
 * Zalecamy co najmniej dwa serwery proxy ochrony hasłem w usłudze Azure AD dla każdego lasu w celu zapewnienia nadmiarowości, jak wskazano w poprzedniej sekcji [zagadnień dotyczących wysokiej dostępności](#high-availability-considerations).
@@ -200,7 +201,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
 
     To polecenie cmdlet wymaga poświadczeń *administratora globalnego* lub *administratora zabezpieczeń* dla dzierżawy platformy Azure. To polecenie cmdlet należy również uruchomić przy użyciu konta z uprawnieniami administratora lokalnego.
 
-    Po pomyślnym wykonaniu tego polecenia dla usługi serwera proxy ochrony hasłem w usłudze Azure AD zostaną pomyślnie wykonane dodatkowe wywołania, ale nie są one potrzebne.
+    Po pomyślnym wykonaniu tego polecenia dodatkowe wywołania będą się kończyły powodzeniem, ale nie są potrzebne.
 
     `Register-AzureADPasswordProtectionProxy`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują usługę Azure AD Multi-Factor Authentication ale trzeci tryb nie jest.
 

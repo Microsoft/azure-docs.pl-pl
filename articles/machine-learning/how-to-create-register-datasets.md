@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9a50d8402515cb7aafa9a1b02c8b8c18412f6618
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878209"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659396"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych
 
 Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie ponosisz żadnych dodatkowych kosztów magazynu i nie ryzykują integralności źródeł danych. Ponadto zestawy danych są opóźnieniem oceniane, co ułatwia szybkość działania przepływu pracy. Zestawy danych mogą być tworzone z magazynów danych, publicznych adresów URL i [otwartych zestawów danych platformy Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
-W przypadku środowiska z niską ilością kodu [utwórz Azure Machine Learning zestawy danych przy użyciu programu Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets)
+W przypadku środowiska z niską ilością kodu [utwórz Azure Machine Learning zestawy danych za pomocą programu Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets)
 
 Za pomocą Azure Machine Learning zestawów danych można:
 
@@ -82,7 +82,7 @@ Za pomocą TabularDatasets można określić sygnaturę czasową z kolumny w dan
 Utwórz TabularDataset za pomocą [zestawu SDK języka Python](#create-a-tabulardataset) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> Przepływy pracy AutoML wygenerowane za pośrednictwem Azure Machine Learning Studio obsługują obecnie tylko TabularDatasets. 
+> [Automatyczne](concept-automated-ml.md) przepływy pracy z użyciem ml wygenerowane za pośrednictwem Azure Machine Learning Studio obsługują obecnie tylko TabularDatasets. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Dostęp do zestawów danych w sieci wirtualnej
 
@@ -90,15 +90,20 @@ Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować ze
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>Tworzenie zestawów danych
+## <a name="create-datasets-from-datastores"></a>Tworzenie zestawów danych z magazynów danych
 
-Aby można było uzyskać dostęp do danych przez Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [usłudze Azure datastores](how-to-access-data.md) lub publicznych adresów URL sieci Web. 
+Aby dane były dostępne dla Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [Azure Machine Learning magazynach](how-to-access-data.md) danych lub adresach URL sieci Web. 
 
-Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) za pomocą zestawu SDK języka Python:
+> [!TIP] 
+> Zestawy danych można tworzyć bezpośrednio z adresów URL magazynu, w których jest oparty na tożsamościach. Dowiedz się więcej na temat [łączenia z magazynem z dostępem do danych opartych na tożsamości (wersja zapoznawcza)](how-to-identity-based-data-access.md)<br><br>
+Ta funkcja jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
 
-1. Sprawdź, czy masz `contributor` lub masz `owner` dostęp do zarejestrowanego magazynu danych platformy Azure.
+ 
+Aby utworzyć zestawy danych z magazynu danych za pomocą zestawu SDK języka Python:
 
-2. Utwórz zestaw danych, odwołując się do ścieżek w magazynie danych. Można utworzyć zestaw danych z wielu ścieżek w wielu magazynach. Nie ma żadnego sztywnego limitu liczby plików lub rozmiaru danych, z których można utworzyć zestaw danych. 
+1. Sprawdź, czy masz `contributor` lub `owner` dostęp do źródłowej usługi magazynu dla zarejestrowanego Azure Machine Learning magazynu danych. [Sprawdź uprawnienia konta magazynu w Azure Portal](../role-based-access-control/check-access.md).
+
+1. Utwórz zestaw danych, odwołując się do ścieżek w magazynie danych. Można utworzyć zestaw danych z wielu ścieżek w wielu magazynach. Nie ma żadnego sztywnego limitu liczby plików lub rozmiaru danych, z których można utworzyć zestaw danych. 
 
 > [!NOTE]
 > Dla każdej ścieżki danych do usługi magazynu wysyłane są kilka żądań, aby sprawdzić, czy wskazuje ona plik lub folder. To obciążenie może prowadzić do obniżenia wydajności lub niepowodzenia. Zestaw danych odwołujący się do jednego folderu z plikami 1000 wewnątrz jest traktowany jako odwołujący się do jednej ścieżki danych. Zalecamy utworzenie zestawu danych, do którego odwołuje się mniej niż 100 ścieżek w magazynach datastores w celu uzyskania optymalnej wydajności.
@@ -261,7 +266,7 @@ Istnieje kilka szablonów [https://github.com/Azure/azure-quickstart-templates/t
 Aby uzyskać informacje na temat korzystania z tych szablonów, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure
+## <a name="create-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych na podstawie otwartych zestawów danych platformy Azure
 
 [Otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/) mają nadzorowane zestawy danych, których można użyć do dodawania funkcji specyficznych dla scenariusza do rozwiązań uczenia maszynowego w celu uzyskania dokładniejszych modeli. Zestawy danych obejmują dane z domeny publicznej na potrzeby pogodowych, spisu, świąt, bezpieczeństwa publicznego i lokalizacji, które ułatwiają uczenie modeli uczenia maszynowego i wzbogacanie rozwiązań predykcyjnych. Otwarte zestawy danych znajdują się w chmurze w Microsoft Azure i znajdują się w zestawie SDK i Studio.
 
@@ -269,7 +274,7 @@ Dowiedz się, jak tworzyć [zestawy danych Azure Machine Learning z poziomu otwa
 
 ## <a name="train-with-datasets"></a>Szkolenie przy użyciu zestawów danych
 
-Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia modeli ML. [Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md)
+Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia modeli ML. [Dowiedz się więcej na temat uczenia się z zestawami danych](how-to-train-with-datasets.md).
 
 ## <a name="version-datasets"></a>Zestawy danych wersji
 

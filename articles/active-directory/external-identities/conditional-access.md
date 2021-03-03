@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 74bfa4987f584bbd3490bc5f4f187dee5bc1bd87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797244"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646286"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 
@@ -42,7 +42,7 @@ Na poniższym diagramie przedstawiono przepływ: ![ obraz przedstawia przepływ 
 | Krok | Opis |
 |--------------|-----------------------|
 | 1. |Użytkownik żąda dostępu do zasobu w innej dzierżawie. Zasób przekierowuje użytkownika do dzierżawy zasobów, zaufane dostawcy tożsamości.|
-| 2. | Dzierżawca zasobów identyfikuje użytkownika jako [zewnętrzną wiadomość e-mail jednorazowy kod dostępu (OTP)](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) , a następnie wysyła wiadomość E-mail z uwierzytelnianiem OTP do użytkownika.|
+| 2. | Dzierżawca zasobów identyfikuje użytkownika jako [zewnętrzną wiadomość e-mail jednorazowy kod dostępu (OTP)](./one-time-passcode.md) , a następnie wysyła wiadomość E-mail z uwierzytelnianiem OTP do użytkownika.|
 | 3. | Użytkownik pobiera uwierzytelnianie OTP i przesyła kod. Dzierżawca zasobów szacuje użytkownika w odniesieniu do zasad jego urzędu certyfikacji.
 | 4. | Po spełnieniu wszystkich zasad urzędu certyfikacji dzierżawca zasobów wystawia token i przekierowuje użytkownika do jego zasobu. |
 
@@ -64,7 +64,7 @@ Dzierżawca zasobów jest zawsze odpowiedzialny za Multi-Factor Authentication u
 
 5. Ten scenariusz działa w przypadku każdej tożsamości — usługi Azure AD lub osobistego konta Microsoft (MSA). Na przykład jeśli użytkownik w firmie Contoso uwierzytelnia się przy użyciu identyfikatora społecznościowego.
 
-6. Firma Fabrikam musi mieć wystarczającą liczbę licencji usługi Azure AD, które obsługują usługę Azure AD Multi-Factor Authentication. Użytkownik firmy Contoso używa tej licencji od firmy Fabrikam. Aby uzyskać informacje na temat licencjonowania B2B, zobacz [model rozliczeń dla tożsamości zewnętrznych usługi Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) .
+6. Firma Fabrikam musi mieć wystarczającą liczbę licencji usługi Azure AD, które obsługują usługę Azure AD Multi-Factor Authentication. Użytkownik firmy Contoso używa tej licencji od firmy Fabrikam. Aby uzyskać informacje na temat licencjonowania B2B, zobacz [model rozliczeń dla tożsamości zewnętrznych usługi Azure AD](./external-identities-pricing.md) .
 
 >[!NOTE]
 >Usługa Azure AD Multi-Factor Authentication jest wykonywana w dzierżawie zasobów, aby zapewnić przewidywalność.
@@ -115,44 +115,43 @@ Istnieją różne czynniki wpływające na zasady urzędu certyfikacji dla użyt
 
 ### <a name="device-based-conditional-access"></a>Dostęp warunkowy oparty na urządzeniach
 
-W urzędzie certyfikacji istnieje możliwość wymagania [zgodności urządzenia użytkownika z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Użytkownicy-Goście B2B mogą spełnić wymagania dotyczące zgodności tylko wtedy, gdy dzierżawca zasobów może zarządzać swoim urządzeniem. Urządzenia nie mogą być zarządzane jednocześnie przez więcej niż jedną organizację. Użytkownicy-Goście B2B nie mogą zaspokoić hybrydowego sprzężenia usługi Azure AD, ponieważ nie mają lokalnego konta usługi AD. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować lub zarejestrować swoje urządzenie w dzierżawie zasobu, a następnie zapewnić zgodność urządzenia. Użytkownik może następnie spełnić wartość kontrolki Udziel.
+W urzędzie certyfikacji istnieje możliwość wymagania [zgodności urządzenia użytkownika z usługą Azure AD](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). Użytkownicy-Goście B2B mogą spełnić wymagania dotyczące zgodności tylko wtedy, gdy dzierżawca zasobów może zarządzać swoim urządzeniem. Urządzenia nie mogą być zarządzane jednocześnie przez więcej niż jedną organizację. Użytkownicy-Goście B2B nie mogą zaspokoić hybrydowego sprzężenia usługi Azure AD, ponieważ nie mają lokalnego konta usługi AD. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować lub zarejestrować swoje urządzenie w dzierżawie zasobu, a następnie zapewnić zgodność urządzenia. Użytkownik może następnie spełnić wartość kontrolki Udziel.
 
 >[!Note]
 >Nie zaleca się wymagać urządzenia zarządzanego dla użytkowników zewnętrznych.
 
 ### <a name="mobile-application-management-policies"></a>Zasady zarządzania aplikacjami mobilnymi
 
-Urząd certyfikacji przyznaje kontrolki, takie jak **Wymagaj zatwierdzonych aplikacji klienckich** i wymaga, aby **Zasady ochrony aplikacji wymagały** zarejestrowania urządzenia w dzierżawie. Te kontrolki można stosować tylko na [urządzeniach z systemami iOS i Android](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms). Jednak żadna z tych kontrolek nie może być stosowana dla użytkowników-Gości B2B, jeśli urządzenie użytkownika jest już zarządzane przez inną organizację. Nie można zarejestrować urządzenia przenośnego w więcej niż jednej dzierżawie jednocześnie. Jeśli urządzenie przenośne jest zarządzane przez inną organizację, użytkownik zostanie zablokowany. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować swoje urządzenie w dzierżawie zasobów. Użytkownik może następnie spełnić wartość kontrolki Udziel.  
+Urząd certyfikacji przyznaje kontrolki, takie jak **Wymagaj zatwierdzonych aplikacji klienckich** i wymaga, aby **Zasady ochrony aplikacji wymagały** zarejestrowania urządzenia w dzierżawie. Te kontrolki można stosować tylko na [urządzeniach z systemami iOS i Android](../conditional-access/concept-conditional-access-conditions.md#device-platforms). Jednak żadna z tych kontrolek nie może być stosowana dla użytkowników-Gości B2B, jeśli urządzenie użytkownika jest już zarządzane przez inną organizację. Nie można zarejestrować urządzenia przenośnego w więcej niż jednej dzierżawie jednocześnie. Jeśli urządzenie przenośne jest zarządzane przez inną organizację, użytkownik zostanie zablokowany. Tylko wtedy, gdy urządzenie użytkownika-gościa jest niezarządzane, może zarejestrować swoje urządzenie w dzierżawie zasobów. Użytkownik może następnie spełnić wartość kontrolki Udziel.  
 
 >[!NOTE]
 >Nie zaleca się zadawania zasad ochrony aplikacji użytkownikom zewnętrznym.
 
 ### <a name="location-based-conditional-access"></a>Dostęp warunkowy oparty na lokalizacji
 
-[Zasady oparte na lokalizacji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) oparte na zakresach adresów IP można wymusić, jeśli zapraszana organizacja może utworzyć zakres zaufanego adresu IP, który definiuje ich organizacje partnerskie.
+[Zasady oparte na lokalizacji](../conditional-access/concept-conditional-access-conditions.md#locations) oparte na zakresach adresów IP można wymusić, jeśli zapraszana organizacja może utworzyć zakres zaufanego adresu IP, który definiuje ich organizacje partnerskie.
 
 Zasady mogą być również wymuszane na podstawie **lokalizacji geograficznych**.
 
 ### <a name="risk-based-conditional-access"></a>Dostęp warunkowy oparty na ryzyku
 
-[Zasady dotyczące ryzyka związanego z logowaniem](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) są wymuszane, jeśli użytkownik Gość B2B spełni kontrolę dotacji. Organizacja może na przykład wymagać, aby usługa Azure AD Multi-Factor Authentication w celu zapewnienia średniego lub wysokiego ryzyka związanego z logowaniem. Jeśli jednak użytkownik nie zarejestrował wcześniej usługi Azure AD Multi-Factor Authentication w dzierżawie zasobów, zostanie on zablokowany. Jest to konieczne, aby uniemożliwić złośliwym użytkownikom rejestrowanie własnych poświadczeń usługi Azure AD Multi-Factor Authentication w przypadku naruszenia hasła przez uprawnionych użytkowników.
+[Zasady dotyczące ryzyka związanego z logowaniem](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) są wymuszane, jeśli użytkownik Gość B2B spełni kontrolę dotacji. Organizacja może na przykład wymagać, aby usługa Azure AD Multi-Factor Authentication w celu zapewnienia średniego lub wysokiego ryzyka związanego z logowaniem. Jeśli jednak użytkownik nie zarejestrował wcześniej usługi Azure AD Multi-Factor Authentication w dzierżawie zasobów, zostanie on zablokowany. Jest to konieczne, aby uniemożliwić złośliwym użytkownikom rejestrowanie własnych poświadczeń usługi Azure AD Multi-Factor Authentication w przypadku naruszenia hasła przez uprawnionych użytkowników.
 
-Nie można jednak rozpoznać [zasad ryzyka użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) w dzierżawie zasobu. Na przykład jeśli wymagana jest zmiana hasła dla użytkowników-Gości o wysokim ryzyku, będą one blokowane z powodu niezdolności do resetowania haseł w katalogu zasobów.
+Nie można jednak rozpoznać [zasad ryzyka użytkownika](../conditional-access/concept-conditional-access-conditions.md#user-risk) w dzierżawie zasobu. Na przykład jeśli wymagana jest zmiana hasła dla użytkowników-Gości o wysokim ryzyku, będą one blokowane z powodu niezdolności do resetowania haseł w katalogu zasobów.
 
 ### <a name="conditional-access-client-apps-condition"></a>Warunek aplikacji klienta dostępu warunkowego
 
-[Warunki aplikacji klienckich](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika. Można na przykład uniemożliwić użytkownikom-gościom używanie starszych protokołów uwierzytelniania.
+[Warunki aplikacji klienckich](../conditional-access/concept-conditional-access-conditions.md#client-apps) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika. Można na przykład uniemożliwić użytkownikom-gościom używanie starszych protokołów uwierzytelniania.
 
 ### <a name="conditional-access-session-controls"></a>Kontrolki sesji dostępu warunkowego
 
-[Kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika.
+[Kontrolki sesji](../conditional-access/concept-conditional-access-session.md) działają tak samo dla użytkowników Gości B2B, jak w przypadku każdego innego typu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
-- [Czym jest współpraca B2B w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
-- [Usługa Identity Protection i użytkownicy B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Czym jest współpraca B2B w usłudze Azure AD?](./what-is-b2b.md)
+- [Usługa Identity Protection i użytkownicy B2B](../identity-protection/concept-identity-protection-b2b.md)
 - [Cennik tożsamości zewnętrznych](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Często zadawane pytania](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
-
+- [Często zadawane pytania](./faq.md)

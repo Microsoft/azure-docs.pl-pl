@@ -10,13 +10,13 @@ ms.custom: how-to, automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 06/16/2020
-ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/23/2021
+ms.openlocfilehash: add84c2cb53a362fc78fc50a6df13b4976e3868d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599067"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661039"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i krzyżowego sprawdzania poprawności w ramach zautomatyzowanego uczenia maszynowego
 
@@ -26,7 +26,7 @@ W Azure Machine Learning, gdy używasz zautomatyzowanej ML do kompilowania wielu
 
 Automatyczne eksperymenty w MILILITRach wykonują walidację modelu automatycznie. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
-Aby zapoznać się z niską ilością kodu lub bez kodu, zobacz [Tworzenie zautomatyzowanych eksperymentów uczenia maszynowego w programie Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
+Aby zapoznać się z niską ilością kodu lub bez kodu, zobacz [Tworzenie zautomatyzowanych eksperymentów uczenia maszynowego w programie Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
 
 > [!NOTE]
 > W programie Studio są obecnie obsługiwane dane szkoleniowe i weryfikacyjne oraz opcje sprawdzania poprawności, ale nie obsługują one określania poszczególnych plików danych dla zestawu weryfikacyjnego. 
@@ -73,6 +73,9 @@ Jeśli nie określisz jawnie `validation_data` `n_cross_validation` parametru lu
 
 W takim przypadku można rozpocząć od pojedynczego pliku danych i podzielić go na dane szkoleniowe i zestawy danych sprawdzania poprawności lub podać osobny plik danych dla zestawu walidacji. W obu przypadkach `validation_data` parametr w `AutoMLConfig` obiekcie przypisuje dane, które mają być używane jako zestaw walidacji. Ten parametr akceptuje tylko zestawy danych w postaci [Azure Machine Learning DataSet](how-to-create-register-datasets.md) lub Pandas Dataframe.   
 
+> [!NOTE]
+> Ten `validation_size` parametr nie jest obsługiwany w scenariuszach prognozowania.
+
 Poniższy przykład kodu jawnie definiuje, która część dostarczonych danych jest używana do `dataset` szkolenia i weryfikacji.
 
 ```python
@@ -93,7 +96,12 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Podaj rozmiar zestawu walidacji
 
-W takim przypadku dla eksperymentu jest dostarczany tylko jeden zestaw danych. Oznacza to, że `validation_data` parametr **nie** jest określony, a podany zestaw danych jest przypisany do  `training_data` parametru.  W `AutoMLConfig` obiekcie można ustawić `validation_size` parametr, aby wytrzymać część danych szkoleniowych na potrzeby walidacji. Oznacza to, że zestaw walidacji zostanie podzielony przez AutoML z `training_data` podanego początkowego. Ta wartość powinna należeć do przedziału od 0,0 do 1,0 (na przykład 0,2 oznacza, że 20% danych jest przechowywanych na potrzeby sprawdzania poprawności danych).
+W takim przypadku dla eksperymentu jest dostarczany tylko jeden zestaw danych. Oznacza to, że `validation_data` parametr **nie** jest określony, a podany zestaw danych jest przypisany do  `training_data` parametru.  
+
+W `AutoMLConfig` obiekcie można ustawić `validation_size` parametr, aby wytrzymać część danych szkoleniowych na potrzeby walidacji. Oznacza to, że zestaw walidacji zostanie podzielony przez zautomatyzowaną ML z `training_data` podanego początkowego. Ta wartość powinna należeć do przedziału od 0,0 do 1,0 (na przykład 0,2 oznacza, że 20% danych jest przechowywanych na potrzeby sprawdzania poprawności danych).
+
+> [!NOTE]
+> Ten `validation_size` parametr nie jest obsługiwany w scenariuszach prognozowania. 
 
 Zobacz następujący przykład kodu:
 
@@ -111,10 +119,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-## <a name="set-the-number-of-cross-validations"></a>Ustaw liczbę operacji krzyżowych
+## <a name="k-fold-cross-validation"></a>K — złożenie krzyżowego sprawdzania poprawności
 
-Aby wykonać weryfikację krzyżową, Dołącz `n_cross_validations` parametr i ustaw go na wartość. Ten parametr określa liczbę operacji sprawdzania krzyżowego do wykonania na podstawie tej samej liczby zagięć.
+Aby wykonać krzyżowe sprawdzanie poprawności, Dołącz `n_cross_validations` parametr i ustaw go na wartość. Ten parametr określa liczbę operacji sprawdzania krzyżowego do wykonania na podstawie tej samej liczby zagięć.
 
+> [!NOTE]
+> `n_cross_validations`Parametr nie jest obsługiwany w scenariuszach klasyfikacji, które używają głębokiej sieci neuronowych.
+ 
 W poniższym kodzie zdefiniowane są pięć założenia na potrzeby krzyżowego sprawdzania poprawności. W związku z tym pięć różnych szkoleń, każde szkolenie korzystające z 4/5 danych i każde sprawdzanie poprawności przy użyciu 1/5 danych z innym wstrzymanianym zgięciem.
 
 W związku z tym metryki są obliczane z uwzględnieniem średniej z pięciu metryk walidacji.
@@ -129,6 +140,31 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                              primary_metric = 'AUC_weighted',
                              training_data = dataset,
                              n_cross_validations = 5
+                             label_column_name = 'Class'
+                            )
+```
+## <a name="monte-carlo-cross-validation"></a>Monte Carlo, krzyżowe sprawdzanie poprawności
+
+Aby wykonać Monte Carlo, należy uwzględnić oba `validation_size` `n_cross_validations` Parametry w `AutoMLConfig` obiekcie. 
+
+W przypadku Monte Carlo krzyżowego sprawdzania poprawności, zautomatyzowanej ML ustawia część danych szkoleniowych określonych przez `validation_size` parametr do walidacji, a następnie przypisuje resztę danych do szkolenia. Ten proces jest następnie powtarzany na podstawie wartości określonej w `n_cross_validations` parametrze, która generuje nowe rozbicie i sprawdzanie poprawności, losowo, za każdym razem.
+
+> [!NOTE]
+> Monte Carloe krzyżowe nie jest obsługiwane w scenariuszach prognozowania.
+
+Poniżej znajduje się kod, 7 założenia w celu krzyżowego sprawdzania poprawności oraz 20% danych szkoleniowych do weryfikacji. W związku z tym, 7 różnych szkoleń, każde uczenie używa 80% danych, a każde sprawdzanie poprawności używa 20% danych z różnymi wstrzymaniami.
+
+```python
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+
+dataset = Dataset.Tabular.from_delimited_files(data)
+
+automl_config = AutoMLConfig(compute_target = aml_remote_compute,
+                             task = 'classification',
+                             primary_metric = 'AUC_weighted',
+                             training_data = dataset,
+                             n_cross_validations = 7
+                             validation_size = 0.2,
                              label_column_name = 'Class'
                             )
 ```

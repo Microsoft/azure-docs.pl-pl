@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 41a63d7d0c5844e7837be44b359b6d04a9009eb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095863"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651829"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
@@ -99,7 +99,7 @@ Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator
 >* Użytkownicy niebędący administratorami, w tym członkowie kierownictwa, prawnik prawny i pracownicy działu kadr, którzy mogą mieć dostęp do poufnych lub prywatnych informacji.
 
 > [!IMPORTANT]
-> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) polecenia cmdlet.
+> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) polecenia cmdlet.
 
 ### <a name="authentication-policy-administrator"></a>[Administrator zasad uwierzytelniania](#authentication-policy-administrator-permissions)
 
@@ -406,7 +406,7 @@ Rola [administrator zasad uwierzytelniania](#authentication-policy-administrator
 
 
 > [!IMPORTANT]
-> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) polecenia cmdlet.
+> Ta rola nie jest obecnie w stanie zarządzać usługą MFA dla poszczególnych użytkowników w starszym portalu zarządzania usługi MFA. Te same funkcje można wykonać przy użyciu modułu Azure AD PowerShell [Set-MsolUser](/powershell/module/msonline/set-msoluser) polecenia cmdlet.
 
 ### <a name="privileged-role-administrator"></a>[Administrator ról uprzywilejowanych](#privileged-role-administrator-permissions)
 

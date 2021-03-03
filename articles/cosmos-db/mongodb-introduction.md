@@ -4,15 +4,15 @@ description: Dowiedz się, jak można używać usługi Azure Cosmos DB do przech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: ab335c8cc682f6b33dcb30509d682186a178c676
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861066"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657999"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,9 +24,9 @@ ms.locfileid: "97861066"
 
 ## <a name="wire-protocol-compatibility"></a>Zgodność z protokołem przewodowym
 
-Azure Cosmos DB implementuje protokół przewodu dla MongoDB. Ta implementacja zapewnia przezroczystą zgodność z natywnymi zestawami SDK klienta MongoDB, sterownikami i narzędziami. Azure Cosmos DB nie hostuje aparatu bazy danych MongoDB. Szczegóły obsługiwanych funkcji według MongoDB można znaleźć tutaj: 
-- [Interfejs API Azure Cosmos DB dla aparatu Mongo DB w wersji 3,6](mongodb-feature-support-36.md)
-- [Interfejs API Azure Cosmos DB dla aparatu Mongo DB w wersji 3,2](mongodb-feature-support.md)
+Azure Cosmos DB implementuje protokół przewodu dla MongoDB. Ta implementacja zapewnia przezroczystą zgodność z natywnymi zestawami SDK klienta MongoDB, sterownikami i narzędziami. Azure Cosmos DB hostuje aparat bazy danych MongoDB. Szczegóły obsługiwanych funkcji według MongoDB można znaleźć tutaj: 
+- [Interfejs API Azure Cosmos DB dla Mongo DB w wersji 4,0](mongodb-feature-support-40.md)
+- [Interfejs API Azure Cosmos DB dla Mongo DB w wersji 3,6](mongodb-feature-support-36.md)
 
 Domyślnie nowe konta utworzone przy użyciu interfejsu API Azure Cosmos DB dla MongoDB są zgodne z wersją 3,6 protokołu MongoDB. Każdy sterownik klienta MongoDB, który rozumie tę wersję protokołu, powinien mieć możliwość natywnego połączenia z Cosmos DB.
 

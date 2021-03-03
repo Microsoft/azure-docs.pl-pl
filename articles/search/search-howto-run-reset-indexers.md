@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361251"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667667"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Jak uruchamiać lub resetować indeksatory, umiejętności lub dokumenty
 
@@ -101,7 +101,7 @@ Jeśli nie określono żadnych umiejętności, cały zestawu umiejętności jest
 > [!IMPORTANT] 
 > [Resetowanie dokumentów](/rest/api/searchservice/preview-api/reset-documents) jest w publicznej wersji zapoznawczej, która jest dostępna tylko w wersji zapoznawczej interfejsu API REST. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Interfejs API resetowania dokumentów](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) akceptuje listę kluczy dokumentów, dzięki czemu można odświeżać określone dokumenty. Jeśli ta wartość jest określona, parametry resetowania staną się jedynym wyznacznikami przetworzonych, niezależnie od innych zmian w danych źródłowych. Na przykład w przypadku dodania lub zaktualizowania 20 obiektów BLOB od momentu ostatniego uruchomienia indeksatora, ale tylko jeden dokument zostanie zresetowany tylko wtedy, gdy tylko jeden dokument zostanie przetworzony.
+[Interfejs API resetowania dokumentów](/rest/api/searchservice/preview-api/reset-documents) akceptuje listę kluczy dokumentów, dzięki czemu można odświeżać określone dokumenty. Jeśli ta wartość jest określona, parametry resetowania staną się jedynym wyznacznikami przetworzonych, niezależnie od innych zmian w danych źródłowych. Na przykład w przypadku dodania lub zaktualizowania 20 obiektów BLOB od momentu ostatniego uruchomienia indeksatora, ale tylko jeden dokument zostanie zresetowany tylko wtedy, gdy tylko jeden dokument zostanie przetworzony.
 
 Dla poszczególnych dokumentów wszystkie pola w tym dokumencie wyszukiwania są odświeżane przy użyciu wartości ze źródła danych. Nie można wybierać i wybierać pól do odświeżenia. 
 

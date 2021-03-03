@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628768"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668303"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opcje dostępności maszyn wirtualnych na platformie Azure
 
@@ -52,6 +52,10 @@ Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają tworzenie i 
 **Domeny błędów i domeny aktualizacji**
 
 Zestawy skalowania maszyn wirtualnych upraszczają projektowanie pod kątem wysokiej dostępności przez wyrównywanie domen błędów i aktualizowanie domen. W przypadku zestawu skalowania będzie konieczne tylko zdefiniowanie domen błędów. Liczba domen błędów dostępnych dla zestawów skalowania może różnić się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](./manage-availability.md).
+
+**Tryby aranżacji dla zestawów skalowania**
+
+Tryby aranżacji zestawów skalowania maszyn wirtualnych umożliwiają większą kontrolę nad sposobem, w jaki wystąpienia maszyn wirtualnych są zarządzane przez zestaw skalowania. Na zestawie skalowania można włączyć jednolity lub elastyczny tryb aranżacji. Jednolita aranżacja jest zoptymalizowana pod kątem obciążeń bezstanowych na dużą skalę z identycznymi wystąpieniami. Elastyczna aranżacja (wersja zapoznawcza) jest przeznaczona do wysokiej dostępności na dużą skalę z identycznymi lub wieloma typami maszyn wirtualnych. Dowiedz się więcej o tych [trybach aranżacji](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) i sposobach ich włączania.
 
 
 ## <a name="availability-sets"></a>Zestawy dostępności

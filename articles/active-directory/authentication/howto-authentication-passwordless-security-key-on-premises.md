@@ -1,29 +1,26 @@
 ---
-title: Logowanie przy użyciu klucza zabezpieczeń z hasłem do zasobów lokalnych (wersja zapoznawcza) — Azure Active Directory
-description: Dowiedz się, jak włączyć logowanie za pomocą klucza zabezpieczeń bezhasło do zasobów lokalnych przy użyciu Azure Active Directory (wersja zapoznawcza)
+title: Logowanie przy użyciu klucza zabezpieczeń z hasłem do zasobów lokalnych — Azure Active Directory
+description: Dowiedz się, jak włączyć logowanie za pomocą klucza zabezpieczeń bezhasło do zasobów lokalnych przy użyciu Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1459442f7d99d1de88a685eed34493da530c1a4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743483"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647476"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory (wersja zapoznawcza)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory 
 
 Ten dokument koncentruje się na włączaniu uwierzytelniania bez hasła do zasobów lokalnych w środowiskach z **dołączonymi usługami Azure AD** i **hybrydowymi** urządzeniami z systemem Windows 10 przyłączonymi do usługi Azure AD. Ta funkcja zapewnia bezproblemowe logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy zabezpieczeń zgodnych z firmą Microsoft.
-
-> [!NOTE]
-> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>Logowanie jednokrotne do zasobów lokalnych przy użyciu kluczy FIDO2
 
@@ -42,7 +39,7 @@ Obiekt serwera Kerberos usługi Azure AD jest tworzony w Active Directory lokaln
 
 ## <a name="requirements"></a>Wymagania
 
-Przed wykonaniem kroków opisanych w tym artykule organizacje muszą wykonać kroki, aby [włączyć klucz zabezpieczeń bezhasła do urządzeń z systemem Windows 10 (wersja zapoznawcza)](howto-authentication-passwordless-security-key.md) .
+Przed wykonaniem kroków opisanych w tym artykule organizacje muszą wykonać kroki, aby [włączyć klucz zabezpieczeń bezhasła do urządzeń z systemem Windows 10](howto-authentication-passwordless-security-key.md) .
 
 Organizacje muszą również spełniać następujące wymagania dotyczące oprogramowania.
 
@@ -156,13 +153,13 @@ Logowanie za pomocą FIDO jest blokowane, jeśli hasło wygasło. Oczekiwana jes
 
 ## <a name="troubleshooting-and-feedback"></a>Rozwiązywanie problemów i opinie
 
-Jeśli chcesz udostępnić opinię lub napotkać problemy podczas wyświetlania podglądu tej funkcji, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
+Jeśli chcesz udostępnić opinię lub napotkać problemy związane z tą funkcją, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
 
 1. Uruchom **centrum opinii** i upewnij się, że użytkownik jest zalogowany.
 1. Prześlij opinię poniżej następującej kategoryzacji:
    - Kategoria: zabezpieczenia i prywatność
    - Podkategoria: FIDO
-1. Aby przechwytywać dzienniki, użyj opcji, aby **ponownie utworzyć mój problem**
+1. Aby przechwytywać dzienniki, użyj opcji w celu **ponownego utworzenia mojego problemu**.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -190,7 +187,7 @@ Klucze z Azure Portal można usunąć, przechodząc do strony **informacje zabez
 
 W przypadku czystej instalacji hybrydowej maszyny połączonej z usługą Azure AD po przyłączeniu do domeny i ponownym uruchomieniu należy zalogować się przy użyciu hasła i poczekać na synchronizację zasad, zanim będzie możliwe zalogowanie się przy użyciu usługi FIDO.
 
-- Sprawdź bieżący stan, wpisując `dsregcmd /status` w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak *YES* i *DomainJoined* .
+- Sprawdź bieżący stan, wpisując `dsregcmd /status` w oknie wiersza polecenia i sprawdź, czy są wyświetlane zarówno *AzureAdJoined* , jak i *DomainJoined* .
 - To opóźnienie jest znanym ograniczeniem dla urządzeń przyłączonych do domeny i nie jest specyficzne dla FIDO.
 
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Nie mogę pobrać logowania jednokrotnego do zasobu sieciowego NTLM po zalogowaniu się za pomocą programu FIDO i wyświetleniu monitu o poświadczenia

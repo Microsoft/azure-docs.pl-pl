@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: cf1e71d67424258ccae6794f28d37399cd68996e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503610"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654329"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu bramy VMware Horizon — ujednolicony dostęp
 
@@ -39,7 +39,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Oprogramowanie VMware Horizon — ujednolicona Brama dostępu obsługuje logowanie jednokrotne **z użyciem SP i dostawcy tożsamości**
 
-## <a name="adding-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Dodawanie do programu VMware Horizon — ujednoliconej bramy dostępu z galerii
+## <a name="add-vmware-horizon---unified-access-gateway-from-the-gallery"></a>Dodawanie programu VMware Horizon — ujednolicona Brama dostępu z galerii
 
 Aby skonfigurować integrację z usługą Azure AD przy użyciu zintegrowanej bramy dostępu opartego na oprogramowaniu VMware, należy dodać do listy zarządzanych aplikacji SaaS usługę VMware Horizon — ujednoliconą bramę dostępu.
 
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **bramy dostępu opartej na oprogramowaniu VMware** , Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -145,4 +145,4 @@ Możesz również użyć panelu dostępu programu Microsoft, aby przetestować a
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu programu VMware Horizon — ujednolicona Brama dostępu można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu programu VMware Horizon — ujednolicona Brama dostępu można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

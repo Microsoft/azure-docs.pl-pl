@@ -2,18 +2,19 @@
 title: Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 19c na maszynie wirtualnej z systemem Linux przy użyciu systemu Azure Backup
 description: Dowiedz się, jak utworzyć kopię zapasową i odzyskać bazę danych Oracle Database 19c przy użyciu usługi Azure Backup.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806413"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673886"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Tworzenie kopii zapasowej i odzyskiwanie bazy danych Oracle Database 19c na maszynie wirtualnej z systemem Linux przy użyciu systemu Azure Backup
 
@@ -199,13 +200,13 @@ W tym kroku przyjęto założenie, że masz wystąpienie Oracle (*test*), które
      RMAN> backup as compressed backupset database plus archivelog;
      ```
 
-## <a name="using-azure-backup"></a>Korzystanie z usługi Azure Backup
+## <a name="using-azure-backup-preview"></a>Korzystanie z Azure Backup (wersja zapoznawcza)
 
 Usługa Azure Backup udostępnia proste, bezpieczne i ekonomiczne rozwiązania do wykonywania kopii zapasowych danych i odzyskiwania ich z chmury platformy Microsoft Azure. usługa Azure Backup umożliwia wykonywanie niezależnych i odizolowanych kopii zapasowych, co chroni przed przypadkowym zniszczeniem oryginalnych danych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania. Konfiguracja i skalowalność są proste, kopie zapasowe są optymalizowane i można je łatwo przywrócić w razie potrzeby.
 
-Usługa Azure Backup udostępnia [platformę](../../../backup/backup-azure-linux-app-consistent.md) do osiągnięcia spójności aplikacji podczas tworzenia kopii zapasowych maszyn wirtualnych z systemami Windows i Linux dla różnych aplikacji, takich jak Oracle, MySQL, Mongo DB, SAP HANA i PostGreSQL. Obejmuje to Wywoływanie skryptu wstępnego (w celu przełączenia w tryb spoczynku) przed wykonaniem migawki dysków i wywołaniem skryptu po zakończeniu wykonywania operacji po wykonaniu migawki, aby przywrócić aplikacje do trybu normalnego. Podczas gdy przykładowe skrypty wstępne i skrypty są udostępniane w serwisie GitHub, jego zadaniem jest tworzenie i obsługa tych skryptów. 
+Usługa Azure Backup udostępnia [platformę](../../../backup/backup-azure-linux-app-consistent.md) do osiągnięcia spójności aplikacji podczas tworzenia kopii zapasowych maszyn wirtualnych z systemami Windows i Linux dla różnych aplikacji, takich jak Oracle, MySQL, Mongo DB i PostGreSQL. Obejmuje to Wywoływanie skryptu wstępnego (w celu przełączenia w tryb spoczynku) przed wykonaniem migawki dysków i wywołaniem skryptu po zakończeniu wykonywania operacji po wykonaniu migawki, aby przywrócić aplikacje do trybu normalnego. Podczas gdy przykładowe skrypty wstępne i skrypty są udostępniane w serwisie GitHub, jego zadaniem jest tworzenie i obsługa tych skryptów.
 
-Teraz Azure Backup zapewnia ulepszone środowisko skryptów i skryptów po skrypcie, gdzie usługa Azure Backup udostępnia spakowane skrypty wstępne i skrypty dla wybranych aplikacji. Azure Backup użytkownicy muszą mieć nazwę aplikacji, a następnie kopia zapasowa maszyny wirtualnej platformy Azure automatycznie wywoła odpowiednie skrypty wstępne. Spakowane przed skryptami i po nim skrypty będą obsługiwane przez zespół Azure Backup i dlatego użytkownicy będą mogli zapewnić pomoc techniczną, własność i ważność tych skryptów. Obecnie obsługiwane aplikacje dla rozszerzonej struktury to *Oracle* i *MySQL*.
+Teraz Azure Backup zapewnia ulepszone środowisko skryptów i skryptów po skrypcie (**który jest obecnie dostępny w wersji zapoznawczej**), gdzie usługa Azure Backup udostępnia spakowane skrypty wstępne i skrypty dla wybranych aplikacji. Azure Backup użytkownicy muszą mieć nazwę aplikacji, a następnie kopia zapasowa maszyny wirtualnej platformy Azure automatycznie wywoła odpowiednie skrypty wstępne. Spakowane przed skryptami i po nim skrypty będą obsługiwane przez zespół Azure Backup i dlatego użytkownicy będą mogli zapewnić pomoc techniczną, własność i ważność tych skryptów. Obecnie obsługiwane aplikacje dla rozszerzonej struktury to *Oracle* i *MySQL*.
 
 W tej sekcji zostanie użyta Azure Backup ulepszona platforma do tworzenia migawek spójnych na poziomie aplikacji dla uruchomionej maszyny wirtualnej i bazy danych Oracle. Baza danych zostanie umieszczona w trybie tworzenia kopii zapasowej, co pozwala na wypróbowanie bezczynnościowej kopii zapasowej online, gdy Azure Backup wykonuje migawkę dysków maszyny wirtualnej. Migawka będzie pełną kopią magazynu, a nie przyrostową lub kopią na migawce zapisu, więc jest efektywnym czynnikiem do przywrócenia bazy danych z programu. Zaletą Azure Backup korzystania z migawek spójnych na poziomie aplikacji jest to, że bardzo szybkie nie zależą od dużej ilości bazy danych, a migawka może być używana do operacji przywracania, gdy tylko zostanie wykonana, bez konieczności oczekiwania na przekazanie jej do magazynu Recovery Services.
 
@@ -314,7 +315,7 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    sudo su -
    ```
 
-2. Utwórz katalog roboczy kopii zapasowej spójnej na poziomie aplikacji:
+2. Sprawdź folder "etc/Azure". Jeśli ta wartość nie istnieje, Utwórz katalog roboczy kopii zapasowej spójnej na poziomie aplikacji:
 
    ```bash
    if [ ! -d "/etc/azure" ]; then
@@ -322,7 +323,7 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    fi
    ```
 
-3. Utwórz plik w katalogu */etc/Azure* o nazwie obciążeni *. conf* z następującą zawartością, która musi rozpoczynać się od `[workload]` . Następujące polecenie spowoduje utworzenie pliku i wypełnienie jego zawartości:
+3. Sprawdź "obciążenie. conf" w folderze. Jeśli nie istnieje, Utwórz plik w katalogu */etc/Azure* o nazwie obciążeni *. conf* z następującą zawartością, która musi rozpoczynać się od `[workload]` . Jeśli plik już istnieje, po prostu Edytuj pola tak, aby odpowiadały następującej zawartości. W przeciwnym razie następujące polecenie utworzy plik i wypełni zawartość:
 
    ```bash
    echo "[workload]
@@ -330,14 +331,6 @@ Aby użyć Azure Backup do utworzenia kopii zapasowej bazy danych programu, wyko
    command_path = /u01/app/oracle/product/19.0.0/dbhome_1/bin/
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
-   ```
-
-4. Pobierz skrypty preOracleMaster. SQL i postOracleMaster. SQL z [repozytorium GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) i skopiuj je do katalogu */etc/Azure* .
-
-5. Zmień uprawnienia do pliku
-
-```bash
-   chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
 ### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Wyzwalanie kopii zapasowej maszyny wirtualnej spójnej na poziomie aplikacji
@@ -970,4 +963,4 @@ az group delete --name rg-oracle
 
 [Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności](../../linux/create-cli-complete.md)
 
-[Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](../../linux/cli-samples.md)
+[Eksplorowanie przykładów interfejsu wiersza polecenia platformy Azure wdrożenia maszyny wirtualnej](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

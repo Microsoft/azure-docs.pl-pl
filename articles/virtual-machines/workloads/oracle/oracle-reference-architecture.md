@@ -2,18 +2,18 @@
 title: Architektura referencyjna dla baz danych Oracle na platformie Azure | Microsoft Docs
 description: Odwołuje się do architektur do uruchamiania Oracle Database Enterprise Edition baz danych w Microsoft Azure Virtual Machines.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8257c58c4185172218b833c3d4988b4db661a97a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882301"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669891"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 

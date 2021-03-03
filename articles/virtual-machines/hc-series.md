@@ -3,17 +3,17 @@ title: Seria HC Virtual Machines platformy Azure
 description: Specyfikacje dotyczące maszyn wirtualnych z serii HC.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 38020376f9d86fb074bd6d9c09e3d16e899c4a6f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b9f25627f0969d4dbcb2b639bd6f21ffbf14f3fe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096902"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671261"
 ---
 # <a name="hc-series"></a>Seria HC
 

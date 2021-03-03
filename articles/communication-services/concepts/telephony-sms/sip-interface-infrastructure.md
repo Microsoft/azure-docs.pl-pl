@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b258f2ef82e74073e3e4f1aa61b036d423c30300
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100422485"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659260"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Wymagania dotyczące infrastruktury interfejsu SIP 
 
@@ -31,7 +31,7 @@ Wymagania dotyczące infrastruktury dla obsługiwanych interfejsów SBCs, domen 
 |Kontroler graniczny sesji (SBC)|Obsługiwana wartość SBC. Aby uzyskać więcej informacji, zobacz temat [obsługiwane SBCs](#supported-session-border-controllers-sbcs).|
 |Magistrale telefonii połączone z usługą SBC|Co najmniej jeden z magistrali telefonii połączonej z usługą SBC. Na jednym końcu usługa SBC nawiązuje połączenie z usługą Azure Communications za pośrednictwem interfejsu SIP. Firma SBC może również łączyć się z jednostkami telefonii innych firm, takimi jak PBXs, analogowe karty telefoniczne itd. Każda opcja łączności PSTN, która jest połączona z usługą SBC, będzie działała. (W celu skonfigurowania łączy sieci PSTN do usługi SBC należy zapoznać się z dostawcami usług SBC lub dostawcami magistrali).|
 |Subskrypcja platformy Azure|Subskrypcja platformy Azure używana do tworzenia zasobów ACS oraz konfiguracja i połączenie z usługą SBC.|
-|Token dostępu do usług komunikacyjnych|Aby wykonać wywołania, wymagany jest prawidłowy token dostępu z `voip` zakresem. Zobacz [tokeny dostępu](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
+|Token dostępu do usług komunikacyjnych|Aby wykonać wywołania, wymagany jest prawidłowy token dostępu z `voip` zakresem. Zobacz [tokeny dostępu](../identity-model.md#access-tokens)|
 |Publiczny adres IP dla usługi SBC|Publiczny adres IP, którego można użyć do nawiązania połączenia z usługą SBC. Na podstawie typu SBC można użyć translatora adresów sieciowych.|
 |W pełni kwalifikowana nazwa domeny (FQDN) dla usługi SBC|Nazwa FQDN dla SBC, gdzie część domeny FQDN nie jest zgodna z zarejestrowanymi domenami w organizacji Microsoft 365 lub Office 365. Aby uzyskać więcej informacji, zobacz [nazwy domen SBC](#sbc-domain-names).|
 |Publiczny wpis DNS dla SBC |Publiczny wpis DNS mapowanie nazwy FQDN usługi SBC na publiczny adres IP. |
@@ -187,7 +187,7 @@ Na etapie rozgałęzienia między procesorem multimediów w chmurze i aplikacją
 
 ## <a name="supported-session-border-controllers-sbcs"></a>Obsługiwane kontrolery przygraniczne sesji (SBCs)
 
-Certyfikacja jest w toku. W tym czasie klienci mogą korzystać z [kontrolerów granic sesji certyfikowanych przez zespoły](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers). 
+Certyfikacja jest w toku. W tym czasie klienci mogą korzystać z [kontrolerów granic sesji certyfikowanych przez zespoły](/MicrosoftTeams/direct-routing-border-controllers). 
 
 ## <a name="next-steps"></a>Następne kroki
 

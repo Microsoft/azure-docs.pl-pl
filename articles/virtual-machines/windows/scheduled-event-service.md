@@ -3,16 +3,16 @@ title: Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych na platformie
 description: Dowiedz się, jak monitorować maszyny wirtualne platformy Azure pod kątem zaplanowanych zdarzeń.
 author: mysarn
 ms.service: virtual-machines
-ms.subservice: monitoring
+ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: a5e280fb562bf9bb36d0d729e5f494bd23776ec7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 866522da162d22621bd37bf9d2f2fa6838206e17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570122"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674692"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych platformy Azure
 

@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696493"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648088"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pakietu dla automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w pakietach OneWorld i Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do pakietu.
 
 > [!WARNING]
-> Ta integracja aprowizacji przestanie działać w lutym 2020 w związku ze zmianą interfejsów API pakietu, które są używane przez firmę Microsoft do udostępniania użytkownikom w pakiecie. W wyniku tego zostanie wkrótce usunięta funkcja aprowizacji aplikacji sieci w Galerii Azure Active Directory Enterprise App Gallery. Funkcja logowania jednokrotnego aplikacji pozostanie nienaruszona. Firma Microsoft współpracuje z pakietem servicesuite w celu utworzenia nowej, nowoczesnej integracji aprowizacji, ale nie ma obecnie żadnej EZT dotyczącej sytuacji, w której ta wartość zostanie zakończona.
+> Ta integracja aprowizacji przestanie działać wraz z publikacją aktualizacji wiosennej 2021 programu Work Suite ze względu na zmianę w interfejsach API pakietu, które są używane przez firmę Microsoft do aprowizacji użytkowników w pakiecie.  Ta aktualizacja nawiąże klientów z pakietem servicesuite od lutego do kwietnia 2021. W wyniku tego zostanie wkrótce usunięta funkcja aprowizacji aplikacji sieci w Galerii Azure Active Directory Enterprise App Gallery. Funkcja logowania jednokrotnego aplikacji pozostanie nienaruszona. Firma Microsoft współpracuje z pakietem servicesuite w celu utworzenia nowej, nowoczesnej integracji aprowizacji, ale nie ma obecnie żadnej EZT dotyczącej sytuacji, w której ta wartość zostanie zakończona.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

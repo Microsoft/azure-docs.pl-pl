@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879800"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660988"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: Przewidywanie ceny samochodów w projektancie
 
@@ -176,7 +176,7 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 
     Potok powinien teraz wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Zaznacz kolumnę":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Zaznacz kolumnę":::
 
 ## <a name="train-a-machine-learning-model"></a>Trenowanie modelu uczenia maszynowego
 
@@ -224,7 +224,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     > [!IMPORTANT]
     > Upewnij się, że lewe porty wyjściowe **danych dzielą** łączą się z **modelem uczenia**. Lewy port zawiera zestaw szkoleniowy. Prawidłowy port zawiera zestaw testów.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł podziału danych łączy się z odpowiednim portem modelu uczenia.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł podziału danych łączy się z odpowiednim portem modelu uczenia.":::
 
 1. Wybierz moduł **Train Model** (Trenowanie modelu).
 
@@ -239,7 +239,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
 
     Potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.":::
 
 ### <a name="add-the-score-model-module"></a>Dodawanie modułu modelu oceny
 
@@ -259,7 +259,7 @@ Użyj modułu **oceny modelu** , aby oszacować, jak dobrze Model przedstawia te
 
     Końcowy potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku.":::
 
 ## <a name="submit-the-pipeline"></a>Prześlij potok
 
@@ -288,7 +288,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami":::
 
 ### <a name="evaluate-models"></a>Oceń modele
 

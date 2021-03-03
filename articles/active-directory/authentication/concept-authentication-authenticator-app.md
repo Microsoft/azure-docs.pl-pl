@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7309d9d32eba5cae350bbe8a1df325dfb2ab0c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744367"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648802"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metody uwierzytelniania w aplikacji Azure Active Directory Microsoft Authenticator
 
@@ -23,7 +23,7 @@ Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta 
 
 Użytkownicy mogą otrzymać powiadomienie za pomocą aplikacji mobilnej do zatwierdzenia lub odmowy lub użyć aplikacji Authenticator do wygenerowania kodu weryfikacyjnego OATH, który można wprowadzić w interfejsie logowania. Jeśli włączysz powiadomienie i kod weryfikacyjny, użytkownicy rejestrujący aplikację uwierzytelniania mogą użyć dowolnej metody do zweryfikowania swojej tożsamości.
 
-Aby użyć aplikacji uwierzytelniania przy użyciu monitu logowania zamiast kombinacji nazwy użytkownika i hasła, zobacz [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)](howto-authentication-passwordless-phone.md).
+Aby używać aplikacji Authenticator przy użyciu monitu logowania zamiast kombinacji nazwy użytkownika i hasła, zobacz [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Użytkownicy nie mają możliwości zarejestrowania aplikacji mobilnej, gdy włączą SSPR. Zamiast tego użytkownicy mogą rejestrować swoją aplikację mobilną w programie [https://aka.ms/mfasetup](https://aka.ms/mfasetup) lub w ramach rejestracji informacji o zabezpieczeniach w usłudze [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
@@ -34,7 +34,7 @@ Zamiast wyświetlać monit o hasło po wprowadzeniu nazwy użytkownika, użytkow
 
 ![Przykład logowania do przeglądarki z prośbą do użytkownika o zatwierdzenie logowania](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Ta metoda uwierzytelniania zapewnia wysoki poziom zabezpieczeń i eliminuje konieczność podania hasła podczas logowania. Logowanie bezhasła przy użyciu aplikacji Microsoft Authenticator jest obecnie dostępne w wersji zapoznawczej.
+Ta metoda uwierzytelniania zapewnia wysoki poziom zabezpieczeń i eliminuje konieczność podania hasła podczas logowania. 
 
 Aby rozpocząć logowanie bez hasła, zobacz [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

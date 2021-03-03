@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: dd4114f417fa266d8d638e28167d513fdf01aa97
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9e233e30521e5c1fa05509fa6dc42a567f6ac4e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380848"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653103"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Samouczek: integracja Bynder z usługą Azure Active Directory
 
@@ -163,4 +163,4 @@ Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikacj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu Bynder można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu Bynder można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

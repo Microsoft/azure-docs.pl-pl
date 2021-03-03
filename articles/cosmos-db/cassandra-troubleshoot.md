@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493224"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658575"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Rozwiązywanie typowych problemów z Azure Cosmos DB interfejs API Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Niektóre popularne przyczyny i rozwiązania są następujące:
 Może pojawić się następujący błąd: `Cannot connect to any host, scheduling retry in 600000 milliseconds` . 
 
 ### <a name="solution"></a>Rozwiązanie
-Może to być wyczerpanie ze strony klienta. Postępuj zgodnie z instrukcjami w obszarze [adresów sieciowych dla połączeń wychodzących](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) , aby wykluczyć ten problem. Może to być również problem z limitem czasu bezczynności w przypadku, gdy moduł równoważenia obciążenia platformy Azure domyślnie ma 4 minuty czasu bezczynności. Zapoznaj się z dokumentacją w obszarze [limit czasu bezczynności modułu równoważenia obciążenia](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Włącz ruch TCP-utrzymywanie aktywności z ustawień sterownika (patrz [poniżej](#enable-keep-alive-for-java-driver)) i ustaw `keepAlive` interwał w systemie operacyjnym na mniej niż 4 minuty.
+Może to być wyczerpanie ze strony klienta. Postępuj zgodnie z instrukcjami w obszarze [adresów sieciowych dla połączeń wychodzących](../load-balancer/load-balancer-outbound-connections.md) , aby wykluczyć ten problem. Może to być również problem z limitem czasu bezczynności w przypadku, gdy moduł równoważenia obciążenia platformy Azure domyślnie ma 4 minuty czasu bezczynności. Zapoznaj się z dokumentacją w obszarze [limit czasu bezczynności modułu równoważenia obciążenia](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Włącz ruch TCP-utrzymywanie aktywności z ustawień sterownika (patrz [poniżej](#enable-keep-alive-for-java-driver)) i ustaw `keepAlive` interwał w systemie operacyjnym na mniej niż 4 minuty.
 
  
 

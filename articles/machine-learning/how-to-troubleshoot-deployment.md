@@ -10,22 +10,22 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3839dd27d4ae380b268694a93e5910b323411847
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651684"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657285"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Rozwiązywanie problemów z wdrożeniem modelu zdalnego 
 
 Dowiedz się, jak rozwiązywać problemy i rozwiązywać te typowe błędy, które mogą wystąpić podczas wdrażania modelu w Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
 
 > [!NOTE]
-> W przypadku wdrażania modelu w usłudze Azure Kubernetes Service (AKS) zaleca się włączenie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) dla tego klastra. Ułatwi to zrozumienie ogólnej kondycji klastra i użycia zasobów. Przydatne może być również znalezienie następujących zasobów:
+> W przypadku wdrażania modelu w usłudze Azure Kubernetes Service (AKS) zaleca się włączenie [Azure monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) dla tego klastra. Ułatwi to zrozumienie ogólnej kondycji klastra i użycia zasobów. Przydatne może być również znalezienie następujących zasobów:
 >
-> * [Sprawdzaj, czy Resource Health zdarzenia mające wpływ na klaster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Diagnostyka usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Sprawdzaj, czy Resource Health zdarzenia mające wpływ na klaster AKS](../aks/aks-resource-health.md)
+> * [Diagnostyka usługi Azure Kubernetes](../aks/concepts-diagnostics.md)
 >
 > Jeśli próbujesz wdrożyć model w złej kondycji lub przeciążonym klastrze, oczekiwano problemów. Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z klastrem AKS, skontaktuj się z pomocą techniczną AKS.
 

@@ -9,16 +9,14 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1a28ca967404bf6a5329f8d590a8f1f4f8715407
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760802"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657030"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 <!----
 > [!WARNING]
@@ -36,13 +34,13 @@ W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład p
 
 ## <a name="overview"></a>Omówienie
 
-Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera. **Aplikacja po stronie klienta** to aplikacja sieci Web do reagowania/Redux, która korzysta z platformy interfejsu użytkownika Fluent firmy Microsoft. Ta aplikacja wysyła żądania do ASP.NET Core **aplikacji po stronie serwera** , która pomaga aplikacji po stronie klienta połączyć się z platformą Azure. 
+Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera. **Aplikacja po stronie klienta** to aplikacja sieci Web do reagowania/Redux, która korzysta z platformy interfejsu użytkownika Fluent firmy Microsoft. Ta aplikacja wysyła żądania do ASP.NET Core **aplikacji po stronie serwera** , która pomaga aplikacji po stronie klienta połączyć się z platformą Azure.
 
 Oto jak wygląda przykład:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku "Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie. 
+Po naciśnięciu przycisku "Rozpocznij rozmowę" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o podanie nazwy i znaku emoji, który będzie reprezentował Ciebie w rozmowie.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Zrzut ekranu przedstawiający ekran przedczatu aplikacji.":::
 
@@ -54,7 +52,7 @@ Składniki głównego ekranu czatu:
 
 - **Główny obszar rozmowy**: jest to podstawowe środowisko rozmowy, w którym użytkownicy mogą wysyłać i odbierać wiadomości. Aby wysyłać komunikaty, możesz użyć obszaru wprowadzania i nacisnąć klawisz ENTER (lub użyć przycisku Wyślij). Odebrane komunikaty czatu są kategoryzowane przez nadawcę przy użyciu poprawnej nazwy i Emoji. W obszarze rozmowa są wyświetlane dwa typy powiadomień: 1) wpisywanie powiadomień podczas wpisywania przez użytkownika i 2) wysyłania i odczytywania powiadomień dotyczących komunikatów.
 - **Nagłówek**: to miejsce, w którym użytkownik zobaczy tytuł wątku rozmowy i kontrolki do przełączania uczestników i ustawień paski boczne oraz przycisk opuszczania, aby zakończyć sesję rozmowy.
-- **Pasek boczny**: wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy. 
+- **Pasek boczny**: wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy.
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
@@ -104,7 +102,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 
 ## <a name="next-steps"></a>Następne kroki
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:

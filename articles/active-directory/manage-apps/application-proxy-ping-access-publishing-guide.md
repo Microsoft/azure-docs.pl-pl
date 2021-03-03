@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258171"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643800"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Logowanie jednokrotne z uwierzytelnianiem na podstawie nagłówka dzięki funkcji serwera proxy aplikacji i narzędziu PingAccess
 
@@ -175,7 +175,8 @@ Aby zebrać te informacje:
 Opcjonalne oświadczenia umożliwiają dodawanie niestandardowych oświadczeń, które nie są uwzględniane przez wszystkich użytkowników i dzierżawców. Można skonfigurować opcjonalne oświadczenia dla aplikacji, modyfikując manifest aplikacji. Aby uzyskać więcej informacji, zobacz [artykuł Omówienie manifestu aplikacji usługi Azure AD](../develop/reference-app-manifest.md)
 
 Przykład do dołączania adresu e-mail do access_token, które będą używane przez PingAccess:
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

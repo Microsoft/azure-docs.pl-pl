@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097543"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656826"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -107,12 +107,9 @@ Jeśli planujesz dodać nowe obrazy do zestawu danych, użyj odświeżania przyr
 
 Aby dodać więcej obrazów do projektu, użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazania do odpowiedniego folderu w magazynie obiektów BLOB. 
 
-Zaznacz pole wyboru **Włącz odświeżanie przyrostowe** , jeśli chcesz, aby projekt stale monitorował się pod kątem nowych danych w magazynie danych. Te dane zostaną pobrane do projektu raz dziennie po włączeniu.
+Zaznacz pole wyboru **Włącz odświeżanie przyrostowe** , jeśli chcesz, aby projekt stale monitorował się pod kątem nowych danych w magazynie danych. Te dane zostaną pobrane do projektu raz dziennie, więc trzeba będzie czekać po dodaniu nowych danych do magazynu danych przed wyświetleniem go w projekcie.  Możesz zobaczyć sygnaturę czasową, gdy dane zostały ostatnio odświeżone w sekcji **odświeżanie przyrostowe** karty **szczegóły** dla projektu.
 
 Usuń zaznaczenie tego pola, jeśli nie chcesz, aby nowe obrazy, które pojawiają się w magazynie danych, były dodawane do projektu.
-
-Sygnaturę czasową ostatniego odświeżenia można znaleźć w sekcji **odświeżanie przyrostowe** karty **szczegóły** dla projektu.
-
 
 ## <a name="specify-label-classes"></a>Określanie klas etykiet
 

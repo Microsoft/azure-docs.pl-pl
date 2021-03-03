@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393245"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658592"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,11 +103,11 @@ Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej 
 
 Pamięć podręczna SQL powiększa się jak dane są pobierane z dysku w taki sam sposób i z taką samą szybkością jak dla zainicjowanych baz danych. Gdy baza danych jest zajęta, pamięć podręczna może być zwiększana o nieograniczony limit pamięci.
 
-## <a name="auto-pause-and-auto-resume"></a>Autowstrzymywanie i autowznawianie
+## <a name="auto-pausing-and-auto-resuming"></a>Autowstrzymywanie i wznawianie
 
-### <a name="auto-pause"></a>Autowstrzymywanie
+### <a name="auto-pausing"></a>Trwa wstrzymywanie
 
-Funkcja AutoPause jest wyzwalana, jeśli dla czasu trwania opóźnień AutoPause spełnione są wszystkie następujące warunki:
+Autowstrzymywanie jest wyzwalane, jeśli spełnione są wszystkie poniższe warunki na czas trwania opóźnień AutoPause:
 
 - Liczba sesji = 0
 - Procesor CPU = 0 dla obciążenia użytkownika działającego w puli użytkowników

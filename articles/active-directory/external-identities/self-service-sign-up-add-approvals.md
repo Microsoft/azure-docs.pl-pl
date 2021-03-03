@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355243"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644871"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -81,7 +81,7 @@ Teraz można dodać łączniki interfejsu API do samoobsługowego przepływu uż
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz przepływ użytkownika, dla którego chcesz włączyć łącznik interfejsu API.
+4. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz przepływ użytkownika, dla którego chcesz włączyć łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
 
    - **Po zalogowaniu się przy użyciu dostawcy tożsamości**: wybierz łącznik interfejsu API stanu zatwierdzenia, na przykład _Sprawdź stan zatwierdzenia_.
@@ -357,8 +357,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -370,9 +370,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

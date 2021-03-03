@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591178"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644650"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe pojedyncze Sign-On
 
@@ -32,6 +32,7 @@ Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotycz�
 - Microsoft 365 klienci Win32 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i powyżej są obsługiwane za pomocą nieinteraktywnego przepływu. Inne wersje nie są obsługiwane. w tych wersjach użytkownicy będą wprowadzać nazwy użytkowników, ale nie hasła, aby się zalogować. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
 - Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarce Firefox.
 - Bezproblemowe logowanie jednokrotne nie działa w programie Internet Explorer, gdy włączony jest rozszerzony tryb chroniony.
+- Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarce Microsoft Edge (starsza wersja).
 - Bezproblemowe logowanie jednokrotne nie działa w przeglądarkach mobilnych w systemach iOS i Android.
 - Jeśli użytkownik jest częścią zbyt wielu grup w Active Directory, bilet protokołu Kerberos użytkownika będzie prawdopodobnie zbyt duży do przetworzenia i spowoduje to niepowodzenie bezproblemowego logowania jednokrotnego. Żądania HTTPS usługi Azure AD mogą mieć nagłówki o maksymalnym rozmiarze 50 KB; Bilety protokołu Kerberos muszą być mniejsze niż ten limit, aby pomieścić inne artefakty usługi Azure AD (zazwyczaj 2-5 KB), takie jak pliki cookie. Naszym zaleceniem jest zredukowanie członkostwa w grupach użytkowników i spróbuj ponownie.
 - W przypadku synchronizacji co najmniej 30 Active Directory lasów nie można włączyć bezproblemowego logowania jednokrotnego za pomocą Azure AD Connect. Aby obejść ten element, można [ręcznie włączyć](#manual-reset-of-the-feature) tę funkcję w dzierżawie.

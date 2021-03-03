@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ecab573f7a98bcee79231b8e20077bb32bffd48c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7a14aa2d73e35008675819c07fa96f34b088f26a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680118"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672840"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Szybki Start: Tworzenie i wykonywanie zapytań do dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse Analytics przy użyciu Azure Portal
 
@@ -29,7 +29,7 @@ Szybkie tworzenie i wysyłanie zapytań do dedykowanej puli SQL (dawniej SQL DW)
    > [!NOTE]
    > Tworzenie dedykowanej puli SQL (dawniej SQL DW) w usłudze Azure Synapse może spowodować powstanie nowej usługi do obciążania. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
+2. Pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS). Uwaga: program SSMS jest dostępny tylko na platformach opartych na systemie Windows, zapoznaj się z [pełną listą obsługiwanych platform](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15#supported-operating-systems-ssms-185).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

@@ -1,33 +1,33 @@
 ---
 title: Właściwości metadanych zawartości
 titleSuffix: Azure Cognitive Search
-description: Właściwości metadanych obiektów BLOB mogą dostarczać zawartość do pól w indeksie wyszukiwania lub informacje, które informuje o zachowaniu indeksowania w czasie wykonywania. W tym artykule wymieniono właściwości metadanych obsługiwane w usłudze Azure Wyszukiwanie poznawcze.
+description: Właściwości metadanych dokumentów mogą dostarczać zawartość do pól w indeksie wyszukiwania lub informacje, które informuje o zachowaniu indeksowania w czasie wykonywania. W tym artykule wymieniono właściwości metadanych obsługiwane w usłudze Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 79443785dbd8619e22358631c9c36a3da4ef2e84
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/22/2021
+ms.openlocfilehash: cbb35f596a1d32816d1a73b462bf590d9dde0d52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99477307"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668422"
 ---
-# <a name="content-metadata-properties-used-in-blob-indexing-in-azure-cognitive-search"></a>Właściwości metadanych zawartości używane w indeksie obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
+# <a name="content-metadata-properties-used-in-azure-cognitive-search"></a>Właściwości metadanych zawartości używane w usłudze Azure Wyszukiwanie poznawcze
 
-Obiekty blob mogą zawierać różne zawartość, a wiele z nich ma właściwości metadanych, które mogą być przydatne w indeksowaniu obiektów BLOB. Podobnie jak można utworzyć pola wyszukiwania dla standardowych właściwości obiektów blob, takich jak **`metadata_storage_name`** , można utworzyć pola dla właściwości metadanych, które są specyficzne dla formatu dokumentu.
+Usługa SharePoint Online i magazyn obiektów blob platformy Azure mogą zawierać różne zawartość, a wiele z nich ma właściwości metadanych, które mogą być przydatne do indeksowania. Podobnie jak można utworzyć pola wyszukiwania dla standardowych właściwości obiektów blob, takich jak **`metadata_storage_name`** , można utworzyć pola dla właściwości metadanych, które są specyficzne dla formatu dokumentu.
 
 ## <a name="supported-document-formats"></a>Obsługiwane formaty dokumentów
 
-Wyszukiwanie poznawcze obsługuje indeksowanie obiektów BLOB w następujących formatach dokumentu:
+Wyszukiwanie poznawcze obsługuje indeksowanie obiektów blob i indeksowanie dokumentów usługi SharePoint Online dla następujących formatów dokumentu:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="properties-by-document-format"></a>Właściwości według formatu dokumentu
 
-Poniższa tabela zawiera podsumowanie przetwarzania dla każdego formatu dokumentu oraz opis właściwości metadanych wyodrębnionych przez indeksator obiektów BLOB.
+Poniższa tabela zawiera podsumowanie przetwarzania dla każdego formatu dokumentu oraz opis właściwości metadanych wyodrębnionych przez indeksator obiektów blob i indeksatora usługi SharePoint Online.
 
 | Format dokumentu/typ zawartości | Wyodrębnione metadane | Szczegóły przetwarzania |
 | --- | --- | --- |
@@ -62,3 +62,4 @@ Poniższa tabela zawiera podsumowanie przetwarzania dla każdego formatu dokumen
 * [Indeksatory w usłudze Azure Cognitive Search](search-indexer-overview.md)
 * [Zrozumienie obiektów BLOB przy użyciu AI](search-blob-ai-integration.md)
 * [Omówienie indeksowania obiektów BLOB](search-blob-storage-integration.md)
+* [Indeksowanie online usługi SharePoint](search-howto-index-sharepoint-online.md)

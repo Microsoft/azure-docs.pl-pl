@@ -8,10 +8,13 @@
 - name: Pojęcia
   expanded: true
   items:
-    - name: Maszyny wirtualne
-      href: automanage-virtual-machines.md
-    - name: Najlepsze rozwiązania dotyczące maszyn wirtualnych
-      href: virtual-machines-best-practices.md
+    - name: Autozarządzanie dla systemu Linux
+      href: automanage-linux.md
+    - name: Autozarządzanie dla systemu Windows Server
+      href: automanage-windows-server.md
+      items:
+        - name: Hotpatch dla nowych maszyn wirtualnych
+          href: automanage-hotpatch.md
 - name: Instrukcje
   expanded: true
   items:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8f5b7f8b5cd563f8b265d7051a57b0ac22598d1c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617380"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674977"
 ---
 # <a name="disk-performance-metrics"></a>Metryki wydajności dysku
 Platforma Azure oferuje metryki w Azure Portal, które zapewniają wgląd w działanie maszyn wirtualnych i dysków. Metryki mogą być również pobierane za pomocą wywołania interfejsu API. Ten artykuł jest podzielony na 3 podsekcje:
@@ -129,6 +129,6 @@ Ta Metryka informuje nas o tym, że dyski danych dołączone do jednostek LUN 3 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd metryk Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
-- [Wyjaśnienie agregacji metryk](../azure-monitor/platform/metrics-aggregation-explained.md)
-- [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../azure-monitor/platform/alerts-metric.md)
+- [Przegląd metryk Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+- [Wyjaśnienie agregacji metryk](../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor](../azure-monitor/alerts/alerts-metric.md)

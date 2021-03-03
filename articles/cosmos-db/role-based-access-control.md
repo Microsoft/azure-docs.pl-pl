@@ -6,15 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 813bb99be0d072ebc9b21dba07ed85671a925910
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526945"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659447"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Kontrola dostępu oparta na rolach na platformie Azure w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> Ten artykuł dotyczy kontroli dostępu opartej na rolach dla operacji płaszczyzny zarządzania w Azure Cosmos DB. Jeśli używasz operacji płaszczyzny danych, zobacz [Azure Cosmos DB RBAC](how-to-setup-rbac.md) na potrzeby kontroli dostępu opartej na rolach zastosowanej do operacji na płaszczyźnie danych.
 
 Azure Cosmos DB zapewnia wbudowaną funkcję kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
@@ -69,7 +72,7 @@ To ustawienie uniemożliwi wszelkie zmiany dowolnego zasobu Cosmos z dowolnego k
 
 - Modyfikowanie procedur składowanych, wyzwalaczy lub funkcji zdefiniowanych przez użytkownika.
 
-Jeśli aplikacje (lub Użytkownicy za pośrednictwem Azure Portal) wykonują dowolne z tych akcji, muszą zostać zmigrowane, aby można je było uruchamiać za pomocą [szablonów ARM](./manage-with-templates.md), [programu PowerShell](manage-with-powershell.md), [interfejsu wiersza polecenia platformy Azure](manage-with-cli.md), REST lub [biblioteki zarządzania platformy Azure](https://github.com/Azure-Samples/cosmos-management-net). Należy pamiętać, że zarządzanie platformą Azure jest dostępne w [wielu językach](/azure/?product=featured#languages-and-tools).
+Jeśli aplikacje (lub Użytkownicy za pośrednictwem Azure Portal) wykonują dowolne z tych akcji, muszą zostać zmigrowane, aby można je było uruchamiać za pomocą [szablonów ARM](./manage-with-templates.md), [programu PowerShell](manage-with-powershell.md), [interfejsu wiersza polecenia platformy Azure](manage-with-cli.md), REST lub [biblioteki zarządzania platformy Azure](https://github.com/Azure-Samples/cosmos-management-net). Należy pamiętać, że zarządzanie platformą Azure jest dostępne w [wielu językach](../index.yml?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Ustawianie za pomocą szablonu ARM
 

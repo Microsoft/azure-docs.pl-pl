@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 54f3f0e1b57525a3bd425575ff03a9f3c91b0044
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 274db058f9f291d720fc350bb23f7bfdde2791e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951217"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670940"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure
 Projektowanie architektury SAP NetWeaver, Business One `Hybris` lub S/4HANA system na platformie Azure otwiera wiele różnych możliwości dla różnych architektur i narzędzi, które mogą być używane do skalowalnego, wydajnego i wysokiej dostępności wdrożenia. Jednak zależnie od używanego systemu operacyjnego lub DBMS istnieją ograniczenia. Ponadto nie wszystkie scenariusze, które są obsługiwane lokalnie, są obsługiwane w taki sam sposób na platformie Azure. Ten dokument przeprowadzi Cię przez obsługiwane konfiguracje bez wysokiej dostępności i konfiguracje wysokiej dostępności oraz architektury korzystające wyłącznie z maszyn wirtualnych platformy Azure. W przypadku scenariuszy obsługiwanych z [dużymi wystąpieniami Hana](./hana-overview-architecture.md)zapoznaj się z artykułem [obsługiwane scenariusze dotyczące dużych wystąpień platformy Hana](./hana-supported-scenario.md). 
@@ -287,7 +286,7 @@ Istnieje lista scenariuszy, które nie są obsługiwane w przypadku obciążeń 
 
 Inne scenariusze, które nie są obsługiwane, są takie jak:
 
-- Scenariusze wdrażania, które wprowadzają duże opóźnienia sieci między warstwą aplikacji SAP a warstwą SAP DBMS w typowej architekturze SAP, jak pokazano w NetWeaver, S/4HANA i na `Hybris` przykład. Możliwości obejmują:
+- Scenariusze wdrażania, które wprowadzają duże opóźnienia sieci między warstwą aplikacji SAP a warstwą SAP DBMS w typowej architekturze SAP, jak pokazano w NetWeaver, S/4HANA i na `Hybris` przykład. Obejmuje to następujące działania:
     - Wdrażanie jednej z warstw lokalnie, a druga warstwa jest wdrażana na platformie Azure
     - Wdrażanie warstwy aplikacji SAP systemu w innym regionie świadczenia usługi Azure niż w warstwie DBMS
     - Wdrożenie jednej warstwy w centrach danych, które znajdują się na platformie Azure i drugiej warstwie na platformie Azure, z wyjątkiem sytuacji, w których takie wzorce architektury są dostarczane przez usługę natywną platformy Azure

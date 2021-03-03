@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365382"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649295"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
 
@@ -85,7 +85,7 @@ Usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, takich jak Fa
 ![Zrzut ekranu przedstawiający stronę dostawcy tożsamości](media/what-is-b2b/identity-providers.png)
 
 
-## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Tworzenie przepływu użytkownika samoobsługowego tworzenia konta (wersja zapoznawcza)
+## <a name="create-a-self-service-sign-up-user-flow"></a>Tworzenie przepływu użytkownika samoobsługowego tworzenia konta
 
 Korzystając z samoobsługowego przepływu użytkowników, możesz utworzyć konto dla użytkowników zewnętrznych, którzy chcą uzyskać dostęp do aplikacji. W ramach przepływu rejestracji można udostępnić opcje dla różnych dostawców tożsamości społecznościowych lub korporacyjnych i zbierać informacje o użytkowniku. Dowiedz się więcej o rejestrowaniu samoobsługowym [i sposobach jego konfiguracji](self-service-sign-up-overview.md).
 

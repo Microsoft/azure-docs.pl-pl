@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 29150f229f1bd6adbbe6a335fdb91a44f3a2345b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221735"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675681"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale na platformie Azure
 
@@ -96,9 +96,9 @@ Duży klaster programu DB2 pureScale może wymagać 200 terabajtów (TB) lub wi�
 
 Firma IBM zaleca sieci InfiniBand dla wszystkich członków w klastrze programu DB2 pureScale. Program DB2 pureScale używa również zdalnego bezpośredniego dostępu do pamięci (RDMA), jeśli jest dostępny dla CFs.
 
-Podczas instalacji należy utworzyć [grupę zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) platformy Azure w celu uwzględnienia wszystkich maszyn wirtualnych. Ogólnie rzecz biorąc, należy grupować zasoby na podstawie ich okresu istnienia i zarządzania nimi. Maszyny wirtualne w tej architekturze wymagają [przyspieszonej sieci](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Jest to funkcja platformy Azure, która zapewnia spójne, niezwykle niskie opóźnienia sieci za pośrednictwem wirtualizacji we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej.
+Podczas instalacji należy utworzyć [grupę zasobów](../../../../azure-resource-manager/management/overview.md) platformy Azure w celu uwzględnienia wszystkich maszyn wirtualnych. Ogólnie rzecz biorąc, należy grupować zasoby na podstawie ich okresu istnienia i zarządzania nimi. Maszyny wirtualne w tej architekturze wymagają [przyspieszonej sieci](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Jest to funkcja platformy Azure, która zapewnia spójne, niezwykle niskie opóźnienia sieci za pośrednictwem wirtualizacji we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej.
 
-Każda maszyna wirtualna platformy Azure jest wdrażana w sieci wirtualnej, która ma podsieci: Main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) i DB2 pureScale front end (db2fe). Skrypt instalacji tworzy również podstawowe [karty sieciowe](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics) na maszynach wirtualnych w podsieci głównej.
+Każda maszyna wirtualna platformy Azure jest wdrażana w sieci wirtualnej, która ma podsieci: Main, Gluster FS front end (gfsfe), Gluster FS back end (bfsbe), DB2 pureScale (db2be) i DB2 pureScale front end (db2fe). Skrypt instalacji tworzy również podstawowe [karty sieciowe](../../../windows/multiple-nics.md) na maszynach wirtualnych w podsieci głównej.
 
 Użyj [sieciowych grup zabezpieczeń](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md) , aby ograniczyć ruch sieciowy w sieci wirtualnej i wyizolować podsieci.
 

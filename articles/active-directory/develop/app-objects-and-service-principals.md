@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557841"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646405"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
@@ -65,10 +65,9 @@ Obiekt aplikacji służy jako szablon, z którego *pochodzą* typowe i domyślne
 
 Należy utworzyć jednostkę usługi w każdej dzierżawie, w której jest używana aplikacja, umożliwiając jej ustalenie tożsamości logowania i/lub dostęp do zasobów zabezpieczonych przez dzierżawcę. Aplikacja jednej dzierżawy ma tylko jedną jednostkę usługi (w swojej głównej dzierżawie) utworzoną do użycia podczas rejestracji aplikacji i mającą na to zgodę. Wielodostępna aplikacja sieci Web/interfejs API ma także nazwę główną usługi utworzoną w każdej dzierżawie, w której użytkownik z tej dzierżawy wyraził zgodę na jego użycie.
 
-> [!NOTE]
-> Wszelkie zmiany wprowadzone w obiekcie aplikacji są również odzwierciedlane w jego obiekcie głównym usługi tylko w dzierżawie głównym aplikacji (dzierżawie, w której został zarejestrowany). W przypadku aplikacji wielodostępnych zmiany w obiekcie aplikacji nie są odzwierciedlane w obiektach głównych usługi dzierżawców klientów, dopóki dostęp nie zostanie usunięty za pomocą [panelu dostępu do aplikacji](https://myapps.microsoft.com) i ponownie udzielony.
->
-> Należy również zauważyć, że natywne aplikacje są domyślnie zarejestrowane jako wielodostępne.
+Wszelkie zmiany wprowadzone w obiekcie aplikacji, łącznie z usunięciem, są odzwierciedlane w jego obiekcie głównym usługi tylko w dzierżawie głównym aplikacji (dzierżawa, w której został zarejestrowany). W przypadku aplikacji wielodostępnych zmiany w obiekcie aplikacji nie są odzwierciedlane w obiektach głównych usługi dzierżawców klientów, dopóki dostęp nie zostanie usunięty za pomocą [panelu dostępu do aplikacji](https://myapps.microsoft.com) i ponownie udzielony.
+
+Natywne aplikacje są domyślnie zarejestrowane jako wielodostępne.
 
 ## <a name="example"></a>Przykład
 

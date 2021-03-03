@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580878"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651097"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -68,6 +68,10 @@ Pakiet agenta połączonej maszyny platformy Azure dla systemów Windows i Linux
 Agenta połączonego z platformą Azure dla systemów Windows i Linux można uaktualnić do najnowszej wersji ręcznie lub automatycznie, w zależności od wymagań. Aby uzyskać więcej informacji, zobacz [tutaj](manage-agent.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+### <a name="supported-environments"></a>Obsługiwane środowiska
+
+Serwery z obsługą Arc obsługują instalację agenta podłączonego maszyny na dowolnym serwerze fizycznym i maszynie wirtualnej hostowanej *poza* platformą Azure. Obejmuje to maszyny wirtualne działające na platformach takich jak VMware, Azure Stack HCL i inne środowiska w chmurze. Serwery z włączonymi łukiemmi nie obsługują instalacji agenta programu na maszynach wirtualnych działających na platformie Azure ani maszyn wirtualnych działających w centrum Azure Stack lub Azure Stack Edge, ponieważ są one już modelowane jako maszyny wirtualne platformy Azure.
 
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 

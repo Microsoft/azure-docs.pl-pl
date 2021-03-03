@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 88948f757c41550124acf20ac1cf0e33cdb3e5ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577384"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660161"
 ---
 # <a name="communication-services-notifications"></a>Powiadomienia dotyczące usług komunikacyjnych
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Usługa Azure Communication Services chat i wywołująca biblioteki klienckie umożliwiają utworzenie kanału obsługi komunikatów w czasie rzeczywistym, który umożliwia sygnalizowanie wiadomości do klientów podłączonych w skuteczny i niezawodny sposób. Dzięki temu można tworzyć rozbudowane funkcje komunikacji w czasie rzeczywistym w aplikacjach bez konieczności implementowania skomplikowanej logiki sondowania protokołu HTTP. Jednak w przypadku aplikacji mobilnych ten kanał sygnalizujący pozostanie połączony tylko wtedy, gdy aplikacja jest aktywna na pierwszym planie. Jeśli chcesz, aby użytkownicy odbierali wywołania przychodzące lub wiadomości czatu, gdy aplikacja jest w tle, należy używać powiadomień wypychanych.
 
@@ -34,7 +32,7 @@ Dowiedz się więcej o [obsłudze zdarzeń w usłudze Azure Communications Servi
 
 ## <a name="deliver-push-notifications-via-azure-notification-hubs"></a>Dostarczanie powiadomień wypychanych za pomocą usługi Azure Notification Hubs
 
-Możesz połączyć centrum powiadomień platformy Azure z zasobem usług komunikacyjnych, aby automatycznie wysyłać powiadomienia wypychane do urządzenia przenośnego użytkownika po odebraniu połączenia przychodzącego. Użyj tych powiadomień wypychanych, aby wznowić działanie aplikacji z poziomu tła i wyświetlić interfejs użytkownika, który umożliwia użytkownikowi zaakceptowanie lub odrzucanie wywołania. 
+Możesz połączyć centrum powiadomień platformy Azure z zasobem usług komunikacyjnych, aby automatycznie wysyłać powiadomienia wypychane do urządzenia przenośnego użytkownika po odebraniu połączenia przychodzącego. Użyj tych powiadomień wypychanych, aby wznowić działanie aplikacji z poziomu tła i wyświetlić interfejs użytkownika, który umożliwia użytkownikowi zaakceptowanie lub odrzucanie wywołania.
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram przedstawiający sposób integracji usług komunikacyjnych z usługą Azure Notification Hubs.":::
 
@@ -43,13 +41,13 @@ Usługi komunikacyjne korzystają z centrum powiadomień platformy Azure jako us
 > [!NOTE]
 > Obecnie są obsługiwane tylko wywołania powiadomień wypychanych.
 
-### <a name="notification-hub-provisioning"></a>Inicjowanie obsługi administracyjnej centrum powiadomień 
+### <a name="notification-hub-provisioning"></a>Inicjowanie obsługi administracyjnej centrum powiadomień
 
 Aby dostarczać powiadomienia wypychane do urządzeń klienckich przy użyciu Notification Hubs, [Utwórz centrum powiadomień](../../notification-hubs/create-notification-hub-portal.md) w ramach tej samej subskrypcji, co zasób usług komunikacyjnych. Należy skonfigurować centrum powiadomień platformy Azure dla system powiadomień platformy, którego chcesz użyć. Aby dowiedzieć się, jak uzyskać powiadomienia wypychane w aplikacji klienckiej z Notification Hubs, zobacz [wprowadzenie do Notification Hubs](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) i wybierz docelową platformę klienta z listy rozwijanej w górnej części strony.
 
 > [!NOTE]
-> Obecnie obsługiwane są platformy APNs i FCM.  
-Platforma APNs musi być skonfigurowana z trybem uwierzytelniania tokenu. Tryb uwierzytelniania certyfikatu nie jest obecnie obsługiwany. 
+> Obecnie obsługiwane są platformy APNs i FCM.
+Platforma APNs musi być skonfigurowana z trybem uwierzytelniania tokenu. Tryb uwierzytelniania certyfikatu nie jest obecnie obsługiwany.
 
 Po skonfigurowaniu centrum powiadomień można je skojarzyć z zasobem usług komunikacyjnych, dostarczając parametry połączenia dla centrum przy użyciu klienta Azure Resource Manager lub za pośrednictwem Azure Portal. Parametry połączenia powinny zawierać `Send` uprawnienia. Zalecamy utworzenie innych zasad dostępu tylko z `Send` uprawnieniami przeznaczonymi dla centrum. Dowiedz się więcej na temat [Notification Hubs zasad zabezpieczeń i dostępu](../../notification-hubs/notification-hubs-push-notification-security.md)
 
@@ -74,10 +72,10 @@ W portalu przejdź do zasobu usługi Azure Communications Services. W obszarze z
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Zrzut ekranu przedstawiający ustawienia powiadomień wypychanych w Azure Portal.":::
 
 > [!NOTE]
-> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.  
+> Jeśli parametry połączenia centrum powiadomień platformy Azure zostały zaktualizowane, należy również zaktualizować zasób usług komunikacyjnych.
 Wszelkie zmiany dotyczące sposobu łączenia centrum zostaną odzwierciedlone w płaszczyźnie danych (tj. podczas wysyłania powiadomienia) w ciągu maksymalnego okresu ``10`` minut. Dotyczy to również sytuacji, gdy centrum jest połączone po raz pierwszy, **Jeśli** wcześniej zostały wysłane powiadomienia.
 
-### <a name="device-registration"></a>Rejestracja urządzenia 
+### <a name="device-registration"></a>Rejestracja urządzenia
 
 Zapoznaj się z [przewodnikiem Szybki Start dla połączeń głosowych](../quickstarts/voice-video-calling/getting-started-with-calling.md) , aby dowiedzieć się, jak zarejestrować uchwyt urządzenia za pomocą usług komunikacyjnych.
 

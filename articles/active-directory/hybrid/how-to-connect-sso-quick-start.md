@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762258"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644786"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -161,10 +161,10 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
     ![Zrzut ekranu pokazujący wybraną pozycję "Rejestr" i "element rejestru".](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Wprowadź następujące wartości w odpowiednich polach, a następnie kliknij przycisk **OK**.
-   - **Ścieżka klucza**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_* _
-   - _* Nazwa wartości * *: **_https_*_
-   - _* Typ wartości * *: **_REG_DWORD_*_
-   - _* Dane wartości * *: **_00000001_*_
+   - **Ścieżka klucza**: **_Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon_**
+   - **Nazwa wartości**: **_https_**
+   - **Typ wartości**: **_REG_DWORD_**
+   - **Dane wartości**: **_00000001_**
  
      ![Zrzut ekranu przedstawiający okno "nowe właściwości rejestru".](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -176,7 +176,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 Mozilla Firefox nie korzysta automatycznie z uwierzytelniania Kerberos. Każdy użytkownik musi ręcznie dodać adres URL usługi Azure AD do ustawień przeglądarki Firefox, wykonując następujące czynności:
 1. Uruchom przeglądarkę Firefox i wprowadź `about:config` na pasku adresu. Odrzuć wszystkie wyświetlone powiadomienia.
-2. Wyszukaj ciąg _ *Network. Negotiate-auth. Trusted-URI** Preference. To preferencje zawiera Zaufane witryny programu Firefox do uwierzytelniania Kerberos.
+2. Wyszukaj preferencje **Network. Negocjuj-auth. Trusted-URI** . To preferencje zawiera Zaufane witryny programu Firefox do uwierzytelniania Kerberos.
 3. Kliknij prawym przyciskiem myszy i wybierz polecenie **Modyfikuj**.
 4. Wprowadź `https://autologon.microsoftazuread-sso.com` wartość w polu.
 5. Wybierz przycisk **OK** , a następnie ponownie otwórz przeglądarkę.
@@ -205,7 +205,7 @@ Korzystanie z rozszerzeń zasady grupy Active Directory innych firm do wdrożeni
 
 #### <a name="known-browser-limitations"></a>Znane ograniczenia przeglądarki
 
-Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarkach Firefox i Microsoft Edge. Nie działa również w programie Internet Explorer, jeśli przeglądarka działa w trybie rozszerzonym chronionym. W przypadku następnej wersji przeglądarki Microsoft Edge opartej na chromie nie będzie ona działała w trybie InPrivate i gościa przez projektowanie.
+Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarkach Firefox i Microsoft Edge (starsza wersja). Nie działa również w programie Internet Explorer, jeśli przeglądarka działa w trybie rozszerzonym chronionym. Bezproblemowe logowanie jednokrotne obsługuje następną wersję przeglądarki Microsoft Edge opartą na chromie i działa w trybie InPrivate i gościa przez projektowanie.
 
 ## <a name="step-4-test-the-feature"></a>Krok 4. Testowanie funkcji
 
@@ -216,10 +216,10 @@ Aby przetestować funkcję dla określonego użytkownika, upewnij się, że zost
   - Funkcja dla tego użytkownika została [przeprowadzona](#step-3-roll-out-the-feature) za pomocą zasady grupy.
 
 W celu przetestowania scenariusza, w którym użytkownik wprowadza tylko nazwę użytkownika, ale nie hasło:
-   - Zaloguj się do `https://myapps.microsoft.com/` programu w nowej sesji przeglądarki prywatnej.
+   - Zaloguj się do ' https://myapps.microsoft.com/ . Pamiętaj, aby wyczyścić pamięć podręczną przeglądarki lub użyć nowej sesji przeglądarki prywatnej z dowolną obsługiwaną przeglądarką w trybie prywatnym.
 
 W celu przetestowania scenariusza, w którym użytkownik nie musi wprowadzać nazwy użytkownika ani hasła, wykonaj jedną z następujących czynności: 
-   - Zaloguj się do `https://myapps.microsoft.com/contoso.onmicrosoft.com` programu w nowej sesji przeglądarki prywatnej. Zamień *contoso* na nazwę dzierżawy.
+   - Zaloguj się, aby `https://myapps.microsoft.com/contoso.onmicrosoft.com` wyczyścić pamięć podręczną przeglądarki lub użyć nowej sesji przeglądarki prywatnej z dowolną obsługiwaną przeglądarką w trybie prywatnym. Zamień *contoso* na nazwę dzierżawy.
    - Zaloguj się do `https://myapps.microsoft.com/contoso.com` programu w nowej sesji przeglądarki prywatnej. Zastąp *contoso.com* z zweryfikowaną domeną (nie domeną federacyjną) w dzierżawie.
 
 ## <a name="step-5-roll-over-keys"></a>Krok 5. przechodzenie między kluczami

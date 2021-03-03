@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: d9e01ee8b1f6c1cd04e665ad9f7bc57155abfaab
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 652be939136139620f6ec024fe98463113c6fb4a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028985"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657523"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.2): obsługiwane funkcje i składnia
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 Używając interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB, można korzystać z dobrze znanych zalet bazy danych MongoDB oraz wszystkich funkcji na poziomie korporacyjnym dostarczanych przez usługę Cosmos DB: [globalnej dystrybucji](distribute-data-globally.md), [automatycznego fragmentowania](partitioning-overview.md), gwarancji dostępności i opóźnień, automatycznego indeksowania każdego pola, szyfrowania danych magazynowanych, tworzenia kopii zapasowych itd.
 
 > [!NOTE]
-> Ten artykuł dotyczy interfejsu API Azure Cosmos DB MongoDB 3,2. Aby uzyskać wersję MongoDB 3,6, zobacz [MongoDB 3,6 obsługiwane funkcje i składnia](mongodb-feature-support-36.md).
+> Ten artykuł dotyczy interfejsu API Azure Cosmos DB MongoDB 3,2. W przypadku systemów MongoDB 3,6 i 4,0 można znaleźć w temacie [MongoDB 3,6 obsługiwane funkcje i składnię](mongodb-feature-support-36.md) oraz [MongoDB 4,0 obsługiwane funkcje i artykuły składniowe](mongodb-feature-support-40.md) .
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
@@ -43,7 +43,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 ### <a name="query-and-write-operation-commands"></a>Polecenia operacji zapytań i zapisu
 
-- usunięcie
+- delete
 - find
 - findAndModify
 - getLastError
@@ -367,5 +367,3 @@ Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stroni
 - Dowiedz się, jak [korzystać z programu Studio 3T](mongodb-mongochef.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Dowiedz się, jak [korzystać z programu Robo 3T](mongodb-robomongo.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Eksploruj [przykłady](mongodb-samples.md) bazy danych MongoDB za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
-
-<sup>Uwaga: w tym artykule opisano funkcję Azure Cosmos DB, która zapewnia zgodność protokołu telekomunikacyjnych z bazami danych MongoDB. Firma Microsoft nie uruchamia MongoDB baz danych w celu zapewnienia tej usługi. Azure Cosmos DB nie jest powiązany z MongoDB, Inc.</sup>

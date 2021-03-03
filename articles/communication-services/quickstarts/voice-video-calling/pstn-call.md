@@ -8,17 +8,16 @@ ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 692e3a2e64c42702d46c38175a814819c8f539cf
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: d26c089376f5de1ad669ff95a0bf4e96cc8f4682
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762625"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660008"
 ---
 # <a name="quickstart-call-to-phone"></a>Szybki Start: wywołanie telefonu
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta wywołującego usługi komunikacyjne, aby dodać telefonię do aplikacji. 
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta wywołującego usługi komunikacyjne, aby dodać telefonię do aplikacji.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]

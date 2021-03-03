@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806167"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671926"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -37,7 +36,7 @@ W tym przykładzie użyto wersji produktu i układu systemu plików
 - Azure Database for MySQL (wersja: 8.0.15)
 - Łącznik interfejsu API MySQL C — libmysqlclient (wersja: 6.1.11)
 
-| System plików        | Opis                                                                                                               | Rozmiar (GB)             | Właściciel  | Group (Grupa)  | Magazyn                    |
+| System plików        | Opis                                                                                                               | Rozmiar (GB)             | Właściciel  | Group (Grupa)  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | System plików na potrzeby instalacji wystąpienia SAP BOBI, domyślnej aplikacji sieci Web Tomcat i sterowników bazy danych (w razie potrzeby) | Wytyczne dotyczące ustalania wielkości SAP | bl1adm | sapsys | Zarządzany dysk w warstwie Premium — SSD |
 | /usr/sap/frsinput  | Katalog instalacji jest przeznaczony dla plików udostępnionych na wszystkich hostach BOBI, które będą używane jako katalog repozytorium plików wejściowych  | Potrzeby biznesowe         | bl1adm | sapsys | Azure NetApp Files         |

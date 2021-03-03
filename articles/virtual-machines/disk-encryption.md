@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681742"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677449"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Szyfrowanie po stronie serwera Azure Disk Storage
 
@@ -51,6 +51,17 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
 #### <a name="supported-regions"></a>Obsługiwane regiony
 
 Klucze zarządzane przez klienta są dostępne we wszystkich regionach, w których są dostępne dyski zarządzane.
+
+Automatyczne rotacja kluczy jest w wersji zapoznawczej i dostępne tylko w następujących regionach:
+
+- East US
+- Wschodnie stany USA 2
+- South Central US
+- Zachodnie stany USA
+- Zachodnie stany USA 2
+- Europa Północna
+- Europa Zachodnia
+- Francja Środkowa
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta korzystają z zarządzanych tożsamości dla zasobów platformy Azure, funkcji Azure Active Directory (Azure AD). W przypadku konfigurowania kluczy zarządzanych przez klienta tożsamość zarządzana jest automatycznie przypisywana do zasobów w ramach okładek. Jeśli później przeniesiesz subskrypcję, grupę zasobów lub dysk zarządzany z jednego katalogu usługi Azure AD do innego, zarządzana tożsamość skojarzona z dyskami zarządzanymi nie zostanie przetransferowana do nowej dzierżawy, więc klucze zarządzane przez klienta mogą przestać działać. Aby uzyskać więcej informacji, zobacz [transfer subskrypcji między katalogami usługi Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

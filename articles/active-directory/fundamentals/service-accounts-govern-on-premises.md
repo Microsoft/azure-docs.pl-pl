@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88fdfa1f449a0b65861ee09f2e78055a606c99d3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417493"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649210"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Zarządzanie kontami lokalnych usług
 
@@ -60,11 +60,11 @@ Podczas tworzenia nowego konta usługi należy użyć następujących kryteriów
 
 Użyj następujących ustawień z kontami użytkowników używanymi jako konta usług:
 
-* [**Wygaśnięcie konta**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): ustawienie konta usługi na automatycznie wygasa po upływie określonego czasu od momentu jego sprawdzenia, chyba że zostanie ustalone, że powinien on być kontynuowany
+* [**Wygaśnięcie konta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): ustawienie konta usługi na automatycznie wygasa po upływie określonego czasu od momentu jego sprawdzenia, chyba że zostanie ustalone, że powinien on być kontynuowany
 
 *  **LogonWorkstations**: Ogranicz uprawnienia do miejsca, w którym można się zalogować za pomocą konta usługi. Jeśli działa lokalnie na komputerze i uzyskuje dostęp tylko do zasobów na tym komputerze, ogranicz je do logowania w dowolnym miejscu.
 
-* [**Nie można zmienić hasła**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): zapobiegaj zmianie własnego hasła przez konto usługi przez ustawienie parametru na false.
+* [**Nie można zmienić hasła**](/powershell/module/addsadministration/set-aduser?view=win10-ps): zapobiegaj zmianie własnego hasła przez konto usługi przez ustawienie parametru na false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Kompiluj proces zarządzania cyklem życia
@@ -149,17 +149,17 @@ Ocena ryzyka, po przeprowadzeniu i udokumentowaniu, może mieć wpływ na:
 
 Utwórz konto usługi tylko wtedy, gdy odpowiednie informacje są udokumentowane w Twoim CMDB, i przeprowadź ocenę ryzyka. Ograniczenia konta powinny być wyrównane do oceny ryzyka. Należy wziąć pod uwagę poniższe ograniczenia dotyczące oceny.:
 
-* [Wygaśnięcie konta](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Wygaśnięcie konta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * W przypadku wszystkich kont użytkowników używanych jako konta usług Zdefiniuj realistyczną i niezależną datę końcową do użycia. Ustaw tę wartość przy użyciu flagi "Konto wygasa". Aby uzyskać więcej informacji, zobacz[ Set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * W przypadku wszystkich kont użytkowników używanych jako konta usług Zdefiniuj realistyczną i niezależną datę końcową do użycia. Ustaw tę wartość przy użyciu flagi "Konto wygasa". Aby uzyskać więcej informacji, zobacz[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
 
-* Zaloguj się do ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Zaloguj się do ([LogonWorkstation](/powershell/module/addsadministration/set-aduser?view=win10-ps))
 
-* Wymagania dotyczące [zasad haseł](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Wymagania dotyczące [zasad haseł](../../active-directory-domain-services/password-policy.md)
 
-* Tworzenie w [lokalizacji jednostki organizacyjnej](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) , która zapewnia zarządzanie tylko dla użytkowników uprzywilejowanych
+* Tworzenie w [lokalizacji jednostki organizacyjnej](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) , która zapewnia zarządzanie tylko dla użytkowników uprzywilejowanych
 
-* Skonfiguruj i zbierz inspekcje [, które wykryją zmiany](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) konta usługi i [użycia konta usługi](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Skonfiguruj i zbierz inspekcje [, które wykryją zmiany](/windows/security/threat-protection/auditing/audit-directory-service-changes) konta usługi i [użycia konta usługi](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Gdy wszystko jest gotowe do wprowadzenia do środowiska produkcyjnego, udziel bezpiecznego dostępu do konta usługi. 
 
@@ -193,7 +193,7 @@ Po usunięciu wszystkich uprawnień Użyj tego procesu, aby usunąć konto.
 
 3. Usuń konto usługi po spełnieniu zasad pozostania wyłączenia. 
 
-   * W przypadku kont MSA można [odinstalować go](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) przy użyciu programu PowerShell lub usunąć ręcznie z kontenera zarządzanego konta usługi.
+   * W przypadku kont MSA można [odinstalować go](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) przy użyciu programu PowerShell lub usunąć ręcznie z kontenera zarządzanego konta usługi.
 
    * W przypadku kont komputerów lub użytkowników można ręcznie usunąć konto z usługi w Active Directory.
 

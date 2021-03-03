@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: b7f6d30ffa849f78b0f7baa2d84e4fb01f3bf192
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500346"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673344"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie maszyn wirtualnych platformy Azure i stosowanie zasad
 
@@ -73,4 +73,4 @@ Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](..
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z instrukcjami dotyczącymi monitorowania zabezpieczeń maszyn wirtualnych przy użyciu Azure Security Center dla [systemu](./tutorial-azure-security.md) [Linux](../security/fundamentals/overview.md) lub Windows.
+- Zapoznaj się z instrukcjami dotyczącymi monitorowania zabezpieczeń maszyn wirtualnych przy użyciu Azure Security Center dla [systemu](/previous-versions/azure/virtual-machines/tutorial-azure-security) [Linux](../security/fundamentals/overview.md) lub Windows.

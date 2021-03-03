@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 61897a790da8a5f52b1b8f8e208629e7755690fa
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97759742"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672641"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -79,17 +79,19 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 | Funkcja generacji 2                | Lokalna funkcja Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Bezpieczny rozruch                         | :heavy_check_mark:  | y   |
+| Bezpieczny rozruch                         | :heavy_check_mark:  | Z zaufanym uruchomieniem (wersja zapoznawcza)   |
 | Chroniona maszyna wirtualna                         | :heavy_check_mark:  | y   |
-| vTPM                                | :heavy_check_mark:  | y   |
-| Zabezpieczenia oparte na wirtualizacji (VBS) | :heavy_check_mark:  | y   |
+| vTPM                                | :heavy_check_mark:  | Z zaufanym uruchomieniem (wersja zapoznawcza)  |
+| Zabezpieczenia oparte na wirtualizacji (VBS) | :heavy_check_mark:  | Z zaufanym uruchomieniem (wersja zapoznawcza)   |
 | VHDX format                         | :heavy_check_mark:  | y   |
+
+Aby uzyskać więcej informacji, zobacz temat [Zaufane uruchomienia (wersja zapoznawcza)](trusted-launch.md).
 
 ## <a name="features-and-capabilities"></a>Funkcje i możliwości
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cechy | Pierwsza generacja | Druga generacja |
+| Cecha | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
@@ -105,7 +107,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Tworzenie/przywracanie kopii zapasowych                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galeria obrazów udostępnionych              | :heavy_check_mark: | :heavy_check_mark: |
-| [Szyfrowanie dysków Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | y                |
+| [Szyfrowanie dysków Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Szyfrowanie po stronie serwera](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Tworzenie maszyny wirtualnej generacji 2
@@ -206,7 +208,7 @@ Można również tworzyć maszyny wirtualne 2. generacji przy użyciu zestawów 
     Tak. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej za pomocą przyspieszonej sieci](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Czy maszyny wirtualne generacji 2 obsługują bezpieczny rozruch lub vTPM na platformie Azure?**
-    Zarówno maszyny wirtualne generacji 1, jak i 2. generacji na platformie Azure nie obsługują funkcji bezpiecznego rozruchu ani vTPM. 
+    Zarówno vTPM, jak i bezpieczny rozruch są funkcjami zaufanego uruchamiania (wersja zapoznawcza) dla maszyn wirtualnych 2. generacji. Aby uzyskać więcej informacji, zobacz [Zaufane uruchomienie](trusted-launch.md).
     
 * **Czy plik VHDX jest obsługiwany w generacji 2?**  
     Nie, maszyny wirtualne generacji 2 obsługują tylko dysk VHD.
@@ -225,5 +227,7 @@ Można również tworzyć maszyny wirtualne 2. generacji przy użyciu zestawów 
     1. Sprawdź, czy szukasz [rozmiaru maszyny wirtualnej, który obsługuje maszyny wirtualne Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej o [zaufaniu uruchamiania (wersja zapoznawcza)](trusted-launch-portal.md) z maszynami wirtualnymi generacji 2.
 
 Dowiedz się więcej o [maszynach wirtualnych 2. generacji w funkcji Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588341"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667734"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Metryki usługi Azure kontrolą w Azure Monitor
 
@@ -83,7 +83,7 @@ Postępuj zgodnie z instrukcjami, aby utworzyć ustawienia diagnostyczne dla kon
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Zrzut ekranu przedstawiający przypisanie konta magazynu dla dziennika diagnostycznego." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Odczekaj do 15 minut, aż zacznie otrzymywać dzienniki na nowo utworzonym koncie magazynu. [Zobacz przechowywanie danych i schemat dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Po skonfigurowaniu dzienników diagnostycznych zdarzenia będą przepływać do konta magazynu.
+Odczekaj do 15 minut, aż zacznie otrzymywać dzienniki na nowo utworzonym koncie magazynu. [Zobacz przechowywanie danych i schemat dzienników zasobów na koncie usługi Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Po skonfigurowaniu dzienników diagnostycznych zdarzenia będą przepływać do konta magazynu.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

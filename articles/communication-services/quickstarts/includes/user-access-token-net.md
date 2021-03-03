@@ -10,16 +10,16 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 4c05b654b6714c5317e1334d3a3ea5c327a5ff18
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 49c4179432c0b57dfe68de563621807b1141fc67
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97770833"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657066"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Najnowsza wersja [programu .NET Core Client Library](https://dotnet.microsoft.com/download/dotnet-core) dla danego systemu operacyjnego.
 - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../create-communication-resource.md).
 
@@ -42,10 +42,10 @@ dotnet build
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Mimo że w katalogu aplikacji, zainstaluj bibliotekę administracyjną usług Azure Communications Services dla platformy .NET za pomocą `dotnet add package` polecenia.
+Mimo że w katalogu aplikacji, zainstaluj bibliotekę tożsamości usług Azure Communication Services dla platformy .NET za pomocą `dotnet add package` polecenia.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Identity --version 1.0.0
 ```
 
 ### <a name="set-up-the-app-framework"></a>Konfigurowanie struktury aplikacji
@@ -53,7 +53,7 @@ dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 Z katalogu projektu:
 
 1. Otwórz plik **program.cs** w edytorze tekstu
-1. Dodaj `using` dyrektywę, aby uwzględnić `Azure.Communication.Administration` przestrzeń nazw
+1. Dodaj `using` dyrektywę, aby uwzględnić `Azure.Communication.Identity` przestrzeń nazw
 1. Aktualizowanie `Main` deklaracji metody do obsługi kodu asynchronicznego
 
 Użyj następującego kodu, aby rozpocząć:
@@ -61,7 +61,7 @@ Użyj następującego kodu, aby rozpocząć:
 ```csharp
 using System;
 using Azure.Communication;
-using Azure.Communication.Administration;
+using Azure.Communication.Identity;
 
 namespace AccessTokensQuickstart
 {
@@ -89,6 +89,21 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 var client = new CommunicationIdentityClient(connectionString);
 ```
 
+Alternatywnie możesz oddzielić punkt końcowy i klucz dostępu.
+```csharp
+// This code demonstrates how to fetch your endpoint and access key
+// from an environment variable.
+string endpoint = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ENDPOINT");
+string accessKey = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_ACCESSKEY");
+var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCredential(accessKey));
+```
+
+Jeśli masz skonfigurowaną tożsamość zarządzaną, zobacz [Korzystanie z tożsamości zarządzanych](../managed-identity.md), ale także uwierzytelnianie przy użyciu tożsamości zarządzanej.
+```csharp
+TokenCredential tokenCredential = new DefaultAzureCredential();
+var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+```
+
 ## <a name="create-an-identity"></a>Tworzenie tożsamości
 
 Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `createUser` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
@@ -101,34 +116,34 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## <a name="issue-identity-access-tokens"></a>Wystawianie tokenów dostępu do tożsamości
 
-Użyj `issueToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
+Użyj `GetToken` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
-var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
-Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wydać. Nie może to spowodować zakłócenia środowiska użytkownika aplikacji. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu dostępu. 
+Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wydać. Nie może to spowodować zakłócenia środowiska użytkownika aplikacji. `expiresOn`Właściwość Response wskazuje okres istnienia tokenu dostępu.
 
 ## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-Aby odświeżyć token dostępu, Przekaż wystąpienie `CommunicationUser` obiektu do `IssueTokenAsync` . Jeśli zostały one zapisane `Id` i trzeba utworzyć nowe, można to `CommunicationUser` zrobić, przechodząc `Id` do konstruktora przechowywanego w `CommunicationUser` następujący sposób:
+Aby odświeżyć token dostępu, Przekaż wystąpienie `CommunicationUserIdentifier` obiektu do `GetTokenAsync` . Jeśli zostały one zapisane `Id` i trzeba utworzyć nowe, można to `CommunicationUserIdentifier` zrobić, przechodząc `Id` do konstruktora przechowywanego w `CommunicationUserIdentifier` następujący sposób:
 
-```csharp  
+```csharp
 // In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-identityToRefresh = new CommunicationUser(userId);
-tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
+var identityToRefresh = new CommunicationUserIdentifier(userId);
+var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
 ## <a name="revoke-access-tokens"></a>Odwołaj tokeny dostępu
 
 W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `RevokeTokensAsync` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
 
-```csharp  
+```csharp
 await client.RevokeTokensAsync(identity);
 Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with ID: {identity.Id}");
 ```

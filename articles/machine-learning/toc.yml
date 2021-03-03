@@ -321,11 +321,14 @@
             - name: Tworzenie zestawów danych z etykietami
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Pobieranie danych
+        - name: Pobierz & przygotowywania danych
           items:
             - name: Pozyskiwanie danych przy użyciu usługi Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Przygotowywanie danych za pomocą usługi Azure Synapse
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: Metodyka DevOps w zakresie pozyskiwania danych
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Łączenie z usługą Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: Dostęp do magazynu opartego na tożsamościach
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: Pobieranie danych z magazynu danych (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: Włączanie dzienników
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Wyświetlanie dzienników
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: Wyświetlanie dzienników i metryk dla przebiegów
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
               displayName: 'log, monitor, metrics'
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Wdrażanie potoków uczenia maszynowego (Python)
           href: how-to-deploy-pipelines.md
+        - name: Używanie pul Azure Synapse Apache Spark w potoku ML (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Wyzwalanie potoku
           href: how-to-trigger-published-pipeline.md
         - name: Projektant (przeciągnij i upuść)

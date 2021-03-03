@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576061"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659523"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant
 
@@ -42,7 +42,7 @@ Aby wdrożyć potok, należy najpierw skonwertować potok szkoleniowy do potoku 
 
 1. Nad kanwą potoku wybierz pozycję **Utwórz**  >  **potok wnioskowania w czasie rzeczywistym**.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Zrzut ekranu przedstawiający miejsce znalezienia przycisku Utwórz potok":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Zrzut ekranu przedstawiający miejsce znalezienia przycisku Utwórz potok":::
 
     Potok powinien teraz wyglądać następująco: 
 
@@ -97,13 +97,13 @@ Po zakończeniu aprowizacji usługi AKS Wróć do potoku inferencing w czasie rz
 
 1. Wybierz utworzony klaster AKS.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Zrzut ekranu przedstawiający sposób konfigurowania nowego punktu końcowego w czasie rzeczywistym":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania nowego punktu końcowego w czasie rzeczywistym":::
 
     Możesz również zmienić ustawienia **Zaawansowane** dla punktu końcowego w czasie rzeczywistym.
     
     |Ustawienie zaawansowane|Opis|
     |---|---|
-    |Włącz diagnostykę Application Insights i zbieranie danych| Czy włączyć usługę Azure Application Ingishts, aby zbierać dane ze wdrożonych punktów końcowych. </br> Domyślnie: FAŁSZ |
+    |Włącz diagnostykę Application Insights i zbieranie danych| Czy włączyć usługę Azure Application Insights, aby zbierać dane ze wdrożonych punktów końcowych. </br> Domyślnie: FAŁSZ |
     |Limit czasu oceniania| Limit czasu (w milisekundach) wymuszania dla wywołań oceniania do usługi sieci Web.</br>Domyślnie: 60000|
     |Skalowanie automatyczne włączone|   Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web.</br>Domyślnie: prawda|
     |Minimalna liczba replik| Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web.</br>Domyślnie: 1|
@@ -137,6 +137,22 @@ Po zakończeniu wdrażania można wyświetlić punkt końcowy w czasie rzeczywis
 1. Aby przetestować punkt końcowy, przejdź do karty **test** . W tym miejscu możesz wprowadzić dane testowe i wybrać pozycję **Testuj** Sprawdź dane wyjściowe punktu końcowego.
 
 Aby uzyskać więcej informacji na temat konsumowania usługi sieci Web, zobacz [Korzystanie z modelu wdrożonego jako usługa WebService](how-to-consume-web-service.md)
+
+## <a name="limitations"></a>Ograniczenia
+
+Jeśli wprowadzisz modyfikacje potoku szkoleniowego, należy ponownie przesłać potok szkoleniowy, **zaktualizować** potok wnioskowania i uruchomić potok wnioskowania.
+
+Należy pamiętać, że w potoku wnioskowania zostaną zaktualizowane tylko modele przeszkolone, podczas gdy transformacja danych nie zostanie zaktualizowana.
+
+Aby użyć zaktualizowanej transformacji w potoku wnioskowania, należy zarejestrować dane wyjściowe transformacji modułu transformacji jako zestaw danych.
+
+![Zrzut ekranu przedstawiający sposób rejestrowania zestawu danych transformacji](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Następnie ręcznie Zastąp **element TD-** module w potoku wnioskowania z zarejestrowanym zestawem danych.
+
+![Zrzut ekranu przedstawiający sposób zastąpienia modułu transformacji](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Następnie można przesłać potok wnioskowania ze zaktualizowanym modelem i transformację i wdrożyć.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -1,0 +1,94 @@
+- name: Aktualizacja urządzenia do dokumentacji IoT Hub
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest aktualizacja urządzenia dla IoT Hub?
+      href: understand-device-update.md
+- name: Samouczki
+  items:
+    - name: Aktualizacja obrazu na Raspberry Pi
+      href: device-update-raspberry-pi.md
+    - name: Korzystanie z aktualizacji urządzenia w symulatorze
+      href: device-update-simulator.md
+    - name: 'Aktualizacja pakietu na serwerze Ubuntu 18,04 x64'
+      href: device-update-ubuntu-agent.md
+- name: Pojęcia
+  items:
+    - name: Konto i wystąpienie aktualizacji urządzenia
+      href: device-update-resources.md
+    - name: Aktualizowanie ról użytkownika i dostępu do urządzeń
+      href: device-update-control-access.md
+    - name: Manifest apt aktualizacji urządzenia
+      href: device-update-apt-manifest.md
+    - name: Zgodność aktualizacji urządzeń
+      href: device-update-compliance.md
+    - name: Grupy aktualizacji urządzeń
+      href: device-update-groups.md
+    - name: Sposób używania aktualizacji urządzenia Plug and Play
+      href: device-update-plug-and-play.md
+    - name: Wymagania dotyczące sieci aktualizacji urządzeń
+      href: device-update-networking.md
+    - name: Agent aktualizacji urządzeń
+      href: device-update-agent-overview.md
+    - name: Plik konfiguracji aktualizacji urządzenia
+      href: device-update-configuration-file.md
+    - name: Manifest aktualizacji urządzenia
+      href: update-manifest.md
+    - name: Jak jest zabezpieczona aktualizacja urządzenia
+      href: device-update-security.md
+    - name: Obsługa odłączonych urządzeń
+      href: connected-cache-disconnected-device-update.md
+    - name: Konfigurowanie połączonej pamięci podręcznej firmy Microsoft na potrzeby aktualizacji urządzenia dla IoT Hub
+      href: connected-cache-configure.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Utwórz konto aktualizacji urządzenia
+      href: create-device-update-account.md
+    - name: Agent aktualizacji urządzenia do aprowizacji
+      href: device-update-agent-provisioning.md
+    - name: Importowanie aktualizacji
+      href: import-update.md
+    - name: Tworzenie grupy aktualizacji urządzeń
+      href: create-update-group.md
+    - name: Wdrażanie aktualizacji urządzenia
+      href: deploy-update.md
+    - name: Wdrażanie aktualizacji urządzenia
+      href: deploy-update.md
+    - name: Połączona pamięć podręczna firmy Microsoft dla jednego poziomu
+      href: connected-cache-single-level.md
+    - name: Zagnieżdżona pamięć podręczna firmy Microsoft
+      href: connected-cache-nested-level.md
+    - name: Połączona pamięć podręczna firmy Microsoft dla IoT (IIOT)
+      href: connected-cache-industrial-iot-nested.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z aktualizacjami urządzeń
+          href: troubleshoot-device-update.md
+- name: Odwołanie
+  items:
+    - name: Kody błędów klienta aktualizacji urządzenia
+      href: device-update-error-codes.md
+- name: Zasoby
+  items:
+    - name: Opcje wsparcia technicznego i pomocy
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Usługi Azure IoT
+      items:
+        - name: Usługa IoT Hub
+          href: ./index.yml
+        - name: Usługa IoT Hub Device Provisioning
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Akceleratory rozwiązań IoT
+          href: ../iot-accelerators/index.yml
+        - name: IoT Plug and Play
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Optymalizacja dostarczania
+      href: 'https://github.com/microsoft/do-client'

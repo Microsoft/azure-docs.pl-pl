@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094013"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656282"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ Poniższa tabela zawiera listę zalecanych narzędzi migracji:
 |---------|---------|
 |[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Usługa platformy Azure dla pierwszej firmy, która obsługuje migrację w trybie offline dla aplikacji, które mogą spowodować przestoje podczas procesu migracji. W przeciwieństwie do ciągłej migracji w trybie online, migracja w trybie offline uruchamia jednorazowe Przywracanie pełnej kopii zapasowej bazy danych ze źródła do obiektu docelowego. | 
 |[Natywna kopia zapasowa i przywracanie](../../managed-instance/restore-sample-database-quickstart.md) | Wystąpienie zarządzane SQL obsługuje przywracanie natywnych kopii zapasowych bazy danych SQL Server (pliki. bak), co sprawia, że jest to najprostsza opcja migracji dla klientów, którzy mogą udostępniać pełne kopie zapasowe bazy danych w usłudze Azure Storage. Pełne i różnicowe kopie zapasowe są również obsługiwane i udokumentowane w [sekcji zasobów migracji](#migration-assets) w dalszej części tego artykułu.| 
+|[Usługa ponownego powtarzania dzienników (LRS)](../../managed-instance/log-replay-service-migrate.md) | Jest to usługa w chmurze włączona dla wystąpienia zarządzanego opartego na technologii dostarczania dziennika SQL Server, dzięki czemu jest to opcja migracji dla klientów, którzy mogą udostępniać pełne, różnicowe i dzienniki kopii zapasowych bazy danych w usłudze Azure Storage. LRS jest używany do przywracania plików kopii zapasowej z platformy Azure Blob Storage do wystąpienia zarządzanego SQL.| 
 | | |
 
 ### <a name="alternative-tools"></a>Narzędzia alternatywne
@@ -116,6 +117,7 @@ Poniższa tabela zawiera porównanie zalecanych opcji migracji:
 |---------|---------|---------|
 |[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Migruj pojedyncze bazy danych lub wiele baz danych na dużą skalę. </br> — Może obsłużyć przestoje podczas procesu migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM |  — Migracje na dużą skalę można zautomatyzować za pomocą [programu PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Czas na zakończenie migracji zależy od rozmiaru bazy danych i wpływu na czas wykonywania kopii zapasowej i przywracania. </br> -Konieczne może być wystarczające przestoje. |
 |[Natywna kopia zapasowa i przywracanie](../../managed-instance/restore-sample-database-quickstart.md) | — Migrowanie poszczególnych baz danych aplikacji biznesowych.  </br> — Szybka i łatwa migracja bez oddzielnej usługi lub narzędzia migracji.  </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM | — Kopia zapasowa bazy danych używa wielu wątków do optymalizowania transferu danych do usługi Azure Blob Storage, ale przepustowość niezależnego dostawcy oprogramowania i rozmiar bazy danych mogą mieć wpływ na szybkość transferu </br> -Przestoje powinny pomieścić czas wymagany do wykonania pełnej kopii zapasowej i przywracania (czyli rozmiaru operacji na danych).| 
+|[Usługa ponownego powtarzania dzienników (LRS)](../../managed-instance/log-replay-service-migrate.md) | — Migrowanie poszczególnych baz danych aplikacji biznesowych.  </br> -Do migracji bazy danych jest wymagana większa kontrola.  </br> </br> Obsługiwane źródła: </br> -SQL Server (2008 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM | — Migracja obejmuje tworzenie pełnych kopii zapasowych bazy danych na SQL Server i kopiowanie plików kopii zapasowej do usługi Azure Blob Storage. LRS jest używany do przywracania plików kopii zapasowej z platformy Azure Blob Storage do wystąpienia zarządzanego SQL. </br> -Bazy danych przywracane podczas procesu migracji będą znajdować się w trybie przywracania i nie mogą być używane do odczytu ani zapisu do momentu ukończenia procesu.| 
 | | | |
 
 ### <a name="alternative-options"></a>Opcje alternatywne

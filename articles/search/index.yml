@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 02/25/2020
-  ms.openlocfilehash: af7bb5fe7709d0a15254e8660600e284103fa668
-  ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
-  ms.translationtype: HT
+  ms.date: 03/02/2021
+  ms.openlocfilehash: f514b33bb39db2732053102bd69cb853477f67f1
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/13/2020
-  ms.locfileid: "97368787"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101677817"
 landingContent:
 - title: Informacje o wyszukiwaniu poznawczym
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: Co to jest wyszukiwanie poznawcze na platformie Azure
       url: search-what-is-azure-search.md
+    - text: Co to jest wyszukiwanie semantyczne
+      url: semantic-search-overview.md
     - text: Co to jest wzbogacanie AI
       url: cognitive-search-concept-intro.md
     - text: Co to jest indeksator

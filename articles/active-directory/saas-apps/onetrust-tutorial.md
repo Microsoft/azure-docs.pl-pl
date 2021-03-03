@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 77604cdeca76bea847fa6b81c5f0f1865025e96f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f0a145b0eb9dd9dbed0927ce825a21d8f47c48ab
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623183"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem do zarządzania prywatnością OneTrust
 
@@ -151,4 +151,4 @@ Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikacj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu oprogramowania do zarządzania prywatnością OneTrust można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu oprogramowania do zarządzania prywatnością OneTrust można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -3,17 +3,18 @@ title: 'PowerShell: używanie grup umieszczania w sąsiedztwie'
 description: Dowiedz się więcej na temat tworzenia i używania grup umieszczania w sąsiedztwie przy użyciu Azure PowerShell.
 services: virtual-machines
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 4de71be8c88264d2cfb513a7f0214515058b5185
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 742ce6e9937fbe0f67e61b7b96b1289030e7e148
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878328"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677205"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania sąsiedztwa przy użyciu programu PowerShell
 

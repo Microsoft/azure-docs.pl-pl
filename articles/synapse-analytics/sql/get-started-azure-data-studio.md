@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f82a1279a69bf91f37400d5614e8f7b121e72f47
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6b039d934993d2acee630205c5b5e5d8e0f6145e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258901"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667610"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio
 
@@ -26,7 +26,7 @@ ms.locfileid: "99258901"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Za pomocą [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse. 
+Za pomocą [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania Synapse. 
 
 ## <a name="connect"></a>Connect
 
@@ -73,7 +73,7 @@ Po pomyślnym zalogowaniu powinien zostać wyświetlony pulpit nawigacyjny podob
 
 ## <a name="query"></a>Zapytanie
 
-Po nawiązaniu połączenia możesz wysyłać zapytania do Synapse SQL przy użyciu obsługiwanych instrukcji [języka Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) dla tego wystąpienia. Wybierz pozycję **nowe zapytanie** w widoku pulpitu nawigacyjnego, aby rozpocząć pracę.
+Po nawiązaniu połączenia możesz wysyłać zapytania do Synapse SQL przy użyciu obsługiwanych instrukcji [języka Transact-SQL (T-SQL)](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) dla tego wystąpienia. Wybierz pozycję **nowe zapytanie** w widoku pulpitu nawigacyjnego, aby rozpocząć pracę.
 
 ![Nowe zapytanie](./media/get-started-azure-data-studio/5-new-query.png)
 

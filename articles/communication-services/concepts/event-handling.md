@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b4e600581880ccca4f8716db02064e5bb353787c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cb253ebfd8269779adf02dcbc01d7998590ce78c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653785"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657166"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Obsługa zdarzeń w usłudze Azure Communications Services
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Usługi komunikacyjne platformy Azure integrują się z [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) , aby zapewnić niezawodne i skalowalne powiadomienia o zdarzeniach w czasie rzeczywistym. Celem tego artykułu jest ułatwienie konfigurowania aplikacji do nasłuchiwania zdarzeń usług komunikacyjnych. Na przykład możesz chcieć zaktualizować bazę danych, utworzyć element roboczy i dostarczyć Powiadomienie wypychane za każdym razem, gdy wiadomość SMS zostanie odebrana przy użyciu numeru telefonu skojarzonego z zasobem usług komunikacyjnych.
 
@@ -31,7 +29,7 @@ Azure Event Grid to w pełni zarządzana usługa routingu zdarzeń, która używ
 
 ## <a name="events-types"></a>Typy zdarzeń
 
-Funkcja Event Grid używa [subskrypcji zdarzeń](../../event-grid/concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. 
+Funkcja Event Grid używa [subskrypcji zdarzeń](../../event-grid/concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów.
 
 Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 
@@ -207,7 +205,7 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Zdarzenie Microsoft. Communications. ChatThreadCreatedWithUser 
+### <a name="microsoftcommunicationchatthreadcreatedwithuser-event"></a>Zdarzenie Microsoft. Communications. ChatThreadCreatedWithUser
 
 ```json
 [{
@@ -265,7 +263,7 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 }]
 ```
 
-### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Zdarzenie Microsoft. Communications. ChatThreadPropertiesUpdatedPerUser 
+### <a name="microsoftcommunicationchatthreadpropertiesupdatedperuser-event"></a>Zdarzenie Microsoft. Communications. ChatThreadPropertiesUpdatedPerUser
 
 ```json
 [{

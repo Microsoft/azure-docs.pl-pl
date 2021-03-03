@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599842"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667642"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -29,7 +29,7 @@ W dedykowanej puli SQL można użyć tabeli zewnętrznej do:
 - Wykonaj zapytania dotyczące usługi Azure Blob Storage i Azure Data Lake Gen2 przy użyciu instrukcji języka Transact-SQL.
 - Importuj i przechowuj dane z usługi Azure Blob Storage i Azure Data Lake Storage do dedykowanej puli SQL.
 
-Gdy jest używany w połączeniu z instrukcją [CREATE TABLE jako SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , wybranie z tabeli zewnętrznej importuje dane do tabeli w puli SQL. Oprócz [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)tabele zewnętrzne są przydatne do ładowania danych. 
+Gdy jest używany w połączeniu z instrukcją [CREATE TABLE jako SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , wybranie z tabeli zewnętrznej importuje dane do tabeli w puli SQL. Oprócz [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)tabele zewnętrzne są przydatne do ładowania danych. 
 
 Aby zapoznać się z samouczkiem ładowania, zobacz Tworzenie [danych z usługi Azure Blob Storage przy użyciu sieci podstawowej](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
@@ -60,7 +60,7 @@ Zewnętrzna tabela dostępu do magazynu platformy Azure przy użyciu podanego w 
 
 ## <a name="create-external-data-source"></a>UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH
 
-Zewnętrzne źródła danych są używane do łączenia się z kontami magazynu. Kompletna dokumentacja została [zamieszczona tutaj](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Zewnętrzne źródła danych są używane do łączenia się z kontami magazynu. Kompletna dokumentacja została [zamieszczona tutaj](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="syntax-for-create-external-data-source"></a>Składnia dla tworzenia zewnętrznego źródła danych
 
@@ -159,7 +159,7 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 ## <a name="create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT
 
-Tworzy obiekt zewnętrznego formatu pliku, który definiuje dane zewnętrzne przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. Tworzenie zewnętrznego formatu pliku jest wymaganiem wstępnym dla tworzenia tabeli zewnętrznej. Kompletna dokumentacja jest dostępna [tutaj](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Tworzy obiekt zewnętrznego formatu pliku, który definiuje dane zewnętrzne przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. Tworzenie zewnętrznego formatu pliku jest wymaganiem wstępnym dla tworzenia tabeli zewnętrznej. Kompletna dokumentacja jest dostępna [tutaj](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 Tworząc zewnętrzny format pliku, należy określić rzeczywisty układ danych, do których odwołuje się tabela zewnętrzna.
 
@@ -325,7 +325,7 @@ Nazwa tabeli, która ma zostać utworzona. W przypadku tabeli zewnętrznej Pula 
 
 <column_definition>,... *n* ]
 
-Tworzenie tabeli zewnętrznej obsługuje możliwość konfigurowania nazwy kolumny, typu danych, wartości null i sortowania. Nie można użyć ograniczenia domyślnego dla tabel zewnętrznych.
+Tworzenie tabeli zewnętrznej obsługuje możliwość konfigurowania nazwy kolumny, typu danych i sortowania. Nie można użyć ograniczenia domyślnego dla tabel zewnętrznych.
 
 >[!IMPORTANT]
 >Definicje kolumn, w tym typy danych i liczby kolumn, muszą być zgodne z danymi w plikach zewnętrznych. W przypadku niezgodności wiersze pliku zostaną odrzucone podczas wykonywania zapytania na danych rzeczywistych.
@@ -387,7 +387,7 @@ Korzystając z możliwości eksploracji Data Lake możesz teraz tworzyć i wysy�
 
 - Musisz mieć dostęp do obszaru roboczego z co najmniej rolą dostępu ARM współautora danych obiektów blob magazynu do konta ADLS Gen2
 
-- Musisz mieć co najmniej [uprawnienia do tworzenia](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) i wysyłania zapytań dotyczących tabel zewnętrznych w puli SQL lub SQL od
+- Musisz mieć co najmniej [uprawnienia do tworzenia](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) i wysyłania zapytań dotyczących tabel zewnętrznych w puli SQL lub SQL od
 
 Z panelu dane wybierz plik, dla którego chcesz utworzyć zewnętrzną tabelę:
 > [!div class="mx-imgBorder"]

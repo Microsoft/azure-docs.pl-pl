@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: dfd560754d92c97b435ff7643f6da4d3e62e8cfd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371853"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673536"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
 W tym artykule opisano sposób, w jaki można dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure oraz jakie są niezbędne wersje systemu operacyjnego lub wersje DBMS.
@@ -93,7 +92,7 @@ Obsługa baz danych innych niż HANA dla obciążeń SAP jest udokumentowana w [
 ## <a name="sap-hana-support"></a>Obsługa SAP HANA
 Na platformie Azure są dostępne dwie usługi, których można użyć do uruchomienia bazy danych HANA:
 
-- Maszyny wirtualne platformy Azure
+- Azure Virtual Machines
 - [Duże wystąpienia HANA](./hana-overview-architecture.md)
 
 W przypadku uruchamiania SAP HANA rozwiązanie SAP ma więcej i silniejsze warunki, które muszą spełniać infrastruktura niż w przypadku uruchamiania NetWeaver lub innych aplikacji SAP i systemu DBMS. W związku z tym mniejsza liczba maszyn wirtualnych platformy Azure kwalifikuje się do uruchamiania SAP HANA systemu DBMS. Listę obsługiwanych infrastruktury platformy Azure obsługiwaną dla SAP HANA można znaleźć w [katalogu sprzętowym SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 

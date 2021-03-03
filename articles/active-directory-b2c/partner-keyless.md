@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090370"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644259"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie mniejszej ilości przy użyciu Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Dzierżawca musi być połączony z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md). Dzierżawca musi być połączony z subskrypcją platformy Azure.
 
 - Bezpłatna dzierżawa w chmurze — Uzyskaj bezpłatne [Konto próbne](https://keyless.io/go).
 
@@ -157,6 +157,6 @@ Powinien być teraz widoczny jako nowy dostawca tożsamości OIDC wymieniony w r
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami:
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

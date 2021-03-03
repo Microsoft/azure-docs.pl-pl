@@ -6,14 +6,17 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b4719fcf046ce7ef5d74ccf1863b0400c2c52845
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438161"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656641"
 ---
 W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu Android.
+
+> [!NOTE]
+> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,17 +31,15 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy u
 
 W obszarze Android Studio wybierz pozycję Rozpocznij nowy Android Studio projekt.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.":::
 
-Wybierz szablon projektu &quot;puste działanie" w obszarze "telefon i tablet".
+Wybierz szablon projektu "puste działanie" w obszarze "telefon i tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu.":::
 
-Wybierz szablon projektu &quot;puste działanie" lub większą.
+Wybierz minimalną bibliotekę klienta "API 26: Android 8,0 (OREO)" lub większą.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
-
-Wybierz szablon projektu &quot;puste działanie":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję &quot;puste działanie&quot; wybraną na ekranie szablonu projektu 2.":::
 
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
@@ -80,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -182,8 +183,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.communication.calling.CallAgent;
 import com.azure.communication.calling.CallClient;
 import com.azure.communication.calling.StartCallOptions;
@@ -266,6 +267,7 @@ Następujące klasy i interfejsy obsługują niektóre główne funkcje bibliote
 | CallClient| CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
 | CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
 | CommunicationUserCredential | CommunicationUserCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.|
+| CommunicationIdentifier | CommunicationIdentifier jest używany jako inny typ uczestnika, który mógłby być częścią wywołania.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Tworzenie agenta na podstawie tokenu dostępu użytkownika
 
@@ -280,7 +282,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -305,7 +307,7 @@ private void startCall() {
 
     callAgent.call(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```
@@ -315,9 +317,7 @@ private void startCall() {
 
 Aplikację można teraz uruchomić przy użyciu przycisku "Uruchom aplikację" na pasku narzędzi (Shift + F10). Sprawdź, czy masz możliwość nawiązywania wywołań przez wywołanie metody `8:echo123` . Zostanie odtworzony wstępnie zarejestrowany komunikat, a następnie powtórzony komunikat z powrotem.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Zrzut ekranu przedstawiający przycisk &quot;Rozpocznij nowy projekt Android Studio&quot; wybrany w Android Studio.&quot;:::
-
-Wybierz szablon projektu &quot;puste działanie":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację.":::
 
 ## <a name="sample-code"></a>Przykładowy kod
 

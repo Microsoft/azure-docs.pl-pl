@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2027f713baf2b8039187e933ffc7bb0b68b5cc5f
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: b6ef122cd36c3d4e9135876647075f22158df0d1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631965"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653239"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Wprowadzenie do interfejsu API raportowania Azure Active Directory
 
@@ -51,7 +51,7 @@ Punkt końcowy interfejsu API Microsoft Graph dla dzienników inspekcji jest `ht
 
 Za pomocą [interfejsu API wykrywania ryzyka ochrony tożsamości](/graph/api/resources/identityriskevent?view=graph-rest-beta) można uzyskać programistyczny dostęp do wykrywania zabezpieczeń przy użyciu Microsoft Graph. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-Za pomocą [interfejsu API dzienników aprowizacji](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) można także uzyskać programistyczny dostęp do zdarzeń aprowizacji w dzierżawie. 
+Za pomocą [interfejsu API dzienników aprowizacji](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) można także uzyskać programistyczny dostęp do zdarzeń aprowizacji w dzierżawie. 
 
 ## <a name="apis-with-microsoft-graph-explorer"></a>Interfejsy API z Eksploratorem Microsoft Graph
 

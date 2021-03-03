@@ -6,7 +6,7 @@
   items:
     - name: Co to jest środowisko Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Narzędzia dołączone do maszyny Data Science Virtual Machine
+    - name: Narzędzia w Data Science Virtual Machine
       href: tools-included.md
 - name: Przewodniki Szybki start
   expanded: true

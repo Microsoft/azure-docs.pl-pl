@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116793"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674135"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ W poniższej tabeli wymieniono tematy istotne dla dedykowanej puli SQL i bezserw
 | [Zreplikowane tabele](#replicated-tables)                      | Tak                | Nie                      |
 | [Tabele działające w trybie okrężnym](#round-robin-tables)                    | Tak                | Nie                      |
 | [Typowe metody dystrybucji dla tabel](#common-distribution-methods-for-tables) | Tak                | Nie                      |
-| [Partycje](#partitions)                                    | Tak                | Tak                     |
+| [Partition](#partitions)                                    | Tak                | Tak                     |
 | [Indeksy magazynu kolumn](#columnstore-indexes)                  | Tak                | Nie                      |
 | [Statystyki](#statistics)                                    | Tak                | Tak                     |
 | [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Tak                | Nie                      |
@@ -61,7 +61,7 @@ W poniższej tabeli wymieniono tematy istotne dla dedykowanej puli SQL i bezserw
 
 ## <a name="schema-names"></a>Nazwy schematów
 
-Schematy są dobrym sposobem grupowania jednocześnie obiektów, które są używane w podobny sposób. Poniższy kod tworzy [schemat zdefiniowany przez użytkownika](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) o nazwie WWI.
+Schematy są dobrym sposobem grupowania jednocześnie obiektów, które są używane w podobny sposób. Poniższy kod tworzy [schemat zdefiniowany przez użytkownika](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) o nazwie WWI.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -69,7 +69,7 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Nazwy tabel
 
-W przypadku migrowania wielu baz danych z rozwiązania Premium do dedykowanej puli SQL najlepszym rozwiązaniem jest Migrowanie wszystkich tabel faktów, wymiarów i integracji do jednego schematu puli SQL. Można na przykład przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) przykładowego magazynu danych w ramach jednego schematu o nazwie WWI.
+W przypadku migrowania wielu baz danych z rozwiązania Premium do dedykowanej puli SQL najlepszym rozwiązaniem jest Migrowanie wszystkich tabel faktów, wymiarów i integracji do jednego schematu puli SQL. Można na przykład przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?view=azure-sqldw-latest&preserve-view=true) przykładowego magazynu danych w ramach jednego schematu o nazwie WWI.
 
 Aby wyświetlić organizację tabel w dedykowanej puli SQL, można użyć faktów, Dim i int jako prefiksów nazw tabel. W poniższej tabeli przedstawiono niektóre z nazw schematu i tabeli dla WideWorldImportersDW.  
 
@@ -108,7 +108,7 @@ W przypadku puli SQL bezserwerowej można użyć [CETAS](develop-tables-cetas.md
 
 ## <a name="data-types"></a>Typy danych
 
-Dedykowana Pula SQL obsługuje najczęściej używane typy danych. Aby zapoznać się z listą obsługiwanych typów danych, zobacz [typy danych w CREATE TABLE odwołanie](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) w instrukcji CREATE TABLE. Aby uzyskać więcej informacji na temat korzystania z typów danych, zobacz [typy danych](../sql/develop-tables-data-types.md).
+Dedykowana Pula SQL obsługuje najczęściej używane typy danych. Aby zapoznać się z listą obsługiwanych typów danych, zobacz [typy danych w CREATE TABLE odwołanie](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest#DataTypes&preserve-view=true) w instrukcji CREATE TABLE. Aby uzyskać więcej informacji na temat korzystania z typów danych, zobacz [typy danych](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Rozproszone tabele
 
@@ -153,7 +153,7 @@ W dedykowanych pulach SQL tabela partycjonowana i wykonuje operacje na wierszach
 Możesz również zachować dane za pomocą przełączania partycji. Ponieważ dane w dedykowanej puli SQL są już dystrybuowane, zbyt wiele partycji może powolnej wydajności zapytań. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące partycjonowania](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
-> Gdy partycja przełączy się na partycje tabeli, które nie są puste, rozważ użycie opcji TRUNCATE_TARGET w instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , jeśli istniejące dane mają zostać obcięte.
+> Gdy partycja przełączy się na partycje tabeli, które nie są puste, rozważ użycie opcji TRUNCATE_TARGET w instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) , jeśli istniejące dane mają zostać obcięte.
 
 Kod poniżej przełącza przekształcone dane codziennie na partycję SalesFact i zastępuje wszelkie istniejące dane.
 
@@ -190,7 +190,7 @@ Domyślnie dedykowana Pula SQL przechowuje tabelę jako klastrowany indeks magaz
 > [!TIP]
 > Tabela sterty może być szczególnie przydatna do ładowania danych przejściowych, takich jak tabela tymczasowa, która jest przekształcana w ostateczną tabelę.
 
-Aby zapoznać się z listą funkcji magazynu kolumn, zobacz [co nowego w indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Aby poprawić wydajność indeksu magazynu kolumn, zobacz [maksymalizacja jakości grupy wierszy dla indeksów magazynu kolumn](../sql/data-load-columnstore-compression.md).
+Aby zapoznać się z listą funkcji magazynu kolumn, zobacz [co nowego w indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?view=azure-sqldw-latest&preserve-view=true). Aby poprawić wydajność indeksu magazynu kolumn, zobacz [maksymalizacja jakości grupy wierszy dla indeksów magazynu kolumn](../sql/data-load-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statystyki
 
@@ -208,10 +208,10 @@ W przypadku dedykowanej puli SQL można utworzyć tabelę jako nową pustą tabe
 
 | Instrukcja T-SQL | Opis |
 |:----------------|:------------|
-| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy pustą tabelę przez zdefiniowanie wszystkich kolumn i opcji tabeli. |
-| [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy tabelę zewnętrzną. Definicja tabeli jest przechowywana w dedykowanej puli SQL. Dane tabeli są przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Wypełnia nową tabelę wynikami instrukcji SELECT. Kolumny tabeli i typy danych są oparte na wynikach instrukcji SELECT. Aby zaimportować dane, ta instrukcja może zostać wybrana z tabeli zewnętrznej. |
-| [UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO WYBRANĄ](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy nową tabelę zewnętrzną przez wyeksportowanie wyników instrukcji SELECT do lokalizacji zewnętrznej.  Lokalizacją jest usługa Azure Blob Storage lub Azure Data Lake Storage. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Tworzy pustą tabelę przez zdefiniowanie wszystkich kolumn i opcji tabeli. |
+| [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Tworzy tabelę zewnętrzną. Definicja tabeli jest przechowywana w dedykowanej puli SQL. Dane tabeli są przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Wypełnia nową tabelę wynikami instrukcji SELECT. Kolumny tabeli i typy danych są oparte na wynikach instrukcji SELECT. Aby zaimportować dane, ta instrukcja może zostać wybrana z tabeli zewnętrznej. |
+| [UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO WYBRANĄ](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Tworzy nową tabelę zewnętrzną przez wyeksportowanie wyników instrukcji SELECT do lokalizacji zewnętrznej.  Lokalizacją jest usługa Azure Blob Storage lub Azure Data Lake Storage. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Wyrównaj dane źródłowe z magazynem danych
 
@@ -226,20 +226,20 @@ Jeśli dane pochodzą z wielu magazynów danych, można przenieść dane do maga
 
 Dedykowana Pula SQL obsługuje wiele funkcji tabel oferowanych przez inne bazy danych, ale nie wszystkie.  Na poniższej liście przedstawiono niektóre funkcje tabeli, które nie są obsługiwane w dedykowanej puli SQL.
 
-- Klucz obcy, sprawdzanie [ograniczeń tabeli](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Kolumny obliczane](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Indeksowane widoki](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Kolumny rozrzedzone](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- Klucz obcy, sprawdzanie [ograniczeń tabeli](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Kolumny obliczane](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Indeksowane widoki](/sql/relational-databases/views/create-indexed-views?view=azure-sqldw-latest&preserve-view=true)
+- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Kolumny rozrzedzone](/sql/relational-databases/tables/use-sparse-columns?view=azure-sqldw-latest&preserve-view=true)
 - Klucze zastępcze, implementacja przy użyciu [tożsamości](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Synonimy](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Wyzwalacze](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Indeksy unikatowe](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [Typy zdefiniowane przez użytkownika](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Synonimy](/sql/t-sql/statements/create-synonym-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Wyzwalacze](/sql/t-sql/statements/create-trigger-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Indeksy unikatowe](/sql/t-sql/statements/create-index-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [Typy zdefiniowane przez użytkownika](/sql/relational-databases/native-client/features/using-user-defined-types?view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="table-size-queries"></a>Zapytania o rozmiar tabeli
 
-W dedykowanej puli SQL jeden prosty sposób identyfikowania miejsca i wierszy zużywanych przez tabelę w każdej z dystrybucji 60 to użycie [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+W dedykowanej puli SQL jeden prosty sposób identyfikowania miejsca i wierszy zużywanych przez tabelę w każdej z dystrybucji 60 to użycie [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

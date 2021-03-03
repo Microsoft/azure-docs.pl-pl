@@ -6,20 +6,19 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f33ef81282dd8e60eba64cc77cbd95ab8dbc557
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967571"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666687"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
 W tym artykule opisano obsługiwane scenariusze i szczegóły architektury dla dużych wystąpień platformy HANA (HLI).
@@ -33,7 +32,7 @@ Zapoznaj się z postanowieniami i definicjami, które są używane w tym artykul
 
 - **SID**: identyfikator systemu dla systemu Hana
 - **HLI**: Duże wystąpienia Hana
-- **DR** Odzyskiwanie po awarii
+- Odzyskiwanie po awarii
 - **Normalny program Dr**: Konfiguracja systemu z dedykowanym zasobem tylko do celów odzyskiwania po awarii
 - **MULTIPURPOSE Dr**: system lokacji Dr, który jest skonfigurowany do korzystania ze środowiska nieprodukcyjnego obok wystąpienia produkcyjnego skonfigurowanego dla zdarzenia odzyskiwania po awarii 
 - **Single-SID**: system z zainstalowanym jednym wystąpieniem
@@ -51,7 +50,7 @@ Projekt architektury pochodnej jest całkowicie z perspektywy infrastruktury i n
 W tym artykule opisano szczegółowe informacje o dwóch składnikach w poszczególnych obsługiwanych architekturach:
 
 - Sieć Ethernet
-- Magazyn
+- Storage
 
 ### <a name="ethernet"></a>Sieć Ethernet
 
@@ -97,7 +96,7 @@ W przypadku replikacji systemu HANA lub wdrożenia w poziomie platformy Hana kon
 - Sieć Ethernet "D" powinna być używana wyłącznie na potrzeby dostępu do urządzeń STONITH w Pacemaker. Ten interfejs jest wymagany w przypadku skonfigurowania replikacji systemu HANA i zapewnienia automatycznie przełączenia w tryb failover systemu operacyjnego przy użyciu urządzenia z systemem SBD.
 
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Magazyn jest wstępnie skonfigurowany na podstawie wybranej topologii. Rozmiary woluminów i punkty instalacji różnią się w zależności od liczby serwerów, liczby jednostek SKU i skonfigurowanej topologii. Aby uzyskać więcej informacji, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). Jeśli potrzebujesz więcej miejsca w magazynie, możesz kupić je w przyrostach o pojemności 1 TB.
 
 >[!NOTE]
@@ -145,7 +144,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -180,7 +179,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -220,7 +219,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -261,7 +260,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -316,7 +315,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -362,7 +361,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -421,7 +420,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -462,7 +461,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -498,7 +497,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -537,7 +536,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -582,7 +581,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI (podstawowa i DR):
 
 | Punkt instalacji | Przypadek użycia | 
@@ -623,7 +622,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -673,7 +672,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -718,7 +717,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 
@@ -769,7 +768,7 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
 | D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Następujące punkty instalacji są wstępnie skonfigurowane:
 
 | Punkt instalacji | Przypadek użycia | 

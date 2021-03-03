@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: cd1eb98fca9fe25b6672863c02b8a78e57063e5a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 24b2b8ee6398ef1306aee59b5d7ca7525284f96b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259325"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644551"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
 
@@ -124,4 +124,4 @@ Dodatkowe informacje:
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w firmie Microsoft Q&A ](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Usługa Azure AD w firmie Microsoft Q&A ](/answers/topics/azure-active-directory.html)

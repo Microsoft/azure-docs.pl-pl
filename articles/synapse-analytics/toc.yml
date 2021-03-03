@@ -419,7 +419,7 @@
           items:
             - name: Tworzenie punktów przywracania
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Przywracanie puli SQL usługi Synapse
+            - name: Przywracanie dedykowanej puli SQL
               href: ./backuprestore/restore-sql-pool.md
         - name: Zarządzanie i monitorowanie
           items:

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 13388bf289c1d10a2e7da04a4dd5d26be109535e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697864"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644446"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Rozwiązywanie typowych błędów podczas dołączania
 Autozarządzanie może zakończyć się niepowodzeniem, aby dołączyć maszynę do usługi. W tym dokumencie wyjaśniono, jak rozwiązywać problemy z błędami wdrażania, udostępnia niektóre typowe przyczyny niepowodzenia wdrożeń, a także opisuje potencjalne kolejne kroki dotyczące rozwiązania problemu.
@@ -37,7 +37,7 @@ Jeśli nie widzisz żadnych wdrożeń zakończonych niepowodzeniem w grupie zaso
 Błąd |  Ograniczanie ryzyka
 :-----|:-------------|
 Błąd autozarządzania kontem niewystarczających uprawnień | Taka sytuacja może wystąpić, jeśli ostatnio przeniesiono subskrypcję zawierającą nowe konto Autozarządzanie do nowej dzierżawy. Kroki umożliwiające rozwiązanie tego problemu znajdują się [tutaj](./repair-automanage-account.md).
-Region obszaru roboczego jest niezgodny z wymaganiami dotyczącymi mapowania regionów | Funkcja autozarządzania nie mogła dołączyć maszyny, ale obszar roboczy Log Analytics, z którym jest obecnie łączona maszyna, nie jest mapowany do obsługiwanego regionu automatyzacji. Upewnij się, że istniejący obszar roboczy Log Analytics i konto usługi Automation znajdują się w [obsługiwanym mapowaniu regionów](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+Region obszaru roboczego jest niezgodny z wymaganiami dotyczącymi mapowania regionów | Funkcja autozarządzania nie mogła dołączyć maszyny, ale obszar roboczy Log Analytics, z którym jest obecnie łączona maszyna, nie jest mapowany do obsługiwanego regionu automatyzacji. Upewnij się, że istniejący obszar roboczy Log Analytics i konto usługi Automation znajdują się w [obsługiwanym mapowaniu regionów](../automation/how-to/region-mappings.md).
 "Przypisanie nie powiodło się; Brak dostępnych dodatkowych informacji " | Otwórz sprawę z obsługą Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -46,4 +46,3 @@ Region obszaru roboczego jest niezgodny z wymaganiami dotyczącymi mapowania reg
 
 > [!div class="nextstepaction"]
 > [Włącz Autozarządzanie maszynami wirtualnymi w Azure Portal](quick-create-virtual-machines-portal.md)
-

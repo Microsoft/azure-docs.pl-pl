@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: ''
-ms.openlocfilehash: 184f01f27023ce5976e5204bed384df54bab82d4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 76f67204b41a36d10541974e78a22f7d065e144b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950435"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669695"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure
 
@@ -33,7 +32,7 @@ Wołują
 
 - [SAP HANA certyfikowane platformy IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) na potrzeby SAP HANA obsługi natywnych maszyn wirtualnych platformy Azure i dużych wystąpień Hana.
 
-| Produkt SAP | Obsługiwane systemy operacyjne | Oferty platformy Azure |
+| Produkt SAP | Obsługiwany system operacyjny | Oferty platformy Azure |
 | --- | --- | --- |
 | SAP HANA Developer Edition (w tym oprogramowanie klienckie HANA składające się z SQLODBC, ODBO-Windows Only, ODBC, JDBC Drivers, HANA Studio i HANA Database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Rodzina maszyn wirtualnych z serii D |
 | Firma 1 na platformie HANA | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA certyfikowane platformy IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |

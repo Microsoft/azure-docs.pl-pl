@@ -5,25 +5,25 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 03/02/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d19a5dadffdfa26ccb2d84e6dab278ad272c7b0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060092"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658050"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API usługi Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Interfejs API Azure Cosmos DB dla MongoDB wykorzystuje podstawowe możliwości zarządzania indeksami Azure Cosmos DB. W tym artykule opisano sposób dodawania indeksów przy użyciu interfejsu API Azure Cosmos DB dla MongoDB. Można także zapoznać się z [omówieniem indeksowania w Azure Cosmos DB](index-overview.md) , które są odpowiednie dla wszystkich interfejsów API.
 
-## <a name="indexing-for-mongodb-server-version-36"></a>Indeksowanie dla serwera MongoDB w wersji 3,6
+## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>Indeksowanie dla serwera MongoDB w wersji 3,6 lub nowszej
 
-Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3,6 automatycznie indeksuje `_id` pole, którego nie można usunąć. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. W interfejsie API Azure Cosmos DB MongoDB, fragmentowania i indeksowanie są oddzielnymi koncepcjami. Nie musisz indeksować klucza fragmentu. Jednak, podobnie jak w przypadku każdej innej właściwości w dokumencie, jeśli ta właściwość jest typowym filtrem w zapytaniach, zalecamy indeksowanie klucza fragmentu.
+Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3.6 + automatycznie indeksuje `_id` pole, którego nie można usunąć. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. W interfejsie API Azure Cosmos DB MongoDB, fragmentowania i indeksowanie są oddzielnymi koncepcjami. Nie musisz indeksować klucza fragmentu. Jednak, podobnie jak w przypadku każdej innej właściwości w dokumencie, jeśli ta właściwość jest typowym filtrem w zapytaniach, zalecamy indeksowanie klucza fragmentu.
 
 Aby zindeksować dodatkowe pola, zastosuj polecenia MongoDB służące do zarządzania indeksowaniem. Podobnie jak w MongoDB, interfejs API Azure Cosmos DB dla MongoDB automatycznie indeksuje `_id` tylko pole. Te domyślne zasady indeksowania różnią się od interfejsu API Azure Cosmos DB SQL, który domyślnie indeksuje wszystkie pola.
 
@@ -53,9 +53,9 @@ Można utworzyć ten sam indeks pojedynczego pola `name` w Azure Portal:
 
 Jedno zapytanie używa wielu indeksów pojedynczego pola, jeśli są dostępne. Można utworzyć maksymalnie 500 indeksów jednego pola na kontener.
 
-### <a name="compound-indexes-mongodb-server-version-36"></a>Indeksy złożone (MongoDB Server wersja 3,6)
+### <a name="compound-indexes-mongodb-server-version-36"></a>Indeksy złożone (MongoDB Server w wersji 3.6 +)
 
-Interfejs API Azure Cosmos DB dla MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu sieci w wersji 3,6. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie. W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego. 
+Interfejs API Azure Cosmos DB dla usługi MongoDB obsługuje indeksy złożone dla kont, które korzystają z protokołu przewodowego w wersji 3,6 i 4,0. Można uwzględnić maksymalnie osiem pól w indeksie złożonym. W przeciwieństwie do programu w MongoDB, należy utworzyć indeks złożony tylko wtedy, gdy zapytanie musi efektywnie sortować w wielu polach jednocześnie. W przypadku zapytań z wieloma filtrami, które nie muszą sortować, należy utworzyć wiele indeksów jednego pola zamiast pojedynczego indeksu złożonego. 
 
 > [!NOTE]
 > Nie można tworzyć indeksów złożonych dla zagnieżdżonych właściwości lub tablic.
@@ -102,30 +102,31 @@ Za pomocą indeksów wieloznacznych można obsługiwać zapytania względem niez
 Oto część przykładowego dokumentu w tej kolekcji:
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 Oto inny przykład, tym razem z nieco innym zestawem właściwości w `children` :
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 W tej kolekcji dokumenty mogą mieć wiele różnych możliwych właściwości. Jeśli chcesz zindeksować wszystkie dane w `children` tablicy, masz dwie opcje: Utwórz oddzielne indeksy dla każdej właściwości pojedynczej lub Utwórz jeden indeks wieloznaczny dla całej `children` tablicy.
@@ -140,8 +141,8 @@ W **przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwa
 
 Można utworzyć następujące typy indeksów przy użyciu składni symboli wieloznacznych:
 
-- Pojedyncze pole
-- Dane geoprzestrzenne
+* Pojedyncze pole
+* Dane geoprzestrzenne
 
 ### <a name="indexing-all-properties"></a>Indeksowanie wszystkich właściwości
 
@@ -162,41 +163,45 @@ Dokumenty z wieloma polami mogą zawierać opłaty za operacje zapisu i aktualiz
 
 Indeksy wieloznaczne nie obsługują żadnego z następujących typów indeksu lub właściwości:
 
-- Złożony
-- TTL
-- Unikatowe
+* Złożony
+* TTL
+* Unikatowe
 
 W **przeciwieństwie do MongoDB w** interfejsie API Azure Cosmos DB dla MongoDB **nie** można używać symboli wieloznacznych dla:
 
-- Tworzenie indeksu wieloznacznego, który zawiera wiele konkretnych pól
+* Tworzenie indeksu wieloznacznego, który zawiera wiele konkretnych pól
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- Tworzenie indeksu wieloznacznego, który wyklucza wiele konkretnych pól
+* Tworzenie indeksu wieloznacznego, który wyklucza wiele konkretnych pól
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 Alternatywnie można utworzyć wiele indeksów wieloznacznych.
 
 ## <a name="index-properties"></a>Właściwości indeksu
 
-Następujące operacje są wspólne dla kont obsługujących protokół komunikacyjny w wersji 3,6 i kont obsługujących wcześniejsze wersje. Możesz dowiedzieć się więcej na temat [obsługiwanych indeksów i właściwości indeksowanych](mongodb-feature-support-36.md#indexes-and-index-properties).
+Następujące operacje są wspólne dla kont obsługujących protokół komunikacyjny w wersji 4,0 i kont obsługujących wcześniejsze wersje. Możesz dowiedzieć się więcej na temat [obsługiwanych indeksów i właściwości indeksowanych](mongodb-feature-support-40.md#indexes-and-index-properties).
 
 ### <a name="unique-indexes"></a>Indeksy unikatowe
 
@@ -210,11 +215,11 @@ Następujące polecenie tworzy unikatowy indeks w polu `student_id` :
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -225,23 +230,23 @@ Następujące polecenia tworzą kolekcję podzielonej na fragmenty ```coll``` (k
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 W poprzednim przykładzie pominięto ```"university":1``` klauzulę zwracającą błąd z następującym komunikatem:
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*nie można utworzyć unikatowego indeksu dla {student_id: 1,0} ze wzorcem klucza fragmentu {University: 1,0}*
 
 ### <a name="ttl-indexes"></a>Indeksy czasu wygaśnięcia
 
@@ -260,7 +265,7 @@ Poprzednie polecenie usuwa wszystkie dokumenty w ```db.coll``` kolekcji, które 
 
 ## <a name="track-index-progress"></a>Postęp śledzenia indeksu
 
-Wersja 3,6 interfejsu API Azure Cosmos DB dla MongoDB obsługuje `currentOp()` polecenie śledzenia postępu indeksowania w wystąpieniu bazy danych. To polecenie zwraca dokument zawierający informacje o operacjach w toku w wystąpieniu bazy danych. Za pomocą `currentOp` polecenia można śledzić wszystkie operacje w toku w natywnej MongoDB. W interfejsie API Azure Cosmos DB dla MongoDB, to polecenie obsługuje tylko śledzenie operacji indeksu.
+Interfejs API w wersji 3.6 + z Azure Cosmos DB dla MongoDB obsługuje `currentOp()` polecenie śledzenia postępu indeksowania w wystąpieniu bazy danych. To polecenie zwraca dokument zawierający informacje o operacjach w toku w wystąpieniu bazy danych. Za pomocą `currentOp` polecenia można śledzić wszystkie operacje w toku w natywnej MongoDB. W interfejsie API Azure Cosmos DB dla MongoDB, to polecenie obsługuje tylko śledzenie operacji indeksu.
 
 Poniżej przedstawiono kilka przykładów, które pokazują, jak używać `currentOp` polecenia do śledzenia postępu indeksowania:
 
@@ -286,7 +291,7 @@ Poniżej przedstawiono kilka przykładów, które pokazują, jak używać `curre
 
 Szczegóły postępu indeksu pokazują procent postępu dla bieżącej operacji indeksu. Oto przykład, który pokazuje format dokumentu wyjściowego dla różnych etapów postępu indeksu:
 
-- Operacja indeksowania w kolekcji "foo" i bazie danych "bar", która jest 60 procent, będzie miała następujący dokument wyjściowy. `Inprog[0].progress.total`Pole wskazuje 100 jako procent realizacji docelowej.
+* Operacja indeksowania w kolekcji "foo" i bazie danych "bar", która jest 60 procent, będzie miała następujący dokument wyjściowy. `Inprog[0].progress.total`Pole wskazuje 100 jako procent realizacji docelowej.
 
    ```json
    {
@@ -310,7 +315,7 @@ Szczegóły postępu indeksu pokazują procent postępu dla bieżącej operacji 
    }
    ```
 
-- Jeśli operacja indeksu została rozpoczęta tylko w kolekcji "foo" i bazie danych "bar", dokument wyjściowy może wyświetlać postęp 0 procent do momentu osiągnięcia wymiernego poziomu.
+* Jeśli operacja indeksu została rozpoczęta tylko w kolekcji "foo" i bazie danych "bar", dokument wyjściowy może wyświetlać postęp 0 procent do momentu osiągnięcia wymiernego poziomu.
 
    ```json
    {
@@ -334,7 +339,7 @@ Szczegóły postępu indeksu pokazują procent postępu dla bieżącej operacji 
    }
    ```
 
-- Po zakończeniu operacji indeksu w toku w dokumencie wyjściowym są wyświetlane puste `inprog` operacje.
+* Po zakończeniu operacji indeksu w toku w dokumencie wyjściowym są wyświetlane puste `inprog` operacje.
 
    ```json
    {
@@ -407,26 +412,26 @@ Obecnie można tworzyć unikatowe indeksy tylko wtedy, gdy kolekcja nie zawiera 
 
 Dostępne funkcje indeksowania i ustawienia domyślne są inne dla kont usługi Azure Cosmos, które są zgodne z wersją 3,2 protokołu telekomunikacyjnych MongoDB. Możesz [sprawdzić wersję konta](mongodb-feature-support-36.md#protocol-support) i [uaktualnić ją do wersji 3,6](mongodb-version-upgrade.md).
 
-Jeśli używasz wersji 3,2, w tej sekcji przedstawiono kluczowe różnice w wersji 3,6.
+Jeśli używasz wersji 3,2, w tej sekcji przedstawiono kluczowe różnice w wersji 3.6 +.
 
 ### <a name="dropping-default-indexes-version-32"></a>Usuwanie indeksów domyślnych (wersja 3,2)
 
-W przeciwieństwie do wersji 3,6 interfejsu API Azure Cosmos DB dla MongoDB, wersja 3,2 domyślnie indeksuje każdą właściwość. Aby usunąć te domyślne indeksy dla kolekcji (), można użyć następującego polecenia ```coll``` :
+W przeciwieństwie do wersji 3.6 interfejsu API Azure Cosmos DB dla MongoDB, wersja 3,2 domyślnie indeksuje każdą właściwość. Aby usunąć te domyślne indeksy dla kolekcji (), można użyć następującego polecenia ```coll``` :
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-Po porzucenie indeksów domyślnych można dodać więcej indeksów, tak jak w wersji 3,6.
+Po porzucenie indeksów domyślnych można dodać więcej indeksów, tak jak w wersji 3.6 +.
 
 ### <a name="compound-indexes-version-32"></a>Indeksy złożone (wersja 3,2)
 
-Indeksy złożone przechowują odwołania do wielu pól dokumentu. Jeśli chcesz utworzyć indeks złożony, [Uaktualnij go do wersji 3,6](mongodb-version-upgrade.md).
+Indeksy złożone przechowują odwołania do wielu pól dokumentu. Jeśli chcesz utworzyć indeks złożony, [Uaktualnij do wersji 3,6 lub 4,0](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Indeksy wieloznaczne (wersja 3,2)
 
-Jeśli chcesz utworzyć indeks symboli wieloznacznych, [Uaktualnij do wersji 3,6](mongodb-version-upgrade.md).
+Jeśli chcesz utworzyć indeks symboli wieloznacznych, [Uaktualnij do wersji 4,0 lub 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

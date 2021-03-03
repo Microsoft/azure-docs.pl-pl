@@ -6,20 +6,19 @@ documentationcenter: ''
 author: hermanndms
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88b1cd2a5bf33d6401f0d2e15237400e27c72e54
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 990274f34dac0234c2c2d521ca6a260f999671bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967656"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674529"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurowanie serwera SMT dla systemu SUSE Linux
 Duże wystąpienia SAP HANA nie mają bezpośredniej łączności z Internetem. Nie jest to prosty proces rejestracji takiej jednostki u dostawcy systemu operacyjnego oraz pobierania i stosowania aktualizacji. Rozwiązaniem dla systemu SUSE Linux jest skonfigurowanie serwera w postaci SMT na maszynie wirtualnej platformy Azure. Hostowanie maszyny wirtualnej w sieci wirtualnej platformy Azure, która jest połączona z dużym wystąpieniem HANA. Dzięki takiemu serwerowi o rozmiarze SMT duże wystąpienie wystąpienia HANA może rejestrować i pobierać aktualizacje. 
@@ -35,7 +34,7 @@ Wymagania wstępne dotyczące instalowania serwera z systemem SMT, który spełn
 
 Najpierw Zaloguj się do [centrum klient SUSE](https://scc.suse.com/).
 
-Przejdź do **Organization** pozycji  >  **poświadczenia organizacji** organizacji. W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
+Przejdź do pozycji  >  **poświadczenia organizacji** organizacji. W tej sekcji należy znaleźć poświadczenia niezbędne do skonfigurowania serwera SMT.
 
 Następnie zainstaluj maszynę wirtualną w systemie SUSE Linux w sieci wirtualnej platformy Azure. Aby wdrożyć maszynę wirtualną, zapoznaj się z obrazem galerii SLES 12 z dodatkiem SP2 (wybierz pozycję obraz BYOS SUSE). W procesie wdrażania nie należy definiować nazwy DNS i nie należy używać statycznych adresów IP.
 

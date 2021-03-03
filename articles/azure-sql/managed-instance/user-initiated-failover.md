@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/17/2021
-ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/23/2021
+ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096514"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660801"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Zainicjowane przez użytkownika ręczne przejście w tryb failover w usłudze SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Rozważ wykonanie [ręcznej pracy awaryjnej](../database/high-availability-sla.m
 - W niektórych przypadkach obniżenia wydajności zapytań ręczne przełączenie w tryb failover może pomóc wyeliminować problem z wydajnością.
 
 > [!NOTE]
-> Zagwarantowanie, że aplikacje są odporne na awarie przed wdrożeniem w środowisku produkcyjnym, pomogą ograniczyć ryzyko błędów aplikacji w środowisku produkcyjnym i przyczynić się do dostępności aplikacji dla klientów.
+> Zagwarantowanie, że aplikacje są odporne na awarie przed wdrożeniem w środowisku produkcyjnym, pomogą ograniczyć ryzyko błędów aplikacji w środowisku produkcyjnym i przyczynić się do dostępności aplikacji dla klientów. Dowiedz się więcej o testowaniu aplikacji pod kątem gotowości do chmury dzięki [testom gotowości do pracy w chmurze w celu zapewnienia odporności na awarie przy użyciu kodu wideo wystąpienia zarządzanego SQL](https://youtu.be/FACWYLgYDL8) .
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania do trybu failover w wystąpieniu zarządzanym SQL
 
@@ -43,7 +43,7 @@ Rozważ wykonanie [ręcznej pracy awaryjnej](../database/high-availability-sla.m
 Użytkownik inicjujący tryb failover musi mieć jedną z następujących ról platformy Azure:
 
 - Rola właściciela subskrypcji lub
-- Rola współautora wystąpienia zarządzanego lub
+- Rola [współautora wystąpienia zarządzanego](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) lub
 - Rola niestandardowa z następującymi uprawnieniami:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -153,6 +153,6 @@ Krótka utrata łączności od klienta podczas pracy w trybie failover, zazwycza
 > - Tryb failover nie będzie dozwolony do momentu ukończenia pierwszej pełnej kopii zapasowej nowej bazy danych przez automatyczne systemy tworzenia kopii zapasowych.
 
 ## <a name="next-steps"></a>Następne kroki
-
+- Dowiedz się więcej o testowaniu aplikacji pod kątem gotowości do chmury dzięki [testom gotowości do pracy w chmurze w celu zapewnienia odporności na awarie przy użyciu kodu wideo wystąpienia zarządzanego SQL](https://youtu.be/FACWYLgYDL8) .
 - Dowiedz się więcej o wysokiej dostępności wystąpienia zarządzanego o [wysokiej dostępności dla wystąpienia zarządzanego Azure SQL](../database/high-availability-sla.md).
 - Aby zapoznać się z omówieniem, zobacz [co to jest wystąpienie zarządzane Azure SQL?](sql-managed-instance-paas-overview.md).

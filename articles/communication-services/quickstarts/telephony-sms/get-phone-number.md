@@ -9,16 +9,15 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 3c7f171a2b4957b687831ec2777ecc40b5913a15
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a4a569a11561671febf31b037c499b6f32b44d48
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938651"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657574"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu Azure Portal, aby kupić numer telefonu.
@@ -40,15 +39,15 @@ Przejdź do bloku **numery telefonów** w menu zasób.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Zrzut ekranu przedstawiający stronę telefonu zasobu usług komunikacyjnych.":::
 
-Naciśnij przycisk **Get (Pobierz** ), aby uruchomić kreatora. Kreator w bloku **numery telefonów** przeprowadzi Cię przez szereg pytań, które ułatwiają wybranie numeru telefonu, który najlepiej odpowiada Twojemu scenariuszowi. 
+Naciśnij przycisk **Get (Pobierz** ), aby uruchomić kreatora. Kreator w bloku **numery telefonów** przeprowadzi Cię przez szereg pytań, które ułatwiają wybranie numeru telefonu, który najlepiej odpowiada Twojemu scenariuszowi.
 
-Najpierw musisz wybrać **kraj/region** , w którym chcesz zainicjować obsługę administracyjną numeru telefonu. Po wybraniu kraju/regionu będziesz musiał wybrać **przypadek użycia** , który najlepiej odpowiada Twoim potrzebom. 
+Najpierw musisz wybrać **kraj/region** , w którym chcesz zainicjować obsługę administracyjną numeru telefonu. Po wybraniu kraju/regionu będziesz musiał wybrać **przypadek użycia** , który najlepiej odpowiada Twoim potrzebom.
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Zrzut ekranu przedstawiający widok pobieranie numerów telefonów.":::
 
 ### <a name="select-your-phone-number-features"></a>Wybierz funkcje numeru telefonu
 
-Konfigurowanie numeru telefonu jest podzielone na dwa kroki: 
+Konfigurowanie numeru telefonu jest podzielone na dwa kroki:
 
 1. Wybór [typu liczby](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
 2. Wybór [funkcji liczb](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)

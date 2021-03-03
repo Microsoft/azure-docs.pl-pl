@@ -3,16 +3,17 @@ title: Automatyczne uaktualnianie rozszerzeń dla maszyn wirtualnych i zestawów
 description: Dowiedz się, jak włączyć automatyczne uaktualnianie rozszerzeń dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych na platformie Azure.
 author: mayanknayar
 ms.service: virtual-machines
+ms.subservice: automatic-extension-upgrades
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: acc014785105d14c3109cfa420f0e9402ca3f534
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 104eada6dc342c21b8da2f409756e9f34c103936
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417556"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668337"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Wersja zapoznawcza: automatyczne uaktualnianie rozszerzeń dla maszyn wirtualnych i zestawów skalowania na platformie Azure
 
@@ -21,7 +22,7 @@ Automatyczne uaktualnianie rozszerzeń jest dostępne w wersji zapoznawczej dla 
  Automatyczne uaktualnianie rozszerzeń ma następujące funkcje:
 - Obsługiwane w przypadku maszyn wirtualnych platformy Azure i usługi Azure Virtual Machine Scale Sets. Virtual Machine Scale Sets Service Fabric nie są obecnie obsługiwane.
 - Uaktualnienia są stosowane w modelu wdrożenia pierwszego dostępności (szczegółowo poniżej).
-- W przypadku zastosowania do Virtual Machine Scale Sets nie można uaktualnić więcej niż 20% Virtual Machine Scale Sets maszyn wirtualnych w jednej partii (z zastrzeżeniem co najmniej jednej maszyny wirtualnej na partię).
+- W przypadku zestawu skalowania maszyn wirtualnych nie można uaktualnić więcej niż 20% maszyn wirtualnych zestawu skalowania w jednej partii. Minimalny rozmiar wsadu to jedna maszyna wirtualna.
 - Działa w przypadku wszystkich rozmiarów maszyn wirtualnych oraz dla rozszerzeń systemu Windows i Linux.
 - W dowolnym momencie możesz zrezygnować z automatycznych uaktualnień.
 - Automatyczne uaktualnianie rozszerzeń można włączyć na Virtual Machine Scale Sets dowolnego rozmiaru.
@@ -36,24 +37,9 @@ Automatyczne uaktualnianie rozszerzeń jest dostępne w wersji zapoznawczej dla 
 
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>Jak działa automatyczne uaktualnianie rozszerzeń?
-Proces uaktualniania rozszerzenia działa przez zastąpienie istniejącej wersji rozszerzenia na maszynie wirtualnej nową wersją rozszerzenia publikowaną przez wydawcę rozszerzenia. Kondycja maszyny wirtualnej jest monitorowana po zainstalowaniu nowego rozszerzenia. Jeśli maszyna wirtualna nie jest w dobrej kondycji w ciągu 5 minut od zakończenia uaktualniania, Nowa wersja rozszerzenia zostanie wycofana do poprzedniej wersji.
+Proces uaktualniania rozszerzenia zastępuje istniejącą wersję rozszerzenia na maszynie wirtualnej nową wersją tego samego rozszerzenia, gdy jest publikowana przez wydawcę rozszerzenia. Kondycja maszyny wirtualnej jest monitorowana po zainstalowaniu nowego rozszerzenia. Jeśli maszyna wirtualna nie jest w dobrej kondycji w ciągu 5 minut od zakończenia uaktualniania, wersja rozszerzenia zostanie wycofana do poprzedniej wersji.
 
 Nieudana próba aktualizacji rozszerzenia zostanie ponowiona automatycznie. Ponowna próba jest podejmowana co kilka dni automatycznie bez interwencji użytkownika.
-
-
-## <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Proces uaktualniania Virtual Machine Scale Sets
-1. Przed rozpoczęciem procesu uaktualniania program Orchestrator sprawdzi, czy w całym zestawie skalowania nie ma więcej niż 20% maszyn wirtualnych w złej kondycji (z jakiegokolwiek powodu).
-
-2. Program Orchestrator Upgrades identyfikuje partię wystąpień maszyn wirtualnych do uaktualnienia, a jedna partia ma maksymalnie 20% łącznej liczby maszyn wirtualnych, z zastrzeżeniem minimalnej wielkości partii jednej maszyny wirtualnej.
-
-3. W przypadku zestawów skalowania ze skonfigurowanymi sondami kondycji aplikacji lub rozszerzeniem kondycji aplikacji uaktualnienie czeka maksymalnie 5 minut (lub określoną konfigurację sondy kondycji), aby maszyna wirtualna stała się w dobrej kondycji, przed przejściem do uaktualnienia następnej partii. Jeśli maszyna wirtualna nie odzyska kondycji po uaktualnieniu, domyślnie zostanie zainstalowana poprzednia wersja rozszerzenia dla maszyny wirtualnej.
-
-4. Uaktualnienie programu Orchestrator śledzi również procent maszyn wirtualnych, które uległy złej kondycji po uaktualnieniu. Uaktualnienie zostanie zatrzymane, jeśli ponad 20% uaktualnionych wystąpień stanie się zła w trakcie procesu uaktualniania.
-
-Powyższy proces jest kontynuowany do momentu uaktualnienia wszystkich wystąpień w zestawie skalowania.
-
-Uaktualnianie zestawu skalowania programu Orchestrator sprawdza dostępność ogólnego zestawu skalowania przed uaktualnieniem każdej partii. Podczas uaktualniania partii mogą istnieć inne współbieżne planowane lub nieplanowane działania konserwacyjne, które mogą mieć wpływ na kondycję maszyn wirtualnych zestawu skalowania. W takich przypadkach, jeśli więcej niż 20% wystąpień zestawu skalowania stanie się zła, wówczas uaktualnienie zestawu skalowania zostanie zatrzymane na końcu bieżącej partii.
-
 
 ### <a name="availability-first-updates"></a>Dostępność — aktualizacje pierwsze
 Model "dostępność" dla aktualizacji z aranżacją platformą zapewnia, że konfiguracje dostępności na platformie Azure będą przestrzegane na wielu poziomach dostępności.
@@ -62,7 +48,7 @@ W przypadku grupy maszyn wirtualnych z aktualizacją platforma Azure będzie org
 
 **Między regionami:**
 - Aktualizacja zostanie przeniesiona na platformę Azure globalnie w sposób przejściowy, aby zapobiec awariom wdrożenia w całej platformie Azure.
-- Element "Phase" może stanowić jeden lub więcej regionów, a aktualizacja przechodzi między fazami tylko wtedy, gdy odpowiednie maszyny wirtualne w fazie zostały pomyślnie zaktualizowane.
+- Element "Phase" może mieć co najmniej jeden region, a aktualizacja przechodzi między fazami tylko wtedy, gdy odpowiednie maszyny wirtualne w poprzedniej fazie zostały pomyślnie zaktualizowane.
 - Regiony z parowaniem geograficznym nie będą aktualizowane współbieżnie i nie mogą znajdować się w tej samej fazie regionalnej.
 - Powodzenie aktualizacji jest mierzone przez śledzenie kondycji aktualizacji po stronie maszyny wirtualnej. Kondycja maszyny wirtualnej jest śledzona przez wskaźniki kondycji platformy dla maszyny wirtualnej. W przypadku Virtual Machine Scale Sets kondycja maszyny wirtualnej jest śledzona przez sondy kondycji aplikacji lub rozszerzenie kondycji aplikacji, jeśli ma zastosowanie do zestawu skalowania.
 
@@ -75,6 +61,18 @@ W przypadku grupy maszyn wirtualnych z aktualizacją platforma Azure będzie org
 - Maszyny wirtualne w ramach wspólnego zestawu dostępności są aktualizowane w ramach granic domeny aktualizacji i maszyny wirtualne w wielu domenach aktualizacji nie są aktualizowane współbieżnie.  
 - Maszyny wirtualne we wspólnym zestawie skalowania maszyn wirtualnych są pogrupowane w partiach i aktualizowane w ramach granic domeny aktualizacji.
 
+### <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Proces uaktualniania Virtual Machine Scale Sets
+1. Przed rozpoczęciem procesu uaktualniania program Orchestrator sprawdzi, czy w całym zestawie skalowania nie ma więcej niż 20% maszyn wirtualnych w złej kondycji (z jakiegokolwiek powodu).
+
+2. Usługa Orchestrator Upgrades identyfikuje partię wystąpień maszyn wirtualnych do uaktualnienia. Partia aktualizacji może mieć maksymalnie 20% łącznej liczby maszyn wirtualnych z uwzględnieniem minimalnej wielkości partii jednej maszyny wirtualnej.
+
+3. W przypadku zestawów skalowania ze skonfigurowanymi sondami kondycji aplikacji lub rozszerzeniem kondycji aplikacji uaktualnienie czeka maksymalnie 5 minut (lub zdefiniowaną konfigurację sondy kondycji), aby maszyna wirtualna była w dobrej kondycji przed uaktualnieniem kolejnej partii. Jeśli maszyna wirtualna nie odzyska kondycji po uaktualnieniu, domyślnie zostanie ponownie zainstalowana poprzednia wersja rozszerzenia na maszynie wirtualnej.
+
+4. Uaktualnienie programu Orchestrator śledzi również procent maszyn wirtualnych, które uległy złej kondycji po uaktualnieniu. Uaktualnienie zostanie zatrzymane, jeśli ponad 20% uaktualnionych wystąpień stanie się zła w trakcie procesu uaktualniania.
+
+Powyższy proces jest kontynuowany do momentu uaktualnienia wszystkich wystąpień w zestawie skalowania.
+
+Uaktualnianie zestawu skalowania programu Orchestrator sprawdza dostępność ogólnego zestawu skalowania przed uaktualnieniem każdej partii. Podczas uaktualniania partii mogą istnieć inne współbieżne planowane lub nieplanowane działania konserwacyjne, które mogą mieć wpływ na kondycję maszyn wirtualnych zestawu skalowania. W takich przypadkach, jeśli więcej niż 20% wystąpień zestawu skalowania stanie się zła, wówczas uaktualnienie zestawu skalowania zostanie zatrzymane na końcu bieżącej partii.
 
 ## <a name="supported-extensions"></a>Obsługiwane rozszerzenia
 Wersja zapoznawcza automatycznego uaktualniania rozszerzeń obsługuje następujące rozszerzenia (i więcej jest dodawanych okresowo):
@@ -258,13 +256,13 @@ az vmss extension set \
 
 ## <a name="extension-upgrades-with-multiple-extensions"></a>Uaktualnianie rozszerzeń z wieloma rozszerzeniami
 
-Maszyna wirtualna lub zestaw skalowania maszyn wirtualnych może mieć wiele rozszerzeń z włączonym automatycznym uaktualnianiem rozszerzeń, oprócz innych rozszerzeń bez automatycznych uaktualnień rozszerzeń.  
+Maszyna wirtualna lub zestaw skalowania maszyn wirtualnych może mieć wiele rozszerzeń z włączonym automatycznym uaktualnianiem rozszerzeń. Ta sama maszyna wirtualna lub zestaw skalowania może również mieć inne rozszerzenia bez włączonej funkcji automatycznego uaktualniania rozszerzenia.  
 
-Jeśli dla maszyny wirtualnej dostępne są uaktualnienia wielu rozszerzeń, uaktualnienia mogą być przetwarzane zbiorczo. Każde uaktualnienie rozszerzenia jest jednak stosowane pojedynczo na maszynie wirtualnej. Awaria jednego rozszerzenia nie ma wpływu na inne rozszerzenia, które mogą zostać uaktualnione. Na przykład jeśli dwa rozszerzenia są zaplanowane do uaktualnienia, a pierwsze uaktualnienie rozszerzenia nie powiedzie się, drugie rozszerzenie będzie nadal uaktualniane.
+Jeśli dla maszyny wirtualnej dostępne są uaktualnienia wielu rozszerzeń, uaktualnienia mogą być przetwarzane zbiorczo, ale każde uaktualnienie rozszerzenia jest stosowane pojedynczo na maszynie wirtualnej. Awaria jednego rozszerzenia nie ma wpływu na inne rozszerzenia, które mogą zostać uaktualnione. Na przykład jeśli dwa rozszerzenia są zaplanowane do uaktualnienia, a pierwsze uaktualnienie rozszerzenia nie powiedzie się, drugie rozszerzenie będzie nadal uaktualniane.
 
-Automatyczne uaktualnienia rozszerzeń można również zastosować, gdy maszyna wirtualna lub zestaw skalowania maszyn wirtualnych ma wiele rozszerzeń skonfigurowanych przy użyciu [sekwencjonowania rozszerzeń](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Sekwencjonowanie rozszerzeń dotyczy pierwszego wdrożenia maszyny wirtualnej, a wszystkie kolejne uaktualnienia rozszerzeń na rozszerzeniu są stosowane niezależnie.
+Automatyczne uaktualnienia rozszerzeń można również zastosować, gdy maszyna wirtualna lub zestaw skalowania maszyn wirtualnych ma wiele rozszerzeń skonfigurowanych przy użyciu [sekwencjonowania rozszerzeń](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Sekwencjonowanie rozszerzeń dotyczy pierwszego wdrożenia maszyny wirtualnej, a wszystkie przyszłe uaktualnienia rozszerzeń na rozszerzeniu są stosowane niezależnie.
 
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o rozszerzeniu kondycji aplikacji](./windows/automatic-vm-guest-patching.md)
+> [Dowiedz się więcej o rozszerzeniu kondycji aplikacji](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

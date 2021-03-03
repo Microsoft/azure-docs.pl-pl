@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 03/02/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173077"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644069"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Co to są tożsamości zewnętrzne w Azure Active Directory?
 
@@ -27,7 +27,7 @@ Tożsamości zewnętrzne w usłudze Azure AD umożliwiają osobom spoza organiza
 
 Tożsamości zewnętrzne usługi Azure AD koncentrują się mniej na relacji użytkownika z Twoją organizacją i nie tylko w tym, jak użytkownik chce zalogować się do aplikacji i zasobów. W ramach tej platformy usługa Azure AD obsługuje wiele scenariuszy od współpracy między firmami (B2B, Business-to-Business) w celu zarządzania dostępem do aplikacji przeznaczonych dla klientów/klienta lub dla obywateli (Business-to-Customer, lub B2C).
 
-- **Udostępnianie aplikacji i zasobów użytkownikom zewnętrznym (współpraca B2B)**. Zapraszanie użytkowników zewnętrznych do własnej dzierżawy jako użytkowników "Gość", do których można przypisać uprawnienia (na potrzeby autoryzacji), zezwalając im na używanie istniejących poświadczeń (na potrzeby uwierzytelniania). Użytkownicy logują się do udostępnionych zasobów przy użyciu prostego procesu zaproszenia i wykupu przy użyciu swojego konta służbowego lub szkolnego. [Zarządzanie prawami w usłudze Azure AD](../governance/entitlement-management-overview.md) umożliwia również Konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Teraz dzięki dostępności [przepływów użytkowników do samoobsługowego rejestrowania (wersja zapoznawcza)](self-service-sign-up-overview.md)możesz zezwolić zewnętrznym użytkownikom na rejestrowanie się w przypadku aplikacji. Środowisko można dostosować tak, aby zezwalało na logowanie się przy użyciu tożsamości służbowej, szkolnej lub społecznościowej (np. Google lub Facebook). Możesz również zbierać informacje o użytkowniku podczas procesu rejestracji. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją B2B usługi Azure AD](index.yml).
+- **Udostępnianie aplikacji i zasobów użytkownikom zewnętrznym (współpraca B2B)**. Zapraszanie użytkowników zewnętrznych do własnej dzierżawy jako użytkowników "Gość", do których można przypisać uprawnienia (na potrzeby autoryzacji), zezwalając im na używanie istniejących poświadczeń (na potrzeby uwierzytelniania). Użytkownicy logują się do udostępnionych zasobów przy użyciu prostego procesu zaproszenia i wykupu przy użyciu swojego konta służbowego lub szkolnego. [Zarządzanie prawami w usłudze Azure AD](../governance/entitlement-management-overview.md) umożliwia również Konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). Teraz dzięki dostępności [przepływów użytkowników do samoobsługowego rejestrowania](self-service-sign-up-overview.md)można zezwolić zewnętrznym użytkownikom na rejestrowanie się w przypadku aplikacji. Środowisko można dostosować tak, aby zezwalało na logowanie się przy użyciu tożsamości służbowej, szkolnej lub społecznościowej (np. Google lub Facebook). Możesz również zbierać informacje o użytkowniku podczas procesu rejestracji. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją B2B usługi Azure AD](index.yml).
 
 - **Twórz podróże użytkowników przy użyciu rozwiązania do zarządzania tożsamościami w postaci białych etykiet dla aplikacji przeznaczonych dla klientów i klientów (Azure AD B2C)**. Jeśli jesteś biznesem lub deweloperem tworzącym aplikacje dla klientów, możesz skalować do milionów klientów, klientów lub obywateli przy użyciu Azure AD B2C. Deweloperzy mogą korzystać z usługi Azure AD jako w pełni funkcjonalnego systemu zarządzania tożsamościami i dostępem klientów (CIAM) dla swoich aplikacji. Klienci mogą zalogować się przy użyciu tożsamości, które zostały już ustanowione (na przykład Facebook lub Gmail). Dzięki Azure AD B2C można w pełni dostosowywać i kontrolować sposób tworzenia kont i logowania klientów oraz zarządzania ich profilami podczas korzystania z aplikacji. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD B2C](../../active-directory-b2c/index.yml).
 

@@ -5,15 +5,15 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 03/02/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 941fe8929b75fdebf187186ca7078b0ae1dd261c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359238"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658525"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "97359238"
 Obsługa [kanałów zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla MongoDB jest dostępna za pomocą interfejsu API zmiany strumieni. Za pomocą interfejsu API Zmień strumienie aplikacje mogą pobrać zmiany wprowadzone do kolekcji lub do elementów w jednym fragmentu. Później można wykonać dalsze czynności na podstawie wyników. Zmiany elementów w kolekcji są przechwytywane w kolejności ich modyfikacji, a porządek sortowania jest gwarantowany na klucz fragmentu.
 
 > [!NOTE]
-> Aby można było używać strumieni zmian, należy utworzyć konto z wersją 3,6 interfejsu API Azure Cosmos DB dla MongoDB lub nowszej wersji. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlony `Unrecognized pipeline stage name: $changeStream` błąd.
+> Aby można było używać strumieni zmian, należy utworzyć interfejs API Azure Cosmos DB dla konta MongoDB z serwerem w wersji 3,6 lub nowszej. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlona *Nierozpoznana Nazwa etapu potoku: $changeStream* błędu.
 
 ## <a name="examples"></a>Przykłady
 

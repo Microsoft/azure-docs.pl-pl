@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 745a82300cbbc87070a117cd8dd094236821aee7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625401"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Samouczek: integracja Azure Active Directory z przełożeniem
 
@@ -37,9 +37,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Przełożenie obsługiwane przez usługę **SP** zainicjowano Logowanie jednokrotne
+* Przełożenie jest obsługiwane przez usługę **SP** zainicjowaną przez usługę SSO.
 
-* Przepełnienie obsługuje funkcję aprowizacji użytkowników **just in Time**
+* Przekroczenie obsługuje Inicjowanie obsługi użytkowników **just in Time** .
 
 ## <a name="add-overdrive-from-the-gallery"></a>Dodaj przełożenie z galerii
 
@@ -65,7 +65,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD z prze
     1. **[Utwórz użytkownika testowego](#create-overdrive-test-user)** z przepełnieniem dysku, aby uzyskać odpowiednika B. Simon na przełączeniu, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
@@ -121,7 +121,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="configure-overdrive-sso"></a>Konfigurowanie przekierowania rejestracji jednokrotnej
+## <a name="configure-overdrive-sso"></a>Konfigurowanie przekierowania rejestracji jednokrotnej
 
 Aby **skonfigurować logowanie** jednokrotne, należy wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal, aby przełączać się do [zespołu pomocy technicznej](https://help.overdrive.com/). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -133,7 +133,7 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w przepełnieniu. P
 >Za pomocą innych narzędzi do tworzenia kont użytkowników lub interfejsów API dostarczanych przez przełożenie można inicjować konta użytkowników usługi Azure AD.
 >
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
@@ -141,8 +141,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Przejdź bezpośrednio do adresu URL logowania za pośrednictwem dysku, a następnie zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka przepełnienie w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania na dysku. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka przepełnienie w obszarze Moje aplikacje zostanie przekierowany na adres URL logowania na dysku. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu przekroczenia można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu przekroczenia można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

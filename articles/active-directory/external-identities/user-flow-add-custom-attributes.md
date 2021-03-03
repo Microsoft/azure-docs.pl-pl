@@ -7,25 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 46b498f8b8512d0202f47dd31ba25cc851ca71e6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441457"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644106"
 ---
-# <a name="define-custom-attributes-for-user-flows-preview"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkowników (wersja zapoznawcza)
-
-> [!NOTE]
-> Funkcja niestandardowych atrybutów użytkownika jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+# <a name="define-custom-attributes-for-user-flows"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkownika
 
 Dla każdej aplikacji mogą istnieć różne wymagania dotyczące informacji, które mają być zbierane podczas tworzenia konta. Usługa Azure AD zawiera wbudowany zestaw informacji przechowywanych w atrybutach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą usługi Azure AD można rozciągnąć zestaw atrybutów przechowywanych na koncie gościa, gdy użytkownik zewnętrzny zarejestruje się za pomocą przepływu użytkownika.
 
-Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Na przykład:
+Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Na przykład:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -36,9 +33,9 @@ Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepł
 ## <a name="create-a-custom-attribute"></a>Tworzenie atrybutu niestandardowego
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
-2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
+2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz **niestandardowe atrybuty użytkownika (wersja zapoznawcza)**. Zostaną wyświetlone dostępne atrybuty użytkownika.
+4. Wybierz pozycję **niestandardowe atrybuty użytkownika**. Zostaną wyświetlone dostępne atrybuty użytkownika.
 
    ![Wybierz atrybuty użytkownika do rejestracji](media/user-flow-add-custom-attributes/user-attributes.png)
 
@@ -46,12 +43,12 @@ Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepł
 6. W okienku **Dodaj atrybut** wprowadź następujące wartości:
 
    - **Nazwa** — Podaj nazwę atrybutu niestandardowego (na przykład "Shoesize").
-   - **Typ danych** — wybierz typ danych (**ciąg**, **Boolean**lub **int**).
+   - **Typ danych** — wybierz typ danych (**ciąg**, **Boolean** lub **int**).
    - **Opis** — opcjonalnie wprowadź opis atrybutu niestandardowego do użytku wewnętrznego. Ten opis nie jest widoczny dla użytkownika.
 
    ![Dodawanie atrybutu](media/user-flow-add-custom-attributes/add-an-attribute.png)
 
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 Atrybut niestandardowy jest teraz dostępny na liście atrybutów użytkownika i do użycia w przepływach użytkownika. Atrybut niestandardowy jest tworzony tylko za pierwszym razem, gdy jest używany w dowolnym przepływie użytkownika, a nie po dodaniu go do listy atrybutów użytkownika.
 

@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590557"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676392"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
-Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi. Zapoznaj się z [listą funkcji wersji zapoznawczej](search-api-preview.md) , aby wyświetlić funkcje w publicznej wersji zapoznawczej.
+Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi. Zapoznaj się z [listą funkcji wersji zapoznawczej](search-api-preview.md) , aby wyświetlić kompleksową listę funkcji, które nie są jeszcze ogólnie dostępne.
+
+## <a name="march-2021"></a>Marzec 2021
+
+|Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Opis | Dostępność  |
+|------------------------------|---------------|---------------|
+| [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które modyfikują wyniki wyszukiwania w celu uzyskania bardziej istotnych wyników. W przypadku małych zmian w żądaniu wyszukiwania można wypróbować te funkcje na istniejących indeksach.</br></br>[Zapytanie semantyczne](semantic-how-to-query-request.md) to nowy typ zapytania, który wykorzystuje zaawansowania w przetwarzaniu języka naturalnego w celu poprawy klasyfikacji, a także poznanie zamiaru zapytania, aby zapewnić odpowiedzi, napisy i semantykę semantyczną.</br></br>[Klasyfikacja i odpowiedzi semantyczne (odpowiedzi, napisy i najważniejsze)](semantic-how-to-query-response.md) odnoszą się do algorytmu, który definiuje zapytanie semantyczne i strukturę odpowiedzi. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza i [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
+| [Sprawdzanie pisowni — terminy zapytań](speller-how-to-add.md) | Przed przekazaniem terminów zapytania do aparatu wyszukiwania można sprawdzić, czy pisownia nie jest możliwa. `speller`Opcja działa z dowolnym typem kwerendy (prosty, pełny lub semantyczny). |  Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza|
+| [Indeksator usługi SharePoint Online](search-howto-index-sharepoint-online.md) | Ten indeksator nawiązuje połączenie z witryną usługi SharePoint Online, dzięki czemu można indeksować zawartość z biblioteki dokumentów. | Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
 
 ## <a name="february-2021"></a>Luty 2021 r.
 

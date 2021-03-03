@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f445eab65e8d2448e57bad19c52a4b72732016bb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217570"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672918"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Skonfiguruj preferencję routingu dla publicznego adresu IP przy użyciu Azure Portal
 
@@ -32,20 +32,26 @@ W tym artykule pokazano, jak skonfigurować [preferencję routingu](./routing-pr
 
 Domyślnie preferencja routingu dla publicznego adresu IP jest ustawiana na sieć globalna firmy Microsoft dla wszystkich usług platformy Azure i może być skojarzona z dowolną usługą platformy Azure.
 
-> [!IMPORTANT]
-> Preferencje routingu są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-public-ip-address-with-a-routing-preference"></a>Tworzenie publicznego adresu IP z preferencją routingu
-1. Zaloguj się w witrynie [Azure Portal](https://preview.portal.azure.com/).
-2. Wybierz pozycję **Utwórz zasób**. 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz pozycję **Utwórz zasób**.
 3. W polu wyszukiwania wpisz *publiczny adres IP*.
 3. W wynikach wyszukiwania wybierz pozycję **publiczny adres IP**. Następnie na stronie **publiczny adres IP** wybierz pozycję **Utwórz**.
-3. W opcji **preferencji routingu** wybierz opcję **Internet**.
+1. W obszarze jednostka SKU wybierz pozycję **standardowa**.
+1. W obszarze **Preferencje routingu** wybierz pozycję **Internet**.
 
-      ![Tworzenie publicznego adresu IP](./media/routing-preference-portal/pip-new.png)
+      ![Tworzenie publicznego adresu IP](./media/routing-preference-portal/public-ip-new.png)
+1. W sekcji **Konfiguracja adresu IP IPv4** wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Subskrypcja | Wybierz subskrypcję.|
+    | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, wpisz *RoutingPreferenceResourceGroup*, a następnie wybierz przycisk **OK**. |
+    | Lokalizacja | Wybierz pozycję **Wschodnie stany USA**.|
+    | Strefa dostępności | Zachowaj domyślną wartość **strefowo nadmiarowe**. |
+1. Wybierz przycisk **Utwórz**.
 
     > [!NOTE]
     > Publiczne adresy IP są tworzone przy użyciu adresu IPv4 lub IPv6. Jednak preferencja routingu obsługuje obecnie tylko protokół IPV4.

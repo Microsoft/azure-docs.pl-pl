@@ -1,0 +1,76 @@
+### YamlMime:Landing
+title: Aktualizacja urządzenia do dokumentacji IoT Hub
+summary: Aktualizacja urządzenia dla IoT Hub to usługa, która umożliwia wdrażanie na urządzeniach IoT aktualizacji opartych na środowisku AIR (OTA).
+metadata:
+  title: Aktualizacja urządzenia do dokumentacji IoT Hub
+  description: Aktualizacja urządzenia dla IoT Hub to usługa, która umożliwia wdrażanie na urządzeniach IoT aktualizacji opartych na środowisku AIR (OTA).
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 2/17/2021
+  ms.openlocfilehash: 2b47f8b51cf4150659c1d5b8ed1dc145997252ef
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101665785"
+landingContent:
+- title: Informacje o aktualizacji urządzenia
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest aktualizacja urządzenia dla IoT Hub?
+      url: understand-device-update.md
+  - linkListType: concept
+    links:
+    - text: Sposób używania aktualizacji urządzenia Plug and Play
+      url: device-update-plug-and-play.md
+    - text: Informacje o uwierzytelnianiu i autoryzacji aktualizacji urządzeń
+      url: device-update-control-access.md
+    - text: Informacje o agencie aktualizacji urządzeń
+      url: device-update-agent-overview.md
+    - text: Opis importowania aktualizacji urządzeń
+      url: import-concepts.md
+    - text: Zrozumienie grup aktualizacji urządzeń
+      url: device-update-groups.md
+- title: Eksplorowanie przy użyciu samouczków
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Aktualizacja urządzenia na Raspberry Pi
+      url: device-update-raspberry-pi.md
+  - linkListType: tutorial
+    links:
+    - text: Aktualizacja urządzenia w symulatorze
+      url: device-update-simulator.md
+  - linkListType: tutorial
+    links:
+    - text: Aktualizacja urządzenia na Ubuntu Server 18,04 x64 Package Agent
+      url: device-update-ubuntu-agent.md
+- title: Dowiedz się, jak aktualizować urządzenia
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utwórz konto aktualizacji urządzenia
+      url: create-device-update-account.md
+  - linkListType: how-to-guide
+    links:
+    - text: Importowanie aktualizacji
+      url: import-update.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utwórz grupę aktualizacji
+      url: create-update-group.md
+  - linkListType: how-to-guide
+    links:
+    - text: Wdrażanie aktualizacji
+      url: deploy-update.md
+- title: Przewodnik dla deweloperów
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kompilowanie, uruchamianie i modyfikowanie agenta aktualizacji urządzeń
+      url: device-update-agent-provisioning.md

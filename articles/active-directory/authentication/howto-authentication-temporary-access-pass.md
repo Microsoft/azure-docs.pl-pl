@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d45119fa86ab47e6a625c628d8cb9763db83bd
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b0f49f39e6bc291c3242fe739866a015ac154a8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520991"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651165"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Konfigurowanie przekazywania tymczasowego dostępu w usłudze Azure AD w celu rejestrowania metod uwierzytelniania bezhaseł (wersja zapoznawcza)
 
@@ -75,6 +75,9 @@ Aby utworzyć NACIŚNIĘCIe:
 1. Poniżej **Wybierz metodę**, kliknij przycisk **dostęp tymczasowy (wersja zapoznawcza)**.
 1. Zdefiniuj niestandardowy czas aktywacji lub czas trwania, a następnie kliknij przycisk **Dodaj**.
 
+   >[!NOTE]
+   >Użycie dwukrotnego naciśnięcia przycisku nie jest wymuszane w przypadku włączenia logowania (KMSI) w dzierżawie. Jeśli tworzysz jednorazowo, pamiętaj o wyłączeniu KMSI.
+
    ![Zrzut ekranu przedstawiający sposób tworzenia NACISKu](./media/how-to-authentication-temporary-access-pass/create.png)
 
 1. Po dodaniu zostaną wyświetlone szczegóły dotyczące TAP. Zanotuj rzeczywistą wartość naciśnięcia przycisku. Podajesz tę wartość użytkownikowi. Nie można wyświetlić tej wartości po kliknięciu przycisku **OK**.
@@ -125,6 +128,7 @@ Należy pamiętać o następujących ograniczeniach:
 - Użytkownicy-Goście nie mogą zalogować się przy użyciu NACISKu.
 - Użytkownicy w zakresie zasad rejestracji samoobsługowego resetowania hasła (SSPR) będą musieli zarejestrować jedną z metod SSPR po zalogowaniu się za pomocą polecenia TAP. Jeśli użytkownik chce używać tylko klucza FIDO2, wykluczać je z zasad SSPR lub wyłączyć zasady rejestracji SSPR. 
 - Nie można używać programu TAP z rozszerzeniem serwera zasad sieciowych (NPS) i karty Active Directory Federation Services (AD FS).
+- Użycie dwukrotnego NACIŚNIĘCIa nie jest wymuszane, gdy KMSI jest włączona w dzierżawie.
 - Gdy w dzierżawie włączono bezproblemowe logowanie jednokrotne, użytkownicy są monitowani o wprowadzenie hasła. **Zamiast tego użyj linku dostępu do danych tymczasowych** dla użytkownika, aby zalogować się za pomocą naciśnięcia przycisku.
 
 ![Zrzut ekranu przedstawiający użycie polecenia TAP](./media/how-to-authentication-temporary-access-pass/alternative.png)

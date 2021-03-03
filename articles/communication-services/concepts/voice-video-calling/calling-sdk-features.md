@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ed56d0cf69710173d41c5262e7a3121a0cad1304
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650937"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660144"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Istnieją dwie oddzielne rodziny wywołujących biblioteki klienckie dla *klientów* i *usług.* Obecnie dostępne biblioteki klienckie są przeznaczone dla środowiska użytkownika końcowego: witryny sieci Web i aplikacje natywne.
 
@@ -28,35 +26,35 @@ Biblioteki klienta usługi nie są jeszcze dostępne i zapewniają dostęp do ni
 
 Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w bibliotekach klienta wywołujących usługi komunikacyjne Azure.
 
-| Grupa funkcji | Możliwość                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Grupa funkcji | Możliwość                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Podstawowe możliwości | Umieszczanie wywołania jeden-do-jednego między dwoma użytkownikami                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Umieść połączenie grupy z więcej niż dwoma użytkownikami (do 350 użytkowników)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Podnieś poziom wywołania "jeden do jednego" z dwoma użytkownikami do wywołania grupy z więcej niż dwoma użytkownikami                                 | ✔️   | ✔️            | ✔️ 
-|                   | Dołącz do wywołania grupy po jego rozpoczęciu                                                                              | ✔️   | ✔️            | ✔️ 
+| Podstawowe możliwości | Umieszczanie wywołania jeden-do-jednego między dwoma użytkownikami                                                                           | ✔️   | ✔️            | ✔️
+|                   | Umieść połączenie grupy z więcej niż dwoma użytkownikami (do 350 użytkowników)                                                       | ✔️   | ✔️            | ✔️
+|                   | Podnieś poziom wywołania "jeden do jednego" z dwoma użytkownikami do wywołania grupy z więcej niż dwoma użytkownikami                                 | ✔️   | ✔️            | ✔️
+|                   | Dołącz do wywołania grupy po jego rozpoczęciu                                                                              | ✔️   | ✔️            | ✔️
 |                   | Zapraszanie innego uczestnika VoIP do dołączenia do trwającego wywołania grupy                                                       | ✔️   | ✔️            | ✔️
-|                   | Włącz/Wyłącz wideo                                                         | ✔️   | ✔️            | ✔️ 
-|                   | Wycisz/Wyłącz mikrofon                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Przełączanie między kamerami                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Blokada lokalna/wstrzymanie                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Aktywny głośnik                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Wybieranie osoby mówiącej dla wywołań                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Wybieranie mikrofonu dla wywołań                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Pokaż stan uczestnika<br/>*Bezczynne, wczesne nośniki, łączenie, połączone, wstrzymane, w poczekalni, rozłączone*         | ✔️   | ✔️            | ✔️           
-|                   | Pokaż stan wywołania<br/>*Wczesny nośnik, przychodzący, łączący, dzwonienie, połączenie, wstrzymanie, rozłączanie, Rozłączono* | ✔️   | ✔️            | ✔️           
-|                   | Pokaż, jeśli uczestnik jest wyciszony                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Pokaż powód, dla którego Uczestnik pozostawił wywołanie                                                                       | ✔️   | ✔️            | ✔️     
-| Udostępnianie ekranu    | Udostępnianie całego ekranu z poziomu aplikacji                                                                 | ✔️   | ❌            | ❌           
-|                   | Udostępnianie określonej aplikacji (z listy uruchomionych aplikacji)                                                | ✔️   | ❌            | ❌           
-|                   | Udostępnianie karty przeglądarki sieci Web z listy otwartych kart                                                                  | ✔️   | ❌            | ❌           
-|                   | Uczestnik może wyświetlić udział ekranu zdalnego                                                                            | ✔️   | ✔️            | ✔️         
-| Spis            | Wyświetl listę uczestników                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Usuwanie uczestnika                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Umieszczanie wywołania "jeden do jednego" z uczestnikiem sieci PSTN                                                                     | ✔️   | ✔️            | ✔️   
+|                   | Włącz/Wyłącz wideo                                                         | ✔️   | ✔️            | ✔️
+|                   | Wycisz/Wyłącz mikrofon                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Przełączanie między kamerami                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Blokada lokalna/wstrzymanie                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Aktywny głośnik                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Wybieranie osoby mówiącej dla wywołań                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Wybieranie mikrofonu dla wywołań                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Pokaż stan uczestnika<br/>*Bezczynne, wczesne nośniki, łączenie, połączone, wstrzymane, w poczekalni, rozłączone*         | ✔️   | ✔️            | ✔️
+|                   | Pokaż stan wywołania<br/>*Wczesny nośnik, przychodzący, łączący, dzwonienie, połączenie, wstrzymanie, rozłączanie, Rozłączono* | ✔️   | ✔️            | ✔️
+|                   | Pokaż, jeśli uczestnik jest wyciszony                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Pokaż powód, dla którego Uczestnik pozostawił wywołanie                                                                       | ✔️   | ✔️            | ✔️
+| Udostępnianie ekranu    | Udostępnianie całego ekranu z poziomu aplikacji                                                                 | ✔️   | ❌            | ❌
+|                   | Udostępnianie określonej aplikacji (z listy uruchomionych aplikacji)                                                | ✔️   | ❌            | ❌
+|                   | Udostępnianie karty przeglądarki sieci Web z listy otwartych kart                                                                  | ✔️   | ❌            | ❌
+|                   | Uczestnik może wyświetlić udział ekranu zdalnego                                                                            | ✔️   | ✔️            | ✔️
+| Spis            | Wyświetl listę uczestników                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Usuwanie uczestnika                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Umieszczanie wywołania "jeden do jednego" z uczestnikiem sieci PSTN                                                                     | ✔️   | ✔️            | ✔️
 |                   | Umieść połączenie grupy z uczestnikami PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Podwyższanie poziomu wywołania "jeden do jednego" uczestnika PSTN do wywołania grupy                                                 | ✔️   | ✔️            | ✔️
-|                   | Wybieranie numeru z wywołania grupy jako uczestnika sieci PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Ogólne           | Testowanie mikrofonu, głośników i aparatu za pomocą usługi testowania audio (dostępnej przez wywołanie 8: echo123)                   |  ✔️  | ✔️            | ✔️   
+|                   | Wybieranie numeru z wywołania grupy jako uczestnika sieci PSTN                                                                    | ✔️   | ✔️            | ✔️
+| Ogólne           | Testowanie mikrofonu, głośników i aparatu za pomocą usługi testowania audio (dostępnej przez wywołanie 8: echo123)                   |  ✔️  | ✔️            | ✔️
 
 ## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Obsługa języka JavaScript wywoływana przez system operacyjny i przeglądarkę
 
@@ -96,7 +94,7 @@ Biblioteka klienta wywołującego usługi komunikacyjne obsługuje następujące
 
 |           |Internet | System Android/iOS|
 |-----------|----|------------|
-|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 udostępnianie plików audio/wideo lub 1 | 1 dźwięk/wideo | 
+|**Liczba strumieni wychodzących, które mogą być wysyłane jednocześnie** |1 udostępnianie plików audio/wideo lub 1 | 1 dźwięk/wideo |
 |**Liczba strumieni przychodzących, które mogą być renderowane jednocześnie** |1 udostępnianie plików audio/wideo lub 1| 6 audio/wideo lub 1 udostępnianie ekranu |
 
 Należy pamiętać, że w scenariuszach grupy jeden mieszany strumień audio jest używany do obsługi wszystkich uczestników audio.
@@ -107,6 +105,6 @@ Należy pamiętać, że w scenariuszach grupy jeden mieszany strumień audio jes
 > [Wprowadzenie do wywoływania](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
-- Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md) 
+- Zapoznaj się z ogólnymi [przepływami wywołań](../call-flows.md)
 - Informacje o [typach wywołań](../voice-video-calling/about-call-types.md)
 - Dowiedz się więcej o [typach numerów telefonów](../telephony-sms/plan-solution.md)

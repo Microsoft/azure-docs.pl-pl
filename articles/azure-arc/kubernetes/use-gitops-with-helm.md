@@ -1,21 +1,21 @@
 ---
-title: Wdrażanie wykresów Helm przy użyciu GitOps na łuku z włączoną obsługą klastra Kubernetes (wersja zapoznawcza)
+title: Wdrażanie wykresów Helm przy użyciu GitOps na łuku z włączoną obsługą klastra Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Używanie GitOps z Helm dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
+description: Używanie GitOps z Helm dla konfiguracji klastra z obsługą usługi Azure Arc
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, ARC, AKS, usługa Azure Kubernetes, kontenery
-ms.openlocfilehash: 2dfb516487d1064f29b4018cc8b322e8db44e53a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558523"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647646"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Wdrażanie wykresów Helm przy użyciu GitOps na łuku z włączoną obsługą klastra Kubernetes (wersja zapoznawcza)
+# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Wdrażanie wykresów Helm przy użyciu GitOps w klastrze z włączonym łukiem Kubernetes
 
 Helm to narzędzie do tworzenia pakietów typu open source, które ułatwia instalowanie cyklu życia aplikacji Kubernetes i zarządzanie nim. Podobnie jak w przypadku menedżerów pakietów systemu Linux, takich jak APT i yum, Helm służy do zarządzania wykresami Kubernetes, które są pakietami wstępnie skonfigurowanych zasobów Kubernetes.
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób konfigurowania i używania Helm z usługą Azure 
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Upewnij się, że masz już podłączony połączony klaster usługi Azure Arc Kubernetes. Jeśli potrzebujesz podłączonego klastra, zobacz temat [nawiązywanie połączenia z usługą Azure ARC z włączoną obsługą klastra Kubernetes](./connect-cluster.md).
+Upewnij się, że masz już podłączony połączony klaster usługi Azure Arc Kubernetes. Jeśli potrzebujesz podłączonego klastra, zobacz temat [nawiązywanie połączenia z usługą Azure ARC z włączoną obsługą klastra Kubernetes](./quickstart-connect-cluster.md).
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Omówienie korzystania z GitOps i Helm z włączonym usługą Azure Arc Kubernetes
 
@@ -69,7 +69,7 @@ Konfiguracja Helm Release zawiera następujące pola:
 | `metadata.name` | Pole wymagane. Musi przestrzegać konwencji nazewnictwa Kubernetes. |
 | `metadata.namespace` | Pole opcjonalne. Określa miejsce tworzenia wersji. |
 | `spec.releaseName` | Pole opcjonalne. Jeśli nie podano nazwy wydania, będzie to możliwe `$namespace-$name` . |
-| `spec.chart.path` | Katalog zawierający wykres określony względem katalogu głównego repozytorium. |
+| `spec.chart.path` | Katalog zawierający wykres (względem katalogu głównego repozytorium). |
 | `spec.values` | Dostosowanie wartości domyślnych parametrów przez użytkownika do samego wykresu. |
 
 Opcje określone w HelmRelease `spec.values` zastępują opcje określone w `values.yaml` źródle wykresu.
@@ -78,30 +78,27 @@ Więcej informacji na temat HelmRelease można znaleźć w oficjalnym [dokumenci
 
 ## <a name="create-a-configuration"></a>Utwórz konfigurację
 
-Za pomocą rozszerzenia interfejsu wiersza polecenia platformy Azure dla programu `k8sconfiguration` Połącz podłączony klaster z przykładowym repozytorium git. Nadaj tej konfiguracji nazwę `azure-arc-sample` i Wdróż operatora strumienia w `arc-k8s-demo` przestrzeni nazw.
+Za pomocą rozszerzenia interfejsu wiersza polecenia platformy Azure dla programu `k8s-configuration` Połącz podłączony klaster z przykładowym repozytorium git. Nadaj tej konfiguracji nazwę `azure-arc-sample` i Wdróż operatora strumienia w `arc-k8s-demo` przestrzeni nazw.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>Parametry konfiguracji
 
-Aby dostosować Tworzenie konfiguracji, [zapoznaj się z dodatkowymi parametrami, które mogą być używane](./use-gitops-connected-cluster.md#additional-parameters).
+Aby dostosować Tworzenie konfiguracji, [zapoznaj się z dodatkowymi parametrami](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>Weryfikowanie konfiguracji
 
-Za pomocą interfejsu wiersza polecenia platformy Azure Sprawdź, czy `sourceControlConfiguration` został pomyślnie utworzony.
+Upewnij się, że konfiguracja została pomyślnie utworzona przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```console
-az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
+az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-`sourceControlConfiguration`Zasób jest aktualizowany ze stanem zgodności, komunikatami i informacjami o debugowaniu.
+Zasób konfiguracji jest aktualizowany ze stanem zgodności, komunikatami i informacjami o debugowaniu.
 
-**Rozdzielczości**
-
-```console
-Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+```output
 {
   "complianceStatus": {
     "complianceState": "Installed",

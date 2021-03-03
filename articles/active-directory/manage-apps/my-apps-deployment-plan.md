@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830723"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645471"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planowanie Azure Active Directory konfiguracji aplikacji
 
@@ -143,7 +143,7 @@ Jeśli trzeba zintegrować te aplikacje, należy zdefiniować mechanizm wdrażan
 
 * [Pobieranie i Konfigurowanie sterowane przez użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager programu Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 Rozszerzenie umożliwia użytkownikom uruchamianie dowolnych aplikacji z paska wyszukiwania, znajdowanie dostępu do ostatnio używanych aplikacji i posiadanie linku do strony Moje aplikacje.
 
@@ -271,4 +271,3 @@ Za pomocą [Privileged Identity Management](../privileged-identity-management/pi
 
 [Planowanie wdrożenia serwera proxy aplikacji](application-proxy-deployment-plan.md)
 
- 

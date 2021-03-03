@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247577"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646048"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie synchronizacji adresatów Cofense na potrzeby automatycznej aprowizacji użytkowników
 
@@ -117,11 +117,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
    |Name. honorificSuffix|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |phoneNumbers[type eq "work"].value|Ciąg|
    |numer telefonu [typ EQ "Home"]. Value|Ciąg|
    |braky [Type EQ "Other"]. Value|Ciąg|
    |numer telefonu [typ EQ "pager"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |phoneNumbers[type eq "mobile"].value|Ciąg|
    |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |adresy [Type EQ "Other"]. sformatowane|Ciąg|
    |adresy [typ EQ "Work"]. sformatowane|Ciąg|
@@ -141,7 +141,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |timezone|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Odwołanie|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|

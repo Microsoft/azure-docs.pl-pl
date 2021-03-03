@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a30980ba61a1dfec918dce1a55e78f1be2a36dd7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491726"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677875"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Rejestrowanie i skanowanie Azure SQL Database wystąpienia zarządzanego
 
@@ -117,7 +117,7 @@ Wymagane jest uzyskanie identyfikatora aplikacji i klucza tajnego jednostki usł
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Konfigurowanie źródła danych SQL":::
 
-1. Wybierz pozycję **wprowadź ręcznie**
+1. Wybierz pozycję **z subskrypcji platformy Azure**, wybierz odpowiednią subskrypcję w polu listy rozwijanej **subskrypcja platformy Azure** i odpowiedni serwer z listy rozwijanej **Nazwa serwera** .
 
 1. Podaj publiczny, w **pełni kwalifikowaną nazwę domeny** i **numer portu**. Następnie wybierz pozycję **Zakończ** , aby zarejestrować źródło danych.
 

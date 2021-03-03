@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553950"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657378"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
 
@@ -144,6 +144,22 @@ Podczas publikowania potoku możesz wybrać opcję nowego domyślnego potoku dla
 Możesz również ustawić nowy potok domyślny na karcie **opublikowane potoki** w punkcie końcowym.
 
 ![Ustaw domyślny potok na stronie opublikowanego potoku](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+
+## <a name="limitations"></a>Ograniczenia
+
+Jeśli wprowadzisz modyfikacje potoku szkoleniowego, należy ponownie przesłać potok szkoleniowy, **zaktualizować**  potok wnioskowania i ponownie uruchomić potok wnioskowania.
+
+Należy pamiętać, że tylko modele zostaną zaktualizowane w potoku wnioskowania, podczas gdy transformacja danych nie zostanie zaktualizowana.
+
+Aby użyć zaktualizowanej transformacji w potoku wnioskowania, należy zarejestrować dane wyjściowe transformacji modułu transformacji jako zestaw danych.
+
+![Zrzut ekranu przedstawiający sposób rejestrowania zestawu danych transformacji](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Następnie ręcznie Zastąp **element TD-** module w potoku wnioskowania z zarejestrowanym zestawem danych.
+
+![Zrzut ekranu przedstawiający sposób zastąpienia modułu transformacji](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Następnie można przesłać potok wnioskowania ze zaktualizowanym modelem i transformację oraz opublikować.
 
 ## <a name="next-steps"></a>Następne kroki
 

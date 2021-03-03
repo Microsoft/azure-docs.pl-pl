@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 507dd224ddeb935cc8b3718bb2e2628be36066f4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879633"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676011"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -52,9 +52,13 @@ Jeśli masz problemy z wykonywaniem operacji na udostępnionych galeriach obraz�
 **Przyczyna**: podjęto próbę usunięcia galerii zawierającej co najmniej jedną istniejącą definicję obrazu. Galeria musi być pusta, aby można było ją usunąć.  
 **Obejście**: Usuń wszystkie definicje obrazów w galerii, a następnie wybierz pozycję Usuń galerię. Jeśli definicja obrazu zawiera wersje obrazu, należy usunąć wersje obrazu przed usunięciem definicji obrazu.
 
+*Nazwa galerii "<Gallery \> " nie jest unikatowa w ramach subskrypcji " <subscriptionId> ". Wybierz inną nazwę galerii.*  
+**Przyczyna**: masz istniejącą galerię o tej samej nazwie i podjęto próbę utworzenia innej galerii o tej samej nazwie.  
+**Obejście**: Wybierz inną nazwę galerii.
+
 *Zasób <galleryname \> już istnieje w lokalizacji <region \_ 1 \> w grupie zasobów <grupy Resources \> . Nie można utworzyć zasobu o tej samej nazwie w lokalizacji <regionie \_ 2 \> . Wybierz nową nazwę zasobu.*  
-**Przyczyna**: masz istniejącą galerię w grupie zasobów o tej samej nazwie i podjęto próbę utworzenia innej galerii o tej samej nazwie, ale w innym regionie.  
-**Obejście**: Użyj innej galerii lub innej grupy zasobów.
+**Przyczyna**: masz istniejącą galerię o tej samej nazwie i podjęto próbę utworzenia innej galerii o tej samej nazwie.  
+**Obejście**: Wybierz inną nazwę galerii.
 
 ## <a name="creating-or-modifying-image-definitions"></a>Tworzenie lub modyfikowanie definicji obrazu ##
 

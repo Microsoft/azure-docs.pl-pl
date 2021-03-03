@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257189"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649426"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -26,9 +26,7 @@ ms.locfileid: "99257189"
 
 W tym artykule opisano sposób konfigurowania Federacji bezpośredniej z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Fed.
 Po skonfigurowaniu bezpośredniej Federacji z dostawcy tożsamości partnera nowi użytkownicy-Goście z tej domeny mogą używać własnego konta organizacji zarządzanego przez dostawcy tożsamości do logowania się do dzierżawy usługi Azure AD i rozpoczynania współpracy z Twoimi użytkownikami. Użytkownik-Gość nie musi tworzyć oddzielnego konta usługi Azure AD.
-> [!NOTE]
-> Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com` , `https://portal.azure.com` , lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
- 
+
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Kiedy jest uwierzytelniany przez użytkownika-gościa za pomocą Federacji bezpośredniej?
 Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaproszeni użytkownicy-Goście będą uwierzytelniani za pomocą Federacji bezpośredniej. Należy pamiętać, że skonfigurowanie Federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-Gości, którzy już wykorzystali zaproszenie. Oto kilka przykładów:
  - Jeśli użytkownicy-Goście już wykorzystali zaproszenia z Ciebie, a następnie skonfigurujesz bezpośrednią Federacji z organizacją, Ci użytkownicy będą nadal używać tej samej metody uwierzytelniania, która została użyta przed skonfigurowaniem Federacji bezpośredniej.
@@ -42,10 +40,28 @@ Federacja bezpośrednia jest powiązana z przestrzeniami nazw domen, takimi jak 
 ## <a name="end-user-experience"></a>Środowisko użytkownika końcowego 
 W przypadku federacji bezpośredniej użytkownicy-Goście logują się do dzierżawy usługi Azure AD przy użyciu konta organizacyjnego. Gdy uzyskują dostęp do zasobów udostępnionych i zostanie wyświetlony monit o zalogowanie się, użytkownicy Federacji bezpośrednich są przekierowywani do ich dostawcy tożsamości. Po pomyślnym zalogowaniu są one zwracane do usługi Azure AD w celu uzyskania dostępu do zasobów. Tokeny odświeżania bezpośrednich użytkowników federacyjnych są prawidłowe przez 12 godzin, a [Domyślna długość tokenu odświeżania przekazywania](../develop/active-directory-configurable-token-lifetimes.md#exceptions) w usłudze Azure AD. Jeśli Federacja federacyjna dostawcy tożsamości ma włączone Logowanie jednokrotne, użytkownik będzie miał Logowanie jednokrotne i nie zobaczy monitu logowania po uwierzytelnieniu początkowym.
 
+## <a name="sign-in-endpoints"></a>Punkty końcowe logowania
+
+Bezpośredni dostęp Gości w Federacji może teraz zalogować się do aplikacji firmowych z wieloma dzierżawcami lub firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Poniżej przedstawiono przykłady typowych punktów końcowych:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje Logowanie przy użyciu własnych poświadczeń.
+
+Bezpośredni dostęp gościa Federacji może również używać punktów końcowych aplikacji, które zawierają informacje o dzierżawie, na przykład:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Możesz również udzielić bezpośredniemu użytkownikowi gościa federacyjnego bezpośredniego linku do aplikacji lub zasobu, dołączając informacje o dzierżawie, na przykład `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
+
 ## <a name="limitations"></a>Ograniczenia
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domeny zweryfikowane przez usługę DNS w usłudze Azure AD
-Domena, do której chcesz sfederować, musi ***nie** _ być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
+Domena, której chcesz sfederować, ***nie*** może być zweryfikowana przez system DNS w usłudze Azure AD. Istnieje możliwość skonfigurowania Federacji bezpośredniej z niezarządzanymi (zweryfikowanymi pocztą e-mail lub "wirusami") dzierżaw usługi Azure AD, ponieważ nie są one zweryfikowane przez system DNS.
 
 ### <a name="authentication-url"></a>Adres URL uwierzytelniania
 Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub jeśli adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (Ta lista może ulec zmianie):
@@ -60,7 +76,7 @@ Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domen
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Na przykład podczas konfigurowania Federacji bezpośredniej dla _ * fabrikam. com * * adres URL uwierzytelniania `https://fabrikam.com/adfs` przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs` . Jednak adres URL uwierzytelniania `https://fabrikamconglomerate.com/adfs` lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
+Na przykład podczas konfigurowania Federacji bezpośredniej dla **fabrikam.com**, adres URL uwierzytelniania `https://fabrikam.com/adfs` przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs` . Jednak adres URL uwierzytelniania `https://fabrikamconglomerate.com/adfs` lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
 
 ### <a name="signing-certificate-renewal"></a>Odnawianie certyfikatu podpisywania
 Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
@@ -147,7 +163,7 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
 2. Wybierz **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**.
-3. Wybierz pozycję, a następnie wybierz pozycję **nowe dostawcy tożsamości SAML/WS-karmione**.
+3. Wybierz pozycję **Nowy dostawcy tożsamości SAML/WS-karmione**.
 
     ![Zrzut ekranu przedstawiający przycisk dodawania nowego elementu SAML lub WS-Fed dostawcy tożsamości](media/direct-federation/new-saml-wsfed-idp.png)
 

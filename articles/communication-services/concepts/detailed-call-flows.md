@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594745"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659311"
 ---
 # <a name="call-flow-topologies"></a>Topologie przepływu wywołań
 W tym artykule opisano topologie przepływu wywołań usług Azure Communication Services. To świetny artykuł, który można sprawdzić, jeśli jesteś klientem korporacyjnym integrującym usługi komunikacyjne w sieci, którą zarządzasz. Aby uzyskać wprowadzenie do przepływów wywołań usług komunikacyjnych, odwiedź [dokumentację koncepcyjną przepływów wywołań](./call-flows.md).
@@ -26,7 +26,7 @@ Przed rozpoczęciem przeglądania topologii przepływu wywołań zdefiniujemy pe
 
 **Sieć klienta** zawiera wszystkie segmenty sieci, którymi zarządzasz. Mogą to być sieci przewodowe i bezprzewodowe w biurze lub między biurami, centrami danych i dostawcami usług internetowych.
 
-Sieć klienta ma zwykle kilka obwodów sieciowych z zaporami i/lub serwerami proxy, które wymuszają zasady zabezpieczeń Twojej organizacji. Zalecamy wykonanie [kompleksowej oceny sieci](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) , aby zapewnić optymalną wydajność i jakość rozwiązania do komunikacji.
+Sieć klienta ma zwykle kilka obwodów sieciowych z zaporami i/lub serwerami proxy, które wymuszają zasady zabezpieczeń Twojej organizacji. Zalecamy wykonanie [kompleksowej oceny sieci](/microsoftteams/3-envision-evaluate-my-environment) , aby zapewnić optymalną wydajność i jakość rozwiązania do komunikacji.
 
 **Sieć usług komunikacyjnych** to segment sieci obsługujący usługi Azure Communications Services. Ta sieć jest zarządzana przez firmę Microsoft i jest dystrybuowana na całym świecie z krawędziami blisko większości sieci klientów. Ta sieć odpowiada za przekazywanie transportowe, przetwarzanie multimediów dla wywołań grup oraz inne składniki, które obsługują zaawansowaną komunikację z multimediami w czasie rzeczywistym.
 
@@ -199,4 +199,3 @@ Następujące dokumenty mogą być interesujące:
 
 - Dowiedz się więcej o [typach wywołań](../concepts/voice-video-calling/about-call-types.md)
 - Informacje o [architekturze klient-serwer](./client-and-server-architecture.md)
-

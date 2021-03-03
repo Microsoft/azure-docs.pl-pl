@@ -2,18 +2,18 @@
 title: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastructure | Microsoft Docs
 description: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastructure (OCI) FastConnect w celu włączenia rozwiązań aplikacji Oracle dla wielu chmur
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.reviewer: cynthn
-ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 09264f9f20411e7536eb4a1dbf12ac297e7e3ef9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963712"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675715"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Skonfiguruj bezpośrednie połączenie między platformą Azure a infrastrukturą chmurową Oracle  
 
@@ -77,7 +77,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
 
 Po zakończeniu konfiguracji sieci można sprawdzić poprawność konfiguracji, klikając pozycję **Pobierz rekordy ARP** i **Pobierz tabelę tras** w bloku prywatnej komunikacji równorzędnej ExpressRoute w Azure Portal.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Firma Microsoft stworzyła skrypty Terraform, aby umożliwić automatyczne wdrażanie połączeń sieciowych. Przed wykonaniem skryptów Terraform należy przeprowadzić uwierzytelnienie na platformie Azure, ponieważ wymagają one odpowiednich uprawnień w ramach subskrypcji platformy Azure. Uwierzytelnianie można wykonać przy użyciu jednostki [usługi Azure Active Directory](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) lub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Terraform](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
 

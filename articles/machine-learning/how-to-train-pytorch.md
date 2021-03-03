@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb556466a5a76cbb9447538e98a5a2385f7b5614
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216635"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661005"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Uczenie modeli PyTorch na dużą skalę za pomocą Azure Machine Learning
 
@@ -285,35 +285,90 @@ Aby zapoznać się z pełnym samouczkiem dotyczącym uruchamiania rozproszonego 
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 Jeśli używasz wbudowanego modułu [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) PyTorch, który jest skompilowany przy użyciu pakietu **Torch. Distributed** w kodzie szkoleniowym, możesz również uruchomić zadanie rozproszone za pośrednictwem platformy Azure ml.
 
-Aby uruchomić rozproszone zadanie PyTorch z DistributedDataParallel, należy określić [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) do `distributed_job_config` parametru konstruktora ScriptRunConfig. Aby użyć zaplecza NCCL dla Torch. Distributed, określ `communication_backend='Nccl'` wartość w PyTorchConfiguration. Poniższy kod spowoduje skonfigurowanie zadania rozproszonego 2-węzłowego. Zaplecze NCCL jest zalecanym zapleczem do szkolenia rozproszonego procesora GPU PyTorch.
+Aby uruchomić rozproszone zadanie PyTorch na platformie Azure ML, dostępne są dwie opcje:
+1. Uruchamianie na proces: Określ łączną liczbę procesów roboczych, które chcesz uruchomić, a usługa Azure ML będzie obsługiwać uruchamianie poszczególnych procesów.
+2. Uruchamianie za pomocą węzła `torch.distributed.launch` : Podaj `torch.distributed.launch` polecenie, które ma być uruchamiane w każdym węźle. Narzędzie uruchamiania Torch będzie obsługiwać uruchamianie procesów roboczych w każdym węźle.
 
-W przypadku zadań rozproszonych PyTorch skonfigurowanych za pośrednictwem PyTorchConfiguration, platforma Azure ML ustawi następujące zmienne środowiskowe w węzłach obiektu docelowego obliczeń:
+Nie istnieją podstawowe różnice między tymi opcjami uruchamiania; jest on w dużej mierze ustawiony na preferencję użytkownika lub konwencje struktur/bibliotek utworzonych w oparciu o PyTorch wanilii (na przykład piorun lub Hugging).
 
-* `AZ_BATCHAI_PYTORCH_INIT_METHOD`: Adres URL dla inicjalizacji udostępnionego systemu plików dla grupy procesów
-* `AZ_BATCHAI_TASK_INDEX`: globalna ranga procesu roboczego
+#### <a name="per-process-launch"></a>Uruchamianie na proces
+Aby użyć tej opcji do uruchomienia zadania rozproszonego PyTorch, wykonaj następujące czynności:
+1. Określ skrypt i argumenty szkoleniowe
+2. Utwórz [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) i określ, jak `process_count` również `node_count` . `process_count`Odnosi się do łącznej liczby procesów, które mają być uruchamiane dla danego zadania. Zwykle powinna to być taka sama jak liczba procesorów GPU na węzeł pomnożona przez liczbę węzłów. Jeśli `process_count` nie zostanie określony, usługa Azure ml będzie domyślnie uruchamiać jeden proces na węzeł.
 
-Możesz określić te zmienne środowiskowe do odpowiednich argumentów skryptu szkoleniowego za pośrednictwem `arguments` parametru ScriptRunConfig.
+Platforma Azure ML ustawi następujące zmienne środowiskowe:
+* `MASTER_ADDR` -Adres IP maszyny, która będzie hostować proces z rangą 0.
+* `MASTER_PORT` -Bezpłatny port na komputerze, który będzie obsługiwał proces z rangą 0.
+* `NODE_RANK` — Ranga węzła dla szkolenia wielowęzłowego. Możliwe wartości to od 0 do (łączna liczba węzłów-1).
+* `WORLD_SIZE` — Łączna liczba procesów. Ta wartość powinna być równa łącznej liczbie urządzeń (GPU) używanych na potrzeby szkolenia rozproszonego.
+* `RANK` — Ranga (globalna) bieżącego procesu. Możliwe wartości to od 0 do (rozmiar światowy-1).
+* `LOCAL_RANK` — Lokalna (względna) ranga procesu w węźle. Możliwe wartości to od 0 do (liczba procesów w węźle-1).
+
+Ponieważ wymagane zmienne środowiskowe są ustawiane przez usługę Azure ML, można użyć [domyślnej metody inicjacji zmiennej środowiskowej](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization) w celu zainicjowania grupy procesów w kodzie szkoleniowym.
+
+Poniższy fragment kodu służy do konfigurowania zadania PyTorch 2-węzłowego, 2-procesowego:
+```python
+from azureml.core import ScriptRunConfig
+from azureml.core.runconfig import PyTorchConfiguration
+
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(process_count=4, node_count=2)
+
+src = ScriptRunConfig(
+  source_directory='./src',
+  script='train.py',
+  arguments=['--epochs', 25],
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
+```
+
+> [!WARNING]
+> Aby można było korzystać z tej opcji w przypadku szkolenia wieloetapowego dla każdego węzła, należy użyć zestawu Azure ML Python SDK >= 1.22.0, jak `process_count` zostało to wprowadzone w 1.22.0.
+
+> [!TIP]
+> Jeśli skrypt szkoleniowy przekazuje informacje, takie jak ranga lokalna lub ranga jako argumenty skryptu, można odwoływać się do zmiennych środowiskowych w argumentach: `arguments=['--epochs', 50, '--local_rank', $LOCAL_RANK]` .
+
+#### <a name="per-node-launch-with-torchdistributedlaunch"></a>Uruchamianie w poszczególnych węzłach za pomocą `torch.distributed.launch`
+PyTorch udostępnia narzędzie do uruchamiania w [Torch. Distributed. Launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) , za pomocą którego użytkownicy mogą uruchamiać wiele procesów na węzeł. `torch.distributed.launch`Moduł będzie duplikowany wiele procesów szkoleniowych na każdym z węzłów.
+
+Poniższe kroki przedstawiają sposób konfigurowania zadania PyTorch z uruchomionym węzłem uruchamiania na platformie Azure ML, który zostanie osiągnięty za pomocą następującego polecenia:
+
+```shell
+python -m torch.distributed.launch --nproc_per_node <num processes per node> \
+  --nnodes <num nodes> --node_rank $NODE_RANK --master_addr $MASTER_ADDR \
+  --master_port $MASTER_PORT --use_env \
+  <your training script> <your script arguments>
+```
+
+1. Podaj `torch.distributed.launch` polecenie do `command` parametru `ScriptRunConfig` konstruktora. Usługa Azure ML uruchomi to polecenie na każdym węźle klastra szkoleniowego. `--nproc_per_node` powinna być mniejsza lub równa liczbie procesorów GPU dostępnych w poszczególnych węzłach. `MASTER_ADDR`, `MASTER_PORT` , i `NODE_RANK` są ustawiane przez usługę Azure ml, więc można tylko odwoływać się do zmiennych środowiskowych w poleceniu. Usługa Azure ML jest ustawiana `MASTER_PORT` na 6105, ale w razie potrzeby można przekazać inną wartość do `--master_port` argumentu `torch.distributed.launch` polecenia. (Narzędzie uruchamiania zresetuje zmienne środowiskowe).
+2. Utwórz `PyTorchConfiguration` i określ `node_count` . Nie musisz określać `process_count` , ponieważ usługa Azure ml będzie domyślnie uruchamiać jeden proces na węzeł, co spowoduje uruchomienie określonego polecenia uruchamiania.
 
 ```python
 from azureml.core import ScriptRunConfig
 from azureml.core.runconfig import PyTorchConfiguration
 
-args = ['--dist-backend', 'nccl',
-        '--dist-url', '$AZ_BATCHAI_PYTORCH_INIT_METHOD',
-        '--rank', '$AZ_BATCHAI_TASK_INDEX',
-        '--world-size', 2]
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+distr_config = PyTorchConfiguration(node_count=2)
+launch_cmd = "python -m torch.distributed.launch --nproc_per_node 2 --nnodes 2 --node_rank $NODE_RANK --master_addr $MASTER_ADDR --master_port $MASTER_PORT --use_env train.py --epochs 50".split()
 
-src = ScriptRunConfig(source_directory=project_folder,
-                      script='pytorch_mnist.py',
-                      arguments=args,
-                      compute_target=compute_target,
-                      environment=pytorch_env,
-                      distributed_job_config=PyTorchConfiguration(communication_backend='Nccl', node_count=2))
+src = ScriptRunConfig(
+  source_directory='./src',
+  command=launch_cmd,
+  compute_target=compute_target,
+  environment=pytorch_env,
+  distributed_job_config=distr_config,
+)
+
+run = Experiment(ws, 'experiment_name').submit(src)
 ```
 
-Jeśli zamiast tego chcesz użyć zaplecza Gloo do szkolenia rozproszonego, określ `communication_backend='Gloo'` zamiast tego. Zaplecze Gloo jest zalecane na potrzeby rozproszonego szkolenia procesora CPU.
-
-Aby zapoznać się z pełnym samouczkiem dotyczącym uruchamiania rozproszonego PyTorch na platformie Azure ML, zobacz [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+Aby zapoznać się z pełnym samouczkiem dotyczącym uruchamiania rozproszonego PyTorch na platformie Azure ML, zobacz [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-distributeddataparallel).
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 

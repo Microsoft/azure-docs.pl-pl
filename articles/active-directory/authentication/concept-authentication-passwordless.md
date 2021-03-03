@@ -1,28 +1,28 @@
 ---
-title: Azure Active Directory logowanie bezhasło (wersja zapoznawcza)
+title: Azure Active Directory logowanie bezhasło
 description: Informacje o opcjach logowania bezhasło w celu Azure Active Directory przy użyciu kluczy zabezpieczeń FIDO2 lub aplikacji Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013009"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647561"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
 Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały sposób na zabezpieczenie organizacji, ale użytkownicy często uzyskują sfrustrowani z dodatkową warstwą zabezpieczeń na potrzeby zapamiętywania haseł. Metody uwierzytelniania bez hasła są wygodniejsze, ponieważ hasło jest usuwane i zastępowane przez użytkownika
 
-| Uwierzytelnianie  | Coś, co masz | Coś lub wiesz |
+| Authentication  | Coś, co masz | Coś lub wiesz |
 | --- | --- | --- |
 | Logowanie bez hasła | Urządzenia, numery telefonów lub klucze zabezpieczeń systemu Windows 10 | Biometryczna lub PIN |
 
@@ -49,7 +49,7 @@ Poniższe kroki pokazują, jak proces logowania współdziała z usługą Azure 
 1. Usługa Azure AD zwraca identyfikator jednorazowy ważny przez 5 minut.
 1. Dostawca AP w chmurze podpisuje identyfikator jednorazowy przy użyciu klucza prywatnego użytkownika i zwraca podpisany identyfikator jednorazowy do usługi Azure AD.
 1. Usługa Azure AD weryfikuje podpisany identyfikator jednorazowy przy użyciu bezpiecznie zarejestrowanego klucza publicznego użytkownika w odniesieniu do sygnatury jednorazowej. Po sprawdzeniu podpisu usługa Azure AD następnie weryfikuje zwrócony podpisany identyfikator jednorazowy. Po sprawdzeniu poprawności identyfikatora jednorazowego usługa Azure AD tworzy podstawowy token odświeżania (PRT) z kluczem sesji zaszyfrowanym do klucza transportu urządzenia i zwraca go do dostawcy usługi AP.
-1. Dostawca AP usług w chmurze odbiera zaszyfrowany PRT za pomocą klucza sesji. Przy użyciu prywatnego klucza transportowego urządzenia dostawca AP w chmurze odszyfrowuje klucz sesji i chroni klucz sesji przy użyciu moduł TPM urządzenia (TPM).
+1. Dostawca AP usług w chmurze odbiera zaszyfrowany PRT za pomocą klucza sesji. Przy użyciu prywatnego klucza transportowego urządzenia dostawca AP w chmurze odszyfrowuje klucz sesji i chroni klucz sesji przy użyciu Trusted Platform Module urządzenia (TPM).
 1. Dostawca AP w chmurze zwraca pomyślną odpowiedź uwierzytelniania do systemu Windows. Następnie użytkownik może uzyskać dostęp do systemu Windows, a także aplikacji lokalnych i w chmurze bez konieczności ponownego uwierzytelniania (SSO).
 
 [Przewodnik planowania](/windows/security/identity-protection/hello-for-business/hello-planning-guide) usługi Windows Hello dla firm może służyć do podejmowania decyzji dotyczących typu wdrożenia usługi Windows Hello dla firm i opcji, które należy wziąć pod uwagę.
@@ -61,8 +61,6 @@ Możesz również pozwolić, aby telefon pracownika stał się metodą uwierzyte
 ![Zaloguj się do przeglądarki Microsoft Edge przy użyciu aplikacji Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Aplikacja Authenticator włącza każdy telefon z systemem iOS lub Android do silnego poświadczenia bez hasła. Użytkownicy mogą logować się do dowolnej platformy lub przeglądarki, uzyskując powiadomienie na telefonie, dopasowując liczbę wyświetlaną na ekranie na telefonie, a następnie używając ich biometrycznych (dotykowych lub ubocznych) lub numerów PIN, aby potwierdzić. Zapoznaj się z artykułem [pobieranie i instalowanie aplikacji Microsoft Authenticator,](../user-help/user-help-auth-app-download-install.md) Aby uzyskać szczegółowe informacje dotyczące instalacji.
-
-Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator w usłudze Azure AD jest obecnie dostępne w wersji zapoznawczej. Korzystanie z aplikacji Microsoft Authenticator na potrzeby dodatkowego uwierzytelniania w usłudze Azure AD Multi-Factor Authentication, samoobsługowego resetowania hasła (SSPR) lub tokenów oprogramowania OATH jest ogólnie dostępne. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Uwierzytelnianie bezhasła przy użyciu aplikacji Authenticator jest zgodne z tym samym wzorcem, co w przypadku usługi Windows Hello dla firm. Jest to nieco bardziej skomplikowany sposób, w jaki użytkownik musi zostać zidentyfikowany, aby usługa Azure AD mogła znaleźć używaną wersję aplikacji Microsoft Authenticator:
 
@@ -91,8 +89,6 @@ Klucze zabezpieczeń FIDO2 to metoda uwierzytelniania bez hasła oparta na stand
 Użytkownicy mogą rejestrować i wybierać klucz zabezpieczeń FIDO2 w interfejsie logowania jako główny sposób uwierzytelniania. Te klucze zabezpieczeń FIDO2 są zazwyczaj urządzeniami USB, ale mogą również korzystać z połączenia Bluetooth lub NFC. W przypadku urządzenia sprzętowego, które obsługuje uwierzytelnianie, zabezpieczenia konta są zwiększane, ponieważ nie ma hasła, które może być ujawnione lub odgadnąć.
 
 Klucze zabezpieczeń FIDO2 mogą służyć do logowania się do usługi Azure AD lub hybrydowych urządzeń z systemem Windows 10 przyłączonych do usługi Azure AD i uzyskiwania rejestracji jednokrotnej w swoich zasobach w chmurze i lokalnych. Użytkownicy mogą również zalogować się w obsługiwanych przeglądarkach. Klucze zabezpieczeń FIDO2 są świetną opcją dla przedsiębiorstw, które mają bardzo duże znaczenie dla bezpieczeństwa lub mają scenariusze lub pracowników, którzy nie chcą korzystać z telefonu jako drugiego czynnika.
-
-Logowanie przy użyciu kluczy zabezpieczeń FIDO2 w usłudze Azure AD jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ![Zaloguj się do przeglądarki Microsoft Edge przy użyciu klucza zabezpieczeń](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -152,15 +148,15 @@ Aby rozpocząć pracę z kluczami zabezpieczeń FIDO2, wykonaj następujące czy
 > [!div class="nextstepaction"]
 > [Włączanie podpisywania bezhasła przy użyciu kluczy zabezpieczeń FIDO2](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>Jakie scenariusze pracują z podglądem?
+## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-Funkcje logowania bezhasła usługi Azure AD są obecnie dostępne w wersji zapoznawczej. Obowiązują następujące zastrzeżenia:
+Obowiązują następujące zastrzeżenia:
 
 - Administratorzy mogą włączać metody uwierzytelniania bezhasło dla swojej dzierżawy
 - Administratorzy mogą kierować wszystkich użytkowników lub wybierać użytkowników/grupy w ramach ich dzierżawy dla każdej metody
 - Użytkownicy końcowi mogą rejestrować te metody uwierzytelniania bezhasło i zarządzać nimi w portalu konta
-- Użytkownicy końcowi mogą logować się przy użyciu tych metod uwierzytelniania bez hasła
-   - Aplikacja Microsoft Authenticator: działa w scenariuszach, w których używane jest uwierzytelnianie usługi Azure AD, w tym między wszystkimi przeglądarkami, podczas instalacji systemu Windows 10 (OOBE) i zintegrowanych aplikacji mobilnych w dowolnym systemie operacyjnym.
+- Użytkownicy końcowi mogą logować się przy użyciu następujących metod uwierzytelniania bez hasła:
+   - Aplikacja Microsoft Authenticator: działa w scenariuszach, w których jest używane uwierzytelnianie usługi Azure AD, w tym wszystkie przeglądarki, podczas instalacji systemu Windows 10 oraz zintegrowane aplikacje mobilne w dowolnym systemie operacyjnym.
    - Klucze zabezpieczeń: Pracuj na ekranie blokady dla systemu Windows 10 i sieci Web w obsługiwanych przeglądarkach, takich jak Microsoft Edge (starsza i Nowa krawędź).
 
 ## <a name="choose-a-passwordless-method"></a>Wybierz metodę bezhasło
@@ -171,9 +167,9 @@ Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania techn
 
 ||**Windows Hello for Business**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
-|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Usługa Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1903 lub nowsza<br>Usługa Azure Active Directory|
+|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1903 lub nowsza<br>Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|
-|**Systemy i urządzenia**|KOMPUTER z wbudowaną moduł TPM (TPM)<br>Rozpoznawanie kodu PIN i biometrii |Rozpoznawanie kodu PIN i biometrii na telefonie|FIDO2 urządzenia zabezpieczające zgodne z firmą Microsoft|
+|**Systemy i urządzenia**|KOMPUTER z wbudowaną Trusted Platform Module (TPM)<br>Rozpoznawanie kodu PIN i biometrii |Rozpoznawanie kodu PIN i biometrii na telefonie|FIDO2 urządzenia zabezpieczające zgodne z firmą Microsoft|
 |**Środowisko użytkownika**|Zaloguj się przy użyciu kodu PIN lub rozpoznawania biometrycznego (twarzy, Iris lub odcisku palca) z urządzeniami z systemem Windows.<br>Uwierzytelnianie przy użyciu systemu Windows Hello jest powiązane z urządzeniem; Aby uzyskać dostęp do zasobów firmy, użytkownik potrzebuje zarówno urządzenia, jak i składnika logowania, takiego jak kod PIN lub czynnik biometryczny.|Zaloguj się przy użyciu telefonu komórkowego z funkcją skanowania odcisków palców, rozpoznawania twarzy lub tęczówki lub numeru PIN.<br>Użytkownicy logują się do konta służbowego lub osobistego z komputera lub telefonu komórkowego.|Zaloguj się przy użyciu urządzenia zabezpieczeń FIDO2 (biometrii, kod PIN i NFC)<br>Użytkownik może uzyskać dostęp do urządzenia w oparciu o kontrolki organizacji i uwierzytelniać się na podstawie kodu PIN, biometrii przy użyciu urządzeń, takich jak klucze zabezpieczeń USB i karty inteligentne obsługujące NFC, klucze lub noszenia.|
 |**Włączone scenariusze**| Korzystanie z urządzenia z systemem Windows bez hasła.<br>Dotyczy dedykowanego komputera służbowego z możliwością logowania jednokrotnego do urządzenia i aplikacji.|Rozwiązanie z obsługą hasła bez miejsca przy użyciu telefonu komórkowego.<br>Dotyczy uzyskiwania dostępu do służbowych aplikacji w sieci Web z dowolnego urządzenia.|Środowisko pracy bez hasła dla pracowników korzystających z biometrii, numeru PIN i NFC.<br>Dotyczy komputerów udostępnionych i lokalizacji, w których telefon komórkowy nie jest żywotną opcją (na przykład dla personelu pomocy technicznej, kiosku publicznego lub zespołu szpitalowego)|
 

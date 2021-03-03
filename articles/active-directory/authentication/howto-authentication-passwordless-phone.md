@@ -1,6 +1,6 @@
 ---
 title: Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator — Azure Active Directory
-description: Włączanie logowania bezhasła do usługi Azure AD przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
+description: Włączanie logowania bezhasła do usługi Azure AD przy użyciu aplikacji Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626159"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653477"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator 
 
 Aplikacja Microsoft Authenticator może służyć do logowania się do dowolnego konta usługi Azure AD bez użycia hasła. Microsoft Authenticator używa uwierzytelniania opartego na kluczach, aby włączyć poświadczenia użytkownika powiązane z urządzeniem, gdzie urządzenie używa numeru PIN lub biometrycznego. Funkcja [Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification) używa podobnej technologii.
 
@@ -40,7 +40,7 @@ Aby korzystać z logowania jednokrotnego przy użyciu aplikacji Microsoft Authen
 - Najnowsza wersja Microsoft Authenticator zainstalowana na urządzeniach z systemem iOS 8,0 lub nowszym albo systemem Android 6,0 lub nowszym.
 
 > [!NOTE]
-> Jeśli Microsoft Authenticator włączono obsługę logowania bezhasłem w wersji zapoznawczej przy użyciu programu Azure AD PowerShell, został on włączony dla całego katalogu. Jeśli włączysz tę nową metodę, zastępuje ona zasady programu PowerShell. Zalecamy włączenie dla wszystkich użytkowników w dzierżawie za pomocą menu nowe *metody uwierzytelniania* , w przeciwnym razie użytkownicy, którzy nie znajdują się w nowych zasadach, nie będą już mogli logować się bez hasła.
+> Jeśli włączono Microsoft Authenticator logowanie bezhasła przy użyciu programu Azure AD PowerShell, zostało ono włączone dla całego katalogu. Jeśli włączysz tę nową metodę, zastępuje ona zasady programu PowerShell. Zalecamy włączenie dla wszystkich użytkowników w dzierżawie za pomocą menu nowe *metody uwierzytelniania* , w przeciwnym razie użytkownicy, którzy nie znajdują się w nowych zasadach, nie będą już mogli logować się bez hasła.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Włącz metody uwierzytelniania bezhasła
 
@@ -58,7 +58,7 @@ Aby włączyć metodę uwierzytelniania dla logowania za pomocą telefonu bezhas
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta *administratora globalnego* .
 1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie przejdź do  >  **zasad metod uwierzytelniania** zabezpieczeń  >  .
-1. W obszarze **Microsoft Authenticator (wersja zapoznawcza)** wybierz następujące opcje:
+1. W obszarze **Microsoft Authenticator** wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
 1. Każda dodana grupa lub użytkownik jest domyślnie włączony do korzystania z Microsoft Authenticator zarówno w trybie powiadomień wypychanych, jak i na wypchnięciu ("dowolny"). Aby to zmienić, dla każdego wiersza:
@@ -104,7 +104,7 @@ Gdy użytkownik skorzysta z logowania jednokrotnego przy użyciu hasła, aplikac
 
 ## <a name="known-issues"></a>Znane problemy
 
-W bieżącej wersji zapoznawczej istnieją następujące znane problemy.
+Istnieją następujące znane problemy.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>Nie widzi opcji logowania jednokrotnego bez hasła
 

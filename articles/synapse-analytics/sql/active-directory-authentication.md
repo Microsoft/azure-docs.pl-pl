@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 962e0e734abd73f5a66f9b9ee6067155dd839e5d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 92d06a95dcd32501a05dfd50e81f768f59742bd5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118289"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674329"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Uwierzytelnianie za pomocą usługi Synapse SQL przy użyciu uwierzytelniania Azure Active Directory
 
@@ -30,7 +30,7 @@ Za pomocą uwierzytelniania w usłudze Azure AD można centralnie zarządzać to
 - Usługa Azure AD obsługuje uwierzytelnianie oparte na tokenach dla aplikacji łączących się z usługą Azure Synapse.
 - Uwierzytelnianie w usłudze Azure AD obsługuje uwierzytelnianie w usługach ADFS (Domain Federation) lub natywne uwierzytelnienie użytkownika/hasła dla lokalnego Azure Active Directory bez synchronizacji z domeną.
 - Usługa Azure AD obsługuje połączenia z programu SQL Server Management Studio, które używają uniwersalnego uwierzytelniania usługi Active Directory obejmującej usługę Multi-Factor Authentication (MFA).  Funkcja MFA obejmuje silne uwierzytelnianie z szerokim zakresem łatwych weryfikacji, takich jak rozmowa telefoniczna, wiadomość tekstowa, karty inteligentne z numerem PIN lub powiadomieniem aplikacji mobilnej. Aby uzyskać więcej informacji, zobacz temat [Obsługa usługi Azure AD MFA przy użyciu programu Synapse SQL](mfa-authentication.md).
-- Usługa Azure AD obsługuje podobne połączenia z narzędziami SQL Server Data Tools (SSDT), które używają interaktywnego uwierzytelniania usługi Active Directory. Aby uzyskać więcej informacji, zobacz [Azure Active Directory support in SQL Server Data Tools (SSDT) (Obsługa usługi Azure Active Directory w narzędziach SQL Server Data Tools (SSDT))](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Usługa Azure AD obsługuje podobne połączenia z narzędziami SQL Server Data Tools (SSDT), które używają interaktywnego uwierzytelniania usługi Active Directory. Aby uzyskać więcej informacji, zobacz [Azure Active Directory support in SQL Server Data Tools (SSDT) (Obsługa usługi Azure Active Directory w narzędziach SQL Server Data Tools (SSDT))](/sql/ssdt/azure-active-directory?view=azure-sqldw-latest&preserve-view=true).
 
 Czynności konfiguracyjne obejmują następujące procedury w celu skonfigurowania i użycia uwierzytelniania Azure Active Directory.
 
@@ -81,12 +81,12 @@ Każde uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administ
 
 - Następujące elementy członkowskie usługi Azure AD mogą być obsługiwane w programie Synapse SQL:
 
-  - Natywni Członkowie: członek utworzony w usłudze Azure AD w domenie zarządzanej lub w domenie klienta. Aby uzyskać więcej informacji, zobacz [Dodawanie własnej nazwy domeny do usługi Azure AD](../../active-directory/fundamentals/add-custom-domain.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+  - Natywni Członkowie: członek utworzony w usłudze Azure AD w domenie zarządzanej lub w domenie klienta. Aby uzyskać więcej informacji, zobacz [Dodawanie własnej nazwy domeny do usługi Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
   - Członkowie domeny federacyjnej: członek utworzony w usłudze Azure AD z domeną federacyjną. Aby uzyskać więcej informacji, zobacz [Microsoft Azure teraz obsługuje Federacji z systemem Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Zaimportowani członkowie z innych reklam, którzy są członkami domeny natywnej lub federacyjnej.
   - Grupy Active Directory utworzone jako grupy zabezpieczeń.
 
-- Użytkownicy usługi Azure AD będący częścią grupy, która ma `db_owner` rolę serwera, nie mogą używać SKŁADNI **[poświadczeń tworzenia zakresu bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** dla Synapse SQL. Zostanie wyświetlony następujący błąd:
+- Użytkownicy usługi Azure AD będący częścią grupy, która ma `db_owner` rolę serwera, nie mogą używać SKŁADNI **[poświadczeń tworzenia zakresu bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)** dla Synapse SQL. Zostanie wyświetlony następujący błąd:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
@@ -123,13 +123,13 @@ Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpiecz
 - Tylko administrator usługi Azure AD dla Synapse SQL może początkowo połączyć się z Synapse SQL przy użyciu konta Azure Active Directory. Administrator Active Directory może skonfigurować kolejnych użytkowników bazy danych usługi Azure AD.
 - Zalecamy ustawienie limitu czasu połączenia na 30 sekund.
 - SQL Server 2016 Management Studio i SQL Server Data Tools for Visual Studio 2015 (wersja 14.0.60311.1 kwietnia 2016 lub nowszy) obsługuje Azure Active Directory uwierzytelnianie. (Uwierzytelnianie usługi Azure AD jest obsługiwane przez **.NET Framework dostawca danych dla programu SqlServer**; co najmniej w wersji .NET Framework 4,6). Dlatego najnowsze wersje tych narzędzi i aplikacji warstwy danych (DAC i. BACPAC) może korzystać z uwierzytelniania usługi Azure AD.
-- Począwszy od wersji 15.0.1, [narzędzia sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i obsługi [narzędzia bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Active Directory interakcyjnego uwierzytelniania przy użyciu usługi MFA.
-- Narzędzia SQL Server Data Tools for Visual Studio 2015 wymagają co najmniej wersji 2016 z kwietnia (wersja za14.0.60311.1na). Obecnie użytkownicy usługi Azure AD nie są wyświetlani w SSDT Eksplorator obiektów. Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- [Sterownik Microsoft JDBC 6,0 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) obsługuje uwierzytelnianie w usłudze Azure AD. Ponadto zobacz [Ustawianie właściwości połączenia](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Począwszy od wersji 15.0.1, [narzędzia sqlcmd](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) i obsługi [narzędzia bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) Active Directory interakcyjnego uwierzytelniania przy użyciu usługi MFA.
+- Narzędzia SQL Server Data Tools for Visual Studio 2015 wymagają co najmniej wersji 2016 z kwietnia (wersja za14.0.60311.1na). Obecnie użytkownicy usługi Azure AD nie są wyświetlani w SSDT Eksplorator obiektów. Aby obejść ten sposób, Wyświetl użytkowników w [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- [Sterownik Microsoft JDBC 6,0 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) obsługuje uwierzytelnianie w usłudze Azure AD. Ponadto zobacz [Ustawianie właściwości połączenia](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem dostępu i kontroli w programie Synapse SQL, zobacz [Synapse SQL Access Control](../security/synapse-workspace-access-control-overview.md).
-- Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Podmioty zabezpieczeń).
-- Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Role bazy danych).
+- Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?view=azure-sqldw-latest&preserve-view=true) (Podmioty zabezpieczeń).
+- Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true) (Role bazy danych).
 

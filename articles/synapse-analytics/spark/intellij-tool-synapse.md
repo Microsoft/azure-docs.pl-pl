@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a4512a8f75d59f617058a50846d7578a90b9d062
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935442"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675809"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
@@ -34,7 +34,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [INTELLIJ pomysł](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
-- Wtyczka zestawu Azure Toolkit 3.27.0-2019.2 — Instalacja z [repozytorium wtyczki IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- Wtyczka zestawu Azure Toolkit 3.27.0-2019.2 — Instalacja z [repozytorium wtyczki IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation)
 - [JDK (wersja 1,8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - Następujące wymagania wstępne są przeznaczone tylko dla użytkowników systemu Windows:
@@ -145,7 +145,7 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
     |Nazwa klasy głównej|Wartością domyślną jest główna Klasa z wybranego pliku. Możesz zmienić klasę, wybierając wielokropek (**...**) i wybierając inną klasę.|
     |Konfiguracje zadań|Można zmienić domyślny klucz i wartości. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Apache usługi Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumenty wiersza polecenia|W razie potrzeby można wprowadzać argumenty rozdzielone spacją dla klasy głównej.|
-    |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Konfiguracja Apache Spark] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Konfiguracja Apache Spark] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md).|
     |Magazyn przekazywania zadań|Rozwiń, aby wyświetlić dodatkowe opcje.|
     |Typ magazynu|Wybierz pozycję **Użyj obiektu blob platformy Azure, aby przekazać** lub **użyć domyślnego konta magazynu klastra do przekazania** z listy rozwijanej.|
     |Konto magazynu|Wprowadź konto magazynu.|

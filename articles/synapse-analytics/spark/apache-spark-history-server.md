@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995390"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670700"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Użyj serwera Apache Spark History, aby debugować i diagnozować aplikacje Apache Spark
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera wskazówki dotyczące sposobu korzystania z serwera Apache 
 
 Rozszerzenie zawiera kartę dane, kartę graf i kartę Diagnostyka. Użyj karty **dane** , aby sprawdzić dane wejściowe i wyjściowe zadania platformy Spark. Na karcie **Wykres** znajduje się przepływ danych i odtwarzanie wykresu zadań. Karta **Diagnostyka** przedstawia  **pochylenie danych**, **pochylenie czasu** i **analizę użycia programu wykonującego**.
 
-## <a name="access-the-apache-spark-history-server"></a>Dostęp do serwera historii Apache Spark
+## <a name="access-the-apache-spark-history-server"></a>Dostęp do serwera historii platformy Apache Spark
 
 Serwer historii Apache Spark jest interfejsem użytkownika sieci Web dla ukończonych i uruchomionych aplikacji platformy Spark. Interfejs sieci Web serwera historii Apache Spark można otworzyć z poziomu usługi Azure Synapse Analytics.
 
@@ -106,7 +106,7 @@ Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Domyślnie
 
 ![Identyfikator zadania programu Spark Application i Graph zadania](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Wyświetlanie
+### <a name="display"></a>Wyświetl
 
 Domyślnie jest wyświetlany ekran **postępu** . Przepływ danych można sprawdzić, wybierając pozycję **Odczytaj** lub **zapisaną** na liście rozwijanej **Wyświetlanie** .
 
@@ -120,7 +120,7 @@ W węźle grafu są wyświetlane kolory widoczne w legendzie mapę cieplną.
 
 Aby odtworzyć zadanie, wybierz pozycję **odtwarzanie**. W dowolnym momencie można wybrać pozycję **Zatrzymaj** , aby zatrzymać. Kolory zadań pokazują różne stany podczas odtwarzania:
 
-|Color (Kolor)|Znaczenie|
+|Kolor|Znaczenie|
 |-|-|
 |Green (Zielony)|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
 |Orange|Ponawianie próby: wystąpienia zadań, które zakończyły się niepowodzeniem, ale nie wpływają na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
@@ -182,7 +182,7 @@ W węźle grafu zadania są wyświetlane następujące informacje dotyczące pos
     >  
     > Rozmiar danych odczytu i zapisu to 1 MB = 1000 KB = 1000 * 1000 bajtów.
 
-### <a name="provide-feedback"></a>Przekazywanie opinii
+### <a name="provide-feedback"></a>Wyraź opinię
 
 Prześlij opinię z problemami, wybierając pozycję Prześlij **nam swoją opinię**.
 
@@ -239,5 +239,5 @@ Dane wejściowe/wyjściowe wykorzystujące rozproszone zestawy danych (odporne) 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark)
 

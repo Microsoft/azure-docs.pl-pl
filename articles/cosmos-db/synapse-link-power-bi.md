@@ -6,22 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247016"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659753"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse (wersja zapoznawcza) w celu przeanalizowania Azure Cosmos DB danych za pomocą linku Synapse 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Użyj Power BI i bezserwerowej puli SQL Synapse, aby analizować dane Azure Cosmos DB za pomocą linku Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 W tym artykule dowiesz się, jak utworzyć bazę danych puli SQL bezserwerowej i widoki dla Azure Cosmos DB za pośrednictwem linku Synapse. Należy wykonać zapytanie dotyczące kontenerów Azure Cosmos DB, a następnie skompilować model z Power BI nad tymi widokami w celu odzwierciedlenia tego zapytania.
 
 W tym scenariuszu będziesz używać fikcyjnych danych dotyczących sprzedaży produktu Surface w sklepie detalicznym partnera. Możesz analizować przychody dla sklepu w oparciu o bliskość do dużych gospodarstw domowych i wpływ anonsowania na określony tydzień. W tym artykule opisano tworzenie dwóch widoków o nazwach **RetailSales** i **StoreDemographics** oraz zapytania między nimi. Dane przykładowego produktu można pobrać z tego repozytorium [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
-
-> [!IMPORTANT]
-> Usługa Synapse w wersji zapoznawczej nie obsługuje bezserwerowej puli SQL dla linku Synapse dla Azure Cosmos DB. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

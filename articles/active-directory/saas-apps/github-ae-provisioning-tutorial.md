@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178742"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651585"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub AE dla automatycznej aprowizacji użytkowników
 
@@ -111,17 +111,27 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |Nazwa. sformatowana|Ciąg|
    |displayName|Ciąg|
 
-10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do usługi GitHub AE**.
 
-11. Aby włączyć usługę Azure AD Provisioning for GitHub AE, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do serwisu GitHub AE w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w usłudze GitHub AE dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+
+      |Atrybut|Typ|
+      |---|---|
+      |displayName|Ciąg|
+      |externalId|Ciąg|
+      |elementy członkowskie|Tematy pomocy|
+
+12. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Aby włączyć usługę Azure AD Provisioning for GitHub AE, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
     ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić do usługi GitHub AE, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić do usługi GitHub AE, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -133,6 +143,10 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md), aby określić, których użytkowników udało się lub nie udało aprowizować
 2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 02/18/2021 — dodano obsługę udostępniania grup.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -5,29 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586027"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647340"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
-> [!NOTE]
-> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji
 
 Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone przez organizację. Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się i uzyskać konto gościa przy użyciu opcji skonfigurowanych w przepływie użytkownika.
 
 > [!NOTE]
 > Przepływy użytkowników można kojarzyć z aplikacjami skompilowanymi przez organizację. Przepływów użytkowników nie można używać dla aplikacji firmy Microsoft, takich jak SharePoint i zespoły.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="add-social-identity-providers-optional"></a>Dodaj dostawców tożsamości społecznościowych (opcjonalnie)
 
@@ -35,9 +33,6 @@ Usługa Azure AD jest domyślnym dostawcą tożsamości dla samoobsługowego rej
 
 - [Dodawanie usługi Facebook do listy dostawców tożsamości społecznościowych](facebook-federation.md)
 - [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
-
-> [!NOTE]
-> W bieżącej wersji zapoznawczej, jeśli przepływ użytkownika samoobsługowego rejestrowania jest skojarzony z aplikacją i wysyłasz użytkownikowi zaproszenie do tej aplikacji, użytkownik nie będzie mógł skorzystać z konta usługi Gmail w celu zrealizowania zaproszenia. W ramach tego problemu użytkownik może przejść przez proces tworzenia konta samoobsługowego. Mogą oni lub korzystać z zaproszenia, uzyskując dostęp do innej aplikacji lub portalu Moje aplikacje pod adresem https://myapps.microsoft.com .
 
 ### <a name="define-custom-attributes-optional"></a>Zdefiniuj atrybuty niestandardowe (opcjonalnie)
 
@@ -50,7 +45,7 @@ Przed dodaniem przepływu użytkownika samoobsługowego rejestrowania do aplikac
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. Wybierz pozycję **Ustawienia użytkownika**, a następnie w obszarze **użytkownicy zewnętrzni** wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
-4. Ustaw opcję Włącz logowanie samoobsługowe dla **gościa za pomocą funkcji przepływy użytkownika (wersja zapoznawcza)** Przełącz na **wartość tak**.
+4. Ustaw wartość **tak** dla opcji Włącz samoobsługowe **rejestrowanie dla gościa za pomocą przepływów użytkownika** .
 
    ![Włącz rejestrację samoobsługową gościa](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
 5. Wybierz pozycję **Zapisz**.
@@ -61,7 +56,7 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
+4. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz pozycję **Nowy przepływ użytkownika**.
 
    ![Dodaj nowy przycisk przepływu użytkownika](media/self-service-sign-up-user-flow/new-user-flow.png)
 
@@ -74,15 +69,15 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 > [!NOTE]
 > Można zbierać atrybuty tylko wtedy, gdy użytkownik loguje się po raz pierwszy. Po zarejestrowaniu się użytkownika nie będzie on już monitowany o zbieranie informacji o atrybutach, nawet w przypadku zmiany przepływu użytkownika.
 
-8. Wybierz pozycję **Utwórz**.
-9. Nowy przepływ użytkownika zostanie wyświetlony na liście **przepływy użytkownika (wersja zapoznawcza)** . W razie potrzeby Odśwież stronę.
+8. Wybierz przycisk **Utwórz**.
+9. Nowy przepływ użytkownika zostanie wyświetlony na liście **przepływy użytkownika** . W razie potrzeby Odśwież stronę.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Wybierz układ formularza kolekcji atrybutów
 
 Możesz wybrać kolejność, w jakiej atrybuty są wyświetlane na stronie rejestracji. 
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**.
-2. Wybierz pozycję **tożsamości zewnętrzne**, wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**.
+2. Wybierz pozycję **tożsamości zewnętrzne**, a następnie wybierz pozycję **przepływy użytkownika**.
 3. Wybierz z listy przepływ użytkownika do samoobsługowego rejestrowania.
 4. W obszarze **Dostosowywanie** wybierz pozycję **układy stron**.
 5. Zostaną wyświetlone atrybuty wybrane do zebrania. Aby zmienić kolejność wyświetlania, wybierz atrybut, a następnie wybierz pozycję Przenieś w **górę**, **Przenieś w dół**, **Przenieś w górę** lub **Przenieś w** dół.
@@ -95,7 +90,7 @@ Teraz można kojarzyć aplikacje z przepływem użytkownika.
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. W obszarze **rejestracja samoobsługowa** wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**.
+4. W obszarze **rejestracja samoobsługowa** wybierz pozycję **przepływy użytkownika**.
 5. Wybierz z listy przepływ użytkownika do samoobsługowego rejestrowania.
 6. W menu po lewej stronie w obszarze **Użyj** wybierz pozycję **aplikacje**.
 7. Wybierz pozycję **Dodaj aplikację**.

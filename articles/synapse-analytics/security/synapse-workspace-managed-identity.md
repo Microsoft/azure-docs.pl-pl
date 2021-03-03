@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7790bc2895449e8ab21cbd30d7da0e5529eb0562
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461296"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670674"
 ---
 # <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse
 
@@ -23,7 +23,7 @@ W tym artykule omówiono tożsamość zarządzaną w obszarze roboczym usługi A
 
 Zarządzana tożsamość zasobów platformy Azure to funkcja Azure Active Directory. Funkcja ta udostępnia usługom platformy Azure automatycznie zarządzaną tożsamość w usłudze Azure AD. Można użyć funkcji tożsamości zarządzanej do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD.
 
-Zarządzane tożsamości dla zasobów platformy Azure to nowa nazwa usługi znana wcześniej jako tożsamość usługi zarządzanej (MSI). Zobacz [zarządzane tożsamości](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby dowiedzieć się więcej.
+Zarządzane tożsamości dla zasobów platformy Azure to nowa nazwa usługi znana wcześniej jako tożsamość usługi zarządzanej (MSI). Zobacz [zarządzane tożsamości](../../active-directory/managed-identities-azure-resources/overview.md) , aby dowiedzieć się więcej.
 
 ## <a name="azure-synapse-workspace-managed-identity"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse
 

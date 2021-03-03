@@ -164,6 +164,8 @@
     - name: Zatwierdzone dystrybucje systemu Linux
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
+    - name: Tryby aranżacji (wersja zapoznawcza)
+      href: virtual-machine-scale-sets-orchestration-modes.md
     - name: Konserwacja i aktualizacje
       items:
         - name: Omówienie
@@ -210,7 +212,7 @@
           href: security-baseline.md
       maintainContext: true
     - name: Monitorowanie
-      href: ../azure-monitor/insights/monitor-vm-azure.md
+      href: ../azure-monitor/vm/monitor-vm-azure.md
       maintainContext: true
     - name: Zagadnienia dotyczące wdrażania
       items:
@@ -304,7 +306,7 @@
             - name: Korzystanie z witryny Azure Portal
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Zaawansowane automatyczne skalowanie
-              href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
               maintainContext: true
             - name: Rozwiązywanie problemów z automatycznym skalowaniem
               href: virtual-machine-scale-sets-troubleshoot.md

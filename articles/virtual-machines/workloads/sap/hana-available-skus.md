@@ -7,20 +7,19 @@ author: msjuergent
 manager: juergent
 editor: ''
 keywords: HLI, HANA, SKU, S896, S224, S448, S672, Optane, SAP
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 886cd57b59bd4103ced9d496021e54ab0bdc99ad
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 25a11bf96ba680608e5bb22835becf80fadee4f3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723290"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668922"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Dostępne jednostki SKU dla dużych wystąpień HANA
 
@@ -52,7 +51,7 @@ Lista dostępnych dużych wystąpień platformy Azure, które są oferowane w po
 
 
 
-| SAP HANA certyfikat | Model | Całkowita ilość pamięci | Pamięć DRAM | Optane pamięci | Magazyn | Dostępność |
+| SAP HANA certyfikat | Model | Całkowita ilość pamięci | Pamięć DRAM | Optane pamięci | Storage | Dostępność |
 | --- | --- | --- | --- | --- | --- | --- |
 | TAK <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA na platformie Azure s96<br /> — 2 x procesor Intel® Xeon® E7-8890 v4 <br /> 48 rdzeni procesora CPU i 96 wątki procesora |  768 GB | 768 GB | --- | 3,0 TB | Dostępne |
 | TAK <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA na platformie Azure S224<br /> — 4 x procesor Intel® Xeon® Platinum 8276 <br /> 112 rdzeni procesora CPU i 224 wątki procesora |  3,0 TB | 3,0 TB | --- | 6,3 TB | Dostępne |

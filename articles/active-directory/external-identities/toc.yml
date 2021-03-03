@@ -41,7 +41,7 @@
           href: b2b-fundamentals.md
         - name: Model B2B i udostępnianie zewnętrzne w usłudze Office 365
           href: o365-external-user.md
-        - name: Realizacja zaproszenia
+        - name: Wykupu i logowanie
           href: redemption-experience.md
         - name: Wiadomość e-mail z zaproszeniem
           href: invitation-email-elements.md
@@ -57,9 +57,9 @@
           href: hybrid-organizations.md
         - name: Dostawcy tożsamości dla tożsamości zewnętrznych
           href: identity-providers.md
-        - name: Przepływy samoobsługowej rejestracji użytkowników (wersja zapoznawcza)
+        - name: Samoobsługowe przepływy użytkowników rejestracji
           href: self-service-sign-up-overview.md
-        - name: Łączniki interfejsu API do rejestracji samoobsługowej (wersja zapoznawcza)
+        - name: Łączniki interfejsu API rejestracji samoobsługowej
           href: api-connectors-overview.md
         - name: Zarządzanie upoważnieniami w usłudze Azure AD
           href: self-service-portal.md
@@ -68,23 +68,25 @@
     - name: Przewodniki z instrukcjami
       expanded: true
       items:
-        - name: Konfigurowanie ustawień współpracy zewnętrznej
-          href: delegate-invitations.md
+        - name: Konfigurowanie współpracy B2B
+          items:
+            - name: Konfigurowanie ustawień współpracy zewnętrznej
+              href: delegate-invitations.md
+            - name: Zezwalanie lub blokowanie domen
+              href: allow-deny-list.md
         - name: Zapraszanie gości
           items:
-            - name: Administratorzy dodający użytkowników B2B
+            - name: Dodawanie i Zapraszanie użytkowników-Gości (dla administratorów)
               href: add-users-administrator.md
-            - name: Pracownicy przetwarzający informacje dodający użytkowników B2B
+            - name: Zapraszanie użytkowników-Gości do aplikacji (dla właścicieli aplikacji)
               href: add-users-information-worker.md
             - name: Zapraszanie użytkowników wewnętrznych do B2B
               href: invite-internal-users.md
-            - name: Zezwalanie na zaproszenia lub blokowanie ich
-              href: allow-deny-list.md
             - name: Dodawanie użytkowników B2B bez zaproszenia
               href: add-user-without-invite.md
-            - name: Interfejs API zaproszeń i dostosowywanie
+            - name: Dostosowywanie zaproszeń przy użyciu interfejsu API
               href: customize-invitation-api.md
-        - name: Federacja przy użyciu dostawców tożsamości
+        - name: Sfederować z zewnętrznymi dostawcami tożsamości
           items:
             - name: Federacja z firmą Google
               href: google-federation.md
@@ -94,9 +96,9 @@
               href: direct-federation.md
             - name: Przykład federacji bezpośredniej z usługami AD FS
               href: direct-federation-adfs.md
-        - name: Uwierzytelnianie za pomocą jednorazowego kodu dostępu
+        - name: Włącz jednorazowe kody dostępu (OTP)
           href: one-time-passcode.md
-        - name: Rejestracja samoobsługowa dla użytkowników-gości (wersja zapoznawcza)
+        - name: Dodawanie rejestracji samoobsługowej dla użytkowników-Gości
           items:
             - name: Dodawanie przepływu samoobsługowej rejestracji użytkowników
               href: self-service-sign-up-user-flow.md

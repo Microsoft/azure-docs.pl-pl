@@ -9,25 +9,25 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: alsin
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e880992143bf79a5a99cc9830957f83167b6b46
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 99371b8618756c196b75858288c5c4785272a7e8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808293"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650469"
 ---
 # <a name="move-an-azure-automanage-virtual-machine-to-a-different-region"></a>Przenoszenie maszyny wirtualnej usługi Azure automanage do innego regionu
 W tym artykule opisano sposób utrzymania włączonej autozarządzania na maszynie wirtualnej (VM) podczas przenoszenia jej do innego regionu. Możesz chcieć przenieść maszyny wirtualne do innego regionu z kilku powodów. Na przykład, aby skorzystać z nowego regionu platformy Azure, spełnić wymagania wewnętrzne zasad i zarządzania lub w odpowiedzi na wymagania dotyczące planowania pojemności. Przenoszenie tych maszyn wirtualnych może być obecnie autozarządzane i może być konieczne ich Autozarządzanie po przeniesieniu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Upewnij się, że region docelowy jest [obsługiwany przez Autozarządzanie](./automanage-virtual-machines.md#prerequisites).
-* Upewnij się, że region obszaru roboczego Log Analytics, region konta usługi Automation i region docelowy to wszystkie regiony obsługiwane przez mapowania regionów w [tym miejscu](https://docs.microsoft.com/azure/automation/how-to/region-mappings).
+* Upewnij się, że region obszaru roboczego Log Analytics, region konta usługi Automation i region docelowy to wszystkie regiony obsługiwane przez mapowania regionów w [tym miejscu](../automation/how-to/region-mappings.md).
 
 ## <a name="prepare-your-automanaged-vms-for-moving"></a>Przygotuj zarządzane przez siebie maszyny wirtualne do przeniesienia
 Wyłącz Autozarządzanie na maszynach wirtualnych zarządzanych przez siebie. Możesz to zrobić, wybierając maszyny wirtualne w bloku Autozarządzanie, a następnie klikając pozycję **Wyłącz Autozarządzanie** w bloku Autozarządzanie.
 
 ## <a name="move-your-automanaged-vms-and-re-enable-automanage"></a>Przenieś swoje zarządzane przez siebie maszyny wirtualne i ponownie włącz Autozarządzanie
-Aby uzyskać szczegółowe informacje na temat przenoszenia maszyn wirtualnych, zobacz ten [artykuł](https://docs.microsoft.com/azure/resource-mover/tutorial-move-region-virtual-machines).
+Aby uzyskać szczegółowe informacje na temat przenoszenia maszyn wirtualnych, zobacz ten [artykuł](../resource-mover/tutorial-move-region-virtual-machines.md).
 
 Po przeniesieniu maszyn wirtualnych między regionami można ponownie włączyć na nich funkcję Autozarządzanie. Szczegóły są dostępne [tutaj](./automanage-virtual-machines.md#enabling-automanage-for-vms-in-azure-portal).
 

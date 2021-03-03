@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872013"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659719"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
-Azure Machine Learning ułatwia łączenie się z danymi w chmurze.  Zapewnia warstwę abstrakcji za pośrednictwem podstawowej usługi magazynu, dzięki czemu można bezpiecznie uzyskać dostęp do danych i korzystać z nich bez konieczności pisania kodu specyficznego dla typu magazynu. Azure Machine Learning udostępnia również następujące możliwości danych:
+Azure Machine Learning ułatwia łączenie się z danymi w chmurze. Zapewnia warstwę abstrakcji za pośrednictwem podstawowej usługi magazynu, dzięki czemu można bezpiecznie uzyskać dostęp do danych i korzystać z nich bez konieczności pisania kodu specyficznego dla typu magazynu. Azure Machine Learning udostępnia również następujące możliwości danych:
 
 *    Współdziałanie z Pandas i Spark dataframes
 *    Przechowywanie wersji i śledzenie elementów odnoszących się do danych
@@ -53,7 +53,7 @@ Na poniższym diagramie przedstawiono wizualizację tego zalecanego przepływu p
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Łączenie z magazynem za pomocą magazynów danych
 
-Azure Machine Learning magazyny danych bezpiecznie przechowują informacje o połączeniu z usługą Azure Storage, dzięki czemu nie trzeba będzie kodu w skryptach. [Zarejestruj i Utwórz magazyn](how-to-access-data.md) danych, aby łatwo nawiązać połączenie z kontem magazynu i uzyskać dostęp do danych w podstawowej usłudze Azure Storage. 
+Azure Machine Learning magazyny danych bezpiecznie przechowują informacje o połączeniach z usługą Azure Storage, dzięki czemu nie trzeba będzie kodu w skryptach. [Zarejestruj i Utwórz magazyn](how-to-access-data.md) danych, aby łatwo nawiązać połączenie z kontem magazynu i uzyskać dostęp do danych w źródłowej usłudze magazynu. 
 
 Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być rejestrowane jako magazyny danych:
 
@@ -65,6 +65,9 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 + Azure Database for PostgreSQL
 + System plików usługi Databricks
 + Azure Database for MySQL
+
+>[!TIP]
+> Ogólnie dostępne funkcje tworzenia magazynów danych wymagają uwierzytelniania opartego na poświadczeniach w celu uzyskiwania dostępu do usług magazynu, takich jak nazwa główna usługi lub token sygnatury dostępu współdzielonego (SAS). Dostęp do tych poświadczeń mogą uzyskać użytkownicy, którzy mają dostęp *czytelnika* do obszaru roboczego. <br><br>Jeśli jest to problem,  [Utwórz magazyn danych, który używa dostępu opartego na tożsamościach do usług magazynu (wersja zapoznawcza)](how-to-identity-based-data-access.md). Ta funkcja jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Dane referencyjne w magazynie z zestawami danych
@@ -100,7 +103,7 @@ Zestawy danych umożliwiają wykonywanie wielu zadań uczenia maszynowego poprze
 + Uczenie modeli uczenia maszynowego:
      + [zautomatyzowane eksperymenty ML](how-to-use-automated-ml-for-ml-models.md)
      + [Projektant](tutorial-designer-automobile-price-train-score.md#import-data)
-     + [żadnym](how-to-train-with-datasets.md)
+     + [notesy](how-to-train-with-datasets.md)
      + [Potoki Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 + Uzyskaj dostęp do zestawów danych do oceniania za pomocą [wnioskowania wsadowego](./tutorial-pipeline-batch-scoring-classification.md) w [potokach uczenia maszynowego](./how-to-create-machine-learning-pipelines.md).
 + Skonfiguruj monitor zestawu danych na potrzeby wykrywania [dryfowania danych](#drift) .

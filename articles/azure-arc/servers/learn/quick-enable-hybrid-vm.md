@@ -3,14 +3,14 @@ title: Połącz maszynę hybrydową z serwerami z obsługą usługi Azure Arc
 description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę hybrydową przy użyciu serwerów z obsługą usługi Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516787"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646830"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyn hybrydowych przy użyciu serwerów z obsługą usługi Azure Arc
 
 [Serwery z obsługą usługi Azure Arc](../overview.md) umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi w środowiskach lokalnych, w granicach i w chmurze. W tym przewodniku Szybki Start zostanie wdrożony i skonfigurowany Agent połączonej maszyny na komputerze z systemem Windows lub Linux hostowanym poza platformą Azure na potrzeby zarządzania przez serwery z włączonym łukiem.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389743"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667849"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Domyślnie Tagi usług odzwierciedlają zakresy dla całej chmury. Niektóre Tag
 | **Usługi azureactivedirectory** | Azure Active Directory. | Wychodzący | Nie | Tak |
 | **AzureActiveDirectoryDomainServices** | Ruch związany z zarządzaniem dla wdrożeń przeznaczonych dla Azure Active Directory Domain Services. | Oba | Nie | Tak |
 | **AzureAdvancedThreatProtection** | Zaawansowana ochrona przed zagrożeniami na platformie Azure. | Wychodzący | Nie | Nie |
+| **AzureAPIForFHIR** | Azure API for FHIR (zasoby współdziałania szybkich usług opieki zdrowotnej).<br/><br/> *Uwaga: ten tag nie jest obecnie konfigurowalny za pomocą witryny Azure Portal.*| Wychodzący | Nie | Nie |
 | **AzureArcInfrastructure** | Serwery z obsługą usługi Azure ARC, usługa Azure ARC z włączonym Kubernetes i ruchem konfiguracyjnym gościa.<br/><br/>*Uwaga:* Ten tag ma zależność od tagów **usługi azureactivedirectory**,**AzureTrafficManager** i **AzureResourceManager** . *Ten tag nie jest obecnie konfigurowalny za pomocą witryny Azure Portal*.| Wychodzący | Nie | Tak |
 | **AzureBackup** |Azure Backup.<br/><br/>*Uwaga:* Ten tag ma zależność od tagów **Storage** i **usługi azureactivedirectory** . | Wychodzący | Nie | Tak |
 | **AzureBotService** | Azure Bot Service. | Wychodzący | Nie | Nie |

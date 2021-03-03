@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: 5abece0e272d4b72ba6f787ad44b091df5d45226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e7193ee5d076538689078ce634b8170926df20b6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417543"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653256"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Obsługa uwierzytelniania bezhaseł przy użyciu kluczy FIDO2 w tworzonych aplikacjach
 
@@ -47,7 +47,7 @@ Metoda logowania, która była ostatnio używana przez użytkownika, zostanie wy
 Zalecane opcje implementowania uwierzytelniania są następujące:
 
 - Aplikacje klasyczne platformy .NET używające biblioteki Microsoft Authentication Library (MSAL) powinny używać Menedżera uwierzytelniania systemu Windows (WAM). Ta integracja i jej korzyści są [udokumentowane w witrynie GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Użyj [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) do obsługi FIDO2 w osadzonej przeglądarce.
+- Użyj [WebView2](/microsoft-edge/webview2/) do obsługi FIDO2 w osadzonej przeglądarce.
 - Użyj przeglądarki systemowej. Biblioteki MSAL dla platform klasycznych używają tej metody domyślnie. Aby upewnić się, że używana przeglądarka obsługuje uwierzytelnianie FIDO2, możesz zapoznać się z naszą stroną w witrynie FIDO2.
 
 ### <a name="mobile"></a>Aplikacje mobilne

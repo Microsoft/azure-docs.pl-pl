@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092146"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652389"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management usuwanie nietrwałe (wersja zapoznawcza)
 
 Za pomocą narzędzia API Management Soft-Delete (wersja zapoznawcza) można odzyskiwać i przywracać ostatnio usunięte wystąpienia API Management (APIM).
 
 > [!IMPORTANT]
-> Tylko API Management wystąpienia usunięte przy użyciu `2020-01-01-preview` i nowsze wersje interfejsu API będą usunięte nietrwale i odzyskania przy użyciu kroków opisanych w tym artykule. Wystąpienia APIM usunięte przy użyciu poprzednich wersji interfejsu API będą nadal usunięte. W Azure PowerShell i interfejs wiersza polecenia platformy Azure obecnie nie jest używana `2020-06-01-preview` wersja i spowoduje to również trwałe usunięcie.
+> Tylko API Management wystąpienia usunięte przy użyciu `2020-06-01-preview` i nowsze wersje interfejsu API będą usunięte nietrwale i odzyskania przy użyciu kroków opisanych w tym artykule. Wystąpienia APIM usunięte przy użyciu poprzednich wersji interfejsu API będą nadal usunięte. W Azure PowerShell i interfejs wiersza polecenia platformy Azure obecnie nie jest używana `2020-06-01-preview` wersja i spowoduje to również trwałe usunięcie.
 
 ## <a name="supporting-interfaces"></a>Interfejsy pomocnicze
 
@@ -31,14 +31,14 @@ Funkcja usuwania nietrwałego jest dostępna za pomocą [interfejsu API REST](/r
 |--|--|--|--|
 | [Utwórz lub zaktualizuj](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Tworzy lub aktualizuje usługę API Management.  | Usługa API Management | Dowolne |
 | [Utwórz lub zaktualizuj](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) `restore` Właściwość z właściwością ustawioną na **wartość true** | Cofa usunięcie usługi API Management, jeśli została wcześniej usunięta. Jeśli `restore` jest określona i ustawiona na `true` wszystkie inne właściwości zostanie zignorowana.  | Usługa API Management |  2020-06-01 — wersja zapoznawcza |
-| [Usuwanie](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Usuwa istniejącą usługę API Management. | Usługa API Management | 2020-01-01 — wersja zapoznawcza|
+| [Usuwanie](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Usuwa istniejącą usługę API Management. | Usługa API Management | 2020-06-01 — wersja zapoznawcza|
 | [Pobierz według nazwy](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Pobierz nietrwałe usługi zarządzania interfejsami API według nazwy. | Usunięte usługi | 2020-06-01 — wersja zapoznawcza |
 | [Lista według subskrypcji](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Wyświetla listę wszystkich usuniętych nietrwałych usług dostępnych do cofnięcia usunięcia dla danej subskrypcji. | Usunięte usługi | 2020-06-01 — wersja zapoznawcza
 | [Usuwa](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Przeczyszcza API Management usługi (usuwa ją bez opcji usuwania). | Usunięte usługi | 2020-06-01 — wersja zapoznawcza
 
-## <a name="soft-delete-behavior"></a>Zachowanie nietrwałego usuwania
+## <a name="soft-delete-behavior"></a>Zachowanie usuwania nietrwałego
 
-Możesz użyć dowolnej wersji interfejsu API, aby utworzyć wystąpienie API Management, jednak do `2020-01-01-preview` nietrwałego usunięcia wystąpienia usługi APIM należy użyć lub nowsze wersje.
+Możesz użyć dowolnej wersji interfejsu API, aby utworzyć wystąpienie API Management, jednak do `2020-06-01-preview` nietrwałego usunięcia wystąpienia usługi APIM należy użyć lub nowsze wersje.
 
 Po usunięciu wystąpienia API Management usługa będzie istnieć w stanie usunięte, co uniemożliwi dostęp do żadnych operacji APIM. W tym stanie wystąpienie APIM może zostać wyświetlone, odzyskane lub usunięte (trwale usunięte).
 

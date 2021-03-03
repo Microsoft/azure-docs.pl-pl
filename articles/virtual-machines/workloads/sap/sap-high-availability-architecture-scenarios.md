@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b409254abbde1c1f6156052c49a07e6cc09a4dfd
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d689db4916758e13311ad181fb3b5d7ca9a85260
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958782"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675324"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver
 
@@ -250,7 +249,7 @@ Wysoką dostępność oprogramowania SAP na platformie Azure można podzielić n
 
 * **Wysoka dostępność aplikacji SAP**: 
 
-    Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
+    Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Na przykład:
     * Nadmiarowe serwery aplikacji SAP.
     * Unikatowe składniki. Przykładem może być składnik single point of failure (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
 
@@ -268,7 +267,7 @@ Podstawą obliczenia jest 30 dni miesięcznie lub 43 200 minut. Na przykład cza
 
 (Usługa dostępności #1/100) * (usługa dostępności #2/100) * (usługa dostępności #3/100) \* ...
 
-Przykład:
+Na przykład:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 lub Ogólna dostępność 99,75%.
 
@@ -335,7 +334,7 @@ Aby uzyskać więcej informacji na temat tego podejścia, zobacz temat [Korzysta
 
 ## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Wysoka dostępność aplikacji SAP na platformie Azure IaaS
 
-Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Przykład:
+Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Na przykład:
   * Nadmiarowe serwery aplikacji SAP.
   * Unikatowe składniki. Przykładem może być składnik single point of failure (SPOF), taki jak wystąpienie SAP ASCS/SCS lub system zarządzania bazami danych (DBMS).
 

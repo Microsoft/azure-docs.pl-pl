@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101378"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650995"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorowanie kondycji logowania aplikacji pod kątem odporności
 
@@ -51,7 +51,7 @@ Ten artykuł zawiera instrukcje dotyczące konfigurowania skoroszytu kondycji lo
 
 * Log Analytics obszar roboczy w ramach subskrypcji platformy Azure w celu wysyłania dzienników do Azure Monitor dzienników. 
 
-   * Dowiedz się [, jak utworzyć obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Dowiedz się [, jak utworzyć obszar roboczy log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Dzienniki usługi Azure AD zintegrowane z dziennikami Azure Monitor
 
@@ -94,7 +94,7 @@ Poniższe instrukcje służą do tworzenia alertów e-mail na podstawie zapytań
 
  Aby skonfigurować zapytanie bazowe i ustawić alerty, wykonaj następujące czynności. Przykładowa kwerenda zostanie użyta jako podstawa dla konfiguracji. Wyjaśnienie struktury zapytania pojawia się na końcu tej sekcji.
 
-Aby uzyskać więcej informacji na temat tworzenia i wyświetlania alertów dzienników oraz zarządzania nimi za pomocą Azure Monitor zobacz [Zarządzanie alertami dzienników](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Aby uzyskać więcej informacji na temat tworzenia i wyświetlania alertów dzienników oraz zarządzania nimi za pomocą Azure Monitor zobacz [Zarządzanie alertami dzienników](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. W skoroszycie wybierz pozycję **Edytuj**, a następnie wybierz **ikonę zapytania** tuż nad prawą stroną grafu.   
@@ -280,10 +280,9 @@ Po skonfigurowaniu zapytania i alertów Utwórz procesy biznesowe, aby zarządza
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o skoroszytach](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Dowiedz się więcej o skoroszytach](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

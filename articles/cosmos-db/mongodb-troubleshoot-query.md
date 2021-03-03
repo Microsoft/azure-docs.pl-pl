@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340893"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659906"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ W przypadku obniżenia opłaty za usługę RU z kwerendy zazwyczaj zmniejsza si�
 W tym artykule przedstawiono przykłady, które można utworzyć ponownie przy użyciu [zestawu danych odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> W tym artykule przyjęto założenie, że korzystasz z wersji 3,6 interfejsu API Azure Cosmos DB "s MongoDB. Niektóre zapytania, które działają nieprawidłowo w wersji 3,2, mają znaczące ulepszenia w wersji 3,6. Uaktualnij do wersji 3,6, zgłaszając [żądanie pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> W tym artykule przyjęto założenie, że używasz interfejsu API Azure Cosmos DB dla kont MongoDB w wersji 3,6 lub nowszej. Niektóre zapytania, które działają nieprawidłowo w wersji 3,2, mają znaczące ulepszenia w wersjach 3.6 +. Uaktualnij do wersji 3,6, zgłaszając [żądanie pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Użyj polecenia $explain, aby uzyskać metryki
 
@@ -113,7 +113,7 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 
 `$explain`Dane wyjściowe polecenia są długie i zawierają szczegółowe informacje o wykonywaniu zapytania. Ogólnie rzecz biorąc, istnieje kilka sekcji, w których należy skoncentrować się na optymalizowaniu wydajności zapytań:
 
-| Metryka | Opis | 
+| Metric | Opis | 
 | ------ | ----------- |
 | `timeInclusiveMS` | Opóźnienie zapytania wewnętrznej bazy danych |
 | `pathsIndexed` | Pokazuje indeksy używane przez zapytanie | 
@@ -348,4 +348,4 @@ Wartość `estimatedDelayFromRateLimitingInMilliseconds` daje sensie potencjalny
 ## <a name="next-steps"></a>Następne kroki
 
 * [Rozwiązywanie problemów z wydajnością zapytań (interfejs API SQL)](troubleshoot-query-performance.md)
-* [Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB](mongodb-indexing.md)
+* [Zarządzanie indeksowaniem w interfejsie API usługi Azure Cosmos DB dla MongoDB](mongodb-indexing.md)

@@ -4,16 +4,17 @@ description: Zapoznaj się z zapoznaj się z migracją zasobów z klasycznej do 
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 69eae2bd2e2db27c6cc9d0a0c1eb29576e96179a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879414"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669319"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migracja zasobów IaaS z wersji klasycznej do Azure Resource Manager w systemie Linux obsługiwana przez platformę
 
@@ -116,7 +117,7 @@ Niektóre funkcje i konfiguracje nie są obecnie obsługiwane; w poniższych sek
 ### <a name="unsupported-features"></a>Nieobsługiwane funkcje
 Następujące funkcje nie są obecnie obsługiwane. Opcjonalnie można usunąć te ustawienia, przeprowadzić migrację maszyn wirtualnych, a następnie ponownie włączyć ustawienia w Menedżer zasobów model wdrażania.
 
-| Dostawca zasobów | Cechy | Zalecenie |
+| Dostawca zasobów | Cecha | Zalecenie |
 | --- | --- | --- |
 | Obliczenia | Nieskojarzone dyski maszyny wirtualnej. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |
 | Obliczenia | Obrazy maszyn wirtualnych. | Po przeprowadzeniu migracji konta magazynu zostaną zmigrowane obiekty blob VHD znajdujące się za tymi dyskami |

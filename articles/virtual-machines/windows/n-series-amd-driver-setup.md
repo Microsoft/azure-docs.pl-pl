@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: b62095a3dc48480d8b1d33328d2d0dc25470d763
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 78971a92f1815236bd4b360e8df01b02b4c40626
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461094"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677222"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows
 
@@ -31,7 +31,13 @@ Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółam
 
 | System operacyjny | Sterownik |
 | -------- |------------- |
-| Wiele sesji dla systemu Windows 10 Enterprise — kompilacja 1903 <br/><br/>Windows 10 — kompilacja 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.17](https://download.microsoft.com/download/d/e/f/def0fb44-15ab-4b83-959a-8094eb9d0dfe/AMD-Azure-NVv4-Driver-20Q1-Hotfix3.exe) (. exe) |
+| Wiele sesji dla systemu Windows 10 Enterprise — kompilacja 1909 <br/><br/>Windows 10 — kompilacja 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.4. czwarty](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exee) (. exe) |
+
+ > [!NOTE]
+   >  Jeśli używasz kompilacji 1903/1909, może być konieczne zaktualizowanie następujących zasad grupy w celu uzyskania optymalnej wydajności. Te zmiany nie są potrzebne dla żadnych innych kompilacji systemu Windows.
+   >  
+   >  [Konfiguracja komputera->zasady — >ustawienia systemu Windows->Szablony administracyjne->składniki systemu Windows->Usługi pulpitu zdalnego->pulpit zdalny Host sesji->środowisko sesji zdalnej] ustaw zasady [Użyj sterownika wyświetlania grafiki WDDM dla połączeń Pulpit zdalny] na wyłączone.
+   >  
 
 
 ## <a name="driver-installation"></a>Instalacja sterownika
@@ -46,7 +52,7 @@ Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółam
 
 ## <a name="verify-driver-installation"></a>Weryfikuj instalację sterownika
 
-Instalację sterownika można sprawdzić w Menedżer urządzeń. W poniższym przykładzie przedstawiono pomyślną konfigurację karty Instinct MI25 na maszynie wirtualnej Azure NVv4.
+Instalację sterownika można sprawdzić w Device Manager. W poniższym przykładzie przedstawiono pomyślną konfigurację karty Instinct MI25 na maszynie wirtualnej Azure NVv4.
 <br />
 
 ![Zrzut ekranu przedstawiający pomyślną konfigurację karty Instinct Radeon MI25 na maszynie wirtualnej Azure NVv4.](./media/n-series-amd-driver-setup/device-manager.png)

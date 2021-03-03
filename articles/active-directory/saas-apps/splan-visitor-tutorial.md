@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704223"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644701"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Samouczek: integracja Azure Active Directory logowania jednokrotnego (SSO) z sPlan odwiedzających
 
@@ -120,8 +120,8 @@ Utwórz użytkownika testowego o nazwie **Britta Simon** w programie odwiedzają
 Przetestuj konfigurację logowania jednokrotnego usługi Azure AD, korzystając z jednej z następujących opcji:
 
 * **Azure Portal**: wybierz pozycję **Testuj tę aplikację** , aby automatycznie zalogować się do osoby odwiedzającej sPlan, dla której skonfigurowano Logowanie jednokrotne.
-* **Portal Microsoft my Apps**: wybierz kafelek **sPlan odwiedzających** , aby automatycznie zalogować się do osoby odwiedzającej sPlan, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Portal Microsoft my Apps**: wybierz kafelek **sPlan odwiedzających** , aby automatycznie zalogować się do osoby odwiedzającej sPlan, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu sPlan odwiedzających można [dowiedzieć się, jak wymuszać kontrolki sesji w Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Kontrolki sesji pomagają w ochronie eksfiltracji i niefiltrowaniu poufnych danych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy.
+Po skonfigurowaniu sPlan odwiedzających można [dowiedzieć się, jak wymuszać kontrolki sesji w Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Kontrolki sesji pomagają w ochronie eksfiltracji i niefiltrowaniu poufnych danych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy.

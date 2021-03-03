@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8607355069bbae5983239ddbd3e8752143f31497
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218301"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676335"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Szybki Start: korzystanie z puli SQL bezserwerowej
 
@@ -153,7 +153,7 @@ Pliki są przechowywane w kontenerze *JSON* , w *książkach* folderów i zawier
 
 ### <a name="query-json-files"></a>Wykonywanie zapytań względem plików JSON
 
-Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
+Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
 
 ```sql
 SELECT

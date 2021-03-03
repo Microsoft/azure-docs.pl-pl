@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6156bd72e3f4965a74798a3f91496eb8a321444e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219530"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676641"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Pozyskiwanie danych do dedykowanej puli SQL
 
@@ -23,7 +23,7 @@ W tym artykule dowiesz się, jak pozyskiwać dane z konta magazynu Azure Data La
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage**: używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) , aby uzyskać instrukcje.
+* **Konto usługi Azure Storage**: używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md) , aby uzyskać instrukcje.
 * **Azure Synapse Analytics**: dedykowana Pula SQL jest używana jako magazyn danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie dedykowanej puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w celu wykonania czynności, aby ją utworzyć.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług

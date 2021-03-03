@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807024"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647391"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 
@@ -30,7 +30,7 @@ Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najp
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **Wszystkie łączniki interfejsu API (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowy łącznik interfejsu API**.
+4. Wybierz pozycję **Wszystkie łączniki interfejsu API**, a następnie wybierz pozycję **Nowy łącznik interfejsu API**.
 
    ![Dodawanie nowego łącznika interfejsu API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -97,7 +97,7 @@ Wykonaj następujące kroki, aby dodać łącznik interfejsu API do samoobsługo
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz przepływ użytkownika, do którego chcesz dodać łącznik interfejsu API.
+4. Wybierz pozycję **przepływy użytkownika**, a następnie wybierz przepływ użytkownika, do którego chcesz dodać łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
 
    - **Po zalogowaniu się za pomocą dostawcy tożsamości**

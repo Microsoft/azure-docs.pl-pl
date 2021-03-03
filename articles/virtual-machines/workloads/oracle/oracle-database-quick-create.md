@@ -2,18 +2,18 @@
 title: Tworzenie bazy danych Oracle na maszynie wirtualnej platformy Azure | Microsoft Docs
 description: Szybko zapoznaj się z Oracle Database bazą danych 12c w środowisku platformy Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ec6a8382e2c0ce2cb359a62dd3f80fc977c4b1c2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063066"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674652"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie Oracle Database na maszynie wirtualnej platformy Azure
 
@@ -188,16 +188,16 @@ W tym zadaniu musisz skonfigurować niektóre zewnętrzne punkty końcowe dla od
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. Zaktualizuj plik ***/etc/hosts** _ przy użyciu publicznego adresu IP i nazwy hosta.
+10. Zaktualizuj plik ***/etc/hosts*** za pomocą publicznego adresu IP i nazwy hosta.
 
-    Zmień _*_publiczny adres IP i VMName_*_ , aby odzwierciedlał wartości rzeczywiste:
+    Zmień ***publiczny adres IP i VMName*** , aby odzwierciedlał wartości rzeczywiste:
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. Zaktualizuj plik hostname
     
-    Użyj poniższego polecenia, aby dodać nazwę domeny maszyny wirtualnej do pliku _ */etc/hostname**. Przyjęto założenie, że utworzono grupę zasobów i maszynę wirtualną w regionie **wschodnim** :
+    Użyj poniższego polecenia, aby dodać nazwę domeny maszyny wirtualnej do pliku **/etc/hostname** . Przyjęto założenie, że utworzono grupę zasobów i maszynę wirtualną w regionie **wschodnim** :
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname

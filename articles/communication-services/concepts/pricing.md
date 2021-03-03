@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: bf255837a08a4810321f2f03cb97838e31a7cddc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558475"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657761"
 ---
 # <a name="pricing-scenarios"></a>Scenariusze cen
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Ceny usług Azure Communication Services są ogólnie oparte na modelu z płatność zgodnie z rzeczywistym użyciem. Ceny w poniższych przykładach są przeznaczone do celów ilustracyjnych i mogą nie odzwierciedlać najnowszych cen platformy Azure.
 
@@ -50,7 +47,7 @@ Alicja dokonała wywołania grupy z jej współpracownikami, Robert i Charlie. A
 
 ### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Przykład cen: użytkownik biblioteki klienckiej usługi Communication Services JS dołącza zaplanowaną spotkanie Microsoft Teams
 
-Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać do wizyty z poziomu aplikacji Team Desktop. Robert otrzyma link do sprzężenia przy użyciu witryny sieci Web dostawcy usług opieki zdrowotnej, która łączy się ze spotkaniem przy użyciu biblioteki klienckiej usługi Communication Services JS. Robert będzie używać swojego telefonu komórkowego do wprowadzania spotkania przy użyciu przeglądarki sieci Web (iPhone z programem Safari). Czat będzie dostępny podczas odwiedzin wirtualnych. 
+Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać do wizyty z poziomu aplikacji Team Desktop. Robert otrzyma link do sprzężenia przy użyciu witryny sieci Web dostawcy usług opieki zdrowotnej, która łączy się ze spotkaniem przy użyciu biblioteki klienckiej usługi Communication Services JS. Robert będzie używać swojego telefonu komórkowego do wprowadzania spotkania przy użyciu przeglądarki sieci Web (iPhone z programem Safari). Czat będzie dostępny podczas odwiedzin wirtualnych.
 
 - Wywołanie trwa łącznie 30 minut.
 - Alicja i Robert uczestniczą w całym wywołaniu. Alicja włącza swoje wideo pięć minut po rozpoczęciu wywołania i udostępni jego ekran przez 13 minut. Robert ma swoje wideo dla całego wywołania.
@@ -60,15 +57,15 @@ Alicja jest lekarzem spotkania z pacjentem, Robert. Alicja będzie dołączać d
 **Obliczenia kosztów**
 
 - 1 uczestnik (Robert) x 30 minut x $0,004 na uczestnika = $0,12 [opłata za wideo i dźwięk jest naliczana w tej samej stawce]
-- 1 uczestnik (Alicja) x 30 minut x $0,000 na uczestnika na minutę = $0,0 *. 
+- 1 uczestnik (Alicja) x 30 minut x $0,000 na uczestnika na minutę = $0,0 *.
 - 1 uczestnik (Robert) x 3 komunikaty czatu x $0,0008 = $0,0024.
-- 1 uczestnik (Alicja) x 5 wiadomości czatu x $0,000 = $0,0 *. 
+- 1 uczestnik (Alicja) x 5 wiadomości czatu x $0,000 = $0,0 *.
 
 * Uczestnictwo Alicja jest objęte licencją zespołów. Na fakturze platformy Azure będą wyświetlane minuty i komunikaty rozmowy, które umożliwiają zespołom użytkowników usług komunikacyjnych dla wygody użytkownika, ale te minuty i komunikaty pochodzące od klientów zespołów nie będą kosztowały kosztów.
 
-**Łączny koszt dla wizyty**: 
+**Łączny koszt dla wizyty**:
 - Przyłączanie użytkownika przy użyciu biblioteki klienckiej JS usług komunikacyjnych: $0,12 + $0,0024 = $0,1224
-- Przyłączanie użytkowników do aplikacji klasycznych zespołów: $0 (objętych przez licencję zespołów) 
+- Przyłączanie użytkowników do aplikacji klasycznych zespołów: $0 (objętych przez licencję zespołów)
 
 
 ## <a name="chat"></a>Czat
@@ -79,27 +76,27 @@ Dzięki usługom komunikacyjnym można ulepszyć aplikację, umożliwiając wysy
 
 Opłata jest naliczana $0,0008 dla każdej wysyłanej wiadomości czatu.
 
-### <a name="pricing-example-chat-between-two-users"></a>Przykład cen: rozmowa między dwoma użytkownikami 
+### <a name="pricing-example-chat-between-two-users"></a>Przykład cen: rozmowa między dwoma użytkownikami
 
 Geeta uruchamia wątek rozmowy z Emily w celu udostępnienia aktualizacji i wysłania 5 komunikatów. Rozmowa trwa 10 minut. Geeta i Emily wysyłaj kolejne 15 komunikatów.
 
-**Obliczenia kosztów** 
+**Obliczenia kosztów**
 - Liczba wysłanych komunikatów (5 + 15 + 15) x $0,0008 = $0,028
 
-### <a name="pricing-example-group-chat-with-multiple-users"></a>Przykład cen: rozmowa grupowa z wieloma użytkownikami 
+### <a name="pricing-example-group-chat-with-multiple-users"></a>Przykład cen: rozmowa grupowa z wieloma użytkownikami
 
-Charlie uruchamia wątek rozmowy z jego przyjaciółmi Casey & Jasmine, aby zaplanować urlop. Są one rozmawiane przez czas, gdy Charlie, Casey & Jasmine wysyłać odpowiednio 20, 30 i 18 komunikatów. Zauważają one, że ich znajomy może zainteresować się również z podróżą, a tym samym dodać do wątku rozmowy i udostępnić całą historię wiadomości. 
+Charlie uruchamia wątek rozmowy z jego przyjaciółmi Casey & Jasmine, aby zaplanować urlop. Są one rozmawiane przez czas, gdy Charlie, Casey & Jasmine wysyłać odpowiednio 20, 30 i 18 komunikatów. Zauważają one, że ich znajomy może zainteresować się również z podróżą, a tym samym dodać do wątku rozmowy i udostępnić całą historię wiadomości.
 
 Róża widzi komunikaty i zaczyna czatować. W tym czasie Casey pobiera wywołanie i decyduje o przechwyceniu rozmowy w przyszłości. Charlie, Jasmine & podniesieniu do daty podróży i wysyłania odpowiednio 30, 25, 35 komunikatów.
 
-**Obliczenia kosztów** 
+**Obliczenia kosztów**
 
 - Liczba wysłanych komunikatów (20 + 30 + 18 + 30 + 25 + 35) x $0,0008 = $0,1264
 
 
 ## <a name="telephony-and-sms"></a>Telefonia i wiadomości SMS
 
-## <a name="price"></a>Cena 
+## <a name="price"></a>Cena
 
 Opłaty za usługi telefonii są naliczane co minutę, a opłata za wiadomości SMS jest naliczana na podstawie poszczególnych komunikatów. Cennik jest określany przez typ i lokalizację używanego numeru oraz miejsce docelowe wywołań i wiadomości SMS.
 

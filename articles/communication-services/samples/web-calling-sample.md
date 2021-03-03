@@ -9,22 +9,20 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592793"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658101"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
 
-Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako przewodnik krok po kroku dotyczący różnych możliwości zapewnianych przez bibliotekę klienta wywołującego usługi komunikacyjne w sieci Web. 
+Przykładem wywoływania sieci Web jest aplikacja sieci Web, która służy jako przewodnik krok po kroku dotyczący różnych możliwości zapewnianych przez bibliotekę klienta wywołującego usługi komunikacyjne w sieci Web.
 
 Ten przykład został skompilowany dla deweloperów i ułatwia rozpoczęcie pracy z usługami komunikacyjnymi. Interfejs użytkownika jest podzielony na wiele sekcji, z których każdy zawiera przycisk "Pokaż kod", który umożliwia kopiowanie kodu bezpośrednio z przeglądarki do własnej aplikacji usług komunikacyjnych.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Wprowadzenie do przykładowego wywoływania sieci Web
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Ten przykład jest dostępny w witrynie GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
@@ -36,7 +34,7 @@ Po uruchomieniu [przykładowego wywoływania sieci Web](https://github.com/Azure
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Samouczek dotyczący wywoływania sieci Web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## <a name="user-provisioning-and-sdk-initialization"></a>Inicjowanie obsługi administracyjnej użytkowników i Inicjalizacja zestawu SDK 
+## <a name="user-provisioning-and-sdk-initialization"></a>Inicjowanie obsługi administracyjnej użytkowników i Inicjalizacja zestawu SDK
 
 Kliknij pozycję "Inicjowanie obsługi użytkownika i inicjowanie zestawu SDK", aby zainicjować zestaw SDK przy użyciu tokenu obsługiwanego przez usługę aprowizacji tokenu wewnętrznej bazy danych. Ta usługa zaplecza znajduje się w `/project/webpack.config.js` .
 
@@ -52,7 +50,7 @@ Teraz możesz zacząć umieszczać wywołania przy użyciu zasobu usług komunik
 
 Zestaw SDK wywoływania sieci Web usług komunikacyjnych umożliwia korzystanie z **1:1**, **1: N** i **grup** wywołań.
 
-W przypadku połączeń wychodzących 1:1 lub 1: N można określić wiele tożsamości użytkowników usług komunikacyjnych do wywołania przy użyciu wartości rozdzielanych przecinkami. Można również określić, aby można było wywoływać tradycyjne numery telefonów (PSTN), korzystając z wartości rozdzielanych przecinkami. 
+W przypadku połączeń wychodzących 1:1 lub 1: N można określić wiele tożsamości użytkowników usług komunikacyjnych do wywołania przy użyciu wartości rozdzielanych przecinkami. Można również określić, aby można było wywoływać tradycyjne numery telefonów (PSTN), korzystając z wartości rozdzielanych przecinkami.
 
 Podczas wywoływania numerów telefonów PSTN należy określić alternatywny identyfikator obiektu wywołującego. Kliknij przycisk "Umieść połączenie", aby nawiązać połączenie wychodzące:
 
@@ -80,7 +78,7 @@ Ten przykład zawiera również fragmenty kodu dla następujących możliwości:
 
 ## <a name="next-steps"></a>Następne kroki
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:

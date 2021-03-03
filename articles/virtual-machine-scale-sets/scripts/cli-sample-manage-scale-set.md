@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 493f479a09fc7b21bb857ebd98c35824c548b5d0
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1abdf7ae15753d78ac8728f57e9b0cd5dcd9165e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672608"
 ---
 # <a name="create-and-manage-virtual-machine-scale-set"></a>Tworzenie zestawu skalowania maszyn wirtualnych i zarządzanie nim
 
@@ -66,7 +66,7 @@ az disk update --resource-group MyResourceGroup --name myDataDisk --size-gb 200
 az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Aby użyć rozszerzonego dysku, rozwiń partycję podstawową. Aby uzyskać więcej informacji, zobacz [rozszerzanie partycji dyskowej i systemu plików](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem).
+Aby użyć rozszerzonego dysku, rozwiń partycję podstawową. Aby uzyskać więcej informacji, zobacz [rozszerzanie partycji dyskowej i systemu plików](../../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 
 Ten przykład zmienia rozmiar dysku danych. Ta sama procedura służy do aktualizowania dysku systemu operacyjnego. Aby uzyskać więcej informacji na temat maszyny wirtualnej z systemem Windows, zobacz [jak rozszerzyć dysk systemu operacyjnego maszyny wirtualnej](../../virtual-machines/windows/expand-os-disk.md). Aby uzyskać więcej informacji na temat maszyn wirtualnych z systemem Linux, zobacz [rozszerzanie wirtualnych dysków twardych na maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/linux/expand-disks.md).
 

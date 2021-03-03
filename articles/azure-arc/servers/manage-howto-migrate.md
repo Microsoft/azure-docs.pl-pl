@@ -3,12 +3,12 @@ title: Jak migrować serwery z obsługą usługi Azure Arc w różnych regionach
 description: Dowiedz się, jak migrować serwer z obsługą usługi Azure ARC z jednego regionu do innego.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417768"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650179"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Jak migrować serwery z obsługą usługi Azure Arc w różnych regionach
 
@@ -36,4 +36,4 @@ Aby przeprowadzić migrację serwera z obsługą usługi Azure ARC z jednego reg
 
 * Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z agentem podłączonych komputerów](troubleshoot-agent-onboard.md).
 
-* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, Włącz monitorowanie za Azure monitor pomocą zasad dotyczących [maszyn wirtualnych](../../azure-monitor/insights/vminsights-enable-policy.md) i wiele innych elementów.
+* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, Włącz monitorowanie za Azure monitor pomocą zasad dotyczących [maszyn wirtualnych](../../azure-monitor/vm/vminsights-enable-policy.md) i wiele innych elementów.

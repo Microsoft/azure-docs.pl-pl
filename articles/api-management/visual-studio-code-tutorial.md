@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439505"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649550"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Samouczek: Używanie rozszerzenia API Management Visual Studio Code do importowania interfejsów API i zarządzania nimi
 
-W tym samouczku dowiesz się, jak za pomocą usługi API Management Extension Preview Visual Studio Code dla typowych operacji w API Management. Używaj znanego środowiska Visual Studio Code do importowania, aktualizowania i testowania interfejsów API oraz zarządzania nimi.
+W ramach tego samouczka nauczysz się używać rozszerzenia API Management Visual Studio Code do wykonywania typowych operacji w API Management. Używaj znanego środowiska Visual Studio Code do importowania, aktualizowania i testowania interfejsów API oraz zarządzania nimi.
 
 Omawiane kwestie:
 
@@ -32,7 +32,7 @@ Aby zapoznać się z wprowadzeniem do dodatkowych funkcji API Management, zobacz
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Opis [terminologii dotyczącej usługi Azure API Management](api-management-terminology.md)
-- Upewnij się, że zainstalowano [Visual Studio Code](https://code.visualstudio.com/) i najnowsze [rozszerzenie platformy Azure API Management dla programu Visual Studio Code (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- Upewnij się, że zainstalowano [Visual Studio Code](https://code.visualstudio.com/) i najnowsze [rozszerzenie platformy Azure API Management dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 - [Tworzenie wystąpienia API Management](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Importowanie interfejsu API

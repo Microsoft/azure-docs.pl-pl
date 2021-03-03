@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199380"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676569"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informacje o czułości dotyczące danych w usłudze Azure kontrolą
 
 W tym przewodniku opisano sposób uzyskiwania dostępu, wyświetlania i filtrowania szczegółowych informacji o zabezpieczeniach zapewnianych przez etykiety czułości stosowane do danych.
 
-Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, wystąpienie zarządzane Azure SQL
+Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, wystąpienie zarządzane usługi Azure SQL, pakiet Amazon S3
 
 W tym przewodniku krok po kroku dowiesz się, jak:
 
@@ -40,7 +40,7 @@ Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zosta�
 
 - [Rozszerzona Microsoft 365 etykiety czułości do elementów zawartości w usłudze Azure kontrolą](create-sensitivity-label.md)i utworzonych lub wybranych etykiet, które mają być stosowane do danych.
 
-- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych
+- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)](manage-data-sources.md) i [Tworzenie zestawu reguł skanowania](create-a-scan-rule-set.md).
 
 - Zalogowano się do kontrolą przy użyciu konta z [czytnikiem danych lub rolą Curator danych](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

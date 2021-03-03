@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365552"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645827"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włączanie zewnętrznej współpracy B2B i zarządzanie osobami, które mogą zapraszać gości
 
@@ -78,11 +78,11 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
    >
    >![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. W obszarze Włącz samoobsługowe **Tworzenie konta gościa za pomocą funkcji przepływy użytkownika (wersja zapoznawcza)** wybierz pozycję **tak** , jeśli chcesz mieć możliwość tworzenia przepływów użytkowników, które umożliwiają użytkownikom rejestrowanie się w aplikacjach. Aby uzyskać więcej informacji na temat tego ustawienia, zobacz [Dodawanie przepływu użytkownika samoobsługowego tworzenia konta do aplikacji (wersja zapoznawcza)](self-service-sign-up-user-flow.md).
+7. W obszarze Włącz samoobsługowe **Tworzenie konta gościa za pośrednictwem przepływów użytkownika** wybierz pozycję **tak** , jeśli chcesz mieć możliwość tworzenia przepływów użytkowników, które umożliwiają użytkownikom rejestrowanie się w aplikacjach. Aby uzyskać więcej informacji na temat tego ustawienia, zobacz [Dodawanie przepływu użytkownika samoobsługowego tworzenia konta do aplikacji](self-service-sign-up-user-flow.md).
 
     ![Rejestracja samoobsługowa za pośrednictwem ustawienia przepływów użytkownika](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. W obszarze **ograniczenia dotyczące współpracy** wybierz, czy zezwalać na zaproszenia do określonych domen, czy odrzucać je. Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń użytkownikom B2B z określonych organizacji](allow-deny-list.md).
+7. W obszarze **ograniczenia dotyczące współpracy** możesz zdecydować, czy zezwalać na zaproszenia do określonych domen, czy odrzucać je, i wprowadzić określone nazwy domen w polach tekstowych. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Aby uzyskać więcej informacji, zobacz [Zezwalanie lub blokowanie zaproszeń użytkownikom B2B z określonych organizacji](allow-deny-list.md).
 
     ![Ustawienia ograniczeń współpracy](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Przypisywanie roli osoby zapraszające gościa do użytkownika

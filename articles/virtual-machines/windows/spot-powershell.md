@@ -3,17 +3,18 @@ title: Wdrażanie Virtual Machines usługi Azure spot przy użyciu programu Powe
 description: Dowiedz się, jak za pomocą Azure PowerShell wdrożyć Virtual Machines usługi Azure Spot, aby zaoszczędzić na kosztach.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 3554068d75d2581411dd89a1dc876984710bc439
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b7a4dc65a3f9285c27b4bf34f65244c37aaf850c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557154"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672142"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Wdróż Virtual Machines w miejscu na platformie Azure przy użyciu Azure PowerShell
 

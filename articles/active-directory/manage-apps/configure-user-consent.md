@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b6dd95dafbd079e79247110ee227121483dc372e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259308"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643613"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
@@ -185,4 +185,4 @@ Dodatkowe informacje:
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
 Aby uzyskać pomoc lub znaleźć odpowiedzi na pytania:
-* [Usługa Azure AD w firmie Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Usługa Azure AD w firmie Microsoft Q&A.](/answers/topics/azure-active-directory.html)

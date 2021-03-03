@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4711401172c4a2b224c231db4a773e0c4219d3a7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599351"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659838"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Słowa kluczowe w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -113,7 +113,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Zwraca wartość logiczną w zależności od tego, czy określony ciąg znaków jest zgodny z określonym wzorcem. Wzorzec może zawierać zwykłe znaki i symbole wieloznaczne. Można napisać logicznie równoważne zapytania za pomocą `LIKE` słowa kluczowego lub funkcji system [RegexMatch](sql-query-regexmatch.md) . Użyjesz tego samego indeksu, niezależnie od tego, który z nich wybierzesz. W związku z tym należy użyć, `LIKE` Jeśli wolisz, aby składnia była większa niż wyrażenia regularne.
 
 > [!NOTE]
-> Ponieważ `LIKE` może korzystać z indeksu, należy [utworzyć indeks zakresu](indexing-policy.md) dla właściwości, które są porównywane za pomocą `LIKE` .
+> Ponieważ `LIKE` może korzystać z indeksu, należy [utworzyć indeks zakresu](./index-policy.md) dla właściwości, które są porównywane za pomocą `LIKE` .
 
 Można użyć następujących symboli wieloznacznych, takich jak:
 

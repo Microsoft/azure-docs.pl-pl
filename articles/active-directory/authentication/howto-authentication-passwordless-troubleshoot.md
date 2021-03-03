@@ -1,24 +1,24 @@
 ---
 title: Znane problemy i rozwiązywanie problemów z kluczami zabezpieczeń hybrydowych FIDO2 — Azure Active Directory
-description: Informacje o znanych problemach i sposobach rozwiązywania problemów związanych z logowaniem przy Azure Active Directory użyciu klucza zabezpieczeń FIDO2 hybrydowego
+description: Dowiedz się więcej o znanych problemach i sposobach rozwiązywania problemów związanych z logowaniem przy użyciu klucza zabezpieczeń FIDO2 hybrydowego za pomocą Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea034974e85febcffeb2494d87b666a39e524eb1
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 435b27255ce58a3541d6b0d3a76bdf4080aa3962
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743279"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648784"
 ---
-# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Rozwiązywanie problemów z wdrożeniami hybrydowymi kluczy zabezpieczeń FIDO2 w usłudze Azure AD (wersja zapoznawcza)
+# <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad"></a>Rozwiązywanie problemów z wdrożeniami hybrydowymi kluczy zabezpieczeń FIDO2 w usłudze Azure AD 
 
 W tym artykule opisano często zadawane pytania dotyczące urządzeń przyłączonych do hybrydowej usługi Azure AD oraz logowania bezhasła do zasobów Premium. Dzięki tej funkcji bez hasła można włączyć uwierzytelnianie usługi Azure AD na urządzeniach z systemem Windows 10 dla urządzeń przyłączonych do hybrydowej usługi Azure AD przy użyciu kluczy zabezpieczeń FIDO2. Użytkownicy mogą logować się do systemu Windows na swoich urządzeniach przy użyciu nowoczesnych poświadczeń, takich jak klucze FIDO2 i dostęp do zasobów tradycyjnych Active Directory Domain Services (AD DS) za pomocą bezproblemowego logowania jednokrotnego (SSO) do zasobów Premium.
 
@@ -29,12 +29,9 @@ Obsługiwane są następujące scenariusze dla użytkowników w środowisku hybr
 
 Aby rozpocząć pracę z kluczami zabezpieczeń FIDO2 i dostępem hybrydowym do zasobów lokalnych, zobacz następujące artykuły:
 
-* [Klucze zabezpieczeń bezhasło](howto-authentication-passwordless-security-key.md)
+* [Klucze zabezpieczeń bez hasła](howto-authentication-passwordless-security-key.md)
 * [Windows 10 bez hasła](howto-authentication-passwordless-security-key-windows.md)
-* [Lokalne hasła](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+* [Środowisko lokalne bez hasła](howto-authentication-passwordless-security-key-on-premises.md)
 
 ## <a name="known-issues"></a>Znane problemy
 

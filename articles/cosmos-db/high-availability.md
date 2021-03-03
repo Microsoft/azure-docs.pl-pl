@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656554"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ W rzadkich przypadkach regionalnych awarii Azure Cosmos DB gwarantuje, że baza 
 
 * Podczas awarii regionu odczytu konta usługi Azure Cosmos korzystające z dowolnego poziomu spójności lub silnej spójności z co najmniej trzema regionami odczytu pozostaną wysoce dostępne do odczytu i zapisu.
 
-* Konta usługi Azure Cosmos z silną spójnością z trzema lub mniejszą liczbą regionów (jeden zapis, dwa odczyt) utracą dostępność zapisu podczas awarii regionu odczytu. Jednak klienci z co najmniej czterema regionami mogą skorzystać z funkcji dynamicznego odczytu kworum przez przesłanie biletu pomocy technicznej. Konta, które utrzymują co najmniej dwa regiony odczytu w tej konfiguracji, zachowają dostępność zapisu.
+* Konta usługi Azure Cosmos mające silną spójność z trzema regionami (jeden zapis, dwa odczyt) zachowają dostępność zapisu podczas awarii regionu odczytu. W przypadku kont z dwoma regionami i włączonej automatycznej pracy awaryjnej konto przestanie akceptować zapisy, dopóki region nie zostanie oznaczony jako niepowodzenie i zostanie wyświetlona automatyczna praca awaryjna.
 
 * Region, którego dotyczy problem, jest automatycznie rozłączany i zostanie oznaczony jako w trybie offline. [Zestawy sdk Azure Cosmos DB](sql-api-sdk-dotnet.md) będą przekierowywać wywołania odczytu do następnego dostępnego regionu na liście preferowanych regionów.
 
@@ -110,7 +110,7 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |Umowa SLA dotycząca dostępności odczytu  | 99,99% | 99,995% | 99,995% | 99.999% |
 |Awarie stref — utrata danych | Utrata danych | Brak utraty danych | Brak utraty danych | Brak utraty danych |
 |Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności | Brak utraty dostępności |
-|Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) . | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](consistency-levels-tradeoffs.md) .
+|Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](./consistency-levels.md) . | Zależne od poziomu spójności. Aby uzyskać więcej informacji [, zobacz kompromisy dotyczące spójności, dostępności i wydajności](./consistency-levels.md) .
 |Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności dla niepowodzenia odczytu regionu, tymczasowego dla niepowodzenia w regionie zapisu | Brak utraty dostępności |
 |Cena (***1** _) | Nie dotyczy | Liczba zainicjowanych jednostek RU/s x 1,25 | Liczba zainicjowanych jednostek RU/s x 1,25 (_ *_2_* *) | Wieloregionowa stawka zapisu |
 

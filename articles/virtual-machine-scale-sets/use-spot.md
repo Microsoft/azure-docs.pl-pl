@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558678"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675009"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Virtual Machines platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -46,19 +46,38 @@ Następujące [typy ofert](https://azure.microsoft.com/support/legal/offer-detai
 -   Enterprise Agreement
 -   Kod oferty z opcją płatność zgodnie z rzeczywistym użyciem 003P
 -   Sponsorowan
-- W przypadku dostawcy usług w chmurze (CSP) skontaktuj się z partnerem
+- W przypadku dostawcy usług w chmurze (CSP) zobacz [Centrum partnerskie](https://docs.microsoft.com/partner-center/azure-plan-get-started) lub bezpośrednio skontaktuj się z partnerem.
 
 ## <a name="eviction-policy"></a>Zasady eksmisji
 
-Podczas tworzenia zestawów skalowania maszyn wirtualnych platformy Azure Możesz ustawić zasady wykluczania na *Cofnij przydział* (domyślnie) lub *Usuń*. 
+Podczas tworzenia zestawu skalowania przy użyciu Virtual Machines w miejscu na platformie Azure Możesz ustawić zasady wykluczania na *Alokacje* (ustawienie domyślne) lub *Usuń*. 
 
 Zasada cofania *przydziału* powoduje przeniesienie wykluczonych wystąpień do stanu zatrzymania bez alokacji, co pozwala na ponowne wdrożenie wykluczonych wystąpień. Nie ma jednak gwarancji, że alokacja powiedzie się. Cofnięte alokacje maszyn wirtualnych będą wliczane do limitu przydziału wystąpienia zestawu skalowania i będą naliczane opłaty za dyski bazowe. 
 
-Jeśli chcesz, aby wystąpienia w zestawie skalowania maszyn wirtualnych na platformie Azure były usuwane po wykluczeniu, możesz ustawić zasady wykluczania do *usunięcia*. Za pomocą zasad wykluczania ustawionych do usunięcia można tworzyć nowe maszyny wirtualne, zwiększając Właściwość liczby wystąpień zestawu skalowania. Wykluczone maszyny wirtualne zostaną usunięte wraz z ich podstawowymi dyskami, w związku z czym nie zostanie naliczona opłata za magazyn. Można również użyć funkcji automatycznego skalowania zestawów skalowania, aby automatycznie próbować i wyrównać wykluczone maszyny wirtualne, ale nie ma gwarancji, że alokacja zakończy się pomyślnie. Zaleca się używanie funkcji automatycznego skalowania w zestawach skalowania maszyn wirtualnych platformy Azure po ustawieniu zasad wykluczania do usunięcia, aby uniknąć kosztów dysków i ograniczyć limity przydziału. 
+Jeśli chcesz, aby wystąpienia były usuwane po wykluczeniu, możesz ustawić zasady wykluczania do *usunięcia*. Za pomocą zasad wykluczania ustawionych do usunięcia można tworzyć nowe maszyny wirtualne, zwiększając Właściwość liczby wystąpień zestawu skalowania. Wykluczone maszyny wirtualne zostaną usunięte wraz z ich podstawowymi dyskami, w związku z czym nie zostanie naliczona opłata za magazyn. Można również użyć funkcji automatycznego skalowania zestawów skalowania, aby automatycznie próbować i wyrównać wykluczone maszyny wirtualne, ale nie ma gwarancji, że alokacja zakończy się pomyślnie. Zaleca się używanie funkcji automatycznego skalowania w zestawach skalowania maszyn wirtualnych platformy Azure po ustawieniu zasad wykluczania do usunięcia, aby uniknąć kosztów dysków i ograniczyć limity przydziału. 
 
 Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Wypróbuj & Restore (wersja zapoznawcza)
+
+Ta nowa funkcja na poziomie platformy będzie używać systemu AI do automatycznego przywracania wykluczonych wystąpień maszyn wirtualnych platformy Azure w ramach zestawu skalowania, aby zachować liczbę wystąpień docelowych. 
+
+> [!IMPORTANT]
+> Wypróbuj & przywracanie jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Wypróbuj zalety & przywracania:
+- Domyślnie włączone w przypadku wdrażania maszyny wirtualnej platformy Azure w zestawie skalowania.
+- Podjęto próbę przywrócenia Virtual Machines punktu platformy Azure wykluczonego z powodu pojemności.
+- Przywrócone Virtual Machines na platformie Azure powinny być uruchamiane przez dłuższy czas, co zmniejsza prawdopodobieństwo wyzwolenia wykluczenia pojemności.
+- Usprawnia cykl życia maszyny wirtualnej platformy Azure, więc obciążenia są uruchamiane przez dłuższy czas.
+- Pomaga Virtual Machine Scale Sets, aby zachować liczbę elementów docelowych dla Virtual Machines usługi Azure Spot, podobnie jak w przypadku funkcji liczby elementów docelowych, która już istnieje dla maszyn wirtualnych z opcją płatność zgodnie z rzeczywistym użyciem.
+
+Wypróbuj & przywracanie jest wyłączone w zestawach skalowania, które korzystają z funkcji [automatycznego skalowania](virtual-machine-scale-sets-autoscale-overview.md). Liczba maszyn wirtualnych w zestawie skalowania jest obsługiwana przez reguły skalowania automatycznego.
+
 ## <a name="placement-groups"></a>Grupy umieszczania
+
 Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azure z własnymi domenami błędów i domenami uaktualnienia. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli wywołana Właściwość zestawu skalowania `singlePlacementGroup` ma *wartość FAŁSZ*, zestaw skalowania może składać się z wielu grup umieszczania i ma zakres 0 – 1000 maszyn wirtualnych. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do sekcji `"
 ```
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
+
+
+## <a name="simulate-an-eviction"></a>Symulowanie wykluczenia
+
+Można [symulować wykluczenie](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) maszyny wirtualnej platformy Azure w celu przetestowania, w jaki sposób aplikacja reaguje na nagłe wykluczenie. 
+
+Zastąp następujące informacje następującymi informacjami: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` oznacza, że symulowane wykluczenie zakończyło się pomyślnie. 
 
 ## <a name="faq"></a>Często zadawane pytania
 

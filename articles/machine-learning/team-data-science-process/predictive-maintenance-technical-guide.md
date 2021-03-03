@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 3edeee8f41c806c90f32208c0c4f174c76ba38d0
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/02/2021
 ms.locfileid: "93321992"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Przewodnik techniczny dotyczący szablonu rozwiązania do konserwacji predykcyjnej w programie Aerospace
@@ -64,7 +64,7 @@ Uruchamianie skryptów [Hive](/archive/blogs/uk_faculty_connection/getting-start
 Wykonaj przewidywania dotyczące pozostałego okresu eksploatacji (pozostałego czasu eksploatacji) dla określonego silnika samolotu przy użyciu danych wejściowych otrzymanych z [usługą Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (organizacja Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publikowanie danych
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 Użyj [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) do przechowywania prognoz odebranych przez Azure Machine Learning, które są następnie używane na pulpicie nawigacyjnym [Power BI](https://powerbi.microsoft.com) .
 
 ## <a name="data-consumption"></a>Użycie danych
@@ -94,13 +94,15 @@ Zapytanie Azure Stream Analytics można znaleźć w:
 * Lokalizowanie ![ Stream Analytics ikony Stream Analytics zadania ](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) , które zostały wygenerowane podczas wdrażania rozwiązania (*na przykład* **maintenancesa02asapbi** i **maintenancesa02asablob** dla rozwiązania do konserwacji predykcyjnej)
 * Opcji
   
-  * ***Dane** wejściowe _, aby wyświetlić **wyniki** zapytania _ ***Query** _ w celu wyświetlenia samego zapytania _ * Output _, aby wyświetlić różne dane wyjściowe
+  * ***Dane*** wejściowe dotyczące wyświetlania zapytania
+  * ***Zapytanie*** w celu wyświetlenia samego zapytania
+  * Dane ***wyjściowe*** umożliwiające wyświetlenie różnych danych wyjściowych
 
 Informacje na temat konstrukcji zapytania Azure Stream Analytics można znaleźć w dokumentacji dotyczącej [zapytań Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference) w witrynie MSDN.
 
 W tym rozwiązaniu zapytania wysyłają trzy zestawy danych z informacjami o analizie w czasie rzeczywistym dotyczącymi przychodzącego strumienia danych do pulpitu nawigacyjnego Power BI dostarczonego w ramach tego szablonu rozwiązania. Ponieważ niejawna wiedza o formacie danych przychodzących, te zapytania muszą zostać zmienione na podstawie formatu danych.
 
-Zapytanie w drugim Stream Analytics zadanie _ *maintenancesa02asablob** po prostu wyprowadza wszystkie zdarzenia [centrum zdarzeń](https://azure.microsoft.com/services/event-hubs/) do [usługi Azure Storage](https://azure.microsoft.com/services/storage/) , dlatego nie wymaga żadnych zmian niezależnie od formatu danych, ponieważ pełne informacje o zdarzeniu są przesyłane strumieniowo do magazynu.
+Zapytanie w drugim Stream Analytics zadania **maintenancesa02asablob** po prostu wyprowadza wszystkie zdarzenia [centrum zdarzeń](https://azure.microsoft.com/services/event-hubs/) do [usługi Azure Storage](https://azure.microsoft.com/services/storage/) , dlatego nie wymaga żadnych zmian niezależnie od formatu danych, ponieważ pełne informacje o zdarzeniu są przesyłane strumieniowo do magazynu.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Usługa [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) organizuje przenoszenie i przetwarzanie danych. W szablonie rozwiązania do konserwacji predykcyjnej dla programu Aerospace Fabryka danych składa się z trzech [potoków](../../data-factory/concepts-pipelines-activities.md) , które przechodzą i przetwarzają dane przy użyciu różnych technologii.  Uzyskaj dostęp do fabryki danych, otwierając węzeł Data Factory w dolnej części diagramu szablonu rozwiązania utworzonego wraz z wdrożeniem rozwiązania. Błędy w zestawach danych są spowodowane wdrożeniem fabryki Data Factory przed uruchomieniem generatora danych. Te błędy można zignorować i uniemożliwić działanie fabryki danych.
@@ -118,20 +120,20 @@ Podobnie jak w przypadku zapytań [Azure Stream Analytics](#azure-stream-analyti
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
 Ten [potok](../../data-factory/concepts-pipelines-activities.md) zawiera jedno działanie — działanie [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) za pomocą [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) , które uruchamia skrypt programu [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) w celu partycjonowania danych umieszczonych w [usłudze Azure Storage](https://azure.microsoft.com/services/storage/) w ramach zadania [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) .
 
-Skrypt [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) dla tego zadania partycjonowania to ***AggregateFlightInfo. HQL** _
+Skrypt [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) dla tego zadania partycjonowania to ***AggregateFlightInfo. HQL.***
 
-#### <a name="_mlscoringpipeline"></a>_MLScoringPipeline *
+#### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Ten [potok](../../data-factory/concepts-pipelines-activities.md) zawiera kilka działań, których wynikiem jest wynikowe przewidywania z [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eksperymentu skojarzonym z tym szablonem rozwiązania.
 
 Uwzględnione działania to:
 
 * Działanie [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) przy użyciu [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) , który uruchamia skrypt [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) w celu wykonywania agregacji i inżynierów funkcji niezbędnych do [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eksperymentu.
-  Skrypt [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) dla tego zadania partycjonowania to ***PrepareMLInput. HQL** _.
-  _ Działanie [kopiowania](/previous-versions/azure/dn835035(v=azure.100)) , które przenosi wyniki z działania [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) do pojedynczego obiektu BLOB [usługi Azure Storage](https://azure.microsoft.com/services/storage/) , do którego uzyskuje dostęp działanie [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) .
+  Skrypt [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) dla tego zadania partycjonowania to ***PrepareMLInput. HQL***.
+* Działanie [kopiowania](/previous-versions/azure/dn835035(v=azure.100)) , które przenosi wyniki z działania [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) do pojedynczego obiektu BLOB [usługi Azure Storage](https://azure.microsoft.com/services/storage/) , do którego uzyskuje dostęp działanie [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) .
 * Działanie [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) wywołuje eksperyment [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) z wynikami umieszczanymi w pojedynczym obiekcie blob [usługi Azure Storage](https://azure.microsoft.com/services/storage/) .
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Ten [potok](../../data-factory/concepts-pipelines-activities.md) zawiera jedno działanie — działanie [kopiowania](/previous-versions/azure/dn835035(v=azure.100)) , które przenosi wyniki eksperymentu [Azure Machine Learning](#azure-machine-learning) z ***MLScoringPipeline** _ do [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) obsługiwane w ramach instalacji szablonu rozwiązania.
+Ten [potok](../../data-factory/concepts-pipelines-activities.md) zawiera jedno działanie — działanie [kopiowania](/previous-versions/azure/dn835035(v=azure.100)) , które przenosi wyniki [Azure Machine Learning](#azure-machine-learning) eksperymentu z ***MLScoringPipeline*** do [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) aprowizacji w ramach instalacji szablonu rozwiązania.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eksperyment używany dla tego szablonu rozwiązania zapewnia pozostały okres eksploatacji (pozostałego czasu eksploatacji) silnika samolotu. Eksperyment jest specyficzny dla używanego zestawu danych i wymaga modyfikacji lub zamiany specyficznej dla danych, które zostały wprowadzone.
@@ -139,7 +141,7 @@ Ten [potok](../../data-factory/concepts-pipelines-activities.md) zawiera jedno d
 ## <a name="monitor-progress"></a>Monitorowanie postępu
 Po uruchomieniu generatora danych potok rozpocznie się dehydratacji i różne składniki rozwiązania rozpoczynają działanie po poleceniach wydanych przez fabrykę danych. Istnieją dwa sposoby monitorowania potoku.
 
-Jedno z Stream Analyticsych zadań zapisuje nieprzetworzone dane przychodzące do magazynu obiektów BLOB. Jeśli klikniesz Blob Storage składnik rozwiązania z ekranu, który pomyślnie wdrożono rozwiązanie, a następnie kliknij przycisk Otwórz w prawym panelu, przeprowadzisz Cię do [Azure Portal](https://portal.azure.com/). Po zakończeniu kliknij pozycję obiekty blob. W następnym panelu zostanie wyświetlona lista kontenerów. Kliknij pozycję **maintenancesadata**. W następnym panelu znajduje się folder **rawData** . W folderze rawData są foldery o nazwach takich jak Hour = 17 i Hour = 18. Obecność tych folderów wskazuje, że dane pierwotne są generowane na komputerze i przechowywane w usłudze BLOB Storage. W tych folderach powinny być widoczne pliki CSV mające skończone rozmiary.
+* Jedno z Stream Analyticsych zadań zapisuje nieprzetworzone dane przychodzące do magazynu obiektów BLOB. Jeśli klikniesz Blob Storage składnik rozwiązania z ekranu, który pomyślnie wdrożono rozwiązanie, a następnie kliknij przycisk Otwórz w prawym panelu, przeprowadzisz Cię do [Azure Portal](https://portal.azure.com/). Po zakończeniu kliknij pozycję obiekty blob. W następnym panelu zostanie wyświetlona lista kontenerów. Kliknij pozycję **maintenancesadata**. W następnym panelu znajduje się folder **rawData** . W folderze rawData są foldery o nazwach takich jak Hour = 17 i Hour = 18. Obecność tych folderów wskazuje, że dane pierwotne są generowane na komputerze i przechowywane w usłudze BLOB Storage. W tych folderach powinny być widoczne pliki CSV mające skończone rozmiary.
 * Ostatnim krokiem potoku jest zapisanie danych (na przykład prognoz z uczenia maszynowego) do SQL Database. Aby dane były wyświetlane w SQL Database, może być konieczne odczekanie maksymalnie trzech godzin. Jednym ze sposobów monitorowania ilości danych dostępnych w SQL Database jest przechodzenie przez [Azure Portal](https://portal.azure.com/). Na panelu po lewej stronie Znajdź bazy danych SQL :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-SQL-databases.png" border="false"::: i kliknij je. Następnie Znajdź **pmaintenancedb** bazy danych i kliknij ją. Na następnej stronie u dołu kliknij pozycję Zarządzaj.
    
     ![Ikona zarządzania](./media/predictive-maintenance-technical-guide/icon-manage.png)
@@ -177,7 +179,7 @@ Poniższe kroki przeprowadzą Cię przez proces łączenia pliku pbix z SQL Data
      ![Edytuj zapytania](./media/predictive-maintenance-technical-guide/edit-queries.png)
    * Zobaczysz dwie tabele, **RemainingUsefulLife** i **PMResult**. Wybierz pierwszą tabelę, a następnie kliknij ![ ikonę Ustawienia zapytania ](./media/predictive-maintenance-technical-guide/icon-query-settings.png) obok pozycji " **Źródło"** w obszarze **"zastosowane kroki"** po prawej stronie panelu **Ustawienia zapytania** . Zignoruj wszystkie wyświetlane komunikaty ostrzegawcze.
    * W oknie podręcznym Zastąp **wartość "serwer"** i **"baza danych"** własnymi nazwami serwera i bazy danych, a następnie kliknij przycisk **"OK"**. W polu Nazwa serwera upewnij się, że określono port 1433 (**YourSolutionName.Database.Windows.NET, 1433**). Pozostaw pole bazy danych jako **pmaintenancedb**. Ignorowanie komunikatów ostrzegawczych wyświetlanych na ekranie.
-   * W następnym oknie podręcznym zobaczysz dwie opcje w okienku po lewej stronie (**system Windows** i **baza danych**). Kliknij pozycję **"baza danych"**, wprowadź nazwę **"username"** i **"Password** " (nazwę użytkownika i hasło wprowadzone podczas pierwszego wdrożenia rozwiązania i utworzyć Azure SQL Database). W obszarze **_Wybierz poziom, do którego mają zostać zastosowane te ustawienia_*, zaznacz opcję poziom bazy danych. Następnie kliknij przycisk _*"Połącz"**.
+   * W następnym oknie podręcznym zobaczysz dwie opcje w okienku po lewej stronie (**system Windows** i **baza danych**). Kliknij pozycję **"baza danych"**, wprowadź nazwę **"username"** i **"Password** " (nazwę użytkownika i hasło wprowadzone podczas pierwszego wdrożenia rozwiązania i utworzyć Azure SQL Database). W obszarze ***Wybierz poziom, do którego mają zostać zastosowane te ustawienia*** Sprawdź opcję poziomu bazy danych. Następnie kliknij pozycję **"Połącz"**.
    * Kliknij drugą tabelę **PMResult** a następnie kliknij ![ ikonę nawigacji ](./media/predictive-maintenance-technical-guide/icon-navigation.png) obok pozycji **"Źródło"** w obszarze **"zastosowane kroki"** w prawym okienku **"Ustawienia zapytania"** i zaktualizuj nazwy serwera i bazy danych tak jak w powyższych krokach, a następnie kliknij przycisk OK.
    * Po powrocie do poprzedniej strony Zamknij okno. Zostanie wyświetlony komunikat — kliknij przycisk **Zastosuj**. Na koniec kliknij przycisk **Zapisz** , aby zapisać zmiany. Plik Power BI ma teraz połączenie z serwerem. Jeśli wizualizacje są puste, pamiętaj o zaznaczeniu opcji wizualizacji, aby wizualizować wszystkie dane, klikając ikonę gumki w prawym górnym rogu legend. Użyj przycisku Odśwież, aby odzwierciedlić nowe dane w wizualizacjach. Początkowo dane inicjatora są widoczne tylko dla wizualizacji, ponieważ Fabryka danych jest zaplanowana do odświeżenia co 3 godziny. Po 3 godzinach zobaczysz nowe przewidywania odzwierciedlone w wizualizacjach podczas odświeżania danych.
 3. Obowiązkowe Opublikuj pulpit nawigacyjny zimnej ścieżki, aby [Power BI online](https://www.powerbi.com/). Ten krok wymaga konta Power BI (lub konta służbowego).
@@ -210,14 +212,14 @@ Poniższe kroki przedstawiają sposób wizualizacji danych wyjściowych z Stream
 2. Logowanie do usługi [Power BI online](https://www.powerbi.com)
    
    * W sekcji zestawy **danych** w panelu po lewej stronie w obszarze mój obszar roboczy, powinny być wyświetlane * aircraftmonitor * *, **aircraftalert** i **flightsbyhour** . Jest to dane przesyłane strumieniowo z Azure Stream Analytics w poprzednim kroku. Zestaw danych **flightsbyhour** może nie być wyświetlany w tym samym czasie co pozostałe dwa zbiory, ze względu na charakter zapytania SQL. Jednak powinien on pojawić się po godzinie.
-   * Upewnij się, że okienko ***wizualizacje** _ jest otwarte i jest wyświetlane po prawej stronie ekranu.
+   * Upewnij się, że okienko ***wizualizacje*** jest otwarte i jest widoczne po prawej stronie ekranu.
 3. Gdy dane są przepływające do Power BI, można rozpocząć wizualizowanie danych przesyłanych strumieniowo. Poniżej znajduje się przykładowy pulpit nawigacyjny z niektórymi wizualizacjami ścieżek gorąca. Można tworzyć inne kafelki pulpitu nawigacyjnego na podstawie odpowiednich zestawów danych. W zależności od tego, jak długo uruchamiasz Generator danych, liczby w wizualizacjach mogą być różne.
 
     ![Widok pulpitu nawigacyjnego](media/predictive-maintenance-technical-guide/dashboard-view.png)
 
 1. Poniżej przedstawiono kilka kroków, które należy wykonać, aby utworzyć jeden z powyższych kafelków — "widok floty czujnika 11 a próg 48,26":
    
-   _ Kliknij pozycję DataSet **aircraftmonitor** w sekcji zestawy danych w panelu po lewej stronie.
+   * Kliknij pozycję DataSet **aircraftmonitor** w sekcji zestawy danych po lewej stronie.
    * Kliknij ikonę **wykresu liniowego** .
    * Kliknij pozycję **przetworzone** w okienku **pola** , aby było wyświetlane w obszarze "oś" w okienku **wizualizacje** .
    * Kliknij pozycję "S11" i " \_ alert S11", aby były one wyświetlane w obszarze "wartości". Kliknij małą strzałkę obok **\_ alertu** **S11** i S11, a następnie zmień wartość "Sum" na wartość "Średnia".

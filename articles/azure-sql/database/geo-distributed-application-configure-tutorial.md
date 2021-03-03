@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422794"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659294"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Samouczek: implementowanie rozproszonej geograficznie bazy danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elem
 - Pojedyncza baza danych w Azure SQL Database. Aby utworzyć jedno użycie,
   - [Witryna Azure Portal](single-database-create-quickstart.md)
   - [Interfejs wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md)
-  - [PowerShell](powershell-script-content-guide.md)
+  - [Program PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
   > Samouczek używa przykładowej bazy danych *AdventureWorksLT* .
@@ -60,7 +60,7 @@ Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elem
 
 Korzystając z Azure PowerShell, Utwórz [grupy trybu failover](auto-failover-group-overview.md) między istniejącym serwerem a nowym serwerem w innym regionie. Następnie Dodaj przykładową bazę danych do grupy trybu failover.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
@@ -227,10 +227,10 @@ Ustawienia replikacji geograficznej można także zmienić w Azure Portal, wybie
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {
@@ -319,7 +319,7 @@ Ustawienia replikacji geograficznej można także zmienić w Azure Portal, wybie
 
 Uruchom następujące skrypty, aby zasymulować pracę w trybie failover i obserwować wyniki aplikacji. Zwróć uwagę, jak niektóre operacje INSERT i Select będą kończyć się niepowodzeniem podczas migracji bazy danych.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Podczas testu można sprawdzić rolę serwera odzyskiwania po awarii za pomocą następującego polecenia:
 

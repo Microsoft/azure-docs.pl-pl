@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 94c34e6f7cb24ff749e5de95f1c28a496700af80
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348725"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647425"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
@@ -35,7 +35,28 @@ System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bez
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 
-Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajdują się w środowisku produkcyjnym lub znajdują się w nim.
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>Dostęp warunkowy zostanie wyzwolony tylko dla jawnie żądanych zakresów
+
+**Data wprowadzenia**: marzec 2021
+
+**Wpływ na punkty końcowe**: v 2.0
+
+**Wpływ na protokół**: wszystkie przepływy używające [dynamicznej zgody](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+Aplikacje korzystające z funkcji dynamicznej zgody już dzisiaj otrzymują wszystkie uprawnienia, dla których są wyrażane zgodę, nawet jeśli nie zażądano ich w `scope` parametrze według nazwy.  Może to spowodować żądanie aplikacji, na przykład tylko `user.read` , ale z zgodą na `files.read` , aby zostać zmuszony do przekazania warunkowego dostępu przypisanego do tego `files.read` uprawnienia. 
+
+Aby zmniejszyć liczbę niepotrzebnych monitów dostępu warunkowego, usługa Azure AD zmienia sposób, w jaki zakresy niewymagane są dostarczane do aplikacji tak, że tylko jawnie żądane zakresy wyzwalają dostęp warunkowy. Ta zmiana może spowodować, że aplikacje oparte na poprzednim zachowaniu usługi Azure AD (tj. udostępnieniu wszystkich uprawnień nawet wtedy, gdy nie zażądały), ponieważ tokeny, których żądają, nie będą miały uprawnień.
+
+Aplikacje będą teraz otrzymywać tokeny dostępu z mieszanymi uprawnieniami w tym zakresie, a także z tymi, które są wyrażające zgodę na to, że nie wymagają monitów o dostęp warunkowy.  Zakresy tokenu dostępu są odzwierciedlone w `scope` parametrze odpowiedzi tokenu. 
+
+**Przykłady**
+
+Aplikacja ma zgodę na `user.read` , `files.readwrite` i `tasks.read` . `files.readwrite` ma zastosowane zasady dostępu warunkowego, natomiast pozostałe dwa nie. Jeśli aplikacja wykonuje żądanie tokenu dla programu `scope=user.read` , a aktualnie zalogowany użytkownik nie przeszedł żadnych zasad dostępu warunkowego, wynikowy token będzie dotyczyć `user.read` `tasks.read` uprawnień i. `tasks.read` jest uwzględniony, ponieważ aplikacja ma do niej zgodę i nie wymaga wymuszania zasad dostępu warunkowego. 
+
+Jeśli aplikacja zostanie zażądana `scope=files.readwrite` , dostęp warunkowy wymagany przez dzierżawcę zostanie wyzwolony, wymuszając aplikacji wyświetlanie interakcyjnego monitu o uwierzytelnienie, w którym można spełnić zasady dostępu warunkowego.  Zwrócony token będzie zawierać wszystkie trzy zakresy. 
+
+Jeśli aplikacja następnie wykonuje jedno żądanie dla dowolnego z trzech zakresów (Powiedz, `scope=tasks.read` ), usługa Azure AD zobaczy, że użytkownik zakończył już zasady dostępu warunkowego, które są potrzebne do `files.readwrite` , i ponownie wystawia token ze wszystkimi trzema uprawnieniami. 
+
 
 ## <a name="may-2020"></a>Maj 2020 r.
 

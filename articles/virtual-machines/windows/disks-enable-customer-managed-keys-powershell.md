@@ -2,21 +2,21 @@
 title: Azure PowerShell — Włącz klucze zarządzane przez klienta przy użyciu dysków zarządzanych przez funkcję SSE
 description: Włącz szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta na dyskach zarządzanych przy użyciu Azure PowerShell.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 2eed2ee11f3a90e81d9ee845af2aa28620567603
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a1accbfd6edbab7cb09bec4a8423a596a9d1fa9c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488320"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672243"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell — Włącz klucze zarządzane przez klienta za pomocą dysków zarządzanych przez szyfrowanie po stronie serwera
 
-Azure Disk Storage pozwala zarządzać własnymi kluczami podczas korzystania z szyfrowania po stronie serwera (SSE) dla dysków zarządzanych, jeśli wybierzesz opcję. Aby uzyskać informacje koncepcyjne na temat instrukcji SSE z kluczami zarządzanymi przez klienta, a także innych typów szyfrowania dysków zarządzanych, zobacz sekcję [klucze zarządzane przez klienta](../disk-encryption.md#customer-managed-keys) w artykule dotyczącym szyfrowania dysku.
+Azure Disk Storage pozwala zarządzać własnymi kluczami podczas korzystania z szyfrowania po stronie serwera (SSE) dla dysków zarządzanych, jeśli wybierzesz opcję. Aby uzyskać informacje koncepcyjne na temat instrukcji SSE z kluczami zarządzanymi przez klienta i innych typów szyfrowania dysków zarządzanych, zobacz sekcję [klucze zarządzane przez klienta](../disk-encryption.md#customer-managed-keys) w artykule dotyczącym szyfrowania dysku.
 
 ## <a name="restrictions"></a>Ograniczenia
 
@@ -26,11 +26,53 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
     Jeśli zachodzi potrzeba obejścia tego problemu, należy [skopiować wszystkie dane](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) na całkowicie inny dysk zarządzany, który nie korzysta z kluczy zarządzanych przez klienta.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Konfigurowanie Azure Key Vault i DiskEncryptionSet
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>Skonfiguruj Azure Key Vault i DiskEncryptionSet bez automatycznego rotacji kluczy
 
 Aby używać kluczy zarządzanych przez klienta z funkcją SSE, należy skonfigurować Azure Key Vault i zasób DiskEncryptionSet.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
+
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>Skonfiguruj Azure Key Vault i DiskEncryptionSet z automatycznym rotacją kluczy (wersja zapoznawcza)
+
+1. Upewnij się, że masz zainstalowaną najnowszą [wersję programu Azure PowerShell](/powershell/azure/install-az-ps)i zalogujesz się do konta platformy Azure w usłudze `Connect-AzAccount` .
+1. Utwórz wystąpienie Azure Key Vault i klucza szyfrowania.
+
+    Podczas tworzenia wystąpienia Key Vault należy włączyć ochronę przed usunięciem. Ochrona przed przeczyszczeniem gwarantuje, że usunięty klucz nie może zostać trwale usunięty, dopóki nie upłynie okres przechowywania. To ustawienie chroni przed utratą danych ze względu na przypadkowe usunięcie i jest wymagane do szyfrowania dysków zarządzanych.
+    
+    ```powershell
+    $ResourceGroupName="yourResourceGroupName"
+    $LocationName="westcentralus"
+    $keyVaultName="yourKeyVaultName"
+    $keyName="yourKeyName"
+    $keyDestination="Software"
+    $diskEncryptionSetName="yourDiskEncryptionSetName"
+
+    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
+
+    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
+    ```
+
+1.  Utwórz DiskEncryptionSet przy użyciu wersji interfejsu API `2020-12-01` i ustawiając właściwość `rotationToLatestKeyVersionEnabled` na true za pośrednictwem szablonu Azure Resource Manager [CreateDiskEncryptionSetWithAutoKeyRotation.jsna](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
+    
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $($keyVault.ResourceId) `
+    -keyVaultKeyUrl $($key.Key.Kid) `
+    -encryptionType "EncryptionAtRestWithCustomerKey" `
+    -region $LocationName
+    ```
+
+1.  Przyznaj zasobowi DiskEncryptionSet dostęp do magazynu kluczy.
+
+    > [!NOTE]
+    > Utworzenie tożsamości DiskEncryptionSet w Azure Active Directory przez platformę Azure może potrwać kilka minut. Jeśli zostanie wyświetlony błąd "nie można odnaleźć Active Directory obiektu" podczas uruchamiania poniższego polecenia, poczekaj kilka minut i spróbuj ponownie.
+
+    ```powershell
+    $des=Get-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+    ```
 
 ## <a name="examples"></a>Przykłady
 

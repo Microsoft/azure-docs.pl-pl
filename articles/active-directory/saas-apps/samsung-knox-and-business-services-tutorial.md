@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: e1cf12d676de84bc18a123fbdf05b1170725eda8
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 3c1ec38e792987f4bd7208c3bf57a882a05f4f46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072886"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648054"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu usług Samsung KNOX i Business Services
 
@@ -31,7 +31,7 @@ W tym samouczku dowiesz się, jak zintegrować usługi Samsung KNOX i Business z
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) w usługach Samsung KNOX i Business Services.
+* Konto Samsung KNOX.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -55,7 +55,7 @@ Aby skonfigurować integrację usług Samsung KNOX i Business z usługą Azure A
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsung-knox-and-business-services"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla usług Samsung KNOX i Business
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą usług Samsung KNOX i Business przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usługach Samsung KNOX i Business.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą usług Samsung KNOX i Business przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w [SamsungKnox.com](https://samsungknox.com/).
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą usług Samsung KNOX i Business Services, wykonaj następujące czynności:
 
@@ -78,7 +78,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://www.samsungknox.com`
+    * W polu tekstowym **Adres URL logowania** wpisz następujący adres URL: `https://www.samsungknox.com`
+    * W polu tekstowym **adres URL odpowiedzi (adres url Assertion Consumer Service)** wpisz adres URL: `https://central.samsungknox.com/ams/ad/saml/acs`
+    
+    ![Podstawowe wartości konfiguracyjne SAML](https://docs.samsungknox.com/assets/merge/ad-sso/basic-saml-configuration.png)
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -110,7 +113,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-samsung-knox-and-business-services-sso"></a>Konfigurowanie logowania jednokrotnego dla usług Samsung KNOX i Business
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej lokacji firmy Samsung KNOX i Business Services jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do [SamsungKnox.com](https://samsungknox.com/) jako administrator.
 
 1. Kliknij **awatar** w prawym górnym rogu.
 
@@ -118,7 +121,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Na pasku bocznym po lewej stronie kliknij pozycję **Ustawienia usługi Active Directory** i wykonaj następujące czynności.
 
-    ![USTAWIENIA USŁUGI ACTIVE DIRECTORY](./media/samsung-knox-and-business-services-tutorial/sso-settings.png)
+    ![USTAWIENIA USŁUGI ACTIVE DIRECTORY](https://docs.samsungknox.com/assets/merge/ad-sso/ad-5.png)
 
     a. W polu tekstowym **Identyfikator (identyfikator jednostki)** wklej wartość **identyfikatora** wprowadzoną w Azure Portal.
 
@@ -128,21 +131,18 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-samsung-knox-and-business-services-test-user"></a>Tworzenie użytkownika testowego usług Samsung KNOX i Business Services
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w usługach Samsung KNOX i Business Services. Praca z [zespołem pomocy technicznej Samsung KNOX i Business Services](mailto:noreplyk.sec@samsung.com) pozwala dodawać użytkowników na platformie Samsung KNOX i Business Services. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w usługach Samsung KNOX i Business Services. Zapoznaj się z przewodnikami administratora [rejestracji mobilnej](https://docs.samsungknox.com/admin/knox-mobile-enrollment/kme-add-an-admin.htm) [Konfiguracja](https://docs.samsungknox.com/admin/knox-configure/Administrators.htm) lub Knox, aby uzyskać instrukcje dotyczące zapraszania podadministratora lub użytkownika testowego do organizacji Samsung KNOX. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania w usługach Samsung KNOX i Business Services, w którym można zainicjować przepływ logowania. 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do [SamsungKnox.com](https://samsungknox.com/), w którym można zainicjować przepływ logowania. 
 
-* Przejdź bezpośrednio do adresu URL usługi Samsung KNOX i Business Services, a następnie zainicjuj w tym miejscu przepływ logowania.
+* Przejdź bezpośrednio do [SamsungKnox.com](https://samsungknox.com/) i zainicjuj w nim przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi Samsung KNOX i Business Services w obszarze Moje aplikacje zostanie przekierowany do adresu URL logowania Samsung KNOX i Business Services. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka usługi Samsung KNOX i Business Services w obszarze Moje aplikacje zostanie ono przekierowanie do [SamsungKnox.com](https://samsungknox.com/). Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu usług Samsung KNOX i Business można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Po skonfigurowaniu usług Samsung KNOX i Business można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763595"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656843"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
 
@@ -87,10 +87,10 @@ Monitory zestawu danych są zależne od następujących usług platformy Azure.
 
 |Usługa platformy Azure  |Opis  |
 |---------|---------|
-| *Zestaw danych* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
+| *Zestawu* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
 | *Potok i obliczenia w usłudze Azure* | Zadanie obliczania dryfu jest hostowane w potoku Azure.  Zadanie jest wyzwalane na żądanie lub według harmonogramu do uruchomienia w ramach obliczeń skonfigurowanych na czas tworzenia monitora dryfu.
 | *Application Insights*| Dryf emituje metryki do Application Insights należące do obszaru roboczego uczenia maszynowego.
-| *Magazyn obiektów blob platformy Azure*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
+| *Azure Blob Storage*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
 
 ### <a name="baseline-and-target-datasets"></a>Bazowe i docelowe zestawy danych 
 
@@ -256,7 +256,7 @@ Zacznij od wglądu w dane najwyższego poziomu do wielkości dryfu danych oraz w
 :::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Przegląd dryfu":::
 
 
-| Metryka | Opis | 
+| Metric | Opis | 
 | ------ | ----------- | 
 | Wielkość dryfu danych | Procent dryfu między bazowym i docelowym zestawem danych w czasie. W zakresie od 0 do 100, 0 wskazuje identyczne zestawy danych i 100 wskazuje, Azure Machine Learning model dryfowania danych może całkowicie odróżnić te dwa zestawy. Oczekiwano szumu w precyzyjnym procencie mierzonym z powodu technik uczenia maszynowego używanego do generowania tego rozmiaru. | 
 | Najważniejsze funkcje przedryfania | Pokazuje funkcje z zestawu danych, które zostały odpięte i w związku z tym przyczyniają się do metryki wartości dryf. Ze względu na covariate Shift bazowa dystrybucja funkcji nie musi być konieczna do zmiany w celu zapewnienia stosunkowo dużej ważności funkcji. |
@@ -290,7 +290,7 @@ Metryki na wykresie zależą od typu funkcji.
 
 * Funkcje liczbowe
 
-    | Metryka | Opis |  
+    | Metric | Opis |  
     | ------ | ----------- |  
     | Odległość Wasserstein | Minimalna ilość pracy, aby przekształcić dystrybucję bazową w dystrybucję docelową. |
     | Wartość średnia | Średnia wartość funkcji. |
@@ -299,7 +299,7 @@ Metryki na wykresie zależą od typu funkcji.
 
 * Funkcje kategorii
     
-    | Metryka | Opis |  
+    | Metric | Opis |  
     | ------ | ----------- |  
     | Odległość euclidian     |  Obliczone dla kolumn kategorii. Odległość Euclidean jest obliczana na dwóch wektorach wygenerowanych na podstawie rozkładu empirycznego tej samej kolumny kategorii z dwóch zestawów danych. wartość 0 oznacza, że nie ma różnicy w rozkładach empirycznych.  Im więcej odbędzie się od 0, tym większa kolumna jest przechylać. Trendy mogą być zauważalne z wykresu szeregowego czasu tej metryki i mogą być pomocne w odwróceniu funkcji dryfowania.  |
     | Unikatowe wartości | Liczba unikatowych wartości (Kardynalność) funkcji. |
@@ -363,7 +363,7 @@ Ograniczenia i znane problemy dotyczące monitorów dryfowania danych:
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

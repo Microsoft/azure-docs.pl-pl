@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650978"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Ochrona Microsoft 365 z wykorzystaniem lokalnych ataków
 
@@ -141,7 +141,7 @@ Zalecamy stosowanie następujących metod aprowizacji:
 
     *   Blokuj dostęp do Azure Portal. Można dokonać rzadkich niepotrzebnych wyjątków.  Utwórz zasady dostępu warunkowego, które obejmują wszystkich Gości i użytkowników zewnętrznych. Następnie [Zaimplementuj zasady, aby zablokować dostęp](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Odłączone lasy**: Użyj [usługi Azure AD Cloud aprowizacji](../cloud-provisioning/what-is-cloud-provisioning.md). Ta metoda umożliwia łączenie się z odłączonymi lasami, eliminując konieczność ustanowienia łączności między lasami lub relacji zaufania, co może poszerzyć skutki lokalnego naruszenia. 
+* **Odłączone lasy**: Użyj [usługi Azure AD Cloud aprowizacji](../cloud-sync/what-is-cloud-sync.md). Ta metoda umożliwia łączenie się z odłączonymi lasami, eliminując konieczność ustanowienia łączności między lasami lub relacji zaufania, co może poszerzyć skutki lokalnego naruszenia. 
  
 ### <a name="limitations-and-tradeoffs"></a>Ograniczenia i kompromisy
 

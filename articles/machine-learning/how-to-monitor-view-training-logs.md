@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756062"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661022"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -78,6 +78,17 @@ Gdy korzystasz z **ScriptRunConfig**, możesz użyć, ```run.wait_for_completion
 
 <a id="queryrunmetrics"></a>
 
+### <a name="logging-run-metrics"></a>Rejestrowanie metryk uruchamiania 
+
+Użyj następujących metod w interfejsie API rejestrowania, aby mieć wpływ na wizualizacje metryk. Zanotuj [limity usługi](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) dla tych zarejestrowanych metryk. 
+
+|Wartość rejestrowana|Przykładowy kod| Formatowanie w portalu|
+|----|----|----|
+|Rejestruj tablicę wartości liczbowych| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Wykres liniowy z pojedynczą zmienną|
+|Rejestruj pojedynczą wartość liczbową o tej samej nazwie metryki wielokrotnie używanej (na przykład w pętli for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Wykres liniowy z pojedynczą zmienną|
+|Rejestruj wiersz z 2 kolumnami numerycznymi wielokrotnie|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Wykres liniowy z dwoma zmiennymi|
+|Tabela dzienników z 2 kolumnami liczbowymi|`run.log_table(name='Sine Wave', value=sines)`|Wykres liniowy z dwoma zmiennymi|
+
 ## <a name="query-run-metrics"></a>Metryki uruchamiania zapytania
 
 Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics()``` . Na przykład można użyć tego przykładu, aby określić najlepszy model, wyszukując model z najniższą wartością błędu kwadratowego (MSE).
@@ -95,18 +106,6 @@ W widoku pojedynczego eksperymentu wybierz kartę **wszystkie eksperymenty** . N
 Możesz również edytować tabelę listy uruchamiania, aby wybrać wiele uruchomień i wyświetlić ostatnią, minimalną lub maksymalną zarejestrowana wartość dla przebiegów. Dostosuj wykresy, aby porównać wartości zarejestrowanej metryk i agregacje w wielu przebiegach. 
 
 ![Szczegóły uruchamiania w programie Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Formatowanie wykresów 
-
-Użyj następujących metod w interfejsie API rejestrowania, aby mieć wpływ na wizualizacje metryk.
-
-|Wartość rejestrowana|Przykładowy kod| Formatowanie w portalu|
-|----|----|----|
-|Rejestruj tablicę wartości liczbowych| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Wykres liniowy z pojedynczą zmienną|
-|Rejestruj pojedynczą wartość liczbową o tej samej nazwie metryki wielokrotnie używanej (na przykład w pętli for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Wykres liniowy z pojedynczą zmienną|
-|Rejestruj wiersz z 2 kolumnami numerycznymi wielokrotnie|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Wykres liniowy z dwoma zmiennymi|
-|Tabela dzienników z 2 kolumnami liczbowymi|`run.log_table(name='Sine Wave', value=sines)`|Wykres liniowy z dwoma zmiennymi|
-
 
 ### <a name="view-log-files-for-a-run"></a>Wyświetl pliki dziennika dla przebiegu 
 

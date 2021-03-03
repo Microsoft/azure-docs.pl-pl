@@ -4,20 +4,19 @@ description: Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogr
 author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bd45b0e1070efae7ae69a74ad96e1fa94a136006
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 98cc41b735a5a25f84bed4b443b735fadb0925e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96019399"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668027"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -349,7 +348,7 @@ W całym dokumencie używane są następujące warunki:
 
 
 
-### <a name="resources"></a><a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Zasoby
+### <a name="resources"></a><a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Produkcyjnych
 Punkt wejścia dla obciążeń SAP w dokumentacji platformy Azure znajduje się [tutaj](./get-started.md). Począwszy od tego punktu wejścia znajdziesz wiele artykułów, które obejmują tematy dotyczące:
 
 - SAP NetWeaver i Business One na platformie Azure

@@ -3,15 +3,15 @@ title: Zasady integracji usługi Azure API Management Dapr | Microsoft Docs
 description: Dowiedz się więcej o zasadach API Management platformy Azure na potrzeby współpracy z rozszerzeniami mikrousług Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560239"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646813"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Zasady integracji API Management Dapr
 
@@ -45,21 +45,21 @@ template:
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Wyślij żądanie do usługi
 
-Te zasady określają docelowy adres URL dla bieżącego żądania `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}` zastąpienia parametrów szablonu wartościami określonymi w instrukcji Policy.
+Te zasady określają docelowy adres URL dla bieżącego żądania `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}` zastąpienia parametrów szablonu wartościami określonymi w instrukcji Policy.
 
 Zasady założono, że Dapr działa w kontenerze przyczepki w tym samym obszarze, w którym znajduje się brama. Po odebraniu żądania środowisko uruchomieniowe Dapr wykonuje odnajdowanie usług i rzeczywiste wywołanie, w tym możliwe tłumaczenie protokołów między HTTP i gRPC, ponowne próby, śledzenie rozproszone i obsługa błędów.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### <a name="examples"></a>Przykłady
 
 #### <a name="example"></a>Przykład
 
-Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudze o nazwie "Echo". `set-backend-service`Zasady ustawiają docelowy adres URL. `forward-request`Zasady wysyłają żądanie do środowiska uruchomieniowego Dapr, który dostarcza go do mikrousługi.
+Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudze o nazwie "Echo". `set-backend-service`Zasady ustawiają docelowy adres URL na `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back` . `forward-request`Zasady wysyłają żądanie do środowiska uruchomieniowego Dapr, który dostarcza go do mikrousługi.
 
 `forward-request`Zasady są wyświetlane w tym miejscu do przejrzystości. Zasady są zwykle "dziedziczone" z zakresu globalnego za pomocą `base` słowa kluczowego.
 
@@ -67,7 +67,7 @@ Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudz
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -92,8 +92,9 @@ Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudz
 | Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
 | Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Nie dotyczy     |
-| dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
+| dapr-App-ID      | Nazwa docelowej mikrousługi. Służy do tworzenia parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
 | dapr — Metoda      | Nazwa metody lub adresu URL, który ma zostać wywołany w przypadku mikrousługi docelowej. Mapuje do parametru [Method-Name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
+| dapr — przestrzeń nazw   | Nazwa przestrzeni nazw, w której znajduje się docelowa mikrousługa. Służy do tworzenia parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Nie | Nie dotyczy |
 
 ### <a name="usage"></a>Użycie
 

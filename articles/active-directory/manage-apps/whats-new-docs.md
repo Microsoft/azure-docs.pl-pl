@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9de518f53a6054a47a72e40ebe546a32dd48aabe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258578"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647276"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory Zarządzanie aplikacjami: co nowego
 
@@ -34,7 +34,7 @@ Zapoznaj się z nowościami w dokumentacji dotyczącej zarządzania aplikacjami 
 - [Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania](application-proxy-faq.md)
 - [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Praca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md)
-- [Opracowywanie aplikacji biznesowych dla Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Opracowywanie aplikacji biznesowych dla Azure Active Directory](../develop/v2-overview.md)
 - [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](application-proxy-connectors.md)
 - [Opis połączonego logowania](configure-linked-sign-on.md)
 - [Informacje na temat logowania jednokrotnego opartego na hasłach](configure-password-single-sign-on-non-gallery-applications.md)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ac50acbf9b1b4371ac17f997828f9b8818e53b0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: aa36d8522f548101ef3354237d93128b0f041eac
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459122"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648965"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym przy użyciu integracji usługi Azure AD Kemp LoadMaster
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować integrację usługi Kemp LoadMast
 * Kontrolka w usłudze Azure AD, która ma dostęp do integracji usługi Azure AD Kemp LoadMaster.
 * Zezwól użytkownikom na automatyczne logowanie do usługi Kemp LoadMaster Azure AD Integration przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,13 +38,12 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Kemp LoadMaster, integracja z usługą Azure AD obsługuje **dostawcy tożsamości** zainicjowane Logowanie jednokrotne
-* Po skonfigurowaniu integracji usługi Kemp LoadMaster w usłudze Azure AD można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Dodawanie integracji usługi Azure AD Kemp LoadMaster z galerii
+## <a name="add-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Dodawanie integracji usługi Azure AD Kemp LoadMaster z galerii
 
 Aby skonfigurować integrację usługi Kemp LoadMaster Azure AD Integration z usługą Azure AD, musisz dodać integrację usługi Azure AD z galerii Kemp LoadMaster do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -57,7 +54,7 @@ Aby skonfigurować integrację usługi Kemp LoadMaster Azure AD Integration z us
 
 Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Kemp LoadMaster Azure AD Integration przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Kemp LoadMaster Azure AD Integration.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kemp LoadMaster Azure AD Integration, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą integracji usługi Azure AD Kemp LoadMaster, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -80,9 +77,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Kemp LoadMaster Azure AD Integration** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **Kemp LoadMaster Azure AD Integration** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -122,15 +119,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Kemp LoadMaster integracja z usługą Azure AD**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-kemp-loadmaster-azure-ad-integration-sso"></a>Konfigurowanie usługi Kemp LoadMaster Azure AD Integration SSO
@@ -254,7 +245,7 @@ Przejdź do pozycji Zarządzanie logowaniem jednokrotnym w obszarze usługi wirt
 
    przykład Wybierz certyfikat pośredni z certyfikatu dostawcy tożsamości.
 
-   h. Ustaw identyfikator jednostki SP, który powinien być zgodny z tożsamością utworzoną w Azure Portal 
+   h. Ustaw identyfikator jednostki SP, który powinien być zgodny z tożsamością utworzoną w Azure Portal. 
 
    i. Kliknij pozycję Ustaw identyfikator jednostki SP.
 
@@ -376,20 +367,12 @@ W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze Kemp LoadMaster
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 
-Po kliknięciu kafelka integracja z usługą Azure AD Kemp LoadMaster w panelu dostępu należy automatycznie zalogować się do integracji z usługą Azure AD Kemp LoadMaster, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję Testuj tę aplikację w Azure Portal i należy automatycznie zalogować się do integracji usługi Azure AD Kemp LoadMaster, dla którego skonfigurowano Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka integracja usługi Azure AD Kemp LoadMaster w obszarze Moje aplikacje należy automatycznie zalogować się do integracji z usługą Azure AD Kemp LoadMaster, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj integrację usługi Kemp LoadMaster Azure AD z usługą Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić integrację usługi Kemp LoadMaster Azure AD z zaawansowaną widocznością i kontrolkami](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu integracji usługi Kemp LoadMaster w usłudze Azure AD można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

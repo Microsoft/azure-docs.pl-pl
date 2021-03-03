@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 18350dc39fceaf6f4c50f8e1053a2972bbce7f44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120941"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676627"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maksymalizuj jakość grupy wierszy dla wydajności indeksu magazynu kolumn
 
@@ -26,7 +26,7 @@ Jakość grupy wierszy jest określana na podstawie liczby wierszy w grupy wiers
 
 Ponieważ indeks magazynu kolumn skanuje tabelę przez skanowanie segmentów kolumn poszczególnych RowGroups, maksymalizacja liczby wierszy w każdej grupy wierszy zwiększa wydajność zapytań. Gdy RowGroups ma dużą liczbę wierszy, kompresja danych zwiększa się, co oznacza, że do odczytu z dysku są mniejsze dane.
 
-Aby uzyskać więcej informacji na temat RowGroups, zobacz [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Aby uzyskać więcej informacji na temat RowGroups, zobacz [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Rozmiar docelowy dla RowGroups
 
@@ -38,11 +38,11 @@ Podczas ponownej kompilacji lub ponownego kompilowania indeksu magazynu kolumn c
 
 Gdy jest za mało pamięci, aby skompresować co najmniej 10 000 wierszy w każdym grupy wierszy, zostanie wygenerowany błąd.
 
-Aby uzyskać więcej informacji na temat ładowania zbiorczego, zobacz [ładowanie zbiorcze do klastrowanego indeksu magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
+Aby uzyskać więcej informacji na temat ładowania zbiorczego, zobacz [ładowanie zbiorcze do klastrowanego indeksu magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?view=azure-sqldw-latest#bulk&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Jak monitorować jakość grupy wierszy
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) zawiera definicję widoku zgodną z bazą danych SQL), która udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i powód przycinania w przypadku przycinania. Aby uzyskać informacje na temat przycinania grupy wierszy, można utworzyć następujący widok jako wygodny sposób wykonywania zapytania dotyczącego tego DMV.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) zawiera definicję widoku zgodną z bazą danych SQL), która udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i powód przycinania w przypadku przycinania. Aby uzyskać informacje na temat przycinania grupy wierszy, można utworzyć następujący widok jako wygodny sposób wykonywania zapytania dotyczącego tego DMV.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -142,5 +142,5 @@ Rozmiar jednostek dwu i Klasa zasobów użytkownika wspólnie określają iloś�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o sposobach poprawy wydajności w programie Synapse SQL, zobacz [Omówienie wydajności](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+Aby dowiedzieć się więcej o sposobach poprawy wydajności w programie Synapse SQL, zobacz [Omówienie wydajności](../overview-terminology.md).
 

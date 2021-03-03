@@ -4,16 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 7d391998e7f20cff0f77f6aab7938bc375f75c9e
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3830025d761c94e2b0b0bc3e66389d66794b946c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616427"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661561"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Wdrożony zasób usług komunikacyjnych. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - A, `User Access Token` Aby włączyć klienta wywołania. Aby uzyskać więcej informacji na temat [uzyskiwania `User Access Token` ](../../access-tokens.md)
 - Opcjonalnie: Ukończ Przewodnik Szybki Start dotyczący [dodawania wywołania do aplikacji](../getting-started-with-calling.md)
@@ -22,10 +22,16 @@ ms.locfileid: "99616427"
 
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
+> [!NOTE]
+> Ten dokument używa wersji 1.0.0-beta. 6 z wywołującej biblioteki klienta.
+
 Użyj `npm install` polecenia, aby zainstalować usługi komunikacyjne Azure, wywołując i Common Client librarys for JavaScript.
+Ten dokument zawiera odwołania do typów w wersji 1.0.0-beta. 5 biblioteki wywołującej.
 
 ```console
+npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
+
 ```
 
 ## <a name="object-model"></a>Model obiektów
@@ -44,7 +50,7 @@ Następujące klasy i interfejsy obsługują niektóre główne funkcje bibliote
 
 Utwórz wystąpienie nowego `CallClient` wystąpienia. Można ją skonfigurować z opcjami niestandardowymi, takimi jak wystąpienie rejestratora.
 Po utworzeniu wystąpienia `CallClient` można utworzyć `CallAgent` wystąpienie przez wywołanie `createCallAgent` metody w `CallClient` wystąpieniu. Asynchronicznie zwraca `CallAgent` obiekt wystąpienia.
-`createCallAgent`Metoda przyjmuje `CommunicationTokenCredential` jako argument, który akceptuje [token dostępu użytkownika](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+`createCallAgent`Metoda przyjmuje `CommunicationTokenCredential` jako argument, który akceptuje [token dostępu użytkownika](../../access-tokens.md).
 Aby uzyskać dostęp do `DeviceManager` wystąpienia callAgent, należy najpierw utworzyć wystąpienie. Następnie można użyć `getDeviceManager` metody z `CallClient` wystąpienia, aby uzyskać obiekt devicemanager.
 
 ```js
@@ -57,27 +63,30 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>Umieść wywołanie wychodzące
 
-Aby utworzyć i uruchomić wywołanie, należy użyć jednego z interfejsów API w programie CallAgent i udostępnić użytkownikowi, który został utworzony za pomocą biblioteki klienta Administracja usług komunikacyjnych.
+Aby utworzyć i uruchomić wywołanie, należy użyć jednego z interfejsów API w programie CallAgent i udostępnić użytkownikowi, który został utworzony za pomocą biblioteki klienta tożsamości usług komunikacyjnych.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Wystąpienie wywołania pozwala subskrybować zdarzenia.
 
 ## <a name="place-a-call"></a>Umieść wywołanie
 
 ### <a name="place-a-11-call-to-a-user-or-pstn"></a>Umieść wywołanie 1:1 dla użytkownika lub sieci PSTN
-Aby nawiązać połączenie z innym użytkownikiem usług komunikacyjnych, wywołaj `call` metodę na `callAgent` i przekaż CommunicationUserIdentifier wywoływany:
+Aby nawiązać połączenie z innym użytkownikiem usług komunikacyjnych, wywołaj `startCall` metodę na `callAgent` i przekaż CommunicationUserIdentifier wywoływany, który został [utworzony za pomocą biblioteki administracyjnej usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
-const oneToOneCall = callAgent.call([userCallee]);
+const oneToOneCall = callAgent.startCall([userCallee]);
 ```
 
-Aby umieścić wywołanie do sieci PSTN, wywołaj `call` metodę na `callAgent` i przekaż PhoneNumberIdentifier wywoływany.
+Aby umieścić wywołanie do sieci PSTN, wywołaj `startCall` metodę na `callAgent` i przekaż PhoneNumberIdentifier wywoływany.
 Zasób usług komunikacyjnych musi być skonfigurowany tak, aby zezwalał na nawiązywanie połączeń PSTN.
-Podczas wywoływania numeru w sieci PSTN należy określić alternatywny identyfikator obiektu wywołującego.
+Podczas wywoływania numeru w sieci PSTN należy określić alternatywny identyfikator obiektu wywołującego. Alternatywny identyfikator obiektu wywołującego odnosi się do numeru telefonu (na podstawie standardu E. 164) identyfikującego obiekt wywołujący w wywołaniu PSTN. Na przykład, jeśli podasz alternatywny identyfikator wywołującego do wywołania PSTN, ten numer telefonu będzie wyświetlany jako wywoływany, gdy wywołanie jest przychodzące.
+
+> [!WARNING]
+> Wywołanie PSTN jest obecnie w prywatnej wersji zapoznawczej. Aby uzyskać dostęp, [Zastosuj do programu wczesnego przyjmowanego oprogramowania](https://aka.ms/ACS-EarlyAdopter).
 ```js
 const pstnCalee = { phoneNumber: '<ACS_USER_ID>' }
 const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
-const oneToOneCall = callAgent.call([pstnCallee], {alternateCallerId});
+const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Umieszczenie 1: n połączenia z użytkownikami i PSTN
@@ -85,21 +94,23 @@ const oneToOneCall = callAgent.call([pstnCallee], {alternateCallerId});
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
 const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
-const groupCall = callAgent.call([userCallee, pstnCallee], {alternateCallerId});
+const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
+
 ```
 
 ### <a name="place-a-11-call-with-video-camera"></a>Umieszczanie wywołania 1:1 z kamerą wideo
 > [!WARNING]
 > Nie może istnieć więcej niż jeden wychodzący lokalny strumień wideo.
-Aby umieścić połączenie wideo, należy wyliczyć aparaty lokalne przy użyciu `getCameraList` interfejsu API urządzenia.
-Po wybraniu żądanego aparatu Użyj go do skonstruowania `LocalVideoStream` wystąpienia i przekazania go w ramach `videoOptions` elementu `localVideoStream` tablicy do `call` metody.
+Aby umieścić połączenie wideo, należy wyliczyć aparaty lokalne przy użyciu `getCameras()` interfejsu API urządzenia.
+Po wybraniu żądanego aparatu Użyj go do skonstruowania `LocalVideoStream` wystąpienia i przekazania go w ramach `videoOptions` elementu `localVideoStream` tablicy do `startCall` metody.
 Po nawiązaniu połączenia zostanie automatycznie rozpoczęte wysyłanie strumienia wideo z wybranego aparatu do innych uczestników. Dotyczy to również opcji wideo Call. Accept () i opcji wideo CallAgent. Join ().
 ```js
 const deviceManager = await callClient.getDeviceManager();
-const videoDeviceInfo = deviceManager.getCameraList()[0];
+const cameras = await deviceManager.getCameras();
+videoDeviceInfo = cameras[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callAgent.call(['acsUserId'], placeCallOptions);
+const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -134,6 +145,9 @@ const call = callAgent.join(locator);
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
+    //Get information about caller
+    var callerInfo = incomingCall.callerInfo
+    
     //accept the call
     var call = await incomingCall.accept();
 
@@ -163,14 +177,12 @@ const callId: string = call.id;
 const remoteParticipants = call.remoteParticipants;
 ```
 
-* Tożsamość obiektu wywołującego, jeśli wywołanie jest przychodzące. Tożsamość jest jednym z `CommunicationIdentifier` typów
+* Identyfikator obiektu wywołującego, jeśli wywołanie jest przychodzące. Identyfikator jest jednym z `CommunicationIdentifier` typów
 ```js
 
-const callerIdentity = call.callerInfo.identity;
+const callerIdentity = call.callerInfo.identifier;
 
-```
-
-* Pobierz stan wywołania.
+* Get the state of the Call.
 ```js
 
 const callState = call.state;
@@ -183,7 +195,8 @@ Zwraca ciąg reprezentujący bieżący stan wywołania:
 * "Dzwonienie" — dla wywołania wychodzącego — wskazuje, że wywołanie jest sygnalizowane dla uczestników zdalnych, po stronie "przychodzące"
 * "EarlyMedia" — wskazuje stan, w którym jest odtwarzany anons przed połączeniem połączenia
 * "Połączone" — połączenie jest połączone
-* "Hold" — wywołanie jest wstrzymane, żaden nośnik nie przepływa między lokalnym punktem końcowym i uczestnikami zdalnymi
+* "LocalHold" — wywołanie jest wstrzymane przez uczestnika lokalnego, żaden nośnik nie przepływa między lokalnym punktem końcowym i uczestnikami zdalnymi
+* "RemoteHold" — wywołanie jest wstrzymane przez uczestnika zdalnego, żaden nośnik nie przepływa między lokalnym punktem końcowym i uczestnikami zdalnymi
 * "Rozłączanie"-stan przejścia przed przejściem do stanu "Rozłączono"
 * "Rozłączono" — stan końcowy wywołania
   * Po utracie połączenia sieciowego stan przechodzi do "Rozłączono" po około 2 minutach.
@@ -241,10 +254,10 @@ Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `un
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -252,7 +265,7 @@ await call.unmute();
 ### <a name="start-and-stop-sending-local-video"></a>Uruchamianie i zatrzymywanie wysyłania lokalnego wideo
 
 
-Aby uruchomić wideo, należy wyliczyć aparaty fotograficzne przy użyciu `getCameraList` metody dla `deviceManager` obiektu. Następnie utwórz nowe wystąpienie `LocalVideoStream` przekazanie żądanego aparatu do `startVideo` metody jako argument:
+Aby uruchomić wideo, należy wyliczyć aparaty fotograficzne przy użyciu `getCameras` metody dla `deviceManager` obiektu. Następnie utwórz nowe wystąpienie `LocalVideoStream` przekazanie żądanego aparatu do `startVideo` metody jako argument:
 
 
 ```js
@@ -280,8 +293,8 @@ await call.stopVideo(localVideoStream);
 Możesz przełączyć się do innego urządzenia aparatu fotograficznego, gdy wideo jest wysyłane przez wywołanie `switchSource` na `localVideoStream` wystąpienie:
 
 ```js
-const source callClient.getDeviceManager().getCameraList()[1];
-localVideoStream.switchSource(source);
+const cameras = await callClient.getDeviceManager().getCameras();
+localVideoStream.switchSource(cameras[1]);
 
 ```
 
@@ -302,6 +315,7 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 Uczestnik zdalny ma skojarzoną z nim zestaw właściwości i kolekcji
 #### <a name="communicationidentifier"></a>CommunicationIdentifier
 Pobierz identyfikator dla tego uczestnika zdalnego.
+Tożsamość jest jednym z typów "CommunicationIdentifier":
 ```js
 const identifier = remoteParticipant.identifier;
 ```
@@ -319,6 +333,7 @@ const state = remoteParticipant.state;
 Stan może być jednym z
 * "Bezczynne" — stan początkowy
 * "Łączenie" — stan przejścia, gdy uczestnik nawiązuje połączenie z wywołaniem
+* "Dzwonienie" — trwa dzwonienie do uczestnika
 * "Połączone" — uczestnik jest połączony z wywołaniem
 * "Hold" — uczestnik jest wstrzymany
 * "EarlyMedia" — anons jest odtwarzany przed połączeniem uczestnika z wywołaniem
@@ -384,29 +399,31 @@ Aby wyświetlić listę strumieni wideo i strumieni udostępniania ekranu dla uc
 
 ```js
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
-const streamType: MediaStreamType = remoteVideoStream.type;
+const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
- 
+
 Aby renderować a `RemoteVideoStream` , musisz subskrybować `isAvailableChanged` wydarzenie.
 Jeśli `isAvailable` Właściwość zmieni się na `true` , uczestnik zdalny wysyła strumień.
 Gdy tak się stanie, Utwórz nowe wystąpienie `Renderer` , a następnie utwórz nowe `RendererView` wystąpienie przy użyciu metody asynchronicznej `createView` .  Następnie można dołączyć `view.target` do dowolnego elementu interfejsu użytkownika.
 Zawsze, gdy jest dostępna zmiana strumienia zdalnego, można wybrać opcję zniszczenia całego modułu renderowania, określonych `RendererView` lub zachowywania, ale spowoduje to wyświetlenie pustej ramki wideo.
 
 ```js
-let renderer: Renderer = new Renderer(remoteParticipantStream);
-const displayVideo = () => {
-    const view = await renderer.createView();
-    htmlElement.appendChild(view.target);
-}
-remoteParticipantStream.on('availabilityChanged', async () => {
-    if (remoteParticipantStream.isAvailable) {
-        displayVideo();
-    } else {
-        renderer.dispose();
+function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
+    let renderer: Renderer = new Renderer(remoteVideoStream);
+    const displayVideo = () => {
+        const view = await renderer.createView();
+        htmlElement.appendChild(view.target);
     }
-});
-if (remoteParticipantStream.isAvailable) {
-    displayVideo();
+    remoteVideoStream.on('availabilityChanged', async () => {
+        if (remoteVideoStream.isAvailable) {
+            displayVideo();
+        } else {
+            renderer.dispose();
+        }
+    });
+    if (remoteVideoStream.isAvailable) {
+        displayVideo();
+    }
 }
 ```
 
@@ -425,7 +442,7 @@ const size: {width: number; height: number} = remoteVideoStream.size;
 
 * `MediaStreamType` — może to być "wideo" lub "ScreenSharing"
 ```js
-const type: MediaStreamType = remoteVideoStream.type;
+const type: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 * `isAvailable` -Wskazuje, czy zdalny punkt końcowy uczestnika aktywnie wysyła strumień
 ```js
@@ -446,11 +463,11 @@ renderer.dispose()
 
 
 ### <a name="rendererview-methods-and-properties"></a>RendererView — metody i właściwości
-Podczas tworzenia `RendererView` można określić `scalingMode` `mirrored` właściwości i.
-Tryb skalowania może mieć wartość "Rozciągnij", "Kadruj" lub "Dopasuj", jeśli `Mirrored` jest określony, wyrenderowany strumień zostanie przerzucony w pionie.
+Podczas tworzenia `RendererView` można określić `scalingMode` `isMirrored` właściwości i.
+Tryb skalowania może mieć wartość "Rozciągnij", "Kadruj" lub "Dopasuj", jeśli `isMirrored` jest określony, wyrenderowany strumień zostanie przerzucony w pionie.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, mirrored });
+const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
 ```
 Każde określone `RendererView` wystąpienie ma `target` Właściwość reprezentującą powierzchnię renderowania. Ta wartość musi być dołączona do interfejsu użytkownika aplikacji:
 ```js
@@ -478,18 +495,18 @@ const deviceManager = await callClient.getDeviceManager();
 
 ### <a name="enumerate-local-devices"></a>Wyliczanie urządzeń lokalnych
 
-Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Device Manager. Wyliczenie jest akcją synchroniczną.
+Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Device Manager. Wyliczenie jest akcją asynchroniczną.
 
 ```js
 
 //  Get a list of available video devices for use.
-const localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
+const localCameras = await deviceManager.getCameras(); // [VideoDeviceInfo, VideoDeviceInfo...]
 
 // Get a list of available microphone devices for use.
-const localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+const localMicrophones = await deviceManager.getMicrophones(); // [AudioDeviceInfo, AudioDeviceInfo...]
 
 // Get a list of available speaker devices for use.
-const localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, AudioDeviceInfo...]
 
 ```
 
@@ -501,16 +518,16 @@ Jeśli wartości domyślne klienta nie są ustawione, usługi komunikacyjne powr
 ```js
 
 // Get the microphone device that is being used.
-const defaultMicrophone = deviceManager.getMicrophone();
+const defaultMicrophone = deviceManager.selectedMicrophone;
 
 // Set the microphone device to use.
-await deviceManager.setMicrophone(AudioDeviceInfo);
+await deviceManager.selectMicrophone(AudioDeviceInfo);
 
 // Get the speaker device that is being used.
-const defaultSpeaker = deviceManager.getSpeaker();
+const defaultSpeaker = deviceManager.selectedSpeaker;
 
 // Set the speaker device to use.
-await deviceManager.setSpeaker(AudioDeviceInfo);
+await deviceManager.selectSpeaker(AudioDeviceInfo);
 
 ```
 
@@ -519,7 +536,8 @@ await deviceManager.setSpeaker(AudioDeviceInfo);
 Możesz użyć `DeviceManager` i, `Renderer` Aby rozpocząć renderowanie strumieni z aparatu lokalnego. Ten strumień nie zostanie wysłany do innych uczestników; jest to lokalna wersja zapoznawcza. Jest to akcja asynchroniczna.
 
 ```js
-const localVideoDevice = deviceManager.getCameraList()[0];
+const cameras = await deviceManager.getCameras();
+const localVideoDevice = cameras[0];
 const localCameraStream = new LocalVideoStream(localVideoDevice);
 const renderer = new Renderer(localCameraStream);
 const view = await renderer.createView();
@@ -532,7 +550,7 @@ document.body.appendChild(view.target);
 Monituj użytkownika o przyznanie uprawnień do aparatu/mikrofonu przy użyciu następujących czynności:
 
 ```js
-const result = await deviceManager.askDevicePermission(audio: true, video: true);
+const result = await deviceManager.askDevicePermission({audio: true, video: true});
 ```
 Spowoduje to rozwiązanie asynchroniczne z obiektem wskazującym `audio` , czy `video` uprawnienia zostały przyznane:
 ```js
@@ -540,16 +558,6 @@ console.log(result.audio);
 console.log(result.video);
 ```
 
-Bieżący stan uprawnień dla danego typu można sprawdzić, wywołując `getPermissionState` :
-
-```js
-
-const result = deviceManager.getPermissionState('Microphone'); // for microphone permission state
-const result = deviceManager.getPermissionState('Camera'); // for camera permission state
-
-console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
-
-```
 
 ## <a name="call-recording-management"></a>Zarządzanie rejestrowaniem wywołań
 
@@ -573,7 +581,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## <a name="call-transfer-management"></a>Zarządzanie transferem wywołań
@@ -638,41 +646,71 @@ callTransferApi.on('transferRequested', args => {
 ```
 
 ## <a name="eventing-model"></a>Model zdarzeń
-
-Aby otrzymywać powiadomienia o zmianach wartości, można subskrybować większość właściwości i kolekcji.
+Musisz sprawdzić bieżące wartości i zasubskrybować aktualizowanie zdarzeń dla przyszłych wartości.
 
 ### <a name="properties"></a>Właściwości
-Aby subskrybować `property changed` zdarzenia:
 
 ```js
+// Inspect current value
+console.log(object.property);
 
-const eventHandler = () => {
-    // check current value of a property, value is not passed to callback
-    console.log(object.property);
-};
-object.on('propertyNameChanged',eventHandler);
+// Subscribe to value updates
+object.on('propertyChanged', () => {
+    // Inspect new value
+    console.log(object.property)
+});
 
-// To unsubscribe:
+// Unsubscribe from updates:
+object.off('propertyChanged', () => {});
 
-object.off('propertyNameChanged',eventHandler);
 
+
+// Example for inspecting call state
+console.log(call.state);
+call.on('stateChanged', () => {
+    console.log(call.state);
+});
+call.off('stateChanged', () => {});
 ```
 
 ### <a name="collections"></a>Kolekcje
-Aby subskrybować `collection updated` zdarzenia:
-
 ```js
+// Inspect current collection
+object.collection.forEach(v => {
+    console.log(v);
+});
 
-const eventHandler = (e) => {
-    // check added elements
-    console.log(e.added);
-    // check removed elements
-    console.log(e.removed);
-};
-object.on('collectionNameUpdated',eventHandler);
+// Subscribe to collection updates
+object.on('collectionUpdated', e => {
+    // Inspect new values added to the collection
+    e.added.forEach(v => {
+        console.log(v);
+    });
+    // Inspect values removed from the collection
+    e.removed.forEach(v => {
+        console.log(v);
+    });
+});
 
-// To unsubscribe:
+// Unsubscribe from updates:
+object.off('collectionUpdated', () => {});
 
-object.off('collectionNameUpdated',eventHandler);
 
+
+// Example for subscribing to remote participants and their video streams
+call.remoteParticipants.forEach(p => {
+    subscribeToRemoteParticipant(p);
+})
+
+call.on('remoteParticipantsUpdated', e => {
+    e.added.forEach(p => { subscribeToRemoteParticipant(p) })
+    e.removed.forEach(p => { unsubscribeFromRemoteParticipant(p) })
+});
+
+function subscribeToRemoteParticipant(p) {
+    console.log(p.state);
+    p.on('stateChanged', () => { console.log(p.state); });
+    p.videoStreams.forEach(v => { subscribeToRemoteVideoStream(v) });
+    p.on('videoStreamsUpdated', e => { e.added.forEach(v => { subscribeToRemoteVideoStream(v) }) })
+}
 ```

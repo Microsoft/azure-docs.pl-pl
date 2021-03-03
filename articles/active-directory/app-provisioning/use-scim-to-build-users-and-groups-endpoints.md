@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9fac8db6747d1e081fa884ed794e55b98f44577f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652041"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650162"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Samouczek: opracowywanie przykładowego punktu końcowego Standard scim
 
@@ -33,7 +33,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Wdrażanie punktu końcowego Standard scim na platformie Azure
 
-Kroki opisane w tym miejscu umożliwiają wdrożenie punktu końcowego Standard scim w usłudze przy użyciu [programu Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) i [Azure App Service](https://docs.microsoft.com/azure/app-service/). Kod odwołania Standard scim może być również uruchamiany lokalnie, hostowany przez serwer lokalny lub wdrożony w innej usłudze zewnętrznej.
+Kroki opisane w tym miejscu umożliwiają wdrożenie punktu końcowego Standard scim w usłudze przy użyciu [programu Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) i [Azure App Service](../../app-service/index.yml). Kod odwołania Standard scim może być również uruchamiany lokalnie, hostowany przez serwer lokalny lub wdrożony w innej usłudze zewnętrznej.
 
 1. Przejdź do [kodu referencyjnego](https://github.com/AzureAD/SCIMReferenceCode) z usługi GitHub i wybierz opcję **Klonuj lub Pobierz**.
 

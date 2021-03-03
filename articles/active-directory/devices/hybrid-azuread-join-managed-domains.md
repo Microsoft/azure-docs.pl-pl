@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365773"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644922"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen zarządzanych
 
@@ -82,7 +82,7 @@ Jeśli nie korzystasz z usługi WPAD, możesz skonfigurować ustawienia serwera 
 
 Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem uwierzytelnionego wychodzącego serwera proxy, upewnij się, że komputery z systemem Windows 10 mogą pomyślnie uwierzytelniać się na wychodzącym serwerze proxy. Ponieważ komputery z systemem Windows 10 uruchamiają rejestrację urządzeń przy użyciu kontekstu komputera, Skonfiguruj uwierzytelnianie wychodzącego serwera proxy przy użyciu kontekstu komputera. Skontaktuj się z dostawcą serwera proxy ruchu wychodzącego, aby uzyskać informacje na temat wymagań dotyczących konfiguracji.
 
-Sprawdź, czy urządzenie może uzyskać dostęp do powyższych zasobów firmy Microsoft w ramach konta system przy użyciu skryptu [łączności usługi rejestracji urządzeń testowych](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) .
+Sprawdź, czy urządzenie może uzyskać dostęp do powyższych zasobów firmy Microsoft w ramach konta system przy użyciu skryptu [łączności usługi rejestracji urządzeń testowych](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) .
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Konfigurowanie dołączenia hybrydowego do usługi Azure AD
 

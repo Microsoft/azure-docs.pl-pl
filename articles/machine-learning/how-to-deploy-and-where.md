@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f8865c9e6726a19e5e215886f92507734ebf0662
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652228"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657319"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Wdrażanie modeli uczenia maszynowego na platformie Azure
 
@@ -327,10 +327,10 @@ W poniższej tabeli opisano różne stany usług:
 > Podczas wdrażania obrazy platformy Docker dla obiektów docelowych obliczeń są kompilowane i ładowane z Azure Container Registry (ACR). Domyślnie Azure Machine Learning tworzy ACR, który korzysta z warstwy usługi *podstawowa* . Zmiana ACR dla obszaru roboczego na warstwę Standardowa lub Premium może skrócić czas potrzebny do kompilowania i wdrażania obrazów w celach obliczeniowych. Aby uzyskać więcej informacji, zobacz [Azure Container Registry warstwy usług](../container-registry/container-registry-skus.md).
 
 > [!NOTE]
-> W przypadku wdrażania modelu w usłudze Azure Kubernetes Service (AKS) zaleca się włączenie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) dla tego klastra. Ułatwi to zrozumienie ogólnej kondycji klastra i użycia zasobów. Przydatne może być również znalezienie następujących zasobów:
+> W przypadku wdrażania modelu w usłudze Azure Kubernetes Service (AKS) zaleca się włączenie [Azure monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) dla tego klastra. Ułatwi to zrozumienie ogólnej kondycji klastra i użycia zasobów. Przydatne może być również znalezienie następujących zasobów:
 >
-> * [Sprawdzaj, czy Resource Health zdarzenia mające wpływ na klaster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Diagnostyka usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Sprawdzaj, czy Resource Health zdarzenia mające wpływ na klaster AKS](../aks/aks-resource-health.md)
+> * [Diagnostyka usługi Azure Kubernetes](../aks/concepts-diagnostics.md)
 >
 > Jeśli próbujesz wdrożyć model w złej kondycji lub przeciążonym klastrze, oczekiwano problemów. Jeśli potrzebujesz pomocy w rozwiązywaniu problemów z klastrem AKS, skontaktuj się z pomocą techniczną AKS.
 

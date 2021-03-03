@@ -13,12 +13,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 6a173ed4dae9237d8aae991c943817ed70246eea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95756404"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649059"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Samouczek: korzystanie z trybu udostępnionego urządzenia w aplikacji systemu Android
 
@@ -65,7 +65,7 @@ Ustaw wartość na `"shared_device_mode_supported"` `true` w pliku konfiguracji 
 
 Nie można zaplanować obsługi trybu wielu kont. Może to być możliwe, jeśli nie używasz urządzenia udostępnionego, a użytkownik może zalogować się do aplikacji z więcej niż jednym kontem w tym samym czasie. Jeśli tak, ustaw `"account_mode"` wartość `"SINGLE"` . Gwarantuje to, że aplikacja będzie zawsze otrzymywać `ISingleAccountPublicClientApplication` i znacząco upraszcza integrację z MSAL. Wartość domyślna `"account_mode"` to `"MULTIPLE"` , dlatego ważne jest, aby zmienić tę wartość w pliku konfiguracji, jeśli używasz `"single account"` trybu.
 
-Oto przykład auth_config.jsw pliku uwzględnionym w **app** > katalogu **głównym** > **zasobów** aplikacji > **raw** przykładowej:
+Oto przykład auth_config.jsw pliku uwzględnionym w  > katalogu **głównym** > **zasobów** aplikacji >  przykładowej:
 
 ```json
 {
@@ -96,7 +96,7 @@ Użyj `isSharedDevice()` , aby określić, czy aplikacja jest uruchomiona na urz
 Oto fragment kodu, który pokazuje, jak można korzystać z programu `isSharedDevice()` .  Jest ona z `SingleAccountModeFragment` klasy w przykładowej aplikacji:
 
 ```Java
-deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
+deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ? "Shared" : "Non-Shared");
 ```
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicjowanie obiektu PublicClientApplication

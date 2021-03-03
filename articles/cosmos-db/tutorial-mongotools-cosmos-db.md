@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 2b52a9227e8bd487a8929df11047eef4672f7f4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2e9f3c877a5c4650d3e31fa414cac76837f4c9e8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100421917"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655755"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>Samouczek: Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie offline przy użyciu narzędzi MongoDB Native
 
@@ -31,7 +31,7 @@ W tym samouczku przeprowadzisz migrację zestawu danych w MongoDB hostowanym na 
 
 Natywne narzędzia MongoDB umożliwiają przenoszenie danych tylko tak szybko, jak to zapewnia sprzęt hosta; narzędzia natywne mogą być najprostszym rozwiązaniem dla małych zestawów danych, w których łączny czas migracji nie jest problemem. [Łącznik MongoDB Spark](https://docs.mongodb.com/spark-connector/current/), [usługa Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md)lub [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) może być lepszym rozwiązaniem alternatywnym w przypadku potrzeby skalowalnego potoku migracji.
 
-Jeśli nie masz jeszcze skonfigurowanego źródła bazy danych MongoDB, zobacz artykuł [Install and configure MongoDB on a Windows VM in Azure (Instalowanie i konfigurowanie bazy danych MongoDB na maszynie wirtualnej z systemem Windows na platformie Azure)](../virtual-machines/windows/install-mongodb.md).
+Jeśli nie masz jeszcze skonfigurowanego źródła bazy danych MongoDB, zobacz artykuł [Install and configure MongoDB on a Windows VM in Azure (Instalowanie i konfigurowanie bazy danych MongoDB na maszynie wirtualnej z systemem Windows na platformie Azure)](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

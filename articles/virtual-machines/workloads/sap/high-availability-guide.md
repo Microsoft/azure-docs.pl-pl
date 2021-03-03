@@ -8,20 +8,19 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b506ada0bc072a4174de6f884d1814a63f1f93ca
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6aedaf829df941a225cd0684318f28bb06ba89d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012514"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674608"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure
 
@@ -903,7 +902,7 @@ Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, **PR1-ASCS-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Ustaw statyczne adresy IP dla maszyn wirtualnych SAP
 Po wdrożeniu maszyn wirtualnych do użycia w klastrze należy ustawić statyczne adresy IP dla wszystkich maszyn wirtualnych. Zrób to w konfiguracji Virtual Network platformy Azure, a nie w systemie operacyjnym gościa.
 
-1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia **karta sieciowa**  >  **Settings**  >  **adres IP**.
+1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia **karta sieciowa**  >    >  **adres IP**.
 2. W bloku **adresy IP** w obszarze **przypisanie** wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
 
    > [!NOTE]
@@ -1420,7 +1419,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 
    _**Rysunek 56:** Zdefiniuj wpis DNS dla nazwy wirtualnej klastra SAP ASCS/SCS i adresu TCP/IP_
 
-2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera DNS**  >  **Domain**.
+2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera DNS**  >  .
 
    ![Rysunek 57: Nowa nazwa wirtualna i adres TCP/IP dla konfiguracji klastra SAP ASCS/SCS][sap-ha-guide-figure-3047]
 

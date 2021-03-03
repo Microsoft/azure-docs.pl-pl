@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: c767d114ad6a1b5cb8b9c6bf4c0fe4f2ccd1dae6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988869"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650128"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest zautomatyzowane Inicjowanie 
 
 W styczniu 2021 dodaliśmy następujące 29 nowych aplikacji w galerii aplikacji z obsługą Federacji:
 
-[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenuee](https://formation.bienvenue.pro/login), [AIDAa](https://aidaforparents.com/login/organizations), [Międzynarodowa pomoc techniczną sos](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX jeden](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTOa](../saas-apps/ephoto-dam-tutorial.md), [pojęcie](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [TimeClock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-Data](https://www.ecolab.com/), [](https://app.vacancy-filler.co.uk/VFMVC/Account/Login)Synerisee [, Imperva](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md) [Experience](../saas-apps/perimeter-81-tutorial.md) [,](../saas-apps/aruba-user-experience-insight-tutorial.md) [Illusive,](../saas-apps/imperva-data-security-tutorial.md) [sPlan,](../saas-apps/contentsquare-sso-tutorial.md) [,](../saas-apps/illusive-networks-tutorial.md),, [w](../saas-apps/proware-tutorial.md)wersji [](../saas-apps/splan-visitor-tutorial.md)81 [Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/burp-suite-enterprise-edition-tutorial)
+[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenuee](https://formation.bienvenue.pro/login), [AIDAa](https://aidaforparents.com/login/organizations), [Międzynarodowa pomoc techniczną sos](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX jeden](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTOa](../saas-apps/ephoto-dam-tutorial.md), [pojęcie](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [TimeClock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-Data](https://www.ecolab.com/), [](https://app.vacancy-filler.co.uk/VFMVC/Account/Login)Synerisee [, Imperva](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md) [Experience](../saas-apps/perimeter-81-tutorial.md) [,](../saas-apps/aruba-user-experience-insight-tutorial.md) [Illusive,](../saas-apps/imperva-data-security-tutorial.md) [sPlan,](../saas-apps/contentsquare-sso-tutorial.md) [,](../saas-apps/illusive-networks-tutorial.md),, [w](../saas-apps/proware-tutorial.md)wersji [](../saas-apps/splan-visitor-tutorial.md)81 [Enterprise](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
 
 W tym miejscu możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji https://aka.ms/AppsTutorial
 
@@ -806,11 +806,11 @@ Azure AD Connect w chmurze Inicjowanie obsługi publicznej wersji zapoznawczej f
 
 - Środowisko mapowania atrybutów za poorednictwem Azure Portal
 
-    Ta funkcja umożliwia administratorom IT Mapowanie atrybutów użytkowników, grup lub kontaktów z usługi AD do usługi Azure AD przy użyciu różnych typów mapowania obecnych obecnie. Mapowanie atrybutu jest funkcją służącą do standaryzacji wartości atrybutów, które przepływą od Active Directory do Azure Active Directory. Jeden może określić, czy bezpośrednio mapować wartość atrybutu, ponieważ pochodzi ona z usługi AD do usługi Azure AD, lub używać wyrażeń do przekształcania wartości atrybutów podczas aprowizacji użytkowników. [Dowiedz się więcej](../cloud-provisioning/how-to-attribute-mapping.md)
+    Ta funkcja umożliwia administratorom IT Mapowanie atrybutów użytkowników, grup lub kontaktów z usługi AD do usługi Azure AD przy użyciu różnych typów mapowania obecnych obecnie. Mapowanie atrybutu jest funkcją służącą do standaryzacji wartości atrybutów, które przepływą od Active Directory do Azure Active Directory. Jeden może określić, czy bezpośrednio mapować wartość atrybutu, ponieważ pochodzi ona z usługi AD do usługi Azure AD, lub używać wyrażeń do przekształcania wartości atrybutów podczas aprowizacji użytkowników. [Dowiedz się więcej](../cloud-sync/how-to-attribute-mapping.md)
 
 - Inicjowanie obsługi administracyjnej na żądanie lub testowanie środowiska użytkownika
 
-    Po skonfigurowaniu konfiguracji można sprawdzić, czy transformacja użytkownika działa zgodnie z oczekiwaniami przed zastosowaniem do wszystkich użytkowników w zakresie. W przypadku aprowizacji na żądanie Administratorzy IT mogą wprowadzić nazwę wyróżniającą (DN) użytkownika usługi AD i sprawdzić, czy są one zsynchronizowane zgodnie z oczekiwaniami. Inicjowanie obsługi na żądanie zapewnia doskonały sposób, aby zapewnić, że mapowania atrybutów wcześniej działały zgodnie z oczekiwaniami. [Więcej informacji](../cloud-provisioning/how-to-on-demand-provision.md)
+    Po skonfigurowaniu konfiguracji można sprawdzić, czy transformacja użytkownika działa zgodnie z oczekiwaniami przed zastosowaniem do wszystkich użytkowników w zakresie. W przypadku aprowizacji na żądanie Administratorzy IT mogą wprowadzić nazwę wyróżniającą (DN) użytkownika usługi AD i sprawdzić, czy są one zsynchronizowane zgodnie z oczekiwaniami. Inicjowanie obsługi na żądanie zapewnia doskonały sposób, aby zapewnić, że mapowania atrybutów wcześniej działały zgodnie z oczekiwaniami. [Więcej informacji](../cloud-sync/how-to-on-demand-provision.md)
  
 ---
 
@@ -1139,6 +1139,3 @@ Wcześniej tylko administrator globalny mógł zarządzać [właściwością roz
 [Pakiet zbiorczy poprawek (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) jest dostępny dla Microsoft Identity Manager (MIM) 2016 z dodatkiem Service Pack 2 (SP2). Ten pakiet zbiorczy zawiera aktualizacje zarządzanie certyfikatami w usłudze MIM, Menedżera synchronizacji programu MIM i składników usługi PAM. Ponadto 1.1.1301.0E łączniki ogólne programu MIM zawierają aktualizacje łącznika programu Graph.
 
 ---
- 
-
-

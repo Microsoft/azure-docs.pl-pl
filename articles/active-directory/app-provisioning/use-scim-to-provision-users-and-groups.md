@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35efcd4059ab654178fb87c133a6f64721caf7d2
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1445e7959906966c58730521123ae03590bef1b3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989062"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652100"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim
 
@@ -882,7 +882,7 @@ W przykładowym kodzie żądania są uwierzytelniane za pomocą pakietu Microsof
 
 Token okaziciela jest również wymagany do korzystania z dostarczonych [testów post](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) i przeprowadzania debugowania lokalnego przy użyciu localhost. Przykładowy kod używa środowisk ASP.NET Core, aby zmienić opcje uwierzytelniania podczas etapu tworzenia i włączyć token z podpisem własnym.
 
-Aby uzyskać więcej informacji na temat wielu środowisk w ASP.NET Core, zobacz [Używanie wielu środowisk w programie ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+Aby uzyskać więcej informacji na temat wielu środowisk w ASP.NET Core, zobacz [Używanie wielu środowisk w programie ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 Poniższy kod wymusza, aby żądania kierowane do dowolnego z punktów końcowych usługi były uwierzytelniane przy użyciu tokenu okaziciela podpisanego przy użyciu klucza niestandardowego:
 

@@ -100,8 +100,10 @@
           href: cache-private-link.md
         - name: Włączanie nadmiarowości strefowej
           href: cache-how-to-zone-redundancy.md
-        - name: Konfigurowanie replikacji geograficznej
+        - name: Konfigurowanie replikacji geograficznej OSS
           href: cache-how-to-geo-replication.md
+        - name: Konfigurowanie aktywnej replikacji geograficznej przedsiębiorstwa
+          href: cache-how-to-active-geo-replication.md
         - name: Zapisywanie z użyciem pojemności zarezerwowanej
           href: cache-reserved-pricing.md
         - name: Migrowanie do usługi Azure Cache for Redis

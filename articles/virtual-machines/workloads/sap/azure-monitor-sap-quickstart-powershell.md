@@ -4,18 +4,16 @@ description: Wdrażanie Azure Monitor dla rozwiązań SAP z Azure PowerShell
 author: sameeksha91
 ms.author: sakhare
 ms.topic: quickstart
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.devlang: azurepowershell
 ms.date: 09/08/2020
-ms.reviewer: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28b26b8d4d6acdffb4083d182c6a0ce0539080c9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1cea4b72049386ad7a1cc3e67003861c694812c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671954"
 ---
 # <a name="quickstart-deploy-azure-monitor-for-sap-solutions-with-azure-powershell"></a>Szybki Start: wdrażanie Azure Monitor dla rozwiązań SAP z Azure PowerShell
 

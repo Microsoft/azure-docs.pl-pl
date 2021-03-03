@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff2d7f45626055cdbc98ca944eecaa01f9bd052b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: be86e04359c29696d208994d85d36b7740b60cc3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459207"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla Confluence
 
@@ -85,7 +85,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania jednokrotnego w usłudze Kantega dla Confluence, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Kantega SSO dla Confluence** wybierz pozycję **Logowanie**jednokrotne.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Kantega SSO dla Confluence** wybierz pozycję **Logowanie** jednokrotne.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -184,7 +184,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
     ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforconfluence-tutorial/addon7.png)
 
-    a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
+    a. Wybierz pozycję **plik metadanych na komputerze** i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
     b. Kliknij przycisk **Dalej**.
 

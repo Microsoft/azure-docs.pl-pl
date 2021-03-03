@@ -12,32 +12,28 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258324"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643562"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Udzielanie zgody administratora całej dzierżawy dla aplikacji
 
-Dowiedz się, jak uprościć środowisko użytkownika, udzielając zgody administratora na dostęp do aplikacji. Ten artykuł zawiera różne sposoby osiągnięcia tego celu. Metody dotyczą wszystkich użytkowników końcowych w dzierżawie usługi Azure Active Directory (Azure AD).
+  Dowiedz się, jak przyznać administratorowi zgodę na dostęp do aplikacji. Ten artykuł zawiera różne sposoby osiągnięcia tego celu.
 
 Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [Azure Active Directory](../develop/consent-framework.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako [administrator globalny](../roles/permissions-reference.md#global-administrator), [administrator aplikacji](../roles/permissions-reference.md#application-administrator)lub [administrator aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator).
-
-> [!IMPORTANT]
-> Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
->
-> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na uprawnienia aplikacji do interfejsu API Microsoft Graph.
+Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako użytkownik, który ma uprawnienia do zgody w imieniu organizacji. Obejmuje to [administratora globalnego](../roles/permissions-reference.md#global-administrator) i [administratora ról uprzywilejowanych](../roles/permissions-reference.md#privileged-role-administrator), a także w przypadku niektórych aplikacji, [administratorów aplikacji](../roles/permissions-reference.md#application-administrator) i [administratorów aplikacji w chmurze](../roles/permissions-reference.md#cloud-application-administrator). Użytkownik może być również uprawniony do udzielania zgody na całej dzierżawie, jeśli ma przypisaną [rolę katalogu niestandardowego](../roles/custom-create.md) , która obejmuje [uprawnienie do przyznawania uprawnień aplikacjom](../roles/custom-consent-permissions.md).
 
 > [!WARNING]
 > Przyznanie administratorowi zgody na dostęp do całej dzierżawy dla aplikacji spowoduje przyznanie aplikacji i wydawcy aplikacji dostępu do danych organizacji. Uważnie Przejrzyj uprawnienia, których aplikacja żąda przed udzieleniem zgody.
->
-> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na uprawnienia aplikacji do interfejsu API Microsoft Graph.
+
+> [!IMPORTANT]
+> Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](./assign-user-or-group-access-portal.md).
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Udziel zgody administratora z Azure Portal
 
@@ -101,4 +97,4 @@ Zawsze należy uważnie przejrzeć uprawnienia żądania aplikacji przed udziele
 
 [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Usługa Azure AD w firmie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Usługa Azure AD w firmie Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -2,19 +2,21 @@
 title: Scheduled Events maszyn wirtualnych z systemem Windows na platformie Azure
 description: Zaplanowane zdarzenia za pomocą Metadata Service platformy Azure dla maszyn wirtualnych z systemem Windows.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: scheduled-events
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0dcfdfbd480cdc708fced38d421b7588c5224a52
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231875"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673316"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
 
@@ -73,7 +75,7 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersja to `2019-01-01` .
 
-| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
+| Wersja | Typ wydania | Regiony | Informacje o wersji | 
 | - | - | - | - | 
 | 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
 | 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |

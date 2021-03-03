@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2fd96c47e98a6f8a66a5fda555304c4448d772e0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892035"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -494,8 +494,8 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](advance-kerbf5-tutorial.md)
 
-- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](../manage-apps/f5-aad-integration.md)
 
-- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](../manage-apps/f5-bigip-deployment-guide.md)
 
-- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
+- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](../manage-apps/f5-aad-password-less-vpn.md)

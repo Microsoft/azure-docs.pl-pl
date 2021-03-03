@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: a8cfdc76694d52acee70cde0e3f1697cd8129d06
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 512b23b414328c0b7e9bbf8ef77a0d32083c84e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97691979"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661530"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,6 +21,9 @@ ms.locfileid: "97691979"
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="creating-the-xcode-project"></a>Tworzenie projektu Xcode
+
+> [!NOTE]
+> Ten dokument używa wersji 1.0.0-beta. 8 z wywołującej biblioteki klienta.
 
 W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojedynczego widoku** . Ten przewodnik Szybki Start korzysta z [platformy SwiftUI](https://developer.apple.com/xcode/swiftui/), więc należy ustawić **Język** **SWIFT** i **interfejs użytkownika** na **SwiftUI**. Nie ma potrzeby tworzenia testów jednostkowych ani testów interfejsu użytkownika w ramach tego przewodnika Szybki Start. Możesz usunąć zaznaczenie opcji **Dołącz testy jednostkowe** , a także Usuń zaznaczenie pola wyboru **Dołącz testy interfejsu użytkownika**.
 
@@ -34,9 +37,9 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
    platform :ios, '13.0'
    use_frameworks!
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
-     pod 'AzureCommunication', '~> 1.0.0-beta.5'
-     pod 'AzureCore', '~> 1.0.0-beta.5'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
+     pod 'AzureCommunication', '~> 1.0.0-beta.8'
+     pod 'AzureCore', '~> 1.0.0-beta.8'
    end
    ```
 
@@ -70,33 +73,33 @@ Następujące klasy i interfejsy obsługują niektóre główne funkcje usługi 
 
 | Nazwa                                  | Opis                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ACSCallClient | ACSCallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
-| ACSCallAgent | ACSCallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
-| CommunicationUserCredential | CommunicationUserCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.| 
-| CommunicationIndentifier | CommunicationIndentifier jest używany do reprezentowania tożsamości użytkownika, który może być jedną z następujących: CommunicationUser/numer telefonu/CallingApplication. |
+| CallClient | CallClient jest głównym punktem wejścia do biblioteki wywołującej klienta.|
+| CallAgent | CallAgent jest używany do uruchamiania wywołań i zarządzania nimi. |
+| CommunicationTokenCredential | CommunicationTokenCredential jest używany jako poświadczenia tokenu do tworzenia wystąpienia CallAgent.| 
+| CommunicationIdentifier | CommunicationIdentifier jest używany do reprezentowania tożsamości użytkownika, który może być jedną z następujących: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 > [!NOTE]
-> Podczas implementowania delegatów zdarzeń aplikacja musi przechowywać silną referencję do obiektów, które wymagają subskrypcji zdarzeń. Na przykład gdy `ACSRemoteParticipant` obiekt jest zwracany podczas wywoływania `call.addParticipant` metody, a aplikacja ustawia delegata do nasłuchiwania `ACSRemoteParticipantDelegate` , aplikacja musi przechowywać silne odwołanie do `ACSRemoteParticipant` obiektu. W przeciwnym razie, jeśli ten obiekt zostanie zebrany, delegat zgłosi wyjątek krytyczny, gdy wywoływany zestaw SDK próbuje wywołać obiekt.
+> Podczas implementowania delegatów zdarzeń aplikacja musi przechowywać silną referencję do obiektów, które wymagają subskrypcji zdarzeń. Na przykład gdy `RemoteParticipant` obiekt jest zwracany podczas wywoływania `call.addParticipant` metody, a aplikacja ustawia delegata do nasłuchiwania `RemoteParticipantDelegate` , aplikacja musi przechowywać silne odwołanie do `RemoteParticipant` obiektu. W przeciwnym razie, jeśli ten obiekt zostanie zebrany, delegat zgłosi wyjątek krytyczny, gdy wywoływany zestaw SDK próbuje wywołać obiekt.
 
-## <a name="initialize-the-acscallagent"></a>Inicjowanie ACSCallAgent
+## <a name="initialize-the-callagent"></a>Inicjowanie CallAgent
 
-Aby utworzyć `ACSCallAgent` wystąpienie z `ACSCallClient` użyciem `callClient.createCallAgent` metody, która asynchronicznie zwraca `ACSCallAgent` obiekt po zainicjowaniu
+Aby utworzyć `CallAgent` wystąpienie z `CallClient` użyciem `callClient.createCallAgent` metody, która asynchronicznie zwraca `CallAgent` obiekt po zainicjowaniu
 
-Aby utworzyć klienta wywołania, należy przekazać `CommunicationUserCredential` obiekt.
+Aby utworzyć klienta wywołania, należy przekazać `CommunicationTokenCredential` obiekt.
 
 ```swift
 
 import AzureCommunication
 
 let tokenString = "token_string"
-var userCredential: CommunicationUserCredential?
-do {
-    userCredential = try CommunicationUserCredential(
-        initialToken: tokenString, refreshProactively: true,
-        tokenRefresher: self.fetchTokenSync
-    )
-} catch {
-    print("Failed to create CommunicationCredential object")
+var userCredential: CommunicationTokenCredential?
+var userCredential: CommunicationTokenCredential?
+   do {
+       userCredential = try CommunicationTokenCredential(with: CommunicationTokenRefreshOptions(initialToken: token, 
+                                                                     refreshProactively: true,
+                                                                     tokenRefresher: self.fetchTokenSync))
+   } catch {
+       return
 }
 
 // tokenProvider needs to be implemented by contoso which fetches new token
@@ -106,17 +109,16 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 }
 ```
 
-Przekaż obiekt CommunicationUserCredential utworzony powyżej do ACSCallClient i Ustaw nazwę wyświetlaną.
+Przekaż `CommunicationTokenCredential` obiekt utworzony powyżej do `CallClient` i Ustaw nazwę wyświetlaną.
 
 ```swift
 
 callClient = CallClient()
-let callAgentOptions:CallAgentOptions = CallAgentOptions()
-options.displayName = "ACS iOS User"
+let callAgentOptions:CallAgentOptions = CallAgentOptions()!
+options.displayName = " iOS User"
 
 callClient?.createCallAgent(userCredential: userCredential!,
-    options: callAgentOptions,
-    completionHandler: { (callAgent, error) in
+    options: callAgentOptions) { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
@@ -129,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Umieść wywołanie wychodzące
 
-Aby utworzyć i uruchomić wywołanie, należy wywołać jeden z interfejsów API w systemie `ACSCallAgent` i podać tożsamość usługi komunikacyjnej użytkownika, który został zainicjowany przy użyciu biblioteki klienta zarządzania usługami komunikacyjnymi.
+Aby utworzyć i uruchomić wywołanie, należy wywołać jeden z interfejsów API w systemie `CallAgent` i podać tożsamość usługi komunikacyjnej użytkownika, który został zainicjowany przy użyciu biblioteki klienta zarządzania usługami komunikacyjnymi.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Otrzymasz wystąpienie wywołania, które pozwala subskrybować wszystkie zdarzenia w wywołaniu.
 
@@ -137,7 +139,7 @@ Tworzenie i uruchamianie wywołań jest synchroniczne. Otrzymasz wystąpienie wy
 
 ```swift
 
-let callees = [CommunicationUser(identifier: 'acsUserId')]
+let callees = [CommunicationUser(identifier: 'UserId')]
 let oneToOneCall = self.callAgent.call(participants: callees, options: StartCallOptions())
 
 ```
@@ -146,8 +148,8 @@ let oneToOneCall = self.callAgent.call(participants: callees, options: StartCall
 Aby nawiązać połączenie z usługą PSTN, musisz określić numer telefonu uzyskany przy użyciu usług komunikacyjnych.
 ```swift
 
-let pstnCallee = PhoneNumber('+1999999999')
-let callee = CommunicationUser(identifier: 'acsUserId')
+let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
+let callee = CommunicationUserIdentifier(identifier: 'UserId')
 let groupCall = self.callAgent.call(participants: [pstnCallee, callee], options: StartCallOptions())
 
 ```
@@ -157,14 +159,14 @@ Aby uzyskać wystąpienie Menedżera urządzeń, zapoznaj się [tutaj](#device-m
 
 ```swift
 
-let camera = self.deviceManager!.getCameraList()![0]
+let camera = self.deviceManager!.cameras!.first
 let localVideoStream = LocalVideoStream(camera: camera)
 let videoOptions = VideoOptions(localVideoStream: localVideoStream)
 
 let startCallOptions = StartCallOptions()
 startCallOptions?.videoOptions = videoOptions
 
-let callee = CommunicationUser(identifier: 'acsUserId')
+let callee = CommunicationUserIdentifier(identifier: 'UserId')
 let call = self.callAgent?.call(participants: [callee], options: startCallOptions)
 
 ```
@@ -174,10 +176,29 @@ Aby przyłączyć się do wywołania, należy wywołać jeden z interfejsów API
 
 ```swift
 
-let groupCallContext = GroupCallContext()
-groupCallContext?.groupId = UUID(uuidString: "uuid_string")!
-let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: JoinCallOptions())
+let groupCallLocator = GroupCallLocator(groupId: UUID(uuidString: "uuid_string"))!
+let call = self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions())
 
+```
+
+### <a name="subscribe-for-incoming-call"></a>Subskrybowanie wywołania przychodzącego
+Subskrybowanie przychodzącego zdarzenia wywołania
+
+```
+final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate
+{
+    // Event raised when there is an incoming call
+    public func onIncomingCall(_ callAgent: CallAgent!, incomingcall: IncomingCall!) {
+        self.incomingCall = incomingcall
+        // Subscribe to get OnCallEnded event
+        self.incomingCall?.delegate = self
+    }
+
+    // Event raised when incoming call was not answered
+    public func onCallEnded(_ incomingCall: IncomingCall!, args: PropertyChangedEventArgs!) {
+        self.incomingCall = nil
+    }
+}
 ```
 
 ### <a name="accept-an-incoming-call"></a>Zaakceptuj wywołanie przychodzące
@@ -195,19 +216,18 @@ final class CallHandler: NSObject, CallAgentDelegate
     }
 }
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
 let localVideoStream = LocalVideoStream(camera: firstCamera)
 let acceptCallOptions = AcceptCallOptions()
 acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
 if let incomingCall = CallHandler().incomingCall {
-   incomingCall.accept(options: acceptCallOptions,
-                          completionHandler: { (error) in
-                           if error == nil {
-                               print("Incoming call accepted")
-                           } else {
-                               print("Failed to accept incoming call")
-                           }
-                       })
+   incomingCall.accept(options: acceptCallOptions) { (call, error) in
+               if error == nil {
+                   print("Incoming call accepted")
+               } else {
+                   print("Failed to accept incoming call")
+               }
+           }
 } else {
    print("No incoming call found to accept")
 }
@@ -235,14 +255,13 @@ Po pomyślnej inicjacji należy wywołać rejestr powiadomień wypychanych. Gdy 
 ```swift
 
 let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
-callAgent.registerPushNotifications(deviceToken: deviceToken,
-                completionHandler: { (error) in
+callAgent.registerPushNotifications(deviceToken: deviceToken) { (error) in
     if(error == nil) {
         print("Successfully registered to push notification.")
     } else {
         print("Failed to register push notification.")
     }
-})
+}
 
 ```
 
@@ -251,31 +270,32 @@ Aby odbierać przychodzące wywołania powiadomień wypychanych, wywołaj *handl
 
 ```swift
 
-let dictionaryPayload = pushPayload?.dictionaryPayload
-callAgent.handlePushNotification(payload: dictionaryPayload, completionHandler: { (error) in
+let callNotification = IncomingCallInformation.from(payload: pushPayload?.dictionaryPayload)
+
+callAgent.handlePush(notification: callNotification) { (error) in
     if (error != nil) {
         print("Handling of push notification failed")
     } else {
         print("Handling of push notification was successful")
     }
-})
+}
 
 ```
 #### <a name="unregister-push-notification"></a>Wyrejestruj Powiadomienie wypychane
 
-Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Po prostu wywołaj `unRegisterPushNotification` metodę w *CallAgent*.
+Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Po prostu wywołaj `unregisterPushNotification` metodę w *CallAgent*.
 > [!NOTE]
 > Aplikacje nie są automatycznie wyrejestrowani z powiadomień wypychanych po wylogowaniu.
 
 ```swift
 
-callAgent.unRegisterPushNotifications(completionHandler: { (error) in
+callAgent.unregisterPushNotifications { (error) in
     if (error != nil) {
         print("Unregister of push notification failed, please try again")
     } else {
         print("Unregister of push notification was successful")
     }
-})
+}
 
 ```
 
@@ -288,26 +308,26 @@ Możesz wykonywać różne operacje w trakcie wywołania, aby zarządzać ustawi
 Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `unmute` asynchronicznych interfejsów API:
 
 ```swift
-call!.mute(completionHandler: { (error) in
+call!.mute { (error) in
     if error == nil {
         print("Successfully muted")
     } else {
         print("Failed to mute")
     }
-})
+}
 
 ```
 
 Komunikacji Odciszenie lokalne
 
 ```swift
-call!.unmute(completionHandler:{ (error) in
+call!.unmute { (error) in
     if error == nil {
         print("Successfully un-muted")
     } else {
         print("Failed to unmute")
     }
-})
+}
 ```
 
 ### <a name="start-and-stop-sending-local-video"></a>Uruchamianie i zatrzymywanie wysyłania lokalnego wideo
@@ -316,21 +336,20 @@ Aby rozpocząć wysyłanie lokalnego wideo do innych uczestników wywołania, u�
 
 ```swift
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
 let localVideoStream = LocalVideoStream(camera: firstCamera)
 
 call!.startVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
         print("Local video started successfully")
-    }
-    else {
+    } else {
         print("Local video failed to start")
     }
 }
 
 ```
 
-Po rozpoczęciu wysyłania wideo `ACSLocalVideoStream` wystąpienie jest dodawane do `localVideoStreams` kolekcji w wystąpieniu wywołania:
+Po rozpoczęciu wysyłania wideo `LocalVideoStream` wystąpienie jest dodawane do `localVideoStreams` kolekcji w wystąpieniu wywołania:
 
 ```swift
 
@@ -354,7 +373,7 @@ call!.stopVideo(stream: localVideoStream) { (error) in
 
 ## <a name="remote-participants-management"></a>Zdalne zarządzanie uczestnikami
 
-Wszyscy uczestnicy zdalni są reprezentowani przez `ACSRemoteParticipant` Typ i są dostępni za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania:
+Wszyscy uczestnicy zdalni są reprezentowani przez `RemoteParticipant` Typ i są dostępni za pomocą `remoteParticipants` kolekcji w wystąpieniu wywołania:
 
 ### <a name="list-participants-in-a-call"></a>Wyświetlanie listy uczestników wywołania
 
@@ -368,16 +387,16 @@ call.remoteParticipants
 
 ```swift
 
-// [ACSRemoteParticipantDelegate] delegate - an object you provide to receive events from this ACSRemoteParticipant instance
+// [RemoteParticipantDelegate] delegate - an object you provide to receive events from this RemoteParticipant instance
 var remoteParticipantDelegate = remoteParticipant.delegate
 
 // [CommunicationIdentifier] identity - same as the one used to provision token for another user
 var identity = remoteParticipant.identity
 
-// ACSParticipantStateIdle = 0, ACSParticipantStateEarlyMedia = 1, ACSParticipantStateConnecting = 2, ACSParticipantStateConnected = 3, ACSParticipantStateOnHold = 4, ACSParticipantStateInLobby = 5, ACSParticipantStateDisconnected = 6
+// ParticipantStateIdle = 0, ParticipantStateEarlyMedia = 1, ParticipantStateConnecting = 2, ParticipantStateConnected = 3, ParticipantStateOnHold = 4, ParticipantStateInLobby = 5, ParticipantStateDisconnected = 6
 var state = remoteParticipant.state
 
-// [ACSError] callEndReason - reason why participant left the call, contains code/subcode/message
+// [Error] callEndReason - reason why participant left the call, contains code/subcode/message
 var callEndReason = remoteParticipant.callEndReason
 
 // [Bool] isMuted - indicating if participant is muted
@@ -386,8 +405,8 @@ var isMuted = remoteParticipant.isMuted
 // [Bool] isSpeaking - indicating if participant is currently speaking
 var isSpeaking = remoteParticipant.isSpeaking
 
-// ACSRemoteVideoStream[] - collection of video streams this participants has
-var videoStreams = remoteParticipant.videoStreams // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
+// RemoteVideoStream[] - collection of video streams this participants has
+var videoStreams = remoteParticipant.videoStreams // [RemoteVideoStream, RemoteVideoStream, ...]
 
 ```
 
@@ -397,7 +416,7 @@ Aby dodać uczestnika do wywołania (użytkownika lub numeru telefonu), można w
 
 ```swift
 
-let remoteParticipantAdded: RemoteParticipant = call.add(participant: CommunicationUser(identifier: "userId"))
+let remoteParticipantAdded: RemoteParticipant = call.add(participant: CommunicationUserIdentifier(identifier: "userId"))
 
 ```
 
@@ -434,7 +453,7 @@ var remoteParticipantVideoStream = call.remoteParticipants[0].videoStreams[0]
 
 ```swift
 
-var type: MediaStreamType = remoteParticipantVideoStream.type // 'ACSMediaStreamTypeVideo'
+var type: MediaStreamType = remoteParticipantVideoStream.type // 'MediaStreamTypeVideo'
 
 var isAvailable: Bool = remoteParticipantVideoStream.isAvailable // indicates if remote stream is available
 
@@ -458,8 +477,6 @@ targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 ### <a name="remote-video-renderer-methods-and-properties"></a>Metody i właściwości zdalnego modułu renderowania wideo
 
 ```swift
-// [Bool] isRendering - indicating if stream is being rendered
-remoteVideoRenderer.isRendering()
 // [Synchronous] dispose() - dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
 remoteVideoRenderer.dispose()
 ```
@@ -470,28 +487,27 @@ remoteVideoRenderer.dispose()
 
 ```swift
 
-self.callClient!.getDeviceManager(
-    completionHandler: { (deviceManager, error) in
+self.callClient!.getDeviceManager { (deviceManager, error) in
         if (error == nil) {
             print("Got device manager instance")
             self.deviceManager = deviceManager
         } else {
             print("Failed to get device manager instance")
         }
-    })
+    }
 ```
 
 ### <a name="enumerate-local-devices"></a>Wyliczanie urządzeń lokalnych
 
-Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Menedżer urządzeń. Wyliczenie jest akcją synchroniczną.
+Aby uzyskać dostęp do urządzeń lokalnych, można użyć metod wyliczania na Device Manager. Wyliczenie jest akcją synchroniczną.
 
 ```swift
 // enumerate local cameras
-var localCameras = deviceManager.getCameraList() // [ACSVideoDeviceInfo, ACSVideoDeviceInfo...]
+var localCameras = deviceManager.cameras! // [VideoDeviceInfo, VideoDeviceInfo...]
 // enumerate local cameras
-var localMicrophones = deviceManager.getMicrophoneList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+var localMicrophones = deviceManager.microphones! // [AudioDeviceInfo, AudioDeviceInfo...]
 // enumerate local cameras
-var localSpeakers = deviceManager.getSpeakerList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+var localSpeakers = deviceManager.speakers! // [AudioDeviceInfo, AudioDeviceInfo...]
 ``` 
 
 ### <a name="set-default-microphonespeaker"></a>Ustaw domyślny Mikrofon/głośnik
@@ -500,25 +516,25 @@ Menedżer urządzeń umożliwia ustawienie domyślnego urządzenia, które będz
 
 ```swift
 // get first microphone
-var firstMicrophone = self.deviceManager!.getMicrophoneList()![0]
+var firstMicrophone = self.deviceManager!.cameras!.first
 // [Synchronous] set microphone
 deviceManager.setMicrophone(microphoneDevice: firstMicrophone)
 // get first speaker
-var firstSpeaker = self.deviceManager!.getSpeakerList()![0]
+var firstSpeaker = self.deviceManager!.speakers!
 // [Synchronous] set speaker
 deviceManager.setSpeaker(speakerDevice: firstSpeaker)
 ```
 
 ### <a name="local-camera-preview"></a>Podgląd lokalnego aparatu fotograficznego
 
-Możesz użyć, `ACSRenderer` Aby rozpocząć renderowanie strumienia z aparatu lokalnego. Ten strumień nie będzie wysyłany do innych uczestników; jest to lokalna wersja zapoznawcza. Jest to akcja asynchroniczna.
+Możesz użyć, `Renderer` Aby rozpocząć renderowanie strumienia z aparatu lokalnego. Ten strumień nie będzie wysyłany do innych uczestników; jest to lokalna wersja zapoznawcza. Jest to akcja asynchroniczna.
 
 ```swift
 
 let camera: VideoDeviceInfo = self.deviceManager!.getCameraList()![0]
 let localVideoStream: LocalVideoStream = LocalVideoStream(camera: camera)
 let renderer: Renderer = Renderer(localVideoStream: localVideoStream)
-self.view = renderer!.createView()
+self.view = try renderer!.createView()
 
 ```
 
@@ -528,14 +544,14 @@ Moduł renderowania ma zestaw właściwości i metod, które umożliwiają kontr
 
 ```swift
 
-// Constructor can take in ACSLocalVideoStream or ACSRemoteVideoStream
+// Constructor can take in LocalVideoStream or RemoteVideoStream
 let localRenderer = Renderer(localVideoStream:localVideoStream)
 let remoteRenderer = Renderer(remoteVideoStream:remoteVideoStream)
 
-// [ACSStreamSize] size of the rendering view
+// [StreamSize] size of the rendering view
 localRenderer.size
 
-// [ACSRendererDelegate] an object you provide to receive events from this ACSRenderer instance
+// [RendererDelegate] an object you provide to receive events from this Renderer instance
 localRenderer.delegate
 
 // [Synchronous] create view

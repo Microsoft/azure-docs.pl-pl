@@ -158,6 +158,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: Korzystanie z uwierzytelniania opartego na programie SMS
       href: howto-authentication-sms-signin.md
+    - name: Nieobsługiwana dwukierunkowa wiadomość SMS
+      href: how-to-authentication-two-way-sms-unsupported.md
     - name: Użyj logowania przy użyciu adresu e-mail
       href: howto-authentication-use-email-signin.md
     - name: Inteligentna blokada w usłudze Azure AD
@@ -173,7 +175,7 @@
               href: active-directory-certificate-based-authentication-ios.md
     - name: Raportowanie
       items:
-        - name: Użycie i szczegółowe informacje
+        - name: Działanie metod uwierzytelniania
           href: howto-authentication-methods-usage-insights.md
         - name: Raporty samoobsługowego resetowania hasła
           href: howto-sspr-reporting.md

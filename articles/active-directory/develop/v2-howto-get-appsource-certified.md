@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 7731aa2eb1a962d4674ed382911ba0058e1ebdaf
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222170"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647510"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Uzyskaj certyfikat AppSource Certified for Azure Active Directory
 
@@ -104,9 +104,9 @@ Aby uzyskać więcej informacji na temat korzystania z wersji próbnej usługi A
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-W przypadku integracji z usługą Azure AD firma Microsoft zaleca, aby zapewnić pomoc techniczną [&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) ze społecznością.
+W przypadku integracji z usługą Azure AD firma Microsoft zaleca, aby zapewnić pomoc techniczną [&A](/answers/topics/azure-active-directory.html) ze społecznością.
 
-Zdecydowanie zalecamy, aby zadać pytania dotyczące [firmy Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-active-directory.html) i przeszukiwać istniejące problemy, aby zobaczyć, czy ktoś zażądał wcześniej pytania. Upewnij się, że Twoje pytania lub komentarze są oznaczone przy użyciu [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+Zdecydowanie zalecamy, aby zadać pytania dotyczące [firmy Microsoft&pytań](/answers/topics/azure-active-directory.html) i przeszukiwać istniejące problemy, aby zobaczyć, czy ktoś zażądał wcześniej pytania. Upewnij się, że Twoje pytania lub komentarze są oznaczone przy użyciu [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Skorzystaj z poniższej sekcji komentarzy, aby przekazać Opinie i popomóc nam udoskonalić zawartość i kształtować ją.
 

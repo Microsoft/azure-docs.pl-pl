@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053859"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646133"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie BlueJeans na potrzeby automatycznego aprowizacji użytkowników
 
@@ -27,7 +27,7 @@ W tym samouczku opisano kroki, które należy wykonać w programie BlueJeans i A
 > * Tworzenie użytkowników w BlueJeans
 > * Usuń użytkowników w BlueJeans, gdy nie wymagają już dostępu
 > * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i BlueJeans
-> * [Logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) jednokrotne do BlueJeans (zalecane)
+> * [Logowanie](./bluejeans-tutorial.md) jednokrotne do BlueJeans (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -141,7 +141,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników zde
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
 
 1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md), aby określić, których użytkowników udało się lub nie udało aprowizować
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
+2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika

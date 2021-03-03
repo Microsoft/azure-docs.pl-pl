@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 7068409c8d1dee7181948e3c3d1326f8538c6daf
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 43edf62a625d80de0a5de8e0924e771d68a595e8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430521"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647119"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z osobami
 
@@ -156,7 +156,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Bezpośrednio przejdź do adresu URL logowania do osoby i zainicjuj przepływ logowania.
 
-* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka osoby w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do osoby. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka osoby w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania do osoby. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-people-mobile"></a>Testowanie logowania jednokrotnego dla osób (mobilnych)
 
@@ -174,4 +174,4 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu osób można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu osób można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368017"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656809"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning
 
@@ -172,7 +172,12 @@ Aby uzyskać informacje na temat usługi Azure Virtual Machines, zobacz [dokumen
 
 ## <a name="enable-public-access"></a>Włącz dostęp publiczny
 
-Po skonfigurowaniu obszaru roboczego za pomocą prywatnego punktu końcowego można opcjonalnie włączyć publiczny dostęp do obszaru roboczego. Nie spowoduje to usunięcia prywatnego punktu końcowego. Umożliwia ona dostęp publiczny oprócz dostępu prywatnego. Aby włączyć publiczny dostęp do prywatnego obszaru roboczego z obsługą linków, wykonaj następujące czynności:
+W niektórych sytuacjach możesz chcieć zezwolić komuś na łączenie się z zabezpieczonym obszarem roboczym za pośrednictwem publicznego punktu końcowego, a nie przez sieć wirtualną. Po skonfigurowaniu obszaru roboczego za pomocą prywatnego punktu końcowego można opcjonalnie włączyć publiczny dostęp do obszaru roboczego. Nie spowoduje to usunięcia prywatnego punktu końcowego. Cała komunikacja między składnikami za siecią wirtualną jest nadal zabezpieczona. Umożliwia dostęp publiczny tylko do obszaru roboczego, a nie do prywatnego dostępu za pomocą sieci wirtualnej.
+
+> [!WARNING]
+> Podczas nawiązywania połączenia za pośrednictwem publicznego punktu końcowego niektóre funkcje programu Studio nie będą mogły uzyskać dostępu do danych. Ten problem występuje, gdy dane są przechowywane w usłudze, która jest zabezpieczona za siecią wirtualną. Na przykład konto usługi Azure Storage.
+
+Aby włączyć publiczny dostęp do prywatnego obszaru roboczego z obsługą linków, wykonaj następujące czynności:
 
 # <a name="python"></a>[Python](#tab/python)
 

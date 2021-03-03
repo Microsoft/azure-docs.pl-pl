@@ -2,18 +2,18 @@
 title: Architektura agenta Kubernetes z włączoną funkcją Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera omówienie architektury agentów Kubernetes włączonych przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652568"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650536"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Architektura agenta Kubernetes z włączoną funkcją Azure Arc
 
@@ -42,7 +42,7 @@ Większość Premium centrów danych wymusza ścisłe reguły sieciowe uniemożl
 
         | Agent | Opis |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Usługa Azure ARC z włączonym Kubernetes obecnie obsługuje tylko [tożsamości przypisane do systemu](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` Inicjuje pierwszą komunikację wychodzącą. Ta pierwsza komunikacja pobiera certyfikat tożsamość usługi zarządzanej (MSI) używany przez innych agentów do komunikacji z platformą Azure. |
+        | `deployment.apps/clusteridentityoperator` | Usługa Azure ARC z włączonym Kubernetes obecnie obsługuje tylko [tożsamości przypisane do systemu](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` Inicjuje pierwszą komunikację wychodzącą. Ta pierwsza komunikacja pobiera certyfikat tożsamość usługi zarządzanej (MSI) używany przez innych agentów do komunikacji z platformą Azure. |
         | `deployment.apps/config-agent` | Obserwuje podłączony klaster pod kątem zasobów konfiguracji kontroli źródła zastosowanych w klastrze. Aktualizuje stan zgodności. |
         | `deployment.apps/controller-manager` | Operator operatorów, który organizuje interakcje między składnikami usługi Azure Arc. |    
         | `deployment.apps/metrics-agent` | Zbiera metryki innych agentów Arc w celu sprawdzenia optymalnej wydajności. |
@@ -93,5 +93,5 @@ Większość Premium centrów danych wymusza ścisłe reguły sieciowe uniemożl
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Łączenie klastra z usługą Azure Arc](./connect-cluster.md)
+* [Łączenie klastra z usługą Azure Arc](./quickstart-connect-cluster.md)
 * [Omówienie pojęć dotyczących konfiguracji](./conceptual-configurations.md)

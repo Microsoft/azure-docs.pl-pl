@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef013d97be8a5decbee46d25752ced7bd622a646
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364838"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657778"
 ---
 # <a name="chat-client-library-overview"></a>Omówienie biblioteki klienta czatu
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Za pomocą bibliotek klienckich czatu usługi Azure Communication Services można dodawać rozbudowane rozmowy w czasie rzeczywistym do aplikacji.
 

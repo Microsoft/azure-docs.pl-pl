@@ -12,12 +12,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 78f844295c16d15be65f345881ec92fa15a9734a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428035"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649227"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -95,7 +95,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS50000 | TokenIssuanceError — wystąpił problem z usługą logowania. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md), aby rozwiązać ten problem. |
 | AADSTS50001 | InvalidResource — zasób jest wyłączony lub nie istnieje. Sprawdź kod aplikacji, aby upewnić się, że został określony dokładny adres URL zasobu dla zasobu, do którego próbujesz uzyskać dostęp.  |
 | AADSTS50002 | NotAllowedTenant — logowanie nie powiodło się z powodu ograniczonego dostępu do serwera proxy w dzierżawie. Jeśli są to Twoje własne zasady dzierżawy, możesz zmienić ustawienia dzierżawy z ograniczeniami, aby rozwiązać ten problem. |
-| AADSTS500021 | Odmowa dostępu do dzierżawy "{dzierżawca}". AADSTS500021 wskazuje, że funkcja ograniczenia dzierżawy została skonfigurowana i że użytkownik próbuje uzyskać dostęp do dzierżawy, która nie znajduje się na liście dozwolonych dzierżawców określonych w nagłówku `Restrict-Access-To-Tenant` . Aby uzyskać więcej informacji, zobacz [Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
+| AADSTS500021 | Odmowa dostępu do dzierżawy "{dzierżawca}". AADSTS500021 wskazuje, że funkcja ograniczenia dzierżawy została skonfigurowana i że użytkownik próbuje uzyskać dostęp do dzierżawy, która nie znajduje się na liście dozwolonych dzierżawców określonych w nagłówku `Restrict-Access-To-Tenant` . Aby uzyskać więcej informacji, zobacz [Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS](../manage-apps/tenant-restrictions.md).|
 | AADSTS50003 | MissingSigningKey — logowanie nie powiodło się z powodu braku klucza podpisywania lub certyfikatu. Może to być spowodowane tym, że w aplikacji nie został skonfigurowany klucz podpisywania. Zapoznaj się z rozwiązaniami opisanymi pod adresem [.. /Manage-Apps/Application-Sign-in-problem-Federated-SSO-Gallery.MD # certyfikat-lub-Key-nie został skonfigurowany](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Jeśli nadal widzisz problemy, skontaktuj się z właścicielem aplikacji lub administratorem aplikacji. |
 | AADSTS50005 | DevicePolicyError — użytkownik próbował zalogować się na urządzeniu z platformy, która nie jest obecnie obsługiwana przez zasady dostępu warunkowego. |
 | AADSTS50006 | InvalidSignature — weryfikacja podpisu nie powiodła się z powodu nieprawidłowej sygnatury. |
@@ -168,6 +168,7 @@ Na przykład jeśli wystąpił kod błędu "AADSTS50058", wykonaj wyszukiwanie w
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired — klient może uzyskać token logowania jednokrotnego za pomocą rozszerzenia kont systemu Windows 10, ale nie znaleziono tokenu w żądaniu lub dostarczony token wygasł. |
 | AADSTS50169 | InvalidRequestBadRealm — obszar nie jest skonfigurowanym obszarem przestrzeni nazw bieżącej usługi. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping — Brak mapowania formantów zewnętrznych. |
+| AADSTS50173 | FreshTokenNeeded — podany przydział wygasł ze względu na jego odwołanie i jest wymagany nowy token uwierzytelniania. Administrator lub użytkownik odwołał tokeny dla tego użytkownika, co spowoduje, że kolejne odświeżanie tokenów zakończy się niepowodzeniem i wymaga ponownego uwierzytelnienia. Użytkownik musi się ponownie zalogować. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers — zewnętrzny test nie jest obsługiwany w przypadku użytkowników przekazujących. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers — kontrola sesji nie jest obsługiwana w przypadku użytkowników przekazujących. |
 | AADSTS50180 | Wymagana jest WindowsIntegratedAuthMissing zintegrowane uwierzytelnianie systemu Windows. Włącz dzierżawę dla bezproblemowego logowania jednokrotnego. |

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 92658584030fa83da067eceab391d9bba2f034c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 203abe2b6def478dc1747dd4ce638b5b62707612
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392303"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659226"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
 
@@ -94,12 +94,12 @@ WITH  ( <with_options> )
 
 - [DATA_SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [FILE_FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **Lokalizacja** : Określa nazwę rzeczywistego danych lub lokalizacji w źródle danych. 
+- **Lokalizacja**: Określa nazwę rzeczywistego danych lub lokalizacji w źródle danych. 
    - W przypadku obiektów usługi Edge Hub lub strumienia Kafka Lokalizacja określa nazwę centrum krawędzi lub tematu Kafka, z którego ma zostać odczytana lub zapisana.
    - W przypadku obiektów usługi SQL Stream (SQL Server, Azure SQL Database lub Azure SQL Edge) określa nazwę tabeli. Jeśli strumień jest tworzony w tej samej bazie danych i schemacie co tabela docelowa, wystarczy tylko nazwa tabeli. W przeciwnym razie należy w pełni kwalifikować się do nazwy tabeli (<database_name. schema_name. table_name).
    - W przypadku lokalizacji obiektu usługi Azure Blob Storage Stream odwołuje się do wzorca ścieżki, który ma być używany wewnątrz kontenera obiektów BLOB. Aby uzyskać więcej informacji na temat tej funkcji, zobacz (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-Data-Lake-Gen2)
 
-- **INPUT_OPTIONS** : Określ opcje jako pary klucz-wartość dla usług takich jak Kafka, IoT Edge Hub, które są danymi wejściowymi zapytań przesyłania strumieniowego
+- **INPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla usług takich jak Kafka, IoT Edge Hub, które są danymi wejściowymi zapytań przesyłania strumieniowego
     - PARTYCJE: liczba partycji zdefiniowanych dla tematu. Maksymalna liczba partycji, których można użyć, jest ograniczona do 32.
       - Dotyczy strumieni danych wejściowych Kafka
     - CONSUMER_GROUP: Centra zdarzeń i IoT ograniczają liczbę czytelników w ramach jednej grupy odbiorców (do 5). Pozostawienie tego pola pustego spowoduje użycie grupy konsumentów "$Default".
@@ -111,7 +111,7 @@ WITH  ( <with_options> )
     - OUT_OF_ORDER_EVENT_TOLERANCE: zdarzenia mogą być przychodzące po wykonaniu podróży od danych wejściowych do zapytania przesyłania strumieniowego. Te zdarzenia mogą być akceptowane w stanie takim, w jakim jest lub można wstrzymać pracę w określonym okresie, aby zmienić ich kolejność.
       - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
         
-- **OUTPUT_OPTIONS** : Określ opcje jako pary klucz-wartość dla obsługiwanych usług, które są wyprowadzane strumieniowo zapytania 
+- **OUTPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla obsługiwanych usług, które są wyprowadzane strumieniowo zapytania 
   - REJECT_POLICY: UPUŚĆ | Ponów PRÓBę gatunku zasad obsługi błędów danych w przypadku wystąpienia błędów konwersji danych. 
     - Dotyczy wszystkich obsługiwanych danych wyjściowych 
   - MINIMUM_ROWS:  
@@ -162,7 +162,7 @@ WITH
  
 CREATE EXTERNAL FILE FORMAT myFileFormat  
 WITH (  
-   FORMAT_TYPE = 'JSON', 
+   FORMAT_TYPE = JSON, 
 ); 
  
 CREATE EXTERNAL STREAM Stream_A  

@@ -7,19 +7,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/23/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ad9bd8dec94660d94cf3a106d31dafdad06f47a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 85d00b393ad169764a2f26e324295308ef49d3ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584514"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646585"
 ---
-# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w Azure Active Directory B2C
+# <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w usłudze Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -71,9 +71,9 @@ Sesja aplikacji może być sesją plików cookie przechowywaną w obszarze Nazwa
 
 Można skonfigurować zachowanie sesji Azure AD B2C, w tym:
 
-- **Okres istnienia sesji aplikacji sieci Web (w minutach)** — czas, przez jaki plik cookie sesji Azure AD B2C jest przechowywany w przeglądarce użytkownika po pomyślnym uwierzytelnieniu. Czas trwania sesji można ustawić na wartość z okresu od 15 do 720 minut.
+- **Okres istnienia sesji aplikacji sieci Web (w minutach)** — czas, przez jaki plik cookie sesji Azure AD B2C jest przechowywany w przeglądarce użytkownika po pomyślnym uwierzytelnieniu. Okres istnienia sesji można ustawić na wartość z przekroczenia od 15 do 720 minut.
 
-- **Limit czasu sesji aplikacji sieci Web** — wskazuje, w jaki sposób sesja jest rozszerzona za pomocą ustawienia czas życia sesji lub ustawienia nie wylogowuj mnie.
+- **Limit czasu sesji aplikacji sieci Web** — wskazuje, w jaki sposób sesja jest rozszerzona za pomocą ustawienia okresu istnienia sesji lub ustawienia nie wylogowuj mnie (KMSI).
   - **Krocząca** — wskazuje, że sesja jest rozszerzana za każdym razem, gdy użytkownik wykonuje uwierzytelnianie na podstawie plików cookie (domyślnie).
   - **Bezwzględna** — wskazuje, że użytkownik jest zmuszony do ponownego uwierzytelnienia po upływie określonego czasu.
 
@@ -82,9 +82,7 @@ Można skonfigurować zachowanie sesji Azure AD B2C, w tym:
   - **Aplikacja** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla aplikacji, niezależnie od innych aplikacji. Można na przykład użyć tego ustawienia, jeśli chcesz, aby użytkownik zalogował się do usługi contoso apteki, niezależnie od tego, czy użytkownik jest już zalogowany do artykułów spożywczych firmy Contoso.
   - **Zasady** — to ustawienie umożliwia obsługę sesji użytkownika wyłącznie dla przepływu użytkownika niezależnie od aplikacji, z których korzysta. Na przykład jeśli użytkownik został już zalogowany i ukończył krok uwierzytelniania wieloskładnikowego (MFA), użytkownik może uzyskać dostęp do części o wyższym poziomie zabezpieczeń wielu aplikacji, o ile sesja związana z przepływem użytkownika nie wygasa.
   - **Wyłączone** — to ustawienie wymusza uruchomienie użytkownika przez cały przepływ użytkownika przy każdym wykonaniu zasad.
-::: zone pivot="b2c-custom-policy"
-- Nie **wylogowuj mnie** — wydłuża czas trwania sesji przy użyciu trwałego pliku cookie. Sesja pozostaje aktywna po zamknięciu i ponownym otwarciu przeglądarki przez użytkownika. Sesja zostanie odwołana tylko wtedy, gdy użytkownik wyloguje się. Funkcja nie wylogowuj mnie dotyczy tylko logowania z kontami lokalnymi. Funkcja Keeping Me ma pierwszeństwo przed okresem istnienia sesji. Jeśli funkcja nie wylogowuj mnie jest włączona, a użytkownik wybierze ją, ta funkcja będzie określać, kiedy sesja wygaśnie. 
-::: zone-end
+- Nie **wylogowuj mnie (KMSI)** — rozszerza okres istnienia sesji przy użyciu trwałego pliku cookie. Jeśli ta funkcja jest włączona, a użytkownik wybierze ją, sesja pozostaje aktywna nawet po zamknięciu i ponownym otwarciu przeglądarki przez użytkownika. Sesja jest odwołana tylko wtedy, gdy użytkownik się wyloguje. Funkcja KMSI ma zastosowanie tylko do logowania z kontami lokalnymi. Funkcja KMSI ma pierwszeństwo przed okresem istnienia sesji.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -112,12 +110,43 @@ Aby zmienić zachowanie sesji i konfiguracje rejestracji jednokrotnej, należy d
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
+::: zone-end
 
 ## <a name="enable-keep-me-signed-in-kmsi"></a>Włącz opcję Nie wylogowuj mnie (KMSI)
 
-Możesz włączyć funkcje nie wylogowuj mnie dla użytkowników aplikacji sieci Web i natywnych, które mają konta lokalne w katalogu Azure Active Directory B2C (Azure AD B2C). Ta funkcja udziela dostępu do użytkowników, którzy powracają do aplikacji bez monitowania o wprowadzenie nazwy użytkownika i hasła. Ten dostęp jest odwoływany po wylogowaniu się użytkownika.
+Funkcję KMSI można włączyć dla użytkowników sieci Web i aplikacji natywnych, którzy mają konta lokalne w katalogu Azure AD B2C. Po włączeniu tej funkcji użytkownicy mogą zrezygnować z zalogowania się, aby sesja pozostawała aktywna po zamknięciu przeglądarki. Następnie mogą ponownie otworzyć przeglądarkę bez monitowania o ponowne wprowadzenie nazwy użytkownika i hasła. Ten dostęp jest odwoływany po wylogowaniu się użytkownika.
 
 ![Przykładowa strona logowania z zalogowaniem, która wyświetla pole wyboru nie wylogowuj mnie](./media/session-behavior/keep-me-signed-in.png)
+
+
+::: zone pivot="b2c-user-flow"
+
+KMSI można skonfigurować na poziomie przepływu poszczególnych użytkowników. Przed włączeniem KMSI dla przepływów użytkownika należy wziąć pod uwagę następujące kwestie:
+
+- KMSI jest obsługiwana tylko dla **zalecanych** wersji rejestrowania i logowania (Susi), logowania i edytowania profilów użytkowników. Jeśli posiadasz obecnie **standardowe** lub **starsze wersje zapoznawcze-v2** tych przepływów użytkownika i chcesz włączyć KMSI, musisz utworzyć nowe, **zalecane** wersje tych przepływów użytkowników.
+- KMSI nie jest obsługiwana w przypadku przepływów użytkownika resetowania hasła ani rejestrowania.
+- Jeśli chcesz włączyć KMSI dla wszystkich aplikacji w swojej dzierżawie, zalecamy włączenie KMSI dla wszystkich przepływów użytkowników w dzierżawie. Ze względu na to, że użytkownik może być prezentowany przy użyciu wielu zasad w trakcie sesji, możliwe, że może napotkać taki, który nie ma włączonej KMSI, co spowoduje usunięcie pliku cookie KMSI z sesji.
+- KMSI nie powinny być włączone na komputerach publicznych.
+
+### <a name="configure-kmsi-for-a-user-flow"></a>Konfigurowanie KMSI dla przepływu użytkownika
+
+Aby włączyć KMSI dla przepływu użytkownika:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C.  ****   W górnym menu wybierz pozycję katalog i subskrypcja, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+3. Wybierz pozycję **wszystkie usługi**   w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
+4. Wybierz pozycję **przepływy użytkownika (zasady)**.
+5. Otwórz wcześniej utworzony przepływ użytkownika.
+6. Wybierz pozycję **Właściwości**.
+
+7. W obszarze  **zachowanie sesji** zaznacz pole wyboru **Włącz logowanie nie wylogowuj mnie**. Obok pozycji nie **wylogowuj mnie (dni)** wprowadź wartość z przenoszącą od 1 do 90, aby określić liczbę dni, przez które sesja może pozostać otwarta.
+
+
+   ![Włącz opcję Nie wylogowuj mnie](media/session-behavior/enable-keep-me-signed-in.png)
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Użytkownicy nie powinni włączać tej opcji na komputerach publicznych.
 

@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219947"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650111"
 ---
 # <a name="support-and-help-options-for-developers"></a>Pomoc techniczna i opcje pomocy dla deweloperów
 
@@ -32,11 +32,11 @@ Jeśli dopiero zaczynasz integrację z usługą Azure Active Directory (Azure AD
 
 ## <a name="search"></a>Wyszukaj
 
-Jeśli masz pytanie związane z programowaniem, możesz znaleźć odpowiedź w dokumentacji, na przykładach usługi [GitHub](https://github.com/azure-samples)lub odpowiedzi na pytania [firmy&Microsoft](https://docs.microsoft.com/answers/products/) pytań.
+Jeśli masz pytanie związane z programowaniem, możesz znaleźć odpowiedź w dokumentacji, na przykładach usługi [GitHub](https://github.com/azure-samples)lub odpowiedzi na pytania [firmy&Microsoft](/answers/products/) pytań.
 
 ### <a name="scoped-search"></a>Wyszukiwanie w zakresie
 
-W celu uzyskania szybszych wyników zakres wyszukiwania do [firmy Microsoft Q&](https://docs.microsoft.com/answers/products/)dokumentację i przykłady kodu, używając następującego zapytania w ulubionym aparacie wyszukiwania:
+W celu uzyskania szybszych wyników zakres wyszukiwania do [firmy Microsoft Q&](/answers/products/)dokumentację i przykłady kodu, używając następującego zapytania w ulubionym aparacie wyszukiwania:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,24 +53,24 @@ Gdzie *{Twoje terminy wyszukiwania}* odpowiadają Twoim słów kluczowych wyszuk
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Opublikuj pytanie w firmie Microsoft Q&A
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/products/) jest preferowanym kanałem dla pytań związanych z programowaniem. W tym miejscu członkowie społeczności deweloperów i członków zespołu firmy Microsoft są bezpośrednio włączeni do rozwiązywania problemów.
+[Microsoft Q&A](/answers/products/) jest preferowanym kanałem dla pytań związanych z programowaniem. W tym miejscu członkowie społeczności deweloperów i członków zespołu firmy Microsoft są bezpośrednio włączeni do rozwiązywania problemów.
 
-Jeśli nie możesz znaleźć odpowiedzi na swoje pytanie, korzystając z wyszukiwania, Prześlij nowe pytanie do [firmy Microsoft Q&a](https://docs.microsoft.com/answers/products/) . Skorzystaj z jednego z następujących tagów, aby zadawać pytania ułatwiające społeczności identyfikację i szybkie oddawanie odpowiedzi:
+Jeśli nie możesz znaleźć odpowiedzi na swoje pytanie, korzystając z wyszukiwania, Prześlij nowe pytanie do [firmy Microsoft Q&a](/answers/products/) . Skorzystaj z jednego z następujących tagów, aby zadawać pytania ułatwiające społeczności identyfikację i szybkie oddawanie odpowiedzi:
 
 |Składnik/obszar  | Tagi |
 |---------|---------|
-| Biblioteka ADAL | [ADAL](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
-| Biblioteka MSAL     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
-| Oprogramowanie pośredniczące OWIN  | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Funkcje B2B platformy Azure](../external-identities/what-is-b2b.md)  | [[Azure-AD-B2B]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[Azure-AD-Graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Każdy inny obszar związany z uwierzytelnianiem lub tematami autoryzacji | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Biblioteka ADAL | [ADAL](/answers/topics/azure-ad-adal-deprecation.html) |
+| Biblioteka MSAL     | [msal](/answers/topics/azure-ad-msal.html) |
+| Oprogramowanie pośredniczące OWIN  | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
+| [Funkcje B2B platformy Azure](../external-identities/what-is-b2b.md)  | [[Azure-AD-B2B]](/answers/topics/azure-ad-b2b.html) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](/answers/topics/azure-ad-b2c.html) |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[Azure-AD-Graph]](/answers/topics/azure-ad-graph.html) |
+| Każdy inny obszar związany z uwierzytelnianiem lub tematami autoryzacji | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
 
-Następujące wpisy [firmy Microsoft Q&a](https://docs.microsoft.com/answers/products/) zawierają wskazówki dotyczące sposobu zadawania pytań i dodawania kodu źródłowego. Postępuj zgodnie z poniższymi wskazówkami, aby zwiększyć szanse, aby członkowie społeczności mogli szybko ocenić swoje pytania i odpowiedzieć na nie:
+Następujące wpisy [firmy Microsoft Q&a](/answers/products/) zawierają wskazówki dotyczące sposobu zadawania pytań i dodawania kodu źródłowego. Postępuj zgodnie z poniższymi wskazówkami, aby zwiększyć szanse, aby członkowie społeczności mogli szybko ocenić swoje pytania i odpowiedzieć na nie:
 
-* [Jak mogę zadać dobre pytanie](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-* [Jak utworzyć przykład minimalny, pełny i możliwy do zweryfikowania](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
+* [Jak mogę zadać dobre pytanie](/answers/articles/24951/how-to-write-a-quality-question.html)
+* [Jak utworzyć przykład minimalny, pełny i możliwy do zweryfikowania](/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## <a name="create-a-github-issue"></a>Utwórz problem w usłudze GitHub
 

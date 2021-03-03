@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Dowiedz się, jak uaktualnić z CentOS i Ubuntu 16,04 do najnowszej Ubuntu 18,04 Data Science Virtual Machine.
 keywords: uczenie głębokie, AI, narzędzia do nauki o danych, maszyna wirtualna do nauki o danych, proces nauki danych zespołu
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320984"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659464"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Uaktualnianie maszyny Data Science Virtual Machine do systemu Ubuntu 18.04
 
@@ -38,7 +37,7 @@ W Azure Portal Użyj paska wyszukiwania, aby znaleźć funkcję **migawek** .
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
 
-1. Wybierz pozycję **Dodaj** , co spowoduje przejście do strony **Tworzenie migawki** . Wybierz subskrypcję i grupę zasobów maszyny wirtualnej. W polu **region** wybierz ten sam region, w którym znajduje się magazyn docelowy. Wybierz dysk magazynu DSVM i dodatkowe opcje tworzenia kopii zapasowej. **HDD w warstwie Standardowa** jest odpowiednim typem magazynu dla tego scenariusza tworzenia kopii zapasowych.
+1. Wybierz pozycję **Dodaj**, co spowoduje przejście do strony **Tworzenie migawki** . Wybierz subskrypcję i grupę zasobów maszyny wirtualnej. W polu **region** wybierz ten sam region, w którym znajduje się magazyn docelowy. Wybierz dysk magazynu DSVM i dodatkowe opcje tworzenia kopii zapasowej. **HDD w warstwie Standardowa** jest odpowiednim typem magazynu dla tego scenariusza tworzenia kopii zapasowych.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Zrzut ekranu przedstawiający opcje tworzenia migawek":::
 
@@ -65,7 +64,7 @@ Proces uaktualniania zajmie trochę czasu. Po przekroczeniu tego programu progra
 
 Po uaktualnieniu i ponownym uruchomieniu maszyny wirtualnej spróbuj uzyskać do niej dostęp za pośrednictwem protokołu SSH. Adres IP mógł ulec zmianie podczas ponownego rozruchu, więc potwierdź go przed podjęciem próby nawiązania połączenia.
 
-Jeśli zostanie wyświetlony błąd **Identyfikacja hosta zdalnego została zmieniona** , należy ponownie wygenerować poświadczenia protokołu SSH.
+Jeśli zostanie wyświetlony błąd **Identyfikacja hosta zdalnego została zmieniona**, należy ponownie wygenerować poświadczenia protokołu SSH.
 
 :::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Zrzut ekranu programu PowerShell przedstawiający ostrzeżenie o zmianie identyfikacji hosta zdalnego":::
 
@@ -103,11 +102,11 @@ Możesz zdecydować się na uaktualnienie części systemu operacyjnego w system
 
 Jeśli migawka maszyny wirtualnej nie została jeszcze utworzona jak opisano wcześniej, zrób to. 
 
-1. W Azure Portal Wyszukaj **dyski** i wybierz pozycję **Dodaj** , co spowoduje otwarcie strony **dysk** .
+1. W Azure Portal Wyszukaj **dyski** i wybierz pozycję **Dodaj**, co spowoduje otwarcie strony **dysk** .
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlania strony Wyszukiwanie dysków i przycisk Dodaj":::
 
-2. Ustaw dla **subskrypcji** , **grupy zasobów** i **regionu** wartości z migawki maszyny wirtualnej. Wybierz **nazwę** dysku, który ma zostać utworzony.
+2. Ustaw dla **subskrypcji**, **grupy zasobów** i **regionu** wartości z migawki maszyny wirtualnej. Wybierz **nazwę** dysku, który ma zostać utworzony.
 
 3. Wybierz **Typ źródła** jako **migawkę** i wybierz migawkę maszyny wirtualnej jako **migawkę źródłową**. Przejrzyj i Utwórz dysk. 
 

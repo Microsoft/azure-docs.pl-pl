@@ -2,18 +2,20 @@
 title: Scheduled Events dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Zaplanuj zdarzenia za pomocą usługi Azure Metadata Service dla maszyn wirtualnych z systemem Linux.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: scheduled-events
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1029790cbcfa86f988c2249d67640a642e529229
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104743"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674867"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events for Linux VMs (usługa podrzędna Scheduled Events dla maszyn wirtualnych z systemem Linux)
 
@@ -73,7 +75,7 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersja to `2019-08-01` .
 
-| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
+| Wersja | Typ wydania | Regiony | Informacje o wersji | 
 | - | - | - | - | 
 | 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
 | 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |

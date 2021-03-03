@@ -9,20 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0dbd1770030eeee8768c0b610171f5f27456ed70
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653819"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656231"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -56,7 +54,7 @@ Wiele scenariuszy najlepiej obsługuje aplikacje natywne. Usługi komunikacyjne 
 Komunikacja przez system telefonii może znacząco zwiększyć zasięg aplikacji. W celu obsługi scenariuszy głosowych i SMS w sieci PSTN usługi Azure Communication Services ułatwiają [pozyskiwanie numerów telefonów](../quickstarts/telephony-sms/get-phone-number.md) bezpośrednio z Azure Portal lub przy użyciu interfejsów API REST i bibliotek klienckich. Po pobraniu numerów telefonów mogą one być używane do uzyskiwania dostępu do klientów korzystających zarówno z połączeń PSTN, jak i SMS w scenariuszach przychodzących i wychodzących. Przykładowy przepływ architektury można znaleźć poniżej:
 
 > [!Note]
-> W publicznej wersji zapoznawczej udostępnianie numerów telefonów US jest dostępne dla klientów, którzy mają adresy rozliczeń znajdujące się w Stanach Zjednoczonych i Kanadzie. 
+> W publicznej wersji zapoznawczej udostępnianie numerów telefonów US jest dostępne dla klientów, którzy mają adresy rozliczeń znajdujące się w Stanach Zjednoczonych i Kanadzie.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram przedstawiający architekturę PSTN usług komunikacyjnych.":::
 

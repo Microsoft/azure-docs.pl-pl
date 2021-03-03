@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 517b07eecdbc63754f46fcf1051bf5b987dbc20e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654448"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668439"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Tworzenie reguł konfiguracji zestawu zasobów w zakresie
 
@@ -43,7 +43,7 @@ Wykonaj poniższe kroki, aby utworzyć nową konfigurację zestawu zasobów w za
 
 Podczas tworzenia reguł zestawu zasobów objętych zakresem należy użyć następującej składni, aby określić, które reguły zasobów mają zastosowanie.
 
-### <a name="static-replacers-single-brackets"></a>Statyczne elementy zastępcze (pojedyncze nawiasy)
+### <a name="dynamic-replacers-single-brackets"></a>Dynamiczne odmieszczenia (pojedyncze nawiasy)
 
 Pojedyncze nawiasy są używane jako **dynamiczne zamienniki** w regule zestawu zasobów w zakresie. Określ element zastępczy dynamicznego w nazwie kwalifikowanej przy użyciu formatu `{<replacerName:<replacerType>}` . W przypadku dopasowania dynamiczne zamienniki są używane jako warunek grupowania wskazujący, że zasoby powinny być reprezentowane jako zestaw zasobów. Jeśli zasoby są pogrupowane w zestawie zasobów, ścieżka kwalifikowana zestawu zasobów będzie zawierać miejsce, `{replacerName}` w którym został określony obiekt zastępczy.
 
@@ -92,7 +92,7 @@ Poniżej znajduje się kolejność operacji zastosowania reguł zestawu zasobów
 
 Wyodrębnianie danych SAP do obciążeń pełnych i różnicowych
 
-*Dane wejściowe*
+#### <a name="inputs"></a>Dane wejściowe
 
 Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -102,7 +102,7 @@ Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*Reguła zestawu zasobów w zakresie*
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
 
 **Zakres:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -112,7 +112,7 @@ Plikach
 
 **Zestaw zasobów:** prawda
 
-*Dane wyjściowe*
+#### <a name="output"></a>Dane wyjściowe 
 
 Jeden zasób zestawu zasobów
 
@@ -124,7 +124,7 @@ Jeden zasób zestawu zasobów
 
 Dane IoT w formacie Avro
 
-*Dane wejściowe*
+#### <a name="inputs"></a>Dane wejściowe 
 
 Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -132,7 +132,7 @@ Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Reguły zestawu zasobów w zakresie*
+#### <a name="scoped-resource-set-rules"></a>Reguły zestawu zasobów w zakresie 
 
 **Zakres:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -150,9 +150,9 @@ Reguła 2
 
 **Nazwa kwalifikowana:**`raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**Zestaw zasobów: prawda**
+#### <a name="resource-set-true"></a>*Zestaw zasobów: prawda* 
 
-*Dane wyjściowe*
+#### <a name="outputs"></a>Dane wyjściowe 
 
 2 zestawy zasobów 
 
@@ -172,7 +172,7 @@ Zestaw zasobów 2
 
 Dane IoT w formacie Avro
 
-*Dane wejściowe*
+#### <a name="inputs"></a>Dane wejściowe 
 
 Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -180,7 +180,7 @@ Plikach
 -   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Reguła zestawu zasobów w zakresie*
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
 
 **Zakres:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -190,7 +190,7 @@ Plikach
 
 **Zestaw zasobów:** prawda
 
-*Dane wyjściowe*
+#### <a name="outputs"></a>Dane wyjściowe 
 
 Zestaw zasobów 1
 
@@ -208,7 +208,7 @@ Zestaw zasobów 2
 
 Nie Grupuj do zestawów zasobów
 
-*Dane wejściowe*
+#### <a name="inputs"></a>Dane wejściowe 
 
 Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -216,7 +216,7 @@ Plikach
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Reguła zestawu zasobów w zakresie*
+#### <a name="scoped-resource-set-rule"></a>Reguła zestawu zasobów w zakresie 
 
 **Zakres:**https://myazureblob.blob.core.windows.net/bar/
 
@@ -226,7 +226,7 @@ Plikach
 
 **Zestaw zasobów:** FAŁSZ
 
-*Dane wyjściowe*
+#### <a name="outputs"></a>Dane wyjściowe 
 
 4 poszczególne zasoby
 

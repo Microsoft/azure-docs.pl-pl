@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 6517cdd7aafa7ae2fe351b349e62a66104469dcd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218234"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653783"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __P: jak działa MSAL z AD FS?__
 Odp.: MSAL.NET obsługuje pewne scenariusze do uwierzytelniania w odniesieniu do AD FS 2019. Jeśli aplikacja musi uzyskać tokeny bezpośrednio z wcześniejszej wersji AD FS, należy pozostawać w bibliotece ADAL. [Dowiedz się więcej](msal-net-adfs-support.md).
 
 __P: Jak mogę uzyskać pomoc w migrowaniu mojej aplikacji?__  
-Odp.: Zobacz sekcję [wskazówki dotyczące migracji](#migration-guidance) w tym artykule. Jeśli po zapoznaniu się z przewodnikiem dotyczącym platformy aplikacji masz dodatkowe pytania, możesz publikować w witrynie [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) ze znacznikiem `[azure-ad-adal-deprecation]` lub otworzyć problem w repozytorium GitHub biblioteki. Aby uzyskać linki do repozytorium każdej biblioteki, zobacz sekcję [Języki i struktury](msal-overview.md#languages-and-frameworks) w artykule Omówienie MSAL.
+Odp.: Zobacz sekcję [wskazówki dotyczące migracji](#migration-guidance) w tym artykule. Jeśli po zapoznaniu się z przewodnikiem dotyczącym platformy aplikacji masz dodatkowe pytania, możesz publikować w witrynie [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) ze znacznikiem `[azure-ad-adal-deprecation]` lub otworzyć problem w repozytorium GitHub biblioteki. Aby uzyskać linki do repozytorium każdej biblioteki, zobacz sekcję [Języki i struktury](msal-overview.md#languages-and-frameworks) w artykule Omówienie MSAL.
 
 ## <a name="next-steps"></a>Następne kroki
 

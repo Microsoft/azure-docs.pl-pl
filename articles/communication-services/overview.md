@@ -8,22 +8,20 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 45ce295ceee9d5bd1c2393eaed854e8f2c5643ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888610"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659243"
 ---
 # <a name="what-is-azure-communication-services"></a>Co to są usługi Azure Communication Services?
-
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Usługi Azure Communication Services umożliwiają łatwe dodawanie do aplikacji funkcji komunikacji głosowej, wideo i telefonicznych w czasie rzeczywistym. Biblioteki klienckie usług komunikacyjnych umożliwiają również Dodawanie funkcji rozmowy i programu SMS do rozwiązań komunikacyjnych.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+> [!VIDEO https://www.youtube.com/embed/apBX7ASurgM]
 
 <br>
 <br>
@@ -43,6 +41,7 @@ Następujące zasoby są doskonałym miejscem do uruchomienia, jeśli dopiero za
 
 | Zasób                               |Opis                           |
 |---                                    |---                                   |
+|**[Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo, rozmowy i udostępniania ekranu.|
 |**[Tworzenie zasobu usług Communication Services](./quickstarts/create-communication-resource.md)**|Aby zainicjować obsługę pierwszego zasobu usług komunikacyjnych, możesz rozpocząć korzystanie z usług Azure Communication Services przy użyciu biblioteki klienta Azure Portal lub Administracja usług komunikacyjnych. Gdy masz parametry połączenia zasobu usług komunikacyjnych, możesz udostępnić tokeny dostępu pierwszego użytkownika.|
 |**[Tworzenie pierwszego tokenu dostępu użytkownika](./quickstarts/access-tokens.md)**|Tokeny dostępu użytkowników są używane do uwierzytelniania usług względem zasobu usług Azure Communications Services. Te tokeny są inicjowane i ponownie wystawiane przy użyciu biblioteki klienta Administracja usług komunikacyjnych.|
 |**[Pobierz numer telefonu](./quickstarts/telephony-sms/get-phone-number.md)**|Za pomocą usług Azure Communications Services można udostępniać i zwalniać numery telefonów. Te numery telefonów mogą służyć do inicjowania wywołań wychodzących i tworzenia rozwiązań komunikacyjnych programu SMS.|

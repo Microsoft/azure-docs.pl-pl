@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360962"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676482"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Tworzenie indeksatorów na platformie Azure Wyszukiwanie poznawcze
 
@@ -155,7 +155,7 @@ Jak indeksator obsługuje wykrywanie zmian w zależności od źródła danych:
 
 W przypadku dużych obciążeń indeksowania indeksator śledzi również informacje o ostatnim dokumencie przetworzonym przez wewnętrzny "górny znak wodny". Znacznik nigdy nie jest ujawniany w interfejsie API, ale wewnętrznie indeksator śledzi miejsce zatrzymania. Gdy indeksowanie zostanie wznowione, za pomocą zaplanowanego uruchomienia lub wywołania na żądanie, indeksator odwołuje się do znacznika limitu górnego, aby można było go wybrać w miejscu, w którym został pozostawiony.
 
-Jeśli konieczne jest wyczyszczenie znacznika limitu górnego, aby ponownie indeksować pełne, można użyć [Zresetuj indeksator](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Aby uzyskać bardziej wybiórcze ponowne indeksowanie, użyj [Ustawienia umiejętności](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) lub [Zresetuj dokumenty](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Resetowanie interfejsów API umożliwia wyczyszczenie stanu wewnętrznego, a także opróżnianie pamięci podręcznej, jeśli włączono [wzbogacanie przyrostowe](search-howto-incremental-index.md). Aby uzyskać więcej informacji w tle i porównaniu z każdą opcją resetowania, zobacz [Uruchamianie lub resetowanie indeksatorów, umiejętności i dokumentów](search-howto-run-reset-indexers.md).
+Jeśli konieczne jest wyczyszczenie znacznika limitu górnego, aby ponownie indeksować pełne, można użyć [Zresetuj indeksator](/rest/api/searchservice/reset-indexer). Aby uzyskać bardziej wybiórcze ponowne indeksowanie, użyj [Ustawienia umiejętności](/rest/api/searchservice/preview-api/reset-skills) lub [Zresetuj dokumenty](/rest/api/searchservice/preview-api/reset-documents). Resetowanie interfejsów API umożliwia wyczyszczenie stanu wewnętrznego, a także opróżnianie pamięci podręcznej, jeśli włączono [wzbogacanie przyrostowe](search-howto-incremental-index.md). Aby uzyskać więcej informacji w tle i porównaniu z każdą opcją resetowania, zobacz [Uruchamianie lub resetowanie indeksatorów, umiejętności i dokumentów](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Poznaj swoje dane
 
@@ -165,7 +165,7 @@ Aby spłaszczyć relacyjne dane do zestawu wierszy, należy utworzyć widok SQL 
 
 Oprócz spłaszczonych danych ważne jest, aby pobierać tylko dane z możliwością wyszukiwania. Dane z możliwością wyszukiwania są alfanumeryczne. Wyszukiwanie poznawcze nie może przeszukiwać danych binarnych w dowolnym formacie, chociaż mogą wyodrębnić i wywnioskować opisy tekstowe plików obrazów (zobacz [wzbogacanie AI](cognitive-search-concept-intro.md)), aby utworzyć zawartość do przeszukiwania. Podobnie, przy użyciu wzbogacania AI, duży tekst może być analizowany przez modele języka naturalnego, aby znaleźć strukturę lub istotne informacje, generując nową zawartość, którą można dodać do dokumentu wyszukiwania.
 
-W przypadku, gdy indeksatory nie rozwiązują problemów z danymi, może być konieczne wykonanie innych form czyszczenia lub manipulowania danymi. Aby uzyskać więcej informacji, należy zapoznać się z dokumentacją produktu [usługi Azure Database](/azure/?product=databases).
+W przypadku, gdy indeksatory nie rozwiązują problemów z danymi, może być konieczne wykonanie innych form czyszczenia lub manipulowania danymi. Aby uzyskać więcej informacji, należy zapoznać się z dokumentacją produktu [usługi Azure Database](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Poznaj swój indeks
 

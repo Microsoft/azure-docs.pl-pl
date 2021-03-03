@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574652"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656962"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -80,7 +80,7 @@ W podobny sposób funkcja partycjonowania automatycznie dodaje pojemność i pon
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indeksowanie danych
 
-Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3,6 automatycznie indeksuje `_id` tylko pole. Nie można porzucić tego pola. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. Aby zindeksować dodatkowe pola, zastosuj polecenia MongoDB służące do zarządzania indeksowaniem. Te domyślne zasady indeksowania różnią się od interfejsu API Azure Cosmos DB SQL, który domyślnie indeksuje wszystkie pola.
+Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3,6 lub nowszej automatycznie indeksuje `_id` tylko pole. Nie można porzucić tego pola. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. Aby zindeksować dodatkowe pola, należy zastosować [polecenia MongoDB index-Management](mongodb-indexing.md). Te domyślne zasady indeksowania różnią się od interfejsu API Azure Cosmos DB SQL, który domyślnie indeksuje wszystkie pola.
 
 Możliwości indeksowania zapewniane przez Azure Cosmos DB obejmują dodawanie indeksów złożonych, unikatowych indeksów i indeksów czasu wygaśnięcia (TTL). Interfejs zarządzania indeksami jest mapowany na `createIndex()` polecenie. Dowiedz się więcej na temat [indeksowania w Azure Cosmos DB API for MongoDB](mongodb-indexing.md).
 

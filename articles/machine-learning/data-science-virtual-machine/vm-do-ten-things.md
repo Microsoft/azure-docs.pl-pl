@@ -3,19 +3,18 @@ title: Eksplorowanie danych i modelu w systemie Windows
 titleSuffix: Azure Data Science Virtual Machine
 description: Wykonuj zadania eksploracji i modelowania danych w Data Science Virtual Machine systemu Windows.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c44c40f2ddab53cf0beb5ecd48127d126fdb4333
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575010"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657404"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Nauka danych za pomocą Data Science Virtual Machine systemu Windows
 
@@ -58,7 +57,7 @@ Po rozpoczęciu Jupyter przejdź do `/notebooks` katalogu, w którym znajdują s
 
 * Wybierz Notes, aby wyświetlić kod.
 * Uruchom każdą komórkę, wybierając SHIFT + ENTER.
-* Uruchom cały Notes, wybierając pozycję **Cell**  >  **przebieg** komórki.
+* Uruchom cały Notes, wybierając pozycję   >  **przebieg** komórki.
 * Utwórz nowy Notes, wybierając ikonę Jupyter (w lewym górnym rogu), wybierając przycisk **Nowy** po prawej stronie, a następnie wybierając język notesu (nazywany także jądrami).   
 
 > [!NOTE]
@@ -297,7 +296,7 @@ in
 
 Masz teraz dane w modelu danych Power BI. Wystąpienie Power BI Desktop powinno wyglądać następująco:
 
-![Power BI Desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
+![Program Power BI Desktop](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
 Możesz rozpocząć tworzenie raportów i wizualizacji przy użyciu modelu danych. Aby utworzyć raport, można wykonać kroki opisane w [tym artykule Power BI](../../cosmos-db/powerbi-visualize.md#build-the-reports) .
 

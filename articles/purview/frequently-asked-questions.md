@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: eca0b9986c4da30adeeb02bc3d90d1e3d2892df7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94b765cbcbdd81505b08052845207ee1d93a28d9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553879"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667811"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-purview"></a>Często zadawane pytania dotyczące platformy Azure kontrolą
 
@@ -36,7 +36,7 @@ Często zadawane pytania odpowiadają typowym pytaniam, które często pytają k
 |Wystąpienie zarządzane Azure SQL|SAP ECC (dostępne na końcu 2020)|
 |Azure Data Explorer|SAP S/4 HANA (dostępne z końcem 2020)|
 |Usługa Azure Data Lake Storage 1. generacji|Magazyn metadanych Hive (dostępny z końcem 2020)|
-|Usługa Azure Data Lake Storage 2. generacji|--|
+|Usługa Azure Data Lake Storage 2. generacji|Amazon S3|
 |Azure Files|--|
 |Azure SQL Database|--|
 

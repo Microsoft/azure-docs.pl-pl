@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 05138011822b15363b12f2c860f4f459972201a7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 04712429732bd710ea3a00071a53f035086a7054
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449768"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Samouczek: integracja Azure Active Directory z getAbstract
 

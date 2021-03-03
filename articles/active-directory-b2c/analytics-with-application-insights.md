@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dfe53f67ee9c6645a6dadda58573b892b676b739
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651277"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645929"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure AD B2C przy użyciu Application Insights
 
@@ -326,6 +326,6 @@ Aby wyłączyć dzienniki Application Insights, Zmień `DisableTelemetry` metada
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [tworzyć niestandardowe pulpity nawigacyjne wskaźników KPI przy użyciu usługi Azure Application Insights](../azure-monitor/learn/tutorial-app-dashboards.md).
+Dowiedz się, jak [tworzyć niestandardowe pulpity nawigacyjne wskaźników KPI przy użyciu usługi Azure Application Insights](../azure-monitor/app/tutorial-app-dashboards.md).
 
 ::: zone-end

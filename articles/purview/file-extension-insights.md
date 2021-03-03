@@ -6,23 +6,23 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202627"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668573"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Informacje o rozszerzeniu plików dotyczące danych z usługi Azure kontrolą 
 
 W tym przewodniku opisano sposób uzyskiwania dostępu, wyświetlania i filtrowania szczegółowych informacji o rozszerzeniach plików lub typach plików, które znajdują się w danych.
 
-Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, zasobniki Amazon S3
 
 W tym przewodniku krok po kroku dowiesz się, jak:
 > [!div class="checklist"]
-> * Uruchom konto kontrolą na platformie Azure. 
+> * Uruchamianie konta kontrolą z poziomu platformy Azure 
 > - Wyświetlanie szczegółowych informacji o rozszerzeniu plików na danych
 > - Przejdź do szczegółów, aby uzyskać szczegółowe informacje o rozszerzeniu pliku dla danych
 
@@ -32,7 +32,7 @@ Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zosta�
 
 - Skonfiguruj zasoby platformy Azure i wypełnianie odpowiednich kont danymi testowymi
 
-- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych
+- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)](manage-data-sources.md) i [Tworzenie zestawu reguł skanowania](create-a-scan-rule-set.md).
 
 - Zalogowano się do kontrolą przy użyciu konta z [czytnikiem danych lub rolą Curator danych](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

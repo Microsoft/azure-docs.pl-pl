@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a907bf61cb7ccb8b6d287840c12a00451cad782f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979168"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657863"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Rozwiązywanie problemów z klasą ParallelRunStep
 
@@ -119,7 +119,7 @@ Utwórz ParallelRunStep za pomocą skryptu, konfiguracji środowiska i parametr�
 - `parallel_run_config`: `ParallelRunConfig` Obiekt, zgodnie z definicją wcześniejszą.
 - `inputs`: Co najmniej jeden zestaw danych z jednym Azure Machine Learning typem, który ma być podzielony na partycje na potrzeby przetwarzania równoległego.
 - `side_inputs`: Co najmniej jeden z danych referencyjnych lub zestawów DataSet używany jako dane wejściowe bez konieczności partycjonowania.
-- `output`: `PipelineData` Obiekt, który odpowiada katalogowi wyjściowemu.
+- `output`: `OutputDatasetConfig` Lub `PipelineData` obiekt, który odpowiada katalogowi wyjściowemu.
 - `arguments`: Lista argumentów przenoszona do skryptu użytkownika. Użyj unknown_args, aby pobrać je w skrypcie wprowadzania (opcjonalnie).
 - `allow_reuse`: Czy krok ma ponownie używać poprzednich wyników w przypadku uruchamiania z tymi samymi ustawieniami/danymi wejściowymi. Jeśli ten parametr ma wartość `False` , nowy przebieg będzie zawsze generowany dla tego kroku podczas wykonywania potoku. (opcjonalnie; wartość domyślna to `True` ).
 

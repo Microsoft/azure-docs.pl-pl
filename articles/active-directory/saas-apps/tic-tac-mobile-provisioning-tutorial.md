@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: a09594d1bc6037f252ba71855ae302208b4980d4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 91ae51b9a2785dbc40c55fa58b26763916e8d16c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644582"
 ---
 # <a name="tutorial-configure-tic-tac-mobile-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Tic-Tac mobilnej na potrzeby automatycznego aprowizacji użytkowników
 
@@ -107,7 +107,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg|
    |externalId|Ciąg|
    |title|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |emails[type eq "work"].value|Ciąg|
    |preferredLanguage|Ciąg|
    |externalId|Ciąg|
    |userType|Ciąg|

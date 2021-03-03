@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a89fa72db3deaec12a9073233f861aa6835288a5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 18a2cf0de94641c955ed72a48f28352d13115ef0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678359"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667577"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Projektowanie strategii ładowania danych podstawowych dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -50,7 +50,7 @@ Pobieranie danych z systemu źródłowego zależy od lokalizacji magazynu.  Cele
 
 Baza danych ładuje dane z rozdzielanych plików tekstowych UTF-8 i UTF-16. Oprócz rozdzielanych plików tekstowych są one ładowane z plików z formatami usługi Hadoop, ORC i Parquet. Baza danych może również ładować dane ze strumienia gzip i plików skompresowanych. Baza danych nie obsługuje obecnie rozszerzonego formatu ASCII, stałej szerokości ani formatów zagnieżdżonych, takich jak WinZip, JSON i XML.
 
-Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby wyeksportować dane do rozdzielanych plików tekstowych. Mapowanie typu danych Parquet do usługi Azure Synapse Analytics jest następujące:
+Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia BCP](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) , aby wyeksportować dane do rozdzielanych plików tekstowych. Mapowanie typu danych Parquet do usługi Azure Synapse Analytics jest następujące:
 
 | **Parquet — typ danych** |                      **Typ danych SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -69,22 +69,22 @@ Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia B
 |        ciąg         |                           varchar                            |
 |        binarny         |                            binarny                            |
 |        binarny         |                          varbinary                           |
-|       sygnatura czasowa       |                             date                             |
+|       sygnatura czasowa       |                             data                             |
 |       sygnatura czasowa       |                        smalldatetime                         |
 |       sygnatura czasowa       |                          datetime2                           |
 |       sygnatura czasowa       |                           datetime                           |
 |       sygnatura czasowa       |                             time                             |
-|       date            |                             date                             |
+|       data            |                             data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. wyląduj dane do usługi Azure Blob Storage lub Azure Data Lake Store
 
-Aby wystawić dane w usłudze Azure Storage, można przenieść je do [usługi Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) lub [Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). W każdej lokalizacji dane powinny być przechowywane w plikach tekstowych. Baza Base może ładować z jednej lokalizacji.
+Aby wystawić dane w usłudze Azure Storage, można przenieść je do [usługi Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) lub [Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md). W każdej lokalizacji dane powinny być przechowywane w plikach tekstowych. Baza Base może ładować z jednej lokalizacji.
 
 Narzędzia i usługi, których można użyć do przenoszenia danych do usługi Azure Storage:
 
 - Usługa [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) zwiększa przepustowość sieci, wydajność i przewidywalność. ExpressRoute to usługa, która przekierowuje dane za pomocą dedykowanego połączenia prywatnego z platformą Azure. Połączenia ExpressRoute nie kierują danych za pomocą publicznego Internetu. Połączenia oferują większą niezawodność, większe szybkości, krótsze opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez publiczny Internet.
-- [Narzędzie AzCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) przenosi dane do usługi Azure Storage za pośrednictwem publicznego Internetu. To działa, jeśli rozmiar danych jest mniejszy niż 10 TB. Aby przeprowadzić regularne ładowanie w programie AZCopy, przetestuj szybkość sieci, aby sprawdzić, czy jest ona akceptowalna.
+- [Narzędzie AzCopy](../../storage/common/storage-use-azcopy-v10.md) przenosi dane do usługi Azure Storage za pośrednictwem publicznego Internetu. To działa, jeśli rozmiar danych jest mniejszy niż 10 TB. Aby przeprowadzić regularne ładowanie w programie AZCopy, przetestuj szybkość sieci, aby sprawdzić, czy jest ona akceptowalna.
 - [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) zawiera bramę, którą można zainstalować na serwerze lokalnym. Następnie możesz utworzyć potok, aby przenieść dane z serwera lokalnego do usługi Azure Storage. Aby użyć Data Factory z dedykowaną pulą SQL, zobacz [ładowanie danych do dedykowanej puli SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Przygotuj dane do załadowania
@@ -97,9 +97,9 @@ Przed załadowaniem danych należy zdefiniować tabele zewnętrzne w magazynie d
 
 Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabeli. Poniżej przedstawiono tematy składni języka T-SQL, które będą potrzebne:
 
-- [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="format-text-files"></a>Formatowanie plików tekstowych
 
@@ -108,7 +108,7 @@ Aby sformatować pliki tekstowe:
 
 - Jeśli dane pochodzą z nierelacyjnego źródła, należy przekształcić je w wiersze i kolumny. Niezależnie od tego, czy dane pochodzą ze źródła relacyjnego, czy nierelacyjnego, dane muszą zostać przekształcone w celu dopasowania z definicjami kolumn dla tabeli, do której mają zostać załadowane dane.
 - Sformatuj dane w pliku tekstowym, aby wyrównać je do kolumn i typów danych w tabeli docelowej puli SQL. Niezgodność między typami danych w zewnętrznych plikach tekstowych i tabeli magazynu danych powoduje odrzucenie wierszy podczas ładowania.
-- Oddziel pola w pliku tekstowym z terminatorem.  Upewnij się, że używasz znaku lub sekwencji znaków, która nie została znaleziona w danych źródłowych. Użyj terminatora określonego przy użyciu parametru [Create External File Format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Oddziel pola w pliku tekstowym z terminatorem.  Upewnij się, że używasz znaku lub sekwencji znaków, która nie została znaleziona w danych źródłowych. Użyj terminatora określonego przy użyciu parametru [Create External File Format](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Załaduj dane do dedykowanych tabel tymczasowych puli SQL przy użyciu bazy danych
 
@@ -119,13 +119,13 @@ Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabel
 Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z następujących opcji ładowania:
 
 - Baza danych w języku [T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
-- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
+- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
 - [Baza z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
 - [Baza danych z Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) transferuje dane z tabeli usługi Azure Synapse Analytics do elementu datakostks i/lub zapisuje dane z tabeli Databases dataframes na tabelę usługi Azure Synapse Analytics przy użyciu bazy danych.
 
 ### <a name="non-polybase-loading-options"></a>Opcje ładowania inne niż podstawowe
 
-Jeśli dane nie są zgodne z bazą danych, można użyć narzędzia [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). BCP ładuje się bezpośrednio do dedykowanej puli SQL bez przechodzenia przez usługę Azure Blob Storage i jest przeznaczony tylko do małych obciążeń. Należy pamiętać, że wydajność ładowania tych opcji jest znacznie mniejsza niż baza Base.
+Jeśli dane nie są zgodne z bazą danych, można użyć narzędzia [BCP](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy). BCP ładuje się bezpośrednio do dedykowanej puli SQL bez przechodzenia przez usługę Azure Blob Storage i jest przeznaczony tylko do małych obciążeń. Należy pamiętać, że wydajność ładowania tych opcji jest znacznie mniejsza niż baza Base.
 
 ## <a name="5-transform-the-data"></a>5. Przekształć dane
 

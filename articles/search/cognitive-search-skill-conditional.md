@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792044"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666358"
 ---
 # <a name="conditional-cognitive-skill"></a>Warunkowa umiejętność
 
@@ -134,7 +134,7 @@ Poniższe dane wyjściowe tworzą adnotację ("/document/languageWithDefault") u
 
 ### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Przykładowa definicja umiejętności 3: scalanie wartości z dwóch pól w jeden
 
-W tym przykładzie niektóre zdania mają właściwość *frenchSentiment* . Zawsze, gdy właściwość *frenchSentiment* ma wartość null, chcemy użyć wartości *englishSentiment* . Dane wyjściowe są przypisywane do elementu członkowskiego o nazwie *tonacji* ("/Document/Sentiment/*/Sentiment").
+W tym przykładzie niektóre zdania mają właściwość *frenchSentiment* . Zawsze, gdy właściwość *frenchSentiment* ma wartość null, chcemy użyć wartości *englishSentiment* . Dane wyjściowe są przypisywane do elementu członkowskiego o nazwie *tonacji* ("/Document/sentences/*/Sentiment").
 
 ```json
 {

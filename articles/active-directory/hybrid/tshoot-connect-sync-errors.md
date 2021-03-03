@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d976cd924644828f5861e4c54460a8b4e4f81444
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092653"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643868"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Rozwiązywanie problemów z błędami podczas synchronizacji
 Błędy mogą wystąpić, gdy dane tożsamości są synchronizowane z systemu Windows Server Active Directory (AD DS) do Azure Active Directory (Azure AD). Ten artykuł zawiera omówienie różnych typów błędów synchronizacji, niektóre możliwe scenariusze, które powodują te błędy, oraz potencjalne sposoby naprawienia błędów. Ten artykuł zawiera typowe typy błędów i może nie obejmować wszystkich możliwych błędów.
@@ -201,7 +201,7 @@ Jeśli sufiks UserPrincipalName użytkownika został zaktualizowany z bob@**cont
 2. Zezwól na następny cykl synchronizacji w celu podjęcia próby synchronizacji. Ta synchronizacja przebiegła pomyślnie i zaktualizuje element UserPrincipalName Roberta bob@fabrikam.com zgodnie z oczekiwaniami.
 
 #### <a name="related-articles"></a>Powiązane artykuły
-* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
+* [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](./howto-troubleshoot-upn-changes.md)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Opis

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898498"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671603"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio w usłudze Azure Synapse Analytics
 
@@ -33,7 +33,7 @@ W tym artykule opisano sposób korzystania z notesów w usłudze Azure Synapse S
 ## <a name="preview-of-the-new-notebook-experience"></a>Wersja zapoznawcza nowego środowiska notesu
 Synapse zespół przyniesieł nowy składnik Notess do programu Synapse Studio w celu zapewnienia spójnego środowiska Notatnika dla klientów firmy Microsoft i zmaksymalizowania możliwości wykrywania, produktywności, udostępniania i współpracy. Nowe środowisko notesu jest gotowe do wersji zapoznawczej. Zaznacz przycisk **Podgląd funkcji** na pasku narzędzi notesu, aby go włączyć. W poniższej tabeli przedstawiono porównanie funkcji między istniejącym notesem (nazywanym "klasycznym notesem") i nową wersją zapoznawczą.  
 
-|Cechy|Klasyczny Notes|Notes w wersji zapoznawczej|
+|Cecha|Klasyczny Notes|Notes w wersji zapoznawczej|
 |--|--|--|
 |% uruchomienia| Nieobsługiwane | &#9745;|
 |Historia%| Nieobsługiwane |&#9745;
@@ -554,5 +554,5 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 - [Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
 - [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 - [Korzystanie z platformy .NET for Apache Spark z usługą Azure Synapse Analytics](spark-dotnet.md)
-- [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark)
 - [Azure Synapse Analytics](../index.yml)

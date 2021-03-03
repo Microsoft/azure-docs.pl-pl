@@ -1,36 +1,33 @@
 ---
 title: Logowanie przy użyciu klucza zabezpieczeń bezhasła — Azure Active Directory
-description: Dowiedz się, jak włączyć logowanie za pomocą klucza zabezpieczeń bezhasłem w celu Azure Active Directory przy użyciu kluczy zabezpieczeń FIDO2 (wersja zapoznawcza)
+description: Dowiedz się, jak włączyć logowanie za pomocą klucza zabezpieczeń bezhasłem w celu Azure Active Directory przy użyciu kluczy zabezpieczeń FIDO2
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a46a691b2f629b64cfe09c22813b05c593af1c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 190e9c857f1ec9d19eb89493dc4b4a9fb68fac87
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743466"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653511"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory (wersja zapoznawcza)
+# <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 przy użyciu Azure Active Directory 
 
 Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego na kluczu zabezpieczeń FIDO2 na urządzeniach z systemem Windows 10. Na końcu tego artykułu będzie można zalogować się zarówno do usługi Azure AD, jak i do hybrydowych urządzeń z systemem Windows 10 dołączonych do usługi Azure AD przy użyciu klucza zabezpieczeń FIDO2.
-
-> [!NOTE]
-> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz temat [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Wymagania
 
 | Typ urządzenia | Dołączone do usługi Azure AD | hybrydowym dołączonym do usługi Azure AD. |
 | --- | --- | --- |
 | [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Rejestracja informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md) | X | X |
 | Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej | X | X |
 | [Urządzenia przyłączone do usługi Azure AD](../devices/concept-azure-ad-join.md) wymagają systemu Windows 10 w wersji 1909 lub nowszej | X |   |
@@ -54,9 +51,9 @@ Następujące scenariusze nie są obsługiwane:
 - Logowanie lub odblokowywanie urządzenia z systemem Windows 10 z kluczem zabezpieczeń zawierającym wiele kont usługi Azure AD. W tym scenariuszu jest używane ostatnie konto dodane do klucza zabezpieczeń. Funkcja WebAuthN umożliwia użytkownikom wybranie konta, które ma być używane.
 - Odblokuj urządzenie z systemem Windows 10 w wersji 1809. Aby uzyskać najlepsze środowisko, Użyj systemu Windows 10 w wersji 1903 lub nowszej.
 
-## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
+## <a name="prepare-devices"></a>Przygotowywanie urządzeń
 
-Urządzenia przyłączone do usługi Azure AD, które są uruchamiane w wersji zapoznawczej funkcji, muszą mieć system Windows 10 w wersji 1909 lub nowszej.
+W przypadku urządzeń przyłączonych do usługi Azure AD musi działać system Windows 10 w wersji 1909 lub nowszej.
 
 Urządzenia dołączone do hybrydowej usługi Azure AD muszą mieć uruchomiony system Windows 10 w wersji 2004 lub nowszej.
 
@@ -89,7 +86,7 @@ Konfiguracja kluczy zabezpieczeń dla logowania nie zależy od konfiguracji funk
 Aby włączyć dostawcę poświadczeń dla określonych grup urządzeń, użyj następujących ustawień niestandardowych za pośrednictwem usługi Intune:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Microsoft Intune**  >  **profil konfiguracji urządzeń**  >  **Profiles**  >  **Utwórz profil**.
+1. Przejdź do **Microsoft Intune**  >  **profil konfiguracji urządzeń**  >    >  **Utwórz profil**.
 1. Skonfiguruj nowy profil przy użyciu następujących ustawień:
    - Name: klucze zabezpieczeń dla systemu Windows Sign-In
    - Opis: włącza klucze zabezpieczeń FIDO, które mają być używane podczas logowania do systemu Windows
@@ -116,7 +113,7 @@ W przypadku urządzeń, które nie są zarządzane przez usługę Intune, można
 1. Wybierz pozycję **Zakończ**.
 1. W nowo utworzonym projekcie przejdź do **ustawień środowiska uruchomieniowego**  >  **WindowsHelloForBusiness**  >  **SecurityKeys**  >  **UseSecurityKeyForSignIn**.
 1. Ustaw **UseSecurityKeyForSignIn** na *włączone*.
-1. Wybierz **Export**  >  **pakiet aprowizacji** eksportu
+1. Wybierz   >  **pakiet aprowizacji** eksportu
 1. Pozostaw wartości domyślne w oknie **kompilacja** w obszarze **opisz pakiet aprowizacji**, a następnie wybierz pozycję **dalej**.
 1. Pozostaw wartości domyślne w oknie **kompilacja** w obszarze **Wybierz szczegóły zabezpieczeń dla pakietu aprowizacji** i wybierz pozycję **dalej**.
 1. Zanotuj lub zmień ścieżkę w oknach **kompilacji** w obszarze **Wybierz lokalizację, w której ma zostać zapisany pakiet aprowizacji** , a następnie wybierz pozycję **dalej**.
@@ -129,7 +126,7 @@ W przypadku urządzeń, które nie są zarządzane przez usługę Intune, można
 
 ### <a name="enable-with-group-policy"></a>Włącz z zasady grupy
 
-W przypadku **urządzeń przyłączonych do hybrydowej usługi Azure AD** organizacje mogą konfigurować następujące ustawienia zasady grupy, aby włączyć logowanie za pomocą klucza zabezpieczeń Fido. Ustawienie to można znaleźć w obszarze **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **System**  >  **Logowanie** systemu Włącz logowanie przy  >  **użyciu klucza zabezpieczeń**:
+W przypadku **urządzeń przyłączonych do hybrydowej usługi Azure AD** organizacje mogą konfigurować następujące ustawienia zasady grupy, aby włączyć logowanie za pomocą klucza zabezpieczeń Fido. Ustawienie to można znaleźć w obszarze **Konfiguracja komputera**  >  **Szablony administracyjne**  >    >  **Logowanie** systemu Włącz logowanie przy  >  **użyciu klucza zabezpieczeń**:
 
 - Ustawienie tych zasad na **włączone** umożliwia użytkownikom logowanie się przy użyciu kluczy zabezpieczeń.
 - Ustawienie tych zasad na **wyłączone** lub **Nieskonfigurowane** uniemożliwia użytkownikom logowanie się przy użyciu kluczy zabezpieczeń.
@@ -145,18 +142,18 @@ W poniższym przykładzie użytkownik o nazwie Bala Sandhu już udostępnił sw�
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>Zarządzaj kluczem zabezpieczeń biometrycznym, numerem PIN lub resetowaniem klucza zabezpieczeń
 
 * Windows 10 w wersji 1903 lub nowszej
-   * Użytkownicy mogą otwierać **Ustawienia systemu Windows** na swoim **Accounts**  >  **kluczu zabezpieczeń** urządzeń > konta
+   * Użytkownicy mogą otwierać **Ustawienia systemu Windows** na swoim   >  **kluczu zabezpieczeń** urządzeń > konta
    * Użytkownicy mogą zmieniać swój kod PIN, aktualizować biometria lub resetować swój klucz zabezpieczeń
 
 ## <a name="troubleshooting-and-feedback"></a>Rozwiązywanie problemów i opinie
 
-Jeśli chcesz udostępnić opinię lub napotkać problemy podczas wyświetlania podglądu tej funkcji, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
+Jeśli chcesz udostępnić opinię lub napotkać problemy dotyczące tej funkcji, Udostępnij za pośrednictwem aplikacji centrum opinii o systemie Windows, wykonując następujące czynności:
 
 1. Uruchom **centrum opinii** i upewnij się, że użytkownik jest zalogowany.
 1. Prześlij opinię poniżej następującej kategoryzacji:
    - Kategoria: zabezpieczenia i prywatność
    - Podkategoria: FIDO
-1. Aby przechwytywać dzienniki, użyj opcji, aby **ponownie utworzyć mój problem**
+1. Aby przechwytywać dzienniki, użyj opcji w celu **ponownego utworzenia mojego problemu**.
 
 ## <a name="next-steps"></a>Następne kroki
 

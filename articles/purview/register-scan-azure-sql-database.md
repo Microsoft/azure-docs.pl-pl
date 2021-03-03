@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879734"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677728"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Rejestrowanie i skanowanie Azure SQL Database
 
@@ -149,9 +149,7 @@ Aby zarejestrować nowe Azure SQL Database w usłudze Data Catalog, wykonaj nast
 Na ekranie **Rejestr sources (Azure SQL Database)** wykonaj następujące czynności:
 
 1. Wprowadź **nazwę** , z którą zostanie wyświetlone źródło danych w wykazie.
-1. Wybierz sposób wskazywania żądanego konta magazynu:
-   1. Wybierz pozycję **z subskrypcji platformy Azure**, wybierz odpowiednią subskrypcję w polu listy rozwijanej **subskrypcja platformy Azure** i odpowiedni serwer z listy rozwijanej **Nazwa serwera** .
-   1. Możesz też wybrać opcję **wprowadź ręcznie** i wprowadzić **nazwę serwera**.
+1. Wybierz pozycję **z subskrypcji platformy Azure**, wybierz odpowiednią subskrypcję w polu listy rozwijanej **subskrypcja platformy Azure** i odpowiedni serwer z listy rozwijanej **Nazwa serwera** .
 1. **Zakończ** , aby zarejestrować źródło danych.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="opcje rejestrowania źródeł" border="true":::

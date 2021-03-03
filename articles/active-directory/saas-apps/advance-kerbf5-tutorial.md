@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 217872586d09531926b43a13d826efe559c70597
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: db8977e484e8d1f2cf4b30427d47ba45969f2147
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796755"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654463"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Samouczek: integracja logowania jednokrotnego (SSO) w usłudze Azure Active Directory (AD) za pomocą klawisza F5
 
@@ -336,8 +336,8 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [Konfigurowanie logowania jednokrotnego dla aplikacji Kerberos](kerbf5-tutorial.md)
 
-- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+- [F5 BIG-IP APM i integracja z usługą Azure AD na potrzeby bezpiecznego dostępu hybrydowego](../manage-apps/f5-aad-integration.md)
 
-- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+- [Samouczek pozwalający wdrożyć MASZYNę wirtualną z wirtualnym wydaniem F5 BIG-IP w usłudze Azure IaaS na potrzeby bezpiecznego dostępu hybrydowego](../manage-apps/f5-bigip-deployment-guide.md)
 
-- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
+- [Samouczek dotyczący Azure Active Directory integracji z logowaniem jednokrotnym przy użyciu protokołu F5 BIG-IP dla sieci VPN bez hasła](../manage-apps/f5-aad-password-less-vpn.md)

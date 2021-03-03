@@ -3,20 +3,21 @@ title: Rozwiązywanie problemów z wdrożeniem platformy OpenShift Container pla
 description: Rozwiązywanie problemów z wdrożeniem platformy OpenShift Container platform 3,11 na platformie Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: 9595627e9d7ca2de577aa83ebba3dd58d69e6750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6dfb4cb697e7d66c7db323df9786ff7ad45e1d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373559"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672323"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Rozwiązywanie problemów z wdrożeniem platformy OpenShift Container platform 3,11 na platformie Azure
 

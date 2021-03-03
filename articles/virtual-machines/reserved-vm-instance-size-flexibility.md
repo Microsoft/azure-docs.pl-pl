@@ -3,17 +3,17 @@ title: Elastyczność rozmiaru maszyny wirtualnej — Azure Reserved VM Instance
 description: Dowiedz się, w jaki sposób seria rozmiarów ma zastosowanie rabat rezerwacji w przypadku wystąpienia zarezerwowanych maszyn wirtualnych.
 author: yashesvi
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/02/2021
 ms.author: yashar
-ms.openlocfilehash: cf8f2f794be4340de4419457872ed5ff4bb4a686
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980443"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673959"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Elastyczność rozmiaru maszyny wirtualnej w usłudze Reserved VM Instances
 

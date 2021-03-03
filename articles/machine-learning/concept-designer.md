@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322261"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661090"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Co to jest Azure Machine Learning Designer? 
+# <a name="what-is-azure-machine-learning-designer"></a>Co to jest projektant usługi Azure Machine Learning? 
 
 
 Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów danych](#datasets) i [modułów](#module) na interaktywnej kanwie w celu tworzenia modeli uczenia maszynowego. Aby dowiedzieć się, jak rozpocząć pracę z projektantem, zobacz [Samouczek: przewidywanie ceny za samochód dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md)
@@ -81,7 +81,7 @@ Moduł jest algorytmem, który można wykonać na danych. Projektant ma kilka mo
 
 Moduł może zawierać zestaw parametrów, za pomocą których można konfigurować wewnętrzne algorytmy modułu. Po wybraniu modułu na kanwie parametry tego modułu są wyświetlane w okienku Properties (Właściwości) po prawej stronie kanwy. Te parametry można modyfikować w okienku, aby dostosowywać model. Można ustawić zasoby obliczeniowe dla poszczególnych modułów w projektancie. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Właściwości modułu":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Właściwości modułu":::
 
 
 Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algorytmów uczenia maszynowego, zobacz [Omówienie algorytmu & modułu](algorithm-module-reference/module-reference.md). Aby uzyskać pomoc dotyczącą wybierania algorytmu, zobacz [arkusz Azure Machine Learning Algorithm Ściągawka](algorithm-cheat-sheet.md).

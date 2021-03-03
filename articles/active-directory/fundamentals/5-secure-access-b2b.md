@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4206ba7617032e34310682d1468e6b1b661b8c8a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725396"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648591"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Przejście do regulowanej współpracy przy Azure Active Directory współpracy B2B 
 
@@ -100,7 +100,7 @@ Określ, kto może zapraszać użytkowników-Gości do uzyskiwania dostępu do z
 
 W przypadku korzystania z usługi Azure AD do zarządzania prawami do odpowiedzi można skonfigurować pytania dla użytkowników zewnętrznych. Pytania będą następnie widoczne dla osób zatwierdzających, aby ułatwić im podejmowanie decyzji. Można skonfigurować różne zestawy pytań dla każdej [zasady pakietów dostępu](../governance/entitlement-management-access-package-approval-policy.md) , tak aby osoby zatwierdzające mogły uzyskać odpowiednie informacje dotyczące dostępu, które są zatwierdzane. Na przykład jeśli jeden pakiet dostępu jest przeznaczony dla dostępu dostawcy, żądanie może zostać poproszony o podanie numeru kontraktu dostawcy. Innym pakietem dostępu przeznaczonym dla dostawców może być poproszony o ich kraj pochodzenia.
 
-Jeśli używasz portalu samoobsługowego, możesz użyć [łączników interfejsu API](../external-identities/api-connectors-overview.md) , aby zebrać dodatkowe atrybuty dotyczące użytkowników podczas tworzenia konta. Następnie można użyć tych atrybutów do przypisania dostępu. Jeśli na przykład podczas procesu tworzenia konta zbierasz swój identyfikator dostawcy, możesz użyć tego atrybutu do dynamicznego przypisywania ich do grupy lub pakietu dostępu dla tego dostawcy. Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). 
+Jeśli używasz portalu samoobsługowego, możesz użyć [łączników interfejsu API](../external-identities/api-connectors-overview.md) , aby zebrać dodatkowe atrybuty dotyczące użytkowników podczas tworzenia konta. Następnie można użyć tych atrybutów do przypisania dostępu. Jeśli na przykład podczas procesu tworzenia konta zbierasz swój identyfikator dostawcy, możesz użyć tego atrybutu do dynamicznego przypisywania ich do grupy lub pakietu dostępu dla tego dostawcy. Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md). 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Rozwiązywanie problemów z wykupumi zaproszeń do użytkowników usługi Azure AD
 

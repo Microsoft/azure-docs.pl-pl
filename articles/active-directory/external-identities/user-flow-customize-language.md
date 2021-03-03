@@ -7,21 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837094"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653494"
 ---
-# <a name="language-customization-in-azure-active-directory-preview"></a>Dostosowanie języka w Azure Active Directory (wersja zapoznawcza)
-
-> [!NOTE]
-> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+# <a name="language-customization-in-azure-active-directory"></a>Dostosowanie języka w Azure Active Directory
 
 Dostosowanie języka w programie Azure Active Directory (Azure AD) pozwala przepływom użytkownika dostosowywać się do potrzeb użytkowników w różnych językach. Firma Microsoft udostępnia tłumaczenia dla [języków 36](#supported-languages). Nawet jeśli środowisko jest dostarczane tylko dla jednego języka, można dostosować nazwy atrybutów na stronie kolekcji atrybutów.
 
@@ -39,7 +36,7 @@ Dostosowanie języka umożliwia dostosowanie dowolnego ciągu w przepływie uży
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure** wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
-4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**.
+4. Wybierz pozycję **przepływy użytkownika**.
 3. Wybierz przepływ użytkownika, który chcesz włączyć dla tłumaczeń.
 4. Wybierz **Języki**.
 5. Na stronie **Języki** dla przepływu użytkownika wybierz język, który chcesz dostosować.

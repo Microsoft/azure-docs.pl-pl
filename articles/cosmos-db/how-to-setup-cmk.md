@@ -4,17 +4,20 @@ description: Dowiedz się, jak skonfigurować klucze zarządzane przez klienta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
-ms.openlocfilehash: e87f6f158265fd8ac210a0a071e35b0bb77df4d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338286"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656520"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> Używanie kluczy zarządzanych przez klienta z [magazynem analitycznym](analytical-store-introduction.md) Azure Cosmos DB obecnie wymaga dodatkowej konfiguracji na Twoim koncie. Skontaktuj się z nami, [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) Aby uzyskać szczegółowe informacje.
 
 Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblemowo szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (**klucze zarządzane przez usługę**). Opcjonalnie można dodać drugą warstwę szyfrowania z kluczami, którymi zarządzasz (**klucze zarządzane przez klienta**).
 
@@ -291,6 +294,10 @@ Wszystkie dane przechowywane na koncie usługi Azure Cosmos są szyfrowane przy 
 ### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>Czy dla istniejących kont usługi Azure Cosmos są obsługiwane klucze zarządzane przez klienta?
 
 Ta funkcja jest obecnie dostępna tylko dla nowych kont.
+
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>Czy można używać kluczy zarządzanych przez klienta w połączeniu z Azure Cosmos DBm [magazynem analitycznym](analytical-store-introduction.md)?
+
+Tak, ale obecnie wymaga dodatkowej konfiguracji na swoim koncie. Skontaktuj się z nami, [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) Aby uzyskać szczegółowe informacje.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Czy istnieje plan obsługi bardziej szczegółowego stopnia szczegółowości niż klucze poziomu konta?
 

@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 472129be5baa865365b49894b705d84c23e9cd04
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: b4a5dcbd6bc0a6468e8ac8cc7edc8589ea380b28
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506353"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657098"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ ms.locfileid: "97506353"
 
    ```python
    import os
-   from azure.communication.administration import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')
@@ -49,10 +49,10 @@ ms.locfileid: "97506353"
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Mimo że w katalogu aplikacji, zainstaluj bibliotekę kliencką Administracja usług Azure Communication Services dla pakietu Python za pomocą `pip install` polecenia.
+Mimo że w katalogu aplikacji, zainstaluj bibliotekę klienta tożsamości usługi Azure Communication Services dla pakietu Python za pomocą `pip install` polecenia.
 
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
@@ -70,6 +70,12 @@ connection_string = os.environ['COMMUNICATION_SERVICES_CONNECTION_STRING']
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
+Alternatywnie, jeśli masz skonfigurowaną tożsamość zarządzaną, zobacz [Korzystanie z tożsamości zarządzanych](../managed-identity.md), ale także uwierzytelnianie przy użyciu tożsamości zarządzanej.
+```python
+const endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"];
+var client = new CommunicationIdentityClient(endpoint, DefaultAzureCredential());
+```
+
 ## <a name="create-an-identity"></a>Tworzenie tożsamości
 
 Usługi komunikacyjne Azure obsługują uproszczony katalog tożsamości. Użyj `create_user` metody, aby utworzyć nowy wpis w katalogu z unikatowym `Id` . Przechowywanie otrzymanej tożsamości z mapowaniem do użytkowników aplikacji. Można na przykład przechowywać je w bazie danych serwera aplikacji. Tożsamość jest wymagana później, aby można było wystawiać tokeny dostępu.
@@ -81,11 +87,11 @@ print("\nCreated an identity with ID: " + identity.identifier + ":")
 
 ## <a name="issue-access-tokens"></a>Wystawianie tokenów dostępu
 
-Użyj `issue_token` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `communicationUser` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
+Użyj `get_token` metody, aby wystawić token dostępu dla istniejącej tożsamości usług komunikacyjnych. Parametr `scopes` definiuje zestaw elementów pierwotnych, który będzie autoryzować ten token dostępu. Zapoznaj się z [listą obsługiwanych akcji](../../concepts/authentication.md). Nowe wystąpienie parametru `CommunicationUserIdentifier` można utworzyć na podstawie ciągu reprezentującego tożsamość usługi komunikacyjnej platformy Azure.
 
 ```python
 # Issue an access token with the "voip" scope for an identity
-token_result = client.issue_token(identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 expires_on = token_result.expires_on.strftime('%d/%m/%y %I:%M %S %p')
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token_result.token)
@@ -95,19 +101,19 @@ Tokeny dostępu to krótkoterminowe poświadczenia, które należy ponownie wyda
 
 ## <a name="refresh-access-tokens"></a>Odświeżenie tokenów dostępu
 
-Aby odświeżyć token dostępu, użyj `CommunicationUser` obiektu, aby go ponownie wydać:
+Aby odświeżyć token dostępu, użyj `CommunicationUserIdentifier` obiektu, aby go ponownie wydać:
 
-```python  
+```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = CommunicationUser(existingIdentity)
-token_result = client.issue_token( identity, ["voip"])
+identity = CommunicationUserIdentifier(existingIdentity)
+token_result = client.get_token( identity, ["voip"])
 ```
 
 ## <a name="revoke-access-tokens"></a>Odwołaj tokeny dostępu
 
 W niektórych przypadkach można jawnie odwołać tokeny dostępu. Na przykład, gdy użytkownik aplikacji zmieni hasło używane do uwierzytelniania w usłudze. Metoda `revoke_tokens` unieważnia wszystkie aktywne tokeny dostępu, które zostały wystawione dla tożsamości.
 
-```python  
+```python
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```

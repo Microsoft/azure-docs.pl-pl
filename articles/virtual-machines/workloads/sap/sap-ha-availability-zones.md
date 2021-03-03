@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871319"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671627"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfiguracje obciążenia SAP ze strefami dostępności platformy Azure
 Oprócz wdrożenia różnych warstw architektury SAP w zestawach dostępności platformy Azure, bardziej ostatnio wprowadzone [strefy dostępności platformy Azure](../../../availability-zones/az-overview.md) można również użyć do wdrożeń obciążeń SAP. Strefa dostępności platformy Azure jest definiowana jako: "unikatowe lokalizacje fizyczne w regionie. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależną moc, chłodzenie i sieć. Strefy dostępności platformy Azure nie są dostępne we wszystkich regionach. W przypadku regionów platformy Azure, które zapewniają Strefy dostępności, sprawdź [mapę regionów platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Ta mapa pokazuje, które regiony zapewniają lub są ogłaszane w celu zapewnienia Strefy dostępności. 

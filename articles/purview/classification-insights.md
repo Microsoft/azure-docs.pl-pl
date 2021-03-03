@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196541"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666510"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Klasyfikacja informacji o danych z platformy Azure kontrolą
 
 W tym przewodniku opisano, jak uzyskać dostęp do Kontroląych raportów klasyfikacji danych i ich wyświetlać oraz filtrować je.
 
-Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (dawniej SQL DW), Azure SQL Database, wystąpienie zarządzane Azure SQL, SQL Server
+Obsługiwane źródła danych obejmują: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (dawniej SQL DW), Azure SQL Database, wystąpienia zarządzanego Azure SQL, SQL Server, zasobniki usługi Amazon S3
 
 W tym przewodniku krok po kroku dowiesz się, jak:
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem pracy z usługą kontrolą Insights upewnij się, że zosta�
 
 - Skonfiguruj zasoby platformy Azure i wypełnianie odpowiednich kont danymi testowymi
 
-- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych
+- Skonfiguruj i Ukończ skanowanie danych testowych w każdym źródle danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)](manage-data-sources.md) i [Tworzenie zestawu reguł skanowania](create-a-scan-rule-set.md).
 
 - Zalogowano się do kontrolą przy użyciu konta z [czytnikiem danych lub rolą Curator danych](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

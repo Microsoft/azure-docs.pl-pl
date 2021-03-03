@@ -1,31 +1,30 @@
 ---
-title: Korzystanie z tożsamości zarządzanych w usługach komunikacyjnych (.NET)
+title: Korzystanie z tożsamości zarządzanych w usługach komunikacyjnych
 titleSuffix: An Azure Communication Services quickstart
 description: Zarządzane tożsamości umożliwiają autoryzowanie dostępu do usług Azure Communications Services z aplikacji uruchamianych na maszynach wirtualnych platformy Azure, aplikacjach funkcji i innych zasobach.
 services: azure-communication-services
-author: stefang931
+author: peiliu
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 12/04/2020
-ms.author: gistefan
+ms.date: 2/24/2021
+ms.author: peiliu
 ms.reviewer: mikben
-ms.openlocfilehash: 9fd8a17deeb49d836ff5902042bdb88696e29f31
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d25e5dc97c700daf6655ecd270bfda469a9d353
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417868"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657624"
 ---
-# <a name="use-managed-identities-net"></a>Korzystanie z tożsamości zarządzanych (.NET)
+# <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
+Rozpocznij pracę z usługami Azure Communications Services przy użyciu tożsamości zarządzanych. Biblioteki usług komunikacyjnych i klienckie programu SMS obsługują uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Rozpocznij pracę z usługami Azure Communications Services przy użyciu tożsamości zarządzanych w programie .NET. Biblioteki administracyjne usług komunikacyjnych i klienta programu SMS obsługują uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
-
-W tym przewodniku szybki start pokazano, jak autoryzować dostęp do bibliotek klienckich administracji i programu SMS ze środowiska platformy Azure, które obsługuje zarządzane tożsamości. Opisano w nim również sposób testowania kodu w środowisku programistycznym.
+W tym przewodniku szybki start przedstawiono sposób autoryzacji dostępu do tożsamości i bibliotek klienckich programu SMS ze środowiska platformy Azure, które obsługuje zarządzane tożsamości. Opisano w nim również sposób testowania kodu w środowisku programistycznym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
  - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free)
- - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
+ - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -54,77 +53,18 @@ Zarządzane tożsamości powinny być włączone dla zasobów platformy Azure, k
 
 Aby przypisać role i uprawnienia przy użyciu programu PowerShell, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../../../articles/role-based-access-control/role-assignments-powershell.md)
 
-## <a name="add-managed-identity-to-your-communication-services-solution"></a>Dodaj zarządzaną tożsamość do rozwiązania usług komunikacyjnych
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [.NET](./includes/managed-identity-net.md)]
+::: zone-end
 
-### <a name="install-the-client-library-packages"></a>Instalowanie pakietów biblioteki klienta
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java](./includes/managed-identity-java.md)]
+::: zone-end
 
-```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Configuration
-dotnet add package Azure.Communication.Sms
-dotnet add package Azure.Identity
-```
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript](./includes/managed-identity-js.md)]
+::: zone-end
 
-### <a name="use-the-client-library-packages"></a>Korzystanie z pakietów biblioteki klienta
-
-Dodaj następujące `using` dyrektywy do kodu, aby użyć tożsamości platformy Azure i bibliotek klienckich usługi Azure Storage.
-
-```csharp
-using Azure.Identity;
-using Azure.Communication.Identity;
-using Azure.Communication.Configuration;
-using Azure.Communication.Sms;
-```
-
-Poniższe przykłady używają [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential). To poświadczenie jest odpowiednie dla środowisk produkcyjnych i programistycznych.
-
-### <a name="create-an-identity-and-issue-a-token"></a>Tworzenie tożsamości i wystawianie tokenu
-
-Poniższy przykład kodu pokazuje, jak utworzyć obiekt klienta usługi z tokenami Azure Active Directory, a następnie za pomocą klienta wydać token dla nowego użytkownika:
-
-```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
-     {
-          TokenCredential credential = new DefaultAzureCredential();
-     
-          var client = new CommunicationIdentityClient(resourceEndpoint, credential);
-          var identityResponse = await client.CreateUserAsync();
-     
-          var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
-
-          return tokenResponse;
-     }
-```
-
-### <a name="send-an-sms-with-azure-active-directory-tokens"></a>Wyślij wiadomość SMS z tokenami Azure Active Directory
-
-Poniższy przykład kodu pokazuje, jak utworzyć obiekt klienta usługi z tokenami Azure Active Directory, a następnie wysłać wiadomość SMS przy użyciu klienta:
-
-```csharp
-
-     public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
-     {
-          TokenCredential credential = new DefaultAzureCredential();
-     
-          SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
-          smsClient.Send(
-               from: from,
-               to: to,
-               message: message,
-               new SendSmsOptions { EnableDeliveryReport = true } // optional
-          );
-     }
-```
-
-## <a name="next-steps"></a>Następne kroki
-
-> [!div class="nextstepaction"]
-> [Informacje o uwierzytelnianiu](../concepts/authentication.md)
-
-Możesz również chcieć:
-
-- [Dowiedz się więcej o kontroli dostępu opartej na rolach na platformie Azure](../../../articles/role-based-access-control/index.yml)
-- [Dowiedz się więcej o bibliotece tożsamości platformy Azure dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
-- [Tworzenie tokenów dostępu użytkowników](../quickstarts/access-tokens.md)
-- [Wysyłanie wiadomości SMS](../quickstarts/telephony-sms/send.md)
-- [Dowiedz się więcej o programie SMS](../concepts/telephony-sms/concepts.md)
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python](./includes/managed-identity-python.md)]
+::: zone-end

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 06ae46eb96db39f44cd052e6e9b0d1a19f898007
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091526"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657336"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Uruchamianie notesów Jupyter w obszarze roboczym
 
@@ -190,10 +190,10 @@ Znajdź szczegółowe informacje o wystąpieniach obliczeniowych na stronie **ob
 
 * Jeśli nie możesz połączyć się z notesem, upewnij się, że komunikacja gniazda internetowego **nie** jest wyłączona. Aby można było korzystać z funkcji Jupyter wystąpienia obliczeniowego, musi być włączona komunikacja między gniazdami sieci Web. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
 
-* Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można uzyskać do niego dostęp tylko z poziomu sieci wirtualnej. Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla <nazwa wystąpienia>. <region> . instances.azureml.ms z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) .
+* Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można uzyskać do niego dostęp tylko z poziomu sieci wirtualnej. Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla <nazwa wystąpienia>. <region> . instances.azureml.ms z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uruchamianie pierwszego eksperymentu](tutorial-1st-experiment-sdk-train.md)
 * [Tworzenie kopii zapasowej magazynu plików za pomocą migawek](../storage/files/storage-snapshots-files.md)
-* [Praca w bezpiecznych środowiskach](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
+* [Praca w bezpiecznych środowiskach](./how-to-secure-training-vnet.md#compute-instance)

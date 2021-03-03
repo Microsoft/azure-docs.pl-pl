@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653586"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661636"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
 
-- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Zainstaluj [Node.js](https://nodejs.org/en/download/) wersje LTS LTS i Maintenance (zalecane 8.11.1 i 10.14.1).
 - Utwórz zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../../create-communication-resource.md). Musisz **zarejestrować punkt końcowy zasobu** dla tego przewodnika Szybki Start.
 - Utwórz *trzech* użytkowników usługi ACS i wystawiaj im [token dostępu użytkownika](../../access-tokens.md)tokenu dostępu użytkownika. Pamiętaj, aby ustawić zakres do **rozmowy** i **zanotować ciąg tokenu oraz ciąg identyfikatora użytkownika**. Pełny pokaz tworzy wątek z dwoma początkowymi uczestnikami, a następnie dodaje trzeciego uczestnika do wątku.
@@ -34,7 +34,7 @@ Najpierw Otwórz terminal lub okno poleceń Utwórz nowy katalog dla aplikacji i
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Uruchom `npm init -y` , aby utworzyć **package.jsw** pliku z ustawieniami domyślnymi.
 
 ```console
@@ -48,7 +48,7 @@ Użyj `npm install` polecenia, aby zainstalować poniższe biblioteki klienckie 
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -86,7 +86,7 @@ Utwórz plik w katalogu głównym projektu o nazwie **client.js** , aby zawiera�
 
 ### <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
-Aby utworzyć klienta programu chat w aplikacji sieci Web, należy użyć **punktu końcowego** usługi komunikacyjnej i **tokenu dostępu** , który został wygenerowany w ramach kroków wymagań wstępnych. 
+Aby utworzyć klienta programu chat w aplikacji sieci Web, należy użyć **punktu końcowego** usługi komunikacyjnej i **tokenu dostępu** , który został wygenerowany w ramach kroków wymagań wstępnych.
 
 Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami aplikacji czatu. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [pojęcia dotyczące rozmowy](../../../concepts/chat/concepts.md) , aby uzyskać więcej informacji o architekturze rozmowy i [tokenach dostępu użytkowników](../../access-tokens.md) .
 
@@ -122,7 +122,7 @@ W konsoli narzędzia deweloperskie w przeglądarce powinny zostać wyświetlone 
 Azure Communication Chat client created!
 ```
 
-## <a name="object-model"></a>Model obiektów 
+## <a name="object-model"></a>Model obiektów
 Poniższe klasy i interfejsy obsługują niektóre główne funkcje biblioteki klienta czatu usługi Azure Communication Services dla języka JavaScript.
 
 | Nazwa                                   | Opis                                                                                                                                                                           |
@@ -137,7 +137,7 @@ Użyj `createThread` metody, aby utworzyć wątek rozmowy.
 
 `createThreadRequest` służy do opisywania żądania wątku:
 
-- Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji. 
+- Użyj `topic` , aby przekazać temat do tego rozmowy. Tematy można aktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateThread` funkcji.
 - Użyj, `participants` Aby wyświetlić listę uczestników, którzy mają zostać dodani do wątku rozmowy.
 
 Po rozwiązaniu `createChatThread` Metoda zwraca `CreateChatThreadResponse` . Ten model zawiera właściwość, w `chatThread` której można uzyskać dostęp do `id` nowo utworzonego wątku. Następnie można użyć, `id` Aby pobrać wystąpienie elementu `ChatThreadClient` . `ChatThreadClient`Można następnie użyć do wykonania operacji w ramach wątku, takiego jak wysyłanie komunikatów lub wyświetlanie listy uczestników.
@@ -203,7 +203,7 @@ Użyj `sendMessage` metody, aby wysłać wiadomość czatu do właśnie utworzon
 
 `sendMessageOptions` opisuje opcjonalne pola żądania wiadomości czatu:
 
-- Służy `priority` do określania poziomu priorytetu wiadomości czatu, takiego jak "normal" lub "High". Ta właściwość może być używana jako wskaźnik interfejsu użytkownika dla użytkownika odbiorcy w aplikacji, aby mógł zwrócić uwagę na komunikat lub wykonać niestandardową logikę biznesową.   
+- Służy `priority` do określania poziomu priorytetu wiadomości czatu, takiego jak "normal" lub "High". Ta właściwość może służyć do wyświetlania wskaźnika interfejsu użytkownika odbiorcy w aplikacji, aby zwrócić uwagę na komunikat lub wykonać niestandardową logikę biznesową.
 - Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy;
 
 Odpowiedź `sendChatMessageResult` zawiera identyfikator, który jest unikatowym identyfikatorem tego komunikatu.
@@ -246,7 +246,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Dodaj ten kod zamiast `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` komentarza w **client.js**.
 Odśwież kartę przeglądarki, która powinna zostać wyświetlona w konsoli programu `Notification chatMessageReceived` .
 
-Alternatywnie można pobrać wiadomości czatu przez sondowanie `listMessages` metody w określonych odstępach czasu. 
+Alternatywnie można pobrać wiadomości czatu przez sondowanie `listMessages` metody w określonych odstępach czasu.
 
 ```JavaScript
 

@@ -2,18 +2,19 @@
 title: Co to są rozwiązania do uruchamiania programu Oracle webWebLogicc Server w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak uruchomić serwer Oracle WebLogic w usłudze Azure Kubernetes.
 author: rezar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 02/23/2021
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: cf44ad8d81656248329d993d86e9922dc4985258
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ac9f81fbde33bdd10bc8374a566a4f2ba83fc253
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486678"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669010"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Co to są rozwiązania do uruchamiania programu Oracle webWebLogicc Server w usłudze Azure Kubernetes Service?
 
@@ -24,16 +25,18 @@ Można również uruchomić serwer WebLogic na platformie Azure Virtual Machines
 Serwer WebLogic to wiodący serwer aplikacji Java, na którym działają niektóre z najważniejszych aplikacji Java przedsiębiorstwa na całym świecie. Serwer WebLogic stanowi podstawę programu pośredniczącego dla pakietu oprogramowania Oracle. Firmy Oracle i Microsoft są zaangażowane w umożliwienie klientom serwerów WebLogic z możliwością wyboru i elastycznością uruchamiania obciążeń na platformie Azure jako wiodącej platformy w chmurze.
 
 ## <a name="wls-on-aks-certified-and-supported"></a>Usługi WLS w AKS Certified i obsługiwane
-Serwer WebLogic jest certyfikowany przez oprogramowanie Oracle i firmę Microsoft do prawidłowego działania na AKS. Serwer WebLogic na rozwiązaniach AKS ma na celu łatwą możliwość uruchamiania kontenerów i zorganizowanych aplikacji Java EE w technologii Docker i Kubernetes. Rozwiązania koncentrują się na niezawodności, skalowalności, możliwości zarządzania i pomocy technicznej dla przedsiębiorstw.
+Serwer WebLogic jest certyfikowany przez oprogramowanie Oracle i firmę Microsoft do prawidłowego działania na AKS. Serwer WebLogic na rozwiązaniach AKS ma na celu łatwe uruchamianie kontenerów i zorganizowanych aplikacji Java w infrastrukturze Docker i Kubernetes. Rozwiązania koncentrują się na niezawodności, skalowalności, możliwości zarządzania i pomocy technicznej dla przedsiębiorstw.
 
 Klastry serwerów WebLogic są w pełni włączone do uruchamiania na Kubernetes za pośrednictwem operatora WebLogic Kubernetes (zwanego po lewej stronie jako "operator"). Operator postępuje zgodnie ze standardowym wzorcem operatora Kubernetes. Upraszcza to zarządzanie i działanie WebLogic domen i wdrożeń na Kubernetes przez Automatyzowanie w inny sposób ręcznych zadań i Dodawanie dodatkowych funkcji niezawodności działania. Operator obsługuje funkcję Oracle webWebLogicc Server 12c, 12c i więcej niż infrastruktura oprogramowania pośredniczącego firmy Oracle. Przetestowano oficjalne obrazy platformy Docker dla WebLogic Server 12.2.1.3 i 12.2.1.4 z operatorem. Aby uzyskać szczegółowe informacje na temat operatora, zapoznaj się z [oficjalną dokumentacją firmy Oracle](https://oracle.github.io/weblogic-kubernetes-operator/).
 
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>Wskazówki, skrypty i przykłady dla usługi WLS w systemie AKS
-Poza certyfikowaniem serwera WebLogic na AKS, Oracle i Microsoft wspólnie udostępniają szczegółowe instrukcje, skrypty i przykłady dotyczące uruchamiania serwera WebLogic na AKS. Wskazówki są zawarte w sekcji przykładowej usługi Azure Kubernetes Service w [dokumentacji operatora](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/). Wskazówki dotyczą tworzenia serwera produkcyjnego WebLogic na wdrożeniach AKS jak najłatwiej. Wskazówki korzystają z oficjalnych obrazów platformy Docker WebLogic Server dostarczonych przez firmę Oracle. Tryb failover jest uzyskiwany za pośrednictwem Azure Files dostępnych za pośrednictwem trwałych oświadczeń woluminu Kubernetes. Usługi równoważenia obciążenia platformy Azure są obsługiwane w przypadku inicjowania obsługi administracyjnej przy użyciu usług Kubernetes typu "równoważenia obciążenia". Wskazówki umożliwiają wysoki stopień konfiguracji i dostosowywania.
+Poza certyfikowaniem serwera WebLogic na AKS, Oracle i Microsoft wspólnie udostępniają szczegółowe instrukcje, skrypty i przykłady dotyczące uruchamiania serwera WebLogic na AKS. Wskazówki są zawarte w sekcji przykładowej usługi Azure Kubernetes Service w [dokumentacji operatora](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/). Wskazówki dotyczą tworzenia serwera produkcyjnego WebLogic na wdrożeniach AKS jak najłatwiej. Wskazówki korzystają z oficjalnych obrazów platformy Docker WebLogic Server dostarczonych przez firmę Oracle. Tryb failover jest uzyskiwany za pośrednictwem Azure Files dostępnych za pośrednictwem trwałych oświadczeń woluminu Kubernetes. Usługi równoważenia obciążenia platformy Azure są obsługiwane w przypadku inicjowania obsługi administracyjnej przy użyciu usług Kubernetes typu "równoważenia obciążenia". Azure Container Registry (ACR) jest obsługiwana w przypadku wdrażania domen usługi WLS wewnątrz niestandardowych obrazów platformy Docker. Wskazówki umożliwiają wysoki stopień konfiguracji i dostosowywania.
 
 :::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="Za pomocą przykładowych skryptów można wdrożyć serwer WebLogic na AKS":::
 
-Wskazówki obecnie zakładają wdrożenie domeny poza obrazem platformy Docker i używanie standardowych obrazów platformy Docker z programu Oracle. Dodamy wskazówki dotyczące włączania obrazów niestandardowych w domenie w ramach obrazu platformy Docker. Dalsze łatwość użycia i integracje usług platformy Azure są dostępne w przyszłości za pośrednictwem ofert w witrynie Marketplace dublowania serwera Oracle WebLogic Server w rozwiązaniach Virtual Machines platformy Azure.
+Rozwiązania te obejmują dwa sposoby wdrażania domen usługi WLS do AKS. Domeny można wdrażać bezpośrednio w woluminach trwałych Kubernetes. Ta opcja wdrażania jest dobra, jeśli chcesz przeprowadzić migrację do usługi AKS, ale nadal chcesz administrować usługą WLS przy użyciu konsoli administracyjnej lub narzędzia do obsługi skryptów WebLogic (WLST). Opcja umożliwia również przechodzenie do AKS bez przyjmowania programowania platformy Docker. Bardziej Kubernetes natywny sposób wdrażania domen usługi WLS na AKS polega na tworzeniu niestandardowych obrazów platformy Docker opartych na oficjalnych obrazach usługi WLS z programu Oracle Container Registry, opublikowaniu niestandardowych obrazów w ACR i wdrożeniu domeny do AKS przy użyciu operatora. Ta opcja w rozwiązaniu umożliwia również aktualizację domeny za pomocą Kubernetes ConfigMaps po zakończeniu wdrażania.
+
+Dalsze łatwość użycia i integracje usług platformy Azure są dostępne w przyszłości za pośrednictwem ofert w witrynie Marketplace dublowania serwera Oracle WebLogic Server w rozwiązaniach Virtual Machines platformy Azure.
 
 _Te rozwiązania są_ gotowe do posiadania licencji. Zakładamy, że masz już odpowiednie licencje na oprogramowanie Oracle i są prawidłowo licencjonowane do uruchamiania ofert na platformie Azure.
 

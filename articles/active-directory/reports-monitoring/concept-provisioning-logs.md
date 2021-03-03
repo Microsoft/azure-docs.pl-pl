@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091936"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651941"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Omówienie dzienników aprowizacji w Azure Portal (wersja zapoznawcza)
 
@@ -60,8 +60,8 @@ Aby można było wyświetlić raport aktywności aprowizacji, dzierżawa musi mi
 Klienci mogą korzystać z dzienników aprowizacji na cztery sposoby:
 
 - Uzyskiwanie dostępu do dzienników z Azure Portal, zgodnie z opisem w następnej sekcji.
-- Przesyłanie strumieniowe dzienników aprowizacji do [Azure monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Ta metoda pozwala na Rozszerzone przechowywanie danych i tworzenie niestandardowych pulpitów nawigacyjnych, alertów i zapytań.
-- Wykonywanie zapytania dotyczącego [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) dla dzienników aprowizacji.
+- Przesyłanie strumieniowe dzienników aprowizacji do [Azure monitor](../app-provisioning/application-provisioning-log-analytics.md). Ta metoda pozwala na Rozszerzone przechowywanie danych i tworzenie niestandardowych pulpitów nawigacyjnych, alertów i zapytań.
+- Wykonywanie zapytania dotyczącego [interfejsu API Microsoft Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) dla dzienników aprowizacji.
 - Pobieranie dzienników aprowizacji jako pliku CSV lub JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Uzyskaj dostęp do dzienników z Azure Portal
@@ -207,7 +207,7 @@ Plik JSON zostanie pobrany w formacie zminimalizowanego, aby zmniejszyć rozmiar
 
 Poniżej przedstawiono kilka przykładowych poleceń do pracy z plikiem JSON przy użyciu programu PowerShell. Możesz użyć dowolnego języka programowania, z którym masz doświadczenie.  
 
-Najpierw [Przeczytaj plik JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) , uruchamiając następujące polecenie:
+Najpierw [Przeczytaj plik JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) , uruchamiając następujące polecenie:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

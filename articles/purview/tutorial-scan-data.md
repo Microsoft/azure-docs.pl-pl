@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806226"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676549"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Samouczek: skanowanie danych za pomocą usługi Azure kontrolą (wersja zapoznawcza)
 
@@ -55,7 +55,7 @@ W tej sekcji uruchamiane są skrypty startowe programu w celu utworzenia symulow
 
 Wykonaj następujące kroki, aby skonfigurować oprogramowanie klienckie zestawu startowego na komputerze z systemem Windows:
 
-1. [Pobierz zestaw startowy](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip)i Wyodrębnij jego zawartość do wybranej lokalizacji.
+1. [Pobierz zestaw startowy](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip)i Wyodrębnij jego zawartość do wybranej lokalizacji.
 
 
 1. Na komputerze wprowadź program **PowerShell** w polu wyszukiwania na pasku zadań systemu Windows. Na liście wyszukiwania kliknij prawym przyciskiem myszy pozycję **Windows PowerShell**, a następnie wybierz polecenie **Uruchom jako administrator**.

@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8b216fafad5cd2f7406320dce3ec28b8830015d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655989"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673756"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Rozwiązanie SAP ASCS/SCS o wysokiej dostępności z użyciem usługi Windows Server Failover Clustering i Azure Shared Disk
 
@@ -104,11 +103,11 @@ Oprócz **istniejącego** wystąpienia programu SAP **PR1** ASCS/SCS zostanie za
 | --- | --- | --- |---| ---|
 | pierwszy węzeł klastra ASCS/SCS klaster |PR1-ASCS-10 |10.0.0.4 |PR1-ASCS-avset |PR1PPG |
 | klaster ASCS/SCS drugiego węzła klastra |PR1-ASCS-11 |10.0.0.5 |PR1-ASCS-avset |PR1PPG |
-| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | n/d | n/d |
-| **SID1** Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | n/d | n/d |
-| **SID1** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | n/d | n/d |
-| **SID2** Nazwa sieci klastra ASCS | pr2-ascscl |10.0.0.45 | n/d | n/d |
-| **SID2** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.46 | n/d | n/d |
+| Nazwa sieci klastra | pr1clust |10.0.0.42 (**tylko** w przypadku klastra win 2016) | nie dotyczy | nie dotyczy |
+| **SID1** Nazwa sieci klastra ASCS | pr1-ascscl |10.0.0.43 | nie dotyczy | nie dotyczy |
+| **SID1** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.44 | nie dotyczy | nie dotyczy |
+| **SID2** Nazwa sieci klastra ASCS | pr2-ascscl |10.0.0.45 | nie dotyczy | nie dotyczy |
+| **SID2** Nazwa sieci klastra wykres WYWOŁUJĄCYCH (**tylko** dla ERS2) | pr1-erscl |10.0.0.46 | nie dotyczy | nie dotyczy |
 
 ### <a name="create-azure-internal-load-balancer"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure
 

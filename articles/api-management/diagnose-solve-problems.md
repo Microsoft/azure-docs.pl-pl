@@ -6,16 +6,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: d41dcb939f981ce9cb6d3eae328cb2eb9adc20c2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d8ec04227316088983977f5b487abfa81fb5c525
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654271"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652406"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Omówienie usługi Azure API Management Diagnostics
 
-Podczas tworzenia i zarządzania interfejsem API w usłudze Azure API Management należy przygotować się do wszelkich problemów, które mogą się pojawić, od 404 błędnych błędów bramy do 502. API Management Diagnostics to inteligentne i interaktywne środowisko ułatwiające rozwiązywanie problemów z interfejsem API opublikowanym w APIM bez konieczności konfigurowania. Gdy wystąpią problemy z opublikowanymi interfejsami API, program API Management Diagnostics wskazuje, co się nie dzieje, i prowadzi Cię do odpowiednich informacji w celu szybkiego rozwiązywania problemów i rozwiązywania problemu.
+Podczas kompilowania i zarządzania interfejsem API w usłudze Azure API Management, chcesz przystąpić do wszelkich problemów, które mogą wystąpić, od 404 błędnych błędów bramy do 502. API Management Diagnostics to inteligentne i interaktywne środowisko ułatwiające rozwiązywanie problemów z interfejsem API opublikowanym w APIM bez konieczności konfigurowania. Gdy wystąpią problemy z opublikowanymi interfejsami API, program API Management Diagnostics wskazuje, co się nie dzieje, i prowadzi Cię do odpowiednich informacji w celu szybkiego rozwiązywania problemów i rozwiązywania problemu.
 
 Chociaż to środowisko jest najbardziej przydatne w przypadku problemów z interfejsem API w ciągu ostatnich 24 godzin, wszystkie wykresy diagnostyczne są zawsze dostępne do analizy.
 

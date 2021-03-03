@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fbc4179bcfc36f094b36966c8e5dd0acac66075
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 03144d478be0053ac77709132b08cdf17b062fb0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683046"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666292"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
@@ -38,7 +38,7 @@ Wydajność dla jednostek magazynu danych jest oparta na następujących metryka
 
 - Jak Fast kwerenda magazynu danych w warstwie Standardowa może skanować dużą liczbę wierszy, a następnie przeprowadzać złożoną agregację. Ta operacja jest operacją we/wy i intensywnie wykorzystującą procesor CPU.
 - Jak szybko magazyn danych może pozyskać dane z obiektów BLOB usługi Azure Storage lub Azure Data Lake. Ta operacja jest intensywnie korzystające z sieci i procesora CPU.
-- Jak szybko [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) polecenie T-SQL może skopiować tabelę. Ta operacja obejmuje odczytywanie danych z magazynu, ich dystrybucję w węzłach urządzenia i ponowne zapisywanie w magazynie. Ta operacja polega na procesorach CPU, we/wy i intensywnym wykorzystaniu sieci.
+- Jak szybko [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) polecenie T-SQL może skopiować tabelę. Ta operacja obejmuje odczytywanie danych z magazynu, ich dystrybucję w węzłach urządzenia i ponowne zapisywanie w magazynie. Ta operacja polega na procesorach CPU, we/wy i intensywnym wykorzystaniu sieci.
 
 Zwiększanie jednostek dwu:
 
@@ -78,7 +78,7 @@ W miarę zwiększania liczby jednostek magazynu danych zwiększa się liniowo za
 
 #### <a name="capacity-limits"></a>Limity pojemności
 
-Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../azure-sql/database/service-tiers-dtu.md) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Oceń liczbę potrzebnych jednostek magazynu danych
 
@@ -98,7 +98,7 @@ Pula SQL to system skalowalny w poziomie, który umożliwia obsługę ogromnych 
 
 ### <a name="permissions"></a>Uprawnienia
 
-Zmiana jednostek magazynu danych wymaga uprawnień opisanych w temacie [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Zmiana jednostek magazynu danych wymaga uprawnień opisanych w temacie [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 Wbudowane role platformy Azure, takie jak współautor bazy danych SQL i współautor SQL Server, mogą zmieniać ustawienia jednostek dwu.
 
@@ -135,7 +135,7 @@ Aby zmienić jednostek dwu:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby zmienić jednostek dwu, użyj polecenia cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) programu PowerShell. Poniższy przykład ustawia cel poziomu usługi wartości DW1000 dla bazy danych MySQLDW, która jest hostowana na serwerze serwera programu.
+Aby zmienić jednostek dwu, użyj polecenia cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) programu PowerShell. Poniższy przykład ustawia cel poziomu usługi wartości DW1000 dla bazy danych MySQLDW, która jest hostowana na serwerze serwera programu.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
@@ -150,7 +150,7 @@ Przy użyciu języka T-SQL można wyświetlić bieżącą DWUsettings, zmienić 
 Aby zmienić jednostek dwu:
 
 1. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem.
-2. Użyj instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) TSQL. Poniższy przykład ustawia cel poziomu usługi DW1000c dla bazy danych MySQLDW.
+2. Użyj instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) TSQL. Poniższy przykład ustawia cel poziomu usługi DW1000c dla bazy danych MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -160,7 +160,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 #### <a name="rest-apis"></a>Interfejsy API REST
 
-Aby zmienić jednostek dwu, użyj interfejsu API REST [tworzenia lub aktualizacji bazy danych](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) . Poniższy przykład ustawia cel poziomu usługi DW1000c dla bazy danych MySQLDW, która jest hostowana na serwerze serwera programu. Serwer należy do grupy zasobów platformy Azure o nazwie ResourceGroup1.
+Aby zmienić jednostek dwu, użyj interfejsu API REST [tworzenia lub aktualizacji bazy danych](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) . Poniższy przykład ustawia cel poziomu usługi DW1000c dla bazy danych MySQLDW, która jest hostowana na serwerze serwera programu. Serwer należy do grupy zasobów platformy Azure o nazwie ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

@@ -3,17 +3,17 @@ title: Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK
 description: Więcej informacji o zachowaniu dostępności zestawu SDK usługi Azure Cosmos w przypadku korzystania z wielu środowisk regionalnych.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650987"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661430"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +47,13 @@ Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie bę
 > Jeśli wartości określone jako preferencja regionalna nie są zgodne z żadnym z istniejących regionów świadczenia usługi Azure, zostaną zignorowane. Jeśli są one zgodne z istniejącym regionem, ale konto nie jest replikowane do niego, klient będzie łączył się z następnym preferowanym regionem zgodnym lub z regionem podstawowym.
 
 > [!WARNING]
-> Wyłączenie ponownego odnajdywania punktu końcowego (ustawienie na wartość false) w konfiguracji klienta spowoduje wyłączenie wszystkich logiki trybu failover i dostępności opisanych w tym dokumencie.
-> Dostęp do tej konfiguracji można uzyskać za pomocą następujących parametrów w poszczególnych zestawach SDK usługi Azure Cosmos:
+> Logikę trybu failover i dostępności opisaną w tym dokumencie można wyłączyć w konfiguracji klienta, co nie jest zalecane, chyba że aplikacja użytkownika nie będzie obsługiwać błędów dostępności. Można to osiągnąć przez:
 >
-> * Właściwość [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) w zestawie SDK platformy .net v2.
-> * Metoda [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) w zestawie SDK języka Java v4.
-> * Parametr [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) w zestawie SDK języka Python.
-> * [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) w zestawie SDK js.
+> * Ustawianie właściwości [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) w programie .NET V2 SDK na wartość false.
+> * Ustawianie właściwości [CosmosClientOptions. LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) w programie .NET v3 SDK na wartość true.
+> * Ustawianie metody [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) w programie Java v4 SDK na wartość false.
+> * Ustawianie parametru [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) w programie Python SDK na wartość false.
+> * Ustawienie parametru [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) w zestawie SDK js na wartość false.
 
 W normalnych warunkach klient zestawu SDK będzie łączył się z preferowanym regionem (Jeśli ustawiona jest preferencja regionalna) lub do regionu podstawowego (jeśli nie ustawiono preferencji), a operacje będą ograniczone do tego regionu, chyba że wystąpi którykolwiek z poniższych scenariuszy.
 

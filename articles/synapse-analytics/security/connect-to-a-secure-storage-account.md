@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674320"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Nawiązywanie połączenia z bezpiecznym kontem usługi Azure Storage z obszaru roboczego Synapse
 
@@ -21,7 +21,7 @@ W tym artykule omówiono sposób nawiązywania połączenia z bezpiecznym kontem
 
 
 ## <a name="secured-azure-storage-accounts"></a>Zabezpieczone konta usługi Azure Storage
-Usługa Azure Storage zapewnia warstwowy model zabezpieczeń, który umożliwia Zabezpieczanie i kontrolowanie dostępu do kont magazynu. Reguły zapory IP można skonfigurować w taki sposób, aby ruch z wybranych zakresów publicznych adresów IP miał dostęp do konta magazynu. Możesz również skonfigurować reguły sieciowe, aby przyznać ruch z wybranych sieci wirtualnych do konta magazynu. Można łączyć reguły zapory IP zezwalające na dostęp z wybranych zakresów adresów IP i reguł sieci, które zapewniają dostęp z wybranych sieci wirtualnych na tym samym koncie magazynu. Te reguły dotyczą publicznego punktu końcowego konta magazynu. Nie są potrzebne żadne reguły dostępu, aby zezwalać na ruch z zarządzanych prywatnych punktów końcowych utworzonych w obszarze roboczym na konto magazynu. Reguły zapory magazynu mogą być stosowane do istniejących kont magazynu lub do nowych kont magazynu podczas ich tworzenia. Więcej informacji na temat zabezpieczania konta magazynu można znaleźć [tutaj](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Usługa Azure Storage zapewnia warstwowy model zabezpieczeń, który umożliwia Zabezpieczanie i kontrolowanie dostępu do kont magazynu. Reguły zapory IP można skonfigurować w taki sposób, aby ruch z wybranych zakresów publicznych adresów IP miał dostęp do konta magazynu. Możesz również skonfigurować reguły sieciowe, aby przyznać ruch z wybranych sieci wirtualnych do konta magazynu. Można łączyć reguły zapory IP zezwalające na dostęp z wybranych zakresów adresów IP i reguł sieci, które zapewniają dostęp z wybranych sieci wirtualnych na tym samym koncie magazynu. Te reguły dotyczą publicznego punktu końcowego konta magazynu. Nie są potrzebne żadne reguły dostępu, aby zezwalać na ruch z zarządzanych prywatnych punktów końcowych utworzonych w obszarze roboczym na konto magazynu. Reguły zapory magazynu mogą być stosowane do istniejących kont magazynu lub do nowych kont magazynu podczas ich tworzenia. Więcej informacji na temat zabezpieczania konta magazynu można znaleźć [tutaj](../../storage/common/storage-network-security.md).
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Obszary robocze Synapse i sieci wirtualne
 Podczas tworzenia obszaru roboczego Synapse można włączyć do niego skojarzenie zarządzanej sieci wirtualnej. Jeśli nie włączysz zarządzanej sieci wirtualnej dla obszaru roboczego podczas tworzenia, obszar roboczy znajduje się w udostępnionej sieci wirtualnej wraz z innymi obszarami roboczymi Synapse, do których nie jest skojarzona zarządzana Sieć wirtualna. Jeśli zarządzana Sieć wirtualna została włączona podczas tworzenia obszaru roboczego, obszar roboczy jest skojarzony z dedykowaną siecią wirtualną zarządzaną przez usługę Azure Synapse. Te sieci wirtualne nie są tworzone w ramach subskrypcji klienta. W związku z tym nie będzie można przydzielić ruchu z tych sieci wirtualnych do bezpiecznego konta magazynu przy użyciu opisanych powyżej reguł sieci.  

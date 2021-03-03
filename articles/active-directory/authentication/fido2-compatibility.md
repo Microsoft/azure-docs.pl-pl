@@ -11,16 +11,16 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ed99338a10eb226823c4bd4857d812038ff632
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094505"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649244"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Obsługa uwierzytelniania bezhaseł przez przeglądarkę FIDO2
 
-Azure Active Directory zezwala na używanie [kluczy zabezpieczeń FIDO2](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) jako urządzenia bezhaseł. Dostępność uwierzytelniania FIDO2 dla kont Microsoft została [ogłoszona w 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Zgodnie z opisem w ogłoszeniu należy zaimplementować pewne opcjonalne funkcje i rozszerzenia dla specyfikacji FIDO2 CTAP, aby obsługiwały bezpieczne uwierzytelnianie przy użyciu kont firmy Microsoft i Azure Active Directory. Na poniższym diagramie przedstawiono, które przeglądarki i kombinacje systemów operacyjnych obsługują uwierzytelnianie bezhasłem przy użyciu kluczy uwierzytelniania FIDO2 z Azure Active Directory.
+Azure Active Directory zezwala na używanie [kluczy zabezpieczeń FIDO2](./concept-authentication-passwordless.md#fido2-security-keys) jako urządzenia bezhaseł. Dostępność uwierzytelniania FIDO2 dla kont Microsoft została [ogłoszona w 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). Zgodnie z opisem w ogłoszeniu, pewne funkcje opcjonalne i rozszerzenia do specyfikacji FIDO2 CTAP muszą zostać zaimplementowane do obsługi bezpiecznego uwierzytelniania przy użyciu kont firmy Microsoft i Azure Active Directory. Na poniższym diagramie przedstawiono, które przeglądarki i kombinacje systemów operacyjnych obsługują uwierzytelnianie bezhasłem przy użyciu kluczy uwierzytelniania FIDO2 z Azure Active Directory.
 
 ## <a name="supported-browsers"></a>Obsługiwane przeglądarki
 
@@ -35,7 +35,7 @@ W tej tabeli przedstawiono obsługę uwierzytelniania Azure Active Directory (Az
 
 ## <a name="unsupported-browsers"></a>Nieobsługiwane przeglądarki
 
-Następujące kombinacje systemów operacyjnych i przeglądarek nie są obsługiwane, ale trwa badanie w przyszłości. Jeśli chcesz zobaczyć dodatkową pomoc techniczną dla systemu operacyjnego i przeglądarki, wystaw opinię za pomocą narzędzia opinii o produkcie w dolnej części strony.
+Następujące kombinacje systemów operacyjnych i przeglądarek nie są obsługiwane, ale trwa badanie w przyszłości. Jeśli chcesz zobaczyć inny system operacyjny i obsługę przeglądarki, wystaw opinię za pomocą narzędzia opinii o produkcie w dolnej części strony.
 
 | System operacyjny | Przeglądarka |
 | ---- | ---- |
@@ -44,18 +44,21 @@ Następujące kombinacje systemów operacyjnych i przeglądarek nie są obsługi
 | Android | Chrome |
 | ChromeOS | Chrome |
 
-## <a name="operating-system-versions-tested"></a>Przetestowane wersje systemu operacyjnego
+## <a name="minimum-browser-version"></a>Minimalna wersja przeglądarki
 
-Informacje w powyższej tabeli zostały przetestowane dla następujących wersji systemu operacyjnego.
+Poniżej przedstawiono minimalne wymagania dotyczące wersji przeglądarki. 
 
-| System operacyjny | Najnowsza przetestowana wersja |
-| --- | --- |
-| Windows | 20H2 systemu Windows 10 |
-| macOS | OS X 11 Big Sur |
-| Linux | Stacja robocza Fedora 32 |
+| Przeglądarka | Minimalna wersja |
+| ---- | ---- |
+| Chrome | 76 |
+| Edge | Windows 10 w wersji 1903<sup>1</sup> |
+| Firefox | Chrome |
+| ChromeOS | 66 |
+
+<sup>1</sup> Wszystkie wersje nowych, opartych na chromie Fido2 pomocy technicznej Microsoft Edge. Dodano obsługę programu Microsoft Edge w wersji starszej niż 1903.
 
 ## <a name="next-steps"></a>Następne kroki
-[Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
+[Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)](./howto-authentication-passwordless-security-key.md)
 
 <!--Image references-->
 [y]: ./media/fido2-compatibility/yes.png

@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650154"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644807"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -175,9 +175,9 @@ Podczas instalacji usługi synchronizacji Azure AD Connect sprawdza obecność n
 
 W obszarze tego klucza rejestru Azure AD Connect sprawdzi, czy następujące wartości są obecne i nieuszkodzone: 
 
-- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
-- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
-- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Wymagania wstępne dotyczące instalacji i konfiguracji federacji
 ### <a name="windows-remote-management"></a>Windows Remote Management

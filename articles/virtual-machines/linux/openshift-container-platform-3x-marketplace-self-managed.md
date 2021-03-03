@@ -3,19 +3,20 @@ title: Wdrażanie OpenShift kontenera platform 3,11 Self-Managed portalu Marketp
 description: Wdróż OpenShift kontenerów platformy 3,11 Self-Managed portalu Marketplace na platformie Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374103"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670440"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
 
@@ -93,7 +94,7 @@ Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK
 
 **Zmień rozmiar**
 
-Aby wybrać inny rozmiar maszyny wirtualnej, kliknij przycisk ***Zmień rozmiar***.  Zostanie otwarte okno wyboru maszyny wirtualnej.  Wybierz żądany rozmiar maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**.
+Aby wybrać inny rozmiar maszyny wirtualnej, kliknij pozycję ***Zmień rozmiar** _.  Zostanie otwarte okno wyboru maszyny wirtualnej.  Wybierz żądany rozmiar maszyny wirtualnej, a następnie kliknij przycisk _ * wybierz * *.
 
    ![Wybierz rozmiar maszyny wirtualnej](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

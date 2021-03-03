@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 02/12/2021
 ms.author: jeedes
-ms.openlocfilehash: d88cbb79b42637721412dd0a35c231782a896721
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7360ad5abc7342043152c2da11038b624b0bfadc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029867"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą GitHub Enterprise Cloud — konto przedsiębiorstwa
 
@@ -24,29 +24,27 @@ W ramach tego samouczka dowiesz się, jak zintegrować konto w chmurze w usłudz
 
 * Kontrolka w usłudze Azure AD, która ma dostęp do konta przedsiębiorstwa w serwisie GitHub i wszystkich organizacji w ramach konta przedsiębiorstwa.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Konto w usłudze [GitHub Enterprise](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts)
+* Konto w serwisie [GitHub Enterprise](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/about-enterprise-accounts).
 * Konto użytkownika usługi GitHub będące właścicielem konta przedsiębiorstwa. 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa GitHub Enterprise Cloud — konto przedsiębiorstwa obsługuje logowanie jednokrotne w ramach usługi **SP** i **dostawcy tożsamości**
-* Usługa GitHub Enterprise Cloud — konto w przedsiębiorstwie obsługuje Inicjowanie obsługi klienta **just in Time**
-* Po skonfigurowaniu konta w usłudze GitHub Enterprise Cloud-Enterprise można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Usługa GitHub Enterprise Cloud — konto przedsiębiorstwa obsługuje logowanie jednokrotne w ramach usługi **SP** i **dostawcy tożsamości** .
+* Usługa GitHub Enterprise Cloud — konto przedsiębiorstwa obsługuje funkcję inicjowania obsługi klienta **just in Time** .
 
 ## <a name="adding-github-enterprise-cloud---enterprise-account-from-the-gallery"></a>Dodawanie konta w chmurze usługi GitHub dla przedsiębiorstw z galerii
 
 Aby skonfigurować integrację konta przedsiębiorstwa z usługą GitHub Enterprise Cloud-Enterprise w usłudze Azure AD, musisz dodać do listy zarządzanych aplikacji SaaS konto w chmurze dla przedsiębiorstw z galerii.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -58,21 +56,21 @@ Aby skonfigurować integrację konta przedsiębiorstwa z usługą GitHub Enterpr
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą konta w chmurze w usłudze GitHub dla przedsiębiorstw przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze GitHub Enterprise Cloud — konto przedsiębiorstwa.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu konta w chmurze w usłudze GitHub Enterprise, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu konta w chmurze w usłudze GitHub Enterprise, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. **[Przypisz użytkownika usługi Azure AD i konto użytkownika testowego do aplikacji GitHub](#assign-the-azure-ad-test-user)** — aby włączyć konto użytkownika i użytkownika testowego `B.Simon` do korzystania z logowania jednokrotnego usługi Azure AD.
+    1. **[Przypisz użytkownika usługi Azure AD i konto użytkownika testowego do aplikacji GitHub](#assign-your-azure-ad-user-and-the-test-user-account-to-the-github-app)** — aby włączyć konto użytkownika i użytkownika testowego `B.Simon` do korzystania z logowania jednokrotnego usługi Azure AD.
 1. **[Włącz i przetestuj protokół SAML dla konta przedsiębiorstwa i jego organizacji](#enable-and-test-saml-for-the-enterprise-account-and-its-organizations)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    1. **[Przetestuj Logowanie jednokrotne przy użyciu innego właściciela konta przedsiębiorstwa lub konta członka organizacji](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+    1. **[Przetestuj Logowanie jednokrotne przy użyciu innego właściciela konta przedsiębiorstwa lub konta członka organizacji](#test-sso-with-another-enterprise-account-owner-or-organization-member-account)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracji aplikacji w **chmurze w przedsiębiorstwie** w serwisie GitHub Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracji aplikacji w **chmurze w przedsiębiorstwie** w serwisie GitHub Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -118,15 +116,9 @@ W tej sekcji zostanie włączone `B.Simon` i Twoje konto użytkownika do korzyst
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **GitHub Enterprise Cloud — konto przedsiębiorstwa**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** i konto użytkownika z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="enable-and-test-saml-for-the-enterprise-account-and-its-organizations"></a>Włączanie i testowanie języka SAML dla konta przedsiębiorstwa i jego organizacji
@@ -156,16 +148,6 @@ Aby przetestować dostęp do organizacji GitHub na koncie przedsiębiorstwa przy
 1. Zaloguj się do usługi Azure AD przy użyciu `B.Simon` konta użytkownika.
 1. Przejdź do organizacji usługi GitHub. Użytkownik powinien otrzymywać monit o uwierzytelnienie za pośrednictwem protokołu SAML. Po pomyślnym uwierzytelnieniu SAML `B.Simon` powinno być możliwe uzyskanie dostępu do zasobów organizacji. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="next-steps"></a>Następne kroki
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
-
-- [Wypróbuj konto Cloud-Enterprise w usłudze GitHub Enterprise w usłudze Azure AD](https://aad.portal.azure.com/)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić konto korporacyjne w chmurze w usłudze GitHub Enterprise z zaawansowanymi możliwościami widoczności i kontroli](/cloud-app-security/proxy-intro-aad)
+Po skonfigurowaniu konta w usłudze GitHub Enterprise Cloud-Enterprise można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie poufnych danych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

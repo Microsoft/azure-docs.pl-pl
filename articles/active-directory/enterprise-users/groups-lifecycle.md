@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d71c44ebaba5b0cbcb03afa41ad15237dceaef
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1e40ad90910f7b2244401386fb01a4e4fefe03ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547478"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647408"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
 
@@ -42,7 +42,7 @@ Aby uzyskać informacje na temat pobierania i instalowania poleceń cmdlet progr
 
 ## <a name="activity-based-automatic-renewal"></a>Automatyczne odnawianie oparte na działaniach
 
-W przypadku usługi Azure AD Intelligence grupy są teraz automatycznie odnawiane na podstawie tego, czy były ostatnio używane. Ta funkcja eliminuje konieczność wykonywania ręcznej akcji przez właścicieli grup, ponieważ jest ona oparta na aktywności użytkownika w grupach w ramach usług Microsoft 365, takich jak Outlook, SharePoint lub zespoły. Na przykład, jeśli właściciel lub członek grupy wykonuje coś takiego jak przekazywanie dokumentu w programie SharePoint, odwiedź kanał zespołów lub Wyślij wiadomość e-mail do grupy w programie Outlook, Grupa zostanie automatycznie odnowiona, a właściciel nie otrzyma żadnych powiadomień o odnowieniu.
+W przypadku usługi Azure AD Intelligence grupy są teraz automatycznie odnawiane na podstawie tego, czy były ostatnio używane. Ta funkcja eliminuje konieczność wykonywania ręcznej akcji przez właścicieli grup, ponieważ jest ona oparta na aktywności użytkownika w grupach w ramach usług Microsoft 365, takich jak Outlook, SharePoint lub zespoły. Na przykład, jeśli właściciel lub członek grupy wykonuje coś takiego jak przekazywanie dokumentu w programie SharePoint, odwiedzenie kanału Teams lub wysłanie wiadomości e-mail do grupy w programie Outlook, Grupa zostanie automatycznie odnowiona o około 35 dni przed wygaśnięciem grupy, a właściciel nie otrzymuje powiadomień o odnowieniu.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Działania, które automatycznie odnawiają wygaśnięcie grupy
 
@@ -62,7 +62,7 @@ Administratorzy mogą uzyskać listę automatycznie odnowionych grup z dziennik�
 
 Poniżej znajdują się role, które umożliwiają konfigurowanie i używanie wygasania dla grup Microsoft 365 w usłudze Azure AD.
 
-Role | Uprawnienia
+Rola | Uprawnienia
 -------- | --------
 Administrator globalny, administrator grupy lub administrator użytkownika | Może tworzyć, odczytywać, aktualizować i usuwać ustawienia zasad wygasania grup Microsoft 365<br>Może odnowić grupę Microsoft 365
 Użytkownik | Może odnowić grupę Microsoft 365, do której się odnoszą<br>Może przywrócić grupę Microsoft 365, do której się odnoszą<br>Może odczytać ustawienia zasad wygasania

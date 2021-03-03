@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 430629f94695f0689422434c8d80fe4e1876e5dd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650230"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>Samouczek: Konfigurowanie tożsamości ping przy użyciu Azure Active Directory B2C na potrzeby bezpiecznego dostępu hybrydowego
 
@@ -80,7 +80,7 @@ Aby rozpocząć, musisz:
 
 - Subskrypcja platformy Azure. Jeśli go nie masz, uzyskaj [bezpłatne konto](https://azure.microsoft.com/free/).
 
-- [Dzierżawa Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) , która jest połączona z subskrypcją platformy Azure.
+- [Dzierżawa Azure AD B2C](./tutorial-create-tenant.md) , która jest połączona z subskrypcją platformy Azure.
 
 - PingAccess i serwera pingfederate wdrożone w kontenerach Docker lub bezpośrednio na maszynach wirtualnych platformy Azure.
 
@@ -107,7 +107,7 @@ Aby wykonać tę Konwencję, należy zaktualizować aktualizację wystawcy Azure
 
 ![obraz przedstawia ustawienia tokenu](./media/partner-ping/token-setting.png)
 
-W zaawansowanych zasadach można je skonfigurować za pomocą elementu metadanych **IssuanceClaimPattern** do **AuthorityWithTfp** wartość w [profilu technicznym wystawcy tokenów JWT](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile).
+W zaawansowanych zasadach można je skonfigurować za pomocą elementu metadanych **IssuanceClaimPattern** do **AuthorityWithTfp** wartość w [profilu technicznym wystawcy tokenów JWT](./jwt-issuer-technical-profile.md).
 
 ## <a name="configure-pingaccesspingfederate"></a>Konfigurowanie PingAccess/serwera pingfederate
 
@@ -160,7 +160,7 @@ Wykonaj następujące kroki, aby utworzyć sesję sieci Web:
 
 7. W polu **klucz tajny klienta** wprowadź **klucz** wygenerowany dla aplikacji w usłudze Azure AD.
 
-8. Opcjonalne — można tworzyć i używać oświadczeń niestandardowych za pomocą interfejsu API Microsoft Graph. Jeśli zdecydujesz się to zrobić, wybierz opcję **Zaawansowane** i usuń zaznaczenie opcji **profil żądania** i **Odśwież atrybuty użytkownika** . Aby uzyskać więcej informacji na temat korzystania z oświadczeń niestandardowych, zobacz [Korzystanie z oświadczenia niestandardowego](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#optional---use-a-custom-claim).
+8. Opcjonalne — można tworzyć i używać oświadczeń niestandardowych za pomocą interfejsu API Microsoft Graph. Jeśli zdecydujesz się to zrobić, wybierz opcję **Zaawansowane** i usuń zaznaczenie opcji **profil żądania** i **Odśwież atrybuty użytkownika** . Aby uzyskać więcej informacji na temat korzystania z oświadczeń niestandardowych, zobacz [Korzystanie z oświadczenia niestandardowego](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Wybierz pozycję **Zapisz**
 
@@ -265,6 +265,6 @@ Skonfiguruj zasady uwierzytelniania serwera pingfederate w sfederować dla wielu
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z następującymi artykułami
 
-- [Zasady niestandardowe w usłudze Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Zasady niestandardowe w usłudze Azure AD B2C](./custom-policy-overview.md)
 
-- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Wprowadzenie do zasad niestandardowych w Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

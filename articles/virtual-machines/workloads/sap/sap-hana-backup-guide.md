@@ -6,23 +6,22 @@ documentationcenter: ''
 author: msjuergent
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 0004afb5895d7549e5db8ad5e53b52fa17991520
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617106"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667906"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Przewodnik dotyczący tworzenia kopii zapasowych SAP HANA na platformie Azure Virtual Machines
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Przewodnik tworzenia kopii zapasowych dla SAP HANA uruchomionych na maszynach wirtualnych platformy Azure zawiera tylko opis tematów dotyczących platformy Azure. Aby uzyskać ogólne SAP HANA elementów powiązanych z kopią zapasową, zapoznaj się z dokumentacją SAP HANA. Oczekujemy, że znasz zasady tworzenia kopii zapasowych bazy danych, przyczyny i motywacje mające na celu posiadanie solidnej strategii tworzenia kopii zapasowych, a informacje o wymaganiach firmy dotyczą procedury tworzenia kopii zapasowej, okresu przechowywania kopii zapasowych i procedury przywracania.
 

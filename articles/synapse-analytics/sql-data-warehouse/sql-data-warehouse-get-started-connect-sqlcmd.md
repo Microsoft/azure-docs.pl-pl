@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia przy użyciu narzędzia sqlcmd
-description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z pulą SQL Synapse i wysłać do niej zapytanie.
+description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z dedykowaną pulą SQL w usłudze Azure Synapse Analytics i uzyskać do niej zapytanie.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676236"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675723"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Nawiązywanie połączenia z pulą SQL w usłudze Azure Synapse Analytics przy użyciu narzędzia sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Nawiązywanie połączenia z dedykowaną pulą SQL w usłudze Azure Synapse Analytics przy użyciu narzędzia sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676236"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Użyj narzędzia wiersza polecenia [sqlcmd] [sqlcmd], aby nawiązać połączenie z pulą SQL i zbadać ją.  
+Użyj narzędzia wiersza polecenia [sqlcmd] [sqlcmd], aby nawiązać połączenie z dedykowaną pulą SQL i uzyskać do niej zapytanie.  
 
 ## <a name="1-connect"></a>1. Połącz
 
-Aby rozpocząć pracę z [sqlcmd] [sqlcmd], Otwórz wiersz polecenia i wprowadź polecenie **sqlcmd** , a następnie parametry połączenia dla puli SQL. Wymagane parametry połączenia to:
+Aby rozpocząć pracę z [sqlcmd] [sqlcmd], Otwórz wiersz polecenia i wprowadź polecenie **sqlcmd** , a następnie parametry połączenia dla dedykowanej puli SQL. Wymagane parametry połączenia to:
 
 * **Serwer (-S):** serwer w postaci `<`nazwa_serwera`>`.database.windows.net
-* **Baza danych (-d):** Nazwa puli SQL.
-* **Włącz identyfikatory ujęte w cudzysłów (-I):** Identyfikatory w cudzysłowie muszą być włączone, aby można było połączyć się z wystąpieniem puli SQL.
+* **Baza danych (-d):** nazwa dedykowanej puli SQL.
+* **Włącz identyfikatory ujęte w cudzysłów (-I):** Identyfikatory w cudzysłowie muszą być włączone, aby można było połączyć się z dedykowanym wystąpieniem puli SQL.
 
 Aby użyć uwierzytelniania programu SQL Server, należy dodać parametry nazwy użytkownika/hasła:
 

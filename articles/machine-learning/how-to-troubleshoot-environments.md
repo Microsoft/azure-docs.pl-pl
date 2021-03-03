@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881639"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657302"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Rozwiązywanie problemów z kompilacjami obrazu środowiska
 
@@ -153,8 +153,8 @@ Zapoznaj się z następującymi scenariuszami, aby rozwiązać problemy z potenc
 
 Możliwe problemy:
 - Nazwa ścieżki do rejestru kontenerów może nie być rozpoznawana poprawnie. Sprawdź, czy nazwy obrazów używają podwójnych ukośników i kierunku ukośników w systemie Linux i na hostach z systemem Windows są poprawne.
-- Jeśli rejestr kontenerów za siecią wirtualną używa prywatnego punktu końcowego w [nieobsługiwanym regionie](/azure/private-link/private-link-overview#availability), skonfiguruj rejestr kontenerów za pomocą punktu końcowego usługi (dostęp publiczny) z portalu i ponów próbę.
-- Po umieszczeniu rejestru kontenerów za siecią wirtualną, uruchom [szablon Azure Resource Manager](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) , aby obszar roboczy mógł komunikować się z wystąpieniem rejestru kontenerów.
+- Jeśli rejestr kontenerów za siecią wirtualną używa prywatnego punktu końcowego w [nieobsługiwanym regionie](../private-link/private-link-overview.md#availability), skonfiguruj rejestr kontenerów za pomocą punktu końcowego usługi (dostęp publiczny) z portalu i ponów próbę.
+- Po umieszczeniu rejestru kontenerów za siecią wirtualną, uruchom [szablon Azure Resource Manager](./how-to-network-security-overview.md) , aby obszar roboczy mógł komunikować się z wystąpieniem rejestru kontenerów.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Wystąpił błąd 401 z rejestru kontenerów obszaru roboczego
 
@@ -166,7 +166,7 @@ Gdy kompilacja obrazu jest ciągła, Conda jest zablokowany przez klienta zestaw
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>Niestandardowy obraz platformy Docker nie znajduje się w rejestrze
 
-Sprawdź, czy jest używany [poprawny tag](/azure/machine-learning/how-to-use-environments#create-an-environment) `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` wyłącza Conda i używa zainstalowanych pakietów użytkownika.
+Sprawdź, czy jest używany [poprawny tag](./how-to-use-environments.md#create-an-environment) `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` wyłącza Conda i używa zainstalowanych pakietów użytkownika.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Zostanie wyświetlony jeden z następujących typowych problemów z siecią wirtualną
 
@@ -184,9 +184,9 @@ Sprawdź, czy jest używany [poprawny tag](/azure/machine-learning/how-to-use-en
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Nie można uruchomić eksperymentów, gdy w magazynie włączono zabezpieczenia sieciowe
 
-Jeśli używasz domyślnych obrazów platformy Docker i włączasz zależności zarządzane przez użytkownika, użyj [tagów usługi](/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry i AzureFrontDoor. FirstParty, aby dozwolonych Azure Container Registry i jej zależności.
+Jeśli używasz domyślnych obrazów platformy Docker i włączasz zależności zarządzane przez użytkownika, użyj [tagów usługi](./how-to-network-security-overview.md) MicrosoftContainerRegistry i AzureFrontDoor. FirstParty, aby dozwolonych Azure Container Registry i jej zależności.
 
- Aby uzyskać więcej informacji, zobacz [Włączanie sieci wirtualnych](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ Aby uzyskać więcej informacji, zobacz [Włączanie sieci wirtualnych](./how-to-network-security-overview.md).
 
 ### <a name="you-need-to-create-an-icm"></a>Należy utworzyć ICM
 

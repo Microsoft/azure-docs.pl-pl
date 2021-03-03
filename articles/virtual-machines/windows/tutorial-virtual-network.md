@@ -10,16 +10,16 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9552e9c6deaabc9c847a8fbd26b1246b073dcc1b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730043"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673284"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Samouczek: tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell na maszynach wirtualnych z systemem Windows
 
-Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnętrznej i zewnętrznej komunikacji sieciowej. Ten samouczek przedstawia proces wdrażania dwóch maszyn wirtualnych i konfigurowania dla nich sieci platformy Azure. W przykładach w tym samouczku założono, że maszyny wirtualne hostują aplikację internetową z zapleczem bazy danych, jednak wdrożenie aplikacji nie zostało omówione w samouczku. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnętrznej i zewnętrznej komunikacji sieciowej. Ten samouczek przedstawia proces wdrażania dwóch maszyn wirtualnych i konfigurowania dla nich sieci platformy Azure. W przykładach w tym samouczku założono, że maszyny wirtualne hostują aplikację internetową z zapleczem bazy danych, jednak wdrożenie aplikacji nie zostało omówione w samouczku. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej i podsieci
@@ -280,4 +280,4 @@ W tym samouczku utworzono i zabezpieczono sieci platformy Azure na potrzeby masz
 > * Zabezpieczanie ruchu sieciowego
 > * Tworzenie maszyny wirtualnej zaplecza
 
-Aby dowiedzieć się więcej o ochronie dysków maszyn wirtualnych, zobacz [kopia zapasowa i odzyskiwanie po awarii dla dysków](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Aby dowiedzieć się więcej o ochronie dysków maszyn wirtualnych, zobacz [kopia zapasowa i odzyskiwanie po awarii dla dysków](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

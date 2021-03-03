@@ -2,18 +2,16 @@
 title: Wdrażanie oprogramowania SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure | Microsoft Docs
 description: Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 author: hermanndms
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.reviewer: cynthn
-ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5184df38b6a6b2757a5d5f7c0970258657cf5c0f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957881"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670997"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Wdrażanie programu SAP środowisk IDE EHP7 SP3 dla oprogramowania SAP ERP 6,0 na platformie Azure
 W tym artykule opisano sposób wdrażania systemu SAP środowisk IDE z systemem SQL Server i systemem operacyjnym Windows na platformie Azure za pośrednictwem biblioteki urządzeń SAP w chmurze (SAP CAL) 3,0. Zrzuty ekranu przedstawiają proces krok po kroku. Aby wdrożyć inne rozwiązanie, wykonaj te same czynności.

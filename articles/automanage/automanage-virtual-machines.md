@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550788"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643536"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -28,27 +28,47 @@ W tym artykule opisano informacje o usłudze Azure automanage dla maszyn wirtual
 
 ## <a name="overview"></a>Omówienie
 
-Azure automanage dla maszyn wirtualnych to usługa, która eliminuje potrzebę odnajdowania, znajomości sposobu dołączania i konfigurowania określonych usług na platformie Azure, które byłyby korzystne dla Twojej maszyny wirtualnej. Te usługi pomagają w ulepszaniu niezawodności, zabezpieczeń i zarządzania maszynami wirtualnymi. są one uznawane za usługi Azure Best Practices, takie jak [azure Update Management](../automation/update-management/overview.md) i [Azure Backup](../backup/backup-overview.md) — tylko w przypadku nazw.
+Azure automanage dla maszyn wirtualnych to usługa, która eliminuje potrzebę odnajdowania, znajomości sposobu dołączania i konfigurowania określonych usług na platformie Azure, które byłyby korzystne dla Twojej maszyny wirtualnej. Te usługi są uznawane za usługi Azure Best Practices i pomagają w ulepszaniu niezawodności, zabezpieczeń i zarządzania maszynami wirtualnymi. Przykładowe usługi obejmują [Update Management platformy Azure](../automation/update-management/overview.md) i [Azure Backup](../backup/backup-overview.md).
 
-Po dołączeniu maszyn wirtualnych do usługi Azure automanage usługa automatycznie konfiguruje każdą najlepszą usługę pod kątem zalecanych ustawień. Najlepsze rozwiązania są różne dla każdej usługi. Przykładem może być Azure Backup, w którym najlepszym rozwiązaniem może być utworzenie kopii zapasowej maszyny wirtualnej raz dziennie i okres przechowywania wynoszący sześć miesięcy.
+Po dołączeniu maszyn wirtualnych do usługi Azure automanage każda usługa Best Practices została skonfigurowana pod kątem zalecanych ustawień. Najlepsze rozwiązania są różne dla każdej usługi. Przykładem może być Azure Backup, w którym najlepszym rozwiązaniem może być utworzenie kopii zapasowej maszyny wirtualnej raz dziennie i okres przechowywania wynoszący sześć miesięcy.
 
-Usługa Azure automanage automatycznie monitoruje również pod kątem dryfowania i naprawia je w przypadku wykrycia. Co oznacza to, że Twoja maszyna wirtualna została dołączona do usługi Azure automanage, nie tylko skonfigurujemy ją na potrzeby najlepszych rozwiązań dotyczących platformy Azure, ale będziemy monitorować swoją maszynę, aby upewnić się, że będzie ona nadal zgodna z najlepszymi rozwiązaniami w całym cyklu życia. Jeśli maszyna wirtualna wykonuje dryf lub odróżni się od tych praktyk, poprawi ją i powróci do żądanego stanu komputera.
-
-Na koniec środowisko jest niezwykle proste.
-
+Usługa Azure automanage automatycznie monitoruje również pod kątem dryfowania i naprawia je w przypadku wykrycia. Co oznacza to, że Twoja maszyna wirtualna została dołączona do usługi Azure automanage, nie tylko skonfigurujemy ją na potrzeby najlepszych rozwiązań dotyczących platformy Azure, ale będziemy monitorować swoją maszynę, aby upewnić się, że będzie ona nadal zgodna z najlepszymi rozwiązaniami w całym cyklu życia. Jeśli maszyna wirtualna wykonuje dryf lub odróżni się od tych praktyk (na przykład jeśli usługa jest offboarded), poprawimy ją i ściągają maszynę z powrotem do żądanego stanu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych należy wziąć pod uwagę kilka wymagań wstępnych.
 
-- Tylko maszyny wirtualne z systemem Windows Server
-- Maszyny wirtualne muszą znajdować się w obsługiwanym regionie (zobacz akapit poniżej)
-- Użytkownik musi mieć odpowiednie uprawnienia (patrz akapit poniżej)
+- Obsługiwane [wersje systemów Windows Server](automanage-windows-server.md#supported-windows-server-versions) i [Linux dystrybucje](automanage-linux.md#supported-linux-distributions-and-versions)
+- Maszyny wirtualne muszą znajdować się w obsługiwanym regionie (zobacz poniżej).
+- Użytkownik musi mieć odpowiednie uprawnienia (patrz poniżej)
 - W tej chwili usługa autozarządzania nie obsługuje subskrypcji piaskownicy
 
-Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirtualne z systemem Windows, które znajdują się w następujących regionach: Europa Zachodnia, Wschodnie stany USA, zachodnie stany USA 2, Kanada środkowa, zachodnio-środkowe stany USA, Japonia Wschodnia.
+### <a name="supported-regions"></a>Obsługiwane regiony
+Autozarządzanie obsługuje tylko maszyny wirtualne znajdujące się w następujących regionach:
+* West Europe
+* Europa Północna
+* Central US
+* East US
+* Wschodnie stany USA 2
+* Zachodnie stany USA
+* Zachodnie stany USA 2
+* Kanada Środkowa
+* Zachodnio-środkowe stany USA
+* South Central US
+* Japan East
+* Południowe Zjednoczone Królestwo
+* Australia Wschodnia
+* Australia Południowo-Wschodnia
 
-Aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu istniejącego konta Autozarządzanie, musisz mieć rolę **współautor** w grupie zasobów zawierającej swoje maszyny wirtualne. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia do subskrypcji: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+### <a name="required-rbac-permissions"></a>Wymagane uprawnienia RBAC
+Twoje konto będzie wymagało nieco innych ról RBAC w zależności od tego, czy włączasz Autozarządzanie przy użyciu nowego konta autozarządzania.
+
+Jeśli włączysz Autozarządzanie przy użyciu nowego konta autozarządzania:
+* Rola **właściciela** w subskrypcjach zawierających maszyny wirtualne _**lub**_
+* **Współautorzy** i role **administratora dostępu użytkowników** w subskrypcjach zawierających Twoje maszyny wirtualne
+
+Jeśli włączysz Autozarządzanie przy użyciu istniejącego konta autozarządzania:
+* Rola **współautor** w grupie zasobów zawierającej maszyny wirtualne
 
 > [!NOTE]
 > Jeśli chcesz używać autozarządzania na maszynie wirtualnej, która jest połączona z obszarem roboczym w innej subskrypcji, musisz mieć uprawnienia opisane powyżej dla każdej subskrypcji.
@@ -57,11 +77,13 @@ Aby włączyć funkcję autozarządzania na maszynach wirtualnych przy użyciu i
 
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Usługi inteligentnego dołączania.":::
 
-Aby uzyskać pełną listę uczestniczących usług platformy Azure, a także ich obsługiwane profile konfiguracji, zobacz temat [Azure automanage Virtual Machines Best Practices](virtual-machines-best-practices.md) .
+Pełną listę uczestniczących usług platformy Azure, a także ich obsługiwane środowisko, można znaleźć w następujących tematach:
+- [Autozarządzanie dla systemu Linux](automanage-linux.md)
+- [Autozarządzanie dla systemu Windows Server](automanage-windows-server.md)
 
  Zostanie automatycznie dołączony do tych usług uczestniczących. Są one istotne dla naszych najlepszych rozwiązań, które można znaleźć w naszej [strukturze wdrożenia chmury](/azure/cloud-adoption-framework/manage/azure-server-management).
 
-W przypadku wszystkich tych usług będziemy automatycznie dołączać, konfigurować, monitorować do dryfowania i korygować w przypadku wykrycia dryfu.
+W przypadku wszystkich tych usług będziemy automatycznie dołączać, automatycznie konfigurować, monitorować pod kątem dryfowania i korygować w przypadku wykrycia dryfu.
 
 
 ## <a name="enabling-automanage-for-vms-in-azure-portal"></a>Włączanie autozarządzania dla maszyn wirtualnych w Azure Portal
@@ -70,33 +92,37 @@ W Azure Portal można włączyć Autozarządzanie na istniejącej maszynie wirtu
 
 Jeśli po raz pierwszy włączysz Autozarządzanie dla maszyny wirtualnej, możesz wyszukać w Azure Portal do **autozarządzania — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure**. Kliknij pozycję **Włącz na istniejącej maszynie wirtualnej**, wybierz maszyny wirtualne, które chcesz dołączyć, kliknij pozycję **Wybierz**, kliknij pozycję **Włącz**, a wszystko gotowe.
 
-Jedyną czynnością, którą należy wykonać, aby móc korzystać z tej maszyny wirtualnej w celu zarządzania tymi usługami, jest to, że podjęto próbę skorygowania maszyny wirtualnej, ale to nie powiodło się. W przypadku pomyślnego skorygowania maszyny wirtualnej nastąpi powrót do zgodności bez nawet powiadamiania użytkownika.
+Jedyną czynnością, którą należy wykonać, aby móc korzystać z tej maszyny wirtualnej w celu zarządzania tymi usługami, jest to, że podjęto próbę skorygowania maszyny wirtualnej, ale to nie powiodło się. W przypadku pomyślnego skorygowania maszyny wirtualnej nastąpi powrót do zgodności bez nawet powiadamiania użytkownika. Aby uzyskać więcej informacji, zobacz [stan maszyn wirtualnych](#status-of-vms).
 
 
-## <a name="configuration-profiles"></a>Profile konfiguracji
+## <a name="environment-configuration"></a>Konfiguracja środowiska
 
-Gdy włączysz Autozarządzanie dla maszyny wirtualnej, wymagany jest profil konfiguracji. Profile konfiguracji stanowią podstawę tej usługi. Określają one dokładnie te usługi, do których są dołączane Twoje maszyny, oraz do pewnego stopnia, w jakim będzie to konfiguracja tych usług.
+Gdy włączysz Autozarządzanie dla maszyny wirtualnej, jest wymagane środowisko. Środowiska stanowią podstawę tej usługi. Określają, które usługi są używane do dołączania maszyn do i do pewnego stopnia.
 
-### <a name="default-configuration-profiles"></a>Domyślne profile konfiguracji
+### <a name="default-environments"></a>Środowiska domyślne
 
-Są obecnie dostępne dwa profile konfiguracji.
+Dostępne są dwa środowiska.
 
-- **Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure —** profil konfiguracji tworzenia i testowania jest przeznaczony dla maszyn deweloperskich/testowych.
-- **Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure —** dla produkcji.
+- Środowisko **deweloperskie/testowe** jest przeznaczone dla maszyn deweloperskich i testowych.
+- Środowisko **produkcyjne** jest przeznaczone do produkcji.
 
 Przyczyną tego odróżniania jest fakt, że pewne usługi są zalecane w oparciu o uruchomione obciążenie. Na przykład na komputerze produkcyjnym automatycznie dołączysz Cię do Azure Backup. Jednak w przypadku maszyny deweloperskiej/testowej usługa tworzenia kopii zapasowych będzie niezbędny koszt, ponieważ maszyny deweloperskie/testowe zazwyczaj obniżają wpływ na działalność biznesową.
 
-### <a name="customizing-a-configuration-profile-using-preferences"></a>Dostosowywanie profilu konfiguracji przy użyciu preferencji
+### <a name="customizing-an-environment-using-preferences"></a>Dostosowywanie środowiska przy użyciu preferencji
 
-Oprócz usług standardowych, do których dodaliśmy Cię, umożliwiamy skonfigurowanie pewnego podzestawu preferencji. Preferencje te są dozwolone w ramach różnych opcji konfiguracji, które nie naruszają naszych najlepszych rozwiązań. Na przykład w przypadku Azure Backup będzie można zdefiniować częstotliwość tworzenia kopii zapasowych i dzień tygodnia, w którym występuje. *Nie* pozwoli to jednak na wyłączenie Azure Backup w całości.
-
-> [!NOTE]
-> W profilu konfiguracji tworzenia i testowania nie będzie można tworzyć kopii zapasowej maszyny wirtualnej.
-
-Ustawienia domyślnego profilu konfiguracji można dostosować za pomocą preferencji. Dowiedz się, jak utworzyć [tutaj](virtual-machines-custom-preferences.md)preferencję.
+Oprócz usług standardowych, do których dodaliśmy Cię, umożliwiamy skonfigurowanie pewnego podzestawu preferencji. Te preferencje są dozwolone w ramach różnych opcji konfiguracji. Na przykład w przypadku Azure Backup będzie można zdefiniować częstotliwość tworzenia kopii zapasowych i dzień tygodnia, w którym występuje.
 
 > [!NOTE]
-> Nie można zmienić profilu konfiguracji na maszynie wirtualnej, gdy jest włączona funkcja autozarządzania. Należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie włączyć ją ponownie przy użyciu odpowiedniego profilu konfiguracji i preferencji.
+> W środowisku deweloperskim/testowym nie zostanie utworzona kopia zapasowa maszyny wirtualnej.
+
+Ustawienia domyślnego środowiska można dostosować za pomocą preferencji. Dowiedz się, jak utworzyć [tutaj](virtual-machines-custom-preferences.md)preferencję.
+
+> [!NOTE]
+> Nie można zmienić konfiguracji enivonrment na maszynie wirtualnej, gdy jest włączona funkcja autozarządzania. Należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie ponownie włączyć funkcję Autozarządzanie przy użyciu wymaganego środowiska i preferencji.
+
+Aby zapoznać się z pełną listą uczestniczących usług platformy Azure i jeśli są one obsługiwane, zobacz tutaj:
+- [Autozarządzanie dla systemu Linux](automanage-windows-server.md)
+- [Autozarządzanie dla systemu Windows Server](automanage-windows-server.md)
 
 
 ## <a name="automanage-account"></a>Autozarządzanie kontem
@@ -123,7 +149,7 @@ W Azure Portal przejdź do strony " **Autozarządzanie" najlepszych rozwiązań 
 
 :::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista skonfigurowanych maszyn wirtualnych.":::
 
-Dla każdej z wymienionych maszyn wirtualnych wyświetlane są następujące informacje: nazwa, profil konfiguracji, preferencje konfiguracji, stan, konto, subskrypcja i Grupa zasobów.
+Dla każdej z wymienionych maszyn wirtualnych wyświetlane są następujące informacje: nazwa, środowisko, preferencje konfiguracji, stan, system operacyjny, konto, subskrypcja i Grupa zasobów.
 
 W kolumnie **stan** można wyświetlić następujące stany:
 - *W toku* — maszyna wirtualna została właśnie włączona i jest konfigurowana
@@ -156,7 +182,7 @@ Najpierw nie należy wyłączać maszyny wirtualnej z dowolnych usług, które z
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule wyjaśniono, że Autozarządzanie maszynami wirtualnymi zapewnia rozwiązanie, dla którego można wyeliminować konieczność znajomości, dołączania i konfigurowania usług Azure Best Practices. Ponadto, jeśli komputer, do którego chcesz przeprowadzić Autozarządzanie w przypadku przechodzenia maszyn wirtualnych z skonfigurowanych profilów konfiguracji, zostanie automatycznie przywrócony do zgodności.
+W tym artykule wyjaśniono, że Autozarządzanie maszynami wirtualnymi zapewnia rozwiązanie, dla którego można wyeliminować konieczność znajomości, dołączania i konfigurowania usług Azure Best Practices. Ponadto, jeśli komputer, do którego chcesz przeprowadzić Autozarządzanie w przypadku przechodzenia maszyn wirtualnych z konfiguracji środowiska, zostanie automatycznie przywrócony do zgodności.
 
 Spróbuj włączyć Autozarządzanie dla maszyn wirtualnych w Azure Portal.
 

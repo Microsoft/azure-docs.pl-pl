@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 42ed42a1fc9a2750cc928b5fd03eb4b32f770276
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355515"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644089"
 ---
 # <a name="identity-providers-for-external-identities"></a>Dostawcy tożsamości dla tożsamości zewnętrznych
 
@@ -27,9 +27,6 @@ Można jednak umożliwić użytkownikom logowanie się przy użyciu różnych do
 - **Google**: w usłudze Google Federation użytkownicy zewnętrzni mogą wykorzystać zaproszenia od Ciebie, logując się do aplikacji przy użyciu własnych kont usługi Gmail. Usługi Google Federation można także używać w przepływach użytkownika samoobsługowego rejestrowania.
    > [!IMPORTANT]
    > **Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > W bieżącej wersji zapoznawczej samoobsługowej rejestracji, jeśli przepływ użytkownika jest skojarzony z aplikacją, a użytkownik wyśle użytkownikowi zaproszenie do tej aplikacji, użytkownik nie będzie mógł skorzystać z konta usługi Gmail w celu zrealizowania zaproszenia. W ramach tego problemu użytkownik może przejść przez proces tworzenia konta samoobsługowego. Mogą oni lub korzystać z zaproszenia, uzyskując dostęp do innej aplikacji lub portalu Moje aplikacje pod adresem https://myapps.microsoft.com .
 
 - **Facebook**: podczas kompilowania aplikacji można skonfigurować samoobsługowe rejestrowanie i włączyć Federacji w serwisie Facebook, dzięki czemu użytkownicy mogą zarejestrować się w aplikacji przy użyciu własnych kont w serwisie Facebook. Usługi Facebook można używać tylko w przypadku przepływów użytkowników samoobsługowego rejestrowania i nie są dostępne jako opcja logowania, gdy użytkownicy korzystają z zaproszeń.
 

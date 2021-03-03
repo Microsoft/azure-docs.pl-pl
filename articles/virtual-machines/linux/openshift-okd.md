@@ -3,18 +3,19 @@ title: Wdrażanie OKD na platformie Azure
 description: Wdróż OKD na platformie Azure.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dc14b10081cf175581d29524dcea60c52763b03c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732398"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667208"
 ---
 # <a name="deploy-okd-in-azure"></a>Wdrażanie OKD na platformie Azure
 

@@ -11,31 +11,33 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: bb63ac6de6c48bb3853bd235d908ee745ff5279d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0bc247e473ea96f2f9301eeaebb543b3317c84c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032851"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659668"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Nawiązywanie połączenia z usługami magazynu na platformie Azure
 
-W tym artykule dowiesz się, jak **nawiązać połączenie z usługami magazynu na platformie Azure za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md) do tworzenia i rejestrowania magazynów danych.
+W tym artykule dowiesz się, jak nawiązać połączenie z usługami magazynu danych na platformie Azure, korzystając z Azure Machine Learning danych i [Azure Machine Learning zestawu SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Jeśli wolisz tworzyć magazyny danych i zarządzać nimi przy użyciu rozszerzenia Azure Machine Learning VS Code; Aby dowiedzieć się więcej, odwiedź stronę [pomocy dotyczącej zarządzania zasobami vs Code](how-to-manage-resources-vscode.md#datastores) .
-
-Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](#matrix). **W przypadku nieobsługiwanych rozwiązań magazynu** i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z systemem Azure należy [przenieść dane](#move) do obsługiwanego rozwiązania magazynu na potrzeby magazynowania.  
+Magazyny danych bezpiecznie łączą się z usługą magazynu na platformie Azure bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła danych. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) , które są skojarzone z obszarem roboczym, dzięki czemu możesz bezpiecznie uzyskać dostęp do magazynu bez konieczności podawania ich w skryptach. Możesz tworzyć magazyny danych łączące się z [tymi rozwiązaniami usługi Azure Storage](#matrix).
 
 Aby zrozumieć, w jaki sposób magazyn danych mieści się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
+Aby uzyskać informacje o małym kodzie, zobacz jak używać programu [Azure Machine Learning Studio do tworzenia i rejestrowania magazynów](how-to-connect-data-ui.md#create-datastores)danych.
+
+>[!TIP]
+> W tym artykule przyjęto założenie, że chcesz nawiązać połączenie z usługą magazynu przy użyciu poświadczeń uwierzytelniania opartych na poświadczeniach, takich jak nazwa główna usługi lub token sygnatury dostępu współdzielonego (SAS). Należy pamiętać, że jeśli poświadczenia są zarejestrowane w magazynach danych, wszyscy użytkownicy z rolą *czytelnik* obszaru roboczego mogą pobrać te poświadczenia. [Dowiedz się więcej o roli *czytelnik* obszaru roboczego.](how-to-assign-roles.md#default-roles) <br><br>Jeśli jest to problem, Dowiedz się, jak [nawiązać połączenie z usługami magazynu przy użyciu dostępu opartego na tożsamościach](how-to-identity-based-data-access.md). <br><br>Ta funkcja jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Potrzebne będą następujące elementy:
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Konto usługi Azure Storage z [obsługiwanym typem magazynu](#matrix).
 
-- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub dostęp do programu [Azure Machine Learning Studio](https://ml.azure.com/).
+- [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 - Obszar roboczy usługi Azure Machine Learning.
   
@@ -59,7 +61,10 @@ Potrzebne będą następujące elementy:
 
 ## <a name="supported-data-storage-service-types"></a>Obsługiwane typy usługi magazynu danych
 
-Magazyny danych obsługują obecnie przechowywanie informacji o połączeniu z usługami magazynu wymienionymi w poniższej macierzy.
+Magazyny danych obsługują obecnie przechowywanie informacji o połączeniu z usługami magazynu wymienionymi w poniższej macierzy. 
+
+> [!TIP]
+> **W przypadku nieobsługiwanych rozwiązań magazynu** i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z systemem Azure należy [przenieść dane](#move) do obsługiwanego rozwiązania magazynu na potrzeby magazynowania. 
 
 | &nbsp;Typ magazynu | &nbsp;Typ uwierzytelniania | [Usługa Azure &nbsp; Machine &nbsp; Learning Studio](https://ml.azure.com/) | [&nbsp;Zestaw SDK języka Python usługi Azure Machine &nbsp; Learning &nbsp;](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [&nbsp; &nbsp; Interfejs wiersza polecenia usługi Azure Machine Learning](reference-azure-machine-learning-cli.md) | [&nbsp; &nbsp; &nbsp; Interfejs API REST usługi Azure Machine Learning](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
@@ -88,7 +93,16 @@ Aby zapewnić bezpieczne łączenie się z usługą Azure Storage, Azure Machine
 
 ### <a name="virtual-network"></a>Sieć wirtualna 
 
-Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Zapoznaj się z tematem [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md) , aby upewnić się, że podczas tworzenia i rejestrowania magazynu danych są stosowane odpowiednie czynności konfiguracyjne.  
+Domyślnie Azure Machine Learning nie może komunikować się z kontem magazynu, które znajduje się za zaporą lub w sieci wirtualnej. Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. 
+
+> [!NOTE]
+> Te wskazówki dotyczą również [magazynów danych utworzonych przy użyciu dostępu opartego na tożsamościach (wersja zapoznawcza)](how-to-identity-based-data-access.md). 
+
+Aby **Użytkownicy zestawu SDK języka Python** mieli dostęp do danych za pomocą skryptu szkoleniowego w obiekcie docelowym obliczeń, obiekt docelowy obliczeń musi znajdować się w tej samej sieci wirtualnej i podsieci magazynu.  
+
+**W przypadku użytkowników programu Azure Machine Learning Studio** kilka funkcji polega na możliwości odczytu danych z zestawu danych. takie jak podglądy zestawu danych, profile i automatyczne Uczenie maszynowe. Aby te funkcje działały z magazynem za sieciami wirtualnymi, należy użyć [tożsamości zarządzanej obszaru roboczego w programie Studio](how-to-enable-studio-virtual-network.md) , aby umożliwić Azure Machine Learning dostęp do konta magazynu spoza sieci wirtualnej. 
+
+Azure Machine Learning mogą odbierać żądania od klientów spoza sieci wirtualnej. Aby upewnić się, że jednostka żądająca danych z usługi jest bezpieczna, [Skonfiguruj link prywatny platformy Azure dla Twojego obszaru roboczego](how-to-configure-private-link.md).
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
@@ -204,18 +218,27 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
-<a name="arm"></a>
 
-## <a name="create-datastores-using-azure-resource-manager"></a>Tworzenie magazynów danych przy użyciu Azure Resource Manager
+
+## <a name="create-datastores-with-other-azure-tools"></a>Tworzenie magazynów danych przy użyciu innych narzędzi platformy Azure
+Oprócz tworzenia magazynów danych za pomocą zestawu SDK języka Python i programu Studio, można również użyć szablonów Azure Resource Manager lub rozszerzenia VS Code Azure Machine Learning. 
+
+<a name="arm"></a>
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Istnieje kilka szablonów [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) , które mogą służyć do tworzenia magazynów danych.
 
 Aby uzyskać informacje na temat korzystania z tych szablonów, zobacz [Tworzenie obszaru roboczego dla Azure Machine Learning za pomocą szablonu Azure Resource Manager](how-to-create-workspace-template.md).
 
+### <a name="vs-code-extension"></a>VS Code rozszerzenie
+
+Jeśli wolisz tworzyć magazyny danych i zarządzać nimi przy użyciu rozszerzenia Azure Machine Learning VS Code, przejdź do [przewodnika dotyczącego zarządzania zasobami vs Code](how-to-manage-resources-vscode.md#datastores) , aby dowiedzieć się więcej.
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Korzystanie z danych w twoich sklepach
 
-Po utworzeniu magazynu danych [utwórz Azure Machine Learning zestaw danych](how-to-create-register-datasets.md) , który będzie współpracujący z danymi. Zestawy danych pakują dane do opóźnieniemego, który można z niego korzystać na potrzeby zadań uczenia maszynowego, takich jak szkolenie. Zapewniają one również możliwość [pobierania lub instalowania](how-to-train-with-datasets.md#mount-vs-download) plików dowolnego formatu z usług Azure Storage, takich jak Azure Blob Storage i ADLS Gen 2. Można ich również użyć do załadowania danych tabelarycznych do Pandas lub Spark Dataframe.
+Po utworzeniu magazynu danych [utwórz Azure Machine Learning zestaw danych](how-to-create-register-datasets.md) , który będzie współpracujący z danymi. Zestawy danych pakują dane do opóźnieniemego, który można z niego korzystać na potrzeby zadań uczenia maszynowego, takich jak szkolenie. 
+
+Zestawy danych umożliwiają [pobieranie lub instalowanie](how-to-train-with-datasets.md#mount-vs-download) plików dowolnego formatu z usług Azure Storage w celu uczenia modeli w obiekcie docelowym obliczeń. [Dowiedz się więcej o sposobie uczenia modeli ml z zestawami danych](how-to-train-with-datasets.md).
 
 <a name="get"></a>
 
@@ -254,7 +277,7 @@ Azure Machine Learning oferuje kilka sposobów na korzystanie z modeli do ocenia
 | Metoda | Dostęp do magazynu danych | Opis |
 | ----- | :-----: | ----- |
 | [Przewidywanie wsadowe](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Asynchronicznie twórz prognozy dotyczące dużych ilości danych. |
-| [Usługa sieci Web](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
+| [Usługa internetowa](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele jako usługę sieci Web. |
 | [Moduł Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Wdróż modele na IoT Edge urządzeniach. |
 
 W sytuacjach, w których zestaw SDK nie zapewnia dostępu do magazynów danych, może być możliwe utworzenie niestandardowego kodu przy użyciu odpowiedniego zestawu Azure SDK, aby uzyskać dostęp do tego programu. Na przykład [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python) jest biblioteką kliencką, za pomocą której można uzyskać dostęp do danych przechowywanych w obiektach Blob lub plikach.

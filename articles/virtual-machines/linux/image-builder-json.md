@@ -3,17 +3,18 @@ title: Tworzenie szablonu programu Azure Image Builder (wersja zapoznawcza)
 description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/13/2020
+ms.date: 02/18/2021
 ms.topic: reference
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678259"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670421"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -308,11 +309,28 @@ Dostosuj właściwości:
 - **sha256Checksum** — wartość sumy kontrolnej SHA256 pliku, wygenerowana lokalnie, a następnie Konstruktor obrazów będzie obliczać sumę kontrolną i sprawdzać poprawność.
     * Aby wygenerować sha256Checksum, użyj terminalu w systemie Mac/Linux: `sha256sum <fileName>`
 
-
-Aby polecenia były uruchamiane z uprawnieniami administratora, muszą być poprzedzone prefiksem `sudo` .
-
 > [!NOTE]
 > Polecenia wbudowane są przechowywane jako część definicji szablonu obrazu, ale można je wyświetlić w przypadku zrzutu definicji obrazu. są one również widoczne do pomoc techniczna firmy Microsoft w przypadku rozwiązywania problemów z pomocą techniczną. Jeśli masz poufne polecenia lub wartości, zdecydowanie zalecamy, aby były one przenoszone do skryptów, a uwierzytelnianie w usłudze Azure Storage odbywa się przy użyciu tożsamości użytkownika.
+
+#### <a name="super-user-privileges"></a>Uprawnienia administratora
+Aby można było uruchamiać polecenia z uprawnieniami administratora, muszą one być poprzedzone prefiksem, można je `sudo` dodać do skryptów lub użyć poleceń wbudowanych dla nich, na przykład:
+```json
+                "type": "Shell",
+                "name": "setupBuildPath",
+                "inline": [
+                    "sudo mkdir /buildArtifacts",
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
+```
+Przykład skryptu korzystającego z sudo, do którego można się odwoływać za pomocą scriptUri:
+```bash
+#!/bin/bash -e
+
+echo "Telemetry: creating files"
+mkdir /myfiles
+
+echo "Telemetry: running sudo 'as-is' in a script"
+sudo touch /myfiles/somethingElevated.txt
+```
 
 ### <a name="windows-restart-customizer"></a>Dostosowywanie ponownego uruchomienia systemu Windows 
 Dostosowywanie ponownego uruchomienia umożliwia ponowne uruchomienie maszyny wirtualnej z systemem Windows i poczekanie, aż powróci do trybu online. pozwala to na zainstalowanie oprogramowania wymagającego ponownego uruchomienia.  
@@ -397,6 +415,10 @@ Obsługa systemu operacyjnego: Linux i Windows
 Właściwości dostosowywania pliku:
 
 - **SourceUri** — dostępny punkt końcowy magazynu, może to być usługa GitHub lub Azure Storage. Można pobrać tylko jeden plik, a nie cały katalog. Jeśli konieczne jest pobranie katalogu, należy użyć skompresowanego pliku, a następnie zdekompresować go przy użyciu powłoki lub konfiguratorów programu PowerShell. 
+
+> [!NOTE]
+> Jeśli sourceUri jest kontem usługi Azure Storage, bez względu na to, czy obiekt BLOB jest oznaczony jako publiczny, nastąpi przyznanie uprawnienia do odczytu tożsamości użytkownika w odniesieniu do obiektu BLOB. Zapoznaj się z tym [przykładem](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) , aby ustawić uprawnienia do magazynu.
+
 - **Destination** — jest to pełna ścieżka docelowa i nazwa pliku. Wszystkie ścieżki i podkatalogi, do których się odwołuje, muszą istnieć, użyj programu Shell lub konfiguratorzy programu PowerShell, aby wcześniej je skonfigurować. Możesz użyć niestandardowych konfiguratorów skryptów, aby utworzyć ścieżkę. 
 
 Jest to obsługiwane przez katalogi systemu Windows i ścieżki Linux, ale istnieją pewne różnice: 
@@ -408,8 +430,6 @@ Jeśli wystąpi błąd podczas próby pobrania pliku lub umieszczenia go w okre�
 
 > [!NOTE]
 > Program do dostosowywania plików jest odpowiedni dla małych plików do pobrania, < baza. W przypadku większych pobrań plików Użyj skryptu lub polecenia wbudowanego, a następnie użyj kodu do pobrania plików, takich jak Linux `wget` lub `curl` Windows, `Invoke-WebRequest` .
-
-Pliki w obszarze dostosowywania plików można pobrać z usługi Azure Storage przy użyciu pliku [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="windows-update-customizer"></a>Windows Update konfiguratora
 Ten element dostosowujący jest oparty na [społeczności Windows Update aprowizacji](https://packer.io/docs/provisioners/community-supported.html) dla programu Packer, czyli projektu Open Source obsługiwanego przez społeczność programu Packer. Firma Microsoft testuje i sprawdza poprawność aprowizacji za pomocą usługi Image Builder i będzie obsługiwać problemy związane z badaniem oraz pozwala na rozwiązywanie problemów, ale projekt open source nie jest oficjalnie obsługiwany przez firmę Microsoft. Aby zapoznać się ze szczegółową dokumentacją i uzyskać pomoc dotyczącą Windows Update aprowizacji, zobacz repozytorium projektu.

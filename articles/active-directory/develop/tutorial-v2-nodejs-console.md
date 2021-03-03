@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 3d4211acbf6b65ef8f04d00b3936d70bb930ed9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 33d3712e25a06419e0ccc5914cdddfae7d85a371
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100562162"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645793"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-in-a-nodejs-console-app"></a>Samouczek: wywoływanie interfejsu API Microsoft Graph w aplikacji konsolowej Node.js
 
@@ -125,9 +125,9 @@ W folderze *bin* Utwórz inny plik o nazwie *auth.js* i Dodaj następujący kod 
 const msal = require('@azure/msal-node');
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const msalConfig = {
     auth: {
@@ -139,8 +139,8 @@ const msalConfig = {
 
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
- * The scope is always in the format '<resource>/.default'. For more, visit: 
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ * The scope is always in the format '<resource>/.default'. For more, visit:
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '.default'],
@@ -158,7 +158,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 /**
  * Acquires token with client credentials.
- * @param {object} tokenRequest 
+ * @param {object} tokenRequest
  */
 async function getToken(tokenRequest) {
     return await cca.acquireTokenByClientCredential(tokenRequest);
@@ -212,8 +212,8 @@ const axios = require('axios');
 
 /**
  * Calls the endpoint with authorization bearer token.
- * @param {string} endpoint 
- * @param {string} accessToken 
+ * @param {string} endpoint
+ * @param {string} accessToken
  */
 async function callApi(endpoint, accessToken) {
 
@@ -239,7 +239,7 @@ module.exports = {
 };
 ```
 
-W tym miejscu `callApi` Metoda jest używana do wysyłania żądania HTTP `GET` względem chronionego zasobu, który wymaga tokenu dostępu. Żądanie zwraca zawartość do obiektu wywołującego. Ta metoda dodaje token uzyskany w *nagłówku autoryzacji http*. Chroniony zasób to [punkt końcowy użytkowników](https://docs.microsoft.com/graph/api/user-list) interfejsu API Microsoft Graph, który wyświetla użytkowników w dzierżawie, w której ta aplikacja jest zarejestrowana.
+W tym miejscu `callApi` Metoda jest używana do wysyłania żądania HTTP `GET` względem chronionego zasobu, który wymaga tokenu dostępu. Żądanie zwraca zawartość do obiektu wywołującego. Ta metoda dodaje token uzyskany w *nagłówku autoryzacji http*. Chroniony zasób to [punkt końcowy użytkowników](/graph/api/user-list) interfejsu API Microsoft Graph, który wyświetla użytkowników w dzierżawie, w której ta aplikacja jest zarejestrowana.
 
 ## <a name="test-the-app"></a>Testowanie aplikacji
 
@@ -278,7 +278,7 @@ request made to web API at: Fri Jan 22 2021 09:31:52 GMT-0800 (Pacific Standard 
 
 ## <a name="how-the-application-works"></a>Jak działa aplikacja
 
-Ta aplikacja używa [przyznania poświadczeń klienta OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Ten typ uprawnień jest często używany do interakcji między serwerami, które muszą działać w tle bez natychmiastowej interakcji z użytkownikiem. Przepływ przyznania poświadczeń zezwala usłudze sieci Web (poufnemu klienta) na używanie własnych poświadczeń, a nie personifikowanie użytkownika w celu uwierzytelniania podczas wywoływania innej usługi sieci Web. Typ aplikacji obsługiwanych przez ten model uwierzytelniania jest zwykle **demonami** lub **kontami usług**.
+Ta aplikacja używa [przyznania poświadczeń klienta OAuth 2,0](./v2-oauth2-client-creds-grant-flow.md). Ten typ uprawnień jest często używany do interakcji między serwerami, które muszą działać w tle bez natychmiastowej interakcji z użytkownikiem. Przepływ przyznania poświadczeń zezwala usłudze sieci Web (poufnemu klienta) na używanie własnych poświadczeń, a nie personifikowanie użytkownika w celu uwierzytelniania podczas wywoływania innej usługi sieci Web. Typ aplikacji obsługiwanych przez ten model uwierzytelniania jest zwykle **demonami** lub **kontami usług**.
 
 Zakresem żądania dla przepływu poświadczeń klienta jest nazwa zasobu, po którym następuje `/.default` . Ta notacja informuje Azure Active Directory (Azure AD) o korzystaniu z uprawnień na poziomie aplikacji, które są zadeklarowane statycznie podczas rejestrowania aplikacji. Ponadto te uprawnienia interfejsu API muszą zostać przyznane przez **administratora dzierżawy**.
 

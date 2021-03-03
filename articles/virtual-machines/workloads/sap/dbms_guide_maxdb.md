@@ -8,20 +8,19 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4257fcca1172502560c182651d649745e494cc1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e15b592aaa780ea80b6931c6d44fbf99e2f3a730
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958969"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673054"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Wdrażanie oprogramowania SAP MaxDB, liveCache i Content Server na maszynach wirtualnych platformy Azure
 
@@ -349,7 +348,7 @@ Krótko mówiąc:
 ![Konfiguracja referencyjna maszyny wirtualnej usługi Azure IaaS dla systemu SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
-#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Tworzenie kopii zapasowej i przywracanie
+#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Wykonywanie kopii zapasowych i przywracanie
 Podczas wdrażania oprogramowania SAP MaxDB na platformie Azure należy zapoznać się z metodologią tworzenia kopii zapasowych. Nawet jeśli system nie jest systemem produkcyjnym, należy wykonać kopię zapasową bazy danych SAP hostowanej przez oprogramowanie SAP MaxDB. Ponieważ usługa Azure Storage przechowuje trzy obrazy, kopia zapasowa jest teraz mniej ważna pod względem ochrony systemu przed awariami magazynu i ważniejszymi błędami operacyjnymi i administracyjnymi. Podstawową przyczyną utrzymania odpowiedniego planu tworzenia kopii zapasowych i przywracania jest to, że można skompensować błędy logiczne lub ręczne, zapewniając możliwości odzyskiwania do punktu w czasie. W związku z tym celem jest użycie kopii zapasowych do przywrócenia bazy danych do określonego punktu w czasie lub użycie kopii zapasowych na platformie Azure do wypełniania innego systemu przez skopiowanie istniejącej bazy danych. 
 
 Tworzenie kopii zapasowej i przywracanie bazy danych na platformie Azure działa tak samo jak w przypadku systemów lokalnych, dlatego można użyć standardowych narzędzi do tworzenia kopii zapasowych SAP MaxDB i przywracania, które są opisane w jednym z dokumentów dokumentacji SAP MaxDB wymienionych w artykule SAP Uwaga [767598]. 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 611dd5e53ae96e06677b1c4a6a6f009e582b33af
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252478"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646269"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -27,7 +27,9 @@ Rozwiązanie Azure Active Directory (Azure AD) do tego wezwania jest funkcją z 
 
 W przypadku ograniczeń dzierżawy organizacje mogą określić listę dzierżawców, do których użytkownicy mają prawo dostępu. Usługa Azure AD udziela dostępu tylko do tych dozwolonych dzierżawców.
 
-Ten artykuł koncentruje się na ograniczeniach dzierżawy dla Microsoft 365, ale funkcja powinna współpracować z dowolną aplikacją w chmurze SaaS, która korzysta z nowoczesnego protokołu uwierzytelniania z usługą Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez Microsoft 365, upewnij się, że wszystkie wymagane dzierżawy są dozwolone. Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Ten artykuł koncentruje się na ograniczeniach dzierżawy dla Microsoft 365, ale funkcja chroni wszystkie aplikacje, które wysyłają użytkownika do usługi Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez Microsoft 365, upewnij się, że wszystkie wymagane dzierżawcy są dozwolone (np. w scenariuszach współpracy B2B). Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
+
+Ponadto funkcja ograniczeń dzierżawy obsługuje teraz [blokowanie używania wszystkich aplikacji dla użytkowników firmy Microsoft](#blocking-consumer-applications) (aplikacji MSA), takich jak OneDrive, Hotmail i Xbox.com.  Powoduje to użycie osobnego nagłówka do `login.live.com` punktu końcowego i szczegółowego na końcu dokumentu.
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -39,7 +41,7 @@ Ogólne rozwiązanie składa się z następujących składników:
 
 3. **Oprogramowanie klienckie**: aby obsługiwać ograniczenia dzierżawy, oprogramowanie klienckie musi żądać tokenów bezpośrednio z usługi Azure AD, dzięki czemu infrastruktura serwera proxy może przechwytywać ruch. Microsoft 365 aplikacje oparte na przeglądarce obecnie obsługują ograniczenia dzierżawy, ponieważ klienci pakietu Office korzystający z nowoczesnego uwierzytelniania (na przykład OAuth 2,0).
 
-4. **Nowoczesne uwierzytelnianie**: usługi w chmurze muszą używać nowoczesnego uwierzytelniania, aby używać ograniczeń dzierżawy i blokować dostęp do wszystkich niedozwolonych dzierżawców. Aby korzystać z nowoczesnych protokołów uwierzytelniania, należy skonfigurować usługi Microsoft 365 w chmurze. Aby uzyskać najnowsze informacje na temat Microsoft 365 obsługi nowoczesnego uwierzytelniania, Przeczytaj [zaktualizowany nowoczesne uwierzytelnianie pakietu Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Nowoczesne uwierzytelnianie**: usługi w chmurze muszą używać nowoczesnego uwierzytelniania, aby używać ograniczeń dzierżawy i blokować dostęp do wszystkich niedozwolonych dzierżawców. Aby korzystać z nowoczesnych protokołów uwierzytelniania, należy skonfigurować usługi Microsoft 365 w chmurze. Aby uzyskać najnowsze informacje na temat Microsoft 365 obsługi nowoczesnego uwierzytelniania, Przeczytaj [zaktualizowany nowoczesne uwierzytelnianie pakietu Office 365](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 Na poniższym diagramie przedstawiono przepływ ruchu wysokiego poziomu. Ograniczenia dzierżawy wymagają inspekcji protokołu TLS tylko w ruchu do usługi Azure AD, a nie do usług w chmurze Microsoft 365. Ta różnica jest ważna, ponieważ ilość ruchu sieciowego do uwierzytelniania w usłudze Azure AD jest zwykle znacznie mniejsza niż ilość ruchu sieciowego do SaaS aplikacji, takich jak Exchange Online i SharePoint Online.
 
@@ -63,22 +65,20 @@ Aby włączyć ograniczenia dzierżawy za pomocą infrastruktury serwera proxy, 
 
 - Klienci muszą ufać łańcuchowi certyfikatów przedstawionym przez serwer proxy do komunikacji TLS. Na przykład jeśli używane są certyfikaty z wewnętrznej [infrastruktury kluczy publicznych (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) , certyfikat wewnętrznego wystawiania certyfikatu głównego urzędu certyfikacji musi być zaufany.
 
-- Azure AD — wersja Premium 1 licencje są wymagane do użycia ograniczeń dzierżawy. 
+- Azure AD — wersja Premium 1 licencje są wymagane do użycia ograniczeń dzierżawy.
 
 #### <a name="configuration"></a>Konfigurowanie
 
-Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
+Dla każdego żądania wychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
 
 > [!NOTE]
-> Podczas konfigurowania przechwycenia protokołu SSL i iniekcji nagłówków upewnij się, że ruch https://device.login.microsoftonline.com jest wykluczony. Ten adres URL jest używany na potrzeby uwierzytelniania urządzeń i wykonywania operacji przerywania i inspekcji protokołu TLS może zakłócać uwierzytelnianie certyfikatu klienta, co może powodować problemy z rejestracją urządzeń i dostępem warunkowym opartym na urządzeniach.
-
-
+> Nie dołączaj poddomen do domeny `*.login.microsoftonline.com` w konfiguracji serwera proxy. Taka operacja będzie obejmować device.login.microsoftonline.com i będzie zakłócać uwierzytelnianie certyfikatu klienta, który jest używany w scenariuszach rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach. Skonfiguruj serwer proxy w taki sposób, aby wykluczyć device.login.microsoftonline.com z dzielenia i kontroli protokołu TLS.
 
 Nagłówki powinny zawierać następujące elementy:
 
 - W przypadku *ograniczania dostępu do dzierżawców* Użyj wartości \<permitted tenant list\> , która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Każda domena zarejestrowana w dzierżawie może służyć do identyfikowania dzierżawy na tej liście, a także identyfikatora katalogu. Aby zapoznać się z przykładem wszystkich trzech sposobów opisywania dzierżawy, para nazwa/wartość umożliwiająca contoso, Fabrikam i firmę Microsoft wygląda następująco: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Aby *ograniczyć dostęp do kontekstu*, użyj wartości identyfikatora pojedynczego katalogu, deklarując, który dzierżawca ustawia ograniczenia dzierżawy. Na przykład, aby zadeklarować contoso jako dzierżawcę, który ustawił zasady ograniczeń dzierżawy, para nazwa/wartość będzie wyglądać następująco: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  W tym miejscu **musisz** użyć własnego identyfikatora katalogu.
+- Aby *ograniczyć dostęp do kontekstu*, użyj wartości identyfikatora pojedynczego katalogu, deklarując, który dzierżawca ustawia ograniczenia dzierżawy. Na przykład, aby zadeklarować contoso jako dzierżawcę, który ustawił zasady ograniczeń dzierżawy, para nazwa/wartość będzie wyglądać następująco: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  W tym miejscu **należy** użyć własnego identyfikatora katalogu w celu pobrania dzienników dla tych uwierzytelnień.
 
 > [!TIP]
 > Identyfikator katalogu można znaleźć w [portalu Azure Active Directory](https://aad.portal.azure.com/). Zaloguj się jako administrator, wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Właściwości**. 
@@ -88,9 +88,6 @@ Nagłówki powinny zawierać następujące elementy:
 Aby uniemożliwić użytkownikom wstawianie własnego nagłówka HTTP z niezatwierdzonymi dzierżawcami, serwer proxy musi zastąpić nagłówek *ograniczenia dostępu do dzierżawców* , jeśli jest już obecny w żądaniu przychodzącym.
 
 Klienci muszą być zmuszeni do korzystania z serwera proxy dla wszystkich żądań do login.microsoftonline.com, login.microsoft.com i login.windows.net. Na przykład jeśli pliki PAC są używane do kierowania klientom do korzystania z serwera proxy, użytkownicy końcowi nie będą mogli edytować ani wyłączać plików PAC.
-
-> [!NOTE]
-> W konfiguracji serwera proxy nie należy uwzględniać poddomen w lokalizacji *. login.microsoftonline.com. Takie działanie będzie obejmować device.login.microsoftonline.com i może zakłócać uwierzytelnianie certyfikatu klienta, które jest używane w scenariuszach rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach. Skonfiguruj serwer proxy w taki sposób, aby wykluczyć device.login.microsoftonline.com z dzielenia i kontroli protokołu TLS.
 
 ## <a name="the-user-experience"></a>Środowisko użytkownika
 
@@ -122,9 +119,6 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Stan**
 - **Data**
 - **Data (UTC)** (gdzie UTC jest uniwersalnym czasem koordynowanym)
-- **Metoda auth uwierzytelniania MFA (metoda uwierzytelniania wieloskładnikowego** )
-- **Szczegóły uwierzytelniania MFA (szczegóły uwierzytelniania wieloskładnikowego** )
-- **Wynik usługi MFA**
 - **Adres IP**
 - **Klient**
 - **Nazwa użytkownika**
@@ -162,21 +156,30 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
 
    1. W narzędziu Web Debugger programu Fiddler wybierz menu **reguły** i wybierz polecenie **Dostosuj reguły...** Aby otworzyć plik CustomRules.
 
-   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zamień \<tenant domain\> na domenę zazarejestrowaną dla dzierżawy (na przykład `contoso.onmicrosoft.com` ). Zamień \<directory ID\> na identyfikator GUID usługi Azure AD Twojej dzierżawy.
+   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zamień \<List of tenant identifiers\> na domenę zazarejestrowaną dla dzierżawy (na przykład `contoso.onmicrosoft.com` ). Zamień \<directory ID\> na identyfikator GUID usługi Azure AD Twojej dzierżawy.  Aby dzienniki były wyświetlane w dzierżawie, **należy** uwzględnić prawidłowy identyfikator GUID. 
 
-      ```JScript.NET
+   ```JScript.NET
+    // Allows access to the listed tenants.
       if (
           oSession.HostnameIs("login.microsoftonline.com") ||
           oSession.HostnameIs("login.microsoft.com") ||
           oSession.HostnameIs("login.windows.net")
       )
       {
-          oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-          oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+          oSession.oRequest["Restrict-Access-To-Tenants"] = "<List of tenant identifiers>";
+          oSession.oRequest["Restrict-Access-Context"] = "<Your directory ID>";
       }
-      ```
 
-      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
+    // Blocks access to consumer apps
+      if (
+          oSession.HostnameIs("login.live.com")
+      )
+      {
+          oSession.oRequest["sec-Restrict-Tenant-Access-Policy"] = "restrict-msa";
+      }
+   ```
+
+Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
@@ -193,7 +196,33 @@ W zależności od możliwości infrastruktury serwera proxy może być możliwe 
 
 Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją serwera proxy.
 
+## <a name="blocking-consumer-applications"></a>Blokowanie aplikacji konsumenckich
+
+Aplikacje firmy Microsoft, które obsługują zarówno konta użytkowników, jak i konta organizacji, takie jak [OneDrive](https://onedrive.live.com/) lub [Microsoft Learn](https://docs.microsoft.com/learn/), mogą być czasami hostowane przy użyciu tego samego adresu URL.  Oznacza to, że użytkownicy, którzy muszą uzyskać dostęp do tego adresu URL do celów służbowych, mają również dostęp do niego do użytku osobistego, co może nie być dozwolone zgodnie z wytycznymi dotyczącymi obsługi.
+
+Niektóre organizacje próbują rozwiązać ten problem przez zablokowanie `login.live.com` w celu zablokowania uwierzytelniania kont osobistych.  Jest to kilka downsides:
+
+1. Blokowanie `login.live.com` uniemożliwia korzystanie z kont osobistych w scenariuszach gościa B2B, które mogą intruzom przed osobami odwiedzającymi i współpracownikami.
+1. [Funkcja autopilotażu wymaga użycia `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) w celu wdrożenia programu. Po zablokowaniu scenariusze usługi Intune i autopilotaży mogą zakończyć się niepowodzeniem `login.live.com` .
+1. Dane telemetryczne organizacji i aktualizacje systemu Windows, które są zależne od usługi MSA dla identyfikatorów urządzeń, [przestaną obowiązywać](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+
+### <a name="configuration-for-consumer-apps"></a>Konfiguracja aplikacji dla klientów
+
+Chociaż `Restrict-Access-To-Tenants` nagłówek działa jako lista dozwolonych, blok MSA działa jako sygnał odmowy, co informuje platformę konto Microsoft, aby nie zezwalać użytkownikom na logowanie się do aplikacji konsumenckich. Aby wysłać ten sygnał, `sec-Restrict-Tenant-Access-Policy` nagłówek jest wstrzykiwany do ruchu odwiedzanego `login.live.com` przy użyciu tego samego firmowego serwera proxy lub zapory, jak [powyżej](#proxy-configuration-and-requirements). Wartością nagłówka musi być `restrict-msa` . Gdy nagłówek jest obecny i aplikacja odbiorcy próbuje bezpośrednio zalogować użytkownika, to logowanie zostanie zablokowane.
+
+W tej chwili uwierzytelnianie w aplikacjach konsumenckich nie pojawia się w [dziennikach administratora](#admin-experience), ponieważ login.Live.com jest hostowany niezależnie od usługi Azure AD.
+
+### <a name="what-the-header-does-and-does-not-block"></a>Co to jest nagłówek i nie jest blokowany
+
+`restrict-msa`Zasady blokują korzystanie z aplikacji konsumenckich, ale umożliwiają użycie kilku innych typów ruchu i uwierzytelniania:
+
+1. Ruch bez użytkowników dla urządzeń.  Obejmuje to ruch dla autopilotażu, Windows Update i telemetrii organizacyjnej.
+1. Uwierzytelnianie B2B kont klientów. Użytkownicy z kontami Microsoft, którzy są [zapraszani do współpracy z dzierżawą](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) , są uwierzytelniani w Login.Live.com w celu uzyskania dostępu do dzierżawy zasobów.
+    1. Ten dostęp jest kontrolowany przy użyciu `Restrict-Access-To-Tenants` nagłówka, aby zezwalać na dostęp do tej dzierżawy zasobów lub go odmawiać.
+1. Uwierzytelnianie "przekazywanie" używane przez wiele aplikacji platformy Azure, a także Office.com, w których aplikacje używają usługi Azure AD do logowania użytkowników w kontekście konsumenta.
+    1. Ten dostęp jest również kontrolowany przy użyciu `Restrict-Access-To-Tenants` nagłówka, aby zezwalać na dostęp do specjalnej dzierżawy "przekazującej" () lub go odmawiać `f8cdef31-a31e-4b4a-93e4-5f571e91255a` .  Jeśli dzierżawa nie znajduje się na `Restrict-Access-To-Tenants` liście dozwolonych domen, konta konsumentów nie będą mogły się zalogować do tych aplikacji.
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj o [zaktualizowanym nowoczesnej uwierzytelnianiu pakietu Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- Przeczytaj o [zaktualizowanym nowoczesnej uwierzytelnianiu pakietu Office 365](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Przejrzyj [adresy URL i zakresy adresów IP pakietu Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

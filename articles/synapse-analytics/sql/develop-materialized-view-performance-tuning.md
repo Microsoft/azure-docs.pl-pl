@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305112"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676597"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Dostrajanie wydajności w przypadku widoków z materiałami przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany. 
 
 Wyspecjalizowany widok wstępnie oblicza, przechowuje i utrzymuje dane w dedykowanej puli SQL, podobnie jak w przypadku tabeli.  Obliczenia nie są wymagane za każdym razem, gdy jest używany widok z materiałami.  Dlatego, że zapytania wykorzystujące wszystkie lub podzbiór danych w widokach w postaci większej wydajności mogą zwiększyć wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
-Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 | Porównanie                     | Widok                                         | Zmaterializowany widok
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści
 W porównaniu z innymi dostawcami magazynu danych, wyspecjalizowane widoki zaimplementowane w dedykowanej puli SQL oferują również następujące dodatkowe korzyści:
 
 - Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
-- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Typowe scenariusze  
 
@@ -119,7 +119,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
 
 ```sql
 -- Query 1 would benefit from having a materialized view created with this SELECT statement
@@ -147,7 +147,7 @@ Optymalizator magazynu danych może automatycznie używać wdrożonych widoków 
 
 Widok z materiałami jest przechowywany w magazynie danych, podobnie jak tabela z klastrowanym indeksem magazynu kolumn (WIK).  Odczytywanie danych z widoku z materiałami obejmuje skanowanie indeksu i stosowanie zmian z magazynu różnicowego.  Gdy liczba wierszy w magazynie różnic jest zbyt duża, rozpoznawanie zapytania z widoku z materiałami może trwać dłużej niż bezpośrednio zapytania w tabelach bazowych.  
 
-Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie [polecenia DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w celu monitorowania overhead_ratio widoku (total_rows/base_view_row).  Jeśli overhead_ratio jest zbyt wysoka, rozważ odbudowanie widoku z materiałami, aby wszystkie wiersze w magazynie różnicowym były przenoszone do indeksu magazynu kolumn.  
+Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie [polecenia DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest&preserve-view=true) w celu monitorowania overhead_ratio widoku (total_rows/base_view_row).  Jeśli overhead_ratio jest zbyt wysoka, rozważ odbudowanie widoku z materiałami, aby wszystkie wiersze w magazynie różnicowym były przenoszone do indeksu magazynu kolumn.  
 
 **Widok materiałowy i buforowanie zestawu wyników**
 

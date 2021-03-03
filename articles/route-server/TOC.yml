@@ -1,0 +1,45 @@
+- name: Dokumentacja serwera tras
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Azure Route Server (wersja zapoznawcza)?
+      href: overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Konfigurowanie serwera tras — PowerShell
+      href: quickstart-configure-route-server-powershell.md
+    - name: Konfigurowanie serwera tras — interfejs wiersza polecenia
+      href: quickstart-configure-route-server-cli.md
+  expanded: true
+- name: Pojęcia
+  items:
+    - name: Serwer tras — często zadawane pytania
+      href: route-server-faq.md
+    - name: ExpressRoute i obsługa sieci VPN platformy Azure
+      href: expressroute-vpn-support.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Rozwiązywanie problemów z serwerem tras
+      href: troubleshoot-route-server.md
+- name: Dokumentacja
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/?view=azps-5.5.0#route
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/network/routeserver?view=azure-cli-latest
+    - name: REST
+      href: /rest/api/virtualwan/virtualhubipconfiguration
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog na temat sieci
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/routeserver/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=routeserver'
+    - name: Umowa SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/'

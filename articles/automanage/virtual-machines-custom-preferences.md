@@ -1,29 +1,29 @@
 ---
 title: Utwórz preferencję niestandardową w usłudze Azure automanage dla maszyn wirtualnych
-description: Dowiedz się, jak dostosować profil konfiguracji w usłudze Azure automanage dla maszyn wirtualnych i ustawić własne preferencje.
+description: Dowiedz się, jak dostosować konfigurację środowiska w usłudze Azure Autozarządzanie i ustawić własne preferencje.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 584a3503bf736fcf727a169611e6c79e0c374c90
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715037"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647970"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Utwórz preferencję niestandardową w usłudze Azure automanage dla maszyn wirtualnych
 
-Usługa Azure automanage dla najlepszych rozwiązań dotyczących maszyn wirtualnych ma domyślne profile konfiguracji, które można dostosować w razie potrzeby. W tym artykule wyjaśniono, jak można ustawić własne preferencje profilu konfiguracji po włączeniu autozarządzania na nowej lub istniejącej maszynie wirtualnej.
+Usługa Azure automanage dla najlepszych rozwiązań dotyczących maszyn wirtualnych ma domyślne środowiska, które można dostosować w razie potrzeby. W tym artykule wyjaśniono, jak można ustawić własne preferencje po włączeniu autozarządzania na nowej lub istniejącej maszynie wirtualnej.
 
 Obecnie obsługujemy dostosowania dotyczące [Azure Backup](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) i [ochrony przed złośliwym oprogramowaniem firmy Microsoft](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
 
 
 > [!NOTE]
-> Nie można zmienić profilu konfiguracji ani preferencji na maszynie wirtualnej, gdy jest włączona funkcja autozarządzania. Należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie włączyć ją ponownie przy użyciu odpowiedniego profilu konfiguracji i preferencji.
+> Nie można zmienić środowiska ani preferencji na maszynie wirtualnej, gdy jest włączona funkcja autozarządzania. Należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie włączyć ją ponownie przy użyciu wymaganego środowiska konfiguracji i preferencji.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -44,7 +44,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Włączanie autozarządzania dla maszyn wirtualnych na istniejącej maszynie wirtualnej
 
-1. Na pasku wyszukiwania Wyszukaj i wybierz pozycję **Autozarządzanie — najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure**.
+1. Na pasku wyszukiwania Wyszukaj i wybierz pozycję **Autozarządzanie — najlepsze rozwiązania dotyczące usługi Azure Machine**.
 
 2. Wybierz pozycję **Włącz na istniejącej maszynie wirtualnej**.
 
@@ -55,30 +55,33 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
-4. W obszarze **profil konfiguracji**kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
+    > [!NOTE]
+    > Kliknij pozycję **Pokaż nieuprawnionych maszyn** , aby wyświetlić listę nieobsługiwanych maszyn i przyczynę. 
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
+4. W obszarze **Konfiguracja** kliknij pozycję **PORÓWNAJ środowiska**.
 
-5. W bloku **Wybierz profil konfiguracji i preferencje** wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla środowiska produkcyjnego.
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Porównaj środowiska.":::
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
+5. W bloku **szczegóły środowiska** Wybierz środowisko z menu rozwijanego: Tworzenie */testowanie* na potrzeby testowania, *prod* dla środowiska produkcyjnego i kliknij przycisk **OK** .
 
-6. W wybranym profilu w obszarze **Preferencje konfiguracji** znajduje się lista rozwijana, w której można dostosować je do określonych usług.
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Przeglądanie środowiska produkcyjnego.":::
+
+6. Po wybraniu środowiska możesz wybrać pozycję **Preferencje konfiguracji**. Domyślnie zostanie użyte preferencje najlepszych rozwiązań dotyczących platformy Azure. Ta preferencja zawiera użycie zalecanych ustawień dla każdej usługi. Zmodyfikuj te ustawienia, tworząc preferencję niestandardową: 
     1. Kliknij przycisk **Utwórz nowe preferencje**.
     1. W bloku **Tworzenie preferencji konfiguracji** Wypełnij kartę podstawowe:
         1. Subskrypcja
         1. Grupa zasobów
         1. Nazwa preferencji
-        1. Region
+        1. Region (Region)
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Wypełnij preferencje konfiguracji.":::
 
-7. Przejdź do karty Preferencje i Dostosuj odpowiednie preferencje konfiguracji.
+7. Dostosuj odpowiednie preferencje konfiguracji.
         
     > [!NOTE]
-    > W przypadku zmiany konfiguracji profilów można używać tylko korekt, które nadal pasują do naszych najlepszych rozwiązań.
+    > W przypadku zmiany konfiguracji środowiska dozwolone są tylko te zmiany, które nadal pasują do naszych najlepszych rozwiązań.
 
-8. Przejrzyj swój profil konfiguracji.
+8. Przejrzyj szczegóły konfiguracji.
 9. Kliknij przycisk **Utwórz**.
 
 10. Kliknij przycisk **Włącz**.
@@ -88,7 +91,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Szybko Zatrzymaj zarządzanie maszynami wirtualnymi przy użyciu usługi Azure automanage przez wyłączenie autozarządzania.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Wyłączanie autozarządzania na maszynie wirtualnej.":::
 
 1. Przejdź do strony **Autozarządzanie — najlepsze rozwiązania dotyczącej maszyn wirtualnych platformy Azure** , która zawiera listę wszystkich maszyn wirtualnych, które są zarządzane przez nią.
 1. Zaznacz pole wyboru obok maszyny wirtualnej, którą chcesz wyłączyć.

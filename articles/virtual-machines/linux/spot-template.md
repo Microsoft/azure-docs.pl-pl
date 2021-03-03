@@ -3,17 +3,18 @@ title: Użyj szablonu, aby wdrożyć Virtual Machines platformy Azure Azure
 description: Dowiedz się, jak za pomocą szablonu wdrożyć Virtual Machines w miejscu na platformie Azure, aby zaoszczędzić koszty.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 44134e73f2e654d7bfdb9119942a5c3982859c7a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 04319066c59dda5d240f527d86894674a505eaed
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557749"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669352"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Wdrażanie Virtual Machines w miejscu na platformie Azure przy użyciu szablonu Menedżer zasobów
 

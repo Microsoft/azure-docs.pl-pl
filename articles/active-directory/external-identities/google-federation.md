@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355600"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653326"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
-Konfigurując Federacji w usłudze Google, możesz zezwolić zaproszonym użytkownikom na logowanie się do udostępnionych aplikacji i zasobów przy użyciu własnych kont usługi Gmail, bez konieczności tworzenia kont Microsoft. 
+Konfigurując Federacji w usłudze Google, możesz zezwolić zaproszonym użytkownikom na logowanie się do udostępnionych aplikacji i zasobów przy użyciu własnych kont usługi Gmail, bez konieczności tworzenia kont Microsoft.
+
+Po dodaniu usługi Google jako jednej z opcji logowania aplikacji na stronie **logowania** użytkownik może po prostu wprowadzić wiadomość e-mail, której używają do logowania się do usługi Google, lub wybrać **Opcje logowania** i wybrać opcję **Zaloguj się przy użyciu usługi Google**. W obu przypadkach zostaną przekierowane do strony logowania Google w celu uwierzytelnienia.
+
+![Opcje logowania dla użytkowników usługi Google](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > Firma Google Federation została zaprojektowana specjalnie dla użytkowników usługi Gmail. Aby sfederować z domenami usługi G Suite, należy użyć [Federacji bezpośredniej](direct-federation.md).
@@ -30,13 +34,33 @@ Konfigurując Federacji w usłudze Google, możesz zezwolić zaproszonym użytko
 > **Od 4 stycznia 2021** firma Google jest [przestarzałą obsługą logowania do usługi WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). W przypadku korzystania z usługi Google Federation lub samoobsługowego rejestrowania się w usłudze Gmail należy [przetestować natywne aplikacje biznesowe pod kątem zgodności](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Co to jest środowisko użytkownika Google?
-Po wysłaniu zaproszenia do użytkowników usługi Google Gmail użytkownicy-Goście powinni uzyskiwać dostęp do udostępnionych aplikacji lub zasobów przy użyciu linku zawierającego kontekst dzierżawy. Ich środowisko pracy różni się w zależności od tego, czy są już zalogowane w usłudze Google:
-  - Użytkownicy-Goście, którzy nie są zalogowani do usługi Google, będą monitowani o to.
-  - Użytkownicy-Goście, którzy zostali już zalogowani w usłudze Google, będą monitowani o wybranie konta, którego chcą użyć. Muszą wybrać konto użyte do zaproszenia.
+
+Gdy użytkownik Google korzysta z zaproszenia, jego środowisko różni się w zależności od tego, czy jest już zalogowany w usłudze Google:
+
+- Użytkownicy-Goście, którzy nie są zalogowani do usługi Google, będą monitowani o to.
+- Użytkownicy-Goście, którzy zostali już zalogowani w usłudze Google, będą monitowani o wybranie konta, którego chcą użyć. Muszą wybrać konto użyte do zaproszenia.
 
 Użytkownicy-Goście, którzy zobaczą "nagłówek zbyt długi", mogą wyczyścić swoje pliki cookie lub otworzyć okno prywatne lub incognito, a następnie spróbować zalogować się ponownie.
 
 ![Zrzut ekranu przedstawiający stronę logowania Google.](media/google-federation/google-sign-in.png)
+
+## <a name="sign-in-endpoints"></a>Punkty końcowe logowania
+
+Użytkownicy usługi gościa Google mogą teraz logować się do aplikacji firmowych z wieloma dzierżawcami lub aplikacjami firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Poniżej przedstawiono przykłady typowych punktów końcowych:
+
+- `https://teams.microsoft.com`
+- `https://myapps.microsoft.com`
+- `https://portal.azure.com`
+
+Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje logowanie się przy użyciu swoich poświadczeń Google.
+
+Użytkownicy usługi Google Guest mogą również korzystać z punktów końcowych aplikacji, które zawierają informacje o dzierżawie, na przykład:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+Możesz również udzielić użytkownikom usługi Google gość bezpośredniego linku do aplikacji lub zasobu, dołączając informacje o dzierżawie, na przykład `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
 
 ## <a name="deprecation-of-webview-sign-in-support"></a>Wycofanie obsługi logowania w usłudze WebView
 
@@ -66,23 +90,13 @@ Kontynuujemy testowanie różnych platform i scenariuszy, a tym samym aktualizuj
    - Jeśli aplikacja systemu Windows używa osadzonego widoku WebView lub webaccountmanager (WAM) w starszej wersji systemu Windows, należy zaktualizować do najnowszej wersji systemu Windows.
    - Zmodyfikuj swoje aplikacje, aby użyć przeglądarki systemowej do logowania. Aby uzyskać szczegółowe informacje, zobacz [osadzony interfejs użytkownika sieci Web systemu vs](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) w dokumentacji MSAL.NET.  
 
-## <a name="sign-in-endpoints"></a>Punkty końcowe logowania
 
-Zespoły w pełni obsługują użytkowników gościa Google na wszystkich urządzeniach. Użytkownicy usługi Google mogą logować się do zespołów z wspólnego punktu końcowego, takiego jak `https://teams.microsoft.com` .
-
-Wspólne punkty końcowe aplikacji mogą nie obsługiwać użytkowników usługi Google. Użytkownicy usługi gościa Google muszą się zalogować przy użyciu linku zawierającego informacje o dzierżawie. Poniżej przedstawiono przykłady:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   Jeśli użytkownicy usługi Google Guest próbują użyć linku `https://myapps.microsoft.com` , takiego jak lub `https://portal.azure.com` , wystąpi błąd.
-
-Możesz również udzielić użytkownikom usługi Google gość bezpośredniego linku do aplikacji lub zasobu, o ile link zawiera informacje o dzierżawie. Na przykład `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## <a name="step-1-configure-a-google-developer-project"></a>Krok 1. Konfigurowanie projektu dla deweloperów Google
 Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania identyfikatora klienta i klucza tajnego klienta, który można później dodać do Azure Active Directory (Azure AD). 
 1. Przejdź do interfejsów API usługi Google at https://console.developers.google.com i zaloguj się przy użyciu konta Google. Zalecamy używanie udostępnionego konta Google zespołu.
 2. Jeśli zostanie wyświetlony monit, zaakceptuj warunki korzystania z usługi.
-3. Utwórz nowy projekt: na pulpicie nawigacyjnym wybierz pozycję **Utwórz projekt**, Nadaj projektowi nazwę (np. **Azure AD B2B**), a następnie wybierz pozycję **Utwórz**: 
+3. Utwórz nowy projekt: w lewym górnym rogu strony wybierz listę projektów, a następnie na stronie **Wybierz projekt** wybierz pozycję **Nowy projekt**.
+4. Na stronie **Nowy projekt** Nadaj projektowi nazwę (np. **usługi Azure AD B2B**), a następnie wybierz pozycję **Utwórz**: 
    
    ![Zrzut ekranu pokazujący nową stronę projektu.](media/google-federation/google-new-project.png)
 
@@ -115,7 +129,7 @@ Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania
 
     ![Zrzut ekranu przedstawiający sekcję autoryzowane identyfikatory URI przekierowania.](media/google-federation/google-create-oauth-client-id.png)
 
-12. Wybierz pozycję **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta. Będziesz ich używać podczas dodawania dostawcy tożsamości w Azure Portal.
+12. Wybierz przycisk **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta. Będziesz ich używać podczas dodawania dostawcy tożsamości w Azure Portal.
 
     ![Zrzut ekranu pokazujący identyfikator klienta OAuth i klucz tajny klienta.](media/google-federation/google-auth-client-id-secret.png)
 

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627783"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658473"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -67,6 +67,12 @@ Tak. magazyn analityczny można włączyć w kontenerach z elastyczną przepusto
 ### <a name="is-there-any-effect-on-azure-cosmos-db-transactional-store-provisioned-rus"></a>Czy ma to wpływ na Azure Cosmos DB transakcyjnego magazynu jednostek ru?
 
 Azure Cosmos DB gwarantuje izolację wydajności między obciążeniami transakcyjnymi i analitycznymi. Włączenie magazynu analitycznego w kontenerze nie wpłynie na zainicjowanie obsługi jednostek RU w Azure Cosmos DB magazynie transakcyjnym. Transakcje (odczyt & zapis) i koszty magazynu dla magazynu analitycznego zostaną rozliczone osobno. Aby uzyskać więcej informacji, zobacz [Cennik dla magazynu analitycznego Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) .
+
+### <a name="can-i-restrict-access-to-azure-cosmos-db-analytical-store"></a>Czy mogę ograniczyć dostęp do magazynu analitycznego Azure Cosmos DB?
+
+Tak, można skonfigurować [zarządzany prywatny punkt końcowy](analytical-store-private-endpoints.md) i ograniczyć dostęp sieciowy do magazynu analitycznego do sieci wirtualnej zarządzanej przez usługę Azure Synapse. Zarządzane prywatne punkty końcowe nawiązują prywatny link do magazynu analitycznego. Ten prywatny punkt końcowy spowoduje również ograniczenie dostępu do zapisu w magazynie transakcyjnym między innymi usługami danych platformy Azure.
+
+Do tego samego konta Azure Cosmos DB w obszarze roboczym usługi Azure Synapse Analytics można dodać zarówno magazyn transakcyjny, jak i prywatne punkty końcowe magazynu analitycznego. Jeśli chcesz tylko uruchamiać zapytania analityczne, możesz zmapować tylko analityczny punkt końcowy.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>Czy operacje usuwania i aktualizacji w magazynie transakcyjnym są odzwierciedlone w magazynie analitycznym?
 

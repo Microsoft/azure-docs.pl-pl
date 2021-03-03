@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168512"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643845"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Co to jest aprowizacja między katalogami?
 
@@ -33,7 +33,7 @@ Usługa Azure AD obecnie obsługuje trzy metody inicjowania obsługi administrac
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) — narzędzie firmy Microsoft zaprojektowane do zaspokajania i wykonywania tożsamości hybrydowej, w tym do inicjowania obsługi administracyjnej między usługą Active Directory do usługi Azure AD.
 
-- [Azure AD Connect aprowizacji w chmurze](../cloud-provisioning/what-is-cloud-provisioning.md) — nowy Agent firmy Microsoft, który zaprojektowano w celu sprostania i realizacji celów tożsamości hybrydowej.  Zapewnia ona uproszczone środowisko udostępniania między katalogami między Active Directory i Azure AD.
+- [Azure AD Connect aprowizacji w chmurze](../cloud-sync/what-is-cloud-sync.md) — nowy Agent firmy Microsoft, który zaprojektowano w celu sprostania i realizacji celów tożsamości hybrydowej.  Zapewnia ona uproszczone środowisko udostępniania między katalogami między Active Directory i Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) — lokalne rozwiązanie do zarządzania tożsamościami i dostępem w firmie Microsoft, które ułatwia zarządzanie użytkownikami, poświadczeniami, zasadami i dostępem w organizacji. Ponadto program MIM udostępnia zaawansowane Inicjowanie obsługi administracyjnej między katalogami w celu osiągnięcia hybrydowych środowisk tożsamości dla Active Directory, usługi Azure AD i innych katalogów.
 

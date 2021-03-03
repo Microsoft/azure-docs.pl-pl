@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 09/03/2020
-ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.date: 01/27/2021
+ms.openlocfilehash: c0e86cad252da1b5484944c12351d4ee1e39edbe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740950"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656321"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
 
@@ -50,7 +50,7 @@ Aby utworzyć pojedynczą bazę danych w Azure Portal ten przewodnik Szybki Star
    - **Hasło**: wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
    - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej.
 
-   Wybierz pozycję **OK**.
+   Wybierz przycisk **OK**.
 
 1. Dla opcji **nie** **należy używać puli elastycznej SQL** .
 1. W obszarze **Środowisko obliczeniowe i magazyn** wybierz pozycję **Skonfiguruj bazę danych**.
@@ -70,6 +70,8 @@ Aby utworzyć pojedynczą bazę danych w Azure Portal ten przewodnik Szybki Star
   
 
 1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład**, aby **użyć istniejących danych**. Spowoduje to utworzenie przykładowej bazy danych AdventureWorksLT, dzięki czemu istnieje kilka tabel i danych do zbadania i eksperymentowania, w przeciwieństwie do pustej pustej bazy danych.
+1. Opcjonalnie można włączyć [usługę Azure Defender dla serwera SQL](../database/azure-defender-for-sql.md).
+1. Opcjonalnie Ustaw [przedział czasu obsługi](../database/maintenance-window.md) tak, aby planowana konserwacja była wykonywana z najlepszymi dla bazy danych.
 1. Wybierz pozycję **Przegląd + Utwórz** u dołu strony:
 
    ![Karta Ustawienia dodatkowe](./media/single-database-create-quickstart/additional-settings.png)

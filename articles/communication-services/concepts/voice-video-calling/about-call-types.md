@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 98c1ce9367e9bf2aa1a381a772b3cbc73f96b519
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650953"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657149"
 ---
 # <a name="voice-and-video-concepts"></a>Pojęcia dotyczące głosu i wideo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie jednego do jednego lub grupy wywołań głosowych i wideo. Twoje wywołania mogą być nawiązywane z innymi urządzeniami połączonymi z Internetem i zwykłymi numerami telefonów. Za pomocą bibliotek klienckich usług komunikacyjnych w języku JavaScript, Android lub iOS można tworzyć aplikacje, które umożliwiają użytkownikom głosowanie na siebie w prywatnych konwersacjach lub w dyskusjach grupowych. Usługi komunikacyjne platformy Azure obsługują wywołania do i z usług lub botów.
 
@@ -26,7 +24,7 @@ Usługi Azure Communications Services umożliwiają udostępnianie i odbieranie 
 
 Istnieje wiele typów wywołań, które można wprowadzić w usłudze Azure Communications Services. Typ wywoływanych wywołań określa schemat sygnalizowania, przepływy ruchu multimedialnego i model cen.
 
-### <a name="voice-over-ip-voip"></a>Voice over IP (VoIP) 
+### <a name="voice-over-ip-voip"></a>Voice over IP (VoIP)
 
 Gdy użytkownik aplikacji wywołuje innego użytkownika aplikacji za pośrednictwem połączenia internetowego lub danych, wywołanie jest nawiązywane za pośrednictwem protokołu Voice over IP (VoIP). W tym przypadku zarówno sygnalizowanie, jak i przepływy multimediów przez Internet.
 
@@ -43,14 +41,14 @@ Wywołanie "jeden do jednego" w usłudze Azure Communications Services ma miejsc
 Wywołanie grupy w usłudze Azure Communications Services odbywa się, gdy trzy lub więcej osób komunikują się ze sobą. Dowolna kombinacja połączeń VoIP i użytkowników połączonych z siecią PSTN może być obecna w wywołaniu grupy. Wywołanie "jeden do jednego" można przekonwertować na wywołanie grupy przez dodanie kolejnych uczestników wywołania. Jednym z tych uczestników może być bot.
 
 ### <a name="supported-video-standards"></a>Obsługiwane standardy wideo
-Obsługujemy H. 264 (MPEG-4) 
+Obsługujemy H. 264 (MPEG-4)
 
 ### <a name="video-quality"></a>Jakość wideo 
-Obsługujemy do pełnej rozdzielczości HD w natywnych zestawach SDK (iOS, Android). W przypadku zestawu SDK dla sieci Web (JS) jest obsługiwany standardowy dysk HD 720. Jakość zależy od dostępnej przepustowości.  
+Obsługujemy do pełnej rozdzielczości HD w natywnych zestawach SDK (iOS, Android). W przypadku zestawu SDK dla sieci Web (JS) jest obsługiwany standardowy dysk HD 720. Jakość zależy od dostępnej przepustowości.
 
 ### <a name="rooms-concept"></a>Koncepcje pokojów
 Pokoje są zestawem interfejsów API i zestawów SDK, które umożliwiają łatwe dodawanie funkcji audio, wideo, udostępniania ekranu, sieci PSTN i wiadomości SMS do witryny internetowej lub aplikacji natywnych.
-W trakcie korzystania z wersji zapoznawczej można użyć identyfikatora grupy do dołączenia do tej samej konwersacji. Można utworzyć dowolną liczbę identyfikatorów grup i oddzielić użytkowników od "pokojów". Przechodzenie do przodu spowoduje zwiększenie kontroli wokół "pokojów" 
+W trakcie korzystania z wersji zapoznawczej można użyć identyfikatora grupy do dołączenia do tej samej konwersacji. Można utworzyć dowolną liczbę identyfikatorów grup i oddzielić użytkowników od "pokojów". Przechodzenie do przodu spowoduje zwiększenie kontroli wokół "pokojów"
 
 ## <a name="next-steps"></a>Następne kroki
 

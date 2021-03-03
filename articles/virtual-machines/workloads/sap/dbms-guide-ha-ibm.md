@@ -2,18 +2,17 @@
 title: Konfigurowanie programu IBM DB2 HADR Cluster na maszynach wirtualnych platformy Azure | Microsoft Docs
 description: Zapewnienie wysokiej dostępności programu IBM DB2 LUW na maszynach wirtualnych platformy Azure.
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 54bde8c9dd47e88ffdc831ccb9f7833720583238
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faafce32c3452a5c4ff08783ec2edd28f7f961e9
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671880"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
 
@@ -171,7 +170,7 @@ Aby skonfigurować podstawowe wystąpienie bazy danych programu IBM DB2 LUW:
 
 Aby skonfigurować serwer bazy danych w stanie gotowości przy użyciu procedury kopiowania jednorodnego systemu SAP, wykonaj następujące kroki:
 
-1. Wybierz opcję **kopiowania systemu** > wystąpienia **Target systems**  >  **rozproszonej**  >  **bazy danych** w systemie docelowym.
+1. Wybierz opcję **kopiowania systemu** > wystąpienia   >  **rozproszonej**  >  **bazy danych** w systemie docelowym.
 1. Jako metodę kopiowania wybierz **jednorodny system** , aby można było użyć kopii zapasowej do przywrócenia kopii zapasowej w wystąpieniu serwera w stanie gotowości.
 1. Po dojściu do kroku zakończenia, aby przywrócić bazę danych jednorodnej kopii systemu, zamknij Instalatora. Przywróć bazę danych z kopii zapasowej hosta podstawowego. Wszystkie kolejne etapy instalacji zostały już wykonane na podstawowym serwerze bazy danych.
 1. Skonfiguruj HADR Cluster dla programu IBM DB2.

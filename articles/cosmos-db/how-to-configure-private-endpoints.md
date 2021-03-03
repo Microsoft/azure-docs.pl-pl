@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować link prywatny platformy Azure, aby
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c684bd38f5e82cc53da002278495c2d4a859edc2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629650"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661294"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,11 +22,11 @@ Za pomocą prywatnego linku platformy Azure można nawiązać połączenie z kon
 > [!NOTE]
 > Link prywatny nie uniemożliwia rozwiązywania punktów końcowych usługi Azure Cosmos przez publiczny serwer DNS. Filtrowanie żądań przychodzących odbywa się na poziomie aplikacji, a nie na poziomie transportu ani sieci.
 
-Link prywatny umożliwia użytkownikom dostęp do konta usługi Azure Cosmos z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub Azure ExpressRoute. 
+Link prywatny umożliwia użytkownikom dostęp do konta usługi Azure Cosmos z poziomu sieci wirtualnej lub z dowolnej równorzędnej sieci wirtualnej. Zasoby mapowane do linku prywatnego są również dostępne lokalnie przez prywatną komunikację równorzędną za pośrednictwem sieci VPN lub Azure ExpressRoute.
 
-Można nawiązać połączenie z kontem usługi Azure Cosmos skonfigurowanym za pomocą linku prywatnego przy użyciu metody zatwierdzania automatyczne lub ręczne. Aby dowiedzieć się więcej, zapoznaj się z sekcją [przepływ pracy zatwierdzania](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) w dokumentacji łącza prywatnego. 
+Można nawiązać połączenie z kontem usługi Azure Cosmos skonfigurowanym za pomocą linku prywatnego przy użyciu metody zatwierdzania automatyczne lub ręczne. Aby dowiedzieć się więcej, zapoznaj się z sekcją [przepływ pracy zatwierdzania](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) w dokumentacji łącza prywatnego.
 
-W tym artykule opisano kroki tworzenia prywatnego punktu końcowego. Przyjęto założenie, że używasz metody automatycznego zatwierdzania.
+W tym artykule opisano sposób konfigurowania prywatnych punktów końcowych Azure Cosmos DB magazynów transakcyjnych. Przyjęto założenie, że używasz metody automatycznego zatwierdzania. Jeśli używasz magazynu analitycznego, zobacz [prywatne punkty końcowe dla artykułu magazynu analitycznego](analytical-store-private-endpoints.md) .
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Tworzenie prywatnego punktu końcowego za pomocą Azure Portal
 
@@ -74,7 +74,7 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
     |Prywatna strefa DNS |Wybierz pozycję **privatelink.documents.Azure.com**. <br><br/> Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.|
     |||
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
 1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 Po zaakceptowaniu prywatnego linku dla konta usługi Azure Cosmos w obszarze Azure Portal opcja **wszystkie sieci** w okienku **Zapora i sieci wirtualne** jest niedostępna.
@@ -671,7 +671,7 @@ W przypadku korzystania z prywatnego linku do konta usługi Azure Cosmos stosowa
 
 * W przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB prywatny punkt końcowy jest obsługiwany tylko dla kont na serwerze w wersji 3,6 (to oznacza, że konta korzystają z punktu końcowego w formacie `*.mongo.cosmos.azure.com` ). Link prywatny nie jest obsługiwany dla kont na serwerze w wersji 3,2 (oznacza to, że konta korzystają z punktu końcowego w formacie `*.documents.azure.com` ). Aby użyć linku prywatnego, należy przeprowadzić migrację starych kont do nowej wersji.
 
-* W przypadku korzystania z interfejsu API Azure Cosmos DB dla konta MongoDB, które ma link prywatny, niektóre narzędzia i biblioteki mogą nie funkcjonować, ponieważ automatycznie rozkładają `appName` parametr z parametrów połączenia. Ten parametr jest wymagany do nawiązania połączenia z kontem za pośrednictwem prywatnego punktu końcowego. Niektóre narzędzia, takie jak Visual Studio Code, nie usuwają tego parametru z parametrów połączenia i są w związku z tym zgodne.
+* Jeśli używasz interfejsu API Azure Cosmos DB dla konta MongoDB, które ma link prywatny, narzędzia/biblioteki muszą obsługiwać identyfikatory nazw usług (SNI) lub przekazać `appName` parametr z parametrów połączenia, aby prawidłowo nawiązać połączenie. Niektóre starsze narzędzia/biblioteki mogą nie być zgodne, aby można było korzystać z funkcji Link prywatny.
 
 * Administrator sieci powinien mieć co najmniej `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` uprawnienia w zakresie konta usługi Azure Cosmos w celu utworzenia automatycznie zatwierdzonych prywatnych punktów końcowych.
 

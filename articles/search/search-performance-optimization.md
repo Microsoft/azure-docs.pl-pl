@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 60371888dbc4f0cbc33f1ad1b2a685dbb071c01a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096435"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670721"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalowanie pod kątem wydajności na platformie Azure Wyszukiwanie poznawcze
 
@@ -91,7 +91,7 @@ Ponieważ repliki są kopiami danych, dzięki czemu wiele replik umożliwia plat
 
 ### <a name="availability-zones"></a>Strefy dostępności
 
-[Strefy dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) podzielić centra danych regionu na odrębne grupy lokalizacji fizycznych w celu zapewnienia wysokiej dostępności w tym samym regionie. W przypadku Wyszukiwanie poznawcze poszczególne repliki są jednostkami przypisywania stref. Usługa wyszukiwania jest uruchamiana w jednym regionie; jego repliki działają w różnych strefach.
+[Strefy dostępności](../availability-zones/az-overview.md) podzielić centra danych regionu na odrębne grupy lokalizacji fizycznych w celu zapewnienia wysokiej dostępności w tym samym regionie. W przypadku Wyszukiwanie poznawcze poszczególne repliki są jednostkami przypisywania stref. Usługa wyszukiwania jest uruchamiana w jednym regionie; jego repliki działają w różnych strefach.
 
 Możesz użyć Strefy dostępności z Wyszukiwanie poznawcze platformy Azure, dodając co najmniej dwie repliki do usługi wyszukiwania. Każda replika zostanie umieszczona w innej strefie dostępności w regionie. Jeśli masz więcej replik niż Strefy dostępności, repliki będą dystrybuowane między Strefy dostępności tak jak to możliwe.
 

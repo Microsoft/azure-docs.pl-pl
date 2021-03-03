@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417456"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670627"
 ---
 # <a name="troubleshoot-library-installation-errors"></a>Rozwiązywanie problemów z błędami instalacji biblioteki 
 Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, można zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych. Pakiety wymienione w pliku requirements.txt są pobierane z PyPi w momencie uruchamiania puli. Ten plik wymagań jest używany za każdym razem, gdy wystąpienie platformy Spark jest tworzone na podstawie tej puli platformy Spark. Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Jeśli wystąpi błąd, najkorzystniej nie masz wymaganych uprawnień. Aby dowiedzieć się, jak uzyskać wymagane uprawnienia, odwiedź ten dokument: [przypisywanie współautora danych obiektów blob magazynu lub uprawnienia właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+Jeśli wystąpi błąd, najkorzystniej nie masz wymaganych uprawnień. Aby dowiedzieć się, jak uzyskać wymagane uprawnienia, odwiedź ten dokument: [przypisywanie współautora danych obiektów blob magazynu lub uprawnienia właściciela danych obiektu blob magazynu](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 Ponadto, jeśli używasz potoku, plik MSI obszaru roboczego musi mieć również uprawnienia współautora danych obiektu blob magazynu lub obiektu blob magazynu. Aby dowiedzieć się, jak udzielić Ci tego uprawnienia do tożsamości obszaru roboczego, odwiedź stronę: [Udziel uprawnień do tożsamości zarządzanej przez obszar roboczy](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -98,4 +98,3 @@ Aby ponownie utworzyć środowisko i zweryfikować aktualizacje:
 
 ## <a name="next-steps"></a>Następne kroki
 - Wyświetlanie bibliotek domyślnych: [Obsługa wersji Apache Spark](apache-spark-version-support.md)
-

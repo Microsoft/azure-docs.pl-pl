@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 6a89d225b747f116ed75bbe2e6928ec2a74f9c5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515992"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655959"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -74,7 +74,7 @@ Aby można było użyć [zarządzanego __obiektu docelowego obliczeń__ Azure Ma
 > * Jeden moduł równoważenia obciążenia
 > 
 > W przypadku klastrów te zasoby są usuwane (i tworzone ponownie) za każdym razem, gdy klaster jest skalowany w dół do 0 węzłów, jednak w przypadku wystąpienia, w którym znajdują się zasoby, do momentu całkowitego usunięcia wystąpienia. zatrzymywanie nie powoduje usunięcia zasobów. 
-> Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. Jeśli grupa zasobów sieci wirtualnej jest zablokowana, usunięcie klastra i wystąpienia obliczeniowego zakończy się niepowodzeniem. Nie można usunąć modułu równoważenia obciążenia, dopóki klaster obliczeniowy/wystąpienie nie zostanie usunięte.
+> Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. Jeśli grupa zasobów sieci wirtualnej jest zablokowana, usunięcie klastra i wystąpienia obliczeniowego zakończy się niepowodzeniem. Nie można usunąć modułu równoważenia obciążenia, dopóki klaster obliczeniowy/wystąpienie nie zostanie usunięte. Upewnij się również, że nie ma żadnych zasad platformy Azure, które uniemożliwiają tworzenie sieciowych grup zabezpieczeń.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Wymagane porty
@@ -83,7 +83,7 @@ Jeśli planujesz zabezpieczenie sieci wirtualnej przez ograniczenie ruchu siecio
 
 Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) na poziomie interfejsów sieciowych dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń automatycznie konfigurują reguły ruchu przychodzącego i wychodzącego, aby zezwolić na następujący ruch:
 
-- Ruch przychodzący TCP na portach 29876 i 29877 z __tagu usługi__ __BatchNodeManagement__.
+- Ruch przychodzący TCP na portach 29876 i 29877 z __tagu usługi__ __BatchNodeManagement__. Ruch na tych portach jest szyfrowany i używany przez Azure Batch na potrzeby komunikacji między harmonogramem i węzłem.
 
     ![Reguła przychodząca korzystająca z tagu usługi BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń
 
 - Ruch wychodzący na dowolny port do Internetu.
 
-- Dla ruchu przychodzącego TCP wystąpienia obliczeniowego na porcie 44224 z __tagu usługi__ __AzureMachineLearning__.
+- Dla ruchu przychodzącego TCP wystąpienia obliczeniowego na porcie 44224 z __tagu usługi__ __AzureMachineLearning__. Ruch przez ten port jest szyfrowany i używany przez Azure Machine Learning do komunikacji z aplikacjami uruchomionymi w wystąpieniach obliczeniowych.
 
 > [!IMPORTANT]
 > Zachowaj ostrożność przy modyfikowaniu lub dodawaniu reguły ruchu przychodzącego lub wychodzącego w sieciowych grupach zabezpieczeń skonfigurowanych za pomocą usługi Batch. Jeśli sieciowej grupy zabezpieczeń blokuje komunikację z węzłami obliczeniowymi, usługa COMPUTE ustawia stan węzłów obliczeniowych na niezdatny do użytku.

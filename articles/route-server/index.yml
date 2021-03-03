@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Route Server
+summary: Dowiedz się, jak za pomocą usługi Azure Route Server uprościć dynamiczne Routing między wirtualnymi urządzeniami sieciowymi i siecią wirtualną.
+metadata:
+  title: Dokumentacja usługi Azure Route Server
+  description: Dowiedz się więcej o usłudze Azure Route Server
+  services: route-server
+  ms.service: route-server
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 03/02/2021
+  ms.openlocfilehash: f235d7118ce207d793c4ba03d357e2db09662c1f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101680679"
+landingContent:
+- title: Informacje o usłudze Azure Route Server (wersja zapoznawcza)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Route Server (wersja zapoznawcza)?
+      url: overview.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie i Konfigurowanie serwera tras — PowerShell
+      url: quickstart-configure-route-server-powershell.md
+    - text: Tworzenie i Konfigurowanie serwera tras — interfejs wiersza polecenia
+      url: quickstart-configure-route-server-cli.md
+- title: Planowanie
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Obsługa ExpressRoute i VPN Gateway
+      url: expressroute-vpn-support.md
+    - text: Serwer tras — często zadawane pytania
+      url: route-server-faq.md

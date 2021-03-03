@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580276"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667318"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Monitorowanie metryk i dzienników przy użyciu rozszerzenia diagnostycznego systemu Linux 4,0
 
 W tym dokumencie opisano wersję 4,0 i nowszą rozszerzenia diagnostycznego systemu Linux.
 
 > [!IMPORTANT]
-> Aby uzyskać informacje na temat wersji 3. *, zobacz  [ten dokument](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Aby uzyskać informacje o wersji 2,3 i starszej, zobacz [ten dokument](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Aby uzyskać informacje na temat wersji 3. *, zobacz  [ten dokument](./diagnostics-linux-v3.md). Aby uzyskać informacje o wersji 2,3 i starszej, zobacz [ten dokument](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -108,7 +108,7 @@ Plik wykonywalny python2 musi mieć alias do języka *Python*. Oto jedna z metod
 Przykładowa konfiguracja pobrana w tych przykładach zbiera zestaw danych standardowych i wysyła je do magazynu tabel. Adres URL dla przykładowej konfiguracji i jej zawartości może ulec zmianie. W większości przypadków należy pobrać kopię pliku JSON ustawień portalu i dostosować ją do własnych potrzeb, a następnie utworzyć wszystkie szablony i Automatyzacja, korzystając z własnej wersji pliku konfiguracji, zamiast pobierać ten adres URL za każdym razem.
 
 > [!NOTE]
-> Do włączenia nowego ujścia Azure Monitor maszyny wirtualne muszą mieć włączoną tożsamość przypisaną przez system na potrzeby generowania tokenu uwierzytelniania MSI. Można to zrobić podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Kroki umożliwiające włączenie tożsamości przypisanej do systemu za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i usługi Resource Manager.  są [tutaj](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)wymienione szczegółowo. 
+> Do włączenia nowego ujścia Azure Monitor maszyny wirtualne muszą mieć włączoną tożsamość przypisaną przez system na potrzeby generowania tokenu uwierzytelniania MSI. Można to zrobić podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Kroki umożliwiające włączenie tożsamości przypisanej do systemu za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i usługi Resource Manager.  są [tutaj](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)wymienione szczegółowo. 
 
 #### <a name="azure-cli-sample"></a>Przykład interfejsu wiersza polecenia platformy Azure
 
@@ -490,7 +490,7 @@ Przykłady obejmują `LinuxSyslog20170410` i `LinuxSyslog20170609` .
 Ta opcjonalna sekcja kontroluje włączenie wysyłania metryk do Azure Monitor ujścia oprócz konta magazynu i domyślnego bloku metryk gościa.
 
 > [!NOTE]
-> Wymaga to włączenia tożsamości przypisanej do systemu na maszynach wirtualnych/VMSS. Można to zrobić za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i Menedżera zasobów. Kroki są wymienione [tutaj](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)szczegółowo. Kroki umożliwiające włączenie tego elementu są również wymienione w przykładach instalacji dla polecenia AZ CLI, PowerShell itd. powyżej. 
+> Wymaga to włączenia tożsamości przypisanej do systemu na maszynach wirtualnych/VMSS. Można to zrobić za poorednictwem portalu, interfejsu wiersza polecenia, programu PowerShell i Menedżera zasobów. Kroki są wymienione [tutaj](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)szczegółowo. Kroki umożliwiające włączenie tego elementu są również wymienione w przykładach instalacji dla polecenia AZ CLI, PowerShell itd. powyżej. 
 
 ```json
   "sinksConfig": {

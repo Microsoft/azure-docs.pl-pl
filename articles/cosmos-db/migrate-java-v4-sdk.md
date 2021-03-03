@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e537c964d6063b76df63b3d80c5ef72b1ea56c92
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 92a9abec36bd75c594c67843286bf8fa067d7dba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600258"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658541"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,7 +33,7 @@ W tym artykule wyjaśniono, jak uaktualnić istniejącą aplikację Java, która
 
 W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę pakietu i informacje o wersji:
 
-| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
+| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Informacje o wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
 | Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
 | Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
@@ -145,7 +145,7 @@ client.createDatabaseIfNotExists("YourDatabaseName")
         CosmosContainerProperties containerProperties = 
             new CosmosContainerProperties("YourContainerName", "/id");
         // Create container with specified properties & provisioned throughput
-        return database"createContainerIf"otExists(containerProperties, 400);
+        return database.createContainerIfNotExists(containerProperties, 400);
     }).flatMap(containerResponse -> {
         container = containerResponse.container();
         return Mono.empty();

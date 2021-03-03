@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 168e5340842dca3c26e4fa48d2f14b8ade529cd9
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 18d93a1a6ac9661b18054611015b02e41219bc14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505752"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659651"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -92,6 +92,7 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
+
 Dane pośrednie (lub dane wyjściowe kroku) są reprezentowane przez obiekt [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py) . `output_data1` jest tworzony jako dane wyjściowe kroku i używany jako dane wejściowe jednego lub kilku przyszłych kroków. `PipelineData` wprowadza zależność danych między krokami i tworzy niejawną kolejność wykonywania w potoku. Ten obiekt będzie później używany podczas tworzenia kroków potoku.
 
 ```python
@@ -108,7 +109,7 @@ output_data1 = PipelineData(
 > Utrwalanie danych pośrednich między etapami potoku jest również możliwe z klasą publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Aby zapoznać się z przykładem kodu przy użyciu `OutputFileDatasetConfig` klasy, zobacz jak [utworzyć dwa krokowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 > [!TIP]
-> Przekazuj tylko pliki istotne dla danego zadania. Wszelkie zmiany w plikach w katalogu danych będą widoczne jako powód ponownego uruchomienia tego kroku przy następnym uruchomieniu potoku, nawet jeśli zostanie podane ponowne użycie. 
+> Przekazuj tylko te pliki, które są istotne dla danego zadania. Wszelkie zmiany w plikach w katalogu danych będą widoczne jako powód ponownego uruchomienia tego kroku przy następnym uruchomieniu potoku, nawet jeśli zostanie podane ponowne użycie. 
 
 ## <a name="set-up-a-compute-target"></a>Konfigurowanie celu obliczeń
 
@@ -116,7 +117,7 @@ output_data1 = PipelineData(
 W Azure Machine Learning termin __obliczeniowy__ (lub __element docelowy obliczeń__) odnosi się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego.   Zobacz [elementy docelowe obliczeń dla szkolenia modelu](concept-compute-target.md#train) , aby uzyskać pełną listę elementów docelowych obliczeń i [utworzyć cele obliczeniowe](how-to-create-attach-compute-studio.md) na potrzeby tworzenia i dołączania ich do obszaru roboczego.   Proces tworzenia i dołączania obiektu docelowego obliczeń jest taki sam, jak w przypadku szkolenia modelu lub uruchamiania kroku potoku. Po utworzeniu i dołączeniu obiektu docelowego obliczeń Użyj `ComputeTarget` obiektu w [kroku potoku](#steps).
 
 > [!IMPORTANT]
-> Wykonywanie operacji zarządzania na obiektach docelowych obliczeń nie jest obsługiwane w ramach zadań zdalnych. Potoki uczenia maszynowego są przesyłane jako zadania zdalne, dlatego nie należy używać operacji zarządzania na obiektach docelowych obliczeń z wnętrza potoku.
+> Wykonywanie operacji zarządzania na docelowych obiektach obliczeniowych nie jest obsługiwane z poziomu zadań zdalnych. Potoki uczenia maszynowego są przesyłane jako zadania zdalne, dlatego nie należy używać operacji zarządzania na docelowych obiektach obliczeniowych z wnętrza potoku.
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning obliczeń
 

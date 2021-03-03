@@ -6,29 +6,25 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdc6dd49fe98085edf3c6fb16606b9f540b5a3a0
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: a3c4026616b19656c708f4dd4ac8a419f7774198
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608694"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668626"
 ---
 # <a name="operating-system-upgrade"></a>Uaktualnienie systemu operacyjnego
 W tym dokumencie opisano szczegółowe informacje dotyczące uaktualnień systemu operacyjnego w dużych wystąpieniach platformy HANA.
 
 >[!NOTE]
 >Uaktualnienie systemu operacyjnego jest odpowiedzialne za klienta, pomoc techniczna firmy Microsoft może poprowadzić Cię do kluczowych obszarów, które należy obejrzeć podczas uaktualniania. Przed zaplanowaniem uaktualnienia należy skonsultować się z dostawcą systemu operacyjnego.
-
-> [!NOTE]
-> Ten artykuł zawiera odwołania do warunku *zabroniony*, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 
 Podczas inicjowania obsługi administracyjnej jednostki w usłudze HLI zespół operacyjny firmy Microsoft instaluje ten system.
 W danym czasie wymagane jest zachowanie systemu operacyjnego (przykład: Poprawka, dostrajanie, uaktualnianie itp.) w jednostce.

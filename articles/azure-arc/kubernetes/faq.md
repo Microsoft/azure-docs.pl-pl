@@ -2,18 +2,18 @@
 title: Usługa Azure ARC z włączonym Kubernetes często zadawane pytania
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Arc Kubernetes
 keywords: Kubernetes, łuk, Azure, kontenery, konfiguracja, GitOps, często zadawane pytania
-ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dc12294b5d53372be5f2e1dd71436973fefbb194
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652500"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647867"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Często zadawane pytania — usługa Azure ARC z włączonym Kubernetes
 
@@ -32,6 +32,8 @@ Nie. Wszystkie funkcje Kubernetes z funkcją Azure ARC, w tym Azure Monitor i Az
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Czy należy połączyć klaster AKS-HCL i klastry Kubernetes w centrum Azure Stack i Azure Stack Edge do usługi Azure Arc?
 
 Tak, połączenie klastra AKS-HCl lub klastrów Kubernetes w usłudze Azure Stack Edge lub Azure Stack Hub do usługi Azure Arc zapewnia klastry z reprezentacją zasobów w Azure Resource Manager. Ta reprezentacja zasobów rozszerza możliwości, takie jak konfiguracja klastra, Azure Monitor i Azure Policy (strażnik) do połączonych klastrów Kubernetes.
+
+Jeśli klaster Kubernetes z obsługą usługi Azure Arc jest włączony Azure Stack Edge, AKS na Azure Stack HCl (aktualizacja >2021 Update) lub AKS w systemie Windows Server 2019 Datacenter (>= kwiecień 2021 Update), wówczas konfiguracja Kubernetes jest dołączona bezpłatnie.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Jak rozwiązać wygasłe zasoby usługi Azure Arc Kubernetes?
 
@@ -70,6 +72,6 @@ Ta funkcja stosuje konfiguracje bazowe (takie jak zasady sieci, powiązania ról
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Łączenie klastra z usługą Azure Arc](./connect-cluster.md)
+* [Łączenie klastra z usługą Azure Arc](./quickstart-connect-cluster.md)
 * [Tworzenie konfiguracji w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md)
 * [Użyj Azure Policy, aby zastosować konfiguracje na dużą skalę](./use-azure-policy.md)

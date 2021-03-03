@@ -3,7 +3,7 @@ title: Tworzenie & Zarządzanie wykazem zasobów w usłudze zarządzania prawami
 description: Dowiedz się, jak utworzyć nowy kontener zasobów i pakietów dostępu w Azure Active Directory zarządzania prawami.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 8ae3ee8cb96453bae1ce581ea92bdb77854c02d8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745967"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644150"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Tworzenie wykazu zasobów i zarządzanie nim w usłudze Azure AD uprawnienia zarządzania
 
@@ -80,6 +80,14 @@ Aby uwzględnić zasoby w pakiecie dostępu, zasoby muszą znajdować się w wyk
 1. Po zakończeniu kliknij przycisk **Dodaj**.
 
     Te zasoby można teraz dołączać do pakietów dostępu w katalogu.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>Dodaj wielościeżkową witrynę programu SharePoint
+
+1. Jeśli w programie SharePoint włączono [wiele lokalizacji geograficznych](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) , wybierz środowisko, z którego chcesz wybrać lokacje.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Dostęp do pakietu — Dodawanie ról zasobów — wybierz wiele witryn geograficznych programu SharePoint":::
+
+1. Następnie wybierz lokacje, które chcesz dodać do wykazu. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Programistyczne Dodawanie zasobu do katalogu
 

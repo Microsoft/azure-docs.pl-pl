@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: e8f1bff50c5f163894392a9e5d08cc8451d835fa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6db863f43deb6eb2787cda60650a267a62076aad
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896413"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Samouczek: integracja usługi Azure Active Directory z oprogramowaniem SAP Business ByDesign
 
@@ -192,8 +192,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 2. Przejdź bezpośrednio do adresu URL logowania SAP Business ByDesign, a następnie zainicjuj w nim przepływ logowania.
 
-3. Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka SAP Business ByDesign w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania SAP Business ByDesign. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Możesz korzystać z aplikacji Microsoft my Apps. Kliknięcie kafelka SAP Business ByDesign w obszarze Moje aplikacje spowoduje przekierowanie do adresu URL logowania SAP Business ByDesign. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po skonfigurowaniu oprogramowania SAP Business ByDesign można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu oprogramowania SAP Business ByDesign można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,18 +11,37 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd9b07f1f7aed479e94e77a5641130cb784dd69e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 32ad7199360ca0acc8674f7a4e34bd206f8b335f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741970"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648770"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historia wersji agenta ochrony haseł usługi Azure AD
 
+## <a name="121720"></a>1.2.172.0
+
+Data wydania: 22 lutego 2021
+
+To prawie dwa lata od momentu wydania wersji zaogólnodostępnej lokalnych agentów ochrony hasła usługi Azure AD. Dostępna jest nowa aktualizacja — Zobacz poniższe opisy zmian. Dziękujemy za wszystkich użytkowników, którzy otrzymali nam opinię na temat produktu. 
+
+* Agent kontrolera domeny i oprogramowanie agenta serwera proxy wymagają teraz zainstalowania programu .NET 4.7.2.
+  * Jeśli program .NET 4.7.2 nie jest jeszcze zainstalowany, Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline usługi .NET Framework 4.7.2 dla systemu Windows](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+* Moduł AzureADPasswordProtection PowerShell jest teraz także instalowany przez oprogramowanie agenta kontrolera domeny.
+* Dodano dwa nowe polecenia cmdlet programu PowerShell powiązane z kondycją: Test-AzureADPasswordProtectionDCAgent i test-AzureADPasswordProtectionProxy.
+* Biblioteka DLL filtru haseł agenta AzureADPasswordProtection kontrolera domeny zostanie teraz załadowana i uruchomiona na maszynach, na których lsass.exe jest skonfigurowany do uruchamiania w trybie PPL.
+* Poprawka błędu algorytmu hasła, w przypadku którego dozwolone są zabronione hasła mniej niż pięć znaków, które mają być niepoprawnie akceptowane.
+  * Ta usterka ma zastosowanie tylko wtedy, gdy skonfigurowano zasady minimalnej długości hasła dla lokalnego usługi AD, aby zezwalało na używanie mniej niż pięciu znaków haseł w pierwszym miejscu.
+* Inne poprawki drobnej usterki.
+
+Nowe Instalatory automatycznie uaktualniają starsze wersje oprogramowania. Jeśli na pojedynczym komputerze zainstalowano zarówno agenta kontrolera domeny, jak i oprogramowanie serwera proxy (zalecane tylko w przypadku środowisk testowych), należy przeprowadzić uaktualnienie jednocześnie.
+
+Jest on obsługiwany do uruchamiania starszych i nowszych wersji agenta i oprogramowania serwera proxy w domenie lub lesie, chociaż zalecamy uaktualnienie wszystkich agentów do najnowszej wersji. Obsługiwane jest dowolne porządkowanie uaktualnień agentów — nowi agenci DC mogą komunikować się za poorednictwem starszych agentów proxy, a starsi agenci kontrolera domeny mogą komunikować się za poorednictwem nowszych agentów proxy.
+
 ## <a name="121250"></a>1.2.125.0
 
-Data wydania: 3/22/2019
+Data wydania: 22 marca 2019
 
 * Napraw drobne błędy pisowni w komunikatach dziennika zdarzeń
 * Aktualizuj umowę EULA do końcowej wersji ogólnej dostępności
@@ -38,9 +57,9 @@ Data wydania: 3/13/2019
   * Wersja oprogramowania i dane dzierżawy platformy Azure są dostępne tylko dla agentów DC i serwerów proxy z systemem w wersji 1.2.116.0 lub nowszej.
   * Dane dzierżawy platformy Azure mogą nie zostać zgłoszone, dopóki nie nastąpiła ponowna rejestracja (lub odnowienie) serwera proxy lub lasu.
 * Usługa serwera proxy wymaga teraz zainstalowania programu .NET 4,7.
-  * Środowisko .NET 4,7 powinno być już zainstalowane w w pełni zaktualizowanym systemie Windows Server. Jeśli tak nie jest, Pobierz i uruchom Instalatora, który znajduje się w [instalatorze offline .NET Framework 4,7 dla systemu Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * W systemach Server Core może być konieczne przekazanie flagi/q do Instalatora .NET 4,7 w celu pomyślnego przeprowadzenia.
-* Usługa serwera proxy obsługuje teraz automatyczne uaktualnianie. Automatyczne uaktualnianie Microsoft Azure AD używa usługi Aktualizator Connect Agent, która jest zainstalowana równolegle z usługą proxy. Automatyczne uaktualnianie jest domyślnie włączone.
+  * Jeśli program .NET 4,7 nie jest jeszcze zainstalowany, Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline programu .NET Framework 4,7 dla systemu Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * W systemach Server Core może być konieczne przekazanie flagi/q do Instalatora programu .NET 4,7 w celu uzyskania sukcesu.
+* Usługa serwera proxy obsługuje teraz automatyczne uaktualnianie. Automatyczne uaktualnianie używa usługi Microsoft Azure AD Connect Agent Aktualizator, która jest instalowana obok usługi proxy. Automatyczne uaktualnianie jest domyślnie włączone.
 * Automatyczne uaktualnianie można włączyć lub wyłączyć za pomocą polecenia cmdlet Set-AzureADPasswordProtectionProxyConfiguration. Bieżące ustawienie można zbadać przy użyciu polecenia cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
 * Nazwa pliku binarnego usługi dla usługi agenta kontrolera domeny została zmieniona na AzureADPasswordProtectionDCAgent.exe.
 * Nazwa pliku binarnego usługi dla usługi serwera proxy została zmieniona na AzureADPasswordProtectionProxy.exe. W przypadku korzystania z zapory innej firmy może być konieczne zmodyfikowanie reguł zapory.
@@ -50,14 +69,14 @@ Data wydania: 3/13/2019
 
 ## <a name="12650"></a>1.2.65.0
 
-Data wydania: 2/1/2019
+Data wydania: 1 lutego 2019
 
 Wprowadzane
 
 * Agent i serwer proxy usługi DC są teraz obsługiwane w trybie Server Core. Wymagania systemu operacyjnego Mininimum nie zostały zmienione przed: system Windows Server 2012 dla agentów DC i system Windows Server 2012 R2 dla serwerów proxy.
 * Polecenia cmdlet Register-AzureADPasswordProtectionProxy i Register-AzureADPasswordProtectionForest obsługują teraz tryby uwierzytelniania platformy Azure oparte na kodzie na urządzeniu.
-* Get-AzureADPasswordProtectionDCAgent polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
-* Get-AzureADPasswordProtectionSummaryReport polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
+* Get-AzureADPasswordProtectionDCAgent polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Ta zmiana eliminuje usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
+* Get-AzureADPasswordProtectionSummaryReport polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Ta zmiana eliminuje usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
 * Moduł serwera proxy programu PowerShell jest teraz zarejestrowany w usłudze%ProgramFiles%\WindowsPowerShell\Modules. Zmienna środowiskowa PSModulePath komputera nie jest już modyfikowana.
 * Dodano nowe polecenie cmdlet Get-AzureADPasswordProtectionProxy w celu ułatwienia odnajdywania zarejestrowanych serwerów proxy w lesie lub domenie.
 * Agent DC używa nowego folderu w udziale Sysvol do replikowania zasad haseł i innych plików.
@@ -79,7 +98,7 @@ Wprowadzane
 * Każdy agent DC będzie okresowo usuwać zniekształcona i przestarzałe punkty połączenia usługi w swojej domenie dla obu punktów połączenia z agentem i serwerem proxy. Punkty połączenia z agentem i serwerem proxy są uważane za przestarzałe, jeśli sygnatura czasowa pulsu jest starsza niż siedem dni.
 * Agent DC będzie teraz odnawiać certyfikat lasu zgodnie z wymaganiami.
 * Usługa proxy będzie teraz odnawiać certyfikat serwera proxy zgodnie z wymaganiami.
-* Aktualizacje algorytmu walidacji hasła: Lista globalna wykluczonych haseł i lista wykluczonych haseł specyficznych dla klienta (jeśli zostały skonfigurowane) są łączone przed walidacjami haseł. Dane hasło mogą teraz zostać odrzucone (tylko Niepowodzenie lub tylko Inspekcja), jeśli zawiera tokeny zarówno z listy globalnej, jak i dla danego klienta. Dokumentacja dziennika zdarzeń została zaktualizowana w celu odzwierciedlenia tego; Zobacz [monitorowanie ochrony hasłem usługi Azure AD](howto-password-ban-bad-on-premises-monitor.md).
+* Aktualizacje algorytmu walidacji hasła: Lista globalna wykluczonych haseł i lista wykluczonych haseł specyficznych dla klienta (jeśli zostały skonfigurowane) są łączone przed walidacjami haseł. Dane hasło mogą teraz zostać odrzucone (tylko Niepowodzenie lub tylko Inspekcja), jeśli zawiera tokeny zarówno z listy globalnej, jak i dla danego klienta. Dokumentacja dziennika zdarzeń została zaktualizowana w celu odzwierciedlenia tego; Zobacz [monitorowanie ochrony hasłem w usłudze Azure AD](howto-password-ban-bad-on-premises-monitor.md).
 * Poprawki wydajności i niezawodności
 * Ulepszone rejestrowanie
 
@@ -88,12 +107,12 @@ Wprowadzane
 
 ## <a name="12250"></a>1.2.25.0
 
-Data wydania: 11/01/2018
+Data wydania: 1 listopada 2018
 
 Prefix
 
 * Agent i serwer proxy usługi DC nie powinien już kończyć się niepowodzeniem z powodu błędów zaufania certyfikatów.
-* Agent i serwer proxy usługi DC mają dodatkowe poprawki dla maszyn zgodnych ze standardem FIPS.
+* Agent i serwer proxy usługi DC mają poprawki dla maszyn zgodnych ze standardem FIPS.
 * Usługa proxy będzie teraz działała prawidłowo w środowisku sieciowym obsługującym protokół TLS 1,2.
 * Niewielkie poprawki wydajności i niezawodności
 * Ulepszone rejestrowanie
@@ -102,11 +121,11 @@ Wprowadzane
 
 * Minimalny wymagany poziom systemu operacyjnego dla usługi proxy to teraz Windows Server 2012 R2. Minimalny wymagany poziom systemu operacyjnego dla usługi agenta DC pozostaje w systemie Windows Server 2012.
 * Usługa serwera proxy wymaga teraz programu .NET w wersji 4.6.2.
-* Algorytm walidacji hasła używa rozszerzonej tabeli normalizacji znaków. Może to spowodować odrzucenie haseł, które zostały zaakceptowane we wcześniejszych wersjach.
+* Algorytm walidacji hasła używa rozszerzonej tabeli normalizacji znaków. Ta zmiana może spowodować odrzucenie haseł, które zostały zaakceptowane we wcześniejszych wersjach.
 
 ## <a name="12100"></a>1.2.10.0
 
-Data wydania: 8/17/2018
+Data wydania: 17 sierpnia 2018
 
 Prefix
 
@@ -130,7 +149,7 @@ Prefix
 
 ## <a name="11103"></a>1.1.10.3
 
-Data wydania: 6/15/2018
+Data wydania: 15 czerwca 2018
 
 Początkowa wersja publicznej wersji zapoznawczej
 

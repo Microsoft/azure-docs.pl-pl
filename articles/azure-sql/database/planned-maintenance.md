@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
-ms.openlocfilehash: 3f87f47f652f71a57796d1cacd047b0448b49b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/21/2021
+ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333039"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664121"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Zaplanuj zdarzenia konserwacji platformy Azure w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Dla każdej bazy danych Azure SQL Database i wystąpienie zarządzane usługi Az
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Czego można oczekiwać podczas planowanego zdarzenia konserwacji
 
-Zdarzenie obsługi może generować pojedyncze lub wielokrotne przełączenia w tryb failover, w zależności od Constellation replik podstawowych i pomocniczych na początku zdarzenia konserwacji. Średnio 1,7 trybu failover odbywa się według zaplanowanego zdarzenia konserwacji. Ponowne konfiguracje/przełączenia w tryb failover zazwyczaj kończą się w ciągu 30 sekund. Średnia wynosi 8 sekund. Jeśli jest już połączony, aplikacja musi ponownie nawiązać połączenie z nową repliką podstawową bazy danych. Jeśli nastąpi próba ponownego skonfigurowania nowego połączenia, aby Nowa replika podstawowa była w trybie online, zostanie wyświetlony komunikat o błędzie 40613 (baza danych jest niedostępna): *"baza danych" {DatabaseName} "na serwerze" {ServerName} "jest obecnie niedostępna. Spróbuj ponownie nawiązać połączenie później. "* Jeśli baza danych ma długotrwałe zapytanie, ta kwerenda zostanie przerwana podczas ponownej konfiguracji i będzie musiała zostać ponownie uruchomiona.
+Zdarzenie obsługi może generować pojedyncze lub wielokrotne przełączenia w tryb failover, w zależności od Constellation replik podstawowych i pomocniczych na początku zdarzenia konserwacji. Średnio 1,7 trybu failover odbywa się według zaplanowanego zdarzenia konserwacji. Ponowne konfiguracje/przełączenia w tryb failover zazwyczaj kończą się w ciągu 30 sekund. Średnia to osiem sekund. Jeśli jest już połączony, aplikacja musi ponownie nawiązać połączenie z nową repliką podstawową bazy danych. Jeśli nastąpi próba ponownego skonfigurowania nowego połączenia, aby Nowa replika podstawowa była w trybie online, zostanie wyświetlony komunikat o błędzie 40613 (baza danych jest niedostępna): *"baza danych" {DatabaseName} "na serwerze" {ServerName} "jest obecnie niedostępna. Spróbuj ponownie nawiązać połączenie później. "* Jeśli baza danych ma długotrwałe zapytanie, ta kwerenda zostanie przerwana podczas ponownej konfiguracji i będzie musiała zostać ponownie uruchomiona.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Symulowanie planowanego zdarzenia konserwacji
 
@@ -45,7 +45,12 @@ Każda aplikacja produkcyjna klienta, która nawiązuje połączenie z usługą 
 
 Jeśli baza danych ma błędy logowania, Sprawdź okno [Resource Health](../../service-health/resource-health-overview.md#get-started) w [Azure Portal](https://portal.azure.com) dla bieżącego stanu. Sekcja historia kondycji zawiera przyczynę przestoju dla każdego zdarzenia (jeśli jest dostępna).
 
+## <a name="maintenance-window-feature"></a>Funkcja okna obsługi
+
+Funkcja okna obsługi umożliwia konfigurację przewidywalnych harmonogramów okien obsługi dla kwalifikujących się baz danych Azure SQL i wystąpień zarządzanych SQL. Aby uzyskać więcej informacji, zobacz [okno obsługi](maintenance-window.md) .
+
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [Resource Health](resource-health-to-troubleshoot-connectivity.md) Azure SQL Database i wystąpienia zarządzanego Azure SQL.
 - Aby uzyskać więcej informacji na temat logiki ponawiania, zobacz [logika ponawiania dla błędów przejściowych](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Skonfiguruj harmonogramy okna obsługi przy użyciu funkcji [okna obsługi](maintenance-window.md) .

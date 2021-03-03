@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66687f5954894d962a67767669081de15a30c7c3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966075"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672625"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 
@@ -33,7 +33,7 @@ Ten artykuł zawiera Omówienie rozszerzeń maszyn wirtualnych, wymagania wstęp
 Dostępne są różne rozszerzenia maszyn wirtualnych platformy Azure z konkretnym przypadkiem użycia. Oto niektóre przykłady:
 
 - Zastosuj konfiguracje żądanego stanu programu PowerShell do maszyny wirtualnej z rozszerzeniem DSC dla systemu Linux. Aby uzyskać więcej informacji, zobacz [rozszerzenie konfiguracji żądanego stanu platformy Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej Microsoft Monitoring Agent. Aby uzyskać więcej informacji, zobacz [Jak monitorować maszynę wirtualną z systemem Linux](../linux/tutorial-monitor.md).
+- Skonfiguruj monitorowanie maszyny wirtualnej przy użyciu rozszerzenia maszyny wirtualnej Microsoft Monitoring Agent. Aby uzyskać więcej informacji, zobacz [Jak monitorować maszynę wirtualną z systemem Linux](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Skonfiguruj monitorowanie infrastruktury platformy Azure przy użyciu rozszerzenia Chef lub usługi Datadog. Aby uzyskać więcej informacji, zobacz blog [Chef](https://docs.chef.io/azure_portal.html) lub [usługi Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Oprócz rozszerzeń specyficznych dla procesu, rozszerzenie niestandardowego skryptu jest dostępne zarówno dla maszyn wirtualnych z systemem Windows, jak i Linux. Rozszerzenie niestandardowego skryptu dla systemu Linux umożliwia uruchamianie dowolnego skryptu bash na maszynie wirtualnej. Skrypty niestandardowe są przydatne do projektowania wdrożeń platformy Azure, które wymagają konfiguracji poza możliwością dostarczania natywnych narzędzi platformy Azure. Aby uzyskać więcej informacji, zobacz [rozszerzenie niestandardowego skryptu maszyny wirtualnej systemu Linux](custom-script-linux.md).
@@ -50,11 +50,11 @@ Aby uzyskać informacje dotyczące obsługiwanych systemów operacyjnych i instr
 
 #### <a name="supported-agent-versions"></a>Obsługiwane wersje agentów
 
-Aby zapewnić najlepsze możliwe środowisko, istnieją minimalne wersje agenta. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Aby zapewnić najlepsze możliwe środowisko, istnieją minimalne wersje agenta. Więcej informacji znajduje się w [tym artykule](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Obsługiwane systemów operacyjnych
 
-Agent systemu Linux działa na wielu systemów operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+Agent systemu Linux działa na wielu systemów operacyjnych, jednak struktura rozszerzeń ma limit dla systemów operacyjnych. Więcej informacji znajduje się w [tym artykule](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Niektóre rozszerzenia nie są obsługiwane przez wszystkie systemów operacyjnych i mogą emitować *Kod błędu 51, "nieobsługiwany system operacyjny"*. Zapoznaj się z dokumentacją poszczególnych rozszerzeń, aby uzyskać pomoc techniczną.

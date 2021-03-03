@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e560fc996393969eecb45a3fdda24bc940436dc0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83743a6985bef8ce6c03e01ed8d10aa740852106
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967724"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668818"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorowanie i rozwiązywanie problemów ze strony oprogramowania HANA
 
@@ -106,7 +105,7 @@ Ponadto należy użyć narzędzia [IPERF](https://iperf.fr/) Open Source (lub po
 
 Szczegółowe kroki rozwiązywania problemów można znaleźć w witrynie [SAP HANA Rozwiązywanie problemów dotyczących wydajności sieci i problemów z łącznością](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) .
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Z punktu widzenia użytkownika końcowego aplikacja (lub system jako całość) działa bardzo szybko, nie odpowiada, lub nawet może przestać odpowiadać w przypadku problemów z wydajnością we/wy. Na karcie **woluminy** w programie SAP HANA Studio można zobaczyć dołączone woluminy i woluminy używane przez poszczególne usługi.
 

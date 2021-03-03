@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Platforma Kubernetes z obsługą usługi Azure Arc (wersja zapoznawcza)
+title: Platforma Kubernetes z włączoną usługą Azure Arc
 summary: Dowiedz się, jak zarządzać klastrami Kubernetes przy użyciu usługi Azure Arc
 metadata:
   title: Platforma Kubernetes z włączoną usługą Azure Arc
@@ -7,14 +7,14 @@ metadata:
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/15/2021
+  ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: 97343e8c23e202e70ec30bb0a522105889ea08b3
-  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100560232"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101647850"
 landingContent:
 - title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
       url: overview.md
+    - text: Program weryfikacji usługi Azure Arc
+      url: validation-program.md
   - linkListType: concept
     links:
     - text: Architektura agentów
@@ -34,14 +36,18 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Połączenie klastra
-      url: connect-cluster.md
+    - text: Łączenie klastra z usługą Azure Arc
+      url: quickstart-connect-cluster.md
+- title: Wdrażanie konfiguracji przy użyciu metodyki GitOps
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Wdrażanie konfiguracji przy użyciu metodyki GitOps
+      url: tutorial-use-gitops-connected-cluster.md
 - title: Konfigurowanie, zarządzanie i monitorowanie klastrów
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Wdrażanie konfiguracji przy użyciu metodyki GitOps
-      url: use-gitops-connected-cluster.md
     - text: Wdrażanie elementów chart programu Helm przy użyciu metodyki GitOps
       url: use-gitops-with-helm.md
     - text: Wymuś metodykę GitOps przy użyciu usługi Azure Policy

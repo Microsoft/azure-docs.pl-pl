@@ -4,16 +4,17 @@ description: Dowiedz się, jak kupić wystąpienia zarezerwowane dedykowanych ho
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: cac7a6dfcd98b9de61fabdb8e43ca1cdfd4023c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598293"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672278"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
@@ -70,12 +71,12 @@ Jeśli masz umowę EA, możesz użyć **opcji Dodaj więcej** , aby szybko doda�
 
 | **Pole**           | **Opis**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subskrypcja        | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są naliczane od przedpłaty platformy Azure (wcześniej zwanej zobowiązaniem pieniężnym), jeśli jest dostępna lub naliczana jako nadwyżkowe. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
+| Subskrypcja        | Subskrypcja używana do płacenia za rezerwację. Kosztami rezerwacji jest obciążana forma płatności za subskrypcję. Typ subskrypcji musi być umową Enterprise Agreement (Numer oferty: MS-AZR-0017P lub MS-AZR-0148P) lub umowa klienta firmy Microsoft lub indywidualna subskrypcja z stawką płatność zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P). Opłaty są odliczane od salda opłaty z góry za platformę Azure (wcześniej nazywanej zobowiązaniem pieniężnym), jeśli jest dostępne, lub naliczane jako nadwyżka. W przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury dla subskrypcji. |
 | Zakres               | Zakres rezerwacji może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania opcji:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region (Region)              | Region świadczenia usługi Azure objęty rezerwacją.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedykowany rozmiar hosta | Rozmiar dedykowanych wystąpień hosta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Termin                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Ilość            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Okres                | Jeden rok lub trzy lata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Liczba            | Liczba wystąpień zakupionych w ramach rezerwacji. Ilość to liczba uruchomionych dedykowanych wystąpień hosta, które mogą uzyskać rabat rozliczeń.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 - **Zakres pojedynczej grupy zasobów** — rabat na rezerwację jest stosowany do odpowiednich zasobów tylko w wybranej grupie zasobów.
 
@@ -105,9 +106,9 @@ Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
 
-- Jednostka SKU
+- SKU
 
-- Ilość
+- Liczba
 
 - Czas trwania
 

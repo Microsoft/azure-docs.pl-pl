@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576214"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674199"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -192,16 +192,14 @@ Aby można było korzystać z poświadczeń, użytkownik musi mieć `REFERENCES`
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Aby zapewnić bezproblemowe środowisko przekazywania usługi Azure AD, wszyscy użytkownicy będą domyślnie mieli prawo do korzystania z `UserIdentity` poświadczeń.
-
 ## <a name="server-scoped-credential"></a>Poświadczenie o zakresie serwera
 
-Poświadczenia z zakresem serwera są używane, gdy logowanie SQL wywołuje `OPENROWSET` funkcję bez `DATA_SOURCE` odczytywania plików na niektórych kontach magazynu. Nazwa poświadczenia z zakresem serwera **musi** być zgodna z adresem URL usługi Azure Storage. Poświadczenie jest dodawane przez uruchomienie [Create Credential](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Musisz podać argument nazwy poświadczenia. Musi być zgodna z każdą częścią ścieżki lub pełną ścieżką do danych w magazynie (patrz poniżej).
+Poświadczenia z zakresem serwera są używane, gdy logowanie SQL wywołuje `OPENROWSET` funkcję bez `DATA_SOURCE` odczytywania plików na niektórych kontach magazynu. Nazwa poświadczenie o zakresie serwera **musi** odpowiadać PODSTAWOWEmu adresowi URL usługi Azure Storage (opcjonalnie po nazwie kontenera). Poświadczenie jest dodawane przez uruchomienie [Create Credential](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Musisz podać argument nazwy poświadczenia.
 
 > [!NOTE]
 > `FOR CRYPTOGRAPHIC PROVIDER`Argument nie jest obsługiwany.
 
-Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do konta magazynu (i opcjonalnie kontenera) w następującym formacie: `<prefix>://<storage_account_path>/<storage_path>` . Ścieżki kont magazynu są opisane w poniższej tabeli:
+Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do konta magazynu (i opcjonalnie kontenera) w następującym formacie: `<prefix>://<storage_account_path>[/<container_name>]` . Ścieżki kont magazynu są opisane w poniższej tabeli:
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +222,13 @@ Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być u�
 Program Exchange <*mystorageaccountname*> z rzeczywistą nazwą konta magazynu i <*mystorageaccountcontainername*> z rzeczywistą nazwą kontenera:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Opcjonalnie możesz użyć tylko podstawowego adresu URL konta magazynu bez nazwy kontenera.
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
@@ -238,6 +238,8 @@ Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być u�
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Opcjonalnie możesz użyć tylko podstawowego adresu URL konta magazynu bez nazwy kontenera.
 
 ### <a name="public-access"></a>[Dostęp publiczny](#tab/public-access)
 

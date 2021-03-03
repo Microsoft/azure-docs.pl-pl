@@ -11,12 +11,12 @@ ms.date: 07/28/2020
 ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d960b64d71861044aa1b0344ccbfdaf5e6328e6a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1e0dfd597e7f445eeba6cef332d8ea12b27dc3a2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120329"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676306"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Przegląd zmian w systemie Linux Foundation
 
@@ -34,7 +34,7 @@ Oto co należy zrobić:
 * Odczytywanie strumienia zmian z tabeli
 * Obsługa SQL
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Upewnij się, że zmodyfikujesz poniższe czynności jako odpowiednie dla danego środowiska.
 
@@ -996,5 +996,5 @@ Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https:/
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark)
 * [Azure Synapse Analytics](../index.yml)

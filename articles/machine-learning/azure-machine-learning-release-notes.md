@@ -8,17 +8,48 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
-ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375565"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661107"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+__Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zaktualizowana przez skopiowanie i wklejenie następującego adresu URL w czytniku kanałów informacyjnych: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-16"></a>2021-02-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.23.0
++ **Nowe funkcje**
+  + **azureml-core**
+    + [Funkcja eksperymentalna] Dodawanie obsługi do łączenia obszaru roboczego Synapse w AML jako połączona usługa
+    + [Funkcja eksperymentalna] Dodawanie obsługi do dołączania puli Synapse Spark do AML jako obliczeń
+    + [Funkcja eksperymentalna] Dodano obsługę dostępu do danych na podstawie tożsamości. Użytkownicy mogą rejestrować datastore lub zestawy danych bez podawania poświadczeń. W takim przypadku do uwierzytelniania będą używane tokeny usługi AAD lub zarządzana tożsamość elementu docelowego użytkowników. Dowiedz się więcej [tutaj](https://aka.ms/data-access).
+  + **azureml-pipeline-steps**
+    + [Funkcja eksperymentalna] Dodawanie obsługi [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?preserve-view=true&view=azure-ml-py)
+  + **azureml-synapse**
+    + [Funkcja eksperymentalna] Dodaj obsługę funkcji Spark Magic, aby uruchomić sesję interaktywną w puli Synapse Spark.
++ **Poprawki i ulepszenia błędów**
+  + **azureml-automl-runtime**
+    + W ramach tej aktualizacji dodaliśmy Holt Winters wykładnicze na potrzeby prognozowania zestawu SDK AutoML. W przypadku szeregów czasowych najlepszym modelem jest wybierany przez [AICc (kryterium informacyjne skorygowane Akaike)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) i zwrócone.
+    + AutoML będzie teraz generować dwa pliki dziennika zamiast jednego. Instrukcje log przechodzą do jednego lub drugiego w zależności od tego, który proces został wygenerowany w instrukcji log.
+    + Usuń niepotrzebne przewidywania w próbkach podczas szkolenia modelu z użyciem wielu operacji. Może to zmniejszyć czas uczenia modelu w niektórych przypadkach, szczególnie w przypadku modeli prognozowania szeregów czasowych.
+  + **azureml-contrib-fairness**
+    + Dodaj schemat JSON dla przekazywania dashboardDictionary.
+  + **azureml-contrib-interpret**
+    + Funkcja Azure-contrib — interpretacja pliku Readme jest aktualizowana w celu odzwierciedlenia, że pakiet zostanie usunięty w następnej aktualizacji po zakończeniu jego wycofania od października, w zamian użyj zamiast tego pakietu do interpretacji Azure
+  + **azureml-core**
+    + Wcześniej można było utworzyć konfigurację aprowizacji z minimalną liczbą węzłów mniejszą niż maksymalna liczba węzłów. Ten problem został rozwiązany. Jeśli teraz podjęto próbę utworzenia konfiguracji inicjowania obsługi przy użyciu `min_nodes < max_nodes` zestawu SDK, spowoduje to wystąpienie `ComputeTargetException` .
+    +  Naprawia usterkę w wait_for_completion w AmlCompute, która spowodowała zwrócenie przepływu sterowania przez funkcję do momentu ukończenia operacji
+    + Uruchomienie. Niepowodzenie () jest teraz przestarzałe, użyj Run. tag (), aby oznaczyć polecenie Uruchom jako Niepowodzenie lub użyć Run. Cancel (), aby oznaczyć polecenie Uruchom jako anulowane.
+    + Pokaż komunikat o błędzie "Nazwa środowiska oczekiwano str, {} znaleziono", gdy podana nazwa środowiska nie jest ciągiem.
+  + **azureml-train-automl-client**
+    + Naprawiono usterkę, która uniemożliwiła anulowanie eksperymentów AutoML wykonywanych na klastrach Azure Databricks.
 
 
 ## <a name="2021-02-09"></a>2021-02-09
@@ -54,11 +85,11 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lipca)
 + **Nowe funkcje**
   + Wewnętrzny Edytor promocji na platformie Azure. Użytkownicy mogą teraz renderować i edytować pliki o promocji w sposób natywny w programie Azure Studio.
-  + [Przycisk uruchamiania dla skryptów (. PR,. R i. sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Użytkownicy mogą łatwo uruchamiać skrypty Python, R i bash na platformie Azure
-  + [Eksplorator zmiennych](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Eksploruj zawartość zmiennych i ramek danych w panelu podręcznym. Użytkownicy mogą łatwo sprawdzać typ danych, rozmiar i zawartość.
-  + [Spis treści](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Przejdź do sekcji notesu wskazywanego przez nagłówki promocji.
+  + [Przycisk uruchamiania dla skryptów (. PR,. R i. sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Użytkownicy mogą łatwo uruchamiać skrypty Python, R i bash na platformie Azure
+  + [Eksplorator zmiennych](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Eksploruj zawartość zmiennych i ramek danych w panelu podręcznym. Użytkownicy mogą łatwo sprawdzać typ danych, rozmiar i zawartość.
+  + [Spis treści](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Przejdź do sekcji notesu wskazywanego przez nagłówki promocji.
   + Wyeksportuj Notes jako lateks/HTML/pr. Twórz łatwe w udostępnianiu pliki notesu, eksportując je do pliku lateks, HTML lub z pr
-  + Rozszerzenia intellicode. Wyniki z napędem ML zapewniają ulepszone [inteligentne środowisko automatycznego uzupełniania](https://docs.microsoft.com/visualstudio/intellicode/overview).
+  + Rozszerzenia intellicode. Wyniki z napędem ML zapewniają ulepszone [inteligentne środowisko automatycznego uzupełniania](/visualstudio/intellicode/overview).
 
 + **Poprawki i ulepszenia błędów**
   + Ulepszone czasy ładowania stron

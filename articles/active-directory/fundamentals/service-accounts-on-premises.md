@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417483"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645620"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Wprowadzenie do Active Directory kont usług
 
@@ -34,7 +34,7 @@ W oparciu o przypadek użycia możesz użyć zarządzanego konta usługi (MSA), 
 
 ### <a name="group-msa-accounts"></a>Grupowanie kont MSA
 
-Używaj [kont usług zarządzanych przez grupę](service-accounts-group-managed.md) (kont gMSA) zawsze, gdy jest to możliwe dla usług działających w środowisku lokalnym. Kont gMSA zapewniają pojedyncze rozwiązanie tożsamości dla usługi działającej w farmie serwerów lub za modułem równoważenia obciążenia sieciowego. Mogą być również używane w przypadku usługi uruchomionej na jednym serwerze. [Kont gMSA mają określone wymagania, które muszą zostać spełnione](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+Używaj [kont usług zarządzanych przez grupę](service-accounts-group-managed.md) (kont gMSA) zawsze, gdy jest to możliwe dla usług działających w środowisku lokalnym. Kont gMSA zapewniają pojedyncze rozwiązanie tożsamości dla usługi działającej w farmie serwerów lub za modułem równoważenia obciążenia sieciowego. Mogą być również używane w przypadku usługi uruchomionej na jednym serwerze. [Kont gMSA mają określone wymagania, które muszą zostać spełnione](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>Autonomiczne konta MSA
 
@@ -138,4 +138,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi zabezpieczania kont us�
 
 * [Zarządzanie kontami lokalnych usług](service-accounts-govern-on-premises.md)
 
- 

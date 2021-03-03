@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98989a38a0c1a7f57fc8eba70e064e5d6f2cce8f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012083"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671529"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Networ
 
 Jeśli wolisz, możesz wykonać te kroki przy użyciu [interfejsu wiersza polecenia platformy Azure](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md)lub wdrożyć [szablon ARM](quickstart-create-nat-gateway-powershell.md) zamiast portalu.
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -43,9 +43,9 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Wschodnie stany USA 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0 \ 16          |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 192.168.0.0 \ 24          |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -75,7 +75,7 @@ Teraz utworzymy maszynę wirtualną do korzystania z usługi translatora adresó
 
 4. Na karcie **Zarządzanie** w obszarze **monitorowanie** ustaw opcję **Diagnostyka rozruchu** na **wyłączona**.
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
 
 6. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
 
@@ -139,7 +139,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
    - **Virtual Network**: wybierz pozycję **myResourceGroupNAT**  >  **myVnet**.
    - **Nazwa podsieci**: zaznacz pole wyboru obok pozycji moja **podsieć**.
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 

@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400407"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649516"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu Visual Studio Code
 
 Usługa Azure API Management (APIM) pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa APIM pozwala tworzyć nowoczesne bramy interfejsów API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz zarządzać tymi bramami. Aby uzyskać więcej informacji, zobacz temat [Omówienie](api-management-key-concepts.md).
 
-W tym przewodniku szybki start opisano procedurę tworzenia nowego wystąpienia API Management przy użyciu *usługi Azure API Management Extension w wersji Zapoznawczej* Visual Studio Code. Można również użyć rozszerzenia do wykonywania typowych operacji zarządzania w wystąpieniu API Management.
+W tym przewodniku szybki start opisano procedurę tworzenia nowego wystąpienia API Management przy użyciu *rozszerzenia Azure API Management* do Visual Studio Code. Można również użyć rozszerzenia do wykonywania typowych operacji zarządzania w wystąpieniu API Management.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +28,7 @@ Ponadto upewnij się, że zainstalowano następujące elementy:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Rozszerzenie API Management platformy Azure dla Visual Studio Code (wersja zapoznawcza)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Rozszerzenie API Management platformy Azure dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

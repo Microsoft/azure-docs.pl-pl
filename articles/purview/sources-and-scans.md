@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383895"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677915"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Obsługiwane źródła danych i typy plików w usłudze Azure kontrolą
 
@@ -43,9 +43,12 @@ Usługa Azure kontrolą obsługuje następujące źródła:
 
 Następujące typy plików są obsługiwane na potrzeby skanowania w celu wyodrębnienia schematu i klasyfikacji tam, gdzie ma to zastosowanie:
 
-- Formaty plików strukturalnych obsługiwane przez rozszerzenie: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Strukturalne formaty plików obsługiwane przez rozszerzenie: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Formaty plików dokumentów obsługiwane przez rozszerzenie: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Kontrolą obsługuje również niestandardowe rozszerzenia plików i analizatory niestandardowe.
+ 
+> [!Note]
+> Każdy plik GZIP musi być zamapowany na pojedynczy plik CSV w ramach programu. Pliki GZIP podlegają systemowi i regułom klasyfikacji niestandardowych. Obecnie nie obsługujemy skanowania pliku gzip zamapowanego do wielu plików w programie lub dowolnego typu pliku innego niż CSV. 
 
 ## <a name="sampling-within-a-file"></a>Próbkowanie w pliku
 

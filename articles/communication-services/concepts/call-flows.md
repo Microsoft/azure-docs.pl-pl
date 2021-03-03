@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559458"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664130"
 ---
 # <a name="call-flow-basics"></a>Podstawowe informacje o przepływie wywołań
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Poniższa sekcja zawiera omówienie przepływów wywołań w usłudze Azure Communications Services. Sygnalizowanie i przepływy multimediów zależą od typów wywołań wykonywanych przez użytkowników. Przykłady typów wywołań obejmują metodę VoIP jeden-do-jednego, Sieć PSTN typu jeden-do-jednego oraz wywołania grup zawierające kombinację połączeń VoIP i połączonej z PSTN. Przejrzyj [typy wywołań](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>Informacje o sygnalizowaniu i protokołach multimediów
 
-Po nawiązaniu połączenia równorzędnego lub grupowego dwa protokoły są używane w tle — HTTP (REST) do sygnalizowania i SRTP na nośniku. 
+Po nawiązaniu połączenia równorzędnego lub grupowego dwa protokoły są używane w tle — HTTP (REST) do sygnalizowania i SRTP na nośniku.
 
-Sygnalizowanie między bibliotekami klienta lub między bibliotekami klienckimi i kontrolerami sygnałów usług komunikacyjnych jest obsługiwane przy użyciu protokołu HTTP REST (TLS). W przypadku usługi Real-Time Media (RTP) preferowany jest protokół UDP (User Datagram). Jeśli korzystanie z protokołu UDP jest uniemożliwione przez zaporę, Biblioteka klienta będzie używać Transmission Control Protocol (TCP) dla nośnika. 
+Sygnalizowanie między bibliotekami klienta lub między bibliotekami klienckimi i kontrolerami sygnałów usług komunikacyjnych jest obsługiwane przy użyciu protokołu HTTP REST (TLS). W przypadku usługi Real-Time Media (RTP) preferowany jest protokół UDP (User Datagram). Jeśli korzystanie z protokołu UDP jest uniemożliwione przez zaporę, Biblioteka klienta będzie używać Transmission Control Protocol (TCP) dla nośnika.
 
-Przejrzyjmy protokoły sygnalizujące i multimedialne w różnych scenariuszach. 
+Przejrzyjmy protokoły sygnalizujące i multimedialne w różnych scenariuszach.
 
 ## <a name="call-flow-cases"></a>Przypadki przepływu wywołań
 
@@ -40,7 +38,7 @@ W przypadku połączeń VoIP lub wideo jedno-do-jednego, ruch preferuje najbardz
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Przypadek 2: VoIP, w którym nie jest możliwe bezpośrednie połączenie między urządzeniami, ale w przypadku, gdy jest możliwe połączenie między urządzeniami NAT
 
-Jeśli dwa urządzenia znajdują się w podsieciach, które nie mogą nawiązywać połączeń nawzajem (na przykład Alicja działa z domu i Roberta działa z biura domowego), ale połączenie między urządzeniami NAT jest możliwe, biblioteki klienta po stronie klienta będą nawiązywać połączenia za pośrednictwem urządzeń NAT. 
+Jeśli dwa urządzenia znajdują się w podsieciach, które nie mogą nawiązywać połączeń nawzajem (na przykład Alicja działa z domu i Roberta działa z biura domowego), ale połączenie między urządzeniami NAT jest możliwe, biblioteki klienta po stronie klienta będą nawiązywać połączenia za pośrednictwem urządzeń NAT.
 
 W przypadku programu Alicja będzie to translator adresów sieciowych w sklepie kawowym i dla Roberta, który będzie translatorem adresów sieciowych biura domowego. Urządzenie Alicja wyśle adres zewnętrzny jego translatora adresów sieciowych i Robert będzie tego samego. Biblioteki klienckie zawierają informacje o adresach zewnętrznych z usługi STUN (narzędzia do przechodzenia do sesji dla translatora adresów sieciowych), które są bezpłatnie dostępne dla usług Azure Communication Services. Logika, która obsługuje uzgadnianie między Alicja i Robert, jest wbudowana w udostępnione biblioteki klienta usługi Azure Communications Services. (Nie jest wymagana żadna dodatkowa konfiguracja)
 
@@ -51,7 +49,7 @@ W przypadku programu Alicja będzie to translator adresów sieciowych w sklepie 
 Jeśli jedno lub oba urządzenia klienckie znajdują się za symetrycznym translatorem adresów sieciowych, wymagana jest oddzielna usługa w chmurze przekazująca nośnik między dwiema bibliotekami klienckimi. Ta usługa jest wywoływana (przechodzenie przy użyciu przekaźników wokół translatora adresów sieciowych) i jest również udostępniana przez usługi komunikacyjne. Biblioteka klienta wywołująca usługi komunikacyjne automatycznie korzysta z WŁĄCZania usług na podstawie wykrytych warunków sieci. Opłaty za korzystanie z usługi Microsoft skręć są naliczone osobno.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram przedstawiający wywołanie VOIP, które wykorzystuje połączenie z połączeniem.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Przypadek 4: wywołania grupowe za pomocą sieci PSTN
 
 Zarówno sygnalizowanie, jak i multimedia dla wywołań PSTN używają zasobu telefonii usługi Azure Communications Services. Ten zasób jest wzajemnie połączony z innymi przewoźnikami.
@@ -78,7 +76,7 @@ Jeśli Biblioteka klienta nie może używać protokołu UDP dla multimediów z p
 
 ### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Przypadek 5: Biblioteka klienta usług komunikacyjnych i zespół firmy Microsoft w zaplanowanym spotkaniu zespołów
 
-Sygnalizowanie przepływów przez kontroler sygnalizujący. Nośniki są przesyłane przez procesor multimediów. Kontroler sygnalizujący i procesor nośników są współużytkowane przez usługi komunikacyjne i Microsoft Teams. 
+Sygnalizowanie przepływów przez kontroler sygnalizujący. Nośniki są przesyłane przez procesor multimediów. Kontroler sygnalizujący i procesor nośników są współużytkowane przez usługi komunikacyjne i Microsoft Teams.
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagram przedstawiający bibliotekę klienta usług komunikacyjnych i klienta zespołów w zaplanowanym spotkaniu zespołów.":::
 

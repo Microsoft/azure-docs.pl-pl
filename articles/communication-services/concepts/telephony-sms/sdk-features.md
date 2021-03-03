@@ -9,16 +9,15 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2448840fcbbea686972f8f948d428bda7b3c2bf2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e4518fb41c839d83c59cd245b39c547ddb02b68e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391749"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658218"
 ---
 # <a name="sms-client-library-overview"></a>Omówienie biblioteki klienta wiadomości SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Za pomocą bibliotek klienckich SMS usług Azure Communication Services można dodawać wiadomości SMS do aplikacji.

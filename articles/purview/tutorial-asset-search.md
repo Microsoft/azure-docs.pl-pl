@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693336"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677841"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Samouczek: nawigowanie po stronie głównej usługi Azure kontrolą (wersja zapoznawcza) i wyszukiwanie zasobu
 
@@ -45,7 +45,7 @@ Poniższe kroki przeprowadzą Cię przez stronę główną usługi Azure kontrol
 
 1. Przejdź do zasobu usługi Azure kontrolą w Azure Portal i wybierz pozycję **Otwórz kontrolą Studio**. Nastąpi automatyczne przekierowanie do strony głównej programu kontrolą Studio.
 
-   W górnej części strony głównej wyświetlana jest nazwa katalogu i zbiór analiz katalogu. Uwzględniono liczbę użytkowników, zasobów danych i terminów słownika. Podsumowując, można zobaczyć, że istnieje ponad 200 zasobów w sumie i 113 terminologii dotyczącej słownika. Ta liczba jest aktualizowana podczas skanowania organizacji i dodaje więcej terminów do usługi Azure kontrolą.
+   W górnej części strony głównej wyświetlana jest nazwa katalogu i zbiór analiz katalogu. Uwzględniono liczbę źródeł, zasobów danych i terminów słownika. Podsumowując, można zobaczyć, że istnieje ponad 200 zasobów w sumie i 113 terminologii dotyczącej słownika. Ta liczba jest aktualizowana podczas skanowania organizacji i dodaje więcej terminów do usługi Azure kontrolą.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Zrzut ekranu przedstawiający stronę główną usługi Azure kontrolą.":::
 

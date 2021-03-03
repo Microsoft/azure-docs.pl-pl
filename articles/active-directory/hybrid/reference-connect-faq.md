@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092670"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644735"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -201,7 +201,7 @@ W zależności od rozmiaru środowiska proces może potrwać kilka godzin. W tra
 **Pytanie: otrzymuję wiadomość e-mail z informacją o tym, że automatyczne uaktualnienie nie działa, i chcę zainstalować nową wersję. Dlaczego należy to zrobić?**  
 W zeszłym roku wydano wersję Azure AD Connect, która w pewnych okolicznościach może wyłączyć funkcję autouaktualniania na serwerze. Rozwiązano problem w Azure AD Connect wersja 1.1.750.0. Jeśli problem został naruszony, można go ograniczyć przez uruchomienie skryptu programu PowerShell w celu jego naprawy lub ręczne uaktualnienie do najnowszej wersji Azure AD Connect. 
 
-Aby uruchomić skrypt programu PowerShell, [Pobierz skrypt](https://aka.ms/repairaadconnect) i uruchom go na serwerze Azure AD Connect w oknie administracyjnym programu PowerShell. Aby dowiedzieć się, jak uruchomić skrypt, [Obejrzyj ten krótki film wideo](https://aka.ms/repairaadcau).
+Aby uruchomić skrypt programu PowerShell, [Pobierz skrypt](/samples/browse/?redirectedfrom=TechNet-Gallery) i uruchom go na serwerze Azure AD Connect w oknie administracyjnym programu PowerShell. Aby dowiedzieć się, jak uruchomić skrypt, [Obejrzyj ten krótki film wideo](https://aka.ms/repairaadcau).
 
 Aby ręcznie uaktualnić, należy pobrać i uruchomić najnowszą wersję pliku AADConnect.msi.
  

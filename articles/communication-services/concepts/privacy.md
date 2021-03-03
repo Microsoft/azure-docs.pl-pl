@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 8e08c531cd46d5112138a3feedf97b27307e3dca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653469"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656197"
 ---
 # <a name="region-availability-and-data-residency"></a>Dostępność w poszczególnych regionach i miejsce przechowywania danych
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Usługi komunikacyjne Azure są zaangażowane w pomaganie naszym klientom spełnić wymagania dotyczące prywatności i danych osobowych. Jako deweloper korzystający z usług komunikacyjnych z bezpośrednią relacją z ludźmi przy użyciu aplikacji, możesz być kontrolerem swoich danych. Ponieważ usługi Azure Communications Services przechowują te dane w Twoim imieniu, najprawdopodobniej jest to procesor tych danych. Ta strona zawiera podsumowanie, w jaki sposób usługa zachowuje dane oraz jak można identyfikować, eksportować i usuwać te dane.
 
@@ -65,7 +63,7 @@ Wątki rozmowy i komunikaty są zachowywane do momentu usunięcia ich jawnie. W 
 
 ### <a name="sms"></a>SMS
 
-Wysłane i odebrane wiadomości SMS są przetwarzane w sposób niedozwolony przez usługę i nie są zachowywane. 
+Wysłane i odebrane wiadomości SMS są przetwarzane w sposób niedozwolony przez usługę i nie są zachowywane.
 
 ### <a name="pstn-voice-calling"></a>Połączenie głosowe PSTN
 

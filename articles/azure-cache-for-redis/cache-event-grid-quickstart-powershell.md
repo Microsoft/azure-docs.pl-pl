@@ -6,12 +6,12 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 615f3b023ded6583dfedca99f561d09689b86b51
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ab959d531ff1080e5e6a640410b4955e4cfeff7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055532"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652202"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>Szybki Start: kierowanie pamięci podręcznej Azure dla zdarzeń Redis do punktu końcowego sieci Web przy użyciu programu PowerShell
 
@@ -73,7 +73,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-Aby uzyskać więcej informacji na temat tworzenia wystąpienia pamięci podręcznej w programie PowerShell, zobacz [informacje dotyczące Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
+Aby uzyskać więcej informacji na temat tworzenia wystąpienia pamięci podręcznej w programie PowerShell, zobacz [informacje dotyczące Azure PowerShell](/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów
 
@@ -132,7 +132,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-Aby uzyskać więcej informacji na temat importowania w programie PowerShell, zobacz [informacje dotyczące Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
+Aby uzyskać więcej informacji na temat importowania w programie PowerShell, zobacz [informacje dotyczące Azure PowerShell](/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
 
 Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Wyświetl aplikację sieci Web, aby wyświetlić właśnie wysłane zdarzenie.
 

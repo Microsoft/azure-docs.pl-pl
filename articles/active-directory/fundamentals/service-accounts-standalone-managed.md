@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417473"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650961"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Zabezpieczanie autonomicznych zarządzanych kont usług
 
@@ -44,7 +44,7 @@ sMSAs oferują większe bezpieczeństwo niż konta użytkowników używane jako 
 
    * Nazwa DNS komputera hosta jest zmieniana.
 
-   * Podczas dodawania lub usuwania dodatkowych parametrów AccountName lub DNS-hostname przy użyciu [programu PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Podczas dodawania lub usuwania dodatkowych parametrów AccountName lub DNS-hostname przy użyciu [programu PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Kiedy używać sMSAs
 
@@ -53,7 +53,7 @@ sMSAs może uprościć zadania związane z zarządzaniem i zabezpieczeniami. Uż
 > [!NOTE] 
 > Chociaż można używać sMSAs dla więcej niż jednej usługi, zalecamy, aby każda usługa miała własną tożsamość na potrzeby inspekcji. 
 
-Jeśli twórca oprogramowania nie powiedzie się, jeśli może korzystać z elementu MSA, należy przetestować aplikację. W tym celu należy utworzyć środowisko testowe i upewnić się, że będzie ono miało dostęp do wszystkich wymaganych zasobów. Zobacz [Tworzenie i Instalowanie autonomiczne](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) , aby uzyskać instrukcje krok po kroku.
+Jeśli twórca oprogramowania nie powiedzie się, jeśli może korzystać z elementu MSA, należy przetestować aplikację. W tym celu należy utworzyć środowisko testowe i upewnić się, że będzie ono miało dostęp do wszystkich wymaganych zasobów. Zobacz [Tworzenie i Instalowanie autonomiczne](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) , aby uzyskać instrukcje krok po kroku.
 
 ### <a name="assess-security-posture-of-smsas"></a>Ocena zabezpieczeń stan sMSAs
 
@@ -112,7 +112,7 @@ Do zarządzania sMSAs można użyć Active Directory następujących poleceń cm
 
 ## <a name="move-to-smsas"></a>Przenieś do sMSAs
 
-Jeśli usługa aplikacji obsługuje autonomiczne, ale nie kont gMSA, i aktualnie używa konta użytkownika lub konta komputera dla kontekstu zabezpieczeń, [Utwórz i zainstaluj autonomiczne](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) na serwerze. 
+Jeśli usługa aplikacji obsługuje autonomiczne, ale nie kont gMSA, i aktualnie używa konta użytkownika lub konta komputera dla kontekstu zabezpieczeń, [Utwórz i zainstaluj autonomiczne](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) na serwerze. 
 
 W idealnym przypadku należy przenieść zasoby na platformę Azure i użyć tożsamości zarządzanych przez platformę Azure lub jednostek usługi.
 
@@ -133,4 +133,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi zabezpieczania kont us�
 
 * [Zarządzanie kontami lokalnych usług](service-accounts-govern-on-premises.md)
 
- 

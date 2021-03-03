@@ -4,17 +4,17 @@ description: Dowiedz się, jak kupić Azure Reserved Virtual Machine Instances, 
 author: vikramdesai01
 manager: vikramdesai01
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7eab410bb2344617e555a7a9d1d44cd9adcc676d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682596"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101674733"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Oszczędność kosztów dzięki Azure Reserved VM Instances
 
@@ -133,7 +133,7 @@ Można również podzielić rezerwację na mniejsze fragmenty i scalić już rez
 Po zakupie nie można wprowadzać następujących typów zmian bezpośrednio:
 
 - Istniejący region rezerwacji
-- Jednostka SKU
+- SKU
 - Liczba
 - Czas trwania
 

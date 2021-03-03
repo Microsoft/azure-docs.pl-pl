@@ -4,16 +4,17 @@ description: Ten artykuł zawiera ogólne omówienie wycofania maszyn wirtualnyc
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2fb710bab03d595d6e54bc8dd8fbda38c57123e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587912"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668198"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrowanie zasobów IaaS do Azure Resource Manager 1 marca 2023 
 
@@ -30,10 +31,20 @@ Maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania będą zg
 - 1 marca 2023, subskrypcje, które nie zostały zmigrowane do Azure Resource Manager, będą otrzymywać informacje dotyczące osi czasu na potrzeby usuwania pozostałych maszyn wirtualnych (klasycznych).  
 
 Wycofanie *nie ma wpływu na* następujące usługi i funkcje platformy Azure: 
-- [Cloud Services platformy Azure (wersja klasyczna)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
+- [Cloud Services platformy Azure (wersja klasyczna)](../cloud-services/cloud-services-choose-me.md)
 - *Konta magazynu* nieużywane przez maszyny wirtualne (klasyczne) 
 - *Sieci wirtualne* nieużywane przez maszyny wirtualne (klasyczne) 
 - Inne zasoby klasyczne
+
+## <a name="what-resources-are-available-for-this-migration"></a>Jakie zasoby są dostępne dla tej migracji?
+
+- [Microsoft Q&a](/answers/topics/azure-virtual-machines-migration.html): Pomoc techniczna firmy Microsoft i społeczność dla migracji.
+
+- [Obsługa migracji platformy Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedykowany zespół pomocy technicznej w zakresie pomocy technicznej podczas migracji. Klienci bez pomocy technicznej mogą korzystać z [bezpłatnej pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0A%20%20%20%20%22pesId%22%3A%20%22f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%22%2C%0A%20%20%20%20%22supportTopicId%22%3A%20%22794bb734-af1b-e2d5-a757-dac7438009ab%22%2C%0A%20%20%20%20%22contextInfo%22%3A%20%22Migrate%20IAAS%20resources%20from%20Classic%20%28ASM%29%20to%20Azure%20Resource%20Manager%20%28ARM%29%22%2C%0A%20%20%20%20%22caller%22%3A%20%22NoSupportPlanASM2ARM%22%2C%0A%20%20%20%20%22severity%22%3A%20%222%22%0A%7D) dostępnej dla tej migracji. 
+
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Funkcja Fast Track może pomóc uprawnionym klientom w planowaniu & wykonywania tej migracji. Wyznacz [siebie](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) dla programu migracji kontrolera domeny.  
+
+- Jeśli firma/organizacja ma partnerów firmy Microsoft lub współpracuje z przedstawicielami firmy Microsoft (takimi jak Architekt rozwiązań w chmurze (CSAs) lub menedżerami technicznymi (TAMs)), należy pracować z nimi w celu uzyskania dodatkowych zasobów na potrzeby migracji.
 
 ## <a name="what-actions-should-i-take"></a>Jakie akcje należy wykonać? 
 
@@ -43,7 +54,7 @@ Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj.
 
    - Maszyny wirtualne typu **Virtual Machines (klasyczne)** w [okienku maszyny wirtualnej Azure Portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) są wszystkie maszyny wirtualne, których dotyczy ta subskrypcja. 
    - Możesz również wysyłać zapytania do grafu zasobów platformy Azure przy użyciu [portalu](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) lub [programu PowerShell](../governance/resource-graph/concepts/work-with-data.md) , aby wyświetlić listę wszystkich oflagowanych maszyn wirtualnych (klasycznych) i powiązanych informacji dotyczących wybranych subskrypcji. 
-   - 8 lutego i 2 września 2020, wysłaliśmy do właścicieli subskrypcji wiadomość e-mail z listą wszystkich subskrypcji zawierających te maszyny wirtualne (klasyczne). Użyj ich, aby skompilować tę listę. 
+   - 8 lutego i 2 września 2020, wysłaliśmy wiadomości e-mail z tematem "Rozpocznij Planowanie migracji maszyn wirtualnych IaaS w celu Azure Resource Manager" do właścicieli subskrypcji. Wiadomość e-mail zawiera listę wszystkich subskrypcji i maszyn wirtualnych (klasycznych) maszyn wirtualnych. Użyj ich, aby skompilować tę listę. 
 
 1. [Dowiedz się więcej](./migration-classic-resource-manager-overview.md) na temat migrowania maszyn wirtualnych z systemem [Linux](./migration-classic-resource-manager-plan.md) i [Windows](./migration-classic-resource-manager-plan.md) (klasyczny) do Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące klasycznej migracji Azure Resource Manager](./migration-classic-resource-manager-faq.md).
 
@@ -58,13 +69,3 @@ Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj.
 1. Aby uzyskać pytania techniczne, problemy i pomoc dotyczącą dodawania subskrypcji do listy dozwolonych, [skontaktuj się z pomocą techniczną](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
 1. Dokończ migrację najszybciej, jak to możliwe, aby zapobiec wpływowi na działalność biznesową i korzystać z ulepszonej wydajności, zabezpieczeń i nowych funkcji Azure Resource Manager. 
-
-## <a name="what-resources-are-available-for-this-migration"></a>Jakie zasoby są dostępne dla tej migracji?
-
-- [Microsoft Q&a](/answers/topics/azure-virtual-machines-migration.html): Pomoc techniczna firmy Microsoft i społeczność dla migracji.
-
-- [Obsługa migracji platformy Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedykowany zespół pomocy technicznej w zakresie pomocy technicznej podczas migracji.
-
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Funkcja Fast Track może pomóc uprawnionym klientom w planowaniu & wykonywania tej migracji. Wyznacz [siebie](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) dla programu migracji kontrolera domeny.  
-
-- Jeśli firma/organizacja ma partnerów firmy Microsoft lub współpracuje z przedstawicielami firmy Microsoft (takimi jak Architekt rozwiązań w chmurze (CSAs) lub menedżerami technicznymi (TAMs)), należy pracować z nimi w celu uzyskania dodatkowych zasobów na potrzeby migracji.

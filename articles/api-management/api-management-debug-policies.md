@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400730"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648020"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Debugowanie zasad usługi Azure API Management w programie Visual Studio Code
 
 [Zasady](api-management-policies.md) na platformie Azure API Management zapewniają zaawansowane funkcje, które pomagają wydawcom interfejsu API rozwiązywać problemy z zmniejszeniem, takie jak uwierzytelnianie, autoryzacja, ograniczanie, buforowanie i przekształcanie. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. 
 
 W tym artykule opisano sposób debugowania zasad API Management przy użyciu [rozszerzenia Azure API Management do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
-
-> [!NOTE]
-> Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,7 +33,7 @@ W tym artykule opisano sposób debugowania zasad API Management przy użyciu [ro
 
 * Zaimportuj interfejs API do wystąpienia API Management. Na przykład, zobacz [Samouczek: Użyj rozszerzenia API Management, aby Visual Studio Code zaimportować interfejsy API i zarządzać nimi](visual-studio-code-tutorial.md).
 
-## <a name="restrictions-and-limitations"></a>Ograniczenia i ograniczenia
+## <a name="restrictions-and-limitations"></a>Ograniczenia
 
 Ta funkcja jest dostępna tylko w warstwie deweloperów API Management. Każde wystąpienie API Management obsługuje tylko jedną współbieżną sesję debugowania.
 

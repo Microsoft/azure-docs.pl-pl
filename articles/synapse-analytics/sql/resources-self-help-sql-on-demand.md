@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: c67b0bab554f363b8389c5557eadeac6e4c577a2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: f94134b2a06155b1b1f390175578e501a840038b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625235"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669425"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Samoobsługowa pomoc dla puli SQL bezserwerowej
 
@@ -30,7 +30,7 @@ Jeśli program Synapse Studio nie może nawiązać połączenia z pulą SQL bezs
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Zapytanie nie powiodło się, ponieważ nie można otworzyć pliku
 
 Jeśli zapytanie nie powiedzie się z powodu błędu "nie można otworzyć pliku, ponieważ nie istnieje lub jest używany przez inny proces" i masz pewność, że oba pliki istnieją i nie są używane przez inny proces, oznacza to, że bezserwerowa Pula SQL nie może uzyskać dostępu do pliku. Ten problem jest zwykle spowodowany tym, że tożsamość Azure Active Directory nie ma uprawnień dostępu do pliku. Domyślnie Pula SQL bezserwerowa próbuje uzyskać dostęp do pliku przy użyciu tożsamości Azure Active Directory. Aby rozwiązać ten problem, musisz mieć odpowiednie prawa dostępu do pliku. Najprostszym sposobem jest udzielenie sobie roli „Współautor danych obiektu blob usługi Storage” w odniesieniu do konta magazynu, którego dotyczy zapytanie. 
-- [Aby uzyskać więcej informacji, zobacz pełny przewodnik dotyczący kontroli dostępu do magazynu w usłudze Azure Active Directory](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+- [Aby uzyskać więcej informacji, zobacz pełny przewodnik dotyczący kontroli dostępu do magazynu w usłudze Azure Active Directory](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Odwiedź stronę kontrola dostępu do konta magazynu dla bezserwerowej puli SQL w usłudze Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Zapytanie nie powiodło się, ponieważ nie można go wykonać ze względu na bieżące ograniczenia zasobów 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d7b6f1d7ed01009af5e21006240a21442492cb07
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259155"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673632"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server 
 
@@ -84,7 +83,7 @@ Przed rozpoczęciem zapoznaj się z następującymi informacjami i dokumentami S
 * [Przewodniki po najlepszych rozwiązaniach SUSE SAP ha][suse-ha-guide]: zawiera wszystkie informacje wymagane do skonfigurowania NetWeaver wysokiej dostępności i replikacji systemu SAP HANA lokalnego (do użycia jako ogólna linia bazowa). zapewniają one wiele bardziej szczegółowych informacji.
 * [Informacje o wersji w programie SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 * [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]
-* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Omówienie
 
@@ -863,5 +862,5 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 * [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP][planning-guide]
 * [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP][deployment-guide]
 * [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP][dbms-guide]
-* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA](./hana-vm-operations-netapp.md)
 * Aby dowiedzieć się, jak zapewnić wysoką dostępność i zaplanować odzyskiwanie po awarii SAP HANA na maszynach wirtualnych platformy Azure, zobacz [wysoka dostępność SAP HANA na platformie azure Virtual Machines][sap-hana-ha].

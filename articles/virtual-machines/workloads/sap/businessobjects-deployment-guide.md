@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484383"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671909"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Przewodnik planowania i implementacji platformy SAP BusinessObjects BI na platformie Azure
 
@@ -184,7 +183,7 @@ Azure SQL Database oferuje następujące trzy modele zakupu:
 
 Azure Database for MySQL zawiera trzy różne warstwy cenowe. Są one zróżnicowane według ilości obliczeń w rdzeni wirtualnych, pamięci na rdzeń wirtualny i technologii magazynowania używanej do przechowywania daty. Poniżej znajdują się szczegółowe informacje na temat opcji i więcej informacji na temat różnych atrybutów, odnoszące się do [warstwy cenowej](../../../mysql/concepts-pricing-tiers.md) Azure Database for MySQL.
 
-- Podstawowy
+- Podstawowa
 
   Jest on używany do obciążeń docelowych, które wymagają lekkich obliczeń i wydajności operacji we/wy.
 
@@ -236,7 +235,7 @@ Platforma Azure oferuje różne maszyny wirtualne dla wszystkich potrzeb aplikac
 
 W zależności od wielkości platformy SAP BI należy zamapować wymaganie na maszynę wirtualną platformy Azure, która jest obsługiwana na platformie Azure dla produktu SAP. Test SAP [1928533](https://launchpad.support.sap.com/#/notes/1928533) to dobry punkt wyjścia zawierający listę obsługiwanych typów maszyn wirtualnych platformy Azure dla produktów SAP w systemach Windows i Linux. Należy również pamiętać, że oprócz wyboru czysto obsługiwanych typów maszyn wirtualnych należy sprawdzić, czy te typy maszyn wirtualnych są dostępne w określonym regionie. Dostępność typu maszyny wirtualnej można sprawdzić na stronie [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/) . Aby wybrać model cenowy, możesz odnieść się do [usługi Azure Virtual Machines dla obciążenia SAP](planning-guide.md#azure-virtual-machines-for-sap-workload)
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Azure Storage to usługa w chmurze zarządzana przez platformę Azure, która zapewnia magazyn o wysokiej dostępności, bezpieczny, trwały, skalowalny i nadmiarowy. Niektóre typy magazynów mają ograniczone zastosowanie do scenariuszy SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Aby uzyskać więcej informacji, zapoznaj się z tematem [Azure Storage typy dla przewodnika obciążeń SAP](planning-guide-storage.md) , ponieważ wyróżnia on różne opcje magazynu odpowiednie dla oprogramowania SAP.
 
@@ -256,7 +255,7 @@ Usługa Azure Storage ma różne typy magazynów dostępne dla klientów i szcze
 
 ![Układ magazynu oprogramowania SAP BusinessObjects BI platform na platformie Azure](media/businessobjects-deployment-guide/businessobjects-storage-layout.png)
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 SAP BOBI to platforma raportowania i analizy analizy biznesowej, która nie przechowuje żadnych danych biznesowych. Dlatego system jest połączony z innymi serwerami baz danych z lokalizacji, w którym pobiera wszystkie dane, i zapewnia wgląd użytkownikom. Platforma Azure udostępnia infrastrukturę sieciową, która umożliwia mapowanie wszystkich scenariuszy, które mogą być realizowane przy użyciu platformy SAP BI, takich jak łączenie się z systemem lokalnym, systemami w różnych sieciach wirtualnych i innych. Aby uzyskać więcej informacji, sprawdź [Microsoft Azure sieci dla obciążeń SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 

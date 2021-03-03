@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: f9c09dbef072ff1d006603cbc3d0767fc530a99b
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 9eeafaf0f5fbfaff9394ced0a0623f2fb462ed4d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558362"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647000"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z usługą SSOGEN — Brama rejestracji jednokrotnej w usłudze Azure AD dla Oracle E-Business Suite — EBS, PeopleSoft i JDE
 
@@ -148,8 +148,8 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 * Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi SSOGEN — Azure AD dla Oracle E-Business Suite — EBS, PEOPLESOFT i JDE, dla którego skonfigurowano Logowanie jednokrotne. 
 
-Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Logowanie jednokrotne w usłudze Azure AD dla programu Oracle Web-Business Suite-EBS, PeopleSoft i JDE w obszarze Moje aplikacje, jeśli jest ono skonfigurowane w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli jest on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi Azure AD dla Oracle , PeopleSoft i JDE, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć aplikacji Microsoft my Apps, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Logowanie jednokrotne w usłudze Azure AD dla programu Oracle Web-Business Suite-EBS, PeopleSoft i JDE w obszarze Moje aplikacje, jeśli jest ono skonfigurowane w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli jest on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do bramy rejestracji jednokrotnej usługi Azure AD dla Oracle , PeopleSoft i JDE, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu usługi SSOGEN-Azure AD SSO Gateway for Oracle E-Business Suite-EBS, PeopleSoft i JDE można wymusić kontrolę sesji, co chroni przede wszystkim ochronę danych poufnych w organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu usługi SSOGEN-Azure AD SSO Gateway for Oracle E-Business Suite-EBS, PeopleSoft i JDE można wymusić kontrolę sesji, co chroni przede wszystkim ochronę danych poufnych w organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
