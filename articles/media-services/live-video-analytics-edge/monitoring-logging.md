@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie monitorowania i rejestrowania w usłudze Live Video Analytics na IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507826"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730250"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -305,27 +305,70 @@ Wykonaj następujące kroki, aby włączyć zbieranie metryk z poziomu usługi L
      `AZURE_CLIENT_SECRET`: Określa klucz tajny aplikacji do użycia.  
      
      >[!TIP]
-     > Można przyznać jednostce usługi rolę **wydawcy metryk monitorowania** . Postępuj zgodnie z instrukcjami w temacie **[Tworzenie nazwy głównej usługi](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** , aby utworzyć jednostkę usługi i przypisać rolę.
+     > Można przyznać jednostce usługi rolę **wydawcy metryk monitorowania** . Postępuj zgodnie z instrukcjami w temacie **[Tworzenie nazwy głównej usługi](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** , aby utworzyć jednostkę usługi i przypisać rolę.
 
 1. Po wdrożeniu modułów metryki będą wyświetlane w Azure Monitor w ramach pojedynczej przestrzeni nazw. Nazwy metryk będą zgodne z tymi, które są emitowane przez Prometheus. 
 
    W takim przypadku w Azure Portal przejdź do centrum IoT Hub, a następnie wybierz pozycję **metryki** w okienku po lewej stronie. W tym miejscu powinny zostać wyświetlone metryki.
 
-Za pomocą Prometheus wraz z [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)można generować i [monitorować metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , takie jak używane CPUPercent, MemoryUsedPercent itp. Korzystając z języka zapytań Kusto, możesz pisać zapytania jako poniżej i uzyskać procent użycia procesora przez moduły usługi IoT Edge.
-```kusto
-let cpu_metrics = promMetrics_CL
-| where Name_s == "edgeAgent_used_cpu_percent"
-| extend dimensions = parse_json(Tags_s)
-| extend module_name = tostring(dimensions.module_name)
-| where module_name in ("lvaEdge","yolov3","tinyyolov3")
-| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
-cpu_metrics
-| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
-| extend module_name = "Total"
-| union cpu_metrics
-```
+### <a name="log-analytics-metrics-collection"></a>Log Analytics zbieranie metryk
+Za pomocą [punktu końcowego Prometheus](https://prometheus.io/docs/practices/naming/) wraz z [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)można generować i [monitorować metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) , takie jak używane CPUPercent, MemoryUsedPercent itd.   
 
-[![Diagram pokazujący metryki przy użyciu zapytania Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
+> [!NOTE]
+> Poniższa konfiguracja nie zbiera dzienników, a **jedynie metryki**. Istnieje możliwość rozbudowania modułu zbierającego, aby również zbierać i ładować dzienniki.
+
+[![Diagram przedstawiający zbieranie metryk przy użyciu log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+
+1. Dowiedz się, jak [zbierać metryki](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
+1. Użyj poleceń interfejsu wiersza polecenia platformy Docker, aby skompilować [plik platformy Docker](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) i opublikować go w usłudze Azure Container Registry.
+    
+   Aby uzyskać więcej informacji o używaniu interfejsu wiersza polecenia platformy Docker do wypchnięcia do rejestru kontenerów, zobacz [wypychanie i ściąganie obrazów platformy Docker](../../container-registry/container-registry-get-started-docker-cli.md). Aby uzyskać więcej informacji na temat Azure Container Registry, zapoznaj się z [dokumentacją](../../container-registry/index.yml).
+
+1. Po zakończeniu wypychania do Azure Container Registry do manifestu wdrożenia zostanie wstawione następujące polecenie:
+    ```json
+    "azmAgent": {
+      "settings": {
+        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+      },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": {
+        "LogAnalyticsWorkspaceId": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_ID}" },
+        "LogAnalyticsSharedKey": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_SECRET}" },
+        "LogAnalyticsLogType": { "value": "IoTEdgeMetrics" },
+        "MetricsEndpointsCSV": { "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics,http://lvaEdge:9600/metrics" },
+        "ScrapeFrequencyInSecs": { "value": "30 " },
+        "UploadTarget": { "value": "AzureLogAnalytics" }
+      }
+    }
+    ```
+    > [!NOTE]
+    > Moduły `edgeHub` `edgeAgent` i `lvaEdge` są nazwami modułów zdefiniowanych w pliku manifestu wdrożenia. Upewnij się, że nazwy modułów pasują do siebie.   
+
+    Możesz uzyskać swoje `LogAnalyticsWorkspaceId` i wartości, wykonując `LogAnalyticsSharedKey` następujące czynności:
+    1. Przejdź do Azure Portal
+    1. Wyszukaj Twoje obszary robocze Log Analytics
+    1. Po znalezieniu obszaru roboczego Log Analytics przejdź do `Agents management` opcji w okienku nawigacji po lewej stronie.
+    1. Będziesz w stanie znaleźć identyfikator obszaru roboczego i klucze tajne, których można użyć.
+
+1. Następnie Utwórz skoroszyt, klikając `Workbooks` kartę w okienku nawigacji po lewej stronie.
+1. Korzystając z języka zapytań Kusto, możesz pisać zapytania jako poniżej i uzyskać procent procesora CPU używany przez moduły IoT Edge.
+    ```kusto
+    let cpu_metrics = IoTEdgeMetrics_CL
+    | where Name_s == "edgeAgent_used_cpu_percent"
+    | extend dimensions = parse_json(Tags_s)
+    | extend module_name = tostring(dimensions.module_name)
+    | where module_name in ("lvaEdge","yolov3","tinyyolov3")
+    | summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+    cpu_metrics
+    | summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+    | extend module_name = "Total"
+    | union cpu_metrics
+    ```
+
+    [![Diagram pokazujący metryki przy użyciu zapytania Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Rejestrowanie
 
 Podobnie jak w przypadku innych modułów IoT Edge, można również [przeanalizować dzienniki kontenerów](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) na urządzeniu brzegowym. Można skonfigurować informacje zapisane w dziennikach przy użyciu [następujących właściwości sznurka modułu](module-twin-configuration-schema.md) :

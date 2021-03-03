@@ -3,14 +3,14 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591973"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710621"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Skonfiguruj raporty Azure Backup (wersja zapoznawcza)
+# <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
 Typowym wymaganiem dla administratorów kopii zapasowych jest uzyskanie wglądu w kopie zapasowe w oparciu o dane, które zajmują długi czas. W przypadku takich rozwiązań należy uwzględnić następujące przypadki:
 
@@ -139,6 +139,20 @@ Po wybraniu kafelka **optymalizacje zasad** , a następnie kafelka **Optymalizac
 Filtr **Typ zarządzania kopiami zapasowymi** w górnej części karty powinien zawierać elementy **SQL na maszynie wirtualnej platformy Azure** i **SAP HANA na maszynie wirtualnej platformy Azure** , aby siatka mogła wyświetlić obciążenia bazy danych zgodnie z oczekiwaniami.
 
 ![Optymalizowanie kart — Optymalizacja harmonogramu tworzenia kopii zapasowych](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Przestrzeganie zasad
+
+Za pomocą tej karty można sprawdzić, czy wszystkie wystąpienia kopii zapasowej mają co najmniej jedną pomyślną kopię zapasową codziennie. Można wyświetlić zasady przestrzegania czasu lub wystąpienia kopii zapasowej.
+
+###### <a name="email-azure-backup-reports"></a>Raporty Azure Backup e-mail
+
+Za pomocą funkcji **raportów e-mail** dostępnej w raportach usługi Backup można utworzyć automatyczne zadania do otrzymywania raportów okresowych za pośrednictwem poczty e-mail. Ta funkcja działa przez wdrożenie aplikacji logiki w środowisku platformy Azure, która wysyła zapytania do danych z wybranych obszarów roboczych Log Analytics (LA) na podstawie wprowadzonych danych wejściowych.
+
+Po utworzeniu aplikacji logiki należy autoryzować połączenia z dziennikami Azure Monitor i pakietem Office 365. W tym celu przejdź do **Logic Apps** w Azure Portal i wyszukaj nazwę utworzonego zadania. Wybranie elementu menu **połączenia interfejsu API** spowoduje otwarcie listy połączeń interfejsu API wymaganych do autoryzacji.
+
+###### <a name="customize-azure-backup-reports"></a>Dostosowywanie raportów Azure Backup
+
+Raporty kopii zapasowych korzystają z funkcji na Azure Monitor dziennikach. Te funkcje działają na danych w nieprzetworzonych tabelach Azure Backup w LA i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań.
 
 ## <a name="export-to-excel"></a>Eksportuj do programu Excel
 

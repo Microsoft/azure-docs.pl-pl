@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618433"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734132"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupy komputerów w zapytaniach dziennika Azure Monitor
-Grupy komputerów w Azure Monitor umożliwiają określanie zakresu [zapytań dziennika](../log-query/log-query-overview.md) do określonego zestawu komputerów.  Każda grupa jest wypełniana komputerami przy użyciu kwerendy zdefiniowanej lub przez zaimportowanie grup z różnych źródeł.  Gdy grupa zostanie uwzględniona w zapytaniu dziennika, wyniki są ograniczone do rekordów, które pasują do komputerów w grupie.
+Grupy komputerów w Azure Monitor umożliwiają określanie zakresu [zapytań dziennika](./log-query-overview.md) do określonego zestawu komputerów.  Każda grupa jest wypełniana komputerami przy użyciu kwerendy zdefiniowanej lub przez zaimportowanie grup z różnych źródeł.  Gdy grupa zostanie uwzględniona w zapytaniu dziennika, wyniki są ograniczone do rekordów, które pasują do komputerów w grupie.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -135,5 +135,4 @@ Rekord zostanie utworzony w obszarze roboczym Log Analytics dla każdego członk
 | `TimeGenerated` |Data i godzina utworzenia lub aktualizacji grupy komputerów. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.  
-
+* Informacje na temat [zapytań dzienników](./log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.

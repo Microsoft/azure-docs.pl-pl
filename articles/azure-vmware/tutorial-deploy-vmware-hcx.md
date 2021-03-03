@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e1df53a7aea0b7642828bba80cd7237e26a7182f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357895"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728233"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
@@ -36,7 +36,7 @@ Następnie przeprowadzimy przez wszystkie niezbędne procedury, aby:
 
 Po zakończeniu postępuj zgodnie z zalecanymi następnymi krokami na końcu tego artykułu.  
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Podczas przygotowywania wdrożenia zalecamy przejrzenie następującej dokumentacji programu VMware:
 
@@ -76,12 +76,15 @@ Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy p
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Zrzut ekranu przedstawiający adres IP programu VMware HCX." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Wybierz pozycję **Zarządzaj**  >  **tożsamością** i wybierz pozycję **hasło administratora vCenter** w celu zidentyfikowania hasła.
+1. Wybierz pozycję **Zarządzaj**  >  **tożsamością**. 
+
+   Adresy URL i poświadczenia użytkownika dla usługi Private Cloud vCenter i NSX-T Menedżera.
 
    > [!TIP]
-   > Hasło vCenter zostało zdefiniowane podczas konfigurowania chmury prywatnej. To samo hasło, którego będziesz używać do logowania się do usługi Azure VMware Solution HCX Manager.
+   > Hasło vCenter zostało zdefiniowane podczas konfigurowania chmury prywatnej. To samo hasło, którego będziesz używać do logowania się do usługi Azure VMware Solution HCX Manager. Możesz wybrać opcję **Generuj nowe hasło** , aby generować nowe hasła VCENTER i NSX-T.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="Znajdź hasło HCX." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
+
 
 1. Otwórz okno przeglądarki, zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 z poświadczeniami **użytkownika \@ lokalnego cloudadmin vSphere.**
 
@@ -209,7 +212,7 @@ Utworzysz cztery Profile sieciowe:
 
    :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Zrzut ekranu przedstawiający opcje rozpoczęcia tworzenia profilu sieciowego." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
-1. Dla każdego profilu sieciowego wybierz sieć i grupę portów, podaj nazwę i Utwórz pulę adresów IP segmentu. Następnie wybierz przycisk **Utwórz**. 
+1. Dla każdego profilu sieciowego wybierz sieć i grupę portów, podaj nazwę i Utwórz pulę adresów IP segmentu. Następnie wybierz pozycję **Utwórz**. 
 
    :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Zrzut ekranu przedstawiający szczegóły nowego profilu sieciowego.":::
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 77464ccfb5b80c84f091d8e6bc491908baed6486
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1fc21b6338accef8e22b2e41ad2017d24ab8bd38
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710468"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -97,7 +97,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
 |[Rozpoznawanie formularzy](./form-recognizer/overview.md)||x||
 |[Czytnik immersyjny](./immersive-reader/overview.md)|x|||
-|[Rozpoznawanie pisma odręcznego](./Ink-recognizer/overview.md)|x|x||
+|[Rozpoznawanie pisma odręcznego](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizacja](./personalizer/what-is-personalizer.md)|y|y|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -127,7 +127,7 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 
 |Usługa poznawcze|Informacje o modelu|
 |--|--|
-|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./custom-vision-service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
 ## <a name="learn-more"></a>Więcej tutaj
 

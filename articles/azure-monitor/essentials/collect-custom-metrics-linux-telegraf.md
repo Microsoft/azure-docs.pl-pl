@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fbed48dda3d6b022d30bb9fb0507c3f9f203771d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4274f976a04a9694c0429a2a4794d645304a9e97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613252"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728811"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
@@ -25,7 +25,7 @@ Korzystając z Azure Monitor, można zbierać niestandardowe metryki za pośredn
  ![Omówienie agenta telegraficznego](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Metryki niestandardowe nie są obsługiwane we wszystkich regionach. Obsługiwane regiony są wymienione [tutaj](../platform/metrics-custom-overview.md#supported-regions)
+> Metryki niestandardowe nie są obsługiwane we wszystkich regionach. Obsługiwane regiony są wymienione [tutaj](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Wysyłanie metryk niestandardowych 
 
@@ -136,4 +136,4 @@ Ponadto w tym instruktażu Agent telegraf był używany do emitowania metryk dot
 Gdy nie są już potrzebne, możesz usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby. W tym celu wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Następnie Potwierdź nazwę grupy zasobów do usunięcia. 
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [metrykach niestandardowych](../platform/metrics-custom-overview.md).
+- Dowiedz się więcej o [metrykach niestandardowych](./metrics-custom-overview.md).

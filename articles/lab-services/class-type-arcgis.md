@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373712"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740107"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Konfigurowanie programu Lab for ArcMap\ArcGIS Desktop
 
@@ -24,7 +24,7 @@ Po uzyskaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratori
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
 
-Włącz ustawienia konta laboratorium zgodnie z opisem w poniższej tabeli.  Aby uzyskać więcej informacji o sposobie włączania obrazów w portalu Azure Marketplace, zobacz temat [Określanie obrazów portalu Azure Marketplace dostępnych dla twórców laboratorium](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images).
+Włącz ustawienia konta laboratorium zgodnie z opisem w poniższej tabeli.  Aby uzyskać więcej informacji o sposobie włączania obrazów w portalu Azure Marketplace, zobacz temat [Określanie obrazów portalu Azure Marketplace dostępnych dla twórców laboratorium](./specify-marketplace-images.md).
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ------------------- | ------------ |
@@ -34,7 +34,7 @@ Włącz ustawienia konta laboratorium zgodnie z opisem w poniższej tabeli.  Aby
 
 Jednym z typów licencjonowania, które oferuje ArcGIS Desktop, jest [współbieżne używanie licencji](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm).  Wymaga to zainstalowania Menedżera licencji ArcGIS na serwerze licencji.  Menedżer licencji śledzi liczbę kopii oprogramowania, które mogą być uruchamiane w tym samym czasie.  Aby uzyskać więcej informacji na temat konfigurowania Menedżera licencji na serwerze, zobacz [Przewodnik po programie License Manager](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm).
 
-Serwer licencji zazwyczaj znajduje się w sieci lokalnej lub jest hostowany na maszynie wirtualnej platformy Azure w ramach sieci wirtualnej platformy Azure.  Po skonfigurowaniu serwera licencji musisz nawiązać [połączenie równorzędne z siecią wirtualną](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network) przy użyciu [konta laboratorium](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account).  Przed utworzeniem laboratorium należy wykonać komunikację równorzędną sieci, aby maszyny wirtualne laboratorium mogły uzyskiwać dostęp do serwera licencji i na odwrót.
+Serwer licencji zazwyczaj znajduje się w sieci lokalnej lub jest hostowany na maszynie wirtualnej platformy Azure w ramach sieci wirtualnej platformy Azure.  Po skonfigurowaniu serwera licencji musisz nawiązać [połączenie równorzędne z siecią wirtualną](./how-to-connect-peer-virtual-network.md) przy użyciu [konta laboratorium](./tutorial-setup-lab-account.md).  Przed utworzeniem laboratorium należy wykonać komunikację równorzędną sieci, aby maszyny wirtualne laboratorium mogły uzyskiwać dostęp do serwera licencji i na odwrót.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie serwera licencji jako zasobu udostępnionego](how-to-create-a-lab-with-shared-resource.md).
 

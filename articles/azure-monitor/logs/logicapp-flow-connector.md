@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707952"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Łącznik Azure Monitor Logs dla Logic Apps i automatyzacji
 [Azure Logic Apps](../../logic-apps/index.yml) i [Automatyzacja](https://flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
@@ -125,6 +125,6 @@ Po zakończeniu działania aplikacji logiki Sprawdź pocztę określonego adresa
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej [na temat zapytań dzienników w Azure monitor](../log-query/log-query-overview.md).
+- Dowiedz się więcej [na temat zapytań dzienników w Azure monitor](./log-query-overview.md).
 - Dowiedz się więcej o [Logic Apps](../../logic-apps/index.yml)
 - Dowiedz się więcej o [automatyzacji](https://flow.microsoft.com).

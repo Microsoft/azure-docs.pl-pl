@@ -1,31 +1,31 @@
 ---
-title: Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z węzłami z obsługą procesorów NVIDIA i AMD przy użyciu Azure Monitor dla kontenerów.
+title: Konfigurowanie monitorowania procesora GPU przy użyciu usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z węzłami z obsługą technologii NVIDIA i AMD przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 11a9de0872fd3e7589332322b3f8fb855d2c88ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2958b000ac0dabcd7fddf75a58f553b705a95e9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731871"
 ---
-# <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów
+# <a name="configure-gpu-monitoring-with-container-insights"></a>Konfigurowanie monitorowania procesora GPU przy użyciu usługi Container Insights
 
-Począwszy od wersji agenta *ciprod03022019*, usługa Azure monitor for Containers Integrated Agent obsługuje teraz monitorowanie procesora GPU (graficzne jednostki przetwarzania) w węzłach klastra KUBERNETES z procesorem GPU i monitorowanie obciążeń/kontenerów żądających i korzystających z zasobów procesora GPU.
+Począwszy od wersji agenta *ciprod03022019*, zintegrowany Agent usługi Container Insights obsługuje teraz monitorowanie procesora GPU (jednostek przetwarzania graficznego) w węzłach klastra Kubernetes z obsługą procesora GPU i monitorowanie obciążeń/kontenerów żądających i korzystających z zasobów procesora GPU.
 
 ## <a name="supported-gpu-vendors"></a>Obsługiwani dostawcy procesora GPU
 
-Azure Monitor kontenerów obsługuje monitorowanie klastrów procesora GPU od następujących dostawców GPU:
+Usługi Container Insights obsługują monitorowanie klastrów procesora GPU od następujących dostawców GPU:
 
 - [GRAFICZNY](https://developer.nvidia.com/kubernetes-gpu)
 
 - [PROCESORÓW](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia procesora GPU w węzłach oraz procesor GPU żądający zasobników i obciążeń, zbierając następujące metryki w interwałach 60sec i przechowując je w tabeli **InsightMetrics** .
+Usługi Container Insights automatycznie uruchamiają monitorowanie użycia procesora GPU w węzłach oraz procesor GPU żądający zasobników i obciążeń, zbierając następujące metryki w interwałach 60sec i przechowując je w tabeli **InsightMetrics** .
 
 >[!NOTE]
->Po zainicjowaniu obsługi administracyjnej klastra z węzłami GPU upewnij się, że [Sterownik procesora GPU](../../aks/gpu-cluster.md) jest zainstalowany zgodnie z wymaganiami AKS do uruchamiania obciążeń procesora GPU. Azure Monitor kontenerów zbiera metryki procesora GPU przy użyciu zasobników procesora GPU uruchomionych w węźle. 
+>Po zainicjowaniu obsługi administracyjnej klastra z węzłami GPU upewnij się, że [Sterownik procesora GPU](../../aks/gpu-cluster.md) jest zainstalowany zgodnie z wymaganiami AKS do uruchamiania obciążeń procesora GPU. Informacje o kontenerze zbierają metryki procesora GPU za pomocą zasobników procesora GPU uruchomionych w węźle. 
 
 |Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|
@@ -39,7 +39,7 @@ Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia proc
 
 ## <a name="gpu-performance-charts"></a>Wykresy wydajności procesora GPU 
 
-Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt GPU dla każdego klastra. Zobacz [skoroszyty w Azure monitor for Containers](../insights/container-insights-reports.md) , aby uzyskać opis skoroszytów dostępnych dla Azure monitor kontenerów.
+Informacje o kontenerze zawierają wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt GPU dla każdego klastra. Zobacz [skoroszyty w usłudze Container Insights](../insights/container-insights-reports.md) , aby zapoznać się z opisem skoroszytów dostępnych dla usługi Container Insights.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3806578f5d1af61329e2e32fa3e8eceb9afa4d42
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713970"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opcje konfiguracji — Azure Monitor Application Insights dla języka Java
 
@@ -217,6 +217,9 @@ Są to prawidłowe `level` wartości, które można określić w `applicationins
 | DOKŁADNIEJSZ             | DEBUGUJ  | DEBUGUJ   | DOKŁADNIEJSZ   |
 | TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
+
+> [!NOTE]
+> Jeśli do rejestratora zostanie przekazana wyjątek, komunikat dziennika (i wyjątek) zostanie wyświetlony w Azure Portal w `exceptions` tabeli zamiast `traces` tabeli.
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
 

@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811952"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703770"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -92,7 +92,7 @@ Jeśli chcesz utworzyć lokalną kopię zapasową (przy użyciu platformy HANA S
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
 2. dla odpowiedniej bazy danych
-    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję   >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
         * enable_auto_log_backup: nie
         * log_backup_using_backint: FAŁSZ
         * catalog_backup_using_backint: FAŁSZ
@@ -109,7 +109,7 @@ Jeśli chcesz edytować lub wyczyścić wykaz kopii zapasowych, wykonaj następu
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
 2. dla odpowiedniej bazy danych
-    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
+    1. Nie usunięto parametrów BACKINT. Aby to zrobić, kliknij dwukrotnie pozycję   >  **Konfiguracja** systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
         * enable_auto_log_backup: nie
         * log_backup_using_backint: FAŁSZ
         * catalog_backup_using_backint: FAŁSZ
@@ -149,8 +149,6 @@ Można zmienić podstawowe zasady dla SAP HANA elementu kopii zapasowej.
 
 >[!NOTE]
 > Każda zmiana w okresie przechowywania będzie stosowana z mocą wsteczną do wszystkich starszych punktów odzyskiwania poza nowymi.
->
-> Nie można używać zasad przyrostowej kopii zapasowej dla SAP HANA baz danych. Przyrostowa kopia zapasowa nie jest obecnie obsługiwana dla tych baz danych.
 
 ### <a name="modify-policy"></a>Modyfikowanie zasad
 

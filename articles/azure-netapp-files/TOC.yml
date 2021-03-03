@@ -29,6 +29,8 @@
           href: azure-netapp-files-performance-metrics-volumes.md
         - name: Testy porównawcze wydajności dla systemu Linux
           href: performance-benchmarks-linux.md
+        - name: Wpływ na wydajność protokołu Kerberos w systemie NFSv 4.1
+          href: performance-impact-kerberos.md
         - name: Wydajność bazy danych Oracle na pojedynczych woluminach usługi Azure NetApp Files
           href: performance-oracle-single-volumes.md
         - name: Często zadawane pytania dotyczące wydajności protokołu SMB

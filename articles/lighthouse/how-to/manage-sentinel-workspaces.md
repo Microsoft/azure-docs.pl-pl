@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
-ms.date: 09/30/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424090"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702525"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -80,9 +80,9 @@ Twórz i zapisuj Log Analytics zapytania dotyczące wykrywania zagrożeń centra
 
 Za pomocą usługi Automation można zarządzać wieloma obszarami roboczymi usługi Azure wskaźnikami i konfigurować [zapytania łowieckie](../../sentinel/hunting.md), elementy playbook i skoroszyty. Aby uzyskać więcej informacji, zobacz [Zarządzanie między obszarami roboczymi przy użyciu usługi Automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
-## <a name="manage-security-of-office-365-environments"></a>Zarządzanie zabezpieczeniami środowisk pakietu Office 365
+## <a name="monitor-security-of-office-365-environments"></a>Monitorowanie zabezpieczeń środowisk pakietu Office 365
 
-Skorzystaj z usługi Azure Lighthouse w połączeniu z usługą Azure wskaźnikiem, aby zarządzać zabezpieczeniami środowisk pakietu Office 365 w różnych dzierżawach. Najpierw [należy włączyć wbudowane łączniki danych pakietu Office 365 w zarządzanej dzierżawie](../../sentinel/connect-office-365.md) , aby informacje o działaniach użytkownika i administratora w programach Exchange i SharePoint (w tym OneDrive) mogły zostać przeprowadzone do obszaru roboczego wskaźnikowego platformy Azure w ramach zarządzanej dzierżawy. Dotyczy to również szczegółowych informacji o akcjach, takich jak pobieranie plików, wysłane żądania dostępu, zmiany w zdarzeniach grupy i operacje skrzynek pocztowych oraz informacje o użytkownikach, którzy wykonali te akcje. [Alerty funkcji DLP pakietu office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) są również obsługiwane w ramach wbudowanego łącznika pakietu Office 365.
+Za pomocą usługi Azure Lighthouse w połączeniu z platformą Azure — wskaźnikiem kontrolnym można monitorować zabezpieczenia środowisk pakietu Office 365 w różnych dzierżawach. Najpierw [należy włączyć wbudowane łączniki danych pakietu Office 365 w zarządzanej dzierżawie](../../sentinel/connect-office-365.md) , aby informacje o działaniach użytkownika i administratora w programach Exchange i SharePoint (w tym OneDrive) mogły zostać przeprowadzone do obszaru roboczego wskaźnikowego platformy Azure w ramach zarządzanej dzierżawy. Dotyczy to również szczegółowych informacji o akcjach, takich jak pobieranie plików, wysłane żądania dostępu, zmiany w zdarzeniach grupy i operacje skrzynek pocztowych oraz informacje o użytkownikach, którzy wykonali te akcje. [Alerty funkcji DLP pakietu office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) są również obsługiwane w ramach wbudowanego łącznika pakietu Office 365.
 
 [Łącznik Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) można włączyć do przesyłania strumieniowego alertów i Cloud Discovery dzienników do usługi Azure wskaźnikowej. Dzięki temu możesz uzyskać wgląd w aplikacje w chmurze, uzyskać zaawansowaną analizę, aby identyfikować i zwalczać dotyczące środowiskach oraz kontrolować sposób przesyłania danych. Dzienniki aktywności dla MCAS można [używać przy użyciu typowego formatu zdarzeń (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 

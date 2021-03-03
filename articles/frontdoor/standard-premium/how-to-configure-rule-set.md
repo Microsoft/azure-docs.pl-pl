@@ -7,24 +7,19 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: e2fe475b171a99ec27ed162511db289891066e00
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715602"
 ---
-# <a name="configure-a-rule-set"></a>Konfigurowanie zestawu reguł
+# <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Konfigurowanie zestawu reguł przy użyciu platformy Azure Front-Standard/Premium (wersja zapoznawcza)
 
 > [!Note]
 > Ta dokumentacja dotyczy platformy Azure — Standard/Premium (wersja zapoznawcza). Szukasz informacji na temat zewnętrznych drzwi platformy Azure? [Tutaj](../front-door-overview.md)Wyświetl.
 
-W tym samouczku pokazano, jak utworzyć zestaw reguł i swój pierwszy zestaw reguł w Azure Portal. 
-
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
-> [!div class="checklist"]
-> - Skonfiguruj zestaw reguł przy użyciu portalu.
-> - Usuwanie zestawu reguł z profilu AFD przy użyciu portalu
+W tym artykule przedstawiono sposób tworzenia zestawu reguł oraz pierwszego zestawu reguł w Azure Portal. Następnie dowiesz się, jak skojarzyć zestaw reguł z trasą ze strony zestawu reguł lub z Menedżera punktów końcowych.
 
 > [!IMPORTANT]
 > Platforma Azure Front-Standard/Premium (wersja zapoznawcza) jest obecnie dostępna w publicznej wersji zapoznawczej.
@@ -33,7 +28,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Przed wykonaniem kroków opisanych w tym samouczku należy najpierw utworzyć Standard/Premium drzwi platformy Azure. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie profilu usługi Azure Front-Standard/Premium](create-front-door-portal.md).
+* Aby można było skonfigurować zestaw reguł, należy najpierw utworzyć Standard/Premium platformy Azure. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie profilu usługi Azure Front-Standard/Premium](create-front-door-portal.md).
 
 ## <a name="configure-rule-set-in-azure-portal"></a>Konfigurowanie zestawu reguł w Azure Portal
 
@@ -65,11 +60,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
     1. Wybierz *nieskojarzony* link.
      
 
-    1. Następnie w bloku **kojarzenie trasy** wybierz punkt końcowy i trasę, które chcesz skojarzyć z zestawem reguł. 
+    1. Następnie na stronie **kojarzenie trasy** wybierz punkt końcowy i trasę, które chcesz skojarzyć z zestawem reguł. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie trasy.":::    
         
-    1. Kliknij przycisk *dalej* , aby zmienić kolejność zestawów reguł, jeśli w wybranej trasie znajduje się wiele zestawów reguł. Zestaw reguł zostanie wykonany z góry do dołu. Można zmienić kolejność, wybierając zestaw reguł i przenosząc je w górę lub w dół. Następnie wybierz pozycję *Skojarz*.
+    1. Wybierz pozycję *dalej* , aby zmienić kolejność zestawów reguł, jeśli w wybranej trasie znajduje się wiele zestawów reguł. Zestaw reguł zostanie wykonany z góry do dołu. Można zmienić kolejność, wybierając zestaw reguł i przenosząc je w górę lub w dół. Następnie wybierz pozycję *Skojarz*.
     
         > [!Note]
         > Na tej stronie można skojarzyć tylko jeden zestaw reguł z jedną trasą. Aby skojarzyć zestaw reguł z wieloma trasami, należy użyć Menedżera punktów końcowych.
@@ -86,15 +81,15 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="Zrzut ekranu przedstawiający Wybieranie punktu końcowego w Menedżerze punktów końcowych." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. Kliknij pozycję *Edytuj punkt końcowy*  
+    1. Wybierz pozycję *Edytuj punkt końcowy*.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="Zrzut ekranu przedstawiający Wybieranie opcji edytuj punkt końcowy w Menedżerze punktów końcowych." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. Kliknij trasę. 
+    1. Wybierz trasę. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="Zrzut ekranu przedstawiający wybór trasy.":::
     
-    1. W bloku *Aktualizowanie trasy* w obszarze *reguły* wybierz zestawy reguł, które chcesz skojarzyć z trasą z listy rozwijanej. Następnie możesz zmienić kolejność, przenosząc ustawienia w górę i w dół. 
+    1. Na stronie *Aktualizowanie trasy* w obszarze *reguły* wybierz zestawy reguł, które chcesz skojarzyć z trasą z listy rozwijanej. Następnie możesz zmienić kolejność, przenosząc ustawienia w górę i w dół. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="Zrzut ekranu przedstawiający stronę aktualizowanie trasy.":::
     
@@ -106,7 +101,7 @@ W poprzednich krokach została skonfigurowana i skojarzona z zestawem reguł do 
 
 1. Przejdź do **strony zestaw reguł** w obszarze **Ustawienia** , aby usunąć skojarzenie zestawu reguł ze wszystkich skojarzonych tras.
 
-1. Rozwiń do trasy, kliknij trzy kropki wybierz pozycję *Edytuj trasę*.
+1. Rozwiń trasę, wybierz trzy kropki. Następnie wybierz pozycję *Edytuj trasę*.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="Zrzut ekranu rozbudowanego trasy w zestawie reguł.":::
 
@@ -126,13 +121,4 @@ W poprzednich krokach została skonfigurowana i skojarzona z zestawem reguł do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-* Tworzenie zestawu reguł
-* Skojarz zestaw reguł z trasą AFD.
-* Usuwanie zestawu reguł z profilu AFD
-
-Aby dowiedzieć się, jak dodać nagłówki zabezpieczeń z zestawem reguł, przejdź do następnego samouczka.
-
-> [!div class="nextstepaction"]
-> [Nagłówki zabezpieczeń z zestawem reguł]()
+Dowiedz się, jak dodać [nagłówki zabezpieczeń z zestawem reguł](how-to-add-security-headers.md).

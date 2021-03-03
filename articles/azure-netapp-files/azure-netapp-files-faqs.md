@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713409"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files udostępnia metryki wydajności woluminu. Można również u�
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Jaki jest wpływ na wydajność protokołu Kerberos w systemie NFSv 4.1?
 
-Zobacz [wpływ na wydajność protokołu Kerberos w systemie nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) , aby uzyskać informacje na temat opcji zabezpieczeń dla nfsv 4.1, przetestowanych wektorów wydajności i oczekiwanego wpływu na wydajność. 
+Zobacz [wpływ na wydajność protokołu Kerberos na woluminach nfsv 4.1](performance-impact-kerberos.md) , aby uzyskać informacje na temat opcji zabezpieczeń dla nfsv 4.1, przetestowanych wektorów wydajności i oczekiwanego wpływu na wydajność. 
 
 ## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące systemu NFS
 

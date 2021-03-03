@@ -4,14 +4,14 @@ description: Dowiedz się, jak utworzyć klaster AKS z węzłami poufnymi i wdro
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 2/8/2020
+ms.date: 2/25/2020
 ms.author: amgowda
-ms.openlocfilehash: 866c8340cf9c16d768f4035326aa2ec52dbf1401
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 51b0813849236d9335d1482019f740fc8b23749f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653367"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703290"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) z węzłami w postaci poufnego przetwarzania danych (DCsv2) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -26,7 +26,7 @@ W tym przewodniku szybki start dowiesz się, jak wdrożyć klaster usługi Azure
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Funkcje węzła poufnego obliczeń (DC <x> s-v2)
 
-1. Węzły procesu roboczego systemu Linux obsługujące tylko kontenery systemu Linux
+1. Węzły procesu roboczego systemu Linux obsługujące kontenery systemu Linux
 1. Maszyna wirtualna 2. generacji z Ubuntu 18,04 Virtual Machines węzłami
 1. Procesor Intel SGX oparty na procesorze z zaszyfrowaną pamięcią podręczną strony (EPC). Przeczytaj więcej [tutaj](./faq.md)
 1. Obsługa Kubernetes w wersji 1.16 +
@@ -37,41 +37,8 @@ Samouczek wdrażania wymaga poniższego:
 
 1. Aktywna subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 1. Interfejs wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej został zainstalowany i skonfigurowany na komputerze wdrożenia (Uruchom, `az --version` Aby znaleźć wersję. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md)
-1. Azure [AKS — minimalna wersja rozszerzenia wersji zapoznawczej](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) 0.5.0
 1. Co najmniej sześć rdzeni **DC <x> s-v2** dostępnych w Twojej subskrypcji do użycia. Domyślnie przydziały maszyn wirtualnych są przydzielone do danych poufnych za korzystanie z subskrypcji platformy Azure 8. Jeśli planujesz obsługę klastra wymagającego więcej niż 8 rdzeni, postępuj zgodnie z [tymi](../azure-portal/supportability/per-vm-quota-requests.md) instrukcjami, aby zgłosić bilet wzrostu limitu przydziału
 
-## <a name="cli-based-preparation-steps-required-for-add-on-in-preview---optional-but-recommended"></a>Kroki przygotowania oparte na interfejsie wiersza polecenia (wymagane dla dodatku w wersji zapoznawczej — opcjonalne, ale zalecane)
-Postępuj zgodnie z poniższymi instrukcjami, aby włączyć opcję poufnego przetwarzania danych w systemie AKS.
-
-### <a name="step-1-installing-the-cli-prerequisites"></a>Krok 1. Instalowanie wymagań wstępnych interfejsu wiersza polecenia
-
-Aby zainstalować rozszerzenie AKS-Preview 0.5.0 lub nowsze, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-Aby zaktualizować rozszerzenie interfejsu wiersza polecenia AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-### <a name="step-2-azure-confidential-computing-addon-feature-registration-on-azure"></a>Krok 2. Rejestracja funkcji z dodatkiem do usługi Azure CONFIDENTIAL na platformie Azure
-Rejestrowanie AKS-ConfidentialComputingAddon w ramach subskrypcji platformy Azure. Ta funkcja spowoduje dodanie wtyczki urządzenia SGX elementu daemonset, jak opisano w szczegółach [tutaj](./confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks):
-1. Wtyczka sterownika urządzenia SGX
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
-```
-Wyświetlenie stanu jako zarejestrowanego może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia "AZ Feature list". Ta rejestracja funkcji odbywa się tylko raz na subskrypcję. Jeśli został on zarejestrowany wcześniej, możesz pominąć powyższy krok:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
-```
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia "AZ Provider Register":
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 ## <a name="creating-new-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Tworzenie nowego klastra AKS z poufnymi węzłami obliczeniowymi i dodatkiem
 Postępuj zgodnie z poniższymi instrukcjami, aby dodać poufne węzły z obsługą obliczeniową z dodatkiem.
 

@@ -4,12 +4,12 @@ description: Informacje o regułach akcji w Azure Monitor są i sposobami ich ko
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718152"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -209,7 +209,7 @@ Firma Contoso chce pominąć powiadomienia dla wszystkich alertów dziennika wyg
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenariusz 3: Grupa akcji zdefiniowana w grupie zasobów
 
-Firma Contoso określiła [alert dotyczący metryki na poziomie subskrypcji](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Jednak chce zdefiniować akcje wyzwalane w odniesieniu do alertów wygenerowanych z grupy zasobów **ContosoRG**.
+Firma Contoso określiła [alert dotyczący metryki na poziomie subskrypcji](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Jednak chce zdefiniować akcje wyzwalane w odniesieniu do alertów wygenerowanych z grupy zasobów **ContosoRG**.
 
 **Rozwiązanie:** Utwórz regułę akcji przy użyciu:
 * Zakres = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
-Alerty dzienników tworzone za pomocą opcji [liczba wyników](../platform/alerts-unified-log.md) generują pojedyncze wystąpienie alertu za pomocą całego wyniku wyszukiwania (co może obejmować wiele komputerów). W tym scenariuszu, jeśli reguła akcji używa filtru **kontekstu alertu (ładunku)** , działa on w wystąpieniu alertu, o ile jest to zgodne. W scenariuszu 2 opisanym wcześniej, jeśli wyniki wyszukiwania dla wygenerowanego alertu dziennika zawierają zarówno **komputer-01** , jak i **komputer-02**, całe powiadomienie jest pomijane. Dla **komputera-02** nie Wygenerowano powiadomienia.
+Alerty dzienników tworzone za pomocą opcji [liczba wyników](./alerts-unified-log.md) generują pojedyncze wystąpienie alertu za pomocą całego wyniku wyszukiwania (co może obejmować wiele komputerów). W tym scenariuszu, jeśli reguła akcji używa filtru **kontekstu alertu (ładunku)** , działa on w wystąpieniu alertu, o ile jest to zgodne. W scenariuszu 2 opisanym wcześniej, jeśli wyniki wyszukiwania dla wygenerowanego alertu dziennika zawierają zarówno **komputer-01** , jak i **komputer-02**, całe powiadomienie jest pomijane. Dla **komputera-02** nie Wygenerowano powiadomienia.
 
 ![Diagram przedstawia reguły akcji i alerty dzienników z wyróżnionym pojedynczym wystąpieniem alertu.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Aby najlepiej używać alertów dziennika z regułami akcji, Utwórz alerty dzienników przy użyciu opcji [pomiar metryki](../platform/alerts-unified-log.md) . Dla tej opcji generowane są osobne wystąpienia alertów na podstawie pola zdefiniowanej grupy. Następnie w scenariuszu 2 generowane są osobne wystąpienia alertów dla **komputerów-01** i **Computer-02**. Ze względu na regułę akcji opisaną w tym scenariuszu tylko powiadomienie dla **komputera-01** jest pomijane. Powiadomienie dla **komputera-02** nadal jest normalne.
+Aby najlepiej używać alertów dziennika z regułami akcji, Utwórz alerty dzienników przy użyciu opcji [pomiar metryki](./alerts-unified-log.md) . Dla tej opcji generowane są osobne wystąpienia alertów na podstawie pola zdefiniowanej grupy. Następnie w scenariuszu 2 generowane są osobne wystąpienia alertów dla **komputerów-01** i **Computer-02**. Ze względu na regułę akcji opisaną w tym scenariuszu tylko powiadomienie dla **komputera-01** jest pomijane. Powiadomienie dla **komputera-02** nadal jest normalne.
 
 ![Reguły akcji i alerty dziennika (liczba wyników)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Po zdefiniowaniu zasobu docelowego dla reguły alertu można zobaczyć listę re
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Czy mogę zobaczyć alerty, które zostały pominięte przez regułę akcji?
 
-Na [stronie Lista alertów](../platform/alerts-managing-alert-instances.md)można wybrać dodatkową kolumnę o nazwie **stan pomijania**. Jeśli powiadomienie dla wystąpienia alertu zostało pominięte, ten stan będzie wyświetlany na liście.
+Na [stronie Lista alertów](./alerts-managing-alert-instances.md)można wybrać dodatkową kolumnę o nazwie **stan pomijania**. Jeśli powiadomienie dla wystąpienia alertu zostało pominięte, ten stan będzie wyświetlany na liście.
 
 ![Pominięte wystąpienia alertów](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Dla każdego alertu w witrynie VM1 grupa akcji AG1 zostanie wyzwolona jednokrotn
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej o alertach na platformie Azure](../platform/alerts-overview.md)
+- [Dowiedz się więcej o alertach na platformie Azure](./alerts-overview.md)

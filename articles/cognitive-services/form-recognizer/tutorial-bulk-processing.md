@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1780aebc113fa68a9a89cfce9fd67c9b5911fc58
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6faa612f55b4114b4242c48d43aae9aac8c56582
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98606058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700001"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-using-azure-data-factory"></a>Samouczek: masowe wyodrębnianie danych formularza przy użyciu Azure Data Factory
 
@@ -65,7 +65,7 @@ W notesie Azure Databricks są używane przeszkolone modele do wyodrębnienia da
 
 Zaległości formularzy mogą znajdować się w środowisku lokalnym lub na serwerze FTP. Ten samouczek używa formularzy w ramach konta magazynu Azure Data Lake Gen 2. Pliki można przenieść przy użyciu Azure Data Factory, Eksplorator usługi Azure Storage lub AzCopy. Zestawy danych szkoleniowych i oceniających mogą znajdować się w różnych kontenerach, ale zestawy danych szkoleniowych dla wszystkich typów formularzy muszą znajdować się w tym samym kontenerze (chociaż mogą znajdować się w różnych folderach).
 
-Aby utworzyć nowy Data Lake, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu, które ma być używane z Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+Aby utworzyć nowy Data Lake, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu, które ma być używane z Azure Data Lake Storage Gen2](../../storage/blobs/create-data-lake-storage-account.md).
 
 ## <a name="create-a-parameterization-table"></a>Tworzenie tabeli parametryzacja
 
@@ -89,7 +89,7 @@ W tabeli zostaną użyte następujące pola:
 
 ### <a name="create-the-table"></a>Tworzenie tabeli
 
-[Utwórz Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), a następnie uruchom poniższy skrypt SQL w [Edytorze zapytań](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) , aby utworzyć wymaganą tabelę.
+[Utwórz Azure SQL Database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), a następnie uruchom poniższy skrypt SQL w [Edytorze zapytań](../../azure-sql/database/connect-query-portal.md) , aby utworzyć wymaganą tabelę.
 
 ```sql
 CREATE TABLE dbo.ParamFormRecogniser(
@@ -142,7 +142,7 @@ Będziesz używać Azure Databricks do przechowywania i uruchamiania kodu język
 
 ### <a name="create-a-secret-scope-backed-by-azure-key-vault"></a>Utwórz zakres tajny, którego kopia zapasowa ma Azure Key Vault
 
-Aby odwołać się do wpisów tajnych w Azure Key Vault, które zostały utworzone powyżej, musisz utworzyć zakres tajny w kostkach danych. Postępuj zgodnie z instrukcjami w obszarze [Utwórz zakres tajny Azure Key Vault-kopia zapasowa](https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
+Aby odwołać się do wpisów tajnych w Azure Key Vault, które zostały utworzone powyżej, musisz utworzyć zakres tajny w kostkach danych. Postępuj zgodnie z instrukcjami w obszarze [Utwórz zakres tajny Azure Key Vault-kopia zapasowa](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope).
 
 ### <a name="create-a-databricks-cluster"></a>Tworzenie klastra usługi Databricks
 
@@ -461,7 +461,7 @@ Teraz możemy utworzyć Notes oceniania. Podobnie jak w przypadku notesu szkolen
 
 ## <a name="automate-training-and-scoring-with-azure-data-factory"></a>Automatyzacja szkoleń i oceniania dzięki Azure Data Factory
 
-Jedyną pozostałą czynnością jest skonfigurowanie usługi Azure Data Factory (ADF) w celu zautomatyzowania procesów szkolenia i oceniania. Najpierw wykonaj kroki opisane w sekcji [Tworzenie fabryki danych](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory). Po utworzeniu zasobu ADF należy utworzyć trzy potoki: jeden do szkolenia i dwa na potrzeby oceny (wyjaśniony poniżej).
+Jedyną pozostałą czynnością jest skonfigurowanie usługi Azure Data Factory (ADF) w celu zautomatyzowania procesów szkolenia i oceniania. Najpierw wykonaj kroki opisane w sekcji [Tworzenie fabryki danych](../../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory). Po utworzeniu zasobu ADF należy utworzyć trzy potoki: jeden do szkolenia i dwa na potrzeby oceny (wyjaśniony poniżej).
 
 ### <a name="training-pipeline"></a>Potok szkoleń
 

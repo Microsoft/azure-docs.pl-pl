@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377503"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740033"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -224,7 +224,17 @@ Aby monitorować Azure-SSIS IR w Azure Portal, przejdź do strony **Integration 
 
 ![Monitoruj wszystkie środowiska Integration Runtime](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Następnie wybierz nazwę Azure-SSIS IR, aby otworzyć jej stronę monitorowania, w której można zobaczyć jej właściwości i Stany ogólne/specyficzne dla węzła. Na tej stronie, w zależności od sposobu konfigurowania ustawień ogólnych, wdrażania i zaawansowanego Azure-SSIS IR, znajdziesz różne kafelki informacyjne/funkcjonalne.  Kafelki informacyjne **typu** i **regionu** pokazują odpowiednio typ i region Azure-SSIS IR. Kafelek informacje o **rozmiarze węzła** przedstawia jednostkę SKU (edition_VM SSIS tier_VM Series), liczbę rdzeni procesora CPU i rozmiar pamięci RAM dla węzła Azure-SSIS IR. Kafelek z informacjami o **uruchomionym/żądanym węźle** porównuje liczbę węzłów aktualnie uruchomionych z łączną liczbą węzłów, które wcześniej zażądały w odniesieniu do Azure-SSIS IR. Kafelki funkcjonalne są opisane poniżej.
+Następnie wybierz nazwę Azure-SSIS IR, aby otworzyć jej stronę monitorowania, w której można zobaczyć jej właściwości i Stany ogólne/specyficzne dla węzła. Na tej stronie, w zależności od sposobu konfigurowania ustawień ogólnych, wdrażania i zaawansowanego Azure-SSIS IR, znajdziesz różne kafelki informacyjne/funkcjonalne.
+
+Kafelki informacyjne **typu** i **regionu** pokazują odpowiednio typ i region Azure-SSIS IR.
+
+Kafelek informacje o **rozmiarze węzła** przedstawia jednostkę SKU (edition_VM SSIS tier_VM Series), liczbę rdzeni procesora CPU i rozmiar pamięci RAM dla węzła Azure-SSIS IR. 
+
+Kafelek z informacjami o **uruchomionym/żądanym węźle** porównuje liczbę węzłów aktualnie uruchomionych z łączną liczbą węzłów, które wcześniej zażądały w odniesieniu do Azure-SSIS IR.
+
+**Podwójna para w stanie wstrzymania/** kafelek z informacjami o rolach zawiera nazwę podwójnej pary Azure-SSIS IR w stanie wstrzymania, która działa w ramach synchronizacji z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR) oraz bieżącą główną/pomocniczą rolę Azure-SSIS IR. W przypadku przełączenia SSISDB w tryb failover podstawowy i pomocniczy urząd platformy Azure — SSIS (zobacz [konfigurowanie Azure-SSIS IR dla BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+
+Kafelki funkcjonalne są opisane poniżej.
 
 ![Monitoruj Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Jeśli dołączysz Azure-SSIS IR do sieci wirtualnej, zobaczysz kafelek **Weryfi
 
 Na kafelku **Diagnostyka łączności** na stronie monitorowania Azure-SSIS IR możesz wybrać link **Test connection** , aby wypróbować okno, w którym można sprawdzić połączenia między Azure-SSIS IR i odpowiednimi pakietami/konfiguracjami/magazynami danych, a także usługami zarządzania, za pośrednictwem ich w pełni kwalifikowanej nazwy domeny (FQDN)/IP i wystawionego portu (zobacz [Testowanie połączeń z Azure-SSIS IR](./ssis-integration-runtime-diagnose-connectivity-faq.md)).
 
-![Zrzut ekranu pokazujący, gdzie można testować połączenia między Azure-SSIS IR i odpowiednim pakietem/konfiguracją/magazynami danych.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Kafelek statyczne publiczne adresy IP
 
 W przypadku wprowadzenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR zobaczysz kafelek **statyczne publiczne adresy IP** na stronie monitorowania Azure-SSIS IR (zobacz temat Przenoszenie [własnych statycznych adresów IP dla Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Na tym kafelku można wybrać linki wyznaczające pierwsze/drugie statyczne publiczne adresy IP dla Azure-SSIS IR, aby wyskakujące okno, w którym można skopiować swój identyfikator zasobu ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) z pola tekstowego. W oknie podręcznym możesz również wybrać łącze **Zobacz ustawienia pierwszego/drugiego statycznego publicznego adresu IP** , aby zarządzać pierwszym/drugim statycznym publicznym adresem ip w Azure Portal.
 
-![Zrzut ekranu pokazujący, gdzie można wyznaczyć pierwsze/drugie statyczne publiczne adresy IP.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Monitorowanie kafelka Azure-SSIS IR-STATIC](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Kafelek MAGAZYNów pakietów
 
@@ -272,7 +282,7 @@ Jeśli używasz modelu wdrażania pakietów, w którym pakiety są przechowywane
 
 Jeśli wystąpią problemy z uruchamianiem/zatrzymywaniem/konserwacją/uaktualnieniem Azure-SSIS IR, na stronie monitorowania Azure-SSIS IR zobaczysz dodatkową tabliczkę **błędów** . Na tym kafelku można wybrać łącze wyznaczające liczbę błędów wygenerowanych przez Azure-SSIS IR, aby wypróbować okno, w którym można zobaczyć te błędy w bardziej szczegółowych i skopiować je w celu znalezienia zalecanych rozwiązań w naszym przewodniku rozwiązywania problemów (zobacz [Rozwiązywanie problemów z Azure-SSIS IR](./ssis-integration-runtime-management-troubleshoot.md)).
 
-![Monitorowanie kafelka Azure-SSIS IR-Diagnozuj](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Monitoruj kafelek Azure-SSIS IR — błąd](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitoruj środowisko Azure-SSIS Integration Runtime przy użyciu Azure Monitor
 

@@ -2,13 +2,13 @@
 title: Samouczek — Tworzenie i wdrażanie chmury prywatnej rozwiązania Azure VMware
 description: Dowiedz się, jak utworzyć i wdrożyć chmurę prywatną rozwiązania Azure VMware
 ms.topic: tutorial
-ms.date: 11/19/2020
-ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/22/2021
+ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725428"
 ---
 # <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Samouczek: Tworzenie chmury prywatnej rozwiązania Azure VMware
 

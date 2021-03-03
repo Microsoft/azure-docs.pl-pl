@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727332"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry i manifesty dynamiczne
 
@@ -29,7 +29,7 @@ ms.locfileid: "89266922"
 > * [Wersja 2](media-services-dynamic-manifest-overview.md)
 > * [Wersja 3](../latest/filters-dynamic-manifest-overview.md)
 
-Począwszy od wersji 2,17, Media Services umożliwia zdefiniowanie filtrów dla zasobów. Te filtry są reguł po stronie serwera, które pozwolą klientom na wykonywanie takich czynności jak: odtwarzanie tylko w sekcji filmu wideo (zamiast odtwarzania całego wideo) lub określania tylko podzbioru plików audio i wideo, które może obsłużyć urządzenie klienta (zamiast wszystkich odniesień, które są skojarzone z zasobem). Takie filtrowanie zasobów jest realizowane za pośrednictwem **dynamicznego manifestu**s, które są tworzone na żądanie klienta w celu przesyłania strumieniowego wideo na podstawie określonych filtrów.
+Począwszy od wersji 2,17, Media Services umożliwia zdefiniowanie filtrów dla zasobów. Te filtry są reguł po stronie serwera, które pozwolą klientom na wykonywanie takich czynności jak: odtwarzanie tylko w sekcji filmu wideo (zamiast odtwarzania całego wideo) lub określania tylko podzbioru plików audio i wideo, które może obsłużyć urządzenie klienta (zamiast wszystkich odniesień, które są skojarzone z zasobem). Takie filtrowanie zasobów jest realizowane za pośrednictwem **dynamicznego manifestu** s, które są tworzone na żądanie klienta w celu przesyłania strumieniowego wideo na podstawie określonych filtrów.
 
 W tym temacie omówiono typowe scenariusze, w których używanie filtrów byłoby korzystne dla klientów i linki do tematów, które pokazują, jak tworzyć filtry programowo.
 
@@ -88,11 +88,11 @@ Aby osiągnąć tę elastyczność, Media Services oferuje **dynamiczne manifest
 
 Adres URL KRESKi MPEG z filtrem
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 Smooth Streaming adres URL z filtrem
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Aby uzyskać więcej informacji na temat sposobu dostarczania zawartości i tworzenia adresów URL przesyłania strumieniowego, zobacz [dostarczanie zawartości przegląd](media-services-deliver-content-overview.md).
@@ -196,7 +196,7 @@ Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/a
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

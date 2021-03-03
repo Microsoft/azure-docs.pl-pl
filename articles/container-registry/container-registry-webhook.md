@@ -3,16 +3,18 @@ title: Elementy webhook odpowiadające na akcje rejestru
 description: Dowiedz się, jak używać elementów webhook do wyzwalania zdarzeń w przypadku akcji wypychania lub ściągania w repozytoriach rejestru.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722249"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Używanie Azure Container Registry elementów webhook
 
 Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy Docker i zarządza nimi podobnie, jak koncentrator platformy Docker przechowuje publiczne obrazy platformy Docker. Może również hostować repozytoria dla [wykresów Helm](container-registry-helm-repos.md) (wersja zapoznawcza) — format pakietu do wdrażania aplikacji w Kubernetes. Elementów webhook można użyć do wyzwalania zdarzeń, gdy pewne akcje są wykonywane w jednym z repozytoriów rejestru. Elementy webhook mogą reagować na zdarzenia na poziomie rejestru lub mogą być ograniczone do określonego tagu repozytorium. W przypadku rejestru z  [replikacją geograficzną](container-registry-geo-replication.md) należy skonfigurować każdy element webhook w celu reagowania na zdarzenia w określonej replice regionalnej.
+
+Punkt końcowy elementu webhook musi być publicznie dostępny z rejestru. Można skonfigurować żądania elementu webhook rejestru w celu uwierzytelnienia w zabezpieczonym punkcie końcowym.
 
 Aby uzyskać szczegółowe informacje o żądaniach elementu webhook, zobacz [Azure Container Registry odwołanie do schematu elementu webhook](container-registry-webhook-reference.md).
 

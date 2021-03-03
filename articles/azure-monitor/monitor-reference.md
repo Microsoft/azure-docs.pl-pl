@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 153b153399bd430b4688d4790a3dd5785c545012
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c8f1a45f46975b489690eded5b094ffee94dbf1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579395"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728403"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -26,12 +26,12 @@ Szczegółowe informacje zapewniają dostosowane środowisko monitorowania dla o
 | Szczegółowe informacje | Opis |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Rozszerzalna usługa zarządzania wydajnością aplikacji (APM) do monitorowania działającej aplikacji sieci Web na dowolnej platformie. |
-| [Azure Monitor kontenerów](containers/container-insights-overview.md) | Monitoruje wydajność obciążeń kontenera wdrożonych do Azure Container Instances lub zarządzanych klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS). |
+| [Szczegółowe informacje o kontenerze](containers/container-insights-overview.md) | Monitoruje wydajność obciążeń kontenera wdrożonych do Azure Container Instances lub zarządzanych klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS). |
 | [Azure Monitor Cosmos DB](insights/cosmosdb-insights-overview.md) | Zapewnia widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym. |
 | [Azure Monitor dla sieci (wersja zapoznawcza)](insights/network-insights-overview.md) | Zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich zasobów sieciowych. Funkcja wyszukiwania zaawansowanego pomaga identyfikować zależności zasobów i umożliwiać scenariusze, takie jak identyfikowanie zasobów, które obsługują witrynę sieci Web, przez zwykłe wyszukiwanie nazwy witryny sieci Web. |
 [Azure Monitor dla grup zasobów (wersja zapoznawcza)](insights/resource-group-insights.md) |  Klasyfikacja i Diagnozuj wszystkie problemy napotykane przez poszczególne zasoby, a także zaoferując kontekście kondycji i wydajności grupy zasobów jako całości. |
 | [Azure Monitor magazynu](insights/storage-insights-overview.md) | Zapewnia kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. |
-| [Usługa Azure Monitor dla maszyn wirtualnych](vm/vminsights-overview.md) | Monitoruje maszyny wirtualne platformy Azure i zestawy skalowania maszyn wirtualnych na dużą skalę. Analizuje ona wydajność i kondycję Twoich maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów oraz procesów zewnętrznych. |
+| [Szczegółowe informacje o maszynie wirtualnej](vm/vminsights-overview.md) | Monitoruje maszyny wirtualne platformy Azure i zestawy skalowania maszyn wirtualnych na dużą skalę. Analizuje ona wydajność i kondycję Twoich maszyn wirtualnych z systemami Windows i Linux oraz monitoruje ich procesy i zależności od innych zasobów oraz procesów zewnętrznych. |
 | [Azure Monitor dla Key Vault (wersja zapoznawcza)](./insights/key-vault-insights-overview.md) | Zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony wgląd w Key Vault żądania, wydajność, błędy i opóźnienia. |
 | [Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)](insights/redis-cache-insights-overview.md) |  Zapewnia ujednolicony, interaktywny widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej. |
 
@@ -152,7 +152,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Site Recovery | Nie | Tak | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
 |Azure Synapse Analytics | Tak | Tak | Nie |  |
-|SQL Database | Tak | Tak | Nie |  |
+|Baza danych SQL | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
 |Storage | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
@@ -240,7 +240,7 @@ Azure Monitor może zbierać dane z zasobów poza platformą Azure przy użyciu 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj więcej na temat [platformy danych Azure monitor, w której są przechowywane dzienniki i metryki zbierane przez usługi Insights i rozwiązania](/data-platform.md).
+- Przeczytaj więcej na temat [platformy danych Azure monitor, w której są przechowywane dzienniki i metryki zbierane przez usługi Insights i rozwiązania](data-platform.md).
 - Ukończ [Samouczek dotyczący monitorowania zasobu platformy Azure](essentials/tutorial-resource-logs.md).
 - Ukończ samouczek dotyczący tworzenia [zapytania dziennika w celu analizowania danych w dziennikach Azure monitor](essentials/tutorial-resource-logs.md).
 - Ukończ samouczek dotyczący [tworzenia wykresu metryk do analizowania danych w metrykach Azure monitor](essentials/tutorial-metrics-explorer.md).

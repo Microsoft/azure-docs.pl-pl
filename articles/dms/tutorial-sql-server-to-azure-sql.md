@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094834"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742113"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Samouczek: przeprowadzanie migracji z programu SQL Server do usługi Azure SQL Database w trybie offline przy użyciu usługi DMS
 
@@ -33,10 +33,6 @@ Poznasz następujące czynności:
 > - Utwórz projekt migracji przy użyciu Azure Database Migration Service.
 > - Uruchamianie migracji.
 > - Monitoruj migrację.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-W tym artykule opisano migrację w trybie offline z SQL Server do bazy danych w programie Azure SQL Database. Aby uzyskać informacje o migracji online, zobacz [Przeprowadzanie migracji z programu SQL Server do usługi Azure SQL Database w trybie online przy użyciu usługi DMS](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -275,7 +271,5 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Migracja SQL przy użyciu praktycznej usługi migracji danych platformy Azure](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) .
-- Aby uzyskać informacje o znanych problemach i ograniczeniach związanych z wykonywaniem migracji w trybie online do usługi Azure SQL Database, zobacz artykuł [Znane problemy i obejścia problemów związanych z migracjami online usługi Azure SQL Database](known-issues-azure-sql-online.md).
 - Aby uzyskać informacje na temat Azure Database Migration Service, zobacz artykuł [co to jest Azure Database Migration Service?](./dms-overview.md).
 - Aby uzyskać informacje o usłudze Azure SQL Database, zobacz artykuł [Co to jest usługa Azure SQL Database?](../azure-sql/database/sql-database-paas-overview.md).

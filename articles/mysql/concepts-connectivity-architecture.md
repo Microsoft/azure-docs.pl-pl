@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: c888a6882f2a408801492de914c57e3e9a6eeaed
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ec582a429008fc073f68cbc9795e264d6814ccb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375514"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730018"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architektura łączności w Azure Database for MySQL
 W tym artykule opisano architekturę Azure Database for MySQL łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MySQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -63,7 +63,7 @@ W poniższej tabeli wymieniono adresy IP bramy bramy Azure Database for MySQL dl
 | Indie Środkowe | 104.211.96.159     | | |
 | Indie Południowe | 104.211.224.146  | | |
 | Indie Zachodnie | 104.211.160.80    | | |
-| Japonia Wschodnia | 40.79.192.23 | 13.78.61.196 | |
+| Japonia Wschodnia | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Japonia Zachodnia | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Korea Środkowa | 52.231.17.13   | 52.231.32.42 | |
 | Korea Południowa | 52.231.145.3     | 52.231.200.86 | |

@@ -1,24 +1,24 @@
 ---
-title: Opcja co do sprzedaży w komercyjnej witrynie Marketplace | Portal Azure Marketplace
-description: Informacje wprowadzone na karcie współsprzedaż z firmą Microsoft w ramach oferty będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie w przypadku oceny jej dopasowania do potrzeb klientów.
+title: Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace | Portal Azure Marketplace
+description: Informacje wprowadzone na karcie "współsprzedaż z firmą Microsoft" na potrzeby oferty są używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy oceniasz jej dopasowanie do potrzeb klientów.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 12/08/2020
-ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 2/24/2021
+ms.openlocfilehash: 6fdae505a4c2d05dc3e19d01ed52b0ef44ae3a40
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880965"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699015"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opcja wspólnej sprzedaży na platformie handlowej
+# <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace
 
-Informacje na temat tworzenia i udostępniania karty **z firmą Microsoft** są całkowicie opcjonalne. Jest to wymagane do osiągnięcia [gotowej do rozsprzedaj i zachęcani do](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów. Aby uzyskać więcej informacji, zobacz [współsprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+W tym artykule opisano sposób konfigurowania **sprzedaży z kartami firmy Microsoft** dla komercyjnej oferty portalu Marketplace. Dostarczenie informacji na tej karcie jest całkowicie opcjonalne, ale jest wymagane do osiągnięcia [gotowej do obchodzenia i zachęcani stanu współsprzedażowego](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o ofercie, gdy ocenia się jej dopasowanie do potrzeb klientów. Te informacje nie są dostępne bezpośrednio dla klientów. Aby uzyskać więcej informacji na temat współpracy z firmą Microsoft, zobacz artykuł [współpraca ze sprzedającymi i partnerami w](marketplace-co-sell.md) ramach usługi, a następnie [sprzedawanie z firmą Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
-Opcja współsprzedaży w centrum partnerskim jest dostępna dla następujących typów ofert.
+Opcja współsprzedaży jest dostępna dla następujących typów ofert.
 
 - Azure Application
 - Kontener platformy Azure
@@ -32,95 +32,149 @@ Opcja współsprzedaży w centrum partnerskim jest dostępna dla następujących
 - Aplikacja usługi Power BI
 - Oprogramowanie jako usługa (SaaS)
 
-## <a name="listing"></a>Lista
+## <a name="go-to-the-co-sell-with-microsoft-tab"></a>Przejdź do karty współsprzedaż z firmą Microsoft
 
-Aukcje ze wspólną sprzedażą będą pomocne dla zespołów sprzedaży firmy Microsoft na rynku Twojej oferty dla szerszego grona odbiorców. *(Wszystkie pola są wymagane).*
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  .
+    > [!TIP]
+    > Jeśli w lewym okienku nawigacji nie widzisz **komercyjnej witryny Marketplace** , [Utwórz komercyjne konto portalu Marketplace w centrum partnerskim](./partner-center-portal/create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+1. Na karcie **Przegląd** wybierz ofertę, którą chcesz utworzyć.
+    > [!NOTE]
+    > Możesz skonfigurować współsprzedaż dla nowej oferty, która nie została jeszcze opublikowana, lub z już opublikowaną ofertą.
 
-- Wybierz platformy firmy Microsoft, z którymi została skompilowana oferta, która rozszerza lub integruje się z usługą.
-- Wybierz segmenty rynku, dla których oferta ma znaczenie.
-- Wybierz [Typ rozwiązania](#solution-type) dla swojej oferty.
-- Wybierz maksymalnie trzy [obszary rozwiązań](#solution-areas) i obszary podrzędne.
+1. W menu po lewej stronie wybierz pozycję **współsprzedaż z firmą Microsoft**.
 
-### <a name="solution-type"></a>Typ rozwiązania
+    [![Ilustruje link współsprzedaż z firmą Microsoft w lewym okienku nawigacji.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+## <a name="co-sell-listings"></a>Aukcje ze współpracownikami
+
+Aukcje współsprzedane umożliwiają zespołom sprzedaży firmy Microsoft oferowanie oferty członkom szerszego grona użytkowników. Musisz podać następujące informacje, aby osiągnąć status gotowy do współsprzedażu:
+
+- Platformy firmy Microsoft (Wybierz co najmniej jeden)
+- Segmenty (Wybierz co najmniej jeden)
+- Typ rozwiązania (Wybierz jeden)
+- Obszar podrzędny rozwiązania (Wybierz jeden lub dwa)
+
+### <a name="select-microsoft-platforms-and-segments"></a>Wybierz platformy i segmenty firmy Microsoft
+
+1. W obszarze **Lista** wybierz co najmniej jedną platformę firmy Microsoft, z którą oferta została skompilowana, która rozszerza lub integruje się z usługą.
+1. Wybierz co najmniej jeden segment rynkowy, do którego należy Twoja oferta.
+
+### <a name="select-solution-types"></a>Wybierz typy rozwiązań
 
 Typy rozwiązań ułatwiają Definiowanie scenariuszy, w których oferta została zaprojektowana.
+
+- Z listy **Wybierz typ rozwiązania** wybierz typ rozwiązania, który najlepiej pasuje do oferty. W tej tabeli opisano dostępne typy rozwiązań.
+
+***Tabela 1: dostępne typy rozwiązań***
 
 | **Typ rozwiązania**    | **Opis**  |
 | :------------------- | :-------------------|
 | Urządzenie (sprzęt) | Oferta, która obejmuje tworzenie i sprzedawanie sprzętu od producenta urządzenia. |
-| Adres IP (aplikacja) | Aplikacje lub inne materiały z prawem autorskim licencjonowane na użytek klienta. Na przykład: Program CRM, który może być licencjonowany i instalowany lokalnie. |
-| Usługa | Praktyczne doświadczenie dla konkretnego projektu jednorazowego, często dostarczane przez konsultantów. Na przykład: Konfigurowanie bazy danych klienta dla klienta programu (przy użyciu klienta przy założeniu, że jest on odpowiedzialny za obsługę bazy danych po dostarczeniu). |
-| Usługa zarządzana | Praktyczne doświadczenie w odniesieniu do projektu opartego na chmurze, zwykle w sposób ciągły. Przykład: dostarczenie platformy i narzędzi do uruchamiania bazy danych w trybie online z trwającym zarządzaniem udostępnianym przez dostawcę usług zarządzanych. |
+| Adres IP (aplikacja) | Aplikacje lub inne materiały z prawem autorskim licencjonowane na użytek klienta. Na przykład program CRM, który może być licencjonowany i instalowany lokalnie. |
+| Usługa zarządzana | Praktyczne doświadczenie w odniesieniu do projektu opartego na chmurze, zwykle w sposób ciągły. Na przykład dostarczenie platformy i narzędzi do uruchamiania bazy danych online z trwającym zarządzaniem zapewniane przez dostawcę usług zarządzanych. |
+| Usługa | Praktyczne doświadczenie dla konkretnego projektu jednorazowego, często dostarczane przez konsultantów. Można na przykład skonfigurować bazę danych klienta dla klienta (przy założeniu, że klient ponosi odpowiedzialność za eksploatację bazy danych po dostarczeniu). |
+|||
 
-### <a name="solution-areas"></a>Obszary rozwiązania
+### <a name="select-solution-areas"></a>Wybierz obszary rozwiązania
 
-Obszary rozwiązań ułatwiają dalsze Definiowanie rozwiązania.
+Obszary rozwiązań ułatwiają dalsze Definiowanie rozwiązania. Dzięki temu zespoły sprzedaży firmy Microsoft mogą znaleźć i zrozumieć swoją wartość rozwiązania. Musisz wybrać co najmniej jeden i maksymalnie trzy obszary rozwiązania dla swojej oferty. Dla każdego obszaru rozwiązania można dodatkowo wybrać dwa obszary podrzędne rozwiązania.
 
-Możesz dodać maksymalnie trzy obszary rozwiązań dla swojej oferty. Dla każdego obszaru rozwiązania można wybrać maksymalnie dwa podobszary rozwiązania. Aby wybrać wiele podkategorii, użyj `Ctrl` klucza (w systemie Windows) lub klucza polecenia (na macOS).
+1. Wybierz łącze **+ Dodaj obszar rozwiązań (3 maks.)** .
+1. Wybierz obszar rozwiązania z wyświetlonej listy rozwijanej.
+1. Wybierz co najmniej jeden i maksymalnie dwa obszary podrzędne rozwiązania. Aby zaznaczyć wiele obszarów podrzędnych, użyj `Ctrl` klucza (w systemie Windows) lub `Command` klucza (na macOS).
+1. Aby dodać kolejny obszar rozwiązania, powtórz kroki od 1 do 3.
 
-## <a name="documents"></a>Dokumenty
+## <a name="upload-documents"></a>Przekazywanie dokumentów
 
-Istnieje możliwość udostępnienia dodatkowych dokumentów, których firma Microsoft będzie używać, aby dowiedzieć się więcej o ofercie i oszacować jej dopasowanie do potrzeb klientów.
+Musisz podać dodatkowe dokumenty, które zawierają szczegółowe informacje o ofercie. Zespoły sprzedaży firmy Microsoft wykorzystują te informacje w celu ocenienia, czy oferta jest zgodna z potrzebami klientów w celu zaproponowania i sprzedaży oferty. Im więcej informacji zawiera użytkownik, tym więcej informacji zespoły sprzedaży firmy Microsoft będą musieli zrozumieć i wspierać produkt.
+
+Obsługiwane typy plików to. PDF,. ppt,. pptx, doc,. docx,. xls,. xlsx,. jpg,. png i. MP4. Szablony dla niektórych dokumentów są podane w tabeli 2 poniżej.
+
+> [!NOTE]
+> W celu osiągnięcia stanu gotowości do sprzedaży jest wymagane **rozwiązanie/oferta jedno-pager** i **rozwiązanie/oferta oferty** . Są one również wymagania wstępne w przypadku niektórych ofert, które są przeznaczone do współpracy z usługą Azure IP zachęcani. Diagram architektury referencyjnej jest również wymagany w przypadku usługi Azure IP zachęcani status. Inne dokumenty opisane w tej tabeli są opcjonalne, ale zalecane.
+
+***Tabela 2: dokumenty obsługujące wspólną sprzedaż***
 
 | **Dokumenty**    | **Opis**  |
 | :------------------- | :-------------------|
-| *Klient z jednym modułem stronicowania (wymagany)* | Gotowy do użycia opis oferty przez klienta. Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. <br> <br> Użyj jednego z odpowiednich szablonów dostępnych w centrum partnerskim: <br> <ul> <li> Microsoft Azure szablon z jednym modułem stronicowania </li> <li> Microsoft Dynamics 365 1 — szablon modułu stronicowania </li> <li> Microsoft 365 1 — szablon modułu stronicowania </li> <li> Windows 10 1 — szablon modułu stronicowania </li> </ul> |
-| *Prezentacja klienta (wymagana)* | Przesuń na pokład swoją ofertę i swoją wartość jej pozycji. Po upewnieniu się, że oferta jest gotowa dla klienta, zespoły sprzedaży firmy Microsoft mogą udostępnić prezentację klientom ideach wartość, którą firma i firma Microsoft przyniesie podczas wdrażania wspólnego rozwiązania. Prezentacja powinna mieć na celu zaprezentowanie oferty, w jaki sposób może pomóc klientom, w jakich branżach oferta jest istotna i jak są porównywane z rozwiązaniami konkurującymi. <br> <br> Użyj szablonu dostępnego w centrum partnerskim.|
-| *Analiza przypadku klienta* | Te informacje przedstawiają potencjalnego klienta, w przypadku których firma Microsoft pomyślnie wdrożyła ofertę w poprzednich przypadkach. <br> <br> Użyj szablonu dostępnego w centrum partnerskim. |
-| *Zweryfikowanie klienta usługi WINS* | Określone przykłady sukcesu klientów po wdrożeniu oferty. |
-| *Talia kanału* | Slajd zawierający informacje, które pomogą odsprzedawcy kanału dowiedzieć się więcej o ofercie i uzyskać zespoły sprzedaży gotowe do ich sprzedaży. Talia zwykle obejmuje szerokość windy, informacje na temat klientów docelowych, pytania dotyczące klientów, punkty rozmowy i linki do filmów wideo, dokumentacji i pomocy technicznej. |
-| *Diagram architektury referencyjnej* | Diagram przedstawiający model, który reprezentuje ofertę i jej relację z usługami w chmurze firmy Microsoft, wykazując, jak spełnia wymagania techniczne programu do współsprzedaży. [Dowiedz się więcej o diagramie architektury referencyjnej.](#reference-architecture-diagram) |
-| *Inne dokumenty* | Opcjonalnie możesz przekazać do pięciu dodatkowych dokumentów lub filmów, aby pomóc zespołom sprzedaży firmy Microsoft i odsprzedawcom kanałów dowiedzieć się więcej o ofercie, organizacji i/lub odróżniających. |
-| *Adres URL odwołania zewnętrznego* | Link do witryny produktu, gdzie zespoły sprzedaży firmy Microsoft i odsprzedawcy kanałów mogą dowiedzieć się więcej o ofercie. |
+| *Rozwiązanie/oferowanie jednego modułu stronicowania (wymagane)* | Zwiększ świadomość potencjalnych klientów dzięki profesjonalnemu zaprojektowaniu jednego-pagera, który prezentuje wartość propozycji rozwiązania.<br><br>Możesz użyć jednego z odpowiednich szablonów, aby podać gotowy do użycia przez klienta opis oferty:<br><ul><li> [Microsoft Azure szablon z jednym modułem stronicowania](https://aka.ms/Customer-One-Pager_MicrosoftAzure)</li><li>[Microsoft Dynamics 365 1 — szablon modułu stronicowania](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365)</li> <li>[Microsoft 365 1 — szablon modułu stronicowania](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li><li>[Windows 10 1 — szablon modułu stronicowania](https://aka.ms/Customer-One-Pager_Windows)</li></ul> <br> Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. |
+| *Pokład rozwiązania/skoku oferty (wymagane)* | Możesz użyć [szablonu Prezentacja klienta](https://aka.ms/GTMServices_CustomerPresentation) , aby utworzyć talię z przechyłem. Ten pokład powinien odwoływać się do [diagramu architektury referencyjnej](reference-architecture-diagram.md). Celem tego slajdu jest wysokość oferty i jej propozycja wartości. Po upewnieniu się, że oferta jest gotowa dla klienta, zespoły sprzedaży firmy Microsoft mogą udostępnić tę prezentację klientom ideach wartość, którą firma i firma Microsoft przyniesie podczas wdrażania wspólnego rozwiązania. Prezentacja powinna mieć na celu zaprezentowanie oferty, w jaki sposób może pomóc klientom, w jakich branżach oferta jest istotna i jak są porównywane z rozwiązaniami konkurującymi. |
+| *Analiza przypadku klienta* (opcjonalnie)| Użyj [szablonu analizy przypadków](https://aka.ms/GTM_Case_Study_Template) , aby utworzyć analizę przypadku klienta. Te informacje przedstawiają potencjalnego klienta, w przypadku których firma Microsoft pomyślnie wdrożyła ofertę w poprzednich przypadkach. |
+| *Zweryfikowanie klienta WINS* (opcjonalnie) | Podaj konkretne przykłady sukcesu klientów po wdrożeniu oferty. |
+| *Talia kanału* (opcjonalnie) | Slajd zawierający informacje ułatwiające odsprzedawców kanałów Dowiedz się więcej o ofercie i uzyskaj zespoły sprzedaży gotowe do sprzedaży. Ten talia zwykle obejmuje wyłączanie, informacje o klientach docelowych, pytania w celu poproszenia klientów, punkty rozmowy i linki do filmów wideo, dokumentacji i pomocy technicznej. |
+| *Diagram architektury referencyjnej* (wymagany dla usługi Azure IP zachęcani status) | Diagram przedstawiający ofertę i jej relację z usługami w chmurze firmy Microsoft. Może również zademonstrować, jak Twoja oferta spełnia wymagania techniczne dotyczące zachęcani stanu usługi Azure IP do sprzedaży. [Dowiedz się więcej o diagramie architektury referencyjnej.](reference-architecture-diagram.md) |
+| *Inne dokumenty* (opcjonalnie) | Możesz przekazać do pięciu dodatkowych dokumentów lub filmów, aby pomóc zespołom sprzedaży firmy Microsoft i odsprzedawcy kanału dowiedzieć się więcej o ofercie, organizacji i sposobach innych ofert. |
+|||
 
-## <a name="contacts"></a>Kontakty
+- Po utworzeniu dokumentów przeciągnij je do odpowiedniego pola w obszarze **dokumenty** lub wybierz pozycję **Przeglądaj pliki** , aby przekazać dokument z komputera.
 
-Informacje kontaktowe umożliwiają zespołom sprzedaży firmy Microsoft i odsprzedawców kanałów zażądać dodatkowych informacji od odpowiedniego zasobu w organizacji. Informacje kontaktowe są dostępne dla wszystkich zespołów sprzedaży firmy Microsoft. *(Kontakt dla każdej lokalizacji geograficznej, w której oferta jest dostępna, jest wymagany dla programu współsprzedaży).* Jeśli wybierzesz opcję udostępnienia oferty w programie CSP, informacje kontaktowe są również dostępne dla odsprzedawcaów kanałów.
+    [![Ilustruje sekcję dotyczącą współsprzedawcy z kartami "współsprzedaż z firmą Microsoft".](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
-Możesz udostępnić swoje kontakty, pobierając szablon CSV z Centrum partnerskiego, wypełniając każdy wiersz informacjami o kontakcie i importując ten plik CSV. Importowanie pliku CSV spowoduje zastąpienie istniejących kontaktów.
+## <a name="product-landing-page"></a>Strona docelowa produktu
 
-Możesz również wyeksportować istniejącą listę kontaktów oferty, a następnie wprowadzić zmiany w tym pliku.
+- W obszarze **dokumenty**, w polu Strona docelowa **produktu** wprowadź link do witryny produktu, gdzie zespoły sprzedaży firmy Microsoft i odsprzedawcy kanałów mogą dowiedzieć się więcej o ofercie i wyświetlić najnowsze aktualizacje.
 
-* *Nazwa (wymagana)*: nazwa kontaktu.
-* *Adres e-mail (wymagane)*: adres e-mail osoby kontaktowej.
-* *Stanowisko (wymagane)*: stanowisko stanowiska.
-* *Rola (wymagana)*: Użyj dowolnej z następujących ról.
+## <a name="enter-your-contacts"></a>Wprowadź kontakty
+
+Kontakt dla każdej lokalizacji geograficznej, w której oferta jest dostępna, jest wymagany do osiągnięcia stanu gotowości do sprzedaży. Jeśli wybierzesz opcję udostępnienia oferty w programie CSP, informacje kontaktowe są również dostępne dla odsprzedawcaów kanałów.
+
+Twoje informacje kontaktowe umożliwiają zespołom sprzedaży firmy Microsoft i odsprzedawców kanałów zażądać dodatkowych informacji od odpowiedniego zasobu w organizacji. Informacje kontaktowe są dostępne dla wszystkich zespołów sprzedaży firmy Microsoft.
+
+> [!NOTE]
+> Ważne jest, aby zapewnić aktualność informacji kontaktowych.
+
+1. Aby pobrać szablon w celu udostępnienia informacji kontaktowych, w obszarze **kontakty** wybierz pozycję **Pobierz szablon kontaktów (CSV)** , jak pokazano na tym zrzucie ekranu. Jeśli wcześniej przekazano kontakty, możesz wyeksportować istniejącą listę kontaktów dla oferty, a następnie wprowadzić zmiany w tym programie. Plik CSV.
+
+    [![Ilustruje sekcję kontakty na karcie współsprzedaż z firmą Microsoft.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
+
+1. Otwórz okno. Plik CSV w aplikacji, takiej jak program Microsoft Excel, a następnie wypełnij każdy wiersz informacjami o kontakcie.
+
+    - Nazwa (wymagana): nazwa kontaktu.
+    - Poczta e-mail (wymagana): adres e-mail osoby kontaktowej.
+    - Stanowisko (wymagane): stanowisko stanowiska.
+    - Rola (wymagana): Użyj dowolnej z następujących ról.
+
+    ***Tabela 3: Opis ról***
 
     | **Role**    | **Opis**  |
     | :------------------- | :-------------------|
-    | *:::no-loc text="Partner marketing":::* | Ta rola koncentruje się na sprzedawaniu oferty i współpracy w zakresie marketingu z zespołami sprzedaży firmy Microsoft i odsprzedawcami kanałów. Główny punkt kontaktu dotyczący zaangażowania marketingowego i oferowania oferty dotyczącej zawartości, na przykład opisów produktów, obrazów i filmów wideo. |
-    | *:::no-loc text="Partner sales":::* | Ta rola koncentruje się na sprzedawaniu oferty i współpracy z sprzedażą przez zespoły sprzedaży firmy Microsoft i odsprzedawców kanałów. Wskaż co najmniej jednego partnera sprzedaży dla partnerów w regionie, w którym chcesz, aby Twoja oferta była gotowa do sprzedaży. Ten sam kontakt sprzedaży partnera może obejmować wiele regionów. |
-    | *:::no-loc text="Partner technical sales":::* | Obsługuje architekturę techniczną i zagadnienia dotyczące wdrażania w ramach cyklu sprzedaży, integracji po sprzedaży i okresów wdrożenia. |
-    | *:::no-loc text="Partner customer success manager":::* | Zwykle obsługuje klientów po wdrożeniu, aby pomóc im w optymalnym wykorzystaniu oferty i zwiększyć jej zasięg w organizacji klienta. |
+    | Marketing partnerski | Ta rola koncentruje się na sprzedawaniu oferty i współpracy w zakresie marketingu z zespołami sprzedaży firmy Microsoft i odsprzedawcami kanałów. Główny punkt kontaktu dotyczący zaangażowania marketingowego i oferowania oferty dotyczącej zawartości, na przykład opisów produktów, obrazów i filmów wideo. |
+    | Sprzedaż partnerów | Ta rola koncentruje się na sprzedawaniu oferty i współpracy z sprzedażą przez zespoły sprzedaży firmy Microsoft i odsprzedawców kanałów. Wskaż co najmniej jednego partnera sprzedaży dla partnerów dla każdego regionu, w którym oferta ma zostać przygotowana do sprzedaży. Ten sam kontakt sprzedaży partnera może obejmować wiele regionów. |
+    | Sprzedaż techniczna partnera | Obsługuje architekturę techniczną i zagadnienia dotyczące wdrażania w ramach cyklu sprzedaży, integracji po sprzedaży i okresów wdrożenia. |
+    | Menedżer sukcesu dla klientów partnerskich | Zwykle obsługuje klientów po wdrożeniu, aby pomóc im w optymalnym wykorzystaniu oferty i zwiększyć jej użycie w organizacji klienta. |
+    |||
 
-* *Kraje/regiony (wymagane):*  Podczas wypełniania szablonu Użyj [kodów krajów/regionów wymienionych poniżej](commercial-marketplace-co-sell-countries.md). Jeśli kontakt obejmuje wszystkie kraje/regiony, użyj kodu w postaci trzech liter "OOO". Jeśli kontakt zawiera więcej niż jeden kraj/region, wprowadź każdy z dwóch kodów liter oddzielonych przecinkami (na przykład wprowadź "USA, CA, FR" bez cudzysłowów do szablonu).
+    - Kraje/regiony (wymagane): podczas wypełniania szablonu Użyj [kodów kraju i regionu](commercial-marketplace-co-sell-countries.md)z dwiema literami. Jeśli kontakt obejmuje wszystkie kraje i regiony, użyj kodu z trzema literami "OOO". Jeśli kontakt obejmuje więcej niż jeden kraj lub region, wprowadź każdy z dwóch kodów liter oddzielonych przecinkami. Na przykład wprowadź "US, CA, FR" bez cudzysłowów do szablonu.
 
-    Kraje/regiony powinny odzwierciedlać terytorium każdego kontaktu. Zespoły sprzedaży firmy Microsoft i odsprzedawcy kanałów będą korzystać z tych informacji w celu żądania informacji lub współpracy nad sprzedażą w określonym kraju/regionie.
+        Kraje i regiony powinny odzwierciedlać terytorium każdego kontaktu. Zespoły sprzedaży firmy Microsoft i odsprzedawcy kanałów będą używać tych informacji podczas żądania informacji lub współpracy nad sprzedażą w określonym kraju lub regionie.
 
-* *Stany/Prowincje (opcjonalnie):*  Podczas wypełniania szablonu Użyj formatu XX-XX, jak wymieniono w [tabeli Stany/Prowincje](commercial-marketplace-co-sell-states.md).
+    - Stany/Prowincje (opcjonalnie): podczas wypełniania szablonu Użyj formatu XX-XX, jak wymieniono w [tabelach Stany, prowincje i terytoria](commercial-marketplace-co-sell-states.md).
 
-## <a name="reference-architecture-diagram"></a>Diagram architektury referencyjnej
+1. Zapisz i Zamknij. Plik CSV.
 
-### <a name="what-is-a-reference-architecture--diagram"></a>Co to jest diagram architektury referencyjnej
-Diagram architektury referencyjnej to model, który reprezentuje infrastrukturę, na której bazuje oferta, oraz sposób, w jaki oferta wykorzystuje nasze usługi w chmurze zgodnie z wymaganiami technicznymi programu do współsprzedaży. Nie jest on przeznaczony do oceny jakości architektury, ale w jaki sposób wykorzystuje różne usługi.
+1. Do zaimportowania. Plik CSV, wybierz link **Importuj kontakty (CSV)** .
+    > [!NOTE]
+    > Importowanie. Plik CSV zastępuje wszystkie istniejące kontakty.
 
-Dokument można utworzyć za pomocą wielu narzędzi. Zalecamy korzystanie z programu Microsoft Visio, ponieważ zawiera on wiele wzorników, które przedstawiają modele architektury platformy Azure.
+1. Wybierz pozycję. Plik CSV, a następnie wybierz pozycję **Otwórz**. Zostanie wyświetlony komunikat informujący o tym, że kontakty zostały pomyślnie zaimportowane.
 
-Przydatnym punktem wyjścia do tworzenia diagramów architektury referencyjnej jest wykorzystanie [modeli architektury platformy Azure](/azure/architecture/browse/).
+## <a name="save-and-republish-the-offer"></a>Zapisz i ponownie Opublikuj ofertę
 
-### <a name="typical-components-of-a-reference-architecture-diagram"></a>Typowe składniki diagramu architektury referencyjnej
-- Usługi w chmurze, które obsługują i współpracują z ofertą, w tym te, które generują użycie platformy Azure
-- Połączenia danych, warstwy danych, usługi danych używane przez ofertę
-- Usługi w chmurze służące do kontrolowania zabezpieczeń, uwierzytelniania, użytkowników oferty
-- Interfejsy użytkownika i inne usługi, które uwidaczniają ofertę użytkownikom końcowym
-- Hybrydowe i/lub lokalne połączenia i integracje 
+1. Wybierz pozycję **Zapisz wersję roboczą** , aby zapisać zmiany przed kontynuowaniem.
+1. Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji. Wybierz pozycję **Przejrzyj i Opublikuj**.
+1. Wykonaj jedną z następujących czynności:
 
-### <a name="example-reference-architecture-diagram"></a>Przykładowy diagram architektury referencyjnej
+    - Jeśli karta **współsprzedaży z firmą Microsoft** została ukończona lub zaktualizowana w celu uzyskania oferty, która została wcześniej opublikowana, i nie zaktualizowano żadnych innych kart, zalecamy wybranie pola wyboru **współsprzedaż** .
 
-[![Ten obraz to przykładowy diagram architektury.](./media/co-sell/co-sell-arch-diagram.png)](./media/co-sell/co-sell-arch-diagram.png#lightbox)
+    - Jeśli jest to nowa lub robocza oferta, która nigdy nie została opublikowana, zalecamy wybranie opcji wszystkie pola. Opcjonalnie możesz wybrać opcję **PORÓWNAJ** , aby porównać bieżącą wersję z nieopublikowanymi zmianami.
 
-Przykładowy diagram architektury referencyjnej jest przeznaczony dla chatbot w branży pionowej, który można zintegrować z witrynami intranetowymi, aby ułatwić prognozowanie scenariuszy popytu za pośrednictwem algorytmu Machine Learning przy użyciu łańcucha dostaw i danych harmonogramu produkcji z różnych systemów ERP. Bot zaprojektowano w celu uzyskania odpowiedzi na pytania dotyczące sytuacji, w których sprzedawca może zatwierdzić ewentualne daty dostawy dla zamówienia.
+1. Aby rozpocząć fazę walidacji, wybierz pozycję **Publikuj**. Pamiętaj, że Twoja oferta nie zostanie opublikowana na żywo do momentu przejrzenia oferty, a następnie wybierz pozycję **Przejdź na żywo** po zakończeniu fazy walidacji. Jeśli Twoja oferta została już opublikowana i skonfigurowano opcję współsprzedaży, wówczas oferta pozostaje aktywna, gdy sprawdzimy stan współsprzedaży. Aby uzyskać szczegółowe informacje o recenzowaniu i publikowaniu oferty, zobacz [Jak przejrzeć i opublikować ofertę w portalu komercyjnym](review-publish-offer.md).
+
+> [!NOTE]
+> Nie musisz już kontaktować się z nami, aby wyznaczyć swoją ofertę do wspólnej sprzedaży. Po wypełnieniu wszystkich wymaganych pól na stronie wspólnej sprzedaży z firmą Microsoft i ponownym opublikowaniu oferty przejrzymy Twoją ofertę, aby określić, czy spełnia wymagania dotyczące stanu wspólnej sprzedaży.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zobacz artykuł [sprzedaż z firmą Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+- Aby uzyskać szczegółowe informacje o ponownym publikowaniu oferty, zobacz [Jak przejrzeć i opublikować ofertę w portalu komercyjnym](review-publish-offer.md).
+- Aby uzyskać informacje na temat korzyści z komercyjnego punktu widzenia witryny Marketplace i usług technicznych, zobacz [komercyjne korzyści z witryny Marketplace](gtm-your-marketplace-benefits.md).

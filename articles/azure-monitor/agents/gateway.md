@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615550"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732024"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -89,7 +89,7 @@ Brama Log Analytics jest dostępna w następujących językach:
 
 Brama Log Analytics obsługuje tylko Transport Layer Security (TLS) 1,0, 1,1 i 1,2.  Nie obsługuje Secure Sockets Layer (SSL).  Aby zapewnić bezpieczeństwo danych podczas przesyłania do Log Analytics, skonfiguruj bramę do użycia co najmniej protokołu TLS 1,2. Starsze wersje protokołu TLS lub SSL są narażone na ataki. Chociaż obecnie dopuszczają zgodność z poprzednimi wersjami, unikaj ich używania.  
 
-Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+Aby uzyskać dodatkowe informacje, zapoznaj się z [bezpiecznym przesyłaniem danych przy użyciu protokołu TLS 1,2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Obsługiwana liczba połączeń agentów
 

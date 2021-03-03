@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: a98ab9ea347ba4d9ec53c80626f97b429e083cb1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b6fd5b5f70eb813792be003836790752db1d071f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242385"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732823"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Odmowa dostępu do sieci publicznej w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ W tym artykule opisano, jak można skonfigurować serwer Azure Database for MySQ
 
 Aby ukończyć ten przewodnik, musisz:
 
-* [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+* [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) z warstwą cenową ogólnego przeznaczenia lub zoptymalizowaną pod kątem pamięci
 
 ## <a name="set-deny-public-network-access"></a>Ustaw Odmów dostępu do sieci publicznej
 
@@ -35,7 +35,7 @@ Wykonaj następujące kroki, aby ustawić serwer MySQL Odmów dostępu do sieci 
 
     :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="Azure Database for MySQL odmowa dostępu do sieci":::
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 

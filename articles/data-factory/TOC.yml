@@ -696,7 +696,7 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Tworzenie wyzwalaczy
       items:
-        - name: Tworzenie wyzwalacza opartego na zdarzeniach
+        - name: Tworzenie wyzwalacza zdarzeń magazynu
           href: how-to-create-event-trigger.md
         - name: Tworzenie wyzwalacza harmonogramu
           href: how-to-create-schedule-trigger.md

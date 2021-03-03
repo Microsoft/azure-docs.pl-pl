@@ -1,18 +1,18 @@
 ---
-title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
+title: Włączanie usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano sposób włączania i konfigurowania usługi Container Insights, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708360"
 ---
-# <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
+# <a name="enable-container-insights"></a>Włączanie usługi Container Insights
 
-Ten artykuł zawiera omówienie opcji, które są dostępne w celu skonfigurowania Azure Monitor dla kontenerów w celu monitorowania wydajności obciążeń wdrożonych w środowiskach Kubernetes i hostowanych na:
+Ten artykuł zawiera omówienie opcji dostępnych w celu skonfigurowania usługi Container Insights w celu monitorowania wydajności obciążeń wdrożonych w środowiskach Kubernetes i hostowanych na:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) wersje 3. x i 4. x  
@@ -23,7 +23,7 @@ Możesz również monitorować wydajność obciążeń wdrożonych w przypadku s
 - Azure, przy użyciu [aparatu AKS](https://github.com/Azure/aks-engine)
 - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) lub lokalnie, przy użyciu aparatu AKS.
 
-Można włączyć Azure Monitor dla kontenerów dla nowego wdrożenia lub dla jednego lub kilku istniejących wdrożeń Kubernetes przy użyciu dowolnej z następujących obsługiwanych metod:
+Można włączyć usługi Container Insights dla nowego wdrożenia lub dla jednego lub kilku istniejących wdrożeń Kubernetes przy użyciu dowolnej z następujących obsługiwanych metod:
 
 - Witryna Azure Portal
 - Azure PowerShell
@@ -44,37 +44,37 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 
 - Masz obszar roboczy Log Analytics.
 
-   Azure Monitor kontenerów obsługuje Log Analytics obszar roboczy w regionach, które są wymienione w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Usługi Container Insights obsługują obszar roboczy Log Analytics w regionach, które są wymienione w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
    Można utworzyć obszar roboczy po włączeniu monitorowania dla nowego klastra usługi AKS lub można pozwolić, aby środowisko dołączania utworzyło domyślny obszar roboczy w domyślnej grupie zasobów subskrypcji klastra AKS. 
    
    Jeśli zdecydujesz się utworzyć obszar roboczy samodzielnie, możesz go utworzyć za pomocą: 
-   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
-   - [Program PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Witryna Azure Portal](../learn/quick-create-workspace.md) 
+   - [Azure Resource Manager](../logs/resource-manager-workspace.md)
+   - [Program PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [Witryna Azure Portal](../logs/quick-create-workspace.md) 
    
-   Aby zapoznać się z listą obsługiwanych par mapowania do użycia w domyślnym obszarze roboczym, zobacz [Mapowanie regionów dla Azure monitor kontenerów](container-insights-region-mapping.md).
+   Aby zapoznać się z listą obsługiwanych par mapowania do użycia w domyślnym obszarze roboczym, zobacz [Mapowanie regionów dla usługi Container Insights](container-insights-region-mapping.md).
 
-- Musisz być członkiem grupy *współautor log Analytics* , aby włączyć monitorowanie kontenera. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../platform/manage-access.md).
+- Musisz być członkiem grupy *współautor log Analytics* , aby włączyć monitorowanie kontenera. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../logs/manage-access.md).
 
 - Jesteś członkiem [grupy *właścicieli*](../../role-based-access-control/built-in-roles.md#owner) w zasobie klastra AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- Aby wyświetlić dane monitorowania, należy mieć rolę [*czytnika log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, skonfigurowany przy użyciu Azure monitor dla kontenerów.
+- Aby wyświetlić dane monitorowania, należy mieć rolę [*czytnika log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, skonfigurowany za pomocą usługi Container Insights.
 
 - Metryki Prometheus nie są zbierane domyślnie. Przed [skonfigurowaniem agenta](container-insights-prometheus-integration.md) do zbierania metryk należy zapoznać się z [dokumentacją Prometheus](https://prometheus.io/) , aby zrozumieć, jakie dane mogą być odpadków i jakie metody są obsługiwane.
 
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
 
-Azure Monitor dla kontenerów oficjalnie obsługuje następujące konfiguracje:
+Usługi Container Insights oficjalnie obsługują następujące konfiguracje:
 
 - Środowiska: Azure Red Hat OpenShift, Kubernetes lokalnie i aparat AKS na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - Wersje programu Kubernetes i zasady pomocy technicznej są takie same jak te, które są [obsługiwane w usłudze Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Wymagania dotyczące zapory sieciowej
 
-W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory, które są wymagane dla agenta kontenera w celu komunikowania się z Azure Monitor dla kontenerów. Cały ruch sieciowy z agenta jest wychodzący do Azure Monitor.
+W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory, które są wymagane dla agenta kontenera w celu komunikowania się z usługą Container Insights. Cały ruch sieciowy z agenta jest wychodzący do Azure Monitor.
 
 |Zasób agenta|Port |
 |--------------|------|
@@ -102,7 +102,7 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory 
 
 ## <a name="components"></a>Składniki
 
-Możliwość monitorowania wydajności polega na zaLog Analyticsym agencie agenta dla systemu Linux, który został zaprojektowany w celu Azure Monitor dla kontenerów. Ten wyspecjalizowany Agent zbiera dane dotyczące wydajności i zdarzeń ze wszystkich węzłów w klastrze, a agent jest automatycznie wdrażany i rejestrowany przy użyciu określonego obszaru roboczego Log Analytics podczas wdrażania. 
+Możliwość monitorowania wydajności polega na zaLog Analyticsym agencie agenta dla systemu Linux, który został zaprojektowany z myślą o usłudze Container Insights. Ten wyspecjalizowany Agent zbiera dane dotyczące wydajności i zdarzeń ze wszystkich węzłów w klastrze, a agent jest automatycznie wdrażany i rejestrowany przy użyciu określonego obszaru roboczego Log Analytics podczas wdrażania. 
 
 Wersja agenta to Microsoft/OMS: ciprod04202018 lub nowsza. jest reprezentowana przez datę w następującym formacie: *mmddyyyy*.
 
@@ -116,7 +116,7 @@ Po wydaniu nowej wersji agenta zostanie ona automatycznie uaktualniona do zarzą
 >
 > Szablon musi zostać wdrożony w tej samej grupie zasobów co klaster.
 
-Aby włączyć Azure Monitor dla kontenerów, należy użyć jednej z metod opisanych w poniższej tabeli:
+Aby włączyć usługi Container Insights, użyj jednej z metod opisanych w poniższej tabeli:
 
 | Stan wdrożenia | Metoda | Opis |
 |------------------|--------|-------------|
@@ -136,4 +136,4 @@ Aby włączyć Azure Monitor dla kontenerów, należy użyć jednej z metod opis
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po włączeniu monitorowania można rozpocząć analizowanie wydajności klastrów Kubernetes, które są hostowane w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innym środowisku. Aby dowiedzieć się, jak używać Azure Monitor kontenerów, zobacz [Wyświetlanie wydajności klastra Kubernetes](container-insights-analyze.md).
+Po włączeniu monitorowania można rozpocząć analizowanie wydajności klastrów Kubernetes, które są hostowane w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innym środowisku. Aby dowiedzieć się, jak korzystać z usługi Container Insights, zobacz [Wyświetlanie wydajności klastra Kubernetes](container-insights-analyze.md).

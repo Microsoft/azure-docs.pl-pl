@@ -2,13 +2,13 @@
 title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | Microsoft Docs
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742538"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
@@ -207,7 +207,7 @@ Plik JSON zdarzenia połączenia sieci wirtualnej (VNet) Event Hubs zawiera elem
 | `Count` | Liczba wystąpień danej akcji |
 | `ResourceId` | Azure Resource Manager identyfikator zasobu. |
 
-Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **wybranych sieci** lub z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczyć dostępu do przestrzeni nazw przy użyciu tych funkcji, a mimo to chcesz pobrać dzienniki sieci wirtualnej do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia. Włącz filtrowanie adresów IP i Dodaj łączny zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Event Hubs nie obsługuje zakresów adresów IPv6. 
+Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **wybranych sieci** lub z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczyć dostępu do przestrzeni nazw przy użyciu tych funkcji, a mimo to chcesz pobrać dzienniki sieci wirtualnej do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia. [Włącz filtrowanie adresów IP](event-hubs-ip-filtering.md)i Dodaj łączny zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Filtrowanie adresów IP Event Hubs nie obsługuje zakresów adresów IPv6. Należy zauważyć, że w dzienniku można zobaczyć prywatne adresy punktów końcowych w formacie IPv6. 
 
 ### <a name="example"></a>Przykład
 

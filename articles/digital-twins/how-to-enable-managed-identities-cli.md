@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 32cbe31f95c03f9b0b5eb1a31a28033dce18b112
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417915"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716129"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Włącz zarządzaną tożsamość do routingu zdarzeń usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza): interfejs wiersza polecenia platformy Azure
 
@@ -87,8 +87,7 @@ Aby uzyskać więcej informacji na temat punktów końcowych, tras i typów miej
 
 ### <a name="assign-the-role"></a>Przypisywanie roli
 
->[!NOTE]
-> Ta sekcja musi zostać wykonana przez użytkownika platformy Azure z uprawnieniami do zarządzania dostępem użytkowników do zasobów platformy Azure (w tym przyznawania i delegowania uprawnień). Typowe role spełniające to wymaganie są *właścicielami*, *administratorami kont* lub kombinacją administratorów i *współautorów* *dostępu użytkowników* . Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień dla ról bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*How to: Konfiguracja instance and Authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Można dodać `--scopes` parametr `az dt create` do polecenia, aby przypisać tożsamość do co najmniej jednego zakresu z określoną rolą. Można go użyć podczas pierwszego tworzenia wystąpienia lub później przez przekazanie nazwy wystąpienia, które już istnieje.
 
@@ -102,7 +101,7 @@ Więcej przykładów przypisań ról za pomocą tego polecenia można znaleźć 
 
 Alternatywnie można również utworzyć role i zarządzać nimi za pomocą polecenia [**AZ role przypisania**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) grupy. Może służyć do obsługi dodatkowych scenariuszy, w których nie chcesz grupować przypisywania ról za pomocą polecenia CREATE.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Tworzenie punktu końcowego z autoryzacją opartą na tożsamościach
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Tworzenie punktu końcowego z uwierzytelnianiem na podstawie tożsamości
 
 Po skonfigurowaniu tożsamości zarządzanej przez system dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji i przypisaniu go do odpowiednich ról można utworzyć usługi Azure Digital bliźniaczych reprezentacji [Endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) , które mogą korzystać z tożsamości na potrzeby uwierzytelniania. Ta opcja jest dostępna tylko dla punktów końcowych centrum zdarzeń i typu Service Bus (nie jest to obsługiwane w przypadku Event Grid).
 

@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 13fe83710c94c1ca37f05d59cb91f31aa8ca1bae
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700188"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Schemat networkConfiguration konfiguracji usługi Azure Cloud Services (obsługa rozszerzona)
 
@@ -23,7 +23,7 @@ Aby dowiedzieć się więcej o sieciach wirtualnych i skojarzonych schematach, m
 
 - [Schemat konfiguracji usługi w chmurze (obsługa rozszerzona)](schema-cscfg-file.md).
 - [Schemat definicji usługi w chmurze (obsługa rozszerzona)](schema-csdef-file.md).
-- [Utwórz Virtual Network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network).
+- [Utwórz Virtual Network](../virtual-network/manage-virtual-network.md).
 
 ## <a name="networkconfiguration-element"></a>NetworkConfiguration, element
 Poniższy przykład pokazuje `NetworkConfiguration` element i jego elementy podrzędne.
@@ -72,5 +72,5 @@ W poniższej tabeli opisano elementy podrzędne `NetworkConfiguration` elementu.
 | Podsieć | Opcjonalny. Określa podsieć zgodną z nazwą podsieci w pliku konfiguracyjnym sieci. Nazwa podsieci jest definiowana przez ciąg dla `name` atrybutu.|
 | ReservedIP | Opcjonalny. Określa zastrzeżony adres IP, który ma zostać skojarzony z wdrożeniem. Aby utworzyć zastrzeżony adres IP, należy użyć Utwórz adres Zastrzeżony adres IP. Każde wdrożenie w usłudze w chmurze może być skojarzone z jednym zastrzeżonym adresem IP. Nazwa zastrzeżonego adresu IP jest definiowana przez ciąg dla `name` atrybutu.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Schemat konfiguracji usługi w chmurze (obsługa rozszerzona)](schema-cscfg-file.md).

@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712706"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -58,7 +58,49 @@ Interfejs API platformy Azure dla usługi FHIR obsługuje następujące parametr
 | \_typefilter | Tak | Aby zażądać bardziej szczegółowego filtrowania, można użyć \_ TypeFilter wraz z \_ parametrem typu. Wartość parametru _typeFilter jest rozdzielaną przecinkami listą zapytań FHIR, które bardziej ograniczają wyniki |
 | \_wbudowane | Nie |  Określa kontener w skonfigurowanym koncie magazynu, w którym mają zostać wyeksportowane dane. Jeśli kontener jest określony, dane zostaną wyeksportowane do tego kontenera w nowym folderze o nazwie. Jeśli kontener nie zostanie określony, zostanie on wyeksportowany do nowego kontenera przy użyciu sygnatury czasowej i identyfikatora zadania. |
 
+## <a name="secure-export-to-azure-storage"></a>Bezpieczny eksport do usługi Azure Storage
 
+Interfejs API platformy Azure dla usługi FHIR obsługuje operację bezpiecznego eksportowania. Jedną z opcji wykonywania bezpiecznego eksportu jest umożliwienie określonym adresom IP skojarzonym z interfejsem API platformy Azure dla FHIR dostępu do konta usługi Azure Storage. Konfiguracja różni się w zależności od tego, czy konto magazynu znajduje się w tej samej lokalizacji, czy w innym miejscu niż interfejs API platformy Azure dla FHIR.
+
+### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Gdy konto usługi Azure Storage znajduje się w innym regionie
+
+Wybierz blok sieć konta usługi Azure Storage z portalu. 
+
+   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Ustawienia sieci usługi Azure Storage." lightbox="media/export-data/storage-networking.png":::
+   
+Wybierz pozycję "wybrane sieci" i określ adres IP w polu **zakres adresów** w obszarze zapory \| Dodaj zakresy adresów IP, aby zezwolić na dostęp z Internetu lub sieci lokalnych. Adres IP można znaleźć z poniższej tabeli dla regionu platformy Azure, w którym Zainicjowano obsługę interfejsu API platformy Azure dla usługi FHIR.
+
+|**Region świadczenia usługi Azure**         |**Publiczny adres IP** |
+|:----------------------|:-------------------|
+| Australia Wschodnia       | 20.53.44.80       |
+| Kanada Środkowa       | 20.48.192.84      |
+| Central US           | 52.182.208.31     |
+| East US              | 20.62.128.148     |
+| Wschodnie stany USA 2            | 20.49.102.228     |
+| Wschodnie stany USA 2 — EUAP       | 20.39.26.254      |
+| Niemcy Północne        | 51.116.51.33      |
+| Niemcy Środkowo-Zachodnie | 51.116.146.216    |
+| Japonia Wschodnia           | 20.191.160.26     |
+| Korea Środkowa        | 20.41.69.51       |
+| Północno-środkowe stany USA     | 20.49.114.188     |
+| Europa Północna         | 52.146.131.52     |
+| Północna Republika Południowej Afryki   | 102.133.220.197   |
+| South Central US     | 13.73.254.220     |
+| Southeast Asia       | 23.98.108.42      |
+| Szwajcaria Północna    | 51.107.60.95      |
+| Południowe Zjednoczone Królestwo             | 51.104.30.170     |
+| Zachodnie Zjednoczone Królestwo              | 51.137.164.94     |
+| Zachodnio-środkowe stany USA      | 52.150.156.44     |
+| West Europe          | 20.61.98.66       |
+| Zachodnie stany USA 2            | 40.64.135.77      |
+
+### <a name="when-the-azure-storage-account-is-in-the-same-region"></a>Gdy konto usługi Azure Storage znajduje się w tym samym regionie
+
+Proces konfiguracji jest taki sam jak powyżej, ale zamiast niego jest używany określony zakres adresów IP w formacie CIDR, 100.64.0.0/10. Należy określić, dlaczego zakres adresów IP, który obejmuje 100.64.0.0 – 100.127.255.255, musi być określony, ponieważ rzeczywisty adres IP używany przez usługę różni się, ale będzie znajdować się w zakresie, dla każdego żądania $export.
+
+> [!Note] 
+> Możliwe jest użycie w zamian prywatnego adresu IP z zakresu 10.0.2.0/24. W takim przypadku operacja $export nie powiedzie się. Można ponowić próbę żądania $export, ale nie ma gwarancji, że adres IP w zakresie 100.64.0.0/10 zostanie użyty następnym razem. Jest to znane zachowanie sieciowe według projektu. Alternatywą jest skonfigurowanie konta magazynu w innym regionie.
+    
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób eksportowania FHIR zasobów przy użyciu polecenia $export. Następnie Dowiedz się, jak eksportować dane z wyznaczonymi danymi:

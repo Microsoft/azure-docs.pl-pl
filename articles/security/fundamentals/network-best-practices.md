@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735730"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń sieci na platformie Azure
 W tym artykule omówiono zbiór najlepszych rozwiązań dotyczących platformy Azure w celu zwiększenia bezpieczeństwa sieci. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z obsługą sieci platformy Azure i klientami.
@@ -206,7 +206,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 - **Globalne zasięg**: Połącz się prywatnie z usługami działającymi w innych regionach. Sieć wirtualna konsumenta może znajdować się w regionie A i może łączyć się z usługami w regionie B.
 - **Prosta konfiguracja i zarządzanie**: nie potrzebujesz już zastrzeżonych publicznych adresów IP w sieciach wirtualnych, aby zabezpieczyć zasoby platformy Azure za pomocą zapory IP. Do skonfigurowania prywatnych punktów końcowych nie są wymagane żadne urządzenia NAT ani Gateway. Prywatne punkty końcowe są konfigurowane za pomocą prostego przepływu pracy. Po stronie usługi można także zarządzać żądaniami połączenia w ramach zasobu usługi platformy Azure. Połączenie prywatne platformy Azure działa również dla klientów i usług należących do różnych dzierżaw Azure Active Directory. 
     
-Aby dowiedzieć się więcej o prywatnych punktach końcowych oraz usługach i regionach platformy Azure, dla których są dostępne prywatne punkty końcowe, zobacz [link prywatny platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview).
+Aby dowiedzieć się więcej o prywatnych punktach końcowych oraz usługach i regionach platformy Azure, dla których są dostępne prywatne punkty końcowe, zobacz [link prywatny platformy Azure](../../private-link/private-link-overview.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

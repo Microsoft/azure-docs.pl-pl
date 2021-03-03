@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 05/29/2019
+ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe9cc44542e97880b076d871dde82f5a02a58957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928976"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733486"
 ---
 # <a name="use-the-headpose-attribute"></a>Używanie atrybutu HeadPose
 
@@ -29,7 +29,7 @@ Przykładowa aplikacja platformy [WPF w Cognitive Services kroju](https://github
 
 ### <a name="explore-the-sample-code"></a>Poznawanie przykładowego kodu
 
-Można programistycznie obrócić prostokąt powierzchni przy użyciu atrybutu HeadPose. Jeśli ten atrybut zostanie określony podczas wykrywania twarzy (zobacz [jak wykrywać twarze](HowtoDetectFacesinImage.md)), będzie można wysłać do niego zapytanie później. Poniższa metoda w aplikacji [WPF Cognitive Services kroju](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pobiera listę obiektów **DetectedFace** i zwraca listę obiektów **[czołowych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . W **tym miejscu jest** klasą niestandardową, która przechowuje dane powierzchni, łącznie ze zaktualizowanymi współrzędnymi prostokąta. Nowe wartości są obliczane dla opcji **Top**, **Left**, **Width**i **Height**, a nowe pole **FaceAngle** określa obrót.
+Można programistycznie obrócić prostokąt powierzchni przy użyciu atrybutu HeadPose. Jeśli ten atrybut zostanie określony podczas wykrywania twarzy (zobacz [jak wykrywać twarze](HowtoDetectFacesinImage.md)), będzie można wysłać do niego zapytanie później. Poniższa metoda w aplikacji [WPF Cognitive Services kroju](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pobiera listę obiektów **DetectedFace** i zwraca listę obiektów **[czołowych](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . W **tym miejscu jest** klasą niestandardową, która przechowuje dane powierzchni, łącznie ze zaktualizowanymi współrzędnymi prostokąta. Nowe wartości są obliczane dla opcji **Top**, **Left**, **Width** i **Height**, a nowe pole **FaceAngle** określa obrót.
 
 ```csharp
 /// <summary>
@@ -128,7 +128,7 @@ Możesz wykrywać gesty głowy, takie jak Nodding i powstrząsając, śledząc z
 Wykrywanie wartości na żywo to zadanie określenia, że podmiot jest rzeczywistą osobą, a nie z obrazem lub reprezentacją wideo. Detektor gestu głowy może pomóc w sprawdzeniu, czy jest to sposób na żywo, szczególnie w przeciwieństwie do obrazu reprezentującego osobę.
 
 > [!CAUTION]
-> Aby wykrywać gesty głowy w czasie rzeczywistym, należy wywołać interfejs API rozpoznawania twarzy z dużą szybkością (więcej niż raz na sekundę). Jeśli masz subskrypcję warstwy Bezpłatna (F0), nie będzie to możliwe. Jeśli masz subskrypcję płatnej warstwy, upewnij się, że zostały obliczone koszty tworzenia szybkich wywołań interfejsu API na potrzeby wykrywania gestów głównych.
+> Aby wykrywać gesty głowy w czasie rzeczywistym, należy wywołać Face API z dużą szybkością (więcej niż raz na sekundę). Jeśli masz subskrypcję warstwy Bezpłatna (F0), nie będzie to możliwe. Jeśli masz subskrypcję płatnej warstwy, upewnij się, że zostały obliczone koszty tworzenia szybkich wywołań interfejsu API na potrzeby wykrywania gestów głównych.
 
 Zapoznaj się z przykładem [Front HeadPose](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) w witrynie GitHub, aby zapoznać się z przykładem wykrywania gestów głównych.
 

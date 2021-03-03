@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: aeb92dce41c12ada41175964835d9c89a634a6e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718611"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -56,7 +56,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Zapora aplikacji sieci Web platformy Azure (WAF)](connect-azure-waf.md) (dawniej Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serwer nazw domen](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) — zawiera nieprzetworzone dane MDATP
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) — obejmuje zdarzenia M365D i dane PIERWOTNe MDE
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (dawniej w przypadku zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (dawniej ochrona przed zagrożeniami na platformie Azure)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (dawniej pakiet Office 365 Advanced Threat Protection)
@@ -76,6 +76,9 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Obszar roboczy Google (dawniej: zestaw G Suite)](connect-google-workspace.md)
+    - [NXLog (system Windows) — dzienniki DNS](connect-nxlog-dns.md)
+    - [NXLog LinuxAudit](connect-nxlog-linuxaudit.md)
     - [Okta SSO](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Dzienniki rozwiązania Perimeter 81](connect-perimeter-81-logs.md)
@@ -83,6 +86,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
     - [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+    - [Sophos Cloud OPTIX](connect-sophos-cloud-optix.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
@@ -98,6 +102,8 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - **Zapory, proxy i punkty końcowe — CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Zdarzenia zabezpieczeń Akamai](connect-akamai-security-events.md)
+        - [Aruba ClearPass](connect-aruba-clearpass.md)
+        - [Funkcja DLP firmy Symantec](connect-broadcom-symantec-dlp.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -118,6 +124,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [Inne urządzenia z systemem CEF](connect-common-event-format.md)
     - **Zapory, proxy i punkty końcowe — dziennik systemowy:**
         - [Alsid Active Directory](connect-alsid-active-directory.md)
+        - [Cisco Meraki](connect-cisco-meraki.md)
         - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
@@ -126,6 +133,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
         - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
+        - [VMware ESXi](connect-vmware-esxi.md)
         - [Inne urządzenia oparte na dzienniku systemu](connect-syslog.md)
     - [Serwer Apache HTTP](connect-apache-http-server.md)
     - Rozwiązania DLP

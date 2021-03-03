@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9218886ded7827d4b7a1e2413f1470ee5cd1563d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627868"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733962"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla Azure Monitor
 
@@ -54,7 +54,7 @@ az deployment group create \
 - [Zapytania dziennika](logs/resource-manager-log-queries.md) — Twórz zapisane zapytania dziennika w obszarze roboczym log Analytics.
 - [Log Analytics obszarze roboczym](logs/resource-manager-workspace.md) — tworzenie log Analytics obszaru roboczego i Konfigurowanie kolekcji różnych źródeł danych z poziomu agenta programu log Analytics.
 - [Skoroszyty](visualize/resource-manager-workbooks.md) — tworzenie skoroszytów.
-- [Azure monitor kontenerów](containers/resource-manager-container-insights.md) — dołączanie klastrów do Azure monitor kontenerów.
+- [Kontenery usługi Container Insights](containers/resource-manager-container-insights.md) — dołączanie klastrów do usługi Container Insights.
 - [Azure monitor dla maszyn wirtualnych](vm/resource-manager-vminsights.md) — dołączanie maszyn wirtualnych do Azure monitor dla maszyn wirtualnych.
 
 

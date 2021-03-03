@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736189"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Wybieranie odpowiedniej opcji serwera MySQL na platformie Azure
 
@@ -19,7 +19,7 @@ Na platformie Azure obciążenia serwera MySQL mogą działać w hostowanej infr
 
 Podczas podejmowania decyzji należy wziąć pod uwagę następujące dwie opcje:
 
-- **Azure Database for MySQL** . Ta opcja to w pełni zarządzany aparat bazy danych MySQL oparty na stabilnej wersji programu MySQL Community Edition. Ta relacyjna baza danych jako usługa (DBaaS) hostowana na platformie Azure Cloud Platform znajduje się w kategorii branża PaaS.
+- **Azure Database for MySQL**. Ta opcja to w pełni zarządzany aparat bazy danych MySQL oparty na stabilnej wersji programu MySQL Community Edition. Ta relacyjna baza danych jako usługa (DBaaS) hostowana na platformie Azure Cloud Platform znajduje się w kategorii branża PaaS.
 
   W przypadku wystąpienia zarządzanego programu MySQL na platformie Azure można używać wbudowanych funkcji, takich jak zautomatyzowane stosowanie poprawek, wysoka dostępność, zautomatyzowane kopie zapasowe, elastyczne skalowanie, zabezpieczenia klasy korporacyjnej, zgodność i zarządzanie, monitorowanie i alerty, które w przeciwnym razie wymagają obszernej konfiguracji, gdy serwer MySQL jest lokalnie lub na maszynie wirtualnej platformy Azure. W przypadku korzystania z programu MySQL jako usługi jest to płatność zgodnie z rzeczywistym użyciem z opcjami skalowania w górę lub w poziomie w celu zapewnienia większej kontroli bez przerw w działaniu.
   
@@ -35,7 +35,7 @@ Podczas podejmowania decyzji należy wziąć pod uwagę następujące dwie opcje
   - Strefa nadmiarowa wysokiej dostępności
   - Zarządzane okna obsługi
 
-- **Baza danych MySQL na maszynach wirtualnych platformy Azure** . Ta opcja znajduje się w kategorii branża IaaS. Za pomocą tej usługi można uruchomić serwer MySQL wewnątrz zarządzanej maszyny wirtualnej na platformie Azure w chmurze. Wszystkie najnowsze wersje i wersje programu MySQL można zainstalować na maszynie wirtualnej.
+- **Baza danych MySQL na maszynach wirtualnych platformy Azure**. Ta opcja znajduje się w kategorii branża IaaS. Za pomocą tej usługi można uruchomić serwer MySQL wewnątrz zarządzanej maszyny wirtualnej na platformie Azure w chmurze. Wszystkie najnowsze wersje i wersje programu MySQL można zainstalować na maszynie wirtualnej.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Porównanie opcji wdrażania programu MySQL na platformie Azure
 
@@ -43,17 +43,19 @@ Główne różnice między tymi opcjami są wymienione w poniższej tabeli:
 
 | Atrybut          | Azure Database for MySQL<br/>Pojedynczy serwer |Azure Database for MySQL<br/>Elastyczny serwer  |Baza danych MySQL na maszynach wirtualnych platformy Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Obsługa wersji MySQL | 5,6, 5,7 & 8,0| 5.7 | Dowolna wersja|
+| Obsługa wersji MySQL | 5,6, 5,7 & 8,0| 5,7 & 8,0 | Dowolna wersja|
 | Skalowanie obliczeniowe | Obsługiwane (skalowanie od i do warstwy Podstawowa nie jest obsługiwane)| Obsługiwane | Obsługiwane|
 | Rozmiar magazynu | 5 GiB do 16 TiB| 5 GiB do 16 TiB | 32 GiB do 32 767 GiB|
 | Skalowanie magazynu online | Obsługiwane| Obsługiwane| Nieobsługiwane|
 | Automatyczne skalowanie magazynu | Obsługiwane| Nieobsługiwane w wersji zapoznawczej| Nieobsługiwane|
+| Dodatkowe skalowanie IOPs | Nieobsługiwane| Obsługiwane| Nieobsługiwane|
 | Łączność sieciowa | — Publiczne punkty końcowe z zaporą serwera.<br/> — Prywatny dostęp z obsługą linku prywatnego.|— Publiczne punkty końcowe z zaporą serwera.<br/> -Prywatny dostęp z integracją Virtual Network.| — Publiczne punkty końcowe z zaporą serwera.<br/> — Prywatny dostęp z obsługą linku prywatnego.|
 | Umowa dotycząca poziomu usług (SLA) | dostępność na 99,99% umowy SLA |Brak umowy SLA w wersji zapoznawczej| 99,99% przy użyciu Strefy dostępności|
 | Stosowanie poprawek systemu operacyjnego| Automatyczny  | Automatyczna z kontrolką okna obsługi niestandardowej | Zarządzane przez użytkowników końcowych |
 | Stosowanie poprawek MySQL     | Automatyczny  | Automatyczna z kontrolką okna obsługi niestandardowej | Zarządzane przez użytkowników końcowych |
 | Wysoka dostępność | Wbudowana HA w ramach pojedynczej strefy dostępności| Wbudowana HA w ramach i między strefami dostępności | Niestandardowe zarządzane przy użyciu klastrowania, replikacji itp.|
 | Nadmiarowość stref | Nieobsługiwane | Obsługiwane | Obsługiwane|
+| Położenie strefy | Nieobsługiwane | Obsługiwane | Obsługiwane|
 | Scenariusze hybrydowe | Obsługiwane w przypadku [replikacja typu Data-in](./concepts-data-in-replication.md)| Niedostępne w wersji zapoznawczej | Zarządzane przez użytkowników końcowych |
 | Repliki do odczytu | Obsługiwane (do 5 replik)| Obsługiwane (do 10 replik)| Zarządzane przez użytkowników końcowych |
 | Backup | Okresowe przechowywanie z 7-35 dni | Okresowe przechowywanie z 1-35 dni | Zarządzane przez użytkowników końcowych |

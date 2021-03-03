@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653921"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736645"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -24,7 +24,12 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
+* `2021-01-15`Wersja modelu dla WIELOosobowego punktu końcowego w [nazwanym rozpoznaniu jednostki](how-tos/text-analytics-how-to-entity-linking.md) v 3.1-Preview. x, która zapewnia 
+  * Rozszerzona obsługa 9 nowych języków
+  * Ulepszona jakość AI kategorii nazwanych jednostek dla obsługiwanych języków.
 * Warstwy cenowe S0 za pomocą S4 są wycofywane z 8 marca, 2021. Jeśli masz istniejący zasób analiza tekstu za pomocą warstwy cenowej S0 za pośrednictwem S4, należy ją zaktualizować do korzystania z [warstwy cenowej](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)standardowa.
+* [Kontener wykrywania języka](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) jest teraz ogólnie dostępny.
+* Wersja 2.1 interfejsu API jest wycofywana. 
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

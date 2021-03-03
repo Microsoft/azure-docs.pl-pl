@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712457"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
-W tym artykule wyjaśniono, w jaki sposób można uzyskać dostęp do zasobów SAP z Logic Apps przy użyciu [łącznika SAP](https://docs.microsoft.com/connectors/sap/).
+W tym artykule wyjaśniono, w jaki sposób można uzyskać dostęp do zasobów SAP z Logic Apps przy użyciu [łącznika SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -547,14 +547,14 @@ W przypadku wersji lokalnej bramy danych z kwietnia 2020 i wcześniejszych dzien
 
 W przypadku korzystania [z lokalnej bramy danych dla Logic Apps](../logic-apps/logic-apps-gateway-install.md)można skonfigurować rozszerzony plik dziennika dla łącznika SAP. Lokalnej bramy danych można użyć do przekierowania zdarzeń śledzenia zdarzeń systemu Windows (ETW) do rotacji plików dziennika, które znajdują się w pliku zip rejestracji bramy. 
 
-[Wszystkie dzienniki konfiguracji i usługi bramy można wyeksportować](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) do pliku zip w ustawieniach aplikacji bramy.
+[Wszystkie dzienniki konfiguracji i usługi bramy można wyeksportować](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) do pliku zip w ustawieniach aplikacji bramy.
 
 > [!NOTE]
 > Rejestrowanie rozszerzone może mieć wpływ na wydajność aplikacji logiki, jeśli są zawsze włączone. Najlepszym rozwiązaniem jest wyłączenie rozszerzonych plików dziennika po zakończeniu analizowania i rozwiązywania problemów.
 
 #### <a name="capture-etw-events"></a>Przechwyć zdarzenia ETW
 
-Opcjonalnie Użytkownicy zaawansowani mogą przechwycić zdarzenia ETW bezpośrednio. Następnie można [korzystać z danych w Diagnostyka Azure w Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) lub [zbierać dane do dzienników Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące zbierania i przechowywania danych](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Programu [Narzędzia PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) można użyć do pracy z powstającymi plikami ETL lub można napisać własny program. W tym instruktażu zastosowano narzędzia PerfView:
+Opcjonalnie Użytkownicy zaawansowani mogą przechwycić zdarzenia ETW bezpośrednio. Następnie można [korzystać z danych w Diagnostyka Azure w Event Hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) lub [zbierać dane do dzienników Azure monitor](/azure/azure-monitor/agents/diagnostics-extension-logs). Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące zbierania i przechowywania danych](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Programu [Narzędzia PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) można użyć do pracy z powstającymi plikami ETL lub można napisać własny program. W tym instruktażu zastosowano narzędzia PerfView:
 
 1. W menu Narzędzia PerfView wybierz pozycję **Zbierz** &gt; **zbieranie** , aby przechwycić zdarzenia.
 
@@ -1336,7 +1336,7 @@ Aby uzyskać szczegółowe przykłady użycia akcji wywoływania interfejsu BAPI
 
 ### <a name="send-idoc-action"></a>Wyślij akcję IDoc
 
-Akcja [Wyślij IDOC ( `SendIDoc` )](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) wysyła komunikat IDOC do serwera SAP.
+Akcja [Wyślij IDOC ( `SendIDoc` )](/connectors/sap/) wysyła komunikat IDOC do serwera SAP.
 
 Musisz użyć następujących parametrów z wywołaniem: 
 

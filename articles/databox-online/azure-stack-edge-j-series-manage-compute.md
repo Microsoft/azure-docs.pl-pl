@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955545"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733418"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Zarządzanie obliczeniami na Azure Stack brzegowej procesora GPU Pro
 
@@ -21,11 +21,6 @@ ms.locfileid: "98955545"
 
 W tym artykule opisano sposób zarządzania obliczeniami za pośrednictwem usługi IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro GPU. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją IoT Edge i lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami sieci obliczeniowej.
 
-W tym artykule omówiono sposób wykonywania następujących zadań:
-
-> [!div class="checklist"]
-> * Zarządzanie wyzwalaczami
-> * Zarządzanie konfiguracją IoT Edge
 
 
 ## <a name="manage-triggers"></a>Zarządzanie wyzwalaczami
@@ -130,6 +125,22 @@ Aby zsynchronizować klucze dostępu dla urządzenia, wykonaj następujące czyn
     ![Wybierz opcję tak po wyświetleniu monitu](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
 
 3. Po zakończeniu synchronizacji zamknij okno dialogowe.
+
+## <a name="change-external-service-ips-for-containers"></a>Zmień zewnętrzne adresy IP usługi dla kontenerów
+
+Adresy IP usług zewnętrznych Kubernetes są używane do uzyskiwania dostępu do usług, które są udostępniane poza klastrem Kubernetes. Po aktywowaniu urządzenia można ustawić lub zmodyfikować adresy IP usług zewnętrznych dla obciążeń kontenerowych dla urządzenia przez uzyskanie dostępu do lokalnego interfejsu użytkownika.
+
+
+1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **obliczenia**.
+1. Wybierz port, którego sieć jest skonfigurowana do obliczeń. W bloku, który zostanie otwarty, określ (nowy) lub zmodyfikuj (jeśli istnieje) adresy IP usług zewnętrznych Kubernetes. Te adresy IP są używane dla wszystkich usług, które muszą być ujawnione poza klastrem Kubernetes. 
+    - Wymagany jest co najmniej jeden adres IP usługi dla `edgehub` usługi działającej na urządzeniu i używany przez moduły IoT Edge. 
+    - Wymagany jest adres IP dla każdego dodatkowego modułu IoT Edge lub kontenera, który ma zostać wdrożony. 
+    - Są to statyczne, ciągłe adresy IP.
+
+    ![Zmień adresy IP usługi Kubernetes](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
+
+1. Wybierz przycisk **Zastosuj**. Po zastosowaniu adresów IP urządzenie nie wymaga ponownego uruchomienia ani ponownego uruchomienia komputera. Nowe adresy IP zaczynają obowiązywać natychmiast.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

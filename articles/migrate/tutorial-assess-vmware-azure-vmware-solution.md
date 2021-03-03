@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718832"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Samouczek: Ocena maszyn wirtualnych VMware pod kątem migracji do wersji zaautomatycznej
 
@@ -50,6 +50,9 @@ Zdecyduj, czy chcesz uruchomić ocenę przy użyciu kryteriów ustalania rozmiar
 **Zgodnie ze środowiskiem lokalnym** | Oceń dane na podstawie konfiguracji komputera/metadanych.  | Zalecany rozmiar węzła w ramach automatycznej synchronizacji zależy od rozmiaru lokalnego maszyny wirtualnej, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia niedopuszczalnego do tolerowania.
 **Na podstawie wydajności** | Oceniaj na podstawie zebranych danych o wydajności dynamicznej. | Zalecany rozmiar węzła w ramach automatycznej synchronizacji jest oparty na danych użycia procesora i pamięci, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia odporności na uszkodzenia.
 
+> [!NOTE]
+> Ocenę rozwiązań VMware (Automatyczna synchronizacja) można utworzyć tylko dla maszyn wirtualnych VMware.
+
 ## <a name="run-an-assessment"></a>Uruchamianie oceny
 
 Uruchom ocenę w następujący sposób:
@@ -60,7 +63,7 @@ Uruchom ocenę w następujący sposób:
 
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
 
-1. W obszarze **Szacuj**  >  **Typ oceny** serwerów wybierz pozycję **Azure VMware Solution (Automatyczna synchronizacja) (wersja zapoznawcza**).
+1. W obszarze **Szacuj**  >  **Typ oceny** serwerów, wybierz pozycję **Azure VMware Solution (Automatyczna synchronizacja)**.
 
 1. W **źródle odnajdywania**:
 
@@ -76,14 +79,14 @@ Uruchom ocenę w następujący sposób:
 
     - W polu **Lokalizacja docelowa** Określ region platformy Azure, do którego chcesz przeprowadzić migrację.
        - Zalecenia dotyczące rozmiaru i kosztu są zależne od określonej lokalizacji.
-       - Obecnie można ocenić dla czterech regionów (Australia Wschodnia, Wschodnie stany USA, Europa Zachodnia, zachodnie stany USA)
    - **Typ magazynu** jest domyślnie **sieci vSAN**. Jest to domyślny typ magazynu dla chmury prywatnej automatycznej synchronizacji.
    - **Wystąpienia zarezerwowane** nie są obecnie obsługiwane w przypadku węzłów automatycznej synchronizacji.
 1. **Rozmiar maszyny wirtualnej**:
     - **Typ węzła** jest domyślnie **AV36**. Azure Migrate zaleca węzeł węzłów wymaganych do migrowania maszyn wirtualnych do wersji zaautomatycznej.
     - W **ustawieniu FTT, na poziomie RAID**, wybierz niepowodzenie i kombinację RAID.  Wybrana opcja FTT, połączona z wymaganiami dotyczącymi lokalnego dysku maszyny wirtualnej, określa łączny magazyn sieci vSAN wymagany w ramach automatycznej synchronizacji.
     - W obszarze **nadsubskrypcja procesora CPU** Określ stosunek rdzeni wirtualnych skojarzonych z jednym rdzeniem fizycznym w WĘŹLE automatyczna synchronizacja. Nadsubskrypcja większa niż 4:1 może powodować spadek wydajności, ale może być używana do obciążeń typu serwer sieci Web.
-
+    - W obszarze współczynnik nadmiernej **zatwierdzeń pamięci** Określ stosunek ilości pamięci przez zatwierdzenie w klastrze. Wartość 1 reprezentuje 100% wykorzystania pamięci, 0,5 na przykład jest 50%, a 2 będzie używać 200% dostępnej pamięci. Można dodawać tylko wartości z prze0,5 do 10 do jednego miejsca dziesiętnego.
+    - W polu **Deduplikacja i współczynnik kompresji** Określ przewidywany współczynnik deduplikacji i kompresji dla obciążeń. Rzeczywista wartość może być uzyskana z lokalnej konfiguracji sieci vSAN lub magazynu i może się to różnić w zależności od obciążenia. Wartość 3 oznacza, że dla dysku 300 GB zostanie użyty dysk o pojemności 100 GB. Wartość 1 oznacza brak dekompresu lub kompresji. Można dodawać wartości od 1 do 10 do jednego miejsca dziesiętnego.
 1. W obszarze **rozmiar węzła**: 
     - W **kryterium ustalania wielkości** wybierz, czy chcesz oprzeć ocenę metadanych statycznych, czy też na danych na podstawie wydajności. W przypadku korzystania z danych wydajności:
         - W obszarze **historia wydajności** wskaż czas trwania danych, dla którego chcesz oprzeć ocenę
@@ -127,7 +130,6 @@ W ramach oceny automatycznej wersji zamieszczono następujące informacje:
 - Liczba węzłów automatycznej synchronizacji: Szacowana liczba węzłów synchronizacji wymaganych do uruchomienia maszyn wirtualnych.
 - Wykorzystanie w węzłach automatycznej synchronizacji: przewidywany procesor CPU, pamięć i wykorzystanie magazynu we wszystkich węzłach.
     - Użycie obejmuje przejście z góry do następujących kosztów zarządzania klastrami, takich jak vCenter Server, NSX Manager (duże), NSX Edge, jeśli HCX jest wdrożona, również w Menedżerze HCX i IX wykorzystano ~ 44vCPU (11 procesorów), 75 GB pamięci RAM i 722GB magazynu przed kompresją i deduplikacją. 
-    - Pamięć, deduplikacja i kompresja są obecnie ustawione na 100% wykorzystania pamięci i dekompresności i kompresji 1,5, które będą zdefiniowane przez użytkownika w późniejszych wersjach, co umożliwia użytkownikom precyzyjne dostosowanie ich wymaganych rozmiarów.
 - Oszacowanie kosztów miesięcznych: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
 
 ## <a name="view-an-assessment"></a>Widok oceny
@@ -155,7 +157,7 @@ Aby wyświetlić ocenę:
 
 3. Przejrzyj sugerowane narzędzie.
 
-    - VMware HCX lub Enterprise: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMWare (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). Dowiedz się więcej.
+    - VMware HCX lub Enterprise: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMware (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). Dowiedz się więcej.
     - Nieznane: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMware (HCX).
 4. Kliknij stan gotowości do automatycznej synchronizacji. Możesz wyświetlić szczegóły gotowości maszyn wirtualnych i przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
 
@@ -167,7 +169,7 @@ Podsumowanie oceny przedstawia szacowany koszt obliczeń i magazynu dla uruchomi
 
     - Oszacowania kosztów są uzależnione od liczby węzłów synchronizacji wymaganych do uwzględnienia wymagań dotyczących zasobów wszystkich maszyn wirtualnych.
     - W ramach cennika automatycznej synchronizacji na węzeł łączny koszt nie ma kosztu obliczeniowego i dystrybucji kosztów magazynu.
-    - Oszacowanie kosztów dotyczy uruchamiania lokalnych maszyn wirtualnych w wersji zaautomatycznej. Ocena serwera Azure Migrate nie uwzględnia kosztów PaaS ani SaaS.
+    - Oszacowanie kosztów dotyczy uruchamiania lokalnych maszyn wirtualnych w wersji zaautomatycznej. Ocena automatycznej wersji nie uwzględnia kosztów PaaS ani SaaS.
 
 2. Przejrzyj miesięczne oszacowania magazynu. Widok przedstawia zagregowane koszty magazynu dla ocenianej grupy, podzielone na różne typy dysków magazynu. 
 3. Możesz przejść do szczegółów, aby wyświetlić szczegóły kosztów dla określonych maszyn wirtualnych.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753456"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686737"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API
 
@@ -29,9 +29,15 @@ Po uzyskaniu tokenu można wywołać chroniony internetowy interfejs API. Zwykle
 
 Gdy korzystasz z *Microsoft. Identity. Web*, masz trzy scenariusze użycia:
 
-- [Opcja 1: Wywołaj Microsoft Graph z zestawem SDK Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
-- [Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API](#a-web-api-that-calls-web-apis-call-an-api)
+  - [Kod kontrolera](#controller-code)
+- [ASP.NET Core](#aspnet-core)
+      - [Opcja 1: Wywołaj Microsoft Graph z zestawem SDK](#option-1-call-microsoft-graph-with-the-sdk)
+      - [Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika](#option-2-call-a-downstream-web-api-with-the-helper-class)
+      - [Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Java](#java)
+- [Python](#python)
+  - [Następne kroki](#next-steps)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opcja 1: Wywołaj Microsoft Graph z zestawem SDK
 
@@ -159,7 +165,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-Przykład pokazujący ten przepływ za pomocą MSAL Python nie jest jeszcze dostępny.
+Przykład pokazujący ten przepływ przy użyciu języka MSAL Python jest dostępny w [MS-Identity-Python-](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of)in-of.
 
 ---
 

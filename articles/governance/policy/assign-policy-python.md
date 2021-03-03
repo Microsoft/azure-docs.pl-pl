@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad przy użyciu języka Python'
 description: W tym przewodniku szybki start utworzysz przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742351"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python
 
@@ -40,7 +40,7 @@ Aby włączyć środowisko Python do pracy z Azure Policy, należy dodać biblio
    az login
    ```
 
-1. W wybranym środowisku języka Python Zainstaluj wymagane biblioteki na potrzeby grafu zasobów platformy Azure:
+1. W wybranym środowisku języka Python Zainstaluj wymagane biblioteki dla Azure Policy:
 
    ```bash
    # Add the Python library for Python
@@ -96,7 +96,7 @@ Szczegóły przypisania:
 - **policy_definition_id** — ścieżka definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_. W tym przykładzie definicja zasad jest wbudowana, a ścieżka nie zawiera informacji o grupie zarządzania lub subskrypcji.
 - **zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może ona przedziały od grupy zarządzania do pojedynczego zasobu. Pamiętaj, aby zastąpić `{scope}` jednym z następujących wzorców:
   - Grupa zarządzania: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Ramach `/subscriptions/{subscriptionId}`
+  - Subskrypcje: `/subscriptions/{subscriptionId}`
   - Grupa zasobów: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Zasoby `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 - **Opis** — dokładniejsze wyjaśnienie tego, czym są zasady lub dlaczego są przypisane do tego zakresu.

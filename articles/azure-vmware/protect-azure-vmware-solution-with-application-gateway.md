@@ -3,12 +3,12 @@ title: Korzystanie z usługi Azure Application Gateway do ochrony aplikacji siec
 description: Skonfiguruj Application Gateway platformy Azure, aby bezpiecznie uwidaczniać aplikacje sieci Web działające w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ad615efe0de86a49714914507227b7cc1dca4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733588"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Korzystanie z usługi Azure Application Gateway do ochrony aplikacji sieci Web w rozwiązaniu VMware platformy Azure
 
@@ -35,7 +35,7 @@ Na diagramie przedstawiono scenariusz testowania używany do sprawdzania poprawn
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram przedstawiający Scenariusz testowania używany do sprawdzania poprawności Application Gateway przy użyciu aplikacji sieci Web rozwiązań VMware platformy Azure." border="false":::
 
-Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci. Ma publiczny adres IP platformy Azure. Zalecane jest aktywowanie standardowej ochrony DDoS dla sieci wirtualnej. Serwer sieci Web jest hostowany w chmurze prywatnej rozwiązania Azure VMware w tle NSX T0 i T1 Gateway. Rozwiązanie VMware platformy Azure używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) , aby umożliwić komunikację z systemami centralnymi i lokalnymi.
+Wystąpienie Application Gateway jest wdrażane w centrum w dedykowanej podsieci. Ma publiczny adres IP platformy Azure. Zalecane jest aktywowanie [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) dla sieci wirtualnej. Serwer sieci Web jest hostowany w chmurze prywatnej rozwiązania Azure VMware w tle NSX T0 i T1 Gateway. Rozwiązanie VMware platformy Azure używa [Global REACH ExpressRoute](../expressroute/expressroute-global-reach.md) , aby umożliwić komunikację z systemami centralnymi i lokalnymi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -193,3 +193,4 @@ Teraz, gdy korzystasz z usługi Application Gateway do ochrony aplikacji sieci W
 - [Konfigurowanie Application Gateway platformy Azure dla różnych scenariuszy](../application-gateway/configuration-overview.md).
 - [Wdrażanie Traffic Manager w celu zrównoważenia obciążeń rozwiązań VMware platformy Azure](deploy-traffic-manager-balance-workloads.md).
 - [Integracja Azure NetApp Files z obciążeniami opartymi na rozwiązaniach VMware platformy Azure](netapp-files-with-azure-vmware-solution.md).
+- [Ochrona zasobów platformy Azure w sieciach wirtualnych](../ddos-protection/ddos-protection-overview.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754168"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699984"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -104,7 +104,7 @@ Współbieżne limity żądań dla modeli **podstawowych** i **niestandardowych*
 Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, Command-Line narzędzi lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
 
 >[!NOTE]
->[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt. Jednak kontenery mowy mają własne ograniczenia pojemności, które należy wziąć pod uwagę. Zobacz pytanie *"czy można pomóc w planowaniu pojemności i szacowaniu kosztów Premium kontenerów zamiany mowy na tekst?"* . na stronie [często zadawane pytania dotyczące kontenerów mowy](speech-container-faq.md).
+>[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt. Jednak kontenery mowy mają własne ograniczenia pojemności, które należy wziąć pod uwagę. Zobacz pytanie *"czy można pomóc w planowaniu pojemności i szacowaniu kosztów Premium kontenerów zamiany mowy na tekst?"* . na stronie [często zadawane pytania dotyczące kontenerów mowy](./speech-container-howto.md).
 
 #### <a name="have-the-required-information-ready"></a>Przygotuj wymagane informacje:
 - Dla **modelu podstawowego**:
@@ -205,4 +205,3 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
   - Informacje o zasobach platformy Azure [zebrane przed](#prepare-the-required-information) 
   - Ukończ wprowadzanie wymaganych informacji, a następnie kliknij przycisk *Utwórz* na karcie *Przegląd + tworzenie*
   - Zanotuj numer żądania pomocy technicznej w obszarze Azure Portal powiadomienia. Wkrótce skontaktujemy się z Tobą w celu dalszej obróbki
-

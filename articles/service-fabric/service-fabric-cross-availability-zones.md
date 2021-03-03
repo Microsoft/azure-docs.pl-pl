@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714956"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Wdróż klaster Service Fabric platformy Azure w Strefy dostępności
 Strefy dostępności na platformie Azure to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefa dostępności jest unikatową lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią w regionie świadczenia usługi Azure.
@@ -345,7 +345,7 @@ Aby włączyć strefy na zestawie skalowania maszyn wirtualnych, należy uwzglę
 
 * Pierwsza wartość to właściwość **Zones** , która określa strefy dostępności obecną w zestawie skalowania maszyn wirtualnych.
 * Druga wartość to właściwość "singlePlacementGroup", która musi mieć wartość true. **Zestaw skalowania, który został przełączony w 3 AZs, może skalować do 300 maszyn wirtualnych nawet przy użyciu "singlePlacementGroup = true".**
-* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy, jeśli ma wartość true. Zalecamy ustawienie tej opcji na true, aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Przeczytaj o [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* Trzecia wartość to "zoneBalance", która zapewnia ścisłe równoważenie strefy. Powinno to mieć wartość "true", aby uniknąć niezrównoważonej dystrybucji maszyn wirtualnych w różnych strefach. Klaster z niezrównoważoną dystrybucją maszyn wirtualnych w różnych strefach może obsłużyć scenatio strefy w dół. Przeczytaj o [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Zastąpień FaultDomain i UpgradeDomain nie są wymagane do skonfigurowania.
 
 ```json
@@ -409,7 +409,7 @@ Aby zapewnić obsługę wielu stref dostępności, należy włączyć Service Fa
 > * Publiczny adres IP i zasoby Load Balancer powinny używać standardowej jednostki SKU, jak opisano wcześniej w artykule.
 > * Właściwość "multipleAvailabilityZones" w nodeType może być zdefiniowana tylko w czasie tworzenia nodeType i nie można jej później modyfikować. W związku z tym nie można skonfigurować istniejącej elementów NodeType z tą właściwością.
 > * Gdy wartość "sfZonalUpgradeMode" jest pomijana lub ustawiona na "hierarchiczny", wdrożenia klastra i aplikacji będą wolniejsze, ponieważ w klastrze znajdują się więcej domen uaktualnienia. Ważne jest, aby poprawnie dostosować limity czasu zasad uaktualniania, aby uwzględnić czas uaktualnienia dla 15 domen uaktualnienia.
-> * Zalecane jest ustawienie poziomu niezawodności klastra na pakiet Platinum, aby upewnić się, że klaster przeżyje ten scenariusz w dół.
+> * Ustaw klaster **reliabilityLevel = Platinum** , aby upewnić się, że klaster przeżyje ten scenariusz w dół.
 
 >[!NOTE]
 > W przypadku najlepszych rozwiązań zalecamy sfZonalUpgradeMode ustawienie wartości hierarchicznych lub pomijanie. Wdrożenie będzie podążać za strefową dystrybucją maszyn wirtualnych, które mają wpływ na mniejszą ilość replik i/lub wystąpień, dzięki czemu są one bezpieczniejsze.

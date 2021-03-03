@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 90646339ef41d0629a4d1ce8efed4b50427d3b2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724357"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Zasoby do tworzenia łączników niestandardowych platformy Azure
 
@@ -55,9 +55,9 @@ W poniższej tabeli porównano podstawowe informacje o każdej metodzie tworzeni
 
 Jeśli źródło danych dostarcza zdarzenia w plikach, zalecamy użycie agenta Azure Monitor Log Analytics do utworzenia łącznika niestandardowego.
 
-- Aby uzyskać więcej informacji, zobacz [zbieranie niestandardowych dzienników w Azure monitor](/azure/azure-monitor/platform/data-sources-custom-logs).
+- Aby uzyskać więcej informacji, zobacz [zbieranie niestandardowych dzienników w Azure monitor](../azure-monitor/agents/data-sources-custom-logs.md).
 
-- Aby zapoznać się z przykładem tej metody, zobacz [zbieranie niestandardowych źródeł danych JSON przy użyciu agenta log Analytics dla systemu Linux w programie Azure monitor](/azure/azure-monitor/platform/data-sources-json).
+- Aby zapoznać się z przykładem tej metody, zobacz [zbieranie niestandardowych źródeł danych JSON przy użyciu agenta log Analytics dla systemu Linux w programie Azure monitor](../azure-monitor/agents/data-sources-json.md).
 
 ## <a name="connect-with-logstash"></a>Łączenie z usługą logstash
 
@@ -83,7 +83,7 @@ Przykłady przydatnych wtyczek logstash można znaleźć w temacie:
 
 ## <a name="connect-with-logic-apps"></a>Połącz z Logic Apps
 
-Użyj [aplikacji logiki platformy Azure](/azure/logic-apps/) do utworzenia bezserwerowego, niestandardowego łącznika na potrzeby platformy Azure.
+Użyj [aplikacji logiki platformy Azure](../logic-apps/index.yml) do utworzenia bezserwerowego, niestandardowego łącznika na potrzeby platformy Azure.
 
 > [!NOTE]
 > Tworzenie łączników bezserwerowych przy użyciu Logic Apps może być wygodne, przy użyciu Logic Apps dla łączników mogą być kosztowne w przypadku dużych ilości danych.
@@ -95,9 +95,9 @@ Użyj [aplikacji logiki platformy Azure](/azure/logic-apps/) do utworzenia bezse
 
     |Wyzwalacz  |Opis  |
     |---------|---------|
-    |**Zadanie cykliczne**     |   Na przykład Zaplanuj aplikację logiki, aby regularnie pobierać dane z określonych plików, baz danych lub zewnętrznych interfejsów API. <br>Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy w programie Azure Logic Apps](/azure/connectors/connectors-native-recurrence).      |
-    |**Wyzwalanie na żądanie**     | Uruchom aplikację logiki na żądanie, aby ręcznie gromadzenie i testowanie danych. <br>Aby uzyskać więcej informacji, zobacz  [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych https](/azure/logic-apps/logic-apps-http-endpoint).        |
-    |**Punkt końcowy HTTP/S**     |  Zalecane na potrzeby przesyłania strumieniowego oraz tego, czy system źródłowy może uruchomić transfer danych. <br>Aby uzyskać więcej informacji, zobacz [wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub https](/azure/connectors/connectors-native-http).       |
+    |**Zadanie cykliczne**     |   Na przykład Zaplanuj aplikację logiki, aby regularnie pobierać dane z określonych plików, baz danych lub zewnętrznych interfejsów API. <br>Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy w programie Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
+    |**Wyzwalanie na żądanie**     | Uruchom aplikację logiki na żądanie, aby ręcznie gromadzenie i testowanie danych. <br>Aby uzyskać więcej informacji, zobacz  [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych https](../logic-apps/logic-apps-http-endpoint.md).        |
+    |**Punkt końcowy HTTP/S**     |  Zalecane na potrzeby przesyłania strumieniowego oraz tego, czy system źródłowy może uruchomić transfer danych. <br>Aby uzyskać więcej informacji, zobacz [wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub https](../connectors/connectors-native-http.md).       |
     |     |         |
 
 1. **Użyj dowolnego łącznika aplikacji logiki, który odczytuje informacje w celu uzyskania zdarzeń**. Na przykład:
@@ -112,9 +112,9 @@ Użyj [aplikacji logiki platformy Azure](/azure/logic-apps/) do utworzenia bezse
 
 1. **Przygotuj informacje, które chcesz pobrać**.
 
-    Na przykład użyj [akcji Analizuj dane JSON](/azure/logic-apps/logic-apps-perform-data-operations#parse-json-action) , aby uzyskać dostęp do właściwości w zawartości JSON, umożliwiając wybranie tych właściwości z listy zawartości dynamicznej po określeniu danych wejściowych dla aplikacji logiki.
+    Na przykład użyj [akcji Analizuj dane JSON](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , aby uzyskać dostęp do właściwości w zawartości JSON, umożliwiając wybranie tych właściwości z listy zawartości dynamicznej po określeniu danych wejściowych dla aplikacji logiki.
 
-    Aby uzyskać więcej informacji, zobacz [wykonywanie operacji na danych w Azure Logic Apps](/azure/logic-apps/logic-apps-perform-data-operations).
+    Aby uzyskać więcej informacji, zobacz [wykonywanie operacji na danych w Azure Logic Apps](../logic-apps/logic-apps-perform-data-operations.md).
 
 1. **Zapisz dane do log Analytics**.
 
@@ -174,14 +174,14 @@ Zdarzenia można przesyłać do funkcji wskaźnikowej platformy Azure przy użyc
 
 Wywoływanie punktu końcowego RESTful bezpośrednio wymaga większej liczby programów programistycznych, ale zapewnia również większą elastyczność.
 
-Aby uzyskać więcej informacji, zobacz [interfejs API modułu zbierającego dane log Analytics](/azure/azure-monitor/platform/data-collector-api), w szczególności następujące przykłady:
+Aby uzyskać więcej informacji, zobacz [interfejs API modułu zbierającego dane log Analytics](../azure-monitor/logs/data-collector-api.md), w szczególności następujące przykłady:
 
-- [C#](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#c-sample)
-- [Python 2](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api#python-2-sample)
+- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
+- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
 
 ## <a name="connect-with-azure-functions"></a>Połącz z Azure Functions
 
-Użyj Azure Functions wraz z interfejsem API RESTful oraz różnymi językami kodowania, takimi jak program [PowerShell](/azure/azure-functions/functions-reference-powershell), aby utworzyć łącznik niestandardowy bez serwera.
+Użyj Azure Functions wraz z interfejsem API RESTful oraz różnymi językami kodowania, takimi jak program [PowerShell](../azure-functions/functions-reference-powershell.md), aby utworzyć łącznik niestandardowy bez serwera.
 
 Aby zapoznać się z przykładami tej metody, zobacz:
 
@@ -189,7 +189,7 @@ Aby zapoznać się z przykładami tej metody, zobacz:
 - [Połącz usługi okta pojedyncze Sign-On z funkcją wskaźnikową platformy Azure przy użyciu funkcji platformy Azure](connect-okta-single-sign-on.md)
 - [Połącz swoje Proofpoint z platformą Azure, korzystając z funkcji platformy Azure](connect-proofpoint-tap.md)
 - [Połącz maszynę wirtualną z programem Qualys z platformą Azure wskaźnikiem przy użyciu funkcji platformy Azure](connect-qualys-vm.md)
-- [Pozyskiwanie plików XML, CSV lub innych formatów danych](/azure/azure-monitor/platform/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Pozyskiwanie plików XML, CSV lub innych formatów danych](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitorowanie powiększania za pomocą platformy Azure — wskaźnik](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Wdróż aplikacja funkcji uzyskiwania danych interfejsu API zarządzania pakietu Office 365 na platformie Azure](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) — społeczność usługi GitHub.
 

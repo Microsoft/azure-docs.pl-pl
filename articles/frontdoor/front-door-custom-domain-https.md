@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368336"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740787"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 
@@ -33,7 +33,7 @@ Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
 - Dostępne jest kompletne zarządzanie certyfikatami: użytkownik obsługuje wszystkie operacje nabywania certyfikatów i zarządzania nimi. Certyfikaty są automatycznie aprowizowane i odnawiane przed wygaśnięciem ważności, co powoduje wyeliminowanie ryzyka przerwania działania usługi z powodu wygaśnięcia ważności certyfikatu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Włączanie protokołu HTTPS w domenie niestandardowej
 > - Używanie certyfikatu zarządzanego przez usługę AFD 
@@ -110,9 +110,9 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
 
 2. W obszarze **Wybierz podmiot zabezpieczeń** wyszukaj wartość **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** i wybierz pozycję **Microsoft.Azure.Frontdoor**. Kliknij pozycję **Wybierz**.
 
-3. W obszarze **uprawnienia do klucza tajnego**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
+3. W obszarze **uprawnienia do klucza tajnego** wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
-4. W obszarze **uprawnienia certyfikatu**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
+4. W obszarze **uprawnienia certyfikatu** wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
 5. Wybierz przycisk **OK**. 
 
@@ -133,12 +133,7 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
     Z przodu platformy Azure są wyświetlane następujące informacje: 
     - Konta magazynów kluczy dla Twojego identyfikatora subskrypcji. 
     - Certyfikaty (klucze tajne) dla wybranego magazynu kluczy. 
-    - Dostępne wersje certyfikatów. 
-
-> [!NOTE]
-> Pozostawienie wersji certyfikatu jako pustej doprowadziłoby do:
-> - Wybrana jest Najnowsza wersja certyfikatu.
-> - Automatyczne rotacja certyfikatów do najnowszej wersji, gdy w Key Vault jest dostępna nowsza wersja certyfikatu.
+    - Dostępne wersje certyfikatów.
  
 5. Jeśli używasz własnego certyfikatu, walidacja domeny nie jest wymagana. Przejdź do sekcji [Oczekiwanie na propagację](#wait-for-propagation).
 
@@ -280,7 +275,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 * Sprawdź poprawność domeny.
 * Włącz protokół HTTPS dla domeny niestandardowej.
 
-Aby dowiedzieć się, jak skonfigurować zasady filtrowania geograficznego dla drzwi z przodu, przejdź do następnego samouczka.
+Aby dowiedzieć się, jak skonfigurować zasady filtrowania geograficznego dla drzwi przednich, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie zasad filtrowania geograficznego](front-door-geo-filtering.md)

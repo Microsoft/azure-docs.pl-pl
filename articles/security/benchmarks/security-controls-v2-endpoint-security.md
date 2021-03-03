@@ -4,19 +4,21 @@ description: Zabezpieczenia usługi Azure Security test w wersji 2 Endpoint Secu
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718645"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia punktu końcowego
 
 Zabezpieczenia punktu końcowego obejmują kontrolki wykrywania i reagowania punktów końcowych. Obejmuje to korzystanie z wykrywania i reagowania punktów końcowych (EDR) oraz usługi chroniącej przed złośliwym kodem dla punktów końcowych w środowiskach platformy Azure.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na testach zabezpieczeń platformy Azure: zabezpieczenia punktu końcowego](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: korzystanie z wykrywania i odpowiedzi punktów końcowych (EDR)
 
@@ -26,13 +28,13 @@ Zabezpieczenia punktu końcowego obejmują kontrolki wykrywania i reagowania pun
 
 Włącz możliwości wykrywania i reagowania punktów końcowych (EDR) dla serwerów i klientów oraz integruj je z procesami operacji SIEM i zabezpieczeń.
 
-Funkcja zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender oferuje EDRą funkcję w ramach platformy zabezpieczeń punktu końcowego przedsiębiorstwa, która pozwala zapobiegać zaawansowanym zagrożeniom, wykrywać je i reagować na nie. 
+Usługa Microsoft Defender for Endpoint zawiera funkcję EDR w ramach platformy zabezpieczeń punktu końcowego przedsiębiorstwa, która pozwala zapobiegać zaawansowanym zagrożeniom, wykrywać je i reagować na nie.
 
-- [Omówienie zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Omówienie usługi Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Usługa Microsoft Defender ATP dla serwerów z systemem Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Microsoft Defender for Endpoint dla serwerów z systemem Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Usługa Microsoft Defender ATP dla serwerów spoza systemu Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Microsoft Defender for Endpoint dla serwerów z systemem innym niż Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Odpowiedzialność**: Klient
 
@@ -56,7 +58,7 @@ Użyj centralnie zarządzanego rozwiązania do ochrony przed złośliwym kodem p
 
 Azure Security Center może automatycznie identyfikować użycie wielu popularnych rozwiązań chroniących przed złośliwym oprogramowaniem dla maszyn wirtualnych i zgłaszać stan działania programu Endpoint Protection i podejmować zalecenia. 
 
-Program Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services to domyślne oprogramowanie chroniące przed złośliwym oprogramowaniem dla maszyn wirtualnych z systemem Windows. W przypadku maszyn wirtualnych z systemem Linux należy użyć rozwiązania chroniącego przed złośliwym oprogramowaniem innej firmy.  Ponadto można użyć wykrywania zagrożeń Azure Security Center dla usług danych w celu wykrywania złośliwego oprogramowania przekazanego do kont usługi Azure Storage. 
+Program Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services to domyślne oprogramowanie chroniące przed złośliwym oprogramowaniem dla maszyn wirtualnych z systemem Windows. W przypadku maszyn wirtualnych z systemem Linux należy użyć rozwiązania chroniącego przed złośliwym oprogramowaniem innej firmy. Ponadto można użyć wykrywania zagrożeń Azure Security Center dla usług danych w celu wykrywania złośliwego oprogramowania przekazanego do kont usługi Azure Storage. 
 
 - [Jak skonfigurować oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft dla Cloud Services i Virtual Machines](../fundamentals/antimalware.md)
 
@@ -80,9 +82,9 @@ Program Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud S
 |--|--|--|--|
 | ES — 3 | 8.2 | SI-2, SI-3 |
 
-Upewnij się, że podpisy chroniące przed złośliwym oprogramowaniem są aktualizowane szybko i spójnie. 
+Upewnij się, że podpisy chroniące przed złośliwym oprogramowaniem są aktualizowane szybko i spójnie.
 
-Postępuj zgodnie z zaleceniami w Azure Security Center: "COMPUTE &amp; Apps", aby upewnić się, że wszystkie punkty końcowe są aktualne przy użyciu najnowszych sygnatur. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft automatycznie zainstaluje najnowsze aktualizacje sygnatur i aparatu. W przypadku systemu Linux należy użyć rozwiązania chroniącego przed złośliwym kodem innej firmy.
+Postępuj zgodnie z zaleceniami w Azure Security Center: "COMPUTE & Apps", aby upewnić się, że wszystkie punkty końcowe są aktualne przy użyciu najnowszych sygnatur. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft automatycznie zainstaluje najnowsze aktualizacje sygnatur i aparatu. W przypadku systemu Linux upewnij się, że podpisy zostały zaktualizowane w rozwiązaniu chroniącym przed złośliwym kodem innej firmy.
 
 - [Jak wdrożyć program Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services i Virtual Machines](../fundamentals/antimalware.md)
 

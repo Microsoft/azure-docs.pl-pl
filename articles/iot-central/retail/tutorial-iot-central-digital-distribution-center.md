@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702695"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji centrum dystrybucji cyfrowej
 
@@ -21,7 +21,8 @@ W tym samouczku pokazano, jak rozpocząć pracę, wdrażając szablon aplikacji 
 W ramach tego samouczka nauczysz się, jak, 
 
 > [!div class="checklist"]
-> Tworzenie aplikacji centrum dystrybucji cyfrowej za pomocą aplikacji 
+> * Tworzenie aplikacji centrum dystrybucji cyfrowej 
+> * Przechodzenie przez aplikację 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Wdrożenie tej aplikacji nie wymaga określonych wymagań wstępnych

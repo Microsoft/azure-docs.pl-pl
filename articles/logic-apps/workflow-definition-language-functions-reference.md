@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507252"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702491"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji
 
@@ -135,7 +135,7 @@ Aby działać z warunkami, porównywać wartości i wyniki wyrażeń lub ocenia�
 | [wcześniejsz](../logic-apps/workflow-definition-language-functions-reference.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](../logic-apps/workflow-definition-language-functions-reference.md#not) | Sprawdź, czy wyrażenie ma wartość false. |
-| [lub](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
+| [oraz](../logic-apps/workflow-definition-language-functions-reference.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
 |||
 
 <a name="conversion-functions"></a>
@@ -282,7 +282,7 @@ Aby uzyskać pełne informacje o każdej z tych funkcji, zobacz [alfabetyczną l
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Zwróć treść określonej części w danych wyjściowych akcji z wieloma częściami. |
 | [wydajności](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Zwraca dane wyjściowe akcji w czasie wykonywania. |
 | [wejściowe](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Zwraca wartość parametru, który jest opisany w definicji przepływu pracy. |
-| [wynika](../logic-apps/workflow-definition-language-functions-reference.md#result) | Zwraca dane wejściowe i wyjściowe ze wszystkich akcji w określonym zakresie akcji, takich jak `For_each` , `Until` , i `Scope` . |
+| [wynika](../logic-apps/workflow-definition-language-functions-reference.md#result) | Zwraca dane wejściowe i wyjściowe z akcji najwyższego poziomu w określonym zakresie akcji, takich jak `For_each` , `Until` , i `Scope` . |
 | [uruchamiać](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Zwraca dane wyjściowe wyzwalacza w czasie wykonywania lub z innych par nazw i wartości JSON. Zobacz również [triggerOutputs](#triggerOutputs) i [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Zwraca `body` dane wyjściowe wyzwalacza w czasie wykonywania. Zobacz [wyzwalacz](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Zwróć pojedynczą wartość odpowiadającą nazwie klucza w danych wyjściowych wyzwalacza *form-Data* lub *form* . |
@@ -3451,7 +3451,12 @@ Oto zaktualizowany obiekt JSON:
 
 ### <a name="result"></a>result
 
-Zwraca dane wejściowe i wyjściowe ze wszystkich akcji, które znajdują się w określonej akcji w zakresie, takiej jak `For_each` , `Until` lub `Scope` Akcja. Ta funkcja jest przydatna zwracająca wyniki akcji zakończonej niepowodzeniem, aby można było zdiagnozować i obsłużyć wyjątki. Aby uzyskać więcej informacji, zobacz [pobieranie kontekstu i wyników dla niepowodzeń](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Zwraca wyniki z akcji najwyższego poziomu w określonej akcji o określonym zakresie, takiej jak `For_each` , `Until` lub `Scope` Akcja. `result()`Funkcja akceptuje pojedynczy parametr, który jest nazwą zakresu i zwraca tablicę zawierającą informacje z akcji pierwszego poziomu w tym zakresie. Te obiekty akcji obejmują te same atrybuty, co zwracane przez `actions()` funkcję, takie jak godzina rozpoczęcia akcji, godzina zakończenia, stan, dane wejściowe, identyfikatory korelacji i wyjścia.
+
+> [!NOTE]
+> Ta funkcja zwraca informacje *tylko* z akcji pierwszego poziomu w ramach akcji o określonym zakresie, a nie przed bardziej zagnieżdżonymi akcjami, takimi jak akcje przełącznika lub warunku.
+
+Można na przykład użyć tej funkcji w celu uzyskania wyników akcji zakończonych niepowodzeniem, aby można było zdiagnozować i obsłużyć wyjątki. Aby uzyskać więcej informacji, zobacz [pobieranie kontekstu i wyników dla niepowodzeń](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3459,12 +3464,12 @@ result('<scopedActionName>')
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Tak | Ciąg | Nazwa akcji z zakresem, z której mają zostać zwrócone dane wejściowe i wyjściowe ze wszystkich akcji wewnętrznych |
+| <*scopedActionName*> | Tak | Ciąg | Nazwa akcji z zakresem, w której dane wejściowe i wyjściowe z akcji najwyższego poziomu są zawarte w tym zakresie |
 ||||
 
 | Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Array-Object*> | Array — obiekt | Tablica zawierająca tablice danych wejściowych i wyjść z poszczególnych akcji, które pojawiają się w określonej akcji w zakresie |
+| <*Array-Object*> | Array — obiekt | Tablica zawierająca tablice danych wejściowych i wyjść z każdej akcji najwyższego poziomu w określonym zakresie |
 ||||
 
 *Przykład*

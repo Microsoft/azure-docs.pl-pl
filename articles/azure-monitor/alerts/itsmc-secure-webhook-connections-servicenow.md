@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 8ca77c1fa1232f7aed88b0d6942d8a0085caf0d5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 02b167219a4f1604d340d72f9dc47e67919c2542
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714140"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Połącz usługi ServiceNow z Azure Monitor
 
@@ -23,7 +23,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 * Usługa Azure AD jest zarejestrowana.
 * Dostępna jest obsługiwana wersja usługi ServiceNow zarządzania zdarzeniami — ITOM (wersja New York lub nowsza).
-* [Aplikacja](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/1.2.0?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%26q%3Devent%2520management%2520connectors&sl=sh) została zainstalowana w wystąpieniu usługi ServiceNow.
+* [Aplikacja](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/1.3.1?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%26q%3DEvent%2520Management%2520Connectors&sl=sh) została zainstalowana w wystąpieniu usługi ServiceNow.
 
 ## <a name="configure-the-servicenow-connection"></a>Konfigurowanie połączenia usługi usługi ServiceNow
 

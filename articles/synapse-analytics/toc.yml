@@ -552,6 +552,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Przesyłanie definicji zadań platformy Spark
           href: ./spark/apache-spark-job-definitions.md
+        - name: Łączenie i monitorowanie metryk na poziomie aplikacji platformy Azure Synapse Spark
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Monitoruj Apache Spark metryki na poziomie aplikacji za pomocą Prometheus i Grafana
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Pojęcia
       items:
         - name: Apache Spark
@@ -566,17 +570,21 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Notebooks
           href: ./spark/apache-spark-notebook-concept.md
+        - name: Zarządzanie pakietami
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Narzędzia do monitorowania
           href: monitoring/how-to-monitor-spark-applications.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Praca z usługą Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Zarządzanie bibliotekami
+        - name: Zarządzanie pakietami
           items:
-            - name: Dodawanie bibliotek i zarządzanie nimi
-              href: ./spark/apache-spark-azure-portal-add-libraries.md
-            - name: Rozwiązywanie problemów z błędami instalacji biblioteki
+            - name: Zarządzanie pakietami języka Python
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Zarządzanie pakietami Scala
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Rozwiązywanie problemów z błędami instalacji pakietu języka Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Korzystanie z notesów i narzędzi IDE
           items:

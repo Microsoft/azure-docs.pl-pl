@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 86caf39e0d31a41ca454c65311ff2fab52b56f5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691165"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule opisano sposób tworzenia wystąpienia klastra trybu failover (FCI) z SQL Server na platformie Azure Virtual Machines (maszyny wirtualne) przy użyciu [udziału plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+W tym artykule opisano sposób tworzenia wystąpienia klastra trybu failover (FCI) z SQL Server na platformie Azure Virtual Machines (maszyny wirtualne) przy użyciu [udziału plików w warstwie Premium](../../../storage/files/storage-how-to-create-file-share.md).
 
 Udziały plików w warstwie Premium to Bezpośrednie miejsca do magazynowania (SSD), spójnie spójne udziały plików o małym opóźnieniu, które są w pełni obsługiwane do użycia z wystąpieniami klastra trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, co pozwala na zmianę rozmiaru i skalowanie udziału plików bez przestojów.
 
@@ -37,7 +37,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 - Subskrypcja platformy Azure.
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - [Dwie lub więcej przygotowanych maszyn wirtualnych systemu Windows Azure](failover-cluster-instance-prepare-vm.md) w [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) lub w różnych [strefach dostępności](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- [Udział plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) , który ma być używany jako dysk klastrowany, na podstawie przydziału magazynu bazy danych dla plików danych.
+- [Udział plików w warstwie Premium](../../../storage/files/storage-how-to-create-file-share.md) , który ma być używany jako dysk klastrowany, na podstawie przydziału magazynu bazy danych dla plików danych.
 - Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Zainstaluj udział plików w warstwie Premium
@@ -91,15 +91,15 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **wybór testu** zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **potwierdzenie** wybierz pozycję **dalej**.
 
 Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.

@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: bda066dd50d2f95776981eafc01e3ddd04d33e54
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 606510940460db963a2aa63deb57b6dba77de3ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700137"
 ---
 # <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Przepływ pracy architektury klasycznej maszyny wirtualnej platformy Microsoft Azure 
 
@@ -80,7 +80,7 @@ Na poniższym diagramie przedstawiono architekturę zasobów platformy Azure.
 5. WindowsAzureGuestAgent konfiguruje system operacyjny gościa (Zapora, listy ACL, LocalStorage itd.), kopiuje nowy plik konfiguracyjny XML do c:\Config, a następnie uruchamia proces WaHostBootstrapper.
 6. W przypadku pełnych ról sieci Web usług IIS WaHostBootstrapper uruchamia IISConfigurator i informuje go o usunięciu wszelkich istniejących pul aplikacji dla roli sieci Web z usług IIS.
 7. WaHostBootstrapper odczytuje zadania **uruchamiania** z E:\RoleModel.xml i rozpoczyna wykonywanie zadań uruchamiania. WaHostBootstrapper czeka, aż wszystkie proste zadania uruchamiania zakończą działanie i zwróci komunikat "powodzenie".
-8. W przypadku pełnych ról sieci Web usług IIS WaHostBootstrapper informuje IISConfigurator o konieczności skonfigurowania puli aplikacji usług IIS i wskazuje, że lokacja `E:\Sitesroot\<index>` `<index>` jest indeksem 0 na podstawie liczby `<Sites>` elementów zdefiniowanych dla usługi.
+8. Aby uzyskać pełne role sieci Web usług IIS, WaHostBootstrapper instruuje IISConfigurator o skonfigurowanie usług IIS puli aplikacji i wskazuje, że lokacja `E:\Sitesroot\<index>` `<index>` jest indeksem od zera do liczby `<Sites>` elementów zdefiniowanych dla usługi.
 9. WaHostBootstrapper rozpocznie proces hosta w zależności od typu roli:
     1. **Rola procesu roboczego**: WaWorkerHost.exe jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie funkcja WaHostBootstrapper rozpoczyna wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia (jeśli InputEndpoints są zdefiniowane). WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.
     2. **Pełna rola sieci Web usług IIS**: aIISHost jest uruchomiona. WaHostBootstrapper wykonuje metodę OnStart (). Po powrocie rozpocznie się wykonywanie metody Run (), a następnie jednocześnie oznacza rolę jako gotową i umieszcza ją w rotacji modułu równoważenia obciążenia. WaHostBootsrapper następnie przechodzi do pętli sprawdzania stanu roli.

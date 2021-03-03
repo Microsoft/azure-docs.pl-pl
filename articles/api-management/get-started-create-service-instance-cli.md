@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — Tworzenie wystąpienia usługi Azure API Management przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
+title: Szybki Start — Tworzenie wystąpienia usługi Azure API Management przy użyciu interfejsu wiersza polecenia
 description: Utwórz nowe wystąpienie usługi Azure API Management przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688080"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Usługa Azure API Management (APIM) pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. APIM umożliwia tworzenie nowoczesnych bram interfejsu API i zarządzanie nimi dla istniejących usług zaplecza hostowanych w dowolnym miejscu. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem](api-management-key-concepts.md).
 
-W tym przewodniku szybki start opisano procedurę tworzenia nowego wystąpienia API Management przy użyciu polecenia [AZ APIM](/cli/azure/apim) w interfejsie CLI platformy Azure. Polecenia w `az apim` grupie poleceń są obecnie dostępne w wersji zapoznawczej i mogą zostać zmienione lub usunięte w przyszłej wersji.
+W tym przewodniku szybki start opisano procedurę tworzenia nowego wystąpienia API Management przy użyciu polecenia [AZ APIM](/cli/azure/apim) w interfejsie CLI platformy Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

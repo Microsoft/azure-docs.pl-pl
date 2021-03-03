@@ -74,10 +74,14 @@
           href: azure-monitor-insights.md
     - name: Lokacja-lokacja
       items:
-        - name: Informacje o zasadach protokołu IPsec
+        - name: Informacje o zasadach IPsec S2S
           href: virtual-wan-ipsec.md
         - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
           href: path-selection-multiple-links.md
+    - name: Punkt-lokacja
+      items:
+        - name: Informacje o zasadach IPsec P2S
+          href: point-to-site-ipsec.md
     - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń
@@ -108,6 +112,8 @@
           href: connect-virtual-network-gateway-vwan.md
         - name: Konfigurowanie niestandardowych zasad protokołu IPsec
           href: virtual-wan-custom-ipsec-portal.md
+        - name: Konfigurowanie reguł translatora adresów sieciowych
+          href: nat-rules-vpn-gateway.md
     - name: Sieć VPN użytkownika (punkt-lokacja)
       items:
         - name: Tworzenie połączenia sieci VPN użytkownika

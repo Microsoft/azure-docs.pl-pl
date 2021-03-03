@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e8baf7f2589cd7d9054911516253b49253397871
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371774"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713290"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="create-incremental-backup-policy"></a>Tworzenie zasad przyrostowej kopii zapasowej
 
-Aby utworzyć zasady przyrostowej kopii zapasowej, uruchom polecenie [AZ Backup Policy Create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) z następującymi parametrami:
+Aby utworzyć zasady przyrostowej kopii zapasowej, uruchom polecenie [AZ Backup Policy Create](/cli/azure/backup/policy#az_backup_policy_create) z następującymi parametrami:
 
 * **--Backup-Management-Type** — obciążenie platformy Azure
 * **--obciążenia-typ** -SAPHana
@@ -231,6 +231,7 @@ Przykładowy kod JSON (sappolicy.json):
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+
 Po pomyślnym utworzeniu zasad dane wyjściowe polecenia będą wyświetlać kod JSON zasad, który został przesłany jako parametr podczas wykonywania polecenia.
 
 Aby określić żądaną częstotliwość tworzenia kopii zapasowych i przechowywać przyrostowe kopie zapasowe, można zmodyfikować następującą sekcję zasad.

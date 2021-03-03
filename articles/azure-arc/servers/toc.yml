@@ -31,6 +31,8 @@
       items:
         - name: Omówienie agenta połączonej maszyny
           href: agent-overview.md
+        - name: Planowanie wdrożenia w skali
+          href: plan-at-scale-deployment.md
         - name: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
           href: onboard-portal.md
         - name: Łączenie maszyn na dużą skalę przy użyciu jednostki usługi

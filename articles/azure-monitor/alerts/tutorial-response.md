@@ -7,15 +7,15 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e790486758d6a5e3181df01f85e1213cca3fa12d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 67d03636b118db71502a6245e60f71c94afdddf6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701012"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Odpowiadanie na zdarzenia przy użyciu alertów platformy Azure Monitor
-Alerty platformy Azure Monitor mogą identyfikować ważne informacje w repozytorium usługi Log Analytics. Są one tworzone przy użyciu reguł alertów, które automatycznie uruchamiają przeszukiwanie dzienników w regularnych odstępach czasu. Jeśli wyniki przeszukiwania dzienników pasują do danych kryteriów, zostaje utworzony rekord alertu. Ponadto można go skonfigurować tak, aby generował automatyczną odpowiedź.  Ten samouczek jest kontynuacją samouczka [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](../learn/tutorial-logs-dashboards.md).   
+Alerty platformy Azure Monitor mogą identyfikować ważne informacje w repozytorium usługi Log Analytics. Są one tworzone przy użyciu reguł alertów, które automatycznie uruchamiają przeszukiwanie dzienników w regularnych odstępach czasu. Jeśli wyniki przeszukiwania dzienników pasują do danych kryteriów, zostaje utworzony rekord alertu. Ponadto można go skonfigurować tak, aby generował automatyczną odpowiedź.  Ten samouczek jest kontynuacją samouczka [Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics](../visualize/tutorial-logs-dashboards.md).   
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -31,7 +31,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 ## <a name="create-alerts"></a>Tworzenie alertów
 Alerty są tworzone na podstawie reguł alertów na platformie Azure Monitor i mogą automatycznie uruchamiać zapisane zapytania lub niestandardowe wyszukiwania dziennika w regularnych odstępach czasu.  Możesz utworzyć alerty w oparciu o konkretne metryki wydajności lub w momencie, w którym zostają utworzone określone zdarzenia, w przypadku braku zdarzenia, a także w sytuacji, w której wiele zdarzeń zostaje utworzonych w danym przedziale czasu.  Na przykład alertów można używać do powiadamiania użytkownika, gdy średnie użycie procesora CPU przekroczy określony próg, gdy zostanie wykryty brak aktualizacji lub gdy zostanie wygenerowane zdarzenie po wykryciu, że określona usługa systemu Windows lub demon systemu Linux nie są uruchomione.  Jeśli wyniki przeszukiwania dzienników pasują do określonych kryteriów, zostaje utworzony alert. Następnie reguła może automatycznie uruchomić jedną lub kilka akcji, np. powiadomić użytkownika o alercie lub wywołać inny proces. 
 
-W poniższym przykładzie tworzona jest reguła alertu pomiaru metryki na podstawie zapytania *Maszyny wirtualne platformy Azure — użycie procesora* znajdującego się w [samouczku Wizualizacja danych](../learn/tutorial-logs-dashboards.md).  Alert jest tworzony dla każdej maszyny wirtualnej, która przekracza próg 90%.  
+W poniższym przykładzie tworzona jest reguła alertu pomiaru metryki na podstawie zapytania *Maszyny wirtualne platformy Azure — użycie procesora* znajdującego się w [samouczku Wizualizacja danych](../visualize/tutorial-logs-dashboards.md).  Alert jest tworzony dla każdej maszyny wirtualnej, która przekracza próg 90%.  
 
 1. W Azure Portal kliknij pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 2. W okienku po lewej stronie wybierz pozycję **Alerty**, a następnie kliknij przycisk **Nowa reguła alertu** w górnej części strony, aby utworzyć nowy alert.<br><br> ![Tworzenie nowej reguły alertu](./media/tutorial-response/alert-rule-02.png)<br>
@@ -69,4 +69,4 @@ W tym samouczku przedstawiono sposób aktywnego identyfikowania i reagowania reg
 Użyj tego linku, aby wyświetlić przykłady wstępnie utworzonych skryptów usługi Log Analytics.  
 
 > [!div class="nextstepaction"]
-> [Przykłady skryptów usługi Log Analytics](../samples/powershell-samples.md)
+> [Przykłady skryptów usługi Log Analytics](../powershell-samples.md)

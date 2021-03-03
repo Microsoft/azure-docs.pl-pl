@@ -2,18 +2,18 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: multiple
-author: sharad4u
+author: duongau
 ms.service: multiple
 ms.topic: include
 ms.date: 10/30/2020
-ms.author: sharadag
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: eb3cc6a37e9116b2a28b72fc7a3779aafb2a1e21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1196ec0c3e92df6c359461ea7d1d53c8aea0bd88
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751144"
 ---
 Podczas tworzenia własnego certyfikatu można używać następujących urzędów certyfikacji:
 
@@ -54,6 +54,7 @@ Podczas tworzenia własnego certyfikatu można używać następujących urzędó
 - Główny urząd certyfikacji GlobalSign
 - Przejdź do głównego urzędu certyfikacji Daddy — G2
 - Przejdź do Daddy bezpiecznego urzędu certyfikacji — G2
+- Hongkong główny urząd certyfikacji 1
 - Szyfrujmy Źródło x3
 - Mikrosek e-Szigno główny urząd certyfikacji 2009
 - QuoVadis główny CA2 G3
@@ -61,6 +62,7 @@ Podczas tworzenia własnego certyfikatu można używać następujących urzędó
 - RootCA1 komunikacji zabezpieczeń
 - RootCA2 komunikacji zabezpieczeń
 - RootCA3 komunikacji zabezpieczeń
+- Główny urząd certyfikacji Staat der Nederlanden EV
 - Symantec Class 3 EV — urząd certyfikacji SSL-G3
 - Symantec Class 3 Secure Server CA-G4
 - Główny certyfikat firmy Symantec Enterprise Mobile dla firmy Microsoft

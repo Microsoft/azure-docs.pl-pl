@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364696"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703392"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -91,7 +91,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 * **Obsługa waluty** — wykrywanie i wyodrębnianie symboli walut globalnych.
 * **Usługa Azure gov** — aparat rozpoznawania formularzy jest teraz również dostępny na platformie Azure gov.
 * **Ulepszone funkcje zabezpieczeń**: 
-   * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
+   * Usługa aparat rozpoznawania **własnych** formularzy automatycznie szyfruje dane po utrwaleniu ich w chmurze w celu zapewnienia jej ochrony i zapewnienia zgodności ze swoimi zobowiązaniami dotyczącymi zabezpieczeń i bezpieczeństwa. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Teraz możesz również zarządzać subskrypcją przy użyciu własnych kluczy szyfrowania. [Klucze zarządzane przez klienta, znane także jako dające własny klucz (BYOK)](./encrypt-data-at-rest.md), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.  
    * **Prywatne punkty końcowe** — umożliwia korzystanie z sieci wirtualnej (VNET) w celu [bezpiecznego dostępu do danych za pośrednictwem prywatnego linku.](../../private-link/private-link-overview.md)
 
 
@@ -123,7 +123,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 ### <a name="security-improvements"></a>Ulepszenia zabezpieczeń
 
-* Klucze Customer-Managed są teraz dostępne dla FormRecognizer. Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w usłudze REST dla aparatu rozpoznawania formularzy](./form-recognizer-encryption-of-data-at-rest.md).
+* Klucze Customer-Managed są teraz dostępne dla FormRecognizer. Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w usłudze REST dla aparatu rozpoznawania formularzy](./encrypt-data-at-rest.md).
 * Korzystaj z tożsamości zarządzanych, aby uzyskiwać dostęp do zasobów platformy Azure za pomocą Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do zarządzanych tożsamości](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Marzec 2020 r. 

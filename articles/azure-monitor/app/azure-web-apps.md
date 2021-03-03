@@ -4,16 +4,16 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574008"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734727"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
-Włączenie monitorowania na ASP.NET i opartych na ASP.NET Core aplikacjach sieci Web działających na [platformie Azure App Services](../../app-service/index.yml) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Wcześniej trzeba było ręcznie zainstalować rozszerzenie witryny, dlatego najnowsze rozszerzenie/Agent jest teraz domyślnie wbudowane w obraz usługi App Service. W tym artykule opisano Włączanie monitorowania Application Insights oraz zamieszczono wstępne wskazówki dotyczące automatyzowania procesu wdrażania na dużą skalę.
+Włączenie monitorowania w aplikacjach sieci Web opartych na ASP.NET, ASP.NET Core i Node.js działających na [platformie Azure App Services](../../app-service/index.yml) jest teraz łatwiejsze niż kiedykolwiek wcześniej. Wcześniej trzeba było ręcznie zainstalować rozszerzenie witryny, dlatego najnowsze rozszerzenie/Agent jest teraz domyślnie wbudowane w obraz usługi App Service. W tym artykule opisano Włączanie monitorowania Application Insights oraz zamieszczono wstępne wskazówki dotyczące automatyzowania procesu wdrażania na dużą skalę.
 
 > [!NOTE]
 > Ręczne dodawanie rozszerzenia witryny Application Insights za pomocą **rozszerzeń narzędzi programistycznych**  >   jest przestarzałe. Ta metoda instalacji rozszerzenia była zależna od aktualizacji ręcznych dla każdej nowej wersji. Najnowsza stabilna wersja rozszerzenia jest teraz  [wstępnie zainstalowana](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) jako część obrazu App Service. Pliki znajdują się w `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` systemie i są automatycznie aktualizowane z każdą stabilną wersją. W przypadku korzystania z instrukcji opartych na agencie w celu włączenia monitorowania poniżej zostanie automatycznie usunięte przestarzałe rozszerzenie.
@@ -97,7 +97,7 @@ Ukierunkowanie na pełną strukturę ASP.NET Core, samodzielnego wdrażania i ap
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Z poziomu aplikacji internetowej App Service w obszarze **Ustawienia**  >  **Wybierz pozycję Application Insights**  >  **Włącz**. Monitorowanie oparte na agencie Node.js jest obecnie dostępne w wersji zapoznawczej.
+Monitorowanie za pomocą agenta systemu Windows nie jest obsługiwane, aby można było włączyć system Linux, zapoznaj się z [ dokumentacją App ServiceNode.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Aby można było włączyć zbieranie danych telemetrycznych z Application Insig
 |XDT_MicrosoftApplicationInsights_Mode |  W trybie domyślnym tylko funkcje podstawowe są włączane w celu zapewnienia optymalnej wydajności. | `default` lub `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Kontroluje, czy aparat zapisywania binarnego `InstrumentationEngine` zostanie włączony. To ustawienie ma wpływ na wydajność i wpływa na zimny czas uruchamiania/uruchamiania. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Określa, czy tekst tabeli programu SQL & Azure zostanie przechwycony wraz z wywołaniami zależności. Ostrzeżenie o wydajności: wpłynie to na zimny czas uruchamiania aplikacji. To ustawienie wymaga `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Tylko dla aplikacji ASP.NET Core. Włącza międzyoperacyjność (międzyoperacyjność) z zestawem SDK Application Insights. Ładuje rozszerzenie obok zestawu SDK i używa go do wysyłania telemetrii (powoduje wyłączenie zestawu SDK Application Insights). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service ustawienia aplikacji z Azure Resource Manager
 

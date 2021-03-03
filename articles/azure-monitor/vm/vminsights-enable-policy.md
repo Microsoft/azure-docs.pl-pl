@@ -1,20 +1,20 @@
 ---
-title: Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy
-description: Opisuje sposób włączania Azure Monitor dla maszyn wirtualnych dla wielu maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure Policy.
+title: Włącz szczegółowe informacje o maszynie wirtualnej za pomocą Azure Policy
+description: Opisuje sposób włączania usługi VM Insights dla wielu maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 4da0610de1f71cd422ec684ea633a4474c078862
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707544"
 ---
-# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy
-W tym artykule wyjaśniono, jak włączyć Azure Monitor dla maszyn wirtualnych dla maszyn wirtualnych platformy Azure lub hybrydowej maszyny wirtualnej połączonej z usługą Azure ARC (wersja zapoznawcza) przy użyciu Azure Policy. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów dla Azure Monitor dla maszyn wirtualnych w środowisku platformy Azure i automatyczne włączenie monitorowania maszyn wirtualnych podczas tworzenia każdej maszyny wirtualnej. Azure Monitor dla maszyn wirtualnych udostępnia funkcję, która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Użyj tej funkcji zamiast bezpośrednio pracować z Azure Policy.
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Włącz szczegółowe informacje o maszynie wirtualnej za pomocą Azure Policy
+W tym artykule wyjaśniono, jak włączyć usługę VM Insights dla maszyn wirtualnych platformy Azure lub hybrydowej maszyny wirtualnej połączonej z usługą Azure ARC (wersja zapoznawcza) przy użyciu Azure Policy. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów na potrzeby usługi VM Insights w środowisku platformy Azure i automatyczne włączenie monitorowania maszyn wirtualnych w miarę tworzenia każdej maszyny wirtualnej. Szczegółowe informacje o maszynie wirtualnej udostępniają funkcję, która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Użyj tej funkcji zamiast bezpośrednio pracować z Azure Policy.
 
 Jeśli nie znasz Azure Policy, zapoznaj się z krótkim wprowadzeniem do [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md).
 
@@ -22,15 +22,15 @@ Jeśli nie znasz Azure Policy, zapoznaj się z krótkim wprowadzeniem do [wdraż
 > Aby używać Azure Policy z zestawami skalowania maszyn wirtualnych platformy Azure lub korzystać z Azure Policy bezpośrednio do włączania maszyn wirtualnych platformy Azure, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- [Utwórz i skonfiguruj obszar roboczy log Analytics](../insights/vminsights-configure-workspace.md).
-- Zobacz [obsługiwane systemy operacyjne](../insights/vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
+- [Utwórz i skonfiguruj obszar roboczy log Analytics](./vminsights-configure-workspace.md).
+- Zobacz [obsługiwane systemy operacyjne](./vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 
 
-## <a name="azure-monitor-for-vms-initiative"></a>Inicjatywa Azure Monitor dla maszyn wirtualnych
-Azure Monitor dla maszyn wirtualnych zawiera wbudowane definicje zasad umożliwiające zainstalowanie agenta Log Analytics i agenta zależności na maszynach wirtualnych platformy Azure. Inicjatywa **włączania Azure monitor dla maszyn wirtualnych** obejmuje każdą z tych definicji zasad. Przypisz tę inicjatywę do grupy zarządzania, subskrypcji lub grupy zasobów, aby automatycznie zainstalować agentów na wszystkich maszynach wirtualnych systemu Windows lub Linux w tym zakresie.
+## <a name="vm-insights-initiative"></a>Inicjatywa usługi VM Insights
+Usługa VM Insights udostępnia wbudowane definicje zasad umożliwiające zainstalowanie agenta Log Analytics i agenta zależności na maszynach wirtualnych platformy Azure. Inicjatywa **włączenia usługi VM Insights** obejmuje każdą z tych definicji zasad. Przypisz tę inicjatywę do grupy zarządzania, subskrypcji lub grupy zasobów, aby automatycznie zainstalować agentów na wszystkich maszynach wirtualnych systemu Windows lub Linux w tym zakresie.
 
 ## <a name="open-policy-coverage-feature"></a>Otwórz funkcję pokrycia zasad
-Aby uzyskać dostęp do **zakresu zasad Azure monitor dla maszyn wirtualnych**, przejdź do pozycji **maszyny wirtualne** w menu **Azure monitor** w Azure Portal. Wybierz **inne opcje** dołączania, a następnie **Włącz** opcję **Włącz używanie zasad**.
+Aby uzyskać dostęp do **zakresu zasad usługi VM Insights**, przejdź do obszaru **maszyny wirtualne** w menu **Azure monitor** w Azure Portal. Wybierz **inne opcje** dołączania, a następnie **Włącz** opcję **Włącz używanie zasad**.
 
 [![Karta wprowadzenie Azure Monitor z maszyn wirtualnych](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
@@ -39,7 +39,7 @@ Jeśli nie masz jeszcze przypisania, Utwórz nowe, klikając pozycję **Przypisz
 
 [![Utwórz przypisanie](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
 
-Jest to ta sama strona, która umożliwia przypisanie inicjatywy w Azure Policy z wyjątkiem tego, że jest on stałe z wybranym zakresem oraz definicją **Azure monitor dla maszyn wirtualnych** z inicjatywy. Opcjonalnie można zmienić **nazwę przypisania** i dodać **Opis**. Wybierz pozycję **wykluczenia** , jeśli chcesz określić wykluczenie dla zakresu. Na przykład zakres może być grupą zarządzania i można określić subskrypcję w tej grupie zarządzania, która ma zostać wykluczona z przypisania.
+Jest to ta sama strona, która umożliwia przypisanie inicjatywy w Azure Policy z wyjątkiem tego, że jest on stałe z wybranym zakresem i definicją inicjatywy **enable VM Insights** . Opcjonalnie można zmienić **nazwę przypisania** i dodać **Opis**. Wybierz pozycję **wykluczenia** , jeśli chcesz określić wykluczenie dla zakresu. Na przykład zakres może być grupą zarządzania i można określić subskrypcję w tej grupie zarządzania, która ma zostać wykluczona z przypisania.
 
 [![Przypisz inicjatywę](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -48,14 +48,14 @@ Na stronie **Parametry** wybierz **obszar roboczy log Analytics** , który ma by
    > [!NOTE]
    > Jeśli obszar roboczy przekracza zakres przypisania, udziel *log Analytics uprawnienia współautora* do identyfikatora podmiotu zabezpieczeń przypisania zasad. Jeśli tego nie zrobisz, może zostać wyświetlony błąd wdrażania, jak `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Obszary](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć szczegóły przypisania przed kliknięciem pozycji **Utwórz** , aby je utworzyć. Nie twórz w tym momencie zadania korygowania, ponieważ najprawdopodobniej potrzebujesz wielu zadań korygowania do włączania istniejących maszyn wirtualnych. Zobacz [Koryguj wyniki zgodności](#remediate-compliance-results) poniżej.
 
 ## <a name="review-compliance"></a>Przegląd zgodności
-Po utworzeniu przypisania można przejrzeć i zarządzać pokryciem **Azure monitor dla maszyn wirtualnych** inicjatywy dla grup zarządzania i subskrypcji. Zostanie wyświetlona liczba maszyn wirtualnych znajdujących się w każdej z grup lub subskrypcji zarządzania oraz ich stan zgodności.
+Po utworzeniu przypisania można przejrzeć i zarządzać pokryciem w ramach inicjatywy **enable VM Insights** w grupach zarządzania i subskrypcjach. Zostanie wyświetlona liczba maszyn wirtualnych znajdujących się w każdej z grup lub subskrypcji zarządzania oraz ich stan zgodności.
 
-[![Azure Monitor dla maszyn wirtualnych Zarządzanie stroną zasad](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+[![Strona zasad zarządzania usługą VM Insights](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
 
 Poniższa tabela zawiera opis informacji w tym widoku.
@@ -105,11 +105,11 @@ Kliknij przycisk **Koryguj** , aby utworzyć zadanie korygowania, a następnie *
 [![Zrzut ekranu przedstawia okienko korygowanie zasad dla monitora | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
 
 
-Po ukończeniu zadań korygowania maszyny wirtualne powinny być zgodne z agentami zainstalowanymi i włączonymi dla Azure Monitor dla maszyn wirtualnych. 
+Po ukończeniu zadań korygowania maszyny wirtualne powinny być zgodne z agentami zainstalowanymi i włączonymi do wglądu w dane maszyn wirtualnych. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po włączeniu monitorowania dla maszyn wirtualnych te informacje są dostępne do analizy za pomocą Azure Monitor dla maszyn wirtualnych. 
+Po włączeniu monitorowania dla maszyn wirtualnych te informacje są dostępne do analizy za pomocą usługi VM Insights. 
 
-- Aby wyświetlić odnalezione zależności aplikacji, zobacz [view Azure monitor dla maszyn wirtualnych map](vminsights-maps.md). 
-- Aby identyfikować wąskie gardła i ogólne wykorzystanie z wydajnością maszyny wirtualnej, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md). 
+- Aby wyświetlić odnalezione zależności aplikacji, zobacz [Wyświetlanie mapy usługi VM Insights](vminsights-maps.md). 
+- Aby identyfikować wąskie gardła i ogólne wykorzystanie z wydajnością maszyny wirtualnej, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md).

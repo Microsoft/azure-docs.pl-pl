@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd56e464419312e74aec01cf22ae56f797991ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731769"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -121,34 +121,34 @@ Inicjatywa będzie miała zastosowanie do każdej maszyny wirtualnej, która zos
 ![Korygowanie inicjatywy](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-[Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych. Włączenie Azure Monitor dla maszyn wirtualnych powoduje zainstalowanie zarówno agenta Log Analytics, jak i agenta zależności. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
+## <a name="vm-insights"></a>Szczegółowe informacje o maszynie wirtualnej
+Usługi [VM Insights](vm/vminsights-overview.md) to podstawowe narzędzie w Azure monitor do monitorowania maszyn wirtualnych. Włączenie usługi VM Insights powoduje zainstalowanie zarówno agenta Log Analytics, jak i agenta zależności. Zamiast wykonywać te zadania ręcznie, należy użyć Azure Policy, aby mieć pewność, że każda maszyna wirtualna została skonfigurowana podczas jej tworzenia.
 
 > [!NOTE]
-> Azure Monitor dla maszyn wirtualnych obejmuje funkcję o nazwie **pokrycie zasad Azure monitor dla maszyn wirtualnych** , która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Tej funkcji można użyć zamiast pracy bezpośrednio z Azure Policyami dla maszyn wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. W przypadku zestawów skalowania maszyn wirtualnych platformy Azure należy utworzyć przypisanie przy użyciu Azure Policy.
+> Szczegółowe informacje o maszynie wirtualnej zawierają funkcję o nazwie **pokrycie zasad usługi VM Insights** , która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Tej funkcji można użyć zamiast pracy bezpośrednio z Azure Policyami dla maszyn wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. W przypadku zestawów skalowania maszyn wirtualnych platformy Azure należy utworzyć przypisanie przy użyciu Azure Policy.
  
 
-Azure Monitor dla maszyn wirtualnych obejmuje następujące wbudowane inicjatywy, które instalują obu agentów w celu włączenia pełnego monitorowania. 
+Szczegółowe informacje o maszynie wirtualnej zawierają następujące wbudowane inicjatywy, które instalują obu agentów w celu włączenia pełnego monitorowania. 
 
 |Nazwa |Opis |
 |:---|:---|
-|Włącz Azure Monitor dla maszyn wirtualnych | Instaluje agenta Log Analytics i agenta zależności na maszynach wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
+|Włącz szczegółowe informacje o maszynie wirtualnej | Instaluje agenta Log Analytics i agenta zależności na maszynach wirtualnych platformy Azure oraz hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
 |Włącz Azure Monitor dla zestawów skalowania maszyn wirtualnych | Instaluje agenta Log Analytics i agenta zależności w zestawie skalowania maszyn wirtualnych platformy Azure. |
 
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
-Zamiast tworzyć przydziały dla tych inicjatyw przy użyciu interfejsu Azure Policy, Azure Monitor dla maszyn wirtualnych zawiera funkcję, która umożliwia sprawdzenie liczby maszyn wirtualnych w każdym zakresie w celu ustalenia, czy inicjatywa została zastosowana. Następnie można skonfigurować obszar roboczy i utworzyć wszystkie wymagane przypisania przy użyciu tego interfejsu.
+Zamiast tworzyć przydziały dla tych inicjatyw przy użyciu interfejsu Azure Policy, szczegółowe informacje o maszynie wirtualnej obejmują funkcję, która umożliwia sprawdzenie liczby maszyn wirtualnych w każdym zakresie w celu ustalenia, czy inicjatywa została zastosowana. Następnie można skonfigurować obszar roboczy i utworzyć wszystkie wymagane przypisania przy użyciu tego interfejsu.
 
-Aby uzyskać szczegółowe informacje o tym procesie, zobacz [włączanie Azure monitor dla maszyn wirtualnych przy użyciu Azure Policy](./vm/vminsights-enable-policy.md).
+Aby uzyskać szczegółowe informacje o tym procesie, zobacz [Włączanie usługi VM Insights przy użyciu Azure Policy](./vm/vminsights-enable-policy.md).
 
-![Zasady Azure Monitor dla maszyn wirtualnych](media/deploy-scale/vminsights-policy.png)
+![Zasady usługi VM Insights](media/deploy-scale/vminsights-policy.png)
 
 ### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 Aby użyć Azure Policy do włączenia monitorowania dla zestawów skalowania maszyn wirtualnych, przypisz **Azure monitor dla inicjatywy dla zestawów skalowania maszyn wirtualnych** do grupy zarządzania platformy Azure, subskrypcji lub grupy zasobów w zależności od zakresu zasobów do monitorowania. [Grupa zarządzania](../governance/management-groups/overview.md) jest szczególnie przydatna w przypadku zasad określania zakresu, zwłaszcza jeśli organizacja ma wiele subskrypcji.
 
 ![Zrzut ekranu strony Przypisywanie inicjatywy w Azure Portal. Definicja inicjatywy została ustawiona tak, aby włączyć Azure Monitor dla zestawów skalowania maszyn wirtualnych.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* , zgodnie z opisem w artykule [Konfigurowanie log Analytics obszaru roboczego dla Azure monitor dla maszyn wirtualnych](vm/vminsights-configure-workspace.md).
+Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* , zgodnie z opisem w temacie [Konfigurowanie log Analytics obszaru roboczego dla szczegółowych informacji o maszynie wirtualnej](vm/vminsights-configure-workspace.md).
 
 ![Wybór obszaru roboczego](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -157,7 +157,7 @@ Utwórz zadanie korygowania, jeśli masz istniejący zestaw skalowania maszyn wi
 ![Zadanie korygowania](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
-Możesz mieć scenariusze, w których chcesz zainstalować agenta Log Analytics, ale nie agenta zależności. Nie ma żadnej wbudowanej inicjatywy tylko dla agenta, ale możesz utworzyć własne na podstawie wbudowanych definicji zasad zapewnianych przez Azure Monitor dla maszyn wirtualnych.
+Możesz mieć scenariusze, w których chcesz zainstalować agenta Log Analytics, ale nie agenta zależności. Nie ma żadnej wbudowanej inicjatywy tylko dla agenta, ale możesz utworzyć własne na podstawie wbudowanych definicji zasad zapewnianych przez szczegółowe informacje o maszynie wirtualnej.
 
 > [!NOTE]
 > Nie ma żadnego powodu, aby samodzielnie wdrożyć agenta zależności, ponieważ wymaga on Log Analytics Agent do dostarczenia danych do Azure Monitor.

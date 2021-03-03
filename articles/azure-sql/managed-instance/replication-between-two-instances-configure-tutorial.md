@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690689"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Samouczek: Konfigurowanie replikacji między dwoma wystąpieniami zarządzanymi
 
@@ -27,7 +27,7 @@ Replikacja transakcyjna umożliwia replikowanie danych z jednej bazy danych do i
 
 Replikacja transakcyjna jest obecnie dostępna w publicznej wersji zapoznawczej dla wystąpienia zarządzanego SQL. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -51,7 +51,7 @@ Skonfigurowanie wystąpienia zarządzanego SQL do działania jako Wydawca i/lub 
 - Że wystąpienie zarządzane wydawcy znajduje się w tej samej sieci wirtualnej co dystrybutor i subskrybenta, lub skonfigurowano [bramy sieci VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) między sieciami wirtualnymi wszystkich trzech jednostek. 
 - Połączenie korzysta z uwierzytelniania SQL między uczestnikami replikacji.
 - Udział konta usługi Azure Storage dla katalogu roboczego replikacji.
-- Port 445 (ruch wychodzący TCP) jest otwarty w regułach zabezpieczeń sieciowej grupy zabezpieczeń dla wystąpień zarządzanych, aby uzyskać dostęp do udziału plików platformy Azure.  Jeśli wystąpi błąd `failed to connect to azure storage \<storage account name> with os error 53` , konieczne będzie dodanie reguły wychodzącej do sieciowej grupy zabezpieczeń odpowiedniej podsieci wystąpienia zarządzanego SQL.
+- Port 445 (ruch wychodzący TCP) jest otwarty w regułach zabezpieczeń sieciowej grupy zabezpieczeń dla wystąpień zarządzanych, aby uzyskać dostęp do udziału plików platformy Azure.  Jeśli wystąpi błąd `failed to connect to azure storage <storage account name> with os error 53` , konieczne będzie dodanie reguły wychodzącej do sieciowej grupy zabezpieczeń odpowiedniej podsieci wystąpienia zarządzanego SQL.
 
 ## <a name="1---create-a-resource-group"></a>1 — Tworzenie grupy zasobów
 

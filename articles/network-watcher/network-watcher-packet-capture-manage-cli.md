@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 838a5255c013b530aa3bfdb857a2ba34b7dbeeed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: efb8fba655570a661b6b001eb93942475eb2170d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98010969"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698641"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -38,7 +38,7 @@ Ten artykuł przeprowadzi Cię przez różne zadania zarządzania, które są ob
 - [**Usuwanie przechwytywania pakietu**](#delete-a-packet-capture)
 - [**Pobieranie przechwytywania pakietów**](#download-a-packet-capture)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule założono, że masz następujące zasoby:
 
@@ -193,8 +193,7 @@ Poniższy przykład to dane wyjściowe `az network watcher packet-capture show-s
     "status": "Succeeded"
   },
   "captureStartTime": "2016-12-06T17:20:01.5671279Z",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
-cketCaptures/packetCaptureName",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
   "name": "packetCaptureName",
   "packetCaptureError": [],
   "packetCaptureStatus": "Stopped",

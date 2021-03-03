@@ -1,25 +1,25 @@
 ---
-title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
-description: Azure Monitor dla maszyn wirtualnych rozwiązanie zbiera metryki i dane dziennika do i w tym artykule opisano rekordy i zawiera przykładowe zapytania.
+title: Jak wykonywać zapytania dotyczące dzienników z usługi VM Insights
+description: Rozwiązanie usługi VM Insights zbiera metryki i dane dziennika do i w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619780"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713528"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
+# <a name="how-to-query-logs-from-vm-insights"></a>Jak wykonywać zapytania dotyczące dzienników z usługi VM Insights
 
-Azure Monitor dla maszyn wirtualnych zbiera metryki wydajności i połączeń, dane spisu komputerów i procesów oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego Log Analytics w Azure Monitor.  Te dane są dostępne dla [zapytań](../log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Usługa VM Insights zbiera metryki wydajności i połączenia, dane spisu komputera i procesu oraz informacje o stanie kondycji i przekazuje je do obszaru roboczego Log Analytics w Azure Monitor.  Te dane są dostępne dla [zapytań](../logs/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 ## <a name="map-records"></a>Mapowanie rekordów
 
-Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów, które są generowane, gdy proces lub komputer zostanie uruchomiony lub jest on dołączony do funkcji Azure Monitor dla maszyn wirtualnych map. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane na pola zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w zdarzeniach ServiceMapProcess_CL są mapowane na pola zasobu procesu w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s pasuje do pola Nazwa w odpowiednim zasobie Menedżer zasobów. 
+Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów, które są generowane, gdy proces lub komputer zostanie uruchomiony lub jest dołączony do funkcji mapy usługi VM Insights. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane na pola zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w zdarzeniach ServiceMapProcess_CL są mapowane na pola zasobu procesu w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s pasuje do pola Nazwa w odpowiednim zasobie Menedżer zasobów. 
 
 Istnieją wewnętrznie wygenerowane właściwości, których można użyć do identyfikowania unikatowych procesów i komputerów:
 
@@ -473,6 +473,6 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../log-query/log-analytics-tutorial.md) w Azure Portal do zapisywania zapytań dzienników.
+* Jeśli jesteś nowym sposobem pisania zapytań dzienników w Azure Monitor, zapoznaj się z [tematem jak używać log Analytics](../logs/log-analytics-tutorial.md) w Azure Portal do zapisywania zapytań dzienników.
 
-* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../log-query/get-started-queries.md).
+* Dowiedz się więcej na temat [pisania zapytań wyszukiwania](../logs/get-started-queries.md).

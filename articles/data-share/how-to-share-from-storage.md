@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739266"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ Udział danych platformy Azure obsługuje udostępnianie plików, folderów i sy
 Gdy systemy plików, kontenery i foldery są udostępniane w ramach udostępniania opartego na migawce, użytkownicy danych mogą wybrać pełną kopię danych udziału. Można też użyć funkcji migawki przyrostowej, aby skopiować tylko nowe lub zaktualizowane pliki. Możliwość tworzenia migawek przyrostowych zależy od czasu ostatniej modyfikacji plików. 
 
 Istniejące pliki, które mają taką samą nazwę, są zastępowane podczas tworzenia migawki. Plik usunięty ze źródła nie został usunięty z obiektu docelowego. Puste podfoldery w źródle nie są kopiowane do obiektu docelowego. 
+
 ## <a name="share-data"></a>Udostępnianie danych
 
 Skorzystaj z informacji w poniższych sekcjach, aby udostępnić dane za pomocą udziału danych platformy Azure. 
@@ -109,7 +110,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie **Recenzja + tworzenie** przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Następnie wybierz przycisk **Utwórz**.
+1. Na karcie **Recenzja + tworzenie** przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Następnie wybierz pozycję **Utwórz**.
 
 Twój udział danych platformy Azure został utworzony. Odbiorca Twojego udziału danych może zaakceptować zaproszenie. 
 
@@ -184,7 +185,7 @@ Wykonaj kroki opisane w tej sekcji, aby skonfigurować lokalizację do odbierani
 ### <a name="trigger-a-snapshot"></a>Wyzwalanie migawki
 Kroki opisane w tej sekcji dotyczą tylko udostępniania opartego na migawce.
 
-1. Migawkę można wyzwolić na karcie **szczegóły** . Na karcie Wybierz pozycję **Wyzwól migawkę**. Możesz wyzwolić pełną migawkę lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane z dostawcy danych, wybierz pozycję **pełna kopia**. 
+1. Migawkę można wyzwolić na karcie **szczegóły** . Na karcie Wybierz pozycję **Wyzwól migawkę**. Możesz wyzwolić pełną migawkę lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane z dostawcy danych, wybierz pozycję **pełna kopia**. Gdy wykonywana jest migawka, kolejne migawki nie rozpocznie się aż do ukończenia poprzedniej.
 
    ![Zrzut ekranu przedstawiający wybór migawki wyzwalacza.](./media/trigger-snapshot.png "Wyzwalanie migawki.") 
 
@@ -194,6 +195,14 @@ Kroki opisane w tej sekcji dotyczą tylko udostępniania opartego na migawce.
 
 ### <a name="view-history"></a>Wyświetlanie historii
 Historię migawek można wyświetlić tylko w ramach udostępniania opartego na migawce. Aby wyświetlić historię, Otwórz kartę **historia** . Tutaj zobaczysz historię wszystkich migawek, które zostały wygenerowane w ciągu ostatnich 30 dni. 
+
+## <a name="storage-snapshot-performance"></a>Wydajność migawek magazynu
+Wydajność migawki magazynu ma wpływ na wiele czynników oprócz liczby plików i rozmiaru udostępnionych danych. Zawsze zaleca się przeprowadzanie własnych testów wydajnościowych. Poniżej przedstawiono przykładowe czynniki wpływające na wydajność.
+
+* Współbieżny dostęp do źródłowych i docelowych magazynów danych.  
+* Lokalizacja źródłowych i docelowych magazynów danych. 
+* W przypadku migawki przyrostowej liczba plików w udostępnionym zestawie danych może mieć wpływ na czas potrzebny do znalezienia listy plików o ostatniej modyfikacji czasu po ostatniej pomyślnej migawce. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 Wiesz już, jak udostępniać i odbierać dane z konta magazynu przy użyciu usługi udziału danych platformy Azure. Aby dowiedzieć się więcej o udostępnianiu z innych źródeł danych, zobacz [obsługiwane magazyny danych](supported-data-stores.md).

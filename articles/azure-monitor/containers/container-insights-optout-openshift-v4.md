@@ -1,22 +1,22 @@
 ---
 title: Jak zatrzymać monitorowanie klastra platformy Azure i systemu Red Hat OpenShift v4 | Microsoft Docs
-description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift i Red Hat OpenShift w wersji 4 przy użyciu Azure Monitor dla kontenerów.
+description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift i Red Hat OpenShift w wersji 4 przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09ca05a25ce9bb02b8a3d515acf060e2e9e7e8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731803"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Jak zatrzymać monitorowanie klastra platformy Azure i systemu Red Hat OpenShift v4
 
-Po włączeniu monitorowania rozwiązania Azure Red Hat OpenShift i Red Hat OpenShift w wersji 4. x można zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, jeśli zdecydujesz, że nie chcesz już ich monitorować. W tym artykule pokazano, jak to zrobić.  
+Po włączeniu monitorowania rozwiązania Azure Red Hat OpenShift i Red Hat OpenShift w wersji 4. x można zatrzymać monitorowanie klastra za pomocą usługi Container Insights, jeśli zdecydujesz, że nie chcesz już go monitorować. W tym artykule pokazano, jak to zrobić.  
 
 ## <a name="how-to-stop-monitoring-using-helm"></a>Jak zatrzymać monitorowanie za pomocą Helm
 
-1. Aby najpierw zidentyfikować Azure Monitor kontenerów Helm wersja wykresu zainstalowana w klastrze, uruchom następujące polecenie Helm.
+1. Aby najpierw zidentyfikować wersję wykresu Helm usługi Container Insights zainstalowaną w klastrze, uruchom następujące polecenie Helm.
 
     ```
     helm list
@@ -29,7 +29,7 @@ Po włączeniu monitorowania rozwiązania Azure Red Hat OpenShift i Red Hat Open
     azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
     ```
 
-    *azmon-Containers-Release-1* reprezentuje wersję wykresu helm dla Azure monitor dla kontenerów.
+    *azmon-Containers-Release-1* reprezentuje wersję wykresu Helm dla usługi Container Insights.
 
 2. Aby usunąć wersję wykresu, uruchom następujące polecenie Helm.
 
@@ -49,4 +49,4 @@ Zmiana konfiguracji może potrwać kilka minut. Ponieważ usługa Helm śledzi w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../platform/delete-workspace.md).
+Jeśli obszar roboczy Log Analytics został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../logs/delete-workspace.md).

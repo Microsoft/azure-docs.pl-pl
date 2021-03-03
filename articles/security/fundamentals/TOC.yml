@@ -10,8 +10,6 @@
   items:
     - name: Możliwości techniczne zabezpieczeń
       href: technical-capabilities.md
-    - name: Wbudowane mechanizmy zabezpieczeń
-      href: security-controls.md
 - name: Platforma Azure i infrastruktura
   items:
     - name: Zabezpieczenia infrastruktury

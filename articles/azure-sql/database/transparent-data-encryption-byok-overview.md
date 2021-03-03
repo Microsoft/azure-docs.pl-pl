@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691250"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,7 +187,7 @@ Dodatkowe zagadnienia dotyczące plików dziennika: kopia zapasowa plików dzien
 
 Nawet w przypadkach, gdy nie ma skonfigurowanej nadmiarowości geograficznej serwera, zdecydowanie zaleca się skonfigurowanie serwera tak, aby korzystał z dwóch różnych magazynów kluczy w dwóch różnych regionach z tym samym kluczem. Klucz w magazynie kluczy pomocniczych w innym regionie nie powinien być oznaczony jako funkcja ochrony TDE i nie jest jeszcze dozwolony. Jeśli wystąpi awaria wpływająca na podstawowy Magazyn kluczy, system automatycznie przejdzie do innego połączonego klucza z tym samym odciskiem palca w magazynie kluczy pomocniczych, jeśli istnieje. Należy pamiętać, że ten przełącznik nie zostanie wykonany, jeśli funkcja ochrony TDE jest niedostępna z powodu odwołanych praw dostępu lub klucz lub Magazyn kluczy został usunięty, ponieważ może to wskazywać, że klient chce ograniczyć dostęp serwera do klucza. Dostarczenie tego samego klucza do dwóch magazynów kluczy w różnych regionach można wykonać, tworząc klucz poza magazynem kluczy i importując je do obu magazynów kluczy. 
 
-Alternatywnie można to zrobić przez wygenerowanie klucza przy użyciu podstawowego magazynu kluczy, który znajduje się w tym samym regionie co serwer i klonowanie klucza do magazynu kluczy w innym regionie świadczenia usługi Azure. Użyj polecenia cmdlet [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) , aby pobrać klucz w szyfrowanym formacie z magazynu kluczy podstawowych, a następnie użyć polecenia cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) i określić Magazyn kluczy w drugim regionie, aby sklonować klucz. Alternatywnie możesz użyć Azure Portal, aby utworzyć kopię zapasową i przywrócić klucz. Operacja tworzenia kopii zapasowej/przywracania klucza jest dozwolona tylko między magazynami kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Alternatywnie można to zrobić przez wygenerowanie klucza przy użyciu podstawowego magazynu kluczy, który znajduje się w tym samym regionie co serwer i klonowanie klucza do magazynu kluczy w innym regionie świadczenia usługi Azure. Użyj polecenia cmdlet [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) , aby pobrać klucz w szyfrowanym formacie z magazynu kluczy podstawowych, a następnie użyć polecenia cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) i określić Magazyn kluczy w drugim regionie, aby sklonować klucz. Alternatywnie możesz użyć Azure Portal, aby utworzyć kopię zapasową i przywrócić klucz. Operacja tworzenia kopii zapasowej/przywracania klucza jest dozwolona tylko między magazynami kluczy w ramach tej samej subskrypcji platformy Azure i lokalizacji [geograficznej platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

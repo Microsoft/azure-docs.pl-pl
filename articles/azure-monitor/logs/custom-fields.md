@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 685c54131e4a82950ea64e5374d9e1d260ffabc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f35100d703e56d1fda731aab5e6a96c791c8f0d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713681"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Tworzenie pól niestandardowych w obszarze roboczym Log Analytics w Azure Monitor (wersja zapoznawcza)
 
 > [!NOTE]
-> W tym artykule opisano sposób analizowania danych tekstowych w obszarze roboczym Log Analytics w miarę ich zbierania. Zalecamy analizowanie danych tekstowych w filtrze zapytania po zebraniu zgodnie ze wskazówkami opisanymi w temacie [Analizowanie danych tekstowych w Azure monitor](../log-query/parse-text.md). Zapewnia kilka korzyści w porównaniu z użyciem pól niestandardowych.
+> W tym artykule opisano sposób analizowania danych tekstowych w obszarze roboczym Log Analytics w miarę ich zbierania. Zalecamy analizowanie danych tekstowych w filtrze zapytania po zebraniu zgodnie ze wskazówkami opisanymi w temacie [Analizowanie danych tekstowych w Azure monitor](./parse-text.md). Zapewnia kilka korzyści w porównaniu z użyciem pól niestandardowych.
 
 > [!IMPORTANT]
-> Pola niestandardowe zwiększają ilość danych zebranych w obszarze roboczym Log Analytics, co może zwiększyć koszt. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../platform/manage-cost-storage.md#pricing-model) .
+> Pola niestandardowe zwiększają ilość danych zebranych w obszarze roboczym Log Analytics, co może zwiększyć koszt. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](./manage-cost-storage.md#pricing-model) .
 
 Funkcja **pól niestandardowych** Azure monitor pozwala na rozbudowanie istniejących rekordów w obszarze roboczym log Analytics przez dodanie własnych pól do przeszukiwania.  Pola niestandardowe są automatycznie wypełniane na podstawie danych wyodrębnionych z innych właściwości w tym samym rekordzie.
 
@@ -42,9 +42,9 @@ Poniższe sekcje zawierają procedurę tworzenia pola niestandardowego.  W dolne
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Krok 1 — identyfikowanie rekordów, które będą miały pole niestandardowe
-Pierwszym krokiem jest zidentyfikowanie rekordów, które będą uzyskać pole niestandardowe.  Zaczynasz od [standardowego zapytania dziennika](../log-query/log-query-overview.md) , a następnie wybierz rekord, który będzie działać jako model, który Azure monitor się uczyć.  Po określeniu, że dane mają zostać wyodrębnione do pola niestandardowego, zostanie otwarty **Kreator wyodrębniania pól** , w którym można sprawdzić poprawność i uściślić kryteria.
+Pierwszym krokiem jest zidentyfikowanie rekordów, które będą uzyskać pole niestandardowe.  Zaczynasz od [standardowego zapytania dziennika](./log-query-overview.md) , a następnie wybierz rekord, który będzie działać jako model, który Azure monitor się uczyć.  Po określeniu, że dane mają zostać wyodrębnione do pola niestandardowego, zostanie otwarty **Kreator wyodrębniania pól** , w którym można sprawdzić poprawność i uściślić kryteria.
 
-1. Przejdź do **dzienników** i Użyj [zapytania, aby pobrać rekordy](../log-query/log-query-overview.md) , które będą miały pole niestandardowe.
+1. Przejdź do **dzienników** i Użyj [zapytania, aby pobrać rekordy](./log-query-overview.md) , które będą miały pole niestandardowe.
 2. Wybierz rekord, który Log Analytics będzie używany do działania jako model wyodrębniania danych w celu wypełnienia pola niestandardowego.  Użytkownik zidentyfikuje dane, które mają zostać wyodrębnione z tego rekordu, a Log Analytics będzie używać tych informacji do określenia logiki w celu wypełnienia pola niestandardowego dla wszystkich podobnych rekordów.
 3. Rozwiń Właściwości rekordu, kliknij wielokropek z lewej strony górnej części rekordu, a następnie wybierz pozycję **Wyodrębnij pola z**.
 4. Zostanie otwarty **Kreator wyodrębniania pól** , a wybrany rekord zostanie wyświetlony w **głównej przykładowej** kolumnie.  Pole niestandardowe zostanie zdefiniowane dla tych rekordów z tymi samymi wartościami we właściwościach, które są wybrane.  
@@ -128,6 +128,5 @@ Teraz możemy używać pola niestandardowego, takiego jak jakakolwiek inna Wła�
 ![Grupuj według zapytania](media/custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [zapytań dzienników](../log-query/log-query-overview.md) do kompilowania zapytań przy użyciu pól niestandardowych dla kryteriów.
+* Dowiedz się więcej na temat [zapytań dzienników](./log-query-overview.md) do kompilowania zapytań przy użyciu pól niestandardowych dla kryteriów.
 * Monitoruj [niestandardowe pliki dziennika](../agents/data-sources-custom-logs.md) , które można analizować za pomocą pól niestandardowych.
-

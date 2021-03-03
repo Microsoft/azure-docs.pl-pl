@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ab21c6dc95ef39e6273dac405ba58e748890fc1a
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968436"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687111"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania SAP Fiori
 
@@ -146,7 +146,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![wybierz plik metadanych](common/browse-upload-metadata.png)
 
-    c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są wypełniane automatycznie w okienku **podstawowe konfiguracje języka SAML** . W polu **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec: `https:\//\<your company instance of SAP Fiori\>` .
+    c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są wypełniane automatycznie w okienku **podstawowe konfiguracje języka SAML** . W polu **adres URL logowania** wprowadź adres URL, który ma następujący wzorzec: `https://<your company instance of SAP Fiori>` .
 
     > [!NOTE]
     > Kilku klientów zgłasza błędy związane z niepoprawnie skonfigurowanymi wartościami **adresu URL odpowiedzi** . Jeśli ten błąd jest wyświetlany, można użyć następującego skryptu programu PowerShell, aby ustawić prawidłowy adres URL odpowiedzi dla danego wystąpienia:
@@ -193,7 +193,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -219,15 +219,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcje dodawania i przekazywania metadanych plików w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
 
-1. Przekaż plik metadanych, który został pobrany w Azure Portal. Wybierz pozycję **Dalej**.
+1. Przekaż plik metadanych, który został pobrany w Azure Portal. Wybierz opcję **Dalej**.
 
     ![Wybierz plik metadanych do przekazania w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
-1. Na następnej stronie w polu **alias** wprowadź nazwę aliasu. Na przykład **aadsts**. Wybierz pozycję **Dalej**.
+1. Na następnej stronie w polu **alias** wprowadź nazwę aliasu. Na przykład **aadsts**. Wybierz opcję **Dalej**.
 
     ![Pole alias w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
 
-1. Upewnij się, że wartość w polu **algorytm podsumowania** to **SHA-256**. Wybierz pozycję **Dalej**.
+1. Upewnij się, że wartość w polu **algorytm podsumowania** to **SHA-256**. Wybierz opcję **Dalej**.
 
     ![Sprawdź wartość algorytmu digest w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
@@ -247,7 +247,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcje wymagań uwierzytelniania i opcja zakończenia w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
-1. Wybierz opcję Federacja tożsamości **dostawcy zaufanego**  >   (w dolnej części strony). Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz opcję Federacja tożsamości **dostawcy zaufanego**  >   (w dolnej części strony). Wybierz pozycję **Edytuj**.
 
     ![Karty zaufanych dostawców i tożsamości w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
 

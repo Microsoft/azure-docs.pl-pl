@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b65191e97402f2fb352c56664dad085c448242c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650631"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Samouczek: integracja Azure Active Directory z usługą TalentLMS
 
@@ -170,11 +170,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze TalentL
 
     ![Dodaj użytkownika](./media/talentlms-tutorial/IC777299.png "Dodaj użytkownika")  
 
-    a. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika, np. **Britta**.
+    a. W polu tekstowym **imię i nazwisko** Wprowadź imię użytkownika `Britta` .
 
-    b. W polu tekstowym **Last name (Nazwisko)** wprowadź nazwisko użytkownika, na przykład **Simon**.
+    b. W polu **tekstowym nazwisko wpisz nazwisko użytkownika** `Simon` .
  
-    c. W polu tekstowym **Email address** (Adres e-mail) wprowadź adres e-mail użytkownika, np. `brittasimon\@contoso.com`.
+    c. W polu tekstowym **Email address** (Adres e-mail) wprowadź adres e-mail użytkownika, np. `brittasimon@contoso.com`.
 
     d. Kliknij pozycję **Dodaj użytkownika**.
 

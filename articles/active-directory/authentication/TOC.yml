@@ -176,7 +176,7 @@
     - name: Raportowanie
       items:
         - name: Działanie metod uwierzytelniania
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: Raporty samoobsługowego resetowania hasła
           href: howto-sspr-reporting.md
         - name: Raporty usługi MFA

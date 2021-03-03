@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083773"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735509"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji internetowej opartej na usługach IIS
 
@@ -122,10 +122,10 @@ Każda lokacja zawiera informacje o powiązaniu. Informacje o powiązaniu obejmu
 
 ![Zrzut ekranu pokazujący ustawienie powiązania TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Jeśli adres IP jest skojarzony z lokacją, należy zaktualizować wszystkie powiązania lokacji przy użyciu nowego adresu IP. Aby zmienić powiązania witryny, Dodaj [skrypt aktualizacji warstwy sieci Web usług IIS](https://aka.ms/asr-web-tier-update-runbook-classic) po grupie 3 w planie odzyskiwania.
+Jeśli adres IP jest skojarzony z lokacją, należy zaktualizować wszystkie powiązania lokacji przy użyciu nowego adresu IP. Aby zmienić powiązania witryny, Dodaj [skrypt aktualizacji warstwy sieci Web usług IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) po grupie 3 w planie odzyskiwania.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Aktualizowanie adresu IP modułu równoważenia obciążenia
-Jeśli masz maszynę wirtualną o genotypie ARR, zaktualizuj adres IP przy użyciu [skryptu trybu failover usług IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) z grupy 4.
+Jeśli masz maszynę wirtualną o genotypie ARR, zaktualizuj adres IP przy użyciu [skryptu trybu failover usług IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) z grupy 4.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Powiązanie certyfikatu TLS/SSL dla połączenia HTTPS
 Witryna sieci Web może mieć skojarzony certyfikat TLS/SSL, który pomaga zapewnić bezpieczną komunikację między serwerem sieci Web a przeglądarką użytkownika. Jeśli witryna sieci Web ma połączenie HTTPS, a także ma skojarzone powiązanie z adresem IP serwera usług IIS z powiązaniem certyfikatu TLS/SSL, należy dodać nowe powiązanie witryny dla certyfikatu przy użyciu adresu IP maszyny wirtualnej usług IIS po zakończeniu pracy w trybie failover.

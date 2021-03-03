@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699321"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących wolnego działania lub niepowodzenia zadania w klastrze usługi HDInsight
 
-Jeśli przetwarzanie danych przez aplikację w klastrze usługi HDInsight przebiega wolno lub kończy się niepowodzeniem z kodem błędu, masz kilka opcji rozwiązywania problemów. Jeśli wykonywanie zadań trwa dłużej niż oczekiwano lub na ogół widzisz wolne czasy odpowiedzi, mogą wystąpić błędy z klastra, takie jak usługi, na których działa klaster. Jednak najczęstsze przyczyny tych spowolnienia są niewystarczające. Podczas tworzenia nowego klastra usługi HDInsight wybierz odpowiednie [rozmiary maszyn wirtualnych](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Jeśli przetwarzanie danych przez aplikację w klastrze usługi HDInsight przebiega wolno lub kończy się niepowodzeniem z kodem błędu, masz kilka opcji rozwiązywania problemów. Jeśli wykonywanie zadań trwa dłużej niż oczekiwano lub na ogół widzisz wolne czasy odpowiedzi, mogą wystąpić błędy z klastra, takie jak usługi, na których działa klaster. Jednak najczęstsze przyczyny tych spowolnienia są niewystarczające. Podczas tworzenia nowego klastra usługi HDInsight wybierz odpowiednie [rozmiary maszyn wirtualnych](hdinsight-supported-node-configuration.md).
 
 Aby zdiagnozować klaster wolny lub niepowodzenie, Zbierz informacje o wszystkich aspektach środowiska, takich jak skojarzone usługi platformy Azure, Konfiguracja klastra i informacje o wykonywaniu zadania. Przydatną diagnostyką jest próba odtworzenia stanu błędu w innym klastrze.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690927"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,13 +41,13 @@ Wystąpienia klastra trybu failover z SQL Server w usłudze Azure Virtual Machin
 Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące kworum z maszynami wirtualnymi SQL Server na platformie Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Przechowywanie
+## <a name="storage"></a>Storage
 
 W tradycyjnych lokalnych środowiskach klastrowanych klaster trybu failover systemu Windows używa sieci magazynowania (SAN), która jest dostępna w obu węzłach jako magazyn udostępniony. Pliki SQL Server są hostowane w magazynie udostępnionym, a tylko aktywny węzeł może uzyskać do nich dostęp jednocześnie. 
 
 SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako rozwiązanie magazynu udostępnionego do wdrożenia SQL Server wystąpienia klastra trybu failover: 
 
-||[Dyski udostępnione platformy Azure](../../../virtual-machines/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Dyski udostępnione platformy Azure](../../../virtual-machines/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-file-share.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
 |**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
@@ -96,7 +96,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z dyskam
 - Obsługuje pamięć podręczną usługi Azure Blob, więc odczyty mogą być obsługiwane lokalnie z pamięci podręcznej. (Aktualizacje są replikowane jednocześnie do obu węzłów). 
 - Obsługuje funkcję FileStream. 
 
-**Limity**
+**Ograniczenia:**
 - Dostępne tylko dla systemu Windows Server 2016 i nowszych. 
 - Strefy dostępności nie są obsługiwane.
 - Wymaga tej samej pojemności dysku podłączonej do obu maszyn wirtualnych. 
@@ -107,7 +107,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpo�
 
 ### <a name="premium-file-share"></a>Udział plików w warstwie Premium
 
-[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) są funkcją [Azure Files](../../../storage/files/index.yml). Udziały plików w warstwie Premium są oparte na dyskach SSD i stale mają małe opóźnienia. Są one w pełni obsługiwane do użycia z wystąpieniami klastra trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, ponieważ można zmieniać rozmiar i skalować udział plików bez przestojów.
+[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-file-share.md) są funkcją [Azure Files](../../../storage/files/index.yml). Udziały plików w warstwie Premium są oparte na dyskach SSD i stale mają małe opóźnienia. Są one w pełni obsługiwane do użycia z wystąpieniami klastra trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, ponieważ można zmieniać rozmiar i skalować udział plików bez przestojów.
 
 **Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
 **Obsługiwana wersja programu SQL**: SQL Server 2012 i nowsze   
@@ -116,7 +116,7 @@ Aby rozpocząć, zobacz [SQL Server wystąpienia klastra trybu failover z bezpo�
 - Tylko udostępnione rozwiązanie magazynu dla maszyn wirtualnych rozprzestrzenia się w wielu strefach dostępności. 
 - W pełni zarządzany system plików z opóźnieniami jednocyfrowymi i wydajnością operacji we/wy. 
 
-**Limity**
+**Ograniczenia:**
 - Dostępne tylko dla systemu Windows Server 2012 i nowszych. 
 - FileStream nie jest obsługiwany. 
 

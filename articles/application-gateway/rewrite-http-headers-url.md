@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216678"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726516"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
@@ -60,9 +60,9 @@ Aby dowiedzieć się, jak ponownie napisać adres URL z Application Gateway przy
 Aby określić adres URL, nagłówki żądań lub nagłówki odpowiedzi, które mają zostać ponownie zapisane, i nową wartość, do której mają być zapisywane, należy użyć akcji ponownego zapisu. Wartość adresu URL lub nowego lub istniejącego nagłówka można ustawić na następujące typy wartości:
 
 * Tekst
-* Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_*headerName*}
-* Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_*headerName*}
-* Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_*ServerVariables*}. Zobacz listę obsługiwanych zmiennych serwera
+* Nagłówek żądania. Aby określić nagłówek żądania, należy użyć składni {http_req_ *headerName*}
+* Nagłówek odpowiedzi. Aby określić nagłówek odpowiedzi, należy użyć składni {http_resp_ *headerName*}
+* Zmienna serwera. Aby określić zmienną serwera, należy użyć składni {var_ *ServerVariables*}. Zobacz listę obsługiwanych zmiennych serwera
 * Kombinacja tekstu, nagłówka żądania, nagłówka odpowiedzi i zmiennej serwerowej. 
 
 ## <a name="rewrite-conditions"></a>Warunki ponownego zapisu
@@ -100,7 +100,7 @@ Jeśli chcesz użyć całej wartości, nie należy wspominać o liczbie. Wystarc
 
 ## <a name="server-variables"></a>Zmienne serwera
 
-Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_*servervariablesname*}
+Application Gateway używa zmiennych serwera do przechowywania użytecznych informacji o serwerze, połączeniu z klientem i bieżącym żądaniu połączenia. Przykłady przechowywanych informacji obejmują adres IP klienta i typ przeglądarki sieci Web. Zmienne serwera zmieniają się dynamicznie, na przykład po załadowaniu nowej strony lub po opublikowaniu formularza. Możesz użyć tych zmiennych do oszacowania warunków ponownego zapisu i ponownego zapisywania nagłówków. Aby można było użyć wartości zmiennych serwera do ponownego zapisania nagłówków, należy określić te zmienne w składni {var_ *servervariablesname*}
 
 Brama aplikacji obsługuje następujące zmienne serwera:
 
@@ -164,7 +164,7 @@ Gdy aplikacja zaplecza wysyła odpowiedź przekierowania, możesz chcieć przeki
 
 Ponieważ App Service jest usługą wielodostępnym, używa nagłówka hosta w żądaniu, aby skierować żądanie do właściwego punktu końcowego. Usługa App Services ma domyślną nazwę domeny *. azurewebsites.net (Powiedz contoso.azurewebsites.net), która różni się od nazwy domeny bramy aplikacji (Powiedz contoso.com). Ponieważ oryginalne żądanie od klienta ma nazwę hosta usługi Application Gateway (contoso.com), Brama aplikacji zmienia nazwy hosta na contoso.azurewebsites.net. Wprowadza tę zmianę, dzięki czemu usługa App Service może kierować żądanie do właściwego punktu końcowego.
 
-Gdy usługa App Service wyśle odpowiedź przekierowania, używa tej samej nazwy hosta w nagłówku lokalizacji swojej odpowiedzi jako tej w żądaniu odbieranym od bramy aplikacji. Klient wyśle żądanie bezpośrednio do contoso.azurewebsites.net/path2 zamiast przechodzenia przez bramę Application Gateway (contoso.com/path2). Pomijanie bramy aplikacji nie jest pożądane.
+Gdy usługa App Service wyśle odpowiedź przekierowania, używa tej samej nazwy hosta w nagłówku lokalizacji swojej odpowiedzi jako tej w żądaniu odbieranym od bramy aplikacji. Klient wyśle żądanie bezpośrednio, aby nie przechodzić `contoso.azurewebsites.net/path2` przez bramę aplikacji ( `contoso.com/path2` ). Pomijanie bramy aplikacji nie jest pożądane.
 
 Ten problem można rozwiązać przez ustawienie nazwy hosta w nagłówku lokalizacji na nazwę domeny bramy aplikacji.
 
@@ -211,13 +211,13 @@ Aby wykonać scenariusze, w których chcesz wybrać pulę zaplecza na podstawie 
 
 * Trzecia reguła ma warunek, który sprawdza zmienną *QUERY_STRING* dla *kategorii = Akcesoria* i ma akcję, która ponownie zapisuje ścieżkę URL do/*listing3* i ma włączoną **ponowną ocenę mapy ścieżki**
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-2.":::
 
  
 
 **Krok 2 (b):** Skojarz ten zestaw ponownie z domyślną ścieżką powyższej reguły opartej na ścieżce
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-3.":::
 
 Teraz, jeśli użytkownik zażąda *contoso.com/Listing?Category=any*, zostanie dopasowany do ścieżki domyślnej, ponieważ żaden z wzorców ścieżki w mapie ścieżki (/listing1,/listing2,/listing3) nie będzie zgodny. Ze względu na to, że powyższy Zestaw wielokrotnego zapisu zostanie skojarzony z tą ścieżką, ten zestaw do ponownego zapisu zostanie obliczony. Ponieważ ciąg zapytania nie będzie pasował do warunku w żadnej z trzech reguł ponownego zapisywania w tym zestawie wielokrotnego zapisu, nie zostanie wykonana żadna akcja ponownego zapisywania, w związku z czym żądanie zostanie przesłane bez zmian do zaplecza skojarzonego z ścieżką domyślną (czyli *GenericList*).
 
@@ -234,11 +234,11 @@ W takim przypadku Application Gateway może przechwytywać parametry z adresu UR
 
 **Warunek** — Jeśli zmienna serwera `uri_path` jest równa wzorzec `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenariusz ponownego zapisywania adresów URL 2-1.":::
 
 **Akcja** — Ustaw ścieżkę adresu URL `buy.aspx` i ciąg zapytania do `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 2-2.":::
 
 Aby zapoznać się ze scenariuszem krok po kroku w celu osiągnięcia opisanego powyżej scenariusza, zobacz [Zapisywanie adresu URL za pomocą Application Gateway przy użyciu Azure Portal](rewrite-url-portal.md)
 
@@ -248,7 +248,7 @@ W przypadku ponownego zapisywania adresu URL Application Gateway ponownie zapisu
 
 W przypadku przekierowania adresu URL Application Gateway wysyła odpowiedź przekierowania do klienta z nowym adresem URL. Z kolei program wymaga od klienta ponownego wysłania żądania do nowego adresu URL podanego w przekierowaniu. Adres URL widziany przez użytkownika w przeglądarce zostanie zaktualizowany do nowego adresu URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Zapisz ponownie a przekierowanie a.":::
 
 ## <a name="limitations"></a>Ograniczenia
 

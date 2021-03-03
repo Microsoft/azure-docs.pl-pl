@@ -4,12 +4,12 @@ description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dost
 ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737821"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -130,9 +130,9 @@ Jeśli wiesz lub podejrzewasz, że klucz został złamany, i musisz odwołać kl
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Uwierzytelnianie sygnatury dostępu współdzielonego za pomocą Service Bus
 
-Scenariusze opisane w poniższej części obejmują konfigurację reguł autoryzacji, generowanie tokenów SAS i autoryzację klienta.
+Opisany poniżej scenariusz obejmuje konfigurację reguł autoryzacji, generowanie tokenów SAS i autoryzację klienta.
 
-Aby uzyskać pełny przykład pracy aplikacji Service Bus, która ilustruje konfigurację i używa autoryzacji sygnatury [dostępu współdzielonego](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8), zapoznaj się z tematem Service Bus. Pokrewny przykład, który ilustruje użycie reguł autoryzacji SYGNATURy dostępu współdzielonego skonfigurowanych w przestrzeniach nazw lub tematach do zabezpieczania subskrypcji Service Bus, jest dostępny tutaj: [używanie uwierzytelniania za pomocą podpisu (SAS) z subskrypcjami Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Aby zapoznać się z przykładową aplikacją Service Bus, która ilustruje konfigurację i używa autoryzacji sygnatury [dostępu współdzielonego, zobacz Uwierzytelnianie za pomocą usługi dostęp do sieci z Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Dostęp do reguł autoryzacji dostępu współdzielonego w jednostce
 

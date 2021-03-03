@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 12b90bf709cb20bed844940570663a76052a540d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091205"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738943"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -63,7 +63,7 @@ Istniejące aplikacje można migrować do App Service za pomocą [Narzędzia mig
 
 Jako dostawca infrastruktury jako usługi (IaaS), platforma Azure umożliwia wdrażanie aplikacji lub Migrowanie jej na maszyny wirtualne z systemem Windows lub Linux. Wraz z usługą Azure Virtual Network platforma Azure Virtual Machines obsługuje wdrażanie maszyn wirtualnych z systemem Windows lub Linux na platformie Azure. W przypadku maszyn wirtualnych masz całkowitą kontrolę nad konfiguracją maszyny. W przypadku korzystania z maszyn wirtualnych użytkownik jest odpowiedzialny za wszystkie instalacje oprogramowania serwera, konfigurację, konserwację i poprawki systemu operacyjnego.
 
-Ze względu na poziom kontroli z maszynami wirtualnymi można uruchamiać szeroką gamę obciążeń serwera na platformie Azure, które nie mieszczą się w modelu PaaS. Te obciążenia obejmują serwery baz danych, Active Directory systemu Windows Server i program Microsoft SharePoint. Aby uzyskać więcej informacji, zobacz dokumentację Virtual Machines dla systemu [Linux](../../virtual-machines/linux/index.yml) lub [Windows](../../virtual-machines/windows/index.yml).
+Ze względu na poziom kontroli z maszynami wirtualnymi można uruchamiać szeroką gamę obciążeń serwera na platformie Azure, które nie mieszczą się w modelu PaaS. Te obciążenia obejmują serwery baz danych, Active Directory systemu Windows Server i program Microsoft SharePoint. Aby uzyskać więcej informacji, zobacz dokumentację Virtual Machines dla systemu [Linux](../../virtual-machines/index.yml) lub [Windows](../../virtual-machines/index.yml).
 
 > **Kiedy używać**: należy używać Virtual Machines, gdy chcesz mieć pełną kontrolę nad infrastrukturą aplikacji lub migrować obciążenia aplikacji lokalnych na platformę Azure bez konieczności wprowadzania zmian.
 >

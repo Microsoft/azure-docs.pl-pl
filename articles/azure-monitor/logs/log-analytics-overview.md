@@ -6,24 +6,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 485c2cc6c95f5922025fe887f7c25131e849a01d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620793"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723167"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Omówienie Log Analytics w Azure Monitor
 Log Analytics jest narzędziem w Azure Portal używanym do edytowania i uruchamiania zapytań dzienników z danymi w dziennikach Azure Monitor. Można napisać proste zapytanie, które zwraca zestaw rekordów, a następnie użyć funkcji Log Analytics do sortowania, filtrowania i analizowania. Możesz też napisać bardziej zaawansowane zapytanie w celu przeprowadzenia analizy statystycznej i wizualizować wyniki na wykresie, aby zidentyfikować konkretny trend. Niezależnie od tego, czy pracujesz z wynikami zapytań interaktywnie, czy używasz ich z innymi Azure Monitormi funkcjami, takimi jak alerty lub skoroszyty zapytań, Log Analytics to narzędzie, za pomocą którego można pisać i testować. 
 
 
 > [!TIP]
-> Ten artykuł zawiera opis Log Analytics i każdej z jej funkcji. Jeśli chcesz przejść bezpośrednio do samouczka, zobacz [samouczek log Analytics](../log-query/log-analytics-tutorial.md).
+> Ten artykuł zawiera opis Log Analytics i każdej z jej funkcji. Jeśli chcesz przejść bezpośrednio do samouczka, zobacz [samouczek log Analytics](./log-analytics-tutorial.md).
 
 
 
 ## <a name="starting-log-analytics"></a>Uruchamianie Log Analytics
-Rozpocznij Log Analytics od **dzienników** w menu **Azure monitor** w Azure Portal. Ta opcja zostanie również wyświetlona w menu dla większości zasobów platformy Azure. Niezależnie od tego, gdzie zaczynasz od, będzie to samo narzędzie Log Analytics. Menu używane do uruchamiania Log Analytics określa dane, które będą dostępne w tym przypadku. Jeśli uruchomisz go z poziomu menu **Azure monitor** lub z menu **log Analytics obszary robocze** , będziesz mieć dostęp do wszystkich rekordów w obszarze roboczym. W przypadku wybrania **dzienników** z innego typu zasobów dane będą ograniczone do danych dziennika dla tego zasobu. Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../log-query/scope.md) .
+Rozpocznij Log Analytics od **dzienników** w menu **Azure monitor** w Azure Portal. Ta opcja zostanie również wyświetlona w menu dla większości zasobów platformy Azure. Niezależnie od tego, gdzie zaczynasz od, będzie to samo narzędzie Log Analytics. Menu używane do uruchamiania Log Analytics określa dane, które będą dostępne w tym przypadku. Jeśli uruchomisz go z poziomu menu **Azure monitor** lub z menu **log Analytics obszary robocze** , będziesz mieć dostęp do wszystkich rekordów w obszarze roboczym. W przypadku wybrania **dzienników** z innego typu zasobów dane będą ograniczone do danych dziennika dla tego zasobu. Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](./scope.md) .
 
 [![Rozpocznij Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
@@ -39,9 +39,9 @@ Kontrolki do pracy z kwerendą w oknie zapytania.
 
 | Opcja | Opis |
 |:---|:---|
-| Zakres | Określa zakres danych używanych w zapytaniu. Może to być wszystkie dane w obszarze roboczym Log Analytics lub dane dla określonego zasobu w wielu obszarach roboczych. Zobacz [zakres zapytań](../log-query/scope.md). |
+| Zakres | Określa zakres danych używanych w zapytaniu. Może to być wszystkie dane w obszarze roboczym Log Analytics lub dane dla określonego zasobu w wielu obszarach roboczych. Zobacz [zakres zapytań](./scope.md). |
 | Przycisk Uruchom | Kliknij, aby uruchomić wybrane zapytanie w oknie zapytania. Możesz również nacisnąć klawisze SHIFT + ENTER, aby uruchomić zapytanie. |
-| Wybór godziny | Wybierz zakres czasu dla danych dostępnych dla zapytania. Ta wartość zostanie zastąpiona, jeśli w zapytaniu zostanie uwzględniony filtr czasu. Zobacz [zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../log-query/scope.md). |
+| Wybór godziny | Wybierz zakres czasu dla danych dostępnych dla zapytania. Ta wartość zostanie zastąpiona, jeśli w zapytaniu zostanie uwzględniony filtr czasu. Zobacz [zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](./scope.md). |
 | Przycisk Zapisz | Zapisz zapytanie do Eksploratora zapytań dla obszaru roboczego. |
  Kopiuj | Skopiuj link do zapytania, tekstu zapytania lub wyników zapytania do Schowka. |
 | Przycisk reguły nowego alertu | Utwórz nową kartę z pustym zapytaniem. |
@@ -91,5 +91,5 @@ Wyświetla wyniki jako jeden z wielu dostępnych typów wykresów. Możesz okre�
 Jeśli znasz już interfejs użytkownika usługi Azure Eksplorator danych Web, Log Analytics powinien wyglądać znajomo. Dzieje się tak, ponieważ jest ona oparta na usłudze Azure Eksplorator danych i używa tego samego języka zapytań Kusto (KQL). Log Analytics dodaje funkcje specyficzne dla Azure Monitor takich jak filtrowanie według zakresu czasu i możliwość tworzenia reguły alertu na podstawie zapytania. Oba narzędzia obejmują Eksploratora, który umożliwia przechodzenie przez strukturę dostępnych tabel, ale interfejs użytkownika usługi Azure Eksplorator danych Web działa przede wszystkim z tabelami w usłudze Azure Eksplorator danych Databases, podczas gdy Log Analytics działa z tabelami w obszarze roboczym Log Analytics. 
 
 ## <a name="next-steps"></a>Następne kroki
-- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](../log-query/log-analytics-tutorial.md).
-- Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](../log-query/get-started-queries.md).
+- Zapoznaj się z [samouczkiem dotyczącym korzystania z log Analytics w Azure Portal](./log-analytics-tutorial.md).
+- Zapoznaj się z [samouczkiem dotyczącym pisania zapytań](./get-started-queries.md).

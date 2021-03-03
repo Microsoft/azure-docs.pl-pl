@@ -4,19 +4,21 @@ description: Azure Security Test — Data Protection w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735764"
 ---
 # <a name="security-control-v2-data-protection"></a>Kontrola zabezpieczeń v2: Ochrona danych
 
 Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tranzycie oraz za pomocą autoryzowanych mechanizmów dostępu. Obejmuje to odnajdywanie, klasyfikowanie, ochronę i monitorowanie poufnych zasobów danych przy użyciu funkcji kontroli dostępu, szyfrowania i rejestrowania na platformie Azure.
+
+Aby wyświetlić odpowiednie Azure Policy, zobacz [szczegóły wbudowanej inicjatywy zgodność z przepisami usługi Azure Security Tests: Ochrona danych](../../governance/policy/samples/azure-security-benchmark#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Odnajdywanie, klasyfikowanie i etykietowanie danych poufnych
 
@@ -24,9 +26,9 @@ Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tran
 |--|--|--|--|
 | DP-1 | 13,1, 14,5, 14,7 | SC — 28 |
 
-Odkryj, klasyfikuj i Oznacz poufne dane, aby umożliwić projektowanie odpowiednich kontrolek w celu zapewnienia, że poufne informacje są przechowywane, przetwarzane i przesyłane bezpiecznie przez systemy technologiczne organizacji. 
+Odkryj, klasyfikuj i Oznacz poufne dane, aby umożliwić projektowanie odpowiednich kontrolek w celu zapewnienia, że poufne informacje są przechowywane, przetwarzane i przesyłane bezpiecznie przez systemy technologiczne organizacji.
 
-Użyj usługi Azure Information Protection (i skojarzonego z nią narzędzia do skanowania), aby zlokalizować informacje poufne w dokumentach pakietu Office na platformie Azure, lokalnie, w pakiecie Office 365 i w innych lokalizacjach. 
+Użyj usługi Azure Information Protection (i skojarzonego z nią narzędzia do skanowania), aby zlokalizować informacje poufne w dokumentach pakietu Office na platformie Azure, lokalnie, w pakiecie Office 365 i w innych lokalizacjach.
 
 Usługa Azure SQL Information Protection może pomóc w klasyfikacji i etykietowaniu informacji przechowywanych w bazach danych Azure SQL Database.
 
@@ -38,7 +40,7 @@ Usługa Azure SQL Information Protection może pomóc w klasyfikacji i etykietow
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Bezpieczeństwo danych](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ Usługa Azure Information Protection (AIP) oferuje funkcje monitorowania informa
 
 Jeśli jest to wymagane do zapewnienia zgodności pod kątem ochrony przed utratą danych (DLP), można użyć rozwiązania DLP opartego na hoście, aby wymusić wykrywające i/lub prewencyjne mechanizmy kontrolne w celu zapobiegania eksfiltracji danych.
 
-- [Włączanie usługi Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender for SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Włączanie usługi Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Usługa Azure Defender dla usługi Storage](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Odpowiedzialność**: Współużytkowane
 
@@ -104,11 +106,11 @@ Jeśli jest to wymagane do zapewnienia zgodności pod kątem ochrony przed utrat
 |--|--|--|--|
 | DP-4 | 14,4 | SC-8 |
 
-Aby dopełnić kontrolę dostępu, przesyłane dane powinny być chronione przed atakami typu "poza pasmem" (np. przechwytywaniem ruchu) przy użyciu szyfrowania, aby zapewnić, że osoby atakujące nie mogą łatwo odczytać ani zmodyfikować danych. 
+Aby dopełnić kontrolę dostępu, przesyłane dane powinny być chronione przed atakami typu "poza pasmem" (na przykład przechwytywaniem ruchu) przy użyciu szyfrowania, aby upewnić się, że osoby atakujące nie mogą łatwo odczytać lub zmodyfikować danych.
 
-Chociaż jest to opcjonalne dla ruchu w sieciach prywatnych, ma to kluczowe znaczenie dla ruchu w sieciach zewnętrznych i publicznych. W przypadku ruchu HTTP upewnij się, że wszyscy klienci łączący się z zasobami platformy Azure mogą negocjować protokół TLS w wersji 1.2 lub nowszej. W celu zarządzania zdalnego należy użyć protokołu SSH (dla systemu Linux) lub protokołu RDP/TLS (w systemie Windows), a nie z nieszyfrowanym protokołem. Przestarzałe protokoły SSL, TLS i SSH oraz słabe szyfry powinny być wyłączone.  
+Chociaż jest to opcjonalne dla ruchu w sieciach prywatnych, ma to kluczowe znaczenie dla ruchu w sieciach zewnętrznych i publicznych. W przypadku ruchu HTTP upewnij się, że wszyscy klienci łączący się z zasobami platformy Azure mogą negocjować protokół TLS w wersji 1.2 lub nowszej. W celu zarządzania zdalnego należy użyć protokołu SSH (dla systemu Linux) lub protokołu RDP/TLS (w systemie Windows), a nie z nieszyfrowanym protokołem. Przestarzałe protokoły SSL, TLS i SSH oraz słabe szyfry powinny być wyłączone.
 
-Domyślnie platforma Azure zapewnia szyfrowanie danych przesyłanych między centrami danych platformy Azure. 
+Domyślnie platforma Azure zapewnia szyfrowanie danych przesyłanych między centrami danych platformy Azure.
 
 - [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 

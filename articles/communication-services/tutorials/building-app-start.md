@@ -8,14 +8,16 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d682524ae3ff5b82233a69959a309a7495e30bed
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cd535227b421f4fb56dac3afb37033e3d77f75f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658067"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691539"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Samouczek: przygotowywanie aplikacji sieci Web dla usług Azure Communications Services (Node.js)
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Usługi komunikacyjne platformy Azure umożliwiają dodawanie komunikacji w czasie rzeczywistym do aplikacji. W tym samouczku dowiesz się, jak skonfigurować aplikację sieci Web, która obsługuje usługi Azure Communications Services. Jest to samouczek wprowadzający przeznaczony dla nowych deweloperów, którzy chcą zacząć korzystać z komunikacji w czasie rzeczywistym.
 
@@ -55,7 +57,7 @@ Lokalne środowisko programistyczne zostanie skonfigurowane w następujący spos
 
 Będziemy używać Node.js, aby pobierać i instalować różne zależności, które są potrzebne dla aplikacji po stronie klienta. Będziemy używać go do generowania plików statycznych, które będą następnie hostowane na platformie Azure, dzięki czemu nie musisz martwić się o konfigurowanie go na serwerze.
 
-Deweloperzy systemu Windows mogą skorzystać z [tego samouczka NodeJS](/windows/nodejs/setup-on-windows) , aby skonfigurować węzły, NVM i npm.
+Deweloperzy systemu Windows mogą skorzystać z [tego samouczka NodeJS](/windows/nodejs/setup-on-windows) , aby skonfigurować węzły, NVM i npm. 
 
 Przetestowano ten samouczek przy użyciu wersji LTS 12.20.0. Po zainstalowaniu programu NVM należy użyć następującego polecenia programu PowerShell, aby wdrożyć wersję, która ma być używana:
 
@@ -159,7 +161,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }
+    }     
 }
 ```
 
@@ -216,7 +218,7 @@ Plik powinien teraz wyglądać następująco:
 }
 ```
 
-Dodano polecenie, które może być używane z npm.
+Dodano polecenie, które może być używane z npm. 
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Modyfikowanie package.jsna":::
 
@@ -277,13 +279,13 @@ npm run build:dev
 W konsoli programu zostanie wyświetlony stan uruchomiony na serwerze programu. Domyślnie jest to `http://localhost:8080` . Kompilacja: dev polecenie to polecenie, które zostało dodane `package.json` wcześniej.
 
  :::image type="content" source="./media/step-one-pic-16.png" alt-text="Uruchamianie serwera deweloperskiego":::
-
+ 
  Przejdź do adresu w przeglądarce i zobaczysz stronę i alert skonfigurowany w poprzednich krokach.
-
+ 
   :::image type="content" source="./media/step-one-pic-17.png" alt-text="Strona HTML":::
-
-
-Gdy serwer jest uruchomiony, można zmienić kod, a serwer i strona HTML zostaną automatycznie Załaduj ponownie.
+  
+ 
+Gdy serwer jest uruchomiony, można zmienić kod, a serwer i strona HTML zostaną automatycznie Załaduj ponownie. 
 
 Następnie przejdź do `app.js` pliku w Visual Studio Code i Usuń `alert('Hello world alert!');` . Zapisz plik i sprawdź, czy alert zniknie z przeglądarki.
 
@@ -321,11 +323,11 @@ const { merge } = require('webpack-merge');
  ```
 
 Zauważ, że ta konfiguracja zostanie scalona z webpack.common.js (w którym został określony plik wejściowy i miejsce, w którym mają być przechowywane wyniki), a tryb zostanie ustawiony na "produkcja".
-
+ 
 W pliku `package.json` dodaj następujący kod:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js"
+"build:prod": "webpack --config webpack.prod.js" 
 ```
 
 Plik powinien wyglądać następująco:
@@ -339,14 +341,14 @@ Plik powinien wyglądać następująco:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "build:prod": "webpack --config webpack.prod.js" 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.6",
-    "@azure/communication-common": "^1.0.0"
+    "@azure/communication-calling": "^1.0.0-beta.3",
+    "@azure/communication-common": "^1.0.0-beta.3"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -366,13 +368,13 @@ W przebiegu terminalu:
 npm run build:prod
 ```
 
-Polecenie spowoduje utworzenie `dist` w nim folderu i gotowego do produkcji `app.js` pliku statycznego.
+Polecenie spowoduje utworzenie `dist` w nim folderu i gotowego do produkcji `app.js` pliku statycznego. 
 
  :::image type="content" source="./media/step-one-pic-21.png" alt-text="Kompilacja produkcyjna":::
-
-
+ 
+ 
 ### <a name="deploy-your-app-to-azure-storage"></a>Wdrażanie aplikacji w usłudze Azure Storage
-
+ 
 Skopiuj `index.html` i `app.css` do `dist` folderu.
 
 `dist`Utwórz nowy plik w folderze, a następnie nadaj mu nazwę `404.html` . Skopiuj następujące znaczniki do tego pliku:
@@ -397,45 +399,45 @@ Zapisz plik (Ctrl + S).
 Kliknij prawym przyciskiem myszy i wybierz pozycję Wdróż do statycznej witryny sieci Web za pośrednictwem usługi Azure Storage.
 
 :::image type="content" source="./media/step-one-pic-22.png" alt-text="Rozpocznij wdrażanie na platformie Azure":::
-
+ 
 W `Select subscription` polu Wybierz opcję "Zaloguj się do platformy Azure (lub utwórz bezpłatne konto platformy Azure", jeśli subskrypcja nie została wcześniej utworzona)
-
+ 
 :::image type="content" source="./media/step-one-pic-23.png" alt-text="Logowanie do platformy Azure":::
-
+ 
 Wybierz `Create new Storage Account`  >  `Advanced` :
 
  :::image type="content" source="./media/step-one-pic-24.png" alt-text="Tworzenie grupy kont magazynu":::
-
+ 
  Podaj nazwę grupy magazynów:
-
+ 
  :::image type="content" source="./media/step-one-pic-25.png" alt-text="Dodawanie nazwy konta":::
-
+ 
 W razie konieczności Utwórz nową grupę zasobów:
-
+ 
   :::image type="content" source="./media/step-one-pic-26.png" alt-text="Tworzenie nowej grupy":::
-
+  
   Odpowiedz "tak", aby włączyć obsługę statycznej witryny sieci Web?
-
+  
   :::image type="content" source="./media/step-one-pic-27.png" alt-text="Wybieranie opcji włączania obsługi statycznej witryny sieci Web":::
-
+  
 Zaakceptuj domyślną nazwę pliku w polu "Wprowadź nazwę dokumentu indeksu" podczas tworzenia pliku `index.html` .
 
-Wpisz wartość w polu `404.html` "wprowadź ścieżkę do dokumentu błędu 404".
-
-Wybierz lokalizację aplikacji. Wybrana lokalizacja określi, który procesor multimedialny będzie używany w przyszłych aplikacjach wywołujących w ramach wywołań grup.
+Wpisz wartość w polu `404.html` "wprowadź ścieżkę do dokumentu błędu 404".  
+  
+Wybierz lokalizację aplikacji. Wybrana lokalizacja określi, który procesor multimedialny będzie używany w przyszłych aplikacjach wywołujących w ramach wywołań grup. 
 
 Usługi komunikacyjne Azure wybierają procesor multimediów na podstawie lokalizacji aplikacji.
 
 :::image type="content" source="./media/step-one-pic-28.png" alt-text="Wybierz lokalizację":::
-
-Zaczekaj na utworzenie zasobu i witryny sieci Web.
-
+  
+Zaczekaj na utworzenie zasobu i witryny sieci Web. 
+ 
 Kliknij przycisk "przejdź do witryny sieci Web":
 
 :::image type="content" source="./media/step-one-pic-29.png" alt-text="Ukończono wdrażanie":::
-
+ 
 Z narzędzi programistycznych przeglądarki możesz sprawdzić źródło i zobaczyć nasz plik przygotowany do produkcji.
-
+ 
 :::image type="content" source="./media/step-one-pic-30.png" alt-text="Witryna internetowa":::
 
 Przejdź do [Azure Portal](https://portal.azure.com/#home), wybierz grupę zasobów, wybierz utworzoną aplikację i przejdź do `Settings`  >  `Static website` . Można sprawdzić, czy statyczne witryny sieci Web są włączone i zanotować podstawowy punkt końcowy, dokument indeksu i pliki dokumentu ścieżki błędu.
@@ -446,7 +448,7 @@ W obszarze "Blob service" Wybierz "kontenery" i zobaczysz dwa kontenery utworzon
 
 :::image type="content" source="./media/step-one-pic-32.png" alt-text="Konfiguracja kontenera":::
 
-Jeśli przejdziesz do `$web` Ciebie, zobaczysz pliki utworzone w programie Visual Studio i wdrożone na platformie Azure.
+Jeśli przejdziesz do `$web` Ciebie, zobaczysz pliki utworzone w programie Visual Studio i wdrożone na platformie Azure. 
 
 :::image type="content" source="./media/step-one-pic-33.png" alt-text="Wdrożenie":::
 

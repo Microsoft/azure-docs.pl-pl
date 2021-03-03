@@ -3,12 +3,12 @@ title: Azure Service Bus — wygaśnięcie komunikatu
 description: W tym artykule wyjaśniono, jak wygasa i czas na żywo komunikatów Azure Service Bus. Po upływie tego terminu wiadomość nie zostanie już dostarczona.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: a2a568f04c2607832a1fa2a8e32bc6ce8331da4d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698369"
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcie komunikatu (czas wygaśnięcia)
 Ładunek w wiadomości lub polecenie lub zapytanie wysyłane przez komunikat do odbiorcy jest prawie zawsze uzależnione od formy wygaśnięcia na poziomie aplikacji. Po upływie tego terminu zawartość nie jest już dostarczana lub żądana operacja nie jest już wykonywana.
@@ -20,6 +20,8 @@ Wygaśnięcie poszczególnych komunikatów może być kontrolowane przez ustawie
 Po **upływie czasu wygaśnięcia-at-UTC** wiadomości stają się nieodpowiednie do pobrania. Wygaśnięcie nie ma wpływu na komunikaty, które są aktualnie zablokowane do dostarczenia. Te komunikaty są nadal obsługiwane normalnie. Jeśli blokada wygaśnie lub komunikat zostanie porzucony, wygaśnięcie będzie obowiązywać natychmiast.
 
 Gdy wiadomość jest zablokowana, aplikacja może być w posiadaniu wiadomości, która wygasła. Bez względu na to, czy aplikacja jest gotowa do przetworzenia, czy też decyduje o odrzuceniu komunikatu do realizatora.
+
+Zalecamy ustawienie wartości **czasu wygaśnięcia** w wiadomości, która będzie w godzinach lub dniach. Jeśli ustawisz ją na niską wartość w sekundach lub milisekundach, komunikat może wygasnąć, zanim klienci mają szansę na jej używanie. 
 
 ## <a name="entity-level-expiration"></a>Wygaśnięcie na poziomie jednostki
 Wszystkie komunikaty wysyłane do kolejki lub tematu podlegają domyślnym wygaśnięciu ustawionym na poziomie jednostki. Można ją również ustawić w portalu podczas tworzenia i zmieniać się później. Domyślne wygaśnięcie jest używane dla wszystkich komunikatów wysyłanych do jednostki, w których czas wygaśnięcia nie jest jawnie ustawiony. Domyślne wygaśnięcie również działa jako pułap dla wartości czasu wygaśnięcia. Komunikaty, które mają dłuższy czas wygaśnięcia, od wartości domyślnej są przywracane w trybie dyskretnym do wartości domyślnej komunikat Time-to-Live.

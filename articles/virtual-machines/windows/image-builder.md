@@ -3,17 +3,17 @@ title: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu Azu
 description: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.openlocfilehash: 6e2dda624c66f5081720188ada20db10bf7ede5b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 918cee723bfde69d08532aee6fe4f395dbddb4ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695451"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Wersja zapoznawcza: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Azure Image Builder
 
@@ -59,6 +59,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 Jeśli nie powiedzie się, uruchom następujące polecenie:
@@ -68,6 +69,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 
@@ -118,7 +120,7 @@ imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
 # download preconfigured role definition example
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
@@ -144,7 +146,7 @@ az role assignment create \
 Utworzono szablon konfiguracji obrazu sparametryzowanego, który można wypróbować. Pobierz przykładowy plik JSON i skonfiguruj go przy użyciu ustawionych wcześniej zmiennych.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json

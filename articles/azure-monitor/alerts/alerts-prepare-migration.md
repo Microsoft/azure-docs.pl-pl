@@ -4,22 +4,22 @@ description: Dowiedz się, jak modyfikować elementy webhook, Logic Apps i Runbo
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1d6fc8e4b9baecf02531fc1baa617b87a9d3255c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c88d0b8595434298eb564034a44665c5375457c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701046"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Przygotowywanie aplikacji logiki i elementów Runbook do migracji reguł alertów klasycznych
 
 > [!NOTE]
-> Jak [wcześniej ogłoszone](../platform/monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów. Data wycofania tych alertów została jeszcze przedłużona. Nowa data zostanie ogłoszona wkrótce.
+> Jak [wcześniej ogłoszone](monitoring-classic-retirement.md), klasyczne alerty w Azure monitor są wycofywane dla użytkowników chmury publicznej, mimo że nadal są ograniczone do **31 maja 2021**. Alerty klasyczne dla usług Azure Government Cloud i Azure Chiny 21Vianet zostaną wycofane z **29 lutego 2024**.
 >
 
-Jeśli zdecydujesz się na dobrowolne Migrowanie reguł alertów klasycznych do nowych reguł alertów, pamiętaj, że istnieją pewne różnice między tymi dwoma systemami. W tym artykule opisano te różnice i sposób przygotowania do zmiany.
+Jeśli zdecydujesz się na dobrowolne Migrowanie reguł alertów klasycznych do nowych reguł alertów, istnieją pewne różnice między tymi dwoma systemami. W tym artykule opisano te różnice i sposób przygotowania do zmiany.
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
@@ -36,7 +36,7 @@ Poniższa tabela zawiera odwołanie do interfejsów programistycznych zarówno d
 
 ## <a name="notification-payload-changes"></a>Zmiany ładunku powiadomień
 
-Format ładunku powiadomień jest nieco inny między [klasycznymi regułami alertów](../platform/alerts-webhooks.md) i [nowymi alertami metryki](alerts-metric-near-real-time.md#payload-schema). Jeśli masz akcje elementu webhook, aplikacji logiki lub elementu Runbook, które są wyzwalane przez klasyczne reguły alertów, musisz zaktualizować te punkty końcowe powiadomień, aby akceptowały format ładunku nowych alertów metryk.
+Format ładunku powiadomień jest nieco inny między [klasycznymi regułami alertów](alerts-webhooks.md) i [nowymi alertami metryki](alerts-metric-near-real-time.md#payload-schema). Jeśli masz klasyczne reguły alertów z akcjami webhook, Logic App lub Runbook, musisz zaktualizować obiekty docelowe, aby akceptowały nowy format ładunku.
 
 Skorzystaj z poniższej tabeli, aby zmapować pola ładunku elementu webhook z klasycznego formatu do nowego formatu:
 
@@ -153,13 +153,13 @@ Pełny przykład elementu Runbook, który zatrzyma maszynę wirtualną w przypad
 
 ## <a name="partner-integration-via-webhooks"></a>Integracja z partnerem za pośrednictwem elementów webhook
 
-Większość [naszych partnerów, którzy integrują się z klasycznymi alertami,](../platform/partners.md) już obsługują nowsze alerty metryki za pomocą ich integracji. Znane integracji, które już pracują z nowymi alertami metryk są następujące:
+Większość [naszych partnerów, którzy integrują się z klasycznymi alertami,](../partners.md) już obsługują nowsze alerty metryki za pomocą ich integracji. Znane integracji, które już pracują z nowymi alertami metryk są następujące:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Aplikacji signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Jeśli używasz integracji partnera, która nie jest wymieniona w tym miejscu, potwierdź u dostawcy integracji, że integracja współpracuje z nowymi alertami metryk.
+Jeśli używasz integracji partnera, która nie jest wymieniona w tym miejscu, potwierdź u dostawcy, że współpracują z nowymi alertami metryk.
 
 ## <a name="next-steps"></a>Następne kroki
 

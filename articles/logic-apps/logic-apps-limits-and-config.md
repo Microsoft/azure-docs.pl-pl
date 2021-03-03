@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b80c5cb469f881ee0950d618c3bae5fa1fc1e026
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699049"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -139,7 +139,7 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 
 | Nazwa | Limit | Uwagi |
 | ---- | ----- | ----- |
-| Akcja: wykonania na 5 minut | 100 000 jest limitem domyślnym, ale 300 000 jest maksymalnym limitem. | Aby podnieść domyślny limit dla aplikacji logiki, zobacz [przebieg w trybie wysokiej przepływności](#run-high-throughput-mode), który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby. |
+| Akcja: wykonania na 5-minutowe interwały kroczące | -100 000 wykonań (wartość domyślna) <p><p>-300 000 wykonań (maksimum w trybie wysokiej przepływności)  | Aby podnieść domyślny limit do maksymalnego limitu dla aplikacji logiki, zobacz [przebieg w trybie wysokiej przepływności](#run-high-throughput-mode), który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby. |
 | Akcja: współbieżne wywołania wychodzące | ~2500 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
 | Punkt końcowy środowiska uruchomieniowego: współbieżne wywołania przychodzące | ~ 1 000 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
 | Punkt końcowy środowiska uruchomieniowego: wywołania odczytu na 5 minut  | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozłożyć obciążenie na więcej niż jedną aplikację. |
@@ -151,7 +151,7 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 
 #### <a name="run-in-high-throughput-mode"></a>Uruchom w trybie wysokiej przepływności
 
-W przypadku pojedynczej definicji aplikacji logiki liczba akcji wykonywanych co 5 minut ma [domyślny limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aby podnieść domyślny limit do wartości maksymalnej dla aplikacji logiki, można włączyć tryb wysokiej przepustowości, który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby.
+W przypadku pojedynczej definicji aplikacji logiki liczba akcji wykonywanych co 5 minut ma [domyślny limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aby podnieść domyślny limit do [maksymalnego limitu](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) dla aplikacji logiki, który jest trzykrotnie domyślnym limitem, można włączyć tryb wysokiej przepustowości, który jest w wersji zapoznawczej. Można też [rozłożyć obciążenie na więcej niż jedną aplikację logiki](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) w razie potrzeby.
 
 1. W Azure Portal w menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy**.
 

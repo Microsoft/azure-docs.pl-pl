@@ -5,15 +5,15 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692780"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Włącz notesy dla kont Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +27,12 @@ Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualiz
 Od 10 lutego 2021 nowe konta usługi Azure Cosmos utworzone w jednym z [obsługiwanych regionów](#supported-regions) będą automatycznie obsługiwały notesy. Nie jest wymagana dodatkowa konfiguracja umożliwiająca korzystanie z notesów. Aby utworzyć nowe konto, wykonaj następujące instrukcje:
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 1. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB**.
-1. Wprowadź ustawienia podstawowe dla konta. 
- 
+1. Wprowadź ustawienia podstawowe dla konta.
+
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Strona nowego konta usługi Azure Cosmos DB":::
 
 1. Wybierz pozycję **Przejrzyj i utwórz**. Możesz pominąć opcję **Sieć** i **Tagi** . 
-1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
+1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu.
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
 
@@ -60,12 +60,12 @@ Możesz również włączyć Notesy na istniejących kontach. Ten krok należy w
 
 Aby sprawdzić, czy możesz używać notesów, wybierz jeden z notesów w obszarze przykładowe notesy. Spowoduje to zapisanie kopii notesu w obszarze roboczym i otwarcie go.
 
-W tym przykładzie użyjemy **GettingStarted. ipynb**. 
+W tym przykładzie użyjemy **GettingStarted. ipynb**.
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Wyświetlanie notesu GettingStarted. ipynb":::
 
 Aby uruchomić Notes:
-1. Wybierz pierwszą komórkę kodu zawierającą kod języka Python. 
+1. Wybierz pierwszą komórkę kodu zawierającą kod języka Python.
 1. Wybierz pozycję **Uruchom** , aby uruchomić komórkę. Możesz również użyć **klawiszy SHIFT + ENTER** , aby uruchomić komórkę.
 1. Odśwież okienko zasobów, aby wyświetlić bazę danych i kontener, które zostały utworzone.
 
@@ -76,7 +76,7 @@ Możesz również wybrać opcję **Nowy Notes** , aby utworzyć nowy Notes lub p
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Utwórz lub Przekaż nowy Notes":::
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
-Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w 29 regionach świadczenia usługi Azure. Nowe konta usługi Azure Cosmos utworzone w tych regionach będą miały automatycznie włączone notesy. Notesy są bezpłatne dla Twojego konta. 
+Wbudowane notesy dla usługi Azure Cosmos DB są obecnie dostępne w 29 regionach świadczenia platformy Azure. Nowe konta usługi Azure Cosmos utworzone w tych regionach będą miały automatycznie włączone notesy. Notesy są bezpłatne dla Twojego konta. 
 
 - Australia Środkowa
 - Australia Środkowa 2
@@ -112,8 +112,7 @@ Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w 29 regionach świad
 
 * Poznaj zalety [Azure Cosmos DB notesów Jupyter](cosmosdb-jupyter-notebooks.md)
 * [Eksploruj galerię przykładów notesu](https://cosmos.azure.com/gallery.html)
+* [Publikowanie notesów w galerii notesów Azure Cosmos DB](publish-notebook-gallery.md)
 * [Korzystanie z funkcji i poleceń notesu języka Python](use-python-notebook-features-and-commands.md)
 * [Korzystanie z funkcji i poleceń notesu języka C#](use-csharp-notebook-features-and-commands.md)
 * [Importowanie notesów z repozytorium GitHub](import-github-notebooks.md)
-
-

@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044190"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737974"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -21,7 +21,7 @@ W tym artykule przedstawiono przykłady zapytań i bardziej szczegółowe instru
 
 Ten artykuł rozpoczyna się od przykładowych zapytań, które ilustrują strukturę języka zapytań i typowe operacje zapytań na potrzeby cyfrowego bliźniaczych reprezentacji. Następnie opisano sposób uruchamiania zapytań po ich zapisaniu przy użyciu [interfejsu API](/rest/api/digital-twins/dataplane/query) Digital bliźniaczych reprezentacji Query lub [zestawu SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > Jeśli używasz przykładowych zapytań poniżej z wywołaniem interfejsu API lub zestawu SDK, musisz zastąpić tekst zapytania w jednym wierszu.
 
 ## <a name="show-all-digital-twins"></a>Pokaż wszystkie bliźniaczych reprezentacji cyfrowe
@@ -36,8 +36,8 @@ Pobieranie bliźniaczych reprezentacji cyfrowych według **Właściwości** (ł�
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> Identyfikator dwucyfrowego podpisu jest wysyłany przy użyciu pola metadanych `$dtId` .
+> [!NOTE]
+> Identyfikator cyfrowej reprezentacji bliźniaczej otrzymuje zapytanie przy użyciu pola metadanych `$dtId`.
 
 Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
 
@@ -50,6 +50,10 @@ Może to ułatwić uzyskanie bliźniaczych reprezentacji przez ich właściwośc
 Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> Jeśli właściwość jest typu `Map` , można użyć kluczy i wartości map bezpośrednio w zapytaniu, takich jak:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>Zapytanie według modelu
 
@@ -88,10 +92,10 @@ Oto przykład zapytania określającego wartość dla wszystkich trzech parametr
 
 Podczas wykonywania zapytań na podstawie **relacji** cyfrowych bliźniaczych reprezentacji ' język zapytań Digital bliźniaczych reprezentacji platformy Azure ma specjalną składnię.
 
-Relacje są ściągane do zakresu zapytania w `FROM` klauzuli. Istotną różnicą od "klasycznych" języków typu SQL jest to, że każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wskazuje przechodzenie między różnymi jednostkami i jest zapisywana przy użyciu Digital bliźniaczych reprezentacji wersja systemu Azure `JOIN` .
+Relacje są ściągane do zakresu zapytania w klauzuli `FROM`. Istotną różnicą od "klasycznych" języków typu SQL jest to, że każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wskazuje przechodzenie między różnymi jednostkami i jest zapisywana przy użyciu Digital bliźniaczych reprezentacji wersja systemu Azure `JOIN` .
 
-Należy przypomnieć, że dzięki możliwościom [modelu](concepts-models.md) Digital bliźniaczych reprezentacji na platformie Azure relacje nie istnieją niezależnie od bliźniaczych reprezentacji. Oznacza to, że język zapytań usługi Azure Digital bliźniaczych reprezentacji `JOIN` jest nieco inny niż ogólny kod SQL `JOIN` , ponieważ w tym miejscu nie można wykonywać zapytań niezależnie od siebie i muszą one być powiązane z sznurem.
-Aby uwzględnić tę różnicę, słowo kluczowe `RELATED` jest używane w `JOIN` klauzuli do odwoływania się do zestawu relacji typu bliźniaczy.
+Należy przypomnieć, że dzięki możliwościom [modelu](concepts-models.md) Digital bliźniaczych reprezentacji na platformie Azure relacje nie istnieją niezależnie od bliźniaczych reprezentacji. Oznacza to, że klauzula `JOIN` w języku zapytań usługi Azure Digital Twins jest nieco inna niż klauzula `JOIN` w zwykłym języku SQL, ponieważ tutaj relacje nie mogą otrzymywać zapytań niezależnie i muszą być powiązane z reprezentacją bliźniaczą.
+W celu uwzględnienia tej różnicy słowo kluczowe `RELATED` jest używane w klauzuli `JOIN` do odwoływania się do zestawu relacji reprezentacji bliźniaczej.
 
 W poniższej sekcji przedstawiono kilka przykładów tego wyglądu.
 
@@ -111,7 +115,7 @@ Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie
 
 ### <a name="query-the-properties-of-a-relationship"></a>Zapytanie o właściwości relacji
 
-Podobnie jak w przypadku bliźniaczych reprezentacji Digital ma właściwości opisane za pośrednictwem DTDL, relacje mogą również mieć właściwości. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji**.
+Relacje mogą mieć właściwości podobnie do sposobu, w jaki cyfrowe reprezentacje bliźniacze mają właściwości opisywane za pośrednictwem języka DTDL. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji**.
 Język zapytań usługi Azure Digital bliźniaczych reprezentacji umożliwia filtrowanie i projekcję relacji przez przypisanie aliasu do relacji w obrębie `JOIN` klauzuli.
 
 Na przykład rozważmy relację *servicedBy* , która ma właściwość *reportedCondition* . W poniższym zapytaniu ta relacja ma alias "R", aby można było odwołać się do jego właściwości.
@@ -220,7 +224,12 @@ Poniższy fragment kodu ilustruje wywołanie [zestawu SDK .NET (C#)](/dotnet/api
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-To wywołanie zwraca wyniki zapytania w postaci obiektu [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) .
+Zapytanie użyte w tym wywołaniu zwraca listę bliźniaczych reprezentacji cyfrowych, które powyższy przykład reprezentuje z obiektami [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) . Zwracany typ danych dla każdego zapytania będzie zależeć od tego, co określono w `SELECT` instrukcji:
+* Zapytania, które zaczynają się od, `SELECT * FROM ...` zwracają listę bliźniaczych reprezentacji cyfrowych (które mogą być serializowane jako `BasicDigitalTwin` obiekty lub inne niestandardowe typy wieloosiowe, które mogły zostać utworzone).
+* Zapytania, które zaczynają się w formacie `SELECT <A>, <B>, <C> FROM ...` , zwróci słownika z kluczami `<A>` , `<B>` i `<C>` .
+* Inne formaty `SELECT` instrukcji można przystąpić, aby zwracały dane niestandardowe. Warto rozważyć utworzenie własnych klas do obsługi bardzo dostosowanych zestawów wyników. 
+
+### <a name="query-with-paging"></a>Zapytanie ze stronicowaniem
 
 Wywołania zapytań obsługują stronicowanie. Oto kompletny przykład użycia `BasicDigitalTwin` jako typ wyniku zapytania z obsługą błędów i stronicowaniem:
 

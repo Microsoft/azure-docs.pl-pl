@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 56d04abe73020cef09383d4f79a58f037c266a93
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6e5b553ea3be7e5b4b1d8cb396b35fdf2d5796a9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721773"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -55,7 +55,8 @@ W usłudze Azure Firewall występują następujące znane problemy:
 
 |Problem  |Description  |Ograniczanie ryzyka  |
 |---------|---------|---------|
-Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie działają dla ruchu powiązanego z Internetem|Reguły filtrowania sieci dla protokołów innych niż TCP/UDP nie działają z przystawcy do publicznego adresu IP. Protokoły inne niż TCP/UDP są obsługiwane między podsieciami szprych i sieciami wirtualnymi.|Usługa Azure Firewall korzysta ze standardowego modułu równoważenia obciążenia, [który obecnie nie obsługuje funkcji SNAT dla protokołów IP](../load-balancer/load-balancer-overview.md). Szukamy opcji obsługi tego scenariusza w przyszłej wersji.|
+|W przypadku aktualizowania reguły z adresu IP do grupy IP lub odwrotnie przy użyciu portalu są zapisywane oba typy, ale tylko jeden z nich zostanie wyświetlony w portalu.|Ten problem występuje z regułami klasycznymi.<br><br>Gdy korzystasz z portalu do aktualizowania typu źródła reguły NAT z adresu IP do grupy IP lub na odwrót, zapisuje oba typy w zapleczu, ale prezentuje tylko nowo zaktualizowany typ.<br><br>Ten sam problem występuje w przypadku aktualizowania typu docelowego reguły sieci lub aplikacji z adresu IP na typ grupy IP lub na odwrót.|Poprawka portalu jest przeznaczona dla marca, 2021.<br><br>W międzyczasie Użyj Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API, aby zmodyfikować regułę z adresu IP na grupę IP lub odwrotnie.|
+|Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie działają dla ruchu powiązanego z Internetem|Reguły filtrowania sieci dla protokołów innych niż TCP/UDP nie działają z przystawcy do publicznego adresu IP. Protokoły inne niż TCP/UDP są obsługiwane między podsieciami szprych i sieciami wirtualnymi.|Usługa Azure Firewall korzysta ze standardowego modułu równoważenia obciążenia, [który obecnie nie obsługuje funkcji SNAT dla protokołów IP](../load-balancer/load-balancer-overview.md). Szukamy opcji obsługi tego scenariusza w przyszłej wersji.|
 |Brak obsługi protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia|Azure PowerShell i interfejs wiersza polecenia nie obsługują protokołu ICMP jako prawidłowego protokołu w regułach sieci.|Nadal jest możliwe używanie protokołu ICMP jako protokołu za pośrednictwem portalu i interfejsu API REST. Pracujemy nad dodaniem protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia.|
 |Tagi FQDN wymagają ustawienia protokołu i portu|Reguły aplikacji ze znacznikami FQDN wymagają portu: Definicja protokołu.|Jako wartości portu i protokołu można użyć wartości **https**. Pracujemy nad tym, aby to pole było opcjonalne, gdy używane są Tagi FQDN.|
 |Przeniesienie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane|Przeniesienie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane.|Obsługa tej funkcji jest w naszym harmonogramie działania. Aby przenieść zaporę do innej grupy zasobów lub subskrypcji, musisz usunąć bieżące wystąpienie i utworzyć je ponownie w nowej grupie zasobów lub subskrypcji.|

@@ -3,12 +3,12 @@ title: Tworzenie funkcji w programie go lub Rust przy użyciu Visual Studio Code
 description: Dowiedz się, jak utworzyć funkcję go jako niestandardową procedurę obsługi Azure Functions, a następnie opublikować projekt lokalny na potrzeby hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 1142ff76425e2e4bff0d3881be1378d9da07806e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809580"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704739"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji go lub Rust na platformie Azure przy użyciu Visual Studio Code
 
@@ -89,14 +89,14 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
 
     ```go
     package main
-
+    
     import (
         "fmt"
         "log"
         "net/http"
         "os"
     )
-
+    
     func helloHandler(w http.ResponseWriter, r *http.Request) {
         message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
         name := r.URL.Query().Get("name")
@@ -105,7 +105,7 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
         }
         fmt.Fprint(w, message)
     }
-
+    
     func main() {
         listenAddr := ":8080"
         if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {

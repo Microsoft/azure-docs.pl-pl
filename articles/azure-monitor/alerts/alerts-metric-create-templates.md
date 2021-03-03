@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: 304a7adf69ed3622cf2031cfbebb920bff5238cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5589697771227c8105adcce61e4daeebdb315391
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714344"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Tworzenie alertu metryki za pomocą szablonu usługi Resource Manager
 
@@ -27,7 +27,7 @@ Podstawowe kroki są następujące:
 
 1. Użyj jednego z poniższych szablonów jako pliku JSON, który opisuje sposób tworzenia alertu.
 2. Edytuj odpowiedni plik parametrów w formacie JSON i używaj go w celu dostosowania alertu.
-3. Dla `metricName` parametru Zobacz dostępne metryki w [Azure monitor obsługiwane metryki](../platform/metrics-supported.md).
+3. Dla `metricName` parametru Zobacz dostępne metryki w [Azure monitor obsługiwane metryki](../essentials/metrics-supported.md).
 4. Wdróż szablon przy użyciu [dowolnej metody wdrażania](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Szablon prostego alertu dotyczącego metryki statycznej progu
@@ -1247,7 +1247,7 @@ az deployment group create \
 
 Za pomocą poniższego szablonu można utworzyć bardziej zaawansowaną regułę alertu metryki statycznej progu dla metryki niestandardowej.
 
-Aby dowiedzieć się więcej na temat metryk niestandardowych w Azure Monitor, zobacz [metryki niestandardowe w Azure monitor](../platform/metrics-custom-overview.md).
+Aby dowiedzieć się więcej na temat metryk niestandardowych w Azure Monitor, zobacz [metryki niestandardowe w Azure monitor](../essentials/metrics-custom-overview.md).
 
 Podczas tworzenia reguły alertu dla metryki niestandardowej należy określić zarówno nazwę metryki, jak i przestrzeń nazw metryki. Należy również upewnić się, że Metryka niestandardowa jest już raportowana, ponieważ nie można utworzyć reguły alertu na niestandardową metrykę, która jeszcze nie istnieje.
 
@@ -1503,7 +1503,7 @@ az deployment group create \
 
 >[!NOTE]
 >
-> Przestrzeń nazw metryki konkretnej metryki niestandardowej można znaleźć, [przeglądając niestandardowe metryki za pomocą Azure Portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
+> Przestrzeń nazw metryki konkretnej metryki niestandardowej można znaleźć, [przeglądając niestandardowe metryki za pomocą Azure Portal](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Szablon alertu dotyczącego metryki, który monitoruje wiele zasobów
@@ -3624,7 +3624,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj więcej [na temat alertów na platformie Azure](../platform/alerts-overview.md)
+- Przeczytaj więcej [na temat alertów na platformie Azure](./alerts-overview.md)
 - Dowiedz się, jak [utworzyć grupę akcji z szablonami Menedżer zasobów](../alerts/action-groups-create-resource-manager-template.md)
 - Aby poznać składnię i właściwości JSON, zobacz [Microsoft. Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) Template Reference.
-

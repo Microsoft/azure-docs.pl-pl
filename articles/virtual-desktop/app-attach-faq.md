@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738705"
 ---
 # <a name="msix-app-attach-faq"></a>Załączanie aplikacji MSIX — często zadawane pytania
 
@@ -61,7 +61,7 @@ Wszystkie maszyny wirtualne w puli hostów używające dołączania aplikacji MS
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Czy mogę użyć dołączania aplikacji MSIX dla protokołu HTTP lub HTTPs?
 
-Wszystkie maszyny wirtualne będące częścią puli hostów korzystającej z dołączania aplikacji MSIX muszą mieć uprawnienia do odczytu w udziale plików, w którym są przechowywane obrazy MSIX. Jeśli Azure Files jest używany, należy udzielić uprawnień RBAC i NTFS.
+Używanie funkcji dołączania aplikacji MSIX za pośrednictwem protokołu HTTP lub HTTPs nie jest obecnie obsługiwane.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Czy mogę przemieścić tę samą aplikację MSIX?
 
@@ -69,7 +69,7 @@ Tak. Można przemieścić aplikacje, które zostały już przemieszczone, i nie 
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>Czy aplikacja MSIX obsługuje certyfikaty z podpisem własnym?
 
-Używanie funkcji dołączania aplikacji MSIX za pośrednictwem protokołu HTTP lub HTTPs nie jest obecnie obsługiwane.
+Tak. Musisz zainstalować certyfikat z podpisem własnym na wszystkich maszynach wirtualnych hosta sesji, na których dołączenie aplikacji MSIX jest używane do hostowania aplikacji z podpisem własnym.
 
 
 ## <a name="next-steps"></a>Następne kroki

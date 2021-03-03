@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80c10ae8427bd21de0ec3a7cd37d6c8ca5cca1fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 446e375cbbfc577dfc5bdff39e151cef5ae9e4c0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737005"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)
 W tym artykule pokazano, jak za pomocą interfejsu API modułu zbierającego dane HTTP wysyłać dane dziennika do Azure Monitor z klienta interfejsu API REST.  Opisano w nim sposób formatowania danych zbieranych przez skrypt lub aplikację, uwzględniania ich w żądaniu oraz żądania autoryzowane przez Azure Monitor.  Przykłady dla programu PowerShell, C# i Python.
@@ -54,7 +54,7 @@ Aby użyć interfejsu API modułu zbierającego dane HTTP, należy utworzyć ż�
 | Autoryzacja |Podpis autoryzacji. W dalszej części artykułu można zapoznać się z informacjami na temat tworzenia nagłówka HMAC-SHA256. |
 | Log-Type |Określ typ rekordu przesyłanego danych. Może zawierać tylko litery, cyfry i znaki podkreślenia (_) i nie może przekraczać 100 znaków. |
 | x-MS-Date |Data przetworzenia żądania w formacie RFC 1123. |
-| x-MS-AzureResourceId | Identyfikator zasobu zasobu platformy Azure, z którym mają być skojarzone dane. Spowoduje to wypełnienie właściwości [_ResourceId](../platform/log-standard-columns.md#_resourceid) i umożliwi uwzględnienie danych w zapytaniach [kontekstu zasobów](../platform/design-logs-deployment.md#access-mode) . Jeśli to pole nie zostanie określone, dane nie zostaną uwzględnione w zapytaniach kontekstu zasobów. |
+| x-MS-AzureResourceId | Identyfikator zasobu zasobu platformy Azure, z którym mają być skojarzone dane. Spowoduje to wypełnienie właściwości [_ResourceId](./log-standard-columns.md#_resourceid) i umożliwi uwzględnienie danych w zapytaniach [kontekstu zasobów](./design-logs-deployment.md#access-mode) . Jeśli to pole nie zostanie określone, dane nie zostaną uwzględnione w zapytaniach kontekstu zasobów. |
 | godzina wygenerowania pola | Nazwa pola w danych, które zawiera sygnaturę czasową elementu danych. Jeśli określisz pole, jego zawartość zostanie użyta dla **TimeGenerated**. Jeśli to pole nie zostanie określone, wartością domyślną dla **TimeGenerated** jest czas, w którym wiadomość zostanie pozyskana. Zawartość pola komunikat powinna być zgodna z formatem ISO 8601 RRRR-MM-DDTgg: mm: SSS. |
 
 ## <a name="authorization"></a>Autoryzacja
@@ -650,11 +650,11 @@ Interfejs API modułu zbierającego dane powinien obejmować większość potrze
 | Różne | Opis | Najlepiej dopasowane do |
 |---|---|---|
 | [Zdarzenia niestandardowe](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): pozyskiwanie oparte na natywnym zestawie SDK w Application Insights | Application Insights, zazwyczaj Instrumentacja w ramach zestawu SDK w aplikacji, oferuje możliwość wysyłania niestandardowych danych za pomocą niestandardowych zdarzeń. | <ul><li> Dane, które są generowane w aplikacji, ale nie są pobierane przez zestaw SDK przy użyciu jednego z domyślnych typów danych (żądania, zależności, wyjątki itd.).</li><li> Dane, które najczęściej są skorelowane z innymi danymi aplikacji w Application Insights </li></ul> |
-| Interfejs API modułu zbierającego dane w dziennikach Azure Monitor | Interfejs API modułu zbierającego dane w dziennikach Azure Monitor jest całkowicie otwartym sposobem pozyskiwania danych. Wszystkie dane sformatowane w obiekcie JSON mogą być wysyłane w tym miejscu. Po wysłaniu zostanie on przetworzony i udostępniony w dziennikach w celu skorelowania z innymi danymi w dziennikach lub w odniesieniu do innych danych Application Insights. <br/><br/> Można stosunkowo łatwo przekazać dane jako pliki do obiektu blob platformy Azure, z którego te pliki zostaną przetworzone i przekazane do Log Analytics. Zobacz [ten](./create-pipeline-datacollector-api.md) artykuł, aby zapoznać się z przykładową implementacją tego potoku. | <ul><li> Dane, które nie są generowane w aplikacji w Application Insights.</li><li> Przykłady obejmują wyszukiwanie i tabele faktów, dane referencyjne, statystyki wstępnie zagregowane i tak dalej. </li><li> Zamierzone dla danych, które będą odwoływać się do innych Azure Monitor danych (Application Insights, inne typy danych dzienników, Security Center, Azure Monitor dla kontenerów/maszyn wirtualnych itd.). </li></ul> |
+| Interfejs API modułu zbierającego dane w dziennikach Azure Monitor | Interfejs API modułu zbierającego dane w dziennikach Azure Monitor jest całkowicie otwartym sposobem pozyskiwania danych. Wszystkie dane sformatowane w obiekcie JSON mogą być wysyłane w tym miejscu. Po wysłaniu zostanie on przetworzony i udostępniony w dziennikach w celu skorelowania z innymi danymi w dziennikach lub w odniesieniu do innych danych Application Insights. <br/><br/> Można stosunkowo łatwo przekazać dane jako pliki do obiektu blob platformy Azure, z którego te pliki zostaną przetworzone i przekazane do Log Analytics. Zobacz [ten](./create-pipeline-datacollector-api.md) artykuł, aby zapoznać się z przykładową implementacją tego potoku. | <ul><li> Dane, które nie są generowane w aplikacji w Application Insights.</li><li> Przykłady obejmują wyszukiwanie i tabele faktów, dane referencyjne, statystyki wstępnie zagregowane i tak dalej. </li><li> Zamierzone dla danych, które będą odwoływać się do innych Azure Monitor danych (Application Insights, inne typy danych dzienników, Security Center, szczegółowe informacje kontenera/maszyny wirtualne itp.). </li></ul> |
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Eksplorator danych (ADX) to platforma danych, która umożliwia Application Insights analiz i Azure Monitor dzienników. Teraz ogólnie dostępne ("GA") korzystanie z platformy danych w jego pierwotnej postaci zapewnia pełną elastyczność (ale wymaganie obciążenia zarządzania) w ramach klastra (Kubernetes RBAC, szybkość przechowywania, schemat itp.). ADX zapewnia wiele [opcji](/azure/data-explorer/ingest-data-overview#ingestion-methods) pozyskiwania [, w tym pliki CSV, TSV i JSON](/azure/kusto/management/mappings?branch=master) . | <ul><li> Dane, które nie zostaną skorelowane do żadnych innych danych w Application Insights lub dzienników. </li><li> Dane wymagające zaawansowanych możliwości pozyskiwania lub przetwarzania nie są obecnie dostępne w dziennikach Azure Monitor. </li></ul> |
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Użyj [interfejsu API przeszukiwania dzienników](../log-query/log-query-overview.md) , aby pobrać dane z obszaru roboczego log Analytics.
+- Użyj [interfejsu API przeszukiwania dzienników](./log-query-overview.md) , aby pobrać dane z obszaru roboczego log Analytics.
 
 - Dowiedz się więcej na temat [tworzenia potoku danych za pomocą interfejsu API modułu zbierającego dane](create-pipeline-datacollector-api.md) przy użyciu przepływu pracy Logic Apps do Azure monitor.

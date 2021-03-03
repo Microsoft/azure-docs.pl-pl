@@ -3,12 +3,12 @@ title: Uaktualnij wersję klastra usługi Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9c7e5e3778c9a38190be210ebb391bc8b0b58c76
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698386"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Uaktualnij wersję klastra usługi Azure Service Fabric
 
@@ -63,9 +63,9 @@ W klastrach usługi Azure Service Fabric, które działają w niezmienionych wer
   
   - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 nie korzystających z funkcji sieci otwartych** klaster pozostanie nieaktualny.
 
- - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 i używania [funkcji Otwórz sieć dla kontenerów](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** klaster może stać się niedostępny i przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
+ - **W przypadku klastrów z uruchomioną wersją Service Fabric większą niż 6,3 i używania [funkcji Otwórz sieć dla kontenerów](./service-fabric-networking-modes.md#set-up-open-networking-mode)** klaster może stać się niedostępny i przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
  
- -   **W przypadku klastrów z systemami [Windows między 7.0.457 i 7.0.466 (w obu wersjach uwzględnionych)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) oraz systemu operacyjnego Windows jest włączona funkcja kontenerów systemu Windows. Uwaga: nie ma to wpływu na wersje systemu Linux 7.0.457, 7.0.464 i 7.0.465**.
+ -   **W przypadku klastrów z systemami [Windows między 7.0.457 i 7.0.466 (w obu wersjach uwzględnionych)](#supported-version-names) oraz systemu operacyjnego Windows jest włączona funkcja kontenerów systemu Windows. Uwaga: nie ma to wpływu na wersje systemu Linux 7.0.457, 7.0.464 i 7.0.465**.
     - **Wpływ**: klaster przestanie działać, co może spowodować przerwanie działania usługi dla obciążeń.
     
 #### <a name="required-action"></a>Wymagana akcja

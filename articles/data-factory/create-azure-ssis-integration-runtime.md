@@ -3,15 +3,15 @@ title: Tworzenie środowiska Azure-SSIS Integration Runtime w Azure Data Factory
 description: Dowiedz się, jak utworzyć środowisko Azure-SSIS Integration Runtime w Azure Data Factory, aby móc wdrażać i uruchamiać pakiety usług SSIS na platformie Azure.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 4e3137b08c558c8e9dfadda07f0b8bb66433ee83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389420"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739417"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska Azure-SSIS Integration Runtime w Azure Data Factory
 
@@ -74,7 +74,7 @@ Aby uzyskać listę regionów świadczenia usługi Azure, w których Data Factor
 
 Poniższa tabela zawiera porównanie niektórych funkcji serwera Azure SQL Database i wystąpienia zarządzanego SQL, które są powiązane z usługą Azure-SSIR IR:
 
-| Cecha | SQL Database| Wystąpienie zarządzane SQL |
+| Cecha | Baza danych SQL| Wystąpienie zarządzane SQL |
 |---------|--------------|------------------|
 | **Planowanie** | Agent SQL Server jest niedostępny.<br/><br/>Zobacz [Planowanie wykonywania pakietu w potoku Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| Agent wystąpienia zarządzanego jest dostępny. |
 | **Authentication** | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje dowolną grupę usługi Azure AD z zarządzaną tożsamością fabryki danych jako członkiem roli **db_owner** .<br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB na serwerze Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje zarządzaną tożsamość fabryki danych. <br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB w wystąpieniu zarządzanym usługi Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
@@ -147,15 +147,21 @@ W przypadku zaznaczenia tego pola wyboru wykonaj następujące kroki, aby utworz
    
       Na podstawie wybranego serwera bazy danych wystąpienie SSISDB można utworzyć w Twoim imieniu jako pojedynczą bazę danych w ramach puli elastycznej lub w wystąpieniu zarządzanym. Może być dostępna w sieci publicznej lub przez dołączenie do sieci wirtualnej. Aby uzyskać wskazówki dotyczące wybierania typu serwera bazy danych do hostowania SSISDB, zobacz [porównanie SQL Database i wystąpienia zarządzanego SQL](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      W przypadku wybrania serwera Azure SQL Database z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym z prywatnym punktem końcowym do hostowania SSISDB lub gdy wymagany jest dostęp do danych lokalnych bez konfigurowania samoobsługowego środowiska IR, należy dołączyć Azure-SSIS IR do sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [tworzenie Azure-SSIS IR w sieci wirtualnej]().
+      W przypadku wybrania serwera Azure SQL Database z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym z prywatnym punktem końcowym do hostowania SSISDB lub gdy wymagany jest dostęp do danych lokalnych bez konfigurowania samoobsługowego środowiska IR, należy dołączyć Azure-SSIS IR do sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Dołączanie Azure-SSIS IR do sieci wirtualnej](./join-azure-ssis-integration-runtime-virtual-network.md).
 
    1. Zaznacz pole wyboru **Użyj uwierzytelniania usługi Azure AD z zarządzaną tożsamością dla usługi ADF,** aby wybrać metodę uwierzytelniania dla serwera bazy danych do hostowania SSISDB. Wybierz opcję uwierzytelnianie SQL lub uwierzytelnianie usługi Azure AD z zarządzaną tożsamością dla fabryki danych.
 
-      W przypadku zaznaczenia tego pola wyboru należy dodać tożsamość zarządzaną dla fabryki danych do grupy usługi Azure AD z uprawnieniami dostępu do serwera bazy danych. Aby uzyskać więcej informacji, zobacz [tworzenie Azure-SSIS IR przy użyciu uwierzytelniania usługi Azure AD]().
+      W przypadku zaznaczenia tego pola wyboru należy dodać tożsamość zarządzaną dla fabryki danych do grupy usługi Azure AD z uprawnieniami dostępu do serwera bazy danych. Aby uzyskać więcej informacji, zobacz [Włączanie uwierzytelniania usługi Azure AD dla Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
    
    1. W polu **Nazwa użytkownika administratora** wprowadź nazwę użytkownika uwierzytelniania SQL dla serwera bazy danych, który będzie hostować SSISDB. 
 
    1. W polu **hasło administratora** wprowadź hasło uwierzytelniania SQL dla serwera bazy danych, aby hostować SSISDB. 
+
+   1. Zaznacz pole wyboru **Użyj podwójnej Azure-SSIS Integration Runtime w stanie wstrzymania z trybem failover SSISDB** , aby skonfigurować podwójną, niegotową parę środowiska IR platformy Azure SSIS, która działa w synchronizacji z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR).
+   
+      Jeśli zaznaczysz pole wyboru, wprowadź nazwę identyfikującą parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS w polu tekstowym **Nazwa pary o podwójnej gotowości** . Należy wprowadzić tę samą nazwę pary podczas tworzenia podstawowego i pomocniczego urzędu skarbowego Azure-SSIS.
+
+      Aby uzyskać więcej informacji, zobacz [konfigurowanie Azure-SSIS IR dla BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. W polu **warstwa usługi bazy danych wykazu** wybierz warstwę usług dla serwera bazy danych, która będzie hostować SSISDB. Wybierz warstwę podstawowa, standardowa lub Premium lub wybierz nazwę puli elastycznej.
 

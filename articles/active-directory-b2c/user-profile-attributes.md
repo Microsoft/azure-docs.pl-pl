@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688556"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
 
@@ -50,7 +50,7 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 |country         |Ciąg|Kraj/region, w którym znajduje się użytkownik. Przykład: "US" lub "UK". Maksymalna długość 128.|Tak|Tak|Utrwalony, wyjściowy|
 |createdDateTime|DateTime|Data utworzenia obiektu użytkownika. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
 |Jeżeli    |Ciąg|Jeśli konto użytkownika zostało utworzone jako konto lokalne dla dzierżawy Azure Active Directory B2C, wartość to LocalAccount lub nameCoexistence. Tylko do odczytu.|Nie|Nie|Utrwalony, wyjściowy|
-|dateOfBirth     |Date|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
+|dateOfBirth     |Date (Data)|Data urodzenia.|Nie|Nie|Utrwalony, wyjściowy|
 |działu,      |Ciąg|Nazwa działu, w którym pracuje użytkownik. Maksymalna długość 64.|Tak|Nie|Utrwalony, wyjściowy|
 |displayName     |Ciąg|Nazwa wyświetlana użytkownika. Maksymalna długość 256.|Tak|Tak|Utrwalony, wyjściowy|
 |facsimileTelephoneNumber<sup>1</sup>|Ciąg|Numer telefonu służbowego komputera faksowego użytkownika.|Tak|Nie|Utrwalony, wyjściowy|
@@ -137,7 +137,7 @@ W przypadku tożsamości federacyjnych, w zależności od dostawcy tożsamości,
 
 ## <a name="password-profile-property"></a>Właściwość profilu hasła
 
-Dla lokalnej tożsamości wymagany jest atrybut **passwordProfile** i zawiera on hasło użytkownika. `forceChangePasswordNextSignIn`Atrybut musi mieć ustawioną wartość `false` .
+Dla lokalnej tożsamości wymagany jest atrybut **passwordProfile** i zawiera on hasło użytkownika. Ten `forceChangePasswordNextSignIn` atrybut wskazuje, czy użytkownik musi zresetować hasło przy następnym logowaniu. Aby obsłużyć wymuszone Resetowanie hasła, [Skonfiguruj wymuszony przepływ resetowania hasła](force-password-reset.md).
 
 W przypadku tożsamości federacyjnej (społecznej) atrybut **passwordProfile** nie jest wymagany.
 
@@ -175,7 +175,7 @@ Atrybuty rozszerzenia [rozszerzają schemat](/graph/extensibility-overview#schem
 > - Jeśli aplikacja B2C-Extensions-App zostanie usunięta, te atrybuty rozszerzenia zostaną usunięte ze wszystkich użytkowników wraz z wszelkimi zawartymi w nich danymi.
 > - Jeśli atrybut rozszerzenia zostanie usunięty przez aplikację, zostanie on usunięty z wszystkich kont użytkowników i wartości są usuwane.
 
-Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_AttributeName` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Przykład:
+Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_AttributeName` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` aplikacji (znajdujący się w **rejestracje aplikacji**  >  **wszystkie aplikacje** w Azure Portal). Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

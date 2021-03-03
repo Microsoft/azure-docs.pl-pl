@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: e8ad1cda8f80b1dbbdd56fb47bbf6c22aff82729
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 128a82fdc9b5a37258b5ca245a63bf52c050db26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615030"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713613"
 ---
 # <a name="log-analytics-data-security"></a>Zabezpieczenia danych Log Analytics
 Ten dokument ma na celu dostarczenie informacji specyficznych dla Log Analytics, które są funkcją Azure Monitor, aby uzupełnić informacje o [Centrum zaufania Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -183,12 +183,12 @@ Aby uzyskać dostęp do obszaru roboczego Log Analytics, zaloguj się do Azure P
 ## <a name="additional-security-features"></a>Dodatkowe funkcje zabezpieczeń
 Możesz użyć tych dodatkowych funkcji zabezpieczeń, aby dodatkowo zabezpieczyć środowisko Azure Monitor/Log Analytics. Te funkcje wymagają więcej zarządzania administratorami. 
 - [Klucze](../logs/customer-managed-keys.md) zarządzane przez klienta — można używać kluczy zarządzanych przez klienta do szyfrowania danych wysyłanych do obszarów roboczych log Analytics. Wymaga użycia Azure Key Vault. 
-- [Magazyn prywatny/zarządzany przez klienta — Zarządzanie osobistym](../platform/private-storage.md) kontem magazynu i informowanie log Analytics, aby używać go do przechowywania danych monitorowania 
-- [Połączenie prywatne sieci](../platform/private-link-security.md) — link prywatny platformy Azure umożliwia bezpieczne łączenie usług PaaS platformy Azure (w tym Azure monitor) z siecią wirtualną przy użyciu prywatnych punktów końcowych. 
+- [Magazyn prywatny/zarządzany przez klienta — Zarządzanie osobistym](./private-storage.md) kontem magazynu i informowanie log Analytics, aby używać go do przechowywania danych monitorowania 
+- [Połączenie prywatne sieci](./private-link-security.md) — link prywatny platformy Azure umożliwia bezpieczne łączenie usług PaaS platformy Azure (w tym Azure monitor) z siecią wirtualną przy użyciu prywatnych punktów końcowych. 
 - [Skrytka klienta platformy Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) — Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klientom przeglądanie i zatwierdzanie lub odrzucanie żądań dostępu do danych klienta. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../learn/quick-collect-azurevm.md).  
+* Dowiedz się, jak zbierać dane za pomocą Log Analytics dla maszyn wirtualnych platformy Azure po [rozszybkim samouczku maszyny wirtualnej platformy Azure](../vm/quick-collect-azurevm.md).  
 
-*  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../vm/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../learn/quick-collect-windows-computer.md)
+*  Jeśli chcesz zbierać dane z komputerów fizycznych lub wirtualnych z systemami Windows lub Linux w środowisku, zobacz [Przewodnik Szybki Start dla](../vm/quick-collect-linux-computer.md) komputerów z systemem Linux lub [Szybki Start dla komputerów z systemem Windows](../vm/quick-collect-windows-computer.md)

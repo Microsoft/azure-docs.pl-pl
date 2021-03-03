@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582370"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686584"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -245,6 +245,8 @@ class MsalAuthHelper {
 Przepływ "w imieniu" (OBO) służy do uzyskania tokenu wywołującego podrzędny interfejs API sieci Web. W tym przepływie internetowy interfejs API odbiera token okaziciela z uprawnieniami delegowanymi przez użytkownika z aplikacji klienckiej, a następnie wymienia ten token dla innego tokenu dostępu, aby wywołać podrzędny interfejs API sieci Web.
 
 Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL, wywołując [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodę. Aby zapoznać się z przykładem użycia tego interfejsu API, zobacz [kod testu dla elementu Microsoft-Authentication-Library-for-Python w serwisie GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Zapoznaj się również z omówieniem [problemu 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) w tym samym repozytorium dla podejścia, które pomija potrzebę zastosowania aplikacji warstwy środkowej.
+
+Można także zobaczyć przykład implementacji przepływu OBO w przykładzie [MS-Identity-Python-on-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of) -The
 
 ---
 

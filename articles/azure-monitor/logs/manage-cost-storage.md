@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731395"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -268,7 +268,7 @@ Aby rozpocząć, poniżej przedstawiono zalecane ustawienia alertu dotyczącego 
 - Nazwa reguły alertu: osiągnięto dzienny limit danych
 - Ważność: ostrzeżenie (ważność 1)
 
-Po zdefiniowaniu alertu i osiągnięciu limitu zostanie wyzwolony alert i zostanie określona odpowiedź zdefiniowana w grupie akcji. Może ona wysyłać powiadomienia do zespołu za pośrednictwem wiadomości e-mail i SMS albo automatyzować akcje przy użyciu elementów webhook, Runbook Automation lub [integracji z zewnętrznym rozwiązaniem narzędzia ITSM](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Po zdefiniowaniu alertu i osiągnięciu limitu zostanie wyzwolony alert i zostanie określona odpowiedź zdefiniowana w grupie akcji. Może ona wysyłać powiadomienia do zespołu za pośrednictwem wiadomości e-mail i SMS albo automatyzować akcje przy użyciu elementów webhook, Runbook Automation lub [integracji z zewnętrznym rozwiązaniem narzędzia ITSM](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Rozwiązywanie problemów związanych z użyciem przekraczającym oczekiwania
 
@@ -488,8 +488,8 @@ Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmu
 | AzureDiagnostics           | Zmień [kolekcję dzienników zasobów](../essentials/diagnostic-settings.md#create-in-azure-portal) na: <br> — zmniejszyć liczbę dzienników zasobów wysyłanych do usługi Log Analytics, <br> — zbierać tylko wymagane dzienniki. |
 | Dane rozwiązań z komputerów, które nie wymagają rozwiązania | Użyj funkcji [określania celu rozwiązania](../insights/solution-targeting.md) , aby zbierać dane tylko z wymaganych grup komputerów. |
 | Application Insights | Przejrzyj opcje [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [Analiza SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Użyj [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) , aby dostosować ustawienia inspekcji. |
-| Usługa Azure Sentinel | Przejrzyj wszystkie [źródła danych wskaźnikowych](https://docs.microsoft.com/azure/sentinel/connect-data-sources) , które były ostatnio włączone jako źródła dodatkowego woluminu danych. |
+| [Analiza SQL](../insights/azure-sql.md) | Użyj [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) , aby dostosować ustawienia inspekcji. |
+| Usługa Azure Sentinel | Przejrzyj wszystkie [źródła danych wskaźnikowych](../../sentinel/connect-data-sources.md) , które były ostatnio włączone jako źródła dodatkowego woluminu danych. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Pobieranie węzłów jako rozliczane w warstwie cenowej na węzeł
 

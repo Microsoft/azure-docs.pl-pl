@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Dokumentacja zakotwiczenia obiektów platformy Azure
+summary: Kotwice obiektów mogą służyć do wykrywania obiektu w świecie fizycznym i oszacowania jego DoF ułożenia w modelu 3D tego obiektu.
+metadata:
+  title: Dokumentacja zakotwiczenia obiektów platformy Azure
+  description: Użyj kotwic obiektów platformy Azure, aby wykryć obiekt w świecie fizycznym i oszacować swój DoF ułożenia w modelu 3D.
+  services: azure-object-anchors
+  ms.service: azure-object-anchors
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+  ms.openlocfilehash: 84ef8d771f4471c11dd77422444a5be98d5c8212
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749148"
+landingContent:
+- title: Informacje o kotwicach obiektów platformy Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest kotwice obiektów platformy Azure?
+      url: overview.md
+    - text: Wyświetl informacje o wersji w witrynie GitHub
+      url: https://github.com/Azure/azure-object-anchors/releases
+- title: Poznaj kluczowe pojęcia
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Omówienie zestawu SDK
+      url: ./concepts/sdk-overview.md
+- title: Przewodniki Szybki start
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Konwersja modelu
+      url: ./quickstarts/get-started-model-conversion.md
+    - text: Unity — HoloLens
+      url: ./quickstarts/get-started-unity-hololens.md
+    - text: Unity HoloLens z MRTK
+      url: ./quickstarts/get-started-unity-hololens-mrtk.md
+    - text: Urządzenie HoloLens DirectX
+      url: ./quickstarts/get-started-hololens-directx.md

@@ -10,19 +10,19 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49d8eeaa8d1160659a456f147a6a5e27f923af33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733469"
 ---
 # <a name="whats-new-in-face-service"></a>Co nowego w usłudze rozpoznawania twarzy?
 
 Usługa Azure Site Recovery jest regularnie aktualizowana. Skorzystaj z tego artykułu, aby uzyskać aktualne informacje dotyczące ulepszeń, poprawek i aktualizacji dokumentacji.
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
-* Zmniejszanie opóźnień przy użyciu Face API: zespół czołowy opublikował nowy artykuł opisujący potencjalne przyczyny opóźnienia podczas korzystania z usługi i możliwych strategii zaradczych. Zobacz [ograniczanie opóźnień podczas korzystania z usługi kroju](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+* Zmniejszanie opóźnień przy użyciu Face API: zespół czołowy opublikował nowy artykuł opisujący potencjalne przyczyny opóźnienia podczas korzystania z usługi i możliwych strategii zaradczych. Zobacz [ograniczanie opóźnień podczas korzystania z usługi kroju](./face-api-how-to-topics/how-to-mitigate-latency.md).
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 * Konfiguracja klienta dla magazynu identyfikatora urządzenia: podczas gdy usługa kroju nie przechowuje obrazów klientów, wyodrębnione funkcje programu są przechowywane na serwerze. Identyfikator kroju jest identyfikatorem funkcji frontu i zostanie użyty w celu [zidentyfikowania](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [sprawdzenia z kroju](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)i [założenia](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Funkcja przechowywanych funkcji jest wygaśnie i zostanie usunięta po upływie 24 godzin od oryginalnego wywołania wykrywania. Klienci mogą teraz określić, jak długo te identyfikatory są buforowane. Wartość maksymalna to nawet 24 godziny, ale teraz można ustawić minimalną wartość 60 sekund. Nowe zakresy czasu dla buforowanych identyfikatorów klas są dowolną wartością z zakresu od 60 sekund do 24 godzin. Więcej szczegółów można znaleźć w dokumentacji interfejsu API [wykrywania ze stroną](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (parametr *faceIdTimeToLive* ).
@@ -31,10 +31,10 @@ Usługa Azure Site Recovery jest regularnie aktualizowana. Skorzystaj z tego art
 * Opublikowanie przykładowej aplikacji do rejestracji w celu zaprezentowania najlepszych rozwiązań dotyczących ustalania zrozumiałej zgody i tworzenia systemów rozpoznawania klasy o wysokiej dokładności za pomocą rejestracji wysokiej jakości. Przykład "open source" można znaleźć w przewodniku [tworzenia aplikacji rejestracyjnej](build-enrollment-app.md) i w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), gotowym do wdrożenia lub dostosowania przez deweloperów. 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
-* Szyfrowanie danych w spoczynku przez klienta: usługa kroju automatycznie szyfruje dane podczas ich utrwalania w chmurze. Szyfrowanie usługi kroju chroni dane, aby pomóc spełnić wymagania dotyczące zabezpieczeń i zgodności w organizacji. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Dostępna jest również nowa opcja zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). Więcej szczegółów można znaleźć w [kluczach zarządzanych przez klienta](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+* Szyfrowanie danych w spoczynku przez klienta: usługa kroju automatycznie szyfruje dane podczas ich utrwalania w chmurze. Szyfrowanie usługi kroju chroni dane, aby pomóc spełnić wymagania dotyczące zabezpieczeń i zgodności w organizacji. Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Dostępna jest również nowa opcja zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). Więcej szczegółów można znaleźć w [kluczach zarządzanych przez klienta](./encrypt-data-at-rest.md).
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
-* Nowy model rozpoznawania Face API: nowy model rozpoznawania 03 to najdokładniejszy model, który jest obecnie dostępny. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. Uznanie 03 zapewni lepszą dokładność porównania podobieństwa i porównywanie przez osoby. Więcej szczegółów można znaleźć w tematach [Określanie modelu rozpoznawania kroju](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
+* Nowy model rozpoznawania Face API: nowy model rozpoznawania 03 to najdokładniejszy model, który jest obecnie dostępny. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. Uznanie 03 zapewni lepszą dokładność porównania podobieństwa i porównywanie przez osoby. Więcej szczegółów można znaleźć w tematach [Określanie modelu rozpoznawania kroju](./face-api-how-to-topics/specify-recognition-model.md).
 
 ## <a name="june-2019"></a>Czerwiec 2019 r.
 

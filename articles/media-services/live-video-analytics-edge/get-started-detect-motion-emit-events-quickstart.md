@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573810"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730290"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -69,10 +69,10 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     1. **Interfejs sieciowy** — umożliwia maszynie wirtualnej platformy Azure komunikowanie się z Internetem, platformą Azure i innymi zasobami.
     1. **Połączenie bastionu** — umożliwia nawiązanie połączenia z maszyną wirtualną przy użyciu przeglądarki i Azure Portal.
     1. **Publiczny adres IP** — dzięki temu zasoby platformy Azure mogą komunikować się z Internetem i publicznymi usługami platformy Azure
-    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](../../virtual-network/virtual-networks-overview.md).
     1. **IoT Hub** — działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między aplikacją IoT, modułami IoT Edge i zarządzanymi urządzeniami.
     1. **Konto usługi multimediów** — ułatwia to zarządzanie zawartością multimediów i przesyłanie strumieniowe na platformie Azure.
-    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](../latest/storage-account-concept.md).
     1. **Rejestr kontenerów** — ułatwia przechowywanie prywatnych obrazów kontenerów platformy Docker i powiązanych artefaktów oraz zarządzanie nimi.
 
 W danych wyjściowych skryptu tabela zasobów zawiera nazwę Centrum IoT Hub. Poszukaj typu zasobu **`Microsoft.Devices/IotHubs`** i zanotuj nazwę. Ta nazwa będzie potrzebna w następnym kroku.  

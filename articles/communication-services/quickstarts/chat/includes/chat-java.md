@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 72e00306563e8cccdd476cf0ae5bfb4ddaa63ecf
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661651"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750065"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -66,7 +66,7 @@ W celu uwierzytelnienia klient musi odwołać się do `azure-communication-commo
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -141,11 +141,11 @@ Odpowiedź `chatThreadClient` jest używana do wykonywania operacji na utworzony
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -207,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` zwraca różne typy komunikatów, które mogą być identyfikowane przez `chatMessage.getType()` . Są to następujące typy:
 
-- `Text`: Zwykły komunikat rozmowy Wysłany przez uczestnika wątku.
+- `text`: Zwykły komunikat rozmowy Wysłany przez uczestnika wątku.
 
-- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat.
+- `html`: Komunikat rozmowy HTML Wysłany przez uczestnika wątku.
 
-- `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy.
+- `topicUpdated`: Komunikat systemowy wskazujący, że Zaktualizowano temat.
 
-- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy.
+- `participantAdded`: Komunikat systemowy wskazujący, że co najmniej jeden uczestnik został dodany do wątku rozmowy.
+
+- `participantRemoved`: Komunikat systemowy wskazujący, że uczestnik został usunięty z wątku rozmowy.
 
 Aby uzyskać więcej informacji, zobacz [typy komunikatów](../../../concepts/chat/concepts.md#message-types).
 
@@ -224,7 +226,7 @@ Po utworzeniu wątku rozmowy można z niego dodawać i usuwać użytkowników. P
 Użyj `addParticipants` metody, aby dodać uczestników do wątku identyfikowanego przez ThreadID.
 
 - Użyj, `listParticipants` Aby wyświetlić listę uczestników, którzy mają zostać dodani do wątku rozmowy.
-- `user`, wymagane, to CommunicationUserIdentifier, który został utworzony przez CommunicationIdentityClient w [tokenie dostępu użytkownika](../../access-tokens.md) — Szybki Start.
+- `communicationIdentifier`, wymagane, to CommunicationIdentifier, który został utworzony przez CommunicationIdentityClient w [tokenie dostępu użytkownika](../../access-tokens.md) — Szybki Start.
 - `display_name`, opcjonalnie, jest nazwą wyświetlaną uczestnika wątku.
 - `share_history_time`, opcjonalnie, to czas, po którym historia rozmowy jest udostępniana uczestnikowi. Aby udostępnić historię od momentu rozpoczęcia wątku rozmowy, należy ustawić tę właściwość na dowolną datę równą lub mniejszą niż godzina utworzenia wątku. Aby po dodaniu uczestnika nie była udostępniona żadna historia, ustaw ją na bieżącą datę. Aby udostępnić historię częściową, ustaw ją na wymaganą datę.
 
@@ -232,11 +234,11 @@ Użyj `addParticipants` metody, aby dodać uczestników do wątku identyfikowane
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -247,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>Usuwanie użytkownika z wątku rozmowy
+## <a name="remove-participant-from-a-chat-thread"></a>Usuwanie uczestnika z wątku rozmowy
 
-Podobnie jak w przypadku dodawania użytkownika do wątku, można usunąć użytkowników z wątku rozmowy. W tym celu należy śledzić tożsamości użytkowników, którzy zostali dodani.
+Podobnie jak w przypadku dodawania uczestnika do wątku, można usunąć uczestników z wątku rozmowy. W tym celu należy śledzić tożsamości dodanych uczestników.
 
-Użyj `removeParticipant` , gdzie `user` to CommunicationUserIdentifier, który został utworzony.
+Użyj `removeParticipant` , gdzie `identifier` to CommunicationIdentifier, który został utworzony.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>Uruchamianie kodu

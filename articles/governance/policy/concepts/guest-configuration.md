@@ -3,14 +3,15 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa klienta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702882"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
+
 
 Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zarówno w przypadku maszyn działających na platformie Azure, jak i na [urządzeniach połączonych](../../../azure-arc/servers/overview.md)z usługą Arc. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
 
@@ -20,13 +21,15 @@ Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zar�
 
 W tej chwili większość Azure Policy definicji zasad konfiguracji gościa tylko ustawienia inspekcji w obrębie maszyny. Nie stosują one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
+[Dostępny jest samouczek wideo dotyczący tego dokumentu](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Włącz konfigurację gościa
 
 Aby przeprowadzić inspekcję stanu maszyn w środowisku, w tym maszyn na platformie Azure i w połączonych maszynach, zapoznaj się z poniższymi szczegółami.
 
 ## <a name="resource-provider"></a>Dostawca zasobów
 
-Aby można było korzystać z konfiguracji gościa, należy zarejestrować dostawcę zasobów. Dostawca zasobów jest automatycznie rejestrowany w przypadku przypisywania zasad konfiguracji gościa za pomocą portalu. Możesz zarejestrować się ręcznie za pomocą [portalu](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [interfejsu wiersza polecenia platformy Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Aby można było korzystać z konfiguracji gościa, należy zarejestrować dostawcę zasobów. Jeśli w portalu zostanie wykonane przypisanie zasad konfiguracji gościa lub subskrypcja została zarejestrowana w Azure Security Center, dostawca zasobów zostanie zarejestrowany automatycznie. Możesz zarejestrować się ręcznie za pomocą [portalu](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [interfejsu wiersza polecenia platformy Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Wdróż wymagania dotyczące usługi Azure Virtual Machines
 
@@ -62,13 +65,13 @@ Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje syste
 
 |Publisher|Nazwa|Wersje|
 |-|-|-|
-|Canonical|Ubuntu Server|14,04 – 18,04|
-|Credativ|Debian|8 i nowsze|
-|Microsoft|Windows Server|2012 i nowsze|
+|Canonical|Ubuntu Server|14,04 – 20,04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 – 2019|
 |Microsoft|Klient systemu Windows|Windows 10|
-|OpenLogic|CentOS|7,3 i nowsze|
-|Red Hat|Red Hat Enterprise Linux|7,4 – 7,8|
-|Szło|SLES|12 SP3 — SP5|
+|OpenLogic|CentOS|7,3 – 8|
+|Red Hat|Red Hat Enterprise Linux|7,4 – 8|
+|Szło|SLES|12 SP3 — SP5, 15|
 
 Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez definicje zasad konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
 
@@ -114,9 +117,26 @@ Definicje zasad konfiguracji gościa używają efektu **AuditIfNotExists** . Po 
 Definicje zasad **AuditIfNotExists** nie zwracają wyników zgodności, dopóki nie zostaną spełnione wszystkie wymagania na komputerze. Wymagania są opisane w sekcji [wdrażanie wymagań dla maszyn wirtualnych platformy Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i intiaitives są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać. Aby uzyskać więcej informacji, zobacz wpis w blogu: [ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i inicjatywy są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać. Aby uzyskać więcej informacji, zobacz wpis w blogu: [ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfiguracji gościa, aby zgłosić zgodność w węźle **zgodność** . Aby uzyskać więcej informacji, zobacz [pobieranie danych zgodności](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>Co to jest przypisanie gościa?
+
+Po przypisaniu Azure Policy, jeśli znajduje się ona w kategorii "Konfiguracja gościa" zawiera metadane opisujące przypisanie gościa.
+Można traktować przypisanie gościa jako link między maszyną a scenariuszem Azure Policy.
+Na przykład poniższy fragment kodu kojarzy konfigurację planu bazowego systemu Windows Azure z minimalną wersją z `1.0.0` maszynami w zakresie zasad. Domyślnie przypisanie gościa przeprowadzi inspekcję maszyny.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Przypisania gościa są tworzone automatycznie dla poszczególnych maszyn przez usługę konfiguracji gościa. Typ zasobu to `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy używa właściwości **complianceStatus** zasobu przypisania gościa do raportowania stanu zgodności. Aby uzyskać więcej informacji, zobacz [pobieranie danych zgodności](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Inspekcja ustawień systemu operacyjnego po liniach bazowych branżowych
 
@@ -201,6 +221,12 @@ Wbudowane zasady konfiguracji gościa są dostępne w następujących lokalizacj
 - [Wbudowane definicje zasad — Konfiguracja gościa](../samples/built-in-policies.md#guest-configuration)
 - [Wbudowane inicjatywy — konfiguracja gościa](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy przykłady repozytorium GitHub](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Omówienie wideo
+
+Poniższe Omówienie konfiguracji Azure Policy Gościa to ITOps rozmowy 2021.
+
+[Zarządzanie liniami bazowymi w środowiskach serwerów hybrydowych przy użyciu Azure Policy konfiguracji gościa](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Następne kroki
 

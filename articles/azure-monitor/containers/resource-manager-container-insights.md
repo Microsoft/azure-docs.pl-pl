@@ -1,26 +1,26 @@
 ---
-title: Przykłady szablonów Menedżer zasobów dla Azure Monitor kontenerów
-description: Przykładowe szablony Azure Resource Manager do wdrażania i configureAzure monitorowania kontenerów.
+title: Przykłady szablonów Menedżer zasobów dla usługi Container Insights
+description: Przykładowe szablony Azure Resource Manager umożliwiające wdrażanie i configureContainer szczegółowych informacji.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627435"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723337"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Przykłady szablonów Menedżer zasobów dla Azure Monitor kontenerów
+# <a name="resource-manager-template-samples-for-container-insights"></a>Przykłady szablonów Menedżer zasobów dla usługi Container Insights
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania agenta log Analytics dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Włącz dla klastra AKS
-Poniższy przykład umożliwia Azure Monitor kontenerów w klastrze AKS.
+Poniższy przykład umożliwia włączenie usługi Container Insights w klastrze AKS.
 
 
 ### <a name="template-file"></a>Plik szablonu
@@ -357,4 +357,4 @@ Poniższy przykład umożliwia Azure Monitor kontenerów w klastrze AKS.
 ## <a name="next-steps"></a>Następne kroki
 
 * [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
-* [Dowiedz się więcej na temat Azure monitor kontenerów](../containers/container-insights-overview.md).
+* [Dowiedz się więcej o usłudze Container Insights](../containers/container-insights-overview.md).

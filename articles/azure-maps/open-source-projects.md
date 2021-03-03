@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8be747d2027291203272a960efe6b26368471a50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735050"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps projekty "open source" dla społeczności
 
@@ -70,9 +70,9 @@ Poniżej znajduje się lista projektów typu "open source", które zwiększają 
 
 | Nazwa projektu | Opis |
 |-|-|
-| [Wtyczka Azure Maps cesium](https://github.com/azure-samples/azure-maps-cesium) | Wtyczka [CESIUM js](https://cesium.com/cesiumjs/) , która ułatwia integrację usług Azure Maps, takich jak [warstwy kafelków](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) i [usługi geokodowania](https://docs.microsoft.com/rest/api/maps/search). |
-| [Wtyczka do Azure Maps ulotek](https://github.com/azure-samples/azure-maps-leaflet) | Wtyczka z [ulotką](https://leafletjs.com/) , która ułatwia nałożenie warstw kafelków z [usług kafelków Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- | [Wtyczka Azure Maps OpenLayers](https://github.com/azure-samples/azure-maps-openlayers) | Wtyczka [OpenLayers](https://www.openlayers.org/) języka JavaScript, która ułatwia nałożenie warstw kafelków z [Azure Maps kafelków](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Wtyczka Azure Maps cesium](https://github.com/azure-samples/azure-maps-cesium) | Wtyczka [CESIUM js](https://cesium.com/cesiumjs/) , która ułatwia integrację usług Azure Maps, takich jak [warstwy kafelków](/rest/api/maps/renderv2/getmaptilepreview) i [usługi geokodowania](/rest/api/maps/search). |
+| [Wtyczka do Azure Maps ulotek](https://github.com/azure-samples/azure-maps-leaflet) | Wtyczka z [ulotką](https://leafletjs.com/) , która ułatwia nałożenie warstw kafelków z [usług kafelków Azure Maps](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Wtyczka Azure Maps OpenLayers](https://github.com/azure-samples/azure-maps-openlayers) | Wtyczka [OpenLayers](https://www.openlayers.org/) języka JavaScript, która ułatwia nałożenie warstw kafelków z [Azure Maps kafelków](/rest/api/maps/renderv2/getmaptilepreview). |
 
 **Narzędzia i zasoby**
 

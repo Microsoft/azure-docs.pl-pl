@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746749"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710604"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 >[!NOTE]
->Oprócz planowania pełnej lub różnicowej kopii zapasowej, mogą one być również obecnie wyzwalane ręcznie. Kopie zapasowe dzienników są automatycznie wyzwalane i zarządzane przez SAP HANA wewnętrznie.
->
-> Przyrostowe kopie zapasowe nie są obecnie obsługiwane przez Azure Backup.
+>Kopie zapasowe dzienników są automatycznie wyzwalane i zarządzane przez SAP HANA wewnętrznie.
 
 ## <a name="next-steps"></a>Następne kroki
 

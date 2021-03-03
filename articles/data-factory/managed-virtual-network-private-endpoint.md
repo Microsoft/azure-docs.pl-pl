@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379577"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699666"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Zalety korzystania z Virtual Network zarządzanych:
 
 ## <a name="managed-private-endpoints"></a>Zarządzane prywatne punkty końcowe
 
-Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzonymi w Azure Data Factory zarządzanym Virtual Network ustanawiania prywatnego linku do zasobów platformy Azure. Azure Data Factory zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu. 
+Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzonymi w Azure Data Factory zarządzanym Virtual Network ustanawiania prywatnego linku do zasobów platformy Azure. Usługa Azure Data Factory zarządza tymi prywatnymi punktami końcowymi w Twoim imieniu. 
 
 ![Nowy zarządzany prywatny punkt końcowy](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
@@ -108,11 +108,13 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Komunikacja wychodząca za pośrednictwem publicznego punktu końcowego z zarządzanych Virtual Network APD
 - Tylko port 443 jest otwarty dla komunikacji wychodzącej.
-- Usługi Azure Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy z Virtual Network zarządzanych przez usługę ADF.
+- W przypadku usług Azure Storage i Azure Data Lake Gen2 nie jest obsługiwane połączenie za pośrednictwem publicznego punktu końcowego z sieci wirtualnej zarządzanej przez usługę ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Tworzenie połączonej usługi Azure Key Vault 
 - W przypadku tworzenia połączonej usługi dla usługi Azure Key Vault nie można odwołać się do środowiska Azure Integration Runtime. Nie można więc utworzyć prywatnego punktu końcowego podczas tworzenia połączonej usługi Azure Key Vault. Jednak podczas tworzenia połączonej usługi dla magazynów danych, które odwołują się do Azure Key Vault połączonej usługi, a ta połączona usługa odwołuje się Azure Integration Runtime z włączonym Virtual Network zarządzanym, można utworzyć prywatny punkt końcowy dla Azure Key Vault połączonej usługi podczas tworzenia. 
 - Operacja **Test connection** dla połączonej usługi Azure Key Vault tylko weryfikuje format adresu URL, ale nie wykonuje żadnych operacji sieciowych.
+- Kolumna **używająca prywatnego punktu końcowego** jest zawsze wyświetlana jako pusta, nawet jeśli utworzysz prywatny punkt końcowy dla Azure Key Vault.
+![Prywatny punkt końcowy dla AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

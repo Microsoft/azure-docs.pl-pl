@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: edb881b10db1d617e1b1f6b1167c014d6d51020e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cfdd1595ffb21b0f567f5299ebd6257b3462b671
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351081"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730989"
 ---
 Użyj biblioteki klienta QnA Maker dla języka Ruby, aby:
 
@@ -68,7 +68,7 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 
 QnA Maker używa dwóch różnych modeli obiektów:
 * **[QnAMakerClient](#qnamakerclient-object-model)** jest obiektem, który umożliwia tworzenie, publikowanie i pobieranie bazy wiedzy oraz zarządzanie nią.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../how-to/use-active-learning.md)).
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 

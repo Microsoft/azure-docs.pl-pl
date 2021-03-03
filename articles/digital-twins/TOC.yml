@@ -156,7 +156,7 @@
             - name: Zestaw SDK dla platformy .NET (C#)
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: Zestaw SDK Java
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
         - name: Płaszczyzna danych
           items:
             - name: Zestaw SDK dla platformy .NET (C#)

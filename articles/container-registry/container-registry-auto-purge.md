@@ -2,19 +2,19 @@
 title: Przeczyszczanie tagów i manifestów
 description: Użyj przeczyszczania polecenia, aby usunąć wiele tagów i manifestów z usługi Azure Container Registry na podstawie wieku i filtru tagów, i opcjonalnie Zaplanuj operacje przeczyszczania.
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 02/19/2021
+ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954042"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722232"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Automatycznie Przeczyść obrazy z usługi Azure Container Registry
 
 W przypadku korzystania z usługi Azure Container Registry w ramach przepływu pracy deweloperskiej rejestr może szybko zapełniać obrazy lub inne artefakty, które nie są potrzebne po krótkim czasie. Możesz chcieć usunąć wszystkie Tagi, które są starsze niż określony czas trwania lub pasują do określonego filtru nazw. Aby szybko usunąć wiele artefaktów, w tym artykule wprowadzono `acr purge` polecenie, które można uruchomić jako zadanie na żądanie lub [zaplanowane](container-registry-tasks-scheduled.md) ACR. 
 
-`acr purge`Polecenie jest obecnie dystrybuowane w publicznym obrazie kontenera ( `mcr.microsoft.com/acr/acr-cli:0.3` ), który został utworzony z kodu źródłowego w repozytorium [ACR-CLI](https://github.com/Azure/acr-cli) w serwisie GitHub.
+`acr purge`Polecenie jest obecnie dystrybuowane w publicznym obrazie kontenera ( `mcr.microsoft.com/acr/acr-cli:0.4` ), który został utworzony z kodu źródłowego w repozytorium [ACR-CLI](https://github.com/Azure/acr-cli) w serwisie GitHub.
 
 Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby uruchomić przykłady zadań ACR w tym artykule. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.76 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install]. 
 
@@ -45,6 +45,7 @@ Podczas uruchamiania należy określić co najmniej następujące elementy `acr 
 * `--untagged` -Określa, że manifesty, które nie mają skojarzonych tagów (*nieoznakowane manifesty*) są usuwane.
 * `--dry-run` -Określa, że żadne dane nie są usuwane, ale dane wyjściowe są takie same jak wtedy, gdy polecenie jest uruchamiane bez tej flagi. Ten parametr jest przydatny do testowania polecenia przeczyszczania, aby upewnić się, że nie powoduje niezamierzonego usuwania danych, które mają być zachowane.
 * `--keep` -Określa, że jest zachowywana Najnowsza Liczba tagów do usunięcia.
+* `--concurrency` -Określa szereg zadań przeczyszczania do przetworzenia współbieżnie. Jeśli ten parametr nie zostanie podany, zostanie użyta wartość domyślna.
 
 Aby uzyskać dodatkowe parametry, uruchom polecenie `acr purge --help` . 
 

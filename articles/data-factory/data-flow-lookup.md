@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147270"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739372"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformacja wyszukiwania w przepływie danych mapowania
 
@@ -25,7 +25,7 @@ Transformacja wyszukiwania jest podobna do lewego sprzężenia zewnętrznego. Ws
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ![Zrzut ekranu przedstawia kartę Ustawienia wyszukiwania z etykietami opisanymi w poniższym tekście.](media/data-flow/lookup1.png "Wyszukiwanie")
 
@@ -38,8 +38,6 @@ Transformacja wyszukiwania jest podobna do lewego sprzężenia zewnętrznego. Ws
 **Dopasowanie:** Widoczne tylko wtedy, gdy nie wybrano pozycji "Dopasuj wiele wierszy". Wybierz, czy chcesz dopasować każdy wiersz, pierwsze dopasowanie czy ostatnie dopasowanie. Każdy wiersz jest zalecany, ponieważ wykonuje najszybszą. W przypadku wybrania pierwszego wiersza lub ostatniego wiersza konieczne będzie określenie warunków sortowania.
 
 **Warunki wyszukiwania:** Wybierz kolumny, które mają być zgodne. Jeśli warunek równości zostanie spełniony, wiersze zostaną uznane za zgodne. Aktywuj i wybierz pozycję "kolumna obliczana", aby wyodrębnić wartość przy użyciu [języka wyrażenia przepływu danych](data-flow-expression-functions.md).
-
-Transformacja wyszukiwania obsługuje tylko dopasowania równości. Aby dostosować wyrażenie wyszukiwania w taki sposób, aby zawierało inne operatory, takie jak większe niż, zaleca się użycie [sprzężenia krzyżowego w transformacji sprzężenia](data-flow-join.md#custom-cross-join). Sprzężenie krzyżowe pozwoli uniknąć ewentualnych błędów produktu kartezjańskiego podczas wykonywania.
 
 Wszystkie kolumny z obu strumieni są zawarte w danych wyjściowych. Aby usunąć zduplikowane lub niepożądane kolumny, Dodaj [wybór transformacji](data-flow-select.md) po przekształceniu wyszukiwania. W transformację ujścia można również porzucić kolumny lub zmienić ich nazwy.
 
@@ -65,7 +63,7 @@ Podczas testowania transformacji wyszukiwania z podglądem danych w trybie debug
 
 ![Sprzężenie emisji](media/data-flow/broadcast.png "Sprzężenie emisji")
 
-W sprzężeniach, wyszukiwaniu i przekształceniu istnieje, jeśli jeden lub oba strumienie danych mieszczą się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję** . Domyślnie aparat Spark automatycznie zdecyduje, czy ma być emitowana jedna strona. Aby ręcznie wybrać opcję emisji, wybierz pozycję **naprawione** .
+W sprzężeniach, wyszukiwaniu i przekształceniu istnieje, jeśli jeden lub oba strumienie danych mieszczą się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Domyślnie aparat Spark automatycznie zdecyduje, czy ma być emitowana jedna strona. Aby ręcznie wybrać opcję emisji, wybierz pozycję **naprawione**.
 
 Nie zaleca się wyłączania emisji za pośrednictwem opcji **off** , chyba że sprzężenia są uruchamiane w przypadku błędów limitu czasu.
 

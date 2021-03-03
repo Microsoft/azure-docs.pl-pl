@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804929"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730715"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Maszyny wirtualne procesora GPU dla urządzenia z Azure Stack EDGE Pro
 
@@ -110,8 +110,8 @@ Wykonaj następujące kroki, aby wdrożyć maszyny wirtualne GPU na urządzeniu:
 1. Po utworzeniu maszyny wirtualnej Wdróż rozszerzenie GPU przy użyciu szablonu rozszerzenia. W przypadku maszyn wirtualnych z systemem Linux zobacz [Instalowanie rozszerzenia procesora GPU dla](#gpu-extension-for-linux) maszyn wirtualnych z systemem Linux i dla systemu Windows, zobacz [Instalowanie rozszerzenia procesora GPU dla systemu Windows](#gpu-extension-for-windows).
 
 1. Aby zweryfikować instalację rozszerzenia procesora GPU, Połącz się z maszyną wirtualną procesora GPU:
-    1. W przypadku korzystania z maszyny wirtualnej z systemem Windows wykonaj kroki opisane w sekcji [łączenie z maszyną wirtualną z systemem Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Zweryfikuj instalację](#verify-windows-driver-installation).
-    1. W przypadku korzystania z maszyny wirtualnej z systemem Linux wykonaj kroki opisane w sekcji [nawiązywanie połączenia z maszyną wirtualną z systemem Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Zweryfikuj instalację](#verify-linux-driver-installation).
+    1. W przypadku korzystania z maszyny wirtualnej z systemem Windows wykonaj kroki opisane w sekcji [łączenie z maszyną wirtualną z systemem Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Zweryfikuj instalację](#verify-windows-driver-installation).
+    1. W przypadku korzystania z maszyny wirtualnej z systemem Linux wykonaj kroki opisane w sekcji [nawiązywanie połączenia z maszyną wirtualną z systemem Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Zweryfikuj instalację](#verify-linux-driver-installation).
 
 1. W razie potrzeby można przełączyć sieć obliczeniową z powrotem do dowolnego, co jest potrzebne. 
 
@@ -545,7 +545,7 @@ Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku: 
 
 Wykonaj następujące kroki, aby zweryfikować instalację sterownika:
 
-1. Nawiąż połączenie z maszyną wirtualną procesora GPU. Postępuj zgodnie z instrukcjami podanymi w temacie [łączenie z maszyną wirtualną z systemem Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Nawiąż połączenie z maszyną wirtualną procesora GPU. Postępuj zgodnie z instrukcjami podanymi w temacie [łączenie z maszyną wirtualną z systemem Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Oto przykładowe dane wyjściowe:
 

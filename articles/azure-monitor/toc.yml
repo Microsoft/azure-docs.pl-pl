@@ -97,9 +97,9 @@
           href: logs/resource-manager-log-queries.md
         - name: Skoroszyty
           href: visualize/resource-manager-workbooks.md
-        - name: Usługa Azure Monitor dla kontenerów
+        - name: Szczegółowe informacje o kontenerze
           href: containers/resource-manager-container-insights.md
-        - name: Usługa Azure Monitor dla maszyn wirtualnych
+        - name: Szczegółowe informacje o maszynie wirtualnej
           href: vm/resource-manager-vminsights.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
@@ -879,8 +879,6 @@
             - name: Omówienie
               displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
               href: app/usage-overview.md
-            - name: Wysyłanie kontekstu użytkownika
-              href: app/usage-send-user-context.md
             - name: 'Użytkownicy, sesje, zdarzenia'
               href: app/usage-segmentation.md
             - name: Lejki
@@ -988,7 +986,7 @@
           href: app/change-analysis-visualizations.md
         - name: Rozwiązywanie problemów
           href: app/change-analysis-troubleshoot.md
-    - name: Usługa Azure Monitor dla maszyn wirtualnych
+    - name: Szczegółowe informacje o maszynie wirtualnej
       items:
         - name: Omówienie
           href: vm/vminsights-overview.md
@@ -1042,7 +1040,7 @@
           href: vm/vminsights-workbooks.md
         - name: Wyłączanie monitorowania
           href: vm/vminsights-optout.md
-    - name: Usługa Azure Monitor dla kontenerów
+    - name: Szczegółowe informacje o kontenerze
       items:
         - name: Omówienie
           href: containers/container-insights-overview.md

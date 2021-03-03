@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: e0be5523cb3846760644d0c81b06d5caa5a35378
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616770"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722929"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Jak używać wykryto do przekształcania danych JSON w skoroszytach
 
@@ -22,7 +22,7 @@ Skoroszyty mogą wykonywać zapytania dotyczące danych z wielu źródeł. Niekt
 
 Wykryto to język zapytania dla formatu JSON, który jest podobny do XPath dla XML. Podobnie jak XPath, wykryto umożliwia ekstrakcję i filtrowanie danych poza strukturą JSON.
 
-Za pomocą transformacji wykryto, autorzy skoroszytu mogą konwertować kod JSON w strukturę tabeli. Tabeli można następnie użyć do wykreślania [wizualizacji skoroszytów](../platform/workbooks-overview.md#visualizations).
+Za pomocą transformacji wykryto, autorzy skoroszytu mogą konwertować kod JSON w strukturę tabeli. Tabeli można następnie użyć do wykreślania [wizualizacji skoroszytów](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Korzystanie z wykryto
 
@@ -84,5 +84,5 @@ Załóżmy, że podano powyższy obiekt JSON jako reprezentację spisu magazynu.
 ![ Edytowanie elementu zapytania ze źródłem danych JSON i formatem wyniku ścieżki JSON](./media/workbooks-jsonpath/query-jsonpath.png)
 
 ## <a name="next-steps"></a>Następne kroki
-- [Przegląd skoroszytów](../platform/workbooks-overview.md)
+- [Przegląd skoroszytów](./workbooks-overview.md)
 - [Grupy w Azure Monitor skoroszytach](workbooks-groups.md)

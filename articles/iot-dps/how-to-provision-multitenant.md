@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571610"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727434"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Jak aprowizować pod kątem wielu dzierżaw 
 
@@ -417,16 +417,8 @@ Aby usunąć grupę zasobów według nazwy:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md) 
-- Aby dowiedzieć się więcej, zobacz [Jak anulować obsługę administracyjną urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) . 
+> [!div class="nextstepaction"]
+> Aby dowiedzieć się więcej o zainicjowaniu obsługi administracyjnej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md)
 
-
-
-
-
-
-
-
-
-
-
+> [!div class="nextstepaction"]
+> Aby dowiedzieć się więcej o anulowaniu aprowizacji, zobacz jak cofać obsługę administracyjną [urządzeń, które wcześniej były obsługiwane](how-to-unprovision-devices.md) .

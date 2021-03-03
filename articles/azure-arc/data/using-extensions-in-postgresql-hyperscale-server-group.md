@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b9c3c66e58ae51773a959aba0b2c76d97b44445
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688301"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Korzystanie z rozszerzeń PostgreSQL w grupie serwerów PostgreSQL w usłudze Azure Arc
 
@@ -24,40 +24,55 @@ PostgreSQL jest najlepszym rozwiązaniem, gdy jest używany z rozszerzeniami. W 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="list-of-extensions"></a>Lista rozszerzeń
-Oprócz rozszerzeń w programie [`contrib`](https://www.postgresql.org/docs/12/contrib.html) lista rozszerzeń znajdujących się w kontenerach grupy serwerów PostgreSQL z usługą Azure Arc jest:
-- `citus`, v: 9,4
-- `pg_cron`, v: 1,2
-- `plpgsql`, v: 1,0
-- `postgis`, v: 3.0.2
-- `plv8`, v: 2.3.14
+## <a name="supported-extensions"></a>Obsługiwane rozszerzenia
+Standardowe [`contrib`](https://www.postgresql.org/docs/12/contrib.html) rozszerzenia i następujące rozszerzenia są już wdrożone w kontenerach grupy serwerów PostgreSQL z funkcją Azure ARC:
+- [`citus`](https://github.com/citusdata/citus), v: 9,4. Rozszerzenie Citus przez [dane Citus](https://www.citusdata.com/) jest domyślnie ładowane, ponieważ umożliwia przeprowadzenie funkcji skalowania aparatu PostgreSQL. Porzucanie rozszerzenia Citus z grupy serwerów usługi Azure Arc PostgreSQL do skalowania nie jest obsługiwane.
+- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1,2
+- [`pgaudit`](https://www.pgaudit.org/), v: 1,4
+- plpgsql, v: 1,0
+- [`postgis`](https://postgis.net), v: 3.0.2
+- [`plv8`](https://plv8.github.io/), v: 2.3.14
 
-Ta lista zmienia pracę w nadgodzinach i aktualizacje zostaną opublikowane w tym dokumencie. Nie jest jeszcze możliwe dodawanie rozszerzeń poza tymi wymienionymi powyżej.
+Aktualizacje tej listy zostaną ogłoszone w miarę rozwoju z upływem czasu.
+
+> [!IMPORTANT]
+> W tej wersji zapoznawczej możesz przystąpić do grupy serwerów z rozszerzeniem innym niż wymienione powyżej, które nie zostanie utrwalone w systemie. Oznacza to, że nie będzie on dostępny po ponownym uruchomieniu systemu i należy go ponownie wprowadzić.
 
 Ten przewodnik zajmie się scenariuszem korzystania z dwóch z następujących rozszerzeń:
-- [PostGIS](https://postgis.net/)
+- [`PostGIS`](https://postgis.net/)
 - [`pg_cron`](https://github.com/citusdata/pg_cron)
 
+## <a name="which-extensions-need-to-be-added-to-the-shared_preload_libraries-and-created"></a>Które rozszerzenia należy dodać do shared_preload_libraries i utworzyć?
 
-## <a name="manage-extensions"></a>Zarządzanie rozszerzeniami
+|Rozszerzenia   |Wymaga dodania do shared_preload_libraries  |Wymaga utworzenia |
+|-------------|--------------------------------------------------|---------------------- |
+|`pg_cron`      |Nie       |Tak        |
+|`pg_audit`     |Tak       |Tak        |
+|`plpgsql`      |Tak       |Tak        |
+|`postgis`      |Nie       |Tak        |
+|`plv8`      |Nie       |Tak        |
 
-### <a name="enable-extensions"></a>Włącz rozszerzenia
-Ten krok nie jest wymagany w przypadku rozszerzeń, które są częścią programu `contrib` .
-Ogólny format polecenia umożliwiającego włączenie rozszerzeń:
+## <a name="add-extensions-to-the-shared_preload_libraries"></a>Dodawanie rozszerzeń do shared_preload_libraries
+Aby uzyskać szczegółowe informacje o tym, shared_preload_libraries zapoznaj się [z dokumentacją PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
+- Ten krok nie jest wymagany w przypadku rozszerzeń, które są częścią `contrib`
+- Ten krok nie jest wymagany w przypadku rozszerzeń, które nie są wymagane do wstępnego ładowania przez shared_preload_libraries. W przypadku tych rozszerzeń można przejść do następnego akapitu [Tworzenie rozszerzeń](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
 
-#### <a name="enable-an-extension-at-the-creation-time-of-a-server-group"></a>Włącz rozszerzenie w czasie tworzenia grupy serwerów:
+### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>Dodaj rozszerzenie w czasie tworzenia grupy serwerów
 ```console
 azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
 ```
-#### <a name="enable-an-extension-on-an-instance-that-already-exists"></a>Włącz rozszerzenie w wystąpieniu, które już istnieje:
+### <a name="add-an-extension-to-an-instance-that-already-exists"></a>Dodaj rozszerzenie do wystąpienia, które już istnieje
 ```console
 azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
-#### <a name="get-the-list-of-extensions-enabled"></a>Pobierz listę rozszerzeń włączonych:
+
+
+
+## <a name="show-the-list-of-extensions-added-to-shared_preload_libraries"></a>Pokaż listę rozszerzeń dodanych do shared_preload_libraries
 Uruchom jedno z następujących poleceń.
 
-##### <a name="with-azure-data-cli-azdata"></a>Się [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+### <a name="with-an-azdata-cli-command"></a>Za pomocą interfejsu wiersza polecenia azdata
 ```console
 azdata arc postgres server show -n <server group name>
 ```
@@ -74,7 +89,7 @@ Przewiń w dane wyjściowe i zwróć uwagę na sekcje engine\extensions w specyf
       ]
     },
 ```
-##### <a name="with-kubectl"></a>Z polecenia kubectl
+### <a name="with-kubectl"></a>Z polecenia kubectl
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
@@ -87,59 +102,34 @@ Engine:
 ```
 
 
-### <a name="create-extensions"></a>Tworzenie rozszerzeń:
+## <a name="create-extensions"></a>Tworzenie rozszerzeń
 Połącz się z grupą serwerów za pomocą wybranego narzędzia klienckiego i uruchom standardowe zapytanie PostgreSQL:
 ```console
 CREATE EXTENSION <extension name>;
 ```
 
-### <a name="get-the-list-of-extension-created-in-your-server-group"></a>Pobierz listę rozszerzeń utworzonych w grupie serwerów:
+## <a name="show-the-list-of-extensions-created"></a>Pokaż listę utworzonych rozszerzeń
 Połącz się z grupą serwerów za pomocą wybranego narzędzia klienckiego i uruchom standardowe zapytanie PostgreSQL:
 ```console
 select * from pg_extension;
 ```
 
-### <a name="drop-an-extension-from-your-server-group"></a>Usuń rozszerzenie z grupy serwerów:
+## <a name="drop-an-extension"></a>Usuń rozszerzenie
 Połącz się z grupą serwerów za pomocą wybranego narzędzia klienckiego i uruchom standardowe zapytanie PostgreSQL:
 ```console
 drop extension <extension name>;
 ```
 
-## <a name="use-the-postgis-and-the-pg_cron-extensions"></a>Korzystanie z PostGIS i rozszerzeń Pg_cron
-
-### <a name="the-postgis-extension"></a>Rozszerzenie PostGIS
-
-Możemy włączyć rozszerzenie PostGIS w istniejącej grupie serwerów lub utworzyć nową, jeśli rozszerzenie jest już włączone:
-
-**Włączanie rozszerzenia w czasie tworzenia grupy serwerów:**
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server create -n pg2 -w 2 --extensions postgis
-```
-
-**Włączanie rozszerzenia na wystąpieniu, które już istnieje:**
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
-
-#Example:
-azdata arc postgres server edit --extensions postgis -n pg2
-```
-
-Aby sprawdzić, jakie rozszerzenia są zainstalowane, użyj poniższego standardowego polecenia PostgreSQL po nawiązaniu połączenia z wystąpieniem przy użyciu ulubionego narzędzia klienta PostgreSQL, takiego jak Azure Data Studio:
-```console
-select * from pg_extension;
-```
-
-Aby uzyskać przykład PostGIS, należy uzyskać [przykładowe dane](http://duspviz.mit.edu/tutorials/intro-postgis/) z Departamentu z badań miejskich w ramach usługi mit & planowanie. Może być konieczne uruchomienie `apt-get install unzip` programu w celu zainstalowania rozpakowania podczas korzystania z maszyny wirtualnej do testowania.
+## <a name="the-postgis-extension"></a>`PostGIS`Rozszerzenie
+Nie musisz dodawać `PostGIS` rozszerzenia do `shared_preload_libraries` .
+Pobierz [dane przykładowe](http://duspviz.mit.edu/tutorials/intro-postgis/) z działu z badań miejskich w ramach usługi mit & planowanie. Uruchom `apt-get install unzip` , aby zainstalować rozpakować zgodnie z wymaganiami.
 
 ```console
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
-Połączmy się z naszą bazą danych i Utwórz rozszerzenie PostGIS:
+Połączmy się z naszą bazą danych i Utwórz `PostGIS` rozszerzenie:
 
 ```console
 CREATE EXTENSION postgis;
@@ -165,7 +155,7 @@ CREATE TABLE coffee_shops (
 CREATE INDEX coffee_shops_gist ON coffee_shops USING gist (geom);
 ```
 
-Teraz możemy łączyć PostGIS z funkcją skalowania w poziomie, tworząc tabelę coffee_shops dystrybuowaną:
+Teraz możemy łączyć `PostGIS` się z funkcją skalowania w poziomie, tworząc tabelę coffee_shops dystrybuowaną:
 
 ```sql
 SELECT create_distributed_table('coffee_shops', 'id');
@@ -177,7 +167,7 @@ Załadujmy dane:
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
-I wypełnij `geom` pole z poprawnie zakodowaną szerokością i długością geograficzną w PostGIS `geometry` Typ danych:
+I wypełnij `geom` pole z poprawnie zakodowaną szerokością i długością geograficzną w `PostGIS` `geometry` typie danych:
 
 ```sql
 UPDATE coffee_shops SET geom = ST_SetSRID(ST_MakePoint(lon,lat),4326);
@@ -190,15 +180,15 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 ```
 
 
-### <a name="the-pg_cron-extension"></a>Rozszerzenie pg_cron
+## <a name="the-pg_cron-extension"></a>`pg_cron`Rozszerzenie
 
-Włączmy `pg_cron` do naszej grupy serwerów PostgreSQL, oprócz PostGIS:
+Teraz włączmy tę `pg_cron` grupę serwerów PostgreSQL, dodając ją do shared_preload_libraries:
 
 ```console
-azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
+azdata postgres server update -n pg2 -ns arc --extensions pg_cron
 ```
 
-Należy pamiętać, że spowoduje to ponowne uruchomienie węzłów i zainstalowanie dodatkowych rozszerzeń, co może potrwać 2-3 minut.
+Twoja Grupa serwerów zostanie ponownie uruchomiona, aby zakończyć instalację rozszerzeń. Może to potrwać od 2 do 3 minut.
 
 Teraz można nawiązać połączenie ponownie i utworzyć `pg_cron` rozszerzenie:
 
@@ -206,7 +196,7 @@ Teraz można nawiązać połączenie ponownie i utworzyć `pg_cron` rozszerzenie
 CREATE EXTENSION pg_cron;
 ```
 
-W celach testowych program pozwala utworzyć tabelę `the_best_coffee_shop` , która pobiera losowo nazwę z poprzedniej `coffee_shops` tabeli i ustawia zawartość tabeli:
+W celach testowych, program pozwala utworzyć tabelę `the_best_coffee_shop` pobierającą losowo nazwę z poprzedniej `coffee_shops` tabeli i wstawia zawartość tabeli:
 
 ```sql
 CREATE TABLE the_best_coffee_shop(name text);
@@ -238,10 +228,8 @@ SELECT * FROM the_best_coffee_shop;
 
 Aby uzyskać szczegółowe informacje na temat składni, zobacz [plik readme pg_cron](https://github.com/citusdata/pg_cron) .
 
->[!NOTE]
->Porzucenie rozszerzenia nie jest obsługiwane `citus` . `citus`Rozszerzenie jest wymagane w celu zapewnienia środowiska ze skalowaniem.
 
-## <a name="next-steps"></a>Następne kroki:
-- Przeczytaj dokumentację dotyczącą [PLV8](https://plv8.github.io/)
-- Przeczytaj dokumentację dotyczącą [PostGIS](https://postgis.net/)
+## <a name="next-steps"></a>Następne kroki
+- Przeczytaj dokumentację [`plv8`](https://plv8.github.io/)
+- Przeczytaj dokumentację [`PostGIS`](https://postgis.net/)
 - Przeczytaj dokumentację [`pg_cron`](https://github.com/citusdata/pg_cron)

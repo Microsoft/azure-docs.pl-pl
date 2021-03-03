@@ -4,18 +4,18 @@ description: Otrzymywanie powiadomień za pośrednictwem wiadomości SMS, elemen
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: cfe44fb5220b217b73c17280d5c8aaf87c57ebaf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a8ab9520527a0d5ebc1de698f84e9f64e28b869a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718118"
 ---
 # <a name="alerts-on-activity-log"></a>Alerty dotyczące dziennika aktywności
 
 ## <a name="overview"></a>Omówienie
 
-Alerty dziennika aktywności są alertami, które uaktywniają się, gdy wystąpi nowe [zdarzenie dziennika aktywności](../essentials/activity-log-schema.md) zgodne z warunkami określonymi w alercie. Reguła alertu będzie uruchamiana na podstawie kolejności i ilości zdarzeń zarejestrowanych w [dzienniku aktywności platformy Azure](../platform/platform-logs-overview.md). Reguły alertów dziennika aktywności to zasoby platformy Azure, dzięki czemu można je tworzyć przy użyciu szablonu Azure Resource Manager. Można je także tworzyć, aktualizować lub usuwać w Azure Portal. W tym artykule przedstawiono pojęcia dotyczące alertów dziennika aktywności. Aby uzyskać więcej informacji na temat tworzenia i używania reguł alertów dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności i zarządzanie nimi](alerts-activity-log.md).
+Alerty dziennika aktywności są alertami, które uaktywniają się, gdy wystąpi nowe [zdarzenie dziennika aktywności](../essentials/activity-log-schema.md) zgodne z warunkami określonymi w alercie. Reguła alertu będzie uruchamiana na podstawie kolejności i ilości zdarzeń zarejestrowanych w [dzienniku aktywności platformy Azure](../essentials/platform-logs-overview.md). Reguły alertów dziennika aktywności to zasoby platformy Azure, dzięki czemu można je tworzyć przy użyciu szablonu Azure Resource Manager. Można je także tworzyć, aktualizować lub usuwać w Azure Portal. W tym artykule przedstawiono pojęcia dotyczące alertów dziennika aktywności. Aby uzyskać więcej informacji na temat tworzenia i używania reguł alertów dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności i zarządzanie nimi](alerts-activity-log.md).
 
 > [!NOTE]
 > * **Nie można** tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
@@ -54,12 +54,12 @@ Po aktywowaniu alertu dziennika aktywności program używa grupy akcji do genero
 * Użyj istniejącej grupy akcji w alercie dziennika aktywności.
 * Utwórz nową grupę akcji.
 
-Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](../platform/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](./action-groups.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się [z omówieniem alertów](../platform/alerts-overview.md).
+- Zapoznaj się [z omówieniem alertów](./alerts-overview.md).
 - Dowiedz się więcej o [tworzeniu i modyfikowaniu alertów dziennika aktywności](alerts-activity-log.md).
 - Przejrzyj [schemat elementu webhook alertu dziennika aktywności](../alerts/activity-log-alerts-webhook.md).
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../service-health/service-notifications.md).

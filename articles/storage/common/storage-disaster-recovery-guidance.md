@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379832"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737651"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -55,7 +55,7 @@ Ponadto należy pamiętać o najlepszych rozwiązaniach dotyczących utrzymania 
 
 - **Dyski:** Użyj [Azure Backup](https://azure.microsoft.com/services/backup/) , aby utworzyć kopię zapasową dysków maszyny wirtualnej używanych przez maszyny wirtualne platformy Azure. Należy również rozważyć użycie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) do ochrony maszyn wirtualnych w przypadku awarii regionalnej.
 - **Blokowe obiekty blob:** Włącz opcję [usuwania nietrwałego](../blobs/soft-delete-blob-overview.md) , aby chronić przed usuwaniem na poziomie obiektów i zastępowaniem, lub kopiować blokowe obiekty blob na inne konto magazynu w innym regionie przy użyciu [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)lub [biblioteki przenoszenia danych platformy Azure](storage-use-data-movement-library.md).
-- **Pliki:** Użyj [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) , aby utworzyć kopię zapasową udziałów plików. Włącz także [usuwanie nietrwałe](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) , aby chronić przed przypadkowym usunięciem udziałów plików. Aby zapewnić nadmiarowość geograficzną, gdy GRS nie jest dostępna, użyj [AzCopy](./storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki na inne konto magazynu w innym regionie.
+- **Pliki:** Użyj [Azure Backup](../../backup/azure-file-share-backup-overview.md) , aby utworzyć kopię zapasową udziałów plików. Włącz także [usuwanie nietrwałe](../files/storage-files-prevent-file-share-deletion.md) , aby chronić przed przypadkowym usunięciem udziałów plików. Aby zapewnić nadmiarowość geograficzną, gdy GRS nie jest dostępna, użyj [AzCopy](./storage-use-azcopy-v10.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki na inne konto magazynu w innym regionie.
 - **Tabele:** Użyj [AzCopy](./storage-use-azcopy-v10.md) , aby wyeksportować dane tabeli do innego konta magazynu w innym regionie.
 
 ## <a name="track-outages"></a>Śledź przerwy

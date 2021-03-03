@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 7c086938ec98fc1d34ba21f678b2091c3b5ac1c4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 95e810373ac5a591c530004e8d1175c3300656f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700562"
 ---
 # <a name="workbook-parameters"></a>Parametry skoroszytu
 
@@ -81,5 +81,5 @@ Użyj `Previews` sekcji okienka _Edytowanie parametru_ , aby wyświetlić opcje 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](../platform/workbooks-overview.md#visualizations) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
-* [Kontroluj](../platform/workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
+* [Rozpocznij](./workbooks-overview.md#visualizations) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
+* [Kontroluj](./workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

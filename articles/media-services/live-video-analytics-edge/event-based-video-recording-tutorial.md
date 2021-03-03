@@ -3,12 +3,12 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: fda727a1abb488910d52b756455d2b6843e0e8b1
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550255"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702321"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
@@ -45,7 +45,7 @@ Wymagania wstępne dotyczące tego samouczka:
     > [!TIP]
     > Może zostać wyświetlony monit o zainstalowanie platformy Docker. Zignoruj ten monit.
 * [Zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) na komputerze deweloperskim.
-* Ukończ [skrypt konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)i [Skonfiguruj środowisko](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?pivots=programming-language-csharp#set-up-your-development-environment)
+* Ukończ [skrypt konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)i [Skonfiguruj środowisko](./detect-motion-emit-events-quickstart.md?pivots=programming-language-csharp#set-up-your-development-environment)
 
 Po zakończeniu tych kroków będziesz mieć odpowiednie zasoby platformy Azure wdrożone w ramach subskrypcji platformy Azure:
 
@@ -120,8 +120,8 @@ Te pliki będą potrzebne do wykonania tych czynności.
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -229,7 +229,7 @@ Aby wyświetlić zdarzenia z modułu objectCounter i z poziomu modułu analizy f
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {

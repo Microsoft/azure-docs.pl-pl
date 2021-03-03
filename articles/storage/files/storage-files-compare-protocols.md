@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 482e6c9f2e25b867574090a1f34e95f466916ba9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711845"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
@@ -21,11 +21,12 @@ Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plik�
 
 ## <a name="differences-at-a-glance"></a>Różnice w skrócie
 
-|Cechy  |NFS (wersja zapoznawcza)  |SMB  |
+|Cecha  |NFS (wersja zapoznawcza)  |SMB  |
 |---------|---------|---------|
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Zalecany system operacyjny     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
 |[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
+|Model rozliczeń         |[Płatność za zainicjowaną pojemność](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)         |[Płatność za obsługę administracyjną dla warstwy Premium](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model), [płatność zgodnie z rzeczywistym użyciem dla warstwy Standardowa](https://docs.microsoft.com/azure/storage/files/understanding-billing#pay-as-you-go-model)         |
 |[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |

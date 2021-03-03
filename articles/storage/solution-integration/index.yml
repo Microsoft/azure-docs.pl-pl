@@ -1,0 +1,56 @@
+### YamlMime:Landing
+title: Dokumentacja rozwiązań dla partnerów w usłudze Azure Storage
+summary: Sprawdzone rozwiązania partnerskie usługi Azure Storage umożliwiają zaawansowane scenariusze na platformie Azure Storage.
+metadata:
+  title: Sprawdzone rozwiązania partnerskie usługi Azure Storage
+  description: Sprawdzone rozwiązania partnerskie usługi Azure Storage umożliwiają zaawansowane scenariusze na platformie Azure Storage.
+  services: storage
+  ms.service: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749122"
+landingContent:
+- title: Azure Storage Analytics i partnerzy danych Big Data
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zweryfikowani partnerzy Azure Storage Analytics
+      url: .\validated-partners\analytics\partner-overview.md
+- title: Archiwum usługi Azure Storage, kopia zapasowa i partnerzy BCDR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zweryfikowane partnerzy usługi Azure Storage i BCDR
+      url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Przewodnik Szybki Start dla firmy CommVault
+      url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - text: Przewodnik szybkiego startu Veeam
+      url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+- title: Partnerzy rozwiązań kontenera usługi Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zweryfikowani Partnerzy rozwiązań kontenera usługi Azure Storage
+      url: .\validated-partners\container-solutions\partner-overview.md
+- title: Partnerzy zarządzania danymi usługi Azure Storage i migracji
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zweryfikowane partnerzy zarządzania danymi usługi Azure Storage i migracji
+      url: .\validated-partners\data-management\partner-overview.md
+- title: Partnerzy magazynu podstawowego i dodatkowego usługi Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zweryfikowani Partnerzy dla magazynu podstawowego i dodatkowego
+      url: .\validated-partners\primary-secondary-storage\partner-overview.md

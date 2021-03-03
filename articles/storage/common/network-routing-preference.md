@@ -1,26 +1,26 @@
 ---
-title: Skonfiguruj preferencję routingu sieciowego (wersja zapoznawcza)
+title: Preferencja routingu sieciowego
 titleSuffix: Azure Storage
-description: Skonfiguruj preferencję routingu sieciowego (wersja zapoznawcza) dla konta usługi Azure Storage, aby określić sposób kierowania ruchu sieciowego do konta z klientów przez Internet.
+description: Preferencja routingu sieciowego umożliwia określenie sposobu kierowania ruchu sieciowego do konta z klientów przez Internet.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 02/11/2021
 ms.author: santoshc
-ms.reviewer: tamram
+ms.reviewer: normesta
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726941"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Konfigurowanie preferencji routingu sieciowego dla usługi Azure Storage (wersja zapoznawcza)
+# <a name="network-routing-preference-for-azure-storage"></a>Preferencja routingu sieciowego dla usługi Azure Storage
 
-Możesz skonfigurować [preferencję routingu](../../virtual-network/routing-preference-overview.md) sieciowego (wersja zapoznawcza) dla konta usługi Azure Storage, aby określić, w jaki sposób ruch sieciowy jest kierowany do konta z klientów przez Internet. Domyślnie ruch z Internetu jest kierowany do publicznego punktu końcowego konta magazynu za pośrednictwem [sieci globalnej firmy Microsoft](../../networking/microsoft-global-network.md). Usługa Azure Storage udostępnia dodatkowe opcje konfigurowania sposobu kierowania ruchu do konta magazynu.
+Można skonfigurować [preferencję routingu](../../virtual-network/routing-preference-overview.md) sieciowego dla konta usługi Azure Storage, aby określić, w jaki sposób ruch sieciowy jest kierowany do konta z klientów przez Internet. Domyślnie ruch z Internetu jest kierowany do publicznego punktu końcowego konta magazynu za pośrednictwem [sieci globalnej firmy Microsoft](../../networking/microsoft-global-network.md). Usługa Azure Storage udostępnia dodatkowe opcje konfigurowania sposobu kierowania ruchu do konta magazynu.
 
 Skonfigurowanie preferencji routingu pozwala elastycznie optymalizować ruch w ramach wydajności sieci w warstwie Premium lub w kosztach. Konfigurując preferencję routingu, należy określić, jak domyślnie ruch będzie kierowany do publicznego punktu końcowego dla konta magazynu. Możesz również opublikować punkty końcowe specyficzne dla trasy dla konta magazynu.
 
@@ -37,9 +37,11 @@ Na poniższym diagramie przedstawiono sposób przepływu ruchu między klientem 
 
 ![Omówienie opcji routingu dla usługi Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-Aby uzyskać więcej informacji o preferencjach routingu na platformie Azure, zobacz [co to jest preferencja routingu (wersja zapoznawcza)?](../../virtual-network/routing-preference-overview.md).
+Aby uzyskać więcej informacji o preferencjach routingu na platformie Azure, zobacz [co to jest preferencja routingu?](../../virtual-network/routing-preference-overview.md)
 
 ## <a name="routing-configuration"></a>Konfiguracja routingu
+
+Instrukcje krok po kroku, które pokazują, jak skonfigurować preferencję routingu i punkty końcowe specyficzne dla trasy, można znaleźć w temacie [Konfigurowanie preferencji routingu sieciowego dla usługi Azure Storage](configure-network-routing-preference.md).
 
 Jako domyślne preferencje routingu dla publicznego punktu końcowego konta magazynu można wybrać między siecią globalną i routingiem internetowym firmy Microsoft. Domyślne preferencja routingu ma zastosowanie do całego ruchu klientów spoza platformy Azure i ma wpływ na punkty końcowe dla Azure Data Lake Storage Gen2, usługi BLOB Storage, Azure Files i statycznych witryn sieci Web. Konfigurowanie preferencji routingu nie jest obsługiwane w przypadku kolejek platformy Azure ani tabel platformy Azure.
 
@@ -65,7 +67,7 @@ Jeśli masz magazyn Geograficznie nadmiarowy do odczytu (RA-GRS) lub konto magaz
 
 Parametry połączenia dla opublikowanych punktów końcowych określonych tras można skopiować za pośrednictwem [Azure Portal](https://portal.azure.com). Te parametry połączenia mogą służyć do autoryzacji klucza udostępnienia wszystkim istniejącym zestawom SDK i interfejsom API usługi Azure Storage.
 
-## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
+## <a name="regional-availability"></a>Dostępność regionalna
 
 Preferencja routingu dla usługi Azure Storage jest dostępna w następujących regionach:
 
@@ -100,16 +102,17 @@ Preferencja routingu dla usługi Azure Storage jest dostępna w następujących 
 - Australia Wschodnia 
 - Australia Południowo-Wschodnia 
 
-Następujące znane problemy mają wpływ na podgląd preferencji routingu usługi Azure Storage:
+Następujące znane problemy mają wpływ na preferencję routingu usługi Azure Storage:
 
 - Żądania dostępu dla punktu końcowego specyficznego dla trasy dla sieci globalnej firmy Microsoft kończą się niepowodzeniem z błędem HTTP 404 lub odpowiednikiem. Routing przez sieć globalną firmy Microsoft działa zgodnie z oczekiwaniami, gdy jest ustawiony jako domyślne preferencje routingu dla publicznego punktu końcowego.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Aby uzyskać szczegółowe informacje dotyczące cen i rozliczeń, zobacz sekcję dotyczącą **cennika** w [preferencjach routingu (wersja zapoznawcza)?](../../virtual-network/routing-preference-overview.md#pricing).
+Aby uzyskać szczegółowe informacje dotyczące cen i rozliczeń, zobacz sekcję dotyczącą **cennika** w sekcji [co to jest preferencja routingu?](../../virtual-network/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest preferencja routingu (wersja zapoznawcza)?](../../virtual-network/routing-preference-overview.md)
+- [Co to jest preferencja routingu?](../../virtual-network/routing-preference-overview.md)
+- [Konfigurowanie preferencji routingu sieciowego](configure-network-routing-preference.md)
 - [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](storage-network-security.md)
 - [Zalecenia dotyczące zabezpieczeń usługi BLOB Storage](../blobs/security-recommendations.md)

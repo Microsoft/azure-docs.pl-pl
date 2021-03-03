@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694601"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Opis | Dostępność  |
 |------------------------------|---------------|---------------|
-| [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które modyfikują wyniki wyszukiwania w celu uzyskania bardziej istotnych wyników. W przypadku małych zmian w żądaniu wyszukiwania można wypróbować te funkcje na istniejących indeksach.</br></br>[Zapytanie semantyczne](semantic-how-to-query-request.md) to nowy typ zapytania, który wykorzystuje zaawansowania w przetwarzaniu języka naturalnego w celu poprawy klasyfikacji, a także poznanie zamiaru zapytania, aby zapewnić odpowiedzi, napisy i semantykę semantyczną.</br></br>[Klasyfikacja i odpowiedzi semantyczne (odpowiedzi, napisy i najważniejsze)](semantic-how-to-query-response.md) odnoszą się do algorytmu, który definiuje zapytanie semantyczne i strukturę odpowiedzi. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza i [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
+| [Wyszukiwanie semantyczne](semantic-search-overview.md) | Kolekcja funkcji związanych z zapytaniami, które zwiększają istotność wyników wyszukiwania z bardzo małym nakładem pracy. W przypadku małych zmian w żądaniu wyszukiwania można wypróbować te funkcje na istniejących indeksach.</br></br>[Zapytanie semantyczne](semantic-how-to-query-request.md) to nowy typ zapytania, który wykorzystuje zaawansowania w przetwarzaniu języka naturalnego w celu poprawy klasyfikacji, a także poznanie zamiaru zapytania, aby zapewnić odpowiedzi, napisy i semantykę semantyczną.</br></br>[Klasyfikacja i odpowiedzi semantyczne (odpowiedzi, napisy i najważniejsze)](semantic-how-to-query-response.md) odnoszą się do modelu, który ocenia wyniki i możliwość dodania struktury do odpowiedzi przez model. | Publiczna wersja zapoznawcza ([według żądania](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Użyj usługi [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) API-Version = 2020-06 -30 — wersja zapoznawcza i [eksplorator wyszukiwania](search-explorer.md) w Azure Portal. </br></br>Obowiązują ograniczenia dotyczące regionów i warstw. |
 | [Sprawdzanie pisowni — terminy zapytań](speller-how-to-add.md) | Przed przekazaniem terminów zapytania do aparatu wyszukiwania można sprawdzić, czy pisownia nie jest możliwa. `speller`Opcja działa z dowolnym typem kwerendy (prosty, pełny lub semantyczny). |  Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza|
 | [Indeksator usługi SharePoint Online](search-howto-index-sharepoint-online.md) | Ten indeksator nawiązuje połączenie z witryną usługi SharePoint Online, dzięki czemu można indeksować zawartość z biblioteki dokumentów. | Publiczna wersja zapoznawcza, tylko REST, API-Version = 2020-06 -30 — wersja zapoznawcza |
 
@@ -46,7 +46,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 | Month (Miesiąc) | Cecha | Opis |
 |-------|---------|-------------|
 | Listopad | [Szyfrowanie klucza zarządzanego przez klienta (rozszerzone)](search-security-manage-encryption-keys.md) | Rozszerza szyfrowanie zarządzane przez klienta przez cały zakres zasobów utworzonych i zarządzanych przez usługę wyszukiwania. Ogólnie dostępna.|
-| Wrzesień | [Visual Studio Code rozszerzenie platformy Azure Wyszukiwanie poznawcze](search-get-started-vs-code.md) | Dodaje obszar roboczy, nawigację, IntelliSense i szablony służące do tworzenia indeksów, indeksatorów, źródeł danych i umiejętności. | Publiczna wersja zapoznawcza |
+| Wrzesień | [Visual Studio Code rozszerzenie platformy Azure Wyszukiwanie poznawcze](search-get-started-vs-code.md) | Dodaje obszar roboczy, nawigację, IntelliSense i szablony służące do tworzenia indeksów, indeksatorów, źródeł danych i umiejętności. Ta funkcja jest obecnie w publicznej wersji zapoznawczej.| 
 | Wrzesień | [Tożsamość usługi zarządzanej (indeksatory)](search-howto-managed-identities-data-sources.md) | Ogólnie dostępna.  |
 | Wrzesień | [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Ogólnie dostępna.  |
 | Wrzesień | [Interfejs API REST zarządzania (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Ogólnie dostępna. |

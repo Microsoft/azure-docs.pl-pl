@@ -1,18 +1,18 @@
 ---
-title: Konfigurowanie Azure Monitor na potrzeby zbierania danych przez agentów kontenerów | Microsoft Docs
-description: W tym artykule opisano sposób konfigurowania Azure Monitor dla agenta kontenerów w celu sterowania kolekcją strumienia stdout/stderr i zmiennych środowiskowych.
+title: Konfigurowanie zbierania danych agenta usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano, jak można skonfigurować agenta usługi Container Insights w celu kontrolowania zbierania dzienników stdout/stderr i zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708394"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurowanie zbierania danych agenta dla usługi Azure Monitor kontenerów
+# <a name="configure-agent-data-collection-for-container-insights"></a>Konfigurowanie zbierania danych agenta dla usługi Container Insights
 
-Azure Monitor kontenerów zbiera zmienne stdout, stderr i środowiskowe z obciążeń kontenera wdrożonych do zarządzanych klastrów Kubernetes z poziomu agenta kontenera. Ustawienia zbierania danych agentów można skonfigurować, tworząc niestandardowe Kubernetes ConfigMaps w celu kontrolowania tego środowiska. 
+W usłudze Container Insights zbierane są zmienne stdout, stderr i środowiskowe z obciążeń kontenera wdrożonych do zarządzanych klastrów Kubernetes z poziomu agenta kontenera. Ustawienia zbierania danych agentów można skonfigurować, tworząc niestandardowe Kubernetes ConfigMaps w celu kontrolowania tego środowiska. 
 
 W tym artykule pokazano, jak utworzyć ConfigMap i skonfigurować zbieranie danych zgodnie z wymaganiami.
 
@@ -142,8 +142,8 @@ Dane wyjściowe będą wyświetlane podobnie jak w przypadku następujących wer
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Azure Monitor kontenerów nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą Azure monitor dla kontenerów](./container-insights-log-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci, aby zapewnić obsługę procesów i procedur operacyjnych DevOps.
+- Usługa Container Insights nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą usługi Container Insights](./container-insights-log-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci do obsługi procesów i procedur operacyjnych DevOps.
 
-- Po włączeniu monitorowania w celu zbierania informacji o kondycji i użyciu zasobów AKS lub hybrydowego klastra oraz obciążeń działających na nich można dowiedzieć się, [jak używać](container-insights-analyze.md) Azure monitor do kontenerów.
+- Dzięki monitorowaniu w celu zbierania informacji o kondycji i użyciu zasobów AKS lub klastra hybrydowego oraz obciążeń działających na nich można dowiedzieć się, [jak korzystać z](container-insights-analyze.md) usługi Container Insights.
 
 - Wyświetl [przykłady zapytań dotyczących dzienników](container-insights-log-search.md#search-logs-to-analyze-data) , aby zobaczyć wstępnie zdefiniowane zapytania i przykłady do oszacowania lub dostosowania do tworzenia alertów, wizualizacji lub analizowania klastrów.

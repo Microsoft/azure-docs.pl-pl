@@ -4,19 +4,18 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do w
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980958"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732199"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
 Azure Functions umożliwia uruchamianie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. W tym artykule dowiesz się, jak za pomocą Azure Functions utworzyć funkcję wyzwalacza HTTP "Hello World" w Azure Portal.
 
->[!NOTE]
->Edycja w portalu jest obsługiwana tylko w przypadku funkcji skryptów JavaScript, PowerShell, TypeScript i C#.<br><br>W przypadku bibliotek klas C#, Java i Python funkcje można utworzyć aplikację funkcji w portalu, ale należy również utworzyć funkcje lokalnie, a następnie opublikować je na platformie Azure. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 Firma Microsoft zaleca, aby [opracować funkcje lokalnie](functions-develop-local.md) i publikować w aplikacji funkcji na platformie Azure.  
 Użyj jednego z poniższych linków, aby rozpocząć pracę z wybranym lokalnym środowiskiem programistycznym i językiem:

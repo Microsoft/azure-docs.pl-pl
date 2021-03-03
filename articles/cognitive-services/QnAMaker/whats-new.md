@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: afef6b0b868455d806b085a2e1f15f497e8c6799
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580891"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706728"
 ---
 # <a name="whats-new-in-qna-maker"></a>Co nowego w QnA Maker
 
@@ -64,11 +64,11 @@ Dowiedz się, co nowego w QnA Maker.
 
 ### <a name="october-2019"></a>Październik 2019 r.
 
-* [Jawne ustawienie języka](./index.yml) dla wszystkich baz wiedzy w usłudze QNA Maker.
+* Jawne ustawienie języka dla wszystkich baz wiedzy w usłudze QnA Maker.
 
 ### <a name="september-2019"></a>Wrzesień 2019 r.
 
-* Importowanie i eksportowanie w [formacie pliku xls](./index.yml)
+* Importuj i Eksportuj w formacie pliku XLS.
 
 ### <a name="june-2019"></a>Czerwiec 2019 r.
 

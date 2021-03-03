@@ -221,9 +221,9 @@
         - name: Wzmacnianie zabezpieczeń hostów platformy Docker
           displayName: containers
           href: harden-docker-hosts.md
-        - name: Korzystanie z usługi Azure Defender dla bazy danych SQL
-          href: defender-for-sql-usage.md
-          displayName: 'hybrid, arc'
+    - name: Korzystanie z usługi Azure Defender dla bazy danych SQL
+      href: defender-for-sql-usage.md
+      displayName: 'hybrid, arc'
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
       items:
         - name: Skanowanie obrazów w rejestrze pod kątem luk w zabezpieczeniach
@@ -269,8 +269,6 @@
     - name: Ochrona obciążeń Kubernetes
       displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
-    - name: Zarządzanie danymi użytkownika badań
-      href: security-center-investigation-user-data.md
     - name: Uzyskiwanie wglądu w całą dzierżawę
       href: security-center-management-groups.md
     - name: Dostosowywanie zasad ochrony informacji bazy danych SQL
@@ -292,7 +290,7 @@
           href: faq-vms.md
         - name: Istniejący użytkownicy usługi Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Wbudowane zasady zabezpieczeń
+    - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policy'
       href: policy-reference.md
     - name: Blog harmonogramu działania dla platformy Azure

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711998"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -244,7 +244,7 @@ Network Watcher obecnie ma następujące możliwości:
 
 Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku. Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, tworzone są tylko dzienniki dotyczące Blob service.
 
-Aby użyć analityka magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](../../storage/common/storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustaw właściwości usługi, aby włączyć analityka magazynu indywidualnie dla każdej usługi.
+Aby użyć analityka magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](../../storage/common/manage-storage-analytics-logs.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustaw właściwości usługi, aby włączyć analityka magazynu indywidualnie dla każdej usługi.
 
 Zagregowane dane są przechowywane w dobrze znanym obiekcie BLOB (na potrzeby rejestrowania) i w dobrze znanych tabelach (dla metryk), do których można uzyskać dostęp za pomocą interfejsów API Blob service i Table service.
 

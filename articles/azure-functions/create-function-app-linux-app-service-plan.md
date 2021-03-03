@@ -3,18 +3,18 @@ title: Tworzenie aplikacji funkcji w systemie Linux z poziomu Azure Portal
 description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure w systemie Linux przy użyciu Azure Portal.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d6787e1dd8312e368964a1f555025beff9a06a23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732262"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Tworzenie aplikacji funkcji w systemie Linux w planie Azure App Service
 
 Usługa Azure Functions umożliwia obsługę funkcji w systemie Linux w domyślnym kontenerze usługi Azure App Service. W tym artykule przedstawiono sposób użycia [Azure Portal](https://portal.azure.com) do utworzenia aplikacji funkcji hostowanej w systemie Linux, która jest uruchamiana w [planie App Service](dedicated-plan.md). Możesz również [skorzystać z własnego kontenera niestandardowego](functions-create-function-linux-custom-image.md).
 
-![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

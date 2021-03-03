@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 2e6f79643493457a587f907f2649c7ab50b963f4
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710502"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -64,6 +64,8 @@ Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jak
 > W przypadkach, gdy zmieniasz model podstawowy używany do szkolenia i masz dźwięk w zestawie danych szkoleniowych, *zawsze* sprawdzaj, czy nowy wybrany model podstawowy [obsługuje szkolenia z danymi audio](language-support.md#speech-to-text). Jeśli wcześniej użyty model podstawowy nie obsługiwał szkolenia z danymi audio, a zestaw danych szkoleniowych zawiera dźwięk, czas uczenia z nowym modelem podstawowym zostanie **znacząco** zwiększony i może być łatwo przeszedł z kilku godzin do kilku dni i więcej. Jest to szczególnie prawdziwe, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
 >
 > Jeśli problem opisany w powyższym akapicie, możesz szybko skrócić czas uczenia, zmniejszając ilość dźwięku w zestawie danych lub usuwając ją całkowicie i pozostawiając tylko tekst. Ta ostatnia opcja jest zdecydowanie zalecana, jeśli subskrypcja usługi mowy **nie** znajduje się w [regionie z dedykowanym sprzętem](custom-speech-overview.md#set-up-your-azure-account) do szkoleń.
+>
+> W regionach z dedykowanym sprzętem do szkoleń usługa mowy będzie korzystać z maksymalnie 20 godzin korzystania z dźwięku na potrzeby szkolenia. W innych regionach zostanie użyta tylko do 8 godzin audio.
 
 ## <a name="upload-data"></a>Przekazywanie danych
 
@@ -127,7 +129,7 @@ Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to moż
 > [!NOTE]
 > Podczas przekazywania szkoleń i testowania danych rozmiar pliku zip nie może przekroczyć 2 GB. Można testować tylko z *jednego* zestawu danych, pamiętając, aby zachować go w odpowiednim rozmiarze pliku. Ponadto każdy plik szkoleniowy nie może przekroczyć 60 sekund, w przeciwnym razie wystąpi błąd.
 
-Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się zapewnienie transkrypcji słów-by-Word dla około 10 do 20 godzin audio. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
+Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się dostarczenie transkrypcji słów-by-Word od 1 do 20 godzin audio. Jednak nawet w zaledwie 30 minutach może pomóc w ulepszaniu wyników rozpoznawania. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
 
 Na przykład:
 

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616290"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718033"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Uaktualnij do bieżącego interfejsu API alertów dziennika ze starszej wersji interfejsu API alertu Log Analytics
 
@@ -19,23 +19,23 @@ ms.locfileid: "100616290"
 > Ten artykuł ma zastosowanie tylko do publicznej platformy Azure (**nie** do Azure Government lub chmury z Chinami platformy Azure).
 
 > [!NOTE]
-> Gdy użytkownik zdecyduje się na przełączenie preferencji do bieżącego [interfejsu API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) , nie jest możliwe przywrócenie starszego, starszego [interfejsu api alertów log Analytics](../platform/api-alerts.md).
+> Gdy użytkownik zdecyduje się na przełączenie preferencji do bieżącego [interfejsu API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) , nie jest możliwe przywrócenie starszego, starszego [interfejsu api alertów log Analytics](./api-alerts.md).
 
-W przeszłości użytkownicy korzystali z [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) , aby zarządzać regułami alertów dziennika. Bieżące obszary robocze używają [interfejsu API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). W tym artykule opisano zalety i proces przełączania ze starszego interfejsu API do bieżącego interfejsu API.
+W przeszłości użytkownicy korzystali z [starszego interfejsu API alertów log Analytics](./api-alerts.md) , aby zarządzać regułami alertów dziennika. Bieżące obszary robocze używają [interfejsu API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). W tym artykule opisano zalety i proces przełączania ze starszego interfejsu API do bieżącego interfejsu API.
 
 ## <a name="benefits"></a>Korzyści
 
 - Pojedynczy szablon służący do tworzenia reguł alertów (wcześniej wymaganych trzech oddzielnych szablonów).
 - Pojedynczy interfejs API dla obu Log Analytics obszarów roboczych lub zasobów Application Insights.
-- [Obsługa poleceń cmdlet programu PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Obsługa poleceń cmdlet programu PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Wyrównanie wartości dla wszystkich typów alertów.
-- Możliwość tworzenia [alertów dziennika obejmującego wiele obszarów roboczych](../log-query/cross-workspace-query.md) obejmujących kilka zasobów zewnętrznych, takich jak log Analytics obszarów roboczych lub zasobów Application Insights.
+- Możliwość tworzenia [alertów dziennika obejmującego wiele obszarów roboczych](../logs/cross-workspace-query.md) obejmujących kilka zasobów zewnętrznych, takich jak log Analytics obszarów roboczych lub zasobów Application Insights.
 - Użytkownicy mogą określić wymiary, aby podzielić alerty za pomocą parametru "Aggregate on".
 - Alerty dzienników mają dłuższy okres niż dwa dni (wcześniej ograniczone do jednego dnia).
 
 ## <a name="impact"></a>Wpływ
 
-- Wszystkie nowe reguły muszą zostać utworzone/zmodyfikowane przy użyciu bieżącego interfejsu API. Zobacz [użycie przykładowe za pomocą szablonu zasobów platformy Azure](alerts-log-create-templates.md) i [przykładowego użycia za pośrednictwem programu PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Wszystkie nowe reguły muszą zostać utworzone/zmodyfikowane przy użyciu bieżącego interfejsu API. Zobacz [użycie przykładowe za pomocą szablonu zasobów platformy Azure](alerts-log-create-templates.md) i [przykładowego użycia za pośrednictwem programu PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Ponieważ reguły stają się Azure Resource Manager monitorowanymi zasobami w bieżącym interfejsie API i muszą być unikatowe, identyfikator zasobu reguł zmieni się na tę strukturę: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Nazwy wyświetlane reguły alertu pozostaną niezmienione.
 
 ## <a name="process"></a>Proces
@@ -104,7 +104,7 @@ Jeśli obszar roboczy Log Analytics nie został przełączony, odpowiedź:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [alertach dziennika Azure monitor](../platform/alerts-unified-log.md).
+- Dowiedz się więcej o [alertach dziennika Azure monitor](./alerts-unified-log.md).
 - Dowiedz się [, jak zarządzać alertami dzienników przy użyciu interfejsu API](alerts-log-create-templates.md).
-- Dowiedz się, jak [zarządzać alertami dziennika przy użyciu programu PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Dowiedz się więcej o [funkcji alertów platformy Azure](../platform/alerts-overview.md).
+- Dowiedz się, jak [zarządzać alertami dziennika przy użyciu programu PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Dowiedz się więcej o [funkcji alertów platformy Azure](./alerts-overview.md).

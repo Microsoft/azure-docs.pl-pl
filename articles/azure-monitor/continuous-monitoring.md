@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731650"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
 
@@ -36,7 +36,7 @@ Aby uzyskać wgląd w całe środowisko, należy włączyć monitorowanie wszyst
 Aplikacje są tak niezawodne, jak ich podstawowa infrastruktura. Monitorowanie włączone w całej infrastrukturze pomoże Ci w osiągnięciu pełnego zauważalności i ułatwi odnajdywanie potencjalnej głównej przyczyny, gdy coś się nie powiedzie. Azure Monitor pomaga śledzić kondycję i wydajność całej infrastruktury hybrydowej, w tym takie zasoby, jak maszyny wirtualne, kontenery, magazyn i sieć.
 
 - Na podstawie większości zasobów platformy Azure nie ma konfiguracji, czy są automatycznie uzyskiwane [metryki platformy, dzienniki aktywności i dzienniki diagnostyczne](agents/data-sources.md) .
-- Włącz bardziej szczegółowe monitorowanie dla maszyn wirtualnych przy użyciu [Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md).
+- Włącz bardziej szczegółowe monitorowanie dla maszyn wirtualnych za pomocą szczegółowych informacji o [maszynach](vm/vminsights-overview.md)wirtualnych.
 -  Włącz bardziej szczegółowe monitorowanie klastrów AKS za pomocą [Azure monitor dla kontenerów](containers/container-insights-overview.md).
 - Dodawanie [rozwiązań monitorowania](./monitor-reference.md) dla różnych aplikacji i usług w danym środowisku.
 

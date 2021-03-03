@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d4cd69a90c4af2f996bd965ffaa145dce761018f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 512316b78a0d6422daf5e268ef30db72ccbcfaeb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688318"
 ---
-# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Logowanie jednokrotne oparte na nagłówkach dla aplikacji lokalnych z serwerem proxy aplikacja usługi Azure AD (wersja zapoznawcza)
+# <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Logowanie jednokrotne oparte na nagłówkach dla aplikacji lokalnych z serwerem proxy aplikacja usługi Azure AD
 
 Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) natywnie obsługuje dostęp za pomocą logowania jednokrotnego do aplikacji, które używają nagłówków do uwierzytelniania. Możesz skonfigurować wartości nagłówka wymagane przez aplikację w usłudze Azure AD. Wartości nagłówka zostaną wysłane do aplikacji za pośrednictwem serwera proxy aplikacji. Niektóre zalety korzystania z natywnej obsługi uwierzytelniania opartego na nagłówkach za pomocą serwera proxy aplikacji obejmują:  
 

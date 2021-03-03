@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762548"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704807"
 ---
 # <a name="claim-sets"></a>Zestawy oświadczeń
 
@@ -26,7 +26,8 @@ Oświadczenia wygenerowane w procesie zaświadczania enclaves za pomocą zaświa
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Typowe oświadczenia przychodzące we wszystkich typach zaświadczania
 
-Poniższe oświadczenia są generowane przez zaświadczenie platformy Azure i mogą być używane do definiowania reguł autoryzacji w zasadach niestandardowych:
+Poniższe oświadczenia są generowane przez zaświadczenie platformy Azure i mogą być używane przez autorów zasad do definiowania reguł autoryzacji w niestandardowych zasadach dla wszystkich typów zaświadczania.
+
 - **x-MS-Ver**: wersja schematu JWT (oczekiwana wartość to "1,0")
 - **x-MS-zaświadczanie-Type**: wartość ciągu reprezentująca typ zaświadczania 
 - **x-MS-Policy-hash**: skrót zasad oceny zaświadczania platformy Azure obliczony jako BASE64URL (SHA256 (UTF8 (BASE64URL (utf8)))
@@ -44,7 +45,9 @@ policy_signer | x-MS-Policy-Signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Typowe oświadczenia wychodzące we wszystkich typach zaświadczania
 
-Poniżej oświadczeń, które są zdefiniowane przez tokeny w [organizacji IETF](https://tools.ietf.org/html/rfc7519) i używane przez zaświadczanie platformy Azure w obiekcie Response:
+Poniższe oświadczenia są zawarte w token zaświadczania dla wszystkich typów zaświadczania przez usługę.
+
+Źródło: zgodnie z definicją przy użyciu [tokenu danych IETF](https://tools.ietf.org/html/rfc7519)
 
 - **"JTI" (identyfikator JWT)**
 - **"ISS" (wystawca) — stwierdzenie**
@@ -52,10 +55,12 @@ Poniżej oświadczeń, które są zdefiniowane przez tokeny w [organizacji IETF]
 - **"EXP" (czas wygaśnięcia)**
 - **"NBF" (nie wcześniej)**
 
-Poniżej oświadczeń, które są zdefiniowane przez [grupę IETF Eat](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) i używane przez zaświadczanie platformy Azure w obiekcie Response:
+Źródło: zgodnie z definicją w [IETF Eat](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **"Żądania nonce" (identyfikator jednorazowy)**
 
-Poniższe oświadczenia są generowane domyślnie na podstawie oświadczeń przychodzących
+Poniższe oświadczenia są uwzględniane w tokenie zaświadczania domyślnie na podstawie oświadczeń przychodzących:
+
 - **x-MS-Ver**: wersja schematu JWT (oczekiwana wartość to "1,0")
 - **x-MS-zaświadczanie-Type**: wartość ciągu reprezentująca typ zaświadczania 
 - **x-MS-Policy-hash**: wartość ciągu zawierająca Skrót SHA256 dla tekstu zasad obliczanego przez BASE64URL (SHA256 (UTF8 (w przypadku tekstu zasad)))
@@ -65,7 +70,8 @@ Poniższe oświadczenia są generowane domyślnie na podstawie oświadczeń przy
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Oświadczenia przychodzące specyficzne dla zaświadczania SGX
 
-Poniższe oświadczenia są generowane przez usługę do zaświadczania SGX i mogą być używane do definiowania reguł autoryzacji w zasadach niestandardowych:
+Poniższe oświadczenia są generowane przez zaświadczenie platformy Azure i mogą być używane przez autorów zasad do definiowania reguł autoryzacji w niestandardowych zasadach dla zaświadczania SGX.
+
 - **x-MS-SGX-is-możliwością debugowania**: wartość logiczna, która wskazuje, czy element enklawy ma włączone debugowanie
 - **x-MS-SGX-Product-ID**
 - **x-MS-SGX-mrsigner**: zakodowana wartość szesnastkowa pola "mrsigner" w ofercie
@@ -74,7 +80,8 @@ Poniższe oświadczenia są generowane przez usługę do zaświadczania SGX i mo
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Wychodzące oświadczenia specyficzne dla zaświadczania SGX
 
-Poniższe oświadczenia są generowane przez usługę i zawarte w obiekcie odpowiedzi dla zaświadczania SGX:
+Poniższe oświadczenia są generowane i uwzględniane w tokenie zaświadczania przez usługę na potrzeby zaświadczania SGX.
+
 - **x-MS-SGX-is-możliwością debugowania**: wartość logiczna, która wskazuje, czy element enklawy ma włączone debugowanie
 - **x-MS-SGX-Product-ID**
 - **x-MS-SGX-mrsigner**: zakodowana wartość szesnastkowa pola "mrsigner" w ofercie

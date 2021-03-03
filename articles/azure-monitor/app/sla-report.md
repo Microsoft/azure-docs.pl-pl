@@ -3,12 +3,12 @@ title: Skoroszyt przestoju, SLA i przestoju — Application Insights
 description: Oblicz i Zgłoś umowę SLA dla testów sieci Web za pomocą jednego okienka Glass w ramach zasobów Application Insights i subskrypcji platformy Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989398"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714055"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Nieprzerwana, umowa SLA i skoroszyt przestoju
 
@@ -51,13 +51,13 @@ Karta **awaria i przestoje** zawiera informacje o całkowitej liczbie wystąpie�
 
 ## <a name="edit-the-report"></a>Edytowanie raportu
 
-Raport można edytować jak każdy inny [Azure monitor skoroszyt](../platform/workbooks-overview.md). Możesz dostosować zapytania lub wizualizacje w zależności od potrzeb zespołu.
+Raport można edytować jak każdy inny [Azure monitor skoroszyt](../visualize/workbooks-overview.md). Możesz dostosować zapytania lub wizualizacje w zależności od potrzeb zespołu.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF, wybierając przycisk Edytuj, aby zmienić wizualizację na wykres kołowy." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Wszystkie zapytania można uruchamiać w [log Analytics](../log-query/log-analytics-overview.md) i używać ich w innych raportach lub pulpitach nawigacyjnych. Usuń ograniczenie parametru i ponownie użyj podstawowego zapytania.
+Wszystkie zapytania można uruchamiać w [log Analytics](../logs/log-analytics-overview.md) i używać ich w innych raportach lub pulpitach nawigacyjnych. Usuń ograniczenie parametru i ponownie użyj podstawowego zapytania.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF zapytania dziennika." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ Raport może być współużytkowany z zespołami, liderem lub przypięty do pul
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Log Analytics wskazówki dotyczące optymalizacji zapytań](../log-query/query-optimization.md).
-- Dowiedz się, jak [utworzyć wykres w skoroszytach](../platform/workbooks-chart-visualizations.md).
+- [Log Analytics wskazówki dotyczące optymalizacji zapytań](../logs/query-optimization.md).
+- Dowiedz się, jak [utworzyć wykres w skoroszytach](../visualize/workbooks-chart-visualizations.md).
 - Dowiedz się, jak monitorować witrynę sieci Web za pomocą [testów dostępności](monitor-web-app-availability.md).

@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709108"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurowanie niestandardowej nazwy domeny w Azure App Service z integracją Traffic Manager
 
@@ -75,7 +75,7 @@ Po zakończeniu dodawania lub modyfikowania rekordów DNS u dostawcy domeny Zapi
 
 ### <a name="what-about-root-domains"></a>Co z domenami głównymi?
 
-Ponieważ Traffic Manager obsługuje tylko niestandardowe mapowanie domen z rekordami CNAME i ponieważ standardy DNS nie obsługują rekordów CNAME do mapowania domen głównych (na przykład **contoso.com**), Traffic Manager nie obsługuje mapowania do domen głównych. Aby obejść ten problem, użyj adresu URL przekierowania z poziomu aplikacji. Na przykład w ASP.NET Core można użyć ponownego [zapisywania adresów URL](/aspnet/core/fundamentals/url-rewriting). Następnie użyj Traffic Manager do równoważenia obciążenia poddomeny (**www.contoso.com**). Innym rozwiązaniem jest [utworzenie rekordu aliasu dla wierzchołka nazwy domeny w celu odwoływania się do profilu usługi Azure Traffic Manager](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). Przykładowa domena to contoso.com. Zamiast korzystać z usługi przekierowywania, można skonfigurować Azure DNS do odwoływania się do profilu Traffic Manager bezpośrednio ze strefy. 
+Ponieważ Traffic Manager obsługuje tylko niestandardowe mapowanie domen z rekordami CNAME i ponieważ standardy DNS nie obsługują rekordów CNAME do mapowania domen głównych (na przykład **contoso.com**), Traffic Manager nie obsługuje mapowania do domen głównych. Aby obejść ten problem, użyj adresu URL przekierowania z poziomu aplikacji. Na przykład w ASP.NET Core można użyć ponownego [zapisywania adresów URL](/aspnet/core/fundamentals/url-rewriting). Następnie użyj Traffic Manager do równoważenia obciążenia poddomeny (**www.contoso.com**). Innym rozwiązaniem jest [utworzenie rekordu aliasu dla wierzchołka nazwy domeny w celu odwoływania się do profilu usługi Azure Traffic Manager](../dns/tutorial-alias-tm.md). Przykładowa domena to contoso.com. Zamiast korzystać z usługi przekierowywania, można skonfigurować Azure DNS do odwoływania się do profilu Traffic Manager bezpośrednio ze strefy. 
 
 W przypadku scenariuszy o wysokiej dostępności można zaimplementować konfigurację systemu DNS równoważenia obciążenia bez Traffic Manager przez utworzenie wielu *rekordów a* , które wskazują na adres IP każdej z kopii aplikacji. Następnie [zamapuj tę samą domenę główną na wszystkie kopie aplikacji](app-service-web-tutorial-custom-domain.md#map-an-a-record). Ponieważ ta sama nazwa domeny nie może zostać zmapowana do dwóch różnych aplikacji w tym samym regionie, ta konfiguracja działa tylko wtedy, gdy kopie aplikacji znajdują się w różnych regionach.
 

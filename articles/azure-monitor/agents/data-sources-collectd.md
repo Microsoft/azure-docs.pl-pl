@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: a0efeaa3df0ecc69fa29dcb2cbb50874c4ab486a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6848b4e0463be803fb4f41797d933386cb575a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617013"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732109"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Zbieraj dane z zebranych w agencie systemu Linux w Azure Monitor
 [Zebrany](https://collectd.org/) to demon Open Source systemu Linux, który okresowo zbiera metryki wydajności aplikacji i informacji o poziomie systemu. Przykładowe aplikacje obejmują wirtualna maszyna Java (JVM), MySQL Server i Nginx. Ten artykuł zawiera informacje dotyczące zbierania danych o wydajności z zebranych w Azure Monitor.
@@ -132,5 +132,5 @@ Aby zachować znany model między metrykami infrastruktury już zebranymi przez 
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Następne kroki
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 
-* [Pola niestandardowe](../platform/custom-fields.md) służą do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 
+* [Pola niestandardowe](../logs/custom-fields.md) służą do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.

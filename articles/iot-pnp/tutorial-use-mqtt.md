@@ -7,18 +7,25 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e56142dfc68767945cd0d08c87f14e19551a156e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741467"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Samouczek — korzystanie z programu MQTT do opracowania klienta urządzenia Plug and Play IoT
 
 Jeśli to możliwe, należy użyć jednego z zestawów SDK urządzeń usługi Azure IoT do kompilowania klientów urządzeń Plug and Play IoT. Jednak w scenariuszach, takich jak urządzenie z ograniczoną ilością pamięci, może być konieczne użycie biblioteki MQTT do komunikowania się z Centrum IoT Hub.
 
 Przykład w tym samouczku używa biblioteki [Mosquitto](http://mosquitto.org/) MQTT i programu Visual Studio. W krokach w tym samouczku przyjęto założenie, że używasz systemu Windows na komputerze deweloperskim.
+
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+
+> [!div class="checklist"]
+> * Pobierz i skompiluj bibliotekę Mosquitto.
+> * Zmodyfikuj przykładowy kod MQTT oparty na języku C, aby udostępnić urządzenie Plug and Play IoT.
+> * Zidentyfikuj tematy MQTT używane przez urządzenie IoT Plug and Play.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

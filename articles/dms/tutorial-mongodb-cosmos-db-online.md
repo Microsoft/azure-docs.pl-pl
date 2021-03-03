@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 02/03/2021
-ms.openlocfilehash: 359f268f69918ccfd9fe34a28c3f8d1c79988393
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 84eed7d48dfe0230ea023d171e2b640bdf50dbe3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575626"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715670"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Samouczek: Migrowanie MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB w trybie online za pomocą usługi DMS
 
@@ -36,7 +36,7 @@ W tym samouczku przedstawiono kroki związane z używaniem Azure Database Migrat
 > * Sprawdź dane w Azure Cosmos DB. 
 > * Kończenie migracji, gdy wszystko będzie gotowe. 
 
-W tym samouczku przeprowadzisz migrację zestawu danych w usłudze MongoDB hostowanej na maszynie wirtualnej platformy Azure do interfejsu API Azure Cosmos DB MongoDB z minimalnym przestojem przy użyciu Azure Database Migration Service. Jeśli nie masz jeszcze skonfigurowanego źródła bazy danych MongoDB, zobacz artykuł [Install and configure MongoDB on a Windows VM in Azure (Instalowanie i konfigurowanie bazy danych MongoDB na maszynie wirtualnej z systemem Windows na platformie Azure)](../virtual-machines/windows/install-mongodb.md).
+W tym samouczku przeprowadzisz migrację zestawu danych w usłudze MongoDB hostowanej na maszynie wirtualnej platformy Azure do interfejsu API Azure Cosmos DB MongoDB z minimalnym przestojem przy użyciu Azure Database Migration Service. Jeśli nie masz jeszcze skonfigurowanego źródła bazy danych MongoDB, zobacz artykuł [Install and configure MongoDB on a Windows VM in Azure (Instalowanie i konfigurowanie bazy danych MongoDB na maszynie wirtualnej z systemem Windows na platformie Azure)](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium.

@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: c30c01a18a17981b4e034c9df2cf822e6580430e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.date: 02/21/2021
+ms.openlocfilehash: a6f049670a6860bbc195b92458945d1a53029b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732806"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 
@@ -61,6 +61,8 @@ Poniżej przedstawiono kilka koncepcji, które należy znać w przypadku korzyst
 * **Delegowana podsieć** — Sieć wirtualna zawiera podsieci (podsieci). Podsieci umożliwiają segmentację sieci wirtualnej w mniejsze przestrzenie adresowe. Zasoby platformy Azure są wdrażane w określonych podsieciach w obrębie sieci wirtualnej. 
 
    Serwer elastyczny PostgreSQL musi znajdować się w podsieci **delegowanej** wyłącznie do użycia przez PostgreSQL elastyczny serwer. To delegowanie oznacza, że tylko Azure Database for PostgreSQL elastycznych serwerów może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure. Delegowanie podsieci przez przypisanie jej właściwości delegowania jako Microsoft. DBforPostgreSQL/flexibleServers.
+
+   Dodaj `Microsoft.Storage` do punktu końcowego usługi dla podsieci delegowanej do elastycznych serwerów. 
 
 * **Sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń)** Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem sieciowej grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md) .
 
@@ -118,7 +120,7 @@ Przykład
 
 
 ## <a name="tls-and-ssl"></a>TLS i SSL
-Azure Database for PostgreSQL — elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą PostgreSQL przy użyciu usługi Transport Layer Security (TLS). TLS to standardowy protokół, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi. Protokół TLS jest zaktualizowanym protokołem SSL (SSL).
+Azure Database for PostgreSQL — elastyczny serwer obsługuje łączenie aplikacji klienckich z usługą PostgreSQL przy użyciu usługi Transport Layer Security (TLS). TLS to standardowy protokół, który zapewnia szyfrowane połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi. Protokół TLS jest zaktualizowanym protokołem SSL (Secure Sockets Layer).
 
 Azure Database for PostgreSQL — serwer elastyczny obsługuje tylko połączenia szyfrowane przy użyciu Transport Layer Security. Wszystkie połączenia przychodzące z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone. 
 

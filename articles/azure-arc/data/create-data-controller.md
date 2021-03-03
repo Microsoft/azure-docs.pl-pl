@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384966"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688369"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -37,7 +37,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 
 > [!IMPORTANT]
 > * Minimalna obsługiwana wersja programu Kubernetes to v 1.17. Zobacz [znane problemy](./release-notes.md#known-issues) , aby uzyskać dodatkowe informacje. 
-> * Minimalna obsługiwana wersja OCP to 4,3.
+> * Minimalna obsługiwana wersja OCP to 4,5.
 > * Zapoznaj się z [wymaganiami dotyczącymi łączności](connectivity.md) , aby zrozumieć, jakie połączenia są wymagane między środowiskiem i platformą Azure.
 > * Zapoznaj się ze [wskazówkami dotyczącymi konfiguracji magazynu](storage-configuration.md) , aby poznać szczegóły dotyczące konfigurowania magazynu trwałego.
 > * W przypadku korzystania z usługi Azure Kubernetes należy mieć co najmniej **Standard_D8s_v3** i korzystać z **dysków w warstwie Premium.** Klaster nie powinien obejmować wielu stref dostępności. 

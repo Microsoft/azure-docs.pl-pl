@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: ef2d0eb409cbef2fdd3579ae5e8b409e24bdda2f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592045"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735968"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
@@ -55,43 +55,9 @@ W tym przykładzie przyjęto założenie, że projekt zostanie utworzony w folde
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Uwzględnij pakiet renderowania zdalnego platformy Azure
 
-Należy zmodyfikować plik `Packages/manifest.json` , który znajduje się w folderze projektu aparatu Unity. Otwórz plik w edytorze tekstów i Dodaj następujące wiersze na początku manifestu:
+[Postępuj zgodnie z instrukcjami](../../../how-tos/unity/install-remote-rendering-unity-package.md) dotyczącymi dodawania pakietu zdalnego renderowania platformy Azure do projektu środowiska Unity.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-Po zmodyfikowaniu i zapisaniu manifestu aparat Unity zostanie automatycznie odświeżony. Upewnij się, że pakiety zostały załadowane w oknie *projektu* :
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="Potwierdź Importy pakietów":::
-
-Jeśli pakiety nie są ładowane, sprawdź, czy w konsoli aparatu Unity występują błędy. Jeśli nie masz żadnych błędów i nadal nie widzisz żadnych pakietów w folderze **Packages** , zaznacz przycisk przełączania widoczności pakietu. \
-![Zrzut ekranu ze strzałką wskazującą na przycisk przełączania widoczności pakietu.](./media/unity-package-visibility.png)
-
-## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Upewnij się, że masz najnowszą wersję pakietu
-
-Poniższe kroki zapewniają, że Twój projekt używa najnowszej wersji pakietu do renderowania zdalnego.
-
-1. W górnym menu edytora Unity Otwórz *okno Menedżer pakietów >*.
-1. Wybierz pakiet, **Microsoft Azure zdalne renderowanie**.
-1. Na stronie Menedżer pakietów dla Microsoft Azure pakietu **renderowania zdalnego** należy sprawdzić, czy jest dostępny przycisk **Aktualizuj** . Jeśli tak jest, kliknij go, aby zaktualizować pakiet do najnowszej dostępnej wersji: \
-![Pakiet ARR w Menedżerze pakietów](./media/package-manager.png)
-1. Aktualizacja pakietu może czasami prowadzić do błędów konsoli. W takim przypadku spróbuj zamknąć i ponownie otworzyć projekt.
-1. Gdy pakiet jest aktualny, Menedżer pakietów będzie **wyświetlany jako aktualny zamiast przycisku** Aktualizuj.
-![Aktualny pakiet](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Konfigurowanie aparatu
 
 1. Wybierz węzeł **główny aparat** .

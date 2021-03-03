@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 20ebeb23fe09ba4fd70a724828afadfaa3901abd
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02ccb3acb4546e08e7d58159ab9d85bca2d0eed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095669"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711879"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Limity przydziału i plany usług dla chmury wiosennej platformy Azure
 
@@ -32,7 +32,7 @@ Domeny niestandardowe | dla wystąpienia usługi w chmurze wiosennej na platform
 Woluminy trwałe | dla wystąpienia usługi w chmurze wiosennej na platformie Azure | 1 GB/aplikacje dla aplikacji x 10 | 50 GB/aplikacje aplikacji x 10
 
 > [!TIP]
-> Stawki wymienione dla wszystkich wystąpień aplikacji na wystąpienie usługi mają zastosowanie w przypadku aplikacji/wdrożeń w stanie zatrzymanym. Usuń aplikacje/wdrożenia, które nie są używane.
+> Limity na liście dla wszystkich wystąpień aplikacji na wystąpienie usługi mają zastosowanie w przypadku aplikacji i wdrożeń w dowolnym stanie, w tym stanu zatrzymane. Usuń aplikacje lub wdrożenia, które nie są używane.
 
 ## <a name="next-steps"></a>Następne kroki
 

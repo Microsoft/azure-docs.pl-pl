@@ -3,12 +3,12 @@ title: Konfigurowanie składników sieciowych NSX w rozwiązaniu VMware platform
 description: Informacje na temat konfigurowania segmentów sieci NSX-T przy użyciu konsoli rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: dbed29fb1063b78386f9ec1e2ee00d9c685a944e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716992"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Konfigurowanie składników sieciowych NSX w rozwiązaniu VMware platformy Azure
 
@@ -36,13 +36,9 @@ Można utworzyć i skonfigurować segment NSX-T z poziomu konsoli rozwiązań VM
 >[!NOTE]
 >Jeśli planujesz korzystanie z protokołu DHCP, musisz [skonfigurować serwer DHCP lub przekaźnik DHCP](#create-a-dhcp-server-or-dhcp-relay-in-the-azure-portal) , aby można było utworzyć i skonfigurować segment NSX-T.
 
-1. W chmurze prywatnej rozwiązania Azure VMware w obszarze **obciążenie sieci** wybierz pozycję **segmenty**  >  **Dodaj**.
+1. W chmurze prywatnej rozwiązania Azure VMware w obszarze **obciążenie sieci** wybierz pozycję **segmenty**  >  **Dodaj**. Podaj szczegóły nowego segmentu logicznego, a następnie wybierz **przycisk OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania nowego segmentu.":::
-
-1. Podaj szczegóły nowego segmentu logicznego.
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/create-new-segment-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły nowego segmentu.":::
    
    - **Nazwa segmentu** — nazwa przełącznika logicznego, który jest widoczny w programie vCenter.
    - **Brama podsieci** — adres IP bramy dla podsieci przełącznika logicznego z maską podsieci. Maszyny wirtualne są podłączone do przełącznika logicznego, a wszystkie maszyny wirtualne łączące się z tym przełącznikiem należą do tej samej podsieci.  Ponadto wszystkie maszyny wirtualne dołączone do tego segmentu logicznego muszą mieć adres IP z tego samego segmentu.
@@ -50,8 +46,6 @@ Można utworzyć i skonfigurować segment NSX-T z poziomu konsoli rozwiązań VM
    - **Połączona Brama**  -  *Wybrane domyślnie i tylko do odczytu.*  Brama warstwy 1 i typ informacji o segmencie. 
       - **T1** — nazwa bramy warstwy 1 w Menedżerze NSX-T. Chmura prywatna rozwiązania Azure VMware jest dostępna z bramą warstwy NSX-T w trybie aktywny/aktywny i domyślną bramą NSX-T w trybie aktywny/wstrzymania.  Segmenty utworzone za pośrednictwem konsoli rozwiązań VMware platformy Azure łączą się tylko z domyślną bramą warstwy 1, a obciążenia tych segmentów uzyskują East-West i North-South łączności. Więcej bram warstwy 1 można utworzyć tylko za poorednictwem Menedżera NSX-T. Bramy warstwy 1 utworzone za pomocą konsoli Menedżera NSX-T nie są widoczne w konsoli rozwiązania VMware platformy Azure. 
       - Segment nakładki **typu** obsługiwany przez rozwiązanie VMware platformy Azure.
-
-1. Wybierz **przycisk OK** , aby utworzyć segment i dołączyć go do bramy warstwy 1. 
 
    Segment jest teraz widoczny w konsoli rozwiązania platformy Azure VMware, NSX-T Manager i vCenter.
 
@@ -157,24 +151,12 @@ Skonfigurujesz domyślną strefę DNS i strefę FQDN do wysyłania zapytań DNS 
 
 ### <a name="step-2-configure-dns-service"></a>Krok 2. Konfigurowanie usługi DNS
 
-1. Wybierz kartę **Usługa DNS** , wybierz pozycję **Dodaj**, a następnie podaj:
+1. Wybierz kartę **Usługa DNS** , a następnie wybierz pozycję **Dodaj**. Podaj szczegóły i wybierz **przycisk OK**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Zrzut ekranu przedstawiający informacje wymagane dla usługi DNS.":::
 
-   1. Nazwa usługi DNS.
-
-   1. Wprowadź adres IP dla usługi DNS.
-
-   1. Wybierz domyślną strefę DNS utworzoną na karcie strefy DNS.
-
-   1. Wybierz strefy FQDN dodane na karcie strefy DNS.
-
-   1. Wybierz **poziom dziennika**.
-
    >[!TIP]
    >**Brama warstwy 1** jest domyślnie zaznaczona i odzwierciedla bramę utworzoną podczas wdrażania rozwiązania Azure VMware.
-
-1. Wybierz przycisk **OK**. 
 
    Usługa DNS została dodana pomyślnie.
 

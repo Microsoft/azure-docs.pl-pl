@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6e9ae9b8d9d1154d55991d078af0faef65ff654b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448658"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699576"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes na urządzeniu GPU z systemem Azure Stack Edge
 
@@ -57,7 +57,7 @@ Aby zapewnić obsługę obciążeń aplikacji, można zainstalować woluminy mag
 
 Aby uzyskać więcej informacji, zobacz Opcje inicjowania obsługi magazynu dla aplikacji w [magazynie Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-storage.md).
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Usługa Kubernetes Networking pozwala na skonfigurowanie komunikacji w sieci Kubernetes, w tym między innymi sieciami kontenera-kontenerów, sieciami opartymi na usłudze, sieciami i sieciami internetowymi. Aby uzyskać więcej informacji, zobacz model sieci w programie [Kubernetes Networking dla urządzenia z Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-networking.md).
 
@@ -107,6 +107,16 @@ Aby uzyskać więcej informacji na temat wdrażania aplikacji w klastrze Kuberne
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes i Azure — łuk
 
 Azure Arc to narzędzie do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Usługa Azure Arc umożliwia także używanie Azure Monitor do kontenerów do wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest Azure-Arc włączone Kubernetes?](../azure-arc/kubernetes/overview.md). Aby uzyskać informacje na temat cen usługi Azure ARC, przejdź do [cennika usługi Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+Począwszy od marca 2021, usługa Azure ARC z włączonym Kubernetes będzie ogólnie dostępna dla użytkowników i standardowych opłat za użycie. Jako cenny klient wersji zapoznawczej usługa Azure Arc Kubernetes będzie dostępna bezpłatnie dla Azure Stack urządzeń brzegowych. Aby skorzystać z oferty wersji zapoznawczej, Utwórz [support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+1. W kategorii **Typ problemu** wybierz pozycję **Rozliczenia**.
+2. W obszarze **Subskrypcja** wybierz swoją subskrypcję.
+3. W obszarze **Usługa** wybierz pozycję **Moje usługi**, a następnie wybierz pozycję **Azure Stack Edge**.
+4. W obszarze **zasób** wybierz zasób.
+5. W obszarze **Podsumowanie** wpisz opis problemu.
+6. W obszarze **typ problemu** wybierz pozycję **nieoczekiwane opłaty**.
+7. W obszarze **podtyp problemu** wybierz pozycję **Pomóż mi zrozumieć opłaty za bezpłatną wersję próbną**.
 
 
 ## <a name="next-steps"></a>Następne kroki

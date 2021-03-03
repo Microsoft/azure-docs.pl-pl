@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728607"
 ---
 # <a name="composite-bar-renderer"></a>Moduł renderowania złożonego paska
 
@@ -193,4 +193,4 @@ Widok paska złożonego dla programu Graph z powyższymi ustawieniami będzie wy
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wdróż](../visualize/workbooks-automate.md) skoroszyty przy użyciu Azure Resource Manager.
-* [Kontroluj](../platform/workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
+* [Kontroluj](./workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

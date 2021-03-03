@@ -4,45 +4,34 @@ description: Dowiedz się, jak używać działania Get Metadata w potoku Data Fa
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: f860225862dcbfb79535acfbd6eeb89a217e7ae9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 91cb10d601f0a44cf9895fffe558c03fdbe06eef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385493"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710230"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Działanie pobierania metadanych w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Możesz użyć działania Pobierz metadane, aby pobrać metadane dowolnych danych w Azure Data Factory. Tego działania można użyć w następujących scenariuszach:
+Możesz użyć działania Pobierz metadane, aby pobrać metadane dowolnych danych w Azure Data Factory. Możesz użyć danych wyjściowych z działania Get Metadata w wyrażeniach warunkowych, aby przeprowadzić walidację, lub użyć metadanych w kolejnych działaniach.
 
-- Sprawdź poprawność metadanych dowolnych danych.
-- Wyzwalanie potoku, gdy dane są gotowe/dostępne.
+## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-W przepływie sterowania jest dostępna następująca funkcja:
-
-- Możesz użyć danych wyjściowych z działania Pobierz metadane w wyrażeniach warunkowych, aby przeprowadzić walidację.
-- Możesz wyzwolić potok, gdy warunek jest spełniony przez pętlę do momentu, aż do pętli.
-
-## <a name="capabilities"></a>Możliwości
-
-Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca informacje o metadanych jako dane wyjściowe. Obecnie obsługiwane są następujące łączniki i odpowiednie metadane do pobierania. Maksymalny rozmiar zwracanych metadanych wynosi około 4 MB.
-
->[!NOTE]
->W przypadku uruchomienia działania Get Metadata w środowisku środowiska Integration Runtime (samodzielne) najnowsze funkcje są obsługiwane w wersji 3,6 lub nowszej.
+Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca informacje o metadanych jako dane wyjściowe. Obecnie obsługiwane są następujące łączniki i odpowiednie metadane do pobierania. Maksymalny rozmiar zwracanych metadanych wynosi **4 MB**.
 
 ### <a name="supported-connectors"></a>Obsługiwane łączniki
 
 **File Storage**
 
-| Łącznik/metadane | itemName<br>(plik/folder) | itemType<br>(plik/folder) | size<br>rozszerzeniem | utworzony<br>(plik/folder) | lastModified<br>(plik/folder) |childItems<br>system32\drivers\etc |contentMD5<br>rozszerzeniem | — struktura<br/>rozszerzeniem | Kolumn<br>rozszerzeniem | istniejący<br>(plik/folder) |
+| Łącznik/metadane | itemName<br>(plik/folder) | itemType<br>(plik/folder) | size<br>rozszerzeniem | utworzony<br>(plik/folder) | lastModified<sup>1</sup><br>(plik/folder) |childItems<br>system32\drivers\etc |contentMD5<br>rozszerzeniem | Struktura<sup>2</sup><br/>rozszerzeniem | <sup>1.2</sup><br>rozszerzeniem | istnieje<sup>3</sup><br>(plik/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -50,12 +39,23 @@ Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca info
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- W przypadku korzystania z działania Get Metadata w odniesieniu do folderu upewnij się, że masz uprawnienie do wyświetlania listy/wykonywania danego folderu.
-- W przypadku usługi Amazon S3 i Google Cloud Storage `lastModified` ma zastosowanie do zasobnika i klucza, ale nie do folderu wirtualnego i `exists` ma zastosowanie do zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego.
+<sup>1</sup> metadane `lastModified` :
+- W przypadku usługi Amazon S3 i Google Cloud Storage `lastModified` ma zastosowanie do zasobnika i klucza, ale nie do folderu wirtualnego i `exists` ma zastosowanie do zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego. 
 - W przypadku usługi Azure Blob Storage `lastModified` ma zastosowanie do kontenera i obiektu BLOB, ale nie do folderu wirtualnego.
-- `lastModified` Filtr dotyczy obecnie elementów podrzędnych filtru, ale nie do samego folderu lub samego pliku.
+
+<sup>2</sup> metadane `structure` i `columnCount` nie są obsługiwane w przypadku pobierania metadanych z plików binarnych, JSON lub XML.
+
+<sup>3</sup> metadane `exists` : w przypadku usługi Amazon S3 i magazynu w chmurze Google mają `exists` zastosowanie do zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego.
+
+. Weź pod uwagę następujące kwestie:
+
+- W przypadku korzystania z działania Get Metadata w odniesieniu do folderu upewnij się, że masz uprawnienie do wyświetlania listy/wykonywania danego folderu.
 - Filtr symboli wieloznacznych dla folderów/plików nie jest obsługiwany w przypadku działania pobierania metadanych.
-- `structure` i `columnCount` nie są obsługiwane w przypadku pobierania metadanych z plików binarnych, JSON lub XML.
+- `modifiedDatetimeStart` i `modifiedDatetimeEnd` ustawiony filtr na łączniku:
+
+    - Te dwie właściwości są używane do filtrowania elementów podrzędnych podczas pobierania metadanych z folderu. Nie ma zastosowania podczas pobierania metadanych z pliku.
+    - Gdy ten filtr jest używany, `childItems` w danych wyjściowych będzie uwzględniać tylko te pliki, które są modyfikowane w określonym zakresie, ale nie w folderach.
+    - Aby zastosować takie filtrowanie, działanie GetMetadata wylicza wszystkie pliki w określonym folderze i sprawdza czas modyfikacji. Należy unikać wskazywania folderu z dużą liczbą plików, nawet jeśli oczekiwana liczba plików jest mała. 
 
 **Relacyjna baza danych**
 
@@ -85,9 +85,6 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 
 >[!TIP]
 >Aby sprawdzić, czy istnieje plik, folder lub tabela, należy określić `exists` na liście pól Pobieranie metadanych. Następnie można sprawdzić `exists: true/false` wynik w danych wyjściowych działania. Jeśli `exists` nie zostanie określony na liście pól, działanie Pobierz metadane zakończy się niepowodzeniem, jeśli nie zostanie znaleziony obiekt.
-
->[!NOTE]
->Podczas pobierania metadanych z magazynów plików i konfigurowania `modifiedDatetimeStart` lub `modifiedDatetimeEnd` , `childItems` w danych wyjściowych będzie uwzględniać tylko pliki w danej ścieżce, które mają czas ostatniej modyfikacji w określonym zakresie. W programie nie będą uwzględniane elementy w podfolderach.
 
 ## <a name="syntax"></a>Składnia
 

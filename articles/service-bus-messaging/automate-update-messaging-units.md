@@ -3,12 +3,12 @@ title: Azure Service Bus — automatycznie Aktualizuj jednostki obsługi komunik
 description: W tym artykule pokazano, jak za pomocą automatycznie aktualizować jednostki obsługi komunikatów Service Bus przestrzeni nazw.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581640"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720600"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Automatycznie Aktualizuj jednostki obsługi komunikatów Azure Service Bus przestrzeni nazw 
 Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości zasobów, aby obsłużyć obciążenie aplikacji. Pozwala to na dodawanie zasobów w celu zwiększenia obciążenia, a także oszczędność pieniędzy dzięki usunięciu zasobów znajdujących się w stanie bezczynności. Zobacz [Omówienie automatycznego skalowania w Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) , aby dowiedzieć się więcej na temat funkcji automatycznego skalowania Azure monitor. 
@@ -57,7 +57,7 @@ Można skonfigurować automatyczne skalowanie jednostek obsługi komunikatów pr
 Nie można ustawić harmonogramu automatycznego skalowania w określonych dniach lub zakresach dat dla warunku domyślnego. Ten warunek skalowania jest wykonywany, gdy żaden z pozostałych warunków skalowania nie jest zgodny z harmonogramem. 
 
 ### <a name="scale-based-on-a-metric"></a>Skalowanie na podstawie metryki
-Poniższa procedura pokazuje, jak dodać warunek, aby automatycznie zwiększyć liczbę jednostek obsługi komunikatów (skalować w poziomie), gdy użycie procesora CPU jest większe niż 75% i zmniejsz liczbę jednostek obsługi komunikatów (skalowanie w górę), gdy użycie procesora CPU jest mniejsze niż 25%. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4 i od 4 do 8. Podobnie, zmniejszenia są wykonywane z 8 do 4, 4 do 2 i od 2 do 1. 
+Poniższa procedura pokazuje, jak dodać warunek, aby automatycznie zwiększyć liczbę jednostek obsługi komunikatów (skalować w poziomie), gdy użycie procesora CPU jest większe niż 75% i zmniejsz liczbę jednostek obsługi komunikatów (skalowanie w górę), gdy użycie procesora CPU jest mniejsze niż 25%. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4, od 4 do 8 i od 8 do 16. Podobnie, zmniejszenia są wykonywane z 16 do 8, 8 do 4, 4 – 2 i 2 – 1. 
 
 1. Na stronie **Ustawienia automatycznego skalowania** wybierz pozycję **niestandardowe Skalowanie automatyczne** dla opcji **Wybierz sposób skalowania zasobu** . 
 1. W sekcji **domyślnej** strony określ **nazwę** warunku domyślnego. Wybierz ikonę **ołówka** , aby edytować tekst. 
@@ -74,7 +74,7 @@ Poniższa procedura pokazuje, jak dodać warunek, aby automatycznie zwiększyć 
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Domyślne — skalowanie w poziomie, jeśli użycie procesora CPU jest większe niż 75%":::       
 
         > [!NOTE]
-        > Funkcja automatycznego skalowania zwiększa jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU przekracza 75% w tym przykładzie. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4 i od 4 do 8. 
+        > Funkcja automatycznego skalowania zwiększa jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU przekracza 75% w tym przykładzie. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4, od 4 do 8 i od 8 do 16. 
 1. Wybierz pozycję **+ Dodaj regułę** ponownie i wykonaj następujące kroki na stronie **reguły skalowania** :
     1. Wybierz metrykę z listy rozwijanej **Nazwa metryki** . W tym przykładzie jest to **procesor CPU**. 
     1. Wybierz operatory i wartości progowe. W tym przykładzie są one **mniejsze niż** i **25** dla **progu metryki do wyzwalania akcji skalowania**. 
@@ -84,7 +84,7 @@ Poniższa procedura pokazuje, jak dodać warunek, aby automatycznie zwiększyć 
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Domyślne skalowanie w przypadku, gdy użycie procesora CPU jest mniejsze niż 25%":::       
 
         > [!NOTE]
-        > Funkcja automatycznego skalowania zmniejsza jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU spadnie poniżej 25% w tym przykładzie. Zmniejszenia są wykonywane z 8 do 4, 4 do 2 i od 2 do 1. 
+        > Funkcja automatycznego skalowania zmniejsza jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU spadnie poniżej 25% w tym przykładzie. Zmniejszenia są wykonywane z 16 do 8, 8 do 4, 4 – 2 i 2 – 1. 
 1. Ustaw **minimalną** i **maksymalną** i **domyślną** liczbę jednostek obsługi komunikatów.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Domyślna reguła oparta na metryce":::

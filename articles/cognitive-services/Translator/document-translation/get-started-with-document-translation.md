@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650783"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738161"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Wprowadzenie do tłumaczenia dokumentu (wersja zapoznawcza)
 
@@ -26,6 +26,8 @@ Aby rozpocząć, musisz:
 * Zasób usługi [**translatora**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**nie** jest zasobem Cognitive Services). 
 
 * [**Konto usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Cały dostęp do usługi Azure Storage odbywa się za pośrednictwem konta magazynu.
+
+* [**Formularz tłumaczenie ukończonych dokumentów (wersja zapoznawcza)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) umożliwiający korzystanie z funkcji tłumaczenia nowych dokumentów na subskrypcję platformy Azure.
 
 > [!NOTE]
 > Tłumaczenie dokumentów jest obecnie obsługiwane tylko w ramach zasobu translatora (pojedynczej usługi), a **nie** do zasobu Cognitive Services (wiele usług).
@@ -64,7 +66,7 @@ Nazwa parametru- **zasobu** (nazywana również *niestandardową nazwą domeny*)
 
 ## <a name="create-your-azure-blob-storage-containers"></a>Tworzenie kontenerów usługi Azure Blob Storage
 
-Należy  [**utworzyć kontenery**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) na [**koncie usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) , aby uzyskać źródłowe, docelowe i opcjonalne pliki słownika.
+Należy  [**utworzyć kontenery**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) na [**koncie usługi Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) , aby uzyskać źródłowe, docelowe i opcjonalne pliki słownika.
 
 * **Kontener źródłowy**. Ten kontener to miejsce, w którym można przekazać pliki do tłumaczenia (wymagane).
 * **Kontener docelowy**. W tym kontenerze znajdują się pliki przetłumaczone (wymagane).  
@@ -201,26 +203,7 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 >[!NOTE]
 > Jeśli plik o tej samej nazwie już istnieje w miejscu docelowym, zostanie zastąpiony.
 
-### <a name="post-a-translation-request"></a>Opublikuj żądanie tłumaczenia
-
-> [!IMPORTANT]
->
-> * W przypadku przykładów kodu poniżej może być konieczne zaktualizowanie następujących pól w zależności od operacji:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (identyfikator zadania)
->>
-> * Zadanie można znaleźć `id`  w adresie URL nagłówka odpowiedzi metody post `Operation-Location`  . Ostatni parametr adresu URL to zadanie operacji **`id`** .  
-> * Możesz również użyć żądania GET Jobs, aby pobrać zadanie `id`  dla operacji tłumaczenia dokumentu.
-> * W poniższych przykładach podasz kod i punkt końcowy, w którym się wskazano; Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  
->
-> Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
+## <a name="post-a-translation-request"></a>Opublikuj żądanie tłumaczenia
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="post-request-body-without-optional-glossaryurl"></a>Opublikuj treść żądania bez opcjonalnej glossaryURL
@@ -286,7 +269,26 @@ Następujące nagłówki są dołączone do każdego żądania interfejsu API us
 }
 ```
 
-## <a name="_post-document-translation_-request-code-samples"></a>Przykłady kodu żądania _tłumaczenia dokumentu_
+> [!IMPORTANT]
+>
+> W przypadku przykładów kodu poniżej może być konieczne zaktualizowanie następujących pól w zależności od operacji:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (identyfikator zadania)
+>>
+> Gdzie można znaleźć `id` wartość:
+> * Zadanie można znaleźć `id`  w adresie URL nagłówka odpowiedzi metody post `Operation-Location`  . Ostatni parametr adresu URL to zadanie operacji **`id`** .  
+> * Możesz również użyć żądania GET Jobs, aby pobrać zadanie `id`  dla operacji tłumaczenia dokumentu.
+>
+> Poniżej przedstawiono kod i punkt końcowy w miejscu, w którym można znaleźć przykłady kodu. Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie.  
+>
+> Zapoznaj się z artykułem [Azure Cognitive Services Security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) , aby poznać sposoby bezpiecznego przechowywania poświadczeń i uzyskiwania do nich dostępu.
+
+## <a name="_post-document-translation_-request"></a>Żądanie _tłumaczenia po dokumencie_
 
 Prześlij żądanie tłumaczenia dokumentu wsadowego do usługi tłumaczenia.
 
@@ -519,7 +521,7 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_-code-samples"></a>Pobierz przykłady kodu w _formacie plików_
+## <a name="_get-file-formats_"></a>_Pobierz formaty plików_ 
 
 Pobierz listę obsługiwanych formatów plików. Jeśli to się powiedzie, metoda zwraca `200 OK` kod odpowiedzi.
 
@@ -696,7 +698,7 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_-code-samples"></a>_Pobierz przykłady kodu stanu zadania_
+## <a name="_get-job-status_"></a>_Pobierz stan zadania_ 
 
 Pobierz bieżący stan pojedynczego zadania i podsumowanie wszystkich zadań w żądaniu tłumaczenia dokumentu. Jeśli to się powiedzie, metoda zwraca `200 OK` kod odpowiedzi.
 <!-- markdownlint-disable MD024 -->
@@ -875,7 +877,7 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_-code-samples"></a>_Pobierz przykłady kodu stanu dokumentu_
+## <a name="_get-document-status_"></a>_Pobierz stan dokumentu_
 
 ### <a name="brief-overview"></a>Krótkie omówienie
 
@@ -1055,7 +1057,7 @@ func main() {
 
 ---
 
-## <a name="_delete-job_-code-samples"></a>_Usuń_ przykłady kodu zadania
+## <a name="_delete-job_"></a>_Usuń zadanie_ 
 
 ### <a name="brief-overview"></a>Krótkie omówienie
 
@@ -1254,7 +1256,7 @@ W poniższej tabeli wymieniono limity danych wysyłanych do tłumaczenia dokumen
 
 * [Dokumentacja interfejsu API usługi Translator v3](../reference/v3-0-reference.md)
 * [Obsługa języków](../language-support.md)
-* [Subskrypcje na platformie Azure API Management](/azure/api-management/api-management-subscriptions).
+* [Subskrypcje na platformie Azure API Management](../../../api-management/api-management-subscriptions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

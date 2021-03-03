@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699304"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
@@ -61,7 +61,7 @@ Tak. Aby zainstalować dodatkowe składniki lub dostosować konfigurację klastr
 
 - [Platforma aplikacji HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do instalowania aplikacji.
 
-Aby uzyskać listę obsługiwanych składników, zobacz [co to są składniki Apache Hadoop i wersje dostępne w usłudze HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Aby uzyskać listę obsługiwanych składników, zobacz [co to są składniki Apache Hadoop i wersje dostępne w usłudze HDInsight?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Czy mogę uaktualnić poszczególne składniki, które są wstępnie zainstalowane w klastrze?
 
@@ -212,7 +212,7 @@ LLAP jest włączona ze względów bezpieczeństwa (Apache Ranger), a nie wydajn
 Istnieją dwa sposoby osiągnięcia tego celu: 1 — można utworzyć ponownie klaster i dodać dodatkową grupę podczas tworzenia klastra. Jeśli używasz synchronizacji w zakresie w usłudze AAD-DS, upewnij się, że Grupa B jest uwzględniona w synchronizacji z zakresem.
 2. Dodaj grupę jako zagnieżdżoną podgrupę poprzedniej grupy, która została użyta do utworzenia klastra ESP. Na przykład, jeśli utworzono klaster ESP z grupą `A` , można później dodać grupę `B` jako zagnieżdżoną podgrupę `A` i po upływie około godziny, będzie ona synchronizowana i dostępna w klastrze automatycznie. 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Czy można dodać Azure Data Lake Storage Gen2 do istniejącego klastra usługi HDInsight jako dodatkowe konto magazynu?
 
@@ -234,7 +234,7 @@ Wykonaj jedną z następujących czynności:
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>Jak skonfigurować inspekcję dla mojego konta usługi BLOB Storage?
 
-Aby przeprowadzić inspekcję kont usługi BLOB Storage, należy skonfigurować monitorowanie za pomocą procedury w obszarze [Monitorowanie konta magazynu w Azure Portal](../storage/common/storage-monitor-storage-account.md). Dziennik inspekcji systemu plików HDFS zawiera tylko informacje o inspekcji tylko dla lokalnego systemu HDFS (hdfs://mycluster).  Nie obejmują operacji wykonywanych w magazynie zdalnym.
+Aby przeprowadzić inspekcję kont usługi BLOB Storage, należy skonfigurować monitorowanie za pomocą procedury w obszarze [Monitorowanie konta magazynu w Azure Portal](../storage/common/manage-storage-analytics-logs.md). Dziennik inspekcji systemu plików HDFS zawiera tylko informacje o inspekcji tylko dla lokalnego systemu HDFS (hdfs://mycluster).  Nie obejmują operacji wykonywanych w magazynie zdalnym.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Jak mogę przenieść pliki między kontenerem obiektów blob i węzłem głównym usługi HDInsight?
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f57ff130fcf61ae8f831cda33c9510b37a5880e5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725598"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Przykłady Menedżer zasobów szablonów dla Log Analytics obszarów roboczych w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania log Analytics obszarów roboczych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -824,6 +824,6 @@ Poniższy przykład umożliwia dodanie kolekcji [dzienników usług IIS](../agen
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz inne przykładowe szablony dla Azure monitor](../samples/resource-manager-samples.md).
-* [Dowiedz się więcej o log Analytics obszarach roboczych](../learn/quick-create-workspace.md).
+* [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
+* [Dowiedz się więcej o log Analytics obszarach roboczych](./quick-create-workspace.md).
 * [Dowiedz się więcej o źródłach danych agenta](../agents/agent-data-sources.md).

@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Backup i sposobu, w jaki przyczyni
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 6a30e31dd1462e427faf64966a38c94f9fa56df6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 2879d104d534733651ba76ab5521541adad0a51c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725360"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Co to jest usługa Azure Backup?
 
@@ -26,6 +26,7 @@ Usługa Azure Backup udostępnia proste, bezpieczne i ekonomiczne rozwiązania d
 - **SQL Server na maszynach wirtualnych**  -   platformy Azure [Tworzenie kopii zapasowych baz danych SQL Server uruchomionych na maszynach wirtualnych platformy Azure](backup-azure-sql-database.md)
 - **SAP HANA baz danych na maszynach wirtualnych**  -  platformy Azure [Tworzenie kopii zapasowych SAP HANA baz danych działających na maszynach wirtualnych platformy Azure](backup-azure-sap-hana-database.md)
 - **Serwery Azure Database for PostgreSQL (wersja zapoznawcza)**  -   [Tworzenie kopii zapasowych baz danych usługi Azure PostgreSQL i przechowywanie kopii zapasowych przez maksymalnie 10 lat](backup-azure-database-postgresql.md)
+- **Obiekty blob platformy Azure (wersja zapoznawcza)**  -  [Przegląd operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)](blob-backup-overview.md)
 
 ![Przegląd Azure Backup](./media/backup-overview/azure-backup-overview.png)
 

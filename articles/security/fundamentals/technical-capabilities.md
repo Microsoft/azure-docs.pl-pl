@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585147"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735781"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -37,7 +37,7 @@ Za pomocą Microsoft Azure można:
 
 - Chroń swoją firmę.
 
-## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Techniczne funkcje zabezpieczeń do realizacji Twojej odpowiedzialności
+## <a name="security-technical-capabilities-to-fulfill-your-responsibility"></a>Techniczne funkcje zabezpieczeń do realizacji odpowiedzialności
 
 Microsoft Azure udostępnia usługi, które pomagają sprostać wymaganiom związanym z bezpieczeństwem, ochroną prywatności i zgodnością. Na poniższej ilustracji przedstawiono różne usługi platformy Azure, które umożliwiają utworzenie bezpiecznej i zgodnej infrastruktury aplikacji opartej na standardach branżowych.
 
@@ -184,7 +184,7 @@ W przypadku organizacji, które muszą zabezpieczyć dostęp z jednej stacji rob
 
 Większe zestawy danych można przenieść za pomocą dedykowanego, szybkiego łącza sieci WAN, takiego jak [ExpressRoute](https://azure.microsoft.com/services/expressroute/). W przypadku wybrania opcji używania ExpressRoute można także szyfrować dane na poziomie aplikacji przy użyciu [protokołu SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) lub innych protokołów w celu zapewnienia dodatkowej ochrony.
 
-W przypadku korzystania z usługi Azure Storage za pośrednictwem witryny Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](/rest/api/storageservices/) za pośrednictwem protokołu HTTPS może być również używany do współpracy z [usługą Azure Storage](https://azure.microsoft.com/services/storage/) i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+W przypadku korzystania z usługi Azure Storage za pośrednictwem Azure Portal wszystkie transakcje odbywają się za pośrednictwem protokołu HTTPS. [Interfejs API REST magazynu](/rest/api/storageservices/) za pośrednictwem protokołu HTTPS może być również używany do współpracy z [usługą Azure Storage](https://azure.microsoft.com/services/storage/) i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 Organizacje, które nie chronią przesyłanych danych, są bardziej podatne na [ataki typu man-in-the-Middle](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [podsłuchiwanie](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))i przejmowanie sesji. Takie ataki mogą być pierwszym krokiem do uzyskania dostępu do poufnych danych.
 
@@ -194,7 +194,7 @@ Więcej informacji na temat opcji sieci VPN platformy Azure można znaleźć w a
 
 [Azure RMS](/azure/information-protection/what-is-azure-rms) używa zasad szyfrowania, tożsamości i autoryzacji, aby ułatwić Zabezpieczanie plików i wiadomości e-mail. Azure RMS działa na wielu urządzeniach — telefonach, tabletach i komputerach, chroniąc je zarówno w ramach organizacji, jak i poza nią. Jest to możliwe, ponieważ Azure RMS dodaje poziom ochrony, który pozostanie wraz z danymi nawet wtedy, gdy opuszcza granice organizacji.
 
-Jeśli używasz Azure RMS do ochrony plików, korzystasz z kryptografii Standard Industry z pełną obsługą [standardu FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). W przypadku korzystania z Azure RMS na potrzeby ochrony danych użytkownik ma pewność, że ochrona jest pozostawać w pliku, nawet jeśli jest ona kopiowana do magazynu nieobjętego kontrolą IT, takiego jak usługa magazynu w chmurze. Taka sama występuje w przypadku plików udostępnianych za pośrednictwem poczty e-mail, a plik jest chroniony jako załącznik do wiadomości e-mail, z instrukcjami dotyczącymi sposobu otwierania chronionego załącznika.
+Jeśli używasz Azure RMS do ochrony plików, korzystasz z kryptografii Standard Industry z pełną obsługą [standardu FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). W przypadku korzystania z usługi Azure RMS do ochrony danych użytkownik ma pewność, że ochrona jest pozostawać w pliku, nawet jeśli jest ona kopiowana do magazynu, który nie jest objęty kontrolą IT, na przykład w usłudze magazynu w chmurze. Taka sama występuje w przypadku plików udostępnianych za pośrednictwem poczty e-mail, a plik jest chroniony jako załącznik do wiadomości e-mail, z instrukcjami dotyczącymi sposobu otwierania chronionego załącznika.
 Planując wdrożenie Azure RMS zalecamy wykonanie następujących czynności:
 
 - Zainstaluj [aplikację RMS sharing](/azure/information-protection/rms-client/sharing-app-windows). Ta aplikacja integruje się z aplikacjami pakietu Office, instalując dodatek dla pakietu Office, dzięki czemu użytkownicy mogą łatwo chronić pliki bezpośrednio.
@@ -278,6 +278,8 @@ Usługa Azure Networks obsługuje możliwość dostosowywania zachowania routing
 
 Platforma Azure obsługuje dedykowane połączenia WAN z siecią lokalną i Virtual Network platformy Azure z usługą [ExpressRoute](../../expressroute/expressroute-introduction.md). Link między platformą Azure a lokacją korzysta z dedykowanego połączenia, które nie przechodzi przez publiczny Internet. Jeśli aplikacja platformy Azure działa w wielu centrach danych, możesz użyć [usługi azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) , aby skierować żądania od użytkowników w sposób inteligentny między wystąpieniami aplikacji. Możesz również kierować ruch do usług nieuruchomionych na platformie Azure, jeśli są one dostępne z Internetu.
 
+Platforma Azure obsługuje również prywatne i bezpieczne połączenia z zasobami PaaS (na przykład Azure Storage i SQL Database) z usługi Azure Virtual Network za pomocą [prywatnego linku platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). Zasób PaaS jest mapowany na [prywatny punkt końcowy](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) w sieci wirtualnej. Link między prywatnym punktem końcowym w sieci wirtualnej a zasobem PaaS używa sieci szkieletowej firmy Microsoft i nie przechodzi przez publiczny Internet. Ujawnienie usługi do publicznej sieci Internet nie jest już konieczne. Możesz również użyć prywatnego linku platformy Azure, aby uzyskać dostęp do hostowanych usług platformy Azure należących do klienta i partnerów w sieci wirtualnej.  Ponadto łącze prywatne platformy Azure umożliwia tworzenie własnej [usługi linku prywatnego](https://docs.microsoft.com/azure/private-link/private-link-service-overview) w sieci wirtualnej i udostępnianie jej klientom prywatnie w swoich sieciach wirtualnych. Konfiguracja i użycie przy użyciu prywatnego linku platformy Azure jest spójne w ramach usług Azure PaaS, należących do klienta i współużytkowanych partnerów.
+
 ## <a name="virtual-machine-security"></a>Zabezpieczenia maszyn wirtualnych
 
 [Usługa Azure Virtual Machines](../../virtual-machines/index.yml) umożliwia wdrażanie szerokiego zakresu rozwiązań obliczeniowych w sposób Agile. Dzięki obsłudze systemów Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP i Azure BizTalk Services można wdrożyć dowolne obciążenie i dowolny język w niemal dowolnym systemie operacyjnym.
@@ -304,7 +306,7 @@ Ponadto lista kontrolna:
 
 - Uwidacznia najważniejsze tematy dotyczące podejmowania decyzji na początku procesu wdrażania chmury.
 
-- Obsługuje dokładne dyskusje biznesowe dotyczące rozporządzeń i własnych celów organizacji dotyczących prywatności, danych osobowych i bezpieczeństwa danych.
+- Obsługuje dokładne dyskusje biznesowe na temat rozporządzeń i własnych celów organizacji dotyczących ochrony prywatności, informacji osobistych i bezpieczeństwa danych.
 
 - Pomaga organizacjom identyfikować potencjalne problemy, które mogą mieć wpływ na projekt w chmurze.
 
@@ -316,7 +318,7 @@ Ponadto lista kontrolna:
 
 ![Weryfikacja zabezpieczeń (wykrywanie)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-Usługa Azure Operational Security jest oparta na strukturze, która obejmuje wiedzę uzyskaną za pomocą różnych funkcji, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), programu Microsoft Security Response Centre i dogłębnej świadomości dotyczącej zagrożeń cyberbezpieczeństwa.
+Usługa Azure Operational Security jest oparta na strukturze, która obejmuje wiedzę uzyskaną za pomocą różnych możliwości, które są unikatowe dla firmy Microsoft, w tym Microsoft Security Development Lifecycle (SDL), programu Microsoft Security Response Center, oraz głębokiej świadomości dotyczącej zagrożeń cyberbezpieczeństwa.
 
 ### <a name="microsoft-azure-monitor"></a>Monitor Microsoft Azure
 
@@ -383,7 +385,7 @@ Inspekcja zabezpieczeń sieci jest konieczna do wykrywania luk w zabezpieczeniac
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Zawiera ona zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkowników korzysta z Twojej aplikacji. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i Java EE, hostowanych lokalnie lub w chmurze. Integruje się z procesem devOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów sieci Web na wielu platformach. Użyj tej usługi do monitorowania aplikacji internetowej na żywo. Usługa automatycznie wykryje nieprawidłowości w zakresie wydajności. Zawiera ona zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkowników korzysta z Twojej aplikacji. Usługa ta pomaga w ciągłym udoskonalaniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js i Java EE, hostowanych lokalnie lub w chmurze. Integruje się z procesem DevOps i ma punkty połączenia z różnymi narzędziami programistycznymi.
 
 Monitoruje ona:
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316898"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692457"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
@@ -79,7 +79,7 @@ Odpowiedź powinna zapewnić token dostępu dobry przez godzinę:
 Zanotuj token, ponieważ będzie on używany do uwierzytelniania wszystkich kolejnych żądań administracyjnych. Należy to zrobić, ustawiając nagłówek autoryzacji we wszystkich żądaniach:
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Należy pamiętać, że wartość zaczyna się od ciągu "Bearer", w tym jednego odstępu przed dodaniem tokenu.
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. 
 
-|Obszar|Ścieżka|
+|Warstwowy|Ścieżka|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |Magazyny danych|/azure/machine-learning/how-to-access-data|

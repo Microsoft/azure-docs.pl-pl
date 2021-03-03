@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739338"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -48,7 +48,7 @@ Data Factory zapewnia swobodny model dowolnego stylu przepływu, który jest wym
     - Kontenery zapętlenia:
         * Działanie foreach przejdzie do iteracji w określonej kolekcji działań w pętli. 
 - Przepływy oparte na wyzwalaczach:
-    - Potoki mogą być wyzwalane na żądanie lub według czasu zegarka.
+    - Potoki mogą być wyzwalane na żądanie, według czasu zegarka lub w odpowiedzi na zdarzenia sterowane przez siatkę zdarzeń
 - Przepływy różnicowe:
     - Parametry mogą służyć do definiowania znacznika limitu górnego dla kopiowania różnicowego podczas przesuwania tabel wymiarów lub odwołań z magazynu relacyjnego, lokalnego lub w chmurze, w celu załadowania danych do usługi Lake.
 

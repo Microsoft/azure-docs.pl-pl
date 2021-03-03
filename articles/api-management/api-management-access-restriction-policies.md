@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367575"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688250"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
@@ -138,7 +138,7 @@ W poniższym przykładzie limit stawki na subskrypcję wynosi 20 wywołań na 90
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nazwa interfejsu API, dla którego ma zostać zastosowany limit szybkości.                                                | Tak      | Nie dotyczy     |
 | Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
-| Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowana stawka.                                              | Tak      | Nie dotyczy     |
+| Okres odnawiania | Długość przedziału czasu (w sekundach), w którym liczba dozwolonych żądań powinna być większa niż wartość określona w `calls` .                                              | Tak      | Nie dotyczy     |
 | Ponów-po-nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość jest zalecanym interwałem ponawiania (w sekundach), po przekroczeniu określonej liczby wywołań. |  Nie | Nie dotyczy  |
 | Ponów-po-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która przechowuje Zalecany interwał ponawiania (w sekundach) po przekroczeniu określonego współczynnika wywołań. |  Nie | Nie dotyczy  |
 | Pozostałe-wywołania — nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość po każdym wykonaniu zasad to liczba pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
@@ -214,7 +214,7 @@ W poniższym przykładzie Limit szybkości 10 wywołań na 60 sekund jest wybier
 | Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany na potrzeby zasad limitu szybkości.                                                             | Tak      | Nie dotyczy     |
 | Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być zliczane względem współczynnika ( `true` ).        | Nie       | Nie dotyczy     |
-| Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowana stawka.                                              | Tak      | Nie dotyczy     |
+| Okres odnawiania      | Długość przedziału czasu (w sekundach), w którym liczba dozwolonych żądań powinna być większa niż wartość określona w `calls` .                                           | Tak      | Nie dotyczy     |
 | Ponów-po-nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość jest zalecanym interwałem ponawiania (w sekundach), po przekroczeniu określonej liczby wywołań. |  Nie | Nie dotyczy  |
 | Ponów-po-Zmienna-name    | Nazwa zmiennej wyrażenia zasad, która przechowuje Zalecany interwał ponawiania (w sekundach) po przekroczeniu określonego współczynnika wywołań. |  Nie | Nie dotyczy  |
 | Pozostałe-wywołania — nazwa nagłówka    | Nazwa nagłówka odpowiedzi, którego wartość po każdym wykonaniu zasad to liczba pozostałych wywołań dozwolonych dla interwału czasu określonego w `renewal-period` . |  Nie | Nie dotyczy  |
@@ -317,7 +317,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | limit przydziału     | Element główny.                                                                                                                                                                                                                                                                                | Tak      |
 | api       | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na interfejsy API w ramach produktu. Przydziały wywołań produktu i interfejsu API są stosowane niezależnie. Do interfejsu API można odwoływać się za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane.                    | Nie       |
-| operation | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji wywołań są stosowane niezależnie. Operacji można przywoływać za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie       |
+| operation | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji wywołań są stosowane niezależnie. Operacji można przywoływać za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie      |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -326,7 +326,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 | name           | Nazwa interfejsu API lub operacji, dla której ma zastosowanie przydział.                                             | Tak                                                              | Nie dotyczy     |
 | zużywa      | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period` . | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
 | Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` .     | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
-| Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                                  | Tak                                                              | Nie dotyczy     |
+| Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowany przydział. Gdy jest ustawiona na `0` czas, jest ustawiona na nieskończoność. | Tak                                                              | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -390,7 +390,7 @@ W poniższym przykładzie limit przydziału jest poprzedzony przez adres IP obie
 | Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` .     | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany dla zasad przydziału.                                                                      | Tak                                                              | Nie dotyczy     |
 | Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału ( `true` )             | Nie                                                               | Nie dotyczy     |
-| Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                                  | Tak                                                              | Nie dotyczy     |
+| Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowany przydział. Gdy jest ustawiona na `0` czas, jest ustawiona na nieskończoność.                                                   | Tak                                                              | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 

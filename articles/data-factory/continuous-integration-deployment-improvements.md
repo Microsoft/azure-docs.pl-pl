@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: b5becd8ddaf74ab2acd059054a095ce9d21c178f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 49ec43e59989f3fdad8f5731867953cc7cbb5757
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366844"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699712"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Automatyczne publikowanie na potrzeby ciągłej integracji i dostarczania
 
@@ -119,7 +119,7 @@ Wykonaj poniższe czynności, aby rozpocząć pracę:
             "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
         },
         "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.2"
+            "@microsoft/azure-data-factory-utilities":"^0.1.3"
         }
     } 
     ```

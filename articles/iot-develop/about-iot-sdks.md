@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 4935037ec0152b089c7c685b6bdd0e605d89f3f2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 4d9546c8a912176117e42f2a6bbef3058331383b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100655016"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702678"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Omówienie zestawów SDK urządzeń usługi Azure IoT
 
@@ -70,7 +70,7 @@ Te zestawy SDK są wyspecjalizowane do uruchamiania na urządzeniach z ograniczo
 
 * [Repozytorium GitHub](https://github.com/azure-rtos/threadx)
 * [Wprowadzenie prowadnice](https://github.com/azure-rtos/getting-started) i [więcej przykładów](https://github.com/azure-rtos/samples)
-* [Dokumentacja referencyjna](https://docs.microsoft.com/azure/rtos/threadx/)
+* [Dokumentacja referencyjna](/azure/rtos/threadx/)
 
 ### <a name="unconstrained-device-sdks"></a>Zestawy SDK urządzeń nieograniczone
 Te zestawy SDK można uruchamiać na dowolnym urządzeniu, które może obsługiwać środowisko uruchomieniowe języka wyższego rzędu. Obejmuje to urządzenia, takie jak komputery PC, Raspberry PiS i smartfony. Są one odróżniane głównie według języka, aby można było wybrać bibliotekę, która najlepiej odpowiada Twojemu zespołowi i scenariuszowi.
@@ -125,7 +125,7 @@ Usługa Azure IoT oferuje również zestawy SDK usług, które umożliwiają two
 
 Zestawy SDK usługi IoT Hub umożliwiają tworzenie aplikacji, które łatwo współpracują z IoT Hub w celu zarządzania urządzeniami i zabezpieczeniami. Te zestawy SDK umożliwiają wysyłanie komunikatów z chmury do urządzeń, wywoływanie metod bezpośrednich na urządzeniach, aktualizowanie właściwości urządzenia i nie tylko.
 
-[**Dowiedz się więcej o IoT Hub**](https://azure.microsoft.com/services/iot-hub/)  |  [ **Spróbuj sterować urządzeniem**](/azure/iot-hub/quickstart-control-device-python)
+[**Dowiedz się więcej o IoT Hub**](https://azure.microsoft.com/services/iot-hub/)  |  [ **Spróbuj sterować urządzeniem**](../iot-hub/quickstart-control-device-python.md)
 
 **C# IoT Hub Service SDK**: [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service)  |  [](https://www.nuget.org/packages/Microsoft.Azure.Devices/)  |  [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service/samples)  |  [Dokumentacja](/dotnet/api/microsoft.azure.devices) pakietu repozytorium GitHub — przykłady
 
@@ -139,7 +139,7 @@ Zestawy SDK usługi IoT Hub umożliwiają tworzenie aplikacji, które łatwo wsp
 
 Usługa Azure Digital bliźniaczych reprezentacji to oferta platformy jako usługi (PaaS), która umożliwia tworzenie wykresów wiedzy na podstawie cyfrowych modeli całego środowiska. Te środowiska mogą być budynkami, fabrykami, gospodarstwami, sieciami energetycznymi, liniami, Stadium i innymi — nawet w całym miejscowości. Te modele cyfrowe mogą służyć do uzyskiwania szczegółowych informacji, które zapewniają lepsze produkty, zoptymalizowane działania, zmniejszone koszty i przełomowe środowiska klienta. Usługa Azure IoT oferuje zestawy SDK, które ułatwiają tworzenie aplikacji, które wykorzystują możliwości usługi Azure Digital bliźniaczych reprezentacji.
 
-[**Dowiedz się więcej o usłudze Azure Digital bliźniaczych reprezentacji**](https://azure.microsoft.com/services/digital-twins/)  |  [ **Kod aplikacji ADT**](/azure/digital-twins/tutorial-code)
+[**Dowiedz się więcej o usłudze Azure Digital bliźniaczych reprezentacji**](https://azure.microsoft.com/services/digital-twins/)  |  [ **Kod aplikacji ADT**](../digital-twins/tutorial-code.md)
 
 **Zestaw SDK języka C# ADT**: [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)  |  [](https://www.nuget.org/packages/Azure.DigitalTwins.Core)  |  [](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)  |  [dokumentacja referencyjna](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) pakietu repozytorium GitHub
 
@@ -153,7 +153,7 @@ Usługa Azure Digital bliźniaczych reprezentacji to oferta platformy jako usłu
 
 IoT Hub Device Provisioning Service (DPS) to usługa pomocnika dla IoT Hub, która umożliwia zainicjowanie obsługi "just in Time" do odpowiedniego centrum IoT Hub bez konieczności interwencji człowieka. Usługa DPS umożliwia bezpieczne i skalowalne Inicjowanie obsługi milionów urządzeń. Zestawy SDK usługi DPS umożliwiają tworzenie aplikacji, które mogą bezpiecznie zarządzać urządzeniami przez tworzenie grup rejestracji i wykonywanie operacji zbiorczych.
 
-[**Dowiedz się więcej o usłudze**](/azure/iot-dps/)  |  Device Provisioning [ **Spróbuj utworzyć rejestrację grupową dla urządzeń X. 509**](/azure/iot-dps/quick-enroll-device-x509-csharp)
+[**Dowiedz się więcej o usłudze**](../iot-dps/index.yml)  |  Device Provisioning [ **Spróbuj utworzyć rejestrację grupową dla urządzeń X. 509**](../iot-dps/quick-enroll-device-x509-csharp.md)
 
 **Zestaw SDK usługi aprowizacji urządzeń w języku C#**: [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service)  |  [](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/)  |  [](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)  |  [Dokumentacja](/dotnet/api/microsoft.azure.devices.provisioning.service?view=azure-dotnet&preserve-view=true) pakietu repozytorium GitHub — przykłady
 

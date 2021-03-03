@@ -4,12 +4,12 @@ description: W tym samouczku użyjesz serwera modelu AI dostarczonego przez firm
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955719"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702219"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Samouczek: analizowanie wideo na żywo za pomocą OpenVINO™ model Server — rozszerzenie AI z firmy Intel 
 
@@ -88,11 +88,11 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
 1. Przejdź do folderu *src/Cloud-to-Device-Console-App* . Tutaj zobaczysz *appsettings.jsw* pliku i kilku innych plikach:
 
-    * ***C2D-Console-App. csproj** _-plik projektu dla Visual Studio Code.
-    _ ***operations.jsna** _-listę operacji, które program ma uruchomić.
-    _ ***Program.cs** _ — przykładowy kod programu. Ten kod:
+    * ***C2D-Console-App. csproj*** — plik projektu dla Visual Studio Code.
+    * ***operations.js*** listę operacji, które program ma uruchomić.
+    * ***Program.cs*** — przykładowy kod programu. Ten kod:
 
-        Powoduje załadowanie ustawień aplikacji.
+        * Ładuje ustawienia aplikacji.
         * Wywołuje bezpośrednie metody, które są ujawniane w module IoT Edge na żywo. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).
         * Wstrzymuje działanie, aby można było przeanalizować dane wyjściowe programu w oknie **terminalu** i przeanalizować zdarzenia, które zostały wygenerowane przez moduł w oknie **danych wyjściowych** .
         * Wywołuje bezpośrednie metody czyszczenia zasobów.
@@ -117,7 +117,7 @@ W ramach wymagań wstępnych pobrano przykładowy kod do folderu. Wykonaj nastę
 
     ![Generowanie manifestu wdrażania IoT Edge](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
 
-    *deployment.yolov3.amd64.jsw* pliku manifestu jest tworzony w folderze *src/Edge/config* .
+    *deployment.openvino.amd64.jsw* pliku manifestu jest tworzony w folderze *src/Edge/config* .
 
 1. Jeśli zakończono [wykrywanie ruchu i emitowanie zdarzeń](detect-motion-emit-events-quickstart.md) przewodnika Szybki Start, Pomiń ten krok. 
 

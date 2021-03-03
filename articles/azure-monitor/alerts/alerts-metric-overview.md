@@ -4,16 +4,16 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 989c3b8a50c3e613e67726684f35c6adce9c8b96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc0f41f23f1d9387f806c947ac27e6f31cc0e053
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723609"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
-Alerty metryk w Azure Monitor działają na podstawie metryk wielowymiarowych. Te metryki mogą być [metrykami platformy](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metrykami niestandardowymi](../platform/metrics-custom-overview.md), [popularnymi dziennikami z Azure monitor konwertowane na](./alerts-metric-logs.md) metryki i metryki Application Insights. Alerty metryk oceniają w regularnych odstępach czasu, aby sprawdzić, czy warunki dotyczące co najmniej jednej z serii czasu metryk są prawdziwe i powiadamiać o spełnieniu oceny. Alerty metryk są stanowe, oznacza to, że wysyłają powiadomienia tylko wtedy, gdy stan zmieni się.
+Alerty metryk w Azure Monitor działają na podstawie metryk wielowymiarowych. Te metryki mogą być [metrykami platformy](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metrykami niestandardowymi](../essentials/metrics-custom-overview.md), [popularnymi dziennikami z Azure monitor konwertowane na](./alerts-metric-logs.md) metryki i metryki Application Insights. Alerty metryk oceniają w regularnych odstępach czasu, aby sprawdzić, czy warunki dotyczące co najmniej jednej z serii czasu metryk są prawdziwe i powiadamiać o spełnieniu oceny. Alerty metryk są stanowe, oznacza to, że wysyłają powiadomienia tylko wtedy, gdy stan zmieni się.
 
 ## <a name="how-do-metric-alerts-work"></a>Jak działają Alerty metryk?
 
@@ -26,7 +26,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki statycznej progu:
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: statyczny
-- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](../platform/metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
+- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](../essentials/metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -43,7 +43,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki dynamicznej wartości 
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: dynamiczny
-- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](../platform/metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
+- Typ agregacji (statystyka, która jest uruchamiana dla nieprzetworzonych wartości metryki. [Obsługiwane typy agregacji](../essentials/metrics-aggregation-explained.md#aggregation-types) to minimum, maksimum, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -180,9 +180,8 @@ Pełną listę obsługiwanych typów zasobów można znaleźć w tym [artykule](
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się, jak tworzyć i wyświetlać alerty metryk na platformie Azure oraz zarządzać nimi](../alerts/alerts-metric.md)
-- [Dowiedz się, jak tworzyć alerty w usłudze Azure Montior Eksplorator metryk](../platform/metrics-charts.md#alert-rules)
+- [Dowiedz się, jak tworzyć alerty w usłudze Azure Montior Eksplorator metryk](../essentials/metrics-charts.md#alert-rules)
 - [Dowiedz się, jak wdrażać alerty metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
-- [Dowiedz się więcej na temat grup akcji](../platform/action-groups.md)
+- [Dowiedz się więcej na temat grup akcji](./action-groups.md)
 - [Dowiedz się więcej o typie warunku progi dynamiczne](../alerts/alerts-dynamic-thresholds.md)
 - [Dowiedz się więcej o rozwiązywaniu problemów z alertami metryk](alerts-troubleshoot-metric.md)
-

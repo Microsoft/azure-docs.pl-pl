@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708870"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Używanie funkcji w kwerendach dzienników Azure Monitor
 
@@ -35,7 +35,7 @@ Utwórz funkcję z Log Analytics w Azure Portal, klikając przycisk **Zapisz** ,
 Użyj funkcji, dołączając jej alias w innym zapytaniu. Może być używana tak jak jakakolwiek inna tabela.
 
 ## <a name="function-parameters"></a>Parametry funkcji 
-Można dodać parametry do funkcji, aby można było podać wartości dla niektórych zmiennych podczas ich wywoływania. Jedynym sposobem na obecnie utworzenie funkcji z parametrami jest użycie szablonu Menedżer zasobów. Zapoznaj się z przykładami [Menedżer zasobów szablonów dla zapytań dzienników w Azure monitor](../samples/resource-manager-log-queries.md#parameterized-function) .
+Można dodać parametry do funkcji, aby można było podać wartości dla niektórych zmiennych podczas ich wywoływania. Jedynym sposobem na obecnie utworzenie funkcji z parametrami jest użycie szablonu Menedżer zasobów. Zapoznaj się z przykładami [Menedżer zasobów szablonów dla zapytań dzienników w Azure monitor](./resource-manager-log-queries.md#parameterized-function) .
 
 ## <a name="example"></a>Przykład
 Następujące przykładowe zapytanie zwraca wszystkie brakujące aktualizacje zabezpieczeń zgłoszone w ciągu ostatniego dnia. Zapisz to zapytanie jako funkcję z aliasem _security_updates_last_day_. 

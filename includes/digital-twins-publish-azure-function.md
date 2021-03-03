@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 63b393f519ad29baa05fef046ee1e8ba9e5330d8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750831"
 ---
 Aby opublikować projekt w aplikacji funkcji na platformie Azure, zaznacz projekt prawym przyciskiem myszy w *Eksplorator rozwiązań* a następnie wybierz polecenie **Publikuj**.
 
@@ -19,15 +19,13 @@ Aby opublikować projekt w aplikacji funkcji na platformie Azure, zaznacz projek
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Zrzut ekranu przedstawiający program Visual Studio z menu wyboru rozwiązania z prawej strony. Polecenie Publikuj jest wyróżnione w menu.":::
 
-Na poniższej stronie *Publikuj* pozostaw domyślny wybór dla **platformy Azure** i kliknij przycisk *dalej*. 
+Na poniższej stronie *Publikuj* pozostaw domyślny wybór dla **platformy Azure** i wybierz pozycję *dalej*. 
 
-Dla konkretnego obiektu docelowego wybierz pozycję **Azure aplikacja funkcji (Windows)** i naciśnij przycisk *dalej*.
+Dla konkretnego obiektu docelowego wybierz pozycję **Azure aplikacja funkcji (Windows)** i wybierz pozycję *dalej*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Zrzut ekranu programu Visual Studio w oknie dialogowym Publikowanie funkcji platformy Azure. Na określonej stronie docelowej została wybrana usługa Azure aplikacja funkcji (system Windows).":::
 
-Na stronie *wystąpienie funkcji* wybierz swoją subskrypcję. Powinno to spowodować Wypełnienie pola *grupami zasobów* w ramach subskrypcji.
-
-Wybierz grupę zasobów wystąpienia i naciśnij przycisk, *+* Aby utworzyć nową funkcję platformy Azure.
+Na stronie *wystąpienie funkcji* wybierz swoją subskrypcję. Następnie wybierz *+* ikonę, aby utworzyć nową funkcję platformy Azure.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Zrzut ekranu programu Visual Studio w oknie dialogowym Publikowanie funkcji platformy Azure. Przycisk +, aby utworzyć nową funkcję, zostanie wyróżniony na stronie wystąpienie funkcji.":::
 
@@ -37,13 +35,13 @@ W *aplikacja funkcji (Windows) — Utwórz nowe* okno, wypełnij pola w następu
 * Upewnij się, że **Grupa zasobów** jest grupą zasobów, której chcesz użyć
 * Pozostaw **Typ planu** jako *zużycie*
 * Wybierz **lokalizację** pasującą do lokalizacji grupy zasobów
-* Utwórz nowy zasób **usługi Azure Storage** przy użyciu nowego linku. *..* . Ustaw lokalizację zgodną z grupą zasobów, użyj innych wartości domyślnych i naciśnij przycisk OK.
+* Utwórz nowy zasób **usługi Azure Storage** przy użyciu nowego linku. *..* . Ustaw lokalizację zgodną z grupą zasobów, użyj innych wartości domyślnych i wybierz pozycję "OK".
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Zrzut ekranu programu Visual Studio w oknie dialogowym Publikowanie funkcji platformy Azure. Są wypełniane szczegóły nowej aplikacji funkcji, w tym nazwy, subskrypcji, grupy zasobów, typu planu, lokalizacji i usługi Azure Storage.":::
 
 Następnie wybierz przycisk **Utwórz**.
 
-Powinno to spowodować powrót do strony *wystąpienia funkcji* , gdzie Nowa aplikacja funkcji jest teraz widoczna poniżej grupy zasobów. *Koniec* trafień.
+Po krótkim czasie oczekiwania na utworzenie usługi App Service okno dialogowe powinno wrócić do strony *wystąpienia funkcji* , a nowa aplikacja funkcji jest wyświetlana w obszarze **aplikacje funkcji** zagnieżdżony pod grupą zasobów. Wybierz pozycję *Zakończ*.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: wystąpienie funkcji (po aplikacji funkcji)":::
 
@@ -59,4 +57,6 @@ W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie 
 >
 > Postępuj zgodnie z monitami, aby przeprowadzić uaktualnienie do najnowszej wersji środowiska uruchomieniowego Azure Functions. Ten problem może wystąpić, jeśli używasz starszej wersji programu Visual Studio.
 
-Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system i mieć uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.
+Aplikacja funkcji jest teraz publikowana na platformie Azure. 
+
+Aby aplikacja funkcji mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system z uprawnieniami dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Ustawisz tę wartość w następnej kolejności.

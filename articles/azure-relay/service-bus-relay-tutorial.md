@@ -4,12 +4,12 @@ description: W tym samouczku opisano, jak uwidocznić lokalną usługę WCF REST
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710791"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Samouczek: Uwidacznianie lokalnej usługi WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay
 
@@ -55,12 +55,12 @@ Kontrakt usługi określa operacje obsługiwane przez usługę. Operacje to meto
 
 1. Uruchom Microsoft Visual Studio jako administrator. Aby to zrobić, kliknij prawym przyciskiem myszy ikonę programu Visual Studio, a następnie wybierz polecenie **Uruchom jako administrator**.
 1. W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
 1. Nadaj projektowi nazwę *EchoService* i wybierz pozycję **Utwórz**.
 
    ![tworzenie aplikacji konsoli][2]
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. W **Menedżerze pakietów NuGet** wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
     ![Pakiet Service Bus][3]
 
@@ -180,12 +180,12 @@ Tworzenie usługi Azure Relay wymaga, aby najpierw utworzyć kontrakt przy użyc
 
 Plik konfiguracji jest podobny do pliku konfiguracji WCF. Zawiera nazwę usługi, punkt końcowy i powiązanie. Punkt końcowy jest lokalizacją Azure Relay udostępnia klientom i hostom komunikację ze sobą. Powiązanie jest typem protokołu, który jest używany do komunikacji. Główną różnicą jest to, że ten skonfigurowany punkt końcowy usługi odwołuje się do powiązania [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) , które nie jest częścią .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) jest jednym ze powiązań zdefiniowanych przez usługę.
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 1. W elemencie `<appSettings>` zastąp symbole zastępcze nazwą przestrzeni nazw usługi i kluczem sygnatury dostępu współdzielonego skopiowanym we wcześniejszym kroku.
 1. W tagach `<system.serviceModel>` dodaj element `<services>`. W pojedynczym pliku konfiguracji można zdefiniować wiele aplikacji przekaźnika. W tym samouczku zdefiniowano jednak tylko jedną.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -439,16 +439,16 @@ Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontrak
 
 1. Utwórz nowy projekt w bieżącym rozwiązaniu programu Visual Studio dla klienta:
 
-   1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy bieżące rozwiązanie (nie projekt) i wybierz polecenie **Dodaj**  >  **Nowy projekt**.
-   1. W obszarze **Dodaj nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a **następnie**wybierz pozycję Dalej.
+   1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy bieżące rozwiązanie (nie projekt) i wybierz polecenie **Dodaj**  >  **Nowy projekt**.
+   1. W obszarze **Dodaj nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a **następnie** wybierz pozycję Dalej.
    1. Nazwij projekt *EchoClient* i wybierz pozycję **Utwórz**.
 
-1. W **Eksplorator rozwiązań**w projekcie **EchoClient** kliknij dwukrotnie pozycję **program.cs** , aby otworzyć plik w edytorze, jeśli nie jest jeszcze otwarty.
+1. W **Eksplorator rozwiązań** w projekcie **EchoClient** kliknij dwukrotnie pozycję **program.cs** , aby otworzyć plik w edytorze, jeśli nie jest jeszcze otwarty.
 1. Zmień nazwę przestrzeni nazw z domyślnej nazwy `EchoClient` na `Microsoft.ServiceBus.Samples`.
 1. Zainstaluj [pakiet NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus):
 
-   1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **EchoClient** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
-   1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
+   1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **EchoClient** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
+   1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj** i zaakceptuj warunki użytkowania.
 
       ![Zainstaluj pakiet usługi Service Bus][4]
 
@@ -508,12 +508,12 @@ namespace Microsoft.ServiceBus.Samples
 
 W tym kroku utworzysz plik *App.config* dla podstawowej aplikacji klienckiej, która uzyskuje dostęp do usługi utworzonej wcześniej w tym samouczku. Ten plik *App.config* definiuje kontrakt, powiązanie i nazwę punktu końcowego. Kod używany do wykonywania tych zadań podano w przykładzie zamieszczonym po procedurze.
 
-1. W **Eksplorator rozwiązań**w projekcie **EchoClient** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań** w projekcie **EchoClient** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 1. W elemencie `<appSettings>` zastąp symbole zastępcze nazwą przestrzeni nazw usługi i kluczem sygnatury dostępu współdzielonego skopiowanym we wcześniejszym kroku.
 1. W `system.serviceModel` elemencie Dodaj `<client>` element.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -724,13 +724,13 @@ namespace Microsoft.ServiceBus.Samples
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
 
 1. Wybierz kombinację klawiszy Ctrl + Shift + B, aby skompilować rozwiązanie. Ta akcja kompiluje zarówno projekt klienta, jak i projekt usługi, który został utworzony w poprzednich krokach.
-1. Przed uruchomieniem aplikacji klienckiej musisz upewnić się, że aplikacja usługi jest uruchomiona. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy rozwiązanie **EchoService** , a następnie wybierz polecenie **Właściwości**.
-1. Na **stronie właściwości**, **Common Properties**  >  **projekt uruchomieniowy**wspólne właściwości, a następnie wybierz **wiele projektów startowych**. Upewnij się, że pozycja **EchoService** jest wyświetlana na początku listy.
+1. Przed uruchomieniem aplikacji klienckiej musisz upewnić się, że aplikacja usługi jest uruchomiona. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy rozwiązanie **EchoService** , a następnie wybierz polecenie **Właściwości**.
+1. Na **stronie właściwości**,   >  **projekt uruchomieniowy** wspólne właściwości, a następnie wybierz **wiele projektów startowych**. Upewnij się, że pozycja **EchoService** jest wyświetlana na początku listy.
 1. Ustaw w polu **Akcja** zarówno dla projektu **EchoService**, jak i projektu **EchoClient** ustawienie **Uruchom**.
 
     ![Strony właściwości projektu][5]
 
-1. Wybierz pozycję **zależności projektu**. W obszarze **projekty**wybierz pozycję **EchoClient**. W **zależności od**, upewnij się, że wybrano opcję **EchoService** .
+1. Wybierz pozycję **zależności projektu**. W obszarze **projekty** wybierz pozycję **EchoClient**. W **zależności od**, upewnij się, że wybrano opcję **EchoService** .
 
     ![Zależności projektu][6]
 

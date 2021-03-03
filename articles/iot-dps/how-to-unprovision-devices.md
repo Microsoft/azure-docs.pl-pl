@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719036"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo 
 
@@ -23,7 +23,7 @@ Ogólnie rzecz biorąc, cofanie aprowizacji urządzenia obejmuje dwie czynności
 1. Wyrejestruj urządzenie z usługi aprowizacji, aby zapobiec przyszłej aprowizacji. W zależności od tego, czy chcesz odwołać dostęp tymczasowo czy trwale, możesz wyłączyć lub usunąć wpis rejestracji. W przypadku urządzeń korzystających z zaświadczania X. 509 warto wyłączyć/usunąć wpis w hierarchii istniejących grup rejestracji.  
  
    - Aby dowiedzieć się, jak wyrejestrować urządzenie, zobacz [Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
-   - Aby dowiedzieć się, jak wyrejestrować urządzenie programowo przy użyciu jednego z zestawów SDK usługi aprowizacji, zobacz [Zarządzanie rejestracjami urządzeń za pomocą zestawów SDK usług](how-to-manage-enrollments-sdks.md).
+   - Aby dowiedzieć się, jak wyrejestrować urządzenie programowo przy użyciu jednego z zestawów SDK usługi aprowizacji, zobacz [Zarządzanie rejestracjami urządzeń za pomocą zestawów SDK usług](./quick-enroll-device-x509-java.md).
 
 2. Wyrejestruj urządzenie z IoT Hub, aby uniemożliwić komunikację w przyszłości i transfer danych. Ponownie można tymczasowo wyłączyć lub trwale usunąć wpis urządzenia w rejestrze tożsamości dla IoT Hub, w którym Zainicjowano obsługę administracyjną. Aby dowiedzieć się więcej o wyłączaniu, zobacz temat [wyłączanie urządzeń](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) . Zapoznaj się z tematem "Zarządzanie urządzeniami/urządzenia IoT" dla zasobu IoT Hub w [Azure Portal](https://portal.azure.com).
 

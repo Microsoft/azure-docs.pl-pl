@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: memildin
-ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e34d5520e13d45d15079a5f11775d2ef930fc62a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634264"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727094"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -37,9 +37,10 @@ Aktualizacje w lutym obejmują:
 
 - [Nowa strona alerty zabezpieczeń w Azure Portal wydawana na potrzeby ogólnej dostępności](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Zalecenia dotyczące ochrony obciążeń Kubernetes, które są udostępniane na potrzeby ogólnej dostępności (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Integracja programu Microsoft Defender dla punktów końcowych z usługą Azure Defender obsługuje teraz systemy Windows Server 2019 i Windows 10 Virtual Desktop (WVD) (w wersji zapoznawczej)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
 - [Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji](#direct-link-to-policy-from-recommendation-details-page)
 - [Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
 - [Ulepszenia strony spisu zasobów](#asset-inventory-page-enhancements)
 
 
@@ -75,6 +76,17 @@ Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciąż
 > Mimo że zalecenia były w wersji zapoznawczej, nie spowodowało to złej kondycji zasobów klastra AKS i nie zostały uwzględnione w obliczeniach bezpiecznego wyniku. w tym ogłoszeniu na ten temat zostanie uwzględniony wynik obliczeń. Jeśli jeszcze ich nie skorygowano, może to spowodować niewielki wpływ na bezpieczny wynik. Skoryguj je wszędzie tam, gdzie to możliwe, zgodnie z opisem zawartym w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
 
 
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>Integracja programu Microsoft Defender dla punktów końcowych z usługą Azure Defender obsługuje teraz systemy Windows Server 2019 i Windows 10 Virtual Desktop (WVD) (w wersji zapoznawczej)
+
+Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiązanie zabezpieczeń punktu końcowego. Zapewnia oparte na ryzyku zarządzanie i ocenę luk w zabezpieczeniach, a także wykrywanie punktów końcowych i reagowanie na nie (EDR). Aby zapoznać się z pełną listą korzyści wynikających z używania usługi Defender dla punktów końcowych z Azure Security Center, zobacz [Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania Security Center EDR: Microsoft Defender dla punktu końcowego](security-center-wdatp.md).
+
+Po włączeniu usługi Azure Defender dla serwerów w systemie Windows Server licencja na usługę Defender for Endpoint jest dołączona do planu. Jeśli usługa Azure Defender została już włączona dla serwerów i masz serwery z systemem Windows 2019 w ramach subskrypcji, otrzymają oni automatycznie usługę Defender dla punktu końcowego z tą aktualizacją. Nie jest wymagane wykonanie akcji ręcznej. 
+
+Obsługa została teraz rozszerzona o systemy Windows Server 2019 i [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> Jeśli włączysz usługę Defender for Endpoint na komputerze z systemem Windows Server 2019, upewnij się, że spełnia on wymagania wstępne opisane w temacie [Włączanie integracji usługi Microsoft Defender for Endpoint](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Bezpośrednie łącze do zasad z poziomu strony Szczegóły rekomendacji
 
 Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświetlenia podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady istnieje nowe łącze na stronie Szczegóły zalecenia:
@@ -91,9 +103,12 @@ Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczą
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>Zalecenie klasyfikacji danych SQL nie ma już wpływu na swój Bezpieczny wynik
 Nie ma już wpływu na **ważne dane w bazach danych SQL** . Jest to jedyne zalecenie w kontroli zabezpieczeń **Zastosuj klasyfikację danych** , dzięki czemu kontrolka ma teraz bezpieczną wartość oceny równą 0.
 
+Aby zapoznać się z pełną listą wszystkich kontroli zabezpieczeń w Security Center wraz z ich wynikami oraz listą zaleceń w każdym z nich, zobacz [mechanizmy kontroli zabezpieczeń i ich zalecenia](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>Automatyzacje przepływu pracy mogą być wyzwalane przez zmiany w ocenie zgodności z przepisami (wersja zapoznawcza)
 Dodaliśmy trzeci typ danych do opcji wyzwalacza dla automatyzacji przepływu pracy: zmiany dotyczące oceny zgodności z przepisami.
+
+Dowiedz się, jak używać narzędzi automatyzacji przepływu pracy w [automatyzowaniu odpowiedzi na Security Center wyzwalacze](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Używanie zmian do oceny zgodności z przepisami w celu wyzwalania automatyzacji przepływu pracy" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 

@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection — Omówienie
+title: Omówienie usługi Azure DDoS Protection w warstwie Standardowa
 description: Dowiedz się, jak usługa Azure DDoS Protection w warstwie Standardowa w połączeniu z najlepszymi rozwiązaniami dotyczącymi projektowania aplikacji zapewnia ochronę przed atakami DDoS.
 services: virtual-network
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 71eada0dcd7f7684e6c6be935bcb44405eb95322
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2b0f8a73a6852883f87ba9fc4333cb6fa8101a39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703120"
 ---
-# <a name="azure-ddos-protection-standard-overview"></a>Omówienie usługi Azure DDoS Protection w warstwie Standardowa
+# <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection — Omówienie
 
 Ataki typu „rozproszona odmowa usługi” (Distributed Denial of Service, DDoS) należą do największych obaw związanych z dostępnością i zabezpieczeniami wśród klientów, którzy planują przeniesienie swoich aplikacji do chmury. Atak DDoS próbuje wymusić wyczerpanie zasobów aplikacji, co sprawia, że aplikacja jest niedostępna dla uprawnionych użytkowników. Celem ataku DDoS może być dowolny punkt końcowy publicznie dostępny za pośrednictwem Internetu.
 
@@ -54,7 +54,7 @@ Aby dowiedzieć się więcej na temat Azure DDoS Protection standardowych cen, z
 
 ## <a name="reference-architectures"></a>Architektury referencyjne
 
-Standard DDoS Protection jest przeznaczony dla [usług, które są wdrażane w sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services). W przypadku innych usług stosowana jest domyślna usługa DDoS Protection podstawowa. Aby dowiedzieć się więcej o obsługiwanych architekturach, zobacz [DDoS Protection architektur referencyjnych](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures). 
+Standard DDoS Protection jest przeznaczony dla [usług, które są wdrażane w sieci wirtualnej](../virtual-network/virtual-network-for-azure-services.md). W przypadku innych usług stosowana jest domyślna usługa DDoS Protection podstawowa. Aby dowiedzieć się więcej o obsługiwanych architekturach, zobacz [DDoS Protection architektur referencyjnych](./ddos-protection-reference-architectures.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 

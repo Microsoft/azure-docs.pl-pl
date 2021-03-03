@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699083"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostyka usługi Load Balancer w warstwie Standardowa przy użyciu metryk, alertów i kondycji zasobów
 
@@ -72,18 +72,7 @@ Aby wyświetlić metryki dla zasobów usługa Load Balancer w warstwie Standardo
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Programowe pobieranie metryk wielowymiarowych za pośrednictwem interfejsów API
 
-Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki mogą być zapisywane na koncie magazynu przez dodanie [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) dla kategorii "wszystkie metryki". 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurowanie alertów dla wielowymiarowych metryk ###
-
-Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje łatwo konfigurowalne alerty dla metryk wielowymiarowych. Skonfiguruj niestandardowe progi dla określonych metryk, aby wyzwalać alerty o zróżnicowanych poziomach ważności w celu zapewnienia środowiska monitorowania zasobów bez dotknięcia.
-
-Aby skonfigurować alerty:
-1. Przejdź do bloku podrzędnego alertu dotyczącego usługi równoważenia obciążenia
-1. Tworzenie nowej reguły alertu
-    1.  Skonfiguruj warunek alertu
-    1.  Obowiązkowe Dodaj grupę akcji dla automatycznej naprawy
-    1.  Przypisywanie ważności, nazwy i opisu alertu, który umożliwia intuicyjną reagowanie
+Aby uzyskać wskazówki dotyczące interfejsu API na potrzeby pobierania wielowymiarowych definicji i wartości metryk, zobacz [Przewodnik po interfejsie API REST monitorowania platformy Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Te metryki mogą być zapisywane na koncie magazynu przez dodanie [ustawień diagnostycznych](../azure-monitor/essentials/diagnostic-settings.md) dla kategorii "wszystkie metryki". 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Typowe scenariusze diagnostyczne i zalecane widoki
 
@@ -228,6 +217,32 @@ Na wykresie są wyświetlane następujące informacje:
 Wykres umożliwia klientom Samodzielne rozwiązywanie problemów ze wdrożeniem bez konieczności odgadnięcia lub poproszenia o ewentualne problemy. Usługa była niedostępna, ponieważ sondy kondycji kończyły się niepowodzeniem z powodu błędnej konfiguracji lub niepowodzenia aplikacji.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurowanie alertów dla wielowymiarowych metryk ###
+
+Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje łatwo konfigurowalne alerty dla metryk wielowymiarowych. Skonfiguruj niestandardowe progi dla określonych metryk, aby wyzwalać alerty o zróżnicowanych poziomach ważności w celu zapewnienia środowiska monitorowania zasobów bez dotknięcia.
+
+Aby skonfigurować alerty:
+1. Przejdź do bloku podrzędnego alertu dotyczącego usługi równoważenia obciążenia
+1. Tworzenie nowej reguły alertu
+    1.  Skonfiguruj warunek alertu
+    1.  Obowiązkowe Dodaj grupę akcji dla automatycznej naprawy
+    1.  Przypisywanie ważności, nazwy i opisu alertu, który umożliwia intuicyjną reagowanie
+
+### <a name="inbound-availability-alerting"></a>Alerty dostępności ruchu przychodzącego
+Aby ostrzec o dostępności przychodzącej, można utworzyć dwa osobne alerty przy użyciu metryki dostępności ścieżki danych i stanu sondy kondycji. Klienci mogą mieć różne scenariusze, które wymagają określonej logiki alertów, ale poniższe przykłady będą przydatne w przypadku większości konfiguracji.
+
+Za pomocą funkcji dostępności ścieżki danych można uruchamiać alerty za każdym razem, gdy określona reguła równoważenia obciążenia stanie się niedostępna. Ten alert można skonfigurować przez ustawienie warunku alertu dotyczącego dostępności i dzielenia ścieżki danych przez wszystkie bieżące wartości i przyszłe wartości dla portu frontonu i adresu IP frontonu. Ustawienie logiki alertu na wartość mniejszą lub równą 0 spowoduje, że ten alert zostanie wywołany za każdym razem, gdy jakakolwiek reguła równoważenia obciążenia nie będzie odpowiadać. Ustaw stopień szczegółowości agregacji i częstotliwość oceny zgodnie z wymaganą oceną. 
+
+Stan sondy kondycji można zgłaszać w przypadku niepowodzenia reakcji danego wystąpienia zaplecza na sondę kondycji przez znaczną ilość czasu. Skonfiguruj warunek alertu, aby użyć metryki stanu sondy kondycji i podzielić według adresu IP zaplecza i portu zaplecza. Dzięki temu można generować alerty osobno dla każdego wystąpienia zaplecza, który będzie obsługiwał ruch na określonym porcie. Użyj **średniego** typu agregacji, a następnie ustaw wartość progową zgodnie z częstotliwość sondowania wystąpienia zaplecza i to, co należy wziąć pod uwagę jako próg w dobrej kondycji. 
+
+Możesz również otrzymywać alerty na poziomie puli zaplecza, nie dzieląc przez żadne wymiary i używając **średniego** typu agregacji. Umożliwi to skonfigurowanie reguł alertów, takich jak alert, gdy 50% członków puli zaplecza jest w złej kondycji.
+
+### <a name="outbound-availability-alerting"></a>Alerty dostępności wychodzącej
+Aby skonfigurować dostęp do ruchu wychodzącego, można skonfigurować dwa osobne alerty przy użyciu licznika połączeń z przyłączaniem i używanych metryk portów.
+
+Aby wykryć błędy połączenia wychodzącego, skonfiguruj alert przy użyciu liczby połączeń z przydziałem adresów sieciowych i przefiltruj stan połączenia = niepowodzenie. Użyj agregacji **całkowitej** . Następnie można podzielić tę wartość przez adres IP zaplecza na wszystkie bieżące i przyszłe wartości, aby otrzymywać alerty osobno dla każdego wystąpienia zaplecza, dla którego występują nieudane połączenia. Ustaw próg na wartość większą niż zero lub wyższą liczbę, Jeśli spodziewasz się, że niektóre błędy połączenia wychodzącego są widoczne.
+
+Za pomocą portów protokołu wiązania adresów sieciowych można otrzymywać alerty na wyższym poziomie ryzyka wyczerpania i błędów połączenia wychodzącego. Upewnij się, że podczas korzystania z tego alertu są dzielone adresy IP i protokoły zaplecza, i Użyj **średniej** agregacji. Ustaw wartość progową na wartość większą niż wyrażona w procentach liczba portów przyznanych na wystąpienie uznawane za niebezpieczne. Można na przykład skonfigurować alert o niskiej ważności, gdy wystąpienie zaplecza użyje 75% jego przyznanych portów i o wysokiej ważności, gdy korzysta z 90% lub 100% przyznanych portów.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Stan kondycji zasobu
 
 Stan kondycji zasobów usługa Load Balancer w warstwie Standardowa jest udostępniany za pośrednictwem istniejącej **kondycji zasobów** w obszarze **monitorowanie > Service Health**. Jest ona oceniana co **dwie minuty** przez pomiar dostępności ścieżki danych, która określa, czy punkty końcowe równoważenia obciążenia frontonu są dostępne.
@@ -235,8 +250,8 @@ Stan kondycji zasobów usługa Load Balancer w warstwie Standardowa jest udostę
 | Stan kondycji zasobu | Opis |
 | --- | --- |
 | Dostępne | Zasób standardowego modułu równoważenia obciążenia jest w dobrej kondycji i jest dostępny. |
-| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
-| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
+| Obniżona wydajność | Moduł równoważenia obciążenia w warstwie Standardowa ma zdarzenia zainicjowane przez platformę lub użytkownika, które mają wpływ na wydajność. Metryka Dostępność ścieżki danych od co najmniej dwóch minut zgłasza kondycję niższą niż 90%, ale wyższą niż 25%. Zostanie napotkany umiarkowany wpływ na wydajność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które powodują wpływ na dostępność.
+| Niedostępny | Zasób standardowego modułu równoważenia obciążenia nie jest w dobrej kondycji. Metryka dostępności ścieżki datapath zgłosiła mniej niż 25% kondycji przez co najmniej dwie minuty. Wystąpi znaczny wpływ na wydajność lub brak dostępności dla łączności przychodzącej. Mogą istnieć zdarzenia użytkownika lub platformy powodujące niedostępność. [Postępuj zgodnie z przewodnikiem rozwiązywania problemów z systemie RHC występuje,](./troubleshoot-rhc.md) aby ustalić, czy istnieją zdarzenia zainicjowane przez użytkownika, które mają wpływ na dostępność. |
 | Nieznane | Stan kondycji zasobu dla zasobu standardowego modułu równoważenia obciążenia nie został jeszcze zaktualizowany lub nie otrzymał informacji o dostępności ścieżki danych dla ostatnich 10 minut. Ten stan powinien występować przejściowo i zmienić się na prawidłowy stan po otrzymaniu danych. |
 
 Aby wyświetlić kondycję publicznych zasobów usługa Load Balancer w warstwie Standardowa:
@@ -263,7 +278,7 @@ Opis ogólnego stanu kondycji zasobu jest dostępny w [dokumentacji systemie RHC
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o korzystaniu z usługi [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) , aby wyświetlić te metryki wstępnie skonfigurowane dla Load Balancer
+- Dowiedz się więcej o korzystaniu z usługi [Insights](./load-balancer-insights.md) , aby wyświetlić te metryki wstępnie skonfigurowane dla Load Balancer
 - Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](./load-balancer-overview.md).
 - Dowiedz się więcej o [łączności wychodzącej modułu równoważenia obciążenia](./load-balancer-outbound-connections.md).
 - Dowiedz się więcej na temat [Azure monitor](../azure-monitor/overview.md).

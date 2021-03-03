@@ -4,15 +4,15 @@ description: W tym artykule wyjaśniono, jak generować i zbierać dane z strukt
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/05/2021
 ms.author: brendanm
 ms.custom: devx-track-java
-ms.openlocfilehash: c5c35fe8a352a1bc3467e9512a7fcbc068375bfb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055928"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701947"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Dziennik aplikacji ze strukturą dla chmury wiosennej platformy Azure
 
@@ -238,4 +238,4 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej na temat zapytania dziennika, zobacz [Rozpoczynanie pracy z kwerendami dzienników w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* Aby dowiedzieć się więcej na temat zapytania dziennika, zobacz [Rozpoczynanie pracy z kwerendami dzienników w Azure monitor](../azure-monitor/logs/get-started-queries.md)

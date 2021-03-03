@@ -202,7 +202,7 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Włączanie usługi Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
     - name: Integracja z usługą Azure Storage
       items:
         - name: Inspekcja protokołu TLS przy użyciu usługi Azure Policy
@@ -323,16 +323,6 @@
       items:
         - name: Kanał dotyczący nadzoru w usłudze YouTube
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Konfiguracja gościa — filmy
-          items:
-            - name: Getting Started
-              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-            - name: Informacje o inicjatywach
-              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-            - name: Przypisywanie zasad
-              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-            - name: Zadanie korygowania
-              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen

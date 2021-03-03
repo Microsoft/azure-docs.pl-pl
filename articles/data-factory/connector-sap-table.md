@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: e4f756631b51ce9c5fba32939d1c6651e7b328d0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: c3c874b2e6362ceb5b4746f67614b5d85991efbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378523"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712984"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
 
@@ -66,7 +66,7 @@ Aby użyć tego łącznika tabeli SAP, należy wykonać następujące:
 - Użytkownik SAP używany na łączniku tabeli SAP Data Factory musi mieć następujące uprawnienia:
 
   - Autoryzacja przy użyciu miejsc docelowych zdalnego wywołania funkcji (RFC).
-  - Uprawnienia do wykonywania działania obiektu autoryzacji S_SDSAUTH.
+  - Uprawnienia do wykonywania działania obiektu autoryzacji S_SDSAUTH lub uprawnień do działania wykonywania S_RFC: FUGR-RFC1, SYST, SYSU FUNC-RFCPING, RFC_FUNCTION_SEARCH ACTVT – 16 obiektu autoryzacji. 
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

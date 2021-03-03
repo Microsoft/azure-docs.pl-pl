@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7e022822f1306a5351cef43498f00a0ac0f2ef63
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107128"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707289"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Samouczek: Dodawanie danych wyjściowych do szablonu ARM
 
@@ -45,7 +45,7 @@ Typ zwracanej wartości jest ustawiony na `object` , co oznacza, że zwraca obie
 
 Używa funkcji [Reference](template-functions-resource.md#reference) do uzyskiwania stanu środowiska uruchomieniowego konta magazynu. Aby uzyskać stan środowiska uruchomieniowego zasobu, należy przekazać nazwę lub identyfikator zasobu. W takim przypadku należy użyć tej samej zmiennej, która została użyta do utworzenia nazwy konta magazynu.
 
-Na koniec zwraca `primaryEndpoints` Właściwość z konta magazynu
+Na koniec zwraca `primaryEndpoints` Właściwość z konta magazynu.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 

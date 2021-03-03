@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 661af89ad223978abbefd71dd8008577475c5875
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: db99fa5caff27a24aa04e4780b25ade3f7c25496
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221389"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699933"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planowanie i zarządzanie kosztami Cognitive Services platformy Azure
 
@@ -68,7 +68,7 @@ Opłaty za Cognitive Services mogą być naliczane przy użyciu przedpłaty za k
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. Replace example screenshots with ones taken for your service. If you need assistance capturing screenshots, ask banders for help. -->
 
-Gdy korzystasz z zasobów platformy Azure z Cognitive Services, naliczane są koszty. Koszty jednostkowe użycia zasobów platformy Azure różnią się w zależności od przedziałów czasu (sekund, minut, godzin i dni) lub według użycia jednostek (bajtów, megabajtów itd.). Po rozpoczęciu korzystania z usługi poznawczej (lub Cognitive Services) koszty są ponoszone, a koszty można zobaczyć w [analizie kosztów](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Gdy korzystasz z zasobów platformy Azure z Cognitive Services, naliczane są koszty. Koszty jednostkowe użycia zasobów platformy Azure różnią się w zależności od przedziałów czasu (sekund, minut, godzin i dni) lub według użycia jednostek (bajtów, megabajtów itd.). Po rozpoczęciu korzystania z usługi poznawczej (lub Cognitive Services) koszty są ponoszone, a koszty można zobaczyć w [analizie kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 Korzystając z analizy kosztów, można wyświetlać Cognitive Services koszty na wykresach i tabelach dla różnych interwałów czasu. Kilka przykładów jest dziennie, bieżącego i poprzedniego miesiąca oraz roku. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie może pomóc w identyfikowaniu trendów wydatków. I zobaczysz, gdzie mogły wystąpić przespędzanie. Jeśli utworzono budżety, możesz również łatwo zobaczyć, gdzie są przekraczane.
 

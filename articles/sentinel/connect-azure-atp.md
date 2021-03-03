@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715007"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender dla tożsamości (dawniej ochrona przed zagrożeniami na platformie Azure)
 
@@ -27,7 +27,9 @@ ms.locfileid: "94656075"
 > Łącznik usługi Microsoft Defender dla danych tożsamości na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usługi [Microsoft Defender na potrzeby tożsamości](/azure-advanced-threat-protection/what-is-atp) .
+W tym artykule opisano sposób przesyłania strumieniowego alertów zabezpieczeń z usługi [Microsoft Defender na potrzeby tożsamości](/azure-advanced-threat-protection/what-is-atp) na platformie Azure. 
+
+Aby przesłać dalej alerty kondycji oprócz alertów zabezpieczeń, należy zintegrować usługę Microsoft Defender pod kątem tożsamości z serwerem dziennika systemowego. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Microsoft Defender dla tożsamości](/defender-for-identity/setting-syslog). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +48,7 @@ Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuj
 
 1. Możesz wybrać, czy alerty z usługi Microsoft Defender mają być automatycznie generowane na podstawie zdarzeń na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
 
-1. Kliknij przycisk **Podłącz**.
+1. Kliknij przycisk **Połącz**.
 
 1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów dotyczących tożsamości usługi Microsoft Defender, Wyszukaj pozycję **SecurityAlert**.
 

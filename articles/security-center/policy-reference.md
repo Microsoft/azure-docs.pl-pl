@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093062"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729938"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Wbudowane definicje usługi Azure Policy dla usługi Azure Security Center
 
@@ -32,7 +32,7 @@ Aby dowiedzieć się więcej na temat wbudowanych inicjatyw, które są monitoro
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Azure Security Center inicjatywy domyślnej
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Domyślna inicjatywa Security Center (test zabezpieczeń platformy Azure)
 
 Aby dowiedzieć się więcej na temat wbudowanych zasad monitorowanych przez Security Center, zobacz następującą tabelę:
 

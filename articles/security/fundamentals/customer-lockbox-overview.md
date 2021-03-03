@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720617"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Funkcja Skrytka klienta dla platformy Microsoft Azure
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489893"
 
 Funkcja Skrytka klienta dla platformy Microsoft Azure udostępnia klientom interfejs umożliwiający przeglądanie oraz zatwierdzanie lub odrzucanie żądań dotyczących dostępu do danych klientów. Jest ona używana, gdy inżynier firmy Microsoft musi uzyskać dostęp do danych klientów podczas rozpatrywania wniosku o pomoc techniczną.
 
-W tym artykule opisano, jak żądania Skrytka klienta są inicjowane, śledzone i przechowywane na potrzeby późniejszych przeglądów i inspekcji.
+W tym artykule opisano sposób włączania Skrytka klienta i sposobu, w jaki żądania skrytki są inicjowane, śledzone i przechowywane na potrzeby późniejszych przeglądów i inspekcji.
 
-Funkcja Skrytka klienta jest teraz ogólnie dostępna i obecnie jest włączona pod kątem dostępu do maszyn wirtualnych za pomocą pulpitu zdalnego.
+<a id='supported-services-and-scenarios-in-preview'># # Obsługiwane usługi i scenariusze (ogólna dostępność)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Obsługiwane usługi i scenariusze w wersji zapoznawczej
+Następujące usługi są teraz ogólnie dostępne dla Skrytka klienta:
 
-Następujące usługi są obecnie dostępne w wersji zapoznawczej dla funkcji Skrytka klienta:
-
-- API Management
+- Usługa Azure API Management
 - Azure App Service
-- Cognitive Services
-- Container Registry
+- Azure Cognitive Services
+- Azure Container Registry
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ Następujące usługi są obecnie dostępne w wersji zapoznawczej dla funkcji Sk
 - Azure Data Factory
 - Azure Database for PostgreSQL
 - Azure Functions
-- HDInsight
+- Azure HDInsight
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
-- Azure SQL DB
+- Azure SQL Database
 - Transfery subskrypcji platformy Azure
 - Azure Synapse Analytics
-- Maszyny wirtualne (teraz łącznie z dostępem do zrzutów pamięci i dysków zarządzanych)
+- Maszyny wirtualne na platformie Azure (obejmujące dostęp do pulpitu zdalnego, dostęp do zrzutów pamięci i dysków zarządzanych)
 
-Aby włączyć Skrytka klienta dla tych ofert w wersji zapoznawczej dla Twojej organizacji, zarejestruj się, aby uzyskać [skrytka klienta dla publicznej wersji zapoznawczej platformy Azure](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Włącz Skrytka klienta
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Obsługiwane usługi i scenariusze ogólnie dostępne
-
-Poniższe usługi i scenariusze są obecnie ogólnie dostępne dla Skrytka klienta.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Dostęp do maszyn wirtualnych za pomocą pulpitu zdalnego
-
-Funkcja Skrytka klienta obecnie jest włączona pod kątem żądań dostępu do maszyn wirtualnych za pomocą pulpitu zdalnego. Obsługiwane są następujące obciążenia:
-- Platforma jako usługa (PaaS) — usługi Azure Cloud Services (rola Internet i proces roboczy)
-- Infrastruktura jako usługa (IaaS) — systemy Windows i Linux (tylko usługa Azure Resource Manager)
-- Zestaw skalowania maszyn wirtualnych — systemy Windows i Linux
+Teraz można włączyć Skrytka klienta z poziomu [modułu administracyjnego](https://aka.ms/customerlockbox/administration) w bloku skrytka klienta.  
 
 > [!NOTE]
-> Wystąpienia klasyczne IaaS nie są obsługiwane przez Skrytka klienta. Jeśli masz obciążenia działające na IaaS klasyczne wystąpienia, zalecamy przeprowadzenie migracji z klasycznego do Menedżer zasobów modeli wdrażania. Aby uzyskać instrukcje, zobacz [Obsługiwana przez platformę migracja zasobów IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Szczegółowe dzienniki inspekcji
-
-W przypadku scenariuszy obejmujących dostęp z użyciem pulpitu zdalnego można użyć dzienników zdarzeń systemu Windows do przeglądania akcji podjętych przez inżyniera firmy Microsoft. Rozważ użycie usługi Azure Security Center w celu zebrania dzienników zdarzeń i skopiowanie tych danych do obszaru roboczego na potrzeby analizy. Aby uzyskać więcej informacji, zobacz [Zbieranie danych w usłudze Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+> Aby włączyć Skrytka klienta, konto użytkownika musi mieć [przypisaną rolę administratora globalnego](../../active-directory/roles/manage-roles-portal.md).
 
 ## <a name="workflow"></a>Przepływ pracy
 
@@ -80,7 +65,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
 3. Inżynier pomocy technicznej systemu Azure przegląda żądanie obsługi i określa następne kroki w celu rozwiązania problemu.
 
-4. Jeśli inżynier pomocy technicznej nie może rozwiązać problemu przy użyciu standardowych narzędzi i telemetrii, następnym krokiem jest zażądanie podwyższonego poziomu uprawnień przy użyciu usługi dostępu just-in-Time (JIT). To żądanie może pochodzić od oryginalnego inżyniera pomocy technicznej. Może być też z innego inżyniera, ponieważ problem jest eskalacją zespołu usługi Azure DevOps.
+4. Jeśli inżynier pomocy technicznej nie może rozwiązać problemu przy użyciu standardowych narzędzi i telemetrii, następnym krokiem jest zażądanie podwyższonego poziomu uprawnień przy użyciu usługi dostępu just-in-Time (JIT). To żądanie może pochodzić z oryginalnego inżyniera pomocy technicznej lub innego inżyniera, ponieważ problem został przekazany do zespołu usługi Azure DevOps.
 
 5. Gdy żądanie dostępu zostanie przesłane przez inżyniera platformy Azure, usługa just in Time obliczy żądanie biorąc pod uwagę czynniki, takie jak:
     - Zakres zasobu
@@ -99,7 +84,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
     ![Azure Skrytka klienta — powiadomienie e-mail](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. Powiadomienie e-mail zawiera link do bloku **skrytka klienta** w Azure Portal. Za pomocą tego linku Wyznaczeni osoba zatwierdzająca loguje się do Azure Portal, aby wyświetlić wszystkie oczekujące żądania, które organizacja ma dla Skrytka klienta:
+8. Powiadomienie e-mail zawiera link do bloku **skrytka klienta** w module Administracja. Za pomocą tego linku Wyznaczeni osoba zatwierdzająca loguje się do Azure Portal, aby wyświetlić wszystkie oczekujące żądania, które organizacja ma dla Skrytka klienta:
 
     ![Skrytka klienta platformy Azure — Strona docelowa](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -109,7 +94,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
     ![Skrytka klienta platformy Azure — Wyświetl oczekujące żądanie](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. Wyznaczeni osoba zatwierdzająca może również wybrać **Identyfikator żądania** obsługi, aby wyświetlić żądanie biletu pomocy technicznej utworzone przez oryginalnego użytkownika. Te informacje zapewniają kontekst, dla którego pomoc techniczna firmy Microsoft jest zaangażowany, i historię zgłoszonego problemu. Przykład:
+10. Wyznaczeni osoba zatwierdzająca może również wybrać **Identyfikator żądania** obsługi, aby wyświetlić żądanie biletu pomocy technicznej utworzone przez oryginalnego użytkownika. Te informacje zapewniają kontekst, dla którego pomoc techniczna firmy Microsoft jest zaangażowany, i historię zgłoszonego problemu. Na przykład:
 
     ![Skrytka klienta platformy Azure — wyświetlanie żądania biletu pomocy technicznej](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
@@ -137,18 +122,17 @@ Przykład:
 
 ## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integracja funkcji Skrytka klienta z testem porównawczym zabezpieczeń platformy Azure
 
-Wprowadziliśmy nową kontrolkę bazową ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) na platformie Azure Security test, która obejmuje skrytka klienta możliwości zastosowania. Klienci mogą teraz korzystać z testu porównawczego w celu sprawdzenia Skrytka klienta zastosowania do usługi.
+Wprowadziliśmy nową kontrolkę bazową ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) na platformie Azure Security test, która obejmuje skrytka klienta możliwości zastosowania. Klienci mogą teraz korzystać z testu porównawczego w celu przejrzenia Skrytka klienta zastosowania do usługi.
 
 ## <a name="exclusions"></a>Wykluczenia
 
-Żądania funkcji Skrytka klienta nie są wyzwalane w następujących scenariuszach dotyczących pomocy technicznej inżynierów:
+Żądania Skrytka klienta nie są wyzwalane w następujących scenariuszach obsługi inżynierów:
 
 - Inżynier firmy Microsoft musi wykonać działanie, które wykracza poza standardowe procedury operacyjne. Musi na przykład odzyskać lub odtworzyć usługi w nieoczekiwanych lub nieprzewidywalnych scenariuszach.
-
-- Inżynier firmy Microsoft uzyskuje dostęp do platformy Azure w ramach procedury rozwiązywania problemów i przypadkowo uzyskuje dostęp do danych klienta. Na przykład zespół ds. sieci platformy Azure wykonuje procedurę rozwiązywania problemów, której rezultatem jest przechwycenie pakietów na urządzeniu sieciowym. Jeśli jednak klient zaszyfrował dane w momencie ich przesyłania, inżynier nie będzie ich mógł odczytać.
+- Inżynier firmy Microsoft uzyskuje dostęp do platformy Azure w ramach procedury rozwiązywania problemów i przypadkowo uzyskuje dostęp do danych klienta. Na przykład zespół ds. sieci platformy Azure wykonuje procedurę rozwiązywania problemów, której rezultatem jest przechwycenie pakietów na urządzeniu sieciowym. W tym scenariuszu, jeśli klient szyfruje dane podczas przesyłania, inżynier nie może odczytać danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Skrytka klienta jest automatycznie dostępna dla wszystkich klientów z [planem pomocy technicznej platformy Azure](https://azure.microsoft.com/support/plans/) o minimalnym poziomie **dewelopera**.
+Skrytka klienta jest dostępna dla wszystkich klientów, którzy mają [Plan pomocy technicznej platformy Azure](https://azure.microsoft.com/support/plans/) o minimalnym poziomie **dewelopera**. Skrytka klienta można włączyć z poziomu [modułu administracyjnego](https://aka.ms/customerlockbox/administration) w bloku skrytka klienta.
 
-Jeśli masz uprawniający plan pomocy technicznej, nie musisz mieć żadnej akcji, aby włączyć Skrytka klienta. Żądania Skrytka klienta są inicjowane przez inżyniera firmy Microsoft, jeśli jest to konieczne do wykonania biletu pomocy technicznej, który został zgłoszony przez kogoś w organizacji.
+Żądania Skrytka klienta są inicjowane przez inżyniera firmy Microsoft, jeśli ta akcja jest wymagana do postępu w przypadku pomocy technicznej.

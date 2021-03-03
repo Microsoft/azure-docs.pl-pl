@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e6dc55b54bc3abaea22544d457f98307596c5dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734285"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Wyślij dziennik aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu Azure Portal
-Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne w celu wysłania dziennika aktywności do dzienników Azure Monitor, gdzie można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). 
+Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne w celu wysłania dziennika aktywności do dzienników Azure Monitor, gdzie można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). 
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
@@ -73,7 +73,7 @@ Spróbuj użyć bardziej złożonej kwerendy, takiej jak, `AzureActivity | summa
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku szybki start skonfigurowano wysyłanie dziennika aktywności do obszaru roboczego Log Analytics. Teraz można skonfigurować inne dane do zebrania w obszarze roboczym, w którym można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) w Azure monitor i korzystać z funkcji, takich jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). Następnie należy zebrać [dzienniki zasobów](../essentials/resource-logs.md) z zasobów platformy Azure, które pomogą uzyskać szczegółowe dane w dzienniku aktywności.
+W tym przewodniku szybki start skonfigurowano wysyłanie dziennika aktywności do obszaru roboczego Log Analytics. Teraz można skonfigurować inne dane do zebrania w obszarze roboczym, w którym można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md) w Azure monitor i korzystać z funkcji, takich jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). Następnie należy zebrać [dzienniki zasobów](../essentials/resource-logs.md) z zasobów platformy Azure, które pomogą uzyskać szczegółowe dane w dzienniku aktywności.
 
 
 > [!div class="nextstepaction"]

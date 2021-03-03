@@ -4,12 +4,12 @@ description: Typy węzłów, trwałość, niezawodność i inne zagadnienia, kt�
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714939"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia dotyczące planowania pojemności klastra Service Fabric
 
@@ -39,21 +39,21 @@ Typ węzła podstawowego jest konfigurowany przy użyciu `isPrimary` atrybutu w 
 
 Liczba typów węzłów początkowych zależy od celu klastra i działających na nim aplikacji i usług. Zastanów się nad następującymi pytaniami:
 
-* *Czy **Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu?** _
+* ***Czy Twoja aplikacja ma wiele usług i czy wszystkie z nich muszą być dostępne publicznie czy z Internetu?***
 
     Typowe aplikacje zawierają usługę bramy frontonu, która odbiera dane wejściowe od klienta oraz co najmniej jedną usługi zaplecza, która komunikuje się z usługami frontonu, z oddzielną siecią między usługami frontonu i zaplecza. Te przypadki wymagają zwykle trzech typów węzłów: jeden podstawowy typ węzła i dwa typy węzłów innych niż podstawowe (jeden dla usługi frontonu i zaplecza).
 
-_ ***Czy usługi, które tworzą swoją aplikację, mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU?** _
+* ***Czy usługi, które składają się na swoją aplikację, mają różne potrzeby związane z infrastrukturą, takie jak większa ilość pamięci RAM czy więcej cykli procesora CPU?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
+    Często usługa frontonu może być uruchamiana na mniejszych maszynach wirtualnych (np. na takich rozmiarach jak D2), które mają otwarte porty w Internecie.  Usługi obliczeniowe z dużym obciążeniem mogą wymagać uruchamiania na większych maszynach wirtualnych (z rozmiarami maszyn wirtualnych, takimi jak D4, D6, D15), które nie są dostępne w Internecie. Definiowanie różnych typów węzłów dla tych usług umożliwia wydajniejsze i bezpieczne korzystanie z podstawowych maszyn wirtualnych Service Fabric, a jednocześnie pozwala na ich skalowanie niezależnie od siebie. Aby uzyskać więcej informacji na temat oszacowania ilości potrzebnych zasobów, zobacz [Planowanie pojemności dla aplikacji Service Fabric](service-fabric-capacity-planning.md)
 
-_ * Czy **każda z usług aplikacji musi skalować w poziomie ponad 100 węzłów?** _
+* ***Czy każda z usług aplikacji będzie musiała skalować w poziomie ponad 100 węzłów?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
+    Typ pojedynczego węzła nie może być niezawodnie skalowany ponad 100 węzłów na zestaw skalowania maszyn wirtualnych dla aplikacji Service Fabric. Uruchomienie ponad 100 węzłów wymaga dodatkowych zestawów skalowania maszyn wirtualnych (i w związku z tym dodatkowych typów węzłów).
 
-_ ***Czy klaster będzie obejmował między strefy dostępności?** _
+* ***Czy klaster będzie obejmował między Strefy dostępności?***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    Service Fabric obsługuje klastry, które rozciągają się między [strefy dostępności](../availability-zones/az-overview.md) przez wdrożenie typów węzłów, które są przypięte do określonych stref, zapewniając wysoką dostępność aplikacji. Strefy dostępności wymagać dodatkowego planowania typu węzła i minimalnych wymagań. Aby uzyskać szczegółowe informacje, zobacz [zalecaną topologię dla typu węzła podstawowego Service Fabric klastrów obejmujących cały strefy dostępności](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
 Podczas określania liczby i właściwości typów węzłów do wstępnego tworzenia klastra należy pamiętać, że po wdrożeniu klastra zawsze można dodawać, modyfikować lub usuwać typy węzłów niebędących podstawowymi. [Typy węzłów podstawowych można także modyfikować](service-fabric-scale-up-primary-node-type.md) w uruchomionych klastrach (chociaż operacje te wymagają dużej zamiaru planowania i przestrogi w środowiskach produkcyjnych).
 
@@ -61,7 +61,7 @@ Dalsze zagadnienia dotyczące właściwości typu węzła to poziom trwałości,
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Charakterystyki trwałości klastra
 
-Poziom _durability * wyznacza uprawnienia Service Fabric maszyn wirtualnych z podstawową infrastrukturą platformy Azure. To uprawnienie umożliwia Service Fabric wstrzymanie wszelkich żądań infrastruktury na poziomie maszyny wirtualnej (takich jak ponowny rozruch, odtwarzanie obrazu lub migracja), które mają wpływ na wymagania dotyczące kworum Service Fabric usług systemowych i usług stanowych.
+*Poziom trwałości* wyznacza uprawnienia maszyn wirtualnych Service Fabric z podstawową infrastrukturą platformy Azure. To uprawnienie umożliwia Service Fabric wstrzymanie wszelkich żądań infrastruktury na poziomie maszyny wirtualnej (takich jak ponowny rozruch, odtwarzanie obrazu lub migracja), które mają wpływ na wymagania dotyczące kworum Service Fabric usług systemowych i usług stanowych.
 
 > [!IMPORTANT]
 > Poziom trwałości jest ustawiany na typ węzła. Jeśli nie określono, zostanie użyta warstwa *Bronów* , ale nie zostanie ona zastosowana do automatycznych uaktualnień systemu operacyjnego. W przypadku obciążeń produkcyjnych zaleca się trwałość *Silver* lub *Gold* .
@@ -73,6 +73,9 @@ W poniższej tabeli wymieniono Service Fabric warstw trwałości, ich wymagania 
 | Złoty             | 5                              | Rozmiary całego węzła przeznaczone dla pojedynczego klienta (na przykład L32s, GS5, G5, DS15_v2, D15_v2) | Może zostać opóźnione do zatwierdzenia przez klaster Service Fabric | Można wstrzymywać przez 2 godziny na domenę uaktualnienia, aby zapewnić dodatkowy czas odzyskiwania po wcześniejszych awariach |
 | Srebrny           | 5                              | Maszyny wirtualne jednego rdzenia lub nowszego z co najmniej 50 GB lokalnego dysku SSD                      | Może zostać opóźnione do zatwierdzenia przez klaster Service Fabric | Nie może być opóźniony przez dowolny znaczny okres czasu                                                    |
 | Bron          | 1                              | Maszyny wirtualne z co najmniej 50 GB lokalnego dysku SSD                                              | Nie zostanie opóźniony przez klaster Service Fabric           | Nie może być opóźniony przez dowolny znaczny okres czasu                                                    |
+
+> [!NOTE]
+> Wspomniana powyżej minimalna liczba maszyn wirtualnych jest wymagana dla każdego poziomu trwałości. W miejscu znajdują się prawidłowe zmiany, które uniemożliwią utworzenie lub zmodyfikowanie istniejącej maszyny wirtualnej scalesets, która nie spełnia tych wymagań.
 
 > [!WARNING]
 > W przypadku trwałości Bronze automatyczne uaktualnianie obrazu systemu operacyjnego jest niedostępne. Mimo że [aplikacja aranżacji poprawek](service-fabric-patch-orchestration-application.md) (przeznaczona tylko dla klastrów hostowanych poza platformą Azure) *nie jest zalecana* dla poziomów trwałości Silver lub większej, jest to jedyna opcja automatyzacji aktualizacji systemu Windows w odniesieniu do domen uaktualnienia Service Fabric.

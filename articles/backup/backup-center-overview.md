@@ -3,14 +3,14 @@ title: Omówienie centrum kopii zapasowych
 description: Ten artykuł zawiera omówienie centrum kopii zapasowych na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725377"
 ---
-# <a name="overview-of-backup-center-preview"></a>Omówienie centrum kopii zapasowych (wersja zapoznawcza)
+# <a name="overview-of-backup-center"></a>Omówienie centrum kopii zapasowych
 
 Centrum kopii zapasowych zapewnia **jednolite środowisko zarządzania** na platformie Azure dla przedsiębiorstw, które ułatwiają monitorowanie, obsługę i analizowanie kopii zapasowych na dużą skalę. W związku z tym jest to zgodne z natywnymi środowiskami zarządzania platformy Azure.
 
@@ -18,11 +18,11 @@ Niektóre z najważniejszych zalet centrum kopii zapasowych obejmują:
 
 * **Pojedyncze okienko szkła do zarządzania kopiami zapasowymi** — centrum kopii zapasowych jest przeznaczone do prawidłowego działania w ramach dużego i rozproszonego środowiska platformy Azure. Możesz użyć centrum usługi Backup do wydajnego zarządzania kopiami zapasowymi obejmującymi wiele typów obciążeń, magazynów, subskrypcje, regiony i dzierżawy [usługi Azure Lighthouse](../lighthouse/overview.md) .
 * **Zarządzanie zorientowane na źródła danych** — centrum kopii zapasowych udostępnia widoki i filtry, które są wyśrodkowane w źródłach danych, których kopię zapasową utworzono Dzięki temu Właściciel zasobu lub administrator kopii zapasowej może monitorować i obsługiwać kopie zapasowe elementów bez potrzeby skoncentrowania się na tym magazynie, w którym jest tworzona kopia zapasowa elementu. Kluczową cechą tego projektu jest możliwość filtrowania widoków według właściwości specyficznych dla źródła danych, takich jak subskrypcja źródła danych, Grupa zasobów źródła danych i Tagi DataSource. Na przykład jeśli organizacja korzysta z rozwiązania do przypisywania różnych tagów do maszyn wirtualnych należących do różnych działów, można użyć centrum kopii zapasowych do filtrowania informacji o kopii zapasowej na podstawie tagów źródłowych maszyn wirtualnych, których kopię zapasową nie trzeba skupić na tagu magazynu.
-* **Połączone środowiska** — centrum kopii zapasowych zapewnia natywne integracje z istniejącymi usługami platformy Azure, które umożliwiają zarządzanie na dużą skalę. Na przykład centrum kopii zapasowych używa środowiska [Azure Policy](../governance/policy/overview.md) , aby ułatwić zarządzanie kopiami zapasowymi. Używa również [skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md) i [dzienników Azure monitor](../azure-monitor/logs/data-platform-logs.md) , aby ułatwić Wyświetlanie szczegółowych raportów dotyczących kopii zapasowych. Dlatego nie musisz uczyć się żadnych nowych zasad, aby korzystać z różnych funkcji oferowanych przez centrum kopii zapasowych.
+* **Połączone środowiska** — centrum kopii zapasowych zapewnia natywne integracje z istniejącymi usługami platformy Azure, które umożliwiają zarządzanie na dużą skalę. Na przykład centrum kopii zapasowych używa środowiska [Azure Policy](../governance/policy/overview.md) , aby ułatwić zarządzanie kopiami zapasowymi. Używa również [skoroszytów platformy Azure](../azure-monitor/visualize/workbooks-overview.md) i [dzienników Azure monitor](../azure-monitor/logs/data-platform-logs.md) , aby ułatwić Wyświetlanie szczegółowych raportów dotyczących kopii zapasowych. Dlatego nie musisz uczyć się żadnych nowych zasad, aby korzystać z różnych funkcji oferowanych przez centrum kopii zapasowych. Możesz również odnajdywać zasoby społeczności z poziomu centrum kopii zapasowych.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files Azure Database for PostgreSQL tworzenia
+* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files kopii zapasowej, tworzenia Azure Database for PostgreSQL Managed Disks kopii zapasowych Azure
 * Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy

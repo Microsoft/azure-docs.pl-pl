@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372012"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699032"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modele cen i rozliczeń dla Azure Logic Apps
 
@@ -94,7 +94,9 @@ Aby uzyskać informacje o limitach, zobacz [limity ISE w Azure Logic Apps](logic
 
 ## <a name="integration-accounts"></a>Konta integracji
 
-[Konto integracji](../logic-apps/logic-apps-pricing.md#integration-accounts) to oddzielny zasób tworzony i połączony z usługą Logic Apps, dzięki czemu można eksplorować, kompilować i testować rozwiązania integracji B2B, które korzystają z możliwości [przetwarzania](logic-apps-enterprise-integration-xml.md) [EDI](logic-apps-enterprise-integration-b2b.md) i XML. Azure Logic Apps oferuje następujące poziomy kont integracji:
+[Konto integracji](../logic-apps/logic-apps-pricing.md#integration-accounts) to oddzielny zasób tworzony i połączony z usługą Logic Apps, dzięki czemu można eksplorować, kompilować i testować rozwiązania integracji B2B, które korzystają z możliwości [przetwarzania](logic-apps-enterprise-integration-xml.md) [EDI](logic-apps-enterprise-integration-b2b.md) i XML.
+
+Azure Logic Apps oferują te poziomy kont integracji lub warstwy, które [różnią się w](https://azure.microsoft.com/pricing/details/logic-apps/) zależności od modelu cen i [rozliczeń](logic-apps-pricing.md#integration-accounts), w zależności od tego, czy Twoje aplikacje logiki są oparte na użyciu lub ISE:
 
 | Warstwa | Opis |
 |------|-------------|

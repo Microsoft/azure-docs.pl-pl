@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740447"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
 
@@ -30,7 +30,7 @@ Jeśli chcesz zachować dane przebiegu potoku przez ponad 45 dni, skonfiguruj w�
 
 ## <a name="pipeline-run-information"></a>Informacje o uruchamianiu potoku
 
-Aby uzyskać właściwości przebiegu potoku, zapoznaj się z dokumentacją [interfejsu API PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Uruchomienie potoku ma inny stan w trakcie jego cyklu życia. poniżej przedstawiono możliwe wartości stanu uruchomienia:
+Aby uzyskać właściwości przebiegu potoku, zapoznaj się z dokumentacją [interfejsu API PipelineRun](/rest/api/datafactory/pipelineruns/get#pipelinerun). Uruchomienie potoku ma inny stan w trakcie jego cyklu życia. poniżej przedstawiono możliwe wartości stanu uruchomienia:
 
 * W kolejce
 * Toku
@@ -163,5 +163,4 @@ Aby uzyskać pełny Przewodnik po tworzeniu i monitorowaniu potoku przy użyciu 
 Aby uzyskać pełną dokumentację poleceń cmdlet programu PowerShell, zobacz [Data Factory dokumentacja poleceń cmdlet programu PowerShell](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz temat [monitorowanie potoków przy użyciu Azure monitor](monitor-using-azure-monitor.md) artykułu, aby dowiedzieć się więcej o używaniu Azure monitor do monitorowania potoków Data Factory. 
-
+Zobacz temat [monitorowanie potoków przy użyciu Azure monitor](monitor-using-azure-monitor.md) artykułu, aby dowiedzieć się więcej o używaniu Azure monitor do monitorowania potoków Data Factory.

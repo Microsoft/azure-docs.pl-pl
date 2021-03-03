@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691828"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -71,7 +71,7 @@ Wykonaj następujące kroki, aby zabezpieczyć obszar roboczy i skojarzone zasob
 1. Utwórz [prywatny obszar roboczy z obsługą linków](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) , aby umożliwić komunikację między siecią wirtualną i obszarem roboczym.
 1. Dodaj Azure Key Vault do sieci wirtualnej za pomocą [punktu końcowego usługi](../key-vault/general/overview-vnet-service-endpoints.md) lub [prywatnego punktu końcowego](../key-vault/general/private-link-service.md). Ustaw Key Vault na ["Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Dodaj konto usługi Azure Storage do sieci wirtualnej przy użyciu [punktu końcowego usługi](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) lub [prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Skonfiguruj Azure Container Registry do korzystania z prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) i [Włącz delegowanie podsieci w programie Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Skonfiguruj Azure Container Registry tak, aby korzystał z prywatnego punktu końcowego](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagram architektury pokazujący, jak obszar roboczy i powiązane zasoby komunikują się ze sobą za pośrednictwem punktów końcowych usługi lub prywatnych punktów końcowych wewnątrz sieci wirtualnej](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

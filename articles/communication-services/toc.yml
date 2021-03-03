@@ -5,6 +5,8 @@
   items:
     - name: Co to są usługi Azure Communication Services?
       href: overview.md
+    - name: Pomoc techniczna i opcje pomocy
+      href: support.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -12,10 +14,8 @@
       href: quickstarts/create-communication-resource.md
     - name: Tworzenie tokenów dostępu i zarządzanie nimi
       href: quickstarts/access-tokens.md
-    - name: Używanie tożsamości zarządzanych
+    - name: Korzystanie z tożsamości zarządzanych (.NET)
       href: quickstarts/managed-identity.md
-    - name: Konfigurowanie tożsamości zarządzanych przy użyciu interfejsu wiersza polecenia
-      href: quickstarts/managed-identity-from-cli.md
     - name: Czat
       items:
         - name: Dodawanie czatu do aplikacji
@@ -24,7 +24,7 @@
           href: quickstarts/chat/meeting-interop.md
     - name: Telefonia i wiadomości SMS
       items:
-        - name: Zarządzanie numerami telefonów
+        - name: Uzyskiwanie numeru telefonu
           href: quickstarts/telephony-sms/get-phone-number.md
         - name: Dodawanie połączenia telefonicznego do aplikacji
           href: quickstarts/voice-video-calling/pstn-call.md
@@ -152,8 +152,6 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
         - name: Czat (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
-        - name: Rozmowa (Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat'
     - name: Biblioteki SMS
       items:
         - name: SMS (JavaScript)
@@ -162,18 +160,14 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
         - name: SMS (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
-        - name: SMS (Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms'
-    - name: Biblioteki tożsamości
+    - name: Biblioteki administracyjne
       items:
-        - name: Tożsamość (JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity'
-        - name: Tożsamość (.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity'
-        - name: Tożsamość (Android/Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity'
-        - name: Tożsamość (Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity'
+        - name: Administracja (JavaScript)
+          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration'
+        - name: Administracja (.NET)
+          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration'
+        - name: Administracja (Android/Java)
+          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration'
     - name: Wspólne biblioteki
       items:
         - name: Wspólne (JavaScript)
@@ -182,8 +176,6 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
         - name: Wspólne (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
-        - name: Common (Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common'
 - name: Zasoby
   items:
     - name: Informacje o wersji

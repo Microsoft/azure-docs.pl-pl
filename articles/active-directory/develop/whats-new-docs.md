@@ -11,16 +11,37 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225483"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687332"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
 Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Szybki Start: uzyskiwanie tokenu dostępu i wywoływanie interfejsu API Microsoft Graph z aplikacji dla komputerów stacjonarnych elektronów](quickstart-v2-nodejs-desktop.md)
+- [Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph w aplikacji klasycznej](tutorial-v2-nodejs-desktop.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej Node.js przy użyciu tożsamości aplikacji](quickstart-v2-nodejs-console.md)
+- [Samouczek: wywoływanie interfejsu API Microsoft Graph w aplikacji konsolowej Node.js](tutorial-v2-nodejs-console.md)
+- [Samouczek: Logowanie użytkowników w aplikacji sieci Web Node.js & Express](tutorial-v2-nodejs-webapp-msal.md)
+- [Obsługa uwierzytelniania bezhaseł przy użyciu kluczy FIDO2 w tworzonych aplikacjach](support-fido2-authentication.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Co nowego w uwierzytelnianiu?](reference-breaking-changes.md)
+- [Korzystanie z MSAL.NET do logowania użytkowników przy użyciu tożsamości społecznościowych](msal-net-aad-b2c-considerations.md)
+- [Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)](sample-v2-code.md)
+- [Wideo poświęcone platformie tożsamości firmy Microsoft](identity-videos.md)
+- [Szybki start: Konfigurowanie dzierżawy](quickstart-create-new-tenant.md)
+- [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej Java przy użyciu tożsamości aplikacji](quickstart-v2-java-daemon.md)
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
@@ -66,17 +87,3 @@ Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wym
 - [Tokeny dostępu platformy tożsamości firmy Microsoft](access-tokens.md)
 - [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-api-call-api-acquire-token.md)
 
-
-## <a name="november-2020"></a>Listopad 2020 r.
-
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Jak używać interfejsów API z włączoną funkcją oceny dostępu ciągłego w aplikacjach](app-resilience-continuous-access-evaluation.md)
-
-### <a name="updated-articles"></a>Zaktualizowane artykuły
-
-- [Tokeny dostępu platformy tożsamości firmy Microsoft](access-tokens.md)
-- [Opcje konfiguracji aplikacji (MSAL)](msal-client-application-configuration.md)
-- [Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji](active-directory-optional-claims.md)
-- [Publikowanie aplikacji w galerii aplikacji usługi Azure AD](v2-howto-app-gallery-listing.md)
-- [Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie](howto-add-app-roles-in-azure-ad-apps.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29164bbb205e9f3ad59ac28200b5c6cd1e47bf39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589406"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707578"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -138,7 +138,7 @@ Możesz uzyskać dostęp do danych w dziennikach i danych metryk w Azure Monitor
 - Zapytania są ograniczone w rozmiarze odpowiedzi do 8 MB i czas wykonywania zapytania wynoszący 110 sekund.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej na temat [danych zbieranych przez Azure monitor](/data-platform.md).
+- Dowiedz się więcej na temat [danych zbieranych przez Azure monitor](data-platform.md).
 - Dowiedz się więcej o [pulpitach nawigacyjnych platformy Azure](../azure-portal/azure-portal-dashboards.md).
 - Dowiedz się więcej o [Eksplorator metryk](essentials/metrics-getting-started.md)
 - Dowiedz się więcej na temat [skoroszytów](./visualize/workbooks-overview.md).

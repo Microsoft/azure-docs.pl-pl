@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 02/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051517"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741960"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
 
@@ -35,7 +35,7 @@ W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](/azure/arc
 
 ![Infrastruktura sieci samouczka](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie testowego środowiska sieciowego
@@ -62,30 +62,32 @@ Grupa zasobów zawiera wszystkie zasoby wymagane w tym samouczku.
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 2. W menu Azure Portal wybierz pozycję **grupy zasobów** lub Wyszukaj, a następnie wybierz pozycję *grupy zasobów* z dowolnej strony. Następnie wybierz pozycję **Dodaj**.
-3. W obszarze **Nazwa grupy zasobów** wprowadź polecenie *test-PD-RG*.
 4. W polu **Subskrypcja** wybierz subskrypcję.
-5. W polu **Lokalizacja grupy zasobów** wybierz lokalizację. Wszystkie inne zasoby, które tworzysz, muszą znajdować się w tej samej lokalizacji.
-6. Wybierz pozycję **Utwórz**.
+1. W obszarze **Nazwa grupy zasobów** wprowadź polecenie *test-PD-RG*.
+1. W polu **Lokalizacja grupy zasobów** wybierz lokalizację. Wszystkie inne zasoby, które tworzysz, muszą znajdować się w tej samej lokalizacji.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-a-vnet"></a>Tworzenie sieci wirtualnej
 
-Ta sieć wirtualna będzie zawierać trzy podsieci.
+Ta sieć wirtualna będzie miała trzy podsieci.
 
 > [!NOTE]
 > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 1. Wybierz **pozycję Sieć**  >  **Sieć wirtualna**.
-2. W polu **Subskrypcja** wybierz subskrypcję.
-3. W obszarze **Grupa zasobów** wybierz pozycję **test-PD-RG**.
-4. W polu **Nazwa** wpisz wartość **Test-FW-VN**.
-5. W polu **region** wybierz tę samą lokalizację, która została wcześniej użyta.
-6. Wybierz pozycję **Dalej: adresy IP**.
-7. W **polu przestrzeń adresowa IPv4** wpisz **10.0.0.0/16**.
-8. W obszarze **podsieć** wybierz pozycję **domyślne**.
-9. Dla **nazwy podsieci** wpisz **AzureFirewallSubnet**. Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
-10. W obszarze **zakres adresów** wpisz **10.0.1.0/26**.
-11. Wybierz pozycję **Zapisz**.
+1. Wybierz przycisk **Utwórz**.
+1. W polu **Subskrypcja** wybierz subskrypcję.
+1. W obszarze **Grupa zasobów** wybierz pozycję **test-PD-RG**.
+1. W polu **Nazwa** wpisz wartość **Test-FW-VN**.
+1. W polu **region** wybierz tę samą lokalizację, która została wcześniej użyta.
+1. Wybierz pozycję **Dalej: adresy IP**.
+1. W **polu przestrzeń adresowa IPv4** wpisz **10.0.0.0/16**.
+1. W obszarze **podsieć** wybierz pozycję **domyślne**.
+1. Dla **nazwy podsieci** wpisz **AzureFirewallSubnet**. Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
+1. W obszarze **zakres adresów** wpisz **10.0.1.0/26**.
+1. Wybierz pozycję **Zapisz**.
 
    Następnie Utwórz podsieć dla serwera obciążenia.
 
@@ -101,8 +103,7 @@ Ta sieć wirtualna będzie zawierać trzy podsieci.
 Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obciążenia-SN** .
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
-2. Wybierz pozycję **obliczenia** , a następnie pozycję **maszyna wirtualna**.
-3. **System Windows Server 2016 Datacenter** znajduje się na liście polecanych.
+2. Wybierz pozycję **Windows Server 2016 Datacenter**.
 4. Wprowadź poniższe wartości dla maszyny wirtualnej:
 
    |Ustawienie  |Wartość  |
@@ -110,7 +111,7 @@ Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obci�
    |Grupa zasobów     |**Test-PD-RG**|
    |Nazwa maszyny wirtualnej     |**SRV — Work**|
    |Region (Region)     |Taki sam jak poprzedni|
-   |Obraz|Windows Server 2019 Datacenter|
+   |Image (Obraz)|Windows Server 2019 Datacenter|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 
@@ -120,7 +121,7 @@ Teraz Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **obci�
 8. Upewnij się, że dla sieci wirtualnej jest wybrana wartość **test-PD-VN** , a podsieć jest **obciążeniem-SN**.
 9. W obszarze **publiczny adres IP** wybierz pozycję **Brak**.
 11. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dalej: Zarządzanie**.
-12. Wybierz pozycję **wyłączone** , aby wyłączyć diagnostykę rozruchu. Zaakceptuj inne ustawienia domyślne i wybierz pozycję **Recenzja + Utwórz**.
+12. Wybierz pozycję **Wyłącz** , aby wyłączyć diagnostykę rozruchu. Zaakceptuj inne ustawienia domyślne i wybierz pozycję **Recenzja + Utwórz**.
 13. Przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="deploy-the-firewall"></a>Wdrażanie zapory
@@ -137,11 +138,12 @@ Wdróż zaporę w sieci wirtualnej.
    |Subskrypcja     |\<your subscription\>|
    |Grupa zasobów     |**Test-PD-RG** |
    |Nazwa     |**Test-FW01**|
-   |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
+   |Region (Region)     |Wybierz tę samą lokalizację, której użyto poprzednio|
+   |Zarządzanie zaporą|**Użyj reguł zapory (klasycznych) do zarządzania tą zaporą**|
    |Wybieranie sieci wirtualnej     |**Użyj istniejącej**: **test-PD-VN**|
    |Publiczny adres IP     |**Dodaj nowe**<br>**Nazwa**:  **PD-PIP**|
 
-5. Wybierz pozycję **Przejrzyj i utwórz**.
+5. Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Recenzja + Utwórz**.
 6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zaporę.
 
    Wdrożenie potrwa klika minut.
@@ -155,17 +157,20 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 1. W menu Azure Portal wybierz pozycję **wszystkie usługi** lub Wyszukaj i wybierz pozycję *wszystkie usługi* z dowolnej strony.
 2. W obszarze **Sieć** wybierz pozycję **tabele tras**.
 3. Wybierz pozycję **Dodaj**.
-4. W polu **Nazwa** wpisz wartość **Firewall-route**.
 5. W polu **Subskrypcja** wybierz subskrypcję.
 6. W obszarze **Grupa zasobów** wybierz pozycję **test-PD-RG**.
-7. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-8. Wybierz pozycję **Utwórz**.
-9. Wybierz pozycję **Odśwież**, a następnie wybierz tabelę **Zapora trasy tras** .
-10. Wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz**.
-11. Wybierz pozycję **Virtual Network**  >  **test-PD-VN**.
-12. W obszarze **podsieć** wybierz pozycję **obciążenie — SN**. Upewnij się, że dla tej trasy jest zaznaczona tylko podsieć **obciążenia-SN** , w przeciwnym razie Zapora nie będzie działała poprawnie.
+7. W polu **region** wybierz tę samą lokalizację, która została wcześniej użyta.
+4. W polu **Nazwa** wpisz wartość **Firewall-route**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
-13. Wybierz pozycję **OK**.
+Po zakończeniu wdrożenia wybierz pozycję **Przejdź do zasobu**.
+
+1. Na stronie Zapora-trasa wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz**.
+1. Wybierz pozycję **Virtual Network**  >  **test-PD-VN**.
+1. W obszarze **podsieć** wybierz pozycję **obciążenie — SN**. Upewnij się, że dla tej trasy jest zaznaczona tylko podsieć **obciążenia-SN** , w przeciwnym razie Zapora nie będzie działała poprawnie.
+
+13. Wybierz przycisk **OK**.
 14. Wybierz pozycję **trasy** , a następnie wybierz pozycję **Dodaj**.
 15. Dla **nazwy trasy** wpisz **PD-DG**.
 16. W polu **Prefiks adresu** wpisz wartość **0.0.0.0/0**.
@@ -173,14 +178,14 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 
     Usługa Azure Firewall to w rzeczywistości usługa zarządzana, ale urządzenie wirtualne działa w tej sytuacji.
 18. W polu **Adres następnego skoku** wpisz wcześniej zanotowany prywatny adres IP zapory.
-19. Wybierz pozycję **OK**.
+19. Wybierz przycisk **OK**.
 
 ## <a name="configure-an-application-rule"></a>Konfigurowanie reguły aplikacji
 
 Jest to reguła aplikacji zezwalająca na dostęp wychodzący do `www.google.com` .
 
 1. Otwórz polecenie **test-PD-RG** i wybierz zaporę **test-FW01** .
-2. Na stronie **test-FW01** w obszarze **Ustawienia** wybierz pozycję **reguły**.
+2. Na stronie **test-FW01** w obszarze **Ustawienia** wybierz pozycję **reguły (klasyczne)**.
 3. Wybierz kartę **Kolekcja reguł aplikacji** .
 4. Wybierz pozycję **Dodaj kolekcję reguł aplikacji**.
 5. W polu **Nazwa** wpisz wartość **App-Coll01**.
@@ -226,8 +231,8 @@ Ta reguła umożliwia połączenie pulpitu zdalnego z maszyną wirtualną Srv-Wo
 5. W obszarze **reguły**, w polu **Nazwa** wpisz **protokół RDP-translator adresów sieciowych**.
 6. W polu **Protokół** wybierz **TCP**.
 7. W obszarze **Typ źródła** wybierz pozycję **adres IP**.
-8. Dla elementu **Source** wpisz * *\** _.
-9. Dla _ * adres docelowy * * wpisz publiczny adres IP zapory.
+8. Dla elementu **Source** wpisz **\*** .
+9. W polu **adres docelowy** wpisz publiczny adres IP zapory.
 10. W przypadku **portów docelowych** wpisz **3389**.
 11. W polu **adres przetłumaczony** wpisz prywatny adres IP **SRV** .
 12. W polu **Przekształcony port** wpisz **3389**.

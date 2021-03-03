@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 924ee745804ef31e42dc21437dbb0459f6d37701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091350"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693751"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Jak włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej platformy Azure
 
@@ -22,11 +22,9 @@ W tym artykule opisano Włączanie funkcji Hyper-V na maszynie wirtualnej platfo
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure z możliwością zagnieżdżania
 
-Utwórz nową maszynę wirtualną platformy Azure z systemem Windows Server 2016. Aby uzyskać pełną listę rozmiarów maszyn wirtualnych obsługujących zagnieżdżanie, zapoznaj się z [artykułem dotyczącym jednostek obliczeniowych platformy Azure](../acu.md).
+Utwórz nową maszynę wirtualną platformy Azure z systemem Windows Server 2016 lub Windows Server 2019 dla hosta. Upewnij się, że wybrano rozmiar maszyny wirtualnej, który obsługuje zagnieżdżanie, i jest wystarczająco duży, aby spełnić wymagania maszyn wirtualnych gościa. Aby zapoznać się z listą rozmiarów maszyn wirtualnych obsługujących zagnieżdżanie, zobacz artykuł dotyczący [jednostek obliczeniowych platformy Azure](../acu.md) .
 
-Należy pamiętać, aby wybrać rozmiar maszyny wirtualnej wystarczająco duży, aby obsługiwał wymagania maszyny wirtualnej gościa. W tym przykładzie używamy maszyny wirtualnej platformy Azure o rozmiarze D4_v3. 
-
-W [tym miejscu](https://azure.microsoft.com/regions/services/)możesz zobaczyć dostępność maszyn wirtualnych z serii Dv3 lub EV3.
+Dostępność regionalnych rozmiarów maszyn wirtualnych można wyświetlić na stronie [dostępne produkty według regionów](https://azure.microsoft.com/regions/services/) .
 
 >[!NOTE]
 >
@@ -94,7 +92,7 @@ Utwórz nową wirtualną kartę sieciową dla maszyny wirtualnej gościa i skonf
 4. Utwórz adres IP dla bramy translatora adresów sieciowych.
     
 Aby skonfigurować bramę, potrzebne są pewne informacje o sieci:    
-  * IPAddress — adres IP bramy translatora adresów sieciowych określa protokół IPv4 lub IPv6, który ma być używany jako domyślny adres bramy podsieci sieci wirtualnej. Formularz generyczny to. b. c. 1 (na przykład "192.168.0.1"). Gdy końcowa pozycja nie musi być literałem, zazwyczaj jest (na podstawie długości prefiksu). Zwykle należy używać przestrzeni adresów sieci prywatnej RFC 1918. 
+  * Adres IP — IP bramy translatora adresów sieciowych określa adres IPv4 lub IPv6, który ma być używany jako domyślny adres bramy dla podsieci sieci wirtualnej. Formularz generyczny to. b. c. 1 (na przykład "192.168.0.1"). Gdy końcowa pozycja nie musi być literałem, zazwyczaj jest (na podstawie długości prefiksu). Zwykle należy używać przestrzeni adresów sieci prywatnej RFC 1918. 
   * PrefixLength — długość prefiksu podsieci definiuje rozmiar podsieci lokalnej (Maska podsieci). Długość prefiksu podsieci będzie wartością całkowitą z zakresu od 0 do 32. wartość 0 spowoduje zamapowanie całego Internetu, 32 zezwala tylko na jeden zamapowany adres IP. Wspólne wartości mieszczą się w zakresie od 24 do 12 w zależności od tego, ile adresów IP należy dołączyć do translatora adresów sieciowych. Częstą PrefixLengthą jest 24 — jest to maska podsieci 255.255.255.0.
   * InterfaceIndex- **numer IfIndex** to indeks interfejsu przełącznika wirtualnego utworzonego w poprzednim kroku. 
 

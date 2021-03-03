@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702559"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -349,9 +349,9 @@ W [Azure Portal](https://portal.azure.com)filtr ma wpływ na wyzwalacze *i* akcj
 
 W szablonie ARM Określ dozwolone zakresy przychodzących adresów IP w definicji zasobu aplikacji logiki przy użyciu `accessControl` sekcji. W tej sekcji Użyj `triggers` , `actions` , i opcjonalne sekcje odpowiednio do `contents` `allowedCallerIpAddresses` sekcji z `addressRange` właściwością i ustaw wartość właściwości na dozwolony zakres adresów IP w formacie *x. x. x. x/x* lub *x. x. x. x-x* . x. x. x.
 
-* Jeśli zagnieżdżona aplikacja logiki używa **tylko innej Logic Apps** opcji, która zezwala na wywołania przychodzące tylko z innych aplikacji logiki, które używają akcji Azure Logic Apps, należy ustawić `addressRange` Właściwość na pustą tablicę (**[]**).
+* Jeśli zagnieżdżona aplikacja logiki używa opcji **tylko inne Logic Apps** , która zezwala na wywołania przychodzące tylko z innych aplikacji logiki, które używają wbudowanej akcji Azure Logic Apps, należy ustawić `allowedCallerIpAddresses` Właściwość na pustą tablicę (**[]**) i *pominąć* `addressRange` Właściwość.
 
-* Jeśli zagnieżdżona aplikacja logiki używa opcji **określonych zakresów adresów IP** dla innych wywołań przychodzących, takich jak inne aplikacje logiki, które używają akcji http, należy ustawić `addressRange` Właściwość na dozwolony zakres adresów IP.
+* Jeśli zagnieżdżona aplikacja logiki korzysta z opcji **określonych zakresów adresów IP** dla innych wywołań przychodzących, takich jak inne aplikacje logiki, które używają akcji http, Dołącz `allowedCallerIpAddresses` sekcję i ustaw `addressRange` Właściwość na dozwolony zakres adresów IP.
 
 Ten przykład przedstawia definicję zasobu dla zagnieżdżonej aplikacji logiki, która zezwala na wywołania przychodzące tylko z aplikacji logiki, które używają wbudowanej akcji Azure Logic Apps:
 
@@ -378,18 +378,14 @@ Ten przykład przedstawia definicję zasobu dla zagnieżdżonej aplikacji logiki
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}

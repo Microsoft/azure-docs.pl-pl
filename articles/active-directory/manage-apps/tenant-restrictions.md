@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611dd5e53ae96e06677b1c4a6a6f009e582b33af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646269"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687077"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -109,19 +109,18 @@ Podczas konfigurowania ograniczeń dzierżawy w firmowej infrastrukturze serwer�
 
 Administrator dzierżawy określony jako dzierżawca kontekstu ograniczonego dostępu może użyć tego raportu, aby zobaczyć, że logowanie zostało zablokowane z powodu zasad ograniczeń dzierżawy, w tym użytych tożsamości i identyfikatora katalogu docelowego. Logowania są uwzględniane, jeśli dzierżawa ustawienia ograniczenia to dzierżawa użytkownika lub dzierżawa zasobów dla logowania.
 
-> [!NOTE]
-> Raport może zawierać ograniczone informacje, takie jak identyfikator katalogu docelowego, gdy użytkownik, który znajduje się w dzierżawie poza dzierżawcą z ograniczonym dostępem, loguje się. W takim przypadku informacje identyfikowane przez użytkownika, takie jak nazwa i główna nazwa użytkownika, są maskowane w celu ochrony danych użytkownika w innych dzierżawcach (" 00000000-0000-0000-0000-00000000@domain.com ") 
+Raport może zawierać ograniczone informacje, takie jak identyfikator katalogu docelowego, gdy użytkownik, który znajduje się w dzierżawie poza dzierżawcą z ograniczonym dostępem, loguje się. W takim przypadku informacje identyfikowane przez użytkownika, takie jak nazwa i główna nazwa użytkownika, są maskowane w celu ochrony danych użytkownika w innych dzierżawcach ("{dane OSOBowe usunięte} @domain.com " lub 00000000-0000-0000-0000-000000000000 zamiast nazw użytkowników i identyfikatorów obiektów stosownie do potrzeb). 
 
 Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów, aby określić zakres raportu. Można filtrować według określonego przedziału czasu, użytkownika, aplikacji, klienta lub stanu. Jeśli wybierzesz przycisk **kolumny** , możesz wybrać wyświetlanie danych z dowolną kombinacją następujących pól:
 
-- **Użytkownik**
+- **Użytkownik** — to pole może usuwać informacje umożliwiające identyfikację użytkownika, gdzie zostanie ustawione na `00000000-0000-0000-0000-000000000000` . 
 - **Aplikacja**
 - **Stan**
 - **Data**
-- **Data (UTC)** (gdzie UTC jest uniwersalnym czasem koordynowanym)
+- **Data (UTC)** — gdzie UTC jest uniwersalnym czasem koordynowanym
 - **Adres IP**
 - **Klient**
-- **Nazwa użytkownika**
+- **Nazwa użytkownika** — to pole może usunąć informacje umożliwiające identyfikację użytkownika, w którym zostanie ono ustawione na `{PII Removed}@domain.com`
 - **Lokalizacja**
 - **Identyfikator dzierżawy docelowej**
 
@@ -196,19 +195,19 @@ W zależności od możliwości infrastruktury serwera proxy może być możliwe 
 
 Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją serwera proxy.
 
-## <a name="blocking-consumer-applications"></a>Blokowanie aplikacji konsumenckich
+## <a name="blocking-consumer-applications-public-preview"></a>Blokowanie aplikacji konsumenckich (publiczna wersja zapoznawcza)
 
-Aplikacje firmy Microsoft, które obsługują zarówno konta użytkowników, jak i konta organizacji, takie jak [OneDrive](https://onedrive.live.com/) lub [Microsoft Learn](https://docs.microsoft.com/learn/), mogą być czasami hostowane przy użyciu tego samego adresu URL.  Oznacza to, że użytkownicy, którzy muszą uzyskać dostęp do tego adresu URL do celów służbowych, mają również dostęp do niego do użytku osobistego, co może nie być dozwolone zgodnie z wytycznymi dotyczącymi obsługi.
+Aplikacje firmy Microsoft, które obsługują konta użytkowników i konta organizacji, takie jak [OneDrive](https://onedrive.live.com/) lub [Microsoft Learn](https://docs.microsoft.com/learn/), mogą być czasami hostowane na tym samym adresie URL.  Oznacza to, że użytkownicy, którzy muszą uzyskać dostęp do tego adresu URL do celów służbowych, mają również dostęp do niego do użytku osobistego, co może nie być dozwolone zgodnie z wytycznymi dotyczącymi obsługi.
 
 Niektóre organizacje próbują rozwiązać ten problem przez zablokowanie `login.live.com` w celu zablokowania uwierzytelniania kont osobistych.  Jest to kilka downsides:
 
 1. Blokowanie `login.live.com` uniemożliwia korzystanie z kont osobistych w scenariuszach gościa B2B, które mogą intruzom przed osobami odwiedzającymi i współpracownikami.
 1. [Funkcja autopilotażu wymaga użycia `login.live.com` ](https://docs.microsoft.com/mem/autopilot/networking-requirements) w celu wdrożenia programu. Po zablokowaniu scenariusze usługi Intune i autopilotaży mogą zakończyć się niepowodzeniem `login.live.com` .
-1. Dane telemetryczne organizacji i aktualizacje systemu Windows, które są zależne od usługi MSA dla identyfikatorów urządzeń, [przestaną obowiązywać](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. Dane telemetryczne organizacji i aktualizacje systemu Windows, które są zależne od usługi login.live.com dla identyfikatorów urządzeń, [przestaną obowiązywać](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Konfiguracja aplikacji dla klientów
 
-Chociaż `Restrict-Access-To-Tenants` nagłówek działa jako lista dozwolonych, blok MSA działa jako sygnał odmowy, co informuje platformę konto Microsoft, aby nie zezwalać użytkownikom na logowanie się do aplikacji konsumenckich. Aby wysłać ten sygnał, `sec-Restrict-Tenant-Access-Policy` nagłówek jest wstrzykiwany do ruchu odwiedzanego `login.live.com` przy użyciu tego samego firmowego serwera proxy lub zapory, jak [powyżej](#proxy-configuration-and-requirements). Wartością nagłówka musi być `restrict-msa` . Gdy nagłówek jest obecny i aplikacja odbiorcy próbuje bezpośrednio zalogować użytkownika, to logowanie zostanie zablokowane.
+Gdy `Restrict-Access-To-Tenants` nagłówek działa jako lista dozwolonych, blok konto Microsoft (MSA) działa jako sygnał odmowy, co informuje platformę konto Microsoft, aby nie zezwalać użytkownikom na logowanie się do aplikacji konsumenckich. Aby wysłać ten sygnał, `sec-Restrict-Tenant-Access-Policy` nagłówek jest wstrzykiwany do ruchu odwiedzanego `login.live.com` przy użyciu tego samego firmowego serwera proxy lub zapory jak [powyżej](#proxy-configuration-and-requirements). Wartością nagłówka musi być `restrict-msa` . Gdy nagłówek jest obecny i aplikacja odbiorcy próbuje bezpośrednio zalogować użytkownika, to logowanie zostanie zablokowane.
 
 W tej chwili uwierzytelnianie w aplikacjach konsumenckich nie pojawia się w [dziennikach administratora](#admin-experience), ponieważ login.Live.com jest hostowany niezależnie od usługi Azure AD.
 

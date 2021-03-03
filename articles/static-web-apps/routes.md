@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 39950b4d62b7dbfacba94f5ba3c5de50bbb974b3
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739648"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 Routing w usłudze Azure static Web Apps definiuje reguły routingu zaplecza i zachowanie autoryzacji dla zawartości statycznej i interfejsów API<sup>1</sup>. Reguły są definiowane jako tablica reguł w _routes.js_ pliku.
 
@@ -29,6 +32,9 @@ Temat dotyczący routingu znacznie pokrywa się z pojęciami dotyczącymi uwierz
 Zobacz [przykładowy plik trasy](#example-route-file) , aby uzyskać szczegółowe informacje.
 
 ## <a name="location"></a>Lokalizacja
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 _routes.js_ pliku musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji. Jeśli aplikacja sieci Web zawiera krok kompilacji, który kopiuje skompilowane pliki z określonego folderu do folderu artefaktów kompilacji, wówczas _routes.jsw_ pliku musi istnieć w tym konkretnym folderze.
 
@@ -46,6 +52,9 @@ Powyższa tabela jest tylko reprezentatywna dla kilku platform i bibliotek zgodn
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
+
 Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes` właściwości. Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Zobacz [przykładowy plik tras](#example-route-file) dla przykładów użycia.
 
 | Właściwość reguły  | Wymagane | Wartość domyślna | Komentarz                                                      |
@@ -56,6 +65,9 @@ Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes`
 | `statusCode`   | Nie       | 200           | Odpowiedź na [kod stanu HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) dla żądania. |
 
 ## <a name="securing-routes-with-roles"></a>Zabezpieczanie tras przy użyciu ról
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 Trasy są zabezpieczone przez dodanie co najmniej jednej nazwy roli do `allowedRoles` tablicy reguł. Zobacz [przykładowy plik tras](#example-route-file) dla przykładów użycia.
 
@@ -81,6 +93,9 @@ W razie konieczności można utworzyć nowe role w `allowedRoles` tablicy. Aby o
 - Indywidualni użytkownicy są skojarzeni z rolami przy użyciu [zaproszeń](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Symbole wieloznaczne
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 Reguły symboli wieloznacznych pasują do wszystkich żądań w ramach danego wzorca trasy. W przypadku zdefiniowania `serve` wartości w regule nazwanego pliku lub ścieżki jest obsługiwana jako odpowiedź.
 
@@ -109,6 +124,9 @@ Możesz również zabezpieczyć trasy z symbolami wieloznacznymi. W poniższym p
 
 ## <a name="fallback-routes"></a>Trasy powrotu
 
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
+
 Aplikacje jednostronicowe, niezależnie od tego, czy korzystają z platform i bibliotek języka JavaScript frontonu, czy platformy zestawów webassembly, takich jak Blazor, często polegają na kierowaniu aplikacji sieci Web po stronie klienta. Te reguły routingu po stronie klienta aktualizują lokalizację okna przeglądarki bez przesyłania żądań z powrotem do serwera. W przypadku odświeżenia strony lub przejścia bezpośrednio do lokalizacji wygenerowanych przez reguły routingu po stronie klienta, wymagana jest trasa rezerwowa po stronie serwera do obsłużynia odpowiedniej strony HTML.
 
 W poniższym przykładzie przedstawiono wspólną trasę rezerwową:
@@ -128,6 +146,9 @@ W poniższym przykładzie przedstawiono wspólną trasę rezerwową:
 Trasa rezerwowa musi być umieszczona na końcu w regułach routingu, ponieważ przechwytuje wszystkie żądania, które nie zostały przechwycone przez wcześniej zdefiniowane reguły.
 
 ## <a name="redirects"></a>Przekierowuje
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 Można użyć kodów stanu HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) i [302](https://en.wikipedia.org/wiki/HTTP_302) do przekierowywania żądań z jednej trasy do innej.
 
@@ -153,6 +174,9 @@ Przekierowania również współpracują ze ścieżkami, które nie definiują o
 
 ## <a name="custom-error-pages"></a>Niestandardowe strony błędów
 
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
+
 Użytkownicy mogą napotkać różne sytuacje, które mogą spowodować wystąpienie błędu. Korzystając z `platformErrorOverrides` tablicy, można zapewnić niestandardowe środowisko w odpowiedzi na te błędy. Zapoznaj się z [przykładowym plikiem trasy](#example-route-file) do umieszczania tablicy w _routes.js_ pliku.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ Poniższa tabela zawiera listę dostępnych zastąpień błędów platformy:
 | `Unauthorized_Unknown` | 401 | Wystąpił nieznany problem podczas próby uwierzytelnienia użytkownika. Jedną z przyczyn tego błędu może być to, że użytkownik nie został rozpoznany, ponieważ nie udzieli zgody na aplikację.|
 
 ## <a name="custom-mime-types"></a>Niestandardowe typy MIME
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 `mimeTypes`Obiekt, który znajduje się na tym samym poziomie co `routes` Tablica, umożliwia kojarzenie [typów MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) z rozszerzeniami plików.
 
@@ -194,6 +221,9 @@ Poniższe zagadnienia są ważne podczas pracy z typami MIME:
 > Statyczne Web Apps rozumie aplikacje Blazor i oczekiwane typy MIME dla plików WASM i DLL, nie trzeba dodawać mapowań dla tych.
 
 ## <a name="default-headers"></a>Nagłówki domyślne
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 `defaultHeaders`Obiekt, który znajduje się na tym samym poziomie co `routes` Tablica, umożliwia dodawanie, modyfikowanie lub usuwanie [nagłówków odpowiedzi](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -221,6 +251,9 @@ Poniższe zagadnienia są ważne podczas pracy z nagłówkami:
 - Nagłówki zdefiniowane w _routes.js_ dotyczą tylko zawartości statycznej. Można dostosować nagłówki odpowiedzi punktu końcowego interfejsu API w kodzie funkcji.
 
 ## <a name="example-route-file"></a>Przykładowy plik trasy
+
+> [!IMPORTANT]
+> Funkcje zdefiniowane w *routes.jsw* pliku są obecnie przestarzałe i lepiej zaimplementowane w [pliku konfiguracyjnym](./configuration.md#routes)Web Apps statycznym platformy Azure.
 
 Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w _routes.js_ pliku. Niektóre trasy używają [folderu systemowego _/.auth_](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
 

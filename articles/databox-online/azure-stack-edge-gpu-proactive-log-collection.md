@@ -1,53 +1,57 @@
 ---
 title: Opis aktywnej kolekcji dzienników na urządzeniu Azure Stack EDGE Pro
-description: Opisuje sposób, w jaki aktywne jest zbieranie dzienników na urządzeniu z systemem Azure Stack Edge.
+description: Opisuje sposób, w jaki można przeprowadzić aktywne zbieranie dzienników na urządzeniu z systemem Azure Stack Edge i jak go wyłączyć.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/23/2021
 ms.author: alkohli
-ms.openlocfilehash: f79de47ec0ffad11f650054b581dbbaae030edbf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 064af116112f0b530ac0cc9b5755dcec2cf0bd07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722084"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Aktywna kolekcja dzienników na urządzeniu z systemem Azure Stack Edge
 
-Możesz włączyć funkcję aktywnej kolekcji dzienników na urządzeniu brzegowym Azure Stack na podstawie wskaźników kondycji systemu, aby skutecznie rozwiązywać problemy z urządzeniami. W tym artykule opisano, co to jest funkcja proaktywne zbieranie dzienników, jak włączyć ją i jak są obsługiwane dane po włączeniu aktywnej kolekcji dzienników.
-   
+Usługa Active log Collection zbiera wskaźniki kondycji systemu na urządzeniu z Azure Stack Edge, aby ułatwić efektywne Rozwiązywanie problemów z urządzeniami. Funkcja aktywnej kolekcji dzienników jest domyślnie włączona. W tym artykule opisano, co jest rejestrowane, jak firma Microsoft obsługuje dane, oraz jak wyłączyć lub włączyć funkcję aktywnej kolekcji dzienników. 
+
 Informacje przedstawione w tym artykule mają zastosowanie do Azure Stack brzegowych procesorów GPU, Azure Stack EDGE Pro R i Azure Stack Edge.
 
 ## <a name="about-proactive-log-collection"></a>Informacje o aktywnej kolekcji dzienników
 
-Zespoły obsługi klienta i inżynierów firmy Microsoft używają dzienników systemu z urządzenia brzegowego Azure Stack, aby skutecznie identyfikować i rozwiązywać problemy, które mogą wystąpić podczas operacji. Proaktywne zbieranie dzienników to metoda, która powiadamia firmę Microsoft o problemie/zdarzeniu (zobacz sekcję wskaźniki aktywnego zbierania dzienników dla monitorowanych zdarzeń) została wykryta przez urządzenie Azure Stack brzegowej klienta. Dzienniki pomocy technicznej związane z problemem są automatycznie przekazywane do konta usługi Azure Storage zarządzanego i kontrolowanego przez firmę Microsoft. Pomoc techniczna firmy Microsoft i inżynierów firmy Microsoft przeglądają te dzienniki pomocy technicznej w celu ustalenia najlepszego sposobu działania w celu rozwiązania problemu z klientem.    
+Zespoły obsługi klienta i inżynierów firmy Microsoft używają dzienników systemu z urządzenia brzegowego Azure Stack, aby skutecznie identyfikować i rozwiązywać problemy, które mogą wystąpić podczas operacji. Kolekcja aktywnych dzienników to metoda, która powiadamia firmę Microsoft o wykryciu problemu/zdarzenia przez urządzenie Azure Stack brzegowe klienta. Zobacz [wskaźniki aktywnej kolekcji dzienników](#proactive-log-collection-indicators) dla monitorowanych zdarzeń. Dzienniki pomocy technicznej związane z problemem są automatycznie przekazywane do konta usługi Azure Storage, które jest zarządzane i kontrolowane przez firmę Microsoft. Pomoc techniczna firmy Microsoft i inżynierów firmy Microsoft przeglądają te dzienniki pomocy technicznej w celu ustalenia najlepszego sposobu działania w celu rozwiązania problemu z klientem.
 
 > [!NOTE]
-> Dzienniki te są używane tylko do celów debugowania i zapewniają klientom pomoc techniczną w przypadku problemów. 
+> Te dzienniki są używane tylko do celów debugowania oraz w celu zapewnienia pomocy technicznej klientom w przypadku problemów.
 
 
 ## <a name="enabling-proactive-log-collection"></a>Włączanie aktywnej kolekcji dzienników
 
-Możesz włączyć funkcję aktywnej kolekcji dzienników podczas próby aktywowania urządzenia za pomocą lokalnego interfejsu użytkownika. 
+Funkcja aktywnej kolekcji dzienników jest domyślnie włączona. Można wyłączyć funkcję aktywnej kolekcji dzienników podczas próby aktywowania urządzenia za pomocą lokalnego interfejsu użytkownika. 
 
-1. W lokalnym interfejsie użytkownika sieci Web urządzenia **Przejdź na stronę wprowadzenie.**
+1. W lokalnym interfejsie użytkownika sieci Web urządzenia przejdź na stronę **wprowadzenie** .
+
 2. Na kafelku **Aktywacja** wybierz pozycję **Aktywuj**. 
 
     ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury" Strona 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
-    
+
 3. W okienku **Aktywuj** :
-    1. Wprowadź **klucz aktywacji** uzyskany w polu [Pobierz klucz aktywacji dla Azure Stack EDGE Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    1. Możesz włączyć funkcję aktywnej kolekcji dzienników, aby umożliwić firmie Microsoft zbieranie dzienników na podstawie stanu kondycji urządzenia. Dzienniki zebrane w ten sposób są przekazywane do konta usługi Azure Storage.
-    
-    1. Wybierz przycisk **Zastosuj**.
+   1. Wprowadź **klucz aktywacji** uzyskany w polu [Pobierz klucz aktywacji dla Azure Stack EDGE Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury" Strona 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
+      Po aktywowaniu funkcja aktywnej kolekcji dzienników jest domyślnie włączona, co umożliwia firmie Microsoft zbieranie dzienników na podstawie stanu kondycji urządzenia. Te dzienniki są przekazywane do konta usługi Azure Storage. 
 
+      Można wyłączyć funkcję aktywnej kolekcji dzienników, aby zatrzymać zbieranie dzienników przez firmę Microsoft.
 
+   1. Jeśli chcesz wyłączyć funkcję aktywnej kolekcji dzienników na urządzeniu, wybierz pozycję **Wyłącz**.
+
+   1. Wybierz pozycję **Aktywuj**.
+
+   ![Lokalny interfejs użytkownika sieci Web "Szczegóły chmury" Strona 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
 
 ## <a name="proactive-log-collection-indicators"></a>Wskaźniki aktywnego zbierania dzienników
 
@@ -66,11 +70,11 @@ Firma Microsoft będzie nadal dodawać nowe zdarzenia do powyższej listy. Nowe 
 
 ## <a name="other-log-collection-methods"></a>Inne metody zbierania dzienników
 
-Oprócz funkcji aktywnej kolekcji dzienników, która gromadzi określone dzienniki związane z określonym problemem, istnieją inne kolekcje dzienników, które mogą zapewnić znacznie dokładniejsze zrozumienie kondycji i zachowania systemu. Zwykle te inne kolekcje dzienników mogą być wykonywane w trakcie żądania obsługi lub wyzwalane przez firmę Microsoft na podstawie danych telemetrycznych dostarczanych przez urządzenie.  
+Oprócz funkcji aktywnej kolekcji dzienników, która gromadzi określone dzienniki związane z określonym problemem, inne kolekcje dzienników mogą bardziej szczegółowo zrozumieć kondycję systemu i zachowanie. Zwykle te inne dzienniki mogą być zbierane w trakcie żądania obsługi lub wyzwalane przez firmę Microsoft na podstawie danych telemetrycznych z urządzenia.
 
 ## <a name="handling-data"></a>Obsługa danych
 
-Jeśli klient włączy proaktywne zbieranie dzienników, firma Microsoft wyrazi zgodę na zbieranie dzienników z Azure Stack urządzenia brzegowego zgodnie z opisem w niniejszym artykule. Klient potwierdzi również i wyraża zgodę na przekazywanie i przechowywanie tych dzienników na koncie usługi Azure Storage zarządzanym i kontrolowanym przez firmę Microsoft.
+Po włączeniu aktywnej kolekcji dzienników Klient wyraża zgodę na zbieranie dzienników z Azure Stack urządzenia brzegowego zgodnie z opisem w niniejszym artykule. Klient potwierdzi również i wyraża zgodę na przekazywanie i przechowywanie tych dzienników na koncie usługi Azure Storage zarządzanym i kontrolowanym przez firmę Microsoft.
 
 Firma Microsoft używa tych danych do rozwiązywania problemów z kondycją i błędami systemu. Dane nie są używane do marketingu, reklamy ani żadnych innych celów komercyjnych bez zgody klienta. 
 

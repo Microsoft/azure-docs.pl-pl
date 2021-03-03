@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686720"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Serwer proxy aplikacji usługi Azure AD platformy Azure: historia wersji
 W tym artykule wymieniono wersje i funkcje serwera proxy aplikacji Azure Active Directory (Azure AD), który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje serwer proxy aplikacji przy użyciu nowych funkcji i funkcjonalności. Łączniki serwera proxy aplikacji są aktualizowane automatycznie po wydaniu nowej wersji. 
 
-Zalecamy, aby upewnić się, że funkcja autoaktualizacje jest włączona dla łączników, aby upewnić się, że masz najnowsze funkcje i poprawki błędów. Firma Microsoft zapewnia bezpośrednią pomoc techniczną dotyczącą najnowszej wersji łącznika i jednej wersji przed.
+Zalecamy, aby upewnić się, że funkcja autoaktualizacje jest włączona dla łączników, aby upewnić się, że masz najnowsze funkcje i poprawki błędów. Firma Microsoft zapewnia bezpośrednią pomoc techniczną dotyczącą najnowszej wersji łącznika i jednej wersji.
 
 Poniżej znajduje się lista powiązanych zasobów:
 
@@ -44,7 +44,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 
 ### <a name="fixed-issues"></a>Naprawione problemy
 - Rozwiązano problem z użyciem protokołu WebSocket z wymuszonymi małymi literami.
-- Rozwiązano problem, który spowodował, że łączniki czasami nie odpowiadają.
+- Rozwiązano problem, który powodował, że łączniki czasami nie odpowiadają.
 
 ## <a name="1516260"></a>1.5.1626.0
 
@@ -60,7 +60,7 @@ Pobieranie łącznika usługi Azure serwer proxy aplikacji usługi Azure AD |  [
 
 ### <a name="release-status"></a>Stan wydania
 
-07 kwietnia 2020: wydano do pobrania
+07 kwietnia 2020: wydano do pobrania ta wersja jest dostępna tylko do instalacji za pośrednictwem strony pobierania. Wydanie z autouaktualnianiem tej wersji zostanie zwolnione w późniejszym czasie.
 
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 -   Łączniki używają tylko protokołu TLS 1,2 dla wszystkich połączeń. Aby uzyskać więcej informacji, zobacz [wymagania wstępne łącznika](application-proxy-add-on-premises-application.md#prerequisites) .

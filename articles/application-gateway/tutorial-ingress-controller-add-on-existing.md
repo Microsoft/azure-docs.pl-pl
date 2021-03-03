@@ -5,18 +5,18 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720226"
 ---
-# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway za pomocą interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
+# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby włączyć dodatek [Application Gateway (AGIC)](ingress-controller-overview.md) , który jest obecnie w wersji zapoznawczej dla klastra [usługi Azure KUBERNETES Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . W tym samouczku dowiesz się, jak korzystać z dodatku AGIC w celu udostępnienia aplikacji Kubernetes w istniejącym klastrze AKS za pomocą istniejącego Application Gateway wdrożonego w oddzielnych sieciach wirtualnych. Zacznij od utworzenia klastra AKS w jednej sieci wirtualnej i Application Gateway w oddzielnej sieci wirtualnej, aby symulować istniejące zasoby. Następnie włącz dodatek AGIC, równorzędne dwie sieci wirtualne, a następnie wdróż przykładową aplikację, która zostanie udostępniona za pośrednictwem Application Gateway przy użyciu dodatku AGIC. Jeśli włączysz dodatek AGIC dla istniejącego Application Gateway i istniejącego klastra AKS w tej samej sieci wirtualnej, możesz pominąć krok komunikacji równorzędnej poniżej. Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą usługi Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) , a także oferuje w pełni zarządzane środowisko.  
+Możesz użyć interfejsu wiersza polecenia platformy Azure lub portalu, aby włączyć dodatek [Application Gateway AGIC (DataKubernetes Controller)](ingress-controller-overview.md) dla istniejącego klastra [usługi Azure Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . W tym samouczku dowiesz się, jak korzystać z dodatku AGIC w celu udostępnienia aplikacji Kubernetes w istniejącym klastrze AKS za pomocą istniejącego Application Gateway wdrożonego w oddzielnych sieciach wirtualnych. Zacznij od utworzenia klastra AKS w jednej sieci wirtualnej i Application Gateway w oddzielnej sieci wirtualnej, aby symulować istniejące zasoby. Następnie włącz dodatek AGIC, równorzędne dwie sieci wirtualne, a następnie wdróż przykładową aplikację, która zostanie udostępniona za pośrednictwem Application Gateway przy użyciu dodatku AGIC. Jeśli włączysz dodatek AGIC dla istniejącego Application Gateway i istniejącego klastra AKS w tej samej sieci wirtualnej, możesz pominąć krok komunikacji równorzędnej poniżej. Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą usługi Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) , a także oferuje w pełni zarządzane środowisko.  
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -24,7 +24,8 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Tworzenie grupy zasobów 
 > * Tworzenie nowego klastra AKS 
 > * Utwórz nowy Application Gateway 
-> * Włącz dodatek AGIC w istniejącym klastrze AKS przy użyciu istniejącego Application Gateway 
+> * Włączanie dodatku AGIC w istniejącym klastrze AKS za pomocą interfejsu wiersza polecenia platformy Azure 
+> * Włączanie dodatku AGIC w istniejącym klastrze AKS za pomocą portalu 
 > * Komunikacja równorzędna Application Gateway sieci wirtualnej z siecią wirtualną klastra AKS
 > * Wdrażanie przykładowej aplikacji przy użyciu usługi AGIC na potrzeby ruchu przychodzącego w klastrze AKS
 > * Sprawdź, czy aplikacja jest dostępna za pomocą Application Gateway
@@ -32,22 +33,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana.
-
- - Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* przy użyciu polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Wystarczy wykonać tę czynność tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej:
-     ```azurecli-interactive
-     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-     ```
-    Wyświetlenie zarejestrowanego stanu może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-register) :
-     ```azurecli-interactive
-     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-     ```
-
- - Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -61,7 +46,7 @@ az group create --name myResourceGroup --location canadacentral
 
 Teraz zostanie wdrożony nowy klaster AKS, aby symulować istnienie istniejącego klastra AKS, dla którego chcesz włączyć dodatek AGIC.  
 
-W poniższym przykładzie zostanie wdrożony nowy klaster *AKS o nazwie* przy użyciu [usługi Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) i [zarządzanych tożsamości](../aks/use-managed-identity.md) w utworzonej grupie *zasobów.*    
+W poniższym przykładzie zostanie wdrożony nowy klaster *AKS o nazwie* przy użyciu [usługi Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) i [zarządzanych tożsamości](../aks/use-managed-identity.md) w utworzonej grupie *zasobów.*
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
@@ -84,18 +69,24 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 > [!NOTE]
 > Dodatek Application Gateway Management Controller (AGIC) obsługuje **tylko** wersje SKU Application Gateway v2 (standard i WAF), a **nie** jednostki SKU Application Gateway v1. 
 
-## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Włącz dodatek AGIC w istniejącym klastrze AKS z istniejącym Application Gateway 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-azure-cli"></a>Włączanie dodatku AGIC w istniejącym klastrze AKS za pomocą interfejsu wiersza polecenia platformy Azure 
 
-Teraz włączmy dodatek AGIC w utworzonym klastrze AKS, *Webclustering* i określisz dodatek AGIC, aby korzystał z istniejących Application Gateway utworzonych przez Ciebie, *myApplicationGateway*. Upewnij się, że dodano/Zaktualizowano rozszerzenie AKS-Preview na początku tego samouczka. 
+Jeśli chcesz kontynuować korzystanie z interfejsu wiersza polecenia platformy Azure, możesz w dalszym ciągu włączyć dodatek AGIC w utworzonym klastrze AKS, utworzyć *klaster* i określić dodatek AGIC, aby korzystał z istniejących utworzonych Application Gateway, *myApplicationGateway*.
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-portal"></a>Włącz dodatek AGIC w istniejącym klastrze AKS za pomocą portalu 
+
+Jeśli chcesz użyć Azure Portal, aby włączyć dodatek AGIC, przejdź do [( https://aka.ms/azure/portal/aks/agic) ](https://aka.ms/azure/portal/aks/agic) i przejdź do klastra AKS za pomocą linku portalu). W tym miejscu przejdź do karty sieć w klastrze AKS. Zostanie wyświetlona sekcja Application Gatewaya kontrolera transferu danych przychodzących, która umożliwia włączenie/wyłączenie dodatku transferu danych przychodzących przy użyciu interfejsu użytkownika portalu. Zaznacz pole wyboru obok pozycji "Włącz kontroler transferu danych przychodzących" i wybierz utworzony Application Gateway, *myApplicationGateway* z menu rozwijanego. 
+
+![Application Gateway portalu transferu danych przychodzących](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+
 ## <a name="peer-the-two-virtual-networks-together"></a>Łączenie równorzędne dwóch sieci wirtualnych
 
-Ze względu na to, że klaster AKS został wdrożony we własnej sieci wirtualnej, a Application Gateway w innej sieci wirtualnej, należy połączyć równorzędnie dwie sieci wirtualne w celu przepływu ruchu z Application Gateway do zasobników w klastrze. Komunikacja równorzędna między dwiema sieciami wirtualnymi wymaga ponownego uruchomienia polecenia platformy Azure w celu zapewnienia dwukierunkowego połączenia. Pierwsze polecenie spowoduje utworzenie połączenia komunikacji równorzędnej z Application Gateway sieci wirtualnej z siecią wirtualną AKS. Drugie polecenie spowoduje utworzenie połączenia komunikacji równorzędnej w innym kierunku. 
+Ze względu na to, że klaster AKS został wdrożony we własnej sieci wirtualnej, a Application Gateway w innej sieci wirtualnej, należy połączyć równorzędnie dwie sieci wirtualne w celu przepływu ruchu z Application Gateway do zasobników w klastrze. Komunikacja równorzędna między dwiema sieciami wirtualnymi wymaga ponownego uruchomienia polecenia platformy Azure w celu zapewnienia dwukierunkowego połączenia. Pierwsze polecenie spowoduje utworzenie połączenia komunikacji równorzędnej z Application Gateway sieci wirtualnej z siecią wirtualną AKS. Drugie polecenie spowoduje utworzenie połączenia komunikacji równorzędnej w innym kierunku.
 
 ```azurecli-interactive
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
@@ -107,6 +98,7 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
 ## <a name="deploy-a-sample-application-using-agic"></a>Wdrażanie przykładowej aplikacji przy użyciu AGIC 
 
 Teraz wdrożono przykładową aplikację do utworzonego klastra AKS, który będzie korzystał z dodatku AGIC dla ruchu przychodzącego i połączyć Application Gateway z klastrem AKS. Najpierw uzyskasz poświadczenia do wdrożonego klastra AKS, uruchamiając `az aks get-credentials` polecenie. 

@@ -3,12 +3,12 @@ title: Tworzenie puli w różnych strefach dostępności
 description: Dowiedz się, jak utworzyć pulę wsadową z zasadami stref, aby ułatwić ochronę przed awariami.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725292"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Utwórz pulę Azure Batch w Strefy dostępności
 
@@ -22,7 +22,7 @@ Usługa Batch zachowuje parzystość na platformie Azure na Strefy dostępności
 
 Aby Pula usługi Batch mogła zostać przypisana w strefach dostępności, region platformy Azure, w którym tworzona jest Pula, musi obsługiwać żądaną jednostkę SKU maszyny wirtualnej w więcej niż jednej strefie. Można to sprawdzić, wywołując [interfejs API listy jednostek SKU zasobów](/rest/api/compute/resourceskus/list) i sprawdzając pole **locationInfo** [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Upewnij się, że dla wymaganej jednostki SKU maszyny wirtualnej jest obsługiwana więcej niż jedna strefa.
 
-W przypadku [kont usługi Batch w trybie subskrypcji użytkownika](accounts.md#batch-accounts)upewnij się, że subskrypcja, w której tworzysz pulę, nie ma ograniczeń oferty strefy dla wymaganej jednostki SKU maszyny wirtualnej. Aby to potwierdzić, wywołaj [interfejs API list SKU zasobów](/rest/api/compute/resourceskus/list) i sprawdź [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Jeśli istnieje ograniczenie strefy, możesz przesłać [bilet pomocy technicznej](../azure-portal/supportability/sku-series-unavailable.md) w celu usunięcia ograniczenia strefy.
+W przypadku [kont usługi Batch w trybie subskrypcji użytkownika](accounts.md#batch-accounts)upewnij się, że subskrypcja, w której tworzysz pulę, nie ma ograniczeń oferty strefy dla wymaganej jednostki SKU maszyny wirtualnej. Aby to potwierdzić, wywołaj [interfejs API list SKU zasobów](/rest/api/compute/resourceskus/list) i sprawdź [ResourceSkuRestrictions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Jeśli istnieje ograniczenie strefy, możesz przesłać [bilet pomocy technicznej](/troubleshoot/azure/general/region-access-request-process) w celu usunięcia ograniczenia strefy.
 
 Należy również pamiętać, że nie można utworzyć puli przy użyciu zasad strefowych, jeśli ma włączona komunikacja między węzłami i używa [jednostki SKU maszyny wirtualnej](../virtual-machines/workloads/hpc/enable-infiniband.md)obsługującej InfiniBand.
 
@@ -83,4 +83,3 @@ Treść żądania
 - Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 - Dowiedz się więcej na temat [tworzenia puli w podsieci sieci wirtualnej platformy Azure](batch-virtual-network.md).
 - Dowiedz się więcej [na temat tworzenia puli Azure Batch bez publicznych adresów IP](./batch-pool-no-public-ip-address.md).
-

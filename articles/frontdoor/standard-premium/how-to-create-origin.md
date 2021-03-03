@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
-ms.openlocfilehash: 47134712bb953d9194bd943e228bae681877dcaa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741892"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Konfigurowanie pochodzenia platformy Azure w warstwie Standardowa/Premium (wersja zapoznawcza)
 
@@ -60,16 +60,16 @@ Zanim będzie można utworzyć punkt początkowy warstwy Standardowa/Premium pla
     > [!IMPORTANT]
     > W trakcie konfiguracji interfejsy API nie sprawdzają, czy źródło jest niedostępne w środowiskach z przodu. Upewnij się, że tylne drzwi mogą dotrzeć do źródła.
 
-1. Wybierz pozycję **Dodaj** , aby utworzyć nowe źródło. Utworzony początek powinien pojawić się na liście pochodzenia z grupą
+1. Wybierz pozycję **Dodaj** , aby utworzyć nowe źródło. Utworzony początek powinien pojawić się na liście pierwotnej z grupą.
   
-    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Zrzut ekranu przedstawiający stronę Dodawanie źródła.":::
+    :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Zrzut ekranu przedstawiający początek w widoku listy.":::
 
 1. Wybierz pozycję **Dodaj** , aby dodać grupę pierwotną do bieżącego punktu końcowego. Grupa pierwotna powinna pojawić się w panelu grupy pierwotnej.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby usunąć grupę pierwotną, gdy nie jest już potrzebne, kliknij przycisk **...** , a następnie wybierz pozycję **Usuń** z listy rozwijanej.
 
-:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Zrzut ekranu przedstawiający sposób usuwania grupy pochodzenia.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin-group.png" alt-text="Zrzut ekranu przedstawiający sposób usuwania grupy pochodzenia.":::
 
 Aby usunąć źródło, gdy nie jest już potrzebne, kliknij przycisk **...** , a następnie wybierz pozycję **Usuń** z listy rozwijanej. 
 

@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 942698e5c42e1f46ff05dacdacdb0d124135a6c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390763"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690434"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatyzowanie zadań zarządzania przy użyciu zadań elastycznych (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Zadania elastyczne mogą kierować do [baz danych SQL Azure](sql-database-paas-o
 
 W przypadku automatyzacji zadań skryptów T-SQL w SQL Server i wystąpieniu zarządzanym usługi Azure SQL należy wziąć pod uwagę [program SQL Agent](job-automation-managed-instances.md). 
 
-W przypadku automatyzacji zadań skryptów T-SQL w usłudze Azure Synapse Analytics należy wziąć pod uwagę [potoki z wyzwalaczami cyklicznymi](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), które są [oparte na Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
+W przypadku automatyzacji zadań skryptów T-SQL w usłudze Azure Synapse Analytics należy wziąć pod uwagę [potoki z wyzwalaczami cyklicznymi](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), które są [oparte na Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 Warto zauważyć, że różnice między programem SQL Agent (dostępnym w SQL Server i w ramach wystąpienia zarządzanego SQL) oraz agentem elastycznego zadania bazy danych (który może wykonywać T-SQL w bazach danych Azure SQL lub SQL Server bazach danych usługi Azure Synapse Analytics).
 

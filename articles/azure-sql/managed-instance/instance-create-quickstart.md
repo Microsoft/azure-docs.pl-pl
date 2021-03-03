@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691216"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 
 ### <a name="tags"></a>Tagi
 
-- Dodawanie tagów do zasobów w szablonie Azure Resource Manager (szablon ARM). [Tagi](/azure/azure-resource-manager/management/tag-resources) ułatwiają logiczne organizowanie zasobów. Wartości tagów są wyświetlane w raportach kosztów i zezwalają na inne działania związane z zarządzaniem przez tag. 
+- Dodawanie tagów do zasobów w szablonie Azure Resource Manager (szablon ARM). [Tagi](../../azure-resource-manager/management/tag-resources.md) ułatwiają logiczne organizowanie zasobów. Wartości tagów są wyświetlane w raportach kosztów i zezwalają na inne działania związane z zarządzaniem przez tag. 
 
 - Rozważ co najmniej tagowanie nowego wystąpienia zarządzanego SQL za pomocą tagu Owner, aby zidentyfikować, kto utworzył, i znacznik środowiska, aby określić, czy ten system jest produkcyjny, programistyczny itp. Aby uzyskać więcej informacji, zobacz [opracowywanie strategii nazewnictwa i tagowania dla zasobów platformy Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  

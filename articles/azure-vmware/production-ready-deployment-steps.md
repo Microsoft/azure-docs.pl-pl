@@ -2,13 +2,13 @@
 title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762859"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733668"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -51,12 +51,6 @@ Określ rozmiar hostów, które mają być używane podczas wdrażania rozwiąza
 Zdefiniuj liczbę hostów, które chcesz wdrożyć w chmurze prywatnej rozwiązania Azure VMware.  Minimalna liczba hostów wynosi trzy, a maksymalna wynosi 16 na klaster.  Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [chmury i klastrów prywatnych rozwiązania Azure VMware](concepts-private-clouds-clusters.md#clusters) .
 
 Klaster można zawsze później zwiększyć, jeśli trzeba przekroczyć początkowy numer wdrożenia.
-
-## <a name="vcenter-admin-password"></a>hasło administratora vCenter
-Zdefiniuj hasło administratora vCenter.  Podczas wdrażania utworzysz hasło administratora vCenter. Hasło jest cloudadmin@vsphere.local kontem administratora podczas kompilacji programu vCenter. Będziesz używać go do logowania się do programu vCenter.
-
-## <a name="nsx-t-admin-password"></a>Hasło administratora NSX-T
-Zdefiniuj hasło administratora NSX-T.  Podczas wdrażania utworzysz hasło administratora NSX-T. Hasło jest przypisywane do użytkownika administracyjnego na koncie NSX podczas kompilacji NSX. Zostanie ona użyta do zalogowania się do Menedżera NSX-T.
 
 ## <a name="ip-address-segment"></a>Segment adresów IP
 

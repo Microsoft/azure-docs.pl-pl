@@ -3,12 +3,12 @@ title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762371"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728182"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
@@ -18,6 +18,8 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
+- Luty 2021 r.
+  - [Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)](#backup-for-azure-blobs-in-preview)
 - Styczeń 2021 r.
   - [Kopia zapasowa Azure Disk (wersja zapoznawcza)](#azure-disk-backup-in-preview)
   - [Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta (ogólna dostępność)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +36,14 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
   - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines (w wersji zapoznawczej)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej (w wersji zapoznawczej)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)
+
+Operacyjna kopia zapasowa dla obiektów BLOB to zarządzane, lokalne rozwiązanie do ochrony danych, które umożliwia ochronę blokowych obiektów blob z różnych scenariuszy utraty danych, takich jak uszkodzenia, usuwanie obiektów blob i przypadkowe usuwanie konta magazynu. Dane są przechowywane lokalnie na koncie magazynu źródłowego i mogą być odzyskiwane do wybranego punktu w czasie, gdy będzie to konieczne. Zapewnia to proste, bezpieczne i ekonomiczne środki do ochrony obiektów BLOB.
+
+Operacyjna kopia zapasowa dla obiektów BLOB integruje się z centrum kopii zapasowych, między innymi funkcjami zarządzania kopiami zapasowymi, aby zapewnić pojedyncze okienko szkła, które może pomóc w zarządzaniu, monitorowaniu, obsłudze i analizowaniu kopii zapasowych na dużą skalę.
+
+Aby uzyskać więcej informacji, zobacz [Omówienie operacyjnej kopii zapasowej dla obiektów blob platformy Azure (w wersji zapoznawczej)](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-in-preview"></a>Kopia zapasowa Azure Disk (wersja zapoznawcza)
 

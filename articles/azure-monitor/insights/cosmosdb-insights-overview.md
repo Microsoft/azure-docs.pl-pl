@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582358"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725804"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 
@@ -87,13 +87,51 @@ Wybierz pozycję **pojemność** w górnej części strony i zostanie otwarta cz
 
 Podobnie jak w przypadku skoroszytu z omówieniem, wybranie listy rozwijanej obok zasobu Azure Cosmos DB w kolumnie **subskrypcja** spowoduje wyświetlenie podziału poszczególnych kontenerów tworzących bazę danych.
 
-### <a name="operations"></a>Operacje 
+### <a name="operations"></a>Operacje
 
-Wybierz pozycję **operacje** w górnej części strony, a zostanie otwarta część **operacje** szablonu skoroszytu. Daje ona możliwość wyświetlenia żądań, które zostały podzielone według typu żądań. 
+Wybierz pozycję **operacje** w górnej części strony, a zostanie otwarta część **operacje** szablonu skoroszytu. Daje ona możliwość wyświetlenia żądań, które zostały podzielone według typu żądań.
 
 Tak więc w poniższym przykładzie widzisz, że `eastus-billingint` jest on głównie otrzymywał żądania odczytu, ale z niewielką liczbą żądań upsert i Create. Program `westeurope-billingint` jest tylko do odczytu z perspektywy żądania, co najmniej w ciągu ostatnich czterech godzin, do których ten skoroszyt jest obecnie objęty zakresem czasu.
 
-![Skoroszyt operacji](./media/cosmosdb-insights-overview/operation.png) 
+![Skoroszyt operacji](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Wyświetl z zasobu Azure Cosmos DB
+
+1. Wyszukaj lub Wybierz dowolne z istniejących kont Azure Cosmos DB.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Wyszukaj Azure Cosmos DB." border="true":::
+
+2. Gdy przejdziesz do konta Azure Cosmos DB, w sekcji monitorowanie wybierz pozycję **wgląd (wersja zapoznawcza)** lub **skoroszyty** , aby przeprowadzić dalsze analizy dotyczące przepływności, żądań, magazynu, dostępności, opóźnień, systemu i zarządzania kontami.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Omówienie usługi Cosmos DB Insights." border="true":::
+
+### <a name="time-range"></a>Przedział czasu
+
+Domyślnie w polu **zakres czasu** są wyświetlane dane z **ostatnich 24 godzin**. Możesz zmodyfikować zakres czasu, aby wyświetlić dane w dowolnym miejscu od 5 ostatnich minut do ostatnich siedmiu dni. Selektor zakresu czasu zawiera również **niestandardowy** tryb umożliwiający wpisywanie dat rozpoczęcia/zakończenia w celu wyświetlenia niestandardowego przedziału czasowego na podstawie dostępnych danych dla wybranego konta.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB zakres czasu." border="true":::
+
+### <a name="insights-overview"></a>Przegląd szczegółowych informacji
+
+Karta **Przegląd** zawiera najbardziej typowe metryki dla wybranego konta Azure Cosmos DB, w tym:
+
+* Łączna liczba żądań
+* Nieudane żądania (429s)
+* Znormalizowane użycie RU (max)
+* Użycie indeksu & danych
+* Metryki konta Cosmos DB według kolekcji
+
+**Łączna liczba żądań:** Ten wykres przedstawia łączną liczbę żądań dla konta, które zostały podzielone według kodu stanu. Jednostki w dolnej części wykresu są sumą łącznej liczby żądań w danym okresie.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Cosmos DB wykres łącznej liczby żądań." border="true":::
+
+**Żądania zakończone niepowodzeniem (429s)**: ten wykres zawiera widok żądań zakończonych niepowodzeniem z kodem stanu 429. Jednostki w dolnej części wykresu są sumą całkowitej liczby nieudanych żądań w danym okresie.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Wykres Cosmos DB żądań zakończonych niepowodzeniem." border="true":::
+
+**Znormalizowane użycie ru (max)**: ten wykres zawiera maksymalną wartość procentową między 0-100% znormalizowanych jednostek zużycia RU w określonym przedziale czasu.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB znormalizowane użycie RU." border="true":::
 
 ## <a name="pin-export-and-expand"></a>Przypnij, Eksportuj i rozwiń
 

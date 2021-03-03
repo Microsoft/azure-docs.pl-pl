@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617130"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700749"
 ---
 # <a name="metric-chart-examples"></a>Przykłady wykresu metryki 
 
-Platforma Azure oferuje [tysiące metryk](../platform/metrics-supported.md), z których wiele ma wymiary. Przy użyciu [filtrów wymiarów](./metrics-charts.md), stosowania [dzielenia](./metrics-charts.md), kontroli typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono przykłady wykresów, które można skompilować przy użyciu [Eksplorator metryk](./metrics-charts.md) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
+Platforma Azure oferuje [tysiące metryk](./metrics-supported.md), z których wiele ma wymiary. Przy użyciu [filtrów wymiarów](./metrics-charts.md), stosowania [dzielenia](./metrics-charts.md), kontroli typu wykresu i dostosowywania ustawień wykresu można tworzyć zaawansowane widoki diagnostyczne i pulpity nawigacyjne, które zapewniają wgląd w kondycję infrastruktury i aplikacji. W tym artykule przedstawiono przykłady wykresów, które można skompilować przy użyciu [Eksplorator metryk](./metrics-charts.md) i wyjaśniono kroki niezbędne do skonfigurowania każdego z tych wykresów.
 
 Chcesz udostępnić przykłady doskonałych wykresów? Współtworzenie tej strony w witrynie GitHub i udostępnianie własnych przykładów wykresów!
 
@@ -54,4 +54,3 @@ W selektorze metryki wybierz konto magazynu i metrykę **transakcji** . Przełą
 
 * Dowiedz się więcej o Azure Monitor [skoroszytach](../visualize/workbooks-overview.md)
 * Dowiedz się więcej o [Eksploratorze metryk](metrics-charts.md)
-

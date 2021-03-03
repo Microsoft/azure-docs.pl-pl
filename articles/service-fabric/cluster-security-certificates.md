@@ -3,12 +3,12 @@ title: Uwierzytelnianie oparte na certyfikatach X. 509 w klastrze Service Fabric
 description: Informacje o uwierzytelnianiu opartym na certyfikatach w klastrach Service Fabric i sposobach wykrywania, łagodzenia i rozwiązywania problemów związanych z certyfikatem.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901253"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729695"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Uwierzytelnianie oparte na certyfikatach X. 509 w klastrach Service Fabric
 
@@ -197,7 +197,7 @@ Jak wspomniano wcześniej, sprawdzanie poprawności certyfikatu zawsze implikuje
     </Section>
   ```
 
-  * IgnoreCrlOfflineError — w sekcji "Security" wartość logiczna z wartością domyślną "false". Reprezentuje skrót służący do pomijania stanu błędu tworzenia łańcucha "odwoływania w trybie offline" (lub kolejnego stanu błędu walidacji zasad łańcucha).
+  * IgnoreCrlOfflineError — w sekcji "zabezpieczenia" wartość logiczna z wartością domyślną "false". Reprezentuje skrót służący do pomijania stanu błędu tworzenia łańcucha "odwoływania w trybie offline" (lub kolejnego stanu błędu walidacji zasad łańcucha).
 
   Kiedy używać: testowanie lokalne lub z certyfikatami deweloperskimi, które nie są obsługiwane przez właściwą infrastrukturę PKI. Używaj jako środków zaradczych w środowiskach gapped Air lub gdy infrastruktura PKI jest niedostępna.
 

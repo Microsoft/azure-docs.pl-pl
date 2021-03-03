@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706087"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON w Azure Data Factory
 
@@ -218,7 +218,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło da
 
 ### <a name="source-format-options"></a>Opcje formatu źródła
 
-Używanie zestawu danych JSON jako źródła w przepływie danych pozwala na ustawienie pięciu dodatkowych ustawień. Te ustawienia można znaleźć w obszarze **Ustawienia JSON** zgodnie z opisem na karcie **Opcje źródła** .  
+Używanie zestawu danych JSON jako źródła w przepływie danych pozwala na ustawienie pięciu dodatkowych ustawień. Te ustawienia można znaleźć w obszarze **Ustawienia JSON** zgodnie z opisem na karcie **Opcje źródła** . W przypadku ustawienia **formularza dokumentu** można wybrać jeden **dokument**, **dokument na wiersz**  i **tablicę typów dokumentów** .
 
 ![Ustawienia JSON](media/data-flow/json-settings.png "Ustawienia JSON")
 

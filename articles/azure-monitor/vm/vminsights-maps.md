@@ -1,22 +1,22 @@
 ---
-title: Wyświetlanie zależności aplikacji za pomocą Azure Monitor dla maszyn wirtualnych
-description: Mapa jest funkcją Azure Monitor dla maszyn wirtualnych. Automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z funkcji map w różnych scenariuszach.
+title: Wyświetlanie zależności aplikacji za pomocą usługi VM Insights
+description: Mapa to funkcja szczegółowych informacji o maszynach wirtualnych. Automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z funkcji map w różnych scenariuszach.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: ea11a2dbff9c05400f24ecfa86c66395032b8ac9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19da3e3e02581ce9fad080bb23bc48dcb9a3ceb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719648"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Użyj funkcji map Azure Monitor dla maszyn wirtualnych, aby zrozumieć składniki aplikacji
-W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Można obserwować maszyny wirtualne na dwa sposoby. Wyświetl mapę bezpośrednio z maszyny wirtualnej lub Wyświetl mapę z Azure Monitor, aby wyświetlić składniki w różnych grupach maszyn wirtualnych. Ten artykuł pomoże Ci zrozumieć te dwie metody wyświetlania i sposób korzystania z funkcji map. 
+# <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Użyj funkcji map usługi VM Insights, aby zrozumieć składniki aplikacji
+W usłudze site Insights można wyświetlać odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Można obserwować maszyny wirtualne na dwa sposoby. Wyświetl mapę bezpośrednio z maszyny wirtualnej lub Wyświetl mapę z Azure Monitor, aby wyświetlić składniki w różnych grupach maszyn wirtualnych. Ten artykuł pomoże Ci zrozumieć te dwie metody wyświetlania i sposób korzystania z funkcji map. 
 
-Informacje o konfigurowaniu Azure Monitor dla maszyn wirtualnych można znaleźć w temacie [Enable Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md).
+Aby uzyskać informacje o konfigurowaniu szczegółowych informacji o maszynach wirtualnych, zobacz [Włączanie usługi VM Insights](./vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
@@ -49,7 +49,7 @@ Aby funkcja mapy wyświetlała odpowiednie alerty, Utwórz regułę alertu, któ
 - Dołącz klauzulę do grupowania alertów według komputera (na przykład **według interwału komputerowego 1 minuty**).
 - Podstawowy alert dotyczący metryki.
 
-Aby uzyskać więcej informacji na temat alertów platformy Azure i tworzenia reguł alertów, zobacz [ujednolicone alerty w Azure monitor](../platform/alerts-overview.md).
+Aby uzyskać więcej informacji na temat alertów platformy Azure i tworzenia reguł alertów, zobacz [ujednolicone alerty w Azure monitor](../alerts/alerts-overview.md).
 
 W prawym górnym rogu opcja **Legenda** opisuje symbole i role na mapie. Aby bliżej obejrzeć mapę i przenieść ją wokół siebie, Użyj kontrolek powiększenia w prawym dolnym rogu. Możesz ustawić poziom powiększenia i dopasować mapę do rozmiaru strony.  
 
@@ -85,7 +85,7 @@ Jeśli grupa zawiera monitorowane i niemonitorowane serwery, możesz wybrać odp
 
 ## <a name="view-a-map-from-a-vm"></a>Wyświetlanie mapy z poziomu maszyny wirtualnej 
 
-Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z maszyny wirtualnej:
+Aby uzyskać dostęp do usługi VM Insights bezpośrednio z maszyny wirtualnej:
 
 1. W Azure Portal wybierz pozycję **Virtual Machines**. 
 2. Z listy wybierz maszynę wirtualną. W sekcji **monitorowanie** wybierz pozycję **szczegółowe** dane.  
@@ -99,7 +99,7 @@ Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są z
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Wyświetlanie mapy z zestawu skalowania maszyn wirtualnych
 
-Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z zestawu skalowania maszyn wirtualnych:
+Aby uzyskać dostęp do usługi VM Insights bezpośrednio z zestawu skalowania maszyn wirtualnych:
 
 1. W Azure Portal wybierz pozycję **zestawy skalowania maszyn wirtualnych**.
 2. Z listy wybierz maszynę wirtualną. Następnie w sekcji **monitorowanie** wybierz pozycję **szczegółowe** dane.  
@@ -128,11 +128,10 @@ W Azure Monitor funkcja map zapewnia globalny widok maszyn wirtualnych i ich zal
 
 Wybierz obszar roboczy przy użyciu selektora **obszaru roboczego** w górnej części strony. Jeśli masz więcej niż jeden obszar roboczy Log Analytics, wybierz obszar roboczy, który jest włączony w rozwiązaniu i który ma do niego raportowanie maszyn wirtualnych. 
 
-Selektor **grup** zwraca subskrypcje, grupy zasobów, [grupy komputerów](../platform/computer-groups.md)i zestawy skalowania maszyn wirtualnych, które są powiązane z wybranym obszarem roboczym. Wybór ma zastosowanie tylko do funkcji map i nie jest przenoszone na wydajność ani kondycję.
+Selektor **grup** zwraca subskrypcje, grupy zasobów, [grupy komputerów](../logs/computer-groups.md)i zestawy skalowania maszyn wirtualnych, które są powiązane z wybranym obszarem roboczym. Wybór ma zastosowanie tylko do funkcji map i nie jest przenoszone na wydajność ani kondycję.
 
 Domyślnie mapa pokazuje ostatnie 30 minut. Aby zobaczyć, jak wyszukiwane są zależności w przeszłości, można wykonać zapytanie o historyczne zakresy czasu o wartości do godziny. Aby uruchomić zapytanie, użyj selektora **TimeRange** . Na przykład podczas zdarzenia lub przed zmianą może zostać uruchomione zapytanie.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zidentyfikować wąskie gardła, sprawdzić wydajność i zrozumieć ogólne wykorzystanie maszyn wirtualnych, zobacz [Wyświetlanie stanu wydajności dla Azure monitor dla maszyn wirtualnych](vminsights-performance.md). 
-
+Aby zidentyfikować wąskie gardła, sprawdzić wydajność i zrozumieć ogólne wykorzystanie maszyn wirtualnych, zobacz [Wyświetlanie stanu wydajności dla szczegółowych informacji o maszynie wirtualnej](vminsights-performance.md).

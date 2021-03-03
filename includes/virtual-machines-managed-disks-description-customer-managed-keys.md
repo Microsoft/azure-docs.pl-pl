@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750306"
 ---
 Możesz zarządzać szyfrowaniem na poziomie każdego dysku zarządzanego przy użyciu własnych kluczy. Szyfrowanie po stronie serwera dla dysków zarządzanych z kluczami zarządzanymi przez klienta oferuje zintegrowane środowisko pracy z Azure Key Vault. Możesz zaimportować [klucze RSA](../articles/key-vault/keys/hsm-protected-keys.md) do Key Vault lub wygenerować nowe klucze rsa w Azure Key Vault. 
 
@@ -43,3 +43,7 @@ Na poniższej liście wyjaśniono diagram bardziej szczegółowo:
 1. W przypadku odczytywania lub zapisywania danych dyski zarządzane wysyłają żądania do Azure Key Vault, aby zaszyfrować (otoczyć) i odszyfrować (odwinięcie) klucz szyfrowania danych w celu szyfrowania i odszyfrowywania danych. 
 
 Aby odwołać dostęp do kluczy zarządzanych przez klienta, zobacz [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) i [interfejs wiersza polecenia Azure Key Vault](/cli/azure/keyvault). Odwoływanie dostępu skutecznie blokuje dostęp do wszystkich danych na koncie magazynu, ponieważ klucz szyfrowania jest niedostępny przez usługę Azure Storage.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Automatyczne rotacja kluczy zarządzanych przez klienta (wersja zapoznawcza)
+
+Możesz włączyć automatyczne rotację kluczy do najnowszej wersji klucza. Dysk odwołuje się do klucza za pośrednictwem jego zestawu szyfrowania dysków. Po włączeniu automatycznego rotacji dla zestawu szyfrowania dysku system automatycznie zaktualizuje wszystkie dyski zarządzane, migawki i obrazy, do których odwołuje się zestaw szyfrowania dysku, aby użyć nowej wersji klucza w ciągu jednej godziny. Ta funkcja jest obecnie dostępna w ograniczonej liczbie regionów w wersji zapoznawczej. Aby uzyskać dostęp do regionu, zobacz sekcję [Obsługiwane regiony](#supported-regions) .

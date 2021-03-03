@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 58987523d86b0e3acb63d3dc220f68753501830e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b88cc2d70d38d84436beaff41b5b40b9c06debca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666019"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695553"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesorów GPU
 
@@ -43,7 +43,7 @@ Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, nale�
 
 - Maszyny wirtualne z serii N można wdrożyć tylko w modelu wdrażania Menedżer zasobów.
 
-- Maszyny wirtualne serii N różnią się w zależności od typu magazynu platformy Azure obsługiwanego dla ich dysków. Maszyny wirtualne NC i NV obsługują tylko dyski maszyn wirtualnych, które są obsługiwane przez standardową Disk Storage (dysk twardy). Maszyny wirtualne NCv2, Seria NCV3, ND, NDv2 i NVv2 obsługują tylko dyski maszyn wirtualnych, których kopie zapasowe są obsługiwane przez Disk Storage Premium (SSD).
+- Maszyny wirtualne serii N różnią się w zależności od typu magazynu platformy Azure obsługiwanego dla ich dysków. Maszyny wirtualne NC i NV obsługują tylko dyski maszyn wirtualnych, które są obsługiwane przez standardową Disk Storage (dysk twardy). Wszystkie inne maszyny wirtualne procesora GPU obsługują dyski maszyn wirtualnych, które są obsługiwane przez standardowe Disk Storage i Disk Storage w warstwie Premium (SSD).
 
 - Jeśli chcesz wdrożyć więcej niż kilka maszyn wirtualnych serii N, weź pod uwagę subskrypcję z opcją płatność zgodnie z rzeczywistym użyciem lub inne opcje zakupu. Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), możesz użyć ograniczonej liczby rdzeni obliczeniowych platformy Azure.
 

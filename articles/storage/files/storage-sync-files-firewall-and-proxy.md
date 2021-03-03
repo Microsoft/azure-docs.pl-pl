@@ -4,15 +4,15 @@ description: Informacje na temat Azure File Sync lokalnych ustawień serwera pro
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673624"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729644"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -50,6 +50,30 @@ Polecenia programu PowerShell służące do konfigurowania ustawień serwera pro
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
+Na przykład, jeśli serwer proxy wymaga uwierzytelniania przy użyciu nazwy użytkownika i hasła, uruchom następujące polecenia programu PowerShell:
+
+```powershell
+# IP address or name of the proxy server.
+$Address="127.0.0.1"  
+
+# The port to use for the connection to the proxy.
+$Port=8080
+
+# The user name for a proxy.
+$UserName="user_name" 
+
+# Please type or paste a string with a password for the proxy.
+$SecurePassword = Read-Host -AsSecureString
+
+$Creds = New-Object System.Management.Automation.PSCredential ($UserName, $SecurePassword)
+
+# Please verify that you have entered the password correctly.
+Write-Host $Creds.GetNetworkCredential().Password
+
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+
+Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
 **Ustawienia serwera proxy dla maszyn** są niewidoczne dla agenta Azure File Sync, ponieważ cały ruch serwera jest kierowany przez serwer proxy.
 
@@ -99,8 +123,8 @@ W poniższej tabeli opisano wymagane domeny do komunikacji:
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Użyj publicznego adresu URL punktu końcowego. | Do tego adresu URL uzyskuje się dostęp za pośrednictwem biblioteki uwierzytelniania Active Directory, która jest używana przez interfejs użytkownika rejestracji serwera Azure File Sync do logowania się do administratora. |
 | **Azure Storage** | &ast;. core.windows.net | &ast;. core.usgovcloudapi.net | Gdy serwer pobiera plik, serwer przeprowadzi bardziej wydajne przenoszenie danych podczas rozmowy bezpośrednio z udziałem plików platformy Azure na koncie magazynu. Serwer ma klucz sygnatury dostępu współdzielonego, który zezwala tylko na dostęp do udziału plików. |
 | **Azure File Sync** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Po początkowej rejestracji serwera serwer otrzymuje regionalny adres URL dla wystąpienia usługi Azure File Sync w tym regionie. Serwer może używać adresu URL do bezpośredniego i wydajnego komunikowania się z wystąpieniem obsługującym jego synchronizację. |
-| **Infrastruktura PKI firmy Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Po zainstalowaniu agenta Azure File Sync, adres URL infrastruktury PKI jest używany do pobierania certyfikatów pośrednich wymaganych do komunikowania się z usługą Azure File Sync i udziałem plików platformy Azure. Adres URL protokołu OCSP służy do sprawdzania stanu certyfikatu. |
-| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Po zainstalowaniu agenta Azure File Sync Microsoft Update adresy URL są używane do pobierania aktualizacji agenta Azure File Sync. |
+| **Infrastruktura PKI firmy Microsoft** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Po zainstalowaniu agenta Azure File Sync, adres URL infrastruktury PKI jest używany do pobierania certyfikatów pośrednich wymaganych do komunikowania się z usługą Azure File Sync i udziałem plików platformy Azure. Adres URL protokołu OCSP służy do sprawdzania stanu certyfikatu. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;. ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;. ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Po zainstalowaniu agenta Azure File Sync Microsoft Update adresy URL są używane do pobierania aktualizacji agenta Azure File Sync. |
 
 > [!Important]
 > Gdy zezwalasz na ruch do &ast; . AFS.Azure.NET, ruch jest możliwy tylko dla usługi synchronizacji. Nie ma innych usług firmy Microsoft korzystających z tej domeny.
@@ -286,5 +310,5 @@ Skonfigurowanie ograniczania dostępu do domeny reguły zapory może być miarą
 
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

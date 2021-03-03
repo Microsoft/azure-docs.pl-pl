@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6130572cedaaabb9d63758a2bc25f6ebd0396562
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729865"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
 
@@ -85,7 +85,7 @@ Aby włączyć funkcję autoaprowizacji agenta Log Analytics:
 
         Jeśli masz już istniejący obszar roboczy Log Analytics, możesz chcieć użyć tego samego obszaru roboczego (wymagane są uprawnienia do odczytu i zapisu w obszarze roboczym). Ta opcja jest przydatna, jeśli używasz scentralizowanego obszaru roboczego w organizacji i chcesz używać go do zbierania danych zabezpieczeń. Dowiedz się więcej w temacie [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](../azure-monitor/logs/manage-access.md).
 
-        Jeśli w wybranym obszarze roboczym jest już włączone rozwiązanie Security lub SecurityCenterFree, Cennik zostanie ustawiony automatycznie. Jeśli nie, Zainstaluj rozwiązanie Security Center w obszarze roboczym:
+        Jeśli w wybranym obszarze roboczym jest już włączone rozwiązanie "Security" lub "SecurityCenterFree", Cennik zostanie ustawiony automatycznie. Jeśli nie, Zainstaluj rozwiązanie Security Center w obszarze roboczym:
 
         1. W menu Security Center Otwórz **& ustawienia cennika**.
         1. Wybierz obszar roboczy, do którego chcesz połączyć agentów.
@@ -235,7 +235,7 @@ W następujących przypadkach użycia określono, jak funkcja automatycznego udo
 
 - **Agent log Analytics jest zainstalowany na komputerze, ale nie jako rozszerzenie (Agent bezpośredni)** — jeśli Agent log Analytics jest instalowany bezpośrednio na maszynie wirtualnej (nie jako rozszerzenie platformy Azure), Security Center zainstaluje rozszerzenie agenta log Analytics i będzie mógł uaktualnić agenta log Analytics do najnowszej wersji.
 Zainstalowany agent będzie kontynuował raportowanie do już skonfigurowanych obszarów roboczych, a ponadto przeprowadzi raport do obszaru roboczego skonfigurowanego w Security Center (wiele multihostingu jest obsługiwana na maszynach z systemem Windows).
-Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security/" securityFree "dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
+Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security" lub "SecurityCenterFree" dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
 
     W przypadku maszyn z systemem Linux Agent multihostingu nie jest jeszcze obsługiwany — w związku z tym jeśli zostanie wykryta istniejąca instalacja agenta, automatyczne Inicjowanie obsługi nie zostanie wykonane i konfiguracja maszyny nie zostanie zmieniona.
 
@@ -244,8 +244,8 @@ Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Se
 - **Agent System Center Operations Manager jest zainstalowany na komputerze** — Centrum zabezpieczeń zainstaluje rozszerzenie agenta log Analytics obok istniejącej Operations Manager. Istniejący Agent Operations Manager będzie kontynuował raportowanie do serwera Operations Manager w normalny sposób. Agent Operations Manager i Agent Log Analytics mają wspólne biblioteki uruchomieniowe, które zostaną zaktualizowane do najnowszej wersji w trakcie tego procesu. Jeśli zainstalowano agenta **Operations Manager w wersji 2012, nie należy** włączać automatycznej aprowizacji.
 
 - **Istnieje już istniejące rozszerzenie maszyny wirtualnej**:
-    - Gdy Agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko jednego obszaru roboczego. Security Center nie przesłania istniejących połączeń z obszarami roboczymi użytkowników. Security Center będą przechowywać dane zabezpieczeń z maszyny wirtualnej w już podłączonym obszarze roboczym, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "securityFree". Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.  
-    - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics. 
+    - Gdy Agent monitorowania jest zainstalowany jako rozszerzenie, konfiguracja rozszerzenia umożliwia raportowanie tylko jednego obszaru roboczego. Security Center nie przesłania istniejących połączeń z obszarami roboczymi użytkowników. Security Center będą przechowywać dane zabezpieczeń z maszyny wirtualnej w już podłączonym obszarze roboczym, pod warunkiem, że zostało na nim zainstalowane rozwiązanie "Security" lub "SecurityCenterFree". Security Center może uaktualnić wersję rozszerzenia do najnowszej wersji w tym procesie.
+    - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics.
     - Jeśli masz środowisko, w którym jest zainstalowany agent Log Analytics na stacjach roboczych klienta i raportowanie do istniejącego Log Analytics obszaru roboczego, przejrzyj listę [systemów operacyjnych obsługiwanych przez Azure Security Center](security-center-os-coverage.md) , aby upewnić się, że system operacyjny jest obsługiwany. Aby uzyskać więcej informacji, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).
  
 

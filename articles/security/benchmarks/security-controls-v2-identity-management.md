@@ -4,19 +4,21 @@ description: Azure Security test — Zarządzanie tożsamościami w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33f5dff65fa7ad8274051f784f2e61dc8366d389
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f76ebf8609b5f4ac587800359a5cbb0c6f967f3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368855"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698607"
 ---
 # <a name="security-control-v2-identity-management"></a>Kontrola zabezpieczeń v2: Zarządzanie tożsamościami
 
 Zarządzanie tożsamościami obejmuje kontrolki służące do nawiązywania bezpiecznej kontroli tożsamości i dostępu przy użyciu Azure Active Directory. Obejmuje to korzystanie z logowania jednokrotnego, silnych uwierzytelnień, tożsamości zarządzanych (i zasad usługi) dla aplikacji, dostępu warunkowego i monitorowania anomalii kont.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły wbudowanej inicjatywy zgodność z przepisami usługi Azure Security Tests: Zarządzanie tożsamościami](../../governance/policy/samples/azure-security-benchmark#identity-management)
 
 ## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Standaryzacja usługi Azure Active Directory jako centralnego systemu tożsamości i uwierzytelniania
 
@@ -24,12 +26,12 @@ Zarządzanie tożsamościami obejmuje kontrolki służące do nawiązywania bezp
 |--|--|--|--|
 | WIADOMOŚĆ BŁYSKAWICZNA — 1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
-Azure Active Directory (Azure AD) to domyślna usługa zarządzania tożsamościami i dostępem platformy Azure. Należy przeprowadzić standaryzację w oparciu o usługę Azure AD, aby zarządzać tożsamościami i dostępem w organizacji w następujących obszarach:
+Azure Active Directory (Azure AD) to domyślna usługa zarządzania tożsamościami i dostępem platformy Azure. Należy przeprowadzić standaryzację w usłudze Azure AD, aby zarządzać zarządzaniem tożsamościami i dostępem w organizacji w programie:
 - Zasoby w chmurze firmy Microsoft, takie jak Azure Portal, Azure Storage, Azure Virtual Machines (Linux i Windows), Azure Key Vault, PaaS i SaaS.
 
 - Zasoby organizacji, takie jak aplikacje na platformie Azure lub formowe zasoby sieciowe.
 
-Zabezpieczenie usługi Azure AD powinno być jednym z najważniejszych priorytetów w zakresie zabezpieczeń w chmurze organizacji. Usługa Azure AD oferuje wskaźnik bezpieczeństwa tożsamości, który pomaga ocenić stan zabezpieczeń tożsamości względem zaleceń firmy Microsoft dotyczących najlepszych rozwiązań. Użyj tego wskaźnika, aby ocenić, jak ściśle Twoja konfiguracja spełnia zalecenia dotyczące najlepszych rozwiązań oraz poprawić stan zabezpieczeń.
+Zabezpieczanie usługi Azure AD powinno mieć wysoki priorytet w zakresie zabezpieczeń w chmurze w organizacji. Usługa Azure AD zapewnia bezpieczną ocenę tożsamości, która pomaga ocenić stan zabezpieczeń tożsamości w porównaniu z zaleceniami dotyczącymi najlepszych rozwiązań firmy Microsoft. Użyj tego wskaźnika, aby ocenić, jak ściśle Twoja konfiguracja spełnia zalecenia dotyczące najlepszych rozwiązań oraz poprawić stan zabezpieczeń.
 
 Uwaga: usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, którzy umożliwiają użytkownikom nieposiadającym konta Microsoft logowanie się do aplikacji i zasobów za pomocą tożsamości zewnętrznej.
 
@@ -37,7 +39,7 @@ Uwaga: usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, którz
 
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Definiowanie dzierżaw usługi Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
+- [Definiowanie dzierżaw usługi Azure AD](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)
 
 - [Korzystanie z zewnętrznych dostawców tożsamości dla aplikacji](../../active-directory/external-identities/identity-providers.md)
 
@@ -63,7 +65,7 @@ Uwaga: usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, którz
 
 W przypadku kont nieludzkich, takich jak usługi lub Automatyzacja, Użyj tożsamości zarządzanych przez platformę Azure, zamiast tworzyć bardziej zaawansowane konto w celu uzyskania dostępu do zasobów lub wykonywania kodu. Tożsamości zarządzane przez platformę Azure mogą uwierzytelniać usługi platformy Azure i zasoby, które obsługują uwierzytelnianie usługi Azure AD. Uwierzytelnianie jest włączane przy użyciu wstępnie zdefiniowanych reguł przyznawania dostępu, unikając zakodowanych poświadczeń w kodzie źródłowym lub plikach konfiguracyjnych. 
 
-W przypadku usług, które nie obsługują tożsamości zarządzanych, Użyj usługi Azure AD, aby utworzyć jednostkę usługi z ograniczonymi uprawnieniami na poziomie zasobu.  Zaleca się skonfigurowanie jednostek usługi z poświadczeniami certyfikatów i powrót do wpisów tajnych klienta. W obu przypadkach Azure Key Vault mogą być używane w połączeniu z tożsamościami zarządzanymi przez platformę Azure, dzięki czemu środowisko uruchomieniowe (takie jak funkcja platformy Azure) może pobrać poświadczenie z magazynu kluczy.
+W przypadku usług, które nie obsługują tożsamości zarządzanych, Użyj usługi Azure AD, aby utworzyć jednostkę usługi z ograniczonymi uprawnieniami na poziomie zasobu. Zaleca się skonfigurowanie jednostek usługi z poświadczeniami certyfikatów i powrót do wpisów tajnych klienta. W obu przypadkach Azure Key Vault mogą być używane w połączeniu z tożsamościami zarządzanymi przez platformę Azure, dzięki czemu środowisko uruchomieniowe (takie jak funkcja platformy Azure) może pobrać poświadczenie z magazynu kluczy.
 
 - [Tożsamości zarządzane przez platformę Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -111,16 +113,17 @@ Funkcja logowania jednokrotnego w usłudze Azure AD umożliwia zarządzanie dost
 |--|--|--|--|
 | WIADOMOŚCI BŁYSKAWICZNE — 4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
-Usługa Azure AD obsługuje mechanizmy kontroli silnego uwierzytelniania za pomocą uwierzytelniania wieloskładnikowego (MFA) i silnych metod bezhaseł.  
-- Uwierzytelnianie wieloskładnikowe: Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center zarządzaniem tożsamościami i dostępem dla konfiguracji usługi MFA. Usługę MFA można wymusić dla wszystkich użytkowników, wybrać użytkowników lub na poziomie poszczególnych użytkowników na podstawie warunków logowania i czynników ryzyka. 
+Usługa Azure AD obsługuje mechanizmy kontroli silnego uwierzytelniania za pomocą uwierzytelniania wieloskładnikowego (MFA) i silnych metod bezhaseł.
 
-- Uwierzytelnianie bezhasła: dostępne są trzy opcje uwierzytelniania bezhasła: funkcja Windows Hello dla firm, aplikacja Microsoft Authenticator i lokalne metody uwierzytelniania, takie jak karty inteligentne. 
+- Uwierzytelnianie wieloskładnikowe: Włącz usługę Azure AD MFA i postępuj zgodnie z zaleceniami Azure Security Center zarządzaniem tożsamościami i dostępem dla konfiguracji usługi MFA. Usługę MFA można wymusić dla wszystkich użytkowników, wybrać użytkowników lub na poziomie poszczególnych użytkowników na podstawie warunków logowania i czynników ryzyka.
+
+- Uwierzytelnianie bezhasła: dostępne są trzy opcje uwierzytelniania bezhasła: funkcja Windows Hello dla firm, aplikacja Microsoft Authenticator i lokalne metody uwierzytelniania, takie jak karty inteligentne.
 
 W przypadku użytkowników z uprawnieniami administratora i uprzywilejowanego upewnij się, że jest używana najwyższa Metoda silnego uwierzytelniania, a następnie zastąp odpowiednie zasady silnego uwierzytelniania innym użytkownikom.
 
-Jeśli uwierzytelnianie na podstawie hasła jest nadal używane na potrzeby uwierzytelniania w usłudze Azure AD, należy pamiętać, że konta tylko w chmurze (konta użytkowników utworzone bezpośrednio na platformie Azure) mają domyślne zasady haseł linii bazowej. I konta hybrydowe (konta użytkowników, które pochodzą z lokalnego Active Directory), są zgodne z lokalnymi zasadami haseł. W przypadku korzystania z uwierzytelniania opartego na hasłach usługa Azure AD zapewnia funkcję ochrony hasłem, która uniemożliwia użytkownikom ustawianie haseł, które są łatwe do odgadnięcia. Firma Microsoft oferuje globalną listę zakazanych haseł, które są aktualizowane na podstawie danych telemetrycznych, a klienci mogą rozszerzyć listę na podstawie ich potrzeb (np. znakowania, dokumentacji kulturowej itp.). Ta ochrona hasłem może być używana w przypadku kont tylko w chmurze i hybrydowych. 
+Jeśli uwierzytelnianie na podstawie hasła jest nadal używane na potrzeby uwierzytelniania w usłudze Azure AD, należy pamiętać, że konta tylko w chmurze (konta użytkowników utworzone bezpośrednio na platformie Azure) mają domyślne zasady haseł linii bazowej. I konta hybrydowe (konta użytkowników, które pochodzą z lokalnego Active Directory), są zgodne z lokalnymi zasadami haseł. W przypadku korzystania z uwierzytelniania opartego na hasłach usługa Azure AD zapewnia funkcję ochrony hasłem, która uniemożliwia użytkownikom ustawianie haseł, które są łatwe do odgadnięcia. Firma Microsoft oferuje globalną listę zakazanych haseł, które są aktualizowane na podstawie danych telemetrycznych, a klienci mogą rozszerzyć listę na podstawie ich potrzeb (takich jak znakowanie, odwołania kulturowe itp.). Ta ochrona hasłem może być używana w przypadku kont tylko w chmurze i hybrydowych.
 
-Uwaga: uwierzytelnianie oparte na poświadczeniach hasła jest podatne na popularne metody ataków. Aby zapewnić wyższy poziom zabezpieczeń, należy użyć silnego uwierzytelniania, takiego jak MFA i zasad silnych haseł. W przypadku aplikacji innych firm i usług Marketplace, które mogą mieć domyślne hasła, należy je zmienić podczas początkowej konfiguracji usługi. 
+Uwaga: uwierzytelnianie oparte na poświadczeniach hasła jest podatne na popularne metody ataków. Aby zapewnić wyższy poziom zabezpieczeń, należy użyć silnego uwierzytelniania, takiego jak MFA i zasad silnych haseł. W przypadku aplikacji innych firm i usług Marketplace, które mogą mieć domyślne hasła, należy je zmienić podczas początkowej konfiguracji usługi.
 
 - [Jak włączyć usługę MFA na platformie Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -155,7 +158,7 @@ Usługa Azure AD udostępnia następujące źródła danych:
 
 -   Użytkownicy oflagowani w związku z ryzykiem — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone.
 
-Te źródła danych można zintegrować z usługami Azure Monitor, Azure Sentinel lub systemami SIEM innych firm.
+Te źródła danych można zintegrować z Azure Monitor, wskaźnikiem produktów platformy Azure lub systemami SIEM innych firm.
 
 Azure Security Center może również otrzymywać alerty dotyczące niektórych podejrzanych działań, takich jak nadmierna liczba nieudanych prób uwierzytelnienia i przestarzałe konta w subskrypcji. 
 
@@ -175,7 +178,7 @@ Azure Advanced Threat Protection (ATP) to rozwiązanie zabezpieczeń, które umo
 
 - [Łączenie danych z Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md)
 
-- [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
+- [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp)
 
 **Odpowiedzialność**: Klient
 
@@ -219,7 +222,7 @@ Korzystanie z dostępu warunkowego usługi Azure AD w celu uzyskania bardziej sz
 
 Zaimplementuj skaner poświadczeń usługi Azure DevOps, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przechodzenia odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
-W usłudze GitHub można używać funkcji skanowania natywnego wpisu tajnego do identyfikowania poświadczeń lub innej formy wpisów tajnych w kodzie.
+W usłudze GitHub można używać funkcji skanowania natywnego klucza tajnego do identyfikowania poświadczeń lub innej formy wpisów tajnych w kodzie.
 
 - [Jak skonfigurować skaner poświadczeń](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -241,9 +244,9 @@ W usłudze GitHub można używać funkcji skanowania natywnego wpisu tajnego do 
 
 Upewnij się, że dysponujesz nowoczesnymi kontrolami dostępu i monitorowaniem sesji dla starszych aplikacji oraz przechowywanych i przetwarzanych danych. Gdy sieci VPN są często używane do uzyskiwania dostępu do starszych aplikacji, często mają tylko podstawową kontrolę dostępu i ograniczone monitorowanie sesji.
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD umożliwia publikowanie starszych aplikacji lokalnych dla użytkowników zdalnych z logowaniem jednokrotnym (SSO), a jednocześnie jawnie sprawdza wiarygodność zarówno użytkowników zdalnych, jak i urządzeń przy użyciu dostępu warunkowego usługi Azure AD. 
+Usługa Azure serwer proxy aplikacji usługi Azure AD umożliwia publikowanie starszych aplikacji lokalnych dla użytkowników zdalnych z logowaniem jednokrotnym (SSO), a jednocześnie jawnie sprawdza wiarygodność zarówno użytkowników zdalnych, jak i urządzeń przy użyciu dostępu warunkowego usługi Azure AD.
 
-Alternatywnie Microsoft Cloud App Security to usługa brokera zabezpieczeń dostępu w chmurze (CASB), która może zapewnić kontrolę monitorowania sesji użytkownika i akcji blokowania (dla starszych aplikacji lokalnych i aplikacji w chmurze jako usługi (SaaS)). 
+Alternatywnie Microsoft Cloud App Security to usługa brokera zabezpieczeń dostępu w chmurze (CASB), która może zapewnić kontrolę monitorowania sesji użytkownika i akcji blokowania (dla starszych aplikacji lokalnych i aplikacji w chmurze jako usługi (SaaS)).
 
 - [serwer proxy aplikacji usługi Azure AD platformy Azure](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 

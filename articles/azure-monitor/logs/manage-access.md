@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: bc03d8cdcaf0079ef15e648d16fd5656d9da368c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725683"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
@@ -285,7 +285,7 @@ Powyższe przykłady definiują listę dozwolonych tabel. Ten przykład pokazuje
 
 ### <a name="custom-logs"></a>Niestandardowe dzienniki
 
- Dzienniki niestandardowe są tworzone na podstawie źródeł danych, takich jak dzienniki niestandardowe i interfejs API modułu zbierającego dane HTTP. Najprostszym sposobem identyfikacji typu dziennika jest sprawdzenie tabel wymienionych w obszarze [dzienniki niestandardowe w schemacie dziennika](../log-query/log-analytics-tutorial.md#table-schema).
+ Dzienniki niestandardowe są tworzone na podstawie źródeł danych, takich jak dzienniki niestandardowe i interfejs API modułu zbierającego dane HTTP. Najprostszym sposobem identyfikacji typu dziennika jest sprawdzenie tabel wymienionych w obszarze [dzienniki niestandardowe w schemacie dziennika](./log-analytics-tutorial.md#table-schema).
 
  Nie można udzielić dostępu do poszczególnych dzienników niestandardowych, ale można udzielić dostępu do wszystkich dzienników niestandardowych. Aby utworzyć rolę mającą dostęp do wszystkich dzienników niestandardowych, Utwórz rolę niestandardową przy użyciu następujących akcji:
 
@@ -312,4 +312,4 @@ Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośr
 
 * Zobacz [Omówienie agenta log Analytics](../agents/log-analytics-agent.md) , aby zebrać dane z komputerów w centrum danych lub w innym środowisku chmury.
 
-* Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../learn/quick-collect-azurevm.md) .
+* Aby skonfigurować zbieranie danych z maszyn wirtualnych platformy Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../vm/quick-collect-azurevm.md) .

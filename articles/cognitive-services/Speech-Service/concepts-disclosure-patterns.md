@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716622"
 ---
 # <a name="disclosure-design-patterns"></a>Wzorce projektowania ujawniania
 Teraz, gdy&#39;ve ustaliły odpowiedni [poziom ujawniania](concepts-disclosure-guidelines.md#disclosure-assessment) w przypadku głosu syntetycznego,&#39;s jest dobrym czasem, aby poznać potencjalne wzorce projektowe.
@@ -245,6 +245,6 @@ Użyj ujawnienia jako możliwości bezproblemowego niepowodzenia.
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Ujawnienie dla talent głosu](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Jak ujawnić](concepts-disclosure-guidelines.md)

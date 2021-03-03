@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3094d20a921f9aa13e111e7af60955ce934b91db
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566803"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698437"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Połącz urządzenie bramy WAF Imperva z platformą Azure — wskaźnikiem
 
@@ -35,7 +35,7 @@ W tym artykule wyjaśniono, jak podłączyć urządzenie bramy usługi Imperva W
 
 - Musisz mieć uprawnienia do odczytu i zapisu w obszarze roboczym wskaźnikowego platformy Azure.
 
-- Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Użytkownik musi mieć uprawnienia do odczytu kluczy udostępnionych dla obszaru roboczego. [Dowiedz się więcej o kluczach obszarów roboczych](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-imperva-waf-gateway-logs-to-azure-sentinel"></a>Wysyłanie dzienników bramy Imperva WAF do usługi Azure wskaźnikowej
 

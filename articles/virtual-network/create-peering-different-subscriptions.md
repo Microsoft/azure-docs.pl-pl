@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694958"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
 
@@ -55,7 +55,7 @@ Poniższe kroki używają różnych kont dla każdej subskrypcji. Jeśli używas
     - **Subskrypcja**: wybierz pozycję subskrypcja A.
     - **Grupa zasobów**: wybierz pozycję **Utwórz nową** i wprowadź *myResourceGroupA*
     - **Lokalizacja**: *Wschodnie stany USA*
-4. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetA*. Wybierz pozycję **myVnetA** , gdy zostanie ona wyświetlona w wynikach wyszukiwania. 
+4. W polu **Wyszukaj zasoby** w górnej części portalu wpisz *myVnetA*. Wybierz pozycję **myVnetA** , gdy zostanie ona wyświetlona w wynikach wyszukiwania.
 5. Wybierz pozycję **Kontrola dostępu (IAM)** z pionowej listy opcji po lewej stronie.
 6. W obszarze **myVnetA — kontrola dostępu (IAM)** wybierz pozycję **+ Dodaj przypisanie roli**.
 7. Wybierz opcję **współautor sieci** w polu **rola** .
@@ -99,7 +99,7 @@ Poniższe kroki używają różnych kont dla każdej subskrypcji. Jeśli używas
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>Tworzenie komunikacji równorzędnej — interfejs wiersza polecenia platformy Azure
 
-W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. 
+W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB.
 
 Następujące skrypty:
 
@@ -165,7 +165,7 @@ Zamiast instalować interfejs wiersza polecenia i jego zależności, można uży
 
 8. Wyloguj się z UserA z platformy Azure i zaloguj się na platformie Azure jako UserB.
 9. Utwórz komunikację równorzędną od myVnetB do myVnetA. Skopiuj zawartość skryptu w kroku 6 do edytora tekstu na komputerze. Zamień na `<SubscriptionB-Id>` Identyfikator subskrypcji i Zmień wszystkie na wartość B i wszystkie BS na. Po wprowadzeniu zmian Skopiuj zmodyfikowany skrypt, wklej go do sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` .
-10. Wyświetl stan komunikacji równorzędnej myVnetB. Skopiuj zawartość skryptu w kroku 7 do edytora tekstu na komputerze. Zmień wartość na B dla nazwy grupy zasobów i sieci wirtualnej, skopiuj skrypt, wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` . Stan komunikacji równorzędnej jest **połączony**. Stan komunikacji równorzędnej myVnetA zmienia się na **połączony** po utworzeniu komunikacji równorzędnej z MyVnetB do myVnetA. Możesz zarejestrować UserA ponownie na platformie Azure i ponownie wykonać krok 7, aby zweryfikować stan komunikacji równorzędnej myVnetA. 
+10. Wyświetl stan komunikacji równorzędnej myVnetB. Skopiuj zawartość skryptu w kroku 7 do edytora tekstu na komputerze. Zmień wartość na B dla nazwy grupy zasobów i sieci wirtualnej, skopiuj skrypt, wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` . Stan komunikacji równorzędnej jest **połączony**. Stan komunikacji równorzędnej myVnetA zmienia się na **połączony** po utworzeniu komunikacji równorzędnej z MyVnetB do myVnetA. Możesz zarejestrować UserA ponownie na platformie Azure i ponownie wykonać krok 7, aby zweryfikować stan komunikacji równorzędnej myVnetA.
 
     > [!NOTE]
     > Komunikacja równorzędna nie zostanie nawiązana, dopóki stan komunikacji równorzędnej nie zostanie **połączony** z obydwoma sieciami wirtualnymi.
@@ -181,7 +181,7 @@ Wszystkie zasoby platformy Azure utworzone w ramach jednej sieci wirtualnej mog�
 
 W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB.
 
-1. Upewnij się, że masz Azure PowerShell w wersji 1.0.0 lub nowszej. Można to zrobić, uruchamiając `Get-Module -Name Az` zalecaną instalację najnowszej wersji polecenia [AZ module](/powershell/azure/install-az-ps)programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Upewnij się, że masz Azure PowerShell w wersji 1.0.0 lub nowszej. Można to zrobić, uruchamiając `Get-Module -Name Az` zalecaną instalację najnowszej wersji polecenia [AZ module](/powershell/azure/install-az-ps)programu PowerShell. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Rozpocznij sesję programu PowerShell.
 3. W programie PowerShell Zaloguj się do platformy Azure jako UserA, wprowadzając `Connect-AzAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#permissions).
 4. Utwórz grupę zasobów i sieć wirtualną A. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień na `<SubscriptionA-Id>` Identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij klawisz `Enter` .
@@ -276,7 +276,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
    }
    ```
 
-3. Zaloguj się do platformy Azure jako UserA i Wdróż szablon przy użyciu [portalu](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [programu PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)lub [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Określ nazwę pliku, na przykład tekst JSON zapisany w kroku 2 do.
+3. Zaloguj się do platformy Azure jako UserA i Wdróż szablon przy użyciu [portalu](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [programu PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)lub [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Określ nazwę pliku, na przykład tekst JSON zapisany w kroku 2 do.
 4. Skopiuj przykładowy kod JSON z kroku 2 do pliku na komputerze i wprowadź zmiany w wierszach rozpoczynających się od:
    - **name**: Zmień *myVnetA/myVnetAToMyVnetB* na *myVnetB/myVnetBToMyVnetA*.
    - **Identyfikator**: ZAstąp `<subscription ID>` identyfikatorem subskrypcji UserB i Zmień *myVnetB* na *myVnetA*.

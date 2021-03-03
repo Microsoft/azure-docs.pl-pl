@@ -1,14 +1,14 @@
 ---
 title: Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure | Microsoft Docs
-description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift platformy Azure za pomocą Azure Monitor dla kontenerów.
+description: W tym artykule opisano, jak można zatrzymać monitorowanie klastra Red Hat OpenShift platformy Azure przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731820"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Jak zatrzymać monitorowanie klastra Red Hat OpenShift v3 platformy Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "100621210"
 > Postępuj zgodnie z tym przewodnikiem, aby [utworzyć klaster usługi Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Jeśli masz określone pytania, [skontaktuj się z nami](mailto:aro-feedback@microsoft.com).
 
-Po włączeniu monitorowania klastra Red Hat OpenShift w wersji 3. x można zatrzymać monitorowanie klastra przy użyciu Azure Monitor dla kontenerów, jeśli zdecydujesz, że nie chcesz już ich monitorować. W tym artykule pokazano, jak to zrobić za pomocą podanego szablonu Azure Resource Manager.  
+Po włączeniu monitorowania klastra Red Hat OpenShift w wersji 3. x można zatrzymać monitorowanie klastra za pomocą usługi Container Insights, jeśli zdecydujesz, że nie chcesz już go monitorować. W tym artykule pokazano, jak to zrobić za pomocą podanego szablonu Azure Resource Manager.  
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../platform/delete-workspace.md).
+Jeśli obszar roboczy został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz temat [Usuwanie obszaru roboczego usługi Azure log Analytics](../logs/delete-workspace.md).

@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596931"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701658"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files monitorowania
 
@@ -481,21 +481,10 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 
 - Żądania zakończone powodzeniem
 - Żądania zakończone niepowodzeniem, w tym błędy limitu czasu, ograniczania przepustowości, sieci, autoryzacji i inne błędy
-- Żądania używające sygnatury dostępu współdzielonego (SAS) lub OAuth, w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
-- Żądania danych analitycznych (klasyczne dane dziennika w **$Logs** kontenera i danych metryk klas w tabelach **$Metric** )
+- Żądania korzystające z protokołu Kerberos, NTLM lub sygnatury dostępu współdzielonego (SAS), w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
+- Żądania danych analitycznych (klasyczne dane dziennika w kontenerze **$Logs** i dane metryki klasycznej w tabelach **$Metric** )
 
 Żądania wykonywane przez samą usługę Azure Files, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych żądań SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Rejestruj anonimowe żądania
-
- Rejestrowane są następujące typy żądań anonimowych:
-
-- Żądania zakończone powodzeniem
-- Błędy serwera
-- Błędy przekroczenia limitu czasu dla klienta i serwera
-- Żądania GET zakończone niepowodzeniem z kodem błędu 304 (nie zmodyfikowano)
-
-Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych żądań SMB i REST, zobacz temat [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [danych monitorowania Azure Files](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Uzyskiwanie dostępu do dzienników na koncie magazynu
 
@@ -631,13 +620,12 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
    > [!NOTE]
    > Jeśli typy odpowiedzi nie są wyświetlane na liście rozwijanej **wartości wymiaru** , oznacza to, że zasób nie został ograniczony. Aby dodać wartości wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź typ respone (na przykład **SuccessWithThrottling**), wybierz pozycję **OK**, a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
 
-8. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
-9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
-
+8. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #10**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
+9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 10. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
 
     > [!TIP]
@@ -654,12 +642,12 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to `contoso` , wybierz `contoso/file` zasób.
 4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **pojemności pliku** .
-6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
+6. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #8**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
+7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 8. Wprowadź **wartość progową** w bajtach. Jeśli na przykład rozmiar udziału plików to 100 TiB i chcesz otrzymywać alert, gdy rozmiar udziału plików wynosi 80% pojemności, wartość progowa w bajtach to 87960930222080.
 9. Zdefiniuj pozostałe **Parametry alertu** (stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij przycisk **gotowe**.
 10. Kliknij pozycję **Dodaj grupy akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
@@ -673,12 +661,12 @@ W poniższej tabeli przedstawiono niektóre przykładowe scenariusze monitorowan
 3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
 4. Kliknij przycisk **Dodaj warunek** , aby dodać warunek.
 5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **ruchu** wychodzącego.
-6. W bloku **Konfigurowanie logiki sygnału** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
-7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
+6. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #8**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dla standardowych udziałów plików są oparte na wszystkich udziałach plików na koncie magazynu. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
+7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 8. Wprowadź **536870912000** bajtów dla wartości progowej. 
 9. Kliknij listę rozwijaną **stopień szczegółowości agregacji** i wybierz pozycję **24 godziny**.
 10. Wybierz **częstotliwość oceny** i **kliknij przycisk Gotowe**.

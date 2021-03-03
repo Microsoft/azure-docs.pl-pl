@@ -6,6 +6,8 @@
       href: overview.md
     - name: Informacje o wersji
       href: release-notes.md
+    - name: Znane problemy
+      href: known-issues.md
 - name: Przewodniki Szybki start
   items:
     - name: Tworzenie kontrolera danych
@@ -180,6 +182,8 @@
               href: configure-managed-instance.md
             - name: 'Monitorowanie, analiza dzienników, informacje o rozliczeniach, Azure Portal'
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: Wysoka dostępność
+              href: managed-instance-high-availability.md
             - name: Usuń
               href: delete-managed-instance.md
         - name: Migrate (Migracja)

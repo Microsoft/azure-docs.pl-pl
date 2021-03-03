@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706099"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Samouczek: przygotowanie do wdrożenia Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ Przed wdrożeniem urządzenia wirtualnego upewnij się, że są spełnione nast�
 - System hosta może przeznaczyć następujące zasoby wyłącznie na potrzeby aprowizacji urządzenia wirtualnego usługi Data Box:
   
   - Co najmniej 4 procesory wirtualne.
-  - Co najmniej 8 GB pamięci RAM.
+  - Co najmniej 8 GB pamięci RAM. Zdecydowanie zalecamy co najmniej 16 GB pamięci RAM.
   - Jeden interfejs sieciowy.
   - Dysk systemu operacyjnego o rozmiarze 250 GB.
   - Dysk wirtualny o rozmiarze 2 TB do przechowywania danych systemu.

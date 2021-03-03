@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726840"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -87,10 +87,11 @@ Podczas tworzenia konta magazynu należy wybrać region podstawowy dla konta. Sp
 
 Usługa Azure Storage oferuje dwie opcje kopiowania danych do regionu pomocniczego:
 
-- **Magazyn geograficznie nadmiarowy (GRS)** kopiuje dane synchronicznie trzy razy w ramach jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
-- **Magazyn Geograficznie nadmiarowy (GZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym przy użyciu ZRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
+- **Magazyn geograficznie nadmiarowy (GRS)** kopiuje dane synchronicznie trzy razy w ramach jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym. W regionie pomocniczym dane są kopiowane synchronicznie trzykrotnie przy użyciu LRS.
+- **Magazyn Geograficznie nadmiarowy (GZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym przy użyciu ZRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym. W regionie pomocniczym dane są kopiowane synchronicznie trzykrotnie przy użyciu LRS.
 
-Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W regionie pomocniczym dane są zawsze replikowane synchronicznie trzy razy przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
+> [!NOTE]
+> Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W regionie pomocniczym dane są zawsze replikowane synchronicznie trzy razy przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
 
 W przypadku GRS lub GZRS dane w regionie pomocniczym nie są dostępne do odczytu lub zapisu, chyba że istnieje przejście w tryb failover do regionu pomocniczego. Aby uzyskać dostęp do odczytu do regionu pomocniczego, skonfiguruj konto magazynu tak, aby korzystało z magazynu geograficznie nadmiarowego do odczytu (RA-GRS) lub strefy geograficznej do odczytu nadmiarowego (RA-GZRS). Aby uzyskać więcej informacji, zobacz [Odczyt dostępu do danych w regionie pomocniczym](#read-access-to-data-in-the-secondary-region).
 

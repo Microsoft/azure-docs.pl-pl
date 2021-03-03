@@ -174,6 +174,9 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
+    - name: Zrozumienie obiektów platformy Azure
+      tocHref: /azure/object-understanding/
+      topicHref: /azure/object-understanding/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -209,6 +212,12 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
+        - name: Azure Percept
+          tocHref: /azure/azure-percept/
+          topicHref: /azure/azure-percept/
+        - name: Aktualizacja urządzenia dla IoT Hub
+          tocHref: /azure/iot-hub-device-update/
+          topicHref: /azure/iot-hub-device-update/
         - name: Usługa IoT Hub
           tocHref: /azure/iot-hub/
           topicHref: /azure/iot-hub/
@@ -448,6 +457,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
+    - name: Wystąpienie zarządzane dla platformy Apache Cassandra
+      tocHref: /azure/managed-instance-apache-cassandra/
+      topicHref: /azure/managed-instance-apache-cassandra/
     - name: Magazyn
       tocHref: /azure/storage/
       topicHref: /azure/storage/
@@ -679,6 +691,9 @@
         - name: Peering Service
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
+        - name: Serwer tras (wersja zapoznawcza)
+          tocHref: /azure/route-server/
+          topicHref: /azure/route-server/
         - name: Traffic Manager
           tocHref: /azure/traffic-manager/
           topicHref: /azure/traffic-manager/

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555147"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705096"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,9 +31,25 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
+- [Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Wycofanie z 11 alertów usługi Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure 
+
+**Szacowana data zmiany:** Marzec 2021
+
+Security Center przekazuje dane dla niemal wszystkich zaleceń dotyczących zabezpieczeń, aby Azure Advisor, które z kolei zapisują je do [dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md).
+
+W przypadku dwóch zaleceń dane są zapisywane równocześnie bezpośrednio w dzienniku aktywności platformy Azure. W przypadku tej zmiany Security Center przestaną zapisywać dane dla tych starszych zaleceń dotyczących zabezpieczeń bezpośrednio do dziennika aktywności. Zamiast tego eksportuje dane do Azure Advisor jak w przypadku wszystkich innych zaleceń. 
+
+Istnieją dwa starsze zalecenia:
+- Na maszynach należy rozwiązać problemy dotyczące kondycji programu Endpoint Protection
+- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
+
+Jeśli uzyskano dostęp do informacji dotyczących tych dwóch zaleceń w kategorii "zalecenia dotyczące typu TaskDiscovery", nie będzie to już możliwe.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 

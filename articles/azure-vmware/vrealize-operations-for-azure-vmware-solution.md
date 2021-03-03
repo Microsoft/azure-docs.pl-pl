@@ -3,12 +3,12 @@ title: Skonfiguruj operacje vRealize dla rozwiązania VMware platformy Azure
 description: Dowiedz się, jak skonfigurować operacje vRealize dla chmury prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738433"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Skonfiguruj operacje vRealize dla rozwiązania VMware platformy Azure
 
@@ -37,7 +37,7 @@ Uważnie zapoznaj [się z wcześniejszym](#before-you-begin) rozpoczęciem i [wy
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>Lokalne operacje vRealize zarządzania wdrożeniem rozwiązań VMware platformy Azure
 Większość klientów ma istniejące lokalne wdrożenie operacji vRealize do zarządzania jedną lub wieloma lokalnymi domenami vCenter. Gdy udostępniają chmurę prywatną rozwiązania Azure VMware, nawiązują połączenie ze środowiskiem lokalnym z ich chmurą prywatną przy użyciu rozwiązania Azure ExpressRoute lub sieci VPN w warstwie 3.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Lokalne operacje vRealize zarządzania wdrożeniem rozwiązań VMware platformy Azure"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Lokalne operacje vRealize zarządzania wdrożeniem rozwiązań VMware platformy Azure" border="false":::
 
 Aby zwiększyć możliwości operacji vRealize do chmury prywatnej rozwiązania Azure VMware, należy utworzyć [wystąpienie karty dla zasobów chmury prywatnej](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). Zbiera dane z chmury prywatnej rozwiązania VMware platformy Azure i przenosi je do lokalnych operacji vRealize. Lokalne wystąpienie Operations Manager vRealize może bezpośrednio łączyć się z menedżerem vCenter i NSX-T w rozwiązaniu VMware platformy Azure. Opcjonalnie można wdrożyć zdalny moduł zbierający operacje vRealize w chmurze prywatnej rozwiązania Azure VMware. Moduł zbierający kompresuje i szyfruje dane zbierane z chmury prywatnej przed ich wysłaniem przez sieć ExpressRoute lub sieci VPN do vRealize Operations Manager działających lokalnie. 
 

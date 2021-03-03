@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662726"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687570"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Hotpatch for Windows Server Azure Edition (wersja zapoznawcza)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch dla nowych maszyn wirtualnych (wersja zapoznawcza)
 
 Funkcja HotPatching to nowy sposób instalowania aktualizacji na nowych maszynach wirtualnych systemu Windows Server Azure Edition (VM), które nie wymagają ponownego uruchomienia po instalacji. Ten artykuł zawiera informacje na temat maszyn wirtualnych hotpatch for Windows Server Azure Edition, które mają następujące zalety:
 * Dolny wpływ na obciążenie z mniejszą ilością ponownych uruchomień
@@ -26,7 +26,7 @@ Funkcja HotPatching to nowy sposób instalowania aktualizacji na nowych maszynac
 
 Hotpatch działa, najpierw ustanawiając linię bazową z Windows Update najnowszą aktualizacją zbiorczą. Hotpatches są okresowo uwalniane (na przykład w drugi wtorek miesiąca), który kompiluje się w tej linii bazowej. Hotpatches będzie zawierać aktualizacje, które nie wymagają ponownego uruchomienia. Okresowo (począwszy od co trzy miesiące), linia bazowa jest odświeżana nową najnowszą aktualizacją zbiorczą.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Przykładowy harmonogram hotpatch.":::
 
 Istnieją dwa typy linii bazowych: **planowane punkty odniesienia** i **nieplanowane linie bazowe**.
 *  **Planowane punkty odniesienia** są udostępniane w regularnych erzeach, z wydaniami hotpatch między.  Planowane linie bazowe obejmują wszystkie aktualizacje w porównywalnej _najnowszej aktualizacji zbiorczej_ dla danego miesiąca i wymagają ponownego uruchomienia.
@@ -154,7 +154,7 @@ Aby wyświetlić stan poprawki dla maszyny wirtualnej, przejdź do sekcji " **go
 Na tym ekranie zobaczysz stan hotpatch dla maszyny wirtualnej. Możesz również sprawdzić, czy istnieją dostępne poprawki dla maszyny wirtualnej, które nie zostały zainstalowane. Zgodnie z opisem w powyższej sekcji "instalacja poprawki" wszystkie aktualizacje zabezpieczeń i krytyczne zostaną automatycznie zainstalowane na maszynie wirtualnej przy użyciu [automatycznej poprawki gościa maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) i nie są wymagane żadne dodatkowe akcje. Poprawki z innymi klasyfikacjami aktualizacji nie są instalowane automatycznie. Zamiast tego są one widoczne na liście dostępnych poprawek na karcie "zgodność aktualizacji". Historię wdrożeń aktualizacji na maszynie wirtualnej można także wyświetlić za pomocą "Historia aktualizacji". Zostanie wyświetlona Historia aktualizacji z ostatnich 30 dni wraz ze szczegółami instalacji poprawki.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
 
 Dzięki automatycznej poprawkom gościa maszyny wirtualnej maszyna wirtualna jest okresowo i automatycznie oceniana pod kątem dostępnych aktualizacji. Te okresowe oceny zapewniają wykrycie dostępnych poprawek. Wyniki oceny można obejrzeć na ekranie aktualizacje powyżej, łącznie z czasem ostatniej oceny. Możesz również wybrać opcję wyzwalania oceny poprawek na żądanie dla maszyny wirtualnej w dowolnym momencie przy użyciu opcji "Oceń teraz" i przejrzeć wyniki po zakończeniu oceny.
 
@@ -197,7 +197,7 @@ Istnieją pewne ważne zagadnienia dotyczące uruchamiania maszyny wirtualnej z 
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Czy ponowne uruchomienia są nadal potrzebne dla maszyny wirtualnej zarejestrowanej w hotpatch?
 
-* Ponowny rozruch jest nadal wymagany do zainstalowania aktualizacji nieuwzględnionych w programie hotpatch i są wymagane okresowo po zainstalowaniu linii bazowej (Windows Update najnowszej aktualizacji zbiorczej). To ponowne uruchomienie spowoduje synchronizację maszyny wirtualnej ze wszystkimi poprawkami zawartymi w aktualizacji zbiorczej. Linie bazowe (które wymagają ponownego uruchomienia) rozpocznie się w ciągu trzech miesięcy erze i rosną z upływem czasu do 6 ostatnich miesięcy.
+* Ponowny rozruch jest nadal wymagany do zainstalowania aktualizacji nieuwzględnionych w programie hotpatch i są wymagane okresowo po zainstalowaniu linii bazowej (Windows Update najnowszej aktualizacji zbiorczej). To ponowne uruchomienie spowoduje synchronizację maszyny wirtualnej ze wszystkimi poprawkami zawartymi w aktualizacji zbiorczej. Linie bazowe (które wymagają ponownego uruchomienia) rozpocznie się w ciągu trzech miesięcy erze i rosną z upływem czasu.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>Czy moje aplikacje mają oddziaływać po zainstalowaniu aktualizacji hotpatch?
 

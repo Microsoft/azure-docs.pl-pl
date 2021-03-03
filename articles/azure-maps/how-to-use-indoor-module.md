@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708683"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Korzystanie z Azure Maps module Maps
 
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Aby załadować tilesetsowy i styl mapy kafelków, należy utworzyć wystąpienie *kierownika pomieszczeń*. Utwórz wystąpienie *kierownika pomieszczeń* , dostarczając *obiekt mapy* i odpowiednie `tilesetId` . Jeśli chcesz obsługiwać [Style mapy dynamicznej](indoor-map-dynamic-styling.md), musisz przekazać `statesetId` . W `statesetId` nazwie zmiennej jest rozróżniana wielkość liter. Kod powinien wyglądać podobnie do poniższego kodu JavaScript.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Aby włączyć sondowanie danych stanu, które zapewniasz, należy podać `statesetId` wywołanie i `indoorManager.setDynamicStyling(true)` . Dane stanu sondowania umożliwiają dynamiczne aktualizowanie stanu właściwości dynamicznych lub *Stanów*. Na przykład funkcja, taka jak pomieszczenie, może mieć wywołaną Właściwość dynamiczną (*State*) `occupancy` . Aplikacja może chcieć przeprowadzić sondowanie w poszukiwaniu zmian *stanu* , aby odzwierciedlić zmiany wewnątrz mapy wizualizacji. Poniższy kod pokazuje, jak włączyć sondowanie stanu:
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ Plik powinien teraz wyglądać podobnie do poniższego kodu HTML.
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ Plik powinien teraz wyglądać podobnie do poniższego kodu HTML.
 Aby wyświetlić mapę pomieszczeń, Załaduj ją do przeglądarki sieci Web. Powinien wyglądać podobnie do poniższego obrazu. Jeśli klikniesz funkcję Stairwell, *Selektor poziomu* zostanie wyświetlony w prawym górnym rogu.
 
   ![obraz mapy pomieszczeń](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Zobacz pokaz na żywo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Następne kroki
 

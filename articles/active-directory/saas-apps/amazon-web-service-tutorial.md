@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 81b57563899fe4babecbdb66cf1dbd876ec5bdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689015"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS)
 
@@ -26,9 +26,26 @@ W tym samouczku dowiesz się, jak zintegrować usługę Amazon Web Services (AWS
 * Zezwól użytkownikom na automatyczne logowanie do Amazon Web Services (AWS) przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-> [!Note]
-> Usługa Azure AD nie obsługuje integracji z logowaniem jednokrotnym za pomocą logowania jednokrotnego w usłudze AWS. jest to inny produkt od AWS. Chociaż w [tym miejscu AWS tutaj](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html), usługa Azure AD zaleca klientom korzystanie z integracji usługi AWS w usłudze IAM w taki sposób, aby można było osiągnąć lepsze zabezpieczenia za pomocą zasad dostępu warunkowego na poszczególnych kontach, a także usprawnić zarządzanie tymi aplikacjami.
+## <a name="understanding-the-different-aws-applications-in-the-azure-ad-application-gallery"></a>Informacje o różnych aplikacjach AWS w galerii aplikacji usługi Azure AD
+Skorzystaj z poniższych informacji, aby podjąć decyzję między korzystaniem z aplikacji AWS Single Sign-On i AWS Single-Account Access w galerii aplikacji usługi Azure AD.
 
+**AWS Logowanie jednokrotne**
+
+[AWS logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) jednokrotne zostało dodane do galerii aplikacji usługi Azure AD w lutym 2021. Ułatwia ona łatwe zarządzanie dostępem do wielu kont AWS i aplikacji AWS przy użyciu logowania za pomocą Microsoft Azure AD. Sfederować Microsoft Azure AD z AWS Logowanie jednokrotne i użyj AWS SSO do zarządzania uprawnieniami dla wszystkich kont AWS z jednego miejsca. AWS automatycznie inicjuje dostęp do uprawnień logowania jednokrotnego i zachowuje je podczas aktualizacji zasad i dostępu. Użytkownicy końcowi mogą uwierzytelniać się przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do konsoli AWS, interfejsu wiersza polecenia i aplikacji zintegrowanych z logowaniem jednokrotnym AWS.
+
+**AWS Single-Account dostępu**
+
+[AWS dostęp do Single-Account](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) używany przez klientów w ciągu ostatnich kilku lat i umożliwia Sfederować usługi Azure AD na jednym koncie AWS i używanie usługi Azure AD do zarządzania dostępem do ról AWS w usłudze IAM. Administratorzy IAM AWS definiują role i zasady w poszczególnych kontach AWS. Dla każdego konta AWS Administratorzy usługi Azure AD sfederować do AWS IAM, przypisywania użytkowników lub grup do konta i konfigurowania usługi Azure AD do wysyłania potwierdzenia, który autoryzują dostęp do roli.  
+
+| Cecha | AWS pojedyncze Sign-On | AWS Single-Account dostępu |
+|:--- |:---:|:---:|
+|Dostęp warunkowy| Obsługuje pojedyncze zasady dostępu warunkowego dla wszystkich kont usługi AWS. | Obsługuje pojedyncze zasady dostępu warunkowego dla wszystkich kont lub zasad niestandardowych dla konta|
+| Dostęp do interfejsu wiersza polecenia | Obsługiwane | Obsługiwane|
+| Privileged Identity Management | Jeszcze nieobsługiwane | Jeszcze nieobsługiwane |
+| Scentralizowane zarządzanie kontami | Scentralizowane zarządzanie kontami w usłudze AWS. | Scentralizowane zarządzanie kontami w usłudze Azure AD (prawdopodobnie wymaga aplikacji Azure AD Enterprise na konto). |
+| Certyfikat SAML| Pojedynczy certyfikat| Oddziel certyfikaty dla aplikacji/konta | 
+
+## <a name="aws-single-account-access-architecture"></a>Architektura dostępu AWS Single-Account
 ![Diagram relacji usług Azure AD i AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
 Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Na przykład:

@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614540"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714208"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Jak zaktualizować reguły alertów lub reguły akcji, gdy ich zasób docelowy jest przenoszony do innego regionu platformy Azure
 
-W tym artykule opisano, dlaczego mogą ulec wpływ na istniejące [reguły alertów](../platform/alerts-overview.md) i [reguły akcji](./alerts-action-rules.md) podczas przenoszenia innych zasobów platformy Azure między regionami oraz sposobu identyfikowania i rozwiązywania tych problemów. Zapoznaj się z [dokumentacją zasobów](../../azure-resource-manager/management/move-region.md) głównych, aby uzyskać dodatkowe informacje na temat tego, kiedy zasoby są przenoszone między regionami, i listę kontrolną projektowania procesu przenoszenia.
+W tym artykule opisano, dlaczego mogą ulec wpływ na istniejące [reguły alertów](./alerts-overview.md) i [reguły akcji](./alerts-action-rules.md) podczas przenoszenia innych zasobów platformy Azure między regionami oraz sposobu identyfikowania i rozwiązywania tych problemów. Zapoznaj się z [dokumentacją zasobów](../../azure-resource-manager/management/move-region.md) głównych, aby uzyskać dodatkowe informacje na temat tego, kiedy zasoby są przenoszone między regionami, i listę kontrolną projektowania procesu przenoszenia.
 
 ## <a name="why-the-problem-exists"></a>Dlaczego występuje problem
 
@@ -48,7 +48,6 @@ Ten problem dotyczy następujących typów reguł:
 
 - Reguły alertów dziennika aktywności
 - Reguły akcji
-- Alerty klasyczne
 - Alerty metryk — Aby uzyskać więcej informacji, zobacz następną sekcję [reguły alertów w oparciu o metryki](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -112,4 +111,4 @@ Jeśli **tylko część** zasobów w zakresie została przeniesiona, należy usu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o rozwiązywaniu innych problemów z [powiadomieniami o alertach](alerts-troubleshoot.md), [alertami metrykami](alerts-troubleshoot-metric.md)i [alertami dzienników](alerts-troubleshoot-log.md). 
+Dowiedz się więcej o rozwiązywaniu innych problemów z [powiadomieniami o alertach](alerts-troubleshoot.md), [alertami metrykami](alerts-troubleshoot-metric.md)i [alertami dzienników](alerts-troubleshoot-log.md).

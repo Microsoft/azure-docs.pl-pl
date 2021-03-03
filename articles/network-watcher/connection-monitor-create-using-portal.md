@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570891"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702168"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Tworzenie monitora w monitorze połączeń przy użyciu Azure Portal
 
@@ -121,7 +121,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
 
    * Aby wybrać agentów lokalnych, wybierz kartę **punkty końcowe inne niż Azure** . Domyślnie agenci są pogrupowani w obszary robocze według regionów. Wszystkie te obszary robocze mają skonfigurowaną Network Performance Monitor. 
    
-       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
+       Jeśli musisz dodać Network Performance Monitor do obszaru roboczego, Pobierz go z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Aby uzyskać informacje o sposobach dodawania Network Performance Monitor, zobacz [monitorowanie rozwiązań w Azure monitor](../azure-monitor/insights/solutions.md). 
    
        W obszarze **Utwórz monitor połączeń** na karcie **podstawowe** jest wybierany region domyślny. Jeśli zmienisz region, możesz wybrać agentów z obszarów roboczych w nowym regionie. Można wybrać co najmniej jednego agenta lub podsieci. W widoku **podsieci** można wybrać określone adresy IP do monitorowania. W przypadku dodania wielu podsieci zostanie utworzona niestandardowa sieć lokalna o nazwie **OnPremises_Network_1** . Możesz również zmienić selektor **Grupuj według** , aby grupować według agentów.
 

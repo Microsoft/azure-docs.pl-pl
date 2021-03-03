@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390406"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738229"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
@@ -50,8 +50,8 @@ Nowa wersja [kontenera analizy przestrzennej](spatial-analysis-container.md) zos
 * **Zmiana podziału**: zmieniono nazwę zdarzenia *personZoneEvent* na *personZoneEnterExitEvent*. To zdarzenie jest zgłaszane przez operację *personcrossingpolygon* , gdy osoba wejdzie w stronę lub opuszcza ją i zawiera informacje kierunkowe z numerowaną stroną przekreślonej strefy.
 * Adres URL wideo można podać jako "prywatny parametr/zasłonięty" we wszystkich operacjach. Mieszanie jest teraz opcjonalne i działa tylko wtedy, gdy `KEY` i `IV` są dostarczane jako zmienne środowiskowe.
 * Kalibracja jest domyślnie włączona dla wszystkich operacji. Ustaw, `do_calibration: false` Aby go wyłączyć.
-* Dodano obsługę autokalibracji (domyślnie wyłączone) za pośrednictwem `enable_recalibration` parametru, zapoznaj się ze szczegółami [operacji analizy przestrzennej](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) , aby uzyskać szczegółowe informacje
-* Parametry kalibracji aparatu fotograficznego do `DETECTOR_NODE_CONFIG` . Aby uzyskać szczegółowe informacje, zobacz operacje związane z [analizą przestrzenną](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) .
+* Dodano obsługę autokalibracji (domyślnie wyłączone) za pośrednictwem `enable_recalibration` parametru, zapoznaj się ze szczegółami [operacji analizy przestrzennej](./spatial-analysis-operations.md) , aby uzyskać szczegółowe informacje
+* Parametry kalibracji aparatu fotograficznego do `DETECTOR_NODE_CONFIG` . Aby uzyskać szczegółowe informacje, zobacz operacje związane z [analizą przestrzenną](./spatial-analysis-operations.md) .
 
 
 ## <a name="october-2020"></a>Październik 2020 r.

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705215"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi dla migracji oprogramowania VMware
 
@@ -29,8 +29,8 @@ Zapoznaj się z [tym artykułem](server-migrate-overview.md) , aby ustalić, kt�
 
 ## <a name="migration-limitations"></a>Ograniczenia migracji
 
-- Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli chcesz migrować więcej maszyn, wykonaj replikację w grupach o wartości 10.
-- W przypadku migracji programu VMware bez agenta można jednocześnie uruchomić do 300 replikacji.
+- Można wybrać maksymalnie 10 maszyn wirtualnych do replikacji za pośrednictwem Azure Portal. Jeśli chcesz migrować więcej maszyn, wykonaj replikację w grupach o wartości 10. Nie ma żadnego limitu liczby maszyn wirtualnych, które mogą być replikowane za pośrednictwem poleceń cmdlet programu PowerShell. Nasze zalecenie polega na replikacji nie więcej niż 500 maszyn wirtualnych jednocześnie z jednego programu vCenter za pośrednictwem programu PowerShell w celu zapewnienia optymalnej wydajności.
+- W przypadku migracji programu VMware bez agenta można uruchamiać maksymalnie 500 replikacje jednocześnie na podstawie poszczególnych vCenter Server.
 
 ## <a name="agentless-migration"></a>Migracja bez wykorzystania agentów 
 
@@ -56,7 +56,7 @@ W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtua
 --- | ---
 **Obsługiwane systemy operacyjne** | Można migrować systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](../virtual-machines/linux/endorsed-distros.md) , które są obsługiwane przez platformę Azure.
 **Maszyny wirtualne z systemem Windows na platformie Azure** | Przed rozpoczęciem migracji może być konieczne [wprowadzenie pewnych zmian](prepare-for-migration.md#verify-required-changes-before-migrating) na maszynach wirtualnych. 
-**Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19,04, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7,7, 7,7-CI<br/> W przypadku innych systemów operacyjnych należy ręcznie wprowadzić [wymagane zmiany](prepare-for-migration.md#verify-required-changes-before-migrating) .
+**Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19,04, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8, 9 <br/> Oracle Linux 7,7, 7,7-CI<br/> W przypadku innych systemów operacyjnych należy ręcznie wprowadzić [wymagane zmiany](prepare-for-migration.md#verify-required-changes-before-migrating) .
 **Rozruch systemu Linux** | Jeśli/Boot znajduje się na dedykowanej partycji, powinien znajdować się na dysku systemu operacyjnego i nie można go rozłożyć na wiele dysków.<br/> Jeśli/boot jest częścią partycji głównej (/), partycja "/" powinna znajdować się na dysku systemu operacyjnego i nie może obejmować innych dysków.
 **Rozruch z interfejsem UEFI** | Obsługiwane. Maszyny wirtualne oparte na interfejsie UEFI zostaną zmigrowane do maszyn wirtualnych generacji 2 platformy Azure. 
 **Rozmiar dysku** | dysk systemu operacyjnego: 2 TB;  32 TB dla dysków z danymi.
@@ -72,7 +72,7 @@ W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtua
 **Zespoły kart sieciowych** | Nieobsługiwane.
 **Protokół IPv6** | Nieobsługiwane.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
-**Równoczesna replikacja** | 300 maszyn wirtualnych na vCenter Server. Jeśli masz więcej, Migruj je w partiach 300.
+**Równoczesna replikacja** | 500 maszyn wirtualnych na vCenter Server. Jeśli masz więcej, Migruj je w partiach 500.
 **Automatyczna instalacja agenta maszyny wirtualnej platformy Azure (Agent systemu Windows)** | Obsługiwane w przypadku systemu Windows Server 2008 R2 lub nowszego.
 
 ### <a name="appliance-requirements-agentless"></a>Wymagania dotyczące urządzenia (bez agentów)

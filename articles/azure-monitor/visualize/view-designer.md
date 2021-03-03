@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700545"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. W tym artykule przedstawiono omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.
@@ -38,10 +38,10 @@ Widoki tworzone za pomocą projektanta widoków zawierają elementy, które są 
 |:--- |:--- |
 | Kafelki | Są wyświetlane na stronie **przegląd** Azure monitor. Każdy kafelek zawiera podsumowanie wizualizacji widoku niestandardowego, który reprezentuje. Każdy typ kafelków zawiera inną wizualizację rekordów. Wybierz kafelek, aby wyświetlić widok niestandardowy. |
 | Widok niestandardowy | Wyświetlane po wybraniu kafelka. Każdy widok zawiera jedną lub więcej części wizualizacji. |
-| Części wizualizacji | Prezentowanie danych w obszarze roboczym Log Analytics w oparciu o co najmniej jedną [kwerendę dzienników](../log-query/log-query-overview.md). Większość części zawiera nagłówek, który zawiera wizualizację wysokiego poziomu i listę, która wyświetla najważniejsze wyniki. Każdy typ części zawiera inną wizualizację rekordów w obszarze roboczym Log Analytics. Wybierz elementy w części, aby wykonać zapytanie dziennika, które zawiera szczegółowe rekordy. |
+| Części wizualizacji | Prezentowanie danych w obszarze roboczym Log Analytics w oparciu o co najmniej jedną [kwerendę dzienników](../logs/log-query-overview.md). Większość części zawiera nagłówek, który zawiera wizualizację wysokiego poziomu i listę, która wyświetla najważniejsze wyniki. Każdy typ części zawiera inną wizualizację rekordów w obszarze roboczym Log Analytics. Wybierz elementy w części, aby wykonać zapytanie dziennika, które zawiera szczegółowe rekordy. |
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
-Musisz mieć co najmniej [uprawnienia poziomu współautor](../platform/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, aby tworzyć lub modyfikować widoki. Jeśli nie masz tego uprawnienia, opcja Projektant widoków nie zostanie wyświetlona w menu.
+Musisz mieć co najmniej [uprawnienia poziomu współautor](../logs/manage-access.md#manage-access-using-azure-permissions) w obszarze roboczym log Analytics, aby tworzyć lub modyfikować widoki. Jeśli nie masz tego uprawnienia, opcja Projektant widoków nie zostanie wyświetlona w menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Pracuj z istniejącym widokiem
@@ -54,7 +54,7 @@ Opcje są opisane w poniższej tabeli:
 | Opcja | Opis |
 |:--|:--|
 | Odśwież   | Odświeża widok przy użyciu najnowszych danych. | 
-| Dzienniki      | Otwiera [log Analytics](../log-query/log-query-overview.md) , aby analizować dane przy użyciu zapytań dzienników. |
+| Dzienniki      | Otwiera [log Analytics](../logs/log-query-overview.md) , aby analizować dane przy użyciu zapytań dzienników. |
 | Edytuj       | Otwiera widok w projektancie widoków, aby edytować jego zawartość i konfigurację.  |
 | Klonowanie      | Tworzy nowy widok i otwiera go w projektancie widoków. Nazwa nowego widoku jest taka sama jak oryginalna nazwa, ale z dołączoną do niej *kopią* . |
 | Zakres dat | Ustaw filtr zakresu daty i godziny dla danych uwzględnionych w widoku. Ten zakres dat jest stosowany przed wszystkimi zakresami dat ustawionymi w zapytaniach w widoku.  |
@@ -103,7 +103,7 @@ W poniższej tabeli opisano opcje pracy z widokami w trybie edycji.
 | Anuluj      | Odrzuca zmiany i zamyka widok. |
 | Usuń widok | Usuwa widok. |
 | Eksportowanie      | Eksportuje widok do [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) , który można zaimportować do innego obszaru roboczego. Nazwa pliku to nazwa widoku, która ma rozszerzenie *omsview* . |
-| Importuj      | Importuje plik *omsview* wyeksportowany z innego obszaru roboczego. Ta akcja zastępuje konfigurację istniejącego widoku. |
+| Import      | Importuje plik *omsview* wyeksportowany z innego obszaru roboczego. Ta akcja zastępuje konfigurację istniejącego widoku. |
 | Klonowanie       | Tworzy nowy widok i otwiera go w projektancie widoków. Nazwa nowego widoku jest taka sama jak oryginalna nazwa, ale z dołączoną do niej *kopią* . |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987324"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690978"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Przykłady Azure PowerShell dla Azure SQL Database i wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie,
 
 Poniższa tabela zawiera linki do przykładowych skryptów programu Azure PowerShell dla usługi Azure SQL Database.
 
-|Łącze|Opis|
+|Link|Opis|
 |---|---|
 |**Tworzenie i Konfigurowanie pojedynczych baz danych i pul elastycznych**||
 | [Tworzenie pojedynczej bazy danych i konfigurowanie reguły zapory na poziomie serwera](scripts/create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ten skrypt programu PowerShell tworzy pojedynczą bazę danych i konfiguruje regułę zapory adresów IP na poziomie serwera. |
@@ -64,11 +64,11 @@ Dowiedz się więcej o [interfejsie API Azure PowerShell pojedynczej bazy danych
 
 Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla wystąpienia zarządzanego Azure SQL.
 
-|Łącze|Opis|
+|Link|Opis|
 |---|---|
 |**Tworzenie i konfigurowanie wystąpień zarządzanych**||
 | [Tworzenie wystąpienia zarządzanego i zarządzanie nim](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Ten skrypt programu PowerShell pokazuje, jak utworzyć wystąpienie zarządzane i zarządzać nim przy użyciu Azure PowerShell. |
-| [Tworzenie wystąpienia zarządzanego i zarządzanie nim przy użyciu szablonu Azure Resource Manager](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ten skrypt programu PowerShell pokazuje, jak utworzyć wystąpienie zarządzane i zarządzać nim przy użyciu Azure PowerShell i szablonu Azure Resource Manager.|
+| [Tworzenie wystąpienia zarządzanego i zarządzanie nim przy użyciu szablonu Azure Resource Manager](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ten skrypt programu PowerShell pokazuje, jak utworzyć wystąpienie zarządzane i zarządzać nim przy użyciu Azure PowerShell i szablonu Azure Resource Manager.|
 | [Przywracanie bazy danych do wystąpienia zarządzanego w innym regionie geograficznym](../managed-instance/scripts/restore-geo-backup.md) | Ten skrypt programu PowerShell tworzy kopię zapasową jednej bazy danych i przywraca ją do innego regionu. Jest to tzw. scenariusz odzyskiwania po awarii w przypadku przywracania geograficznego. |
 | **Konfigurowanie przezroczystego szyfrowania danych**||
 | [Zarządzaj przezroczystym szyfrowaniem danych w wystąpieniu zarządzanym przy użyciu własnego klucza z Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell umożliwia skonfigurowanie funkcji przezroczystego szyfrowania danych w Bring Your Own Key scenariuszu dla wystąpienia zarządzanego usługi Azure SQL przy użyciu klucza z Azure Key Vault.|
@@ -80,6 +80,6 @@ Dowiedz się więcej [na temat poleceń cmdlet programu PowerShell dla wystąpie
 
 ---
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Przykłady wymienione na tej stronie używają [poleceń cmdlet programu PowerShell](/powershell/module/az.sql/) do tworzenia zasobów usługi Azure SQL i zarządzania nimi. Dodatkowe polecenia cmdlet służące do uruchamiania zapytań i wykonywania wielu zadań bazy danych znajdują się w module [SqlServer](/powershell/module/sqlserver/) . Aby uzyskać więcej informacji, zobacz [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

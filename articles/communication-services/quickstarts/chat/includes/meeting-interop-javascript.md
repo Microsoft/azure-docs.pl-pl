@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 02/17/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 93cbc693e340174cf92aa2515d5e09f1ff3c1b31
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0c5ff52e5d3769124cd101b2483f18aea6963d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750633"
 ---
 ## <a name="joining-the-meeting-chat"></a>Dołączanie do rozmowy o spotkaniu 
 
@@ -304,6 +304,7 @@ Otwórz przeglądarkę i przejdź do http://localhost:8080/ . Powinien zostać w
 
 :::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Zrzut ekranu ukończonej aplikacji JavaScript.":::
 
-Wstaw łącze do programu Teams i identyfikator wątku do pól tekstowych. Naciśnij pozycję *Dołącz zespoły spotkanie* , aby dołączyć do spotkania zespołów i rozmawiać z poziomu aplikacji usług komunikacyjnych. Przejdź do dolnej części strony, aby rozpocząć czatowanie.
+Wstaw łącze do programu Teams i identyfikator wątku do pól tekstowych. Naciśnij pozycję *Dołącz zespoły do spotkania* , aby dołączyć do spotkania zespołów. Po dodaniu użytkownika usługi ACS do spotkania można rozmawiać z poziomu aplikacji usług komunikacyjnych. Przejdź do pola w dolnej części strony, aby rozpocząć czatowanie.
 
-**Uwaga** — obecnie tylko wysyłanie, otrzymywanie i edytowanie komunikatów jest obsługiwane w scenariuszach współdziałania z zespołami. Inne funkcje, takie jak wpisywanie wskaźników i użytkowników usług komunikacyjnych, Dodawanie lub usuwanie innych użytkowników z spotkania zespołów nie są jeszcze obsługiwane.  
+> [!NOTE] 
+> Obecnie tylko wysyłanie, otrzymywanie i edytowanie komunikatów jest obsługiwane w scenariuszach współdziałania z zespołami. Inne funkcje, takie jak wpisywanie wskaźników i użytkowników usług komunikacyjnych, Dodawanie lub usuwanie innych użytkowników z spotkania zespołów nie są jeszcze obsługiwane.  

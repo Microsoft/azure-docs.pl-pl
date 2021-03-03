@@ -1,20 +1,20 @@
 ---
 title: Włącz Azure Monitor dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w Azure Portal
-description: Dowiedz się, jak włączyć Azure Monitor dla maszyn wirtualnych na jednej maszynie wirtualnej platformy Azure lub w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal.
+description: Dowiedz się, jak włączyć szczegółowe informacje o maszynie wirtualnej na jednej maszynie wirtualnej platformy Azure lub w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba075930aa3541d0453b678c7d654635ae20da58
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47dde48e916361620a832d26e6249c4147d0f8b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733741"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Włącz Azure Monitor dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w Azure Portal
-W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:
+W tym artykule opisano sposób włączania usługi VM Insights dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:
 
 - Maszyna wirtualna platformy Azure
 - Zestaw skalowania maszyn wirtualnych platformy Azure
@@ -22,19 +22,19 @@ W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz i skonfiguruj obszar roboczy log Analytics](../insights/vminsights-configure-workspace.md). Alternatywnie można utworzyć nowy obszar roboczy w trakcie tego procesu.
-- Zobacz [obsługiwane systemy operacyjne](../insights/vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
+- [Utwórz i skonfiguruj obszar roboczy log Analytics](./vminsights-configure-workspace.md). Alternatywnie można utworzyć nowy obszar roboczy w trakcie tego procesu.
+- Zobacz [obsługiwane systemy operacyjne](./vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 
-## <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
+## <a name="enable-vm-insights"></a>Włącz szczegółowe informacje o maszynie wirtualnej
 
 Z Azure Portal wybierz pozycję **maszyny wirtualne**, **zestawy skalowania maszyn wirtualnych** lub **serwery — Azure Arc** i wybierz zasób z listy. W sekcji **monitorowanie** w menu wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**. W poniższym przykładzie przedstawiono maszynę wirtualną platformy Azure, ale menu jest podobne do zestawu skalowania maszyn wirtualnych platformy Azure lub usługi Azure Arc.
 
-![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
+![Włączanie usługi VM Insights dla maszyny wirtualnej](media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
-Jeśli maszyna wirtualna nie jest już połączona z obszarem roboczym Log Analytics, zostanie wyświetlony monit o wybranie jednej z nich. Jeśli nie utworzono wcześniej [obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md), możesz wybrać wartość domyślną dla lokalizacji, w której wdrożono maszynę wirtualną lub zestaw skalowania maszyn wirtualnych w ramach subskrypcji. Ten obszar roboczy zostanie utworzony i skonfigurowany, jeśli jeszcze nie istnieje. W przypadku wybrania istniejącego obszaru roboczego zostanie on skonfigurowany dla Azure Monitor dla maszyn wirtualnych, jeśli nie był jeszcze.
+Jeśli maszyna wirtualna nie jest już połączona z obszarem roboczym Log Analytics, zostanie wyświetlony monit o wybranie jednej z nich. Jeśli nie utworzono wcześniej [obszaru roboczego](../logs/quick-create-workspace.md), możesz wybrać wartość domyślną dla lokalizacji, w której wdrożono maszynę wirtualną lub zestaw skalowania maszyn wirtualnych w ramach subskrypcji. Ten obszar roboczy zostanie utworzony i skonfigurowany, jeśli jeszcze nie istnieje. Jeśli wybierzesz istniejący obszar roboczy, zostanie on skonfigurowany do wglądu w informacje o maszynie wirtualnej, jeśli nie jest jeszcze.
 
 > [!NOTE]
-> W przypadku wybrania obszaru roboczego, który nie został wcześniej skonfigurowany do Azure Monitor dla maszyn wirtualnych, do tego obszaru roboczego zostanie dodany pakiet administracyjny *VMInsights* . Ta wartość zostanie zastosowana do każdego agenta, który jest już połączony z obszarem roboczym, niezależnie od tego, czy jest on włączony dla Azure Monitor dla maszyn wirtualnych. Dane dotyczące wydajności będą zbierane z tych maszyn wirtualnych i przechowywane w tabeli *InsightsMetrics* .
+> W przypadku wybrania obszaru roboczego, który nie został wcześniej skonfigurowany do wglądu w dane maszyny wirtualnej, do tego obszaru roboczego zostanie dodany pakiet administracyjny *VMInsights* . Ta wartość zostanie zastosowana do każdego agenta, który jest już połączony z obszarem roboczym, niezależnie od tego, czy jest on włączony do wglądu w dane maszyn wirtualnych. Dane dotyczące wydajności będą zbierane z tych maszyn wirtualnych i przechowywane w tabeli *InsightsMetrics* .
 
 ![Wybór obszaru roboczego](media/vminsights-enable-portal/select-workspace.png)
 
@@ -43,11 +43,11 @@ Komunikaty o stanie zostaną odebrane w miarę przeprowadzania konfiguracji.
 >[!NOTE]
 >Jeśli używasz ręcznego modelu do skalowania maszyn wirtualnych, Uaktualnij wystąpienia, aby zakończyć instalację. Uaktualnienia można uruchomić z poziomu strony **wystąpienia** , w sekcji **Ustawienia** .
 
-![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
+![Włącz przetwarzanie wdrożenia monitorowania w usłudze VM Insights](media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Użyj mapy Azure monitor dla maszyn wirtualnych](vminsights-maps.md) , aby wyświetlić odnalezione zależności aplikacji. 
+* Zobacz [Używanie mapy usługi VM Insights](vminsights-maps.md) , aby wyświetlić odnalezione zależności aplikacji. 
 * Zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md) , aby identyfikować wąskie gardła, ogólne wykorzystanie i wydajność maszyny wirtualnej.

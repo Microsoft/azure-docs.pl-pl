@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727570"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami
 
@@ -21,12 +21,13 @@ W tym samouczku pokazano, jak za pomocą usługi Azure IoT Central utworzyć prz
 W tym celu dowiesz się, jak: 
 
 > [!div class="checklist"]
-> Aby utworzyć aplikację, użyj szablonu *zarządzania odpadami* w usłudze Azure IoT Central.
-> Eksploruj i dostosowuj pulpit nawigacyjny operatora. Zapoznaj się z szablonem urządzenia z dołączonymi odpadami.
-> Eksploruj symulowane urządzenia.
-> Eksplorowanie i konfigurowanie reguł.
-> Konfigurowanie zadań.
-> Dostosuj znakowanie aplikacji.
+> * Aby utworzyć aplikację, użyj szablonu *zarządzania odpadami* w usłudze Azure IoT Central.
+> * Eksploruj i dostosowuj pulpit nawigacyjny operatora. 
+> * Zapoznaj się z szablonem urządzenia z dołączonymi odpadami.
+> * Eksploruj symulowane urządzenia.
+> * Eksplorowanie i konfigurowanie reguł.
+> * Konfigurowanie zadań.
+> * Dostosuj znakowanie aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

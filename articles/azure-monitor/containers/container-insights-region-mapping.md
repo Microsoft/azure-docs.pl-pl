@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor mapowania regionów kontenerów
-description: Opisuje mapowania regionów obsługiwane między Azure Monitor dla kontenerów, Log Analytics obszaru roboczego i metryk niestandardowych.
+title: Mapowania regionów usługi Container Insights
+description: Opisuje mapowania regionów obsługiwane przez program Container Insights, obszar roboczy Log Analytics i metryki niestandardowe.
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9b77242de3e7845a97874b663266103bf00a8e66
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f9e910b1352109608becb82609e85e26d27d2cd1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619420"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728879"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapowania regionów obsługiwane przez Azure Monitor dla kontenerów
+# <a name="region-mappings-supported-by-container-insights"></a>Mapowania regionów obsługiwane przez usługi Container Insights
 
- Podczas włączania Azure Monitor dla kontenerów tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i klastra AKS oraz zbierania niestandardowych metryk przesłanych do Azure Monitor.
+ Podczas włączania usługi Container Insights tylko niektóre regiony są obsługiwane do łączenia obszaru roboczego Log Analytics i klastra AKS oraz zbierania niestandardowych metryk przesłane do Azure Monitor.
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mapowania obsługiwane w obszarze roboczym Log Analytics
 
@@ -53,4 +53,4 @@ Zbieranie metryk z węzłów i zasobników klastrów usługi Azure Kubernetes Se
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć monitorowanie klastra AKS, zapoznaj się z [tematem jak włączyć Azure monitor dla kontenerów](container-insights-onboard.md) , aby zrozumieć wymagania i dostępne metody umożliwiające monitorowanie.  
+Aby rozpocząć monitorowanie klastra AKS, zapoznaj się z [tematem jak włączyć usługi Container Insights](container-insights-onboard.md) , aby zrozumieć wymagania i dostępne metody umożliwiające monitorowanie.  

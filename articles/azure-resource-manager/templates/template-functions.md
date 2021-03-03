@@ -3,12 +3,12 @@ title: Funkcje szablonów
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager (szablon ARM) do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707323"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
 
@@ -34,6 +34,10 @@ Większość funkcji działa tak samo w przypadku wdrożenia w grupie zasobów, 
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
 
+## <a name="any-function"></a>Dowolna funkcja
+
+[Każda funkcja](template-functions-any.md) jest dostępna w Bicep, aby pomóc w rozwiązywaniu problemów dotyczących ostrzeżeń dotyczących typów danych.
+
 ## <a name="array-functions"></a>Funkcje tablicy
 
 Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
@@ -48,10 +52,10 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 * [ostatniego](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
-* [max](template-functions-array.md#max)
+* [Maksymalny](template-functions-array.md#max)
 * [zakresu](template-functions-array.md#range)
 * [Skocz](template-functions-array.md#skip)
-* [take (pobierz)](template-functions-array.md#take)
+* [czasochłonn](template-functions-array.md#take)
 * [Unii](template-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
@@ -131,7 +135,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [liczba zmiennoprzecinkowa](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [min](template-functions-numeric.md#min)
-* [max](template-functions-numeric.md#max)
+* [Maksymalny](template-functions-numeric.md#max)
 * [Funkcja](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [Sub](template-functions-numeric.md#sub)
@@ -148,7 +152,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami.
 * [część wspólną](template-functions-object.md#intersection)
 * [kodu](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
-* [wartość null](template-functions-object.md#null)
+* [null](template-functions-object.md#null)
 * [Unii](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -237,9 +241,9 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [Skocz](template-functions-string.md#skip)
 * [podziału](template-functions-string.md#split)
 * [startsWith](template-functions-string.md#startswith)
-* [parametry](template-functions-string.md#string)
+* [ciąg](template-functions-string.md#string)
 * [podciąg](template-functions-string.md#substring)
-* [take (pobierz)](template-functions-string.md#take)
+* [czasochłonn](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toUpper](template-functions-string.md#toupper)
 * [Trim](template-functions-string.md#trim)

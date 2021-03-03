@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733435"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -18,7 +18,7 @@ ms.locfileid: "100104522"
 
 ## <a name="extraction"></a>Wyodrębnianie
 
-Usługa QnA Maker ciągle ulepsza algorytmy wyodrębniające bazami z zawartości i rozwijania listy obsługiwanych formatów plików i formatu HTML. Postępuj zgodnie z [wytycznymi](../index.yml) dotyczącymi wyodrębniania danych w oparciu o typ dokumentu.
+Usługa QnA Maker ciągle ulepsza algorytmy wyodrębniające bazami z zawartości i rozwijania listy obsługiwanych formatów plików i formatu HTML. Postępuj zgodnie z [wytycznymi](../Concepts/data-sources-and-content.md) dotyczącymi wyodrębniania danych w oparciu o typ dokumentu.
 
 Ogólnie rzecz biorąc, często zadawane pytania powinny być autonomiczne i nie są łączone z innymi informacjami. Podręczniki produktu powinny mieć jasne nagłówki i najlepiej stronę indeksu.
 

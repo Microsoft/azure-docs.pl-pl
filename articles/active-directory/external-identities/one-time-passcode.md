@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365535"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688471"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu
 
@@ -26,7 +26,8 @@ W tym artykule opisano, jak włączyć jednokrotne uwierzytelnianie kodu dostęp
 ![Tworzenie pocztą e-mail jednokrotnego diagramu przeglądu kodu dostępu](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **Od października 2021** funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Jeśli nie chcesz zezwolić na automatyczne włączenie tej funkcji, możesz ją wyłączyć. Zobacz sekcję [wyłączanie jednorazowego kodu dostępu wiadomości e-mail](#disable-email-one-time-passcode) poniżej.
+> - **Od października 2021** funkcja jednorazowego kodu dostępu wiadomości e-mail zostanie włączona dla wszystkich istniejących dzierżawców i domyślnie włączona dla nowych dzierżawców. Jeśli nie chcesz zezwolić na automatyczne włączenie tej funkcji, możesz ją wyłączyć. Zobacz sekcję [wyłączanie jednorazowego kodu dostępu wiadomości e-mail](#disable-email-one-time-passcode) poniżej.
+> - Przeniesiono wiadomość e-mail jednorazowo ustawienia kodu dostępu w Azure Portal z **zewnętrznych ustawień współpracy** do **wszystkich dostawców tożsamości**.
 
 > [!NOTE]
 > Jednorazowy kod dostępu użytkownicy muszą logować się przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy-Goście nie mogą obecnie zalogować się za pomocą punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie programu `https://myapps.microsoft.com` `https://portal.azure.com` spowoduje wystąpienie błędu.
@@ -83,27 +84,50 @@ Od października 2021 funkcja jednorazowego kodu dostępu wiadomości e-mail zos
 
 2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 
-3. Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
+3. Wybierz **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**.
 
-4. W obszarze **Wyślij pocztą e-mail jednorazowy kod dostępu dla Gości**, zaznacz opcję **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**.
+4. Wybierz opcję **jednorazowy kod dostępu wiadomości e-mail**, a następnie wybierz opcję **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**.
 
    > [!NOTE]
-   > Jeśli zobaczysz następujący przełącznik zamiast opcji jednorazowego kodu dostępu wiadomości e-mail, oznacza to, że wcześniej włączono, wyłączono lub wybrano w wersji zapoznawczej funkcji. Wybierz pozycję **nie** , aby wyłączyć funkcję.
+   > Przeniesiono wiadomość e-mail jednorazowo ustawienia kodu dostępu w Azure Portal z **zewnętrznych ustawień współpracy** do **wszystkich dostawców tożsamości**.
+   > Jeśli zobaczysz przełącznik zamiast opcji jednorazowego kodu dostępu wiadomości e-mail, oznacza to, że wcześniej włączono, wyłączono lub wybrano w wersji zapoznawczej funkcji. Wybierz pozycję **nie** , aby wyłączyć funkcję.
    >
-   >![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Wyłączono jednorazowy przełącznik dostępu do wiadomości e-mail](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Wybierz pozycję **Zapisz**.
 
 ## <a name="note-for-public-preview-customers"></a>Uwaga dla klientów z publicznej wersji zapoznawczej
 
-Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu dostępu do wiadomości e-mail, Data 2021 dla automatycznego włączenia funkcji nie ma zastosowania do użytkownika, więc nie ma to wpływu na powiązane procesy biznesowe. Ponadto w Azure Portal w obszarze **wiadomości e-mail jednorazowy kod dostępu dla Gości** nie zobaczysz opcji automatycznego włączania jednokrotnego **dostępu do poczty e-mail dla gości w październiku 2021**. Zamiast tego zobaczysz następujący przełącznik **tak** lub **nie** :
+Jeśli wcześniej zaznaczono w publicznej wersji zapoznawczej jednorazowego kodu dostępu do wiadomości e-mail, Data 2021 dla automatycznego włączenia funkcji nie ma zastosowania do użytkownika, więc nie ma to wpływu na powiązane procesy biznesowe. Ponadto w Azure Portal w obszarze **wiadomości e-mail jednorazowy kod dostępu dla Gości** nie zobaczysz opcji **automatycznego włączania jednorazowego kodu dostępu do poczty e-mail dla gości od października 2021**. Zamiast tego zobaczysz następujący przełącznik **tak** lub **nie** :
 
-![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Wyślij wiadomość e-mail jednorazowo o jeden czas](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 Jeśli jednak wolisz zrezygnować z funkcji i zezwolić na jej automatyczne włączenie w październiku 2021, możesz przywrócić ustawienia domyślne za pomocą [typu zasobu konfiguracja Metoda uwierzytelniania poczty e-mail](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Po przywróceniu ustawień domyślnych dostępne są następujące opcje **dla Gości poczty e-mail jednorazowo**:
 
-- **Automatycznie Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości w październiku 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie automatycznie włączona w październiku 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
+![Włącz jednorazowy kod dostępu wiadomości E-mail w programie](media/one-time-passcode/email-otp-options.png)
+
+- **Automatycznie włączaj jednorazowy kod dostępu wiadomości e-mail dla Gości od października 2021**. Wartooć Jeśli funkcja jednorazowego kodu dostępu wiadomości e-mail nie została już włączona dla Twojej dzierżawy, zostanie ona automatycznie włączona od października 2021. Jeśli funkcja ma być włączona w tym czasie, nie są wymagane żadne dalsze działania. Jeśli funkcja została już włączona lub wyłączona, ta opcja będzie niedostępna.
 
 - **Włącz jednorazowy kod dostępu do wiadomości e-mail dla Gości**. Włącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy.
 
 - **Wyłącz jednorazowy kod dostępu wiadomości e-mail dla Gości**. Wyłącza funkcję jednorazowego kodu dostępu wiadomości e-mail dla dzierżawy i uniemożliwia włączenie tej funkcji w październiku 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Uwaga dla klientów platformy Azure dla instytucji rządowych USA
+
+Funkcja jednorazowego kodu dostępu wiadomości e-mail jest domyślnie wyłączona w chmurze platformy Azure dla instytucji rządowych.  
+
+ ![Wyślij wiadomość e-mail jednorazowo, wyłączono kod dostępu](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Aby włączyć funkcję jednorazowego kodu dostępu wiadomości e-mail w chmurze platformy Azure dla instytucji rządowych:
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny usługi Azure AD.
+2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
+3. Wybierz pozycję Ustawienia **relacji organizacyjnych**   >  ****.
+
+   > [!NOTE]
+   > - Jeśli nie widzisz **relacji organizacyjnych**, wyszukaj frazę "tożsamości zewnętrzne" na pasku wyszukiwania u góry.
+
+4. Wybierz opcję **jednorazowy kod dostępu wiadomości e-mail**, a następnie wybierz pozycję **tak**.
+5. Wybierz pozycję **Zapisz**.
+
+Aby uzyskać więcej informacji o bieżących ograniczeniach, zobacz [chmury dla instytucji rządowych w Stanach Zjednoczonych](current-limitations.md#azure-us-government-clouds).

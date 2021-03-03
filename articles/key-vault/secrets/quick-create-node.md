@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: afb0e04d6f8a34d844df382081d53a32899e9a5c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 70416daced2cbdebb70fb8e1defbcbcb599710f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705487"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Szybki Start: Azure Key Vault Secret Client Library for JavaScript (wersja 4)
 
@@ -56,13 +56,13 @@ Następnie Utwórz aplikację Node.js, którą można wdrożyć w chmurze.
 
 1. W powłoce poleceń Utwórz folder o nazwie `key-vault-node-app` :
 
-```azurecli
+```terminal
 mkdir key-vault-node-app
 ```
 
 1. Przejdź do nowo utworzonego katalogu *Key-magazyn-Node-App* i uruchom polecenie "init", aby zainicjować projekt węzła:
 
-```azurecli
+```terminal
 cd key-vault-node-app
 npm init -y
 ```
@@ -71,13 +71,13 @@ npm init -y
 
 W oknie konsoli zainstaluj [bibliotekę](https://www.npmjs.com/package/@azure/keyvault-secrets) Azure Key Vault secret dla Node.js.
 
-```azurecli
+```terminal
 npm install @azure/keyvault-secrets
 ```
 
 Zainstaluj pakiet [Azure. Identity](https://www.npmjs.com/package/@azure/identity) w celu uwierzytelnienia w Key Vault
 
-```azurecli
+```terminal
 npm install @azure/identity
 ```
 
@@ -154,7 +154,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z [biblioteki tożsamości platformy Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji na temat uwierzytelniania do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy ["DefaultAzureCredential ()"](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) z [biblioteki tożsamości platformy Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), która umożliwia nam korzystanie z tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji o uwierzytelnianiu do magazynu kluczy, zobacz [przewodnik dewelopera](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 Dodaj następujący kod do funkcji "Main ()"
 
@@ -168,7 +168,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>Zapisz klucz tajny
 
-Teraz, gdy aplikacja jest uwierzytelniana, możesz umieścić klucz tajny w magazynie kluczy przy użyciu [metody setsecret](/javascript/api/@azure/keyvault-secrets/secretclient?#setsecret-string--string--setsecretoptions-) . wymaga to nazwy wpisu tajnego — w tym przykładzie jest używana wartość "My Secret".  
+Teraz, gdy aplikacja jest uwierzytelniana, możesz umieścić klucz tajny w magazynie kluczy przy użyciu [metody setsecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_) . wymaga to nazwy wpisu tajnego — w tym przykładzie jest używana wartość "My Secret".  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -176,7 +176,7 @@ await client.setSecret(secretName, secretValue);
 
 ### <a name="retrieve-a-secret"></a>Pobierz klucz tajny
 
-Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody getsecret](/javascript/api/@azure/keyvault-secrets/secretclient?#getsecret-string--getsecretoptions-).
+Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody getsecret](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -258,9 +258,9 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 1. Wykonaj następujące polecenia, aby uruchomić aplikację.
 
-    ```azurecli
+    ```terminal
     npm install
-    npm index.js
+    node index.js
     ```
 
 1. Po wyświetleniu monitu wprowadź wartość klucza tajnego. Na przykład mySecretPassword.

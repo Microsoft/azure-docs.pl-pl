@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693904"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Kontrolowanie dostępu do konta magazynu dla puli SQL bezserwerowej w usłudze Azure Synapse Analytics
 
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby skonfigurować zaporę konta magazynu i dodać 
     Connect-AzAccount
     ```
 4. Definiuj zmienne w programie PowerShell: 
-    - Nazwa grupy zasobów — można to znaleźć w Azure Portal w temacie Omówienie obszaru roboczego Synapse.
+    - Nazwa grupy zasobów — można to znaleźć w Azure Portal w temacie Omówienie konta magazynu.
     - Nazwa konta — Nazwa konta magazynu, które jest chronione przez reguły zapory.
     - Identyfikator dzierżawy — możesz go znaleźć w Azure Portal w Azure Active Directory informacji o dzierżawie.
     - Nazwa obszaru roboczego — nazwa obszaru roboczego Synapse.

@@ -1,17 +1,17 @@
 ---
-title: Raporty w Azure Monitor dla kontenerów
-description: Opisuje raporty dostępne do analizowania danych zbieranych przez Azure Monitor dla kontenerów.
+title: Raporty w usłudze Container Insights
+description: Opisuje raporty dostępne do analizowania danych zebranych przez usługi Container Insights.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704280"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Raporty w Azure Monitor dla kontenerów
-Raporty w Azure Monitor for Containers są zalecane dla wbudowanych [skoroszytów platformy Azure](../visualize/workbooks-overview.md). W tym artykule opisano różne raporty, które są dostępne, oraz sposób uzyskiwania do nich dostępu.
+# <a name="reports-in-container-insights"></a>Raporty w usłudze Container Insights
+Raporty w usłudze Container Insights są zalecane jako gotowe do użycia [skoroszyty platformy Azure](../visualize/workbooks-overview.md). W tym artykule opisano różne raporty, które są dostępne, oraz sposób uzyskiwania do nich dostępu.
 
 ## <a name="viewing-reports"></a>Wyświetlanie raportów
 Z menu **Azure monitor** w Azure Portal wybierz pozycję **Containers (kontenery**). Wybierz pozycję szczegółowe **informacje** w sekcji **monitorowanie** , wybierz konkretny klaster, a następnie wybierz stronę **raporty (wersja zapoznawcza)** . 

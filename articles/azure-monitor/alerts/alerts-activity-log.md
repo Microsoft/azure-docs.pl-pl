@@ -4,12 +4,12 @@ description: Tworzenie alertów dziennika aktywności przy użyciu Azure Portal,
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621023"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704467"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
 
@@ -26,7 +26,9 @@ Podczas tworzenia reguł alertów należy zapewnić następujące czynności:
 
 - Subskrypcja w zakresie nie różni się od subskrypcji, w której został utworzony alert.
 - Kryteria muszą być kategoriami poziomów, stan, obiekt wywołujący, Grupa zasobów, identyfikator zasobu lub typ zasobu, dla których skonfigurowano alert.
-- W pliku JSON konfiguracji alertów nie ma warunku "anyOf" ani warunków zagnieżdżonych. Zasadniczo tylko jeden warunek "allOf" jest dozwolony w przypadku braku dalszych warunków "allOf" lub "anyOf".
+- Dozwolony jest tylko jeden warunek "allOf".
+- "AnyOf" może służyć do zezwalania na wiele warunków w wielu polach (na przykład, jeśli pola "status" lub "Substatus" są równe określonej wartości). Należy pamiętać, że użycie "AnyOf" jest obecnie ograniczone do tworzenia reguły alertu przy użyciu wdrożenia szablonu ARM.
+- "ContainsAny" może służyć do zezwalania na wiele wartości tego samego pola (na przykład jeśli "operacja" jest równa "Delete" lub "Modify"). Należy pamiętać, że użycie "ContainsAny" jest obecnie ograniczone do tworzenia reguły alertu przy użyciu wdrożenia szablonu ARM.
 - Jeśli kategoria ma wartość "administracyjne", musisz określić co najmniej jedno z powyższych kryteriów w alercie. Nie można utworzyć alertu, który jest uaktywniany za każdym razem, gdy zdarzenie jest tworzone w dziennikach aktywności.
 - Nie można tworzyć alertów dla zdarzeń w kategorii alertów dziennika aktywności.
 
@@ -92,7 +94,7 @@ Wykonaj poniższą procedurę.
     - **Opis**: Opis nowej reguły alertu.
     - **Zapisz alert w grupie zasobów**: Wybierz grupę zasobów, w której chcesz zapisać nową regułę.
 
-5. W obszarze **Grupa akcji** z menu rozwijanego wybierz grupę akcji, która ma zostać przypisana do nowej reguły alertu. Lub [Utwórz nową grupę akcji](../platform/action-groups.md) i przypisz ją do nowej reguły. Aby utworzyć nową grupę, wybierz pozycję **+ Nowa grupa**.
+5. W obszarze **Grupa akcji** z menu rozwijanego wybierz grupę akcji, która ma zostać przypisana do nowej reguły alertu. Lub [Utwórz nową grupę akcji](./action-groups.md) i przypisz ją do nowej reguły. Aby utworzyć nową grupę, wybierz pozycję **+ Nowa grupa**.
 
 6. Aby włączyć reguły po ich utworzeniu, wybierz opcję **tak** dla opcji **Włącz regułę przy tworzeniu** .
 7. Wybierz pozycję **Utwórz regułę alertu**.
@@ -287,6 +289,5 @@ Zasoby reguły alertu dziennika aktywności można usunąć przy użyciu polecen
 
 - Informacje o [schemacie elementu webhook dla dzienników aktywności](./activity-log-alerts-webhook.md).
 - Zapoznaj się z [omówieniem dzienników aktywności](./activity-log-alerts.md).
-- Dowiedz się więcej na temat [grup akcji](../platform/action-groups.md).  
+- Dowiedz się więcej na temat [grup akcji](./action-groups.md).  
 - Dowiedz się więcej o [powiadomieniach o kondycji usługi](../../service-health/service-notifications.md).
-

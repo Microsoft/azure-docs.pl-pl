@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć statyczny publiczny adres IP dla ruchu 
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726550"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego z *podstawową* usługą równoważenia obciążenia SKU w usłudze Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ W tym artykule przyjęto założenie, że korzystasz z usługi Azure Basic Load 
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.59 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 > [!IMPORTANT]
 > W tym artykule zastosowano moduł równoważenia obciążenia *podstawowej* jednostki SKU z pulą jednego węzła. Ta konfiguracja jest niedostępna dla pul wielu węzłów, ponieważ moduł równoważenia obciążenia *podstawowej* jednostki SKU nie jest obsługiwany w przypadku wielu pul węzłów. Aby uzyskać więcej informacji na temat korzystania ze *standardowego* modułu równoważenia obciążenia SKU, zobacz temat [korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure KUBERNETES Service (AKS)][slb] .
@@ -33,11 +33,11 @@ Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza pol
 
 Ruch wychodzący z klastra AKS jest zgodny z [konwencjami Azure Load Balancer][outbound-connections]. Przed utworzeniem pierwszej usługi Kubernetes typu `LoadBalancer` , węzły agenta w KLASTRZE AKS nie będą częścią żadnej puli Azure Load Balancer. W tej konfiguracji węzły nie mają publicznego adresu IP na poziomie wystąpienia. Platforma Azure tłumaczy przepływ wychodzący na publiczny adres IP, który nie jest konfigurowalny ani deterministyczny.
 
-Po utworzeniu usługi Kubernetes typu `LoadBalancer` , węzły agentów są dodawane do puli Azure Load Balancer. W przypadku przepływu wychodzącego platforma Azure tłumaczy ją na pierwszy publiczny adres IP skonfigurowany w ramach modułu równoważenia obciążenia. Ten publiczny adres IP jest prawidłowy tylko dla cykl życia tego zasobu. Po usunięciu usługi równoważenia obciążenia Kubernetes zostanie również usunięty skojarzony z nią moduł równoważenia i adres IP. Jeśli chcesz przypisać określony adres IP lub zachować adres IP dla ponownie wdrożonych usług Kubernetes, możesz utworzyć statyczny publiczny adres IP i używać go.
+Po utworzeniu usługi Kubernetes typu `LoadBalancer` , węzły agentów są dodawane do puli Azure Load Balancer. Load Balancer podstawowa wybór jednego frontonu do użycia dla przepływów wychodzących, gdy wiele głównych frontonów IP jest kandydatów dla przepływów wychodzących. Tego wyboru nie można skonfigurować i należy rozważyć użycie algorytmu wyboru jako losowo. Ten publiczny adres IP jest prawidłowy tylko dla cykl życia tego zasobu. Po usunięciu usługi równoważenia obciążenia Kubernetes zostanie również usunięty skojarzony z nią moduł równoważenia i adres IP. Jeśli chcesz przypisać określony adres IP lub zachować adres IP dla ponownie wdrożonych usług Kubernetes, możesz utworzyć statyczny publiczny adres IP i używać go.
 
 ## <a name="create-a-static-public-ip"></a>Tworzenie statycznego publicznego adresu IP
 
-Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła *dla nazwy klastra*AKS *myAKSCluster* w grupie zasobów nazwa zasobu:
+Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła *dla nazwy klastra* AKS *myAKSCluster* w grupie zasobów nazwa zasobu:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

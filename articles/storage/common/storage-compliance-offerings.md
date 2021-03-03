@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ca0e95d311adedf613ed168927491dfa85b1cabd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7ec938a13d04cf3400e4d3df0eeda051c61d35ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724272"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Oferty zgodności usługi Azure Storage
 
 Aby pomóc organizacjom w zgodności z krajowymi, regionalnymi i branżowymi wymaganiami dotyczącymi zbierania i używania danych indywidualnych, Microsoft Azure & usługa Azure Storage oferuje najbardziej kompleksowy zestaw certyfikatów i zaświadczania o każdym dostawcy usług w chmurze.
 
-Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewnić się, że usługa została uregulowana przy użyciu usługi Azure Storage. Dotyczą one następujących ofert usługi Azure Storage: obiektów blob, plików, kolejek, tabel, dysków, chłodnego magazynu i Premium Storage.
+Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewnić się, że usługa została uregulowana przy użyciu usługi Azure Storage. Dotyczą one następujących ofert usługi Azure Storage: obiektów BLOB (ADLS Gen2), plików, kolejek, tabel, dysków, chłodnego magazynu i Premium Storage.
 
 ## <a name="global"></a>Globalnie
 

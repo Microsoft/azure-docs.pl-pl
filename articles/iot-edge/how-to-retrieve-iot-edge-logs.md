@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475543"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719019"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
@@ -33,7 +33,18 @@ Chociaż nie jest to wymagane, w celu uzyskania najlepszej zgodności z tą funk
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` powinien być zgodny z [formatem poziomu ważności dziennika](https://wikipedia.org/wiki/Syslog#Severity_level) systemu i `{Timestamp}` powinien być sformatowany jako `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` powinien być sformatowany jako `yyyy-MM-dd hh:mm:ss.fff zzz` i `{Log Level}` powinien być zgodny z poniższą tabelą, która popełni poziom ważności od [kodu ważności w standardzie dziennika](https://wikipedia.org/wiki/Syslog#Severity_level)systemowego.
+
+| Wartość | Ważność |
+|-|-|
+| 0 | Kontakt |
+| 1 | Alerty |
+| 2 | Krytyczne |
+| 3 | Błąd |
+| 4 | Ostrzeżenie |
+| 5 | Wzory |
+| 6 | Informacyjne |
+| 7 | Debugowanie |
 
 [Klasa rejestratora w IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) służy jako implementacja kanoniczna.
 

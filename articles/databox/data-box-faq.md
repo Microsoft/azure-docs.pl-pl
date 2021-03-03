@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730579"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -68,6 +69,16 @@ Na przykład w scenariuszu importu, jeśli masz dane źródłowe w Kanadzie, kt�
 2. Po zakończeniu kopiowania danych Premium do urządzenie Data Box należy zwrócić urządzenie do centrum danych platformy Azure w Kanadzie. Dane znajdujące się na urządzenie Data Box są następnie przekazywane do docelowego konta magazynu w regionie usługi Azure Kanada wybranym podczas tworzenia zamówienia.
 
 3. Następnie możesz użyć narzędzia, takiego jak AzCopy, aby skopiować dane na konto magazynu w regionie zachodnie stany USA. Ten krok wiąże się ze [standardowymi](https://azure.microsoft.com/pricing/details/storage/) [opłatami za](https://azure.microsoft.com/pricing/details/bandwidth/) magazyn i przepustowość, które nie są uwzględnione w rozliczeniach urządzenie Data Box.
+
+#### <a name="q-does-data-box-store-any-customer-data-outside-of-the-service-region"></a>PYTANIE: Czy urządzenie Data Box przechowywać dane klienta poza regionem usługi?
+
+A. Nie. Urządzenie Data Box nie przechowuje żadnych danych klienta poza regionem usługi. Klient ma pełną własność swoich danych i umożliwia zapisanie danych w określonej lokalizacji na podstawie konta magazynu wybieranego podczas tworzenia zamówienia.  
+
+Oprócz danych klienta dostępne są urządzenie Data Box dane zawierające artefakty zabezpieczeń związane z urządzeniem, monitorowanie dzienników dla urządzenia i usługi oraz metadanych związanych z usługami. We wszystkich regionach (z wyjątkiem Brazylii Południowe i Azja Południowo-Wschodnia) urządzenie Data Box dane są przechowywane i replikowane w sparowanym regionie za pośrednictwem konta magazynu geograficznie nadmiarowego w celu ochrony przed utratą danych.  
+
+Ze względu na [wymagania dotyczące danych miejsca zamieszkania](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) w regionie Brazylia Południowa i Azja Południowo-Wschodnia urządzenie Data Box dane są przechowywane w ramach konta magazynu Strefowo nadmiarowego (ZRS), aby było ono zawarte w jednym regionie. W przypadku Azja Południowo-Wschodnia wszystkie dane urządzenie Data Box są przechowywane w Singapurze i w Brazylii Południowej, dane są przechowywane w Brazylii. 
+
+Jeśli wystąpi awaria usługi w regionie Brazylia Południowa i Azja Południowo-Wschodnia, klienci mogą tworzyć nowe zamówienia z innego regionu. Nowe zamówienia będą obsługiwane z regionu, w którym zostały utworzone, a klienci są odpowiedzialni za wysyłkę do urządzenie Data Box i za nią.
 
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>PYTANIE: Jak można odzyskać dane, jeśli cały region ulegnie awarii?
 

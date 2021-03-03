@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734523"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
 > [!NOTE]
-> W tym artykule założono, że znasz podstawowe funkcje Eksploratora metryk platformy Azure Azure Monitor. Jeśli jesteś nowym użytkownikiem i chcesz dowiedzieć się, jak utworzyć pierwszy wykres pomiarowy, zobacz [wprowadzenie do Eksploratora metryk](../platform/metrics-getting-started.md).
+> W tym artykule założono, że znasz podstawowe funkcje Eksploratora metryk platformy Azure Azure Monitor. Jeśli jesteś nowym użytkownikiem i chcesz dowiedzieć się, jak utworzyć pierwszy wykres pomiarowy, zobacz [wprowadzenie do Eksploratora metryk](./metrics-getting-started.md).
 
 W Azure Monitor [metryki](data-platform-metrics.md) są serią mierzonych wartości i liczby, które są zbierane i przechowywane w czasie. Metryki mogą być standardowe (nazywane również "platformą") lub niestandardową. 
 
@@ -49,11 +49,11 @@ Gdy wszystko jest zadowalające, wybierz pozycję **Zastosuj**.
 ### <a name="view-metrics-across-multiple-resources"></a>Wyświetlanie metryk dla wielu zasobów
 Niektóre typy zasobów mogą wykonywać zapytania dotyczące metryk dla wielu zasobów. Zasoby muszą znajdować się w tej samej subskrypcji i lokalizacji. Znajdź te typy zasobów w górnej części menu **typy zasobów** . 
 
-Aby uzyskać więcej informacji, zobacz [Wybieranie wielu zasobów](../platform/metrics-dynamic-scope.md#select-multiple-resources).
+Aby uzyskać więcej informacji, zobacz [Wybieranie wielu zasobów](./metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Zrzut ekranu przedstawiający typy wielu zasobów.](./media/metrics-charts/multi-resource-scope.png)
 
-W przypadku typów, które są zgodne z wieloma zasobami, można wysyłać zapytania o metryki w ramach subskrypcji lub wielu grup zasobów. Aby uzyskać więcej informacji, zobacz [Wybieranie grupy zasobów lub subskrypcji](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+W przypadku typów, które są zgodne z wieloma zasobami, można wysyłać zapytania o metryki w ramach subskrypcji lub wielu grup zasobów. Aby uzyskać więcej informacji, zobacz [Wybieranie grupy zasobów lub subskrypcji](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## <a name="multiple-metric-lines-and-charts"></a>Wiele linii metrycznych i wykresów
 
@@ -67,7 +67,7 @@ Załóżmy na przykład, że masz pięć kont magazynu i chcesz wiedzieć, ile m
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Wiele metryk na tym samym wykresie
 
-Aby wyświetlić wiele metryk na tym samym wykresie, najpierw [Utwórz nowy wykres](../platform/metrics-getting-started.md#create-your-first-metric-chart). Następnie wybierz pozycję **Dodaj metrykę**. Powtórz ten krok, aby dodać kolejną metrykę na tym samym wykresie.
+Aby wyświetlić wiele metryk na tym samym wykresie, najpierw [Utwórz nowy wykres](./metrics-getting-started.md#create-your-first-metric-chart). Następnie wybierz pozycję **Dodaj metrykę**. Powtórz ten krok, aby dodać kolejną metrykę na tym samym wykresie.
 
 > [!NOTE]
 > Zazwyczaj wykresy nie powinny mieszać metryk, które używają różnych jednostek miary. Na przykład Unikaj mieszania jednej metryki używającej milisekund z inną, która używa kilobajtów. Należy również unikać mieszania metryk, których skale różnią się znacznie. 
@@ -86,7 +86,7 @@ Po dodaniu metryki do wykresu Eksplorator metryk automatycznie stosuje agregacj�
 
 Przed użyciem różnych agregacji na wykresie należy zrozumieć, jak Eksplorator metryk je obsługuje. Metryki to serie pomiarów (lub "wartości metryk"), które są przechwytywane w przedziale czasu. Podczas kreolenia wykresu wartości wybranej metryki są agregowane w postaci *ziarna czasu*. 
 
-Wybierasz rozmiar ziarna czasu przy użyciu [panelu selektora czasu](../platform/metrics-getting-started.md#select-a-time-range)Eksploratora metryk. Jeśli nie wybierzesz jawnie ziarna czasu, domyślnie używany jest obecnie wybrany zakres czasu. Po określeniu ziarna czasu wartości metryk, które zostały przechwycone podczas każdego ziarna, są agregowane na wykresie, jeden punkt danych na ziarno.
+Wybierasz rozmiar ziarna czasu przy użyciu [panelu selektora czasu](./metrics-getting-started.md#select-a-time-range)Eksploratora metryk. Jeśli nie wybierzesz jawnie ziarna czasu, domyślnie używany jest obecnie wybrany zakres czasu. Po określeniu ziarna czasu wartości metryk, które zostały przechwycone podczas każdego ziarna, są agregowane na wykresie, jeden punkt danych na ziarno.
 
 Załóżmy na przykład, że wykres pokazuje metrykę *czasu odpowiedzi serwera* . Używa ona *średniej* agregacji w przedziale czasu w *ciągu ostatnich 24 godzin*. W tym przykładzie:
 
@@ -230,6 +230,42 @@ Zostanie otwarte okienko tworzenia reguły alertu. W okienku zobaczysz wymiary m
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi](../alerts/alerts-metric.md).
 
+## <a name="correlate-metrics-to-logs"></a>Skorelowanie metryk z dziennikami
+Aby ułatwić klientom zdiagnozowanie głównej przyczyny anomalii na wykresie metryk, utworzyliśmy szczegółowe informacje o dziennikach. Przechodzenie do szczegółów dzienników umożliwia klientom skorelowanie skoków na wykresie metryków z dziennikami i zapytaniami. 
+
+Zanim szczegółowe się z tym doświadczeniem, chcemy najpierw wprowadzić różne typy dzienników i zapytań. 
+
+| Okres             | Definicja  | 
+|------------------|-------------|
+| Dzienniki aktywności    | Zapewnia wgląd w operacje dotyczące poszczególnych zasobów platformy Azure w ramach subskrypcji z zewnątrz (płaszczyzny zarządzania) poza aktualizacjami Service Health zdarzeń. Użyj dziennika aktywności, aby określić, kto i kiedy mają być wykonywane operacje zapisu (PUT, POST, DELETE) dotyczące zasobów w ramach subskrypcji. Dla każdej subskrypcji platformy Azure istnieje pojedynczy dziennik aktywności.  |   
+| Dziennik diagnostyczny   | Zapewniaj wgląd w operacje wykonywane w ramach zasobu platformy Azure (płaszczyzny danych), na przykład w celu uzyskania wpisu tajnego z Key Vault lub żądania do bazy danych. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. **Uwaga:** Musi być świadczona przez usługę i włączona przez klienta  | 
+| Zalecany dziennik | Zapytania oparte na scenariuszu, które mogą wykorzystać klient do zbadania anomalii w Eksploratorze metryk.  |
+
+Obecnie szczegółowe informacje o dziennikach są dostępne dla wybranych dostawców zasobów. Dostawcy zasobów, którzy mają kompletne przechodzenie do szczegółów dzienników, to: 
+
+* Application Insights 
+* Automatyczne skalowanie 
+* App Services  
+* Storage  
+
+Poniżej znajduje się przykładowe środowisko dostawcy zasobów Application Insights.
+
+![Dopełnij błędy w bloku metryk usługi App Insights](./media/metrics-charts/drill-into-log-ai.png)
+
+Aby zdiagnozować skok w żądaniach zakończonych niepowodzeniem, kliknij pozycję "przechodzenie do szczegółów dzienników".
+
+![Zrzut ekranu przedstawiający listę rozwijaną przechodzenie do szczegółów dzienników](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+Kliknięcie opcji niepowodzenia spowoduje dołączenie do niestandardowego bloku błędów, który zapewnia operacje zakończone niepowodzeniem, najważniejsze typy wyjątków i zależności. 
+
+![Zrzut ekranu przedstawiający blok niepowodzeń usługi App Insights](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>Typowe problemy z przechodzeniem do szczegółów dzienników
+
+* Dziennik i zapytania są wyłączone — aby wyświetlić zalecane dzienniki i zapytania, musisz skierować dzienniki diagnostyczne do Log Analytics. Zapoznaj się z [tym dokumentem](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) , aby dowiedzieć się, jak to zrobić. 
+* Dzienniki aktywności są dostarczane tylko — funkcja przechodzenie do szczegółów dzienników jest dostępna tylko dla dostawców zasobów. Domyślnie są udostępniane dzienniki aktywności. 
+
+ 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli nie widzisz żadnych danych na wykresie, przejrzyj następujące informacje dotyczące rozwiązywania problemów:
@@ -242,6 +278,5 @@ Jeśli nie widzisz żadnych danych na wykresie, przejrzyj następujące informac
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby tworzyć pulpity nawigacyjne z możliwością podejmowania działań za pomocą metryk, zobacz [Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI](../learn/tutorial-app-dashboards.md).
+Aby tworzyć pulpity nawigacyjne z możliwością podejmowania działań za pomocą metryk, zobacz [Tworzenie niestandardowych pulpitów nawigacyjnych wskaźników KPI](../app/tutorial-app-dashboards.md).
 
- 

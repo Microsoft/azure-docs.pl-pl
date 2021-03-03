@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728981"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
 
 W tym artykule opisano sposób konfigurowania połączenia między produktem IT lub usługą usługi IT (narzędzia ITSM) przy użyciu funkcji bezpiecznego eksportowania.
 
-Bezpieczny eksport to zaktualizowana wersja [Łącznik zarządzania usługami IT (ITSMC)](../platform/itsmc-overview.md). Obie wersje umożliwiają tworzenie elementów roboczych w narzędziu narzędzia ITSM, gdy Azure Monitor wysyła alerty. Funkcje obejmują alerty dotyczące metryk, dzienników i dzienników aktywności.
+Bezpieczny eksport to zaktualizowana wersja [Łącznik zarządzania usługami IT (ITSMC)](./itsmc-overview.md). Obie wersje umożliwiają tworzenie elementów roboczych w narzędziu narzędzia ITSM, gdy Azure Monitor wysyła alerty. Funkcje obejmują alerty dotyczące metryk, dzienników i dzienników aktywności.
 
 ITSMC używa poświadczeń nazwy użytkownika i hasła. Bezpieczny eksport ma silniejsze uwierzytelnianie, ponieważ używa Azure Active Directory (Azure AD). Usługa Azure AD to usługa w chmurze firmy Microsoft do zarządzania tożsamościami i dostępem. Ułatwia ona użytkownikom logowanie się i dostęp do zasobów wewnętrznych lub zewnętrznych. Korzystanie z usługi Azure AD z usługą narzędzia ITSM pomaga identyfikować alerty platformy Azure (za pośrednictwem identyfikatora aplikacji usługi Azure AD), które zostały wysłane do systemu zewnętrznego.
 
@@ -55,4 +55,4 @@ Główne zalety integracji są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](../platform/itsmc-overview.md)
+* [Tworzenie narzędzia ITSM elementów roboczych na podstawie alertów platformy Azure](./itsmc-overview.md)

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388859"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700035"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Jak utworzyć transkrypcje z etykietami ludzkimi
 
 Jeśli chcesz poprawić dokładność rozpoznawania, szczególnie problemy, które są spowodowane usunięciem lub nieprawidłowym zastępowaniem wyrazów, musisz użyć transkrypcji z etykietą z danymi audio. Co to są transkrypcje z oznaczeniem personalnym? To bardzo proste. są one słowami "Verbatim" w pliku audio.
 
-Do usprawnienia rozpoznawania jest wymagane duże przykładowe dane transkrypcji, dlatego sugerujemy dostarczenie danych transkrypcji od 10 do 20 godzin. Na tej stronie zawarto Przegląd wytycznych dotyczących tworzenia transkrypcji o wysokiej jakości. Ten przewodnik jest podzielony na ustawienia regionalne, z sekcjami dla angielskiej wersji językowej USA, chińskiej (mandarynek) i niemieckiej.
+Do usprawnienia rozpoznawania jest wymagane duże przykładowe dane transkrypcji, dlatego zalecamy udostępnienie od 1 do 20 godzin danych transkrypcji. Usługa mowy będzie korzystać z maksymalnie 20 godzin na potrzeby szkolenia. Na tej stronie zawarto Przegląd wytycznych dotyczących tworzenia transkrypcji o wysokiej jakości. Ten przewodnik jest podzielony na ustawienia regionalne, z sekcjami dla angielskiej wersji językowej USA, chińskiej (mandarynek) i niemieckiej.
 
 > [!NOTE]
 > Nie wszystkie modele podstawowe obsługują Dostosowywanie przy użyciu plików audio. Jeśli model podstawowy nie obsługuje tego rozwiązania, szkolenie będzie używać tylko tekstu transkrypcji w taki sam sposób jak w przypadku użycia powiązanego tekstu. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.

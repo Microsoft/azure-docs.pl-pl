@@ -4,19 +4,19 @@ description: Dowiedz się, jak przekierować alerty metryki platformy Azure do i
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 04/03/2017
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 93b8a9935e1a26df5aa76ca45c890036589a48ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ead28618582ff670aca048bb92803d61c6ca938
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723524"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Wywoływanie elementu webhook przy użyciu klasycznego alertu metryki w Azure Monitor
 
 > [!WARNING]
-> W tym artykule opisano sposób używania starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../platform/alerts-overview.md). Alerty klasyczne są [wycofywane](../platform/monitoring-classic-retirement.md) dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów.
+> W tym artykule opisano sposób używania starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md) dla użytkowników chmury publicznej, ale nadal są ograniczone do **31 maja 2021**. Alerty klasyczne dla usług Azure Government Cloud i Azure Chiny 21Vianet zostaną wycofane z **29 lutego 2024**.
 >
 
 Elementy webhook umożliwiają kierowanie powiadomień o alertach platformy Azure do innych systemów w przypadku akcji wykonywanych po przetworzeniu lub po ich wykonaniu. Możesz użyć elementu webhook dla alertu, aby skierować go do usług, które wysyłają wiadomości SMS, aby rejestrować usterki w celu powiadomienia zespołu za pośrednictwem usług rozmowy lub Messaging lub dla różnych innych akcji. 
@@ -30,7 +30,7 @@ Aby dodać lub zaktualizować identyfikator URI elementu webhook, w [Azure Porta
 
 ![Dodawanie okienka reguły alertu](./media/alerts-webhooks/Alertwebhook.png)
 
-Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../samples/cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](/rest/api/monitor/alertrules).
+Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../powershell-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Uwierzytelnianie elementu webhook
 Element webhook może być uwierzytelniany przy użyciu autoryzacji opartej na tokenach. Identyfikator URI elementu webhook jest zapisywany z IDENTYFIKATORem tokenu. Na przykład: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

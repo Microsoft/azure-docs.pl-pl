@@ -1,26 +1,26 @@
 ---
-title: Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i metryk w czasie rzeczywistym bez używania polecenia kubectl w Azure Monitor for Containers.
+title: Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i metryk w czasie rzeczywistym bez używania polecenia kubectl w usłudze Container Insights.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711233"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego
 
-Azure Monitor dla kontenerów zawiera funkcję danych na żywo (wersja zapoznawcza), która jest zaawansowaną funkcją diagnostyczną umożliwiającą bezpośredni dostęp do dzienników kontenerów usługi Azure Kubernetes Service (AKS), zdarzeń i metryk pod. Udostępnia bezpośredni dostęp do `kubectl logs -c` , `kubectl get` zdarzeń i `kubectl top pods` . W okienku konsoli są wyświetlane dzienniki, zdarzenia i metryki wygenerowane przez aparat kontenera, aby dodatkowo pomóc w rozwiązywaniu problemów w czasie rzeczywistym.
+Usługa Container Insights obejmuje funkcję danych na żywo (wersja zapoznawcza), która jest zaawansowaną funkcją diagnostyki umożliwiającą bezpośredni dostęp do dzienników kontenerów usługi Azure Kubernetes Service (AKS), zdarzeń i metryk pod. Udostępnia bezpośredni dostęp do `kubectl logs -c` , `kubectl get` zdarzeń i `kubectl top pods` . W okienku konsoli są wyświetlane dzienniki, zdarzenia i metryki wygenerowane przez aparat kontenera, aby dodatkowo pomóc w rozwiązywaniu problemów w czasie rzeczywistym.
 
 Ten artykuł zawiera szczegółowe omówienie i pomaga zrozumieć, jak korzystać z tej funkcji.
 
 Aby uzyskać pomoc w konfigurowaniu lub rozwiązywaniu problemów dotyczących aktywnych danych (wersja zapoznawcza), zapoznaj się z naszym [przewodnikiem Instalatora](container-insights-livedata-setup.md). Ta funkcja bezpośrednio uzyskuje dostęp do interfejsu API Kubernetes i dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## <a name="view-deployment-live-logs-preview"></a>Wyświetlanie dzienników na żywo wdrożenia (wersja zapoznawcza)
-Aby wyświetlić dzienniki na żywo wdrożeń, które są częścią klastrów AKS, które nie są monitorowane przez Azure Monitor dla kontenerów, należy wykonać poniższą procedurę. Jeśli klaster używa Azure Monitor dla kontenerów, użyj poniższego procesu, aby wyświetlić dane na żywo dla węzłów, kontrolerów, kontenerów i wdrożeń.
+Aby wyświetlić dzienniki na żywo wdrożeń, które są częścią klastrów AKS, które nie są monitorowane przez usługi Container Insights, należy wykonać poniższą procedurę. Jeśli klaster korzysta z usługi Container Insights, użyj poniższego procesu, aby wyświetlić dane na żywo dla węzłów, kontrolerów, kontenerów i wdrożeń.
 
 1. W Azure Portal przejdź do grupy zasobów klastra AKS i wybierz zasób AKS.
 

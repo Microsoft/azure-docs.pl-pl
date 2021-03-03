@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 213437e68efb27c483c8013d209261408ab9d4ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e2050784d03b1f01e743df9b00916ec286a3e7ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620810"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736954"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Przykłady zapytań w dzienniku Azure Monitor
-Ten artykuł zawiera różne przykłady [zapytań](../log-query/log-query-overview.md) używających [języka zapytań Kusto](/azure/kusto/query/) do pobierania różnych typów danych dziennika z Azure monitor. Różne metody służą do konsolidowania i analizowania danych, dzięki czemu można używać tych przykładów do identyfikowania różnych strategii, których można użyć do własnych wymagań.  
+Ten artykuł zawiera różne przykłady [zapytań](./log-query-overview.md) używających [języka zapytań Kusto](/azure/kusto/query/) do pobierania różnych typów danych dziennika z Azure monitor. Różne metody służą do konsolidowania i analizowania danych, dzięki czemu można używać tych przykładów do identyfikowania różnych strategii, których można użyć do własnych wymagań.  
 
-Aby uzyskać szczegółowe informacje o różnych słowach kluczowych używanych w tych przykładach, zobacz [Dokumentacja języka Kusto](/azure/kusto/query/) . Zapoznaj się z lekcji, aby [utworzyć zapytania](../log-query/get-started-queries.md) , jeśli jesteś nowym Azure monitor.
+Aby uzyskać szczegółowe informacje o różnych słowach kluczowych używanych w tych przykładach, zobacz [Dokumentacja języka Kusto](/azure/kusto/query/) . Zapoznaj się z lekcji, aby [utworzyć zapytania](./get-started-queries.md) , jeśli jesteś nowym Azure monitor.
 
 ## <a name="events"></a>Zdarzenia
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Użycie
 
-`Usage`Typ danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](../platform/manage-cost-storage.md#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage`Typ danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](./manage-cost-storage.md#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](./manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Ilość danych wg rozwiązania
 
@@ -438,4 +438,4 @@ Update
 ## <a name="next-steps"></a>Następne kroki
 
 - Szczegółowe informacje na temat języka można znaleźć w [dokumentacji języka Kusto](/azure/kusto/query) .
-- Zapoznaj się z [lekcjami dotyczącymi pisania zapytań dzienników w Azure monitor](../log-query/get-started-queries.md).
+- Zapoznaj się z [lekcjami dotyczącymi pisania zapytań dzienników w Azure monitor](./get-started-queries.md).

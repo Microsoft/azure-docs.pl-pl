@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695752"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Rejestrowanie i skanowanie dzierżawy Power BI (wersja zapoznawcza)
 
@@ -98,11 +98,13 @@ Najpierw Dodaj specjalną flagę funkcji do adresu URL kontrolą
     > W przypadku Power BI Rejestracja i skanowanie źródła danych jest dozwolone tylko dla jednego wystąpienia.
 
 
-4. Nadaj nazwę skanowaniu. Należy zauważyć, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana**.
+4. Nadaj nazwę skanowaniu. Następnie wybierz opcję dołączania lub wykluczania osobistych obszarów roboczych. Należy zauważyć, że jedyną obsługiwaną metodą uwierzytelniania jest **tożsamość zarządzana**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Obraz przedstawiający konfigurację skanowania Power BI":::
 
-    Nazwa skanowania musi mieć długość od 3-63 znaków i może zawierać tylko litery, cyfry, podkreślenia i łączniki.  Spacje są niedozwolone.
+    > [!Note]
+    > * Przełączenie konfiguracji skanowania w celu dołączenia lub wykluczenia osobistego obszaru roboczego spowoduje pełne skanowanie źródła usługi PowerBI
+    > * Nazwa skanowania musi mieć długość od 3-63 znaków i może zawierać tylko litery, cyfry, podkreślenia i łączniki. Spacje są niedozwolone.
 
 5. Konfigurowanie wyzwalacza skanowania. Opcje są **jednokrotne**, **co 7 dni** i **co 30 dni**.
 

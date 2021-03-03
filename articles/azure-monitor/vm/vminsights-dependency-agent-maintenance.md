@@ -1,21 +1,21 @@
 ---
-title: Jak uaktualnić agenta zależności Azure Monitor dla maszyn wirtualnych
-description: W tym artykule opisano sposób uaktualniania agenta zależności Azure Monitor dla maszyn wirtualnych przy użyciu wiersza polecenia, Kreatora instalacji i innych metod.
+title: Jak uaktualnić agenta zależności usługi VM Insights
+description: W tym artykule opisano sposób uaktualniania agenta zależności usługi VM Insights przy użyciu wiersza polecenia, Kreatora instalacji i innych metod.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619870"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722912"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Jak uaktualnić agenta zależności Azure Monitor dla maszyn wirtualnych
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Jak uaktualnić agenta zależności usługi VM Insights
 
-Po początkowym wdrożeniu agenta zależności Azure Monitor dla maszyn wirtualnych zostaną wydane aktualizacje zawierające poprawki błędów lub obsługę nowych funkcji lub funkcji.  Ten artykuł ułatwia zapoznanie się z dostępnymi metodami oraz jak przeprowadzić uaktualnienie ręcznie lub za pomocą automatyzacji.
+Po początkowym wdrożeniu agenta zależności usługi VM Insights zostaną wydane aktualizacje zawierające poprawki błędów lub obsługę nowych funkcji lub funkcji.  Ten artykuł ułatwia zapoznanie się z dostępnymi metodami oraz jak przeprowadzić uaktualnienie ręcznie lub za pomocą automatyzacji.
 
 ## <a name="upgrade-options"></a>Opcje uaktualniania 
 
@@ -70,4 +70,4 @@ Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz zatrzymać monitorowanie maszyn wirtualnych przez pewien czas lub całkowicie usunąć Azure Monitor dla maszyn wirtualnych, zobacz temat [wyłączanie monitorowania maszyn wirtualnych w Azure monitor dla maszyn wirtualnych](../vm/vminsights-optout.md).
+Jeśli chcesz zatrzymać monitorowanie maszyn wirtualnych przez pewien czas lub całkowicie usunąć informacje o maszynie wirtualnej, zobacz temat [wyłączanie monitorowania maszyn wirtualnych w usłudze VM Insights](../vm/vminsights-optout.md).

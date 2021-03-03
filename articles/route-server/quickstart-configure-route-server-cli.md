@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 518baa47fd16d69bf935cd3253f5bebeb413b513
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680631"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695247"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Szybki Start: Tworzenie i Konfigurowanie serwera tras przy użyciu interfejsu wiersza polecenia platformy Azure 
 
@@ -33,7 +33,23 @@ W tym artykule opisano sposób konfigurowania usługi Azure Route Server do komu
 
 ###  <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się do konta platformy Azure i wybierz subskrypcję. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure. Jeśli używasz Cloud Shell "Wypróbuj", nastąpi automatyczne logowanie. Poniższe przykłady ułatwiają nawiązanie połączenia:
+
+```azurecli-interactive
+az login
+```
+
+Sprawdź subskrypcje dostępne na koncie.
+
+```azurecli-interactive
+az account list
+```
+
+Wybierz subskrypcję, dla której chcesz utworzyć obwód usługi ExpressRoute.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### <a name="create-a-resource-group-and-virtual-network"></a>Tworzenie grupy zasobów i sieci wirtualnej 
 

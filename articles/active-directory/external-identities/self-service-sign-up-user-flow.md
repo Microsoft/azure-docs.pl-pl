@@ -11,26 +11,31 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647340"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688640"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
 
-Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone przez organizację. Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się i uzyskać konto gościa przy użyciu opcji skonfigurowanych w przepływie użytkownika.
+> [!NOTE]
+> Niektóre funkcje wymienione w tym artykule stanowią publiczną funkcję w wersji zapoznawczej programu Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+
+W przypadku aplikacji, które tworzysz, możesz utworzyć przepływy użytkownika, które umożliwiają użytkownikowi rejestrowanie się w aplikacji i tworzenie nowego konta gościa. Przepływ użytkownika samoobsługowego tworzenia konta definiuje serię kroków wykonywanych przez użytkownika podczas tworzenia konta, dostawców tożsamości, którzy będą mogli korzystać, oraz atrybutów użytkowników, które mają być zbierane. Można skojarzyć jedną lub więcej aplikacji z jednym przepływem użytkownika.
 
 > [!NOTE]
 > Przepływy użytkowników można kojarzyć z aplikacjami skompilowanymi przez organizację. Przepływów użytkowników nie można używać dla aplikacji firmy Microsoft, takich jak SharePoint i zespoły.
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-### <a name="add-social-identity-providers-optional"></a>Dodaj dostawców tożsamości społecznościowych (opcjonalnie)
+### <a name="add-identity-providers-optional"></a>Dodaj dostawców tożsamości (opcjonalnie)
 
-Usługa Azure AD jest domyślnym dostawcą tożsamości dla samoobsługowego rejestrowania się. Oznacza to, że użytkownicy mogą rejestrować się domyślnie przy użyciu konta usługi Azure AD. Dostawców tożsamości społecznościowych można również dołączać do tych przepływów rejestracji, aby obsługiwać konta Google i Facebook.
+Usługa Azure AD jest domyślnym dostawcą tożsamości dla samoobsługowego rejestrowania się. Oznacza to, że użytkownicy mogą rejestrować się domyślnie przy użyciu konta usługi Azure AD. W przypadku przepływów użytkowników korzystających z samoobsługowego rejestrowania możesz także dołączyć dostawców tożsamości społecznościowej, takich jak Google i Facebook, konto Microsoft (wersja zapoznawcza) i wiadomości E-mail jednorazowe (wersja zapoznawcza).
 
+- [Dostawca tożsamości konta Microsoft (wersja zapoznawcza)](microsoft-account.md)
+- [Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu](one-time-passcode.md)
 - [Dodawanie usługi Facebook do listy dostawców tożsamości społecznościowych](facebook-federation.md)
 - [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
 

@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
-  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
-  ms.translationtype: HT
+  ms.openlocfilehash: 40effbde3ad1c0676eae4c79f72b84d04dbd62e7
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 01/15/2021
-  ms.locfileid: "98233954"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101698658"
 highlightedContent:
   items:
   - title: Co to są usługi Azure Networking?
@@ -159,20 +159,20 @@ conceptualContent:
     footerLink:
       url: ../application-gateway/index.yml
       text: Zobacz więcej
-  - title: Globalny moduł równoważenia obciążenia
+  - title: Zabezpieczanie sieci CDN i globalnego modułu równoważenia obciążenia w chmurze
     links:
     - url: ../frontdoor/front-door-overview.md
       itemType: overview
       text: Co to jest usługa Azure Front Door Service?
+    - url: ../frontdoor/standard-premium/overview.md
+      itemType: overview
+      text: Co to jest wersja Standard/Premium systemu Azure (wersja zapoznawcza)?
     - url: ../frontdoor/front-door-custom-domain.md
       itemType: how-to-guide
       text: Dodawanie domeny niestandardowej do usługi Azure Front Door Service
     - url: ../frontdoor/front-door-how-to-redirect-https.md
       itemType: how-to-guide
       text: Przekierowania protokołu HTTP do HTTPS
-    - url: ../frontdoor/front-door-troubleshoot-routing.md
-      itemType: how-to-guide
-      text: Rozwiązywanie problemów z routingiem
     footerLink:
       url: ../frontdoor/index.yml
       text: Zobacz więcej

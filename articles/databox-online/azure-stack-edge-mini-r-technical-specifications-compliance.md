@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e6dff06e92126e2fc4538273e229dcb0904e3101
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727485"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Wymagania techniczne dotyczące Azure Stack Edge
 
@@ -80,9 +80,9 @@ W poniższej tabeli przedstawiono specyfikacje jednostek zasilacza:
 
 ## <a name="included-battery"></a>Wliczone baterie
 
-Urządzenie Azure Stack Edge mini R obejmuje również baterię dołączaną w ramach zasilacza. 
+Urządzenie Azure Stack Edge mini R obejmuje również baterię dołączaną w ramach zasilacza.
 
-Dodatkowy typ baterii 2590 może być używany w połączeniu z baterią dołączania, aby zwiększyć użycie urządzenia między opłatami. Ta bateria powinna być zgodna ze wszystkimi przepisami dotyczącymi bezpieczeństwa, transportu i środowiska, które mają zastosowanie w kraju użytkowania.
+Dodatkowy [Typ baterii 2590](https://www.bren-tronics.com/bt-70791ck.html) może być używany w połączeniu z baterią dołączania, aby zwiększyć użycie urządzenia między opłatami. Ta bateria powinna być zgodna ze wszystkimi przepisami dotyczącymi bezpieczeństwa, transportu i środowiska, które mają zastosowanie w kraju użytkowania.
 
 
 | Specyfikacja           | Wartość                      |

@@ -7,16 +7,17 @@ ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 8d350e248d09f29496f4461b902eba96d8375732
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4fe6df5a9eabc6e5088618039fdea450ee8314ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693853"
 ---
-# <a name="np-series-preview"></a>Seria NP (wersja zapoznawcza)
-
+# <a name="np-series-preview"></a>Seria NP (wersja zapoznawcza) 
 Maszyny wirtualne z serii NP są obsługiwane przez [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGA w celu przyspieszenia obciążeń, w tym wnioskowania o uczenie maszynowe, transkodowania wideo i wyszukiwania w bazie danych & analizy. Maszyny wirtualne z serii NP są również obsługiwane przez procesory Intel Xeon 8171M (Skylake) i wszystkie podstawowe szybkości taktu Turbo 3,2 GHz.
+
+Prześlij żądanie przy użyciu [formularza wersji zapoznawczej](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) , który jest częścią programu w wersji zapoznawczej serii np.
 
 
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>

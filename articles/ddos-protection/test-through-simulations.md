@@ -11,23 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806243"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719240"
 ---
 # <a name="test-through-simulations"></a>Testowanie przez symulacje
 
 Dobrym sposobem jest przetestowanie założeń dotyczących sposobu reagowania usług na ataki przez przeprowadzenie okresowych symulacji. Podczas testowania Sprawdź, czy usługi lub aplikacje nadal działają zgodnie z oczekiwaniami, i nie przerywaj pracy użytkownika. Zidentyfikuj luki zarówno z technologii, jak i procesu punktu widzenia i Uwzględnij je w strategii odpowiedzi DDoS. Zalecamy przeprowadzenie takich testów w środowiskach przejściowych lub poza godzinami szczytu, aby zminimalizować wpływ na środowisko produkcyjne.
 
-Współpracujemy z [chmurą BreakingPoint](https://www.ixiacom.com/products/breakingpoint-cloud), generatorem ruchu samoobsługowego, aby utworzyć interfejs, w którym klienci platformy Azure mogą generować ruch dla publicznych punktów końcowych z włączonymi DDoS Protectionami dla symulacji. Możesz użyć symulacji, aby:
+Nawiązaliśmy współpracę z firmą [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), samoobsługowym generatorem ruchu, aby utworzyć interfejs, za pomocą którego klienci platformy Azure będą mogli generować ruch do publicznych punktów końcowych z włączoną ochroną przed atakami DDoS na potrzeby symulacji. Można używać symulacji, aby:
 
-- Sprawdź, jak Azure DDoS Protection pomaga chronić zasoby platformy Azure przed atakami DDoS.
-- Zoptymalizuj proces reagowania na zdarzenia w trakcie ataku DDoS.
-- Zgodność dokumentu DDoS.
-- Uczenie zespołów zabezpieczeń sieci.
+- Sprawdzić, jak usługa Azure DDoS Protection pomaga chronić zasoby platformy Azure przed atakami DDoS.
+- Zoptymalizować proces reagowania na zdarzenia w trakcie ataku DDoS.
+- Dokumentować zgodność z zasadami dotyczącymi ataków DDoS.
+- Szkolić zespoły ds. bezpieczeństwa sieci.
+
+> [!NOTE]
+> Chmura BreakingPoint jest dostępna tylko dla chmury publicznej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

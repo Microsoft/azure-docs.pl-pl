@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/19/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38978982baea41d23958a857b19a1edf2e454f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714786"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
@@ -41,7 +41,7 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>... z LRS</b> | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
 | <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
-| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 3</sup> |
+| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Żądaj migracji na żywo |
 | <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy |
 
 <sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.<br />
@@ -199,7 +199,7 @@ Jeśli przeprowadzisz migrację konta magazynu z usługi GRS do LRS, nie ma żad
 > [!IMPORTANT]
 > Jeśli przeprowadzono migrację konta magazynu z usługi RA-GRS do usługi GRS lub LRS, to konto jest rozliczane jako RA-GRS przez dodatkowe 30 dni poza datą przekonwertowania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)

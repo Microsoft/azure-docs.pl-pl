@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711420"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Rozwiązywanie problemów z błędem ładowania zestawu SDK dla aplikacji sieci Web JavaScript
 
@@ -68,7 +68,7 @@ Aby zminimalizować Sporadyczne awarie łączności sieciowej, wdrożono Cache-C
  
 ## <a name="application-insights-cdn-outage"></a>Application Insights awaria usługi CDN
 
-Można potwierdzić, czy występuje Application Insights awaria usługi CDN, próbując uzyskać dostęp do punktu końcowego usługi CDN bezpośrednio z przeglądarki (na przykład https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) z innej lokalizacji niż użytkownicy końcowi prawdopodobnie z własnej maszyny deweloperskiej (przy założeniu, że Twoja organizacja nie zablokował tej domeny).
+Można potwierdzić, czy występuje Application Insights awaria usługi CDN, próbując uzyskać dostęp do punktu końcowego usługi CDN bezpośrednio z przeglądarki (na przykład https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js lub https://js.monitor.azure.com/scripts/b/ai.2.min.js) z innej lokalizacji niż użytkownicy końcowi, prawdopodobnie z własnej maszyny deweloperskiej (przy założeniu, że Twoja organizacja nie zablokował tej domeny).
 
 Jeśli potwierdzisz awarię, możesz [utworzyć nowy bilet pomocy technicznej](https://azure.microsoft.com/support/create-ticket/) lub spróbować zmienić adres URL używany do pobrania zestawu SDK.
 
@@ -106,7 +106,7 @@ W przypadku zgłaszania wyjątków w skrypcie zestawu SDK (na przykład ai.2.min
 
 Aby sprawdzić, czy konfiguracja jest błędna, należy zmienić konfigurację przekazaną do fragmentu (jeśli nie jest jeszcze), tak aby zawierała tylko klucz Instrumentacji jako wartość ciągu.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -134,7 +134,7 @@ Jeśli nadal nie można zainicjować, spróbuj włączyć ```enableDebug``` usta
 > [!WARNING]
 > Jest to ustawienie tylko dla deweloperów i nigdy nie powinno być włączone w pełnym środowisku produkcyjnym, ponieważ spowoduje to utratę danych telemetrycznych.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ",<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ",<br />
 > cfg: {<br />
 > instrumentationKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: true<br />

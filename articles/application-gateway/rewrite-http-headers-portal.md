@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708938"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Ponowne zapisywanie nagłówków żądań i odpowiedzi HTTP przy użyciu usługi Azure Application Gateway — Azure Portal
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wyst�
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć wystąpienie jednostki SKU Application Gateway v2. Ponowne zapisywanie nagłówków nie jest obsługiwane w jednostce SKU v1. Jeśli nie masz jednostki SKU w wersji 2, przed rozpoczęciem Utwórz wystąpienie [jednostki sku Application Gateway v2](./tutorial-autoscale-ps.md) .
 
@@ -31,17 +31,17 @@ Aby skonfigurować ponowne zapisywanie nagłówka HTTP, należy wykonać te krok
 
 1. Utwórz obiekty wymagane do ponownego zapisania nagłówka HTTP:
 
-   - **Akcja ponownego zapisu** : służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
+   - **Akcja ponownego zapisu**: służy do określania pól żądania i nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości nagłówków. Możliwe jest skojarzenie jednego lub więcej warunków ponownego zapisu z akcją ponownego zapisu.
 
-   - **Warunek ponownego zapisu** : opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
+   - **Warunek ponownego zapisu**: opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
 
      Jeśli powiążesz więcej niż jeden warunek z akcją, Akcja występuje tylko wtedy, gdy wszystkie warunki są spełnione. Innymi słowy, operacja jest operacją logiczną i.
 
-   - **Reguła ponownego zapisywania** : zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
+   - **Reguła ponownego zapisywania**: zawiera kilka kombinacji warunku akcji ponownego zapisu/ponownego zapisywania.
 
-   - **Sekwencja reguł** : pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama wartość sekwencji reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
+   - **Sekwencja reguł**: pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama wartość sekwencji reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
 
-   - **Zestaw do ponownego zapisu** : zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
+   - **Zestaw do ponownego zapisu**: zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
 
 2. Dołącz zestaw ponownych zapisów do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
 
@@ -55,11 +55,11 @@ Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu d
 
 W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisanie nagłówka lokalizacji w odpowiedzi HTTP wysyłanej przez aplikację zaplecza.
 
-1. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz bramę aplikacji.
+1. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz bramę aplikacji.
 
 2. Wybierz pozycję **Zapisz ponownie** w lewym okienku.
 
-3. Wybierz pozycję **Zapisz ponownie zestaw** :
+3. Wybierz pozycję **Zapisz ponownie zestaw**:
 
    ![Dodaj zestaw do ponownego zapisu](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -67,7 +67,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Wprowadź nazwę zestawu do ponownego zapisu w polu **Nazwa** .
    - Wybierz co najmniej jedną regułę podaną na liście **skojarzone reguły routingu** . Można wybrać tylko reguły, które nie zostały skojarzone z innymi zestawami ponownego zapisywania. Reguły, które zostały już skojarzone z innymi zestawami ponownego zapisywania, są wygaszone.
-   - Wybierz pozycję **Dalej**.
+   - Wybierz opcję **Dalej**.
    
      ![Dodaj nazwę i skojarzenie](media/rewrite-http-headers-portal/name-and-association.png)
 
@@ -99,7 +99,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Na liście **operator** wybierz pozycję **równe (=)**.
 
-   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca  `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca `(https?)://.*azurewebsites.net(.*)$` .
 
    - Wybierz przycisk **OK**.
 

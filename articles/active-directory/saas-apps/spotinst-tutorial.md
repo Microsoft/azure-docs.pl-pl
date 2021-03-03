@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686591"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Spotinst
 
@@ -81,7 +81,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
    1. W obszarze **Stan przekazywania** wprowadź identyfikator organizacji Spotinst, który można także potwierdzić na karcie **Logowanie jednokrotne** .
    1. **Adres URL logowania** musi być pusty.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Aplikacja Spotinst oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -113,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -171,9 +171,9 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Spotinst.
 
     ![Zrzut ekranu przedstawia sekcję Dodawanie użytkownika, w której można wprowadzić podane wartości.](./media/spotinst-tutorial/adduser2.png)
 
-    * W polu tekstowym **pełna nazwa** wprowadź pełną nazwę użytkownika, np. **BrittaSimon**.
+    * W polu tekstowym **pełna nazwa** wprowadź pełną nazwę użytkownika `BrittaSimon` .
 
-    * W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `brittasimon\@contoso.com` .
+    * W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika, np `brittasimon@contoso.com` .
 
     * Wybierz szczegóły dotyczące organizacji **, roli konta i kont**.
 

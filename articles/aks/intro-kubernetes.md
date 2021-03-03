@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: mvc
-ms.openlocfilehash: 1505366d9a91eac596b21804f93abb8245a84605
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 009244322b7c6625523bf46382a170577593f4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718373"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -104,9 +104,7 @@ Aby rozpocząć pracę z ruchem danych przychodzących, zobacz [Routing aplikacj
 
 Kubernetes ma bogaty ekosystem narzędzi do tworzenia i zarządzania, które bezproblemowo współpracują z AKS. Te narzędzia obejmują Helm i rozszerzenie Kubernetes dla Visual Studio Code. Te narzędzia współpracują bezproblemowo z usługą AKS.  
 
-Ponadto platforma Azure udostępnia kilka narzędzi, które pomagają usprawnić Kubernetes, takie jak Azure Dev Spaces i DevOps Starter.  
-
-Usługa Azure Dev Spaces udostępnia środowisko do szybkiego, iteracyjnego programowania na platformie Kubernetes dla zespołów. Wykonując minimum czynności konfiguracyjnych, możesz uruchamiać i debugować kontenery bezpośrednio w usłudze AKS. Aby rozpocząć pracę, zobacz usługę [Azure Dev Spaces][azure-dev-spaces].
+Ponadto platforma Azure udostępnia kilka narzędzi, które pomagają usprawnić Kubernetes, takie jak DevOps Starter.  
 
 DevOps Starter oferuje proste rozwiązanie do przenoszenia istniejącego kodu i repozytoriów Git na platformę Azure. DevOps Starter automatycznie:
 * Tworzy zasoby platformy Azure (na przykład AKS); 
@@ -157,7 +155,7 @@ Dowiedz się więcej na temat wdrażania AKS i zarządzania nim przy użyciu int
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: ./view-control-plane-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac

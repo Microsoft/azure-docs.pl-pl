@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699695"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności Azure Data Factory przepływów danych
 
@@ -21,12 +21,12 @@ Oszczędność pieniędzy dzięki Azure Data Factory kosztom przepływu danych d
 
 Nie trzeba przypisywać rezerwacji do określonej fabryki lub środowiska Integration Runtime. Istniejące fabryki lub nowo wdrożone fabryki automatycznie uzyskają korzyść. Zakup rezerwacji polega na przekazaniu użycia kosztów obliczeniowych przepływu danych przez okres jeden lub trzy lata. Po zakupieniu rezerwacji opłaty za obliczenia, które pasują do atrybutów rezerwacji, nie są już naliczane według stawek płatności zgodnie z rzeczywistym użyciem. 
 
-Możesz zakupić [zarezerwowaną pojemność](https://portal.azure.com) , wybierając rezerwacje [z przodu lub z miesięcznymi opłatami](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić pojemność zarezerwowaną:
+Możesz zakupić [zarezerwowaną pojemność](https://portal.azure.com) , wybierając rezerwacje [z przodu lub z miesięcznymi opłatami](../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić pojemność zarezerwowaną:
 
 - Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
 - W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji. Zarezerwowana pojemność.
 
-Aby uzyskać więcej informacji na temat sposobu, w jaki Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym użyciem są obciążani opłatami za zakupy rezerwacji, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) i informacje [dotyczące użycia rezerwacji na platformie Azure dla subskrypcji z opcją płatność za](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage)użycie.
+Aby uzyskać więcej informacji na temat sposobu, w jaki Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym użyciem są obciążani opłatami za zakupy rezerwacji, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) i informacje [dotyczące użycia rezerwacji na platformie Azure dla subskrypcji z opcją płatność za](../cost-management-billing/reservations/understand-reserved-instance-usage.md)użycie.
 
 > [!NOTE]
 > Zakup zarezerwowanej pojemności nie powoduje wstępnego przydzielenia lub zarezerwowania określonych zasobów infrastruktury (maszyn wirtualnych lub klastrów) do użytku.
@@ -49,7 +49,7 @@ Załóżmy na przykład, że wykonujesz potok co godzinę przy użyciu pamięci 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 

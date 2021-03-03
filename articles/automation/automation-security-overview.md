@@ -4,14 +4,14 @@ description: Ten artykuł zawiera omówienie uwierzytelniania konta Azure Automa
 keywords: zabezpieczenia usługi automation, bezpieczna usługa automation, uwierzytelnianie usługi automation
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708904"
 ---
 # <a name="automation-account-authentication-overview"></a>Omówienie uwierzytelniania konta usługi Automation
 
@@ -44,6 +44,8 @@ Aby dowiedzieć się więcej na temat Azure Resource Manager i klasycznych model
 >Subskrypcje dostawcy rozwiązań w chmurze (CSP) platformy Azure obsługują tylko model Azure Resource Manager. Usługi inne niż Azure Resource Manager nie są dostępne w programie. W przypadku korzystania z subskrypcji programu CSP klasyczne konto Uruchom jako platformy Azure nie jest tworzone, ale zostało utworzone konto Uruchom jako platformy Azure. Aby dowiedzieć się więcej o subskrypcjach dostawcy usług kryptograficznych, zobacz [dostępne usługi w subskrypcjach programu CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 Podczas tworzenia konta usługi Automation konto Uruchom jako jest domyślnie tworzone w tym samym czasie. Jeśli nie utworzysz go wraz z kontem usługi Automation, można je utworzyć indywidualnie w późniejszym czasie. Klasyczne konto Uruchom jako platformy Azure jest opcjonalne i jest tworzone oddzielnie, jeśli konieczne jest zarządzanie zasobami klasycznymi.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>Konto Uruchom jako
 

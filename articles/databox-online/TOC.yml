@@ -272,6 +272,8 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Stosowanie aktualizacji
               href: azure-stack-edge-gpu-install-update.md
+            - name: 'Resetowanie, ponowne uaktywnianie urządzenia'
+              href: azure-stack-edge-reset-reactivate-device.md
             - name: Zwrot urządzenia
               href: azure-stack-edge-return-device.md
             - name: Wymiana urządzenia

@@ -1,22 +1,21 @@
 ---
 title: Często zadawane pytania dotyczące cen dla systemu Azure Network Performance Monitor | Microsoft Docs
 description: Często zadawane pytania — Network Performance Monitor platformy Azure
-ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56163d3267a69099cbf6a18266168e9198ea04c6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717438"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Zmiany cen dla Network Performance Monitor platformy Azure
 
 > [!IMPORTANT]
-> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Poznamy Twoją opinię i ostatnio wprowadzono [nowe środowisko cenowe](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) dla różnych usług monitorowania na platformie Azure. W tym artykule zawarto informacje o zmianach cen związanych z usługą Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (npm) w łatwym do odczytu formacie pytania i odpowiedzi.
 

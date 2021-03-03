@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691947"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
@@ -186,6 +186,30 @@ Podczas oczekiwania na zakończenie wszystkich modeli eksperymentów wybierz **n
 Poniższe informacje umożliwiają nawigowanie po kartach **szczegóły** i **metryki** , aby wyświetlić właściwości, metryki i wykresy wydajności wybranego modelu. 
 
 ![Szczegóły przebiegu iteracji](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+
+## <a name="model-explanations"></a>Objaśnienia modelu
+
+Podczas oczekiwania na zakończenie tworzenia modeli można także zapoznać się z objaśnieniami modelu i zobaczyć, które funkcje danych (nieprzetworzone lub opracowane) miały wpływ na prognozę określonego modelu. 
+
+Te wyjaśnienia dotyczące modelu można generować na żądanie i podsumowywane na pulpicie nawigacyjnym wyjaśnień modelu, które są częścią kart **wyjaśnień (wersja zapoznawcza)** .
+
+Aby wygenerować wyjaśnienia modelu, 
+ 
+1. Wybierz pozycję **Uruchom 1** u góry, aby powrócić do ekranu **modele** . 
+1. Wybierz kartę **modele** .
+1. Na potrzeby tego samouczka wybierz pierwszy **MaxAbsScaler, LightGBM** model.
+1. Wybierz przycisk **Wyjaśnij model** u góry. Po prawej stronie zostanie wyświetlone okienko **Wyjaśnij model** . 
+1. Wybierz utworzone wcześniej **automl** . Ten klaster obliczeniowy inicjuje podrzędny przebieg do generowania wyjaśnień modelu.
+1. Wybierz pozycję **Utwórz** u dołu. W górnej części ekranu pojawi się zielony komunikat o powodzeniu. 
+    >[!NOTE]
+    > Wykonanie wyjaśnienia trwa około 2-5 minut.
+1. Wybierz przycisk **wyjaśnień (wersja zapoznawcza)** . Ta karta jest wypełniana po zakończeniu wykonywania wyjaśnień.
+1. Po lewej stronie rozwiń okienko i wybierz wiersz, który **jest wyświetlany w** obszarze **funkcje**. 
+1. Wybierz kartę **ważność funkcji agregacji** po prawej stronie. Ten wykres pokazuje, które funkcje danych wpływają na przewidywania wybranego modelu. 
+
+    W tym przykładzie *czas trwania* pojawia się w taki sposób, aby miał największy wpływ na przewidywania tego modelu.
+    
+    ![Pulpit nawigacyjny objaśnienia modelu](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
 
 ## <a name="deploy-the-best-model"></a>Wdróż najlepszy model
 

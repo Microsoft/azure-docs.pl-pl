@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827469"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714497"
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
 Funkcja tworzenia kopii zapasowych i przywracania w [Azure App Service](overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji ręcznie lub zgodnie z harmonogramem. Kopie zapasowe można skonfigurować tak, aby były przechowywane przez czas nieokreślony. Możesz przywrócić aplikację do migawki poprzedniego stanu, zastępując istniejącą aplikację lub przywracając ją do innej aplikacji.
@@ -44,10 +44,10 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 * Funkcja tworzenia kopii zapasowych i przywracania wymaga, aby plan App Service znajdował się w warstwie **standardowa**, **Premium** lub **izolowanej** . Aby uzyskać więcej informacji na temat skalowania planu App Service w celu korzystania z wyższej warstwy, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md). Warstwy **Premium** i **izolowane** umożliwiają większą liczbę codziennych przez siebie danych niż w warstwie **standardowa** .
 * Potrzebujesz konta usługi Azure Storage i kontenera w tej samej subskrypcji co aplikacja, dla której chcesz utworzyć kopię zapasową. Aby uzyskać więcej informacji na temat kont usługi Azure Storage, zobacz [Omówienie konta usługi Azure Storage](../storage/common/storage-account-overview.md).
 * Kopie zapasowe mogą mieć do 10 GB zawartości aplikacji i bazy danych. Jeśli rozmiar kopii zapasowej przekracza ten limit, zostanie wyświetlony komunikat o błędzie.
-* Kopie zapasowe z włączonym protokołem TLS Azure Database for MySQL nie są obsługiwane. W przypadku skonfigurowania kopii zapasowej zostaną wyświetlone nieudane kopie zapasowe.
-* Kopie zapasowe z włączonym protokołem TLS Azure Database for PostgreSQL nie są obsługiwane. W przypadku skonfigurowania kopii zapasowej zostaną wyświetlone nieudane kopie zapasowe.
+* Kopie zapasowe z włączonym protokołem TLS Azure Database for MySQL nie są obsługiwane. W przypadku skonfigurowania kopii zapasowej wystąpią błędy kopii zapasowych.
+* Kopie zapasowe z włączonym protokołem TLS Azure Database for PostgreSQL nie są obsługiwane. W przypadku skonfigurowania kopii zapasowej wystąpią błędy kopii zapasowych.
 * Kopie zapasowe baz danych MySQL są tworzone automatycznie bez żadnej konfiguracji. Jeśli ręcznie wprowadzisz ustawienia dla baz danych MySQL w aplikacji, takich jak dodawanie parametrów połączenia, kopie zapasowe mogą nie funkcjonować prawidłowo.
-* Korzystanie z konta magazynu z włączoną obsługą zapory jako miejsca docelowego dla kopii zapasowych nie jest obsługiwane. W przypadku skonfigurowania kopii zapasowej zostaną wyświetlone nieudane kopie zapasowe.
+* Korzystanie z konta magazynu z włączoną obsługą zapory jako miejsca docelowego dla kopii zapasowych nie jest obsługiwane. W przypadku skonfigurowania kopii zapasowej wystąpią błędy kopii zapasowych.
 
 
 <a name="manualbackup"></a>
@@ -70,18 +70,18 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 
 3. Na stronie **Konfiguracja kopii zapasowej** kliknij pozycję **Magazyn nie jest skonfigurowany** do konfigurowania konta magazynu.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Zrzut ekranu przedstawiający baner z komunikatem, aby uaktualnić plan App Service, aby uzyskać dostęp do funkcji tworzenia kopii zapasowych i przywracania.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Zrzut ekranu przedstawiający sekcję magazyn kopii zapasowych z wybranym ustawieniem magazyn nie skonfigurowany.":::
 
 4. Wybierz miejsce docelowe kopii zapasowej, wybierając **konto magazynu** i **kontener**. Konto magazynu musi należeć do tej samej subskrypcji co aplikacja, dla której ma zostać utworzona kopia zapasowa. Jeśli chcesz, możesz utworzyć nowe konto magazynu lub nowy kontener na odpowiednich stronach. Gdy skończysz, kliknij przycisk **Wybierz**.
 
 5. Na stronie **Konfiguracja kopii zapasowej** , która pozostaje otwarta, można skonfigurować **bazę danych kopii zapasowej**, a następnie wybrać bazy danych, które mają zostać uwzględnione w kopiach zapasowych (SQL Database lub MySQL), a następnie kliknąć przycisk **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Zrzut ekranu przedstawiający baner z komunikatem, aby uaktualnić plan App Service, aby uzyskać dostęp do funkcji tworzenia kopii zapasowych i przywracania.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Zrzut ekranu przedstawiający sekcję Tworzenie kopii zapasowej w przypadku zaznaczenia opcji Dołącz do kopii zapasowej.":::
 
     > [!NOTE]
     > Aby baza danych była wyświetlana na tej liście, jej parametry połączenia muszą znajdować się w sekcji **Parametry połączenia** na stronie **Ustawienia aplikacji** dla aplikacji. 
     >
-    > Kopie zapasowe baz danych MySQL są tworzone automatycznie bez żadnej konfiguracji. Jeśli ręcznie wprowadzisz ustawienia dla baz danych MySQL w aplikacji, takich jak dodawanie parametrów połączenia, kopie zapasowe mogą nie funkcjonować prawidłowo.
+    > Kopie zapasowe baz danych MySQL są tworzone automatycznie bez żadnej konfiguracji. Jeśli ręcznie wprowadzisz ustawienia dla bazy danych MySQL w aplikacji, takie jak dodanie parametrów połączenia, kopie zapasowe mogą nie funkcjonować prawidłowo.
     > 
     > 
 

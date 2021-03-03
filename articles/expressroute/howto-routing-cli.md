@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735093"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715534"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Samouczek: Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 
@@ -23,13 +23,13 @@ W tym samouczku pokazano, jak utworzyć konfigurację routingu/komunikację rów
 > * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
-> * [Publiczna Komunikacja równorzędna](about-public-peering.md)
+> * [Publiczna komunikacja równorzędna](about-public-peering.md)
 > * [Wideo — prywatna Komunikacja równorzędna](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Wideo — Komunikacja równorzędna firmy Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
 > 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Konfigurowanie, aktualizowanie i usuwanie komunikacji równorzędnej firmy Microsoft dla obwodu
 > - Konfigurowanie, aktualizowanie i usuwanie prywatnej komunikacji równorzędnej Azure dla obwodu
@@ -243,8 +243,10 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
 1. Skonfiguruj prywatną komunikację równorzędną Azure dla obwodu. Przed przejściem do następnego kroku upewnij się, że masz następujące elementy:
 
-   * Podsieć /30 dla połączenia podstawowego. Podsieć nie może być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
-   * Podsieć /30 dla połączenia dodatkowego. Podsieć nie może być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
+   * Para podsieci, które nie są częścią przestrzeni adresowej zarezerwowanej dla sieci wirtualnych. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera. Dla tej pary podsieci dostępne są trzy opcje:
+       * IPv4: dwie podsieci/30.
+       * IPv6: dwie podsieci/126.
+       * Oba: dwie podsieci/30 i dwie podsieci/126.
    * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS. Możesz użyć prywatnego numeru AS dla tej komunikacji równorzędnej. Upewnij się, że nie używasz 65515.
    * **Opcjonalne-** Skrót MD5, jeśli zdecydujesz się na użycie jednego z nich.

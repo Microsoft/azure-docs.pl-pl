@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716542"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w usłudze Azure Data Factory
 
@@ -199,7 +199,7 @@ Zespół fabryki danych dostarczył [przykładowego skryptu przedprodukcyjnego i
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Używanie parametrów niestandardowych w szablonach usługi Resource Manager
 
-Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić domyślne parametry szablonu Menedżer zasobów szablonu Menedżer zasobów wygenerowanego przez opublikowanie lub wyeksportowanie szablonu. Możesz chcieć zastąpić domyślny szablon parametryzacja w następujących scenariuszach:
+Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić domyślne parametry szablonu Menedżer zasobów szablonu Menedżer zasobów wygenerowanego przez opublikowanie lub wyeksportowanie szablonu. Możesz chcieć zastąpić domyślną konfigurację parametrów Menedżer zasobów w następujących scenariuszach:
 
 * Używasz zautomatyzowanej ciągłej integracji/ciągłego dostarczania i chcesz zmienić niektóre właściwości podczas wdrażania Menedżer zasobów, ale właściwości nie są domyślnie sparametryzowane.
 * Fabryka jest tak duża, że domyślny szablon Menedżer zasobów jest nieprawidłowy, ponieważ ma więcej niż maksymalna dozwolona liczba parametrów (256).
@@ -210,11 +210,14 @@ Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić
     * Logika refaktoryzacji w przepływu danych, aby zmniejszyć liczbę parametrów, na przykład wszystkie parametry potoku mają tę samą wartość, zamiast tego możesz użyć parametrów globalnych.
     * Podziel jedną fabrykę danych na wiele przepływów danych.
 
-Aby zastąpić domyślny szablon parametryzacja, przejdź do centrum zarządzania i wybierz **szablon parametryzacja** w sekcji Kontrola źródła. Wybierz pozycję **Edytuj szablon** , aby otworzyć Edytor kodu szablonu parametryzacja. 
+Aby zastąpić domyślną konfigurację parametrów Menedżer zasobów, przejdź do pozycji **Zarządzaj** Hub i wybierz **szablon ARM** w sekcji "kontrola źródła". W obszarze **Konfiguracja parametrów ARM** kliknij pozycję **Edytuj** ikonę w obszarze "edytuj konfigurację parametrów", aby otworzyć edytor kodu konfiguracji parametrów Menedżer zasobów.
 
 ![Zarządzanie parametrami niestandardowymi](media/author-management-hub/management-hub-custom-parameters.png)
 
-Tworzenie niestandardowego szablonu parametryzacja tworzy plik o nazwie **arm-template-parameters-definition.js** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
+> [!NOTE]
+> **Konfiguracja parametru ARM** jest włączona tylko w trybie git. Obecnie jest ona wyłączona w trybie "tryb na żywo" lub "Data Factory".
+
+Tworzenie niestandardowej konfiguracji parametrów Menedżer zasobów tworzy plik o nazwie **arm-template-parameters-definition.js** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
 
 ![Plik parametrów niestandardowych](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ W przypadku publikowania z gałęzi współpracy Data Factory odczyta ten plik i
 Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten plik z niezależnej gałęzi, nad którą pracujesz, a nie z gałęzią współpracy. Można utworzyć lub edytować plik z gałęzi prywatnej, gdzie można testować zmiany, wybierając pozycję **Eksportuj szablon ARM** w interfejsie użytkownika. Następnie można scalić plik z gałęzią współpracy.
 
 > [!NOTE]
-> Niestandardowy szablon parametryzacja nie zmienia limitu parametru szablonu ARM 256. Umożliwia wybór i zmniejszenie liczby właściwości sparametryzowanych.
+> Niestandardowa konfiguracja parametrów Menedżer zasobów nie zmienia limitu parametru szablonu ARM 256. Umożliwia wybór i zmniejszenie liczby właściwości sparametryzowanych.
 
 ### <a name="custom-parameter-syntax"></a>Składnia parametru niestandardowego
 
@@ -244,7 +247,7 @@ Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas two
  
 ### <a name="sample-parameterization-template"></a>Przykładowy szablon parametryzacja
 
-Oto przykład tego, jak może wyglądać szablon parametryzacja:
+Oto przykład konfiguracji parametrów Menedżer zasobów może wyglądać następująco:
 
 ```json
 {

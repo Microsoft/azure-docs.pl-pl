@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e32b9c690db70baeda7dec2f9f1270f82c6881bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733299"
 ---
 # <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Konfigurowanie rozwiązania Azure Defender for IoT opartego na agentach  
 
@@ -87,7 +87,7 @@ Aby uzyskiwać dostęp do alertów w obszarze roboczym Log Analytics po zakończ
 
 1. Wybierz pozycję **Zbadaj zalecenia w obszarze roboczym log Analytics**. 
  
-Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących danych z Log Analytics, zobacz [Rozpoczynanie pracy z zapytaniami w log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących danych z Log Analytics, zobacz [Rozpoczynanie pracy z zapytaniami w log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## <a name="turn-off-defender-for-iot"></a>Wyłączanie usługi Defender dla IoT 
 
@@ -99,4 +99,4 @@ Aby włączyć lub wyłączyć usługę Defender for IoT na określonym IoT Hub:
 
 ## <a name="next-steps"></a>Następne kroki 
 
-Przejdź do następnego artykułu, aby [skonfigurować rozwiązanie](quickstart-configure-your-solution.md). 
+Przejdź do następnego artykułu, aby [skonfigurować rozwiązanie](quickstart-configure-your-solution.md).

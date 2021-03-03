@@ -4,12 +4,12 @@ description: Tworzenie Data Manager łańcucha bloków dla usługi Azure łańcu
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867a51b60afa56005bbb297b345f8a9260160ab8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722640"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurowanie menedżera danych łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -73,9 +73,9 @@ Przykład konfiguracji JSON tworzenia wystąpienia Menedżera łańcucha bloków
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-    }
+    "location": "eastus",
+    "properties": {
+    }
 }
 ```
 
@@ -126,7 +126,7 @@ az resource create \
 | resource-group | Nazwa grupy zasobów, w której ma zostać utworzony zasób wejściowy. |
 | name | Nazwa danych wejściowych. |
 | namespace | Użyj przestrzeni nazw dostawcy **Microsoft. łańcucha bloków** . |
-| Typ zasobu | Typ zasobu dla danych wejściowych łańcucha bloków Data Manager to **dane**wejściowe. |
+| Typ zasobu | Typ zasobu dla danych wejściowych łańcucha bloków Data Manager to **dane** wejściowe. |
 | nadrzędny | Ścieżka do obserwatora, z którym jest skojarzone dane wejściowe. Na przykład **obserwatorzy/czujka**. |
 | is-full-Object | Wskazuje, że właściwości zawierają opcje dla zasobu wejściowego. |
 | properties | Ciąg w formacie JSON zawierający właściwości dla zasobu wejściowego. Można przesłać jako ciąg lub plik. |
@@ -137,11 +137,11 @@ Przykład konfiguracji JSON tworzenia zasobu wejściowego w regionie *Wschodnie 
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "inputType": "Ethereum",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
+    "location": "eastus",
+    "properties": {
+        "inputType": "Ethereum",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
         }
     }
 }
@@ -209,11 +209,11 @@ Przykład konfiguracji JSON tworzenia zasobu wyjściowego w regionie *Wschodnie 
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "outputType": "EventGrid",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
+    "location": "eastus",
+    "properties": {
+        "outputType": "EventGrid",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
         }
     }
 }
@@ -286,9 +286,9 @@ Przykład konfiguracji JSON tworzenia zasobu aplikacji w regionie *Wschodnie sta
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "artifactType": "EthereumSmartContract",
+    "location": "eastus",
+    "properties": {
+        "artifactType": "EthereumSmartContract",
         "content": {
             "abiFileUrl": "<ABI URL>",
             "bytecodeFileUrl": "<Bytecode URL>",

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 03/03/2021
+ms.openlocfilehash: b2f2c8497d5365104a5ffc361b791450925d0c19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701589"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694788"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Wyszukiwanie rozmyte pozwala poprawić błędy pisowni i literówki
 
@@ -132,7 +132,7 @@ Zwróć uwagę, że zwracana jest taka sama odpowiedź, ale teraz zamiast dopaso
 
 Tym rozwiniętym przykładem jest zilustrowanie przejrzystości, którą wyróżnianie trafień może doprowadzić do niejednoznacznych wyników. We wszystkich przypadkach zwracany jest ten sam dokument. Czy korzystasz z identyfikatorów dokumentów w celu sprawdzenia dopasowania, być może pominięto zmianę z "Special" na "SQL".
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)

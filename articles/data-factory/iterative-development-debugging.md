@@ -1,17 +1,20 @@
 ---
 title: Iteracyjne programowanie i debugowanie w Azure Data Factory
 description: Dowiedz się, jak zaprojektować i debugować potoki Data Factory w interfejsie użytkownika ADF
-ms.date: 10/29/2020
+ms.date: 02/23/2021
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+services: data-factory
+documentationcenter: ''
+ms.workload: data-services
+author: kromerm
+ms.author: makromer
+ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712967"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Debugowanie i programowanie przyrostowe za pomocą usługi Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,6 +76,8 @@ Mapowanie przepływów danych umożliwia tworzenie logiki transformacji danych b
 Sesje debugowania aktywnych przepływów danych można monitorować za pośrednictwem fabryki w środowisku **monitorowania** .
 
 ![Wyświetl sesje debugowania przepływu danych](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+Podgląd danych w Projektancie przepływu danych i debugowanie potoku przepływów danych są przeznaczone do najlepszego działania dzięki małym przykładom danych. Jeśli jednak zachodzi potrzeba przetestowania logiki w potoku lub przepływie danych w przypadku dużych ilości danych, Zwiększ rozmiar Azure Integration Runtime używany w sesji debugowania z większą liczbą rdzeni i minimalną obliczeń ogólnego przeznaczenia.
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Debugowanie potoku za pomocą działania przepływu danych
 
@@ -83,7 +88,7 @@ Użycie istniejącej sesji debugowania znacznie skraca czas uruchamiania przepł
 Użycie środowiska uruchomieniowego działania spowoduje utworzenie nowego klastra przy użyciu ustawień określonych w ramach środowiska Integration Runtime każdego działania przepływu danych. Dzięki temu każde zadanie ma być izolowane i powinno być używane na potrzeby złożonych obciążeń lub testowania wydajności. Możesz również kontrolować czas wygaśnięcia w Azure IR tak, aby zasoby klastra używane na potrzeby debugowania nadal były dostępne dla tego okresu, aby obsłużyć dodatkowe żądania zadań.
 
 > [!NOTE]
-> Jeśli masz potok ze przepływem danych wykonywanym równolegle, wybierz opcję "Użyj środowiska uruchomieniowego działania", aby Data Factory mógł użyć Integration Runtime wybranego w działaniu przepływu danych. Pozwoli to na wykonywanie przepływów danych w wielu klastrach i może obsłużyć wykonywanie równoległych przepływów danych.
+> Jeśli masz potok zawierający przepływy danych wykonywane równolegle lub przepływy danych, które muszą zostać przetestowane z dużymi zestawami plików, wybierz opcję "Użyj środowiska uruchomieniowego działania", aby Data Factory można było użyć Integration Runtime wybranego w działaniu przepływu danych. Pozwoli to na wykonywanie przepływów danych w wielu klastrach i może obsłużyć wykonywanie równoległych przepływów danych.
 
 ![Uruchamianie potoku z przepływu danych](media/iterative-development-debugging/iterative-development-dataflow.png)
 

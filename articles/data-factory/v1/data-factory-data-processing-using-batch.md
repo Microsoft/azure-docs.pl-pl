@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364277"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730868"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 > [!NOTE]
@@ -575,9 +575,7 @@ W tym kroku utworzysz połączoną usługę dla konta usługi Batch, która jest
    d. Wprowadź identyfikator URI usługi Batch dla właściwości JSON **batchUri** .
 
       > [!IMPORTANT]
-      > Adres URL w bloku **konta usługi Batch** ma następujący format: \<accountname\> . \<region\> . batch.azure.com. Dla właściwości **batchUri** w skrypcie JSON należy usunąć A88 "AccountName". * * w adresie URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > Adres URL w bloku **konta usługi Batch** ma następujący format: `<accountname>.<region>.batch.azure.com` . Dla `batchUri` właściwości w skrypcie JSON należy usunąć `<accountname>.` adres URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Blok konta w usłudze Batch](./media/data-factory-data-processing-using-batch/image9.png)
 

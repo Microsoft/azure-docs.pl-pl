@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e5872b6ab97a47c09081cf9c26fb7f140b110c3f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733452"
 ---
 # <a name="text-to-speech-rest-api"></a>Interfejs API REST zamiany tekstu na mowę
 
@@ -279,5 +279,5 @@ Jeśli stan HTTP to `200 OK` , treść odpowiedzi zawiera plik audio w żądanym
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Synteza asynchroniczna dla długich postaci audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Synteza asynchroniczna dla długich postaci audio](./long-audio-api.md)
 - [Wprowadzenie do usługi Custom Voice](how-to-custom-voice.md)

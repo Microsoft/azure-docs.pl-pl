@@ -4,12 +4,12 @@ description: Dowiedz się, jak wyświetlać i wykonywać zapytania dotyczące Az
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729372"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analizuj dane telemetryczne Azure Functions w Application Insights 
 
@@ -142,14 +142,14 @@ Następujące zapytania telemetryczne są specyficzne dla metryk, które wpływa
 
 ## <a name="azure-monitor-metrics"></a>Metryki Azure Monitor
 
-Oprócz danych telemetrycznych zbieranych przez Application Insights można również uzyskać dane dotyczące sposobu działania aplikacji funkcji z [Azure monitor metryk](../azure-monitor/platform/data-platform-metrics.md). Wraz z typowymi [metrykami dostępnymi dla App Service aplikacji](../app-service/web-sites-monitor.md#understand-metrics)istnieją dwie metryki specyficzne dla interesujących Cię funkcji:
+Oprócz danych telemetrycznych zbieranych przez Application Insights można również uzyskać dane dotyczące sposobu działania aplikacji funkcji z [Azure monitor metryk](../azure-monitor/essentials/data-platform-metrics.md). Wraz z typowymi [metrykami dostępnymi dla App Service aplikacji](../app-service/web-sites-monitor.md#understand-metrics)istnieją dwie metryki specyficzne dla interesujących Cię funkcji:
 
 | Metric | Opis |
 | ---- | ---- |
 | **FunctionExecutionCount** | Licznik wykonywania funkcji wskazuje liczbę wykonań aplikacji funkcji. Jest to skorelowane z liczbą przypadków uruchomienia funkcji w aplikacji. Ta Metryka nie jest obecnie obsługiwana w przypadku planów Premium i dedykowanych (App Service) działających w systemie Linux. |
 | **FunctionExecutionUnits** | Jednostki wykonywania funkcji są kombinacją czasu wykonywania i użycia pamięci.  Dane pamięci nie są obecnie dostępne w Azure Monitor. Jeśli jednak chcesz zoptymalizować użycie pamięci przez aplikację, można użyć danych licznika wydajności zebranych przez Application Insights. Ta Metryka nie jest obecnie obsługiwana w przypadku planów Premium i dedykowanych (App Service) działających w systemie Linux.|
 
-Aby dowiedzieć się więcej o obliczaniu kosztów planu zużycia przy użyciu danych Application Insights, zobacz [szacowanie kosztów planu zużycia](functions-consumption-costs.md). Aby dowiedzieć się więcej o korzystaniu z Eksploratora monitora do wyświetlania metryk, zobacz [wprowadzenie do usługi Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md).
+Aby dowiedzieć się więcej o obliczaniu kosztów planu zużycia przy użyciu danych Application Insights, zobacz [szacowanie kosztów planu zużycia](functions-consumption-costs.md). Aby dowiedzieć się więcej o korzystaniu z Eksploratora monitora do wyświetlania metryk, zobacz [wprowadzenie do usługi Azure Eksplorator metryk](../azure-monitor/essentials/metrics-getting-started.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -158,4 +158,3 @@ Dowiedz się więcej o monitorowaniu Azure Functions:
 
 + [Monitorowanie usługi Azure Functions](functions-monitoring.md)
 + [Jak skonfigurować monitorowanie dla Azure Functions](configure-monitoring.md)
-

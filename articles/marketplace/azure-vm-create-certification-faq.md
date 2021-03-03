@@ -4,15 +4,15 @@ description: Rozwiązywanie typowych problemów związanych z testowaniem i cert
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600980"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721161"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Rozwiązywanie problemów z certyfikatem maszyny wirtualnej
 
@@ -220,7 +220,7 @@ W poniższej tabeli przedstawiono minimalną wersję poprawki systemu Windows Se
 |Windows Server 2012|6.2.9200.22099|
 |Windows Server 2012 z dodatkiem R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|Nie dotyczy|
+|Windows Server 2019|NA|
 |
 
 > [!NOTE]
@@ -594,8 +594,37 @@ Następnie ponownie Opublikuj ofertę.
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Obrazy maszyn wirtualnych z ograniczonym dostępem lub wymagające szablonów niestandardowych
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Zablokowana lub wyłączona oferta SSH
+
+  Obrazy publikowane z wyłączonym SSH (dla systemu Linux) lub RDP (w systemie Windows) są traktowane jako zablokowane maszyny wirtualne. Istnieją specjalne scenariusze biznesowe, z powodu których wydawcy zezwalają na ograniczony dostęp tylko do kilku użytkowników. Podczas sprawdzania poprawności zablokowane maszyny wirtualne mogą nie zezwalać na wykonywanie niektórych poleceń certyfikacji.
+
+
+#### <a name="custom-templates"></a>Szablony niestandardowe
+
+   Ogólnie rzecz biorąc, wszystkie obrazy opublikowane w ramach jednej z maszyn wirtualnych są zgodne z szablonem Standard ARM na potrzeby wdrożenia. Istnieją jednak scenariusze, w których Wydawca może wymagać dostosowania podczas wdrażania maszyn wirtualnych (np. wielu kart sieciowych do skonfigurowania).
+    
+   W zależności od poniższych scenariuszy (niewyczerpujące) wydawcy będą używać szablonów niestandardowych do wdrożenia maszyny wirtualnej:
+
+   * Maszyna wirtualna wymaga dodatkowych podsieci sieciowych.
+   * Dodatkowe metadane do wstawienia w szablonie ARM.
+   * Polecenia, które są wstępnie wymagane do wykonania szablonu ARM.
+
+### <a name="vm-extensions"></a>Rozszerzenia maszyn wirtualnych   
+
+   Rozszerzenia maszyny wirtualnej platformy Azure to małe aplikacje, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych platformy Azure. Na przykład jeśli maszyna wirtualna wymaga instalacji oprogramowania, ochrony antywirusowej lub uruchomienia skryptu w swoim środowisku, można użyć rozszerzenia maszyny wirtualnej. 
+
+   Walidacje rozszerzeń maszyn wirtualnych z systemem Linux wymagają, aby następujące elementy były częścią obrazu:
+* Agent systemu Linux platformy Azure o większej 2.2.41
+* Wersja języka Python powyżej 2,8 
+
+
+Aby uzyskać więcej informacji, odwiedź stronę [rozszerzenia maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+     
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfigurowanie właściwości oferty maszyny wirtualnej](azure-vm-create-properties.md)
 - [Aktywne nagrody dotyczące portalu Marketplace](partner-center-portal/marketplace-rewards.md)
 - Jeśli masz pytania lub opinie na temat poprawy, skontaktuj się z [pomocą techniczną Centrum partnerskiego](https://aka.ms/marketplacepublishersupport).
+ 

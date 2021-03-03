@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc 
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 615835e5a11fac0b09a56e10084249ea493d794d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651114"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686227"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
@@ -57,7 +57,7 @@ Na przykład jeśli maszyna jest zarejestrowana w usłudze Azure Arc w regionie 
 
 ### <a name="supported-environments"></a>Obsługiwane środowiska
 
-Serwery z obsługą Arc obsługują zarządzanie serwerami fizycznymi i maszynami wirtualnymi hostowanymi *poza* platformą Azure. Aby uzyskać szczegółowe informacje o obsługiwanych środowiskach chmur hybrydowych obsługujących maszyny wirtualne, zobacz [Agent-Overview. MD # Supported-Environments].
+Serwery z obsługą Arc obsługują zarządzanie serwerami fizycznymi i maszynami wirtualnymi hostowanymi *poza* platformą Azure. Aby uzyskać szczegółowe informacje o tym, które środowiska chmury hybrydowej obsługują maszyny wirtualne, zobacz [wymagania wstępne dotyczące programu Connect Machine Agent](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > Serwery z włączonymi łukiemmi nie są zaprojektowane ani obsługiwane, aby można było zarządzać maszynami wirtualnymi działającymi na platformie Azure.

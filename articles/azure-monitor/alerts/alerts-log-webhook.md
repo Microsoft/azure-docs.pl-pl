@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616730"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704399"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Akcje elementów webhook dla reguł alertów dziennika
 
-[Alert dotyczący rejestrowania](alerts-log.md) obsługuje [Konfigurowanie grup akcji elementu webhook](../platform/action-groups.md#webhook). W tym artykule opisano, jakie właściwości są dostępne i jak skonfigurować niestandardowy element webhook JSON.
+[Alert dotyczący rejestrowania](alerts-log.md) obsługuje [Konfigurowanie grup akcji elementu webhook](./action-groups.md#webhook). W tym artykule opisano, jakie właściwości są dostępne i jak skonfigurować niestandardowy element webhook JSON.
 
 > [!NOTE]
 > Niestandardowy element webhook oparty na notacji JSON nie jest obecnie obsługiwany w wersji interfejsu API `2020-05-01-preview`
@@ -47,7 +47,7 @@ Domyślne właściwości akcji elementu webhook i ich niestandardowe nazwy param
 | *SearchQuery* |#searchquery |Zapytanie wyszukiwania w dzienniku używane przez regułę alertu. |
 | *SearchResults* |"IncludeSearchResults": true|Rekordy zwracane przez zapytanie jako tabela JSON, które są ograniczone do pierwszych 1 000 rekordów. "IncludeSearchResults": wartość true jest dodawana do niestandardowej definicji elementu webhook JSON jako Właściwość najwyższego poziomu. |
 | *Wymiary* |"IncludeDimensions": true|Kombinacje wartości wymiarów, które wyzwalają ten alert jako sekcję JSON. "IncludeDimensions": wartość true jest dodawana do niestandardowej definicji elementu webhook JSON jako Właściwość najwyższego poziomu. |
-| *Typ alertu*| #alerttype | Typ reguły alertu dziennika skonfigurowanej jako [pomiar metryki lub liczba wyników](../platform/alerts-unified-log.md#measure).|
+| *Typ alertu*| #alerttype | Typ reguły alertu dziennika skonfigurowanej jako [pomiar metryki lub liczba wyników](./alerts-unified-log.md#measure).|
 | *Identyfikator obszaru roboczego* |#workspaceid |Identyfikator obszaru roboczego Log Analytics. |
 | *Identyfikator aplikacji* |#applicationid |Identyfikator aplikacji Application Insights. |
 | *Identyfikator subskrypcji* |#subscriptionid |Identyfikator używanej subskrypcji platformy Azure. |
@@ -84,7 +84,7 @@ W tej sekcji przedstawiono przykładowe ładunki dla elementów webhook dla aler
 Następujący przykładowy ładunek dotyczy akcji standardowego elementu webhook, która jest używana na potrzeby alertów na podstawie Log Analytics:
 
 > [!NOTE]
-> Wartość pola "ważność" zmienia się w przypadku [przełączenia się do bieżącego interfejsu API scheduledQueryRules](../alerts/alerts-log-api-switch.md) przy użyciu [starszego interfejsu api alertu log Analytics](../platform/api-alerts.md).
+> Wartość pola "ważność" zmienia się w przypadku [przełączenia się do bieżącego interfejsu API scheduledQueryRules](../alerts/alerts-log-api-switch.md) przy użyciu [starszego interfejsu api alertu log Analytics](./api-alerts.md).
 
 ```json
 {
@@ -318,8 +318,8 @@ Następujący przykładowy ładunek dotyczy akcji niestandardowej elementu webho
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej [na temat alertów dziennika w usłudze Azure Alerts](../platform/alerts-unified-log.md).
+- Dowiedz się więcej [na temat alertów dziennika w usłudze Azure Alerts](./alerts-unified-log.md).
 - Zapoznaj się z tematem jak [zarządzać alertami dziennika na platformie Azure](alerts-log.md).
-- Tworzenie grup akcji i zarządzanie nimi [na platformie Azure](../platform/action-groups.md).
-- Dowiedz się więcej o [Application Insights](../log-query/log-query-overview.md).
-- Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md). 
+- Tworzenie grup akcji i zarządzanie nimi [na platformie Azure](./action-groups.md).
+- Dowiedz się więcej o [Application Insights](../logs/log-query-overview.md).
+- Dowiedz się więcej o [zapytaniach dziennika](../logs/log-query-overview.md).

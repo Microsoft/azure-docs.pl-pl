@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879431"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701624"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
@@ -173,7 +173,7 @@ Korzystając z wbudowanego skoroszytu WAF zdarzeń zapory platformy Azure, może
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Azure Monitor skoroszyt dla WAF
 
-Ten skoroszyt umożliwia niestandardowe wizualizacje zdarzeń WAF związanych z zabezpieczeniami w kilku panelach z możliwością filtrowania. Działa ze wszystkimi typami WAF, w tym Application Gateway, z przodu i sieci CDN, i można je filtrować na podstawie typu WAF lub określonego wystąpienia WAF. Importowanie za pomocą szablonu ARM lub szablonu galerii. Aby wdrożyć ten skoroszyt, zobacz [skoroszyt WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+Ten skoroszyt umożliwia niestandardowe wizualizacje zdarzeń WAF związanych z zabezpieczeniami w kilku panelach z możliwością filtrowania. Działa ze wszystkimi typami WAF, w tym Application Gateway, z przodu i sieci CDN, i można je filtrować na podstawie typu WAF lub określonego wystąpienia WAF. Importowanie za pomocą szablonu ARM lub szablonu galerii. Aby wdrożyć ten skoroszyt, zobacz [skoroszyt WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Rejestrowanie
 

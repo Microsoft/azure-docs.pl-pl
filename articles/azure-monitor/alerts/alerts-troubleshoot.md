@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614483"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717863"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
 W tym artykule omówiono typowe problemy w Azure Monitor alerty i powiadomienia.
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Aby uzyskać więcej informacji na temat alertów, zobacz [Omówienie alertów w Microsoft Azure](../platform/alerts-overview.md).
+Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Aby uzyskać więcej informacji na temat alertów, zobacz [Omówienie alertów w Microsoft Azure](./alerts-overview.md).
 
 Jeśli masz problem z uruchamianiem alertu lub nie jest on uruchamiany w oczekiwany sposób, zapoznaj się z artykułami poniżej. W Azure Portal można zobaczyć "uruchomienia" alertów.
 
@@ -36,7 +36,7 @@ Jeśli w witrynie Azure Portal widzisz wyzwolony alert, ale skonfigurowana dla n
 
 1. Czy **wiadomość E-mail została pominięta przez [regułę akcji](../alerts/alerts-action-rules.md)**?
 
-    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](../platform/action-groups.md):
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](./action-groups.md):
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Jeśli w portalu widzisz wyzwolony alert, ale skonfigurowana dla niego akcja, ta
 
 1. **Czy akcja została pominięta przez [regułę akcji](../alerts/alerts-action-rules.md)?**
 
-    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](../platform/action-groups.md): 
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](./action-groups.md): 
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Jeśli w portalu widzisz wyzwolony alert, ale jego skonfigurowana akcja nie zost
 
 1. **Czy akcja została pominięta przez regułę akcji?**
 
-    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](../platform/action-groups.md):
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](./action-groups.md):
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -135,13 +135,13 @@ Jeśli w portalu widzisz wyzwolony alert, ale jego skonfigurowana akcja nie zost
 
     1. **Czy źródłowe adresy IP zostały zablokowane?**
     
-       Dodaj [adresy IP](../platform/action-groups.md#action-specific-information) , z których jest wywoływany element webhook, z listy dozwolonych.
+       Dodaj [adresy IP](./action-groups.md#action-specific-information) , z których jest wywoływany element webhook, z listy dozwolonych.
 
     1. **Czy punkt końcowy elementu webhook działa prawidłowo?**
 
        Sprawdź, czy skonfigurowany punkt końcowy elementu webhook jest poprawny oraz czy punkt końcowy działa prawidłowo. Sprawdź dzienniki elementu webhook lub instrumentuj kod, aby umożliwić analizę (na przykład rejestrowanie ładunku przychodzącego).
 
-    1. **Czy są wywoływane zapasy czasu lub Microsoft Teams?**  
+    1. **Czy wywołujesz rozwiązanie Slack lub aplikację Microsoft Teams?**  
     Każdy z tych punktów końcowych oczekuje określonego formatu JSON. Postępuj zgodnie z [tymi instrukcjami](../alerts/action-groups-logic-app.md), aby w zamian skonfigurować akcję aplikacji logiki.
 
     1. **Czy element webhook stał się nieodpowiedzią lub zwrócił błędy?** 
@@ -180,12 +180,12 @@ Jeśli alert został odebrany, ale uważasz, że brakuje niektórych pól lub s�
 
     Sprawdź, czy na poziomie akcji określono odpowiedni format. Na przykład może się zdarzyć, że w kodzie, który reaguje na alerty (element webhook, funkcja, aplikacja logiki itp.), oczekiwany jest dany format, ale w dalszej części akcji użytkownik określi inny format.  
 
-    Sprawdź również format ładunku (JSON) dla [alertów dziennika aktywności](../alerts/activity-log-alerts-webhook.md), [alertów przeszukiwania dzienników](../alerts/alerts-log-webhook.md) (zarówno usługi Application Insights, jak i analizy dzienników), [alertów metryk](alerts-metric-near-real-time.md#payload-schema), [wspólnego schematu alertów](../alerts/alerts-common-schema-definitions.md) oraz przestarzałych [alertów metryk klasycznych](../platform/alerts-webhooks.md).
+    Sprawdź również format ładunku (JSON) dla [alertów dziennika aktywności](../alerts/activity-log-alerts-webhook.md), [alertów przeszukiwania dzienników](../alerts/alerts-log-webhook.md) (zarówno usługi Application Insights, jak i analizy dzienników), [alertów metryk](alerts-metric-near-real-time.md#payload-schema), [wspólnego schematu alertów](../alerts/alerts-common-schema-definitions.md) oraz przestarzałych [alertów metryk klasycznych](./alerts-webhooks.md).
 
  
 1. **Alerty dziennika aktywności: czy informacje są dostępne w dzienniku aktywności?** 
 
-    [Alerty dziennika aktywności](../platform/activity-log-alerts.md) są alertami opartymi na zdarzeniach, które są zapisywane w dzienniku aktywności platformy Azure, takich jak zdarzenia dotyczące tworzenia, aktualizowania lub usuwania zasobów platformy Azure, kondycji usług i zdarzeń związanych z kondycją zasobów albo wyniki z Azure Advisor i Azure Policy. Jeśli odebrano alert na podstawie dziennika aktywności, ale brakuje niektórych pól lub są one nieprawidłowe, najpierw sprawdź zdarzenia w dzienniku aktywności. Jeśli zasób platformy Azure nie zapisał pól, których szukasz w zdarzeniu dziennika aktywności, pola te nie będą dostępne w alercie. 
+    [Alerty dziennika aktywności](./activity-log-alerts.md) są alertami opartymi na zdarzeniach, które są zapisywane w dzienniku aktywności platformy Azure, takich jak zdarzenia dotyczące tworzenia, aktualizowania lub usuwania zasobów platformy Azure, kondycji usług i zdarzeń związanych z kondycją zasobów albo wyniki z Azure Advisor i Azure Policy. Jeśli odebrano alert na podstawie dziennika aktywności, ale brakuje niektórych pól lub są one nieprawidłowe, najpierw sprawdź zdarzenia w dzienniku aktywności. Jeśli zasób platformy Azure nie zapisał pól, których szukasz w zdarzeniu dziennika aktywności, pola te nie będą dostępne w alercie. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>Reguła akcji nie działa zgodnie z oczekiwaniami 
 
@@ -250,4 +250,4 @@ Jeśli wystąpił błąd podczas próby utworzenia, zaktualizowania lub usunięc
 
 ## <a name="next-steps"></a>Następne kroki
 - Jeśli używasz alertu dziennika, zobacz również [Rozwiązywanie problemów z alertami dzienników](./alerts-troubleshoot-log.md).
-- Wróć do [Azure Portal](https://portal.azure.com) , aby sprawdzić, czy problem został rozwiązany z powyższymi wskazówkami 
+- Wróć do [Azure Portal](https://portal.azure.com) , aby sprawdzić, czy problem został rozwiązany z powyższymi wskazówkami

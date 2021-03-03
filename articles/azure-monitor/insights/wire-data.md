@@ -1,17 +1,16 @@
 ---
 title: Rozwiązanie danych telekomunikacyjnych w Azure Monitor | Microsoft Docs
 description: Dane przewodowe to skonsolidowane dane dotyczące sieci i wydajności z komputerów z agentami Log Analytics. Dane sieciowe są połączone z danymi Twojego dziennika, aby ułatwić korelowanie danych.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713630"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Rozwiązanie Wire Data 2.0 (wersja zapoznawcza) w Azure Monitor
 
@@ -26,7 +25,7 @@ Oprócz agenta Log Analytics rozwiązanie do transmisji danych używa agentów z
 > 
 >Istniejący klienci korzystający z rozwiązania do przesyłania danych w sieci mogą nadal z niego korzystać. Opublikujemy wskazówki dotyczące osi czasu migracji na potrzeby przenoszenia do Service Map.
 >
->Nowi klienci powinni zainstalować [rozwiązanie Service map](../vm/service-map.md) lub [Azure monitor dla maszyn wirtualnych](../vm/vminsights-overview.md).  Zestaw danych Service Map jest porównywalny z danymi telekomunikacyjnymi.  Azure Monitor dla maszyn wirtualnych zawiera zestaw danych Service Map z dodatkowymi danymi i funkcjami wydajności na potrzeby analizy. 
+>Nowi klienci powinni zainstalować [rozwiązanie Service map](../vm/service-map.md) lub [szczegółowe informacje o maszynie wirtualnej](../vm/vminsights-overview.md).  Zestaw danych Service Map jest porównywalny z danymi telekomunikacyjnymi.  Usługi VM Insights zawierają zestaw danych Service Map z dodatkowymi danymi i funkcjami wydajności na potrzeby analizy. 
 
 
 Domyślnie Azure Monitor rejestruje dane dotyczące procesora CPU, pamięci, dysku i wydajności sieci z liczników wbudowanych w systemy Windows i Linux, a także inne liczniki wydajności, które można określić. Gromadzenie danych sieciowych i innych odbywa się w czasie rzeczywistym dla każdego agenta, łącznie z podsieciami i protokołami poziomu aplikacji używanymi przez komputer.  Rozwiązanie Dane o komunikacji sieciowej bierze pod uwagę dane sieciowe na poziomie aplikacji, a nie niżej, w warstwie transportu TCP.  Rozwiązanie nie bierze pod uwagę pojedynczych komunikatów potwierdzeń i synchronizacji.  Po zakończeniu uzgadniania połączenie jest uznawane za aktywne i oznaczane jako Połączono. To połączenie pozostaje aktywne, dopóki obie strony zgadzają się, że gniazdo jest otwarte i dane można przekazywać tam i z powrotem.  Po obu stronach połączenie zostanie oznaczone jako odłączone.  W związku z tym zliczana jest tylko przepustowość pomyślnie zakończonych pakietów. Pakiety wysłane ponownie lub zakończone niepowodzeniem nie są raportowane.

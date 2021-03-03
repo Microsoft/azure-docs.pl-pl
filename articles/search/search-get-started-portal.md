@@ -1,39 +1,37 @@
 ---
 title: Utwórz indeks wyszukiwania w Azure Portal
 titleSuffix: Azure Cognitive Search
-description: W tym Azure Portal szybkiego startu Użyj Kreatora importu danych, aby utworzyć, załadować i zbadać pierwszy indeks wyszukiwania w usłudze Azure Wyszukiwanie poznawcze.
+description: Utwórz, Załaduj i zbadaj pierwszy indeks wyszukiwania za pomocą Kreatora importu danych w Azure Portal. Ten przewodnik Szybki Start używa fikcyjnego zestawu danych hotelu do próbkowania.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/12/2020
-ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 03/02/2021
+ms.openlocfilehash: 1be165bfe7cca44e8a928933c3c8fe926ad7d4c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694839"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 
-Utwórz swój pierwszy indeks za pomocą kreatora **importu danych** i wbudowanego przykładowego źródła danych obejmującego fikcyjne dane hotelu. Kreator poprowadzi Cię przez proces tworzenia indeksu wyszukiwania (Hotele-Sample-index), dzięki czemu możesz pisać interesujące zapytania w ciągu kilku minut. 
+Utwórz swój pierwszy indeks wyszukiwania za pomocą kreatora **importu danych** i wbudowanego przykładowego źródła danych zawierającego fikcyjne dane hotelowe. Kreator poprowadzi Cię przez proces tworzenia indeksu wyszukiwania (Hotele-Sample-index), dzięki czemu możesz pisać interesujące zapytania w ciągu kilku minut. 
 
 Mimo że nie będziesz używać opcji w tym przewodniku Szybki Start, Kreator zawiera stronę dla wzbogacania AI, dzięki czemu można wyodrębnić tekst i strukturę z plików obrazów i tekstu bez struktury. Aby zapoznać się z podobnym przewodnikiem zawierającym wzbogacenie AI, zobacz [Szybki Start: Tworzenie zestawu umiejętności poznawczych](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem należy wykonać następujące czynności:
-
 + Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 
-+ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
++ Usługa Azure Wyszukiwanie poznawcze (dowolna warstwa, dowolny region). [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
 ### <a name="check-for-space"></a>Sprawdzanie ilości wolnego miejsca
 
-Wielu klientów zaczyna od bezpłatnej usługi. Ta wersja jest ograniczona do trzech indeksów, trzech źródeł danych i trzech indeksatorów. Przed rozpoczęciem upewnij się, że dysponujesz miejscem na dodatkowe elementy. W ramach tego samouczka tworzony jest jeden obiekt każdego typu.
+Wielu klientów zaczyna od bezpłatnej usługi. Warstwa Bezpłatna jest ograniczona do trzech indeksów, trzech źródeł danych i trzech indeksatorów. Przed rozpoczęciem upewnij się, że dysponujesz miejscem na dodatkowe elementy. W ramach tego samouczka tworzony jest jeden obiekt każdego typu.
 
-W sekcjach na pulpicie nawigacyjnym usługi wyświetlana jest liczba posiadanych już indeksów, indeksatorów i źródeł danych. 
+Zapoznaj się ze stroną przegląd usługi, aby dowiedzieć się, ile indeksów, indeksatorów i źródeł danych już istnieje. 
 
 :::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listy indeksów, indeksatorów i źródeł danych":::
 
@@ -70,14 +68,18 @@ Na razie pominiemy ten krok i przejdziemy bezpośrednio do kroku **Dostosowywani
 
 ### <a name="step-3---configure-index"></a>Krok 3 — Konfigurowanie indeksu
 
-Zazwyczaj tworzenie indeksu jest czynnością bazującą na kodzie, którą wykonuje się przed załadowaniem danych. Jednak, jak pokazano w tym samouczku, kreator może wygenerować indeks podstawowy dla dowolnego źródła danych, które może przeszukiwać. Indeks wymaga co najmniej nazwy i kolekcji pól. Jedno z pól powinno być oznaczone jako klucz dokumentu w celu jednoznacznego zidentyfikowania poszczególnych dokumentów. Ponadto można określić analizatory języka lub sugestory, aby stosować autouzupełnianie lub sugerowane zapytania.
+Dla wbudowanych indeksów przykładowych hoteli jest zdefiniowany domyślny schemat indeksu. Z wyjątkiem kilku zaawansowanych przykładów filtru zapytania w dokumentacji i przykłady, które są przeznaczone dla indeksu hotelu-Samples, będą uruchamiane w tej definicji indeksu:
+
+:::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Wygenerowany indeks hoteli":::
+
+Zwykle w ćwiczeniu opartym na kodzie tworzenie indeksu zostało zakończone przed załadowaniem danych. Kreator importu danych skrapla te kroki, generując podstawowy indeks dla dowolnego źródła danych, które można przeszukać. Indeks wymaga co najmniej nazwy i kolekcji pól. Jedno z pól powinno być oznaczone jako klucz dokumentu w celu jednoznacznego zidentyfikowania poszczególnych dokumentów. Ponadto można określić analizatory języka lub sugestory, aby stosować autouzupełnianie lub sugerowane zapytania.
 
 Pola mają typy danych i atrybuty. Pola wyboru w górnej części są *atrybutami indeksu*, które kontrolują sposób używania pola.
 
-* **Pobieranie** oznacza, że pole jest wyświetlane na liście wyników wyszukiwania. Można oznaczyć pojedyncze pola jako limity dla wyników wyszukiwania, czyszcząc to pole wyboru, na przykład dla pól używanych tylko w wyrażeniach filtru.
-* **Klucz** to unikatowy identyfikator dokumentu. Zawsze jest ciągiem znaków i jest wymagany.
-* Atrybuty **Możliwość filtrowania**, **Z możliwością sortowania** i **Możliwość tworzenia aspektów** określają, czy pola mogą być używane w strukturze nawigacji filtrowania, sortowania lub tworzenia aspektów.
-* **Wyszukiwanie** oznacza, że pole jest uwzględniane podczas wyszukiwania pełnotekstowego. Ciągi można przeszukiwać. Pól liczbowych i logicznych często nie można wyszukiwać.
++ **Pobieranie** oznacza, że pole jest wyświetlane na liście wyników wyszukiwania. Można oznaczyć pojedyncze pola jako limity dla wyników wyszukiwania, czyszcząc to pole wyboru, na przykład dla pól używanych tylko w wyrażeniach filtru.
++ **Klucz** to unikatowy identyfikator dokumentu. Zawsze jest ciągiem znaków i jest wymagany.
++ Atrybuty **Możliwość filtrowania**, **Z możliwością sortowania** i **Możliwość tworzenia aspektów** określają, czy pola mogą być używane w strukturze nawigacji filtrowania, sortowania lub tworzenia aspektów.
++ **Wyszukiwanie** oznacza, że pole jest uwzględniane podczas wyszukiwania pełnotekstowego. Ciągi można przeszukiwać. Pól liczbowych i logicznych często nie można wyszukiwać.
 
 Wymagania dotyczące rozmiaru magazynu nie są zależne od Twojego wyboru. Na przykład jeśli ustawisz atrybut **Możliwość pobierania** dla wielu pól, nie zwiększy to wymaganego rozmiaru magazynu.
 
@@ -87,10 +89,7 @@ Domyślnie kreator skanuje źródło danych w poszukiwaniu unikatowych identyfik
 
    Jeśli ponownie uruchomisz kreatora przy użyciu istniejącego źródła danych hoteli, indeks nie zostanie skonfigurowany z domyślnymi atrybutami. Konieczne będzie ręczne wybranie atrybutów podczas przyszłych importów. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Wygenerowany indeks hoteli":::
-
-2. Przejdź do następnej strony.
-
+1. Przejdź do następnej strony.
 
 ### <a name="step-4---configure-indexer"></a>Krok 4 — Konfigurowanie indeksatora
 
@@ -104,7 +103,7 @@ Kliknij przycisk **Prześlij**, aby utworzyć i od razu uruchomić indeksator.
 
 ## <a name="monitor-progress"></a>Monitorowanie postępu
 
-Kreator powinien przenieść Cię do listy Indeksatory, gdzie można monitorować postęp. W przypadku samodzielnej nawigacji przejdź do strony Przegląd, a następnie kliknij przycisk **Indeksatory**.
+Kreator powinien przenieść Cię do listy Indeksatory, gdzie można monitorować postęp. W przypadku samonawigacji przejdź na stronę przegląd i kliknij kartę **indeksatory** .
 
 Aktualizacja strony w portalu może wymagać kilku minut, ale na liście powinien być widoczny nowo utworzony indeksator w stanie wskazującym na trwające indeksowanie lub jego pomyślne zakończenie wraz z liczbą zindeksowanych dokumentów.
 
@@ -112,7 +111,7 @@ Aktualizacja strony w portalu może wymagać kilku minut, ale na liście powinie
 
 ## <a name="view-the-index"></a>Wyświetlanie indeksu
 
-Strona główna usługi zawiera linki do zasobów utworzonych w usłudze Azure Wyszukiwanie poznawcze.  Aby wyświetlić właśnie utworzony indeks, kliknij pozycję **Indeksy** na liście linków. 
+Strona przegląd usługi zawiera linki do zasobów utworzonych w usłudze Azure Wyszukiwanie poznawcze.  Aby wyświetlić właśnie utworzony indeks, kliknij pozycję **Indeksy** na liście linków. 
 
 Poczekaj na odświeżenie strony portalu. Po kilku minutach powinien zostać wyświetlony indeks z liczbą dokumentów i rozmiarem magazynu.
 
@@ -120,7 +119,9 @@ Poczekaj na odświeżenie strony portalu. Po kilku minutach powinien zostać wy�
 
 Z tej listy możesz kliknąć właśnie utworzony indeks *hoteli* , wyświetlić schemat indeksu. i opcjonalnie dodać nowe pola. 
 
-Karta **Pola** zawiera schemat indeksu. Przewiń listę w dół, aby wprowadzić nowe pole. W większości przypadków nie można zmienić istniejących pól. Istniejące pola mają fizyczną reprezentację w usłudze Azure Wyszukiwanie poznawcze i nie można ich modyfikować, a nawet w kodzie. Aby całkowicie zmienić istniejące pole, utwórz nowy indeks, usuwając poprzednią wersję.
+Karta **Pola** zawiera schemat indeksu. Jeśli piszesz zapytania i chcesz sprawdzić, czy pole jest filtrowane lub do sortowania, na tej karcie są wyświetlane atrybuty.
+
+Przewiń listę w dół, aby wprowadzić nowe pole. Mimo że zawsze można utworzyć nowe pole, w większości przypadków nie można zmienić istniejących pól. Istniejące pola mają fizyczną reprezentację w usłudze wyszukiwania i nie są modyfikowane, a nawet w kodzie. Aby całkowicie zmienić istniejące pole, utwórz nowy indeks, usuwając poprzednią wersję.
 
    :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Przykładowa definicja indeksu":::
 
@@ -142,11 +143,11 @@ Indeks wyszukiwania powinien być teraz gotowy do wykonywania względem niego za
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Polecenie Eksploratora wyszukiwania":::
 
-2. Z listy rozwijanej **indeks** wybierz pozycję  *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
+1. Z listy rozwijanej **indeks** wybierz pozycję  *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Polecenia indeksu i interfejsu API":::
 
-3. Na pasku wyszukiwania wklej poniższe ciągi zapytań, a następnie kliknij pozycję **Wyszukaj**.
+1. Na pasku wyszukiwania wklej poniższe ciągi zapytań, a następnie kliknij pozycję **Wyszukaj**.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Ciąg zapytania i przycisk Wyszukaj":::
 
@@ -158,19 +159,19 @@ Można wprowadzać terminy i frazy (podobnie jak w wyszukiwaniu Bing lub Google)
 
 #### <a name="example-string-query-searchspa"></a>Przykład (zapytanie w postaci ciągu znaków): `search=spa`
 
-* Parametr **wyszukiwania** służy do wprowadzania słowa kluczowego wyszukiwania dla wyszukiwania pełnotekstowego, w tym przypadku zwracającego dane hotelu dla tych zawierających *Spa* w dowolnym polu możliwym do przeszukania w dokumencie.
++ Parametr **wyszukiwania** służy do wprowadzania słowa kluczowego wyszukiwania dla wyszukiwania pełnotekstowego, w tym przypadku zwracającego dane hotelu dla tych zawierających *Spa* w dowolnym polu możliwym do przeszukania w dokumencie.
 
-* **Eksplorator wyszukiwania** zwraca wyniki w formacie JSON, które są szczegółowe i trudne do odczytania, jeśli dokumenty mają gęstą strukturę. Jest to zamierzone. Widoczność całego dokumentu jest ważna dla celów programowania, zwłaszcza podczas testów. Aby zwiększyć wygodę użytkowania, należy napisać kod [obsługujący wyniki wyszukiwania](search-pagination-page-layout.md) w celu wyróżnienia istotnych elementów.
++ **Eksplorator wyszukiwania** zwraca wyniki w formacie JSON, które są szczegółowe i trudne do odczytania, jeśli dokumenty mają gęstą strukturę. Jest to zamierzone. Widoczność całego dokumentu jest ważna dla celów programowania, zwłaszcza podczas testów. Aby zwiększyć wygodę użytkowania, należy napisać kod [obsługujący wyniki wyszukiwania](search-pagination-page-layout.md) w celu wyróżnienia istotnych elementów.
 
-* Dokumenty składają się ze wszystkich pól oznaczonych jako możliwe do pobierania w indeksie. Aby wyświetlić atrybuty indeksu w portalu, kliknij pozycję *Hotele — przykład* na liście **indeksy** .
++ Dokumenty składają się ze wszystkich pól oznaczonych jako możliwe do pobierania w indeksie. Aby wyświetlić atrybuty indeksu w portalu, kliknij pozycję *Hotele — przykład* na liście **indeksy** .
 
 #### <a name="example-parameterized-query-searchspacounttruetop10"></a>Przykład (zapytanie sparametryzowane): `search=spa&$count=true&$top=10`
 
-* **&** Symbol służy do dołączania parametrów wyszukiwania, które można określić w dowolnej kolejności.
++ **&** Symbol służy do dołączania parametrów wyszukiwania, które można określić w dowolnej kolejności.
 
-* Parametr **$Count = true** zwraca łączną liczbę wszystkich zwróconych dokumentów. Ta wartość jest wyświetlana na początku listy wyników wyszukiwania. Możesz zweryfikować zapytania filtru, monitorując zmiany raportowane przez parametr **$count=true**. Zmniejszająca się liczba wskazuje, że filtr działa.
++ Parametr **$Count = true** zwraca łączną liczbę wszystkich zwróconych dokumentów. Ta wartość jest wyświetlana na początku listy wyników wyszukiwania. Możesz zweryfikować zapytania filtru, monitorując zmiany raportowane przez parametr **$count=true**. Zmniejszająca się liczba wskazuje, że filtr działa.
 
-* **$Top = 10** zwraca najwyższy rangę 10 dokumentów z sumy. Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca pierwsze najlepsze dopasowanie 50. Tę liczbę możesz zwiększyć lub zmniejszyć za pomocą parametru **$top**.
++ **$Top = 10** zwraca najwyższy rangę 10 dokumentów z sumy. Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca pierwsze najlepsze dopasowanie 50. Tę liczbę możesz zwiększyć lub zmniejszyć za pomocą parametru **$top**.
 
 ### <a name="filter-the-query"></a><a name="filter-query"></a> Filtrowanie zapytania
 
@@ -178,9 +179,9 @@ Można wprowadzać terminy i frazy (podobnie jak w wyszukiwaniu Bing lub Google)
 
 #### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Przykład (filtrowane): `search=beach&$filter=Rating gt 4`
 
-* Parametr **$filter** zwraca wyniki spełniające podane kryteria. W takim przypadku oceny są większe niż 4.
++ Parametr **$filter** zwraca wyniki spełniające podane kryteria. W takim przypadku oceny są większe niż 4.
 
-* Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
++ Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Tworzenie aspektu zapytania
 
@@ -188,19 +189,18 @@ Filtry aspektów są uwzględniane w żądaniach wyszukiwania. Korzystając z pa
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Przykład (aspektowe ze zmniejszeniem zakresu): `search=*&facet=Category&$top=2`
 
-* **Search =** _ to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład, chcesz, aby struktura nawigacji aspektów zawierała wszystkie hotele w indeksie.
-_ **aspekt** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet` , co daje liczbę dokumentów w każdej kategorii.
++ Parametr **search=*** to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład, chcesz, aby struktura nawigacji aspektów zawierała wszystkie hotele w indeksie.
++ Parametr **facet** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet` , co daje liczbę dokumentów w każdej kategorii.
 
-* Parametr **$top=2** powoduje zwrócenie dwóch dokumentów, co pokazuje, że za pomocą parametru `top` możesz zmniejszyć lub zwiększyć liczbę wyników.
++ Parametr **$top=2** powoduje zwrócenie dwóch dokumentów, co pokazuje, że za pomocą parametru `top` możesz zmniejszyć lub zwiększyć liczbę wyników.
 
 #### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Przykład (aspektowe z wartościami liczbowymi): `search=spa&facet=Rating`
 
-* To zapytanie jest zestawem reguł dla klasyfikacji podczas wyszukiwania tekstu na potrzeby *Spa*. *Klasyfikacja* warunku może być określona jako aspekt, ponieważ pole jest oznaczone jako możliwe do pobrania, z możliwością filtrowania i do zastosowania w indeksie, a wartości, które zawiera (liczbowe, od 1 do 5), są odpowiednie do kategoryzacji list w grupach.
++ To zapytanie jest zestawem reguł dla klasyfikacji podczas wyszukiwania tekstu na potrzeby *Spa*. *Klasyfikacja* warunku może być określona jako aspekt, ponieważ pole jest oznaczone jako możliwe do pobrania, z możliwością filtrowania i do zastosowania w indeksie, a wartości, które zawiera (liczbowe, od 1 do 5), są odpowiednie do kategoryzacji list w grupach.
 
-* Aspekty mogą być tworzone tylko na podstawie pól z możliwością filtrowania. W wynikach mogą być zwracane tylko pola z możliwością pobierania.
++ Aspekty mogą być tworzone tylko na podstawie pól z możliwością filtrowania. W wynikach mogą być zwracane tylko pola z możliwością pobierania.
 
-* Pole *Rating* ma wartość zmiennoprzecinkową o podwójnej precyzji, a grupowanie będzie precyzyjne. Aby uzyskać więcej informacji na temat grupowania według interwału (na przykład "3 gwiazdki Rating", "4 gwiazdki Rating" itp.), zobacz [jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](./search-faceted-navigation.md#filter-based-on-a-range).
-
++ Pole *Rating* ma wartość zmiennoprzecinkową o podwójnej precyzji, a grupowanie będzie precyzyjne. Aby uzyskać więcej informacji na temat grupowania według interwału (na przykład "3 gwiazdki Rating", "4 gwiazdki Rating" itp.), zobacz [jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](./search-faceted-navigation.md#filter-based-on-a-range).
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Wyróżnianie wyników wyszukiwania
 
@@ -208,13 +208,13 @@ Wyróżnianie trafień oznacza dodawanie formatowania do tekstu zgodnego ze sło
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Przykład (wyróżnienie): `search=beach&highlight=Description`
 
-* W tym przykładzie sformatowany wyraz *sekwencje* jest łatwiejszy w polu Opis.
++ W tym przykładzie sformatowany wyraz *sekwencje* jest łatwiejszy w polu Opis.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Przykład (analiza lingwistyczna): `search=beaches&highlight=Description`
 
-* Wyszukiwanie pełnotekstowe rozpoznaje podstawowe odmiany w formularzach programu Word. W takim przypadku wyniki wyszukiwania zawierają wyróżniony tekst dla elementu "sekwencje", w przypadku hoteli, w których pola z możliwością wyszukiwania będą znajdować się w odpowiedzi na wyszukiwanie za pomocą słowa kluczowego "plażach". Różne rodzaje tego samego wyrazu mogą być wyświetlane w wynikach z powodu przeprowadzenia analizy lingwistycznej. 
++ Wyszukiwanie pełnotekstowe rozpoznaje podstawowe odmiany w formularzach programu Word. W takim przypadku wyniki wyszukiwania zawierają wyróżniony tekst dla elementu "sekwencje", w przypadku hoteli, w których pola z możliwością wyszukiwania będą znajdować się w odpowiedzi na wyszukiwanie za pomocą słowa kluczowego "plażach". Różne rodzaje tego samego wyrazu mogą być wyświetlane w wynikach z powodu przeprowadzenia analizy lingwistycznej. 
 
-* Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory 56 z obu programów — Lucene i Microsoft. Domyślnie używany przez usługę Azure Wyszukiwanie poznawcze jest standardowym analizatorem Lucene.
++ Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory 56 z obu programów — Lucene i Microsoft. Domyślnie używany przez usługę Azure Wyszukiwanie poznawcze jest standardowym analizatorem Lucene.
 
 ### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Testowanie wyszukiwania rozmytego
 

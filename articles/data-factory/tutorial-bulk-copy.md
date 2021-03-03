@@ -6,17 +6,17 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
-ms.openlocfilehash: bbd0a98ad14aeef31232aa2557860989e39273aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: fc539ababf4cb240fbe78de0d87b1f127807f604
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740436"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Kopiowanie wielu tabel zbiorczo przy użyciu Azure Data Factory przy użyciu programu PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym samouczku przedstawiono **kopiowanie wielu tabel z Azure SQL Database do usługi Azure Synapse Analytics**. Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z programu SQL Server/Oracle do usługi Azure SQL Database/Data Warehouse/Azure Blob, kopiowanie różnych ścieżek z obiektów blob do tabeli bazy danych Azure SQL Database.
 

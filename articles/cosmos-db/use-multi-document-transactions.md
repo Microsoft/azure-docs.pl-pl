@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692474"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>Korzystanie z wielodokumentowych transakcji w interfejsie API Azure Cosmos DB MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ Transakcje wielodokumentowe są zgodne z semantyką **kwasową** :
 
 ## <a name="requirements"></a>Wymagania
 
-Transakcje wielodokumentowe są obsługiwane w ramach kolekcji unsharded w wersji 4,0. Transakcje wielodokumentowe nie są obsługiwane między kolekcjami ani kolekcjami podzielonej na fragmenty.
+Transakcje wielodokumentowe są obsługiwane w kolekcji unsharded w interfejsie API w wersji 4,0. Transakcje wielodokumentowe nie są obsługiwane między kolekcjami ani kolekcjami podzielonej na fragmenty w 4,0. Limit czasu dla transakcji to stała 5 sekund.
 
 Wszystkie sterowniki obsługujące protokół MongoDB w wersji 4,0 lub nowszej będą obsługiwały interfejs API Azure Cosmos DB dla transakcji obejmujących wiele dokumentów.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>Uruchamianie transakcji wielodokumentowych w powłoce MongoDB
+> [!Note]
+> Ten przykład nie działa w MongoSH beta (Shell) osadzonym w MongoDB kompasu.
 
 1. Otwórz wiersz polecenia, przejdź do katalogu, w którym jest zainstalowana powłoka Mongo w wersji 4,0 lub nowszej:
 

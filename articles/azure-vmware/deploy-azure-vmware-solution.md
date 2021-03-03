@@ -4,12 +4,12 @@ description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowa
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652738"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703866"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -62,7 +62,14 @@ W tym przykładzie sieć 10.74.72.0/22 została wprowadzona podczas wdrażania w
 
 Zaloguj się do pola skoku utworzonego w poprzednim kroku. Po zalogowaniu Otwórz przeglądarkę internetową i przejdź do i zaloguj się do Menedżera vCenter i NSX-T.  
 
-W Azure Portal można zidentyfikować adresy IP i poświadczenia konsoli Menedżera vCenter oraz NSX-T.  Wybierz chmurę prywatną, a następnie w widoku **Przegląd** wybierz pozycję **tożsamość > domyślna**. 
+W Azure Portal można zidentyfikować adresy IP i poświadczenia konsoli Menedżera vCenter oraz NSX-T.  Wybierz chmurę prywatną, a następnie **Zarządzaj**  >  **tożsamością**.
+
+>[!TIP]
+>Wybierz pozycję **Generuj nowe hasło** , aby wygenerować nowe hasła VCENTER i NSX-T.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Tworzenie segmentu sieci w rozwiązaniu VMware platformy Azure
 

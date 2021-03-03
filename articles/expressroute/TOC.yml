@@ -130,12 +130,18 @@
           href: expressroute-howto-macsec.md
     - name: Konfigurowanie usługi ExpressRoute Global Reach
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: expressroute-howto-set-global-reach-portal.md
         - name: Azure PowerShell
           href: expressroute-howto-set-global-reach.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: expressroute-howto-set-global-reach-cli.md
+    - name: Dodawanie obsługi protokołu IPv6 dla prywatnej komunikacji równorzędnej (wersja zapoznawcza)
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-add-ipv6-portal.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-ipv6-powershell.md
     - name: Monitorowanie
       items:
         - name: 'Monitorowanie, metryki i alerty usługi ExpressRoute'
@@ -148,7 +154,7 @@
       items:
         - name: Włączanie i wyłączanie komunikacji równorzędnych
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: expressroute-howto-reset-peering-portal.md
             - name: Azure PowerShell
               href: expressroute-howto-reset-peering.md

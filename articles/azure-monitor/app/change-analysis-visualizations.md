@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521091"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734625"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Wizualizacje do analizy zmian aplikacji (wersja zapoznawcza)
 
@@ -80,13 +80,13 @@ Przejdź do narzędzia diagnozowanie i rozwiązywanie problemów dotyczących ma
 
 ## <a name="activity-log-change-history"></a>Historia zmian dziennika aktywności
 
-Funkcja [Wyświetl historię zmian](../platform/activity-log.md#view-change-history) w dzienniku aktywności wywołuje zaplecze usługi analizy zmian aplikacji w celu uzyskania zmian skojarzonych z operacją. **Historia zmian** używana do bezpośredniego wywoływania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) , ale zastąpi zaplecze w celu wywołania analizy zmian aplikacji, w związku z czym zwrócone zmiany będą obejmowały zmiany poziomu zasobów z [wykresu zasobów platformy Azure](../../governance/resource-graph/overview.md), właściwości zasobów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md)i zmiany w gościu z usług PaaS Services, takich jak App Services aplikacji sieci Web. Aby usługa analizy zmian aplikacji mogła skanować w poszukiwaniu zmian w subskrypcjach użytkowników, należy zarejestrować dostawcę zasobów. Po pierwszym wprowadzeniu karty **historia zmian** narzędzie automatycznie rozpocznie rejestrowanie dostawcy zasobów **Microsoft. ChangeAnalysis** . Po zarejestrowaniu zmiany z **grafu zasobów platformy Azure** będą dostępne natychmiast i będzie obejmować ostatnie 14 dni. Zmiany z innych źródeł będą dostępne po upływie około 4 godzin od momentu dołączenia subskrypcji.
+Funkcja [Wyświetl historię zmian](../essentials/activity-log.md#view-change-history) w dzienniku aktywności wywołuje zaplecze usługi analizy zmian aplikacji w celu uzyskania zmian skojarzonych z operacją. **Historia zmian** używana do bezpośredniego wywoływania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) , ale zastąpi zaplecze w celu wywołania analizy zmian aplikacji, w związku z czym zwrócone zmiany będą obejmowały zmiany poziomu zasobów z [wykresu zasobów platformy Azure](../../governance/resource-graph/overview.md), właściwości zasobów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md)i zmiany w gościu z usług PaaS Services, takich jak App Services aplikacji sieci Web. Aby usługa analizy zmian aplikacji mogła skanować w poszukiwaniu zmian w subskrypcjach użytkowników, należy zarejestrować dostawcę zasobów. Po pierwszym wprowadzeniu karty **historia zmian** narzędzie automatycznie rozpocznie rejestrowanie dostawcy zasobów **Microsoft. ChangeAnalysis** . Po zarejestrowaniu zmiany z **grafu zasobów platformy Azure** będą dostępne natychmiast i będzie obejmować ostatnie 14 dni. Zmiany z innych źródeł będą dostępne po upływie około 4 godzin od momentu dołączenia subskrypcji.
 
 ![Integracja historii zmian dziennika aktywności](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Integracja usługi VM Insights
 
-Użytkownicy korzystający z usługi [VM Insights](../insights/vminsights-overview.md) mogą zobaczyć, co zmieniło się na swoich maszynach wirtualnych, które mogą spowodować, że wszystkie skoki na wykresie metryk, takie jak procesor CPU lub pamięć. Zmiany danych są zintegrowane na pasku nawigacyjnym po stronie usługi VM Insights. Użytkownik może zobaczyć, czy wprowadzono jakiekolwiek zmiany w maszynie wirtualnej i wybrać opcję **Zbadaj zmiany** , aby wyświetlić szczegóły zmian w oknie autonomiczny interfejs użytkownika analizy zmian aplikacji.
+Użytkownicy korzystający z usługi [VM Insights](../vm/vminsights-overview.md) mogą zobaczyć, co zmieniło się na swoich maszynach wirtualnych, które mogą spowodować, że wszystkie skoki na wykresie metryk, takie jak procesor CPU lub pamięć. Zmiany danych są zintegrowane na pasku nawigacyjnym po stronie usługi VM Insights. Użytkownik może zobaczyć, czy wprowadzono jakiekolwiek zmiany w maszynie wirtualnej i wybrać opcję **Zbadaj zmiany** , aby wyświetlić szczegóły zmian w oknie autonomiczny interfejs użytkownika analizy zmian aplikacji.
 
 [![Integracja usługi VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

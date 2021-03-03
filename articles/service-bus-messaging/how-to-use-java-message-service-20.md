@@ -4,12 +4,12 @@ description: Jak używać usługi wiadomości języka Java (JMS) z Azure Service
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652614"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698403"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Używanie interfejsu API usługi wiadomości języka Java 2,0 z usługą Azure Service Bus Premium
 
@@ -34,7 +34,7 @@ Aby tworzyć aplikacje Java, należy skonfigurować odpowiednie środowisko prog
    * JDK lub JRE jest dodawany do ścieżki kompilacji i odpowiednich zmiennych systemowych.
    * Środowisko IDE języka Java jest zainstalowane do korzystania z JDK lub JRE. Na przykład przezaćmienie lub IntelliJ.
 
-Aby dowiedzieć się więcej na temat przygotowywania środowiska deweloperskiego dla języka Java na platformie Azure, Skorzystaj z [tego przewodnika](https://docs.microsoft.com/azure/developer/java/fundamentals/).
+Aby dowiedzieć się więcej na temat przygotowywania środowiska deweloperskiego dla języka Java na platformie Azure, Skorzystaj z [tego przewodnika](/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Jakie funkcje JMS są obsługiwane?
 

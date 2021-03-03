@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dada52dcf66db2f0d0e40f3dbf6d1a16560c2754
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8915d780e79fa219428c54bad5458ab5966df6c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688505"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Samouczek: integracja Replicon z usługą Azure Active Directory
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. Aby wyświetlić okno dialogowe **EnableSAML Authentication2** , po kluczu firmy Dołącz następujący adres URL: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-    * Poniżej przedstawiono schemat kompletnego adresu URL: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    * Poniżej przedstawiono schemat kompletnego adresu URL: `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
    b. Kliknij, **+** Aby rozwinąć sekcję **v20Configuration** .
 
@@ -129,7 +129,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `BrittaSimon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -174,13 +174,13 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w Replicon.
     > [!NOTE]
     > Nazwa logowania musi być zgodna z adresem e-mail użytkownika w usłudze Azure AD
 
-    b. W obszarze **Typ uwierzytelniania**wybierz pozycję **Logowanie jednokrotne**.
+    b. W obszarze **Typ uwierzytelniania** wybierz pozycję **Logowanie jednokrotne**.
 
     c. Ustaw identyfikator uwierzytelniania na taką samą wartość jak nazwa logowania (adres e-mail usługi Azure AD użytkownika)
 
     d. W polu tekstowym **dział** wpisz Dział użytkownika.
 
-    e. Jako **Typ pracownika**wybierz pozycję **administrator**.
+    e. Jako **Typ pracownika** wybierz pozycję **administrator**.
 
     f. Kliknij pozycję **Zapisz profil użytkownika**.
 

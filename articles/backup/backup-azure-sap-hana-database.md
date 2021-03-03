@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719614"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -172,7 +172,7 @@ Określ ustawienia zasad w następujący sposób:
     ![Zasady różnicowych kopii zapasowych](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Przyrostowe kopie zapasowe są teraz obsługiwane w publicznej wersji zapoznawczej. Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
+    > Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
 1. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
     * Co więcej, można wyzwolić jedną przyrostową kopię zapasową dziennie.
     * Przyrostowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.

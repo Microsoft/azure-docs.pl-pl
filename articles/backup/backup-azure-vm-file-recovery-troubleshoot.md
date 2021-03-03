@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z odzyskiwaniem plików maszyny wirtualnej plat
 description: Rozwiązywanie problemów podczas odzyskiwania plików i folderów z kopii zapasowej maszyny wirtualnej platformy Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735881"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700307"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Rozwiązywanie problemów z odzyskiwaniem plików kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -36,7 +36,7 @@ Ta sekcja zawiera kroki umożliwiające rozwiązywanie problemów z komunikatami
 
 **Zalecana akcja**: 12 godzin po pobraniu skryptu, jego wartość jest nieprawidłowa i nie można jej uruchomić. Przejdź do portalu, a następnie Pobierz nowy skrypt, aby kontynuować odzyskiwanie plików.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>nie można załadować modułu iscsi_tcp (lub), nie znaleziono iscsi_tcp_module
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>Nie można załadować modułu iscsi_tcp (lub) nie znaleziono elementu iscsi_tcp_module
 
 **Zalecana akcja**: Aby rozwiązać ten problem, wykonaj kroki opisane w temacie [pobieranie skryptów powiodło się, ale uruchomienie nie](#the-script-downloads-successfully-but-fails-to-run)powiodło się.
 
@@ -88,7 +88,7 @@ Rozwiąż ten problem, wykonując kroki dla danego systemu operacyjnego.
 Po uruchomieniu skryptu po raz pierwszy w systemie Windows Server 2012 R2 i Windows Server 2016 (z pulami magazynu) Pula magazynów może być dołączona do maszyny wirtualnej w trybie tylko do odczytu.
 
 >[!Tip]
-> Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Aby rozwiązać ten problem, należy ręcznie przypisać dostęp do odczytu i zapisu do puli magazynów i dołączyć dyski wirtualne:
 
@@ -108,7 +108,7 @@ Aby rozwiązać ten problem, należy ręcznie przypisać dostęp do odczytu i za
 
 Podczas odzyskiwania plików usługa Backup wykrywa woluminy i instaluje je ponownie. Jeśli jednak kopie zapasowe dysków mają surowe partycje, te dyski nie są instalowane w sposób nieinstalowany i nie będzie można zobaczyć dysku danych do odzyskania.
 
-Aby rozwiązać ten problem, przejdź do obszaru [odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Aby rozwiązać ten problem, przejdź do obszaru [odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>Odzyskiwanie plików w systemie Linux kończy się niepowodzeniem, ponieważ system operacyjny nie może zidentyfikować systemu plików
 
@@ -122,7 +122,7 @@ Aby rozwiązać ten problem, sprawdź, czy wolumin jest szyfrowany przy użyciu 
 
    ![Zrzut ekranu przedstawiający wyniki polecenia, aby wyświetlić listę zablokowanych urządzeń.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Sprawdź system plików i szyfrowanie. Jeśli wolumin jest szyfrowany, odzyskiwanie plików nie jest obsługiwane. Dowiedz się więcej na temat [macierzy obsługi kopii zapasowych maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Sprawdź system plików i szyfrowanie. Jeśli wolumin jest szyfrowany, odzyskiwanie plików nie jest obsługiwane. Dowiedz się więcej na temat [macierzy obsługi kopii zapasowych maszyny wirtualnej platformy Azure](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Dyski są dołączone, ale woluminy nie są zainstalowane
 
@@ -139,7 +139,7 @@ Po uruchomieniu skryptu odzyskiwania plików dla systemu Windows zobaczysz komun
 Aby zidentyfikować i rozwiązać ten problem, wykonaj następujące czynności:
 
 >[!Tip]
->Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. W oknie **cmd** Uruchom polecenie **diskmgmt** , aby otworzyć **przystawkę Zarządzanie dyskami**.
 1. Poszukaj dodatkowych dysków. W poniższym przykładzie **dysk 2** jest dodatkowym dyskiem.
@@ -159,9 +159,9 @@ Aby zidentyfikować i rozwiązać ten problem, wykonaj następujące czynności:
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Upewnij się, że masz odpowiednią [maszynę do uruchomienia skryptu](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Jeśli chroniona maszyna wirtualna z systemem Linux używa macierzy LVM lub RAID, wykonaj kroki opisane w temacie [odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Jeśli chroniona maszyna wirtualna z systemem Linux używa macierzy LVM lub RAID, wykonaj kroki opisane w temacie [odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Nie można skopiować plików z zainstalowanych woluminów
 

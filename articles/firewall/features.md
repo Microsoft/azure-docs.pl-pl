@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: b01a856c71375af507e2bf29297e64a6ce9412e5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741433"
 ---
 # <a name="azure-firewall-features"></a>Funkcje usługi Azure Firewall
 
@@ -123,6 +123,18 @@ Na przykład jeśli Zapora platformy Azure przechwytuje żądanie HTTPS dla `www
 - Zapora Premium — zostanie sprawdzony pełny adres URL, więc `www.google.com/news` zostanie on skategoryzowany jako *wiadomości*.
 
 Kategorie są zorganizowane na podstawie ważności **odpowiedzialności**, **dużej przepustowości**, **użycia w firmie**, **utraty produktywności**, **ogólnego żeglowania** i bez **kategorii**.
+
+### <a name="categorization-change"></a>Zmiana kategoryzacji
+
+Możesz zażądać zmiany kategoryzacji, jeśli:
+
+ - należy wziąć pod uwagę, że nazwa FQDN lub adres URL powinny znajdować się w innej kategorii 
+ 
+lub 
+
+- masz sugerowaną kategorię dla nazwy FQDN lub adresu URL bez kategorii
+
+Witamy w przesłaniu żądania o [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
 
 ### <a name="category-exceptions"></a>Wyjątki kategorii
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591557"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714718"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -190,7 +190,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: Azure Storage Analytics zawiera dzienniki dla obiektów blob, kolejek i tabel. Za pomocą Azure Portal można skonfigurować dzienniki, które są rejestrowane dla Twojego konta. 
 
-- [Jak skonfigurować monitorowanie dla konta usługi Azure Storage](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Jak skonfigurować monitorowanie dla konta usługi Azure Storage](./manage-storage-analytics-logs.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -208,7 +208,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 **Wskazówki**: podczas przechowywania dzienników zdarzeń zabezpieczeń na koncie usługi Azure Storage lub w obszarze roboczym log Analytics można ustawić zasady przechowywania zgodnie z wymaganiami organizacji. 
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](./storage-monitor-storage-account.md#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Zmień okres przechowywania danych w Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Jednym z efektywnych sposobów zmniejszenia ryzyka niepodejrzanego dostępu do k
 
 - [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../blobs/anonymous-read-access-configure.md)
 
-- [Monitorowanie konta magazynu w witrynie Azure Portal](./storage-monitor-storage-account.md)
+- [Monitorowanie konta magazynu w witrynie Azure Portal](./manage-storage-analytics-logs.md)
 
 - [Zarządzanie kluczami dostępu do konta magazynu](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkownik�
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](./storage-monitor-storage-account.md)
+- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](./manage-storage-analytics-logs.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 
@@ -576,7 +576,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 - [Rejestrowanie usługi Azure Storage Analytics](./storage-analytics-logging.md)
 
-- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](./storage-monitor-storage-account.md)
+- [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](./manage-storage-analytics-logs.md)
 
 **Monitorowanie usługi Azure Security Center**: Obecnie niedostępne
 

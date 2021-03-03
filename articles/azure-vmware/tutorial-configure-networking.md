@@ -2,19 +2,19 @@
 title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/23/2021
+ms.openlocfilehash: b3afdffa127c23a3be3d247f12acc31604370ef6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578358"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738450"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 
 Chmura prywatna rozwiązania Azure VMware wymaga Virtual Network platformy Azure. Ponieważ rozwiązanie Azure VMware nie obsługuje lokalnego programu vCenter, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Skonfigurowanie obwodu ExpressRoute i bramy sieci wirtualnej również jest wymagane.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
@@ -37,16 +37,16 @@ Sieć wirtualna, w której utworzono [chmurę prywatną rozwiązania Azure VMwar
 
 1. Na stronie **tworzenie Virtual Network** wprowadź szczegóły sieci wirtualnej.
 
-1. Na karcie **podstawowe** wprowadź nazwę sieci wirtualnej i wybierz odpowiedni region, a następnie wybierz pozycję **Dalej: adresy IP**.
+1. Na karcie **podstawowe** wprowadź nazwę sieci wirtualnej, wybierz odpowiedni region, a **następnie wybierz Dalej: adresy IP**.
 
-1. Na karcie **adresy IP** w obszarze **przestrzeń adresów IPv4**wprowadź przestrzeń adresową utworzoną w poprzednim samouczku.
+1. Na karcie **adresy IP** w obszarze **przestrzeń adresów IPv4** wprowadź przestrzeń adresową utworzoną w poprzednim samouczku.
 
    > [!IMPORTANT]
    > Należy użyć przestrzeni adresowej, która **nie** nakłada się na przestrzeń adresową, która została użyta podczas tworzenia chmury prywatnej w poprzednim samouczku.
 
 1. Wybierz pozycję **+ Dodaj podsieć**, a następnie na stronie **Dodawanie podsieci** Nadaj nazwę podsieci i odpowiedni zakres adresów. Po zakończeniu wybierz pozycję **Dodaj**.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Wybierz pozycję Recenzja + Utwórz." border="true":::
 
@@ -74,9 +74,9 @@ Po utworzeniu sieci wirtualnej należy utworzyć bramę sieci wirtualnej.
    | **SKU** | Pozostaw wartość domyślną: **standardowa**. |
    | **Sieć wirtualna** | Wybierz utworzoną wcześniej sieć wirtualną. Jeśli nie widzisz sieci wirtualnej, upewnij się, że region bramy jest zgodny z regionem sieci wirtualnej. |
    | **Zakres adresów podsieci bramy** | Ta wartość jest wypełniana po wybraniu sieci wirtualnej. Nie zmieniaj wartości domyślnej. |
-   | **Publiczny adres IP** | Wybierz pozycję**Utwórz nowy**. |
+   | **Publiczny adres IP** | Wybierz pozycję **Utwórz nowy**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Wybierz pozycję Recenzja + Utwórz." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Podaj wartości dla pól, a następnie wybierz pozycję Recenzja + Utwórz." border="true":::
 
 1. Sprawdź, czy szczegóły są poprawne, a następnie wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie bramy sieci wirtualnej. 
 1. Po zakończeniu wdrażania przejdź do następnej sekcji, aby połączyć połączenie ExpressRoute z bramą sieci wirtualnej zawierającą chmurę prywatną rozwiązania Azure VMware.
@@ -92,9 +92,9 @@ Po wdrożeniu bramy sieci wirtualnej należy dodać do niej połączenie i chmur
 
 Aby zalogować się do programu vCenter i NSX Manager, musisz mieć adresy URL dla klienta sieci Web vCenter i lokacji Menedżera NSX-T. 
 
-Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze **Zarządzanie**wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
+Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze **Zarządzanie** wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Wybierz pozycję Recenzja + Utwórz." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Zrzut ekranu przedstawiający poświadczenia programu vCenter i NSX-T oraz adresy URL klienta sieci Web." border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

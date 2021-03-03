@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033357"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705776"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
 
@@ -34,7 +34,7 @@ Wykonaj następujące kroki, aby wdrożyć moduł Defender Security for IoT dla 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. W IoT Hub upewnij się, że urządzenie jest [zarejestrowane jako urządzenie IoT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
+1. W IoT Hub upewnij się, że urządzenie jest [zarejestrowane jako urządzenie IoT Edge](../iot-edge/how-to-register-device.md#register-a-new-device).
 
 1. Usługa Defender dla IoT Edge Module wymaga, aby [platforma z inspekcją](https://linux.die.net/man/8/auditd) została zainstalowana na urządzeniu IoT Edge.
 
@@ -145,7 +145,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 
 4. Wybierz pozycję **Zapisz**.
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 
 #### <a name="step-3-specify-routes"></a>Krok 3. Określanie tras
 
@@ -161,7 +161,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 #### <a name="step-4-review-deployment"></a>Krok 4. przegląd wdrożenia
 

@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720243"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage (wersja zapoznawcza) jako udziału sieciowego z kontenera w App Service
 
 ::: zone pivot="container-windows"
 
-W tym przewodniku przedstawiono sposób dołączania plików usługi Azure Storage jako udziału sieciowego do kontenera systemu Windows w App Service. Obsługiwane są tylko udziały [Azure Files udziały](../storage/files/storage-how-to-use-files-cli.md) i [pliki w warstwie Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . Korzyści obejmują bezpieczną zawartość, przenośność zawartości, dostęp do wielu aplikacji i wiele metod transferu.
+W tym przewodniku przedstawiono sposób dołączania plików usługi Azure Storage jako udziału sieciowego do kontenera systemu Windows w App Service. Obsługiwane są tylko udziały [Azure Files udziały](../storage/files/storage-how-to-use-files-cli.md) i [pliki w warstwie Premium](../storage/files/storage-how-to-create-file-share.md) . Korzyści obejmują bezpieczną zawartość, przenośność zawartości, dostęp do wielu aplikacji i wiele metod transferu.
 
 > [!NOTE]
 >Usługa Azure Storage w App Service jest **w wersji zapoznawczej** i **nie jest obsługiwana** w **scenariuszach produkcyjnych**.

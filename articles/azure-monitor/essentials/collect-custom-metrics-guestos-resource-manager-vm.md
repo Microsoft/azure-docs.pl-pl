@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731718"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla maszyny wirtualnej z systemem Windows
-Dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych platformy Azure nie są zbierane automatycznie, podobnie jak inne [metryki platformy](../insights/monitor-azure-resource.md#monitoring-data). Zainstaluj [rozszerzenie diagnostyka](../agents/diagnostics-extension-overview.md) Azure monitor, aby zbierać METRYKI systemu operacyjnego gościa do bazy danych metryk, aby można było ich używać ze wszystkimi funkcjami metryk Azure monitor, w tym alertami niemal w czasie rzeczywistym, wykresami, routingiem i dostępem z interfejsu API REST. W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows do bazy danych metryk przy użyciu szablonu Menedżer zasobów. 
+Dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych platformy Azure nie są zbierane automatycznie, podobnie jak inne [metryki platformy](./monitor-azure-resource.md#monitoring-data). Zainstaluj [rozszerzenie diagnostyka](../agents/diagnostics-extension-overview.md) Azure monitor, aby zbierać METRYKI systemu operacyjnego gościa do bazy danych metryk, aby można było ich używać ze wszystkimi funkcjami metryk Azure monitor, w tym alertami niemal w czasie rzeczywistym, wykresami, routingiem i dostępem z interfejsu API REST. W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows do bazy danych metryk przy użyciu szablonu Menedżer zasobów. 
 
 > [!NOTE]
 > Aby uzyskać szczegółowe informacje na temat konfigurowania rozszerzenia diagnostyki do zbierania metryk systemu operacyjnego gościa przy użyciu Azure Portal, zobacz [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ Jeśli jesteś nowym szablonem Menedżer zasobów, Dowiedz się więcej na temat
 
 - Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](../../cloud-shell/overview.md) .
 
-- Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](../platform/metrics-custom-overview.md#supported-regions). 
+- Zasób maszyny wirtualnej musi znajdować się w [regionie, który obsługuje metryki niestandardowe](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurowanie Azure Monitor jako ujścia danych
@@ -250,7 +250,7 @@ Aby wdrożyć szablon Menedżer zasobów, wykorzystujemy Azure PowerShell.
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Pamiętaj [, aby korzystać z regionu świadczenia usługi Azure, w którym włączono obsługę metryk niestandardowych](../platform/metrics-custom-overview.md).
+   > Pamiętaj [, aby korzystać z regionu świadczenia usługi Azure, w którym włączono obsługę metryk niestandardowych](./metrics-custom-overview.md).
 
 1. Uruchom następujące polecenia, aby wdrożyć maszynę wirtualną przy użyciu szablonu Menedżer zasobów.
    > [!NOTE]
@@ -285,4 +285,4 @@ Aby wdrożyć szablon Menedżer zasobów, wykorzystujemy Azure PowerShell.
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [metrykach niestandardowych](../platform/metrics-custom-overview.md).
+- Dowiedz się więcej o [metrykach niestandardowych](./metrics-custom-overview.md).

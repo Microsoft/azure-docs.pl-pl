@@ -1,28 +1,28 @@
 ---
 title: Włącz Azure Monitor środowiska hybrydowego
-description: W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla hybrydowego środowiska chmury, które zawiera co najmniej jedną maszynę wirtualną.
+description: W tym artykule opisano sposób włączania usługi VM Insights dla hybrydowego środowiska chmury, które zawiera co najmniej jedną maszynę wirtualną.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d56b1ed7b4923b054ad6864b713fc2a26d95f7e2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619863"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731276"
 ---
-# <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Włącz Azure Monitor dla maszyn wirtualnych dla hybrydowej maszyny wirtualnej
-W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej poza platformą Azure, w tym w środowiskach lokalnych i innych.
+# <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Włączanie usługi VM Insights dla hybrydowej maszyny wirtualnej
+W tym artykule opisano sposób włączania usługi VM Insights dla maszyny wirtualnej poza platformą Azure, w tym w środowiskach lokalnych i innych.
 
 > [!IMPORTANT]
-> Zalecana metoda włączania hybrydowych maszyn wirtualnych najpierw włącza [usługę Azure ARC dla serwerów](../../azure-arc/servers/overview.md) , dzięki czemu maszyny wirtualne można włączyć dla Azure monitor dla maszyn wirtualnych przy użyciu procesów podobnych do maszyn wirtualnych platformy Azure. W tym artykule opisano sposób dołączania hybrydowych maszyn wirtualnych w przypadku zrezygnowania z używania usługi Azure Arc.
+> Zalecana metoda włączania hybrydowych maszyn wirtualnych najpierw włącza [usługę Azure ARC dla serwerów](../../azure-arc/servers/overview.md) , dzięki czemu maszyny wirtualne można włączyć dla wglądu w dane maszyn wirtualnych przy użyciu procesów podobnych do maszyn wirtualnych platformy Azure. W tym artykule opisano sposób dołączania hybrydowych maszyn wirtualnych w przypadku zrezygnowania z używania usługi Azure Arc.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz i skonfiguruj obszar roboczy log Analytics](../insights/vminsights-configure-workspace.md).
-- Zobacz [obsługiwane systemy operacyjne](../insights/vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
+- [Utwórz i skonfiguruj obszar roboczy log Analytics](./vminsights-configure-workspace.md).
+- Zobacz [obsługiwane systemy operacyjne](./vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 
 
 ## <a name="overview"></a>Omówienie
@@ -31,13 +31,13 @@ Maszyny wirtualne poza platformą Azure wymagają tego samego agenta Log Analyti
 Aby uzyskać szczegółowe informacje na temat wdrażania agenta Log Analytics, zobacz [łączenie komputerów z systemem Windows w celu Azure monitor](../agents/agent-windows.md) lub [łączenia Azure monitor komputerów z systemem Linux](../agents/agent-linux.md) . Szczegóły dotyczące agenta zależności zostały podane w tym artykule. 
 
 ## <a name="firewall-requirements"></a>Wymagania dotyczące zapory
-Wymagania dotyczące zapory dla agenta Log Analytics są dostępne w [omówieniu log Analytics agenta](../agents/log-analytics-agent.md#network-requirements). Agent Azure Monitor dla maszyn wirtualnych zależności mapy nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../../azure-monitor/agents/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
+Wymagania dotyczące zapory dla agenta Log Analytics są dostępne w [omówieniu log Analytics agenta](../agents/log-analytics-agent.md#network-requirements). Agent zależności mapy usługi VM Insights nie przesyła samych danych i nie wymaga żadnych zmian w zaporach ani portach. Dane mapy są zawsze przesyłane przez agenta Log Analytics do usługi Azure Monitor, bezpośrednio lub przez [bramę pakietu Operations Management Suite](../../azure-monitor/agents/gateway.md) , jeśli zasady zabezpieczeń IT nie zezwalają komputerom w sieci na łączenie się z Internetem.
 
 
 ## <a name="dependency-agent"></a>Agent zależności
 
 >[!NOTE]
->Poniższe informacje opisane w tej sekcji dotyczą również [rozwiązania Service map](../insights/service-map.md).  
+>Poniższe informacje opisane w tej sekcji dotyczą również [rozwiązania Service map](./service-map.md).  
 
 Agenta zależności można pobrać z następujących lokalizacji:
 
@@ -177,8 +177,8 @@ Sprawdź plik C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Wind
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po włączeniu monitorowania dla maszyn wirtualnych te informacje są dostępne do analizy za pomocą Azure Monitor dla maszyn wirtualnych.
+Po włączeniu monitorowania dla maszyn wirtualnych te informacje są dostępne do analizy za pomocą usługi VM Insights.
 
-- Aby wyświetlić odnalezione zależności aplikacji, zobacz [view Azure monitor dla maszyn wirtualnych map](vminsights-maps.md).
+- Aby wyświetlić odnalezione zależności aplikacji, zobacz [Wyświetlanie mapy usługi VM Insights](vminsights-maps.md).
 
 - Aby identyfikować wąskie gardła i ogólne wykorzystanie z wydajnością maszyny wirtualnej, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md).

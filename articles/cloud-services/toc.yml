@@ -1,211 +1,212 @@
 - name: Dokumentacja Cloud Services (klasyczna)
   href: index.yml
-- name: Omówienie
   items:
-    - name: Co to jest Cloud Services (klasyczny)?
-      href: cloud-services-choose-me.md
-    - name: Pliki konfiguracji usługi w chmurze i tworzenie pakietów
-      href: cloud-services-model-and-package.md
-- name: Rozpoczęcie pracy
-  items:
-    - name: Przykładowa usługa w chmurze — .NET
-      href: cloud-services-dotnet-get-started.md
-    - name: Przykład języka Python dla usługi w chmurze programu Visual Studio
-      href: cloud-services-python-ptvs.md
-- name: Pojęcia
-  items:
-    - name: Zabezpieczenia
+    - name: Omówienie
       items:
-        - name: Punkt odniesienia zabezpieczeń
-          href: security-baseline.md
-- name: Instrukcje
-  items:
-    - name: Planowanie
+        - name: Co to jest Cloud Services (klasyczny)?
+          href: cloud-services-choose-me.md
+        - name: Pliki konfiguracji usługi w chmurze i tworzenie pakietów
+          href: cloud-services-model-and-package.md
+    - name: Rozpoczęcie pracy
       items:
-        - name: Rozmiary maszyn wirtualnych
-          href: cloud-services-sizes-specs.md
-        - name: Aktualizacje
-          href: cloud-services-update-azure-service.md
-    - name: Programowanie
+        - name: Przykładowa usługa w chmurze — .NET
+          href: cloud-services-dotnet-get-started.md
+        - name: Przykład języka Python dla usługi w chmurze programu Visual Studio
+          href: cloud-services-python-ptvs.md
+    - name: Pojęcia
       items:
-        - name: Tworzenie roli internetowej i procesu roboczego PHP
-          href: ../cloud-services-php-create-web-role.md
-        - name: Tworzenie i wdrażanie aplikacji Node.js
-          href: cloud-services-nodejs-develop-deploy-app.md
-        - name: Tworzenie aplikacji internetowej Node.js za pomocą usługi Express
-          href: cloud-services-nodejs-develop-deploy-express-app.md
-        - name: Storage i Visual Studio
+        - name: Zabezpieczenia
           items:
-            - name: Magazyn obiektów blob i połączone usługi
-              href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
-            - name: Magazyn kolejek i połączone usługi
-              href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
-            - name: Magazyn tabel i połączone usługi
-              href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
-        - name: Konfigurowanie reguł dotyczących ruchu dla roli
-          href: cloud-services-enable-communication-role-instances.md
-        - name: Obsługa zdarzeń cyklu życia usługi w chmurze
-          href: cloud-services-role-lifecycle-dotnet.md
-        - name: Biblioteka Socket.io (Node.js)
-          href: cloud-services-nodejs-chat-app-socketio.md
-        - name: Nawiązywanie połączenia telefonicznego za pomocą usługi Twilio (.NET)
-          href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
-        - name: Konfigurowanie zadań uruchamiania
-          items:
-            - name: Tworzenie zadań uruchamiania
-              href: cloud-services-startup-tasks.md
-            - name: Typowe zadania uruchamiania
-              href: cloud-services-startup-tasks-common.md
-            - name: Instalowanie programu .NET w ramach roli usługi w chmurze przy użyciu zadania
-              href: cloud-services-dotnet-install-dotnet.md
-        - name: Konfigurowanie pulpitu zdalnego
-          items:
-            - name: Portal
-              href: cloud-services-role-enable-remote-desktop-new-portal.md
-            - name: PowerShell
-              href: cloud-services-role-enable-remote-desktop-powershell.md
-            - name: Visual Studio
-              href: cloud-services-role-enable-remote-desktop-visual-studio.md
-    - name: Wdrażanie
+            - name: Punkt odniesienia zabezpieczeń
+              href: security-baseline.md
+    - name: Instrukcje
       items:
-        - name: Tworzenie i wdrażanie usługi w chmurze w portalu
-          href: cloud-services-how-to-create-deploy-portal.md
-        - name: Tworzenie pustego kontenera usługi w chmurze w programie PowerShell
-          href: cloud-services-powershell-create-cloud-container.md
-        - name: Konfigurowanie niestandardowej nazwy domeny
-          href: cloud-services-custom-domain-name-portal.md
-        - name: Łączenie z niestandardowym kontrolerem domeny
-          href: cloud-services-connect-to-custom-domain.md
-    - name: Zarządzanie usługą
-      items:
-        - name: Typowe zadania zarządzania
-          href: cloud-services-how-to-manage-portal.md
-        - name: Konfigurowanie usługi w chmurze
-          href: cloud-services-how-to-configure-portal.md
-        - name: Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation
-          href: automation-manage-cloud-services.md
-        - name: Konfigurowanie automatycznego skalowania
-          href: cloud-services-how-to-scale-portal.md
-        - name: Zarządzanie zasobami platformy Azure przy użyciu języka Python
-          href: cloud-services-python-how-to-use-service-management.md
-        - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
-          href: mitigate-se.md
-        - name: Poprawki systemu operacyjnego gościa
-          href: cloud-services-guestos-msrc-releases.md
-        - name: Wycofanie systemu operacyjnego gościa
+        - name: Planowanie
           items:
-            - name: Zasady wycofywania
-              href: cloud-services-guestos-retirement-policy.md
-            - name: Powiadomienie o wycofaniu rodziny 1
-              href: cloud-services-guestos-family1-retirement.md
-        - name: Informacje o nowych wersjach systemu operacyjnego gościa
-          href: cloud-services-guestos-update-matrix.md
-        - name: Konfiguracja roli usług Cloud Services (XPath) — ściągawka
-          href: cloud-services-role-config-xpath.md
-    - name: Zarządzanie certyfikatami
-      items:
-        - name: Certyfikaty usług Cloud Services i zarządzania
-          href: cloud-services-certs-create.md
-        - name: Konfigurowanie protokołu SSL
-          href: cloud-services-configure-ssl-certificate-portal.md
-    - name: Monitorowanie
-      items:
-        - name: Monitorowanie usługi w chmurze
-          href: cloud-services-how-to-monitor.md
-        - name: Używanie liczników wydajności
-          href: diagnostics-performance-counters.md
-        - name: Testowanie wydajności
-          href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/toc.json
+            - name: Rozmiary maszyn wirtualnych
+              href: cloud-services-sizes-specs.md
+            - name: Aktualizacje
+              href: cloud-services-update-azure-service.md
+        - name: Programowanie
           items:
-            - name: Testowanie przy użyciu programu Visual Studio Profiler
-              href: cloud-services-performance-testing-visual-studio-profiler.md
-        - name: Włączanie diagnostyki
+            - name: Tworzenie roli internetowej i procesu roboczego PHP
+              href: ../cloud-services-php-create-web-role.md
+            - name: Tworzenie i wdrażanie aplikacji Node.js
+              href: cloud-services-nodejs-develop-deploy-app.md
+            - name: Tworzenie aplikacji internetowej Node.js za pomocą usługi Express
+              href: cloud-services-nodejs-develop-deploy-express-app.md
+            - name: Storage i Visual Studio
+              items:
+                - name: Magazyn obiektów blob i połączone usługi
+                  href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
+                - name: Magazyn kolejek i połączone usługi
+                  href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
+                - name: Magazyn tabel i połączone usługi
+                  href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
+            - name: Konfigurowanie reguł dotyczących ruchu dla roli
+              href: cloud-services-enable-communication-role-instances.md
+            - name: Obsługa zdarzeń cyklu życia usługi w chmurze
+              href: cloud-services-role-lifecycle-dotnet.md
+            - name: Biblioteka Socket.io (Node.js)
+              href: cloud-services-nodejs-chat-app-socketio.md
+            - name: Nawiązywanie połączenia telefonicznego za pomocą usługi Twilio (.NET)
+              href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+            - name: Konfigurowanie zadań uruchamiania
+              items:
+                - name: Tworzenie zadań uruchamiania
+                  href: cloud-services-startup-tasks.md
+                - name: Typowe zadania uruchamiania
+                  href: cloud-services-startup-tasks-common.md
+                - name: Instalowanie programu .NET w ramach roli usługi w chmurze przy użyciu zadania
+                  href: cloud-services-dotnet-install-dotnet.md
+            - name: Konfigurowanie pulpitu zdalnego
+              items:
+                - name: Portal
+                  href: cloud-services-role-enable-remote-desktop-new-portal.md
+                - name: PowerShell
+                  href: cloud-services-role-enable-remote-desktop-powershell.md
+                - name: Visual Studio
+                  href: cloud-services-role-enable-remote-desktop-visual-studio.md
+        - name: Wdrażanie
           items:
-            - name: Azure PowerShell
-              href: cloud-services-diagnostics-powershell.md
-            - name: .NET
-              href: cloud-services-dotnet-diagnostics.md
-            - name: Visual Studio
-              href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
-        - name: Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage
-          href: diagnostics-extension-to-storage.md
-        - name: Śledzenie usługi w chmurze przy użyciu diagnostyki
-          href: cloud-services-dotnet-diagnostics-trace-flow.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Debugowanie
+            - name: Tworzenie i wdrażanie usługi w chmurze w portalu
+              href: cloud-services-how-to-create-deploy-portal.md
+            - name: Tworzenie pustego kontenera usługi w chmurze w programie PowerShell
+              href: cloud-services-powershell-create-cloud-container.md
+            - name: Konfigurowanie niestandardowej nazwy domeny
+              href: cloud-services-custom-domain-name-portal.md
+            - name: Łączenie z niestandardowym kontrolerem domeny
+              href: cloud-services-connect-to-custom-domain.md
+        - name: Zarządzanie usługą
           items:
-            - name: Opcje dla usługi w chmurze
-              href: /visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview?toc=/azure/cloud-services/toc.json
-            - name: Lokalna usługa w chmurze przy użyciu programu Visual Studio
-              href: /visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines?toc=/azure/cloud-services/toc.json
-            - name: Opublikowana usługa w chmurze przy użyciu programu Visual Studio
-              href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
-        - name: Niepowodzenie alokacji usługi w chmurze
-          href: cloud-services-allocation-failures.md
-        - name: Typowe przyczyny powtarzania cykli ról usługi w chmurze
-          href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
-        - name: Aplikacja nie obsługuje protokołu TLS 1.2
-          href: applications-dont-support-tls-1-2.md
-        - name: Domyślny rozmiar folderu TEMP jest zbyt mały dla roli
-          href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
-        - name: Typowe problemy związane z wdrażaniem
-          href: cloud-services-troubleshoot-deployment-problems.md
-        - name: Nie można uruchomić roli
-          href: cloud-services-troubleshoot-roles-that-fail-start.md
-        - name: Wskazówki dotyczące odzyskiwania
-          href: cloud-services-disaster-recovery-guidance.md
-        - name: Przepływ pracy w klasycznej architekturze maszyny wirtualnej
-          href: cloud-services-workflow-process.md
-        - name: Obsługa kondycji zasobu usługi Cloud Services
-          href: resource-health-for-cloud-services.md
-        - name: Cloud Services — często zadawane pytania
+            - name: Typowe zadania zarządzania
+              href: cloud-services-how-to-manage-portal.md
+            - name: Konfigurowanie usługi w chmurze
+              href: cloud-services-how-to-configure-portal.md
+            - name: Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation
+              href: automation-manage-cloud-services.md
+            - name: Konfigurowanie automatycznego skalowania
+              href: cloud-services-how-to-scale-portal.md
+            - name: Zarządzanie zasobami platformy Azure przy użyciu języka Python
+              href: cloud-services-python-how-to-use-service-management.md
+            - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
+              href: mitigate-se.md
+            - name: Poprawki systemu operacyjnego gościa
+              href: cloud-services-guestos-msrc-releases.md
+            - name: Wycofanie systemu operacyjnego gościa
+              items:
+                - name: Zasady wycofywania
+                  href: cloud-services-guestos-retirement-policy.md
+                - name: Powiadomienie o wycofaniu rodziny 1
+                  href: cloud-services-guestos-family1-retirement.md
+            - name: Informacje o nowych wersjach systemu operacyjnego gościa
+              href: cloud-services-guestos-update-matrix.md
+            - name: Konfiguracja roli usług Cloud Services (XPath) — ściągawka
+              href: cloud-services-role-config-xpath.md
+        - name: Zarządzanie certyfikatami
           items:
-            - name: Często zadawane pytania dotyczące dostępności aplikacji i usług
-              href: cloud-services-application-and-service-availability-faq.md
-            - name: Często zadawane pytania dotyczące konfiguracji i zarządzania
-              href: cloud-services-configuration-and-management-faq.md
-            - name: Często zadawane pytania dotyczące łączności i sieci
-              href: cloud-services-connectivity-and-networking-faq.md
-            - name: Często zadawane pytania dotyczące wdrażania
-              href: cloud-services-deployment-faq.md
-- name: Dokumentacja
-  items:
-    - name: Przykłady kodu
-      href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
-    - name: Schemat XML .csdef
-      href: schema-csdef-file.md
+            - name: Certyfikaty usług Cloud Services i zarządzania
+              href: cloud-services-certs-create.md
+            - name: Konfigurowanie protokołu SSL
+              href: cloud-services-configure-ssl-certificate-portal.md
+        - name: Monitorowanie
+          items:
+            - name: Monitorowanie usługi w chmurze
+              href: cloud-services-how-to-monitor.md
+            - name: Używanie liczników wydajności
+              href: diagnostics-performance-counters.md
+            - name: Testowanie wydajności
+              href: /visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services?toc=/azure/cloud-services/toc.json
+              items:
+                - name: Testowanie przy użyciu programu Visual Studio Profiler
+                  href: cloud-services-performance-testing-visual-studio-profiler.md
+            - name: Włączanie diagnostyki
+              items:
+                - name: Azure PowerShell
+                  href: cloud-services-diagnostics-powershell.md
+                - name: .NET
+                  href: cloud-services-dotnet-diagnostics.md
+                - name: Visual Studio
+                  href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
+            - name: Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage
+              href: diagnostics-extension-to-storage.md
+            - name: Śledzenie usługi w chmurze przy użyciu diagnostyki
+              href: cloud-services-dotnet-diagnostics-trace-flow.md
+        - name: Rozwiązywanie problemów
+          items:
+            - name: Debugowanie
+              items:
+                - name: Opcje dla usługi w chmurze
+                  href: /visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview?toc=/azure/cloud-services/toc.json
+                - name: Lokalna usługa w chmurze przy użyciu programu Visual Studio
+                  href: /visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines?toc=/azure/cloud-services/toc.json
+                - name: Opublikowana usługa w chmurze przy użyciu programu Visual Studio
+                  href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
+            - name: Niepowodzenie alokacji usługi w chmurze
+              href: cloud-services-allocation-failures.md
+            - name: Typowe przyczyny powtarzania cykli ról usługi w chmurze
+              href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+            - name: Aplikacja nie obsługuje protokołu TLS 1.2
+              href: applications-dont-support-tls-1-2.md
+            - name: Domyślny rozmiar folderu TEMP jest zbyt mały dla roli
+              href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
+            - name: Typowe problemy związane z wdrażaniem
+              href: cloud-services-troubleshoot-deployment-problems.md
+            - name: Nie można uruchomić roli
+              href: cloud-services-troubleshoot-roles-that-fail-start.md
+            - name: Wskazówki dotyczące odzyskiwania
+              href: cloud-services-disaster-recovery-guidance.md
+            - name: Przepływ pracy w klasycznej architekturze maszyny wirtualnej
+              href: cloud-services-workflow-process.md
+            - name: Obsługa kondycji zasobu usługi Cloud Services
+              href: resource-health-for-cloud-services.md
+            - name: Cloud Services — często zadawane pytania
+              items:
+                - name: Często zadawane pytania dotyczące dostępności aplikacji i usług
+                  href: cloud-services-application-and-service-availability-faq.md
+                - name: Często zadawane pytania dotyczące konfiguracji i zarządzania
+                  href: cloud-services-configuration-and-management-faq.md
+                - name: Często zadawane pytania dotyczące łączności i sieci
+                  href: cloud-services-connectivity-and-networking-faq.md
+                - name: Często zadawane pytania dotyczące wdrażania
+                  href: cloud-services-deployment-faq.md
+    - name: Dokumentacja
       items:
-        - name: Schemat LoadBalancerProbe
-          href: schema-csdef-loadbalancerprobe.md
-        - name: Schemat WebRole
-          href: schema-csdef-webrole.md
-        - name: Schemat WorkerRole
-          href: schema-csdef-workerrole.md
-        - name: Schemat NetworkTrafficRules
-          href: schema-csdef-networktrafficrules.md
-    - name: Schemat XML .cscfg
-      href: schema-cscfg-file.md
+        - name: Przykłady kodu
+          href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'
+        - name: Schemat XML .csdef
+          href: schema-csdef-file.md
+          items:
+            - name: Schemat LoadBalancerProbe
+              href: schema-csdef-loadbalancerprobe.md
+            - name: Schemat WebRole
+              href: schema-csdef-webrole.md
+            - name: Schemat WorkerRole
+              href: schema-csdef-workerrole.md
+            - name: Schemat NetworkTrafficRules
+              href: schema-csdef-networktrafficrules.md
+        - name: Schemat XML .cscfg
+          href: schema-cscfg-file.md
+          items:
+            - name: Schemat Role
+              href: schema-cscfg-role.md
+            - name: Schemat NetworkConfiguration
+              href: schema-cscfg-networkconfiguration.md
+        - name: REST
+          href: /rest/api/compute/cloudservices/
+    - name: Zasoby
       items:
-        - name: Schemat Role
-          href: schema-cscfg-role.md
-        - name: Schemat NetworkConfiguration
-          href: schema-cscfg-networkconfiguration.md
-    - name: REST
-      href: /rest/api/compute/cloudservices/
-- name: Zasoby
-  items:
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Ścieżka szkoleniowa
-      href: /learn/paths/azure-fundamentals/
-    - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: /answers/topics/azure-cloud-services.html
-    - name: Cennik
-      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
-    - name: Kalkulator cen
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Aktualizacje usług
-      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
-    - name: Filmy wideo
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'
+        - name: Harmonogram działania dla platformy Azure
+          href: 'https://azure.microsoft.com/roadmap/?category=compute'
+        - name: Ścieżka szkoleniowa
+          href: /learn/paths/azure-fundamentals/
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: /answers/topics/azure-cloud-services.html
+        - name: Cennik
+          href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+        - name: Kalkulator cen
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Aktualizacje usług
+          href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+        - name: Filmy wideo
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=cloud-services'

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: e7f4293955772697ddeea5fce9daac4b04755274
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706813"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Instrukcje: zmniejszanie opóźnienia podczas korzystania z usługi kroju
 
@@ -34,7 +34,7 @@ W tym temacie omówiono możliwe przyczyny opóźnienia związane z korzystaniem
 
 ### <a name="slow-connection-between-the-cognitive-service-and-a-remote-url"></a>Wolne połączenie między usługą poznawczej a zdalnym adresem URL
 
-Niektóre Cognitive Services platformy Azure zapewniają metody, które uzyskują dane ze zdalnego adresu URL, który jest udostępniany. Na przykład po wywołaniu [metody DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) usługi twarzy można określić adres URL obrazu, w którym usługa próbuje wykryć twarze.
+Niektóre Cognitive Services platformy Azure zapewniają metody, które uzyskują dane ze zdalnego adresu URL, który jest udostępniany. Na przykład po wywołaniu [metody DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) usługi twarzy można określić adres URL obrazu, w którym usługa próbuje wykryć twarze.
 
 ```csharp
 var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
@@ -42,7 +42,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 Usługa kroju musi następnie pobrać obraz z serwera zdalnego. Jeśli połączenie z usługą Front Service do serwera zdalnego działa wolno, co będzie miało wpływ na czas odpowiedzi metody wykrywania.
 
-Aby rozwiązać ten problem, należy rozważyć [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Na przykład:
+Aby rozwiązać ten problem, należy rozważyć [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Na przykład:
 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
@@ -50,7 +50,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows
 
 ### <a name="large-upload-size"></a>Duży rozmiar przekazywania
 
-Niektóre Cognitive Services platformy Azure zapewniają metody, które uzyskują dane z przekazanego pliku. Na przykład po wywołaniu [metody DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) usługi twarzy można przekazać obraz, w którym usługa próbuje wykryć twarze.
+Niektóre Cognitive Services platformy Azure zapewniają metody, które uzyskują dane z przekazanego pliku. Na przykład po wywołaniu [metody DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) usługi twarzy można przekazać obraz, w którym usługa próbuje wykryć twarze.
 
 ```csharp
 using FileStream fs = File.OpenRead(@"C:\images\face.jpg");
@@ -62,12 +62,12 @@ Jeśli plik do przekazania jest duży, wpłynie to na czas odpowiedzi `DetectWit
 - Przetworzenie pliku przez usługę dłużej nie jest możliwe, proporcjonalnie do rozmiaru pliku.
 
 Środki zaradcze
-- Rozważ [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-upload-process-images?tabs=dotnet). Na przykład:
+- Rozważ [przechowywanie obrazu w usłudze Azure Premium BLOB Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Na przykład:
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```
 - Rozważ przekazanie mniejszego pliku.
-    - Zapoznaj się z wytycznymi dotyczącymi [danych wejściowych na potrzeby wykrywania](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-detection#input-data) i [wprowadzania danych w celu rozpoznawania kroju](https://docs.microsoft.com/azure/cognitive-services/face/concepts/face-recognition#input-data).
+    - Zapoznaj się z wytycznymi dotyczącymi [danych wejściowych na potrzeby wykrywania](../concepts/face-detection.md#input-data) i [wprowadzania danych w celu rozpoznawania kroju](../concepts/face-recognition.md#input-data).
     - W przypadku wykrywania wydajności podczas korzystania z modelu wykrywania `DetectionModel.Detection01` zmniejszenie rozmiaru pliku obrazu spowoduje zwiększenie szybkości przetwarzania. W przypadku korzystania z modelu wykrywania `DetectionModel.Detection02` zmniejszenie rozmiaru pliku obrazu spowoduje zwiększenie szybkości przetwarzania tylko wtedy, gdy plik obrazu jest mniejszy niż 1920 x 1080.
     - W celu rozpoznawania kroju zmniejszenie rozmiaru kroju do 200x200 pikseli nie ma wpływu na dokładność modelu rozpoznawania.
     - Wydajność `DetectWithUrlAsync` i `DetectWithStreamAsync` metody są również zależne od liczby twarzy w obrazie. Usługa twarzy może zwrócić nawet 100 twarzy dla obrazu. Powierzchnie są klasyfikowane według rozmiaru prostokąta twarzy od dużych do małych.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717421"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
 
@@ -25,11 +25,11 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitationsandconstraints) pon
 
 Azure Monitor gwarantuje, że wszystkie dane i zapisane zapytania są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (MMK). Azure Monitor udostępnia również opcję szyfrowania przy użyciu własnego klucza, który jest przechowywany w [Azure Key Vault](../../key-vault/general/overview.md), co umożliwia kontrolowanie dostępu do danych w dowolnym momencie. Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
-Klucz zarządzany przez klienta jest dostarczany w [dedykowanych klastrach](../log-query/logs-dedicated-clusters.md) , zapewniając wyższy poziom ochrony i kontrolę. Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta, a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) .
+Klucz zarządzany przez klienta jest dostarczany w [dedykowanych klastrach](./logs-dedicated-clusters.md) , zapewniając wyższy poziom ochrony i kontrolę. Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta, a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](#customer-lockbox-preview) .
 
 Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft niezależnie od konfiguracji klucza zarządzanego przez klienta, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#key-revocation). Pracujemy nad zaszyfrowaniem danych SSD z kluczem zarządzanym przez klienta w pierwszej połowie 2021.
 
-Log Analytics dedykowane klastry używają [modelu cenowego](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
+Log Analytics dedykowane klastry używają [modelu cenowego](./logs-dedicated-clusters.md#cluster-pricing-model) rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Jak działa klucz zarządzany przez klienta w Azure Monitor
 
@@ -145,7 +145,7 @@ Klastry obsługują dwa [zarządzane typy tożsamości](../../active-directory/m
 > [!IMPORTANT]
 > Nie można użyć tożsamości zarządzanej przypisanej przez użytkownika, jeśli Key Vault znajduje się w Private-Link (vNet). W tym scenariuszu można użyć zarządzanej tożsamości przypisanej do systemu.
 
-Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
+Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](./logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Przyznawanie uprawnień Key Vault
 
@@ -253,7 +253,7 @@ Odpowiedź na żądanie uzyskania żądania powinna wyglądać następująco po 
 
 Aby można było wykonać tę operację, musisz mieć uprawnienia "Write" do obszaru roboczego i klastra, co obejmuje `Microsoft.OperationalInsights/workspaces/write` i `Microsoft.OperationalInsights/clusters/write` .
 
-Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Postępuj zgodnie z procedurą przedstawioną w [artykule dedykowane klastry](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## <a name="key-revocation"></a>Odwoływanie klucza
 
@@ -387,7 +387,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](../../security/f
 
 ## <a name="customer-managed-key-operations"></a>Operacje na kluczu Customer-Managed
 
-Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje są określane w [dedykowanym artykule klastra](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
+Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje są określane w [dedykowanym artykule klastra](./logs-dedicated-clusters.md#change-cluster-properties)
 
 - Pobierz wszystkie klastry w grupie zasobów  
 - Pobierz wszystkie klastry w subskrypcji
@@ -470,8 +470,8 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
 
   **Aktualizacja klastra**
   -  400 — klaster jest w stanie usuwania. Operacja asynchroniczna jest w toku. Klaster musi zakończyć swoją operację przed wykonaniem jakiejkolwiek operacji aktualizacji.
-  -  400 — KeyVaultProperties nie jest pusty, ale ma zły format. Zobacz [aktualizacja identyfikatora klucza](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400 — nie można zweryfikować klucza w Key Vault. Może być spowodowany brakiem uprawnień lub gdy klucz nie istnieje. Upewnij się, że [ustawisz Zasady kluczy i dostępu](../platform/customer-managed-keys.md#grant-key-vault-permissions) w Key Vault.
+  -  400 — KeyVaultProperties nie jest pusty, ale ma zły format. Zobacz [aktualizacja identyfikatora klucza](#update-cluster-with-key-identifier-details).
+  -  400 — nie można zweryfikować klucza w Key Vault. Może być spowodowany brakiem uprawnień lub gdy klucz nie istnieje. Upewnij się, że [ustawisz Zasady kluczy i dostępu](#grant-key-vault-permissions) w Key Vault.
   -  400 — klucz nie jest możliwy do odzyskania. Key Vault musi być ustawiona na wartość unsoft-DELETE i przeczyszczania ochrony. Zobacz [dokumentację Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400 — nie można wykonać operacji teraz. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
   -  400 — klaster jest w stanie usuwania. Poczekaj na zakończenie operacji asynchronicznej i spróbuj ponownie.
@@ -492,5 +492,5 @@ Klucz Customer-Managed jest udostępniany w dedykowanym klastrze i te operacje s
   -  409--link do obszaru roboczego lub rozłączanie w procesie.
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [log Analytics rozliczania dedykowanego klastra](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- Dowiedz się więcej o [odpowiednim projekcie log Analytics obszarów roboczych](../platform/design-logs-deployment.md)
+- Dowiedz się więcej o [log Analytics rozliczania dedykowanego klastra](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Dowiedz się więcej o [odpowiednim projekcie log Analytics obszarów roboczych](./design-logs-deployment.md)

@@ -3,22 +3,22 @@ title: Tworzenie szablonu programu Azure Image Builder (wersja zapoznawcza)
 description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693870"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
-Usługa Azure Image Builder używa pliku JSON do przekazywania informacji do usługi Image Builder. W tym artykule przejdziemy do sekcji pliku JSON, aby można było utworzyć własne. Aby zapoznać się z przykładami pełnych plików JSON, zobacz [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+Usługa Azure Image Builder używa pliku JSON do przekazywania informacji do usługi Image Builder. W tym artykule przejdziemy do sekcji pliku JSON, aby można było utworzyć własne. Aby zapoznać się z przykładami pełnych plików JSON, zobacz [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 Jest to podstawowy format szablonu:
 
@@ -249,7 +249,7 @@ W przypadku korzystania z `customize` :
 - Jeśli jeden z ustawień nie powiedzie się, cały składnik dostosowywania zakończy się niepowodzeniem, a raport zostanie zwrócony z powrotem.
 - Zdecydowanie zaleca się dokładne przetestowanie skryptu przed użyciem go w szablonie. Debugowanie skryptu na własnej maszynie wirtualnej będzie łatwiejsze.
 - Nie należy umieszczać poufnych danych w skryptach. 
-- Lokalizacje skryptów muszą być publicznie dostępne, chyba że używany jest plik [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- Lokalizacje skryptów muszą być publicznie dostępne, chyba że używany jest plik [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
 
 ```json
         "customize": [
@@ -697,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Istnieją przykładowe pliki JSON dla różnych scenariuszy w witrynie [GitHub usługi Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
+Istnieją przykładowe pliki JSON dla różnych scenariuszy w witrynie [GitHub usługi Azure Image Builder](https://github.com/azure/azvmimagebuilder).

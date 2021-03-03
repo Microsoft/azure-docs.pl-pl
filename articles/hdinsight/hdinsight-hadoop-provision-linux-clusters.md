@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945541"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741841"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -71,7 +71,7 @@ Usługa Azure HDInsight obecnie udostępnia następujące typy klastrów, z któ
 > [!IMPORTANT]  
 > Klastry usługi HDInsight są dostępne w różnych typach, z których każdy jest przeznaczony dla jednego obciążenia lub technologii. Nie ma obsługiwanej metody tworzenia klastra, który łączy wiele typów, takich jak burza i HBase w jednym klastrze. Jeśli rozwiązanie wymaga technologii, które są rozłożone na wiele typów klastrów usługi HDInsight, [Sieć wirtualna platformy Azure](../virtual-network/index.yml) może połączyć wymagane typy klastrów.
 
-| Typ klastra | Funkcja |
+| Typ klastra | Funkcjonalność |
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Zapytanie wsadowe i analiza przechowywanych danych |
 | [HBase](hbase/apache-hbase-overview.md) |Przetwarzanie dużych ilości danych NoSQL |
@@ -105,7 +105,7 @@ Nazwa użytkownika SSH ma następujące ograniczenia:
 * Maksymalna długość: 64
 * Nazwy zastrzeżone: Hadoop, users, Oozie, Hive, mapred, Ambari-pytań i odpowiedzi, dozorcy, tez, HDFS, Sqoop, przędza, hcat, AMS, HBase, burza, administrator, administrator, użytkownik, Użytkownik1, test,, TEST1, user3, admin1, 1, 123, a, actuser, adm, admin2, ASPNET, Backup, Console, David, gość, Jan, właściciel, katalog_główny Support_388945a0
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ![Ustawienia magazynu klastra: punkty końcowe zgodne z systemem HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
 
@@ -216,7 +216,7 @@ Każdy typ klastra ma własną liczbę węzłów, terminologię dla węzłów i 
 | Storm |Węzeł Nimbus (2), serwer nadzorujący (1 +), węzeł dozorcy (3) |![Konfiguracja typu klastra burzy usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | platforma Spark |Węzeł główny (2), węzeł procesu roboczego (1 +), węzeł dozorcy (3) (bezpłatnie dla rozmiaru maszyny wirtualnej a1 dozorcy) |![Konfiguracja typu klastra Spark usługi HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
-Aby uzyskać więcej informacji, zobacz [domyślną konfigurację węzła i rozmiary maszyn wirtualnych dla klastrów](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) w artykule "Jakie są składniki i wersje usługi Hadoop w usłudze HDInsight?".
+Aby uzyskać więcej informacji, zobacz [domyślną konfigurację węzła i rozmiary maszyn wirtualnych dla klastrów](hdinsight-supported-node-configuration.md) w artykule "Jakie są składniki i wersje usługi Hadoop w usłudze HDInsight?".
 
 Koszt klastrów usługi HDInsight jest określany przez liczbę węzłów i rozmiary maszyn wirtualnych dla węzłów.
 

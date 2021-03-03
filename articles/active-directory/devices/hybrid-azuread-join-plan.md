@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 419823086fd7ba05ba5023216be302576350e30a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687293"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -95,6 +95,7 @@ Jako pierwszy krok planowania należy przejrzeć środowisko i określić, czy n
 Jeśli urządzenia przyłączone do domeny systemu Windows 10 są zarejestrowane w dzierżawie [usługi Azure AD](overview.md#getting-devices-in-azure-ad) , może to doprowadzić do podwójnego stanu hybrydowego przyłączonego do usługi Azure AD i zarejestrowanego urządzenia usługi Azure AD. Zalecamy uaktualnienie do systemu Windows 10 1803 (z zastosowaniem programu KB4489894) lub nowszego, aby automatycznie rozwiązać ten scenariusz. W wersjach wcześniejszych niż 1803 należy ręcznie usunąć zarejestrowany stan usługi Azure AD przed włączeniem hybrydowego sprzężenia usługi Azure AD. W 1803 i nowszych wersjach wprowadzono następujące zmiany, aby uniknąć tego podwójnego stanu:
 
 - Wszystkie istniejące zarejestrowane w usłudze Azure AD stan użytkownika zostaną automatycznie usunięte <i>po przyłączeniu urządzenia do hybrydowej usługi Azure AD i tego samego użytkownika</i>. Na przykład jeśli użytkownik ma zarejestrowany stan usługi Azure AD na urządzeniu, podwójny stan dla użytkownika A zostanie oczyszczony tylko wtedy, gdy użytkownik loguje się do urządzenia. Jeśli na tym samym urządzeniu istnieje wielu użytkowników, podwójny stan jest czyszczony indywidualnie, gdy użytkownicy zalogują się. Oprócz usuwania zarejestrowanego stanu usługi Azure AD system Windows 10 również wyrejestruje urządzenie z usługi Intune lub innego rozwiązania MDM, jeśli rejestracja nastąpiła w ramach rejestracji w usłudze Azure AD za pośrednictwem automatycznej rejestracji.
+- Ta zmiana nie ma wpływu na zarejestrowane Stany usługi Azure AD na żadnym koncie lokalnym na urządzeniu. Ma zastosowanie tylko do kont domeny. W związku z tym, że zarejestrowany stan usługi Azure AD na kontach lokalnych nie zostanie automatycznie usunięty nawet po zalogowaniu użytkownika, ponieważ użytkownik nie jest użytkownikiem domeny. 
 - Aby uniemożliwić urządzeniu przyłączonym do domeny usługę Azure AD, Dodaj następującą wartość rejestru do HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - W systemie Windows 10 1803, jeśli masz skonfigurowaną usługi Windows Hello dla firm, użytkownik musi zmienić konfigurację usługi Windows Hello dla firm po oczyszczeniu podwójnego stanu. Ten problem został rozwiązany z KB4512509
 

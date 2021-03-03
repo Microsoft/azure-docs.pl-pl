@@ -1,26 +1,23 @@
 ---
-title: Używanie Pulpit zdalny z maszyną wirtualną z systemem Linux na platformie Azure
+title: Korzystanie z xrdp z systemem Linux
 description: Informacje o instalowaniu i konfigurowaniu Pulpit zdalny (xrdp) w celu nawiązania połączenia z maszyną wirtualną z systemem Linux na platformie Azure przy użyciu narzędzi graficznych
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196388"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695179"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i Konfigurowanie Pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Instalowanie i Konfigurowanie xrdp w celu używania Pulpit zdalny z maszyną wirtualną z systemem Linux
+
 Maszyny wirtualne z systemem Linux na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia Secure Shell (SSH). W przypadku nowych do systemu Linux lub w celu szybkiego rozwiązywania problemów korzystanie z pulpitu zdalnego może być prostsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu ([pulpit Xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://xrdp.org)) dla maszyny wirtualnej z systemem Linux przy użyciu modelu wdrażania Menedżer zasobów.
 
 
@@ -32,6 +29,7 @@ Ten artykuł wymaga istniejącej maszyny wirtualnej Ubuntu 18,04 LTS na platform
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalowanie środowiska pulpitu na maszynie wirtualnej z systemem Linux
+
 Większość maszyn wirtualnych z systemem Linux na platformie Azure nie ma domyślnie zainstalowanego środowiska pulpitu. Maszyny wirtualne z systemem Linux są często zarządzane przy użyciu połączeń SSH, a nie środowiska pulpitu. Dostępne są różne środowiska pulpitu w systemie Linux, które można wybrać. W zależności od wybranego środowiska komputerowego może zużywać jeden do 2 GB miejsca na dysku i przejmować od 5 do 10 minut na zainstalowanie i skonfigurowanie wszystkich wymaganych pakietów.
 
 Poniższy przykład instaluje środowisko pulpitu lekkiego [Xfce4](https://www.xfce.org/) na maszynie wirtualnej z systemem Ubuntu 18,04 LTS. Polecenia dla innych dystrybucji różnią się nieznacznie (Użyj, `yum` Aby zainstalować program na Red Hat Enterprise Linux i skonfigurować odpowiednie `selinux` reguły, lub użyć `zypper` programu do instalacji w systemie SUSE, na przykład).
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Linux za pomocą klienta Pulpit zdalny
-Otwórz lokalny klient pulpitu zdalnego i nawiąż połączenie z adresem IP lub nazwą DNS maszyny wirtualnej z systemem Linux. Wprowadź nazwę użytkownika i hasło dla konta użytkownika na maszynie wirtualnej w następujący sposób:
 
-![Nawiązywanie połączenia z usługą xrdp przy użyciu klienta Pulpit zdalny](./media/use-remote-desktop/remote-desktop-client.png)
+Otwórz lokalny klient pulpitu zdalnego i nawiąż połączenie z adresem IP lub nazwą DNS maszyny wirtualnej z systemem Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Zrzut ekranu klienta pulpitu zdalnego.":::
+
+Wprowadź nazwę użytkownika i hasło dla konta użytkownika na maszynie wirtualnej w następujący sposób:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Zrzut ekranu przedstawiający ekran logowania xrdp.":::
 
 Po uwierzytelnieniu środowisko pulpitu pulpit Xfce zostanie załadowane i będzie wyglądać podobnie do poniższego przykładu:
 

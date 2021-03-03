@@ -1,15 +1,15 @@
 ---
 title: Omówienie alertów i monitorowania powiadomień na platformie Azure
-description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i interfejs alertów.
+description: Przegląd alertów w Azure Monitor
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723592"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -94,7 +94,7 @@ Zamiast tego można [programowo wyliczyć wystąpienia alertów generowanych w r
 > [!NOTE]
    >  Można uzyskać dostęp tylko do alertów wygenerowanych w ciągu ostatnich 30 dni.
 
-Nie pokazuje ani nie śledzi klasycznego alertu. Można zmienić subskrypcje lub parametry filtru, aby zaktualizować stronę. 
+Można zmienić subskrypcje lub parametry filtru, aby zaktualizować stronę.
 
 ![Zrzut ekranu przedstawiający stronę alertów](media/alerts-overview/alerts-page.png)
 

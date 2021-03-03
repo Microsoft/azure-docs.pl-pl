@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d914c9b5f96cf502247d40a913ce8ad4651a4a14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 68a9dd5cb24dda54e867580cf7c1bc869e692833
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615100"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734421"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Wprowadzenie do Eksploratora metryk platformy Azure
 
@@ -29,7 +29,7 @@ Eksplorator metryk Azure Monitor jest składnikiem Microsoft Azure Portal, któr
 
 Aby utworzyć wykres metryki, z poziomu zasobu, grupy zasobów, subskrypcji lub Azure Monitor widoku, Otwórz kartę **metryki** i wykonaj następujące kroki:
 
-1. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu zasobów. Umożliwi to wybranie zasobów, dla których mają być wyświetlane metryki. Zasób należy już wypełnić, jeśli otwarto Eksploratora metryk z menu zasobów. Aby dowiedzieć się, jak wyświetlać metryki w wielu zasobach, [Przeczytaj ten artykuł](../platform/metrics-dynamic-scope.md).
+1. Kliknij przycisk "Wybierz zakres", aby otworzyć selektor zakresu zasobów. Umożliwi to wybranie zasobów, dla których mają być wyświetlane metryki. Zasób należy już wypełnić, jeśli otwarto Eksploratora metryk z menu zasobów. Aby dowiedzieć się, jak wyświetlać metryki w wielu zasobach, [Przeczytaj ten artykuł](./metrics-dynamic-scope.md).
     > ![Wybieranie zasobu](./media/metrics-getting-started/scope-picker.png)
 
 2. W przypadku niektórych zasobów należy wybrać przestrzeń nazw. Przestrzeń nazw jest tylko sposobem organizowania metryk, aby można je było łatwo znaleźć. Na przykład konta magazynu mają oddzielne przestrzenie nazw do przechowywania plików, tabel, obiektów blob i metryki kolejek. Wiele typów zasobów ma tylko jedną przestrzeń nazw.
@@ -72,7 +72,7 @@ Można dostosować styl wykresu, tytuł i zmodyfikować zaawansowane ustawienia 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się więcej na temat zaawansowanych funkcji Eksplorator metryk](../essentials/metrics-charts.md)
-* [Wyświetlanie wielu zasobów w Eksplorator metryk](../platform/metrics-dynamic-scope.md)
+* [Wyświetlanie wielu zasobów w Eksplorator metryk](./metrics-dynamic-scope.md)
 * [Rozwiązywanie problemów z Eksploratorem metryk](metrics-troubleshoot.md)
-* [Zobacz listę dostępnych metryk dla usług platformy Azure](../platform/metrics-supported.md)
+* [Zobacz listę dostępnych metryk dla usług platformy Azure](./metrics-supported.md)
 * [Zobacz przykłady skonfigurowanych wykresów](../essentials/metric-chart-samples.md)

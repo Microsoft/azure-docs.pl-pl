@@ -4,19 +4,21 @@ description: Azure Security test — wersja 2 uprzywilejowany dostęp
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092054"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720583"
 ---
 # <a name="security-control-v2-privileged-access"></a>Kontrola zabezpieczeń v2: uprzywilejowany dostęp
 
 Dostęp uprzywilejowany obejmuje kontrolki umożliwiające ochronę uprzywilejowanego dostępu do dzierżawy i zasobów platformy Azure. Obejmuje to szeroki zakres formantów do ochrony modelu administracyjnego, kont administracyjnych i stacji roboczych dostępu uprzywilejowanego przed rozmyślnymi i nieumyślnie ryzykiem.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na systemie Azure Security Tests: Privileged Access](../../governance/policy/samples/azure-security-benchmark#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Ochrona i ograniczanie użytkowników z wysokim poziomem uprawnień
 
@@ -30,7 +32,7 @@ Ogranicz liczbę kont użytkowników z wysokim poziomem uprawnień i Chroń te k
 
 - Administrator ról uprzywilejowanych: Użytkownicy z tą rolą mogą zarządzać przypisaniami ról w usłudze Azure AD, a także w Azure AD Privileged Identity Management (PIM). Ponadto ta rola umożliwia zarządzanie wszystkimi aspektami jednostek PIM i administracyjnych.
 
-Uwaga: mogą istnieć inne role krytyczne, które należy zastosować w przypadku używania ról niestandardowych z określonymi przypisanymi uprawnieniami. Można również zastosować podobne kontrolki do konta administratora krytycznych zasobów firmy.  
+Uwaga: mogą istnieć inne role krytyczne, które należy zastosować w przypadku używania ról niestandardowych z określonymi przypisanymi uprawnieniami. Można również zastosować podobne kontrolki do konta administratora krytycznych zasobów firmy.
 
 Można włączyć uprzywilejowany dostęp just-in-time (JIT) do zasobów platformy Azure i usługi Azure AD przy użyciu usługi Azure AD Privileged Identity Management (PIM). Dostęp JIT polega na przyznawaniu uprawnień tymczasowych do wykonywania zadań uprzywilejowanych tylko wtedy, gdy użytkownicy ich potrzebują. Usługa PIM może również generować alerty zabezpieczeń w przypadku podejrzanych lub niebezpiecznych działań w ramach organizacji usługi Azure AD.
 
@@ -155,11 +157,11 @@ Użyj funkcji zarządzania prawami usługi Azure AD, aby zautomatyzować przepł
 |--|--|--|--|
 | PA-6 | 4,6, 11,6, 12,12 | AC-2, SC-3, SC-7 |
 
-Zabezpieczone, izolowane stacje robocze mają kluczowe znaczenie dla bezpieczeństwa poufnych ról, takich jak Administratorzy, deweloperzy i krytyczne operatory usług. Używaj wysoce bezpiecznych stacji roboczych użytkowników i/lub Azure bastionu na potrzeby zadań administracyjnych. Użyj usługi Azure Active Directory, zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender i/lub usługi Microsoft Intune do wdrożenia bezpiecznej i zarządzanej stacji roboczej użytkownika na potrzeby zadań administracyjnych. Zabezpieczone stacje robocze mogą być zarządzane centralnie w celu wymuszenia bezpiecznej konfiguracji, w tym silnego uwierzytelniania, oprogramowania i sprzętu, a także ograniczonego dostępu logicznego i sieci. 
+Zabezpieczone, izolowane stacje robocze mają kluczowe znaczenie dla bezpieczeństwa ról poufnych, takich jak administrator, deweloper i operator usługi krytycznej. Używaj wysoce bezpiecznych stacji roboczych użytkowników i/lub Azure bastionu na potrzeby zadań administracyjnych. Użyj usługi Azure Active Directory, zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender i/lub usługi Microsoft Intune do wdrożenia bezpiecznej i zarządzanej stacji roboczej użytkownika na potrzeby zadań administracyjnych. Zabezpieczone stacje robocze mogą być zarządzane centralnie w celu wymuszenia bezpiecznej konfiguracji, w tym silnego uwierzytelniania, oprogramowania i sprzętu, a także ograniczonego dostępu logicznego i sieci. 
 
-- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Informacje na temat stacji roboczych uprzywilejowanego dostępu](/security/compass/privileged-access-deployment)
 
-- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](/security/compass/privileged-access-deployment)
+- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Odpowiedzialność**: Klient
 
@@ -178,7 +180,8 @@ Zabezpieczone, izolowane stacje robocze mają kluczowe znaczenie dla bezpieczeń
 | PA-7 | 14,6 | AC-2, AC-3, SC-3 |
 
 Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure za pomocą przypisań ról. Te role można przypisać do użytkowników, podmiotów usługi grupy i tożsamości zarządzanych. Istnieją wstępnie zdefiniowane wbudowane role dla niektórych zasobów i te role można spisować lub odpytać za pomocą narzędzi, takich jak interfejs wiersza polecenia platformy Azure, Azure PowerShell i Azure Portal. Uprawnienia, które można przypisać do zasobów za pomocą usługi Azure RBAC, powinny być zawsze ograniczone do tego, co jest wymagane przez role. Ograniczone uprawnienia uzupełniają podejście just in Time (JIT) Azure AD Privileged Identity Management (PIM), a te uprawnienia powinny być okresowo weryfikowane.
-Używaj wbudowanych ról do przydzielenia uprawnień i utwórz własną rolę tylko wtedy, gdy jest to wymagane. 
+
+Przy użyciu wbudowanych ról można przydzielić uprawnienia i w razie potrzeby tworzyć tylko role niestandardowe.
 
 - [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md)
 
@@ -192,9 +195,9 @@ Używaj wbudowanych ról do przydzielenia uprawnień i utwórz własną rolę ty
 
 - [Zabezpieczenia aplikacji i metodyka DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zarządzanie tożsamościami i kluczami](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 

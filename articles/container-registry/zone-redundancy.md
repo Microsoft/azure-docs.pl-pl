@@ -2,13 +2,14 @@
 title: Strefowo nadmiarowy rejestr w celu zapewnienia wysokiej dostępności
 description: Dowiedz się więcej na temat włączania nadmiarowości stref w Azure Container Registry. Utwórz rejestr kontenerów lub replikację w strefie dostępności platformy Azure. Nadmiarowość stref jest funkcją warstwy usługi Premium.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738110"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Włącz nadmiarowość stref w Azure Container Registry na potrzeby odporności i wysokiej dostępności
 
@@ -20,7 +21,7 @@ Nadmiarowość stref to funkcja w **wersji zapoznawczej** warstwy usługi konten
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-* Obecnie obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2 i zachodnie stany USA 2.
+* Obecnie obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, zachodnie stany USA 2, Europa Północna, Europa Zachodnia, Japonia Wschodnia.
 * Konwersje regionów do stref dostępności nie są obecnie obsługiwane. Aby włączyć obsługę strefy dostępności w regionie, należy utworzyć rejestr w żądanym regionie, w którym włączono obsługę strefy dostępności, lub należy dodać replikowany region z włączoną obsługą strefy dostępności.
 * Nie można wyłączyć nadmiarowości strefy w regionie.
 * [Zadania ACR](container-registry-tasks-overview.md) jeszcze nie obsługują stref dostępności.

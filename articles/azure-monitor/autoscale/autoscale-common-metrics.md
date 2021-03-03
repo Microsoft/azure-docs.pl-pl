@@ -4,12 +4,12 @@ description: Dowiedz się, które metryki są często używane do automatycznego
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717778"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor typowe metryki automatycznego skalowania
 
@@ -33,8 +33,8 @@ Jeśli poprzednia sprawa ma wartość true, należy sprawdzić [użycie programu
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metryki hosta dla maszyn wirtualnych z systemem Windows i Linux opartych na Menedżer zasobów
 Następujące metryki na poziomie hosta są domyślnie emitowane dla maszyny wirtualnej platformy Azure i VMSS w wystąpieniach systemów Windows i Linux. Te metryki opisują maszynę wirtualną platformy Azure, ale są zbierane z hosta maszyny wirtualnej platformy Azure, a nie za pośrednictwem agenta zainstalowanego na maszynie wirtualnej gościa. Te metryki mogą być używane w regułach skalowania automatycznego.
 
-- [Metryki hosta dla maszyn wirtualnych z systemem Windows i Linux opartych na Menedżer zasobów](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Metryki hostów dla systemów Windows i Linux opartych na Menedżer zasobówach VM Scale Sets](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Metryki hosta dla maszyn wirtualnych z systemem Windows i Linux opartych na Menedżer zasobów](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Metryki hostów dla systemów Windows i Linux opartych na Menedżer zasobówach VM Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Metryki systemu operacyjnego gościa dla maszyn wirtualnych z systemem Windows opartych na Menedżer zasobów
 Podczas tworzenia maszyny wirtualnej na platformie Azure Diagnostyka jest włączana za pomocą rozszerzenia diagnostyki. Rozszerzenie Diagnostics emituje zestaw metryk wykonanych z wewnątrz maszyny wirtualnej. Oznacza to, że można automatycznie skalować metryki, które nie są emitowane domyślnie.
@@ -186,4 +186,3 @@ W przypadku zestawów skalowania maszyn wirtualnych można zaktualizować ustawi
 > W przypadku Service Bus koncepcji grupy zasobów nie istnieje, ale Azure Resource Manager tworzy domyślną grupę zasobów na region. Grupa zasobów jest zwykle w formacie "default-ServiceBus-[region]". Na przykład "default-ServiceBus-Wschodnie", "default-ServiceBus-zachodnie", "default-ServiceBus-AustraliaEast" itd.
 >
 >
-

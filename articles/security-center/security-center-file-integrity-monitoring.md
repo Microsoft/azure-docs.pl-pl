@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 474bad4c3d7250d93b3e926f6e71da6734d7a4d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918610"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702049"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -120,7 +120,7 @@ KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie ni
 
     - Dostęp i wyświetlanie stanu i ustawień każdego obszaru roboczego
 
-    - ![Ikona planu uaktualniania ][4] umożliwia uaktualnienie obszaru roboczego do korzystania z usługi Azure Defender. Ta ikona wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji programu FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender. [Dowiedz się więcej](security-center-pricing.md).
+    - ![Ikona planu uaktualniania ][4] umożliwia uaktualnienie obszaru roboczego do korzystania z usługi Azure Defender. Ta ikona wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji programu FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender. Aby uzyskać więcej informacji, zobacz [Security Center bezpłatnie a usługa Azure Defender włączona](security-center-pricing.md#security-center-free-vs-azure-defender-enabled).
 
     - ![Ikona włączania][3] Włącz program FIM na wszystkich komputerach w obszarze roboczym i skonfiguruj opcje programu FIM. Ta ikona wskazuje, że w obszarze roboczym nie jest włączona funkcja FIM.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903449"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726323"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Zaimplementuj dynamiczne style dla programu Creator (wersja zapoznawcza) Maps
 
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ W następnej sekcji ustawimy *stan* zajętości pakietu Office `UNIT26` na `true
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. W **nagłówkach** żądania **post** ustaw wartość `Content-Type` `application/json` . W **treści** żądania **post** Napisz Poniższy kod JSON z aktualizacjami funkcji. Aktualizacja zostanie zapisana tylko wtedy, gdy sygnatura czasowa użyta w poprzednich żądaniach aktualizacji stanu funkcji dla tej samej funkcji `ID` . Przekaż "zajęty", `keyName` Aby zaktualizować jego wartość.
+3. W **nagłówkach** żądania **post** ustaw wartość `Content-Type` `application/json` . W **treści** żądania **post** Zapisz następujący nieprzetworzony kod JSON z aktualizacjami funkcji. Aktualizacja zostanie zapisana tylko wtedy, gdy sygnatura czasowa użyta w poprzednich żądaniach aktualizacji stanu funkcji dla tej samej funkcji `ID` . Przekaż "zajęty", `keyName` Aby zaktualizować jego wartość.
 
     ```json
     {
@@ -108,9 +108,11 @@ W następnej sekcji ustawimy *stan* zajętości pakietu Office `UNIT26` na `true
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Wizualizowanie stylów dynamicznych na mapie
 
-Aplikacja sieci Web wcześniej otwarta w przeglądarce powinna teraz odzwierciedlać zaktualizowany stan funkcji mapy. `UNIT27`(151) powinien wyglądać zielony i `UNIT26` (157) powinien wyglądać czerwony.
+Aplikacja sieci Web wcześniej otwarta w przeglądarce powinna teraz odzwierciedlać zaktualizowany stan funkcji mapy. `UNIT27`(142) powinien wyglądać zielony i `UNIT26` (143) powinien wyglądać czerwony.
 
 ![Wolne miejsce na zielono i zajętym pokoju w kolorze czerwonym](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Zobacz pokaz na żywo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -128,7 +130,7 @@ Zobacz odwołania do interfejsów API wymienionych w tym artykule:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Zestaw danych](creator-indoor-maps.md#datasets)
+> [Zestawu](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

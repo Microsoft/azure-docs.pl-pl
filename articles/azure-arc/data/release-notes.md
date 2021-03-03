@@ -7,25 +7,44 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686686"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
+W tym artykule przedstawiono możliwości, funkcje i ulepszenia ostatnio wydane lub udoskonalone dla usług danych z obsługą usługi Azure Arc. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+### <a name="new-capabilities-and-features"></a>Nowe możliwości i funkcje
+
+Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.1. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) . Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+Dodatkowe aktualizacje obejmują:
+
+- Usługa SQL Managed Instance z obsługą usługi Azure Arc
+   - Wysoka dostępność z zawsze włączonymi grupami dostępności
+
+- Usługa Azure ARC z włączonym skalowaniem PostgreSQL Azure Data Studio: 
+   - Na stronie Przegląd jest teraz wyświetlany stan grupy serwerów dla każdego węzła
+   - Nowe strony właściwości są teraz dostępne, aby wyświetlić więcej szczegółów na temat grupy serwerów
+   - Konfigurowanie parametrów aparatu Postgres na stronie **parametrów węzła** =
+
+Problemy związane z tą wersją zawiera temat [znane problemy — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)](known-issues.md)
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
 ### <a name="new-capabilities-and-features"></a>Nowe możliwości i funkcje
 
 Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.3.0. Pobierz pod adresem [https://aka.ms/azdata](https://aka.ms/azdata) . Instalację można zainstalować `azdata` z [instalacji interfejsu wiersza polecenia platformy Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
-
 
 Dodatkowe aktualizacje obejmują:
 - Zlokalizowany portal dostępny dla 17 nowych języków

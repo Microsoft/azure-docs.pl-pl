@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019079"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706762"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Dowiedz się, co to jest dobry wyrażenia długości dla aplikacji LUIS
 
@@ -54,7 +54,7 @@ Wykonaj następujące przykładowe wyrażenia długości:
 |Chcę uzyskać komputer, jak go zrobić?|
 |Kiedy mogę mieć komputer?|
 
-W tym miejscu termin "Computer" nie jest zróżnicowany. Używaj rozwiązań alternatywnych, takich jak komputer stacjonarny, laptop, stacja robocza, lub nawet dla komputera. LUIS może inteligentnie wywnioskować synonimy z kontekstu, ale w przypadku tworzenia wyrażenia długości do szkolenia są one zawsze lepsze od siebie.
+W tym miejscu jest to *komputer*, który nie jest zróżnicowany. Używaj rozwiązań alternatywnych, takich jak komputer stacjonarny, laptop, stacja robocza, lub nawet dla komputera. LUIS może inteligentnie wywnioskować synonimy z kontekstu, ale w przypadku tworzenia wyrażenia długości do szkolenia są one zawsze lepsze od siebie.
 
 ## <a name="example-utterances-in-each-intent"></a>Przykład wyrażenia długości w każdym zamiarze
 
@@ -72,7 +72,7 @@ Lepiej zacząć od kilku wyrażenia długościów, a następnie [przejrzeć punk
 
 Normalizacja wypowiedź jest procesem ignorowania efektów typów tekstu, takich jak Interpunkcja i znaki diakrytyczne, podczas uczenia i przewidywania.
 
-Ustawienia normalizacji wypowiedź są domyślnie wyłączone. Do tych ustawień należą:
+Ustawienia normalizacji wypowiedź są domyślnie wyłączone. takie jak:
 
 * Formularze programu Word
 * Znaki diakrytyczne

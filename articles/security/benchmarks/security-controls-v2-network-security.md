@@ -4,19 +4,21 @@ description: Zabezpieczenia usługi Azure Security test w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4c87dd905ae842647e7ec2e365abf450caf352b0
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fbe71b0ae7bf711d740cbba38c84b68de553f031
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698556"
 ---
 # <a name="security-control-v2-network-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia sieci
 
 Zabezpieczenia sieci obejmują kontrolki zabezpieczające i chroniące sieci platformy Azure. Obejmuje to Zabezpieczanie sieci wirtualnych, nawiązywanie połączeń prywatnych, zapobieganie i łagodzenie ataków zewnętrznych oraz Zabezpieczanie systemu DNS.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na testach zabezpieczeń platformy Azure: zabezpieczenia sieci](../../governance/policy/samples/azure-security-benchmark#network-security)
 
 ## <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: implementowanie zabezpieczeń dla ruchu wewnętrznego
 
@@ -24,9 +26,9 @@ Zabezpieczenia sieci obejmują kontrolki zabezpieczające i chroniące sieci pla
 |--|--|--|--|
 | NS-1 | 9,2, 9,4, 14,1, 14,2, 14,3 | AC-4, CA-3, SC-7 |
 
-Upewnij się, że wszystkie sieci wirtualne platformy Azure są zgodne z zasadami segmentacji przedsiębiorstwa, które są dostosowane do ryzyka biznesowego. Każdy system, który może ponieść wyższy poziom ryzyka dla organizacji, powinien być odizolowany w ramach własnej sieci wirtualnej i dostatecznie zabezpieczony za pomocą sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i/lub zapory platformy Azure. 
+Upewnij się, że wszystkie sieci wirtualne platformy Azure są zgodne z zasadami segmentacji przedsiębiorstwa, które są dostosowane do ryzyka biznesowego. Każdy system, który może ponieść wyższy poziom ryzyka dla organizacji, powinien być odizolowany w ramach własnej sieci wirtualnej i dostatecznie zabezpieczony za pomocą sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i/lub zapory platformy Azure.
 
-Na podstawie aplikacji i strategii segmentacji przedsiębiorstwa należy ograniczyć lub zezwolić na ruch między zasobami wewnętrznymi na podstawie reguł sieciowej grupy zabezpieczeń. W przypadku określonych dobrze zdefiniowanych aplikacji (np. aplikacji 3-warstwowej) może to być wysoce bezpieczne "odmowa domyślnie" Odmów przez wyjątek ". To może nie skalować się prawidłowo, jeśli masz wiele aplikacji i punktów końcowych, które współdziałają ze sobą. Możesz również użyć zapory platformy Azure w sytuacjach, gdy centralne zarządzanie jest wymagane dla dużej liczby segmentów przedsiębiorstwa lub szprych (w topologii gwiazdy). 
+Na podstawie aplikacji i strategii segmentacji przedsiębiorstwa należy ograniczyć lub zezwolić na ruch między zasobami wewnętrznymi na podstawie reguł sieciowej grupy zabezpieczeń. W przypadku określonych dobrze zdefiniowanych aplikacji (np. aplikacji 3-warstwowej) może to być wysoce bezpieczne "odmowa domyślnie" Odmów przez wyjątek ". To może nie skalować się prawidłowo, jeśli masz wiele aplikacji i punktów końcowych, które współdziałają ze sobą. Możesz również użyć zapory platformy Azure w sytuacjach, gdy centralne zarządzanie jest wymagane dla dużej liczby segmentów przedsiębiorstwa lub szprych (w topologii gwiazdy).
 
 Aby zalecać konfiguracje sieciowych grup zabezpieczeń, które ograniczają liczbę portów i źródłowych adresów IP na podstawie odwołań do zewnętrznych reguł ruchu sieciowego, należy użyć Azure Security Center.
 
@@ -44,9 +46,9 @@ Za pomocą wskaźnikowego platformy Azure można wykrywać użycie starszych, ni
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)     
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -56,11 +58,11 @@ Za pomocą wskaźnikowego platformy Azure można wykrywać użycie starszych, ni
 |--|--|--|--|
 | NS-2 | Nie dotyczy | CA-3, AC-17, MA-4 |
 
-Użyj usługi Azure ExpressRoute lub wirtualnej sieci prywatnej (VPN) platformy Azure do tworzenia prywatnych połączeń między centrami danych platformy Azure i infrastrukturą lokalną w środowisku z różnymi lokalizacjami. Połączenia ExpressRoute nie przechodzą przez publiczny Internet i oferują większą niezawodność, większe szybkości i krótsze opóźnienia niż typowe połączenia z Internetem. W przypadku połączeń sieci VPN typu punkt-lokacja i sieci VPN typu lokacja-lokacja można połączyć lokalne urządzenia lub sieci z siecią wirtualną przy użyciu dowolnej kombinacji tych opcji sieci VPN i usługi Azure ExpressRoute.
+Użyj usługi Azure ExpressRoute lub wirtualnej sieci prywatnej (VPN) platformy Azure do tworzenia prywatnych połączeń między centrami danych platformy Azure i infrastrukturą lokalną w środowisku z różnymi lokalizacjami. Połączenia ExpressRoute nie korzystają z publicznej sieci Internet i oferują większą niezawodność, większe szybkości i krótsze opóźnienia niż typowe połączenia z Internetem. W przypadku połączeń sieci VPN typu punkt-lokacja i sieci VPN typu lokacja-lokacja można połączyć lokalne urządzenia lub sieci z siecią wirtualną przy użyciu dowolnej kombinacji tych opcji sieci VPN i usługi Azure ExpressRoute.
 
-Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komunikacji równorzędnej sieci wirtualnej lub łącza prywatnego. Ruch sieciowy między równorzędnymi sieciami wirtualnymi jest prywatny i jest przechowywany w sieci szkieletowej platformy Azure. 
+Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komunikacji równorzędnej sieci wirtualnej lub łącza prywatnego. Ruch sieciowy między równorzędnymi sieciami wirtualnymi jest prywatny i jest przechowywany w sieci szkieletowej platformy Azure.
 
-- [Co to są modele łączności ExpressRoute](../../expressroute/expressroute-connectivity-models.md) 
+- [Co to są modele łączności ExpressRoute](../../expressroute/expressroute-connectivity-models.md)
 
 - [Omówienie usługi Azure VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
@@ -72,11 +74,11 @@ Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komu
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## <a name="ns-3-establish-private-network-access-to-azure-services"></a>NS-3: Ustanów dostęp w sieci prywatnej do usług platformy Azure
 
@@ -84,9 +86,9 @@ Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komu
 |--|--|--|--|
 | NS-3 | 14,1 | AC-4, CA-3, SC-7 |
 
-Użyj prywatnego linku platformy Azure, aby umożliwić prywatny dostęp do usług platformy Azure z sieci wirtualnych bez przekraczania Internetu. W sytuacjach, w których łącze prywatne platformy Azure nie jest jeszcze dostępne, użyj punktów końcowych usługi Azure Virtual Network.  Punkty końcowe usługi Azure Virtual Network zapewniają bezpieczny dostęp do usług za pośrednictwem zoptymalizowanej trasy za pośrednictwem sieci szkieletowej platformy Azure.  
+Użyj prywatnego linku platformy Azure, aby umożliwić prywatny dostęp do usług platformy Azure z sieci wirtualnych bez przekraczania Internetu. W sytuacjach, w których łącze prywatne platformy Azure nie jest jeszcze dostępne, użyj punktów końcowych usługi Azure Virtual Network. Punkty końcowe usługi Azure Virtual Network zapewniają bezpieczny dostęp do usług za pośrednictwem zoptymalizowanej trasy za pośrednictwem sieci szkieletowej platformy Azure.
 
-Dostęp prywatny to dodatkowa ochrona w miarę jak funkcja uwierzytelniania i zabezpieczeń ruchu oferowana przez usługi platformy Azure. 
+Dostęp prywatny to dodatkowe środki ochrony, które oprócz uwierzytelniania i zabezpieczeń ruchu oferowane przez usługi platformy Azure.
 
 - [Opis linku prywatnego platformy Azure](../../private-link/private-link-overview.md)
 
@@ -96,9 +98,9 @@ Dostęp prywatny to dodatkowa ochrona w miarę jak funkcja uwierzytelniania i za
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -108,13 +110,13 @@ Dostęp prywatny to dodatkowa ochrona w miarę jak funkcja uwierzytelniania i za
 |--|--|--|--|
 | NS-4 | 9,5, 12,3, 12,9 | SC-5, SC-7 |
 
-Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atakami rozproszonymi typu "odmowa usługi" (DDoS), atakami specyficznymi dla aplikacji oraz nieproszonym i potencjalnie złośliwym ruchem internetowym. Platforma Azure oferuje natywne możliwości:
+Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atakami typu "odmowa usługi" (DDoS), atakami specyficznymi dla aplikacji oraz nieproszonym i potencjalnie złośliwym ruchem internetowym. Platforma Azure oferuje natywne możliwości:
 -   Używanie zapory platformy Azure do ochrony aplikacji i usług przed potencjalnie złośliwym ruchem z Internetu i innych lokalizacji zewnętrznych. 
 
--   Korzystanie z funkcji zapory aplikacji sieci Web (WAF) na platformie Azure Application Gateway, na platformie Azure z przodu i na platformie Azure Content Delivery Network (CDN) w celu ochrony aplikacji, usług i interfejsów API przed atakami z warstwy aplikacji. 
+-   Korzystanie z funkcji zapory aplikacji sieci Web (WAF) na platformie Azure Application Gateway, na platformie Azure z przodu i na platformie Azure Content Delivery Network (CDN) w celu ochrony aplikacji, usług i interfejsów API przed atakami z warstwy aplikacji.
 
--   Chroń zasoby przed atakami DDoS, włączając ochronę standardową DDoS w sieciach wirtualnych platformy Azure. 
--   Użyj Azure Security Center do wykrywania niepowodowanych problemów z konfiguracją, związanych z powyższym. 
+-   Chroń zasoby przed atakami DDoS, włączając ochronę standardową DDoS w sieciach wirtualnych platformy Azure.
+-   Użyj Azure Security Center do wykrywania niepowodowanych problemów z konfiguracją, związanych z powyższym.
 
 - [Dokumentacja zapory platformy Azure](../../firewall/index.yml)
 
@@ -128,7 +130,7 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -138,7 +140,7 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 |--|--|--|--|
 | NS-5 | 12,6, 12,7 | SI-4 |
 
-Filtrowanie oparte na analizie zagrożeń zapory platformy Azure umożliwia wysyłanie alertów dotyczących i/lub blokowania ruchu do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft. Gdy jest wymagana inspekcja ładunku, można wdrożyć system (identyfikatory/adresy IP) w witrynie Azure Marketplace, korzystając z możliwości inspekcji ładunku. Alternatywnie można używać identyfikatorów/adresów IP opartych na hoście lub rozwiązania do wykrywania punktów końcowych (EDR) opartych na hoście, w połączeniu z lub zamiast identyfikatorów/adresów IP opartych na sieci.  
+Filtrowanie oparte na analizie zagrożeń zapory platformy Azure umożliwia wysyłanie alertów dotyczących i/lub blokowania ruchu do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft. Gdy jest wymagana inspekcja ładunku, można wdrożyć system (identyfikatory/adresy IP) zewnętrznej kontroli dostępu intruzów w portalu Azure Marketplace z możliwościami inspekcji ładunku. Alternatywnie można używać identyfikatorów/adresów IP opartych na hoście lub rozwiązania do wykrywania punktów końcowych (EDR) opartych na hoście, w połączeniu z lub zamiast identyfikatorów/adresów IP opartych na sieci.
 
 Uwaga: Jeśli masz przepisy prawne lub inne wymagania dotyczące używania identyfikatorów/adresów IP, upewnij się, że jest zawsze dostrojona, aby zapewnić wysoką jakość alertów w rozwiązaniu SIEM. 
 
@@ -146,17 +148,17 @@ Uwaga: Jeśli masz przepisy prawne lub inne wymagania dotyczące używania ident
 
 - [Portal Azure Marketplace obejmuje możliwości identyfikatorów innych firm](https://azuremarketplace.microsoft.com/marketplace?search=IDS)
 
-- [Funkcja Microsoft Defender ATP EDR](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+- [Możliwość usługi Microsoft Defender dla punktu końcowego](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Odpowiedzialność**: Klient
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## <a name="ns-6-simplify-network-security-rules"></a>NS-6: uproszczenie reguł zabezpieczeń sieci
 
@@ -164,7 +166,7 @@ Uwaga: Jeśli masz przepisy prawne lub inne wymagania dotyczące używania ident
 |--|--|--|--|
 | NS-6 | 1.5 | IA-4 |
 
-Uprość reguły zabezpieczeń sieci, wykorzystując Tagi usług i grupy zabezpieczeń aplikacji (grupy zabezpieczeń aplikacji). 
+Uprość reguły zabezpieczeń sieci, wykorzystując Tagi usług i grupy zabezpieczeń aplikacji (grupy zabezpieczeń aplikacji).
 
 Użyj tagów usługi Virtual Network, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi w polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 
@@ -178,9 +180,9 @@ Można również użyć grup zabezpieczeń aplikacji do uproszczenia złożonej 
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -190,9 +192,9 @@ Można również użyć grup zabezpieczeń aplikacji do uproszczenia złożonej 
 |--|--|--|--|
 | NS-7 | Nie dotyczy | SC-20, SC-21 |
 
-Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń systemu DNS, aby wyeliminować typowe ataki, takie jak zawieszonego DNS, serwer DNS wzmianuje ataki i zatrucie DNS itd. 
+Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi zabezpieczeń systemu DNS, aby wyeliminować typowe ataki, takie jak zawieszonego DNS, serwer DNS wzmianuje ataki i zatrucie DNS itd.
 
-Gdy Azure DNS jest używany jako autorytatywna usługa DNS, upewnij się, że strefy i rekordy DNS są chronione przed przypadkową lub złośliwą modyfikacją przy użyciu funkcji RBAC i blokad zasobów platformy Azure. 
+Gdy Azure DNS jest używany jako autorytatywna usługa DNS, upewnij się, że strefy i rekordy DNS są chronione przed przypadkową lub złośliwą modyfikacją przy użyciu funkcji RBAC i blokad zasobów platformy Azure.
 
 - [Przegląd Azure DNS](../../dns/dns-overview.md)
 
@@ -204,8 +206,8 @@ Gdy Azure DNS jest używany jako autorytatywna usługa DNS, upewnij się, że st
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
+- [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

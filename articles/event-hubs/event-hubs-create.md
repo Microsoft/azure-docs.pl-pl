@@ -3,12 +3,12 @@ title: Przewodnik Szybki Start platformy Azure — tworzenie centrum zdarzeń pr
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć centrum zdarzeń platformy Azure przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742045"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Szybki start: tworzenie centrum zdarzeń przy użyciu witryny Azure Portal
 Azure Event Hubs to usługa do przesyłania strumieniowego danych Big Data i usługi pozyskiwania zdarzeń, które mogą odbierać i przetwarzać miliony zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -33,7 +33,7 @@ Grupa zasobów to logiczna kolekcja zasobów platformy Azure. Wszystkie zasoby s
 1. W polu **Subskrypcja** wybierz nazwę subskrypcji platformy Azure, w której chcesz utworzyć grupę zasobów.
 1. Wpisz unikatową **nazwę grupy zasobów**. System natychmiast sprawdzi, czy nazwa jest dostępna w aktualnie wybranej subskrypcji platformy Azure.
 1. Wybierz **region** dla grupy zasobów.
-1. Wybierz pozycję **Recenzja + Utwórz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
    ![Grupa zasobów — tworzenie](./media/event-hubs-quickstart-portal/resource-groups2.png)
 1. Na stronie **Przeglądanie + tworzenie** wybierz pozycję **Utwórz**. 
@@ -87,7 +87,7 @@ Aby utworzyć centrum zdarzeń w przestrzeni nazw, wykonaj następujące akcje:
 
     Ustawienie **liczba partycji** pozwala zrównoleglanie użycie wielu odbiorców. Aby uzyskać więcej informacji, zobacz [partycje](event-hubs-scalability.md#partitions).
 
-    Ustawienie **przechowywania wiadomości** określa, jak długo usługa Event Hubs przechowuje dane. Maksymalne limity dla tego ustawienia można znaleźć w temacie [limity przydziału i limity](event-hubs-quotas.md).
+    Ustawienie **przechowywania wiadomości** określa, jak długo usługa Event Hubs przechowuje dane. Aby uzyskać więcej informacji, zobacz [przechowywanie zdarzeń](event-hubs-features.md#event-retention).
 1. Możesz sprawdzić stan tworzenia centrum zdarzeń w alertach. Po utworzeniu centrum zdarzeń zostanie ono wyświetlone na liście centrów zdarzeń.
 
     ![Centrum zdarzeń zostało utworzone](./media/event-hubs-quickstart-portal/event-hub-created.png)

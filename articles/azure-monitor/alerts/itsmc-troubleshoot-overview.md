@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 991d37b097587e8e4a524c4fc8bc21e9b6af20b5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a01005231b5d775f79555ec10dedeb3f30b3426a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616670"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737209"
 ---
 # <a name="troubleshoot-problems-in-it-service-management-connector"></a>Rozwiązywanie problemów z łącznik zarządzania usługami IT
 
@@ -55,7 +55,7 @@ W poniższych sekcjach zidentyfikowano typowe objawy, możliwe przyczyny i rozwi
 
 * Poświadczenia są nieprawidłowe.
 * Niewystarczające uprawnienia.
-* Aplikacja sieci Web została niepoprawnie wdrożona.
+* Dla połączeń Service Manager: aplikacja sieci Web została niepoprawnie wdrożona.
 
 **Rozwiązanie**:
 
@@ -95,3 +95,12 @@ W poniższych sekcjach zidentyfikowano typowe objawy, możliwe przyczyny i rozwi
 **Przyczyna**: nowo utworzone wystąpienie ITSMC jeszcze raz zakończyło synchronizację początkową.
 
 **Rozwiązanie**: Przejrzyj [typowe błędy i ich rozwiązania](itsmc-dashboard-errors.md).
+
+### <a name="sync-connection"></a>Synchronizuj połączenie 
+
+**Przyczyna**: może istnieć kilka przyczyn tego symptomu:
+
+* Szablony nie są wyświetlane jako część definicji akcji.
+* Incedents/zdarzenia nie są tworzone w usługi ServiceNow.
+
+**Rozwiązanie**: [zsynchronizuj łącznik](itsmc-resync-servicenow.md).

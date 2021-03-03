@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e195c005676df27385e5e00736b04bdb689fafc5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727111"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Odmowa dostępu do sieci publicznej w Azure Database for PostgreSQL pojedynczym serwerze przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ W tym artykule opisano sposób konfigurowania Azure Database for PostgreSQL poje
 
 Aby ukończyć ten przewodnik, musisz:
 
-* [Azure Database for PostgreSQL pojedynczy serwer](quickstart-create-server-database-portal.md)
+* [Azure Database for PostgreSQL pojedynczym serwerze](quickstart-create-server-database-portal.md) z warstwą cenową ogólnego przeznaczenia lub zoptymalizowaną pod kątem pamięci.
 
 ## <a name="set-deny-public-network-access"></a>Ustaw Odmów dostępu do sieci publicznej
 
@@ -35,11 +35,11 @@ Wykonaj następujące kroki, aby ustawić PostgreSQL jeden serwer Odmów dostęp
 
     :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Azure Database for PostgreSQL dostęp do sieci przy pojedynczym serwerze":::
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Azure Database for PostgreSQL dostęp do sieci przy pojedynczym serwerze":::
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Odmowa dostępu do sieci przez pojedynczy serwer Azure Database for PostgreSQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 

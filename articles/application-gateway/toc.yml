@@ -158,6 +158,8 @@
           href: ingress-controller-install-existing.md
         - name: Ruch przychodzący usługi AKS za pośrednictwem programu Helm (greenfield)
           href: ingress-controller-install-new.md
+        - name: Migrowanie z wdrożenia Helm do dodatku AKS
+          href: ingress-controller-migration.md
         - name: Wyłączanie i ponowne włączanie dodatku kontrolera ruchu przychodzącego usługi AKS
           href: ingress-controller-disable-addon.md
         - name: Włączanie koligacji plików cookie

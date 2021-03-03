@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108062"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690627"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -229,17 +229,15 @@ Domyślny okres przechowywania kopii zapasowej kopie można zmienić przy użyci
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Zmień okres przechowywania kopii zapasowej kopie przy użyciu Azure Portal
 
-Aby zmienić kopie okres przechowywania kopii zapasowych dla aktywnych baz danych przy użyciu Azure Portal, przejdź do serwera lub wystąpienia zarządzanego z bazami danych, których okres przechowywania chcesz zmienić. 
+Aby zmienić kopie okres przechowywania kopii zapasowych dla aktywnych baz danych przy użyciu Azure Portal, przejdź do serwera lub wystąpienia zarządzanego z bazami danych, których okres przechowywania chcesz zmienić. W lewym okienku wybierz pozycję **kopie zapasowe** , a następnie wybierz kartę **zasady przechowywania** . Wybierz bazy danych, dla których chcesz zmienić przechowywanie kopii zapasowych kopie. Następnie wybierz pozycję **Konfiguruj przechowywanie** na pasku akcji.
+
+
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
-
-Zmiany w kopie przechowywanie kopii zapasowych dla SQL Database są wykonywane na stronie serwera w portalu. Aby zmienić przechowywanie kopie dla baz danych na serwerze, przejdź do bloku przegląd serwera. Wybierz pozycję **Zarządzaj kopiami zapasowymi** w lewym okienku, wybierz bazy danych w zakresie zmiany, a następnie wybierz pozycję **Konfiguruj przechowywanie** w górnej części ekranu:
 
 ![Zmień kopie przechowywania, poziom serwera](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Wystąpienie zarządzane SQL](#tab/managed-instance)
-
-Zmiany w kopie przechowywanie kopii zapasowych dla wystąpienia zarządzanego SQL są wykonywane na poziomie poszczególnych baz danych. Aby zmienić kopie przechowywanie kopii zapasowych dla bazy danych wystąpienia z Azure Portal, przejdź do bloku przegląd poszczególnych baz danych. Następnie wybierz pozycję **Konfiguruj przechowywanie kopii zapasowych** w górnej części ekranu:
 
 ![Zmień kopie przechowywania, wystąpienie zarządzane](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 

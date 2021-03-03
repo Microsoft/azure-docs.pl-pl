@@ -1,22 +1,21 @@
 ---
 title: Network Performance Monitor łączności usługi rozwiązań — Azure Log Analytics
 description: Korzystając z funkcji Monitor łączności usługi w Network Performance Monitor, można monitorować łączność sieciową z dowolnym punktem końcowym z otwartym portem TCP.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573409"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734166"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
 
 > [!IMPORTANT]
-> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Możesz użyć możliwości monitora łączności usług w [Network Performance Monitor](network-performance-monitor.md) , aby monitorować łączność sieciową z dowolnym punktem końcowym, który ma otwarty port TCP. Takie punkty końcowe obejmują witryny sieci Web, aplikacje SaaS, aplikacje PaaS i bazy danych SQL. 
 
@@ -137,4 +136,3 @@ W przypadku regionu Wirginia dla instytucji rządowych Stanów Zjednoczonych tyl
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyszukaj dzienniki](../logs/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
-

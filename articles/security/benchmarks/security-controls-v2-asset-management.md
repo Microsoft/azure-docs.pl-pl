@@ -4,19 +4,21 @@ description: Azure Security test — zarządzanie zasobami
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735815"
 ---
 # <a name="security-control-v2-asset-management"></a>Kontrola zabezpieczeń v2: zarządzanie zasobami
 
 Zarządzanie zasobami obejmuje kontrolki zapewniające widoczność i nadzór nad bezpieczeństwem zasobów platformy Azure. Obejmuje to zalecenia dotyczące uprawnień dla personelu zabezpieczeń, bezpieczeństwa dostępu do spisu zasobów oraz zarządzania zatwierdzeniami usług i zasobów (spis, śledzenie i poprawne).
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na testach zabezpieczeń platformy Azure: zabezpieczenia sieci](../../governance/policy/samples/azure-security-benchmark#asset-management)
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Upewnij się, że zespół ds. zabezpieczeń ma wgląd w ryzyko związane z elementami zawartości
 
@@ -24,13 +26,13 @@ Zarządzanie zasobami obejmuje kontrolki zapewniające widoczność i nadzór na
 |--|--|--|--|
 | AM-1 | 1,1, 1,2 | CM-8, PM-5 |
 
-Upewnij się, że zespoły zabezpieczeń mają przyznane uprawnienia czytelnika zabezpieczeń w dzierżawie i subskrypcjach platformy Azure, aby umożliwić im monitorowanie zagrożeń bezpieczeństwa przy użyciu Azure Security Center. 
+Upewnij się, że zespoły zabezpieczeń mają przyznane uprawnienia czytelnika zabezpieczeń w dzierżawie i subskrypcjach platformy Azure, aby umożliwić im monitorowanie zagrożeń bezpieczeństwa przy użyciu Azure Security Center.
 
-W zależności od istniejącej struktury obowiązków zespołu ds. zabezpieczeń, monitorowanie zagrożeń bezpieczeństwa może być obowiązkiem centralnego zespołu ds. zabezpieczeń lub zespołu lokalnego. Niemniej jednak informacje na temat zabezpieczeń i ryzyka muszą być zawsze agregowane centralnie w ramach danej organizacji. 
+W zależności od tego, jak są strukturalne obowiązki zespołu zabezpieczeń, monitorowanie zagrożeń bezpieczeństwa może być obowiązkiem centralnego zespołu zabezpieczeń lub zespołu lokalnego. Niemniej jednak informacje na temat zabezpieczeń i ryzyka muszą być zawsze agregowane centralnie w ramach danej organizacji. 
 
 Uprawnienia czytelnika zabezpieczeń mogą być stosowane szeroko do całej dzierżawy (główna grupa zarządzania) lub do zakresu w postaci grup zarządzania lub określonych subskrypcji. 
 
-Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatkowe uprawnienia. 
+Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatkowe uprawnienia.
 
 - [Omówienie roli czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -52,9 +54,9 @@ Uwaga: Do uzyskania wglądu w obciążenia i usługi mogą być wymagane dodatko
 
 Upewnij się, że zespoły zabezpieczeń mają dostęp do stale aktualizowanego spisu zasobów na platformie Azure. Zespoły ds. zabezpieczeń często potrzebują tego spisu, aby oszacować potencjalne zagrożenie w organizacji do pojawiających się zagrożeń i jako dane wejściowe w celu ciągłego ulepszania zabezpieczeń. 
 
-Funkcja spisu Azure Security Center i wykres zasobów platformy Azure mogą wykonywać zapytania dotyczące i odnajdywania wszystkich zasobów w subskrypcjach, w tym usług platformy Azure, aplikacji i zasobów sieciowych.  
+Funkcja spisu Azure Security Center i wykres zasobów platformy Azure mogą wykonywać zapytania dotyczące i odnajdywania wszystkich zasobów w subskrypcjach, w tym usług platformy Azure, aplikacji i zasobów sieciowych.
 
-Logicznie organizuj elementy zawartości zgodnie z taksonomią organizacji przy użyciu tagów, a także innych metadanych na platformie Azure (nazwa, opis i kategoria).  
+Logicznie Organizuj zasoby zgodnie z taksonomią organizacji przy użyciu tagów, a także innych metadanych na platformie Azure (nazwa, opis i Kategoria).
 
 - [Jak tworzyć zapytania za pomocą eksploratora usługi Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -76,7 +78,7 @@ Logicznie organizuj elementy zawartości zgodnie z taksonomią organizacji przy 
 |--|--|--|--|
 | AM-3 | 2,3, 2,4 | CM – 7, CM-8 |
 
-Usługa Azure Policy pozwala przeprowadzić inspekcję i ograniczyć liczbę usług, które użytkownicy mogą aprowizować w danym środowisku. Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasobów i odnajdywanie ich w ramach subskrypcji.  Za pomocą usługi Azure Monitor można tworzyć reguły wyzwalające alerty w przypadku wykrycia niezatwierdzonej usługi.
+Usługa Azure Policy pozwala przeprowadzić inspekcję i ograniczyć liczbę usług, które użytkownicy mogą aprowizować w danym środowisku. Usługa Azure Resource Graph umożliwia wykonywanie zapytań dotyczących zasobów i odnajdywanie ich w ramach subskrypcji. Za pomocą usługi Azure Monitor można tworzyć reguły wyzwalające alerty w przypadku wykrycia niezatwierdzonej usługi.
 
 - [Konfigurowanie Azure Policy i zarządzanie nimi](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -90,7 +92,7 @@ Usługa Azure Policy pozwala przeprowadzić inspekcję i ograniczyć liczbę us�
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>ZZ-4: zapewnienie bezpieczeństwa zarządzania cyklem życia zasobów
 
@@ -110,7 +112,7 @@ Usuń zasoby platformy Azure, gdy nie są już potrzebne.
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -128,7 +130,7 @@ Korzystanie z dostępu warunkowego usługi Azure AD w celu ograniczenia możliwo
 
 **Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -144,7 +146,7 @@ Użyj Azure Security Center (ASC) adaptacyjnych kontrolek aplikacji, aby odnajdy
 
 Za pomocą Azure Automation Change Tracking i spisu można zautomatyzować zbieranie informacji o spisie z maszyn wirtualnych z systemami Windows i Linux. W Azure Portal są dostępne nazwy, wersje, Wydawca i czas odświeżania oprogramowania. Aby uzyskać datę instalacji oprogramowania i inne informacje, Włącz diagnostykę na poziomie gościa i Przekieruj dzienniki zdarzeń systemu Windows do obszaru roboczego Log Analytics.
 
-W zależności od typu skryptów można użyć konfiguracji specyficznych dla systemu operacyjnego lub zasobów innych firm, aby ograniczyć możliwość wykonywania skryptów w zasobach obliczeniowych platformy Azure. 
+W zależności od typu skryptów można użyć konfiguracji specyficznych dla systemu operacyjnego lub zasobów innych firm, aby ograniczyć możliwość wykonywania skryptów w zasobach obliczeniowych platformy Azure.
 
 Możesz również użyć rozwiązania innej firmy w celu odnalezienia i zidentyfikowania niezatwierdzonego oprogramowania.
 
@@ -160,6 +162,6 @@ Możesz również użyć rozwiązania innej firmy w celu odnalezienia i zidentyf
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)

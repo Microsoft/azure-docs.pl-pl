@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614430"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714157"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
 ## <a name="overview"></a>Omówienie
 
-Alerty dzienników są jednym z typów alertów, które są obsługiwane w [alertach platformy Azure](../platform/alerts-overview.md). Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](../platform/action-groups.md).
+Alerty dzienników są jednym z typów alertów, które są obsługiwane w [alertach platformy Azure](./alerts-overview.md). Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../logs/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md).
 
 > [!NOTE]
-> Dane dziennika z [obszaru roboczego log Analytics](../log-query/log-analytics-tutorial.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
+> Dane dziennika z [obszaru roboczego log Analytics](../logs/log-analytics-tutorial.md) mogą być wysyłane do magazynu metryk Azure monitor. Alerty metryk mają [różne zachowanie](alerts-metric-overview.md), co może być bardziej odpowiednie w zależności od danych, z którymi pracujesz. Aby uzyskać informacje na temat tego, co i jak można kierować dzienniki do metryk, zobacz [alert metryki dla dzienników](alerts-metric-logs.md).
 
 > [!NOTE]
 > Obecnie nie ma dodatkowych opłat za wersję interfejsu API `2020-05-01-preview` i alerty dzienników zorientowanych na zasoby.  Cennik funkcji, które są w wersji zapoznawczej, zostanie ogłoszony w przyszłości, a powiadomienie podane przed rozpoczęciem rozliczania. W przypadku wybrania opcji kontynuowania korzystania z nowej wersji interfejsu API i zdarzeń dzienników skoncentrowanych na zasobach po upływie okresu wypowiedzenia zostanie naliczona stawka mająca zastosowanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Alerty dzienników uruchamiają zapytania dotyczące danych Log Analytics. Najpierw należy rozpocząć [zbieranie danych dziennika](../platform/resource-logs.md) i wykonywanie zapytań dotyczących danych dziennika pod kątem problemów. Możesz użyć [przykładowego zapytania dotyczącego alertu](../log-query/example-queries.md) w log Analytics, aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../log-query/log-analytics-tutorial.md).
+Alerty dzienników uruchamiają zapytania dotyczące danych Log Analytics. Najpierw należy rozpocząć [zbieranie danych dziennika](../essentials/resource-logs.md) i wykonywanie zapytań dotyczących danych dziennika pod kątem problemów. Możesz użyć [przykładowego zapytania dotyczącego alertu](../logs/example-queries.md) w log Analytics, aby zrozumieć, co można odkryć lub [zacząć pisać przy tworzeniu własnych zapytań](../logs/log-analytics-tutorial.md).
 
-[Współautor monitorowania platformy Azure](../platform/roles-permissions-security.md) to wspólna rola, która jest wymagana do tworzenia, modyfikowania i aktualizowania alertów dzienników. W przypadku dzienników zasobów należy również uzyskać uprawnienia dostępu & wykonywania zapytań. Częściowe dostęp do dzienników zasobów może kończyć się niepowodzeniem lub zwracać częściowe wyniki. [Dowiedz się więcej o konfigurowaniu alertów dziennika na platformie Azure](./alerts-log.md).
+[Współautor monitorowania platformy Azure](../roles-permissions-security.md) to wspólna rola, która jest wymagana do tworzenia, modyfikowania i aktualizowania alertów dzienników. W przypadku dzienników zasobów należy również uzyskać uprawnienia dostępu & wykonywania zapytań. Częściowe dostęp do dzienników zasobów może kończyć się niepowodzeniem lub zwracać częściowe wyniki. [Dowiedz się więcej o konfigurowaniu alertów dziennika na platformie Azure](./alerts-log.md).
 
 > [!NOTE]
-> Alerty dzienników dla Log Analytics używane do zarządzania przy użyciu starszego [interfejsu API log Analytics alertów](../platform/api-alerts.md). [Dowiedz się więcej na temat przełączania do bieżącego interfejsu API ScheduledQueryRules](../alerts/alerts-log-api-switch.md).
+> Alerty dzienników dla Log Analytics używane do zarządzania przy użyciu starszego [interfejsu API log Analytics alertów](./api-alerts.md). [Dowiedz się więcej na temat przełączania do bieżącego interfejsu API ScheduledQueryRules](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>Definicja oceny zapytania
 
@@ -44,17 +44,17 @@ Definicja warunku reguł przeszukiwania dzienników zaczyna się od:
 W poniższych sekcjach opisano różne parametry, których można użyć w celu ustawienia powyższej logiki.
 
 ### <a name="log-query"></a>Zapytanie dziennika
-Zapytanie [log Analytics](../log-query/log-analytics-tutorial.md) używane do obliczania reguły. Wyniki zwrócone przez to zapytanie są używane do określenia, czy alert ma zostać wyzwolony. Do tego zapytania można domieścić zakresy:
+Zapytanie [log Analytics](../logs/log-analytics-tutorial.md) używane do obliczania reguły. Wyniki zwrócone przez to zapytanie są używane do określenia, czy alert ma zostać wyzwolony. Do tego zapytania można domieścić zakresy:
 
 - Określony zasób, na przykład maszynę wirtualną.
 - Zasób o dużej skali, taki jak subskrypcja lub Grupa zasobów.
-- Wiele zasobów przy użyciu [zapytania między zasobami](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Wiele zasobów przy użyciu [zapytania między zasobami](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > Zapytania alertów mają ograniczenia, aby zapewnić optymalną wydajność i znaczenie wyników. [Więcej informacji można znaleźć tutaj](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> Zamiar zasobów i [zapytania między zasobami](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) są obsługiwane tylko przy użyciu bieżącego interfejsu API scheduledQueryRules. W przypadku korzystania z starszego [interfejsu API log Analytics alertów](../platform/api-alerts.md)należy przełączyć. [Dowiedz się więcej o przełączaniu](./alerts-log-api-switch.md)
+> Zamiar zasobów i [zapytania między zasobami](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) są obsługiwane tylko przy użyciu bieżącego interfejsu API scheduledQueryRules. W przypadku korzystania z starszego [interfejsu API log Analytics alertów](./api-alerts.md)należy przełączyć. [Dowiedz się więcej o przełączaniu](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Zakres czasu zapytania
 
@@ -154,7 +154,7 @@ Na przykład chcesz monitorować błędy wielu maszyn wirtualnych z uruchomioną
 Ta reguła monitoruje, czy dowolna maszyna wirtualna miała zdarzenia błędów w ciągu ostatnich 15 minut. Każda maszyna wirtualna jest monitorowana osobno i wyzwala akcje pojedynczo.
 
 > [!NOTE]
-> Podział według wymiarów alertów jest dostępny tylko dla bieżącego interfejsu API scheduledQueryRules. W przypadku korzystania z starszego [interfejsu API log Analytics alertów](../platform/api-alerts.md)należy przełączyć. [Dowiedz się więcej o przełączaniu](./alerts-log-api-switch.md). Generowanie alertów zasobów na dużą skalę jest obsługiwane tylko w wersji interfejsu API `2020-05-01-preview` i nowszych.
+> Podział według wymiarów alertów jest dostępny tylko dla bieżącego interfejsu API scheduledQueryRules. W przypadku korzystania z starszego [interfejsu API log Analytics alertów](./api-alerts.md)należy przełączyć. [Dowiedz się więcej o przełączaniu](./alerts-log-api-switch.md). Generowanie alertów zasobów na dużą skalę jest obsługiwane tylko w wersji interfejsu API `2020-05-01-preview` i nowszych.
 
 ## <a name="alert-logic-definition"></a>Definicja logiki alertu
 
@@ -197,17 +197,17 @@ Informacje o cenach znajdują się na [stronie cennika Azure monitor](https://az
 
 - Alerty dzienników dla Application Insights wyświetlane z dokładną nazwą zasobu oraz właściwościami grupy zasobów i alertu.
 - Alerty dzienników dla Log Analytics wyświetlane z dokładną nazwą zasobu wraz z właściwościami grupy zasobów i alertu; podczas tworzenia przy użyciu [interfejsu API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules).
-- Alerty dzienników utworzone ze [starszej wersji interfejsu API log Analytics](../platform/api-alerts.md) nie są śledzone [zasoby platformy Azure](../../azure-resource-manager/management/overview.md) i nie mają wymuszanych unikatowych nazw zasobów. Te alerty są nadal tworzone w `microsoft.insights/scheduledqueryrules` postaci ukrytych zasobów, które mają tę strukturę nazewnictwa zasobów `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Alerty dzienników dla starszego interfejsu API są wyświetlane z podaną powyżej ukrytą nazwą zasobu wraz z właściwościami grupy zasobów i alertu.
+- Alerty dzienników utworzone ze [starszej wersji interfejsu API log Analytics](./api-alerts.md) nie są śledzone [zasoby platformy Azure](../../azure-resource-manager/management/overview.md) i nie mają wymuszanych unikatowych nazw zasobów. Te alerty są nadal tworzone w `microsoft.insights/scheduledqueryrules` postaci ukrytych zasobów, które mają tę strukturę nazewnictwa zasobów `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Alerty dzienników dla starszego interfejsu API są wyświetlane z podaną powyżej ukrytą nazwą zasobu wraz z właściwościami grupy zasobów i alertu.
 
 > [!NOTE]
 > Nieobsługiwane znaki zasobów, takie jak `<, >, %, &, \, ?, /` są zastępowane `_` w ramach ukrytych nazw zasobów, a także odzwierciedlają informacje o rozliczeniach.
 
 > [!NOTE]
-> Alerty dzienników dla Log Analytics używane do zarządzania przy użyciu starszego [interfejsu API alertów log Analytics](../platform/api-alerts.md) i starszych szablonów [log Analytics zapisanych wyszukiwań i alertów](../insights/solutions.md). [Dowiedz się więcej na temat przełączania do bieżącego interfejsu API ScheduledQueryRules](../alerts/alerts-log-api-switch.md). Wszelkie zarządzanie regułami alertów należy wykonać przy użyciu [starszej wersji interfejsu API log Analytics](../platform/api-alerts.md) , dopóki nie zdecydujesz się na przełączenie i nie będzie można używać ukrytych zasobów.
+> Alerty dzienników dla Log Analytics używane do zarządzania przy użyciu starszego [interfejsu API alertów log Analytics](./api-alerts.md) i starszych szablonów [log Analytics zapisanych wyszukiwań i alertów](../insights/solutions.md). [Dowiedz się więcej na temat przełączania do bieżącego interfejsu API ScheduledQueryRules](../alerts/alerts-log-api-switch.md). Wszelkie zarządzanie regułami alertów należy wykonać przy użyciu [starszej wersji interfejsu API log Analytics](./api-alerts.md) , dopóki nie zdecydujesz się na przełączenie i nie będzie można używać ukrytych zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej [na temat tworzenia alertów dziennika na platformie Azure](./alerts-log.md).
 * Informacje [o elementach webhook w alertach dziennika na platformie Azure](../alerts/alerts-log-webhook.md).
-* Dowiedz się więcej o [alertach platformy Azure](../platform/alerts-overview.md).
-* Dowiedz się więcej o [log Analytics](../log-query/log-query-overview.md).
+* Dowiedz się więcej o [alertach platformy Azure](./alerts-overview.md).
+* Dowiedz się więcej o [log Analytics](../logs/log-query-overview.md).

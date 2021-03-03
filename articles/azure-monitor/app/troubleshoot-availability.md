@@ -4,14 +4,14 @@ description: Rozwiązywanie problemów z testami sieci Web w usłudze Azure Appl
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583724"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728930"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -58,7 +58,7 @@ Raport Rozwiązywanie problemów umożliwia łatwe diagnozowanie typowych proble
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Nie otrzymałem wiadomości e-mail po wyzwoleniu lub rozwiązaniu alertu?
 
-Sprawdź konfigurację klasycznych alertów, aby potwierdzić, że poczta e-mail została wyświetlona bezpośrednio, lub listę dystrybucyjną, która jest skonfigurowana do odbierania powiadomień. Jeśli tak jest, sprawdź konfigurację listy dystrybucyjnej, aby potwierdzić, że może odbierać zewnętrzne wiadomości e-mail. Sprawdź również, czy administrator poczty mogą mieć skonfigurowane zasady, które mogą spowodować ten problem.
+Sprawdź konfigurację grupy akcji alertów, aby potwierdzić, że wiadomość e-mail została umieszczona bezpośrednio na liście, lub listę dystrybucyjną, która jest włączona, jest skonfigurowana do odbierania powiadomień. Jeśli tak jest, sprawdź konfigurację listy dystrybucyjnej, aby potwierdzić, że może odbierać zewnętrzne wiadomości e-mail. Sprawdź również, czy administrator poczty mogą mieć skonfigurowane zasady, które mogą spowodować ten problem.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Nie otrzymałem powiadomienia elementu webhook?
 
@@ -110,21 +110,6 @@ Istnieje limit 100 żądań na test. Test zostanie zatrzymany, jeśli działa d�
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Jak uruchomić test z wykorzystaniem certyfikatów klienta?
 
 Nie jest to obecnie obsługiwane.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Kto otrzymuje powiadomienia o alertach (klasyczny)?
-
-Ta sekcja ma zastosowanie tylko do klasycznych alertów i pomoże zoptymalizować swoje powiadomienia o alertach, aby upewnić się, że tylko żądani adresaci otrzymają powiadomienia. Aby dowiedzieć się więcej o różnicach między [klasycznymi alertami](../alerts/alerts-classic.overview.md)i nowym działaniem alertów, zapoznaj się z [artykułem przegląd alertów](../alerts/alerts-overview.md). Aby sterować powiadomieniami o alertach w nowych działaniach związanych z alertami, użyj [grup akcji](../alerts/action-groups.md).
-
-* Zalecamy użycie określonych odbiorców w przypadku klasycznych powiadomień o alertach.
-
-* W przypadku alertów dotyczących błędów z lokalizacji X poza Y, opcja **Zbiorcza/Grupa** pole wyboru, jeśli jest włączone, wysyła do użytkowników z rolami administratora/współadministratora.  Zasadniczo _Wszyscy_ Administratorzy _subskrypcji_ otrzymają powiadomienia.
-
-* W przypadku alertów dotyczących metryk dostępności opcja pola wyboru **Zbiorcza/Grupa** , jeśli jest włączona, wysyła do użytkowników z rolami właściciela, współautora lub czytelnika w subskrypcji. W efekcie _Wszyscy_ użytkownicy z dostępem do subskrypcji, w której znajduje się zasób Application Insights, znajdują się w zakresie i będą otrzymywać powiadomienia. 
-
-> [!NOTE]
-> Jeśli obecnie używasz opcji **zbiorczych/grupowych** pól wyboru i go wyłączysz, nie będzie można przywrócić zmiany.
-
-Jeśli musisz powiadomić użytkowników na podstawie ich ról, Użyj nowego środowiska alertu/alertów w czasie rzeczywistym. Za pomocą [grup akcji](../alerts/action-groups.md)można skonfigurować powiadomienia e-mail dla użytkowników z dowolnymi rolami współautor/właściciela/czytnika (nie razem ze sobą jako pojedynczą opcją).
 
 ## <a name="next-steps"></a>Następne kroki
 

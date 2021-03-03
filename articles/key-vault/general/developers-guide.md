@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 550084ccbb1df24fe0cbc0a4630efe19e6685e5c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791428"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709907"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -41,7 +41,7 @@ Dostęp do warstwy zarządzania jest kontrolowany przez funkcję [kontroli dost�
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault)<br>[Szybki start](quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults)<br>[Szybki start](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Odwołanie](/dotnet/api/microsoft.azure.management.keyvault)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Odwołanie](/java/api/com.microsoft.azure.management.keyvault)|[Odwołanie](/javascript/api/@azure/arm-keyvault)|
+|[Odwołanie](/cli/azure/keyvault)<br>[Szybki start](quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/)|[Odwołanie](/azure/templates/microsoft.keyvault/vaults)<br>[Szybki start](./vault-create-template.md)|[Odwołanie](/dotnet/api/microsoft.azure.management.keyvault)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Odwołanie](/java/api/com.microsoft.azure.management.keyvault)|[Odwołanie](/javascript/api/@azure/arm-keyvault)|
 
 Zobacz [biblioteki klienckie](client-libraries.md) dla pakietów instalacyjnych i kodu źródłowego.
 

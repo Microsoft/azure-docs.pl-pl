@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 03/01/2021
 ms.author: victorh
-ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741365"
 ---
 # <a name="configure-azure-firewall-rules"></a>Konfigurowanie reguł zapory platformy Azure
 Reguły translatora adresów sieciowych, reguły sieci i aplikacje można skonfigurować w zaporze platformy Azure. Kolekcje reguł są przetwarzane zgodnie z typem reguły w kolejności priorytetów, niższymi liczbami od 100 do 65 000. Nazwa kolekcji reguł może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. Musi zaczynać się literą lub cyfrą oraz kończyć się literą, cyfrą lub podkreśleniem. Maksymalna długość nazwy to 80 znaków.
@@ -38,7 +38,7 @@ Przed 9 listopada 2020 **wszystkie** przeznaczone do tego **protokoły TCP**, **
 
 ### <a name="nat-rules"></a>Reguły NAT
 
-Przychodzące połączenie internetowe można włączyć przez skonfigurowanie translacji adresów sieciowych (DNAT), zgodnie z opisem w [samouczku: filtrowanie ruchu przychodzącego za pomocą zapory platformy Azure DNAT przy użyciu Azure Portal](tutorial-firewall-dnat.md). Reguły NAT są stosowane w priorytecie przed regułami sieci. Jeśli zostanie znalezione dopasowanie, niejawna odpowiadająca reguła sieci umożliwia dodanie przetłumaczonego ruchu. Aby przesłonić to zachowanie, jawnie dodaj kolekcję reguł sieci z regułami odmowy zgodnymi z przetłumaczonym ruchem.
+Przychodzące połączenie internetowe można włączyć przez skonfigurowanie translacji adresów sieciowych (DNAT), zgodnie z opisem w [samouczku: filtrowanie ruchu przychodzącego za pomocą zapory platformy Azure DNAT przy użyciu Azure Portal](tutorial-firewall-dnat.md). Reguły NAT są stosowane w priorytecie przed regułami sieci. Jeśli zostanie znalezione dopasowanie, niejawna odpowiadająca reguła sieci umożliwia dodanie przetłumaczonego ruchu. Ze względów bezpieczeństwa zalecanym rozwiązaniem jest dodanie określonego źródła internetowego w celu umożliwienia DNAT dostępu do sieci i unikania używania symboli wieloznacznych.
 
 Reguły aplikacji nie są stosowane do połączeń przychodzących. Dlatego jeśli chcesz filtrować ruch przychodzący HTTP/S, należy użyć zapory aplikacji sieci Web (WAF). Aby uzyskać więcej informacji, zobacz [co to jest Zapora aplikacji sieci Web platformy Azure?](../web-application-firewall/overview.md)
 

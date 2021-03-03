@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705997"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Rozwiązywanie problemów z aranżacją i wyzwalaczami potoku w Azure Data Factory
 
@@ -78,13 +78,32 @@ Azure Data Factory oblicza wynik wszystkich działań na poziomie liścia. Wynik
 1. Zaimplementuj kontrole na poziomie działania, wykonując następujące czynności [, jak obsługiwać awarie i błędy potoków](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 1. Użyj Azure Logic Apps, aby monitorować potoki w regularnych odstępach czasu [, wykonując zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory).
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitoruj błędy potoku w regularnych odstępach czasu
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Jak monitorować błędy potoków w regularnych odstępach czasu
 
 Może być konieczne monitorowanie niezakończonych potoków Data Factory w interwałach, powiedzmy 5 minut. Można wykonywać zapytania i filtrować uruchomienia potoku z fabryki danych przy użyciu punktu końcowego. 
 
-Skonfiguruj aplikację logiki platformy Azure, aby wykonywać zapytania dotyczące wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytanie według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz zgłosić zdarzenia do naszego systemu biletów.
+**Rozwiązanie** Można skonfigurować aplikację logiki platformy Azure, która będzie wysyłać zapytania do wszystkich zakończonych niepowodzeniem potoków co 5 minut, zgodnie z opisem w temacie [zapytania według fabryki](/rest/api/datafactory/pipelineruns/querybyfactory). Następnie możesz raportować zdarzenia do systemu biletów.
 
 Aby uzyskać więcej informacji, przejdź do [strony wysyłanie powiadomień z Data Factory, część 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Stopień wzrostu równoległości nie powoduje większej przepływności
+
+**Przyczyna** 
+
+Stopień równoległości w instrukcji *foreach* to faktycznie maksymalny stopień równoległości. Nie możemy zagwarantować, że liczba wykonanych wykonań w tym samym czasie, ale ten parametr gwarantuje, że nigdy nie przejdzie powyżej ustawionej wartości. Powinna zostać wyświetlona jako limit, który ma być używany podczas kontrolowania współbieżnego dostępu do źródeł i ujścia.
+
+Znane fakty dotyczące instrukcji *foreach*
+ * Instrukcja foreach ma właściwość o nazwie Batch Count (n), gdzie wartość domyślna to 20, a maksymalna to 50.
+ * Liczba partii, n, jest używana do tworzenia kolejek n. W dalszej części omówiono niektóre szczegóły dotyczące sposobu konstruowania tych kolejek.
+ * Każda kolejka jest uruchamiana sekwencyjnie, ale można równolegle pracować z kilkoma kolejkami.
+ * Kolejki są wstępnie utworzone. Oznacza to, że w czasie wykonywania nie ma potrzeby ponownego równoważenia kolejek.
+ * W dowolnym momencie masz co najwyżej jeden element przetwarzany na kolejkę. Oznacza to, że co najwyżej n elementów jest przetwarzanych w dowolnym momencie.
+ * Łączny czas przetwarzania foreach jest równy czasowi przetwarzania najdłuższej kolejki. Oznacza to, że działanie foreach jest zależne od tego, jak są konstruowane kolejki.
+ 
+**Rozwiązanie**
+
+ * Nie należy używać działania *setvariable* wewnątrz *dla każdego* uruchomionego równolegle.
+ * Biorąc pod uwagę sposób konstruowania kolejek, klient może poprawić wydajność foreach przez ustawienie wielu instrukcji *foreach* , w których każda instrukcja foreach będzie miała elementy o podobnym czasie przetwarzania. Zapewni to, że długie uruchomienia są przetwarzane równolegle, a nie sekwencyjnie.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731463"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
-Dzienniki zasobów platformy Azure to [dzienniki platformy](../essentials/platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](../platform/data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
+Dzienniki zasobów platformy Azure to [dzienniki platformy](../essentials/platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu. Dzienniki zasobów nie są domyślnie zbierane. Musisz utworzyć ustawienia diagnostyczne dla każdego zasobu platformy Azure, aby wysłać dzienniki zasobów do obszaru roboczego Log Analytics, który ma być używany z [dziennikami Azure monitor](../logs/data-platform-logs.md), usługa Azure Event Hubs do przesyłania dalej poza platformą Azure lub do usługi Azure Storage w celu archiwizacji.
 
 Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](../essentials/diagnostic-settings.md) w celu uzyskania szczegółowych informacji na temat tworzenia ustawień diagnostycznych i [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md) , aby uzyskać szczegółowe informacje na temat używania Azure Policy do automatycznego tworzenia ustawień diagnostycznych dla każdego tworzonego zasobu platformy Azure.
 
 ## <a name="send-to-log-analytics-workspace"></a>Wysyłanie do obszaru roboczego usługi Log Analytics
- Wyślij dzienniki zasobów do obszaru roboczego Log Analytics, aby włączyć funkcje [dzienników Azure monitor](../platform/data-platform-logs.md) , które obejmują następujące elementy:
+ Wyślij dzienniki zasobów do obszaru roboczego Log Analytics, aby włączyć funkcje [dzienników Azure monitor](../logs/data-platform-logs.md) , które obejmują następujące elementy:
 
 - Skorelowanie danych dzienników zasobów z innymi danymi monitorowania zbieranymi przez Azure Monitor.
 - Konsolidowanie wpisów dzienników z wielu zasobów platformy Azure, subskrypcji i dzierżawców w jednej lokalizacji do analizy razem.
 - Za pomocą zapytań dzienników można wykonywać złożone analizy i uzyskiwać szczegółowe informacje o danych dziennika.
 - Użyj alertów dziennika z złożoną logiką alertów.
 
-[Utwórz ustawienie diagnostyczne](../essentials/diagnostic-settings.md) , aby wysłać dzienniki zasobów do obszaru roboczego log Analytics. Te dane są przechowywane w tabelach zgodnie z opisem w temacie [struktura dzienników Azure monitor](../platform/data-platform-logs.md). Tabele używane przez dzienniki zasobów zależą od typu kolekcji używanej przez zasób:
+[Utwórz ustawienie diagnostyczne](../essentials/diagnostic-settings.md) , aby wysłać dzienniki zasobów do obszaru roboczego log Analytics. Te dane są przechowywane w tabelach zgodnie z opisem w temacie [struktura dzienników Azure monitor](../logs/data-platform-logs.md). Tabele używane przez dzienniki zasobów zależą od typu kolekcji używanej przez zasób:
 
 - Diagnostyka Azure — wszystkie dane są zapisywane w tabeli _AzureDiagnostics_ .
 - Specyficzne dla zasobów — dane są zapisywane w pojedynczej tabeli dla każdej kategorii zasobu.
@@ -90,7 +90,7 @@ Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczy
    ![Selektor trybu ustawień diagnostycznych](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Aby zapoznać się z przykładem ustawienia trybu kolekcji przy użyciu szablonu usługi Resource Manager, zobacz [przykłady Menedżer zasobów szablonów dla ustawień diagnostycznych w Azure monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
+> Aby zapoznać się z przykładem ustawienia trybu kolekcji przy użyciu szablonu usługi Resource Manager, zobacz [przykłady Menedżer zasobów szablonów dla ustawień diagnostycznych w Azure monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
 
 Istniejące ustawienie diagnostyczne można zmodyfikować z trybem specyficznym dla zasobów. W takim przypadku dane, które zostały już zebrane, pozostaną w tabeli _AzureDiagnostics_ , dopóki nie zostanie usunięte zgodnie z ustawieniami przechowywania dla obszaru roboczego. Nowe dane zostaną zebrane w dedykowanej tabeli. Użyj operatora [Union](/azure/kusto/query/unionoperator) do wykonywania zapytań dotyczących danych w obu tabelach.

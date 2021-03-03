@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d7b7d8845eda87132cbfa7981c20c39bb210aa5c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-dotnetcore-uiex
+ms.openlocfilehash: 77e0768a617ef79ab8510f88bfdcd41d5647f9bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032698"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701641"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -187,7 +191,7 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikacj�
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service w systemie Linux](overview.md#app-service-on-linux) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji.
+[App Service w systemie Linux](overview.md#app-service-on-linux) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym przewodniku szybki start pokazano, jak utworzyć aplikację [platformy .NET Core](/aspnet/core/) i wdrożyć ją w hostowanej App Service z systemem Linux przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli).
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -258,7 +262,7 @@ az login
 Wdróż kod w folderze lokalnym (*hellodotnetcore*) przy użyciu `az webapp up` polecenia:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - Jeśli `az` polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule [Konfigurowanie początkowego środowiska](#set-up-your-initial-environment).

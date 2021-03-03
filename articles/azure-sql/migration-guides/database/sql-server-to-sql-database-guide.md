@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a9dfd185af012314ddc481b598f181b6760640ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690944"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Przewodnik migracji: SQL Server do SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -157,8 +157,8 @@ Aby przyspieszyć migrację do Azure SQL Database, należy wziąć pod uwagę na
 |  | Rywalizacja o zasoby | Zalecenie |
 |--|--|--|
 | **Źródło (zazwyczaj lokalnie)** |Podstawowe wąskie gardło podczas migracji w źródle to dane we/wy i opóźnienie dla pliku danych, które należy uważnie monitorować.  |W oparciu o dane we/wy i opóźnienia plików danych i w zależności od tego, czy jest to maszyna wirtualna czy serwer fizyczny, należy skontaktować się z administratorem magazynu i poznać opcje w celu ograniczenia wąskiego gardła. |
-|**Cel (Azure SQL Database)**|Największym czynnikiem ograniczającym jest szybkość generowania dzienników i czas oczekiwania na plik dziennika. W przypadku Azure SQL Database można uzyskać maksymalnie 96 MB/s szybkości generowania dzienników. | Aby przyspieszyć migrację, Skaluj w górę docelową bazę danych SQL do Krytyczne dla działania firmy 5 rdzeń 8 rdzeń wirtualny, aby uzyskać maksymalną częstotliwość generowania dzienników wynoszącą 96 MB/s, a także uzyskać małe opóźnienia dla pliku dziennika. Warstwa usługi do [skalowania](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) zapewnia 100 MB/s, niezależnie od wybranego poziomu usługi |
-|**Sieć** |Wymagana przepustowość sieci jest równa maksymalnej szybkości pozyskiwania dziennika 96 MB/s (768 MB/s) |W zależności od łączności sieciowej z lokalnego centrum danych na platformę Azure Sprawdź przepustowość sieci (zazwyczaj [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)), aby uwzględnić maksymalną szybkość pozyskiwania dzienników. |
+|**Cel (Azure SQL Database)**|Największym czynnikiem ograniczającym jest szybkość generowania dzienników i czas oczekiwania na plik dziennika. W przypadku Azure SQL Database można uzyskać maksymalnie 96 MB/s szybkości generowania dzienników. | Aby przyspieszyć migrację, Skaluj w górę docelową bazę danych SQL do Krytyczne dla działania firmy 5 rdzeń 8 rdzeń wirtualny, aby uzyskać maksymalną częstotliwość generowania dzienników wynoszącą 96 MB/s, a także uzyskać małe opóźnienia dla pliku dziennika. Warstwa usługi do [skalowania](../../database/service-tier-hyperscale.md) zapewnia 100 MB/s, niezależnie od wybranego poziomu usługi |
+|**Sieć** |Wymagana przepustowość sieci jest równa maksymalnej szybkości pozyskiwania dziennika 96 MB/s (768 MB/s) |W zależności od łączności sieciowej z lokalnego centrum danych na platformę Azure Sprawdź przepustowość sieci (zazwyczaj [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)), aby uwzględnić maksymalną szybkość pozyskiwania dzienników. |
 |**Maszyna wirtualna używana do Data Migration Assistant (DMA)** |Procesor to podstawowe wąskie gardło dla maszyny wirtualnej z systemem DMA |Zagadnienia, które należy wziąć pod uwagę w celu przyspieszenia migracji danych za pomocą </br>— Maszyny wirtualne intensywnie korzystające z obliczeń Azure </br>-Użyj co najmniej F8s_v2 maszyny wirtualnej (8 rdzeń wirtualny) do uruchamiania usługi DMA </br>-Upewnij się, że maszyna wirtualna jest uruchomiona w tym samym regionie platformy Azure co element docelowy |
 |**Usługa Azure Database Migration Service (DMS)** |Zagadnienie związane z rywalizacją o zasoby obliczeniowe i obiekty bazy danych dla usługi DMS |Użyj Premium 4 rdzeń wirtualny. Usługa DMS automatycznie przyjmuje obiekty bazy danych, takie jak klucze obce, wyzwalacze, ograniczenia i indeksy nieklastrowane i nie wymaga ręcznej interwencji.  |
 

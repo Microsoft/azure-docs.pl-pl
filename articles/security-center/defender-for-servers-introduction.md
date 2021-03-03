@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: d9aaa00527462f5bbb999ddb76e125d1dfbee7a4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797738"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701998"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Wprowadzenie do usługi Azure Defender dla serwerów
 
@@ -27,7 +27,7 @@ W przypadku systemu Linux usługa Azure Defender zbiera rekordy inspekcji z masz
 
 Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defender dla serwerów obejmują:
 
-- **Zintegrowanej licencji dla programu Microsoft Defender for Endpoint (tylko system Windows)** — usługa Azure Defender dla serwerów zawiera usługę  [Microsoft Defender dla punktu końcowego](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR). [Dowiedz się więcej](security-center-wdatp.md).
+- **Zintegrowanej licencji dla programu Microsoft Defender for Endpoint (tylko system Windows)** — usługa Azure Defender dla serwerów zawiera usługę  [Microsoft Defender dla punktu końcowego](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR). Aby uzyskać więcej informacji, zobacz [Ochrona punktów końcowych](security-center-wdatp.md).
 
     Gdy usługa Defender dla punktów końcowych wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany w Security Center. W Security Center można również przestawić do usługi Defender dla konsoli punktu końcowego i przeprowadzić szczegółowe badanie, aby odkryć zakres ataku. Dowiedz się więcej o usłudze Microsoft Defender dla punktu końcowego.
 
@@ -36,25 +36,25 @@ Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defende
 
 - **Skanowanie w celu oceny luk w zabezpieczeniach dla maszyn wirtualnych** — skaner luk w zabezpieczeniach zawarty w Azure Security Center jest obsługiwany przez Qualys. 
 
-    Skaner Qualys jest jednym z wiodących narzędzi do identyfikacji luk w zabezpieczeniach w czasie rzeczywistym w usłudze Azure Virtual Machines. Nie potrzebujesz licencji Qualys, a nawet konta Qualys — wszystko, co jest obsługiwane bezproblemowo w Security Center. [Dowiedz się więcej](deploy-vulnerability-assessment-vm.md).
+    Skaner Qualys jest jednym z wiodących narzędzi do identyfikacji luk w czasie rzeczywistym na platformie Azure i hybrydowych maszynach wirtualnych. Nie potrzebujesz licencji Qualys, a nawet konta Qualys — wszystko, co jest obsługiwane bezproblemowo w Security Center. Aby uzyskać więcej informacji, zobacz [rozwiązanie do oceny luk w zabezpieczeniach usługi Azure Defender na platformie Azure i maszynach hybrydowych](deploy-vulnerability-assessment-vm.md).
 
 - **W przypadku maszyn wirtualnych z dostępem "just-in-Time (JIT)" (VM)** dla osób niezagrażających zagrożeniom aktywne komputery z otwartymi portami zarządzania, takimi jak RDP lub SSH. Wszystkie maszyny wirtualne są potencjalnymi obiektami docelowymi ataku. Po pomyślnym naruszeniu maszyny wirtualnej jest ona używana jako punkt wejścia do ataku dalszych zasobów w środowisku.
 
-    Po włączeniu usługi Azure Defender dla serwerów można użyć dostępu just in Time do maszyny wirtualnej w celu zablokowania ruchu przychodzącego do maszyn wirtualnych, co zmniejsza narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby. [Dowiedz się więcej](just-in-time-explained.md).
+    Po włączeniu usługi Azure Defender dla serwerów można użyć dostępu just in Time do maszyny wirtualnej w celu zablokowania ruchu przychodzącego do maszyn wirtualnych, co zmniejsza narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby. Aby uzyskać więcej informacji, zobacz [Omówienie dostępu do maszyny wirtualnej JIT](just-in-time-explained.md).
 
 - **Monitorowanie integralności plików (FIM)** — monitorowanie integralności plików (FIM), znane także jako monitorowanie zmian, bada pliki i rejestry systemu operacyjnego, oprogramowania aplikacji i innych użytkowników w celu wprowadzenia zmian, które mogą wskazywać na atak. Metoda porównania służy do określenia, czy bieżący stan pliku różni się od ostatniego skanowania pliku. Możesz użyć tego porównania, aby określić, czy w plikach wprowadzono prawidłowe lub podejrzane modyfikacje.
 
-    Po włączeniu usługi Azure Defender dla serwerów można sprawdzić integralność plików systemu Windows, rejestrów systemu Windows i plików z systemem Linux przy użyciu programu FIM. [Dowiedz się więcej](security-center-file-integrity-monitoring.md).
+    Po włączeniu usługi Azure Defender dla serwerów można sprawdzić integralność plików systemu Windows, rejestrów systemu Windows i plików z systemem Linux przy użyciu programu FIM. Aby uzyskać więcej informacji, zobacz [monitorowanie integralności plików w Azure Security Center](security-center-file-integrity-monitoring.md).
 
 - Adaptacyjne kontrolki **aplikacji (AAC)** — funkcje adaptacyjnego sterowania aplikacjami to inteligentne i zautomatyzowane rozwiązanie służące do definiowania listy dozwolonych, znanych bezpiecznych aplikacji dla maszyn.
 
-    Po włączeniu i skonfigurowaniu adaptacyjnych kontrolek aplikacji otrzymasz alerty zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. [Dowiedz się więcej](security-center-adaptive-application.md).
+    Po włączeniu i skonfigurowaniu adaptacyjnych kontrolek aplikacji otrzymasz alerty zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. Aby uzyskać więcej informacji, zobacz [Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn](security-center-adaptive-application.md).
 
 - **Adaptacyjne ograniczanie sieci (Anh)** — stosowanie sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) do filtrowania ruchu do i z zasobów, usprawnia zabezpieczenia sieci stan. Nadal jednak mogą istnieć sytuacje, w których rzeczywisty ruch przepływający przez sieciowej grupy zabezpieczeń jest podzbiorem zdefiniowanych reguł sieciowej grupy zabezpieczeń. W takich przypadkach dalsze ulepszanie stan zabezpieczeń można osiągnąć przez zaostrzonie reguł sieciowej grupy zabezpieczeń na podstawie rzeczywistych wzorców ruchu.
 
-    Adaptacyjne zwiększanie przepustowości sieci zapewnia rekomendacje w celu dalszej ochrony reguł sieciowej grupy zabezpieczeń. Używa algorytmu uczenia maszynowego, który ma czynniki w rzeczywistym ruchu, znanej zaufanej konfiguracji, analizie zagrożeń i innych wskaźnikach naruszenia, a następnie udostępnia zalecenia zezwalające na ruch tylko z konkretnych krotek IP/portów. [Dowiedz się więcej](security-center-adaptive-network-hardening.md).
+    Adaptacyjne zwiększanie przepustowości sieci zapewnia rekomendacje w celu dalszej ochrony reguł sieciowej grupy zabezpieczeń. Używa algorytmu uczenia maszynowego, który ma czynniki w rzeczywistym ruchu, znanej zaufanej konfiguracji, analizie zagrożeń i innych wskaźnikach naruszenia, a następnie udostępnia zalecenia zezwalające na ruch tylko z konkretnych krotek IP/portów. Aby uzyskać więcej informacji, zobacz [ulepszanie zabezpieczeń sieci stan przy użyciu adaptacyjnej ochrony sieci](security-center-adaptive-network-hardening.md).
 
-- **Ograniczanie funkcjonalności hosta platformy Docker** — Azure Security Center identyfikuje niezarządzane kontenery hostowane na maszynach wirtualnych z systemem Linux IaaS lub innych maszynach systemu Linux z uruchomionymi kontenerami Docker Security Center stale ocenia konfiguracje tych kontenerów. Następnie porównuje je ze wzorcem usługi Docker dla usługi Internet Security (CIS). Security Center obejmuje cały zestaw reguł testu wydajnościowego usługi CIS Docker i generuje alert, jeśli kontenery nie spełniają żadnej z tych kontrolek. [Dowiedz się więcej](harden-docker-hosts.md).
+- **Ograniczanie funkcjonalności hosta platformy Docker** — Azure Security Center identyfikuje niezarządzane kontenery hostowane na maszynach wirtualnych z systemem Linux IaaS lub innych maszynach systemu Linux z uruchomionymi kontenerami Docker Security Center stale ocenia konfiguracje tych kontenerów. Następnie porównuje je ze wzorcem usługi Docker dla usługi Internet Security (CIS). Security Center obejmuje cały zestaw reguł testu wydajnościowego usługi CIS Docker i generuje alert, jeśli kontenery nie spełniają żadnej z tych kontrolek. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie hostów platformy Docker](harden-docker-hosts.md).
 
 - **Wykrywanie ataków bez plików (tylko system Windows)** — ataki bez plików wprowadzają złośliwe ładunki do pamięci, aby uniknąć wykrywania technik skanowania opartych na dyskach. Ładunek osoby atakującej będzie nadal utrzymywać się w pamięci procesów objętych naruszeniem i wykonuje szeroką gamę złośliwych działań.
 

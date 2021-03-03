@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a6355a08a936c74ae6a05f163a93a991ba82ab4d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953754"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702916"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -56,8 +56,8 @@ Jeśli chcesz skonfigurować więcej szczegółów dla danego wystąpienia, w na
 
 Poniżej znajdują się dodatkowe opcje, które można skonfigurować podczas instalacji, przy użyciu innych kart w procesie **tworzenia zasobów** .
 
-* **Sieć**: na tej karcie można włączyć prywatne punkty końcowe przy użyciu [prywatnego linku platformy Azure](../private-link/private-link-overview.md) , aby wyeliminować zagrożenie sieci publicznej do wystąpienia. Aby uzyskać instrukcje, zobacz [*How to: Enable Private Access with Private link (wersja zapoznawcza)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Zaawansowane**: na tej karcie można włączyć [tożsamość zarządzaną przez system](../active-directory/managed-identities-azure-resources/overview.md) dla danego wystąpienia, które może być używane podczas przekazywania zdarzeń do [punktów końcowych](concepts-route-events.md). Aby uzyskać instrukcje, zobacz [*How to: Enable Managed tożsamośćs for Routing Events (wersja zapoznawcza)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Sieć**: na tej karcie można włączyć prywatne punkty końcowe przy użyciu [prywatnego linku platformy Azure](../private-link/private-link-overview.md) , aby wyeliminować zagrożenie sieci publicznej do wystąpienia. Aby uzyskać instrukcje, zobacz [*How to: Enable Private Access with Private link (wersja zapoznawcza)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Zaawansowane**: na tej karcie można włączyć [tożsamość zarządzaną przez system](../active-directory/managed-identities-azure-resources/overview.md) dla danego wystąpienia, które może być używane podczas przekazywania zdarzeń do [punktów końcowych](concepts-route-events.md). Aby uzyskać instrukcje, zobacz [*How to: Enable Managed tożsamośćs for Routing Events (wersja zapoznawcza)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Tagi**: na tej karcie można dodać tagi do wystąpienia, aby pomóc w organizowaniu go wśród zasobów platformy Azure. Aby uzyskać więcej informacji na temat tagów zasobów platformy Azure, zobacz temat [*zasoby tagów, grupy zasobów i subskrypcje dla organizacji logicznej*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Weryfikowanie sukcesu i zbieranie ważnych wartości

@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d32e5c55bbaa7357c1f13200213dbaed19986825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878142"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694346"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux
-
 
 Azure Disk Encryption dla maszyn wirtualnych z systemem Linux używa DM-Crypt funkcji systemu Linux w celu zapewnienia pełnego szyfrowania dysków systemu operacyjnego i dysków z danymi. Ponadto zapewnia szyfrowanie dysku tymczasowego przy użyciu funkcji EncryptFormatAll.
 
@@ -408,7 +407,6 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
 - Zrzut awaryjny jądra (kdump).
 - Oracle ACFS (system plików klastra ASM).
-- Maszyny wirtualne Gen2 (zobacz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Dyski interfejsu NVMe maszyn wirtualnych z serii Lsv2 (zobacz: [Lsv2-Series](../lsv2-series.md)).
 - Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 - Maszyna wirtualna z dyskiem danych zainstalowanym na górze folderu systemu operacyjnego.
@@ -416,7 +414,6 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 - Zastosowanie elementu ADE do maszyny wirtualnej z dyskami zaszyfrowanymi za pomocą [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](../disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
 - Migrowanie maszyny wirtualnej, która jest zaszyfrowana przy użyciu programu ADE lub **kiedykolwiek** została zaszyfrowana za pomocą programu ADE, do [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](../disk-encryption.md).
-- [Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](../azure-vms-no-temp-disk.md); w Dv4, Dsv4, Ev4 i Esv4.
 - Szyfrowanie maszyn wirtualnych w klastrach trybu failover.
 
 ## <a name="next-steps"></a>Następne kroki

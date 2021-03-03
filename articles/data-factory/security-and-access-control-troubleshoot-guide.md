@@ -4,14 +4,14 @@ description: Dowiedz się, jak rozwiązywać problemy z zabezpieczeniami i kontr
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706195"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Rozwiązywanie problemów dotyczących zabezpieczeń Azure Data Factory i kontroli dostępu
 
@@ -107,7 +107,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 Nie można zarejestrować klucza uwierzytelniania IR na samohostowanej maszynie wirtualnej, ponieważ link prywatny jest włączony. Zostanie wyświetlony następujący komunikat o błędzie:
 
-"Nie można pobrać tokenu usługi z usługi ADF z kluczem * * * * * * * * * * * * * * * i kosztem czasu: 0,1250079 sekund kod błędu to: InvalidGatewayKey, activityId: XXXXXXX i szczegółowy komunikat o błędzie to adres IP klienta nie jest prawidłowym prywatnym adresem IP, ponieważ Fabryka danych nie może uzyskać dostępu do sieci publicznej, dlatego nie można skontaktować się z chmurą w celu pomyślnego nawiązania połączenia".
+"Nie można pobrać tokenu usługi z usługi ADF z kluczem * * * * * * * * * * * * * * * i kosztem czasu: 0,1250079 sekunda kod błędu to: InvalidGatewayKey, activityId to: XXXXXXX i szczegółowy komunikat o błędzie to adres IP klienta nie jest prawidłowym prywatnym adresem IP, ponieważ Fabryka danych nie może uzyskać dostępu do sieci publicznej, dlatego nie można skontaktować się z chmurą w celu pomyślnego nawiązania połączenia".
 
 #### <a name="cause"></a>Przyczyna
 
@@ -142,7 +142,6 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 1. Ponownie Dodaj klucz uwierzytelniania IR w środowisku Integration Runtime.
 
-
 **Rozwiązanie 2**
 
 Aby rozwiązać ten problem, przejdź do [prywatnego linku platformy Azure dla Azure Data Factory](./data-factory-private-link.md).
@@ -150,6 +149,45 @@ Aby rozwiązać ten problem, przejdź do [prywatnego linku platformy Azure dla A
 Spróbuj włączyć dostęp do sieci publicznej w interfejsie użytkownika, jak pokazano na poniższym zrzucie ekranu:
 
 ![Zrzut ekranu przedstawiający kontrolkę "Enabled" dla "Zezwalaj na dostęp do sieci publicznej" w okienku sieć.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>Strefa prywatna DNS usługi ADF przesłania Azure Resource Manager rozpoznawania nazw DNS powodujących błąd "nie znaleziono"
+
+#### <a name="cause"></a>Przyczyna
+Zarówno Azure Resource Manager, jak i ADF używają tej samej strefy prywatnej tworzącej potencjalne konflikty w prywatnym systemie DNS klienta w scenariuszu, w którym nie można znaleźć rekordów Azure Resource Manager.
+
+#### <a name="solution"></a>Rozwiązanie
+1. Znajdź Prywatna strefa DNS strefy **privatelink.Azure.com** w Azure Portal.
+![Zrzut ekranu przedstawiający Znajdowanie stref Prywatna strefa DNS.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Sprawdź, czy jest dostępny **podajnik APD**.
+![Zrzut ekranu przedstawiający rekord.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Przejdź do pozycji **linki sieci wirtualnej**, a następnie usuń wszystkie rekordy.
+![Zrzut ekranu przedstawiający łącze sieci wirtualnej.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Przejdź do fabryki danych w Azure Portal i Utwórz ponownie prywatny punkt końcowy dla Azure Data Factory portalu.
+![Zrzut ekranu przedstawiający odtwarzanie prywatnego punktu końcowego.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Wróć do obszaru Prywatna strefa DNS strefy i sprawdź, czy istnieje Nowa prywatna strefa DNS **privatelink.ADF.Azure.com**.
+![Zrzut ekranu przedstawiający nowy rekord DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Błąd połączenia w publicznym punkcie końcowym
+
+#### <a name="symptoms"></a>Objawy
+
+W przypadku kopiowania danych za pomocą konta usługi Azure Blob Storage dostęp publiczny, uruchomienie potoku losowo kończy się niepowodzeniem z powodu następującego błędu.
+
+Na przykład: obiekt ujścia Blob Storage platformy Azure używa Azure IR (publiczna, niezarządzana Sieć wirtualna), a źródło Azure SQL Database korzysta z zarządzanego środowiska IR sieci wirtualnej. Lub źródło/ujścia używaj zarządzanej sieci wirtualnej IR tylko z dostępem publicznym magazynu.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Przyczyna
+
+Funkcja ADF może nadal używać zarządzanej sieci wirtualnej, ale można napotkać ten błąd, ponieważ publiczny punkt końcowy na platformie Azure Blob Storage w zarządzanej sieci wirtualnej nie jest niezawodny w oparciu o wynik testu, a usługi Azure Blob Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy w przypadku zarządzanych przez usługę ADF Virtual Network z zarządzaną [siecią wirtualną & zarządzanych prywatnych punktów końcowych](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### <a name="solution"></a>Rozwiązanie
+
+- Posiadanie prywatnego punktu końcowego z włączonym źródłem, a także po stronie ujścia przy użyciu zarządzanego środowiska IR sieci wirtualnej.
+- Jeśli nadal chcesz używać publicznego punktu końcowego, możesz przełączyć się do publicznego środowiska IR, a nie przy użyciu środowiska IR zarządzanej sieci wirtualnej dla źródła i ujścia. Nawet jeśli przełączysz się z powrotem do publicznego środowiska IR, ADF może nadal korzystać z zarządzanego środowiska IR sieci wirtualnej, jeśli nadal istnieje zarządzana Sieć wirtualna sieci wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

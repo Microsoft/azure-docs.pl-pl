@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e9436a9ec7db660fa2d7012df98188b96ea8ee16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694312"
 ---
-# <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Windows 
+# <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Windows
 
-Usługa Azure Disk Encryption pomaga chronić dane zgodnie z wymaganiami organizacji w zakresie zabezpieczeń i zgodności. Korzysta ona z funkcji [BitLocker](https://en.wikipedia.org/wiki/BitLocker) systemu Windows w celu zapewnienia szyfrowania woluminów dla systemu operacyjnego i dysków danych maszyn wirtualnych platformy Azure oraz jest zintegrowana z [Azure Key Vault](../../key-vault/index.yml) , aby pomóc w kontroli i zarządzaniu kluczami szyfrowania dysków i wpisami tajnymi. 
+Usługa Azure Disk Encryption pomaga chronić dane zgodnie z wymaganiami organizacji w zakresie zabezpieczeń i zgodności. Korzysta ona z funkcji [BitLocker](https://en.wikipedia.org/wiki/BitLocker) systemu Windows w celu zapewnienia szyfrowania woluminów dla systemu operacyjnego i dysków danych maszyn wirtualnych platformy Azure oraz jest zintegrowana z [Azure Key Vault](../../key-vault/index.yml) , aby pomóc w kontroli i zarządzaniu kluczami szyfrowania dysków i wpisami tajnymi.
+
+Azure Disk Encryption jest odporny na strefy w taki sam sposób jak Virtual Machines. Aby uzyskać szczegółowe informacje, zobacz [usługi platformy Azure, które obsługują strefy dostępności](../../availability-zones/az-region.md).
 
 Jeśli używasz [Azure Security Center](../../security-center/index.yml), zostanie wyświetlony alert, jeśli masz maszyny wirtualne, które nie są zaszyfrowane. Alerty są wyświetlane jako o wysokiej ważności, a zalecenie polega na zaszyfrowaniu tych maszyn wirtualnych.
 
@@ -27,19 +29,15 @@ Jeśli używasz [Azure Security Center](../../security-center/index.yml), zostan
 > - Jeśli usługa Azure AD została wcześniej Azure Disk Encryption użyta w celu zaszyfrowania maszyny wirtualnej, należy użyć tej opcji, aby zaszyfrować maszynę wirtualną. Aby uzyskać szczegółowe informacje, zobacz [Azure Disk Encryption w usłudze Azure AD (w poprzedniej wersji)](disk-encryption-overview-aad.md) . 
 > - Niektóre zalecenia mogą zwiększyć użycie zasobów, sieci lub obliczeń, co skutkuje dodatkowymi kosztami licencji lub subskrypcji. Aby tworzyć zasoby na platformie Azure w obsługiwanych regionach, musisz mieć prawidłową aktywną subskrypcję platformy Azure.
 
-Podstawowe informacje dotyczące Azure Disk Encryption dla systemu Windows można uzyskać w ciągu zaledwie kilku minut od [utworzenia i zaszyfrowania maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli-quickstart.md) — szybki start lub [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu programu Azure PowerShell — szybki start](disk-encryption-powershell-quickstart.md).
+Podstawowe informacje o Azure Disk Encryptionch dla systemu Windows można uzyskać w ciągu kilku minut od [utworzenia i zaszyfrowania maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure — szybki start](disk-encryption-cli-quickstart.md) lub [Tworzenie i szyfrowanie maszyny wirtualnej z systemem windows za pomocą Azure PowerShell przewodnika Szybki Start](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>Obsługiwane maszyny wirtualne i systemy operacyjne
 
 ### <a name="supported-vms"></a>Obsługiwane maszyny wirtualne
 
-Maszyny wirtualne z systemem Windows są dostępne w [różnych rozmiarach](../sizes-general.md). Azure Disk Encryption nie jest dostępna na [podstawowych maszynach wirtualnych serii A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)lub na maszynach wirtualnych z mniej niż 2 GB pamięci.
+Maszyny wirtualne z systemem Windows są dostępne w [różnych rozmiarach](../sizes-general.md). Azure Disk Encryption jest obsługiwana na maszynach wirtualnych 1. i 2. generacji. Azure Disk Encryption jest również dostępna dla maszyn wirtualnych z magazynem w warstwie Premium.
 
-Azure Disk Encryption jest również dostępna dla maszyn wirtualnych z magazynem w warstwie Premium.
-
-Azure Disk Encryption nie jest dostępna w przypadku [maszyn wirtualnych 2. generacji](../generation-2.md#generation-1-vs-generation-2-capabilities). Aby uzyskać więcej wyjątków, zobacz [Azure Disk Encryption: scenariusze nieobsługiwane](disk-encryption-windows.md#unsupported-scenarios).
-
-Azure Disk Encryption nie jest dostępna w obrazach maszyn wirtualnych bez dysków tymczasowych (Dv4, Dsv4, Ev4 i Esv4).  Zobacz [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](../azure-vms-no-temp-disk.md).
+Azure Disk Encryption nie jest dostępna na [podstawowych maszynach wirtualnych serii A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)lub na maszynach wirtualnych z mniej niż 2 GB pamięci.  Azure Disk Encryption nie jest również dostępna w obrazach maszyn wirtualnych bez dysków tymczasowych (Dv4, Dsv4, Ev4 i Esv4).  Zobacz [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](../azure-vms-no-temp-disk.md).  Aby uzyskać więcej wyjątków, zobacz [Azure Disk Encryption: scenariusze nieobsługiwane](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -81,16 +79,15 @@ Poniższa tabela zawiera definicje typowych terminów używanych w dokumentacji 
 | --- | --- |
 | Azure Key Vault | Key Vault to kryptograficzna usługa zarządzania kluczami oparta na sprawdzonych modułach zabezpieczeń (FIPS) Te standardy pomagają chronić klucze kryptograficzne i poufne wpisy tajne. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Interfejs wiersza polecenia platformy Azure | [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) jest zoptymalizowany pod kątem zarządzania zasobami platformy Azure i administrowania nimi z wiersza poleceń.|
-| Funkcja BitLocker |[Funkcja BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) jest rozpoznawaną w branży technologią szyfrowania woluminów systemu Windows, która służy do włączania szyfrowania dysków na maszynach wirtualnych z systemem Windows. |
+| BitLocker |[Funkcja BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) jest rozpoznawaną w branży technologią szyfrowania woluminów systemu Windows, która służy do włączania szyfrowania dysków na maszynach wirtualnych z systemem Windows. |
 | Klucz szyfrowania klucza (KEK) | Klucz asymetryczny (RSA 2048), którego można użyć do ochrony lub zawijania klucza tajnego. Można podać klucz chroniony przez sprzętowy moduł zabezpieczeń (HSM) lub klucz chroniony przez oprogramowanie. Aby uzyskać więcej informacji, zobacz dokumentację [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i [Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Polecenia cmdlet programu PowerShell | Aby uzyskać więcej informacji, zobacz [polecenia cmdlet Azure PowerShell](/powershell/azure/). |
-
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure ](disk-encryption-cli-quickstart.md)
-- [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu programu Azure PowerShell](disk-encryption-powershell-quickstart.md)
+- [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows za pomocą Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows](disk-encryption-windows.md)
-- [Skrypt interfejsu wiersza polecenia Azure Disk Encryption preinstalacji](https://github.com/ejarvi/ade-cli-getting-started)
+- [Skrypt interfejsu wiersza polecenia Azure Disk Encryption preinstalacji](https://github.com/ejarvi/ade-cli-getting-started) 
 - [Skrypt programu PowerShell dla Azure Disk Encryption wymagań wstępnych](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption](disk-encryption-key-vault.md)

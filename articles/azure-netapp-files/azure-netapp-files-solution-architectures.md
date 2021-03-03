@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f36a7827b9351b5565eab19abd4bfdb3d8b4a273
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 756cadd42e8cda557a90c39e2412f5d4f3290835
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741212"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -86,6 +86,7 @@ Ta sekcja zawiera odwołania do rozwiązań SAP w systemie Azure.
 ### <a name="sap-iq-nls"></a>SAP IQ-NLS
 
 *   [Wdróż rozwiązanie SAP IQ-NLS HA przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
+* [Jak zarządzać licencją programu SAP IQ w scenariuszu o wysokiej dostępności](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-manage-sap-iq-license-in-ha-scenario/ba-p/2052583)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Społeczność techniczna SAP i wpisy w blogu 
 

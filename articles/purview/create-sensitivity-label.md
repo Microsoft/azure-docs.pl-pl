@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669633"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693530"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -102,7 +102,10 @@ Rozszerzając etykiety czułości MCI z usługą Azure kontrolą, organizacje mo
 
 **Aby zwiększyć czułość etykiet do kontrolą:**
 
-W Microsoft 365 przejdź do strony **Information Protection** . W oknie dialogowym **Rozwiń etykietowanie do elementów zawartości w usłudze Azure kontrolą** wybierz przycisk **Włącz** , a następnie wybierz pozycję **tak** w wyświetlone okno dialogowe potwierdzenia.
+Poniższe kroki umożliwiają udostępnienie etykiet o czułości do użycia w usłudze Azure kontrolą, w której można zastosować etykiety czułości do zasobów, takich jak kolumny SQL, pliki na platformie Azure Blob Storage i wiele innych.
+
+1. W Microsoft 365 przejdź do strony **Information Protection** . 
+1. W oknie dialogowym **Rozwiń etykietowanie do elementów zawartości w usłudze Azure kontrolą** wybierz przycisk **Włącz** , a następnie wybierz pozycję **tak** w wyświetlone okno dialogowe potwierdzenia.
 
 Na przykład:
 

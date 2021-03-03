@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437001"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721518"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla IoT Edge przy użyciu usługi Azure DevOps Starter
 
@@ -28,7 +28,17 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania na platfo
 
 1. W lewym okienku wybierz pozycję **Utwórz zasób**, a następnie wyszukaj ciąg **DevOps Starter**.  
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
+
+1. Domyślnie DevOps Starter jest skonfigurowany przy użyciu usługi GitHub. Aby skorzystać z funkcji w tej metodzie, przełącz DevOps Starter na konfigurację przy użyciu usługi Azure DevOps. Skorzystaj z linku **Zmień ustawienia w tym miejscu** .
+
+   ![Wybierz pozycję Zmień ustawienia tutaj, aby przełączyć się z witryny GitHub na platformę Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. W prawym okienku wybierz kafelek **Azure DevOps** , a następnie wybierz pozycję **gotowe**.
+
+   ![Wybierz pozycję Azure DevOps, aby skonfigurować DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   Powinieneś teraz zobaczyć, że DevOps Starter jest konfigurowany za pomocą usługi Azure DevOps.
 
 ## <a name="create-a-new-application-pipeline"></a>Tworzenie nowego potoku aplikacji
 

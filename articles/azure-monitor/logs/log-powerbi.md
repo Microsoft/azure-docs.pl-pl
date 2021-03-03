@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 80a508aeb7eff9567bea67cb84350fc2e77551da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1db5f5e4164d971dff3ec6b042fa4b0a969e508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614050"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704246"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Log Analytics integrację z usługą Power BI
 
@@ -19,7 +19,7 @@ Ten artykuł koncentruje się na sposobach tworzenia źródła danych z Log Anal
 
 ## <a name="background"></a>Tło 
 
-Dzienniki Azure Monitor to platforma, która oferuje kompleksowe rozwiązanie do pozyskiwania dzienników. [Azure Monitor Log Analytics](../platform/data-platform.md#) jest interfejsem do wykonywania zapytań dotyczących tych dzienników. Aby uzyskać więcej informacji na temat całej Azure Monitor platformy danych, w tym Log Analytics, zobacz [platformę danych Azure monitor](../platform/data-platform.md). 
+Dzienniki Azure Monitor to platforma, która oferuje kompleksowe rozwiązanie do pozyskiwania dzienników. [Azure Monitor Log Analytics](../platform/data-platform.md#) jest interfejsem do wykonywania zapytań dotyczących tych dzienników. Aby uzyskać więcej informacji na temat całej Azure Monitor platformy danych, w tym Log Analytics, zobacz [platformę danych Azure monitor](../data-platform.md). 
 
 Microsoft Power BI to platforma wizualizacji danych firmy Microsoft. Aby uzyskać więcej informacji na temat rozpoczynania pracy, zobacz [stronę główną Power BI](https://powerbi.microsoft.com/). 
 
@@ -82,4 +82,4 @@ Dodatkowe informacje można znaleźć w temacie [integracja log Analytics i prog
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozpocznij pracę z [zapytaniami log Analytics](../log-query/log-query-overview.md).
+Rozpocznij pracę z [zapytaniami log Analytics](./log-query-overview.md).

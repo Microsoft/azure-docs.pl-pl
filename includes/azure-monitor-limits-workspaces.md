@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 56afc81794bb18bfb7c9146eeb4ed61a0a75ea0f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587023"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734059"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -72,11 +72,11 @@ ms.locfileid: "100587023"
 
 **<a name="data-ingestion-volume-rate">Współczynnik ilości woluminu pozyskiwania danych</a>**
 
-Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Limit liczby woluminów umożliwia odizolowanie Azure Monitor klientów od nagłych wzrostów pozyskiwania w środowisku wielodostępnym. Domyślny próg współczynnika wolumenu pozyskiwania wynoszący 500 MB (skompresowany) jest zdefiniowany w obszarze roboczym, co jest tłumaczone na około **6 GB/min** nieskompresowane — rzeczywisty rozmiar może się różnić między typami danych, zależnie od długości dziennika i jego stosunku kompresji. Limit liczby woluminów dotyczy danych pozyskiwanych z zasobów platformy Azure za pośrednictwem [ustawień diagnostycznych](../articles/azure-monitor/platform/diagnostic-settings.md). Po osiągnięciu limitu szybkości woluminu mechanizm ponawiania próbuje pozyskać dane 4 razy w okresie 30 minut i porzucić go, jeśli operacja nie powiedzie się. Nie dotyczy danych pozyskanych z [agentów](../articles/azure-monitor/agents/agents-overview.md) lub [interfejsu API modułu zbierającego dane](../articles/azure-monitor/platform/data-collector-api.md).
+Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Limit liczby woluminów umożliwia odizolowanie Azure Monitor klientów od nagłych wzrostów pozyskiwania w środowisku wielodostępnym. Domyślny próg współczynnika wolumenu pozyskiwania wynoszący 500 MB (skompresowany) jest zdefiniowany w obszarze roboczym, co jest tłumaczone na około **6 GB/min** nieskompresowane — rzeczywisty rozmiar może się różnić między typami danych, zależnie od długości dziennika i jego stosunku kompresji. Limit liczby woluminów dotyczy danych pozyskiwanych z zasobów platformy Azure za pośrednictwem [ustawień diagnostycznych](../articles/azure-monitor/essentials/diagnostic-settings.md). Po osiągnięciu limitu szybkości woluminu mechanizm ponawiania próbuje pozyskać dane 4 razy w okresie 30 minut i porzucić go, jeśli operacja nie powiedzie się. Nie dotyczy danych pozyskanych z [agentów](../articles/azure-monitor/agents/agents-overview.md) lub [interfejsu API modułu zbierającego dane](../articles/azure-monitor/logs/data-collector-api.md).
 
 Gdy dane wysyłane do obszaru roboczego mają stawkę woluminu wyższą niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go, otwierając żądanie pomocy technicznej. 
 
-Zobacz [monitorowanie kondycji obszaru roboczego log Analytics w Azure monitor](../articles/azure-monitor/platform/monitor-workspace.md) , aby utworzyć reguły alertów w celu ich aktywnego powiadamiania, gdy osiągniesz limity pozyskiwania.
+Zobacz [monitorowanie kondycji obszaru roboczego log Analytics w Azure monitor](../articles/azure-monitor/logs/monitor-workspace.md) , aby utworzyć reguły alertów w celu ich aktywnego powiadamiania, gdy osiągniesz limity pozyskiwania.
 
 >[!NOTE]
->W zależności od tego, jak długo korzystasz z Log Analytics, możesz mieć dostęp do starszych warstw cenowych. Dowiedz się więcej na temat [log Analytics starszych warstw cenowych](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).
+>W zależności od tego, jak długo korzystasz z Log Analytics, możesz mieć dostęp do starszych warstw cenowych. Dowiedz się więcej na temat [log Analytics starszych warstw cenowych](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 02/24/2021
 ms.author: alkohli
-ms.openlocfilehash: 3497551616b96dc04e2dbdec28d0bf84a11afde0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 13de2b024bf4541c6234dd6bfba601597de59434
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954601"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716231"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista kontrolna wdrożenia dla urządzenia GPU w Azure Stack Edge  
 
@@ -28,11 +28,11 @@ Skorzystaj z poniższej listy kontrolnej, aby upewnić się, że masz te informa
 | Zarządzanie urządzeniami               | <li>Subskrypcja platformy Azure</li><li>Zarejestrowani dostawcy zasobów</li><li>Konto usługi Azure Storage</li>|<li>Włączono dla Azure Stack krawędzi Pro/Data Box Gateway, właściciela lub dostępu współautora.</li><li>W Azure Portal przejdź do **strony głównej > subskrypcji > dostawców zasobów > subskrypcji**. Wyszukaj `Microsoft.DataBoxEdge` i zarejestruj. Powtórz tę czynność w `Microsoft.Devices` przypadku wdrażania obciążeń IoT.</li><li>Wymagane poświadczenia dostępu</li> |
 | Instalacja urządzenia               | Kable zasilające pakietu. <br>Dla nas kabel SVE 18/3 sklasyfikowany dla 125 V i 15 amper z NEMA 5-15P do C13 (dane wejściowe do wyjścia) jest dostarczany. | Aby uzyskać więcej informacji, zobacz listę [obsługiwanych przewodów zasilających według kraju](azure-stack-edge-technical-specifications-power-cords-regional.md)  |
 |                                   | <li>Co najmniej 1 X 1 GbE kabla sieciowego RJ-45 dla portu 1  </li><li> Co najmniej 1 X 25-GbE SFP + kabel miedziowy dla portu 3, port 4, port 5 lub port 6</li>| Klient musi kupić te kable.<br>Aby zapoznać się z pełną listą obsługiwanych kabli sieciowych, przełączników i urządzeń nadawczych dla kart sieciowych urządzeń, zobacz [macierz zgodności serii Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) i [karta Mellanox Dual port 25g ConnectX-4](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).| 
-| Połączenie urządzenia po raz pierwszy      | <li>Laptop, którego ustawienia IPv4 można zmienić. Ten laptop nawiązuje połączenie z portem 1 za pośrednictwem przełącznika lub adaptera USB do sieci Ethernet.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
-| Logowanie do urządzenia                      | Hasło administratora urządzenia, od 8 do 16 znaków i zawiera trzy z następujących: wielkie litery, małe litery, cyfry i znaki specjalne.                                            | Domyślne hasło to *Password1* , które wygasa podczas pierwszego logowania.                                                     |
-| Ustawienia sieciowe                  | Urządzenie zawiera 2 x 1 GbE, 4 x 25 portów sieciowych. <li>Port 1 służy do konfigurowania tylko ustawień zarządzania. Można połączyć i skonfigurować co najmniej jeden port danych. </li><li> Co najmniej jeden interfejs sieciowy danych między portem 2-port 6 musi być połączony z Internetem (z łącznością z platformą Azure).</li><li> Obsługiwana jest konfiguracja protokołu DHCP i statycznego adresu IPv4. | Statyczna konfiguracja IPv4 wymaga adresu IP, serwera DNS i bramy domyślnej.   |
+| Połączenie urządzenia pierwszego czasu      | <li>Laptop, którego ustawienia IPv4 można zmienić. Ten laptop nawiązuje połączenie z portem 1 za pośrednictwem przełącznika lub adaptera USB do sieci Ethernet.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
+| Logowanie do urządzenia                      | Hasło administratora urządzenia, od 8 do 16 znaków, w tym trzy z następujących typów znaków: wielkie litery, małe litery, cyfry i znaki specjalne.                                            | Domyślne hasło to *Password1*, które wygasa podczas pierwszego logowania.                                                     |
+| Ustawienia sieciowe                  | Urządzenie zawiera 2 x 1 GbE, 4 x 25-GbE portów sieciowych. <li>Port 1 służy do konfigurowania tylko ustawień zarządzania. Można połączyć i skonfigurować co najmniej jeden port danych. </li><li> Co najmniej jeden interfejs sieciowy danych między portem 2-port 6 musi być połączony z Internetem (z łącznością z platformą Azure).</li><li> Obsługiwana jest konfiguracja protokołu DHCP i statycznego adresu IPv4. | Statyczna konfiguracja IPv4 wymaga adresu IP, serwera DNS i bramy domyślnej.   |
 | Ustawienia sieci obliczeniowej     | <li>Wymagane są 2 bezpłatne, statyczne, ciągłe adresy IP dla węzłów Kubernetes oraz 1 statyczny adres IP dla usługi IoT Edge.</li><li>Wymagany jest jeden dodatkowy adres IP dla każdej dodatkowej usługi lub modułu, który zostanie wdrożony.</li>| Obsługiwana jest tylko statyczna konfiguracja IPv4.|
-| Obowiązkowe Ustawienia serwera proxy sieci Web     | <li>Adres IP/nazwa FQDN serwera proxy sieci Web, port </li><li>Nazwa użytkownika serwera proxy sieci Web, hasło</li> | Serwer proxy sieci Web nie jest obsługiwany z konfiguracją obliczeń. |
+| Obowiązkowe Ustawienia serwera proxy sieci Web     | <li>Adres IP/nazwa FQDN serwera proxy sieci Web, port </li><li>Nazwa użytkownika serwera proxy sieci Web, hasło</li> |  |
 | Ustawienia zapory i portu        | Jeśli jest używana Zapora, upewnij się, że na [liście adresów URL są dozwolone wzorce i porty](azure-stack-edge-system-requirements.md#networking-port-requirements) adresów IP urządzeń. |  |
 | Rekomendowane Ustawienia czasu       | Konfigurowanie strefy czasowej, podstawowego serwera NTP, pomocniczego serwera NTP. | Skonfiguruj podstawowy i pomocniczy serwer NTP w sieci lokalnej.<br>Jeśli serwer lokalny jest niedostępny, można skonfigurować publiczne serwery NTP.                                                    |
 | Obowiązkowe Aktualizowanie ustawień serwera | <li>Wymagaj adresu IP serwera aktualizacji w sieci lokalnej, ścieżki do serwera WSUS. </li> | Domyślnie jest używany publiczny serwer Windows Update.|

@@ -7,18 +7,21 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5c2b88ad7bef5fb8f7ba576e5f7b416f7458378c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731605"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732313"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 
 Zacznij korzystać z prywatnego linku platformy Azure przy użyciu prywatnego punktu końcowego, aby bezpiecznie połączyć się z zaświadczeniem platformy Azure.
 
 W tym przewodniku szybki start utworzysz prywatny punkt końcowy dla zaświadczania platformy Azure i wdrożono maszynę wirtualną w celu przetestowania połączenia prywatnego.  
+
+> [!NOTE]
+> Bieżąca implementacja obejmuje tylko opcję automatycznego zatwierdzania. Aby można było kontynuować tworzenie prywatnych punktów końcowych, subskrypcja musi być białym listą. Przed wykonaniem poniższych kroków skontaktuj się z zespołem usługi lub Prześlij żądanie pomocy technicznej platformy Azure na [stronie pomocy technicznej](https://azure.microsoft.com/support/options/) systemu Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

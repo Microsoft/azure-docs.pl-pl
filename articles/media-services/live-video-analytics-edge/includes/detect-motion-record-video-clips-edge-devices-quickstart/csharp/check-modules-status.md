@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 53052097fa6616f889b710c58488a9f7a616168d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3f92bae608284c8b619be34a0e08f15e831bf88e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750085"
 ---
 W kroku [generowanie i wdrażanie manifestu wdrażania IoT Edge](../../../detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) w Visual Studio Code rozwiń węzeł **LVA-Sample-Device** w obszarze **Azure IoT Hub** (w lewej dolnej sekcji). Powinny zostać wyświetlone następujące wdrożone moduły:
 
@@ -17,8 +17,8 @@ W kroku [generowanie i wdrażanie manifestu wdrażania IoT Edge](../../../detect
 > W powyższych krokach przyjęto założenie, że używana jest maszyna wirtualna utworzona przez skrypt Instalatora. Jeśli używasz własnego urządzenia brzegowego, przejdź do urządzenia brzegowego i uruchom następujące polecenia z **uprawnieniami administratora**, aby ściągnąć i przechować przykładowy plik wideo używany do tego przewodnika Szybki Start:  
 
 ```
-mkdir /home/lvaadmin/samples
-mkdir /home/lvaadmin/samples/input    
-curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-chown -R lvaadmin /home/lvaadmin/samples/  
+mkdir /home/lvaedgeuser/samples
+mkdir /home/lvaedgeuser/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
 ```

@@ -1,35 +1,36 @@
 ---
-title: Przykłady procesorów telemetrii — Azure Monitor Application Insights dla języka Java
-description: Przykłady ilustrujące procesory telemetryczne w Azure Monitor Application Insights dla języka Java
+title: Przykłady procesora telemetrii — Azure Monitor Application Insights dla środowiska Java
+description: Poznaj przykłady pokazujące procesory telemetryczne w Azure Monitor Application Insights dla środowiska Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696316"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734591"
 ---
-# <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Przykłady procesorów telemetrii — Azure Monitor Application Insights dla języka Java
+# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Przykłady procesora telemetrii — Azure Monitor Application Insights dla środowiska Java
 
-## <a name="includeexclude-samples"></a>Przykłady dołączania/wykluczania
+W tym artykule przedstawiono przykłady procesorów telemetrycznych w programie Application Insights for Java. Znajdziesz przykłady dla konfiguracji dołączania i wykluczania. Znajdziesz również przykłady dla procesorów atrybutów i procesorów.
+## <a name="include-and-exclude-samples"></a>Przykłady dołączania i wykluczania
 
-### <a name="1-include-spans"></a>1. Uwzględnij zakresy
+W tej sekcji zobaczysz, jak dołączać i wykluczać zakresy. Zobaczysz również, jak wykluczyć wiele zakresów i zastosować przetwarzanie selektywne.
+### <a name="include-spans"></a>Uwzględnij zakresy
 
-Poniższy przykład ilustruje zakres dla tego procesora atrybutów. Wszystkie inne zakresy, które nie pasują do właściwości, nie są przetwarzane przez ten procesor.
+W tej sekcji pokazano, jak uwzględnić zakresy dla procesora atrybutów. Zakresy, które nie są zgodne z właściwościami, nie są przetwarzane przez procesor.
 
-Poniżej przedstawiono warunki, które należy spełnić w celu dopasowania:
-* Nazwa zakresu musi być równa "span" lub "spanB" 
+Dopasowanie wymaga, aby nazwa zakresu była równa `spanA` lub `spanB` . 
 
-Poniżej znajdują się zakresy zgodne z właściwościami include i są stosowane akcje procesora.
+Te zakresy są zgodne z właściwościami dołączania i są stosowane akcje procesora:
 * Nazwa Span1: "span" atrybutów: {env: dev, test_request: 123, credit_card: 1234}
 * Nazwa Span2: "spanB" atrybutów: {env: dev, test_request: false}
 * Nazwa Span3: "span" atrybutów: {env: 1, test_request: dev, credit_card: 1234}
 
-Poniższy zakres nie jest zgodny z właściwościami include i nie są stosowane akcje procesora.
+Ten zakres nie jest zgodny z właściwościami include i nie są stosowane akcje procesora:
 * Nazwa Span4: "spanC" atrybutów: {env: dev, test_request: false}
 
 ```json
@@ -58,19 +59,18 @@ Poniższy zakres nie jest zgodny z właściwościami include i nie są stosowane
 }
 ```
 
-### <a name="2-exclude-spans"></a>2. Wyklucz zakresy
+### <a name="exclude-spans"></a>Wyklucz zakresy
 
-Poniżej pokazano, z wyłączeniem zakresów dla tego procesora atrybutów. Wszystkie zakresy, które pasują do właściwości, nie są przetwarzane przez ten procesor.
+W tej sekcji pokazano, jak wykluczyć zakresy dla procesora atrybutu. Zakresy, które pasują do właściwości, nie są przetwarzane przez ten procesor.
 
-Poniżej przedstawiono warunki, które należy spełnić w celu dopasowania:
-* Nazwa zakresu musi być równa "span" lub "spanB" 
+Dopasowanie wymaga, aby nazwa zakresu była równa `spanA` lub `spanB` .
 
-Poniżej znajdują się zakresy zgodne z właściwościami Exclude i nie są stosowane akcje procesora.
+Poniższe zakresy są zgodne z właściwościami wykluczania i nie są stosowane akcje procesora:
 * Nazwa Span1: "span" atrybutów: {env: dev, test_request: 123, credit_card: 1234}
 * Nazwa Span2: "spanB" atrybutów: {env: dev, test_request: false}
 * Nazwa Span3: "span" atrybutów: {env: 1, test_request: dev, credit_card: 1234}
 
-Poniższy zakres nie jest zgodny z właściwościami wykluczania i są stosowane akcje procesora.
+Ten zakres nie jest zgodny z właściwościami wykluczania i są stosowane akcje procesora:
 * Nazwa Span4: "spanC" atrybutów: {env: dev, test_request: false}
 
 ```json
@@ -99,19 +99,19 @@ Poniższy zakres nie jest zgodny z właściwościami wykluczania i są stosowane
 }
 ```
 
-### <a name="3-excludemulti-spans"></a>3. ExcludeMulti zakresy
+### <a name="exclude-spans-by-using-multiple-criteria"></a>Wyklucz zakresy przy użyciu wielu kryteriów
 
-Poniżej pokazano, z wyłączeniem zakresów dla tego procesora atrybutów. Wszystkie zakresy, które pasują do właściwości, nie są przetwarzane przez ten procesor.
+W tej sekcji pokazano, jak wykluczyć zakresy dla procesora atrybutu. Zakresy, które pasują do właściwości, nie są przetwarzane przez ten procesor.
 
-Poniżej przedstawiono warunki, które należy spełnić w celu dopasowania:
-* Atrybut ("ENV", "dev") musi znajdować się w zakresie dla dopasowania.
-* Pod warunkiem, że istnieje atrybut z kluczem "test_request" w zakresie, w którym występuje dopasowanie.
+Dopasowanie wymaga spełnienia następujących warunków:
+* Atrybut (na przykład `env` lub `dev` ) musi znajdować się w zakresie.
+* Zakres musi mieć atrybut, który ma klucz `test_request` .
 
-Poniżej znajdują się zakresy zgodne z właściwościami Exclude i nie są stosowane akcje procesora.
+Poniższe zakresy są zgodne z właściwościami wykluczania i nie są stosowane akcje procesora.
 * Nazwa Span1: "spanB" atrybutów: {env: dev, test_request: 123, credit_card: 1234}
 * Nazwa Span2: "span" atrybutów: {env: dev, test_request: false}
 
-Poniższy zakres nie jest zgodny z właściwościami wykluczania i są stosowane akcje procesora.
+Poniższy zakres nie jest zgodny z właściwościami wykluczania i są stosowane akcje procesora:
 * Nazwa Span3: "spanB" atrybutów: {env: 1, test_request: dev, credit_card: 1234}
 * Nazwa Span4: "spanC" atrybutów: {env: dev, dev_request: false}
 
@@ -151,16 +151,16 @@ Poniższy zakres nie jest zgodny z właściwościami wykluczania i są stosowane
 }
 ```
 
-### <a name="4-selective-processing"></a>4. przetwarzanie selektywne
+### <a name="selective-processing"></a>Przetwarzanie selektywne
 
-Poniżej pokazano, jak określić zestaw właściwości zakresu, aby wskazać, które zakresy obejmują ten procesor. `include`Właściwości mówią, które powinny być uwzględnione, a właściwości w `exclude` dalszej odfiltrować zakresy, które nie powinny być przetwarzane.
+W tej sekcji pokazano, jak określić zbiór właściwości zakresu wskazujący, które zakresy obejmują ten procesor. Właściwości include wskazują, które zakresy powinny być przetwarzane. Właściwości wykluczania filtrują zakresy, które nie powinny być przetwarzane.
 
-W poniższej konfiguracji są stosowane następujące zakresy zgodne z właściwościami i akcjami procesora:
+W poniższej konfiguracji te zakresy są zgodne z właściwościami i są stosowane akcje procesora:
 
 * Nazwa Span1: "spanB" atrybutów: {env: production, test_request: 123, credit_card: 1234, redact_trace: "false"}
 * Nazwa Span2: "span" atrybutów: {env: przemieszczanie, test_request: false, redact_trace: true}
 
-Poniższe zakresy nie pasują do właściwości include i nie są stosowane:
+Te zakresy nie pasują do właściwości include i nie są stosowane akcje procesora:
 * Nazwa Span3: "spanB" atrybuty: {env: Product, test_request: true, credit_card: 1234, redact_trace: false}
 * Nazwa Span4: "spanC" atrybutów: {env: dev, test_request: false}
 
@@ -206,7 +206,7 @@ Poniższe zakresy nie pasują do właściwości include i nie są stosowane:
 
 ### <a name="insert"></a>Insert
 
-Poniższy kod wstawia nowy atrybut {"Attribute1": "attributeValue1"} do zakresu, w którym klucz "Attribute1" nie istnieje.
+Poniższy przykład wstawia nowy atrybut `{"attribute1": "attributeValue1"}` do zakresów, w których klucz `attribute1` nie istnieje.
 
 ```json
 {
@@ -230,7 +230,7 @@ Poniższy kod wstawia nowy atrybut {"Attribute1": "attributeValue1"} do zakresu,
 
 ### <a name="insert-from-another-key"></a>Wstaw z innego klucza
 
-Poniższe elementy używają wartości z atrybutu "anotherkey", aby wstawić nowy atrybut {"newKey": "value from Attribute" anotherkey "} do zakresu, w którym klucz" newKey "nie istnieje. Jeśli atrybut "anotherkey" nie istnieje, nowy atrybut nie zostanie wstawiony do zakresu.
+Poniższy przykład używa wartości z atrybutu, `anotherkey` Aby wstawić nowy atrybut `{"newKey": "<value from attribute anotherkey>"}` do zakresu, w którym klucz `newKey` nie istnieje. Jeśli atrybut `anotherkey` nie istnieje, nowy atrybut nie zostanie wstawiony do zakresów.
 
 ```json
 {
@@ -254,7 +254,7 @@ Poniższe elementy używają wartości z atrybutu "anotherkey", aby wstawić now
 
 ### <a name="update"></a>Aktualizacja
 
-Następujący element aktualizuje atrybut {"DB. Secret": "redagowane"} i aktualizuje atrybut "Boo" przy użyciu wartości z atrybutu "foo". Zakresy bez atrybutu "Boo" nie zmienią się.
+Poniższy przykład aktualizuje atrybut do `{"db.secret": "redacted"}` . Aktualizuje atrybut przy `boo` użyciu wartości z atrybutu `foo` . Zakresy, które nie mają atrybutu, `boo` nie zmieniają się.
 
 ```json
 {
@@ -283,7 +283,7 @@ Następujący element aktualizuje atrybut {"DB. Secret": "redagowane"} i aktuali
 
 ### <a name="delete"></a>Usuń
 
-Poniższy ilustruje usuwanie atrybutu z kluczem "credit_card".
+Poniższy przykład pokazuje, jak usunąć atrybut, który ma klucz `credit_card` .
 
 ```json
 {
@@ -306,7 +306,7 @@ Poniższy ilustruje usuwanie atrybutu z kluczem "credit_card".
 
 ### <a name="hash"></a>Skrót
 
-Poniżej przedstawiono wartość skrótu istniejące wartości atrybutu.
+Poniższy przykład pokazuje, jak skrócić istniejące wartości atrybutów.
 
 ```json
 {
@@ -329,13 +329,13 @@ Poniżej przedstawiono wartość skrótu istniejące wartości atrybutu.
 
 ### <a name="extract"></a>Wyodrębnianie
 
-Poniższy przykład ilustruje użycie wyrażenia regularnego do tworzenia nowych atrybutów na podstawie wartości innego atrybutu.
-Na przykład w przypadku protokołu HTTP. URL = ' http://example.com/path?queryParam1=value1 , queryParam2 = wartość2 ' zostaną wstawione następujące atrybuty:
-* httpProtocol: http
-* httpDomain: example.com
-* httpPath: ścieżka
-* httpQueryParams: queryParam1 = wartość1, queryParam2 = wartość2
-* wartość http. URL nie zmienia się.
+Poniższy przykład pokazuje, jak używać wyrażenia regularnego (regularnych) do tworzenia nowych atrybutów na podstawie wartości innego atrybutu.
+Na przykład podano `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2` następujące atrybuty:
+* httpProtocol: `http`
+* httpDomain: `example.com`
+* httpPath: `path`
+* httpQueryParams: `queryParam1=value1,queryParam2=value2`
+* http. URL: *Brak* zmian
 
 ```json
 {
@@ -357,8 +357,8 @@ Na przykład w przypadku protokołu HTTP. URL = ' http://example.com/path?queryP
 }
 ```
 
-W poniższym przykładzie pokazano, jak przetwarzać zakresy, które mają nazwę zakresu, która pasuje do wzorców RegExp.
-Ten procesor spowoduje usunięcie atrybutu "token" i spowoduje mieszanie atrybutu "Password" w zakresach, gdzie nazwa zakresu pasuje do "auth \* ". i gdzie nazwa zakresu nie jest zgodna z nazwą "login \* ".
+Poniższy przykład pokazuje, jak przetwarzać zakresy, które mają nazwę zakresu, która pasuje do wzorców wyrażeń regularnych.
+Ten procesor usuwa `token` atrybut. Zasłania `password` atrybut w zakresach, gdzie nazwa zakresu jest zgodna `auth.*` i gdzie nazwa zakresu nie jest zgodna `login.*` .
 
 ```json
 {
@@ -401,7 +401,7 @@ Ten procesor spowoduje usunięcie atrybutu "token" i spowoduje mieszanie atrybut
 
 ### <a name="name-a-span"></a>Nazwij zakres
 
-W poniższym przykładzie określono wartości atrybutu "DB. svc", "Operation" i "ID" w postaci nowej nazwy zakresu, w tej kolejności, oddzielonej przez wartość "::".
+W poniższym przykładzie określono wartości atrybutów `db.svc` , `operation` , i `id` . Tworzy nową nazwę zakresu przy użyciu tych atrybutów, w tej kolejności, oddzielonych wartością `::` .
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -423,9 +423,9 @@ W poniższym przykładzie określono wartości atrybutu "DB. svc", "Operation" i
 }
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Wyodrębnij atrybuty z nazwy zakresu
+### <a name="extract-attributes-from-a-span-name"></a>Wyodrębnij atrybuty z nazwy zakresu
 
-Załóżmy, że nazwa zakresu wejściowego to/API/V1/Document/12345678/Update. Zastosowanie następujących wyników w nazwie zakresu wyjściowego/api/v1/document/{documentId}/update spowoduje dodanie nowego atrybutu "element DocumentID" = "12345678" do zakresu.
+Załóżmy, że nazwa zakresu wejściowego to `/api/v1/document/12345678/update` . Poniższy przykład powoduje, że nazwa zakresu danych wyjściowych `/api/v1/document/{documentId}/update` . Dodaje nowy atrybut `documentId=12345678` do zakresu.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -446,11 +446,11 @@ Załóżmy, że nazwa zakresu wejściowego to/API/V1/Document/12345678/Update. Z
 }
 ```
 
-### <a name="extract-attributes-from-span-name-with-include-and-exclude"></a>Wyodrębnij atrybuty z nazwy zakresu przy użyciu dołączania i wykluczania
+### <a name="extract-attributes-from-a-span-name-by-using-include-and-exclude"></a>Wyodrębnij atrybuty z nazwy zakresu przy użyciu funkcji include i Exclude
 
-Poniższy ilustruje zmianę nazwy zakresu na "{operation_website}" i dodanie atrybutu {Key: operation_website, Value: oldSpanName}, gdy zakres ma następujące właściwości:
-- Nazwa zakresu zawiera znak "/" w dowolnym miejscu w ciągu.
-- Nazwa zakresu nie jest "nie odgradzania/Change".
+Poniższy przykład pokazuje, jak zmienić nazwę zakresu na `{operation_website}` . Dodaje atrybut z kluczem `operation_website` i wartością, `{oldSpanName}` gdy zakres ma następujące właściwości:
+- Nazwa zakresu zawiera `/` dowolne miejsce w ciągu.
+- Nazwa zakresu nie jest `donot/change` .
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",

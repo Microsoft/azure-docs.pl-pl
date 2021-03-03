@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 615fb1b9f5a9d87a8d69778930b7359823e1ec39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738025"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

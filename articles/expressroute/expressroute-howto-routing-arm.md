@@ -7,22 +7,22 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 641d7eeef96af84f0f058aebd19d795083e3567f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cfd378ae621192cd98b482b66c85c3dcd3ca454
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721943"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Samouczek: Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu programu PowerShell
 
 Ten samouczek ułatwia tworzenie i zarządzanie konfiguracją routingu dla obwodu usługi ExpressRoute w modelu wdrażania Menedżer zasobów przy użyciu programu PowerShell. Możesz również sprawdzić stan, aktualizowanie i usuwanie komunikacji równorzędnej dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodem, wybierz artykuł z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
-> * [Publiczna Komunikacja równorzędna](about-public-peering.md)
+> * [Publiczna komunikacja równorzędna](about-public-peering.md)
 > * [Wideo — prywatna Komunikacja równorzędna](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Wideo — Komunikacja równorzędna firmy Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
@@ -46,7 +46,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 * Przed rozpoczęciem konfiguracji upewnij się, że zostały sprawdzone następujące strony:
     * [Wymagania wstępne](expressroute-prerequisites.md) 
     * [Wymagania routingu](expressroute-routing.md)
-    * [Przepływy](expressroute-workflows.md)
+    * [Przepływy pracy](expressroute-workflows.md)
 * Musisz mieć aktywny obwód usługi ExpressRoute. Postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](expressroute-howto-circuit-arm.md) i mieć obwód włączony przez dostawcę łączności przed kontynuowaniem. Obwód usługi ExpressRoute musi być w stanie aprowizacji i włączony, aby można było uruchamiać polecenia cmdlet w tym artykule.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -159,9 +159,14 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna platformy Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna Azure
 
 Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
+
+> [!IMPORTANT]
+> Obsługa protokołu IPv6 dla prywatnej komunikacji równorzędnej jest obecnie dostępna w **publicznej wersji zapoznawczej**. 
+> 
+> 
 
 ### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
 
@@ -233,8 +238,10 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
    ```
 4. Skonfiguruj prywatną komunikację równorzędną Azure dla obwodu. Przed przejściem do następnego kroku upewnij się, że masz następujące elementy:
 
-   * Podsieć /30 dla połączenia podstawowego. Podsieć nie może być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
-   * Podsieć /30 dla połączenia dodatkowego. Podsieć nie może być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
+   * Para podsieci, które nie są częścią przestrzeni adresowej zarezerwowanej dla sieci wirtualnych. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera. Dla tej pary podsieci dostępne są trzy opcje:
+       * IPv4: dwie podsieci/30.
+       * IPv6: dwie podsieci/126.
+       * Oba: dwie podsieci/30 i dwie podsieci/126.
    * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS. Możesz użyć prywatnego numeru AS dla tej komunikacji równorzędnej. Upewnij się, że nie używasz 65515.
    * Opcjonalnie:
@@ -245,6 +252,8 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
+
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
@@ -252,6 +261,8 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6 -SharedKey "A1B2C3D4"
    ```
 
    > [!IMPORTANT]
@@ -271,10 +282,10 @@ Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 
 ### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
 
-Możesz zaktualizować dowolną część konfiguracji, korzystając z poniższego przykładu. W tym przykładzie identyfikator sieci VLAN obwodu jest aktualizowany z 100 do 500.
+Możesz zaktualizować dowolną część konfiguracji, korzystając z poniższego przykładu. W tym przykładzie identyfikator sieci VLAN obwodu jest aktualizowany z 200 do 500.
 
 ```azurepowershell-interactive
-Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 500
 
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

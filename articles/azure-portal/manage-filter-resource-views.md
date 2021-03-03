@@ -3,12 +3,12 @@ title: Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 description: Filtruj informacje i korzystaj z różnych widoków, aby lepiej zrozumieć zasoby platformy Azure.
 ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: d1bd00a9e7f8c9c18484378f7c21d3bacdac2d3f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738637"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Wyświetlanie i filtrowanie informacji o zasobach platformy Azure
 
@@ -48,7 +48,19 @@ Aby usunąć widok:
 
 1. Wybierz pozycję **Zarządzaj widok** , a następnie **Przeglądaj wszystkie widoki**.
 
-1. W **zapisywanych widokach okienka "wszystkie zasoby"** wybierz widok, a następnie wybierz **Delete** ikonę Usuń ![ Widok usuń ikonę ](media/manage-filter-resource-views/icon-delete.png) .
+1. W **zapisywanych widokach okienka "wszystkie zasoby"** wybierz widok, a następnie wybierz  ikonę Usuń ![ Widok usuń ikonę ](media/manage-filter-resource-views/icon-delete.png) .
+
+## <a name="export-information-from-a-view"></a>Eksportuj informacje z widoku
+
+Informacje o zasobach można wyeksportować z widoku. Aby wyeksportować informacje w formacie CSV:
+
+1. Wybierz pozycję **Eksportuj do pliku CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Zrzut ekranu przedstawiający Eksportowanie do formatu CSV":::
+
+1. Zapisz plik lokalnie, a następnie otwórz go w programie Excel lub innej aplikacji obsługującej format CSV. 
+
+Podczas poruszania się po portalu zobaczysz inne obszary, w których można eksportować informacje, takie jak pojedyncze grupy zasobów.
 
 ## <a name="summarize-resources-with-visuals"></a>Podsumowywanie zasobów za pomocą wizualizacji
 

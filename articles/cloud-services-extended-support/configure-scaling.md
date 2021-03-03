@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744518"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728165"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Konfigurowanie opcji skalowania przy użyciu usługi Azure Cloud Services (obsługa rozszerzona) 
 
 Warunki można skonfigurować w taki sposób, aby umożliwiały skalowanie i wychodzące wdrożenia w Cloud Services (obsługa rozszerzona). Warunki te mogą opierać się na użyciu procesora CPU, obciążenia dysku i obciążenia sieci. 
 
 Podczas konfigurowania skalowania wdrożeń usług w chmurze należy wziąć pod uwagę następujące informacje:
-- Skalowanie wpływa na podstawowe użycie. Większe wystąpienia roli zużywają więcej rdzeni i można skalować tylko w ramach podstawowego limitu subskrypcji. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- Obsługiwane jest skalowanie oparte na wartości progowej komunikatów w kolejce. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure queue storage](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- Skalowanie wpływa na podstawowe użycie. Większe wystąpienia roli zużywają więcej rdzeni i można skalować tylko w ramach podstawowego limitu subskrypcji. Aby uzyskać więcej informacji, zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Obsługiwane jest skalowanie oparte na wartości progowej komunikatów w kolejce. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z usługą Azure queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - Aby zapewnić wysoką dostępność aplikacji w chmurze (rozszerzonej pomocy technicznej), należy wdrożyć program z co najmniej dwoma wystąpieniami roli.
 - Niestandardowe Skalowanie automatyczne może wystąpić tylko wtedy, gdy wszystkie role są w stanie **gotowe** .
 

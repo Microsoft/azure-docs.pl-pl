@@ -1,22 +1,22 @@
 ---
-title: Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z woluminami trwałymi przy użyciu Azure Monitor dla kontenerów.
+title: Konfigurowanie monitorowania PV przy użyciu usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z trwałymi woluminami przy użyciu usługi Container Insights.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0afbeab49a6909a0011cd75a0419f7325ca68132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621180"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713732"
 ---
-# <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania PV przy użyciu Azure Monitor dla kontenerów
+# <a name="configure-pv-monitoring-with-container-insights"></a>Konfigurowanie monitorowania PV przy użyciu usługi Container Insights
 
-Począwszy od wersji *ciprod10052020* agenta, Azure monitor dla kontenerów zintegrowany Agent obsługuje teraz użycie funkcji monitorowania PV (trwałego woluminu).
+Począwszy od wersji agenta *ciprod10052020*, zintegrowany Agent usługi Container Insights obsługuje teraz użycie funkcji monitorowania PV (trwałego woluminu).
 
 ## <a name="pv-metrics"></a>Metryki PV
 
-Azure Monitor kontenerów automatycznie zaczyna monitorować PV przez zbieranie następujących metryk w interwałach 60sec i przechowywanie ich w tabeli **InsightMetrics** .
+Usługi Container Insights automatycznie zaczynają monitorować WB przez zbieranie następujących metryk w interwałach 60sec i przechowywanie ich w tabeli **InsightMetrics** .
 
 |Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Azure Monitor kontenerów automatycznie zaczyna monitorować PV przez zbieranie 
 
 ## <a name="monitor-persistent-volumes"></a>Monitorowanie woluminów trwałych
 
-Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla tej metryki w skoroszycie dla każdego klastra. Wykresy można znaleźć na karcie trwały wolumin skoroszytu **szczegóły obciążenia** bezpośrednio z klastra AKS, wybierając pozycję skoroszyty z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowe informacje. Możesz również włączyć zalecany alert do użycia PV, a także zbadać te metryki w Log Analytics.  
+Informacje o kontenerze zawierają wstępnie skonfigurowane wykresy dla tej metryki w skoroszycie dla każdego klastra. Wykresy można znaleźć na karcie trwały wolumin skoroszytu **szczegóły obciążenia** bezpośrednio z klastra AKS, wybierając pozycję skoroszyty z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowe informacje. Możesz również włączyć zalecany alert do użycia PV, a także zbadać te metryki w Log Analytics.  
 
 ![Przykładowy skoroszyt obciążenia Azure Monitor PV](./media/container-insights-persistent-volumes/pv-workload-example.PNG)
 

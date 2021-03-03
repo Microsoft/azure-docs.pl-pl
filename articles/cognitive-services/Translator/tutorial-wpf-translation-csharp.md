@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728012"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
@@ -38,10 +38,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Cechy | Opis |
+| Usługa | Cecha | Opis |
 |---------|---------|-------------|
 | Translator | [Pobieranie języków](./reference/v3-0-languages.md) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
-| Translator | [Przetłumacz](./reference/v3-0-translate.md) | Tłumaczenie tekstu na więcej niż 70 języków. |
+| Translator | [Przetłumacz](./reference/v3-0-translate.md) | Tłumaczenie tekstu na 90 języków i dialektów. |
 | Translator | [Powinny](./reference/v3-0-detect.md) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
 | Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
 
@@ -264,7 +264,7 @@ Na koniec dodaliśmy kod wywołujący metody pobierające języki do tłumaczeni
 
 ## <a name="get-supported-languages"></a>Uzyskiwanie obsługiwanych języków
 
-Translator obsługuje obecnie ponad 70 języków. Ponieważ nowa obsługa języka zostanie dodana z upływem czasu, zalecamy wywołanie zasobów języków udostępnianych przez translator, a nie zakodowana listy języków w aplikacji.
+Translator obsługuje obecnie 90 języków i dialektów. Ponieważ nowa obsługa języka zostanie dodana z upływem czasu, zalecamy wywołanie zasobów języków udostępnianych przez translator, a nie zakodowana listy języków w aplikacji.
 
 W tej sekcji utworzymy żądanie `GET` do zasobu Languages określające, że chcemy uzyskać listę języków dostępnych do tłumaczenia.
 

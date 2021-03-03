@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 4d053e33b8751095be13a40446914033b31feeed
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ce79b450e5eaed04150ffafd88528a131417044a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656418"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692321"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet MongoDB, z których korzystasz, ze wszystkimi możliwościami przedsiębiorstwa, które Cosmos DB oferuje: [globalna dystrybucja](distribute-data-globally.md), [Automatyczna fragmentowania](partitioning-overview.md), dostępność i gwarancje opóźnienia, szyfrowanie w spoczynku, tworzenie kopii zapasowych i wiele innych.
 
 > [!NOTE]
-> Ten artykuł dotyczy interfejsu API Azure Cosmos DB MongoDB 3,6. Aby uzyskać wersję MongoDB 4,0, zobacz [MongoDB 4,0 obsługiwane funkcje i składnia](mongodb-feature-support-40.md).
+> Wersja 3,6 interfejsu API Cosmos DB dla MongoDB nie ma bieżących planów dla końca cyklu życia (EOL). Minimalna wartość powiadomienia w przyszłości EOL wynosi trzy lata.
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 

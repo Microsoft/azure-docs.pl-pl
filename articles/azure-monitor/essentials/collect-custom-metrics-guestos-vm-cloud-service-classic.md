@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737073"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Wysyłaj metryki systemu operacyjnego gościa do magazynu Azure Monitor metryk klasyczny Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Dzięki [rozszerzeniu diagnostyki](../agents/diagnostics-extension-overview.md)Azure monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+Dzięki [rozszerzeniu diagnostyki](../agents/diagnostics-extension-overview.md)Azure monitor można zbierać metryki i dzienniki z systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w ramach maszyny wirtualnej, usługi w chmurze lub klastra Service Fabric. Rozszerzenie może wysyłać dane telemetryczne do [wielu różnych lokalizacji.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla klasycznej Cloud Services platformy Azure do magazynu metryk Azure Monitor. Począwszy od wersji Diagnostics 1,11, można pisać metryki bezpośrednio do magazynu metryk Azure Monitor, w którym są już zbierane metryki platformy standardowej. 
 
@@ -34,7 +34,7 @@ Proces przedstawiony w tym artykule działa tylko w przypadku liczników wydajno
 
 - Musisz mieć zainstalowaną [Azure PowerShell](/powershell/azure) lub [Azure Cloud Shell](../../cloud-shell/overview.md) .
 
-- Usługa w chmurze musi znajdować się w [regionie, który obsługuje metryki niestandardowe](../platform/metrics-custom-overview.md#supported-regions).
+- Usługa w chmurze musi znajdować się w [regionie, który obsługuje metryki niestandardowe](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Inicjowanie obsługi administracyjnej usługi w chmurze i konta magazynu 
 
@@ -191,4 +191,4 @@ Możesz użyć funkcji filtrowania wymiarów i dzielenia, aby wyświetlić łąc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [metrykach niestandardowych](../platform/metrics-custom-overview.md).
+- Dowiedz się więcej o [metrykach niestandardowych](./metrics-custom-overview.md).

@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611206"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712519"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu Azure Portal
 
@@ -41,28 +41,29 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="sign-in-to-azure-portal"></a>Logowanie do witryny Azure Portal
 
-[Zaloguj](https://portal.azure.com) się do portalu Azure w wersji zapoznawczej.
+[Zaloguj](https://preview.portal.azure.com) się do portalu Azure w wersji zapoznawczej.
 
 ## <a name="create-cross-region-load-balancer"></a>Tworzenie międzyregionowego modułu równoważenia obciążenia
 
 Ta sekcja umożliwia utworzenie międzyregionowego modułu równoważenia obciążenia i publicznego adresu IP.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > sieci > Load Balancer** lub Wyszukaj **Load Balancer** w polu wyszukiwania.
-
-2. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje: 
+1. Wybierz pozycję **Utwórz zasób**. 
+2. W polu wyszukiwania wprowadź **moduł równoważenia obciążenia**. Wybierz pozycję **moduł równoważenia obciążenia** w wynikach wyszukiwania.
+3. Na stronie **moduł równoważenia obciążenia** wybierz pozycję **Utwórz**.
+4. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje: 
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | W polu tekstowym wybierz pozycję **Utwórz nową** i wprowadź **CreateCRLBTutorial-RG** .|
     | Nazwa                   | Wprowadź **myLoadBalancer-CR**                                   |
-    | Region (Region)         | wybierz pozycję **Zachodnie stany USA**.                                        |
+    | Region (Region)         | Wybierz pozycję **(US) zachodnie stany USA**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | SKU           | Pozostaw wartość domyślną **Standard**. |
     | Warstwa           | Wybierz **globalne** |
     | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**.|
     | Nazwa publicznego adresu IP | W polu tekstowym wpisz **myPublicIP-CR** .|
-    | Preferencja routingu| Wybieranie **sieci firmy Microsoft** |
+    | Preferencja routingu| Wybierz pozycję **Sieć firmy Microsoft**. </br> Aby uzyskać więcej informacji o preferencjach routingu, zobacz [co to jest preferencja routingu (wersja zapoznawcza)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > Moduł równoważenia obciążenia między regionami można wdrożyć tylko w następujących regionach głównych: **Wschodnie stany USA 2, zachodnie stany USA, Europa Zachodnia, Azja Południowo-Wschodnia, środkowe stany USA, Europa Północna, Azja Wschodnia**. Aby uzyskać więcej informacji, zobacz **https://aka.ms/homeregionforglb**.

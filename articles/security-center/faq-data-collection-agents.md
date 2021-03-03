@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705152"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -29,7 +29,7 @@ Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skal
 
 Nie. Obszary robocze utworzone przez Security Center, podczas gdy skonfigurowano do rozliczania Azure Monitor dzienników na węzeł, nie są naliczane opłaty za dzienniki Azure Monitor. Rozliczanie Security Center jest zawsze uzależnione od zasad zabezpieczeń Security Center i rozwiązań zainstalowanych w obszarze roboczym:
 
-- **Usługa Azure Defender wyłączona** — Security Center włącza rozwiązanie "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona opłata, jeśli usługa Azure Defender jest wyłączona.
+- **Usługa Azure Defender wyłączona** — Security Center umożliwia korzystanie z rozwiązania "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona opłata, jeśli usługa Azure Defender jest wyłączona.
 
 - **Usługa Azure Defender on** — Security Center włącza rozwiązanie "zabezpieczenia" w domyślnym obszarze roboczym.
 
@@ -146,7 +146,7 @@ Jeśli Agent Log Analytics jest instalowany bezpośrednio na maszynie wirtualnej
 
 Zainstalowany agent będzie kontynuował raportowanie do już skonfigurowanych obszarów roboczych, a ponadto wyśle raport do obszaru roboczego skonfigurowanego w Security Center (wiele multihostingu jest obsługiwana na maszynach z systemem Windows).
 
-Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security/" SecurityCenterFree "dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
+Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Security Center domyślnym obszarem roboczym), należy zainstalować na nim rozwiązanie "Security" lub "SecurityCenterFree" dla Security Center, aby rozpocząć przetwarzanie zdarzeń z maszyn wirtualnych i komputerów zgłaszanych do tego obszaru roboczego.
 
 W przypadku maszyn z systemem Linux Agent multihostingu nie jest jeszcze obsługiwany — w związku z tym jeśli zostanie wykryta istniejąca instalacja agenta, automatyczne Inicjowanie obsługi nie zostanie wykonane i konfiguracja maszyny nie zostanie zmieniona.
 
@@ -207,7 +207,7 @@ Po zakończeniu migracji Security Center nie może zbierać danych zabezpieczeń
 
 Ręcznie zainstaluj rozszerzenie agenta Log Analytics, aby Security Center mógł zbierać dane dotyczące zabezpieczeń z maszyn wirtualnych i udostępniać zalecenia i alerty. Aby uzyskać wskazówki dotyczące instalacji, zobacz [Instalacja agenta dla maszyny wirtualnej z systemem Windows](../virtual-machines/extensions/oms-windows.md) lub [instalacji agenta dla maszyny wirtualnej z systemem Linux](../virtual-machines/extensions/oms-linux.md) .
 
-Możesz połączyć agenta z dowolnym istniejącym obszarem roboczym lub Security Center utworzonym obszarem roboczym. Jeśli w niestandardowym obszarze roboczym nie włączono rozwiązań "Security" lub "SecurityCenterFree", należy zastosować rozwiązanie. Aby zastosować tę opcję, wybierz niestandardowy obszar roboczy lub subskrypcję i Zastosuj warstwę cenową na stronie **zasady zabezpieczeń — warstwa cenowa** .
+Możesz połączyć agenta z dowolnym istniejącym obszarem roboczym lub Security Center utworzonym obszarem roboczym. Jeśli dla niestandardowego obszaru roboczego nie włączono rozwiązań "Security" lub "SecurityCenterFree", należy zastosować rozwiązanie. Aby zastosować tę opcję, wybierz niestandardowy obszar roboczy lub subskrypcję i Zastosuj warstwę cenową na stronie **zasady zabezpieczeń — warstwa cenowa** .
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Włączanie lub wyłączanie usługi Azure Defender":::
 

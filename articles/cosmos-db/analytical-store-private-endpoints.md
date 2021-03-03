@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 26c99beb95d60b476fff255321d85c0db8aa7363
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692202"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Skonfiguruj prywatne punkty końcowe dla Azure Cosmos DB magazynu analitycznego
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ W tym artykule dowiesz się, jak skonfigurować zarządzane prywatne punkty koń
 
 ### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Konfigurowanie obszaru roboczego usługi Azure Synapse Analytics przy użyciu zarządzanej sieci wirtualnej
 
-[Utwórz obszar roboczy w usłudze Azure Synapse Analytics z włączonymi danymi eksfiltracji.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md). Dzięki [ochronie danych eksfiltracji](../synapse-analytics/security/workspace-data-exfiltration-protection.md)można zagwarantować, że Złośliwi użytkownicy nie będą mogli kopiować ani przesyłać danych z zasobów platformy Azure do lokalizacji poza zasięgiem organizacji.
+[Utwórz obszar roboczy w usłudze Azure Synapse Analytics z włączonymi danymi eksfiltracji.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) Dzięki [ochronie danych eksfiltracji](../synapse-analytics/security/workspace-data-exfiltration-protection.md)można zagwarantować, że Złośliwi użytkownicy nie będą mogli kopiować ani przesyłać danych z zasobów platformy Azure do lokalizacji poza zasięgiem organizacji.
 
 Następujące ograniczenia dostępu są stosowane, gdy ochrona danych eksfiltracji jest włączona dla obszaru roboczego analizy Synapse Azure:
 

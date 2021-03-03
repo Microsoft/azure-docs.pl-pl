@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702202"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez wykorzystania agentów)
 
@@ -57,7 +57,7 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 
 Po skonfigurowaniu urządzenia i zakończeniu odnajdywania można rozpocząć replikację maszyn wirtualnych VMware na platformę Azure. 
 
-- Jednocześnie można uruchomić maksymalnie 300 replikacji.
+- Jednocześnie można uruchomić maksymalnie 500 replikacji.
 - W portalu można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby migracji. Aby migrować więcej maszyn, należy dodać je do grup w partiach 10.
 
 Aby włączyć replikację:
@@ -88,9 +88,10 @@ Aby włączyć replikację:
 9. W obszarze **typ szyfrowania dysku** wybierz:
     - Szyfrowanie — w spoczynku z kluczem zarządzanym przez platformę
     - Szyfrowanie — w spoczynku z kluczem zarządzanym przez klienta
+    - Podwójne szyfrowanie za pomocą kluczy zarządzanych przez platformę i klienta
 
    > [!NOTE]
-   > Aby replikować maszyny wirtualne za pomocą CMK, należy [utworzyć zestaw szyfrowanie dysków](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) w docelowej grupie zasobów. Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE.
+   > Aby replikować maszyny wirtualne za pomocą CMK, należy [utworzyć zestaw szyfrowanie dysków](https://go.microsoft.com/fwlink/?linkid=2151800) w docelowej grupie zasobów. Obiekt zestawu szyfrowania dysku mapuje Managed Disks do Key Vault, który zawiera CMK do użycia na potrzeby SSE.
   
 10. W obszarze **Korzyść użycia hybrydowego platformy Azure**:
 

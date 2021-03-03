@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588754"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691233"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,7 +70,7 @@ W przypadku wystąpienia dużej ilości miejsca, opcje ograniczenia obejmują:
 - Zwiększenie maksymalnego rozmiaru bazy danych lub elastycznej puli lub dodanie większej ilości miejsca do magazynowania. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
 - Jeśli baza danych znajduje się w puli elastycznej, można przenieść bazę danych poza pulę, aby jej miejsce do magazynowania nie było udostępniane innym baz danych.
 - Zmniejsz rozmiar bazy danych, aby odzyskać nieużywane miejsce. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
-- Sprawdź, czy duże wykorzystanie miejsca jest spowodowane skokiem w rozmiarze trwałego magazynu wersji (PVS). PVS jest częścią każdej bazy danych i służy do implementowania  [przyspieszonego odzyskiwania bazy danych](../accelerated-database-recovery.md). Aby określić bieżący rozmiar PVS, zobacz [PVS Rozwiązywanie problemów](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Typowym powodem dużego rozmiaru PVS jest transakcja, która jest otwarta przez długi czas (godz.), uniemożliwiając czyszczenie starszych wersji w PVS.
+- Sprawdź, czy duże wykorzystanie miejsca jest spowodowane skokiem w rozmiarze trwałego magazynu wersji (PVS). PVS jest częścią każdej bazy danych i służy do implementowania  [przyspieszonego odzyskiwania bazy danych](../accelerated-database-recovery.md). Aby określić bieżący rozmiar PVS, zobacz [PVS Rozwiązywanie problemów](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Typowym powodem dużego rozmiaru PVS jest transakcja, która jest otwarta przez długi czas (godz.), uniemożliwiając czyszczenie starszych wersji w PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sesje i procesy robocze (żądania)
 

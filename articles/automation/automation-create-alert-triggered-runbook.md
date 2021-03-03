@@ -3,18 +3,18 @@ title: Użyj alertu, aby wyzwolić Azure Automation element Runbook
 description: W tym artykule opisano sposób wyzwalania elementu Runbook do uruchomienia w przypadku zgłoszenia alertu platformy Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/29/2019
+ms.date: 02/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: add2bbb7b8f9eeb72c8c58b8c54b070a6b14d8e6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0483b171ee65ac55d65261140738bc5c1838873f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586061"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732296"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Użyj alertu, aby wyzwolić Azure Automation element Runbook
 
-Za pomocą [Azure monitor](../azure-monitor/overview.md) można monitorować metryki i dzienniki na poziomie podstawowym dla większości usług platformy Azure. Do automatyzowania zadań opartych na alertach można wywoływać Azure Automation elementów Runbook za pomocą [grup akcji](../azure-monitor/alerts/action-groups.md) lub przy użyciu klasycznych alertów. W tym artykule opisano sposób konfigurowania i uruchamiania elementu Runbook przy użyciu alertów.
+Za pomocą [Azure monitor](../azure-monitor/overview.md) można monitorować metryki i dzienniki na poziomie podstawowym dla większości usług platformy Azure. Można wywoływać Azure Automation elementów Runbook za pomocą [grup akcji](../azure-monitor/platform/action-groups.md) do automatyzowania zadań na podstawie alertów. W tym artykule opisano sposób konfigurowania i uruchamiania elementu Runbook przy użyciu alertów.
 
 ## <a name="alert-types"></a>Typy alertów
 

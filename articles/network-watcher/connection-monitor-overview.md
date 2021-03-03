@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: ccc2b6baba0e97320a5352013dbecfc121188457
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361030"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712321"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorowanie łączności sieciowej z monitorem połączeń
 
@@ -89,7 +89,7 @@ W przypadku maszyn z systemem Linux należy ręcznie zmienić portNumbers.
 
  Należy pamiętać, że używane numery portów powinny być takie same dla wszystkich agentów używanych w obszarze roboczym. 
 
-Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły zapory systemu Windows, aby umożliwić agentom tworzenie połączeń TCP ze sobą. Klucze rejestru utworzone przez skrypt określają, czy Dzienniki debugowania i ścieżka pliku dzienników mają być rejestrowane. Skrypt definiuje również port TCP agenta używany do komunikacji. Wartości tych kluczy są automatycznie ustawiane przez skrypt. Nie zmieniaj ręcznie tych kluczy. Port otwarty domyślnie to 8084. Możesz użyć portu niestandardowego, dostarczając parametr numer_portu do skryptu. Użyj tego samego portu na wszystkich komputerach, na których jest uruchomiony skrypt. [Przeczytaj więcej](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements) na temat wymagań sieci dla agentów log Analytics
+Skrypt tworzy klucze rejestru wymagane przez rozwiązanie. Tworzy także reguły zapory systemu Windows, aby umożliwić agentom tworzenie połączeń TCP ze sobą. Klucze rejestru utworzone przez skrypt określają, czy Dzienniki debugowania i ścieżka pliku dzienników mają być rejestrowane. Skrypt definiuje również port TCP agenta używany do komunikacji. Wartości tych kluczy są automatycznie ustawiane przez skrypt. Nie zmieniaj ręcznie tych kluczy. Port otwarty domyślnie to 8084. Możesz użyć portu niestandardowego, dostarczając parametr numer_portu do skryptu. Użyj tego samego portu na wszystkich komputerach, na których jest uruchomiony skrypt. [Przeczytaj więcej](../azure-monitor/agents/log-analytics-agent.md#network-requirements) na temat wymagań sieci dla agentów log Analytics
 
 Skrypt konfiguruje tylko zaporę systemu Windows lokalnie. Jeśli masz zaporę sieciową, upewnij się, że zezwala ona na ruch przeznaczony dla portu TCP używanego przez Network Performance Monitor.
 

@@ -4,15 +4,15 @@ description: Azure Security test — zarządzanie i strategia
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 277033e41ec7e02b89eca8cf74fe6854acb51cc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369059"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727026"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Kontrola zabezpieczeń v2: ładu i strategia
 
@@ -24,15 +24,15 @@ Kierownictwo i strategia zapewniają wskazówki dotyczące zapewnienia spójnej 
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Zadbaj o to, aby udokumentować i komunikować się jasno strategię monitorowania i ochrony systemów i danych. Ustalaj priorytety odnajdywania, oceny, ochrony i monitorowania danych oraz systemów o krytycznym znaczeniu dla firmy. 
+Zadbaj o to, aby udokumentować i komunikować się jasno strategię monitorowania i ochrony systemów i danych. Ustalaj priorytety odnajdywania, oceny, ochrony i monitorowania danych oraz systemów o krytycznym znaczeniu dla firmy.
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
 - Standard klasyfikacji danych zgodny z ryzykiem biznesowym
 
-- Wgląd organizacji zabezpieczeń w czynniki ryzyka i spis elementów zawartości 
+- Wgląd organizacji zabezpieczeń w czynniki ryzyka i spis elementów zawartości
 
-- Zatwierdzenie przez organizację zabezpieczeń usług platformy Azure do użycia 
+- Zatwierdzenie przez organizację zabezpieczeń usług platformy Azure do użycia
 
 - Bezpieczeństwo elementów zawartości w całym cyklu życia
 
@@ -107,7 +107,7 @@ Nieustannie mierz i ograniczaj ryzyko dla poszczególnych zasobów i środowiska
 |--|--|--|--|
 | GS-4 | Nie dotyczy | PL, PM |
 
-Zadbaj o to, aby udokumentować i komunikować się z przejrzystą strategią dotyczącą ról i obowiązków w organizacji zabezpieczeń. Ustalaj priorytety w celu wyraźnego określenia odpowiedzialności za decyzje dotyczące zabezpieczeń, informując wszystkie osoby o współużytkowanym modelu odpowiedzialności i informując zespoły techniczne o technologii do zabezpieczania chmury.
+Upewnij się, że masz udokumentowaną strategię dotyczącą ról i obowiązków w organizacji zabezpieczeń. Ustalaj priorytety w celu wyraźnego określenia odpowiedzialności za decyzje dotyczące zabezpieczeń, informując wszystkie osoby o współużytkowanym modelu odpowiedzialności i informując zespoły techniczne o technologii do zabezpieczania chmury.
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 1 — ludzie: informowanie zespołów o podróży zabezpieczeń w chmurze](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
@@ -127,9 +127,9 @@ Zadbaj o to, aby udokumentować i komunikować się z przejrzystą strategią do
 |--|--|--|--|
 | GS-5 | 9 | URZĄD CERTYFIKACJI, SC |
 
-Ustanów podejście zabezpieczeń sieci platformy Azure jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.  
+Ustanów podejście zabezpieczeń sieci platformy Azure jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.
 
-Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
+Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów:
 
 - Scentralizowane zarządzanie siecią i odpowiedzialność w zakresie zabezpieczeń
 
@@ -141,7 +141,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 - Strategia międzyłączności w chmurze hybrydowej i środowisku lokalnym
 
-- Aktualne artefakty zabezpieczeń sieci (np. diagramy sieciowe, architektura sieci referencyjnej)
+- Aktualne artefakty zabezpieczeń sieci (takie jak diagramy sieciowe, Architektura sieci odniesienia)
 
 Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 
@@ -165,9 +165,9 @@ Aby uzyskać więcej informacji, zapoznaj się z następującymi dokumentami:
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Ustanów rolę platformy Azure i dostęp uprzywilejowany jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.  
+Ustanów rolę platformy Azure i dostęp uprzywilejowany jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.
 
-Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
+Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów:
 
 - Scentralizowany system tożsamości i uwierzytelniania oraz połączenie z innymi wewnętrznymi i zewnętrznymi systemami tożsamości
 
@@ -175,7 +175,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 - Ochrona użytkowników z wysokim poziomem uprawnień
 
-- Monitorowanie i obsługa nietypowych działań użytkowników  
+- Monitorowanie i obsługa nietypowych działań użytkowników
 
 - Przegląd tożsamości i dostępu użytkownika oraz proces uzgadniania
 
@@ -205,7 +205,7 @@ Ustanów strategię rejestrowania i reagowania na zagrożenia, aby szybko wykryw
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
-- Rola i obowiązki organizacji w zakresie operacji zabezpieczeń (SecOps) 
+- Rola i obowiązki organizacji operacji zabezpieczeń (SecOP) 
 
 - Dobrze zdefiniowany proces reagowania na zdarzenia zgodnie z NIST lub inną platformą branżową 
 

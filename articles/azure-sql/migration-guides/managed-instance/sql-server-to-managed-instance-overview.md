@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690417"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ Poniższa tabela zawiera porównanie zalecanych opcji migracji:
 
 |Opcja migracji  |Kiedy stosować  |Zagadnienia do rozważenia  |
 |---------|---------|---------|
-|[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Migruj pojedyncze bazy danych lub wiele baz danych na dużą skalę. </br> — Może obsłużyć przestoje podczas procesu migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM |  — Migracje na dużą skalę można zautomatyzować za pomocą [programu PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Czas na zakończenie migracji zależy od rozmiaru bazy danych i wpływu na czas wykonywania kopii zapasowej i przywracania. </br> -Konieczne może być wystarczające przestoje. |
+|[Usługa Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | — Migruj pojedyncze bazy danych lub wiele baz danych na dużą skalę. </br> — Może obsłużyć przestoje podczas procesu migracji. </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM |  — Migracje na dużą skalę można zautomatyzować za pomocą [programu PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> -Czas na zakończenie migracji zależy od rozmiaru bazy danych i wpływu na czas wykonywania kopii zapasowej i przywracania. </br> -Konieczne może być wystarczające przestoje. |
 |[Natywna kopia zapasowa i przywracanie](../../managed-instance/restore-sample-database-quickstart.md) | — Migrowanie poszczególnych baz danych aplikacji biznesowych.  </br> — Szybka i łatwa migracja bez oddzielnej usługi lub narzędzia migracji.  </br> </br> Obsługiwane źródła: </br> -SQL Server (2005 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM | — Kopia zapasowa bazy danych używa wielu wątków do optymalizowania transferu danych do usługi Azure Blob Storage, ale przepustowość niezależnego dostawcy oprogramowania i rozmiar bazy danych mogą mieć wpływ na szybkość transferu </br> -Przestoje powinny pomieścić czas wymagany do wykonania pełnej kopii zapasowej i przywracania (czyli rozmiaru operacji na danych).| 
 |[Usługa ponownego powtarzania dzienników (LRS)](../../managed-instance/log-replay-service-migrate.md) | — Migrowanie poszczególnych baz danych aplikacji biznesowych.  </br> -Do migracji bazy danych jest wymagana większa kontrola.  </br> </br> Obsługiwane źródła: </br> -SQL Server (2008 – 2019) lokalnie lub na maszynie wirtualnej platformy Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP COMPUTE SQL Server VM | — Migracja obejmuje tworzenie pełnych kopii zapasowych bazy danych na SQL Server i kopiowanie plików kopii zapasowej do usługi Azure Blob Storage. LRS jest używany do przywracania plików kopii zapasowej z platformy Azure Blob Storage do wystąpienia zarządzanego SQL. </br> -Bazy danych przywracane podczas procesu migracji będą znajdować się w trybie przywracania i nie mogą być używane do odczytu ani zapisu do momentu ukończenia procesu.| 
 | | | |
@@ -163,7 +163,7 @@ Poza architekturą wysokiej dostępności, która jest uwzględniona w wystąpie
 
 #### <a name="sql-agent-jobs"></a>Zadania programu SQL Agent
 
-Użyj opcji Azure Database Migration Service w trybie offline (DMS), aby przeprowadzić migrację [zadań programu SQL Agent](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). W przeciwnym razie skryptuje zadania w języku Transact-SQL (T-SQL) przy użyciu SQL Server Management Studio a następnie ręcznie je utworzyć w docelowym wystąpieniu zarządzanym SQL. 
+Użyj opcji Azure Database Migration Service w trybie offline (DMS), aby przeprowadzić migrację [zadań programu SQL Agent](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). W przeciwnym razie skryptuje zadania w języku Transact-SQL (T-SQL) przy użyciu SQL Server Management Studio a następnie ręcznie je utworzyć w docelowym wystąpieniu zarządzanym SQL. 
 
 > [!IMPORTANT]
 > Obecnie usługa Azure DMS obsługuje tylko zadania z podsystemem T-SQL. Zadania z krokami pakietu SSIS będą musiały zostać przemigrowane ręcznie. 

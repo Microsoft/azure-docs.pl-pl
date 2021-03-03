@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706966"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu szablonów usługi ARM
 
-W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona) przy użyciu [szablonów ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona) przy użyciu [szablonów ARM](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
-1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby. 
 
-2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) lub [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów. 
+1. Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby.
+
+2. Utwórz nową grupę zasobów przy użyciu [Azure Portal](/azure/azure-resource-manager/management/manage-resource-groups-portal) lub [programu PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącej grupy zasobów.
  
-3. Utwórz nowe konto magazynu przy użyciu [Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) lub [programu PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu. 
+3. Utwórz nowe konto magazynu przy użyciu [Azure Portal](/azure/storage/common/storage-account-create?tabs=azure-portal) lub [programu PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Ten krok jest opcjonalny, jeśli używasz istniejącego konta magazynu.
 
-4. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) lub [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka. 
+4. Przekaż pliki definicji usługi (. csdef) i konfiguracji usługi (. cscfg) do konta magazynu przy użyciu [Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) lub [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Uzyskaj identyfikatory URI sygnatury dostępu współdzielonego dla obu plików, które mają zostać dodane do szablonu ARM w dalszej części tego samouczka.
 
-5. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty. 
-    -  Certyfikaty mogą być dołączane do usług w chmurze w celu zapewnienia bezpiecznej komunikacji z usługą i z niej. Aby można było korzystać z certyfikatów, ich odciski palców muszą być określone w pliku konfiguracji usługi (. cscfg) i przekazywane do magazynu kluczy. Key Vault można utworzyć za pomocą [Azure Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) lub [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - Skojarzone Key Vault muszą znajdować się w tym samym regionie i subskrypcji co usługa w chmurze.   
-    - Skojarzone Key Vault dla programu muszą mieć włączone odpowiednie uprawnienia, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat z Key Vault. Aby uzyskać więcej informacji, zobacz [Certyfikaty i Key Vault](certificates-and-key-vault.md)
+5. Obowiązkowe Utwórz magazyn kluczy i przekaż certyfikaty.
+
+    -  Certyfikaty mogą być dołączane do usług w chmurze w celu zapewnienia bezpiecznej komunikacji z usługą i z niej. Aby można było korzystać z certyfikatów, ich odciski palców muszą być określone w pliku konfiguracji usługi (. cscfg) i przekazywane do magazynu kluczy. Magazyn kluczy można utworzyć za pomocą [Azure Portal](/azure/key-vault/general/quick-create-portal) lub [programu PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - Skojarzony Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze.
+    - Skojarzony Magazyn kluczy dla programu musi mieć włączone odpowiednie uprawnienia, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikaty z Key Vault. Aby uzyskać więcej informacji, zobacz [Certyfikaty i Key Vault](certificates-and-key-vault.md)
     - Magazyn kluczy musi być przywoływany w sekcji OsProfile szablonu ARM przedstawionym w poniższych krokach.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona) 
+## <a name="deploy-a-cloud-service-extended-support"></a>Wdrażanie usługi w chmurze (obsługa rozszerzona)
+
 1. Utwórz sieć wirtualną. Nazwa sieci wirtualnej musi być zgodna z odwołaniami w pliku konfiguracji usługi (. cscfg). Jeśli używasz istniejącej sieci wirtualnej, Pomiń tę sekcję z szablonu ARM.
 
     ```json
@@ -68,7 +72,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ] 
     ```
     
-     W przypadku tworzenia nowej sieci wirtualnej Dodaj następujące elementy do sekcji, `dependsOn` Aby upewnić się, że platforma tworzy sieć wirtualną przed utworzeniem usługi w chmurze. 
+     W przypadku tworzenia nowej sieci wirtualnej Dodaj następujące elementy do sekcji, `dependsOn` Aby upewnić się, że platforma tworzy sieć wirtualną przed utworzeniem usługi w chmurze.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ] 
     ```
      
-     Jeśli tworzysz nowy adres IP, Dodaj następujący element do sekcji, `dependsOn` Aby upewnić się, że platforma tworzy adres IP przed utworzeniem usługi w chmurze. 
+     Jeśli tworzysz nowy adres IP, Dodaj następujący element do sekcji, `dependsOn` Aby upewnić się, że platforma tworzy adres IP przed utworzeniem usługi w chmurze.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
           ] 
     ```
  
-3. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Moduł równoważenia obciążenia jest automatycznie tworzony przez platformę.  
+3. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia. Moduł równoważenia obciążenia jest automatycznie tworzony przez platformę.
 
     ```json
     "networkProfile": { 
@@ -134,7 +138,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ```
  
 
-4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+4. Dodaj odwołanie do magazynu kluczy w  `OsProfile`   sekcji szablonu ARM. Key Vault jest używany do przechowywania certyfikatów skojarzonych z Cloud Services (obsługa rozszerzona). Dodaj certyfikaty do Key Vault, a następnie odwołując się do odcisków palców certyfikatu w pliku konfiguracji usługi (cscfg). Należy również włączyć Key Vault dla odpowiednich uprawnień, aby zasób Cloud Services (obsługa rozszerzona) mógł pobrać certyfikat zapisany jako wpisy tajne z Key Vault. Magazyn kluczy musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów z Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -154,71 +158,70 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
     ```
   
     > [!NOTE]
-    > SourceVault to identyfikator zasobu ARM do Key Vault. Te informacje można znaleźć, lokalizowanie identyfikatora zasobu w sekcji Właściwości Key Vault. 
+    > SourceVault to identyfikator zasobu ARM do magazynu kluczy. Te informacje można znaleźć, lokalizowanie identyfikatora zasobu w sekcji właściwości magazynu kluczy.
     > - certificateUrl można znaleźć, przechodząc do certyfikatu w magazynie kluczy oznaczonym jako **Identyfikator tajny**.  
    >  - certificateUrl powinna mieć postać https://{endpoin}/Secret/{tajnname}/{Secret-ID}
 
-5. Utwórz profil roli. Upewnij się, że liczba ról, nazw ról, liczby wystąpień w każdej roli i rozmiarze jest taka sama w sekcji Konfiguracja usługi (cscfg), definicja usługi (. csdef) i profil roli w szablonie ARM. 
+5. Utwórz profil roli. Upewnij się, że liczba ról, nazw ról, liczby wystąpień w każdej roli i rozmiarze jest taka sama w sekcji Konfiguracja usługi (cscfg), definicja usługi (. csdef) i profil roli w szablonie ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. Obowiązkowe Utwórz profil rozszerzenia, aby dodać rozszerzenia do usługi w chmurze. Na potrzeby tego przykładu dodajemy rozszerzenie diagnostyki usług pulpitu zdalnego i platformy Microsoft Azure. 
+6. Obowiązkowe Utwórz profil rozszerzenia, aby dodać rozszerzenia do usługi w chmurze. Na potrzeby tego przykładu dodajemy rozszerzenie diagnostyki usług pulpitu zdalnego i platformy Microsoft Azure.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Zapoznaj się z pełnym szablonem. 
+7. Zapoznaj się z pełnym szablonem.
 
     ```json
     {
@@ -266,12 +269,12 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ W tym samouczku wyjaśniono, jak utworzyć wdrożenie usługi w chmurze (obsług
       ]
     }
     ```
- 
+
 8. Wdróż szablon i plik parametrów (Definiowanie parametrów w pliku szablonu), aby utworzyć wdrożenie usługi w chmurze (obsługa rozszerzona). Zapoznaj się z tymi [przykładowymi szablonami](https://github.com/Azure-Samples/cloud-services-extended-support) zgodnie z potrzebami.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Następne kroki 
+
 - Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).
 - Wdróż usługę w chmurze (obsługę rozszerzoną) przy użyciu [Azure Portal](deploy-portal.md), [programu PowerShell](deploy-powershell.md), [szablonu](deploy-template.md) lub [programu Visual Studio](deploy-visual-studio.md).
 - Odwiedź [repozytorium przykładów Cloud Services (obsługa rozszerzona)](https://github.com/Azure-Samples/cloud-services-extended-support)

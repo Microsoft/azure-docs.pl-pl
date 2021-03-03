@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369413"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736641"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
@@ -31,7 +31,7 @@ Wykaz usług poznawczych, które udostępniają zrozumienie poznawcze, jest podz
 * Mowa
 * Język
 * Decyzja
-* Wyszukiwanie
+* Wyszukaj
 
 Poniższe sekcje tego artykułu zawierają listę usług, które są częścią tych pięciu filarów.
 
@@ -43,14 +43,14 @@ Poniższe sekcje tego artykułu zawierają listę usług, które są częścią 
 |[Custom Vision Service](./custom-vision-service/overview.md "Custom Vision Service")|Custom Vision Service umożliwia tworzenie klasyfikatorów niestandardowych.|
 |[Rozpoznawanie twarzy](./face/index.yml "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów.|
 |[Rozpoznawanie formularzy](./form-recognizer/index.yml "Rozpoznawanie formularzy")|Aparat rozpoznawania formularzy identyfikuje i wyodrębnia pary klucz-wartość oraz dane tabeli z dokumentów formularzy; następnie dane są wyprowadzane z uwzględnieniem relacji w oryginalnym pliku.|
-|[Aparat rozpoznawania atramentu](./ink-recognizer/index.yml "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
-|[Indeksator wideo](../media-services/video-indexer/video-indexer-overview.md "Indeksator wideo")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
+|[Aparat rozpoznawania atramentu](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
 
 ## <a name="speech-apis"></a>Interfejsy API mowy
 
 |Nazwa usługi|Opis usługi|
 |:-----------|:------------------|
-|[Usługa rozpoznawania mowy](./speech-service/index.yml "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji. Usługa mowy oferuje różne funkcje, takie jak Zamiana mowy na tekst, zamiana tekstu na mowę, Tłumaczenie mowy i wiele innych.|
+|[Usługa mowy](./speech-service/index.yml "Usługa rozpoznawania mowy")|Usługa Speech dodaje funkcje z obsługą mowy do aplikacji. Usługa mowy oferuje różne funkcje, takie jak Zamiana mowy na tekst, zamiana tekstu na mowę, Tłumaczenie mowy i wiele innych.|
 <!--
 |[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|

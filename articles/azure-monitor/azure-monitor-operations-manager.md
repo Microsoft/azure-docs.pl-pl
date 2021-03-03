@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: b1262533c3398a774b85e4143289a9b7c342aeab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593583"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728964"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor istniejących Operations Manager klientów
 Ten artykuł zawiera wskazówki dla klientów, którzy obecnie używają [System Center Operations Manager](/system-center/scom/welcome) i planowania przejścia do [Azure monitor](overview.md) podczas migrowania aplikacji firmowych i innych zasobów na platformę Azure. Przyjęto założenie, że ostatecznym celem jest pełne przejście do chmury, zastępowanie możliwie jak największej Operations Manager funkcji w Azure Monitor, bez naruszania wymagań firmy i operacyjnych IT. 
@@ -56,7 +56,7 @@ Twoje środowisko przed przeniesieniem składników na platformę Azure jest opa
 
 Migracja na platformę Azure rozpoczyna się od IaaS, co umożliwia przenoszenie maszyn wirtualnych obsługujących aplikacje biznesowe na platformę Azure. Wymagania dotyczące monitorowania tych aplikacji i oprogramowania serwerowego, od których zależą, nie zmieniają się, i nadal używasz Operations Manager na tych serwerach z istniejącymi pakietami administracyjnymi. 
 
-Azure Monitor jest włączona dla usług platformy Azure zaraz po utworzeniu subskrypcji platformy Azure. Automatycznie zbiera metryki platformy i dziennik aktywności, a następnie konfiguruje dzienniki zasobów do zebrania, aby można było interaktywnie analizować wszystkie dostępne dane telemetryczne przy użyciu zapytań dzienników. Włączenie Azure Monitor dla maszyn wirtualnych na maszynach wirtualnych umożliwia analizowanie danych monitorowania w całym środowisku oraz odnajdywanie relacji między maszynami i procesami. Możesz zwiększyć użycie Azure Monitor do lokalnych maszyn fizycznych i wirtualnych, włączając na nich serwery z włączonym funkcją Azure Arc. 
+Azure Monitor jest włączona dla usług platformy Azure zaraz po utworzeniu subskrypcji platformy Azure. Automatycznie zbiera metryki platformy i dziennik aktywności, a następnie konfiguruje dzienniki zasobów do zebrania, aby można było interaktywnie analizować wszystkie dostępne dane telemetryczne przy użyciu zapytań dzienników. Na maszynach wirtualnych można włączać usługi VM Insights, aby analizować dane monitorowania w całym środowisku, a także odnajdywać relacje między maszynami i procesami. Możesz zwiększyć użycie Azure Monitor do lokalnych maszyn fizycznych i wirtualnych, włączając na nich serwery z włączonym funkcją Azure Arc. 
 
 Włączasz Application Insights dla każdej aplikacji biznesowej. Identyfikuje różne składniki każdej aplikacji, zaczyna zbierać dane dotyczące użycia i wydajności, a także identyfikuje wszelkie błędy występujące w kodzie. Możesz tworzyć testy dostępności, aby aktywnie testować aplikacje zewnętrzne i wysyłać alerty do problemów z wydajnością lub dostępnością. Chociaż Application Insights zapewnia zaawansowane funkcje, które nie są dostępne w Operations Manager, można nadal polegać na niestandardowych pakietach administracyjnych opracowanych dla aplikacji firmowych, ponieważ obejmują one scenariusze monitorowania, które nie są jeszcze objęte Azure Monitor. 
 
@@ -89,21 +89,21 @@ Szczegółowe informacje są oparte na [skoroszytach](visualize/workbooks-overvi
 ## <a name="monitor-server-software-and-local-infrastructure"></a>Monitorowanie oprogramowania serwera i infrastruktury lokalnej
 W przypadku przenoszenia maszyn do chmury wymagania dotyczące monitorowania nie są zmieniane. Nie jest już konieczne monitorowanie ich składników fizycznych, ponieważ są one zwirtualizowane, ale system operacyjny gościa i jego obciążenia mają takie same wymagania, niezależnie od ich środowiska.
 
-[Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md) jest podstawową funkcją w Azure monitor do monitorowania maszyn wirtualnych i ich systemu operacyjnego gościa oraz obciążeń. Podobnie jak w przypadku Operations Manager, Azure Monitor dla maszyn wirtualnych używa agenta do zbierania danych z systemu operacyjnego gościa maszyn wirtualnych. Jest to te same dane dotyczące wydajności i zdarzeń, zwykle używane przez pakiety administracyjne do analizy i generowania alertów. Nie ma już istniejących reguł, które identyfikują i zgłaszają problemy związane z aplikacjami biznesowymi i oprogramowaniem serwerowym działającym na tych komputerach. Należy utworzyć własne reguły alertów, aby otrzymywać proaktywnie powiadomienia o wykrytych problemach.
+Usługi [VM Insights](vm/vminsights-overview.md) to podstawowa funkcja w Azure monitor do monitorowania maszyn wirtualnych i ich systemu operacyjnego gościa oraz obciążeń. Podobnie jak w przypadku Operations Manager, usługi VM Insights używają agenta do zbierania danych z systemu operacyjnego gościa maszyn wirtualnych. Jest to te same dane dotyczące wydajności i zdarzeń, zwykle używane przez pakiety administracyjne do analizy i generowania alertów. Nie ma już istniejących reguł, które identyfikują i zgłaszają problemy związane z aplikacjami biznesowymi i oprogramowaniem serwerowym działającym na tych komputerach. Należy utworzyć własne reguły alertów, aby otrzymywać proaktywnie powiadomienia o wykrytych problemach.
 
-[![Azure Monitor dla maszyn wirtualnych wydajność](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
+[![Wydajność usługi VM Insights](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
 
 Azure Monitor również nie mierzy kondycji różnych aplikacji i usług działających na maszynie wirtualnej. Alerty metryk mogą być automatycznie rozwiązywane, gdy wartość spadnie poniżej wartości progowej, ale Azure Monitor nie ma obecnie możliwości zdefiniowania kryteriów kondycji dla aplikacji i usług działających na maszynie, ani nie zapewnia zestawienia kondycji do grupowania kondycji powiązanych składników.
 
 > [!NOTE]
-> Nowa [Funkcja kondycji gościa dla Azure monitor dla maszyn wirtualnych](vm/vminsights-health-overview.md) jest teraz dostępna w publicznej wersji zapoznawczej i generuje alert na podstawie stanu kondycji zestawu metryk wydajności. Jest to początkowo ograniczone do określonego zestawu liczników wydajności związanych z systemem operacyjnym gościa, a nie aplikacji lub innych obciążeń uruchomionych na maszynie wirtualnej.
+> Nowa [Funkcja kondycji gościa dla usługi VM Insights](vm/vminsights-health-overview.md) jest teraz dostępna w publicznej wersji zapoznawczej i generuje alert na podstawie stanu kondycji zestawu metryk wydajności. Jest to początkowo ograniczone do określonego zestawu liczników wydajności związanych z systemem operacyjnym gościa, a nie aplikacji lub innych obciążeń uruchomionych na maszynie wirtualnej.
 > 
-> [![Azure Monitor dla maszyn wirtualnych kondycji gościa](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
+> [![Kondycja gościa usługi VM Insights](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
 
-Monitorowanie oprogramowania na maszynach w środowisku hybrydowym zwykle używa kombinacji Azure Monitor dla maszyn wirtualnych i Operations Manager, w zależności od wymagań poszczególnych maszyn i w procesie zapadalności procesów operacyjnych wokół Azure Monitor. Program Microsoft Management Agent (nazywany agentem Log Analytics w programie Azure Monitor) jest używany przez obie platformy, aby umożliwić jednoczesne monitorowanie jednej maszyny.
+Monitorowanie oprogramowania na maszynach w środowisku hybrydowym zwykle używa kombinacji szczegółowych informacji o maszynach wirtualnych i Operations Manager, w zależności od wymagań poszczególnych maszyn i okresu zapadalności procesów operacyjnych wokół Azure Monitor. Program Microsoft Management Agent (nazywany agentem Log Analytics w programie Azure Monitor) jest używany przez obie platformy, aby umożliwić jednoczesne monitorowanie jednej maszyny.
 
 > [!NOTE]
-> W przyszłości Azure Monitor dla maszyn wirtualnych przejdzie do [agenta Azure monitor](agents/azure-monitor-agent-overview.md), który jest obecnie w publicznej wersji zapoznawczej. Będzie ona zgodna z Microsoft Monitoring Agent, dzięki czemu ta sama maszyna wirtualna będzie w dalszym ciągu monitorowana przez obie platformy.
+> W przyszłości szczegółowe informacje o usłudze VM zostaną przenoszone do [agenta Azure monitor](agents/azure-monitor-agent-overview.md), który jest obecnie w publicznej wersji zapoznawczej. Będzie ona zgodna z Microsoft Monitoring Agent, dzięki czemu ta sama maszyna wirtualna będzie w dalszym ciągu monitorowana przez obie platformy.
 
 W dalszym ciągu używaj Operations Manager do funkcji, które nie mogą być dostarczone przez Azure Monitor. Obejmuje to pakiety administracyjne dla krytycznego oprogramowania serwera, takie jak IIS, SQL Server lub Exchange. Możesz również mieć niestandardowe pakiety administracyjne opracowane dla infrastruktury lokalnej, których nie można osiągnąć przy użyciu Azure Monitor. Kontynuuj również korzystanie Operations Manager, jeśli jest ściśle zintegrowany z procesami operacyjnymi do momentu przejścia do modernizacji operacji usługi, w których Azure Monitor i innych usług platformy Azure można rozszerzyć lub zamienić. 
 
@@ -114,9 +114,9 @@ Użyj Azure Monitor fo maszyn wirtualnych, aby ulepszyć bieżące monitorowanie
 - Użyj [zapytań dzienników](logs/log-query-overview.md) , aby interaktywnie analizować dane telemetryczne z maszyn wirtualnych przy użyciu danych z innych zasobów platformy Azure.
 - Tworzenie [reguł alertów dziennika](alerts/alerts-log-query.md) opartych na złożonej logice na wielu maszynach wirtualnych.
 
-[![Mapa Azure Monitor dla maszyn wirtualnych](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
+[![Mapa usługi VM Insights](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
-Oprócz maszyn wirtualnych platformy Azure Azure Monitor dla maszyn wirtualnych mogą monitorować maszyny lokalnie i w innych chmurach przy użyciu serwerów z [obsługą usługi Azure Arc](../azure-arc/servers/overview.md). Serwery z włączonymi środkami ARC umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub innym dostawcą chmury, które są zgodne z zarządzaniem natywnymi maszynami wirtualnymi platformy Azure.
+Usługa VM Insights oprócz maszyn wirtualnych platformy Azure może monitorować maszyny lokalnie i w innych chmurach przy użyciu serwerów z [obsługą usługi Azure Arc](../azure-arc/servers/overview.md). Serwery z włączonymi środkami ARC umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub innym dostawcą chmury, które są zgodne z zarządzaniem natywnymi maszynami wirtualnymi platformy Azure.
 
 
 
@@ -131,7 +131,7 @@ Jeśli monitorowanie aplikacji biznesowej jest ograniczone do funkcjonalności z
 - Wykrywaj wyjątki i przechodzenie do szczegółów w śladach stosu i powiązanych żądaniach.
 - Przeprowadzanie zaawansowanej analizy przy użyciu funkcji, takich jak [śledzenie rozproszone](app/distributed-tracing.md) i [wykrywanie inteligentne](app/proactive-diagnostics.md).
 - Użyj [Eksploratora metryk](essentials/metrics-getting-started.md) do interaktywnej analizy danych wydajności.
-- Użyj [zapytań dzienników](logs/log-query-overview.md) , aby interaktywnie analizować zebrane dane telemetryczne wraz z danymi zebranymi dla usług platformy Azure i Azure monitor dla maszyn wirtualnych.
+- Użyj [zapytań dzienników](logs/log-query-overview.md) , aby interaktywnie analizować zebraną telemetrię wraz z danymi zebranymi dla usług platformy Azure i szczegółowych informacji o maszynach wirtualnych.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
 
@@ -150,5 +150,5 @@ Postępując zgodnie z podstawową strategią w pozostałych sekcjach tego przew
 - Szczegółowe porównanie Azure Monitor i System Center Operations Manager oraz więcej informacji na temat projektowania i implementowania hybrydowego środowiska monitorowania można znaleźć w [przewodniku monitorowania chmury](/azure/cloud-adoption-framework/manage/monitor/) .
 - Przeczytaj więcej [na temat monitorowania zasobów platformy Azure w Azure monitor](essentials/monitor-azure-resource.md).
 - Przeczytaj więcej [na temat monitorowania maszyn wirtualnych platformy Azure w Azure monitor](vm/monitor-vm-azure.md).
-- Przeczytaj więcej na temat [Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md).
+- Przeczytaj więcej na temat usługi [VM Insights](vm/vminsights-overview.md).
 - Przeczytaj więcej na temat [Application Insights](app/app-insights-overview.md).

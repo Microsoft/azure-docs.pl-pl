@@ -1,17 +1,16 @@
 ---
 title: Usługa Azure Monitor dla sieci
 description: Przegląd Azure Monitor dla sieci, który zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji.
-ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717472"
 ---
 # <a name="azure-monitor-for-networks"></a>Usługa Azure Monitor dla sieci
 

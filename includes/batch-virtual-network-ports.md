@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750015"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
 
 * Sieć wirtualna musi znajdować się w tej samej subskrypcji i w tym samym regionie co konto usługi Batch użyte do utworzenia puli.
-
-* Pula używająca sieci wirtualnej może mieć maksymalnie 4096 węzłów.
 
 * Podsieć określona dla puli musi mieć wystarczającą liczbę nieprzypisanych adresów IP do obsługi maszyn wirtualnych przeznaczony dla puli, czyli sumę właściwości puli `targetDedicatedNodes` i `targetLowPriorityNodes`. Jeśli podsieć nie ma wystarczającej liczby nieprzypisanych adresów IP, pula częściowo przydzieli węzły obliczeniowe, a następnie wystąpi błąd dotyczący zmiany rozmiaru.
 
@@ -67,23 +65,29 @@ Nie trzeba określać sieciowych grup zabezpieczeń na poziomie podsieci sieci w
 
 Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wtedy, gdy musisz zezwolić na dostęp zdalny do węzłów obliczeniowych ze źródeł zewnętrznych. Może być konieczne włączenie reguł portów 22 w systemie Linux, jeśli wymagana jest obsługa zadań z wieloma wystąpieniami z pewnymi środowiskami uruchomieniowymi MPI. Zezwalanie na ruch na tych portach nie jest absolutnie wymagane do użycia w węzłach obliczeniowych puli.
 
+> [!WARNING]
+> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. W związku z tym zdecydowanie zalecamy użycie `BatchNodeManagement` znacznika usługi (lub wariantu regionalnej) dla reguł sieciowej grupy zabezpieczeń wskazanych w poniższych tabelach. Unikaj wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu określonych adresów IP usługi Batch.
+
 **Reguły zabezpieczeń dla ruchu przychodzącego**
 
 | Źródłowe adresy IP | Tag usługi źródłowej | Porty źródłowe | Element docelowy | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Brak | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
-| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Brak | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
-
-> [!WARNING]
-> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Dlatego zdecydowanie zaleca się użycie `BatchNodeManagement` znacznika usługi (lub wariantu regionalnego) dla reguł sieciowej grupy zabezpieczeń. Unikaj wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu określonych adresów IP usługi Batch.
+| Nie dotyczy | `BatchNodeManagement`[tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
+| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Nie dotyczy | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
 
 **Reguły zabezpieczeń dla ruchu wychodzącego**
 
 | Element źródłowy | Porty źródłowe | Element docelowy | Docelowy tag usługi | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
 | Dowolne | * | [Tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
+| Dowolne | * | [Tag usługi](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
+
+Do `BatchNodeManagement` nawiązania połączenia z usługą Batch z węzłów obliczeniowych, takich jak zadania Menedżera zadań, jest wymagany ruch wychodzący.
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pule w konfiguracji usługi Cloud Services
+
+> [!WARNING]
+> Pule konfiguracji usługi w chmurze są przestarzałe. Zamiast tego użyj pul konfiguracji maszyny wirtualnej.
 
 **Obsługiwane sieci wirtualne** — tylko klasyczne sieci wirtualne
 

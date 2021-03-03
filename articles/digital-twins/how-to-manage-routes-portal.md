@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070830"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715721"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -76,7 +76,7 @@ Po utworzeniu zasobów punktu końcowego można używać ich na potrzeby punktu 
 1. Zakończ tworzenie punktu końcowego, wybierając pozycję _Zapisz_.
 
 >[!IMPORTANT]
-> W celu pomyślnego użycia uwierzytelniania opartego na tożsamościach dla punktu końcowego należy utworzyć tożsamość zarządzaną dla swojego wystąpienia, wykonując czynności opisane w temacie [*How to: Enable Managed Identity for Routing Events (wersja zapoznawcza)*](how-to-enable-managed-identities.md).
+> W celu pomyślnego użycia uwierzytelniania opartego na tożsamościach dla punktu końcowego należy utworzyć tożsamość zarządzaną dla swojego wystąpienia, wykonując czynności opisane w temacie [*How to: Enable Managed Identity for Routing Events (wersja zapoznawcza)*](./how-to-enable-managed-identities-portal.md).
 
 Po utworzeniu punktu końcowego możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal: 
 

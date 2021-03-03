@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 21b84a40621f5a529c09dc0c03e024c4ea6d5c95
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 98a3965160e7ab6c86ba8c6d3a4dfd75af4c6dbb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99532300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750651"
 ---
 Ten samouczek wymaga następujących zasobów platformy Azure:
 
@@ -36,10 +36,10 @@ W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów
     1. **Interfejs sieciowy** — umożliwia maszynie wirtualnej platformy Azure komunikowanie się z Internetem, platformą Azure i innymi zasobami.
     1. **Połączenie bastionu** — umożliwia nawiązanie połączenia z maszyną wirtualną przy użyciu przeglądarki i Azure Portal.
     1. **Publiczny adres IP** — dzięki temu zasoby platformy Azure mogą komunikować się z Internetem i publicznymi usługami platformy Azure
-    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Sieć wirtualna** — umożliwia to wielu typom zasobów platformy Azure, takich jak maszyna wirtualna, bezpieczne komunikowanie się ze sobą, Internetem i sieciami lokalnymi. Dowiedz się więcej o [sieciach wirtualnych](../../../../../virtual-network/virtual-networks-overview.md)
     1. **IoT Hub** — działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między aplikacją IoT, modułami IoT Edge i zarządzanymi urządzeniami.
     1. **Konto usługi multimediów** — ułatwia to zarządzanie zawartością multimediów i przesyłanie strumieniowe na platformie Azure.
-    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Konto magazynu** — musisz mieć jedno konto magazynu podstawowego i można mieć dowolną liczbę kont magazynu pomocniczego skojarzonych z twoim kontem Media Services. Aby uzyskać więcej informacji, zobacz [konta usługi Azure Storage z kontami Azure Media Services](../../../../latest/storage-account-concept.md).
     1. **Rejestr kontenerów** — ułatwia przechowywanie prywatnych obrazów kontenerów platformy Docker i powiązanych artefaktów oraz zarządzanie nimi.
 1. Po zakończeniu działania skryptu wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików w katalogu *~/CloudDrive/LVA-Sample* . Są one przydatne w tym przewodniku szybki start:
 

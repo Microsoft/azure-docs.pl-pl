@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562356"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715466"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -68,7 +68,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Grupa zasobów   | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region (Region)           | Wybierz **Europa Zachodnia** |
+    | Region (Region)           | SELECT **(Europa) Europa Zachodnia** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -106,18 +106,19 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 ## <a name="create-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >    >  **Load Balancer**.
-
-2. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje: 
+1. Wybierz pozycję **Utwórz zasób**. 
+2. W polu wyszukiwania wprowadź **moduł równoważenia obciążenia**. Wybierz pozycję **moduł równoważenia obciążenia** w wynikach wyszukiwania.
+3. Na stronie **moduł równoważenia obciążenia** wybierz pozycję **Utwórz**.
+4. Na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje: 
 
     | Ustawienie                 | Wartość                                              |
     | ---                     | ---                                                |
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **CreateIntLBQS-RG** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
-    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Region (Region)         | Wybierz **(Europa) Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -228,10 +229,10 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Grupa zasobów | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
-    | Region (Region) | Wybierz **Europa Zachodnia** |
+    | Region (Region) | SELECT **(Europa) Europa Zachodnia** |
     | Opcje dostępności | Wybierz **strefy dostępności** |
     | Strefa dostępności | Wybierz **1** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -303,7 +304,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Grupa zasobów   | Wybierz pozycję **CreateIntLBQS — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region (Region)           | Wybierz **Europa Zachodnia** |
+    | Region (Region)           | SELECT **(Europa) Europa Zachodnia** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -350,9 +351,9 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     | Subskrypcja               | Wybierz subskrypcję.    |    
     | Grupa zasobów         | Wybierz pozycję **CreateIntLBQS-RG** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
-    | Region (Region)         | Wybierz pozycję **Europa Zachodnia**.                                        |
+    | Region (Region)         | Wybierz **(Europa) Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
+    | SKU           | Wybierz pozycję **podstawowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
     | Przypisanie adresu IP | wybierz pozycję **Dynamiczne**. |
@@ -475,7 +476,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Wybierz pozycję **Zestaw dostępności** |
     | Zestaw dostępności | Wybierz pozycję **Utwórz nowy**. </br> Wprowadź **myAvailabilitySet** w polu **Nazwa**. </br> Wybierz przycisk **OK**. |
-    | Obraz | **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -546,7 +547,7 @@ W tej sekcji utworzysz maszynę wirtualną o nazwie **myTestVM**.  Ta maszyna wi
     | Nazwa maszyny wirtualnej | Wprowadź **myTestVM** |
     | Region (Region) | Wybierz **Europa Zachodnia** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |

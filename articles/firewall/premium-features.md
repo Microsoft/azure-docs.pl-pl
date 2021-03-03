@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: e823e1efc66592e9f48b7ff5e53a176a4e8cb514
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549868"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715568"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funkcje usługi Azure firewall Premium w wersji zapoznawczej
 
@@ -80,7 +80,20 @@ Kategorie są zorganizowane na podstawie ważności **odpowiedzialności**, **du
 
 #### <a name="category-exceptions"></a>Wyjątki kategorii
 
-Można utworzyć wyjątki dla reguł kategorii sieci Web. Utwórz oddzielną kolekcję reguł Zezwól lub Odmów z wyższym priorytetem w grupie kolekcji reguł. Można na przykład skonfigurować kolekcję reguł, która umożliwia korzystanie `www.linkedin.com` z priorytetu 100 z kolekcją reguł, która odmówi **sieci społecznościowych** z priorytetem 200. Spowoduje to utworzenie wyjątku dla wstępnie zdefiniowanej kategorii sieci Web **Sieć społecznościowa** . 
+Można utworzyć wyjątki dla reguł kategorii sieci Web. Utwórz oddzielną kolekcję reguł Zezwól lub Odmów z wyższym priorytetem w grupie kolekcji reguł. Można na przykład skonfigurować kolekcję reguł, która umożliwia korzystanie `www.linkedin.com` z priorytetu 100 z kolekcją reguł, która odmówi **sieci społecznościowych** z priorytetem 200. Spowoduje to utworzenie wyjątku dla wstępnie zdefiniowanej kategorii sieci Web **Sieć społecznościowa** .
+
+#### <a name="categorization-change"></a>Zmiana kategoryzacji
+
+Możesz zażądać zmiany kategoryzacji, jeśli:
+
+ - należy wziąć pod uwagę, że nazwa FQDN lub adres URL powinny znajdować się w innej kategorii 
+ 
+lub 
+
+- masz sugerowaną kategorię dla nazwy FQDN lub adresu URL bez kategorii
+
+Witamy w przesłaniu żądania o [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
+ 
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -98,6 +111,7 @@ Niezaufane certyfikaty podpisane przez klienta|Certyfikaty podpisane przez klien
 |Nieprawidłowy źródłowy adres IP w alertach z dostawców tożsamości dla protokołu HTTP (bez inspekcji TLS).|Gdy jest używany ruch HTTP w postaci zwykłego tekstu, a dostawców tożsamości wystawia nowy Alert, a miejscem docelowym jest publiczny adres IP, wyświetlany źródłowy adres IP jest niewłaściwy (wewnętrzny adres IP jest wyświetlany zamiast oryginalnego adresu IP).|Naprawa zaplanowana na GA.|
 |Propagacja certyfikatu|Po zastosowaniu certyfikatu urzędu certyfikacji w zaporze może upłynąć od 5-10 minut, zanim certyfikat zacznie obowiązywać.|Naprawa zaplanowana na GA.|
 |Obejście dostawców tożsamości|Obejście dostawców tożsamości nie działa w przypadku ruchu przerwanego protokołu TLS, a źródłowe adresy IP i źródłowe grupy adresów IP nie są obsługiwane.|Naprawa zaplanowana na GA.|
+|Obsługa protokołu TLS 1,3|Protokół TLS 1,3 jest częściowo obsługiwany. Tunel protokołu TLS od klienta do zapory jest oparty na protokole TLS 1,2, a Zapora na zewnętrzny serwer sieci Web jest oparta na protokole TLS 1,3.|Trwa badanie aktualizacji.|
 
 
 

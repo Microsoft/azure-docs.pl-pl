@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734234"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Szybki Start: monitorowanie zasobu platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z zasobów platformy Azure w momencie ich tworzenia. Ten przewodnik Szybki Start zawiera krótki przewodnik dotyczący danych, które są automatycznie zbierane dla zasobu i sposobu wyświetlania go w Azure Portal dla określonego zasobu. Później można dodać konfigurację w celu zebrania dodatkowych danych i można przejść do menu Azure Monitor, aby użyć tych samych narzędzi do uzyskiwania dostępu do danych zebranych dla wszystkich zasobów w ramach subskrypcji.
@@ -67,7 +67,7 @@ Metryki to wartości liczbowe, które opisują pewne aspekty zasobu w określony
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku szybki start Oglądasz dziennik aktywności i metryki dla zasobu platformy Azure, które są automatycznie zbierane przez Azure Monitor. Przejdź do następnego przewodnika Szybki Start, który pokazuje, jak zebrać dziennik aktywności do obszaru roboczego Log Analytics, gdzie można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md).
+W tym przewodniku szybki start Oglądasz dziennik aktywności i metryki dla zasobu platformy Azure, które są automatycznie zbierane przez Azure Monitor. Przejdź do następnego przewodnika Szybki Start, który pokazuje, jak zebrać dziennik aktywności do obszaru roboczego Log Analytics, gdzie można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Wyślij dziennik aktywności platformy Azure do obszaru roboczego Log Analytics](../learn/quick-collect-activity-log-portal.md)
+> [Wyślij dziennik aktywności platformy Azure do obszaru roboczego Log Analytics](./quick-collect-activity-log-portal.md)

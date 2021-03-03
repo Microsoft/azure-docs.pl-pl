@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722096"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Nawiązywanie połączenia z usługą Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro
 
@@ -130,7 +130,7 @@ Klient systemu Windows, który będzie wywoływał Azure Resource Manager interf
 
 Klient systemu Windows musi spełniać następujące wymagania wstępne:
 
-1. Uruchom program PowerShell w wersji 5,0. Wymagany jest program PowerShell w wersji 5,0 lub nowszej. Aby sprawdzić wersję programu PowerShell w systemie, uruchom następujące polecenie cmdlet:
+1. Uruchom program PowerShell w wersji 5,0. Musisz mieć program PowerShell w wersji 5,0. Program PowerShell Core nie jest obsługiwany. Aby sprawdzić wersję programu PowerShell w systemie, uruchom następujące polecenie cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion

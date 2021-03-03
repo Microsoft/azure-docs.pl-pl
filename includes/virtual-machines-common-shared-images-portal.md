@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751030"
 ---
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów
 
@@ -93,10 +93,7 @@ Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać.
 
 Zalecamy Udostępnianie dostępu na poziomie galerii obrazów. Poniżej przedstawiono udostępnianie galerii, która została właśnie utworzona.
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
-1. W menu po lewej stronie wybierz pozycję **grupy zasobów**. 
-1. Na liście grup zasobów wybierz pozycję **myGalleryRG**. Zostanie otwarty blok dla grupy zasobów.
-1. W menu po lewej stronie **myGalleryRG** wybierz pozycję **Kontrola dostępu (IAM)**. 
+1. Na stronie nowej galerii obrazów w menu po lewej stronie wybierz pozycję **Kontrola dostępu (IAM)**. 
 1. W obszarze **Dodaj przypisanie roli** wybierz pozycję **Dodaj**. Zostanie otwarte okienko **Dodawanie przypisania roli** . 
 1. W obszarze **rola** wybierz pozycję **czytelnik**.
 1. W obszarze **Przypisz dostęp do**, Pozostaw domyślną pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.

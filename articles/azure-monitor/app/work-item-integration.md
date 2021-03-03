@@ -3,12 +3,12 @@ title: Integracja elementów roboczych (wersja zapoznawcza) — Application Insi
 description: Dowiedz się, jak tworzyć elementy robocze w witrynie GitHub lub Azure DevOps, korzystając z osadzonych w nich danych Application Insights.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731922"
 ---
 # <a name="work-item-integration-preview"></a>Integracja elementów roboczych (wersja zapoznawcza)
 
@@ -53,7 +53,7 @@ Aby edytować szablon, przejdź do karty **elementy robocze** w obszarze *Konfig
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Zrzut ekranu karty elementu pracy z wybraną ikoną Edytuj ołówek.":::
 
-Wybierz ![ ikonę Edytuj Edytuj ](./media/work-item-integration/edit-icon.png) u góry, aby rozpocząć edytowanie szablonu. Szablony elementów roboczych są oparte na [Azure monitor skoroszytach](../platform/workbooks-overview.md). Informacje o elementach roboczych są generowane przy użyciu języka zapytań słowa kluczowego. Możesz zmodyfikować zapytania, aby dodać do zespołu bardziej istotne znaczenie. Po zakończeniu edycji Zapisz skoroszyt, wybierając ikonę Zapisz ikonę ![ Zapisz ](./media/work-item-integration/save-icon.png) na górnym pasku narzędzi.
+Wybierz ![ ikonę Edytuj Edytuj ](./media/work-item-integration/edit-icon.png) u góry, aby rozpocząć edytowanie szablonu. Szablony elementów roboczych są oparte na [Azure monitor skoroszytach](../visualize/workbooks-overview.md). Informacje o elementach roboczych są generowane przy użyciu języka zapytań słowa kluczowego. Możesz zmodyfikować zapytania, aby dodać do zespołu bardziej istotne znaczenie. Po zakończeniu edycji Zapisz skoroszyt, wybierając ikonę Zapisz ikonę ![ Zapisz ](./media/work-item-integration/save-icon.png) na górnym pasku narzędzi.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Zrzut ekranu przedstawiający skoroszyt szablonów elementów roboczych w trybie edycji." lightbox="./media/work-item-integration/edit-workbook.png":::
 

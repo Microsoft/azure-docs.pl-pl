@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517828"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690536"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ze względu na to, że infrastruktura platformy Azure jest ulepszona, firma Microsoft okresowo odświeża sprzęt, aby zapewnić najlepszą obsługę klienta. W najbliższych miesiącach planuje Dodawanie bram opartych na nowszych generacjach sprzętu, migrowaniu ruchu do nich i ostatecznie likwidowanie bram opartych na starszym sprzęcie w niektórych regionach.  
 
-Klienci będą powiadamiani za pośrednictwem powiadomień o kondycji usługi z wyprzedzeniem o wszelkich zmianach bram dostępnych w poszczególnych regionach. Klienci mogą [używać Azure Portal do konfigurowania alertów dziennika aktywności](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal).
+Klienci będą powiadamiani za pośrednictwem powiadomień o kondycji usługi z wyprzedzeniem o wszelkich zmianach bram dostępnych w poszczególnych regionach. Klienci mogą [używać Azure Portal do konfigurowania alertów dziennika aktywności](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Najbardziej aktualne informacje będą przechowywane w tabeli [adresy IP bramy Azure SQL Database](connectivity-architecture.md#gateway-ip-addresses) .
 

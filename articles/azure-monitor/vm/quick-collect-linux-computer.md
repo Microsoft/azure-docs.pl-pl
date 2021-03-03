@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: ef6e31968f85407e8055315becdc1337b474ad70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dbe51930ec92ec4f89738dc5d543003f45acebf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628823"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733826"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Szybki Start: zbieranie danych z komputera z systemem Linux w środowisku hybrydowym z Azure Monitor
 
-[Azure monitor](../overview.md) może zbierać dane bezpośrednio z fizycznych lub wirtualnych komputerów z systemem Linux w środowisku do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie [agenta log Analytics](../agents/log-analytics-agent.md) pozwala Azure monitor zbierać dane z centrum danych lub innego środowiska chmury. Ten przewodnik Szybki Start przedstawia sposób konfigurowania i zbierania danych z serwera z systemem Linux przy użyciu kilku prostych kroków. Aby uzyskać informacje o maszynach wirtualnych z systemem Linux systemu Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](../learn/quick-collect-azurevm.md).  
+[Azure monitor](../overview.md) może zbierać dane bezpośrednio z fizycznych lub wirtualnych komputerów z systemem Linux w środowisku do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie [agenta log Analytics](../agents/log-analytics-agent.md) pozwala Azure monitor zbierać dane z centrum danych lub innego środowiska chmury. Ten przewodnik Szybki Start przedstawia sposób konfigurowania i zbierania danych z serwera z systemem Linux przy użyciu kilku prostych kroków. Aby uzyskać informacje o maszynach wirtualnych z systemem Linux systemu Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](./quick-collect-azurevm.md).  
 
 Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne](../agents/agents-overview.md#supported-operating-systems) i [Konfiguracja zapory sieciowej](../agents/log-analytics-agent.md#network-requirements).
  
@@ -166,4 +166,4 @@ Teraz, kiedy są zbierane dane operacyjne i dane wydajności z lokalnego kompute
 Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../logs/log-analytics-tutorial.md)

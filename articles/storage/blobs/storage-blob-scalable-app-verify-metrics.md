@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 708a2369e5ba21f47f3d3fea509654b0385363f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bec42dabde64fed8126e47e39f19536b28014f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912318"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714837"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Sprawdzanie metryk przepływności i opóźnień dla konta magazynu
 
@@ -28,7 +28,7 @@ Część czwarta serii zawiera informacje na temat wykonywania następujących c
 
 ## <a name="configure-metrics"></a>Konfigurowanie metryk
 
-Przejdź do pozycji **Metryki (wersja zapoznawcza)** w obszarze **USTAWIENIA** na koncie magazynu.
+Przejdź do pozycji **metryki** w obszarze **Ustawienia** na koncie magazynu.
 
 Wybierz pozycję Blob z listy rozwijanej **USŁUGA PODRZĘDNA**.
 

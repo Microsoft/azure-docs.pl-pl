@@ -4,19 +4,19 @@ description: Dowiedz się, jak za pomocą szablonu Menedżer zasobów utworzyć 
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618133"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718050"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Tworzenie klasycznego alertu metryki za pomocą szablonu usługi Resource Manager
 
 > [!WARNING]
-> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../platform/alerts-overview.md). Alerty klasyczne są [wycofywane](../platform/monitoring-classic-retirement.md) dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów.
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md) dla użytkowników chmury publicznej, ale nadal są ograniczone do **31 maja 2021**. Alerty klasyczne dla usług Azure Government Cloud i Azure Chiny 21Vianet zostaną wycofane z **29 lutego 2024**.
 >
 
 W tym artykule pokazano, jak można użyć [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) w celu skonfigurowania alertów dotyczących klasycznych metryk platformy Azure. Pozwala to na automatyczne Konfigurowanie alertów dotyczących zasobów podczas ich tworzenia w celu zapewnienia poprawnego monitorowania wszystkich zasobów.
@@ -399,6 +399,6 @@ Alert dla szablonu Menedżer zasobów najczęściej jest przydatny podczas tworz
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przeczytaj więcej na temat alertów](../platform/alerts-overview.md)
-* [Dodawanie ustawień diagnostycznych](../samples/resource-manager-diagnostic-settings.md) do szablonu Menedżer zasobów
+* [Przeczytaj więcej na temat alertów](./alerts-overview.md)
+* [Dodawanie ustawień diagnostycznych](../essentials/resource-manager-diagnostic-settings.md) do szablonu Menedżer zasobów
 * Aby poznać składnię i właściwości JSON, zobacz [Microsoft. Insights/alertrules](/azure/templates/microsoft.insights/alertrules) Template Reference.

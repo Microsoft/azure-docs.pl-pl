@@ -14,22 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726975"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Samouczek: wykrywanie zagrożeń przy użyciu wbudowanych funkcji
 
-
-> [!IMPORTANT]
-> Wbudowane wykrywanie zagrożeń jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   z platformą Azure wskaźnikiem, użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych wystąpień. Z tego względu usługa Azure — wskaźnik przedstawia wbudowane szablony, które ułatwiają tworzenie reguł wykrywania zagrożeń. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Reguły utworzone na podstawie tych szablonów będą automatycznie przeszukiwać środowisko w celu wyszukania wszystkich działań, które wyglądają podejrzanie. Wiele szablonów można dostosować, aby wyszukiwać działania lub odfiltrować je zgodnie z potrzebami. Alerty wygenerowane przez te reguły spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md) z platformą Azure wskaźnikiem, użytkownik chce otrzymywać powiadomienia o wystąpieniu podejrzanych wystąpień. Z tego względu usługa Azure — wskaźnik przedstawia wbudowane szablony, które ułatwiają tworzenie reguł wykrywania zagrożeń. Te szablony zostały zaprojektowane przez zespół ekspertów ds. zabezpieczeń i analityków firmy Microsoft na podstawie znanych zagrożeń, typowych wektorów ataków oraz podejrzanych łańcuchów eskalacji działań. Reguły utworzone na podstawie tych szablonów będą automatycznie przeszukiwać środowisko w celu wyszukania wszystkich działań, które wyglądają podejrzanie. Wiele szablonów można dostosować, aby wyszukiwać działania lub odfiltrować je zgodnie z potrzebami. Alerty wygenerowane przez te reguły spowodują utworzenie zdarzeń, które można przypisać i zbadać w danym środowisku.
 
 Ten samouczek ułatwia wykrywanie zagrożeń przy użyciu platformy Azure — wskaźnik:
 
@@ -53,9 +47,17 @@ Dostępne są następujące typy szablonów:
 
     W oparciu o technologię syntezy zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure Wskaźnikowo używa skalowalnych algorytmów uczenia maszynowego, które mogą skorelować wiele alertów o niskiej wierności i zdarzeń dla wielu produktów w zdarzeniach o wysokiej wierności i akcji. Funkcja Fusion jest domyślnie włączona. Ponieważ logika jest ukryta i w związku z tym nie można jej dostosowywać, możesz utworzyć tylko jedną regułę z tym szablonem.
 
+    > [!IMPORTANT]
+    > Niektóre wykrycia w szablonie reguły Fusion są obecnie dostępne w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
+    >
+    > Aby zobaczyć, które wykrycia są w wersji zapoznawczej, zobacz [Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure](fusion.md).
+
 - **Analiza zachowań uczenia maszynowego**
 
     Te szablony są oparte na własnościowych algorytmach uczenia maszynowego firmy Microsoft, dlatego nie można zobaczyć wewnętrznej logiki sposobu działania i uruchamiania programu. Ponieważ logika jest ukryta i w związku z tym nie można jej dostosowywać, możesz utworzyć tylko jedną regułę z każdym szablonem tego typu.
+
+    > [!IMPORTANT]
+    > Szablony reguł analizy zachowań uczenia maszynowego są obecnie dostępne w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 - **Zaplanowana**
 
@@ -65,7 +67,7 @@ Dostępne są następujące typy szablonów:
 
 1. Aby użyć wbudowanego szablonu, kliknij nazwę szablonu, a następnie kliknij przycisk **Utwórz regułę** w okienku szczegółów, aby utworzyć nową aktywną regułę opartą na tym szablonie. Każdy szablon zawiera listę wymaganych źródeł danych. Po otwarciu szablonu źródła danych są automatycznie sprawdzane pod kątem dostępności. Jeśli występuje problem z dostępnością, przycisk **Utwórz regułę** może być wyłączony lub może zostać wyświetlone ostrzeżenie.
   
-    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Używanie wbudowanych wykryć do znajdowania zagrożeń przy użyciu platformy Azure — wskaźnik":::
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panel podglądu reguły wykrywania":::
  
 1. Kliknięcie przycisku **Utwórz regułę** spowoduje otwarcie Kreatora tworzenia reguły w oparciu o wybrany szablon. Wszystkie szczegóły są wypełniane przy użyciu szablonów zabezpieczeń **zaplanowanych** lub **Microsoft** , można dostosować logikę i inne ustawienia reguły, aby lepiej odpowiadały konkretnym potrzebom. Możesz powtórzyć ten proces, aby utworzyć dodatkowe reguły na podstawie szablonu wbudowanego. Po wykonaniu kroków w Kreatorze tworzenia reguły na końcu zakończono Tworzenie reguły na podstawie szablonu. Nowe reguły pojawią się na karcie **aktywne reguły** .
 

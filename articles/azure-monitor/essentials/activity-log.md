@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613411"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723303"
 ---
 # <a name="azure-activity-log"></a>Dziennik aktywności platformy Azure
-Dziennik aktywności jest to [dziennik platformy](../platform/platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](../platform/data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
+Dziennik aktywności jest to [dziennik platformy](./platform-logs-overview.md) Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać dodatkowe funkcje, należy utworzyć ustawienie diagnostyczne służące do wysyłania dziennika aktywności do [dzienników Azure monitor](../logs/data-platform-logs.md), do usługi Azure Event Hubs do przekazywania poza platformę Azure lub do usługi Azure Storage w celu archiwizacji. Ten artykuł zawiera szczegółowe informacje na temat wyświetlania dziennika aktywności i wysyłania go do różnych miejsc docelowych.
 
-Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](../platform/diagnostic-settings.md) w celu uzyskania szczegółowych informacji dotyczących tworzenia ustawień diagnostycznych.
+Zobacz [Tworzenie ustawień diagnostycznych, aby wysyłać dzienniki platformy i metryki do różnych miejsc docelowych](./diagnostic-settings.md) w celu uzyskania szczegółowych informacji dotyczących tworzenia ustawień diagnostycznych.
 
 > [!NOTE]
 > Wpisy w dzienniku aktywności są generowane przez system i nie można ich zmienić ani usunąć.
@@ -43,13 +43,13 @@ Jeśli ze zdarzeniem są skojarzone jakiekolwiek zmiany, zostanie wyświetlona l
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Inne metody pobierania zdarzeń dziennika aktywności
 Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyciu poniższych metod.
 
-- Użyj polecenia cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) , aby pobrać dziennik aktywności z programu PowerShell. Zobacz [przykłady Azure monitor programu PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
-- Użyj polecenia [AZ monitor Activity-Log](/cli/azure/monitor/activity-log) , aby pobrać dziennik aktywności z interfejsu CLI.  Zobacz [przykłady interfejsu wiersza polecenia Azure monitor](../samples/cli-samples.md#view-activity-log).
+- Użyj polecenia cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) , aby pobrać dziennik aktywności z programu PowerShell. Zobacz [przykłady Azure monitor programu PowerShell](../powershell-samples.md#retrieve-activity-log).
+- Użyj polecenia [AZ monitor Activity-Log](/cli/azure/monitor/activity-log) , aby pobrać dziennik aktywności z interfejsu CLI.  Zobacz [przykłady interfejsu wiersza polecenia Azure monitor](../cli-samples.md#view-activity-log).
 - Użyj [interfejsu API REST Azure monitor](/rest/api/monitor/) , aby pobrać dziennik aktywności z klienta Rest. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Wysyłanie do obszaru roboczego usługi Log Analytics
- Wyślij dziennik aktywności do obszaru roboczego Log Analytics, aby włączyć funkcje [dzienników Azure monitor](../platform/data-platform-logs.md) , które obejmują następujące elementy:
+ Wyślij dziennik aktywności do obszaru roboczego Log Analytics, aby włączyć funkcje [dzienników Azure monitor](../logs/data-platform-logs.md) , które obejmują następujące elementy:
 
 - Skorelowanie danych dziennika aktywności z innymi danymi monitorowania zbieranymi przez Azure Monitor.
 - Konsolidowanie wpisów dzienników z wielu subskrypcji platformy Azure i dzierżawców w jedną lokalizację do analizy razem.
@@ -59,9 +59,9 @@ Możesz również uzyskać dostęp do zdarzeń dziennika aktywności przy użyci
 - Brak opłat za pozyskiwanie danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
 - Nie są naliczane opłaty za przechowywanie danych do 90 dni dla danych dziennika aktywności przechowywanych w obszarze roboczym Log Analytics.
 
-[Utwórz ustawienie diagnostyczne](../platform/diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników z dzierżaw wymaga usługi [Azure Lighthouse](../../lighthouse/index.yml).
+[Utwórz ustawienie diagnostyczne](./diagnostic-settings.md) , aby wysłać dziennik aktywności do obszaru roboczego log Analytics. Dziennik aktywności można wysłać z dowolnej pojedynczej subskrypcji do maksymalnie pięciu obszarów roboczych. Zbieranie dzienników z dzierżaw wymaga usługi [Azure Lighthouse](../../lighthouse/index.yml).
 
-Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../log-query/log-query-overview.md) w [log Analytics](../log-query/log-analytics-tutorial.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](/azure/azure-monitor/reference/tables/azureactivity).
+Dane dziennika aktywności w obszarze roboczym Log Analytics są przechowywane w tabeli o nazwie *Azure* , którą można pobrać z [zapytaniem dziennika](../logs/log-query-overview.md) w [log Analytics](../logs/log-analytics-tutorial.md). Struktura tej tabeli różni się w zależności od [kategorii wpisu dziennika](activity-log-schema.md). Aby uzyskać opis właściwości tabeli, zobacz [informacje dotyczące Azure monitor danych](/azure/azure-monitor/reference/tables/azureactivity).
 
 Aby na przykład wyświetlić liczbę rekordów dziennika aktywności dla każdej kategorii, użyj poniższego zapytania.
 
@@ -400,6 +400,6 @@ Nie będzie już można dodawać rozwiązania Logs dzienników aktywności do su
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zapoznaj się z omówieniem dzienników platformy](../platform/platform-logs-overview.md)
+* [Zapoznaj się z omówieniem dzienników platformy](./platform-logs-overview.md)
 * [Przejrzyj schemat zdarzeń dziennika aktywności](activity-log-schema.md)
-* [Utwórz ustawienie diagnostyczne, aby wysyłać dzienniki aktywności do innych miejsc docelowych](../platform/diagnostic-settings.md)
+* [Utwórz ustawienie diagnostyczne, aby wysyłać dzienniki aktywności do innych miejsc docelowych](./diagnostic-settings.md)

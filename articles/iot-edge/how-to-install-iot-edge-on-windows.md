@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ba1401696092f5a16ffa21859a9b485e94c5d792
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008574"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736512"
 ---
-# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i Inicjowanie obsługi Azure IoT Edge dla systemu Linux na urządzeniu z systemem Windows (wersja zapoznawcza)
+# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalowanie i aprowizacja usługi IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
 Środowisko uruchomieniowe Azure IoT Edge to włączenie urządzenia do urządzenia IoT Edge. Środowisko uruchomieniowe można wdrożyć na urządzeniach z klasy komputerów na serwerach przemysłowych. Po skonfigurowaniu urządzenia przy użyciu środowiska uruchomieniowego usługi IoT Edge można rozpocząć wdrażanie na nim logiki biznesowej z chmury. Aby dowiedzieć się więcej, zobacz [Omówienie środowiska uruchomieniowego Azure IoT Edge i jego architektury](iot-edge-runtime.md).
 
@@ -85,7 +85,7 @@ Azure IoT Edge dla systemu Linux w systemie Windows obsługuje następujące met
 
 Ręczne inicjowanie obsługi jest łatwiejsze, aby rozpocząć pracę z kilkoma urządzeniami. Usługa Device Provisioning jest przydatna do aprowizacji wielu urządzeń.
 
-Jeśli planujesz użycie jednej z metod usługi DPS do aprowizacji urządzenia lub urządzeń, wykonaj kroki opisane w odpowiednim artykule powiązanym powyżej, aby utworzyć wystąpienie punktu dystrybucji, Połącz wystąpienie usługi DPS z IoT Hub i Utwórz rejestrację usługi DPS. Można utworzyć *rejestrację indywidualną* dla jednego urządzenia lub *rejestracji grupy* dla grupy urządzeń. Aby uzyskać więcej informacji na temat typów rejestracji, odwiedź [pojęcia dotyczące usługi Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
+Jeśli planujesz użycie jednej z metod usługi DPS do aprowizacji urządzenia lub urządzeń, wykonaj kroki opisane w odpowiednim artykule powiązanym powyżej, aby utworzyć wystąpienie punktu dystrybucji, Połącz wystąpienie usługi DPS z IoT Hub i Utwórz rejestrację usługi DPS. Można utworzyć *rejestrację indywidualną* dla jednego urządzenia lub *rejestracji grupy* dla grupy urządzeń. Aby uzyskać więcej informacji na temat typów rejestracji, odwiedź [pojęcia dotyczące usługi Azure IoT Hub Device Provisioning Service](../iot-dps/concepts-service.md#enrollment).
 
 ## <a name="create-a-new-deployment"></a>Utwórz nowe wdrożenie
 
@@ -97,7 +97,7 @@ Na stronie Start Center centrum administracyjnego systemu Windows w obszarze Lis
 
 Centrum administracyjne systemu Windows umożliwia instalację i zarządzanie Azure IoT Edge dla systemu Linux w systemie Windows na urządzeniu lokalnym lub urządzeniach zarządzanych zdalnie. W tym przewodniku połączenie hosta lokalnego będzie działać jako urządzenie docelowe wdrożenia Azure IoT Edge dla systemu Linux w systemie Windows.
 
-Jeśli chcesz wdrożyć na zdalnym urządzeniu docelowym zamiast na urządzeniu lokalnym, a na liście nie widzisz żądanego urządzenia docelowego, postępuj zgodnie z [instrukcjami, aby dodać urządzenie.](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
+Jeśli chcesz wdrożyć na zdalnym urządzeniu docelowym zamiast na urządzeniu lokalnym, a na liście nie widzisz żądanego urządzenia docelowego, postępuj zgodnie z [instrukcjami, aby dodać urządzenie.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
 
    ![Początkowy pulpit nawigacyjny Centrum administracyjnego systemu Windows z urządzeniem docelowym na liście](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
@@ -136,7 +136,7 @@ Po zakończeniu wdrażania możesz przystąpić do aprowizacji Twojego urządzen
 Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu docelowym, jeśli jeszcze tego nie zrobiono.
 
 > [!NOTE]
-> Poniższy proces programu PowerShell przedstawia sposób tworzenia wdrożenia hosta lokalnego Azure IoT Edge dla systemu Linux w systemie Windows. Aby utworzyć wdrożenie na zdalnym urządzeniu docelowym przy użyciu programu PowerShell, można użyć [zdalnego programu PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) w celu nawiązania połączenia z urządzeniem zdalnym i uruchamiania tych poleceń zdalnie na tym urządzeniu.
+> Poniższy proces programu PowerShell przedstawia sposób tworzenia wdrożenia hosta lokalnego Azure IoT Edge dla systemu Linux w systemie Windows. Aby utworzyć wdrożenie na zdalnym urządzeniu docelowym przy użyciu programu PowerShell, można użyć [zdalnego programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) w celu nawiązania połączenia z urządzeniem zdalnym i uruchamiania tych poleceń zdalnie na tym urządzeniu.
 
 1. W sesji programu PowerShell z podwyższonym poziomem uprawnień uruchom następujące polecenia, aby pobrać IoT Edge dla systemu Linux w systemie Windows.
 
@@ -173,9 +173,8 @@ Zainstaluj IoT Edge dla systemu Linux w systemie Windows na urządzeniu docelowy
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > Można uruchomić to polecenie bez parametrów lub opcjonalnie dostosować wdrożenie z parametrami. Zbadaj moduł programu PowerShell AzureEFLOW. PSM1, aby zobaczyć parametry i ich znaczenie (zobacz C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW).
+   > Można uruchomić to polecenie bez parametrów lub opcjonalnie dostosować wdrożenie z parametrami. Aby zobaczyć ich znaczenie, można zapoznać się z informacjami o [skrypcie IoT Edge dla systemu Linux w programie Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) .
 
 1. Wprowadź wartość "Y", aby zaakceptować postanowienia licencyjne.
 
@@ -319,7 +318,10 @@ Ta sekcja obejmuje automatyczne Inicjowanie obsługi administracyjnej urządzeni
 
 Sprawdź, czy IoT Edge dla systemu Linux w systemie Windows zostały pomyślnie zainstalowane i skonfigurowane na urządzeniu IoT Edge.
 
+# <a name="windows-admin-center"></a>[Centrum administracyjne systemu Windows](#tab/windowsadmincenter)
+
 1. Wybierz urządzenie IoT Edge z listy podłączonych urządzeń w centrum administracyjnym systemu Windows, aby nawiązać z nim połączenie.
+
 1. Na stronie Przegląd urządzenia są wyświetlane informacje o urządzeniu:
 
     1. W sekcji **listy modułów IoT Edge** są wyświetlane uruchomione moduły na urządzeniu. Gdy usługa IoT Edge jest uruchamiana po raz pierwszy, będzie widoczny tylko uruchomiony moduł **edgeAgent** . Moduł edgeAgent jest domyślnie uruchamiany i ułatwia Instalowanie i uruchamianie wszelkich dodatkowych modułów wdrażanych na urządzeniu.
@@ -338,6 +340,38 @@ Sprawdź, czy IoT Edge dla systemu Linux w systemie Windows zostały pomyślnie 
        ```bash
        sudo iotedge check
        ```
+
+---
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+1. Zaloguj się do IoT Edge dla systemu Linux na maszynie wirtualnej z systemem Windows przy użyciu następującego polecenia w sesji programu PowerShell:
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+1. Po zalogowaniu możesz sprawdzić listę uruchomionych modułów IoT Edge za pomocą następującego polecenia systemu Linux:
+
+   ```bash
+   iotedge list
+   ```
+
+1. Jeśli musisz rozwiązać problem z usługą IoT Edge, użyj następujących poleceń systemu Linux.
+
+    1. Jeśli potrzebujesz rozwiązać problem z usługą, pobierz jej dzienniki.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. Użyj `check` Narzędzia, aby zweryfikować konfigurację i stan połączenia urządzenia.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

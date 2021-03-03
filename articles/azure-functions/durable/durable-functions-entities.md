@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341558"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723677"
 ---
 # <a name="entity-functions"></a>Funkcje jednostki
 
@@ -24,7 +24,10 @@ Jednostki zapewniają metodę skalowania aplikacji przez dystrybuowanie pracy mi
 
 Jednostki zachowują się jak małe usługi, które komunikują się za pośrednictwem komunikatów. Każda jednostka ma unikatową tożsamość i stan wewnętrzny (jeśli istnieje). Podobnie jak w przypadku usług lub obiektów, jednostki wykonują operacje po wyświetleniu monitu. Gdy operacja jest wykonywana, może ona zaktualizować stan wewnętrzny jednostki. Może również wywołać usługi zewnętrzne i poczekać na odpowiedź. Jednostki komunikują się z innymi jednostkami, aranżacjami i klientami przy użyciu komunikatów, które są niejawnie wysyłane przez niezawodne kolejki. 
 
-Aby zapobiec konfliktom, wszystkie operacje na pojedynczej jednostce są gwarantowane do wykonania szeregowego, czyli jeden po drugim. 
+Aby zapobiec konfliktom, wszystkie operacje na pojedynczej jednostce są gwarantowane do wykonania szeregowego, czyli jeden po drugim.
+
+> [!NOTE]
+> Gdy wywoływana jest jednostka, przetwarza jej ładunek do ukończenia, a następnie planuje nowe wykonywanie do aktywacji po nadejściu przyszłych wejść. W związku z tym dzienniki wykonywania jednostek mogą pokazać dodatkowe wykonanie po każdym wywołaniu jednostki; jest to oczekiwane.
 
 ### <a name="entity-id"></a>Identyfikator jednostki
 Do jednostek uzyskuje się dostęp za pośrednictwem unikatowego identyfikatora, *identyfikatora jednostki*. Identyfikator jednostki to po prostu para ciągów, które jednoznacznie identyfikują wystąpienie jednostki. Składa się z:
@@ -113,7 +116,7 @@ Aby uzyskać więcej informacji na temat składni opartej na klasie i korzystani
 
 ### <a name="example-javascript-entity"></a>Przykład: obiekt JavaScript
 
-Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od wersji 1.3.0 `durable-functions` pakietu npm. Poniższy kod jest `Counter` jednostką zaimplementowaną jako funkcja trwała zapisywana w języku JavaScript.
+Trwałe jednostki są dostępne w języku JavaScript, począwszy  od wersji 1.3.0 `durable-functions` pakietu npm. Poniższy kod jest `Counter` jednostką zaimplementowaną jako funkcja trwała zapisywana w języku JavaScript.
 
 **Licznik/function.jsna**
 ```json
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Przykład: jednostka języka Python
+
+Poniższy kod jest `Counter` jednostką zaimplementowaną jako funkcja trwała zapisywana w języku Python.
+
+**Licznik/function.jsna**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Licznik/__init__. PR**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Jednostki dostępu
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 Termin " *sygnał* " oznacza, że wywołanie interfejsu API jednostki jest jednokierunkowe i asynchroniczne. Nie jest możliwe, aby funkcja klienta wiedziała, kiedy jednostka przetworzyła operację. Ponadto funkcja klienta nie może obserwować żadnych wartości wyników ani wyjątków. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Język Python nie obsługuje obecnie odczytywania Stanów jednostek z klienta. Zamiast tego użyj programu Orchestrator `callEntity` .
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > Język JavaScript nie obsługuje obecnie sygnalizowania jednostką od koordynatora. Zamiast tego użyj polecenia cmdlet `callEntity`.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Tylko aranżacje mogą wywołać jednostki i uzyskać odpowiedź, co może być wartością zwracaną lub wyjątkiem. Funkcje klienta, które używają [powiązania klienta](durable-functions-bindings.md#entity-client) , mogą jedynie sygnalizować jednostki.
@@ -318,6 +395,11 @@ Na przykład można zmodyfikować poprzedni `Counter` przykład jednostki, aby w
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Język Python nie obsługuje jeszcze sygnałów Entity-Entity. Zamiast tego należy użyć programu Orchestrator do sygnalizowania jednostek.
 
 ---
 
@@ -421,7 +503,6 @@ Istnieją pewne istotne różnice, które warto zwrócić uwagę:
 * Wzorce żądania-odpowiedzi w jednostkach są ograniczone do aranżacji. W obrębie jednostek dozwolony jest tylko jednokierunkowa obsługa komunikatów (nazywanych również sygnalizowaniem), jak w oryginalnym modelu aktora i w przeciwieństwie do ziaren w Orleans. 
 * Niezakleszczenie jednostek trwałych. W Orleans, zakleszczenie mogą wystąpić i nie są rozwiązywane, dopóki komunikaty przekroczą limit czasu.
 * Jednostki trwałe mogą być używane w połączeniu z trwałymi aranżacjami i obsługują mechanizmy blokowania rozproszonego. 
-
 
 ## <a name="next-steps"></a>Następne kroki
 

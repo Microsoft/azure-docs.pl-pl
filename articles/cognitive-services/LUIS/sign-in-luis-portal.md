@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706779"
 ---
 # <a name="sign-in-to-luis-portal"></a>Zaloguj się do portalu usługi LUIS
 
@@ -48,7 +48,7 @@ Skorzystaj z tego artykułu, aby rozpocząć pracę z portalem LUIS i utworzyć 
     * **Nazwa grupy zasobów platformy Azure** — nazwa grupy zasobów niestandardowych wybrana w ramach subskrypcji. Grupy zasobów umożliwiają grupowanie zasobów platformy Azure w celu uzyskania dostępu i zarządzania. Jeśli obecnie nie masz grupy zasobów w subskrypcji, nie będzie można jej utworzyć w portalu LUIS. Przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) , aby utworzyć jeden, a następnie przejdź do Luis, aby kontynuować proces logowania.
     * **Nazwa zasobu platformy Azure** — wybrana przez Ciebie Nazwa niestandardowa, używana jako część adresu URL dla transakcji tworzenia. Nazwa zasobu może zawierać tylko znaki alfanumeryczne, `-` i nie może zaczynać się ani kończyć znakiem `-` . Jeśli wszystkie inne symbole są zawarte w nazwie, utworzenie zasobu zakończy się niepowodzeniem.
     * **Lokalizacja** — wybierz opcję tworzenia aplikacji w jednej z [trzech lokalizacji autorstwa](./luis-reference-regions.md) , które są obecnie obsługiwane przez Luis, w tym: zachodnie stany USA, Europa Zachodnia i Australia Wschodnia
-    * **Warstwa cenowa** — domyślnie wybrana jest warstwa cenowa F0 Authoring (niezalecane). Utwórz [klucz zarządzany przez klienta](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) na podstawie Azure Portal, jeśli szukasz dodatkowej warstwy zabezpieczeń.
+    * **Warstwa cenowa** — domyślnie wybrana jest warstwa cenowa F0 Authoring (niezalecane). Utwórz [klucz zarządzany przez klienta](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) na podstawie Azure Portal, jeśli szukasz dodatkowej warstwy zabezpieczeń.
 8. Teraz pomyślnie zarejestrowano się w usłudze LUIS. Teraz możesz zacząć tworzyć aplikacje.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

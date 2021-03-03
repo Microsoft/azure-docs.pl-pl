@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54c6245ea5290e2cab0efcd52f2208ba874c0848
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913712"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720447"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Sterownik systemu plików obiektów blob platformy Azure (ABFS): dedykowany sterownik magazynu platformy Azure dla usługi Hadoop
 
@@ -44,7 +44,7 @@ Wewnętrznie sterownik ABFS tłumaczy zasoby określone w identyfikatorze URI na
 
 ### <a name="authentication"></a>Authentication
 
-Sterownik ABFS obsługuje dwie metody uwierzytelniania, dzięki czemu aplikacja Hadoop może bezpiecznie uzyskiwać dostęp do zasobów znajdujących się w ramach konta obsługującego Data Lake Storage Gen2. Szczegółowe informacje o dostępnych schematach uwierzytelniania znajdują się w [przewodniku po zabezpieczeniach usługi Azure Storage](security-recommendations.md). Oto one:
+Sterownik ABFS obsługuje dwie metody uwierzytelniania, dzięki czemu aplikacja Hadoop może bezpiecznie uzyskiwać dostęp do zasobów znajdujących się w ramach konta obsługującego Data Lake Storage Gen2. Szczegółowe informacje o dostępnych schematach uwierzytelniania znajdują się w [przewodniku po zabezpieczeniach usługi Azure Storage](security-recommendations.md). Są to:
 
 - **Klucz współużytkowany:** Pozwala to użytkownikom na dostęp do wszystkich zasobów na koncie. Klucz jest szyfrowany i przechowywany w konfiguracji usługi Hadoop.
 
@@ -65,5 +65,5 @@ Sterownik ABFS jest w pełni udokumentowany w [oficjalnej dokumentacji usługi H
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie klastra Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Tworzenie klastra Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 - [Korzystanie z identyfikatora URI usługi Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

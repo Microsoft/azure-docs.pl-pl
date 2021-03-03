@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581199"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708921"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -43,12 +43,15 @@ Rola hybrydowego procesu roboczego elementu Runbook wymaga [agenta log Analytics
 Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące dystrybucje. Przyjmuje się, że wszystkie systemy operacyjne są w wersji x64. Architektura x86 nie jest obsługiwana dla żadnego systemu operacyjnego.
 
 * Amazon Linux 2012,09 do 2015,09
-* CentOS Linux 5, 6 i 7
+* CentOS Linux 5, 6, 7 i 8
 * Oracle Linux 5, 6 i 7
-* Red Hat Enterprise Linux Server 5, 6 i 7
+* Red Hat Enterprise Linux Server 5, 6, 7 i 8
 * Debian GNU/Linux 6, 7 i 8
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS i 18,04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 i 15
+
+> [!IMPORTANT]
+> Przed włączeniem funkcji Update Management, która zależy od roli hybrydowego procesu roboczego elementu Runbook systemu, należy upewnić się, że dystrybucje są obsługiwane w [tym miejscu](update-management/overview.md#supported-operating-systems).
 
 ### <a name="minimum-requirements"></a>Minimalne wymagania
 

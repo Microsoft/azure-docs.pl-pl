@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007299"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733520"
 ---
 # <a name="get-started-with-custom-voice"></a>Wprowadzenie do usługi Custom Voice
 
@@ -39,10 +39,10 @@ Na poniższym diagramie przedstawiono kroki umożliwiające utworzenie niestanda
 
 ## <a name="custom-neural-voices"></a>Niestandardowe głosy neuronowych
 
-Niestandardowy głos obecnie obsługuje warstwy Standardowa i neuronowych. Usługa Custom neuronowych Voice pozwala użytkownikom na tworzenie modeli głosu o wyższej jakości, a jednocześnie wymaga mniej danych, a także udostępnia środki ułatwiające wdrażanie odpowiedzialnych plików AI. Zalecamy korzystanie z niestandardowego głosu neuronowych w celu opracowywania bardziej realistycznych głosów dla bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym korzystania z najnowszych technologii zamiany tekstu na mowę w odpowiedzialny sposób. [Dowiedz się więcej na temat niestandardowego głosu neuronowych](https://aka.ms/CNV-Transparency-Note). 
+Niestandardowy głos obecnie obsługuje warstwy Standardowa i neuronowych. Usługa Custom neuronowych Voice pozwala użytkownikom na tworzenie modeli głosu o wyższej jakości, a jednocześnie wymaga mniej danych, a także udostępnia środki ułatwiające wdrażanie odpowiedzialnych plików AI. Zalecamy korzystanie z niestandardowego głosu neuronowych w celu opracowywania bardziej realistycznych głosów dla bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym korzystania z najnowszych technologii zamiany tekstu na mowę w odpowiedzialny sposób. [Dowiedz się więcej na temat niestandardowego głosu neuronowych](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> W ramach zobowiązania firmy Microsoft w zakresie projektowania odpowiedzialnych plików AI Neuronowychmy niestandardową obsługę głosu. Użytkownik może uzyskać dostęp do technologii dopiero po przejrzeniu aplikacji i zapewnieniu jej używania z naszymi właściwymi zasadami AI. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](https://aka.ms/gating-overview) i [Zastosuj tutaj](https://aka.ms/customneural). [Języki](language-support.md#customization) i [regiony](regions.md#custom-voices) obsługiwane w przypadku wersji Standard i neuronowych niestandardowego głosu są różne. Przed rozpoczęciem Sprawdź szczegóły.  
+> W ramach zobowiązania firmy Microsoft w zakresie projektowania odpowiedzialnych plików AI Neuronowychmy niestandardową obsługę głosu. Użytkownik może uzyskać dostęp do technologii dopiero po przejrzeniu aplikacji i zapewnieniu jej używania z naszymi właściwymi zasadami AI. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) i [Zastosuj tutaj](https://aka.ms/customneural). [Języki](language-support.md#customization) i [regiony](regions.md#custom-voices) obsługiwane w przypadku wersji Standard i neuronowych niestandardowego głosu są różne. Przed rozpoczęciem Sprawdź szczegóły.  
 
 ## <a name="set-up-your-azure-account"></a>Skonfiguruj swoje konto platformy Azure
 
@@ -71,7 +71,7 @@ Aby utworzyć swój pierwszy projekt, wybierz kartę **Zamiana tekstu na mowę/n
 
 Jeśli używasz niestandardowego głosu nieneuronowychego (lub standardowego), rozważ przeprowadzenie migracji do niestandardowego neuronowych głosu bezpośrednio po poniższych krokach. Przechodzenie do niestandardowego głosu neuronowych pomoże Ci w tworzeniu bardziej realistycznych głosów dla jeszcze bardziej naturalnych interfejsów konwersacji oraz umożliwienie klientom i użytkownikom końcowym skorzystania z najnowszej technologii zamiany tekstu na mowę w odpowiedzialny sposób. 
 
-1. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](https://aka.ms/gating-overview) i [Zastosuj tutaj](https://aka.ms/customneural). Należy zauważyć, że dostęp do usługi Custom neuronowych Voice jest uzależniony od uznania firmy Microsoft na podstawie kryteriów kwalifikujących. Klienci mogą uzyskać dostęp do technologii dopiero po przejrzeniu ich aplikacji i zapewnieniu jej używania z naszymi [właściwymi zasadami AI](https://microsoft.com/ai/responsible-ai) i [kodeksem postępowania](https://aka.ms/custom-neural-code-of-conduct). 
+1. Dowiedz się więcej [na temat zasad dotyczących limitu dostępu](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) i [Zastosuj tutaj](https://aka.ms/customneural). Należy zauważyć, że dostęp do usługi Custom neuronowych Voice jest uzależniony od uznania firmy Microsoft na podstawie kryteriów kwalifikujących. Klienci mogą uzyskać dostęp do technologii dopiero po przejrzeniu ich aplikacji i zapewnieniu jej używania z naszymi [właściwymi zasadami AI](https://microsoft.com/ai/responsible-ai) i [kodeksem postępowania](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 2. Po zatwierdzeniu aplikacji uzyskasz dostęp do funkcji szkolenia "neuronowych". Upewnij się, że logujesz się do [niestandardowego portalu głosowego](https://speech.microsoft.com/customvoice) , korzystając z tej samej subskrypcji platformy Azure, którą podano w aplikacji. 
     > [!IMPORTANT]
     > Aby chronić talentę głosu i zapobiegać szkoleniu modeli głosowych z nieautoryzowanym nagrywaniem lub bez potwierdzenia z Talenti głosu, firma Microsoft wymaga od klientów przekazania zarejestrowanej instrukcji głosowej talent, która udzieliła swojej zgody. Podczas przygotowywania skryptu nagrywania upewnij się, że zawarto to zdanie. "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".

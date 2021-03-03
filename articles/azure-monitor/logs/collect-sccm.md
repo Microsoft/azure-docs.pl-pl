@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618460"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710983"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Połącz Configuration Manager z Azure Monitor
 Możesz połączyć środowisko Configuration Manager punktu końcowego firmy Microsoft w celu Azure Monitor synchronizacji danych kolekcji urządzeń i odwoływać się do tych kolekcji w Azure Monitor i Azure Automation.  
@@ -44,7 +44,7 @@ Poniższe kroki podsumowują procedurę konfigurowania integracji Configuration 
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Przyznaj Configuration Manager z uprawnieniami do Log Analytics
 
-W poniższej procedurze Przydziel rolę *współautor* w obszarze roboczym log Analytics do aplikacji usługi AD i jednostki usługi utworzonej wcześniej dla Configuration Manager. Jeśli jeszcze nie masz obszaru roboczego, zobacz temat [Tworzenie obszaru roboczego w Azure monitor](../learn/quick-create-workspace.md) przed kontynuowaniem. Pozwala to Configuration Manager na uwierzytelnianie i nawiązywanie połączenia z obszarem roboczym Log Analytics.  
+W poniższej procedurze Przydziel rolę *współautor* w obszarze roboczym log Analytics do aplikacji usługi AD i jednostki usługi utworzonej wcześniej dla Configuration Manager. Jeśli jeszcze nie masz obszaru roboczego, zobacz temat [Tworzenie obszaru roboczego w Azure monitor](./quick-create-workspace.md) przed kontynuowaniem. Pozwala to Configuration Manager na uwierzytelnianie i nawiązywanie połączenia z obszarem roboczym Log Analytics.  
 
 > [!NOTE]
 > Należy określić uprawnienia w obszarze roboczym Log Analytics Configuration Manager. W przeciwnym razie podczas korzystania z Kreatora konfiguracji w programie Configuration Manager zostanie wyświetlony komunikat o błędzie.
@@ -148,9 +148,8 @@ Po zaimportowaniu kolekcji można zobaczyć, ile komputerów z członkostwem w k
 
 ![Zrzut ekranu przedstawiający zaawansowane ustawienia grupy komputerów c C M, która zawiera opcję importowania wybranych członkostw kolekcji Configuration Manager.](./media/collect-sccm/sccm-computer-groups02.png)
 
-Po kliknięciu jednego z nich zostanie otwarty Edytor zapytań dzienników zawierający wszystkie zaimportowane grupy lub wszystkie komputery należące do poszczególnych grup. Za pomocą funkcji [wyszukiwania w dzienniku](../log-query/log-query-overview.md)można wykonać dokładniejszą analizę danych członkostwa w kolekcji.
+Po kliknięciu jednego z nich zostanie otwarty Edytor zapytań dzienników zawierający wszystkie zaimportowane grupy lub wszystkie komputery należące do poszczególnych grup. Za pomocą funkcji [wyszukiwania w dzienniku](./log-query-overview.md)można wykonać dokładniejszą analizę danych członkostwa w kolekcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj [przeszukiwania dzienników](../log-query/log-query-overview.md) , aby wyświetlić szczegółowe informacje o danych Configuration Manager.
-
+Użyj [przeszukiwania dzienników](./log-query-overview.md) , aby wyświetlić szczegółowe informacje o danych Configuration Manager.

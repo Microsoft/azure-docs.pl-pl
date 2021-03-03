@@ -3,12 +3,12 @@ title: Utwórz chmurę prywatną rozwiązania Azure VMware
 description: Procedura tworzenia chmury prywatnej rozwiązania VMware platformy Azure przy użyciu Azure Portal.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725408"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "100653141"
    | **Nazwa zasobu** | Nazwa chmury prywatnej rozwiązania Azure VMware. |
    | **SKU** | Wybierz następującą wartość jednostki SKU: AV36 |
    | **Hosts** | Liczba hostów do dodania do klastra chmury prywatnej. Wartość domyślna to 3, która może zostać podniesiona lub obniżona po wdrożeniu.  |
-   | **hasło administratora vCenter** | Wprowadź hasło administratora chmury. |
-   | **Hasło Menedżera NSX-T** | Wprowadź hasło administratora NSX-T. |
    | **Blok adresów** | Wprowadź blok adresów IP dla sieci CIDR dla chmury prywatnej, na przykład 10.175.0.0/22. |
    | **Virtual Network** | Wybierz Virtual Network lub Utwórz nowy dla chmury prywatnej rozwiązania Azure VMware.  |
 

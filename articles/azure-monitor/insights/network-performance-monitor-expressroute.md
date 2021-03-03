@@ -1,22 +1,21 @@
 ---
 title: Network Performance Monitor rozwiązanie na platformie Azure Log Analytics | Microsoft Docs
 description: Korzystając z funkcji monitorowania ExpressRoute w Network Performance Monitor, można monitorować kompleksową łączność i wydajność między biurami oddziałów i platformą Azure za pośrednictwem usługi Azure ExpressRoute.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 477512c0b1de8548e2aa1e2971a5d831e84d2139
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578371"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725700"
 ---
 # <a name="expressroute-monitor"></a>Monitor ExpressRoute
 
 > [!IMPORTANT]
-> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 Korzystając z możliwości usługi Azure ExpressRoute monitor w [Network Performance Monitor](network-performance-monitor.md) , można monitorować kompleksową łączność i wydajność między oddziałami i platformą Azure za pośrednictwem usługi Azure ExpressRoute. Najważniejsze zalety: 
 
@@ -144,4 +143,3 @@ Można wyświetlić kody powiadomień i ustawić dla nich alerty za pośrednictw
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyszukaj dzienniki](../logs/log-query-overview.md) , aby wyświetlić szczegółowe rekordy danych wydajności sieci.
-

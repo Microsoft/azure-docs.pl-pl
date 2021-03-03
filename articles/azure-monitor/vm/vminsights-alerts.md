@@ -1,36 +1,36 @@
 ---
-title: Alerty z Azure Monitor dla maszyn wirtualnych
-description: Opisuje sposób tworzenia reguł alertów na podstawie danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych.
+title: Alerty z usługi VM Insights
+description: Opisuje sposób tworzenia reguł alertów na podstawie danych wydajności zebranych przez usługi VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 4ae5b12f22b0cbcef7577c2eb9d4f3e3ae737590
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704059"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak utworzyć alerty z Azure Monitor dla maszyn wirtualnych
-[Alerty w usłudze Azure monitor](../platform/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Azure Monitor dla maszyn wirtualnych nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można je utworzyć na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.
+# <a name="how-to-create-alerts-from-vm-insights"></a>Jak tworzyć alerty na podstawie szczegółowych informacji o maszynie wirtualnej
+[Alerty w usłudze Azure monitor](../alerts/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Usługa VM Insights nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można utworzyć własne na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.
 
 > [!IMPORTANT]
-> Alerty opisane w tym artykule są oparte na zapytaniach dzienników z zebranych danych Azure Monitor dla maszyn wirtualnych. Różni się to od alertów utworzonych przez [Azure monitor na potrzeby kondycji gościa maszyny wirtualnej](vminsights-health-overview.md) , która jest obecnie dostępna w publicznej wersji zapoznawczej. Ponieważ ta funkcja jest niemal ogólnie dostępna, wskazówki dotyczące alertów zostaną skonsolidowane.
+> Alerty opisane w tym artykule opierają się na zapytaniach dziennika zebranych danych dotyczących maszyn wirtualnych. Różni się to od alertów utworzonych przez [Azure monitor na potrzeby kondycji gościa maszyny wirtualnej](vminsights-health-overview.md) , która jest obecnie dostępna w publicznej wersji zapoznawczej. Ponieważ ta funkcja jest niemal ogólnie dostępna, wskazówki dotyczące alertów zostaną skonsolidowane.
 
 
 ## <a name="alert-rule-types"></a>Typy reguł alertów
-Azure Monitor ma [różne typy reguł alertów](../platform/alerts-overview.md#what-you-can-alert-on) na podstawie danych użytych do utworzenia alertu. Wszystkie dane zbierane przez Azure Monitor dla maszyn wirtualnych są przechowywane w dziennikach Azure Monitor, które obsługują [alerty dzienników](../alerts/alerts-log.md). Nie można obecnie używać [alertów metryk](../alerts/alerts-log.md) z danymi wydajności zbieranymi z Azure monitor dla maszyn wirtualnych, ponieważ dane nie są zbierane do Azure monitor metryk. Aby zbierać dane dotyczące alertów metryk, należy zainstalować [rozszerzenie diagnostyki](../agents/diagnostics-extension-overview.md) dla maszyn wirtualnych z systemem Windows lub [telegraf agenta](../platform/collect-custom-metrics-linux-telegraf.md) dla maszyn wirtualnych z systemem Linux w celu zbierania danych wydajności w metrykach.
+Azure Monitor ma [różne typy reguł alertów](../alerts/alerts-overview.md#what-you-can-alert-on) na podstawie danych użytych do utworzenia alertu. Wszystkie dane zbierane przez program VM Insights są przechowywane w dziennikach Azure Monitor, które obsługują [alerty dzienników](../alerts/alerts-log.md). Nie można obecnie używać [alertów metryk](../alerts/alerts-log.md) z danymi wydajności zebranymi z usługi VM Insights, ponieważ dane nie są zbierane do metryk Azure monitor. Aby zbierać dane dotyczące alertów metryk, należy zainstalować [rozszerzenie diagnostyki](../agents/diagnostics-extension-overview.md) dla maszyn wirtualnych z systemem Windows lub [telegraf agenta](../essentials/collect-custom-metrics-linux-telegraf.md) dla maszyn wirtualnych z systemem Linux w celu zbierania danych wydajności w metrykach.
 
 Istnieją dwa typy alertów dziennika w Azure Monitor:
 
 - [Liczba alertów z wynikami](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) tworzenia pojedynczego alertu, gdy zapytanie zwróci co najmniej określoną liczbę rekordów. Są one idealne dla danych nieliczbowych, takich jak zdarzenia systemu Windows i dziennika systemowego zbierane przez [agenta log Analytics](../agents/log-analytics-agent.md) lub do analizowania trendów wydajności na wielu komputerach.
-- [Alerty pomiarów metryk](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) tworzą osobny alert dla każdego rekordu w zapytaniu, który ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych, ponieważ mogą tworzyć indywidualne alerty dla każdego komputera.
+- [Alerty pomiarów metryk](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) tworzą osobny alert dla każdego rekordu w zapytaniu, który ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych wydajności zbieranych przez program VM Insights, ponieważ mogą tworzyć poszczególne alerty dla każdego komputera.
 
 
 ## <a name="alert-rule-walkthrough"></a>Przewodnik po regule alertu
-Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla maszyn wirtualnych. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności.
+Ta sekcja zawiera szczegółowe informacje na temat tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z usługi VM Insights. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności.
 
 Zacznij od utworzenia nowej reguły alertu zgodnie z procedurą w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../alerts/alerts-log.md). Dla **zasobu** wybierz obszar roboczy log Analytics używany przez Azure monitor maszyny wirtualne w ramach subskrypcji. Ponieważ zasób docelowy dla reguł alertów dziennika jest zawsze obszarem roboczym Log Analytics, zapytanie dziennika musi zawierać dowolny filtr dla określonych maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych. 
 
@@ -44,7 +44,7 @@ W **logice alertu** wybierz pozycję **pomiar metryki** , a następnie podaj **w
 ![Reguła alertu pomiaru metryki](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>Przykładowe zapytania dotyczące alertu
-Następujące zapytania mogą być używane z regułą alertu pomiaru metryki przy użyciu danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych. Każda z nich podsumowuje dane według komputera, aby alert został utworzony dla każdego komputera o wartości przekraczającej wartość progową.
+Następujące zapytania mogą być używane z regułą alertu pomiaru metryki przy użyciu danych wydajności zbieranych przez program VM Insights. Każda z nich podsumowuje dane według komputera, aby alert został utworzony dla każdego komputera o wartości przekraczającej wartość progową.
 
 ### <a name="cpu-utilization"></a>Wykorzystanie procesora
 
@@ -200,5 +200,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [alertach w Azure monitor](../platform/alerts-overview.md).
-- Dowiedz się więcej [na temat zapytań dzienników przy użyciu danych z Azure monitor dla maszyn wirtualnych](vminsights-log-search.md).
+- Dowiedz się więcej o [alertach w Azure monitor](../alerts/alerts-overview.md).
+- Dowiedz się więcej [na temat zapytań dzienników przy użyciu danych z usługi VM Insights](vminsights-log-search.md).

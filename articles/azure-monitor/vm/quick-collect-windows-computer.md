@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 5d34893c522bd3cc3b862284cb84b44bab40856a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65d60c77280b569d1bff5e4d3acbdf97ead96270
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628799"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733792"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Zbieranie danych z komputera z systemem Windows w środowisku hybrydowym z Azure Monitor
 
@@ -165,4 +165,4 @@ Teraz, gdy zbierasz dane operacyjne i wydajności z komputera z systemem Windows
 Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do samouczka:
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../logs/log-analytics-tutorial.md)

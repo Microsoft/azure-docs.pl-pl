@@ -1,22 +1,22 @@
 ---
-title: '& wdrażania metryk w usłudze HPA przy użyciu Azure Monitor dla kontenerów | Microsoft Docs'
-description: W tym artykule opisano, jakie informacje o wdrożeniu & HPA (w horyzontalnym skalowaniu automatycznego) są zbierane za pomocą Azure Monitor dla kontenerów.
+title: Wdrożenie & HPA metryk z usługą Container Insights | Microsoft Docs
+description: W tym artykule opisano, jakie informacje o wdrożeniu & HPA (w horyzontalnym skalowaniu automatycznego) są zbierane za pomocą usługi Container Insights.
 ms.topic: conceptual
 ms.date: 08/09/2020
-ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c8bb100b756ea92d73e1c3a698f119b4f8157930
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620090"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717710"
 ---
-# <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Wdrażanie metryk & HPA z Azure Monitor dla kontenerów
+# <a name="deployment--hpa-metrics-with-container-insights"></a>Wdrażanie metryk & HPA przy użyciu usługi Container Insights
 
-Począwszy od wersji agenta *ciprod08072020*, usługa Azure monitor dla kontenerów — zintegrowany Agent teraz zbiera metryki dla wdrożeń & HPAs.
+Począwszy od wersji *ciprod08072020* agenta, Agent usługi Application Insights — jest teraz zbierał metryki dla wdrożeń & HPAs.
 
 ## <a name="deployment-metrics"></a>Metryki wdrożenia
 
-Azure Monitor kontenerów automatycznie uruchamia monitorowanie wdrożeń, zbierając następujące metryki w przedziałach 60 sekund i przechowując je w tabeli **InsightMetrics** :
+Usługi Container Insights automatycznie zaczynają monitorować wdrożenia, zbierając następujące metryki w przedziałach 60 sekund i przechowując je w tabeli **InsightMetrics** :
 
 |Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|
@@ -24,7 +24,7 @@ Azure Monitor kontenerów automatycznie uruchamia monitorowanie wdrożeń, zbier
 
 ## <a name="hpa-metrics"></a>HPA metryk
 
-Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie HPAs, przez gromadzenie następujących metryk w interwałach 60 sekund i przechowywanie ich w tabeli **InsightMetrics** :
+Usługi Container Insights automatycznie zaczynają monitorowanie HPAs, przez gromadzenie następujących metryk w interwałach 60 sekund i przechowywanie ich w tabeli **InsightMetrics** :
 
 |Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|
@@ -32,7 +32,7 @@ Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie HPAs, przez 
 
 ## <a name="deployment--hpa-charts"></a>Diagramy wdrożenia & HPA 
 
-Azure Monitor kontenerów zawiera wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt dla każdego klastra. Wdrożenia & HPA skoroszytów można znaleźć **& hPa** bezpośrednio z klastra AKS, wybierając pozycję **skoroszyty** z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowych informacjach.
+Informacje o kontenerze zawierają wstępnie skonfigurowane wykresy dla metryk wymienionych wcześniej w tabeli jako skoroszyt dla każdego klastra. Wdrożenia & HPA skoroszytów można znaleźć **& hPa** bezpośrednio z klastra AKS, wybierając pozycję **skoroszyty** z okienka po lewej stronie, a następnie z listy rozwijanej **Wyświetl skoroszyty** w szczegółowych informacjach.
 
 ## <a name="next-steps"></a>Następne kroki
 

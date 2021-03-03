@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f0d062766f0a5d58fbcaaa32b1df5a5e40c783b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719954"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Zainstaluj agenta Azure Monitor (wersja zapoznawcza)
 W tym artykule opisano różne opcje, które są obecnie dostępne do zainstalowania [agenta Azure monitor](azure-monitor-agent-overview.md) na maszynach wirtualnych platformy Azure i serwerach z obsługą usługi Azure ARC, a także opcje tworzenia [skojarzeń z regułami zbierania danych](data-collection-rule-azure-monitor-agent.md) , które określają, które dane mają być zbierane przez agenta.
@@ -42,7 +42,7 @@ Za pomocą szablonów Menedżer zasobów można zainstalować agenta Azure Monit
 Pobierz przykładowe szablony na potrzeby instalacji agenta i utwórz skojarzenie z następujących: 
 
 - [Szablon do zainstalowania agenta Azure Monitor (Azure i Azure ARC)](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Szablon służący do tworzenia skojarzenia z regułą zbierania danych](../samples/resource-manager-data-collection-rules.md)
+- [Szablon służący do tworzenia skojarzenia z regułą zbierania danych](./resource-manager-data-collection-rules.md)
 
 Zainstaluj szablony przy użyciu [dowolnej metody wdrażania dla Menedżer zasobów szablonów](../../azure-resource-manager/templates/deploy-powershell.md) , takich jak następujące polecenia.
 

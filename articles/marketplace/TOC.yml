@@ -47,12 +47,19 @@
       items:
         - name: Korzyści na platformie handlowej
           href: gtm-your-marketplace-benefits.md
-        - name: Współpraca między partnerami w zakresie sprzedaży
-          href: marketplace-co-sell.md
-        - name: Wspólna sprzedaż w Centrum partnerskim
-          href: commercial-marketplace-co-sell.md
-        - name: Migrowanie rozwiązań do wspólnej sprzedaży z rozwiązania OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Wspólna sprzedaż z firmą Microsoft
+          items:
+            - name: Przegląd współpracujących
+              href: marketplace-co-sell.md
+            - name: Wymagania dotyczące wspólnych transakcji
+              href: co-sell-requirements.md
+            - name: Konfiguruj wspólną sprzedaż
+              href: commercial-marketplace-co-sell.md
+            - name: Sprawdź stan współsprzedawanej
+              href: co-sell-status.md
+            - name: Migrowanie rozwiązań do wspólnej sprzedaży z rozwiązania OCP GTM
+              href: co-sell-solution-migration.md
         - name: Odsprzedaż za pośrednictwem partnerów CSP
           href: cloud-solution-providers.md
         - name: Przewodnik dołączania do programu Connect Program
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Przygotowywanie zasobów technicznych dla modułu usługi IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Lista kontrolna certyfikacji wstępnej
+          href: iot-edge-checklist.md
     - name: Oferty usługi zarządzanej
       items:
         - name: Planowanie oferty usługi zarządzanej
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Kody stanów wspólnej sprzedaży
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagram architektury referencyjnej
+      href: reference-architecture-diagram.md
     - name: Kategorie i podkategorie
       href: categories.md
     - name: Obsługiwane tagi HTML

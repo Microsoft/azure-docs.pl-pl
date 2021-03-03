@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731361"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Jak używać grup w skoroszytach
 
@@ -143,5 +143,5 @@ Aby przekształcić większy szablon w kilka szablonów podrzędnych:
 6. Następnie można zmienić krok grupy w celu załadowania z szablonu i ustawienia pola Identyfikator szablonu do skoroszytu/szablonu utworzonego w kroku 5. Aby pracować z identyfikatorami skoroszytów, Źródło musi być IDENTYFIKATORem zasobu udostępnionego skoroszytu. Naciśnij pozycję *Załaduj* , a zawartość tej grupy zostanie teraz załadowana z tego szablonu podrzędnego, a nie została zapisana w tym zewnętrznym skoroszycie.
 
 ## <a name="next-steps"></a>Następne kroki
-- [Przegląd skoroszytów](../platform/workbooks-overview.md)
+- [Przegląd skoroszytów](./workbooks-overview.md)
 - [Używanie wykryto ze skoroszytami](workbooks-jsonpath.md)

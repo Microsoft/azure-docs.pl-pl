@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 02/18/2021
 ms.author: victorh
-ms.openlocfilehash: ba344c3b1570c041e1602bdfcde1b3a4055dc396
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 8b1d1007e817bafe3d75f0f0d7c3fc6eb5470854
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729474"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Samouczek: Tworzenie zasad zapory aplikacji sieci Web na platformie Azure front-drzwi przy użyciu Azure Portal
 
@@ -62,19 +62,21 @@ Najpierw Utwórz podstawowe zasady WAF z zarządzanym domyślnym zestawem reguł
 Podczas tworzenia zasad WAFymi domyślne zasady WAF są w trybie **wykrywania** . W trybie **wykrywania** WAF nie blokuje żadnych żądań, a zamiast tego żądania zgodne z regułami WAF są rejestrowane w dziennikach WAF.
 Aby wyświetlić WAF w działaniu, można zmienić ustawienia trybu z **wykrywania** na **zapobieganie**. W trybie **zapobiegania** żądania zgodne z regułami zdefiniowanymi w domyślnym zestawie reguł (DRS) są blokowane i rejestrowane w dziennikach WAF.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Zrzut ekranu przedstawiający sekcję ustawień zasad. Przełącznik trybów jest ustawiony na zapobieganie." border="false":::
 
 ### <a name="custom-rules"></a>Reguły niestandardowe
 
 Regułę niestandardową można utworzyć, wybierając pozycję **Dodaj regułę niestandardową** w sekcji **reguły niestandardowe** . Spowoduje to uruchomienie strony Konfiguracja reguły niestandardowej. Poniżej znajduje się przykład konfigurowania reguły niestandardowej do blokowania żądania, jeśli ciąg zapytania zawiera **blockme**.
 
-:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Zrzut ekranu przedstawiający stronę konfiguracji reguła niestandardowa przedstawiającą ustawienia reguły, która sprawdza, czy zmienna QueryString zawiera wartość blockme." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
-Domyślny zestaw reguł zarządzany przez platformę Azure jest domyślnie włączony. Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz **pole wyboru** przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
+Domyślny zestaw reguł zarządzany przez platformę Azure jest domyślnie włączony. Bieżąca wersja domyślna to DefaultRuleSet_1.0. W ramach **reguł zarządzanych** przez program WAF na liście rozwijanej jest dostępny program **Assign**, a ostatnio dostępny zestaw reguł Microsoft_DefaultRuleSet_1 dziesiątki.
 
- :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie zasad języka F z przyciskami Przejrzyj i Utwórz oraz polami listy dla subskrypcji, grupy zasobów i nazwy zasad." border="false":::
+Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz **pole wyboru** przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
+
+ :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Zrzut ekranu strony reguły zarządzane przedstawiający zestaw reguł, grupy reguł, reguły oraz przyciski włączania, wyłączania i zmieniania akcji. Zaznaczono jedną regułę." border="false":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -1,17 +1,16 @@
 ---
 title: Azure Key Vault rozwiązanie w Azure Monitor | Microsoft Docs
 description: Aby przejrzeć dzienniki Azure Key Vault, można użyć rozwiązania Azure Key Vault w Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: f9b265ba8970d9f065cc13cff1e5faeb466ac570
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 24869841a106a68234cfec600d9a98e519f8c6cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734200"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Rozwiązanie Azure Key Vault Analytics w Azure Monitor
 

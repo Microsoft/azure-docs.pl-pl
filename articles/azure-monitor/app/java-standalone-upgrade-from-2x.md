@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704433"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Uaktualnianie z programu Application Insights Java 2. x SDK
 
@@ -220,3 +220,16 @@ W przypadku niektórych aplikacji można nadal preferować widok zagregowany w U
 Wcześniej w zestawie SDK 2. x nazwa operacji w telemetrii żądania została również ustawiona dla telemetrii zależności.
 Application Insights Java 3,0 nie wypełnia już nazwy operacji na telemetrii zależności.
 Jeśli chcesz zobaczyć nazwę operacji dla żądania, które jest elementem nadrzędnym telemetrii zależności, możesz napisać zapytanie dzienników (Kusto), aby dołączyć z tabeli zależności do tabeli żądania.
+
+## <a name="2x-sdk-logging-appenders"></a>dołączenia dzienników zestawu SDK 2. x
+
+Agent 3,0 przeprowadza [autozbieranie informacji o rejestrowaniu](./java-standalone-config#auto-collected-logging) bez konieczności konfigurowania dołączania dzienników.
+Jeśli używasz dołączeń do dzienników zestawu SDK 2. x, można je usunąć, ponieważ mimo to zostaną one pominięte przez agenta 3,0.
+
+## <a name="2x-sdk-spring-boot-starter"></a>rozruch z zestawu SDK 2. x z sprężyną Starter
+
+Nie istnieje 3,0 sprężynowego rozruchu Starter.
+Instalacja i Konfiguracja agenta 3,0 są zgodne z tymi samymi [prostymi krokami](./java-in-process-agent.md#quickstart) , niezależnie od tego, czy jest używany rozruch sprężynowy, czy nie.
+
+Podczas przeprowadzania uaktualnienia z poziomu zestawu SDK 2. x sprężynowego rozruchu Starter należy zauważyć, że nazwa roli chmury nie będzie już domyślnie `spring.application.name` .
+Zapoznaj się z dokumentacją [konfiguracyjną 3,0](./java-standalone-config.md#cloud-role-name) , aby ustawić nazwę roli chmury w 3,0 za pośrednictwem konfiguracji JSON lub zmiennej środowiskowej.

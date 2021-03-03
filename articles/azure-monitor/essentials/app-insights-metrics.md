@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 400f239f3e7b736196bf950e81148fa2e39aca96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613363"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731684"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
 
@@ -21,13 +21,13 @@ Application Insights metryki oparte na dzienniku umożliwiają analizowanie kond
 * [Metryki oparte na dziennikach](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) są tłumaczone na [zapytania Kusto](/azure/kusto/query/) z przechowywanych zdarzeń.
 * [Metryki standardowe](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) są przechowywane jako szeregi czasowe zagregowane.
 
-Ze względu na to, że *metryki standardowe* są wstępnie agregowane podczas zbierania, mają lepszą wydajność w czasie wykonywania zapytania. Zapewnia to lepszy wybór dla pulpitów nawigacyjnych i alertów w czasie rzeczywistym. *Metryki oparte na dzienniku* mają więcej wymiarów, co sprawia, że jest to opcja najwyższej jakości do analizy danych i diagnostyki ad hoc. Użyj [selektora przestrzeni nazw](../platform/metrics-getting-started.md#create-your-first-metric-chart) , aby przełączać się między metrykami opartymi na dzienniku i standardowym w [Eksploratorze metryk](../platform/metrics-getting-started.md).
+Ze względu na to, że *metryki standardowe* są wstępnie agregowane podczas zbierania, mają lepszą wydajność w czasie wykonywania zapytania. Zapewnia to lepszy wybór dla pulpitów nawigacyjnych i alertów w czasie rzeczywistym. *Metryki oparte na dzienniku* mają więcej wymiarów, co sprawia, że jest to opcja najwyższej jakości do analizy danych i diagnostyki ad hoc. Użyj [selektora przestrzeni nazw](./metrics-getting-started.md#create-your-first-metric-chart) , aby przełączać się między metrykami opartymi na dzienniku i standardowym w [Eksploratorze metryk](./metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpretuj i używaj zapytań z tego artykułu
 
 Ten artykuł zawiera listę metryk z obsługiwanymi agregacjami i wymiarami. Szczegółowe informacje o metrykach opartych na dzienniku zawierają bazowe instrukcje zapytania Kusto. Dla wygody każde zapytanie używa wartości domyślnych dla stopnia szczegółowości czasu, typu wykresu i czasami dzielenia wymiarem, które upraszcza użycie zapytania w Log Analytics bez konieczności modyfikowania.
 
-Podczas wykreślania tej samej metryki w [Eksploratorze metryk](../platform/metrics-getting-started.md)nie ma żadnych wartości domyślnych — zapytanie jest dynamicznie dostosowywane na podstawie ustawień wykresu:
+Podczas wykreślania tej samej metryki w [Eksploratorze metryk](./metrics-getting-started.md)nie ma żadnych wartości domyślnych — zapytanie jest dynamicznie dostosowywane na podstawie ustawień wykresu:
 
 - Wybrany **zakres czasu** jest tłumaczony na dodatkową klauzulę *WHERE sygnatura* czasowa..., aby wybierać tylko zdarzenia z wybranego zakresu czasu. Na przykład wykres przedstawiający dane dla ostatnich 24 godzin zapytania zawiera *| gdzie sygnatura czasowa > temu (24 h)*.
 
@@ -38,7 +38,7 @@ Podczas wykreślania tej samej metryki w [Eksploratorze metryk](../platform/metr
 - Wybrany wymiar **podzielony wykres** jest tłumaczony na dodatkową właściwość podsumowującą. Na przykład w przypadku dzielenia wykresu według *lokalizacji* i kreślenia przy użyciu 5-minutowego stopnia szczegółowości zostanie podsumowana klauzula *podsumowania* *... według bin (Sygnatura czasowa, 5 m), lokalizacja*.
 
 > [!NOTE]
-> Jeśli dopiero zaczynasz pracę z językiem zapytań Kusto, możesz zacząć od skopiowania i wklejenia instrukcji Kusto do okienka zapytania Log Analytics bez wprowadzania żadnych modyfikacji. Kliknij przycisk **Uruchom** , aby wyświetlić wykres podstawowy. Po rozpoczęciu zrozumienia składni języka zapytań można zacząć wprowadzać małe modyfikacje i zobaczyć wpływ zmiany. Eksplorowanie własnych danych jest doskonałym sposobem na rozpoczęcie realizacji pełnej mocy [log Analytics](../log-query/log-analytics-tutorial.md) i [Azure monitor](../overview.md).
+> Jeśli dopiero zaczynasz pracę z językiem zapytań Kusto, możesz zacząć od skopiowania i wklejenia instrukcji Kusto do okienka zapytania Log Analytics bez wprowadzania żadnych modyfikacji. Kliknij przycisk **Uruchom** , aby wyświetlić wykres podstawowy. Po rozpoczęciu zrozumienia składni języka zapytań można zacząć wprowadzać małe modyfikacje i zobaczyć wpływ zmiany. Eksplorowanie własnych danych jest doskonałym sposobem na rozpoczęcie realizacji pełnej mocy [log Analytics](../logs/log-analytics-tutorial.md) i [Azure monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Metryki dostępności
 

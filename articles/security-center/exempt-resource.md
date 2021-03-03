@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756792"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709380"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Zwalnianie zasobów i zaleceń z bezpiecznego wyniku 
 
@@ -110,9 +110,9 @@ Jak wyjaśniono wcześniej na tej stronie, reguły wykluczania to zaawansowane n
 
 Aby śledzić, jak użytkownicy korzystają z tej możliwości, utworzyliśmy szablon Azure Resource Manager (ARM), który wdraża aplikację logiki element playbook i wszystkie wymagane połączenia interfejsu API w celu powiadomienia użytkownika o utworzeniu wykluczenia.
 
-- Aby dowiedzieć się więcej na temat element PlayBook, zobacz ten wpis na [blogach społeczności Tech](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) .
+- Aby dowiedzieć się więcej na temat element PlayBook, zobacz wpis w blogu społeczność Tech. [jak śledzić wykluczenia zasobów w Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - Szablon ARM znajdziesz w [repozytorium Azure Security Center GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- Możesz kliknąć [tutaj](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) , aby wdrożyć wszystkie niezbędne składniki 
+- Aby wdrożyć wszystkie niezbędne składniki, [Użyj tego zautomatyzowanego procesu](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Znajdź zalecenia z wykluczeniami przy użyciu grafu zasobów platformy Azure

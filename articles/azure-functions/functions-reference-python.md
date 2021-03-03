@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735847"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708700"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -20,6 +20,9 @@ Jako deweloper języka Python może być również interesujący jeden z następ
 | Wprowadzenie | Pojęcia| Scenariusze/przykłady |
 | -- | -- | -- | 
 | <ul><li>[Funkcja języka Python wykorzystująca Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Funkcja w języku Python z terminalem/wierszem polecenia](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Klasyfikacja obrazów za pomocą platformy PyTorch](machine-learning-pytorch.md)</li><li>[Przykład usługi Azure Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Uczenie maszynowe przy użyciu biblioteki TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Przeglądaj przykłady w języku Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> Chociaż można [opracowywać Azure Functions oparte na języku Python lokalnie w systemie Windows](./azure-functions/create-first-function-vs-code-python#run-the-function-locally), Język Python jest obsługiwany tylko w planie hostingu opartym na systemem Linux podczas uruchamiania na platformie Azure. Zapoznaj się z listą obsługiwanych kombinacji [systemu operacyjnego/środowiska uruchomieniowego](./azure-functions/functions-scale#operating-systemruntime) .
 
 ## <a name="programming-model"></a>Model programowania
 

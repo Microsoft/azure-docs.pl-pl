@@ -4,16 +4,17 @@ description: Dowiedz się, jak skopiować dane z i do programu IBM Informix przy
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 23fc5cabb947f579177a26afc6baec873f2df154
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727910"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Kopiuj dane z i do programu IBM Informix przy użyciu Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z magazynu danych programu IBM Informix. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -27,12 +28,13 @@ Ten łącznik programu Informix jest obsługiwany przez następujące działania
 
 Dane z źródła programu Informix można kopiować do dowolnego obsługiwanego magazynu danych ujścia lub kopiować z dowolnego obsługiwanego źródłowego magazynu danych do ujścia programu Informix. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby użyć tego łącznika programu Informix, należy wykonać następujące:
 
 - Skonfiguruj samodzielny Integration Runtime. Aby uzyskać szczegółowe informacje, zobacz artykuł [Integration Runtime samodzielny](create-self-hosted-integration-runtime.md) .
-- Zainstaluj sterownik programu Informix ODBC dla magazynu danych na maszynie Integration Runtime. Można na przykład użyć sterownika "sterownik IBM INFORMIX Informix (64-bitowy)".
+- Zainstaluj sterownik programu Informix ODBC dla magazynu danych na maszynie Integration Runtime. Aby uzyskać szczegółowe informacje na temat instalacji i konfiguracji sterownika, zobacz artykuł [Przewodnik po sterowniku programu Informix ODBC](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) w programie IBM Knowledge Center lub skontaktuj się z zespołem pomocy technicznej firmy IBM w celu uzyskania wskazówek dotyczących instalacji
 
 ## <a name="getting-started"></a>Wprowadzenie
 

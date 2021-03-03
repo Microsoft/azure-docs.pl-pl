@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be5000b6f9153839b926932c82c9f8fa3ab93f5f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981112"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704841"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
@@ -24,7 +24,7 @@ Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.m
 - [Dodaj prywatny certyfikat do App Service](configure-ssl-certificate.md) , który spełnia wszystkie [wymagania dotyczące certyfikatu prywatnego](configure-ssl-certificate.md#private-certificate-requirements).
 -  Utwórz powiązanie TLS z odpowiednią domeną niestandardową. Ten drugi krok jest objęty tym artykułem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Uaktualnienie warstwy cenowej aplikacji
@@ -61,7 +61,7 @@ W lewym panelu nawigacyjnym aplikacji Uruchom okno dialogowe **powiązania proto
 
 ![Dodawanie powiązania do domeny](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-W polu **domena niestandardowa**wybierz domenę niestandardową, dla której chcesz dodać powiązanie.
+W polu **domena niestandardowa** wybierz domenę niestandardową, dla której chcesz dodać powiązanie.
 
 Jeśli aplikacja ma już certyfikat dla wybranej domeny niestandardowej, przejdź do pozycji [Utwórz powiązanie](#create-binding) bezpośrednio. W przeciwnym razie Kontynuuj.
 
@@ -159,13 +159,13 @@ Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
-* [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](configure-ssl-certificate-in-code.md)
+* [Używanie certyfikatu TLS/SSL w kodzie w usłudze Azure App Service](configure-ssl-certificate-in-code.md)
 * [Często zadawane pytania: certyfikaty App Service](./faq-configuration-and-management.md)

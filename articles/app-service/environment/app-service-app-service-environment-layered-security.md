@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150235"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739512"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementowanie warstwowej architektury zabezpieczeń w środowiskach App Service
 Ponieważ środowiska App Service udostępniają izolowane środowisko uruchomieniowe wdrożone w sieci wirtualnej, deweloperzy mogą tworzyć warstwowe architektury zabezpieczeń zapewniające różne poziomy dostępu do sieci dla każdej warstwy fizycznej aplikacji.

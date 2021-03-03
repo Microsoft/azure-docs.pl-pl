@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703409"
 ---
 # <a name="precise-answering"></a>Precyzyjne odpowiedzi
 
@@ -32,7 +32,7 @@ Usługa zwraca również wynik poufności dokładnej odpowiedzi jako **wynik zak
 
 ## <a name="publishing-a-qna-maker-bot"></a>Publikowanie QnA Maker Bot
 
-Gdy publikujesz bot, w aplikacji jest domyślnie dostępne precyzyjne włączenie funkcji odpowiedzi, w której zobaczysz krótką odpowiedź wraz z przedostaniem odpowiedzi. Zapoznaj się z dokumentacją interfejsu API w celu [wygenerowania odpowiedzi](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) , aby zobaczyć, jak używać precyzyjnej odpowiedzi (o nazwie AnswerSpan) w odpowiedzi. Użytkownik może wybrać inne środowisko, aktualizując szablon za pomocą usługi App Service bot. 
+Gdy publikujesz bot, w aplikacji jest domyślnie dostępne precyzyjne włączenie funkcji odpowiedzi, w której zobaczysz krótką odpowiedź wraz z przedostaniem odpowiedzi. Zapoznaj się z dokumentacją interfejsu API w celu [wygenerowania odpowiedzi](/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) , aby zobaczyć, jak używać precyzyjnej odpowiedzi (o nazwie AnswerSpan) w odpowiedzi. Użytkownik może wybrać inne środowisko, aktualizując szablon za pomocą usługi App Service bot. 
 
 ## <a name="language-support"></a>Obsługa języków
 

@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 5a83211654ad1abafff59d5968c191ec1fa63616
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692406"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
-
 
 Ten artykuł zawiera kod służący do importowania, przekształcania i przemieszczania danych między krokami w potoku Azure Machine Learning. Aby zapoznać się z omówieniem sposobu działania danych w Azure Machine Learning, zobacz [dostęp do danych w usługach Azure Storage](how-to-access-data.md). Aby uzyskać informacje na temat korzyści i struktury potoków Azure Machine Learning, zobacz [co to są potoki Azure Machine Learning?](concept-ml-pipelines.md).
 
@@ -29,7 +28,7 @@ W tym artykule przedstawiono, jak:
 - Podziel `Dataset` dane na podzbiory, takie jak szkolenia i podzbiory walidacji
 - Tworzenie `OutputFileDatasetConfig` obiektów do przeniesienia danych do następnego kroku potoku
 - Użyj `OutputFileDatasetConfig` obiektów jako danych wejściowych dla kroków potoku
-- Utwórz nowe `Dataset` obiekty `OutputFileDatasetConfig` , które chcesz zachować
+- Utwórz nowe `Dataset` obiekty z `OutputFileDatasetConfig` wisƒh, aby zachować
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,10 +63,12 @@ Istnieje wiele sposobów tworzenia i rejestrowania `Dataset` obiektów. Tabelary
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 Aby uzyskać więcej opcji tworzenia zestawów danych z różnymi opcjami i z różnych źródeł, zarejestrowanie ich i przeglądanie w interfejsie użytkownika Azure Machine Learning, zrozumienie, jak rozmiar danych współdziała z pojemnością obliczeniową, i przechowywanie ich wersji, zobacz [Create Azure Machine Learning DataSets](how-to-create-register-datasets.md). 
@@ -200,7 +201,7 @@ with open(args.output_path, 'w') as f:
 
 Po przepisaniu przez początkowy krok potoku danych do `OutputFileDatasetConfig` ścieżki i stanie się on wyjściem tego kroku, można go użyć jako danych wejściowych w późniejszym kroku. 
 
-W poniższym kodzie, 
+W poniższym kodzie: 
 
 * `step1_output_data` wskazuje, że dane wyjściowe PythonScriptStep `step1` są zapisywane w magazynie danych ADLS generacji 2 `my_adlsgen2` w trybie dostępu do przekazywania. Dowiedz się więcej na temat sposobu [konfigurowania uprawnień roli](how-to-access-data.md#azure-data-lake-storage-generation-2) w celu zapisywania danych z powrotem do magazynu ADLS generacji 2. 
 
@@ -223,7 +224,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -239,6 +240,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## <a name="delete-outputfiledatasetconfig-contents-when-no-longer-needed"></a>Usuń `OutputFileDatasetConfig` zawartość, gdy nie jest już potrzebne
+
+Platforma Azure nie usuwa automatycznie danych pośrednich, które są zapisywane z `OutputFileDatasetConfig` . Aby uniknąć opłat za magazyn w przypadku dużych ilości niepotrzebnych danych, należy:
+
+* Programowe usuwanie danych pośrednich na końcu uruchomienia potoku, gdy nie jest już potrzebne
+* Używanie usługi BLOB Storage z krótkoterminowymi zasadami magazynowania dla danych pośrednich (zobacz [Optymalizacja kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)) 
+* Regularnie Przeglądaj i usuwaj dane, które nie są już potrzebne
+
+Aby uzyskać więcej informacji, zobacz [Planowanie i zarządzanie kosztami Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

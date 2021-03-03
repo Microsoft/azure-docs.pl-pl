@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: c60aac675a76d8cb25463f8b0ca1b2dc563d1179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730324"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Jak kodować przy użyciu przekształcenia niestandardowego — .NET
 
@@ -41,10 +41,10 @@ Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następuj�
 Sklonuj repozytorium GitHub zawierające pełną przykładową platformę .NET Core do maszyny przy użyciu następującego polecenia:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
  ```
  
-Przykład niestandardowego ustawienia wstępnego znajduje się w folderze [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/) .
+Przykład niestandardowego ustawienia wstępnego znajduje się w [kodowaniu przy użyciu niestandardowego ustawienia wstępnego za pomocą folderu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset) .
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym
 
@@ -56,7 +56,7 @@ Podczas tworzenia obiektu [Transform](/rest/api/media/transforms) należy najpie
 
 W poniższym przykładzie zdefiniowano zestaw danych wyjściowych, które mają być generowane, gdy zostanie użyte to przekształcenie. Najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano o 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75%} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć `{Label}` makra lub, jak `{Bitrate}` pokazano w przykładzie.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
 
 ## <a name="next-steps"></a>Następne kroki
 

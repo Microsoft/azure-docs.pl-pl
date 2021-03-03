@@ -1,27 +1,27 @@
 ### YamlMime:Landing
-title: Dokumentacja dotycząca tworzenia urządzeń i aplikacji IoT
-summary: Zapoznaj się z dokumentacją usługi Azure IoT w celu opracowania urządzeń osadzonych i tworzenia aplikacji w chmurze obsługujących urządzenia.
+title: Dokumentacja dotycząca opracowywania urządzeń IoT
+summary: Zapoznaj się z dokumentacją usługi Azure IoT w celu opracowania urządzeń osadzonych połączonych z chmurą i aplikacji urządzeń.
 metadata:
-  title: Opracowywanie urządzeń i aplikacji IoT
-  description: Dowiedz się, jak korzystać z usługi Azure IoT do projektowania urządzeń osadzonych i kompilowania aplikacji w chmurze obsługujących urządzenia.
+  title: Opracowywanie urządzeń IoT
+  description: Dowiedz się, jak używać usługi Azure IoT do tworzenia urządzeń osadzonych połączonych z chmurą i aplikacji urządzeń.
   services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
   ms.date: 01/11/2021
-  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
-  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.openlocfilehash: bb3bd1766e20fd16fa996eb66008140009f6bd5d
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "100656244"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101721450"
 landingContent:
-- title: Informacje o tworzeniu urządzeń i aplikacji IoT
+- title: Informacje o tworzeniu urządzeń IoT
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest projektowanie urządzeń i aplikacji w usłudze Azure IoT?
+    - text: Co to jest programowanie urządzeń Azure IoT?
       url: about-iot-develop.md
     - text: Którego zestawu SDK należy użyć?
       url: about-iot-sdks.md

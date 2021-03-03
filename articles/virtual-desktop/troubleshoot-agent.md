@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b0fc5bd16aaa455ce3f6d634ce35e9a389a6f13b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732585"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Rozwiązywanie typowych problemów z agentem pulpitu wirtualnego systemu Windows
 
@@ -21,6 +21,14 @@ Agent pulpitu wirtualnego systemu Windows może powodować problemy z połączen
    - Problemy związane z instalowaniem programu podczas instalacji agenta, które zakłócają połączenie z hostem sesji.
 
 Ten artykuł przeprowadzi Cię przez rozwiązania do tych typowych scenariuszy i sposobów rozwiązywania problemów z połączeniami.
+
+>[!NOTE]
+>W przypadku rozwiązywania problemów związanych z łącznością sesji oraz z agentem usług pulpitu wirtualnego systemu Windows zalecamy przejrzenie dzienników zdarzeń w temacie **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Znajdź zdarzenia, które mają jedno z następujących źródeł do zidentyfikowania problemu:
+>
+>- WVD-Agent
+>- WVD-Agent-Aktualizator
+>- RDAgentBootLoader
+>- MsiInstaller
 
 ## <a name="error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running"></a>Błąd: moduł ładujący RDAgentBootLoader i/lub Pulpit zdalny Agent przestał działać
 
@@ -63,9 +71,9 @@ Aby rozwiązać ten problem, Utwórz prawidłowy token rejestracji:
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu przedstawiający IsRegistered 1](media/isregistered-registry.png)
 
-## <a name="error-agent-cannot-connect-to-broker-with-invalid_form-or-not_found-url"></a>Błąd: Agent nie może połączyć się z brokerem za pomocą INVALID_FORM lub NOT_FOUND. Adres URL
+## <a name="error-agent-cannot-connect-to-broker-with-invalid_form"></a>Błąd: Agent nie może połączyć się z brokerem za pomocą INVALID_FORM
 
-Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3277, mówi **INVALID_FORM** lub **NOT_FOUND. W** opisie wystąpił problem z komunikacją między agentem i brokerem. Agent nie może nawiązać połączenia z brokerem i nie może uzyskać dostępu do określonego adresu URL. Może to być spowodowane przez zaporę lub ustawienia DNS.
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3277, które wskazuje "INVALID_FORM" w opisie, wystąpił problem z komunikacją między agentem i brokerem. Agent nie może nawiązać połączenia z brokerem lub dotrzeć do określonego adresu URL z powodu niektórych ustawień zapory lub DNS.
 
 Aby rozwiązać ten problem, sprawdź, czy można nawiązać połączenie z BrokerURI i BrokerURIGlobal:
 1. Otwórz Edytor rejestru. 
@@ -100,13 +108,43 @@ Aby rozwiązać ten problem, sprawdź, czy można nawiązać połączenie z Brok
 8. Jeśli sieć blokuje te adresy URL, konieczne będzie odblokowanie wymaganych adresów URL. Aby uzyskać więcej informacji, zobacz [Lista wymaganych adresów URL](safe-url-list.md).
 9. Jeśli to nie rozwiąże problemu, upewnij się, że nie masz żadnych zasad grupy z szyframi, które blokują połączenie z brokerem. Pulpit wirtualny systemu Windows używa tych samych szyfrów TLS 1,2 co [drzwi platformy Azure](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Aby uzyskać więcej informacji, zobacz [zabezpieczenia połączeń](network-connectivity.md#connection-security).
 
-## <a name="error-3703-or-3019"></a>Błąd: 3703 lub 3019
+## <a name="error-3703"></a>Błąd: 3703
 
-Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3703, które mówi o **adresie URL bramy usług pulpitu zdalnego: nie jest dostępne** lub jakiekolwiek zdarzenie o identyfikatorze 3019 w opisie, Agent nie może uzyskać dostępu do adresów URL bramy lub adresów URL transportu gniazda internetowego. Aby pomyślnie nawiązać połączenie z hostem sesji i zezwolić na ruch sieciowy do tych punktów końcowych w celu obejścia ograniczeń, należy odblokować adresy URL z [listy wymaganych adresów URL](safe-url-list.md). Upewnij się również, że ustawienia zapory lub serwera proxy nie blokują tych adresów URL. Odblokowanie tych adresów URL jest wymagane do korzystania z pulpitu wirtualnego systemu Windows.
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3703, "adres URL bramy usług pulpitu zdalnego: nie jest dostępne" w opisie, Agent nie może nawiązać połączenia z adresami URL bramy. Aby pomyślnie nawiązać połączenie z hostem sesji i zezwolić na ruch sieciowy do tych punktów końcowych w celu obejścia ograniczeń, należy odblokować adresy URL z [listy wymaganych adresów URL](safe-url-list.md). Upewnij się również, że ustawienia zapory lub serwera proxy nie blokują tych adresów URL. Odblokowanie tych adresów URL jest wymagane do korzystania z pulpitu wirtualnego systemu Windows.
 
 Aby rozwiązać ten problem, sprawdź, czy w ustawieniach zapory i/lub DNS nie są blokowane te adresy URL:
 1. [Używanie zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows.](../firewall/protect-windows-virtual-desktop.md)
 2. Skonfiguruj [Ustawienia usługi DNS zapory platformy Azure](../firewall/dns-settings.md).
+
+## <a name="error-3019"></a>Błąd: 3019
+
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3019, oznacza to, że Agent nie może uzyskać dostępu do adresów URL transportu gniazda internetowego. Aby pomyślnie nawiązać połączenie z hostem sesji i zezwolić na ruch sieciowy, aby obejść te ograniczenia, należy odblokować adresy URL wymienione na [liście wymaganych adresów URL](safe-url-list.md). Skontaktuj się z zespołem obsługi sieci platformy Azure, aby upewnić się, że te adresy URL nie są blokowane przez zaporę, serwer proxy i ustawienia DNS. Możesz również sprawdzić dzienniki śledzenia sieci, aby określić, gdzie jest blokowana usługa pulpitu wirtualnego systemu Windows. Jeśli otworzysz żądanie pomocy technicznej dla tego konkretnego problemu, pamiętaj o dołączeniu dzienników śledzenia sieci do żądania.
+
+## <a name="error-installationhealthcheckfailedexception"></a>Błąd: InstallationHealthCheckFailedException
+
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3277, które wskazuje "InstallationHealthCheckFailedException" w opisie, oznacza to, że odbiornik stosu nie działa, ponieważ serwer terminali przełączył klucz rejestru dla odbiornika stosu.
+
+Aby rozwiązać ten problem:
+1. Sprawdź, czy [odbiornik stosu działa](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. Jeśli odbiornik stosu nie działa, [ręcznie Odinstaluj i ponownie zainstaluj składnik stosu](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+
+## <a name="error-endpoint_not_found"></a>Błąd: ENDPOINT_NOT_FOUND
+
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3277, które wskazuje "ENDPOINT_NOT_FOUND" w opisie, co oznacza, że Broker nie może znaleźć punktu końcowego do nawiązania połączenia. Problem z połączeniem może mieć jedną z następujących przyczyn:
+
+- Brak maszyn wirtualnych w puli hostów
+- Maszyny wirtualne w puli hostów nie są aktywne
+- Wszystkie maszyny wirtualne w puli hostów przekroczyły limit maksymalnej liczby sesji
+- Żadna z maszyn wirtualnych w puli hostów nie ma uruchomionej usługi agenta
+
+Aby rozwiązać ten problem:
+
+1. Upewnij się, że maszyna wirtualna jest włączona i nie została usunięta z puli hostów.
+2. Upewnij się, że maszyna wirtualna nie przekroczyła maksymalnego limitu sesji.
+3. Upewnij się, że [Usługa agenta jest uruchomiona](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) i że [odbiornik stosu](#error-stack-listener-isnt-working-on-windows-10-2004-vm)działa.
+4. Upewnij się [, że Agent może połączyć się z brokerem](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Upewnij się [, że maszyna wirtualna ma prawidłowy token rejestracji](#error-invalid_registration_token).
+6. Upewnij się [, że token rejestracji maszyny wirtualnej nie wygasł](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## <a name="error-installmsiexception"></a>Błąd: InstallMsiException
 
@@ -176,15 +214,21 @@ Aby rozwiązać ten problem:
 8. W obszarze **ClusterSettings** Znajdź pozycję **SessionDirectoryListener** i upewnij się, że jej wartość danych to **RDP-SXS...**.
 9. Jeśli **SessionDirectoryListener** nie jest ustawiona na **RDP-SXS...**, należy wykonać kroki opisane w sekcji [Odinstalowywanie agenta i modułu ładującego rozruchu](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) , aby najpierw odinstalować agenta, moduł ładujący rozruchu i składniki stosu, a następnie [ponownie zainstalować agenta i moduł ładujący rozruchu](#step-4-reinstall-the-agent-and-boot-loader). Spowoduje to ponowne zainstalowanie sterty równoległej.
 
-## <a name="error-users-keep-getting-disconnected-from-session-hosts"></a>Błąd: użytkownicy zachowują rozłączne z hostów sesji
+## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Błąd: problem pulsu, w którym użytkownicy zachowują rozłączenie z hostów sesji
 
-Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 0, czyli **CheckSessionHostDomainIsReachableAsync** w opisie i/lub użytkownicy nie rozłączają się z hostami sesji, serwer nie pobiera pulsu z usługi pulpitu wirtualnego systemu Windows.
+Jeśli serwer nie pobiera pulsu z usługi pulpitu wirtualnego systemu Windows, należy zmienić próg pulsu. Postępuj zgodnie z instrukcjami w tej sekcji, jeśli są spełnione co najmniej jeden z następujących scenariuszy:
 
-Aby rozwiązać ten problem, Zmień próg pulsu:
+- Otrzymujesz błąd **CheckSessionHostDomainIsReachableAsync**
+- Otrzymujesz błąd **ConnectionBrokenMissedHeartbeatThresholdExceeded**
+- Otrzymujesz komunikat o błędzie **ConnectionEstablished: UnexpectedNetworkDisconnect**
+- Klienci korzystający z rozłączenia
+- Użytkownicy nie rozłączają się z hostami sesji
+
+Aby zmienić próg pulsu:
 1. Otwórz wiersz polecenia jako administrator.
 2. Wprowadź polecenie **qwinsta** i uruchom je.
 3. Powinny być wyświetlane dwa składniki stosu: **RDP-TCP** i **RDP-SxS**. 
-   - W zależności od używanej wersji systemu operacyjnego, do **protokołu RDP-SxS** może następować numer kompilacji. Jeśli tak, pamiętaj, aby zapisać tę liczbę w dół.
+   - W zależności od używanej wersji systemu operacyjnego, do **protokołu RDP-SxS** może następować numer kompilacji. Jeśli tak jest, pamiętaj o zapisaniu tego numeru w przyszłości.
 4. Otwórz Edytor rejestru.
 5. Przejdź do **HKEY_LOCAL_MACHINE**  >  **system**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations**.
 6. W obszarze **WinStations** może być widocznych kilka folderów dla różnych wersji stosu. Wybierz folder pasujący do numeru wersji z kroku 3.
@@ -194,6 +238,9 @@ Aby rozwiązać ten problem, Zmień próg pulsu:
    - HeartbeatDropCount: 60 
 8. Uruchom ponownie maszynę wirtualną.
 
+>[!NOTE]
+>Jeśli zmiana progu pulsu nie rozwiąże problemu, może wystąpić problem z siecią, którego potrzebujesz, aby skontaktować się z zespołem sieci platformy Azure.
+
 ## <a name="error-downloadmsiexception"></a>Błąd: DownloadMsiException
 
 Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3277, **DownloadMsiException** w opisie, na dysku nie ma wystarczającej ilości miejsca dla RDAgent.
@@ -201,6 +248,11 @@ Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli
 Aby rozwiązać ten problem, zwolnij miejsce na dysku przez:
    - Usuwanie plików, które nie znajdują się już w użytkowniku
    - Zwiększenie pojemności magazynu maszyny wirtualnej
+
+## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>Błąd: nie można zaktualizować agenta za pomocą MissingMethodException
+
+Przejdź do **Podgląd zdarzeń**  >  **Windows Logs**  >  **aplikacji**. Jeśli zobaczysz zdarzenie o IDENTYFIKATORze 3389, czyli "MissingMethodException: nie znaleziono metody" w opisie, oznacza to, że Agent pulpitu wirtualnego systemu Windows nie został pomyślnie zaktualizowany i przywrócono do wcześniejszej wersji. Może to być spowodowane tym, że numer wersji programu .NET Framework aktualnie zainstalowanej na maszynach wirtualnych jest mniejszy niż 4.7.2. Aby rozwiązać ten problem, należy uaktualnić platformę .NET do wersji 4.7.2 lub nowszej, postępując zgodnie z instrukcjami instalacji zawartymi w [dokumentacji .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+
 
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>Błąd: maszyny wirtualne są zablokowane lub nie są w stanie uaktualnić
 
@@ -210,7 +262,7 @@ Otwórz okno programu PowerShell jako administrator i uruchom następujące pole
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-Jeśli stan wymieniony dla hosta sesji lub hostów w puli hostów zawsze mówi **niedostępności** lub **uaktualnienie**, Instalacja agenta lub stosu zakończyła się niepowodzeniem
+Jeśli stan wymieniony dla hosta sesji lub hostów w puli hostów zawsze mówi "niedostępne" lub "uaktualnienie", agent lub stos nie został pomyślnie zainstalowany.
 
 Aby rozwiązać ten problem, zainstaluj ponownie stos równoległy:
 1. Otwórz wiersz polecenia jako administrator.
@@ -253,7 +305,7 @@ Nazwa maszyny wirtualnej została już zarejestrowana i prawdopodobnie jest dupl
 Aby rozwiązać ten problem:
 1. Wykonaj kroki opisane w sekcji [Usuwanie hosta sesji z puli hostów](#step-2-remove-the-session-host-from-the-host-pool) .
 2. [Utwórz kolejną maszynę wirtualną](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Upewnij się, że wybrano unikatową nazwę dla tej maszyny wirtualnej.
-3. Przejdź do Azure Portal] ( https://portal.azure.com) i Otwórz stronę **Przegląd** puli hostów, w której znajduje się maszyna wirtualna. 
+3. Przejdź do [Azure Portal](https://portal.azure.com) i Otwórz stronę **Przegląd** puli hostów, w której znajduje się maszyna wirtualna. 
 4. Otwórz kartę **hosty sesji** i sprawdź, czy wszystkie hosty sesji znajdują się w tej puli hostów.
 5. Poczekaj 5-10 minut, aż stan hosta sesji będzie **dostępny**.
 
@@ -320,7 +372,7 @@ Musisz wygenerować nowy klucz rejestracji, który służy do ponownego rejestro
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>Krok 4. ponowne zainstalowanie agenta i modułu ładującego rozruchu
 
 Po ponownym zainstalowaniu najnowszej zaktualizowanej wersji agenta i modułu ładującego rozruchu, Agent równoległy stosujący i program do monitorowania Genewa są automatycznie instalowane. Aby ponownie zainstalować agenta i moduł ładujący rozruchu:
-1. Zaloguj się do maszyny wirtualnej jako administrator i postępuj zgodnie z instrukcjami w temacie [Rejestrowanie maszyn wirtualnych](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) , aby pobrać **agenta pulpitu wirtualnego systemu Windows** i programu **inicjującego agenta usług pulpitu wirtualnego systemu Windows**.
+1. Zaloguj się do maszyny wirtualnej jako administrator i użyj odpowiedniej wersji Instalatora agenta dla danego wdrożenia w zależności od wersji systemu Windows, która jest uruchomiona na maszynie wirtualnej. Jeśli masz maszynę wirtualną z systemem Windows 10, postępuj zgodnie z instrukcjami w temacie [Rejestrowanie maszyn wirtualnych](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) , aby pobrać **agenta usług pulpitu wirtualnego systemu Windows** i programu **inicjującego agenta wirtualnego systemu Windows**. Jeśli masz maszynę wirtualną z systemem Windows 7, wykonaj kroki 13-14 w temacie [Rejestrowanie maszyn wirtualnych](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) , aby pobrać **agenta usług pulpitu wirtualnego systemu Windows** i **Menedżera agentów usług pulpitu wirtualnego systemu Windows**.
 
    > [!div class="mx-imgBorder"]
    > ![Zrzut ekranu strony pobierania agenta i programu inicjującego](media/download-agent.png)

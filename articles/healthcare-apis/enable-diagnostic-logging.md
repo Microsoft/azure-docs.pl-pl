@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581974"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712780"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Włączanie rejestrowania diagnostycznego w interfejsie API platformy Azure dla usługi FHIR
 
 W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interfejsie API platformy Azure dla usługi FHIR i móc przeglądać przykładowe zapytania dotyczące tych dzienników. Dostęp do dzienników diagnostycznych jest istotny dla każdej usługi opieki zdrowotnej, w której zgodność z wymaganiami prawnymi (takimi jak HIPAA) jest wymagana. Funkcja interfejsu API platformy Azure dla usługi FHIR, która umożliwia logowanie dzienników diagnostycznych, to [**Ustawienia diagnostyczne**](../azure-monitor/essentials/diagnostic-settings.md) w Azure Portal. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>Wyświetlanie i pobieranie danych metryk FHIR
+
+Możesz wyświetlić metryki w obszarze monitorowanie | Metryki z portalu. Metryki obejmują liczbę żądań, średnie opóźnienia, liczbę błędów, rozmiar danych, jednostek ru, liczbę żądań, które przekroczyły pojemność i dostępność (w%). Zrzut ekranu poniżej przedstawia jednostek ru używane dla przykładowego środowiska z niewielkimi działaniami w ciągu ostatnich 7 dni. Dane można pobrać w formacie JSON.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API for FHIR — metryki z portalu" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>Włączanie dzienników inspekcji
 1. Aby włączyć rejestrowanie diagnostyczne w interfejsie API platformy Azure dla FHIR, wybierz usługę Azure API for FHIR w Azure Portal 
-2. Przejdź do **ustawień diagnostycznych**  
- ![ ustawień diagnostycznych](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. Przejdź do **ustawień diagnostycznych** 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Dodaj ustawienia diagnostyki usługi Azure FHIR." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Wybierz **+ Dodaj ustawienie diagnostyczne**
 
@@ -35,7 +42,7 @@ W tym artykule dowiesz się, jak włączyć rejestrowanie diagnostyczne w interf
     2. **Przesyłaj strumieniowo do centrum zdarzeń** w celu pozyskiwania przez usługę innej firmy lub niestandardowe rozwiązanie analityczne. Aby można było skonfigurować ten krok, należy utworzyć przestrzeń nazw centrum zdarzeń i zasady centrum zdarzeń.
     3. **Przesyłaj strumieniowo do** obszaru roboczego Log Analytics w Azure monitor. Aby można było wybrać tę opcję, musisz utworzyć obszar roboczy usługi Dzienniki analizy.
 
-6. Wybierz pozycję **AuditLogs** i/lub **AllMetrics**. Metryki obejmują nazwę usługi, dostępność, rozmiar danych, łączny czas oczekiwania, całkowitą liczbę żądań, łączne błędy i sygnaturę czasową.
+6. Wybierz pozycję **AuditLogs** i/lub **AllMetrics**. Metryki obejmują nazwę usługi, dostępność, rozmiar danych, łączny czas oczekiwania, całkowitą liczbę żądań, łączne błędy i sygnaturę czasową. Więcej szczegółów na temat [obsługiwanych metryk](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices)można znaleźć. 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Ustawienia diagnostyczne usługi Azure FHIR. Wybierz pozycję AuditLogs i/lub AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

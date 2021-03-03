@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833987"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730035"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrowanie do monitora połączeń z monitora połączeń (klasyczny)
 
@@ -32,7 +32,7 @@ Migracja pomaga generować następujące wyniki:
 
 * Ustawienia agentów i zapory działają zgodnie z oczekiwaniami. Nie są wymagane żadne zmiany. 
 * Istniejące monitory połączeń są mapowane do monitora połączeń > grupy testowej > formacie testu. Wybierając pozycję **Edytuj**, można wyświetlić i zmodyfikować właściwości nowego monitora połączeń, pobrać szablon w celu wprowadzenia zmian w monitorze połączeń i przesłać go za pośrednictwem Azure Resource Manager. 
-* Usługa Azure Virtual Machines z rozszerzeniem Network Watcher wysyła dane do obszaru roboczego i metryk. Monitor połączeń udostępnia dane za pomocą nowych metryk (ChecksFailedPercent i RoundTripTimeMs) zamiast starych metryk (ProbesFailedPercent i AverageRoundtripMs). 
+* Usługa Azure Virtual Machines z rozszerzeniem Network Watcher wysyła dane do obszaru roboczego i metryk. Monitor połączeń udostępnia dane za pomocą nowych metryk (ChecksFailedPercent i RoundTripTimeMs) zamiast starych metryk (ProbesFailedPercent i AverageRoundtripMs). Stare metryki zostaną zmigrowane do nowych metryk jako ProbesFailedPercent-> ChecksFailedPercent i AverageRoundtripMs-> RoundTripTimeMs.
 * Monitorowanie danych:
    * **Alerty**: automatycznie migrowane do nowych metryk.
    * **Pulpity nawigacyjne i integracje**: Wymagaj ręcznej edycji zestawu metryk. 
@@ -49,7 +49,7 @@ Jeśli używasz niestandardowego obszaru roboczego, upewnij się, że w subskryp
     
 1. Wybierz swoją subskrypcję i monitory połączeń, które chcesz zmigrować, a następnie wybierz pozycję **Migruj zaznaczone**. 
 
-Za pomocą zaledwie kilku kliknięć zostały zmigrowane istniejące monitory połączeń do monitora połączeń. 
+Za pomocą zaledwie kilku kliknięć zostały zmigrowane istniejące monitory połączeń do monitora połączeń. Po przeprowadzeniu migracji z programu CM (klasycznego) do wersji CM nie będzie można zobaczyć monitora w obszarze CM (klasyczny)
 
 Teraz można dostosować właściwości monitora połączeń, zmienić domyślny obszar roboczy, pobrać szablony i sprawdzić stan migracji. 
 

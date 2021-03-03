@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 92b78cae7d1af5dc71509381afd7eaf3f962a8fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c87dc9f11a6a9780d77b39597e0479ccb6863d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515178"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750690"
 ---
 <a name="HOLTop"></a>
 
@@ -26,10 +26,6 @@ ms.locfileid: "100515178"
 # <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 [Dokumentacja](/java/api/overview/azure/ai-textanalytics-readme)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics)  |  źródłowy biblioteki [Pakiet](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
-
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-W tym artykule opisano tylko wersję 3. x interfejsu API.
 
 ---
 
@@ -76,10 +72,6 @@ Utwórz projekt Maven w preferowanym środowisku IDE lub środowiska dewelopersk
 
 > [!TIP]
 > Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można je znaleźć [w usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), która zawiera przykłady kodu w tym przewodniku Szybki Start. 
-
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-W tym artykule opisano tylko wersję 3. x interfejsu API.
 
 ---
 
@@ -136,10 +128,6 @@ public static void main(String[] args) {
         AnalyzeOperationExample(client)
 }
 ```
-
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-W tym artykule opisano tylko wersję 3. x interfejsu API.
 
 ---
 
@@ -321,10 +309,6 @@ Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
-
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-W tym artykule opisano tylko wersję 3. x interfejsu API.
 
 ---
 
@@ -570,10 +554,6 @@ Matches:
 Text: BASIC, Score: 0.33
 ```
 
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-W tym artykule opisano tylko wersję 3. x interfejsu API.
-
 ---
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
@@ -683,9 +663,5 @@ Można również użyć operacji Analizuj, aby wykrywać dane OSOBowe i wyodręb
 # <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 Ta funkcja jest niedostępna w wersji 3,0.
-
-# <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
-
-Ta funkcja jest niedostępna w wersji 2,1.
 
 ---

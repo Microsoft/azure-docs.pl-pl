@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380138"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699100"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
-> W przypadku przepływów utworzonych po październiku 2020 nie można już wyeksportować z usługi Automatyzacja i wdrożyć do Azure Logic Apps.
-
 Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten przepływ z [automatyzacji](https://flow.microsoft.com) , aby [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Możesz wyeksportować przepływ jako szablon Azure Resource Manager dla aplikacji logiki, wdrożyć ten szablon aplikacji logiki w grupie zasobów platformy Azure, a następnie otworzyć tę aplikację logiki w Projektancie aplikacji logiki.
 
-> [!NOTE]
-> Nie wszystkie łączniki automatyzacji oszczędzają energię są dostępne w Azure Logic Apps. Można migrować tylko przepływy automatyzacji, które mają równoważne łączniki w Azure Logic Apps. Na przykład wyzwalacz przycisku, łącznik zatwierdzania i łącznik powiadomień są specyficzne dla automatyzacji. Obecnie przepływy oparte na OpenAPI w programie do automatyzacji nie są obsługiwane w przypadku eksportowania i wdrażania jako szablonów aplikacji logiki.
->
-> * Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](/connectors/connector-reference/connector-reference-logicapps-connectors).
+> [!IMPORTANT]
+> Eksport do Logic Apps jest niedostępny dla przepływów automatyzacji, które zostały utworzone po 2020 sierpnia. W październiku 2020, zaautomatyzuje zaawansowane tworzenie nowych przepływów przy użyciu [protokołu OpenAPI 2,0](https://swagger.io/specification/v2/). Nowe przepływy oparte na tym protokole są niezgodne z przepływami pracy Logic Apps, więc eksportowanie tych przepływów do Logic Apps zostało wyłączone. Zamiast tego należy ręcznie [utworzyć Aplikacje logiki](quickstart-create-first-logic-app-workflow.md) dla tych przepływów.
+
+Nie wszystkie łączniki automatyzacji oszczędzają energię są dostępne w Azure Logic Apps. Można migrować tylko przepływy automatyzacji, które mają równoważne łączniki w Azure Logic Apps. Na przykład wyzwalacz przycisku, łącznik zatwierdzania i łącznik powiadomień są specyficzne dla automatyzacji. 
+
+* Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
 * Przepływ, który ma zostać wyeksportowany z automatyzacji
 

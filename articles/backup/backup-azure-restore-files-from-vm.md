@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725513"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -76,6 +76,11 @@ Nie można uruchomić pobranego pliku wykonywalnego na maszynie wirtualnej skonf
 ### <a name="virtual-machine-backups-having-large-disks"></a>Kopie zapasowe maszyn wirtualnych z dużymi dyskami
 
 Jeśli kopia zapasowa komputera ma dużą liczbę dysków (>16) lub duże dyski (> 4 TB), nie zaleca się wykonywania skryptu na tym samym komputerze na potrzeby przywracania, ponieważ będzie on miał znaczny wpływ na maszynę wirtualną. Zamiast tego zaleca się używanie oddzielnej maszyny wirtualnej tylko do odzyskiwania plików (maszyny wirtualne D2v3 maszyny wirtualnej platformy Azure), a następnie wyłączenie jej w razie braku potrzeby. 
+
+Zobacz wymagania dotyczące przywracania plików z kopii zapasowych maszyn wirtualnych z dużą ilością dysku:<br>
+[System operacyjny Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[System operacyjny Linux](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Krok 3. wymagania systemu operacyjnego umożliwiające pomyślne uruchomienie skryptu
 

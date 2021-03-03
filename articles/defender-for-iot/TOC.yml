@@ -1,11 +1,13 @@
 - name: Dokumentacja usługi Azure Defender dla IoT
   href: index.yml
 - name: Omówienie
+  displayName: 'IoT, OT, getting started'
   href: overview.md
   items:
     - name: Co nowego?
       href: release-notes.md
     - name: Architektura rozwiązania bez agenta
+      displayName: 'deployment, where to deploy'
       href: architecture.md
     - name: Architektura rozwiązań opartych na agentach
       href: architecture-agent-based.md
@@ -15,8 +17,10 @@
     - name: Rozwiązanie bez agenta dla organizacji
       items:
         - name: Wymagania wstępne systemu
+          displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Rozpoczynanie pracy z usługą Azure Defender dla IoT
+          displayName: 'getting started, registration, onboarding'
           href: getting-started.md
     - name: Rozwiązanie oparte na agencie dla konstruktorów urządzeń
       items:
@@ -110,7 +114,7 @@
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
             - name: Zainstalowanie oprogramowania
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy'
               href: how-to-install-software.md
             - name: Konfigurowanie sieci
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
@@ -118,15 +122,15 @@
         - name: Przygotowywanie czujników
           items:
             - name: Dołączanie czujników
-              displayName: 'onboard, cloud, register, activate'
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Aktywowanie i konfigurowanie czujnika
-              displayName: 'onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              displayName: 'onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Przygotowywanie lokalnej konsoli zarządzania
           items:
             - name: Aktywowanie i konfigurowanie lokalnej konsoli zarządzania
-              displayName: 'activate, certificate, sign in, login, setup, initial, committed'
+              displayName: 'activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Konfigurowanie wysokiej dostępności
               displayName: 'primary, secondary, failover, failback fail, recovery'
@@ -147,11 +151,11 @@
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Zarządzanie pojedynczymi czujnikami
           href: how-to-manage-individual-sensors.md
-          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, timezone time zone, backup, sync, restore, software update, failure'
         - name: Zarządzanie czujnikami w chmurze
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Zarządzanie lokalną konsolą zarządzania
-          displayName: 'activation, certificate, software update, backup, restore, proxy, password recovery'
+          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure'
           href: how-to-manage-the-on-premises-management-console.md
         - name: Praca z pakietami analizy zagrożeń
           href: how-to-work-with-threat-intelligence-packages.md
@@ -162,10 +166,10 @@
               displayName: classification
             - name: Badanie wykryć czujników w spisie urządzeń
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-              displayName: 'classification, Windows registry'
+              displayName: 'classification, Windows registry, asset, device, firmware, import'
         - name: Praca z mapą urządzeń czujników
           href: how-to-work-with-the-sensor-device-map.md
-          displayName: 'connections, Purdue, zoom'
+          displayName: 'connections, Purdue, zoom, delete device'
         - name: Praca z alertami wykrytymi przez czujnik
           items:
             - name: Praca z alertem czujnika
@@ -183,7 +187,7 @@
               displayName: 'custom, alerts, comments, groups'
             - name: Przekazywanie informacji o alercie
               href: how-to-forward-alert-information-to-partners.md
-              displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
+              displayName: 'integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response'
         - name: 'Uzyskiwanie wglądu w globalne, regionalne i lokalne zagrożenia'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
@@ -193,10 +197,12 @@
           items:
             - name: Tworzenie raportów oceny ryzyka
               href: how-to-create-risk-assessment-reports.md
-              displayName: 'vulnerability, security score, score'
+              displayName: 'vulnerability, security score, score, CVE'
             - name: Tworzenie raportów wektorów ataków
               href: how-to-create-attack-vector-reports.md
+              displayName: 'Attack surface, prediction,simulation'
             - name: Tworzenie raportów wyszukiwania danych
+              displayName: 'CVE, activity'
               href: how-to-create-data-mining-queries.md
             - name: Tworzenie raportów trendów i statystyk
               href: how-to-create-trends-and-statistics-reports.md
@@ -204,7 +210,7 @@
         - name: Wzbogacanie informacji o urządzeniu
           items:
             - name: Praca z powiadomieniami urządzeń
-              displayName: 'notifications, operating systems, enrich, device information, classification'
+              displayName: 'notifications, operating systems, enrich, device information, classification, delete devices'
               href: how-to-work-with-device-notifications.md
             - name: Ulepszanie rozpoznawania nazw sieci wirtualnych i portów
               displayName: 'port, VLAN'

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576998"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724510"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -116,7 +116,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Usługa Azure Event Hubs Data Receiver](#azure-event-hubs-data-receiver) | Zezwala na odbieranie dostępu do zasobów usługi Azure Event Hubs. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Nadawca danych Event Hubs platformy Azure](#azure-event-hubs-data-sender) | Zezwala na wysyłanie dostępu do zasobów Event Hubs platformy Azure. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | [Współautor Data Factory](#data-factory-contributor) | Twórz fabryki danych i zarządzaj nimi, a także zasobami podrzędnymi. | 673868aa-7521-48a0-acc6-0f60742d39f5 |
-> | [Przeczyszczanie danych](#data-purger) | Można przeczyścić dane analityczne | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Przeczyszczanie danych](#data-purger) | Usuń dane prywatne z obszaru roboczego Log Analytics. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [Operator klastra usługi HDInsight](#hdinsight-cluster-operator) | Umożliwia odczytywanie i modyfikowanie konfiguracji klastrów usługi HDInsight. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [Współautor usług domenowych w usłudze HDInsight](#hdinsight-domain-services-contributor) | Może odczytywać, tworzyć, modyfikować i usuwać operacje związane z usługami domenowymi, które są potrzebne pakiet Enterprise Security usługi HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Współautor usługi Log Analytics](#log-analytics-contributor) | Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych; Odczytywanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage; Tworzenie i Konfigurowanie kont usługi Automation; Dodawanie rozwiązań; i Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
@@ -426,7 +426,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Obliczenia
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -3944,6 +3944,10 @@ Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nic
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listKeys/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Write | Utwórz lub zaktualizuj definicję roli SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Delete | Usuwanie definicji roli SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Write | Utwórz lub zaktualizuj przypisanie roli SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Delete | Usuwanie przypisania roli SQL |
 > | **Akcje dataactions** |  |
 > | *brak* |  |
 > | **NotDataActions** |  |
@@ -3973,7 +3977,11 @@ Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nic
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
         "Microsoft.DocumentDB/databaseAccounts/listKeys/*",
-        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*"
+        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4774,7 +4782,7 @@ Twórz fabryki danych i zarządzaj nimi, a także zasobami podrzędnymi. [Dowied
 
 ### <a name="data-purger"></a>Przeczyszczanie danych
 
-Można przeczyścić dane analityczne [więcej informacji](../azure-monitor/logs/personal-data-mgmt.md)
+Usuń dane prywatne z obszaru roboczego Log Analytics. [Dowiedz się więcej](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |

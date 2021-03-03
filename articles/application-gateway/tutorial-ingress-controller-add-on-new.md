@@ -1,58 +1,38 @@
 ---
-title: 'Samouczek: Włączanie dodatku usług przychodzących dla nowego klastra AKS z nowym wystąpieniem usługi Azure Application Gateway'
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak korzystać z interfejsu wiersza polecenia platformy Azure w celu włączenia dodatku do kontrolera usług przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway.
+title: 'Samouczek: Włączanie dodatku usługi transferu danych przychodzących dla nowego klastra AKS przy użyciu nowego Application Gateway platformy Azure'
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak włączyć dodatek usługi transferu danych przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 775dc2133473354a1e534275fb0d813f299217d1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: c37168c5165f5402dd4f57c8557bc2b7b3603533
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720192"
 ---
-# <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
+# <a name="tutorial-enable-the-ingress-controller-add-on-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
-Możesz użyć interfejsu wiersza polecenia platformy Azure, aby włączyć dodatek [Application Gateway AGIC (DataKubernetes Controller)](ingress-controller-overview.md) dla klastra [usługi Azure Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . Dodatek jest obecnie w wersji zapoznawczej.
+Możesz użyć interfejsu wiersza polecenia platformy Azure, aby włączyć dodatek [Application Gateway AGIC (DataKubernetes Controller)](ingress-controller-overview.md) dla nowego klastra [usługi Azure Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) .
 
 W tym samouczku utworzysz klaster AKS z włączonym dodatkiem AGIC. Utworzenie klastra spowoduje automatyczne utworzenie wystąpienia usługi Azure Application Gateway do użycia. Następnie zostanie wdrożona Przykładowa aplikacja korzystająca z dodatku w celu udostępnienia aplikacji za pomocą Application Gateway. 
 
-Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). Oferuje również w pełni zarządzane środowisko.    
+Dodatek zapewnia znacznie szybszy sposób wdrażania AGIC dla klastra AKS niż [poprzednio za pomocą Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). Oferuje również w pełni zarządzane środowisko.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz grupę zasobów. 
-> * Utwórz nowy klaster AKS z włączonym dodatkiem AGIC. 
+> * Utwórz nowy klaster AKS z włączonym dodatkiem AGIC.
 > * Wdróż przykładową aplikację przy użyciu usługi AGIC na potrzeby ruchu przychodzącego w klastrze AKS.
 > * Sprawdź, czy aplikacja jest dostępna za pomocą Application Gateway.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
- - Ten samouczek wymaga wersji 2.0.4 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. Jeśli korzystasz z interfejsu wiersza polecenia platformy Azure, musisz zainstalować rozszerzenie wersji zapoznawczej w interfejsie wiersza polecenia przy użyciu następujące polecenie, jeśli nie zostało to jeszcze zrobione:
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
-
- - Zarejestruj flagę funkcji *AKS-IngressApplicationGatewayAddon* za pomocą polecenia [AZ Feature Register](/cli/azure/feature#az-feature-register) , jak pokazano w poniższym przykładzie. Należy to zrobić tylko raz dla każdej subskrypcji, gdy dodatek jest nadal w wersji zapoznawczej.
-    ```azurecli-interactive
-    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-    ```
-
-   Wyświetlenie stanu może potrwać kilka minut `Registered` . Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature#az-feature-register) :
-    ```azurecli-interactive
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-    ```
-
- - Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów Microsoft. ContainerService za pomocą polecenia [AZ Provider Register](/cli/azure/provider#az-provider-register) :
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -74,10 +54,10 @@ Teraz zostanie wdrożony nowy klaster AKS z włączonym dodatkiem AGIC. Jeśli n
 
 W poniższym przykładzie zostanie wdrożony nowy klaster AKS o nazwie "Moja *klaster* " przy użyciu [usługi Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) i [zarządzanych tożsamości](../aks/use-managed-identity.md). Dodatek AGIC zostanie włączony w grupie zasobów utworzonej przez *użytkownika.* 
 
-Wdrożenie nowego klastra AKS z włączonym dodatkiem AGIC bez określania istniejącego wystąpienia Application Gateway oznacza automatyczne utworzenie wystąpienia Standard_v2 jednostki SKU Application Gateway. W związku z tym należy również określić nazwę i przestrzeń adresową podsieci wystąpienia Application Gateway. Nazwa wystąpienia Application Gateway będzie *myApplicationGateway*, a używana przestrzeń adresowa podsieci to 10.2.0.0/16. Upewnij się, że dodano lub Zaktualizowano rozszerzenie AKS-Preview na początku tego samouczka. 
+Wdrożenie nowego klastra AKS z włączonym dodatkiem AGIC bez określania istniejącego wystąpienia Application Gateway oznacza automatyczne utworzenie wystąpienia Standard_v2 jednostki SKU Application Gateway. W związku z tym należy również określić nazwę i przestrzeń adresową podsieci wystąpienia Application Gateway. Nazwa wystąpienia Application Gateway będzie *myApplicationGateway*, a używana przestrzeń adresowa podsieci to 10.2.0.0/16.
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Aby skonfigurować dodatkowe parametry dla `az aks create` polecenia, zobacz [te odwołania](/cli/azure/aks#az-aks-create). 

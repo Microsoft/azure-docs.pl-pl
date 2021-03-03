@@ -10,16 +10,18 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 036df8d4c65ebd6288a526b3af7201e6f2131cd4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691777"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Szybki Start: Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi
+ 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal.
+Rozpocznij pracę z usługami Azure Communications Services, udostępniając pierwszy zasób usług komunikacyjnych. Zasoby usług komunikacyjnych mogą być obsługiwane za pomocą [Azure Portal](https://portal.azure.com) lub z biblioteki klienta zarządzania platformy .NET. Biblioteka klienta zarządzania i Azure Portal umożliwiają tworzenie, konfigurowanie, aktualizowanie i usuwanie zasobów i interfejsów z [Azure Resource Manager](../../azure-resource-manager/management/overview.md), usługi wdrażania i zarządzania platformy Azure. Wszystkie funkcje dostępne w bibliotekach klienta są dostępne w Azure Portal. 
 
 > [!WARNING]
 > Należy pamiętać, że podczas gdy usługi komunikacyjne są dostępne w wielu lokalizacje geograficzneach, w celu uzyskania numeru telefonu zasób musi mieć ustawioną lokalizację danych "US". Należy również pamiętać, że nie można przesłać zasobów komunikacyjnych do innej subskrypcji w ramach publicznej wersji zapoznawczej.
@@ -38,7 +40,7 @@ Rozpocznij pracę z usługami Azure Communications Services, udostępniając pie
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Uzyskiwanie dostępu do parametrów połączenia i punktów końcowych usługi
 
-Parametry połączeń umożliwiają bibliotekom klienckim usług komunikacyjnych łączenie się i uwierzytelnianie na platformie Azure. Możesz uzyskać dostęp do parametrów połączenia usług komunikacyjnych i punktów końcowych usługi z Azure Portal lub programowo przy użyciu Azure Resource Manager interfejsów API.
+Parametry połączeń umożliwiają bibliotekom klienckim usług komunikacyjnych łączenie się i uwierzytelnianie na platformie Azure. Możesz uzyskać dostęp do parametrów połączenia usług komunikacyjnych i punktów końcowych usługi z Azure Portal lub programowo przy użyciu Azure Resource Manager interfejsów API. 
 
 Po przejściu do zasobu usług komunikacyjnych wybierz pozycję **klucze** z menu nawigacji i skopiuj wartości **parametrów połączenia** lub **punktów końcowych** w celu użycia przez biblioteki klienta usług komunikacyjnych. Należy pamiętać, że masz dostęp do kluczy podstawowych i pomocniczych. Może to być przydatne w scenariuszach, w których chcesz zapewnić tymczasowy dostęp do zasobów usług komunikacyjnych do środowiska innego lub przejściowego.
 
@@ -47,7 +49,7 @@ Po przejściu do zasobu usług komunikacyjnych wybierz pozycję **klucze** z men
 Dostęp do kluczowych informacji można również uzyskać przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
-az communication list --resource-group "<resourceGroup>"
+az communication list --resource-group "<resourceGroup>"    
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
@@ -101,7 +103,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.bash_profile` z 
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 
-Jeśli po usunięciu zasobów masz przypisane numery telefonów, numery telefonów zostaną automatycznie wydane z zasobu w tym samym czasie.
+Jeśli po usunięciu zasobów masz przypisane numery telefonów, numery telefonów zostaną automatycznie wydane z zasobu w tym samym czasie. 
 
 ## <a name="next-steps"></a>Następne kroki
 

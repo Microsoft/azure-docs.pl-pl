@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650749"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739440"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>Utwórz tokeny sygnatury dostępu współdzielonego na potrzeby tłumaczenia dokumentu
 
@@ -21,8 +21,8 @@ W tym artykule dowiesz się, jak tworzyć tokeny sygnatury dostępu współdziel
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Wymagana jest aplikacja [**Eksplorator usługi Azure Storage**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) zainstalowana w środowisku deweloperskim systemu Windows, MacOS lub Linux. Eksplorator usługi Azure Storage to bezpłatne narzędzie, które pozwala łatwo zarządzać zasobami magazynu w chmurze platformy Azure.
-* Po zainstalowaniu aplikacji Eksplorator usługi Azure Storage [Połącz ją z kontem magazynu](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) używanym do tłumaczenia dokumentów.
+* Wymagana jest aplikacja [**Eksplorator usługi Azure Storage**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) zainstalowana w środowisku deweloperskim systemu Windows, MacOS lub Linux. Eksplorator usługi Azure Storage to bezpłatne narzędzie, które pozwala łatwo zarządzać zasobami magazynu w chmurze platformy Azure.
+* Po zainstalowaniu aplikacji Eksplorator usługi Azure Storage [Połącz ją z kontem magazynu](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) używanym do tłumaczenia dokumentów.
 
 ### <a name="create-your-tokens"></a>Tworzenie tokenów
 
@@ -65,7 +65,7 @@ W tym artykule dowiesz się, jak tworzyć tokeny sygnatury dostępu współdziel
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Utwórz tokeny sygnatury dostępu współdzielonego dla obiektów BLOB w Azure Portal
 
 > [!NOTE]
-> Tworzenie tokenów sygnatury dostępu współdzielonego dla kontenerów bezpośrednio w Azure Portal nie jest obecnie obsługiwane. Można jednak utworzyć token sygnatury dostępu współdzielonego z [**Eksplorator usługi Azure Storage**](#create-sas-tokens-with-azure-storage-explorer) lub wykonać zadanie [programowo](/azure/storage/blobs/sas-service-create).
+> Tworzenie tokenów sygnatury dostępu współdzielonego dla kontenerów bezpośrednio w Azure Portal nie jest obecnie obsługiwane. Można jednak utworzyć token sygnatury dostępu współdzielonego z [**Eksplorator usługi Azure Storage**](#create-sas-tokens-with-azure-storage-explorer) lub wykonać zadanie [programowo](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Wymagania wstępne
@@ -104,7 +104,7 @@ Przejdź do [Azure Portal](https://ms.portal.azure.com/#home) i przejdź w nast�
 
 ## <a name="learn-more"></a>Więcej tutaj
 
-* [Programistyczne tworzenie tokenów SAS dla obiektów blob lub kontenerów](/azure/storage/blobs/sas-service-create)
+* [Programistyczne tworzenie tokenów SAS dla obiektów blob lub kontenerów](../../../storage/blobs/sas-service-create.md)
 * [Uprawnienia do katalogu, kontenera lub obiektu BLOB](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## <a name="next-steps"></a>Następne kroki

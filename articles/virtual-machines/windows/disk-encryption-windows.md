@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693836"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -151,7 +151,7 @@ Aby włączyć szyfrowanie na dyskach interfejsu NVMe:
 
 Szyfrowanie będzie przechowywane na dyskach interfejsu NVMe w następujących scenariuszach:
 - Ponowne uruchomienie maszyny wirtualnej
-- VMSS z obrazu
+- Reobraz zestawu skalowania maszyn wirtualnych
 - Wymiana systemu operacyjnego
 
 Dyski interfejsu NVMe zostaną niezainicjowane w następujących scenariuszach:
@@ -260,9 +260,8 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Kontenery systemu Windows Server, które tworzą woluminy dynamiczne dla każdego kontenera.
 - Tymczasowe dyski systemu operacyjnego.
 - Szyfrowanie współużytkowanych/rozproszonych systemów plików, takich jak (ale nie ograniczone do) systemu plików DFS, GFS, DRDB i CephFS.
-- Przeniesienie szyfrowanych maszyn wirtualnych do innej subskrypcji lub regionu.
+- Przeniesienie zaszyfrowanej maszyny wirtualnej na inną subskrypcję lub region.
 - Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
-- Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 - Zastosowanie elementu ADE do maszyny wirtualnej z dyskami zaszyfrowanymi za pomocą [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](../disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
 - Migrowanie maszyny wirtualnej, która jest zaszyfrowana przy użyciu programu ADE lub **kiedykolwiek** została zaszyfrowana za pomocą programu ADE, do [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](../disk-encryption.md).

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715041"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Omówienie zabezpieczeń usługi Azure Virtual Machines
 Ten artykuł zawiera omówienie podstawowych funkcji zabezpieczeń platformy Azure, które mogą być używane z maszynami wirtualnymi.
@@ -51,7 +51,7 @@ Dowiedz się więcej o [programie Microsoft chroniącym przed złośliwym kodem 
 Dowiedz się więcej o oprogramowaniu chroniącym przed złośliwym kodem, aby pomóc w ochronie maszyn wirtualnych:
 
 * [Wdrażanie rozwiązań do ochrony przed złośliwym kodem na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/trend.md)
+* [Jak zainstalować i skonfigurować Trend Micro głębokiego zabezpieczenia jako usługi na maszynie wirtualnej z systemem Windows](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows](../../virtual-machines/extensions/symantec.md)
 * [Rozwiązania zabezpieczeń w portalu Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 

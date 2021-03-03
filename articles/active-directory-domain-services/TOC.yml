@@ -21,7 +21,7 @@
       href: tutorial-configure-ldaps.md
     - name: Konfigurowanie synchronizacji skrótów haseł
       href: tutorial-configure-password-hash-sync.md
-    - name: Tworzenie zestawu replik (wersja zapoznawcza)
+    - name: Tworzenie zestawu replik
       href: tutorial-create-replica-set.md
     - name: Tworzenie dostosowanej domeny zarządzanej
       href: tutorial-create-instance-advanced.md
@@ -43,7 +43,7 @@
       href: administration-concepts.md
     - name: Typowe scenariusze wdrażania
       href: scenarios.md
-    - name: Zestawy replik (wersja zapoznawcza)
+    - name: Zestawy replik
       href: concepts-replica-sets.md
     - name: Lasy i relacje zaufania
       items:

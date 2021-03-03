@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 331a7b1bef3621a080fe2fa891cf83565a1e55ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526667"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702576"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
@@ -102,6 +102,6 @@ Ogólnie rzecz biorąc, gdy obiekt (Magazyn kluczy lub klucz lub wpis tajny) jes
 
 Poniższe dwa przewodniki oferują podstawowe scenariusze użycia do korzystania z funkcji usuwania nietrwałego.
 
-- [Jak używać nietrwałego usuwania przy użyciu programu Key Vault w portalu](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
+- [Jak używać nietrwałego usuwania przy użyciu programu Key Vault w portalu](./key-vault-recovery.md?tabs=azure-portal)
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell](./key-vault-recovery.md) 
 - [Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia](./key-vault-recovery.md)

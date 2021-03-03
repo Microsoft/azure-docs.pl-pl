@@ -4,21 +4,21 @@ description: Dowiedz się, jak używać Azure Portal, interfejsu wiersza polecen
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.openlocfilehash: 015a84ab6f81875407f460c4a45423f3f5e22b7f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620973"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714378"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Twórz i wyświetlaj klasyczne alerty metryk i zarządzaj nimi za pomocą Azure Monitor
 
 > [!WARNING]
-> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](../platform/alerts-overview.md). Alerty klasyczne są [wycofywane](../platform/monitoring-classic-retirement.md) dla użytkowników chmury publicznej, mimo że nadal są ograniczone dla zasobów, które jeszcze nie obsługują nowych alertów.
+> W tym artykule opisano sposób tworzenia starszych klasycznych alertów dotyczących metryk. Azure Monitor teraz obsługuje [nowsze alerty metryk niemal w czasie rzeczywistym i nowe środowisko alertów](./alerts-overview.md). Alerty klasyczne są [wycofywane](./monitoring-classic-retirement.md) dla użytkowników chmury publicznej, ale nadal są ograniczone do **31 maja 2021**. Alerty klasyczne dla usług Azure Government Cloud i Azure Chiny 21Vianet zostaną wycofane z **29 lutego 2024**.
 >
 
-Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekracza próg. Klasyczne alerty metryk są starszą funkcją, która umożliwia generowanie alertów tylko w przypadku metryk niewymiarowych. Istnieje już nowa funkcja, nazywana alertami metryk, która oferuje ulepszone funkcje w porównaniu z klasycznymi alertami metryk. Więcej informacji o nowych funkcjach alertów metryk można znaleźć w temacie [Omówienie alertów dotyczących metryk](../platform/alerts-metric-overview.md). W tym artykule opisano sposób tworzenia i wyświetlania klasycznych reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
+Klasyczne alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekracza próg. Klasyczne alerty metryk są starszą funkcją, która umożliwia generowanie alertów tylko w przypadku metryk niewymiarowych. Istnieje już nowa funkcja, nazywana alertami metryk, która oferuje ulepszone funkcje w porównaniu z klasycznymi alertami metryk. Więcej informacji o nowych funkcjach alertów metryk można znaleźć w temacie [Omówienie alertów dotyczących metryk](./alerts-metric-overview.md). W tym artykule opisano sposób tworzenia i wyświetlania klasycznych reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell.
 
 ## <a name="with-azure-portal"></a>Z Azure Portal
 
@@ -134,6 +134,5 @@ W tych sekcjach pokazano, jak za pomocą poleceń programu PowerShell tworzyć i
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Utwórz klasyczny alert dotyczący metryki z szablonem Menedżer zasobów](../platform/alerts-enable-template.md).
-- [Zawiadom klasyczny alert dotyczący metryki systemu spoza platformy Azure przy użyciu elementu webhook](../platform/alerts-webhooks.md).
-
+- [Utwórz klasyczny alert dotyczący metryki z szablonem Menedżer zasobów](./alerts-enable-template.md).
+- [Zawiadom klasyczny alert dotyczący metryki systemu spoza platformy Azure przy użyciu elementu webhook](./alerts-webhooks.md).

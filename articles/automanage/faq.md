@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688012"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych
 
@@ -80,7 +80,7 @@ Usługa Azure automanage jest dostępna bez dodatkowych kosztów w publicznej we
 
 **Czy mogę zastosować Autozarządzanie za pomocą usługi Azure Policy?**
 
-Tak, mamy wbudowane zasady, które będą automatycznie stosowały Autozarządzanie do wszystkich maszyn wirtualnych w określonym zakresie. Zostanie również określony profil konfiguracji (DevTest lub produkcyjny) wraz z kontem Autozarządzanie. Dowiedz się więcej na temat włączania autozarządzania za pomocą usługi Azure Policy [tutaj](virtual-machines-policy-enable.md).
+Tak, mamy wbudowane zasady, które będą automatycznie stosowały Autozarządzanie do wszystkich maszyn wirtualnych w określonym zakresie. Zostanie również określona konfiguracja środowiska (DevTest lub produkcja) wraz z kontem Autozarządzanie. Dowiedz się więcej na temat włączania autozarządzania za pomocą usługi Azure Policy [tutaj](virtual-machines-policy-enable.md).
 
 
 **Co to jest konto Autozarządzanie?**
@@ -93,9 +93,9 @@ Konto automanage to plik MSI (tożsamość usługi zarządzanej), który zapewni
 Jeśli maszyna wirtualna jest połączona z istniejącym obszarem roboczym Log Analytics, użyjemy tego obszaru roboczego do zastosowania następujących rozwiązań: Change Tracking, spisu i Update Management. Dla wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym będą dostępne te rozwiązania.
 
 
-**Czy mogę zmienić profil konfiguracji mojej maszyny wirtualnej?**
+**Czy mogę zmienić środowisko mojej maszyny wirtualnej?**
 
-W tej chwili należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie włączyć ją ponownie przy użyciu odpowiedniego profilu konfiguracji i preferencji.
+W tej chwili należy wyłączyć Autozarządzanie dla tej maszyny wirtualnej, a następnie ponownie włączyć funkcję Autozarządzanie przy użyciu wymaganego środowiska i preferencji.
 
 
 **Jeśli moja maszyna wirtualna została już skonfigurowana dla usługi, na przykład Update Management, program automatycznie ponownie skonfiguruje ją.**

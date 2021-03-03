@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 62be64f3134bbbbbe2b18bef384654168f958287
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701607"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Podstawa zabezpieczeń Azure dla usługi Azure Traffic Manager
 
@@ -62,7 +62,7 @@ Włącz ustawienia diagnostyczne w programie Azure Monitor, aby uzyskać dostęp
 
 - [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

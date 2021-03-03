@@ -9,24 +9,25 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273204"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687978"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Konfigurowanie zabezpieczeń grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
 W tym dokumencie opisano różne aspekty związane z bezpieczeństwem grupy serwerów:
-- Szyfrowanie w spoczynku
+- Szyfrowanie danych magazynowanych
 - Zarządzanie użytkownikami
    - Perspektywy ogólne
    - Zmień hasło użytkownika administracyjnego _Postgres_
+- Inspekcja
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
+## <a name="encryption-at-rest"></a>Szyfrowanie danych magazynowanych
 Szyfrowanie można zaimplementować w spoczynku, szyfrując dyski, na których przechowywane są bazy danych, i/lub używając funkcji bazy danych, aby zaszyfrować wstawiane lub aktualizowane dane.
 
 ### <a name="hardware-linux-host-volume-encryption"></a>Sprzęt: szyfrowanie woluminu hosta systemu Linux
@@ -159,13 +160,14 @@ Ogólny format polecenia zmiany hasła:
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Gdzie--Admin-Password jest wartością logiczną, która odnosi się do obecności wartości w zmiennej środowiskowej **sesji**AZDATA_PASSWORD.
-Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje i ma wartość, uruchomienie powyższego polecenia spowoduje ustawienie hasła użytkownika Postgres na wartość tej zmiennej środowiskowej.
+Gdzie `--admin-password` jest wartością logiczną, która odnosi się do obecności wartości w zmiennej środowiskowej **sesji** AZDATA_PASSWORD.
+Jeśli zmienna środowiskowa **sesji** AZDATA_PASSWORD istnieje i ma wartość, uruchomienie powyższego polecenia spowoduje ustawienie hasła użytkownika Postgres na wartość tej zmiennej środowiskowej.
 
-Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje, ale nie ma wartości lub zmienna środowiskowa **sesji**AZDATA_PASSWORD nie istnieje, uruchomienie powyższego polecenia spowoduje wyświetlenie monitu o wprowadzenie hasła w trybie interaktywnym
+Jeśli zmienna środowiskowa **sesji** AZDATA_PASSWORD istnieje, ale nie ma wartości lub zmienna środowiskowa **sesji** AZDATA_PASSWORD nie istnieje, uruchomienie powyższego polecenia spowoduje wyświetlenie monitu o wprowadzenie hasła w trybie interaktywnym
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Zmiana hasła użytkownika administracyjnego Postgres w sposób interaktywny:
-1. Usuń zmienną środowiskową **sesji**AZDATA_PASSWORD lub Usuń jej wartość
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Zmień hasło użytkownika administracyjnego Postgres w sposób interaktywny
+
+1. Usuń zmienną środowiskową **sesji** AZDATA_PASSWORD lub Usuń jej wartość
 2. Uruchom polecenie:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -186,8 +188,8 @@ Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje, ale nie ma warto
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Zmiana hasła użytkownika administracyjnego Postgres przy użyciu zmiennej środowiskowej **sesji**AZDATA_PASSWORD:
-1. Ustaw wartość zmiennej środowiskowej **sesji**AZDATA_PASSWORD na to, co chcesz mieć hasło.
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Zmień hasło użytkownika administracyjnego Postgres przy użyciu zmiennej środowiskowej **sesji** AZDATA_PASSWORD:
+1. Ustaw wartość zmiennej środowiskowej **sesji** AZDATA_PASSWORD na to, co chcesz mieć hasło.
 2. Uruchom polecenie:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -216,9 +218,12 @@ Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje, ale nie ma warto
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>Inspekcja
+
+W przypadku scenariuszy inspekcji Skonfiguruj grupę serwerów tak, aby korzystała z `pgaudit` rozszerzeń Postgres. Aby uzyskać więcej informacji na temat, `pgaudit` Zobacz [ `pgAudit` projekt GitHub](https://github.com/pgaudit/pgaudit/blob/master/README.md). Aby włączyć `pgaudit` rozszerzenie w grupie serwerów, [Użyj rozszerzeń PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Przeczytaj szczegółowe informacje o `pgcrypto` rozszerzeniu. [here](https://www.postgresql.org/docs/current/pgcrypto.html)
-- Przeczytaj szczegółowe informacje o [tym](using-extensions-in-postgresql-hyperscale-server-group.md), jak używać rozszerzeń Postgres.
+- Zobacz [ `pgcrypto` rozszerzenie](https://www.postgresql.org/docs/current/pgcrypto.html)
+- Zobacz [Korzystanie z rozszerzeń PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md)
 

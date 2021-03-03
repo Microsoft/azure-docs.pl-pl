@@ -9,18 +9,18 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a5ccaa95c8f29395770395076f75f36019a4355c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737685"
 ---
 # <a name="storage-analytics"></a>Analityka magazynu
 
-Analityka magazynu platformy Azure wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu.
+Azure Storage Analytics wykonuje rejestrowanie i udostępnia dane metryk dla konta magazynu. Za pomocą tych danych można śledzić żądania, analizować trendy użycia i diagnozować problemy z kontem magazynu.
 
-Aby użyć analityka magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można ją włączyć z poziomu [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [Właściwości Ustawianie usługi obiektów BLOB](/rest/api/storageservices/set-blob-service-properties), [Ustawianie właściwości usługi kolejki](/rest/api/storageservices/set-queue-service-properties), [Ustawianie właściwości usługi Table](/rest/api/storageservices/set-table-service-properties)i [Ustawianie właściwości usługi plików](/rest/api/storageservices/Get-File-Service-Properties) .
+Aby użyć analityka magazynu, należy włączyć ją indywidualnie dla każdej usługi, którą chcesz monitorować. Można ją włączyć z poziomu [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](./manage-storage-analytics-logs.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [Właściwości Ustawianie usługi obiektów BLOB](/rest/api/storageservices/set-blob-service-properties), [Ustawianie właściwości usługi kolejki](/rest/api/storageservices/set-queue-service-properties), [Ustawianie właściwości usługi Table](/rest/api/storageservices/set-table-service-properties)i [Ustawianie właściwości usługi plików](/rest/api/storageservices/Get-File-Service-Properties) .
 
 Zagregowane dane są przechowywane w dobrze znanym obiekcie BLOB (na potrzeby rejestrowania) i w dobrze znanych tabelach (dla metryk), do których można uzyskać dostęp za pomocą interfejsów API Blob service i Table service.
 
@@ -46,6 +46,6 @@ Każde żądanie wysłane do usługi magazynu konta jest obciążane lub nieobci
 Podczas wyszukiwania analityka magazynu danych można użyć tabel w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) , aby określić, które żądania są rozliczane. Następnie można porównać dane dzienników i metryk do komunikatów o stanie, aby sprawdzić, czy opłata została naliczona za określone żądanie. Możesz również użyć tabel w poprzednim temacie, aby zbadać dostępność usługi magazynu lub operacji poszczególnych interfejsów API.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Monitorowanie konta magazynu w witrynie Azure Portal](storage-monitor-storage-account.md)
+* [Monitorowanie konta magazynu w witrynie Azure Portal](./manage-storage-analytics-logs.md)
 * [Metryki analityka magazynu](storage-analytics-metrics.md)
 * [Rejestrowanie analityki magazynu](storage-analytics-logging.md)

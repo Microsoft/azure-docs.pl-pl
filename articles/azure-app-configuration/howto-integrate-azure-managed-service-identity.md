@@ -5,15 +5,15 @@ description: Uwierzytelnianie w usłudze Azure App Configuration przy użyciu to
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 483af51cbaeb8f7b295adb4231e65f742e3f53a1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b1de1a24a506c049782443e4d32039c28fece436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718254"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uzyskiwanie dostępu do usługi App Configuration przy użyciu tożsamości zarządzanych
 
@@ -139,6 +139,15 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
     ```
     ---
 
+    > [!NOTE]
+    > W przypadku, gdy chcesz użyć **tożsamości zarządzanej przypisanej przez użytkownika**, pamiętaj o określeniu clientId podczas tworzenia [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true).
+    >```
+    >config.AddAzureAppConfiguration(options =>
+    >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    >```
+    >Zgodnie z opisem w temacie [zarządzane tożsamości dla zasobów platformy Azure — często zadawane pytania](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)można ustalić, która zarządzana tożsamość jest używana. W takim przypadku Biblioteka tożsamości platformy Azure wymusza, aby określić żądaną tożsamość, aby uniknąć problemów z przekroczyła dozwoloną środowiska uruchomieniowego w przyszłości (na przykład jeśli zostanie dodana nowa tożsamość zarządzana przez użytkownika lub jest włączona tożsamość zarządzana przypisana przez system). W związku z tym należy określić clientId nawet wtedy, gdy zdefiniowana jest tylko jedna tożsamość zarządzana przypisana przez użytkownika i nie istnieje tożsamość zarządzana przypisana przez system.
+
+
 1. Aby użyć zarówno wartości konfiguracji aplikacji, jak i Key Vault odwołań, należy zaktualizować *program.cs* , jak pokazano poniżej. Ten kod wywołuje `SetCredential` w `ConfigureKeyVault` celu poinformowania dostawcę konfiguracji o poświadczeniach, które mają być używane podczas uwierzytelniania do Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
@@ -193,6 +202,8 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 
     > [!NOTE]
     > `ManagedIdentityCredential`Działa tylko w środowiskach platformy Azure usług, które obsługują uwierzytelnianie tożsamości zarządzanej. Nie działa w środowisku lokalnym. Służy [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) do pracy kodu w środowiskach lokalnych i na platformie Azure, ponieważ powróci do kilku opcji uwierzytelniania, łącznie z tożsamością zarządzaną.
+    > 
+    > Jeśli chcesz użyć **tożsamości zarządzanej przez użytkownika asigned** z `DefaultAzureCredential` wdrożeniem na platformie Azure, [Określ clientId](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

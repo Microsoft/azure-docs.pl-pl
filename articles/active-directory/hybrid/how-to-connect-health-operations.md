@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016970"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686465"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operacje Azure Active Directory Connect Health
 W tym temacie opisano różne operacje, które można wykonać za pomocą programu Azure Active Directory (Azure AD) Connect Health.
@@ -46,8 +46,6 @@ Usługę Azure AD Connect Health można skonfigurować do wysyłania powiadomie�
 > Gdy wystąpią problemy z przetwarzaniem żądań synchronizacji w naszej usłudze wewnętrznej bazy danych, ta usługa wysyła wiadomość e-mail z powiadomieniem ze szczegółowymi informacjami o błędzie do adresów e-mail (y) osoby kontaktowej dzierżawy. Otrzymaliśmy opinie od klientów, że w niektórych przypadkach ilość tych komunikatów jest niezwykle duża, więc zmieniamy sposób wysyłania tych komunikatów. 
 >
 > Zamiast wysyłać komunikat dla każdego błędu synchronizacji za każdym razem, gdy wystąpi, wyślemy codzienne podsumowanie wszystkich błędów zwróconych przez usługę zaplecza. Dzięki temu klienci mogą przetwarzać te błędy w bardziej wydajny sposób i zmniejszać liczbę zduplikowanych komunikatów o błędach.
->
-> Planuje się wdrożenie tej zmiany 15 stycznia 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Usuwanie serwera lub wystąpienia usługi
 

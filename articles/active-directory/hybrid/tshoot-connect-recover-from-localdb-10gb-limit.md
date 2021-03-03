@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858403"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688777"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak usunąć limit 10 GB dla lokalnej bazy danych
 Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Możesz korzystać z domyślnego programu SQL Server 2012 Express LocalDB zainstalowanego z programem Azure AD Connect lub użyć własnego pełnego programu SQL. Program SQL Server Express narzuca limit rozmiaru w wysokości 10 GB. Jeśli jest używany program LocalDB i limit zostanie osiągnięty, usługa synchronizacji programu Azure AD Connect nie będzie mogła uruchomić się ani prawidłowo wykonywać synchronizacji. Ten artykuł zawiera kroki odzyskiwania.
@@ -74,7 +74,7 @@ Nazwa bazy danych utworzonej dla Azure AD Connect to **ADSync**. Aby wykonać op
 
 4. Uruchom narzędzie **sqlcmd** , uruchamiając polecenie `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` przy użyciu poświadczeń administratora systemu lub bazy danych.
 
-5. Aby zmniejszyć bazę danych, w wierszu polecenia sqlcmd (1>) wprowadź `DBCC Shrinkdatabase(ADSync,1);` , a następnie `GO` w następnym wierszu.
+5. Aby zmniejszyć bazę danych, w wierszu polecenia sqlcmd ( `1>` ) wprowadź `DBCC Shrinkdatabase(ADSync,1);` , a następnie `GO` w następnym wierszu.
 
 6. Jeśli operacja się powiedzie, spróbuj ponownie uruchomić usługę synchronizacji. Jeśli możesz uruchomić usługę synchronizacji, przejdź do obszaru [usuwanie danych historii uruchamiania](#delete-run-history-data) . Jeśli nie, skontaktuj się z pomocą techniczną.
 

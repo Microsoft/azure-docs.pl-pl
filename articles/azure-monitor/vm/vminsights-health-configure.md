@@ -1,20 +1,20 @@
 ---
-title: Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)
-description: Opisuje sposób modyfikowania domyślnego monitorowania Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza) przy użyciu Azure Portal.
+title: Konfigurowanie monitorowania w usłudze VM Insights (wersja zapoznawcza)
+description: Opisuje sposób modyfikowania domyślnego monitorowania kondycji gościa usługi VM Insights (wersja zapoznawcza) przy użyciu Azure Portal.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620603"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719597"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)
-Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano sposób modyfikowania domyślnego monitorowania przy użyciu Azure Portal. Opisano w nim również podstawowe pojęcia dotyczące monitorów, które są wymagane do [skonfigurowania monitorowania przy użyciu reguły zbierania danych](vminsights-health-configure-dcr.md).
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Konfigurowanie monitorowania w usłudze VM Insights (wersja zapoznawcza)
+Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano sposób modyfikowania domyślnego monitorowania przy użyciu Azure Portal. Opisano w nim również podstawowe pojęcia dotyczące monitorów, które są wymagane do [skonfigurowania monitorowania przy użyciu reguły zbierania danych](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Otwórz konfigurację monitora
 Otwórz pozycję Monitoruj konfigurację bin Azure Portal, wybierając monitor, a następnie kartę **Konfiguracja** .

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 46fd9285f550b1a730b9040c46bacd7e34650b1e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7db905af85a6f4c157ee6d019e8e3a3feeeb4b4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511675"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722623"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN pokrycia według Metro 
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 > Ponieważ każdy Azure CDN produkt ma odrębny sposób tworzenia infrastruktury sieci CDN, firma Microsoft zaleca korzystanie z lokalizacji POP, aby zdecydować, które Azure CDN produkt ma być używany. Zamiast tego należy wziąć pod uwagę jej funkcje i wydajność użytkowników końcowych. Przetestuj wydajność za pomocą każdego Azure CDN produktu, aby wybrać odpowiedni produkt dla użytkowników. 
 > 
 
-| Region | Microsoft | Verizon | Akamai |
+| Region (Region) | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | Ameryka Północna | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealu, Kanada<br />Querétaro, Meksyk<br />San Juan, Portoryko<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Raleigh, NC, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Minneapolis, MN, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, lub, USA<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Meksyk<br />Mexico City, Mexico<br />Puebla, Meksyk<br />Querétaro, Meksyk<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Waszyngton, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Kanada<br />Meksyk<br />USA |
 | Ameryka Południowa | Campinas, Brazylia<br />Rio de Janeiro, Brazylia<br />Wyspa Świętego Paulo, Brazylia<br />Do dnia, Chile<br />Bogota, Kolumbia<br />Buenos Aires, Argentyna | Buenos Aires, Argentyna<br />Rio de Janeiro, Brazylia<br />So Paulo, Brazylia<br />Valparaíso, Chile<br />Bogota, Kolumbia<br />Barranquilla, Kolumbia<br />Medellin, Kolumbia<br />Quito, Ekwador<br />Lima, Peru | Argentyna<br />Brazylia<br />Chile<br />Kolumbia<br />Ekwador<br />Peru<br />Urugwaj |
@@ -49,4 +49,4 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać najnowsze adresy IP dla allowlisting, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](/rest/api/cdn/edgenodes).
+* Aby uzyskać najnowsze adresy IP dla allowlisting, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](https://github.com/Azure/azure-docs-rest-apis/blob/master/docs-ref-autogen/cdn/cdn/EdgeNodes/).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791564"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727689"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w funkcji Hyper-V
 
@@ -55,7 +55,7 @@ Przed wdrożeniem urządzenia upewnij się, że:
 * System hosta może przeznaczyć następujące zasoby wyłącznie na potrzeby aprowizacji urządzenia wirtualnego:
 
   * Co najmniej 4 rdzenie.
-  * Co najmniej 8 GB pamięci RAM.
+  * Co najmniej 8 GB pamięci RAM. Zdecydowanie zalecamy co najmniej 16 GB pamięci RAM.
   * Jeden interfejs sieciowy.
   * Dysk systemu operacyjnego 250 GB.
   * Dysk wirtualny o pojemności 2 TB dla danych.

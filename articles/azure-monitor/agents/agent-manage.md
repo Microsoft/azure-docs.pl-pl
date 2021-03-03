@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: e8ee45a1bf6a45be1fd976d3fb1b8aba60d2b989
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734965"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Konserwacja agenta usługi Log Analytics dla systemów Windows i Linux oraz zarządzanie nim)
 
@@ -164,7 +164,7 @@ Poniższe kroki pokazują, jak ponownie skonfigurować agenta systemu Linux, je�
 Nie trzeba ponownie uruchamiać usługi agenta, aby zmiany zaczęły obowiązywać.
 
 ## <a name="update-proxy-settings"></a>Aktualizowanie ustawień serwera proxy
-Aby skonfigurować agenta do komunikowania się z usługą za pomocą serwera proxy lub [bramy log Analytics](../platform/gateway.md) po wdrożeniu, należy użyć jednej z następujących metod, aby wykonać to zadanie.
+Aby skonfigurować agenta do komunikowania się z usługą za pomocą serwera proxy lub [bramy log Analytics](./gateway.md) po wdrożeniu, należy użyć jednej z następujących metod, aby wykonać to zadanie.
 
 ### <a name="windows-agent"></a>Agent systemu Windows
 

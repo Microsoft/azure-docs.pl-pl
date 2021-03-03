@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620730"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700579"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -34,7 +34,7 @@ Autorzy skoroszytu mogą łatwo wykonywać zapytania dotyczące wielu zasobów, 
 
 ## <a name="metrics"></a>Metryki
 
-Zasoby platformy Azure emitują [metryki](../platform/data-platform-metrics.md) , do których można uzyskiwać dostęp za pośrednictwem skoroszytów. Dostęp do metryk w skoroszytach można uzyskać za pomocą wyspecjalizowanej kontrolki, która umożliwia określenie zasobów docelowych, odpowiednich metryk i ich agregacji. Te dane można następnie wykreślić na wykresach lub siatkach.
+Zasoby platformy Azure emitują [metryki](../essentials/data-platform-metrics.md) , do których można uzyskiwać dostęp za pośrednictwem skoroszytów. Dostęp do metryk w skoroszytach można uzyskać za pomocą wyspecjalizowanej kontrolki, która umożliwia określenie zasobów docelowych, odpowiednich metryk i ich agregacji. Te dane można następnie wykreślić na wykresach lub siatkach.
 
 ![Zrzut ekranu przedstawiający wykresy metryk skoroszytu dotyczące użycia procesora CPU](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -145,6 +145,6 @@ Ten dostawca obsługuje [wykryto](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](../platform/workbooks-overview.md#visualizations) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
-* [Kontroluj](../platform/workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
-* [Wskazówki dotyczące optymalizacji zapytań Log Analytics](../log-query/query-optimization.md)
+* [Rozpocznij](./workbooks-overview.md#visualizations) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
+* [Kontroluj](./workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.
+* [Wskazówki dotyczące optymalizacji zapytań Log Analytics](../logs/query-optimization.md)

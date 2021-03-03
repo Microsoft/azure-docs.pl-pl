@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710672"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -115,6 +115,7 @@ Przywracanie plików z kont magazynu z ograniczeniami w sieci | Nieobsługiwane.
 Przywracanie plików na maszynach wirtualnych przy użyciu funkcji miejsca do magazynowania systemu Windows | Przywracanie nie jest obsługiwane na tej samej maszynie wirtualnej.<br/><br/> Zamiast tego należy przywrócić pliki na zgodnej maszynie wirtualnej.
 Przywracanie plików na maszynie wirtualnej z systemem Linux przy użyciu tablic LVM/RAID | Przywracanie nie jest obsługiwane na tej samej maszynie wirtualnej.<br/><br/> Przywracanie na zgodnej maszynie wirtualnej.
 Przywracanie plików przy użyciu specjalnych ustawień sieci | Przywracanie nie jest obsługiwane na tej samej maszynie wirtualnej. <br/><br/> Przywracanie na zgodnej maszynie wirtualnej.
+Przywróć pliki z dysku udostępnionego, dysku tymczasowego, deduplikowanego dysku, Ultra Disk i Disk z włączonym akceleratorem zapisu | Przywracanie nie jest obsługiwane, <br/><br/>Zobacz [Obsługa magazynu maszyn wirtualnych platformy Azure](#vm-storage-support).
 
 ## <a name="support-for-vm-management"></a>Obsługa zarządzania maszyną wirtualną
 
@@ -149,7 +150,7 @@ Przywracanie przypiętych do strefy maszyn wirtualnych | Obsługiwane (w przypad
 Maszyny wirtualne Gen2 | Obsługiwane <br> Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie [maszyn wirtualnych Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Po przywróceniu tych maszyn wirtualnych z punktu odzyskiwania są one przywracane jako [maszyny wirtualne Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z blokadami | Nieobsługiwane dla niezarządzanych maszyn wirtualnych. <br><br> Obsługiwane w przypadku zarządzanych maszyn wirtualnych.
 [Maszyny wirtualne typu spot](../virtual-machines/spot-vms.md) | Ich. Azure Backup przywraca maszyny wirtualne maszyn wirtualnych jako zwykłe maszyny wirtualne platformy Azure.
-[Dedykowany Host platformy Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Obsługiwane
+[Dedykowany Host platformy Azure](../virtual-machines/dedicated-hosts.md) | Obsługiwane
 Konfiguracja funkcji miejsca do magazynowania systemu Windows dla autonomicznych maszyn wirtualnych platformy Azure | Obsługiwane
 
 ## <a name="vm-storage-support"></a>Obsługa magazynu maszyn wirtualnych
@@ -168,7 +169,7 @@ Zmień rozmiar dysku na chronionej maszynie wirtualnej | Obsługiwane.
 Magazyn udostępniony| Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu udostępniony wolumin klastra (CSV) lub Scale-Out serwera plików nie jest obsługiwane. Podczas tworzenia kopii zapasowej mogą wystąpić błędy autorów woluminów. W przypadku przywracania dyski zawierające woluminy woluminów CSV mogą nie zostać dołączone.
 [Dyski udostępnione](../virtual-machines/disks-shared-enable.md) | Nieobsługiwane.
 SSD w warstwie Ultra dyski | Nieobsługiwane. Aby uzyskać więcej informacji, zobacz te [ograniczenia](selective-disk-backup-restore.md#limitations).
-[Dyski tymczasowe](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Kopie zapasowe dysków tymczasowych nie są tworzone przez Azure Backup.
+[Dyski tymczasowe](../virtual-machines/managed-disks-overview.md#temporary-disk) | Kopie zapasowe dysków tymczasowych nie są tworzone przez Azure Backup.
 
 ## <a name="vm-network-support"></a>Obsługa sieci maszyn wirtualnych
 

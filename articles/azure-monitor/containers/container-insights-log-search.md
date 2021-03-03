@@ -1,22 +1,22 @@
 ---
-title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor kontenerów | Microsoft Docs
-description: Azure Monitor dla kontenerów zbiera dane dotyczące metryk i dzienników, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
+title: Jak wykonywać zapytania dotyczące dzienników z usługi Container Insights | Microsoft Docs
+description: Program Container Insights zbiera metryki i dane dziennika, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711114"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla kontenerów
+# <a name="how-to-query-logs-from-container-insights"></a>Jak wykonywać zapytania dotyczące dzienników z usługi Container Insights
 
-Azure Monitor dla kontenerów zbiera metryki wydajności, dane spisu i informacje o stanie kondycji z hostów kontenerów i kontenerów. Dane są zbierane co trzy minuty i przekazywane do obszaru roboczego Log Analytics w Azure Monitor. Te dane są dostępne dla [zapytań](../log-query/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Usługi Container Insights zbierają metryki wydajności, dane spisu i informacje o stanie kondycji z hostów kontenerów i kontenerów. Dane są zbierane co trzy minuty i przekazywane do obszaru roboczego Log Analytics w Azure Monitor. Te dane są dostępne dla [zapytań](../logs/log-query-overview.md) w Azure monitor. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 ## <a name="container-records"></a>Rekordy kontenerów
 
-W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zbieranych przez Azure Monitor kontenerów. Aby zapoznać się z listą opisów kolumn, zobacz temat informacje o tabelach [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) i [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
+W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zebranych przez usługi Container Insights. Aby zapoznać się z listą opisów kolumn, zobacz temat informacje o tabelach [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) i [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Dane | Źródło danych | Typ danych | Pola |
 |------|-------------|-----------|--------|
@@ -110,4 +110,4 @@ Dane wyjściowe pokazują wyniki podobne do następującego przykładu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Azure Monitor kontenerów nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą Azure monitor dla kontenerów](./container-insights-log-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci, aby zapewnić obsługę procesów i procedur operacyjnych DevOps.
+Usługa Container Insights nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą usługi Container Insights](./container-insights-log-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci do obsługi procesów i procedur operacyjnych DevOps.

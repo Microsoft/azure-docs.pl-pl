@@ -2,17 +2,17 @@
 title: 'VPN Gateway platformy Azure: Konfigurowanie przechwytywania pakietów'
 description: Informacje na temat funkcji przechwytywania pakietów, których można użyć na bramach sieci VPN, aby pomóc w zawężaniu przyczyny problemu.
 services: vpn-gateway
-author: radwiv
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
-ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.date: 02/22/2021
+ms.author: alzam
+ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733810"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726618"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
 
@@ -27,6 +27,7 @@ W zależności od potrzeb można uruchomić funkcję przechwytywania pakietów V
 Warto użyć filtru z pięcioma krotkami (podsieć źródłowa, podsieć docelowa, port źródłowy, port docelowy, protokół) i flagi TCP (SYN, ACK, FIN, URG, PSH —, RST) w przypadku izolowania problemów w ruchu dużej ilości danych.
 
 Poniższe przykłady danych JSON i schematu JSON zawierają wyjaśnienia każdej właściwości. Poniżej przedstawiono niektóre ograniczenia, które należy wziąć pod uwagę podczas uruchamiania przechwytywania pakietów:
+
 - W schemacie widocznym tutaj filtr jest tablicą, ale w danym momencie może być używany tylko jeden filtr.
 - W tym samym czasie nie można uruchomić wielu przechwyconych pakietów bramy.
 - Nie można uruchomić wielu przechwycenia pakietu jednocześnie dla jednego połączenia. W tym samym czasie można uruchomić wiele przechwyconych pakietów na różnych połączeniach.
@@ -317,7 +318,13 @@ Poniższe przykłady danych JSON i schematu JSON zawierają wyjaśnienia każdej
 }
 ```
 
-## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurowanie przechwytywania pakietów przy użyciu programu PowerShell
+## <a name="packet-capture---portal"></a>Przechwytywanie pakietów — Portal
+
+Funkcję przechwytywania pakietów można skonfigurować w Azure Portal.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Zrzut ekranu przedstawiający przechwytywanie pakietów w portalu." lightbox="./media/packet-capture/portal.jpg":::
+
+## <a name="packet-capture---powershell"></a>Przechwytywanie pakietów — PowerShell
 
 W poniższych przykładach przedstawiono polecenia programu PowerShell, które uruchamiają i zatrzymują przechwytywanie pakietów. Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

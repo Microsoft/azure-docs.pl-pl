@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 12/21/2020
+ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 7124fdd6e7d137e21234ff40426e13dc65b4f9e0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f849968c16d2c3d8940a71da0e0cda536882d9c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223112"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692066"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Jakie są osoby odpowiedzialne za uczenie maszynowe? (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Ponieważ sztuczna inteligencja i autonomiczne systemy integrują się z siecią
 
 Trudne do wyjaśnienia i nieprzezroczyste systemy mogą być problematyczne, ponieważ utrudniają one uczestnikom, takim jak deweloperzy systemu, organy nadzorujące, użytkownicy i osoby podejmujące decyzje biznesowe, aby zrozumieć, dlaczego systemy podejmują pewne decyzje. Niektóre systemy AI są bardziej wyjaśnione niż inne, a czasami istnieje kompromis między systemem i większą dokładnością, który jest bardziej wyjaśniony.
 
-Aby utworzyć interpretowane systemy AI, użyj [InterpretML](https://github.com/interpretml/interpret), pakietu open source utworzonego przez firmę Microsoft. [InterpretML można używać wewnątrz Azure Machine Learning](how-to-machine-learning-interpretability.md) do [interpretacji i wyjaśnienia modeli uczenia maszynowego](how-to-machine-learning-interpretability-aml.md), w tym [zautomatyzowanych modeli uczenia maszynowego](how-to-machine-learning-interpretability-automl.md).
+Aby utworzyć interpretowane systemy AI, użyj [InterpretML](https://github.com/interpretml/interpret), pakietu open source utworzonego przez firmę Microsoft. Pakiet InterpretML obsługuje szeroką gamę technik interpretacji, takich jak wyjaśnienia SHapley dodatków (kształt), objaśnienie śladowe i ważność funkcji permutacji (PFI).  [InterpretML można używać wewnątrz Azure Machine Learning](how-to-machine-learning-interpretability.md) do [interpretacji i wyjaśnienia modeli uczenia maszynowego](how-to-machine-learning-interpretability-aml.md), w tym [zautomatyzowanych modeli uczenia maszynowego](how-to-machine-learning-interpretability-automl.md).
 
 ## <a name="mitigate-fairness-in-machine-learning-models"></a>Eliminowanie godziwości modeli uczenia maszynowego
 

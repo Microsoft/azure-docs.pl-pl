@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367843"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688352"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Przenieś grupy dostępu uprzywilejowanego (wersja zapoznawcza) do Privileged Identity Management
 
@@ -44,6 +44,12 @@ Można utworzyć grupę umożliwiającą Przypisywanie ról w usłudze Azure AD 
 
 > [!NOTE]
 > Gdy grupa uprzywilejowanych dostępu jest zarządzana, nie można jej wyprowadzić z zarządzania. Zapobiega to usunięciu przez innego administratora zasobów Privileged Identity Management ustawień.
+>
+
+> [!IMPORTANT]
+> Jeśli grupa uprzywilejowanego dostępu zostanie usunięta z Azure Active Directory, usunięcie grupy z bloku uprzywilejowanych grup dostępu (wersja zapoznawcza) może potrwać do 24 godzin. 
+>
+
 
 ## <a name="next-steps"></a>Następne kroki
 

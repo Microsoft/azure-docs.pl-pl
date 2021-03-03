@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d83a2bc4723686920b487998a2040e5be02d4e1a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456963"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Samouczek: integracja Azure Active Directory z dodatkowymi
 
@@ -131,7 +131,7 @@ Aby skonfigurować usługę Azure AD Logowanie jednokrotne, wykonaj następując
 1. Na pasku narzędzi u góry kliknij pozycję **Ustawienia** , a następnie wybierz pozycję **integracje i aplikacje**.
 
     ![Sekcja z dodatkowymi kwestiami społecznościowymi](./media/bonus-tutorial/ic773686.png "Bonusly")
-1. W obszarze **Logowanie jednokrotne**wybierz pozycję **SAML**.
+1. W obszarze **Logowanie jednokrotne** wybierz pozycję **SAML**.
 
 1. Na stronie okno dialogowe **SAML** wykonaj następujące czynności:
 
@@ -232,7 +232,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w celu uzyskania d
 
     b. W polu tekstowym **Last name (Nazwisko)** wprowadź nazwisko użytkownika, na przykład **Simon**.
 
-    c. W polu tekstowym **E-mail** wprowadź adres e-mail użytkownika, na przykład `brittasimon\@contoso.com`.
+    c. W polu tekstowym **E-mail** wprowadź adres e-mail użytkownika, na przykład `brittasimon@contoso.com`.
 
     d. Kliknij pozycję **Zapisz**.
 

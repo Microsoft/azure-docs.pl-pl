@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 5c4cfe47fce07a09eeb48e2da76d3b10c1d204af
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e4837de70e9f00308b440933e0cd433ad5b27cf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613483"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711539"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -19,9 +19,9 @@ Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gośc
 ## <a name="relationship-to-other-agents"></a>Relacja z innymi agentami
 Agent Azure Monitor zastępuje następujących agentów, które są obecnie używane przez Azure Monitor do zbierania danych Gościa z maszyn wirtualnych:
 
-- [Agent log Analytics](../platform/log-analytics-agent.md) — wysyła dane do log Analytics obszaru roboczego i obsługuje rozwiązania Azure monitor dla maszyn wirtualnych i monitorowania.
-- [Rozszerzenie diagnostyczne](../platform/diagnostics-extension-overview.md) — wysyła dane do metryk Azure monitor (tylko system Windows), Azure Event Hubs i Azure Storage.
-- [Telegraf Agent](../platform/collect-custom-metrics-linux-telegraf.md) — wysyła dane do metryk Azure monitor (tylko system Linux).
+- [Agent log Analytics](./log-analytics-agent.md) — wysyła dane do log Analytics obszaru roboczego i obsługuje rozwiązania do monitorowania maszyn wirtualnych.
+- [Rozszerzenie diagnostyczne](./diagnostics-extension-overview.md) — wysyła dane do metryk Azure monitor (tylko system Windows), Azure Event Hubs i Azure Storage.
+- [Telegraf Agent](../essentials/collect-custom-metrics-linux-telegraf.md) — wysyła dane do metryk Azure monitor (tylko system Linux).
 
 Oprócz konsolidacji tej funkcji w ramach jednego agenta Agent Azure Monitor zapewnia następujące korzyści w stosunku do istniejących agentów:
 
@@ -52,7 +52,7 @@ Azure Monitor Agent współistnieje z [ogólnie dostępnymi agentami dla Azure m
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 W publicznej wersji zapoznawczej agenta Azure Monitor są stosowane następujące ograniczenia:
 
-- Agent Azure Monitor nie obsługuje rozwiązań i szczegółowych informacji, takich jak Azure Monitor dla maszyn wirtualnych i Azure Security Center. Jedynym scenariuszem obsługiwanym obecnie jest zbieranie danych przy użyciu skonfigurowanych reguł zbierania danych. 
+- Agent Azure Monitor nie obsługuje rozwiązań i szczegółowych informacji, takich jak usługa VM Insights i Azure Security Center. Jedynym scenariuszem obsługiwanym obecnie jest zbieranie danych przy użyciu skonfigurowanych reguł zbierania danych. 
 - Reguły zbierania danych muszą zostać utworzone w tym samym regionie, w którym znajduje się obszar roboczy Log Analytics używany jako miejsce docelowe.
 - Obecnie obsługiwane są usługi Azure Virtual Machines, Virtual Machine Scale Sets i serwery z włączonym funkcją Arc platformy Azure. Usługa Azure Kubernetes i inne typy zasobów obliczeniowych nie są obecnie obsługiwane.
 - Maszyna wirtualna musi mieć dostęp do następujących punktów końcowych HTTPS:
@@ -64,7 +64,7 @@ W publicznej wersji zapoznawczej agenta Azure Monitor są stosowane następując
 ## <a name="coexistence-with-other-agents"></a>Współistnienie z innymi agentami
 Agent Azure Monitor może współistnieć z istniejącymi agentami, aby można było nadal korzystać z istniejących funkcji podczas oceny lub migracji. Jest to szczególnie ważne ze względu na ograniczenia w publicznej wersji zapoznawczej w obsłudze istniejących rozwiązań. Należy zachować ostrożność podczas zbierania zduplikowanych danych, ponieważ może to spowodować pochylenie wyników zapytania i pozyskanie dodatkowych opłat za pozyskiwanie i przechowywanie danych.
 
-Na przykład Azure Monitor dla maszyn wirtualnych używa agenta Log Analytics do wysyłania danych wydajności do obszaru roboczego Log Analytics. Możesz również skonfigurować obszar roboczy do zbierania zdarzeń systemu Windows i zdarzeń dziennika systemowego z agentów. W przypadku zainstalowania agenta Azure Monitor i utworzenia reguły zbierania danych dla tych samych zdarzeń i danych wydajności spowoduje to zduplikowanie danych.
+Na przykład w usłudze VM Insights Agent Log Analytics wysyła dane wydajności do Log Analytics obszaru roboczego. Możesz również skonfigurować obszar roboczy do zbierania zdarzeń systemu Windows i zdarzeń dziennika systemowego z agentów. W przypadku zainstalowania agenta Azure Monitor i utworzenia reguły zbierania danych dla tych samych zdarzeń i danych wydajności spowoduje to zduplikowanie danych.
 
 
 ## <a name="costs"></a>Koszty

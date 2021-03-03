@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727502"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
@@ -45,7 +45,7 @@ Używaj modeli uczenia maszynowego z danymi FHIR, aby generować szczegółowe i
 
 ### <a name="provider-dashboard"></a>Pulpit nawigacyjny dostawcy
 
-Użyj interfejsu API platformy Azure do FHIR danych, aby utworzyć pulpit nawigacyjny usługi pacjenta Insights lub zintegrować go bezpośrednio z elektronicznym rejestrem medycyny używanym przez zespoły opieki. Zespoły opieki mogą korzystać z pulpitu nawigacyjnego, aby pomóc pacjentom i identyfikować wczesne ostrzeżenia o pogorszeniu. Aby dowiedzieć się więcej, zobacz Samouczek dotyczący [tworzenia pulpitu nawigacyjnego dostawcy Power BI](howto-health-data-triage.md) .
+Użyj interfejsu API platformy Azure do FHIR danych, aby utworzyć pulpit nawigacyjny usługi pacjenta Insights lub zintegrować go bezpośrednio z elektronicznym rejestrem medycyny używanym przez zespoły opieki. Zespoły opieki mogą korzystać z pulpitu nawigacyjnego, aby pomóc pacjentom i identyfikować wczesne ostrzeżenia o pogorszeniu. Aby dowiedzieć się więcej, zobacz Samouczek dotyczący [tworzenia pulpitu nawigacyjnego dostawcy Power BI](tutorial-health-data-triage.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

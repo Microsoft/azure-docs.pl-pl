@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392582"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710213"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
@@ -22,7 +22,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
 - [Inicjowanie obsługi Azure-SSIS IR przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez wystąpienie zarządzane Azure SQL](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Wykonywanie pakietów usług SSIS za pomocą zadania agenta wystąpienia zarządzanego usługi Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Czyszczenie dzienników SSISDB za pomocą zadania agenta wystąpienia zarządzanego Azure SQL](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR trybu failover z wystąpieniem zarządzanym usługi Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Azure-SSIS IR trybu failover z wystąpieniem zarządzanym usługi Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku ADF z wystąpieniem zarządzanym usługi Azure SQL jako miejscem docelowym obciążenia bazy danych](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Udostępnianie Azure-SSIS IR z usługą SSISDB hostowaną przez wystąpienie zarządzane Azure SQL

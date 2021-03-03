@@ -4,45 +4,50 @@ titleSuffix: Azure Digital Twins
 description: Zobacz, jak przesyłać dane telemetryczne usługi Azure Digital bliźniaczych reprezentacji do klientów za pomocą usługi Azure Signal
 author: dejimarquis
 ms.author: aymarqui
-ms.date: 09/02/2020
+ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86d0c75d8b4c7c331e3e7ad90271e3fb42ff1964
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703005"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
 W tym artykule dowiesz się, jak zintegrować usługę Azure Digital bliźniaczych reprezentacji z [usługą Azure Signal Service](../azure-signalr/signalr-overview.md).
 
-Rozwiązanie opisane w tym artykule umożliwi wypychanie danych telemetrycznych cyfrowych sznurów do podłączonych klientów, takich jak pojedyncza strona sieci Web lub aplikacja mobilna. W związku z tym klienci są aktualizacją metrykami i Stanami w czasie rzeczywistym z urządzeń IoT, bez konieczności sondowania serwera ani przesyłania nowych żądań HTTP do aktualizacji.
+Rozwiązanie opisane w tym artykule umożliwia wypychanie danych telemetrycznych z cyfrowego przędzy do podłączonych klientów, na przykład pojedynczej strony sieci Web lub aplikacji mobilnej. W związku z tym klienci są uaktualniani przy użyciu metryk i stanu w czasie rzeczywistym z urządzeń IoT, bez konieczności sondowania serwera ani przesyłania nowych żądań HTTP do aktualizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Poniżej przedstawiono wymagania wstępne, które należy wykonać przed kontynuowaniem:
 
-* Przed integracją rozwiązania z usługą Azure Signal Service w tym artykule należy wykonać samouczek Digital bliźniaczych reprezentacji na platformie Azure [_**: łączenie kompleksowego rozwiązania**_](tutorial-end-to-end.md), ponieważ ta procedura obejmuje kompilację. Ten samouczek przeprowadzi Cię przez proces konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które współpracuje z wirtualnym urządzeniem IoT w celu wyzwolenia aktualizacji cyfrowych sznurów. Ta procedura zapewnia połączenie tych aktualizacji z przykładową aplikacją internetową przy użyciu usługi Azure Signal Service.
-    - Wymagana jest nazwa **tematu siatki zdarzeń** utworzonego w samouczku.
-* Na maszynie zainstalowano [**Node.js**](https://nodejs.org/) .
+* Przed integracją rozwiązania z usługą Azure Signal Service w tym artykule należy wykonać samouczek Digital bliźniaczych reprezentacji na platformie Azure [_**: łączenie kompleksowego rozwiązania**_](tutorial-end-to-end.md), ponieważ w tym artykule opisano kompilację. Ten samouczek przeprowadzi Cię przez proces konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które współpracuje z wirtualnym urządzeniem IoT w celu wyzwolenia aktualizacji cyfrowych sznurów. Ten artykuł zawiera instrukcje łączenia tych aktualizacji z przykładową aplikacją internetową przy użyciu usługi Azure Signal Service.
 
-Możesz też zalogować się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+* W samouczku będą potrzebne następujące wartości:
+  - Temat dotyczący siatki zdarzeń
+  - Grupa zasobów
+  - Nazwa aplikacji funkcji/usługi App Service
+    
+* Na maszynie będzie wymagane [**Node.js**](https://nodejs.org/) .
+
+Należy również zalogować się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
-Do usługi Azure Digital bliźniaczych reprezentacji zostanie dołączana usługa Azure Signal Service za pomocą poniższej ścieżki. Sekcje A, B i C na diagramie są pobierane z diagramu architektury [kompleksowego, wymaganego samouczka](tutorial-end-to-end.md). w tym instruktażu utworzysz tę opcję, dodając sekcję D.
+Do usługi Azure Digital bliźniaczych reprezentacji zostanie dołączana usługa Azure Signal Service za pomocą poniższej ścieżki. Sekcje A, B i C na diagramie są pobierane z diagramu architektury dla [kompleksowego wymagania wstępnego samouczka](tutorial-end-to-end.md). W tym artykule dotyczącym wykonywania tej procedury utworzysz sekcję D w istniejącej architekturze.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C). Sekcja D zawiera dane przepływów z tego samego Event Grid w strzałce C do funkcji platformy Azure o nazwie &quot;broadcast&quot;. element &quot;broadcast&quot; komunikuje się z inną funkcją platformy Azure o nazwie &quot;Negotiate&quot;, a zarówno &quot;broadcast&quot;, jak i &quot;Negotiate&quot; komunikują się z urządzeniami komputerowymi." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## <a name="download-the-sample-applications"></a>Pobierz przykładowe aplikacje
 
 Najpierw pobierz wymagane przykładowe aplikacje. Wymagane są obie następujące czynności:
-* [**Przykłady kompleksowej bliźniaczych reprezentacjii na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Ten przykład zawiera *AdtSampleAppą* dwie usługi Azure Functions do przenoszenia danych wokół wystąpienia usługi Azure Digital bliźniaczych reprezentacji (informacje o tym scenariuszu można uzyskać bardziej szczegółowo w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)). Zawiera również przykładową aplikację *DeviceSimulator* , która symuluje urządzenie IoT, generując nową wartość temperatury co sekundę. 
-    - Jeśli przykład nie został jeszcze pobrany jako część samouczka w sekcji [*wymagania wstępne*](#prerequisites), przejdź do linku przykładowego i wybierz przycisk *Przeglądaj kod* pod tytułem. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
+* [**Przykłady kompleksowych bliźniaczych reprezentacji na platformie Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Ten przykład zawiera *AdtSampleApp* , który przechowuje dwie usługi Azure Functions do przenoszenia danych wokół wystąpienia usługi Azure Digital bliźniaczych reprezentacji (więcej informacji można znaleźć w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)). Zawiera również przykładową aplikację *DeviceSimulator* , która symuluje urządzenie IoT, generując nową wartość temperatury co sekundę.
+    - Jeśli przykład nie został jeszcze pobrany jako część samouczka w sekcji [*wymagania wstępne*](#prerequisites), przejdź do [linku](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) przykładowego i wybierz przycisk *Przeglądaj kod* pod tytułem. Spowoduje to przejście do repozytorium GitHub dla przykładów, które można pobrać jako *. Plik ZIP* , wybierając przycisk *Code (kod* ) i Pobierz plik *zip*.
 
-    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Widok repozytorium Digital-bliźniaczych reprezentacji-Samples w witrynie GitHub. Wybrano przycisk kod, tworząc małe okno dialogowe, w którym jest wyróżniony przycisk Pobierz plik ZIP." lightbox="media/includes/download-repo-zip.png":::
+        :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Widok repozytorium Digital-bliźniaczych reprezentacji-Samples w witrynie GitHub. Wybrano przycisk kod, tworząc małe okno dialogowe, w którym jest wyróżniony przycisk Pobierz plik ZIP." lightbox="media/includes/download-repo-zip.png":::
 
     Spowoduje to pobranie kopii przykładowego repozytorium do maszyny jako **digital-twins-samples-master.zip**. Rozpakuj folder.
 * [**Przykład aplikacji sieci Web do integracji sygnałów**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): jest to przykładowa aplikacja sieci Web z reakcję, która będzie korzystać z danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji z usługi Azure Signal Service.
@@ -52,22 +57,13 @@ Najpierw pobierz wymagane przykładowe aplikacje. Wymagane są obie następując
 
 Pozostaw otwarte okno przeglądarki do Azure Portal, ponieważ zostanie ono użyte ponownie w następnej sekcji.
 
-## <a name="configure-and-run-the-azure-functions-app"></a>Konfigurowanie i uruchamianie aplikacji Azure Functions
+## <a name="publish-and-configure-the-azure-functions-app"></a>Publikowanie i Konfigurowanie aplikacji Azure Functions
 
 W tej sekcji zostaną skonfigurowane dwie usługi Azure Functions:
 * **negocjowanie** — funkcja wyzwalacza http. Używa powiązania danych wejściowych *SignalRConnectionInfo* do generowania i zwracania prawidłowych informacji o połączeniu.
 * **Broadcast** — funkcja wyzwalacza [Event Grid](../event-grid/overview.md) . Odbiera dane telemetryczne usługi Azure Digital bliźniaczych reprezentacji w usłudze Event Grid i używa powiązania danych wyjściowych wystąpienia *sygnalizującego* utworzonego w poprzednim kroku, aby emitować komunikat do wszystkich połączonych aplikacji klienckich.
 
-Najpierw przejdź do przeglądarki, w której jest otwarta Azure Portal i wykonaj następujące kroki, aby uzyskać **Parametry połączenia** dla skonfigurowanego wystąpienia sygnalizującego. Będzie ona potrzebna do skonfigurowania funkcji.
-1. Upewnij się, że wdrożone wcześniej wystąpienie usługi sygnalizującego zostało utworzone pomyślnie. W tym celu można wyszukać jego nazwę w polu wyszukiwania w górnej części portalu. Wybierz wystąpienie, aby je otworzyć.
-
-1. Wybierz pozycję **klucze** z menu wystąpienie, aby wyświetlić parametry połączenia dla wystąpienia usługi sygnalizującego.
-
-1. Wybierz ikonę, aby skopiować podstawowe parametry połączenia.
-
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, w którym są wyświetlane strony klucze dla wystąpienia sygnalizującego. Ikona &quot;Kopiuj do schowka&quot; obok podstawowych parametrów połączenia jest wyróżniona." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
-
-Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Digital-bliźniaczych reprezentacji-Samples-master > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
+Uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwórz rozwiązanie Code w folderze *Digital-bliźniaczych reprezentacji-Samples-master > ADTSampleApp* . Następnie wykonaj następujące kroki, aby utworzyć funkcje:
 
 1. W projekcie *SampleFunctionsApp* Utwórz nową klasę języka C# o nazwie **SignalRFunctions.cs**.
 
@@ -75,39 +71,38 @@ Następnie uruchom program Visual Studio (lub inny wybrany edytor kodu) i Otwór
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. W oknie *konsola Menedżera pakietów* programu Visual Studio lub dowolnym oknie poleceń na komputerze w folderze *Digital-Twins-Samples-master\AdtSampleApp\SampleFunctionsApp* Uruchom następujące polecenie, aby zainstalować `SignalRService` pakiet NuGet w projekcie:
+1. W oknie *konsola Menedżera pakietów* programu Visual Studio lub dowolnym oknie poleceń na maszynie przejdź do folderu *Digital-Twins-Samples-master\AdtSampleApp\SampleFunctionsApp*, a następnie uruchom następujące polecenie, aby zainstalować `SignalRService` pakiet NuGet w projekcie:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
 
     Powinno to rozwiązać wszelkie problemy zależności w klasie.
 
-Następnie opublikuj funkcję na platformie Azure, korzystając z procedury opisanej w [sekcji *publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w samouczku *łączenie kompleksowego rozwiązania* . Można go opublikować w tej samej aplikacji usługi App Service/Function, która została użyta w ramach [wymagania wstępnego](#prerequisites)samouczka "kompleksowe" lub utworzyć nowy, ale można użyć tego samego, aby zminimalizować duplikowanie. 
+1. Opublikuj funkcję na platformie Azure, wykonując kroki opisane w [sekcji *publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w samouczku *łączenie kompleksowego rozwiązania* . Można go opublikować w tej samej aplikacji usługi App Service/Function, która została użyta w ramach [wymagania wstępnego](#prerequisites)samouczka "kompleksowe" lub utworzyć nowy, ale można użyć tego samego, aby zminimalizować duplikowanie. 
 
-Następnie ukończ publikowanie aplikacji, wykonując następujące czynności:
-1. Zbierz **adres URL punktu końcowego protokołu HTTP** funkcji *Negotiate* . W tym celu przejdź do strony [aplikacji funkcji](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) Azure Portal i wybierz z listy aplikację funkcji. W menu aplikacji wybierz pozycję *funkcje* i wybierz funkcję *Negocjuj* .
+Następnie skonfiguruj funkcje do komunikacji z wystąpieniem usługi Azure Signal. Zacznij od zebrania **parametrów połączenia** wystąpienia sygnalizującego, a następnie dodaj go do ustawień aplikacji usługi Functions.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Widok Azure Portal aplikacji funkcji z wyróżnioną funkcją &quot;Functions&quot; w menu. Lista funkcji jest wyświetlana na stronie, a funkcja &quot;Negocjuj&quot; jest również wyróżniona.":::
+1. Przejdź do [Azure Portal](https://portal.azure.com/) i wyszukaj nazwę wystąpienia sygnalizującego na pasku wyszukiwania w górnej części portalu. Wybierz wystąpienie, aby je otworzyć.
+1. Wybierz pozycję **klucze** z menu wystąpienie, aby wyświetlić parametry połączenia dla wystąpienia usługi sygnalizującego.
+1. Wybierz ikonę *kopiowania* , aby skopiować podstawowe parametry połączenia.
 
-    Trafij *adres URL funkcji Get* i skopiuj wartość **do _/API_ (nie Uwzględniaj ostatnich _/Negotiate?_)**. Zostanie ona użyta później.
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, w którym są wyświetlane strony klucze dla wystąpienia sygnalizującego. Ikona &quot;Kopiuj do schowka&quot; obok podstawowych parametrów połączenia jest wyróżniona." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Widok Azure Portal funkcji &quot;Negotiate&quot;. Przycisk &quot;Pobierz adres URL funkcji&quot; jest wyróżniony, a część adresu URL od początku do &quot;/API&quot;":::
-
-1. Na koniec Dodaj **Parametry połączenia** usługi Azure Signal from wcześniej do ustawień aplikacji funkcji, korzystając z następującego polecenia interfejsu CLI platformy Azure. Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure:
+1. Na koniec Dodaj **Parametry połączenia** z usługą Azure Signal do ustawień aplikacji funkcji, korzystając z następującego polecenia platformy Azure. Ponadto Zastąp symbole zastępcze nazwą swojej grupy zasobów i usługi App Service/ [App.](how-to-integrate-azure-signalr.md#prerequisites) Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure:
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
-    Dane wyjściowe tego polecenia wyświetla wszystkie ustawienia aplikacji skonfigurowane dla funkcji platformy Azure. Znajdź `AzureSignalRConnectionString` u dołu listy, aby sprawdzić, czy została dodana.
+    Dane wyjściowe tego polecenia wyświetla wszystkie ustawienia aplikacji skonfigurowane dla funkcji platformy Azure. Znajdź `AzureSignalRConnectionString` u dołu listy, aby upewnić się, że została dodana.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Fragment danych wyjściowych w oknie polecenia, pokazujący element listy o nazwie &quot;AzureSignalRConnectionString&quot;":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Połącz funkcję z Event Grid
 
-Następnie Zasubskrybuj funkcję *emisji* Azure w **temacie Event Grid** utworzonym w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md) Ignoruj. Dzięki temu dane telemetryczne mogą być przesyłane z przędzy *thermostat67ej* za pośrednictwem usługi Event Grid do funkcji, która może być emitowana do wszystkich klientów.
+Następnie Zasubskrybuj funkcję *Emituj* usługę Azure do **tematu usługi Event Grid** utworzonego w ramach [wymagań wstępnych samouczka](how-to-integrate-azure-signalr.md#prerequisites). Pozwoli to na przepływ danych telemetrycznych z thermostat67ch sieci za pośrednictwem tematu usługi Event Grid oraz do funkcji. W tym miejscu funkcja może emitować dane do wszystkich klientów.
 
-W tym celu utworzysz **subskrypcję Event gridową** z tematu usługi Event Grid do funkcji *emisji* platformy Azure jako punktu końcowego.
+W tym celu utworzysz **subskrypcję zdarzeń** z tematu usługi Event Grid do funkcji *emisji* platformy Azure jako punktu końcowego.
 
 W [Azure Portal](https://portal.azure.com/)przejdź do tematu usługi Event Grid, wyszukując jego nazwę na górnym pasku wyszukiwania. Wybierz pozycję *+ Subskrypcja zdarzeń*.
 
@@ -124,20 +119,33 @@ Na stronie *Tworzenie subskrypcji zdarzeń* Wypełnij pola w następujący spos�
 
 Wróć na stronę *Tworzenie subskrypcji zdarzeń* , kliknij przycisk **Utwórz**.
 
+W tym momencie na stronie *tematu Event Grid* powinny zostać wyświetlone dwie subskrypcje zdarzeń.
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Azure Portal widok dwóch subskrypcji zdarzeń na stronie tematu w usłudze Event Grid." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
+
 ## <a name="configure-and-run-the-web-app"></a>Konfigurowanie i uruchamianie aplikacji sieci Web
 
 W tej sekcji zobaczysz wynik działania. Najpierw skonfiguruj **przykładową aplikację sieci Web klienta** , aby połączyć się z przepływem usługi Azure sygnalizującego, który został skonfigurowany. Następnie utworzysz **przykładową aplikację symulowanego urządzenia** , która wysyła dane telemetryczne za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Następnie zobaczysz przykładową aplikację internetową, aby zobaczyć symulowane dane urządzenia z aktualizacją przykładowej aplikacji sieci Web w czasie rzeczywistym.
 
 ### <a name="configure-the-sample-client-web-app"></a>Konfigurowanie przykładowej aplikacji internetowej klienta
 
-Skonfiguruj **przykład aplikacji sieci Web do integracji sygnalizującej** , wykonując następujące kroki:
+Następnie skonfigurujesz przykładową aplikację internetową klienta. Zacznij od zebrania **adresu URL punktu końcowego protokołu HTTP** funkcji *Negotiate* , a następnie użyj go, aby skonfigurować kod aplikacji na maszynie.
+
+1. Przejdź do strony [aplikacji funkcji](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) Azure Portal i wybierz z listy aplikację funkcji. W menu aplikacji wybierz pozycję *funkcje* i wybierz funkcję *Negocjuj* .
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Widok Azure Portal aplikacji funkcji z wyróżnioną funkcją &quot;Functions&quot; w menu. Lista funkcji jest wyświetlana na stronie, a funkcja &quot;Negocjuj&quot; jest również wyróżniona.":::
+
+1. Trafij *adres URL funkcji Get* i skopiuj wartość **do _/API_ (nie Uwzględniaj ostatnich _/Negotiate?_)**. Zostanie ona użyta w następnym kroku.
+
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Widok Azure Portal funkcji &quot;Negotiate&quot;. Przycisk &quot;Pobierz adres URL funkcji&quot; jest wyróżniony, a część adresu URL od początku do &quot;/API&quot;":::
+
 1. Korzystając z programu Visual Studio lub dowolnego dowolnego edytora kodu, Otwórz niespakowany folder _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ pobrany w sekcji [*Pobieranie przykładowych aplikacji*](#download-the-sample-applications) .
 
-1. Otwórz plik *src/App.js* i Zastąp adres URL przy `HubConnectionBuilder` użyciu adresu URL punktu końcowego protokołu HTTP,  który został zapisany wcześniej:
+1. Otwórz plik *src/App.js* i Zastąp adres URL funkcji przy `HubConnectionBuilder` użyciu adresu URL punktu końcowego http, który  został zapisany w poprzednim kroku:
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
-            .withUrl('<URL>')
+            .withUrl('<Function URL>')
             .build();
     ```
 1. W *wierszu polecenia dewelopera* programu Visual Studio lub dowolnym oknie polecenia na maszynie przejdź do folderu *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* . Uruchom następujące polecenie, aby zainstalować pakiety węzła zależnego:
@@ -148,6 +156,7 @@ Skonfiguruj **przykład aplikacji sieci Web do integracji sygnalizującej** , wy
 
 Następnie ustaw uprawnienia w aplikacji funkcji w Azure Portal:
 1. Na stronie [aplikacje funkcji](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) Azure Portal wybierz wystąpienie aplikacji funkcji.
+
 1. Przewiń w dół w menu wystąpienie i wybierz pozycję *CORS*. Na stronie CORS Dodaj `http://localhost:3000` jako dozwolony punkt początkowy, wprowadzając go w pustym polu. Zaznacz pole wyboru *Włącz dostęp-kontrola-Zezwalaj-poświadczenia* i naciśnij przycisk *Zapisz*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Ustawienie mechanizmu CORS w usłudze Azure Function":::

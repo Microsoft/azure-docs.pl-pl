@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704127"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standardowe kolumny w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](../logs/data-platform-logs.md), z których każdy ma określony typ danych, który ma unikatowy zestaw kolumn. Wiele typów danych będzie zawierać standardowe kolumny, które są wspólne dla wielu typów. W tym artykule opisano te kolumny i przedstawiono przykłady korzystania z nich w zapytaniach.
@@ -20,6 +20,10 @@ Aplikacje oparte na obszarze roboczym w Application Insights przechowują swoje 
 
 > [!NOTE]
 > Niektóre kolumny standardowe nie będą wyświetlane w widoku schematu ani IntelliSense w Log Analytics i nie będą wyświetlane w wynikach zapytania, chyba że jawnie określisz kolumnę w danych wyjściowych.
+> 
+
+## <a name="tenantid"></a>TenantId
+Kolumna **TenantId** zawiera identyfikator obszaru roboczego dla obszaru roboczego log Analytics.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated i znacznik czasu
 Kolumny **TimeGenerated** (obszar roboczy log Analytics) i **sygnatura czasowa** (aplikacja Application Insights) zawierają datę i godzinę utworzenia rekordu przez źródło danych. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../logs/data-ingestion-time.md) .
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_TimeReceived
 Kolumna **\_ TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../logs/data-ingestion-time.md) .
+
+> [!NOTE]
+> Kolumna **\_ TimeReceived** jest obliczana za każdym razem, gdy jest używana. Ten proces jest intensywnie obciążający zasoby. Dostosuj użycie go do filtrowania dużej liczby rekordów. Użycie tej funkcji może spowodować zwiększenie czasu trwania wykonywania zapytania.
+
 
 Następujące zapytanie zwraca średni czas oczekiwania (według godziny) dla rekordów zdarzeń z agenta. Obejmuje to czas od agenta do chmury oraz łączny czas dla rekordu, który będzie dostępny dla zapytań dzienników.
 
@@ -238,6 +246,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przeczytaj więcej na temat sposobu [przechowywania danych dziennika Azure monitor](../log-query/log-query-overview.md).
-- Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](../log-query/get-started-queries.md).
+- Przeczytaj więcej na temat sposobu [przechowywania danych dziennika Azure monitor](./log-query-overview.md).
+- Zapoznaj się z lekcjami dotyczącymi [pisania zapytań dzienników](./get-started-queries.md).
 - Zapoznaj się z lekcji na [sprzęganie tabel w zapytaniach dziennika](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

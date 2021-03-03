@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725326"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji na temat parametrów ustawień, zobacz [uwagi do
 
 Ta opcja jest najprostszym i używa jednego tokenu sygnatury dostępu współdzielonego, który jest przesyłany z Azure CDN do serwera pochodzenia.
  
-1. Wybierz punkt końcowy, wybierz pozycję **reguły buforowania** , a następnie wybierz pozycję **Buforuj każdy unikatowy adres URL** z listy **buforowanie ciągu zapytania** .
+1. Wybierz punkt końcowy, wybierz pozycję **reguły buforowania**, a następnie wybierz pozycję **Buforuj każdy unikatowy adres URL** z listy **buforowanie ciągu zapytania** .
 
     ![Reguły buforowania sieci CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -77,10 +77,10 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
 
    ![Przycisk aparatu reguł sieci CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo* :
+   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo*:
    
    Źródło:   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Miejsce docelowe:   
@@ -116,10 +116,10 @@ Aby można było korzystać z uwierzytelniania Azure CDN tokenów zabezpieczają
  
 2. Użyj [aparatu reguł](./cdn-verizon-premium-rules-engine.md) , aby utworzyć regułę ponownego zapisywania adresu URL, aby umożliwić dostęp tokenu SAS do wszystkich obiektów BLOB w kontenerze. Propagowanie nowych reguł trwa do 4 godzin.
 
-   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo* :
+   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo*:
    
    Źródło:   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Miejsce docelowe:   
    ```
@@ -138,7 +138,7 @@ Ponieważ parametry sygnatury dostępu współdzielonego nie są widoczne dla Az
 | --- | --- |
 | Rozpocznij | Czas, który Azure CDN może rozpocząć dostęp do pliku obiektu BLOB. Ze względu na pochylenie zegara (gdy sygnał zegara dociera do różnych składników), wybierz czas 15 minut wcześniej, jeśli chcesz, aby zasób był dostępny od razu. |
 | End | Czas, po upływie którego Azure CDN nie może uzyskać dostępu do pliku obiektu BLOB. Poprzednio buforowane pliki w Azure CDN są nadal dostępne. Aby kontrolować czas wygaśnięcia pliku, ustaw odpowiedni czas wygaśnięcia w tokenie zabezpieczającym Azure CDN lub Przeczyść element zawartości. |
-| Dozwolone adresy IP | Opcjonalny. Jeśli używasz **Azure CDN z Verizon** , możesz ustawić ten parametr na zakresy zdefiniowane w [Azure CDN z zakresów adresów IP Verizon Edge](./cdn-pop-list-api.md). Jeśli używasz **Azure CDN z Akamai** , nie można ustawić parametru zakresy adresów IP, ponieważ adresy IP nie są statyczne.|
+| Dozwolone adresy IP | Opcjonalny. Jeśli używasz **Azure CDN z Verizon**, możesz ustawić ten parametr na zakresy zdefiniowane w [Azure CDN z zakresów adresów IP Verizon Edge](./cdn-pop-list-api.md). Jeśli używasz **Azure CDN z Akamai**, nie można ustawić parametru zakresy adresów IP, ponieważ adresy IP nie są statyczne.|
 | Dozwolone protokoły | Protokoły dozwolone dla żądania wysłanego za pomocą sygnatury dostępu współdzielonego konta. Ustawienie HTTPS jest zalecane.|
 
 ## <a name="next-steps"></a>Następne kroki

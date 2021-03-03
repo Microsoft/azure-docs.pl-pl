@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806983"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729236"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -87,7 +87,7 @@ Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja działa obecnie tylko z planami systemu Windows Premium.  Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja jest obecnie dostępna tylko dla wszystkich jednostek SKU obsługiwanych przez sieć VNET, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieć wirtualna ma dostęp tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
 
 1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
 1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.

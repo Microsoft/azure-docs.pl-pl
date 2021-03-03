@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588569"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705504"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -56,7 +56,7 @@ Kluczowe scenariusze, które można wykonać za pomocą usługa Load Balancer w 
 
 - Włącz obsługę **[równoważenia obciążenia](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** **[protokołu IPv6](../virtual-network/ipv6-overview.md)**.
 
-- Usługa Load Balancer w warstwie Standardowa udostępnia metryki wielowymiarowe za [Azure monitor](../azure-monitor/overview.md).  Te metryki można filtrować, grupować i rozdzielić w danym wymiarze.  Zapewniają one bieżące i historyczne informacje o wydajności i kondycji usługi. [Szczegółowe informacje na temat Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) oferują wstępnie skonfigurowany pulpit nawigacyjny z przydatnymi wizualizacjami dla tych metryk.  Obsługiwane są również Resource Health. Aby uzyskać więcej informacji, przejrzyj **[diagnostykę usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md)** .
+- Usługa Load Balancer w warstwie Standardowa udostępnia metryki wielowymiarowe za [Azure monitor](../azure-monitor/overview.md).  Te metryki można filtrować, grupować i rozdzielić w danym wymiarze.  Zapewniają one bieżące i historyczne informacje o wydajności i kondycji usługi. [Szczegółowe informacje na temat Azure Load Balancer](./load-balancer-insights.md) oferują wstępnie skonfigurowany pulpit nawigacyjny z przydatnymi wizualizacjami dla tych metryk.  Obsługiwane są również Resource Health. Aby uzyskać więcej informacji, przejrzyj **[diagnostykę usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md)** .
 
 - Równoważyć obciążenie usług na **[wielu portach, wielu adresach IP lub obu](./load-balancer-multivip-overview.md)**.
 

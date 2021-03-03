@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627777"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737345"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla agentów w Azure Monitor
-Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](../platform/log-analytics-agent.md) i [rozszerzenia diagnostycznego](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](./log-analytics-agent.md) i [rozszerzenia diagnostycznego](./diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ Poniższy przykład instaluje agenta Log Analytics na maszynie wirtualnej platfo
 Przykłady w tej sekcji instalują rozszerzenie diagnostyki na maszynach wirtualnych z systemem Windows i Linux na platformie Azure i konfiguruje je do zbierania danych.
 
 ### <a name="windows"></a>Windows
-Poniższy przykład włącza i konfiguruje rozszerzenie diagnostyki na maszynie wirtualnej platformy Microsoft Azure. Aby uzyskać szczegółowe informacje na temat konfiguracji, zobacz [schemat rozszerzenia diagnostyki systemu Windows](../platform/diagnostics-extension-schema-windows.md).
+Poniższy przykład włącza i konfiguruje rozszerzenie diagnostyki na maszynie wirtualnej platformy Microsoft Azure. Aby uzyskać szczegółowe informacje na temat konfiguracji, zobacz [schemat rozszerzenia diagnostyki systemu Windows](./diagnostics-extension-schema-windows.md).
 
 #### <a name="template-file"></a>Plik szablonu
 
@@ -807,6 +807,6 @@ Poniższy przykład włącza i konfiguruje rozszerzenie diagnostyczne na maszyni
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz inne przykładowe szablony dla Azure monitor](../samples/resource-manager-samples.md).
-* [Dowiedz się więcej o log Analytics agencie](../platform/log-analytics-agent.md).
-* [Dowiedz się więcej o rozszerzeniu diagnostyki](../platform/diagnostics-extension-overview.md).
+* [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
+* [Dowiedz się więcej o log Analytics agencie](./log-analytics-agent.md).
+* [Dowiedz się więcej o rozszerzeniu diagnostyki](./diagnostics-extension-overview.md).

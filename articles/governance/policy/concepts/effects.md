@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741824"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -266,8 +266,7 @@ Podobnie jak w przypadku AuditIfNotExists, definicja zasad DeployIfNotExists wyk
 
 ### <a name="deployifnotexists-evaluation"></a>Ocena DeployIfNotExists
 
-DeployIfNotExists uruchamia około 15 minut od momentu, gdy dostawca zasobów obsłużył żądanie utworzenia lub aktualizacji zasobu i zwrócił kod stanu sukcesu. Wdrożenie szablonu występuje, jeśli nie ma żadnych powiązanych zasobów lub jeśli zasoby zdefiniowane przez **ExistenceCondition** nie są oceniane na wartość true.
-Czas trwania wdrożenia zależy od złożoności zasobów zawartych w szablonie.
+DeployIfNotExists uruchamia około 15 minut od momentu, gdy dostawca zasobów obsłużył Tworzenie lub aktualizowanie subskrypcji lub żądania zasobu, a następnie zwrócił kod stanu sukcesu. Wdrożenie szablonu występuje, jeśli nie ma żadnych powiązanych zasobów lub jeśli zasoby zdefiniowane przez **ExistenceCondition** nie są oceniane na wartość true. Czas trwania wdrożenia zależy od złożoności zasobów zawartych w szablonie.
 
 W cyklu oceny definicje zasad z DeployIfNotExistsm efektem dopasowania zasobów są oznaczane jako niezgodne, ale nie są podejmowane żadne działania dotyczące tego zasobu. Istniejące niezgodne zasoby można skorygować przy użyciu [zadania korygowania](../how-to/remediate-resources.md).
 
@@ -482,8 +481,7 @@ Przykład: strażnika v2 reguła kontroli, aby zezwalać tylko na określone obr
 
 ## <a name="modify"></a>Modyfikowanie
 
-Modyfikowanie służy do dodawania, aktualizowania lub usuwania właściwości lub tagów w zasobie podczas tworzenia lub aktualizowania.
-Typowym przykładem jest aktualizowanie tagów w zasobach, takich jak costCenter. Istniejące niezgodne zasoby można skorygować przy użyciu [zadania korygowania](../how-to/remediate-resources.md). Pojedyncza reguła modyfikowania może zawierać dowolną liczbę operacji.
+Modyfikowanie służy do dodawania, aktualizowania lub usuwania właściwości lub tagów w ramach subskrypcji lub zasobu podczas tworzenia lub aktualizowania. Typowym przykładem jest aktualizowanie tagów w zasobach, takich jak costCenter. Istniejące niezgodne zasoby można skorygować przy użyciu [zadania korygowania](../how-to/remediate-resources.md). Pojedyncza reguła modyfikowania może zawierać dowolną liczbę operacji.
 
 Następujące operacje są obsługiwane przez modyfikację:
 

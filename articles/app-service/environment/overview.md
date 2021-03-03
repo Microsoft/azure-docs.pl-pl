@@ -4,15 +4,15 @@ description: Omówienie App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735101"
 ---
 # <a name="app-service-environment-overview"></a>Przegląd App Service Environment 
 
@@ -53,7 +53,7 @@ App Service Environment ma wiele przypadków użycia, w tym:
 Istnieje wiele funkcji sieciowych, które umożliwiają aplikacjom z wielodostępności App Service dostęp do zasobów izolowanych przez sieć lub przełączać się do sieci. Te funkcje są włączane na poziomie aplikacji.  W środowisku ASE nie ma dodatkowej konfiguracji dla aplikacji, które mają być w sieci wirtualnej. Aplikacje są wdrażane w izolowanym środowisku sieciowym, które jest już w sieci wirtualnej. W oparciu o aplikacje izolowane sieci hostingowe, jest to również system z jedną dzierżawą. Nie ma innych klientów korzystających ze środowiska ASE. Jeśli naprawdę potrzebujesz kompletnego wątku izolacji, możesz również wdrożyć środowisko ASE na dedykowanym sprzęcie. Między hostingiem izolowanych aplikacji sieci, jedną dzierżawą i możliwością 
 
 ## <a name="dedicated-environment"></a>Dedykowane środowisko
-Środowisko ASE jest przeznaczone wyłącznie dla jednej subskrypcji i może hostować 200 wystąpienia planu App Service. Zakres może obejmować 100 wystąpień w jednym planie usługi App Service lub 100 planów usługi App Service z jednym wystąpieniem każdy — możliwe są też wszelkie konfiguracje pośrednie.
+Środowisko ASE jest przeznaczone wyłącznie dla jednej subskrypcji i może hostować 200 ogólnych wystąpień planu App Service w wielu planach App Service. Słowo "wystąpienie" odnosi się do App Service skalowania w poziomie. Każde wystąpienie jest równoważne roli procesu roboczego. Chociaż środowisko ASE może mieć 200 całkowitej liczby wystąpień, jeden izolowany plan App Service w wersji 2 może zawierać 100 wystąpień. Środowisko ASE może przechowywać dwa App Service plany z 100 wystąpieniami w każdym, 200 App Serviceych planach z jednym wystąpieniem, lub wszystko między nimi.
 
 Środowisko ASE składa się z frontonów i procesów roboczych. Frontony są odpowiedzialne za zakończenia połączeń HTTP/HTTPS i automatyczne równoważenie obciążenia żądań aplikacji w środowisku ASE. Frontony są automatycznie dodawane w przypadku skalowania w poziomie planów usługi App Service w środowisku ASE.
 
@@ -77,7 +77,7 @@ Aplikacje często muszą również uzyskiwać dostęp do zasobów firmy, takich 
 ## <a name="preview"></a>Wersja zapoznawcza
 App Service Environment V3 jest w publicznej wersji zapoznawczej.  Niektóre funkcje są dodawane w trakcie postępu w wersji zapoznawczej. Obecne ograniczenia ASEv3 obejmują:
 
-- Niezdolność do skalowania planu App Service poza pięcioma wystąpieniami
+- Brak możliwości skalowania planu App Service poza wystąpieniami 50
 - Brak możliwości pobrania kontenera z rejestru prywatnego
 - Niezdolność do obecnie nieobsługiwanego App Service funkcji do przechodzenia przez sieć wirtualną klienta
 - Brak zewnętrznego modelu wdrażania z dostępnym punktem końcowym z Internetu

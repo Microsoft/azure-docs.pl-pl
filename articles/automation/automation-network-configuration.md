@@ -4,12 +4,12 @@ description: Ten artykuł zawiera szczegółowe informacje dotyczące sieci wyma
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 0add7eed6abbe6c137d423ee4a7ef5f0f60072e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708887"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Szczegóły konfiguracji sieci Azure Automation
 
@@ -26,7 +26,7 @@ Następujący port i adresy URL są wymagane dla hybrydowego procesu roboczego e
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Planowanie sieci dla hybrydowego procesu roboczego elementu Runbook
 
-Dla systemu lub użytkownika hybrydowego procesu roboczego elementu Runbook w celu nawiązania połączenia i zarejestrowania się w Azure Automation musi on mieć dostęp do numeru portu i adresów URL opisanych w tej sekcji. Proces roboczy musi mieć również dostęp do [portów i adresów URL wymaganych przez agenta log Analytics](../azure-monitor/platform/agent-windows.md) do łączenia się z obszarem roboczym Azure Monitor Log Analytics.
+Dla systemu lub użytkownika hybrydowego procesu roboczego elementu Runbook w celu nawiązania połączenia i zarejestrowania się w Azure Automation musi on mieć dostęp do numeru portu i adresów URL opisanych w tej sekcji. Proces roboczy musi mieć również dostęp do [portów i adresów URL wymaganych przez agenta log Analytics](../azure-monitor/agents/agent-windows.md) do łączenia się z obszarem roboczym Azure Monitor Log Analytics.
 
 Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Przejrzyj [rekordy DNS używane przez Azure Automation](how-to/automation-region-dns-records.md) dla wymaganych rekordów DNS.
 

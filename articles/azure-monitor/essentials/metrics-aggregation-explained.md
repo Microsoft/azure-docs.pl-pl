@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615230"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725870"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor agregowania metryk metryk i wyświetlenia
 
@@ -101,7 +101,7 @@ Metryki są przechwytywane dla każdego pojedynczego zasobu. Jednak poziom, na k
 
 W przypadku grafu metryki w Eksploratorze metryk istnieje możliwość "dzielenia" wykresu przez wymiar.  Dzielenie wykresu oznacza, że przeglądasz dane bazowe, aby uzyskać bardziej szczegółowe informacje i zobaczyć, że dane zostały przełączone lub przefiltrowane w Eksploratorze metryk.
 
-Na przykład, [Microsoft. ApiManagement/Service](../platform/metrics-supported.md#microsoftapimanagementservice) ma *lokalizację* jako wymiar dla wielu metryk. 
+Na przykład, [Microsoft. ApiManagement/Service](./metrics-supported.md#microsoftapimanagementservice) ma *lokalizację* jako wymiar dla wielu metryk. 
 
 - **Wydajność** to taka Metryka. Wymiar *lokalizacji* oznacza, że podstawowy system przechowuje rekord metryki dla pojemności poszczególnych lokalizacji, a nie tylko jeden dla zagregowanej wartości. Następnie można pobrać lub podzielić te informacje na wykresie pomiarowym.  
 
@@ -109,7 +109,7 @@ Na przykład, [Microsoft. ApiManagement/Service](../platform/metrics-supported.m
 
 - Jednym z bardziej elastycznych metryk, **żądania** ma 7 różnych wymiarów. 
  
-Zapoznaj się z artykułem dotyczącym [metryk](../platform/metrics-supported.md) Azure monitor, aby uzyskać szczegółowe informacje o każdej metryce i dostępnych wymiarach. Ponadto Dokumentacja dla każdego dostawcy zasobów i typu może dostarczyć dodatkowych informacji na temat wymiarów i ich miary.
+Zapoznaj się z artykułem dotyczącym [metryk](./metrics-supported.md) Azure monitor, aby uzyskać szczegółowe informacje o każdej metryce i dostępnych wymiarach. Ponadto Dokumentacja dla każdego dostawcy zasobów i typu może dostarczyć dodatkowych informacji na temat wymiarów i ich miary.
 
 Do Dig problemu można używać dzielenia i filtrowania. Poniżej znajduje się przykład grafiki przedstawiający *średnią liczbę bajtów zapisu dysku* dla grupy maszyn wirtualnych w grupie zasobów. Mamy pakiet zbiorczy wszystkich maszyn wirtualnych z tą metryką, ale możemy chcieć DIG do sprawdzenia, które są rzeczywiście odpowiedzialne za szczyty wokół 6:00u. Czy są to te same maszyny? Ile maszyn jest używanych?  
 

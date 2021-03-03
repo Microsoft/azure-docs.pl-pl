@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571357"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709176"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Rozwiązywanie problemów z Azure Monitor dla pulpitu wirtualnego systemu Windows (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Jeśli dane nie są wyświetlane prawidłowo, sprawdź konfigurację, uprawnieni
     - Dostęp do odczytu do grup zasobów subskrypcji, w których znajdują się hosty sesji usług pulpitu wirtualnego systemu Windows 
     - Dostęp do odczytu do obszaru roboczego Log Analytics
 
-- Może być konieczne otwarcie portów wychodzących w zaporze serwera, aby umożliwić Azure Monitor wysyłanie danych do portalu, zobacz [porty wychodzące](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- Może być konieczne otwarcie portów wychodzących w zaporze serwera, aby umożliwić Azure Monitor wysyłanie danych do portalu, zobacz [porty wychodzące](../azure-monitor/app/ip-addresses.md). 
 
 - Nie widzisz danych z ostatniej aktywności? Możesz poczekać 15 minut i odświeżyć źródło danych. Azure Monitor zawiera 15-minutowy okres opóźnienia do wypełniania danych dziennika. Aby dowiedzieć się więcej, zobacz czas pozyskiwania [danych dziennika w Azure monitor](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -62,8 +62,8 @@ Dowiedz się więcej na temat terminów dotyczących danych na [Azure monitor s�
 
 Jeśli chcesz monitorować więcej liczników wydajności lub zdarzeń, możesz umożliwić im wysyłanie danych do obszaru roboczego Log Analytics i monitorowanie ich w diagnostyce hosta: przeglądarka hosta. 
 
-- Aby dodać liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
-- Aby dodać zdarzenia systemu Windows, zobacz [Konfigurowanie dzienników zdarzeń systemu Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+- Aby dodać liczniki wydajności, zobacz [Konfigurowanie liczników wydajności](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- Aby dodać zdarzenia systemu Windows, zobacz [Konfigurowanie dzienników zdarzeń systemu Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Nie można znaleźć punktu danych ułatwiającego zdiagnozowanie problemu? Wyślij nam opinię!
 

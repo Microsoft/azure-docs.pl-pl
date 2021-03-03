@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448528"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719274"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu Azure Stack EDGE Pro
 
@@ -54,6 +54,17 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 - **Usługa Azure ARC z włączonym Kubernetes wdrożeniem**: usługa Azure Arc Kubernetes jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `azure-arc namespace` . Agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. 
     
     Usługa Azure ARC z włączonym Kubernetes umożliwia również korzystanie z Azure Monitor kontenerów do wyświetlania i monitorowania klastra. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure Arc włączona Kubernetes?](../azure-arc/kubernetes/overview.md).
+    
+    Począwszy od marca 2021, usługa Azure ARC z włączonym Kubernetes będzie ogólnie dostępna dla użytkowników i standardowych opłat za użycie. Jako cenny klient wersji zapoznawczej usługa Azure Arc Kubernetes będzie dostępna bezpłatnie dla Azure Stack urządzeń brzegowych. Aby skorzystać z oferty wersji zapoznawczej, Utwórz [support Request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. W kategorii **Typ problemu** wybierz pozycję **Rozliczenia**.
+    2. W obszarze **Subskrypcja** wybierz swoją subskrypcję.
+    3. W obszarze **Usługa** wybierz pozycję **Moje usługi**, a następnie wybierz pozycję **Azure Stack Edge**.
+    4. W obszarze **zasób** wybierz zasób.
+    5. W obszarze **Podsumowanie** wpisz opis problemu.
+    6. W obszarze **typ problemu** wybierz pozycję **nieoczekiwane opłaty**.
+    7. W obszarze **podtyp problemu** wybierz pozycję **Pomóż mi zrozumieć opłaty za bezpłatną wersję próbną**.
+
 
 ## <a name="choose-the-deployment-type"></a>Wybierz typ wdrożenia
 

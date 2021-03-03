@@ -1,26 +1,26 @@
 ---
-title: Przykłady szablonów Menedżer zasobów dla Azure Monitor dla maszyn wirtualnych
-description: Przykładowe szablony Azure Resource Manager do wdrażania i configureAzure monitorowania maszyn wirtualnych.
+title: Przykłady szablonów Menedżer zasobów dla usługi VM Insights
+description: Przykładowe szablony Azure Resource Manager umożliwiające wdrażanie i configureVM szczegółowych informacji.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 91c8396795a85cd63fa502c4b091b7ca9a42865b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa18a5f2af79d75c4eba8c6822f1a7ed8ca4efa8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733758"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Przykłady szablonów Menedżer zasobów dla Azure Monitor dla maszyn wirtualnych
-Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) umożliwiające włączenie Azure monitor dla maszyn wirtualnych na maszynach wirtualnych. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+# <a name="resource-manager-template-samples-for-vm-insights"></a>Przykłady szablonów Menedżer zasobów dla usługi VM Insights
+Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) umożliwiające włączenie usługi VM Insights na maszynach wirtualnych. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
-Poniższy przykład umożliwia Azure Monitor dla maszyn wirtualnych dla Log Analytics obszaru roboczego.
+Poniższy przykład umożliwia korzystanie z usługi VM Insights dla obszaru roboczego Log Analytics.
 
 
 ### <a name="template-file"></a>Plik szablonu
@@ -98,7 +98,7 @@ Poniższy przykład umożliwia Azure Monitor dla maszyn wirtualnych dla Log Anal
 
 
 ## <a name="onboard-an-azure-virtual-machine"></a>Dołączanie maszyny wirtualnej platformy Azure
-Poniższy przykład dodaje maszynę wirtualną platformy Azure do Azure Monitor dla maszyn wirtualnych.
+Poniższy przykład dodaje maszynę wirtualną platformy Azure do szczegółowych informacji o maszynie wirtualnej.
 
 
 ### <a name="template-file"></a>Plik szablonu
@@ -219,7 +219,7 @@ Poniższy przykład dodaje maszynę wirtualną platformy Azure do Azure Monitor 
 
 
 ## <a name="onboard-an-azure-virtual-machine-scale-set"></a>Dołączanie zestawu skalowania maszyn wirtualnych platformy Azure
-Poniższy przykład dodaje zestaw skalowania maszyn wirtualnych platformy Azure do Azure Monitor dla maszyn wirtualnych.
+Poniższy przykład dodaje zestaw skalowania maszyn wirtualnych platformy Azure do usługi VM Insights.
 
 
 ### <a name="template-file"></a>Plik szablonu
@@ -340,5 +340,5 @@ Poniższy przykład dodaje zestaw skalowania maszyn wirtualnych platformy Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz inne przykładowe szablony dla Azure monitor](../samples/resource-manager-samples.md).
-* [Dowiedz się więcej o Azure monitor dla maszyn wirtualnych](../vm/vminsights-overview.md).
+* [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
+* [Dowiedz się więcej o usłudze VM Insights](vminsights-overview.md).

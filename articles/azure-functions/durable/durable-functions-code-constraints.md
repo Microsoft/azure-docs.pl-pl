@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833099"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726414"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Ograniczenia kodu funkcji programu Orchestrator
 
@@ -31,7 +31,7 @@ W poniższej tabeli przedstawiono przykłady interfejsów API, które należy un
 | Kategoria interfejsu API | Przyczyna | Obejście |
 | ------------ | ------ | ---------- |
 | Daty i godziny  | Interfejsy API, które zwracają bieżącą datę lub godzinę, są niejednoznaczne, ponieważ zwracana wartość jest inna dla każdego powtórzenia. | Użyj właściwości [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) w programie .NET, `currentUtcDateTime` interfejsie API w języku JavaScript lub `current_utc_datetime` interfejsie API języka Python, który jest bezpieczny do odtworzenia. |
-| Identyfikatory GUID i identyfikatory UUID  | Interfejsy API, które zwracają losowy identyfikator GUID lub UUID, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Użyj [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) w programie .NET lub `newGuid` JavaScript, aby bezpiecznie generować losowe identyfikatory GUID. |
+| Identyfikatory GUID i identyfikatory UUID  | Interfejsy API, które zwracają losowy identyfikator GUID lub UUID, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Używaj [NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) na platformie .NET, `newGuid` języka JavaScript i `new_guid` w języku Python, aby bezpiecznie generować losowe identyfikatory GUID. |
 | Liczby losowe | Interfejsy API, które zwracają liczby losowe, są niejednoznaczne, ponieważ wygenerowana wartość jest inna dla każdego powtórzenia. | Użyj funkcji działania, aby zwrócić liczbę losową do aranżacji. Wartości zwracane funkcji działania są zawsze bezpieczne do powtórzenia. |
 | Powiązania | Powiązania wejściowe i wyjściowe zwykle wykonują we/wy i są niejednoznaczne. Funkcja programu Orchestrator nie może bezpośrednio używać nawet powiązania klienta [aranżacji](durable-functions-bindings.md#orchestration-client) i [klienta jednostki](durable-functions-bindings.md#entity-client) . | Użyj powiązań wejściowych i wyjściowych w ramach funkcji klienta lub działania. |
 | Sieć | Wywołania sieciowe obejmują systemy zewnętrzne i nie są niejednoznaczne. | Użyj funkcji działania, aby wykonać wywołania sieciowe. Jeśli musisz wykonać wywołanie HTTP z funkcji programu Orchestrator, możesz również użyć [trwałych interfejsów API protokołu HTTP](durable-functions-http-features.md#consuming-http-apis). |

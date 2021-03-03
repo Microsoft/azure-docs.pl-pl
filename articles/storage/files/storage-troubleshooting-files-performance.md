@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737634"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Rozwiązywanie problemów z wydajnością udziałów plików platformy Azure
 
@@ -50,7 +50,7 @@ Aby potwierdzić, że Twój udział jest ograniczany, możesz uzyskać dostęp d
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Aby dowiedzieć się więcej na temat każdego typu odpowiedzi, zobacz [Dimension Metrics](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Aby dowiedzieć się więcej na temat każdego typu odpowiedzi, zobacz [Dimension Metrics](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Zrzut ekranu przedstawiający opcje metryk dla udziałów plików w warstwie Premium, z uwzględnieniem filtru właściwości "typ odpowiedzi".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -258,13 +258,12 @@ Aby potwierdzić, możesz użyć metryk platformy Azure w portalu —
    > [!NOTE]
    > Jeśli typy odpowiedzi nie są wyświetlane na liście rozwijanej **wartości wymiaru** , oznacza to, że zasób nie został ograniczony. Aby dodać wartości wymiaru, obok listy rozwijanej **wartości wymiaru** wybierz pozycję **Dodaj wartość niestandardową**, wprowadź typ respone (na przykład **SuccessWithThrottling**), wybierz pozycję **OK**, a następnie powtórz te kroki, aby dodać wszystkie odpowiednie typy odpowiedzi dla udziału plików.
 
-8. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
-9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
-
+8. W przypadku **udziałów plików w warstwie Premium** kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**. W przypadku **standardowych udziałów plików** przejdź do **kroku #10**.
 
    > [!NOTE]
-   > Jeśli udział plików jest standardowym udziałem plików, zaznacz **wszystkie bieżące i przyszłe wartości**. Lista rozwijana wartości wymiarów nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
+   > Jeśli udział plików jest standardowym udziałem plików, wymiar **udziału plików** nie będzie wyświetlać udziałów plików, ponieważ metryki dla udziałów nie są dostępne dla standardowych udziałów plików. Alerty dotyczące ograniczania przepustowości dla standardowych udziałów plików będą wyzwalane, jeśli jakikolwiek udział plików w ramach konta magazynu zostanie ograniczony, a alert nie określi, który udział plików został ograniczony. Ponieważ metryki dla poszczególnych udziałów nie są dostępne dla standardowych udziałów plików, zalecenie ma mieć jeden udział plików na konto magazynu.
 
+9. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
 10. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
 
     > [!TIP]

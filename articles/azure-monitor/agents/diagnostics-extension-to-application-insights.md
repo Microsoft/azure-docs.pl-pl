@@ -1,17 +1,16 @@
 ---
 title: Wyślij Diagnostyka Azure dane do Application Insights
 description: Zaktualizuj konfigurację publiczną Diagnostyka Azure, aby wysyłać dane do Application Insights.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b9e9d6b1b5939804b24fd523bf8b7444ed41178f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708598"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Wyślij usługę w chmurze, maszynę wirtualną lub Service Fabric dane diagnostyczne do Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets i Service Fabric wszystkie używają rozszerzenia Diagnostyka Azure do zbierania danych.  Diagnostyka Azure wysyła dane do tabel usługi Azure Storage.  Można jednak również potokować wszystkie lub podzbiór danych do innych lokalizacji przy użyciu rozszerzenia Diagnostyka Azure 1,5 lub nowszego.
@@ -172,10 +171,11 @@ W poprzedniej konfiguracji następujące wiersze mają następujące znaczenie:
 
 ### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Wyślij wszystkie dane zbierane przez diagnostykę platformy Azure
 
-```XML
+```xml
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 ```
-```JSON
+
+```json
 "DiagnosticMonitorConfiguration": {
     "overallQuotaInMB": 4096,
     "sinks": "ApplicationInsights",
@@ -184,10 +184,11 @@ W poprzedniej konfiguracji następujące wiersze mają następujące znaczenie:
 
 ### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Wysyłaj tylko dzienniki błędów do ujścia Application Insights
 
-```XML
+```xml
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 ```
-```JSON
+
+```json
 "DiagnosticMonitorConfiguration": {
     "overallQuotaInMB": 4096,
     "sinks": "ApplicationInsights.MyTopDiagData",

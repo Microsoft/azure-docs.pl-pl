@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709550"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -101,9 +101,23 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    ```
 
    Jeśli zmienna [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) jest zwracana z wartością "on", rejestrowanie binarne jest włączone na serwerze.
-
-   Jeśli `log_bin` zwracana jest wartość "off", należy włączyć rejestrowanie binarne, edytując plik my. cnf, aby `log_bin=ON` zmiany zaczęły obowiązywać.
-
+   
+   Jeśli `log_bin` jest zwracana z wartością "off", 
+   1. Zlokalizuj plik konfiguracji MySQL (My. cnf) na serwerze źródłowym. Na przykład:/etc/my.cnf
+   2. Otwórz plik konfiguracji, aby go edytować i zlokalizować w nim sekcję **MySQL** .
+   3.  W sekcji MySQL Dodaj następujący wiersz
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Uruchom ponownie serwer źródłowy MySQL, aby zmiany zaczęły obowiązywać.
+   5. Po ponownym uruchomieniu serwera Sprawdź, czy rejestrowanie binarne jest włączone, uruchamiając to samo zapytanie jak wcześniej:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Ustawienia serwera źródłowego
 
    Replikacja typu data-in wymaga `lower_case_table_names` , aby parametr był spójny między serwerami źródłowym i repliki. Domyślnie ten parametr jest 1 w Azure Database for MySQL.

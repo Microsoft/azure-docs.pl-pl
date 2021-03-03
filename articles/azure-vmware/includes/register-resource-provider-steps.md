@@ -3,16 +3,16 @@ title: Rejestrowanie dostawcy zasobów rozwiązań VMware platformy Azure
 description: Procedura rejestrowania dostawcy zasobów rozwiązania VMware platformy Azure.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 80010a232f80865b20c2e3d953dc1d9d22ece1c6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cd4a6f3003945973f0fe5367eb198823595a412e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653175"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750481"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-Aby korzystać z rozwiązania Azure VMware, należy najpierw zarejestrować dostawcę zasobów w ramach subskrypcji. Aby uzyskać więcej informacji na temat dostawców zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](/azure/azure-resource-manager/management/resource-providers-and-types).
+Aby korzystać z rozwiązania Azure VMware, należy najpierw zarejestrować dostawcę zasobów w ramach subskrypcji. Aby uzyskać więcej informacji na temat dostawców zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure 
 

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618520"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711012"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Wyeksportuj dane z Azure Monitor przy użyciu usługi Azure Eksplorator danych (wersja zapoznawcza)
 Eksportowanie danych z Azure Monitor na konto usługi Azure Storage umożliwia przechowywanie w niskich kosztach i możliwość ponownego przydzielenia dzienników do różnych regionów. Użyj usługi Azure Eksplorator danych, aby wykonać zapytanie dotyczące danych, które zostały wyeksportowane z Log Analytics obszarów roboczych. Po skonfigurowaniu obsługiwane tabele, które są wysyłane z obszarów roboczych do konta usługi Azure Storage, będą dostępne jako źródło danych dla Eksplorator danych platformy Azure.
@@ -30,9 +30,9 @@ Przepływ procesu jest następujący:
 ## <a name="send-data-to-azure-storage"></a>Wysyłanie danych do usługi Azure Storage
 Dzienniki Azure Monitor można eksportować do konta usługi Azure Storage przy użyciu dowolnej z poniższych opcji.
 
-- Aby wyeksportować wszystkie dane z obszaru roboczego Log Analytics do konta usługi Azure Storage lub centrum zdarzeń, użyj funkcji eksportu danych obszaru roboczego Log Analytics dzienników Azure Monitor. Zobacz [log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](../platform/logs-data-export.md)
-- Zaplanowano eksport z zapytania dziennika przy użyciu aplikacji logiki. Jest to podobne do funkcji eksportu danych, ale umożliwia wysyłanie filtrowanych lub zagregowanych danych do usługi Azure Storage. Ta metoda jest niezależna od [limitów zapytania log](../service-limits.md#log-analytics-workspaces)  zobacz [dane archiwalne z obszaru roboczego log Analytics do usługi Azure Storage przy użyciu aplikacji logiki](../platform/logs-export-logic-app.md).
-- Eksport jednorazowy przy użyciu aplikacji logiki. Zobacz [Azure monitor Logs łącznik Logic Apps i automatyzacji](../platform/logicapp-flow-connector.md).
+- Aby wyeksportować wszystkie dane z obszaru roboczego Log Analytics do konta usługi Azure Storage lub centrum zdarzeń, użyj funkcji eksportu danych obszaru roboczego Log Analytics dzienników Azure Monitor. Zobacz [log Analytics eksportu danych obszaru roboczego w Azure monitor (wersja zapoznawcza)](./logs-data-export.md)
+- Zaplanowano eksport z zapytania dziennika przy użyciu aplikacji logiki. Jest to podobne do funkcji eksportu danych, ale umożliwia wysyłanie filtrowanych lub zagregowanych danych do usługi Azure Storage. Ta metoda jest niezależna od [limitów zapytania log](../service-limits.md#log-analytics-workspaces)  zobacz [dane archiwalne z obszaru roboczego log Analytics do usługi Azure Storage przy użyciu aplikacji logiki](./logs-export-logic-app.md).
+- Eksport jednorazowy przy użyciu aplikacji logiki. Zobacz [Azure monitor Logs łącznik Logic Apps i automatyzacji](./logicapp-flow-connector.md).
 - Jednorazowe Eksportowanie do komputera lokalnego przy użyciu skryptu programu PowerShell. Zobacz [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]

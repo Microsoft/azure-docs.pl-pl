@@ -1,19 +1,19 @@
 ---
 title: Monitoruj nowy klaster usługi Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Dowiedz się, jak włączyć monitorowanie dla nowego klastra usługi Azure Kubernetes Service (AKS) przy użyciu subskrypcji kontenerów Azure Monitor.
+description: Dowiedz się, jak włączyć monitorowanie nowej platformy Azure Kubernetes Service (AKS) przy użyciu subskrypcji usługi Container Insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620053"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717574"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Włącz monitorowanie nowego klastra usługi Azure Kubernetes Service (AKS)
 
-W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania zarządzanego klastra Kubernetes hostowanego w [usłudze Azure Kubernetes Service](../../aks/index.yml) , która jest przygotowywana do wdrożenia w ramach subskrypcji.
+W tym artykule opisano sposób konfigurowania usługi Container Insights w celu monitorowania zarządzanego klastra Kubernetes hostowanego w [usłudze Azure Kubernetes](../../aks/index.yml) , która jest przygotowywana do wdrożenia w ramach subskrypcji.
 
 Można włączyć monitorowanie klastra AKS przy użyciu jednej z obsługiwanych metod:
 
@@ -34,14 +34,14 @@ Jeśli [wdrażasz nowy klaster AKS przy użyciu Terraform](/azure/developer/terr
 >[!NOTE]
 >Jeśli zdecydujesz się na korzystanie z Terraform, musisz mieć uruchomiony program Terraform platformy Azure RM w wersji 1.17.0 lub nowszej.
 
-Aby dodać Azure Monitor kontenerów do obszaru roboczego, zapoznaj się z tematem [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) i Ukończ profil, dołączając [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) i określ **oms_agent**. 
+Aby dodać szczegółowe informacje o kontenerze do obszaru roboczego, zobacz [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) i Ukończ profil, dołączając [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) i określ **oms_agent**. 
 
 Po włączeniu monitorowania i zakończeniu wszystkich zadań konfiguracji można monitorować wydajność klastra na jeden z dwóch sposobów:
 
 * Bezpośrednio w klastrze AKS, wybierając pozycję **kondycja** w okienku po lewej stronie.
 * Wybierając kafelek **monitoruj informacje o kontenerze** na stronie klastra AKS dla wybranego klastra. W obszarze Azure Monitor w lewym okienku wybierz pozycję **kondycja**. 
 
-  ![Opcje wybierania Azure Monitor dla kontenerów w AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opcje wybierania usługi Container Insights w AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra. 
 
@@ -117,5 +117,5 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JS
 
 * Jeśli wystąpią problemy podczas próby dołączenia rozwiązania, zapoznaj się z [przewodnikiem rozwiązywania problemów](container-insights-troubleshoot.md)
 
-* Po włączeniu monitorowania w celu zbierania danych o kondycji i użyciu zasobów klastra AKS oraz obciążeń na nich uruchomionych należy dowiedzieć się, [jak używać](container-insights-analyze.md) Azure monitor do kontenerów.
+* Dzięki monitorowaniu z możliwością zbierania danych o kondycji i obciążeniu zasobów klastra AKS oraz uruchomionych na nich obciążeń zapoznaj się z [tematem korzystanie z](container-insights-analyze.md) usługi Container Insights.
 

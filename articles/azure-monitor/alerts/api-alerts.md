@@ -4,12 +4,12 @@ description: Interfejs API REST alertów Log Analytics umożliwia tworzenie i za
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717812"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Tworzenie reguł alertów i zarządzanie nimi w Log Analytics z interfejsem API REST 
 
@@ -21,7 +21,7 @@ Interfejs API REST alertów Log Analytics umożliwia tworzenie i zarządzanie al
 Interfejs API REST usługi Log Analytics Search to RESTful i można uzyskać do niego dostęp za pośrednictwem interfejsu API REST Azure Resource Manager. W tym dokumencie znajdują się przykłady, do których dostęp do interfejsu API uzyskuje się za pomocą wiersza polecenia programu PowerShell przy użyciu  [ARMClient](https://github.com/projectkudu/ARMClient), narzędzia wiersza polecenia typu open source, które upraszcza wywoływanie interfejsu API Azure Resource Manager. Korzystanie z ARMClient i programu PowerShell to jedna z wielu opcji dostępu do interfejsu API wyszukiwania Log Analytics. Za pomocą tych narzędzi można użyć interfejsu API Azure Resource Manager RESTful, aby umożliwić wywoływanie Log Analytics obszarów roboczych i wykonywać w nich polecenia przeszukiwania. Interfejs API będzie wyprowadzał wyniki wyszukiwania w formacie JSON, co pozwala na używanie wyników wyszukiwania na wiele różnych sposobów programistycznie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Obecnie alerty mogą być tworzone tylko przy użyciu zapisanego wyszukiwania w Log Analytics.  Aby uzyskać więcej informacji, możesz zapoznać się z [interfejsem API REST przeszukiwania dzienników](../log-query/log-query-overview.md) .
+Obecnie alerty mogą być tworzone tylko przy użyciu zapisanego wyszukiwania w Log Analytics.  Aby uzyskać więcej informacji, możesz zapoznać się z [interfejsem API REST przeszukiwania dzienników](../logs/log-query-overview.md) .
 
 ## <a name="schedules"></a>Harmonogramy
 Zapisane wyszukiwanie może mieć co najmniej jeden harmonogram. Harmonogram definiuje częstotliwość uruchamiania wyszukiwania oraz przedział czasu, w którym zostały zidentyfikowane kryteria.
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Użyj [interfejsu API REST do przeszukiwania dzienników](../log-query/log-query-overview.md) w log Analytics.
+* Użyj [interfejsu API REST do przeszukiwania dzienników](../logs/log-query-overview.md) w log Analytics.
 * Informacje o [alertach dzienników w usłudze Azure monitor](./alerts-unified-log.md)
 * Jak [tworzyć, edytować i zarządzać regułami alertów dziennika w usłudze Azure monitor](./alerts-log.md)
-

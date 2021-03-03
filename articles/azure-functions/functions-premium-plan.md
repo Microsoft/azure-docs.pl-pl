@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708717"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -142,7 +142,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień. Opłaty są naliczane za łączną liczbę rdzeni i pamięci, która została przypisana do każdego wystąpienia. Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.
 
-|Jednostka SKU|Rdzenie|Pamięć|Storage|
+|SKU|Rdzenie|Pamięć|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -154,7 +154,7 @@ Uruchamianie na komputerze z większą ilością pamięci nie zawsze oznacza, ż
 
 Na przykład aplikacja funkcji JavaScript jest ograniczona przez domyślny limit pamięci w Node.js. Aby zwiększyć ten limit pamięci ustalonej, Dodaj ustawienie aplikacji `languageWorkers:node:arguments` z wartością `--max-old-space-size=<max memory in MB>` .
 
-W przypadku planów mających więcej niż 4 GB pamięci upewnij się, że ustawienie platformy bitów jest ustawione na `64 Bit` [Ustawienia ogólne](/azure/app-service/configure-common#configure-general-settings).
+W przypadku planów mających więcej niż 4 GB pamięci upewnij się, że ustawienie platformy bitów jest ustawione na `64 Bit` [Ustawienia ogólne](../app-service/configure-common.md#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Maksymalny rozmiar regionu w poziomie
 
@@ -168,7 +168,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji w [witrynie sieci We
 |Australia Środkowa 2| 100 | Niedostępny |
 |Australia Wschodnia| 100 | 20 |
 |Australia Południowo-Wschodnia | 100 | 20 |
-|Brazil South| 100 | 20 |
+|Brazylia Południowa| 100 | 20 |
 |Kanada Środkowa| 100 | 20 |
 |Central US| 100 | 20 |
 |Chiny Wschodnie 2| 100 | 20 |
@@ -178,7 +178,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji w [witrynie sieci We
 |Wschodnie stany USA 2| 100 | 20 |
 |Francja Środkowa| 100 | 20 |
 |Niemcy Środkowo-Zachodnie| 100 | Niedostępny |
-|Japan East| 100 | 20 |
+|Japonia Wschodnia| 100 | 20 |
 |Japonia Zachodnia| 100 | 20 |
 |Korea Środkowa| 100 | 20 |
 |Korea Południowa| Niedostępny | 20 |

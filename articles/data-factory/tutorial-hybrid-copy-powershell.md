@@ -6,17 +6,17 @@ ms.author: abnarain
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 01/22/2018
-ms.openlocfilehash: 6901df335dc20a032470a9cd6bda4108fe0cde36
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/18/2021
+ms.openlocfilehash: 33c3138013c43062465cce16189e6c19d22ae4d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092238"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724935"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Samouczek: kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym samouczku użyto Azure PowerShell do utworzenia potoku danych, który kopiuje dane z bazy danych SQL Server do usługi Azure Blob Storage. Utworzysz własne środowisko Integration Runtime (Self-hosted), służące do przenoszenia danych między lokalnym magazynem danych i magazynem danych w chmurze.
 

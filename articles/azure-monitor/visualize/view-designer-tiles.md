@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717217"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Przewodnik dotyczący wyświetlania kafelków projektanta w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. Ten artykuł zawiera Przewodnik dotyczący ustawień kafelków, które są dostępne w niestandardowych widokach.
@@ -36,7 +36,7 @@ Dostępne kafelki projektanta widoku są opisane w poniższej tabeli:
 W następnych sekcjach szczegółowo opisano typy kafelków i ich właściwości.
 
 > [!NOTE]
-> Kafelki w widokach opierają się na [zapytaniach dzienników](../log-query/log-query-overview.md) w obszarze roboczym log Analytics. Nie obsługują one obecnie [zapytań między zasobami](../log-query/cross-workspace-query.md) w celu pobierania danych z Application Insights.
+> Kafelki w widokach opierają się na [zapytaniach dzienników](../logs/log-query-overview.md) w obszarze roboczym log Analytics. Nie obsługują one obecnie [zapytań między zasobami](../logs/cross-workspace-query.md) w celu pobierania danych z Application Insights.
 
 ## <a name="number-tile"></a>Kafelek liczb
 Kafelek **Liczba** wyświetla zarówno liczbę rekordów z kwerendy dziennika, jak i etykiety.
@@ -173,5 +173,5 @@ Kafelek **dwie osie czasu** wyświetla wyniki dwóch zapytań dzienników w czas
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [zapytań dzienników](../log-query/log-query-overview.md) do obsługi zapytań na kafelkach.
+* Dowiedz się więcej na temat [zapytań dzienników](../logs/log-query-overview.md) do obsługi zapytań na kafelkach.
 * Dodaj [części wizualizacji](view-designer-parts.md) do widoku niestandardowego.

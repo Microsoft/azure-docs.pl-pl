@@ -2,79 +2,143 @@
 title: Wdrożenie warunkowe z szablonami
 description: Opisuje sposób warunkowego wdrażania zasobu w szablonie Azure Resource Manager (szablon ARM).
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741178"
 ---
-# <a name="conditional-deployment-in-arm-templates"></a>Wdrożenie warunkowe w szablonach ARM
+# <a name="conditional-deployment-in-arm-templates"></a>Wdrażanie warunkowe w szablonach usługi ARM
 
-Czasami trzeba opcjonalnie wdrożyć zasób w szablonie Azure Resource Manager (szablon ARM). Użyj `condition` elementu, aby określić, czy zasób został wdrożony. Wartość dla tego elementu jest rozpoznawana jako true lub false. Gdy wartość jest równa true, zasób jest tworzony. Gdy wartość jest równa false, zasób nie zostanie utworzony. Wartość może zostać zastosowana tylko do całego zasobu.
+Czasami trzeba opcjonalnie wdrożyć zasób w pliku szablonu Azure Resource Manager (szablon ARM) lub Bicep. W przypadku szablonów JSON Użyj `condition` elementu, aby określić, czy zasób został wdrożony. W przypadku Bicep Użyj `if` słowa kluczowego, aby określić, czy zasób został wdrożony. Wartość dla warunku jest równa true lub false. Gdy wartość jest równa true, zasób jest tworzony. Gdy wartość jest równa false, zasób nie zostanie utworzony. Wartość może zostać zastosowana tylko do całego zasobu.
 
 > [!NOTE]
 > Wdrożenie warunkowe nie jest kaskadowo do [zasobów podrzędnych](child-resource-name-type.md). Aby warunkowo wdrożyć zasób i jego zasoby podrzędne, należy zastosować ten sam warunek dla każdego typu zasobu.
 
-## <a name="new-or-existing-resource"></a>Nowy lub istniejący zasób
+## <a name="deploy-condition"></a>Warunek wdrożenia
 
-Przy użyciu wdrożenia warunkowego można utworzyć nowy zasób lub użyć istniejącego. Poniższy przykład przedstawia sposób użycia `condition` programu w celu wdrożenia nowego konta magazynu lub użycia istniejącego konta magazynu.
+Można przekazać wartość parametru, która wskazuje, czy zasób został wdrożony. Poniższy przykład warunkowo wdraża strefę DNS.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "condition": "[equals(parameters('newOrExisting'),'new')]",
-  "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2017-06-01",
-  "name": "[variables('storageAccountName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "[variables('storageAccountType')]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployZone": {
+      "type": "bool"
+    }
   },
-  "kind": "Storage",
-  "properties": {}
+  "functions": [],
+  "resources": [
+    {
+      "condition": "[parameters('deployZone')]",
+      "type": "Microsoft.Network/dnsZones",
+      "apiVersion": "2018-05-01",
+      "name": "myZone",
+      "location": "global"
+    }
+  ]
 }
 ```
 
-Gdy parametr `newOrExisting` jest ustawiony na **Nowy**, warunek ma wartość true. Konto magazynu zostało wdrożone. Jednak gdy `newOrExisting` jest ustawiona na wartość **exist**, warunek jest spełniony, a konto magazynu nie jest wdrożone.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Aby zapoznać się z kompletnym przykładowym szablonem, który używa `condition` elementu, zobacz [maszyna wirtualna z nowym lub istniejącym Virtual Network, magazynem i publicznym adresem IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+```bicep
+param deployZone bool
 
-## <a name="allow-condition"></a>Zezwalaj na warunek
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
 
-Można przekazać wartość parametru, która wskazuje, czy warunek jest dozwolony. Poniższy przykład wdraża program SQL Server i opcjonalnie zezwala na adresy IP platformy Azure.
+---
+
+Aby uzyskać bardziej złożony przykład, zobacz [Azure SQL Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+
+## <a name="new-or-existing-resource"></a>Nowy lub istniejący zasób
+
+Przy użyciu wdrożenia warunkowego można utworzyć nowy zasób lub użyć istniejącego. Poniższy przykład pokazuje, jak wdrożyć nowe konto magazynu lub użyć istniejącego konta magazynu.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "type": "Microsoft.Sql/servers",
-  "apiVersion": "2015-05-01-preview",
-  "name": "[parameters('serverName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "administratorLogin": "[parameters('administratorLogin')]",
-    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-    "version": "12.0"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "newOrExisting": {
+      "type": "string",
+      "defaultValue": "new",
+      "allowedValues": [
+        "new",
+        "existing"
+      ]
+    }
   },
+  "functions": [],
   "resources": [
     {
-      "condition": "[parameters('allowAzureIPs')]",
-      "type": "firewallRules",
-      "apiVersion": "2015-05-01-preview",
-      "name": "AllowAllWindowsAzureIps",
+      "condition": "[equals(parameters('newOrExisting'), 'new')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
       "properties": {
-        "endIpAddress": "0.0.0.0",
-        "startIpAddress": "0.0.0.0"
+        "accessTier": "Hot"
       }
     }
   ]
 }
 ```
 
-Aby zapoznać się z kompletnym szablonem, zobacz [serwer logiczny usługi Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+param location string = resourceGroup().location
+
+@allowed([
+  'new'
+  'existing'
+])
+param newOrExisting string = 'new'
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+```
+
+---
+
+Gdy parametr `newOrExisting` jest ustawiony na **Nowy**, warunek ma wartość true. Konto magazynu zostało wdrożone. Jednak gdy `newOrExisting` jest ustawiona na wartość **exist**, warunek jest spełniony, a konto magazynu nie jest wdrożone.
+
+Aby zapoznać się z kompletnym przykładowym szablonem, który używa `condition` elementu, zobacz [maszyna wirtualna z nowym lub istniejącym Virtual Network, magazynem i publicznym adresem IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## <a name="runtime-functions"></a>Funkcje środowiska uruchomieniowego
 

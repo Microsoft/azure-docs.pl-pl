@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: dfb18281ad558832e4b06d1c0d24654d351ed01d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4209e609420e610b9f3456da26b0afe0bf839d43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Samouczek: integracja Azure Active Directory z usługą Corptax
 
@@ -129,8 +129,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
 
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon\@yourcompanydomain.extension`  
-    Na przykład BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@<yourcompanydomain.extension>` . Na przykład: `brittasimon@contoso.com`.
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 

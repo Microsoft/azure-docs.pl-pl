@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: b1a249bac4a1a46e52bf52eccd56649153eefe8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360928"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721348"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Samouczek: Tworzenie Azure Load Balancer międzyregionowych przy użyciu Azure PowerShell
 
@@ -195,7 +195,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 W tej sekcji przetestujesz moduł równoważenia obciążenia między regionami. Nastąpi połączenie z publicznym adresem IP w przeglądarce internetowej.  Zatrzymasz maszyny wirtualne w jednym z pul zaplecza modułu równoważenia obciążenia i obserwuj przełączenia w tryb failover.
 
-1. Użyj [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) , aby uzyskać publiczny adres IP modułu równoważenia obciążenia:
+1. Użyj [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) , aby uzyskać publiczny adres IP modułu równoważenia obciążenia:
 
 ```azurepowershell-interactive
 $ip = @{

@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: beb82f8435aea817a074ce83fddc6a5417b86c26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691896"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatyzowanie zadań zarządzania przy użyciu zadań programu SQL Agent w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ Istnieje kilka podstawowych pojęć dotyczących zadań agenta SQL:
 
 Kroki zadania agenta SQL to sekwencje akcji, które mają być wykonywane przez agenta SQL. Każdy krok ma następny krok, który ma zostać wykonany, jeśli krok zakończy się pomyślnie lub nie powiedzie się. W razie niepowodzenia jest określana liczba ponownych prób.
 
-Program SQL Agent umożliwia tworzenie różnych typów kroków zadań, takich jak czynności zadania Transact-SQL, które wykonują pojedyncze dane wsadowe języka Transact-SQL względem bazy danych, lub polecenia systemu operacyjnego/programu PowerShell, które mogą wykonywać niestandardowe skrypty systemu operacyjnego, [kroki dotyczące zadania SSIS](/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent) , które umożliwiają ładowanie danych przy użyciu środowiska uruchomieniowego usług SSIS, lub kroki [replikacji](../managed-instance/replication-transactional-overview.md) , które mogą publikować zmiany z bazy danych w innych bazach
+Program SQL Agent umożliwia tworzenie różnych typów kroków zadań, takich jak czynności zadania Transact-SQL, które wykonują pojedyncze dane wsadowe języka Transact-SQL względem bazy danych, lub polecenia systemu operacyjnego/programu PowerShell, które mogą wykonywać niestandardowe skrypty systemu operacyjnego, [kroki dotyczące zadania SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) , które umożliwiają ładowanie danych przy użyciu środowiska uruchomieniowego usług SSIS, lub kroki [replikacji](../managed-instance/replication-transactional-overview.md) , które mogą publikować zmiany z bazy danych w innych bazach
 
 > [!Note]
 > Aby uzyskać więcej informacji na temat korzystania z usługi Azure SSIS Integration Runtime z usługą SSISDB hostowaną przez wystąpienie zarządzane usługi Azure SQL, zobacz temat [Używanie wystąpienia zarządzanego Azure SQL z usługą SQL Server Integration Services (SSIS) w Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).

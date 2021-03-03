@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: 6e0e582ed37230ba3f379f193a229cfec06f066c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d00a9c6012da7ad8d1566ef82bce628c7d47e7a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648037"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687002"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Szybki Start: Włączanie usługi Azure automanage dla maszyn wirtualnych w Azure Portal
 
@@ -43,11 +43,11 @@ Zaloguj się w witrynie [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21)
 
 3. Wybierz pozycję **Rozpocznij**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="Rozpocznij pojedynczą maszynę wirtualną.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="Rozpocznij pojedynczą maszynę wirtualną.":::
 
 4. Wybierz ustawienia autozarządzania (środowisko, preferencje, Autozarządzanie kontem) i **Włącz** trafienie.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Włącz dla pojedynczej maszyny wirtualnej.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Włącz dla pojedynczej maszyny wirtualnej.":::
 
 ## <a name="enable-automanage-for-multiple-vms"></a>Włącz Autozarządzanie dla wielu maszyn wirtualnych
 
@@ -64,42 +64,39 @@ Zaloguj się w witrynie [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21)
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Wybierz istniejącą maszynę wirtualną z listy dostępnych maszyn wirtualnych.":::
 
-4. W obszarze **profil konfiguracji** kliknij przycisk **Przeglądaj i Zmień profile i preferencje**.
+4. W obszarze **środowisko** wybierz typ środowiska: Programowanie **/testowanie** lub **produkcja**. 
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Przeglądaj i zmieniaj profile i preferencje.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Wybierz pozycję środowiska.":::
 
-5. W bloku **Wybierz profil konfiguracji + preferencje** :
-    1. Wybierz profil po lewej stronie: Tworzenie */testowanie* na potrzeby testowania, *prod* dla produkcji.
-    1. Kliknij przycisk **Wybierz** .
+   Kliknij pozycję **PORÓWNAJ szczegóły środowiska** , aby zobaczyć różnice między środowiskami.
+    1. Wybierz środowisko na liście rozwijanej: Tworzenie */testowanie* do testowania, *produkcja* dla produkcji.
+    1. Kliknij przycisk **OK** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Przeglądaj profil konfiguracji produkcyjnej.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Przeglądanie środowiska produkcyjnego.":::
+
+5. Domyślnie preferencje dotyczące najlepszych rozwiązań dla **platformy Azure** są wybrane dla preferencji konfiguracji. Aby to zmienić, Utwórz nową preferencję lub wybierz istniejącą. 
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Utwórz preferencję.":::
 
 6. Kliknij przycisk **Włącz**.
 
 
 ## <a name="enable-automanage-for-a-new-vm"></a>Włącz Autozarządzanie dla nowej maszyny wirtualnej
 
-Zaloguj się do Azure Portal [tutaj](https://aka.ms/AutomanagePortal-Ignite21) , aby utworzyć nową maszynę wirtualną i włączyć funkcję autozarządzania.
+Zaloguj się do Azure Portal [tutaj](https://aka.ms/AzureAutomanagePreview) , aby utworzyć nową maszynę wirtualną i włączyć funkcję autozarządzania.
 
-1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu okna witryny Azure Portal.
-
-2. W polu wyszukiwania powyżej listy zasobów portalu Azure Marketplace Wyszukaj i wybierz obraz, którego chcesz użyć, a następnie wybierz pozycję **Utwórz**.
+1. Wypełnij kartę **podstawowe** , podając szczegóły maszyny wirtualnej.
 
 > [!NOTE]
-> Sprawdź obsługiwane wersje systemu [Linux dystrybucje](automanage-linux.md#supported-linux-distributions-and-versions) i [Windows Server](automanage-windows-server.md#supported-windows-server-versions).
+> Sprawdź [Obsługiwane regiony](automanage-virtual-machines#supported-regions) w obszarze Autozarządzanie oraz obsługiwane wersje systemu [Linux dystrybucje](automanage-linux.md#supported-linux-distributions-and-versions) i [Windows Server](automanage-windows-server.md#supported-windows-server-versions).
 
-3. Wypełnij kartę **podstawowe** , podając szczegóły maszyny wirtualnej.
+2. Przejdź do karty **Zarządzanie** i wybierz **środowisko autozarządzania**.
 
-> [!NOTE]
-> Zaznacz pola wyboru Zarządzaj [obsługiwanymi regionami](automanage-virtual-machines#supported-regions).
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmcreate-managementtab.png" alt-text="Włącz Autozarządzanie na karcie Zarządzanie.":::
 
-4. Przejdź do karty **Zarządzanie** i wybierz **środowisko autozarządzania**.
+3. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="Włącz Autozarządzanie na karcie Zarządzanie.":::
-
-5. Pozostaw pozostałe wartości domyślne, a następnie wybierz przycisk **Przejrzyj + utwórz** znajdujący się u dołu strony.
-
-6. Gdy zobaczysz komunikat, że Walidacja zakończyła się pomyślnie, wybierz pozycję **Utwórz**.
+4. Gdy zobaczysz komunikat, że Walidacja zakończyła się pomyślnie, wybierz pozycję **Utwórz**.
 
 ## <a name="disable-automanage-for-vms"></a>Wyłącz Autozarządzanie dla maszyn wirtualnych
 
@@ -131,4 +128,4 @@ W tym przewodniku szybki start włączono usługę Azure automanage dla maszyn w
 Odkryj, jak można tworzyć i stosować niestandardowe preferencje podczas włączania autozarządzania na maszynie wirtualnej.
 
 > [!div class="nextstepaction"]
-> [Azure automanage dla maszyn wirtualnych — niestandardowy profil konfiguracji](virtual-machines-custom-preferences.md)
+> [Azure automanage dla maszyn wirtualnych — preferencje konfiguracji niestandardowej](virtual-machines-custom-preferences.md)

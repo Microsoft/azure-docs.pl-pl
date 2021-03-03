@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5d314331059a96388f23cd43667fca20a689f167
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2a0411e97f78104de1356d482e4e43a42701c073
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258850"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687628"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
@@ -141,14 +141,15 @@ Aby sprawdzić członkostwa w grupach użytkowników, wykonaj następujące krok
 7.  Wybierz **grupy** , aby zobaczyć grupy, do których należy użytkownik.
 
 ### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Sprawdź, czy użytkownik ma więcej niż 999 przypisań ról aplikacji
-Jeśli użytkownik ma przypisane więcej niż 999 przypisań ról aplikacji, może nie zobaczyć wszystkich swoich aplikacji w moich aplikacjach.
+Jeśli użytkownik ma więcej niż 999 przypisań ról aplikacji, może nie zobaczyć wszystkich swoich aplikacji w moich aplikacjach.
 
 Wynika to z faktu, że moje aplikacje odczytuje do 999 przypisań ról aplikacji, aby określić aplikacje, do których użytkownicy są przypisani. Jeśli użytkownik jest przypisany do ponad 999 aplikacji, nie jest możliwe kontrolowanie, które z tych aplikacji będą wyświetlane w portalu My Apps.
 
-Aby sprawdzić liczbę przypisań roli aplikacji przyznanych użytkownikowi, wykonaj następujące kroki:
+Aby sprawdzić, czy użytkownik ma więcej niż 999 przypisań ról aplikacji, wykonaj następujące kroki:
 1. Zainstaluj moduł programu [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
-2. Uruchom `Connect-MgGraph -Scopes "Directory.Read.All"` i Uwierzytelnij jako **administrator globalny.**
-3. Uruchom, `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` Aby określić liczbę przypisań ról aplikacji aktualnie przyznanych przez użytkownika.
+2. Uruchom polecenie `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Uruchom, `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count` Aby określić liczbę przypisań ról aplikacji aktualnie przyznanych przez użytkownika.
+4. Jeśli wynikiem jest 999, użytkownik prawdopodobnie ma więcej niż 999 przypisań ról aplikacji.
 
 ### <a name="check-a-users-assigned-licenses"></a>Sprawdź przypisane licencje użytkownika
 Aby sprawdzić przypisane licencje użytkownika, wykonaj następujące kroki:

@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 5eab1a1c8d085ab48dd54012908d40eec99ca4c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534684"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705079"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -93,7 +93,7 @@ Linux: CentOS | 5,2 do 5,11</b><br/> 6,1 do 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7
 Ubuntu | Ubuntu 14,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)<br/>Ubuntu 16,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Ubuntu 18,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Ubuntu 20,04 * serwer LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> (*obejmuje obsługę wszystkich 14,04.* x *, 16,04.* x *, 18,04.* x *, 20,04.* x * wersje)
 Debian | Debian 7/Debian 8 (obejmuje obsługę wszystkich 7. *x*, 8. *x* wersje); Debian 9 (w tym obsługa 9,1 do 9,13. Debian 9,0 nie jest obsługiwana.), Debian 10 [(Przejrzyj obsługiwane wersje jądra)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 z dodatkiem SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 z dodatkiem SP3. [Upewnij się, że na serwerze konfiguracji jest pobrany najnowszy Instalator agenta mobilności](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 z dodatkiem SP4 </br> **Uwaga**: uaktualnianie zreplikowanych maszyn z programu SUSE Linux Enterprise Server 11 SP3 do wersji SP4 nie jest obsługiwane. Aby przeprowadzić uaktualnienie, wyłącz replikację i włącz ją ponownie po uaktualnieniu. <br/>|
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/), [8,3](https://support.microsoft.com/help/4597409/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,3](https://support.microsoft.com/help/4597409/)  <br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Uruchamianie na wszystkich jądrach UEK i jądrze RedHat <= 3.10.0-1062. * są obsługiwane w [9,35](https://support.microsoft.com/help/4573888/) obsłudze dla pozostałych jądra RedHat jest dostępny w [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Dla każdej wersji systemu Windows Azure Site Recovery obsługuje tylko kompilacje [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  W tej chwili nie są obecnie obsługiwane [półroczne wersje kanałów](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
@@ -243,7 +243,7 @@ Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
-Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla wszystkich [systemów operacyjnych Site Recovery w portalu Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) z agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Gość/serwer EFI/rozruch UEFI | — Obsługiwane dla wszystkich [systemów operacyjnych UEFI portalu Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) z Site Recovery agentem mobilności w wersji 9,30 lub nowszej. <br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanały replikacji
 

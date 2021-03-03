@@ -4,12 +4,12 @@ description: Śledzenie problemów z funkcją automatycznego skalowania platform
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711403"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Rozwiązywanie problemów z funkcją automatycznego skalowania platformy Azure
  
@@ -24,14 +24,14 @@ Usługa automatycznego skalowania udostępnia metryki i dzienniki, aby zrozumie�
   
 ## <a name="autoscale-metrics"></a>Metryki skalowania automatycznego
 
-Funkcja automatycznego skalowania udostępnia [cztery metryki](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) , aby zrozumieć ich działanie. 
+Funkcja automatycznego skalowania udostępnia [cztery metryki](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) , aby zrozumieć ich działanie. 
 
 - **Obserwowana wartość metryki** — wartość metryki wybranej do wykonania akcji skalowania, która jest widoczna lub obliczana przez aparat skalowania automatycznego. Ponieważ pojedyncze ustawienie automatycznego skalowania może mieć wiele reguł i w związku z tym wiele źródeł metryk, można filtrować przy użyciu "źródła metryk" jako wymiaru.
 - **Próg metryki** — próg ustawiony do wykonania akcji skalowania. Ponieważ pojedyncze ustawienie automatycznego skalowania może mieć wiele reguł i w związku z tym wiele źródeł metryk, można filtrować przy użyciu "reguły metryki" jako wymiaru.
 - **Zaobserwowana pojemność** — aktywna liczba wystąpień zasobu docelowego widzianych przez aparat skalowania automatycznego.
 - **Zainicjowane akcje skalowania** — liczba akcji zwiększania i zmniejszania skali inicjowanych przez aparat skalowania automatycznego. Można filtrować według skalowania w poziomie i skalowania w działaniach.
 
-Możesz użyć [Eksplorator metryk](../platform/metrics-getting-started.md) do grafowania powyższych metryk wszystko w jednym miejscu. Wykres powinien pokazać:
+Możesz użyć [Eksplorator metryk](../essentials/metrics-getting-started.md) do grafowania powyższych metryk wszystko w jednym miejscu. Wykres powinien pokazać:
 
   - rzeczywista Metryka
   - Metryka widziana/obliczana przez aparat automatycznego skalowania
@@ -87,7 +87,7 @@ Wykres u dołu pokazuje kilka wartości.
  - **Obserwowana pojemność** (purpurowa) pokazuje liczbę wystąpień widzianą przez aparat skalowania automatycznego. 
  - **Próg metryki** (jasnozielony) jest ustawiony na wartość 10. 
 
-Jeśli istnieje wiele reguł akcji skalowania, można użyć dzielenia lub opcji **Dodaj filtr** na wykresie Eksploratora metryk, aby sprawdzić metrykę według określonego źródła lub zasady. Aby uzyskać więcej informacji na temat dzielenia wykresu metryki, zobacz [Zaawansowane funkcje wykresów metryk — dzielenie](../platform/metrics-charts.md#apply-splitting)
+Jeśli istnieje wiele reguł akcji skalowania, można użyć dzielenia lub opcji **Dodaj filtr** na wykresie Eksploratora metryk, aby sprawdzić metrykę według określonego źródła lub zasady. Aby uzyskać więcej informacji na temat dzielenia wykresu metryki, zobacz [Zaawansowane funkcje wykresów metryk — dzielenie](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Przykład 3 — Omówienie zdarzeń skalowania automatycznego
 
@@ -97,13 +97,13 @@ Na ekranie ustawienia skalowania automatycznego przejdź do karty **historia uru
 
 ## <a name="autoscale-resource-logs"></a>Automatyczne skalowanie dzienników zasobów
 
-Tak samo jak w przypadku każdego innego zasobu platformy Azure, usługa skalowania automatycznego udostępnia [dzienniki zasobów](../platform/platform-logs-overview.md). Istnieją dwie kategorie dzienników.
+Tak samo jak w przypadku każdego innego zasobu platformy Azure, usługa skalowania automatycznego udostępnia [dzienniki zasobów](../essentials/platform-logs-overview.md). Istnieją dwie kategorie dzienników.
 
 - **Obliczenia skalowania automatycznego** — aparat skalowania automatycznego rejestruje wpisy dziennika dla każdej oceny pojedynczego warunku przy każdym sprawdzaniu.  Wpis zawiera szczegółowe informacje o obserwowanych wartościach metryk, obliczeniach reguł, a jeśli Ocena spowodowała akcję skalowania lub nie.
 
 - **Akcje skalowania automatycznego skalowania** : aparat rejestruje zdarzenia akcji skalowania zainicjowane przez usługę skalowania automatycznego i wyniki tych akcji skalowania (sukces, Niepowodzenie i ilość wykorzystanych przez usługę skalowania automatycznego).
 
-Podobnie jak w przypadku dowolnej Azure Monitor obsługiwanej usługi, można użyć [ustawień diagnostycznych](../platform/diagnostic-settings.md) do kierowania tych dzienników:
+Podobnie jak w przypadku dowolnej Azure Monitor obsługiwanej usługi, można użyć [ustawień diagnostycznych](../essentials/diagnostic-settings.md) do kierowania tych dzienników:
 
 - do obszaru roboczego Log Analytics na potrzeby szczegółowej analizy
 - Aby Event Hubs, a następnie do narzędzi niezwiązanych z platformą Azure
@@ -206,4 +206,4 @@ Utwórz reguły alertów, aby otrzymywać powiadomienia o akcjach lub błędach 
 Aby uzyskać więcej informacji, zobacz [dzienniki zasobów automatycznego skalowania](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj informacje o [najlepszych rozwiązaniach dotyczących skalowania automatycznego](autoscale-best-practices.md). 
+Przeczytaj informacje o [najlepszych rozwiązaniach dotyczących skalowania automatycznego](autoscale-best-practices.md).

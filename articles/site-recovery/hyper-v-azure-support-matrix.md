@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587818"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735526"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -96,7 +96,7 @@ Accelerated Networking | Nie | Nie
 
 **Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | --- 
-NFS | Nie dotyczy | Nie dotyczy
+NFS | Nie dotyczy | NA
 SMB 3.0 | Tak | Tak
 SIEĆ SAN (ISCSI) | Tak | Tak
 Wiele ścieżek (MPIO). Przetestowano przy użyciu:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM for CLARiiON | Tak | Tak
@@ -105,15 +105,15 @@ Wiele ścieżek (MPIO). Przetestowano przy użyciu:<br></br> Microsoft DSM, EMC 
 
 **Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | ---
-VMDK | Nie dotyczy | Nie dotyczy
+VMDK | Nie dotyczy | NA
 DYSK VHD/VHDX | Tak | Tak
 Maszyna wirtualna generacji 2 | Tak | Tak
 INTERFEJS EFI/UEFI<br></br>Migrowana maszyna wirtualna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną rozruchową w systemie BIOS. Na maszynie wirtualnej powinien działać system Windows Server 2012 lub nowszy. Dysk systemu operacyjnego powinien mieć maksymalnie pięć partycji lub mniej, a rozmiar dysku systemu operacyjnego musi być mniejszy niż 300 GB.| Tak | Tak
 Udostępniony dysk klastra | Nie | Nie
 Zaszyfrowany dysk | Nie | Nie
-NFS | Nie dotyczy | Nie dotyczy
+NFS | Nie dotyczy | NA
 SMB 3.0 | Nie | Nie
-RDM | Nie dotyczy | Nie dotyczy
+RDM | Nie dotyczy | NA
 Dysk >1 TB | Tak, do 4 095 GB | Tak, do 4 095 GB
 Dysk: sektor logiczny i fizyczny 4K | Nieobsługiwane: Gen 1/Gen 2 | Nieobsługiwane: Gen 1/Gen 2
 Dysk: logiczny i 512-bajtowy sektor fizyczny | Tak |  Tak
@@ -143,7 +143,7 @@ Standard Storage | Tak | Tak
 Usługa importu/eksportu | Nie | Nie
 Konta usługi Azure Storage z włączoną zaporą | Tak. Dla magazynu docelowego i pamięci podręcznej. | Tak. Dla magazynu docelowego i pamięci podręcznej.
 Modyfikowanie konta magazynu | Nie. Nie można zmodyfikować docelowego konta usługi Azure Storage po włączeniu replikacji. Aby zmodyfikować, Wyłącz, a następnie włącz ponownie funkcję odzyskiwania po awarii. | Nie
-Opcja bezpiecznego transferu | Tak
+Opcja bezpiecznego transferu | Tak | Tak
 
 
 ## <a name="azure-compute-features"></a>Funkcje obliczeniowe platformy Azure

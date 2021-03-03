@@ -2,13 +2,13 @@
 title: Kopiuj aplikacje i dane do węzłów puli
 description: Dowiedz się, jak kopiować aplikacje i dane do węzłów puli.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378506"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703651"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Kopiuj aplikacje i dane do węzłów puli
 
@@ -33,10 +33,6 @@ Jeśli każde zadanie uruchamiane w puli uruchamia aplikację (. exe), która mu
 W przypadku aplikacji lub danych, które muszą być zainstalowane na każdym węźle w puli, należy rozważyć użycie [pakietów aplikacji](batch-application-packages.md). Nie istnieje polecenie instalacji skojarzone z pakietem aplikacji, ale można użyć zadania uruchamiania do uruchomienia dowolnego polecenia instalacji. Jeśli aplikacja nie wymaga instalacji lub składa się z dużej liczby plików, można użyć tej metody.
 
 Pakiety aplikacji są przydatne, gdy masz dużą liczbę plików, ponieważ mogą one łączyć wiele odwołań do plików w małym ładunku. Jeśli spróbujesz dołączyć więcej niż 100 oddzielnych plików zasobów w jednym zadaniu, usługa Batch może zostać przydzielona do ograniczeń systemu wewnętrznego dla jednego zadania. Pakiety aplikacji są również przydatne, gdy masz wiele różnych wersji tej samej aplikacji i musisz wybrać między nimi.
-
-## <a name="extensions"></a>Rozszerzenia
-
-[Rozszerzenia](create-pool-extensions.md) to małe aplikacje, które ułatwiają konfigurowanie i konfigurację inicjowania obsługi administracyjnej w węzłach obliczeniowych wsadowych. Podczas tworzenia puli można wybrać obsługiwane rozszerzenie, które ma zostać zainstalowane w węzłach obliczeniowych w miarę ich udostępniania. Po tym rozszerzeniu można wykonać zamierzoną operację.
 
 ## <a name="job-preparation-task-resource-files"></a>Pliki zasobów zadania przygotowania zadania
 

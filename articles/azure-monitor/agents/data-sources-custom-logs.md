@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616993"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719937"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbieranie dzienników niestandardowych przy użyciu agenta usługi Log Analytics w usłudze Azure Monitor
 
 Źródło danych dzienników niestandardowych dla agenta Log Analytics w programie Azure Monitor umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemem Windows i Linux. Wiele aplikacji rejestruje informacje w plikach tekstowych zamiast standardowych usługach rejestrowania, takich jak dziennik zdarzeń systemu Windows lub system plików dziennika. Po zebraniu można przeanalizować dane do poszczególnych pól w zapytaniach lub wyodrębnić dane podczas zbierania do poszczególnych pól.
 
 > [!IMPORTANT]
-> W tym artykule opisano zbieranie niestandardowych dzienników z [agentem log Analytics](../platform/log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
+> W tym artykule opisano zbieranie niestandardowych dzienników z [agentem log Analytics](./log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Niestandardowa kolekcja dzienników](media/data-sources-custom-logs/overview.png)
 
@@ -105,7 +105,7 @@ Gdy Azure Monitor rozpoczyna zbieranie danych z dziennika niestandardowego, jego
 > Jeśli w zapytaniu brakuje właściwości RawData, może być konieczne zamknięcie i ponowne otwarcie przeglądarki.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Krok 6. Analizowanie niestandardowych wpisów dziennika
-Cały wpis dziennika zostanie zapisany w pojedynczej właściwości o nazwie **rawData**.  Najprawdopodobniej chcesz oddzielić różne fragmenty informacji w każdym wpisie do poszczególnych właściwości dla każdego rekordu. Zapoznaj się z tematem analizowanie [danych tekstowych w Azure monitor](../log-query/parse-text.md) , aby uzyskać opcje analizowania **rawData** na wiele właściwości.
+Cały wpis dziennika zostanie zapisany w pojedynczej właściwości o nazwie **rawData**.  Najprawdopodobniej chcesz oddzielić różne fragmenty informacji w każdym wpisie do poszczególnych właściwości dla każdego rekordu. Zapoznaj się z tematem analizowanie [danych tekstowych w Azure monitor](../logs/parse-text.md) , aby uzyskać opcje analizowania **rawData** na wiele właściwości.
 
 ## <a name="removing-a-custom-log"></a>Usuwanie dziennika niestandardowego
 Użyj następującego procesu w Azure Portal, aby usunąć wcześniej zdefiniowany dziennik niestandardowy.
@@ -116,7 +116,7 @@ Użyj następującego procesu w Azure Portal, aby usunąć wcześniej zdefiniowa
 ## <a name="data-collection"></a>Zbieranie danych
 Azure Monitor będzie zbierać nowe wpisy z każdego dziennika niestandardowego co 5 minut.  Agent będzie rejestrował swoje miejsce w każdym pliku dziennika, z którego zbiera dane.  Jeśli Agent przejdzie w tryb offline przez pewien czas, Azure Monitor będzie zbierać wpisy z miejsca, w którym został on ostatnio pozostawiony, nawet jeśli te wpisy zostały utworzone, gdy agent był w trybie offline.
 
-Cała zawartość wpisu dziennika jest zapisywana w pojedynczej właściwości o nazwie **rawData**.  Zobacz [Analizowanie danych tekstowych w Azure monitor](../log-query/parse-text.md) , aby poznać metody analizowania każdego zaimportowanego wpisu dziennika do wielu właściwości.
+Cała zawartość wpisu dziennika jest zapisywana w pojedynczej właściwości o nazwie **rawData**.  Zobacz [Analizowanie danych tekstowych w Azure monitor](../logs/parse-text.md) , aby poznać metody analizowania każdego zaimportowanego wpisu dziennika do wielu właściwości.
 
 ## <a name="custom-log-record-properties"></a>Właściwości niestandardowego rekordu dziennika
 Niestandardowe rekordy dziennika mają typ o podanej nazwie dziennika i właściwościach w poniższej tabeli.
@@ -125,7 +125,7 @@ Niestandardowe rekordy dziennika mają typ o podanej nazwie dziennika i właści
 |:--- |:--- |
 | TimeGenerated |Data i godzina zebrania rekordu przez Azure Monitor.  Jeśli w dzienniku jest wykorzystywany ogranicznik oparty na czasie, to jest to czas uzyskany od wpisu. |
 | SourceSystem |Typ agenta, z którego zebrano rekord. <br> OpsManager — Agent systemu Windows, bezpośrednie połączenie lub System Center Operations Manager <br> Linux — Wszyscy agenci systemu Linux |
-| RawData |Pełny tekst zebranego wpisu. Najprawdopodobniej chcesz [przeanalizować te dane do poszczególnych właściwości](../log-query/parse-text.md). |
+| RawData |Pełny tekst zebranego wpisu. Najprawdopodobniej chcesz [przeanalizować te dane do poszczególnych właściwości](../logs/parse-text.md). |
 | ManagementGroupName |Nazwa grupy zarządzania dla agentów programu System Center Operations Manager.  W przypadku innych agentów jest to AOI-\<workspace ID\> |
 
 
@@ -171,8 +171,8 @@ Chociaż dzienniki niestandardowe są przydatne, jeśli dane są zgodne z kryter
 W przypadkach, gdy dane nie mogą być zbierane z dziennikami niestandardowymi, należy wziąć pod uwagę następujące alternatywne strategie:
 
 - Użyj skryptu niestandardowego lub innej metody, aby zapisać dane do [zdarzeń systemu Windows](data-sources-windows-events.md) lub [dziennika](data-sources-syslog.md) systemowego, które są zbierane przez Azure monitor. 
-- Wyślij dane bezpośrednio do Azure Monitor przy użyciu [interfejsu API modułu zbierającego dane http](../platform/data-collector-api.md). 
+- Wyślij dane bezpośrednio do Azure Monitor przy użyciu [interfejsu API modułu zbierającego dane http](../logs/data-collector-api.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-* Zobacz [Analizowanie danych tekstowych w Azure monitor](../log-query/parse-text.md) , aby poznać metody analizowania każdego zaimportowanego wpisu dziennika do wielu właściwości.
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.
+* Zobacz [Analizowanie danych tekstowych w Azure monitor](../logs/parse-text.md) , aby poznać metody analizowania każdego zaimportowanego wpisu dziennika do wielu właściwości.
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.

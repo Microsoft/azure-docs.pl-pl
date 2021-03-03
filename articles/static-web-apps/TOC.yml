@@ -18,6 +18,9 @@
           href: get-started-cli.md
 - name: Pojęcia
   items:
+    - name: Konfigurowanie
+      href: configuration.md
+      displayName: Routing
     - name: Obsługa interfejsów API za pomocą usługi Azure Functions
       href: apis.md
     - name: Trasy
@@ -42,6 +45,8 @@
       href: application-settings.md
     - name: Konfigurowanie środowisk i bibliotek frontonu
       href: front-end-frameworks.md
+    - name: Zresetuj tokeny wdrożenia
+      href: deployment-token-management.md
 - name: Samouczki
   items:
     - name: Publikowanie z poziomu generatora witryn statycznych

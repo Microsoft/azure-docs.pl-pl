@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 139241d679007bf72680f91a1518a1ef90cc7efc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614123"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700630"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uaktualnianie wizualizacji pulpitu nawigacyjnego Log Analytics
 
@@ -82,4 +82,4 @@ Pulpity nawigacyjne są odświeżane po załadowaniu. Wszystkie zapytania związ
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie i udostępnianie pulpitów nawigacyjnych w Log Analytics](../learn/tutorial-logs-dashboards.md)
+[Tworzenie i udostępnianie pulpitów nawigacyjnych w Log Analytics](../visualize/tutorial-logs-dashboards.md)

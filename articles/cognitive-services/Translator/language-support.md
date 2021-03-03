@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738144"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
-Użyj usługi translator, aby przetłumaczyć do i z dowolnego z języków tłumaczenia tekstu do 70 +. Neuronowych Machine Translation (NMT) to nowy standard dla wysokiej jakości tłumaczeń maszyn opartych na formacie AI, który jest dostępny jako domyślny przy użyciu wersji v3 usługi translator, gdy jest dostępny system neuronowych.
+Użyj usługi translator, aby przetłumaczyć do i z dowolnego z języków i dialektów tłumaczenia tekstu 90. Neuronowych Machine Translation (NMT) to nowy standard dla wysokiej jakości tłumaczeń maszyn opartych na formacie AI, który jest dostępny jako domyślny przy użyciu wersji v3 usługi translator, gdy jest dostępny system neuronowych.
 
 Usługi translator można także używać w połączeniu z tłumaczeniem niestandardowym w celu kompilowania systemów tłumaczenia neuronowych, które znają terminologię używaną we własnej firmie i branży, a także z usługą Microsoft Speech Service, aby dodać tłumaczenie mowy do aplikacji.
 
@@ -37,8 +37,12 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 | Język | Kod języka |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albański | `sq` |
+| Amharski | `am` |
 | Arabski | `ar` |
+| Armeński | `hy` |
 | Assamski | `as` |
+| Azerbejdżański | `az` |
 | Języku | `bn` |
 | Bośniacki (łaciński) | `bs` |
 | Bułgarski | `bg` |
@@ -74,11 +78,13 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 | japoński | `ja` |
 | Kannada | `kn` |
 | Kazachski | `kk` |
+| Khmerski | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Koreański | `ko` |
 | Kurdyjski (środkowe) | `ku` |
 | Kurdyjski (północny) | `kmr` |
+| - | `lo` |
 | Łotewski | `lv` |
 | Litewski | `lt` |
 | Madagaskaru | `mg` |
@@ -87,6 +93,8 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 | Maltański | `mt` |
 | Maoryjski | `mi` |
 | Marathi | `mr` |
+| Myanmar | `my` |
+| Nepalski | `ne` |
 | Norweski | `nb` |
 | Odia | `or` |
 | Paszto | `ps` |
@@ -110,6 +118,7 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 | Tamilski | `ta` |
 | Telugu | `te` |
 | Tajlandzki | `th` |
+| Tigrinia | `ti` |
 | Tonga | `to` |
 | Turecki | `tr` |
 | Ukraiński | `uk` |
@@ -130,6 +139,7 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 | Język | Kod języka |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albański | `sq` |
 | Arabski | `ar` |
 | Bułgarski | `bg` |
 | Kataloński | `ca` |
@@ -152,6 +162,7 @@ Translator wykrywa następujące języki do tłumaczenia i przekształcenie.
 | Węgierski | `hu` |
 | Islandzki | `is` |
 | Indonezyjski | `id` |
+| Inuktitut | `iu` |
 | Irlandzki | `ga` |
 | Włoski | `it` |
 | japoński | `ja` |

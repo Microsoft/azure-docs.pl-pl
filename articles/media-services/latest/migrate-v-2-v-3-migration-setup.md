@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f9e0816a3533008a01f26ca7c0e712abfa23e8e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 779a52b44a5dc4e81dc7910da12c5cfb91c1c3ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705385"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 
@@ -50,8 +50,8 @@ Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](h
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Pobierz wybrany zestaw SDK klienta i Skonfiguruj swoje środowisko
 
-- Zestawy SDK dostępne dla [platform .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true), .NET Core, [Node.js](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management?view=azure-node-latest&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices/management?view=azure-java-stable&preserve-view=true), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- [Interfejs wiersza polecenia](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest&preserve-view=true)   platformy Azure Integracja z obsługą obsługi skryptów prostych.
+- Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-node-latest), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-java-stable), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- [Interfejs wiersza polecenia](/cli/azure/ams?preserve-view=true&view=azure-cli-latest)   platformy Azure Integracja z obsługą obsługi skryptów prostych.
 
 > [!NOTE]
 > Zestaw SDK języka PHP dla społeczności nie jest już dostępny dla Azure Media Services w wersji 3. Jeśli używasz języka PHP w wersji 2, należy przeprowadzić migrację do interfejsu API REST bezpośrednio w kodzie.
@@ -66,8 +66,8 @@ Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](h
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Użyj programu [Poster](https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman) dla wywołań interfejsu API REST usługi Media Services v3.
-Przeczytaj [strony dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/media/).
+Użyj programu [Poster](./media-rest-apis-with-postman.md) dla wywołań interfejsu API REST usługi Media Services v3.
+Przeczytaj [strony dokumentacji interfejsu API REST](/rest/api/media/).
 
 Należy użyć ciągu wersji 2020-05-01 w kolekcji Poster.
 

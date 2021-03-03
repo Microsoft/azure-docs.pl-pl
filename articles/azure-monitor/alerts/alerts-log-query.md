@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717982"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optymalizowanie zapytań dotyczących alertów dziennika
-W tym artykule opisano sposób pisania i konwertowania zapytań [alertów dziennika](../platform/alerts-unified-log.md) w celu uzyskania optymalnej wydajności. Zoptymalizowane zapytania zmniejszają opóźnienia i obciążenia alertów, które często uruchamiają się.
+W tym artykule opisano sposób pisania i konwertowania zapytań [alertów dziennika](./alerts-unified-log.md) w celu uzyskania optymalnej wydajności. Zoptymalizowane zapytania zmniejszają opóźnienia i obciążenia alertów, które często uruchamiają się.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Jak rozpocząć pisanie zapytania dziennika alertu
 
-Zapytania alertów zaczynają [wysyłać zapytania o dane dziennika w log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) wskazujące problem. Możesz użyć [przykładu zapytania alertu](../log-query/example-queries.md) , aby zrozumieć, co można odnaleźć. Możesz również [rozpocząć tworzenie własnych zapytań](../log-query/log-analytics-tutorial.md). 
+Zapytania alertów zaczynają [wysyłać zapytania o dane dziennika w log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) wskazujące problem. Możesz użyć [przykładu zapytania alertu](../logs/example-queries.md) , aby zrozumieć, co można odnaleźć. Możesz również [rozpocząć tworzenie własnych zapytań](../logs/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Zapytania wskazujące problem, a nie alert
 
@@ -44,7 +44,7 @@ Nie ma potrzeby dodawania logiki alertu do zapytania i wykonywania operacji, kt�
 Użycie `limit` i `take` w zapytaniach może zwiększyć opóźnienia i obciążenie alertów, ponieważ wyniki nie są spójne w czasie. Preferowana jest ich użycie tylko w razie konieczności.
 
 ## <a name="log-query-constraints"></a>Ograniczenia zapytania dziennika
-[Zapytania dzienników w Azure monitor](../log-query/log-query-overview.md) zaczynają się od tabeli, [`search`](/azure/kusto/query/searchoperator) lub [`union`](/azure/kusto/query/unionoperator) operatora.
+[Zapytania dzienników w Azure monitor](../logs/log-query-overview.md) zaczynają się od tabeli, [`search`](/azure/kusto/query/searchoperator) lub [`union`](/azure/kusto/query/unionoperator) operatora.
 
 Zapytania dotyczące reguł alertów dziennika powinny zawsze rozpoczynać się od tabeli w celu zdefiniowania jasnego zakresu, co poprawia wydajność zapytań i istotność wyników. Zapytania w regułach alertów działają często, dlatego korzystanie z `search` `union` nich może spowodować nadmierne obciążenie, dodając opóźnienie do alertu, ponieważ wymaga ono skanowania między wieloma tabelami. Te operatory zmniejszają również możliwość optymalizacji zapytania przez usługę alertów.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Ta zmiana nie ma wpływ na reguły alertów dziennika, ponieważ [zapytania między zasobami](../log-query/cross-workspace-query.md) używają typu `union` , który ogranicza zakres zapytania do określonych zasobów. Poniższy przykład będzie prawidłowym zapytaniem alertu dziennika:
+Ta zmiana nie ma wpływ na reguły alertów dziennika, ponieważ [zapytania między zasobami](../logs/cross-workspace-query.md) używają typu `union` , który ogranicza zakres zapytania do określonych zasobów. Poniższy przykład będzie prawidłowym zapytaniem alertu dziennika:
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Zapytania między zasobami](../log-query/cross-workspace-query.md) są obsługiwane w nowym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli nadal używasz [starszego interfejsu API log Analytics alertów](../platform/api-alerts.md) do tworzenia alertów dziennika, możesz dowiedzieć się więcej o przełączaniu w [tym miejscu](../alerts/alerts-log-api-switch.md).
+> [Zapytania między zasobami](../logs/cross-workspace-query.md) są obsługiwane w nowym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli nadal używasz [starszego interfejsu API log Analytics alertów](./api-alerts.md) do tworzenia alertów dziennika, możesz dowiedzieć się więcej o przełączaniu w [tym miejscu](../alerts/alerts-log-api-switch.md).
 
 ## <a name="examples"></a>Przykłady
 Poniższe przykłady obejmują zapytania dziennika, które używają `search` i `union` i udostępniają kroki, których można użyć do modyfikacji tych zapytań do użycia w regułach alertów.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>Następne kroki
 - Informacje o [alertach dzienników](alerts-log.md) w Azure monitor.
-- Dowiedz się więcej na temat [zapytań dzienników](../log-query/log-query-overview.md).
+- Dowiedz się więcej na temat [zapytań dzienników](../logs/log-query-overview.md).

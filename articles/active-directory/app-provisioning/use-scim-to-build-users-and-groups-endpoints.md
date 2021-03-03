@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689338"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Samouczek: opracowywanie przykładowego punktu końcowego Standard scim
 
@@ -57,6 +57,8 @@ Kroki opisane w tym miejscu umożliwiają wdrożenie punktu końcowego Standard 
     ![Zrzut ekranu przedstawiający tworzenie nowej usługi App Service.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Wybierz grupę zasobów, która ma zostać użyta, a następnie wybierz pozycję **Publikuj**.
+
+    ![Zrzut ekranu przedstawiający publikowanie nowej usługi App Service.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Przejdź do aplikacji w obszarze   >  **Konfiguracja** Azure App Service a następnie wybierz pozycję **nowe ustawienie aplikacji** , aby dodać ustawienie *Token__TokenIssuer* z wartością `https://sts.windows.net/<tenant_id>/` . Zastąp ciąg `<tenant_id>` identyfikatorem dzierżawy usługi Azure AD. Jeśli chcesz przetestować punkt końcowy Standard scim za pomocą programu [Poster](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), dodaj ustawienie *ASPNETCORE_ENVIRONMENT* z wartością `Development` .
 

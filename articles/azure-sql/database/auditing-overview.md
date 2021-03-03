@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572280"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691522"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -46,7 +46,9 @@ Inspekcji SQL Database można użyć do:
 
 - Usługa **Premium Storage** nie jest obecnie **obsługiwana**.
 - **Hierarchiczna przestrzeń nazw** dla **konta usługi Azure Data Lake Storage Gen2 Storage** nie jest obecnie **obsługiwana**.
-- Włączanie inspekcji wstrzymanej **usługi Azure Synapse** nie jest obsługiwane. Aby włączyć inspekcję, Wznów działanie usługi Azure Synapse.
+- Włączanie inspekcji wstrzymanej **usługi Azure Synapse** nie jest obsługiwane. Aby włączyć inspekcję, wznów działanie usługi Azure Synapse.
+- Inspekcja **pul SQL usługi Azure Synapse** obsługuje **tylko** domyślne grupy akcji inspekcji.
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definiowanie zasad inspekcji na poziomie serwera i na poziomie bazy danych
 
@@ -75,7 +77,7 @@ Zasady inspekcji można zdefiniować dla konkretnej bazy danych lub jako domyśl
 - Aby uzyskać szczegółowe informacje na temat formatu dziennika, hierarchii folderu magazynu i konwencji nazewnictwa, zobacz [dokumentacja formatu dziennika inspekcji obiektów BLOB](./audit-log-format.md).
 - Inspekcja [replik tylko do odczytu](read-scale-out.md) jest włączana automatycznie. Aby uzyskać więcej informacji na temat hierarchii folderów magazynu, konwencji nazewnictwa i formatu dziennika, zobacz [format dziennika inspekcji SQL Database](audit-log-format.md).
 - W przypadku korzystania z uwierzytelniania usługi Azure AD rekordy nieudanych logowań *nie* będą widoczne w dzienniku inspekcji SQL. Aby wyświetlić nieudane rekordy inspekcji logowania, należy odwiedzić [portal Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), w którym znajdują się szczegóły dotyczące tych zdarzeń.
-- Nazwy logowania są kierowane przez bramę do określonego wystąpienia, w którym znajduje się baza danych.  W przypadku logowań usługi AAD poświadczenia są weryfikowane przed próbą użycia tego użytkownika do zalogowania się do żądanej bazy danych.  W przypadku awarii żądana baza danych nigdy nie jest używana, więc Inspekcja nie jest przeprowadzana.  W przypadku nazw logowania SQL poświadczenia są weryfikowane na żądanych danych, więc w tym przypadku mogą być poddane inspekcji.  Pomyślne logowania, które oczywiście docierają do bazy danych, są poddawane inspekcji w obu przypadkach.
+- Nazwy logowania są kierowane przez bramę do określonego wystąpienia, w którym znajduje się baza danych.  W przypadku logowań usługi AAD poświadczenia są weryfikowane przed próbą użycia tego użytkownika zalogowania się do żądanej bazy danych.  W przypadku niepowodzenia żądana baza danych nigdy nie jest używana, więc Inspekcja nie jest przeprowadzana.  W przypadku nazw logowania SQL poświadczenia są weryfikowane na żądanych danych, więc w tym przypadku mogą być poddane inspekcji.  Pomyślne logowania, które oczywiście docierają do bazy danych, są poddawane inspekcji w obu przypadkach.
 - Po skonfigurowaniu ustawień inspekcji można włączyć nową funkcję wykrywania zagrożeń i skonfigurować wiadomości e-mail w celu otrzymywania alertów zabezpieczeń. W przypadku korzystania z wykrywania zagrożeń otrzymywane są aktywne alerty dotyczące nietypowych działań bazy danych, które mogą wskazywać na potencjalne zagrożenia bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [wprowadzenie do wykrywania zagrożeń](threat-detection-overview.md).
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Skonfiguruj inspekcję serwera

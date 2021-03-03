@@ -8,24 +8,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 059f711269fd5f1eea9675f238a6003eaf1a0534
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618114"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687502"
 ---
-# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Samouczek: Tworzenie i używanie zestawów replik dla odporności lub geolokalizacji w Azure Active Directory Domain Services (wersja zapoznawcza)
+# <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>Samouczek: Tworzenie i używanie zestawów replik dla odporności lub geolokalizacji w Azure Active Directory Domain Services
 
 Aby zwiększyć odporność domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS) lub wdrożyć w dodatkowych lokalizacjach geograficznych blisko aplikacji, można użyć *zestawów replik*. Każda przestrzeń nazw domeny zarządzanej platformy Azure AD DS, na przykład *aaddscontoso.com*, zawiera jeden zestaw replik początkowych. Możliwość tworzenia dodatkowych zestawów replik w innych regionach platformy Azure zapewnia odporność geograficzną dla domeny zarządzanej.
 
 Zestaw replik można dodać do dowolnej równorzędnej sieci wirtualnej w dowolnym regionie świadczenia usługi Azure, który obsługuje usługę Azure AD DS.
 
-Zestawy replik są funkcją publicznej wersji zapoznawczej w Azure AD Domain Services. Zapoznaj się z różnicami w zakresie pomocy technicznej, które istnieją dla funkcji w wersji zapoznawczej. Aby uzyskać więcej informacji o wersjach zapoznawczych, [Azure Active Directory wersji zapoznawczej umowy SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje o wymaganiach dotyczących sieci wirtualnej
@@ -78,7 +76,7 @@ Aby utworzyć dodatkowy zestaw replik, wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**.
 1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
-1. Po lewej stronie wybierz pozycję **zestawy replik (wersja zapoznawcza)**. Każda domena zarządzana zawiera jeden zestaw replik początkowych w wybranym regionie, jak pokazano na poniższym przykładowym zrzucie ekranu:
+1. Po lewej stronie wybierz pozycję **zestawy replik**. Każda domena zarządzana zawiera jeden zestaw replik początkowych w wybranym regionie, jak pokazano na poniższym przykładowym zrzucie ekranu:
 
     ![Przykładowy zrzut ekranu umożliwiający wyświetlenie i dodanie zestawu replik w Azure Portal](./media/tutorial-create-replica-set/replica-set-list.png)
 
@@ -113,7 +111,7 @@ Aby usunąć zestaw replik, wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**.
 1. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
-1. Po lewej stronie wybierz pozycję **zestawy replik (wersja zapoznawcza)**. Z listy zestawów replik wybierz **menu kontekstowe** obok zestawu replik, który chcesz usunąć.
+1. Po lewej stronie wybierz pozycję **zestawy replik**. Z listy zestawów replik wybierz **menu kontekstowe** obok zestawu replik, który chcesz usunąć.
 1. Z menu kontekstowego wybierz pozycję **Usuń** , a następnie potwierdź, że chcesz usunąć zestaw replik.
 
 > [!NOTE]

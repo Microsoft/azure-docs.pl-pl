@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737515"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
-Możliwości routingu w koncentratorze wirtualnym są udostępniane przez router, który zarządza całą trasą między bramami przy użyciu Border Gateway Protocol (BGP). Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN typu lokacja-lokacja, Brama ExpressRoutea, Brama połączeń punkt-lokacja, Zapora platformy Azure. Ten router zapewnia również łączność między sieciami wirtualnymi, które łączą się z koncentratorem wirtualnym i obsługują zagregowaną przepływność wynoszącą 50 GB/s. Te możliwości routingu dotyczą standardowych wirtualnych klientów sieci WAN. 
+Możliwości routingu w koncentratorze wirtualnym są udostępniane przez router, który zarządza całą trasą między bramami przy użyciu Border Gateway Protocol (BGP). Koncentrator wirtualny może zawierać wiele bram, takich jak Brama sieci VPN typu lokacja-lokacja, Brama ExpressRoutea, Brama połączeń punkt-lokacja, Zapora platformy Azure. Ten router zapewnia również łączność między sieciami wirtualnymi, które łączą się z koncentratorem wirtualnym i obsługują zagregowaną przepływność wynoszącą 50 GB/s. Te możliwości routingu dotyczą standardowych wirtualnych klientów sieci WAN.
 
 Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md).
 
@@ -28,9 +28,9 @@ W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtu
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela tras centrum
 
-Tabela tras koncentratora wirtualnego może zawierać jedną lub więcej tras. Trasa obejmuje jego nazwę, etykietę, typ docelowy, listę prefiksów docelowych oraz informacje o następnym przeskoku dla pakietu, który ma być kierowany. **Połączenie** zazwyczaj będzie miało konfigurację routingu skojarzoną lub propagowaną do tabeli tras
+Tabela tras koncentratora wirtualnego może zawierać jedną lub więcej tras. Trasa obejmuje jego nazwę, etykietę, typ docelowy, listę prefiksów docelowych oraz informacje o następnym przeskoku dla pakietu, który ma być kierowany. **Połączenie** zazwyczaj będzie miało konfigurację routingu skojarzoną lub propagowaną do tabeli tras.
 
-### <a name="connection"></a><a name="connection"></a>Połączenia
+### <a name="connections"></a><a name="connection"></a>Połączenia
 
 Połączenia są Menedżer zasobów zasobach z konfiguracją routingu. Istnieją cztery typy połączeń:
 
@@ -55,42 +55,43 @@ Połączenia dynamicznie propagują trasy do tabeli tras. W przypadku połączen
 
 Dla każdego koncentratora wirtualnego jest również dostępna **tabela tras none** . Propagowanie do tabeli tras braku nie oznacza, że trasy nie są wymagane do propagowania z połączenia. Połączenia sieci VPN, ExpressRoute i VPN użytkowników propagują trasy do tego samego zestawu tabel tras.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Skojarzenie":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagacja":::
 
-### <a name="labels"></a><a name="static"></a>Etykiety
-Etykiety zapewniają mechanizm logicznego grupowania tabel tras. Jest to szczególnie przydatne podczas propagacji tras z połączeń do wielu tabel tras. Na przykład domyślna tabela tras ma wbudowaną etykietę o nazwie "default". Gdy użytkownicy propagują trasy połączeń do etykiety "default", automatycznie stosuje się do wszystkich domyślnych tabel tras w każdym centrum w wirtualnej sieci WAN. 
+### <a name="labels"></a><a name="labels"></a>Etykiety
+
+Etykiety zapewniają mechanizm logicznego grupowania tabel tras. Jest to szczególnie przydatne podczas propagacji tras z połączeń do wielu tabel tras. Na przykład **Domyślna tabela tras** ma wbudowaną etykietę o nazwie "default". Gdy użytkownicy propagują trasy połączeń do etykiety "default", automatycznie stosuje się do wszystkich domyślnych tabel tras w każdym centrum w wirtualnej sieci WAN.
 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Konfigurowanie tras statycznych w połączeniu sieci wirtualnej
 
 Skonfigurowanie tras statycznych zapewnia mechanizm kierowania ruchu przez adres IP następnego przeskoku, który może należeć do sieciowego urządzenia wirtualnego (urządzenie WUS) obsługiwanego w sieci wirtualnej szprych podłączonych do koncentratora wirtualnego. Trasa statyczna składa się z nazwy trasy, listy prefiksów miejsc docelowych oraz adresu IP następnego przeskoku.
 
-## <a name="reset-hub"></a><a name="route"></a>Resetuj centrum
-Dostępna tylko w Azure Portal, ta opcja zapewnia użytkownikowi metodę, aby zapewnić, że zasoby zakończone niepowodzeniem, takie jak tabele tras, router centralny lub zasób koncentratora wirtualnego z powrotem do stanu aprowizacji Rightful. Jest to dodatkowa opcja dla użytkownika, którą należy wziąć pod uwagę przed skontaktowaniem się z firmą Microsoft w celu uzyskania pomocy technicznej. Ta operacja nie resetuje żadnych bram w koncentratorze wirtualnym. 
-
-## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Kierowanie tabel w warstwach Podstawowa i Standardowa wirtualnych sieci WAN przed zestawem funkcji skojarzenia i propagacji
+## <a name="route-tables-for-pre-existing-routes"></a><a name="route"></a>Tabele tras dla istniejących tras
 
 Tabele tras mają teraz funkcje do skojarzenia i propagacji. Istniejąca tabela tras jest tabelą tras, która nie ma tych funkcji. Jeśli masz już istniejące trasy w usłudze Routing centralny i chcesz korzystać z nowych funkcji, weź pod uwagę następujące kwestie:
 
 * **Klienci sieci wirtualnej w warstwie Standardowa ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**:
 
-Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie spróbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal)
+   Jeśli masz wstępnie istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie próbować utworzyć nowe tabele tras (dostępne w sekcji "tabele tras" centrum w Azure Portal).
 
-* **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**: Jeśli w sekcji routingu znajduje się wstępnie istniejące trasy dla centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
+* **Podstawowa klienci wirtualnych sieci WAN ze wstępnie istniejącymi trasami w koncentratorze wirtualnym**:
 
-## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Zagadnienia dotyczące routingu wirtualnej sieci WAN
+   Jeśli masz już istniejące trasy w sekcji routingu centrum w Azure Portal, musisz najpierw je usunąć, a następnie **uaktualnić** podstawową wirtualną sieć WAN do standardowej wirtualnej sieci WAN. Zobacz [uaktualnianie wirtualnej sieci WAN z warstwy Podstawowa do standardowa](upgrade-virtual-wan.md).
 
-Podczas konfigurowania routingu wirtualnej sieci WAN należy wziąć pod uwagę następujące kwestie:
+## <a name="hub-reset"></a><a name="reset"></a>Resetowanie centrum
+
+**Resetowanie** koncentratora wirtualnego jest dostępne tylko w Azure Portal. Resetowanie umożliwia przełączenie wszelkich zakończonych niepowodzeniem zasobów, takich jak tabele tras, router centralny lub zasób koncentratora wirtualnego z powrotem do stanu aprowizacji Rightful. Rozważ zresetowanie centrum przed skontaktowaniem się z firmą Microsoft w celu uzyskania pomocy technicznej. Ta operacja nie resetuje żadnych bram w koncentratorze wirtualnym.
+
+## <a name="additional-considerations"></a><a name="considerations"></a>Dodatkowe zagadnienia
+
+Podczas konfigurowania routingu wirtualnego sieci WAN należy wziąć pod uwagę następujące kwestie:
 
 * Wszystkie połączenia gałęzi (punkt-lokacja, lokacja-lokacja i ExpressRoute) muszą być skojarzone z domyślną tabelą tras. W ten sposób wszystkie gałęzie będą uczyć się tych samych prefiksów.
 * Wszystkie połączenia gałęzi muszą propagować trasy do tego samego zestawu tabel tras. Na przykład jeśli zdecydujesz, że gałęzie powinny być propagowane do domyślnej tabeli tras, ta konfiguracja powinna być spójna dla wszystkich gałęzi. W związku z tym wszystkie połączenia skojarzone z domyślną tabelą tras będą mogły dotrzeć do wszystkich gałęzi.
 * Rozgałęzienie do gałęzi za pośrednictwem zapory platformy Azure nie jest obecnie obsługiwane.
 * W przypadku korzystania z zapory platformy Azure w wielu regionach wszystkie sieci wirtualne szprych muszą być skojarzone z tą samą tabelą tras. Na przykład posiadanie podzestawu sieci wirtualnych przez zaporę platformy Azure, podczas gdy inne sieci wirtualnych pomijanie zapory platformy Azure w tym samym koncentratorze wirtualnym nie jest możliwe.
 * Pojedynczy adres IP następnego przeskoku można skonfigurować dla każdego połączenia z siecią wirtualną.
-* Koncentrator wirtualny nie obsługuje trasy statycznej dla 0.0.0.0/0 i następnego skoku Virtual Network połączenie (lub adres IP urządzenia w połączeniu z siecią wirtualną)
-* Wszystkie informacje dotyczące trasy 0.0.0.0/0 są ograniczone do tabeli tras centrum lokalnego. Ta trasa nie jest propagowana między centrami.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md).
-
-Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [często zadawane pytania](virtual-wan-faq.md).
+* Aby skonfigurować Routing, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md).
+* Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [często zadawane pytania](virtual-wan-faq.md).

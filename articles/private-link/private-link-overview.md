@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712185"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -54,7 +54,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 |  Azure Database for PostgreSQL — pojedynczy serwer         | Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin     | Obsługiwane w przypadku warstw cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci | Ogólna dostępność <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin      |  | Ogólna dostępność <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Azure Database for MariaDB         | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe<br/>Wszystkie regiony Chin     |  | Ogólna dostępność <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
-|  Azure Digital Twins         | Wszystkie regiony publiczne obsługiwane przez usługę Azure Digital bliźniaczych reprezentacji     |  | Wersja zapoznawcza <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla usługi Azure Digital bliźniaczych reprezentacji.](../digital-twins/how-to-enable-private-link.md)      |
+|  Azure Digital Twins         | Wszystkie regiony publiczne obsługiwane przez usługę Azure Digital bliźniaczych reprezentacji     |  | Wersja zapoznawcza <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla usługi Azure Digital bliźniaczych reprezentacji.](../digital-twins/how-to-enable-private-link-portal.md)      |
 |  Azure Key Vault         | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe      |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Usługa Azure Kubernetes Service — interfejs API Kubernetes | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla usługi Azure Kubernetes.](../aks/private-clusters.md)   |
 |Azure Search | Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe | Obsługiwane z usługą w trybie prywatnym | Ogólna dostępność   <br/> [Dowiedz się, jak utworzyć prywatny punkt końcowy dla Azure Search.](../search/service-create-private-endpoint.md)    |

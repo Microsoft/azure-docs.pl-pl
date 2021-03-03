@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko rozpocząć pracę z usługą Azure API Ma
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f1ae658ac4944f8d39dc11769669d32958fd14f4
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 681a1c5241743a0164d83d73753efa0b6c446109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735594"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integracja API Management z Service Fabric na platformie Azure
 
@@ -277,7 +277,7 @@ Teraz możesz wysłać żądanie do usługi zaplecza Service Fabric za pośredni
 
 Klaster składa się z innych zasobów platformy Azure poza samym zasobem klastra. Najprostszym sposobem na usunięcie klastra i wszystkich wykorzystywanych przez niego zasobów jest usunięcie grupy zasobów.
 
-Zaloguj się do platformy Azure i wybierz identyfikator subskrypcji, z którym chcesz usunąć klaster.  Identyfikator subskrypcji można uzyskać po zalogowaniu się do [witryny Azure Portal](https://portal.azure.com). Usuń grupę zasobów i wszystkie zasoby klastra przy użyciu [polecenia cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Zaloguj się do platformy Azure i wybierz identyfikator subskrypcji, z którym chcesz usunąć klaster.  Identyfikator subskrypcji można uzyskać po zalogowaniu się do [witryny Azure Portal](https://portal.azure.com). Usuń grupę zasobów i wszystkie zasoby klastra przy użyciu [polecenia cmdlet Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

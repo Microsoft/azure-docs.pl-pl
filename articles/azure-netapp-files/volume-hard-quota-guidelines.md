@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b25d312e6710a07f523c4acdb0fd4b970ce4a2d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740090"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Co zmienia się w przydziały twarde dla usługi Azure NetApp Files
 
 Na początku usługi Azure NetApp Files użyto funkcji aprowizacji puli pojemności i mechanizmu automatycznego wzrostu. Woluminy Azure NetApp Files są alokowane elastycznie, w przypadku podwyższenia poziomu puli pojemności obsługiwanej przez klienta wybranej warstwy i rozmiaru. Rozmiary woluminów (przydziały) są używane w celu zapewnienia wydajności i pojemności, a limity przydziału można w dowolnym momencie dostosować do siebie. To zachowanie oznacza, że obecnie przydział woluminu jest dźwignią wydajności służącą do kontrolowania przepustowości do woluminu. Obecnie w przypadku wypełniania pojemności pule pojemności są automatycznie zwiększane.   
 
 > [!IMPORTANT] 
-> Azure NetApp Files zachowanie obsługi puli woluminów i pojemności zmieni się na mechanizm *ręczny* i *kontrolowany* . **Począwszy od 1 kwietnia 2021, rozmiary woluminów (przydział) będą zarządzać wydajnością przepustowości, a także pojemnością administracyjną, a podstawowe pule pojemności nie będą już zwiększane automatycznie.** 
+> Azure NetApp Files zachowanie obsługi puli woluminów i pojemności zmieni się na mechanizm *ręczny* i *kontrolowany* . **Począwszy od 1 kwietnia 2021 (zaktualizowane), rozmiary woluminów (przydział) będą zarządzać wydajnością przepustowości, a także pojemnością zasobów, a podstawowe pule pojemności nie będą już automatycznie zwiększane.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Przyczyny zmiany limitu przydziału twardego
 
@@ -185,8 +185,8 @@ W niektórych przypadkach Pula pojemności hostingu nie ma wystarczającej wydaj
 
 Aby ręcznie zmienić rozmiar woluminu lub puli pojemności, można użyć [narzędzi interfejsu wiersza polecenia Azure NetApp Files](azure-netapp-files-sdk-cli.md#cli-tools), w tym interfejsu wiersza polecenia platformy Azure i Azure PowerShell.  Poniższe dwa polecenia mogą służyć do zarządzania zasobami woluminu Azure NetApp Files i puli:  
 
-* [`az netappfiles pool`](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest&preserve-view=true)
-* [`az netappfiles volume`](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true)
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
 
 Aby zarządzać zasobami Azure NetApp Files przy użyciu interfejsu wiersza polecenia platformy Azure, możesz otworzyć Azure Portal i wybrać łącze Azure **Cloud Shell** w górnej części paska menu: 
 
@@ -196,13 +196,13 @@ Ta akcja spowoduje otwarcie Azure Cloud Shell:
 
 [![Zrzut ekranu przedstawiający okno Cloud Shell. ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-Poniższe przykłady używają poleceń do [wyświetlania](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) i [aktualizowania](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) rozmiaru woluminu:
+Poniższe przykłady używają poleceń do [wyświetlania](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-show) i [aktualizowania](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-update) rozmiaru woluminu:
  
 [![Zrzut ekranu przedstawiający użycie programu PowerShell w celu wyświetlenia rozmiaru woluminu. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [![Zrzut ekranu przedstawiający użycie programu PowerShell w celu zaktualizowania rozmiaru woluminu. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-Poniższe przykłady używają poleceń do [wyświetlania](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-show&preserve-view=true) i [aktualizowania](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-update&preserve-view=true) rozmiaru puli pojemności:
+Poniższe przykłady używają poleceń do [wyświetlania](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-show) i [aktualizowania](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-update) rozmiaru puli pojemności:
 
 [![Zrzut ekranu przedstawiający Wyświetlanie rozmiaru puli pojemności przy użyciu programu PowerShell. ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 
@@ -277,4 +277,4 @@ Błędy i żądania funkcji można przesłać, klikając pozycję **nowy problem
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zmienianie rozmiaru puli pojemności lub woluminu](azure-netapp-files-resize-capacity-pools-or-volumes.md) 
-* [Metryki dla usługi Azure NetApp Files](azure-netapp-files-metrics.md) 
+* [Metryki dla usługi Azure NetApp Files](azure-netapp-files-metrics.md)

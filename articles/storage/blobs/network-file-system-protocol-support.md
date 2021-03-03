@@ -5,27 +5,48 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718503"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
-Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Windows lub Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnego komputera. 
+Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa zapewnia zgodność systemu plików z systemem Linux w skali i cenach magazynu obiektów oraz umożliwia klientom systemu Windows lub Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnego komputera. 
 
 > [!NOTE]
 > Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea Środkowa i Południowo-środkowe stany USA. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
 
+Zawsze jest wyzwaniem do uruchamiania starszych obciążeń o dużej skali, takich jak przetwarzanie o wysokiej wydajności (HPC) w chmurze. Jedną z przyczyn jest to, że aplikacje często używają tradycyjnych protokołów plików, takich jak system plików NFS lub blok komunikatów serwera (SMB) w celu uzyskania dostępu do danych. Ponadto natywne usługi magazynu w chmurze ukierunkowane na magazyn obiektów, które mają płaską przestrzeń nazw i rozbudowane metadane, zamiast systemów plików, które udostępniają hierarchiczną przestrzeń nazw i wydajne operacje metadanych. 
+
+Blob Storage obsługuje teraz hierarchiczną przestrzeń nazw i w połączeniu z obsługą protokołu NFS 3,0 system Azure znacznie ułatwia uruchamianie starszych aplikacji na podstawie magazynu obiektów w chmurze o dużej skali. 
+
+## <a name="applications-and-workloads-suited-for-this-feature"></a>Aplikacje i obciążenia odpowiednie dla tej funkcji
+
+Funkcja protokołu NFS 3,0 jest najlepiej przyprzydatna do przetwarzania wysokiej przepływności, dużej skali, odczytu dużych obciążeń, takich jak przetwarzanie multimediów, symulacje ryzyka i genomika sekwencjonowania. Należy rozważyć użycie tej funkcji dla dowolnego innego typu obciążenia, które używa wielu czytników i wielu wątków, które wymagają dużej przepustowości. 
+
+## <a name="nfs-30-and-the-hierarchical-namespace"></a>System plików NFS 3,0 i hierarchiczna przestrzeń nazw
+
+Obsługa protokołu NFS 3,0 wymaga, aby obiekty blob były zorganizowane w hierarchiczną przestrzeń nazw. Można włączyć hierarchiczną przestrzeń nazw podczas tworzenia konta magazynu. Możliwość używania hierarchicznej przestrzeni nazw została wprowadzona przez Azure Data Lake Storage Gen2. Organizuje obiekty (pliki) do hierarchii katalogów i podkatalogów w taki sam sposób, w jaki jest zorganizowany system plików na komputerze.  Hierarchiczna przestrzeń nazw skaluje się liniowo i nie zmniejsza wydajności danych ani jej wydajność. Różne protokoły zwiększają się od hierarchicznej przestrzeni nazw. Protokół NFS 3,0 jest jednym z tych dostępnych protokołów.   
+
+> [!div class="mx-imgBorder"]
+> ![Hierarchiczna przestrzeń nazw](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
+  
+## <a name="data-stored-as-block-blobs"></a>Dane przechowywane jako blokowe obiekty blob
+
+W przypadku włączenia obsługi protokołu NFS 3,0 wszystkie dane na koncie magazynu będą przechowywane jako blokowe obiekty blob. Blokowe obiekty blob są zoptymalizowane pod kątem wydajnego przetwarzania dużych ilości danych do odczytu. Blokowe obiekty blob składają się z bloków. Każdy blok jest identyfikowany przez identyfikator bloku. Blokowy obiekt BLOB może zawierać do 50 000 bloków. Każdy blok w blokowym obiekcie blob może mieć inny rozmiar, aż do maksymalnego rozmiaru dozwolonego dla wersji usługi używanej przez konto.
+
+Gdy aplikacja wysyła żądanie przy użyciu protokołu NFS 3,0, to żądanie jest tłumaczone na kombinację operacji blokowych obiektów BLOB. Na przykład żądania zdalnego wywołania procedury (RPC) w systemie plików NFS 3,0 są tłumaczone na operację [pobierania obiektu BLOB](/rest/api/storageservices/get-blob) . Żądania wywołań RPC systemu NFS 3,0 są tłumaczone na kombinację listy [Pobierz blok](/rest/api/storageservices/get-block-list), [Umieść blok](/rest/api/storageservices/put-block)i [Umieść listę zablokowanych](/rest/api/storageservices/put-block-list).
+
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Ogólny przepływ pracy: Instalowanie kontenera konta magazynu
 
-Aby zainstalować kontener konta magazynu, należy wykonać te czynności.
+Klienci z systemem Windows lub Linux mogą instalować kontener w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub na komputerze lokalnym. Aby zainstalować kontener konta magazynu, należy wykonać te czynności.
 
 1. Zarejestruj funkcję protokołu NFS 3,0 w ramach subskrypcji.
 
@@ -58,7 +79,7 @@ Klient może połączyć się za pośrednictwem publicznego lub [prywatnego punk
 
 - Sieć wirtualna skonfigurowana dla konta magazynu. 
 
-  Na potrzeby tego artykułu odwołujemy się do tej sieci wirtualnej jako podstawowej sieci *wirtualnej*. Aby dowiedzieć się więcej, zobacz [udzielanie dostępu z sieci wirtualnej](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+  W tym artykule odwołujemy się do tej sieci wirtualnej jako *podstawowej sieci wirtualnej*. Aby dowiedzieć się więcej, zobacz [udzielanie dostępu z sieci wirtualnej](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
 - Równorzędna Sieć wirtualna znajdująca się w tym samym regionie co podstawowa Sieć wirtualna.
 
@@ -97,7 +118,7 @@ Następujące funkcje systemu plików NFS 3,0 nie są jeszcze obsługiwane w Azu
 
 - Blokowanie plików przy użyciu Menedżera blokad sieciowych (NLM). Polecenia instalacji muszą zawierać `-o nolock` parametr.
 
-- Instalowanie katalogów podrzędnych. Można zainstalować tylko katalog główny (kontener).
+- Instalowanie podkatalogów. Można zainstalować tylko katalog główny (kontener).
 
 - Wyświetlanie listy instalacji (na przykład przy użyciu polecenia `showmount -a` )
 
@@ -115,4 +136,6 @@ Transakcja nie jest naliczana w ramach wersji zapoznawczej. Cennik transakcji mo
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, zobacz [Instalowanie usługi BLOB Storage przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
+- Aby rozpocząć, zobacz [Instalowanie usługi BLOB Storage przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)](network-file-system-protocol-support-how-to.md).
+
+- Aby zoptymalizować wydajność, zobacz [zagadnienia dotyczące wydajności systemu plików nfs 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support-performance.md).

@@ -5,12 +5,12 @@ description: Dowiedz się, jak zabezpieczyć ruch przepływający do i z zasobni
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d3aa49a749890783fdae589edab3d1910b2ac73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729423"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Zabezpieczanie ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób instalowania aparatu zasad sieciowych i tworzenia
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
-Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 > [!TIP]
 > W przypadku użycia funkcji zasad sieciowych w trakcie korzystania z wersji zapoznawczej zalecamy [utworzenie nowego klastra](#create-an-aks-cluster-and-enable-network-policy).
@@ -52,8 +52,8 @@ Obie implementacje używają systemu Linux *dołączenie iptables* , aby wymusi�
 
 | Możliwość                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Obsługiwane platformy                      | Linux                      | Linux                       |
-| Obsługiwane opcje sieci             | Azure CNI                  | Azure CNI i korzystającą wtyczki kubenet       |
+| Obsługiwane platformy                      | Linux                      | Linux, Windows Server 2019 (wersja zapoznawcza)  |
+| Obsługiwane opcje sieci             | Azure CNI                  | Azure CNI (systemy Windows Server 2019 i Linux) i korzystającą wtyczki kubenet (Linux)  |
 | Zgodność ze specyfikacją Kubernetes | Wszystkie typy zasad obsługiwane |  Wszystkie typy zasad obsługiwane |
 | Dodatkowe funkcje                      | Brak                       | Rozszerzony model zasad składający się z globalnych zasad sieciowych, globalnego zestawu sieci i punktu końcowego hosta. Aby uzyskać więcej informacji na temat korzystania z `calicoctl` interfejsu wiersza polecenia do zarządzania tymi rozszerzonymi funkcjami, zobacz [calicoctl User Reference][calicoctl]. |
 | Pomoc techniczna                                  | Obsługiwane przez zespół pomocy technicznej i inżynierów platformy Azure | Wsparcie społeczności Calico. Aby uzyskać więcej informacji na temat dodatkowej płatnej pomocy technicznej, zobacz [Opcje pomocy technicznej dla programu Project Calico][calico-support]. |
@@ -67,7 +67,7 @@ Aby wyświetlić zasady sieciowe w działaniu, Utwórz i rozwiń zasady, które 
 * Zezwalaj na ruch na podstawie etykiet pod.
 * Zezwalaj na ruch na podstawie przestrzeni nazw.
 
-Najpierw Utwórzmy klaster AKS, który obsługuje zasady sieciowe. 
+Najpierw Utwórzmy klaster AKS, który obsługuje zasady sieciowe.
 
 > [!IMPORTANT]
 >
@@ -120,25 +120,101 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 
 # Get the virtual network subnet resource ID
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
+```
 
-# Create the AKS cluster and specify the virtual network and service principal information
-# Enable network policy by using the `--network-policy` parameter
+### <a name="create-an-aks-cluster-for-azure-network-policies"></a>Tworzenie klastra AKS dla zasad sieciowych platformy Azure
+
+Utwórz klaster AKS i określ sieć wirtualną, informacje o głównej usłudze i *platformę Azure* dla wtyczki sieciowej i zasad sieciowych.
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
     --generate-ssh-keys \
-    --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
+    --network-plugin azure \
     --network-policy azure
 ```
 
 Utworzenie klastra trwa kilka minut. Gdy klaster jest gotowy, skonfiguruj, `kubectl` Aby nawiązać połączenie z klastrem Kubernetes za pomocą polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] . To polecenie umożliwia pobranie poświadczeń i skonfigurowanie interfejsu wiersza polecenia Kubernetes do ich użycia:
+
+```azurecli-interactive
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
+```
+
+### <a name="create-an-aks-cluster-for-calico-network-policies"></a>Tworzenie klastra AKS dla zasad sieciowych Calico
+
+Utwórz klaster AKS i określ sieć wirtualną, informacje o głównej usłudze, *platformę Azure* dla wtyczki sieciowej oraz *Calico* zasad sieciowych. Użycie *Calico* jako zasad sieciowych umożliwia Calico sieci zarówno w przypadku pul węzłów systemu Linux, jak i Windows.
+
+Jeśli planujesz Dodawanie pul węzłów systemu Windows do klastra, Dołącz `windows-admin-username` Parametry i, `windows-admin-password` które spełniają [wymagania dotyczące hasła systemu Windows Server][windows-server-password]. Aby używać Calico z pulami węzłów systemu Windows, należy również zarejestrować `Microsoft.ContainerService/EnableAKSWindowsCalico` .
+
+Zarejestruj `EnableAKSWindowsCalico` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableAKSWindowsCalico"
+```
+
+ Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAKSWindowsCalico')].{Name:name,State:properties.state}"
+```
+
+Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. ContainerService* za pomocą polecenia [AZ Provider Register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+> [!IMPORTANT]
+> W tej chwili Używanie zasad sieciowych Calico z węzłami systemu Windows jest dostępne w nowych klastrach przy użyciu Kubernetes w wersji 1,20 lub nowszej z Calico 3.17.2 i wymaga użycia sieci Azure CNI. Węzły systemu Windows w klastrach AKS z włączonym Calicoem również mają domyślnie włączoną funkcję [bezpośredniego powrotu serwera (DSR)][dsr] .
+>
+> W przypadku klastrów z tylko pulami węzłów systemu Linux z systemem Kubernetes 1,20 ze starszymi wersjami Calico wersja Calico zostanie automatycznie uaktualniona do 3.17.2.
+
+Zasady sieci Calico z węzłami systemu Windows są obecnie dostępne w wersji zapoznawczej.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+```azurecli
+PASSWORD_WIN="P@ssw0rd1234"
+
+az aks create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal $SP_ID \
+    --client-secret $SP_PASSWORD \
+    --windows-admin-password $PASSWORD_WIN \
+    --windows-admin-username azureuser \
+    --vm-set-type VirtualMachineScaleSets \
+    --kubernetes-version 1.20.2 \
+    --network-plugin azure \
+    --network-policy calico
+```
+
+Utworzenie klastra trwa kilka minut. Domyślnie klaster jest tworzony tylko za pomocą puli węzłów systemu Linux. Jeśli chcesz użyć pul węzłów systemu Windows, możesz dodać jeden z nich. Na przykład:
+
+```azurecli
+az aks nodepool add \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
+
+Gdy klaster jest gotowy, skonfiguruj, `kubectl` Aby nawiązać połączenie z klastrem Kubernetes za pomocą polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] . To polecenie umożliwia pobranie poświadczeń i skonfigurowanie interfejsu wiersza polecenia Kubernetes do ich użycia:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -191,7 +267,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Tworzenie i stosowanie zasad sieciowych
 
-Po potwierdzeniu, że możesz użyć podstawowej strony sieci Web NGINX na przykładowej zaplecza, Utwórz zasady sieciowe, aby odmówić całego ruchu. Utwórz plik o nazwie `backend-policy.yaml` i wklej następujący manifest YAML. Ten manifest używa *podSelector* do dołączania zasad do zasobników, które mają etykietę *App: webapp, role: zaplecza* , taką jak przykład Nginx. *W ramach ruchu*przychodzącego nie są zdefiniowane żadne reguły, dlatego cały ruch przychodzący do niego jest odrzucany:
+Po potwierdzeniu, że możesz użyć podstawowej strony sieci Web NGINX na przykładowej zaplecza, Utwórz zasady sieciowe, aby odmówić całego ruchu. Utwórz plik o nazwie `backend-policy.yaml` i wklej następujący manifest YAML. Ten manifest używa *podSelector* do dołączania zasad do zasobników, które mają etykietę *App: webapp, role: zaplecza* , taką jak przykład Nginx. *W ramach ruchu* przychodzącego nie są zdefiniowane żadne reguły, dlatego cały ruch przychodzący do niego jest odrzucany:
 
 ```yaml
 kind: NetworkPolicy
@@ -487,3 +563,7 @@ Aby dowiedzieć się więcej na temat zasad, zobacz [Kubernetes Network policies
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721093"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Wskazówki dotyczące migracji i tworzenia pakietów na podstawie scenariusza dostarczania
 
@@ -55,7 +55,7 @@ Zapoznaj się z tematami dotyczącymi publikowania, samouczkami i przewodnikami 
 - [Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji](create-streaming-locator-build-url.md)
 - [Pobierz wyniki zadania](download-results-howto.md)
 - [Śledzenie sygnałów dźwiękowych](signal-descriptive-audio-howto.md)
-- [Pełna konfiguracja usługi Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Pełna konfiguracja usługi Azure Media Player](../azure-media-player/azure-media-player-full-setup.md)
 - [Jak używać odtwarzacza Video.js z Azure Media Services](how-to-video-js-player.md)
 - [Jak używać odtwarzacza Shaka z Azure Media Services](how-to-shaka-player.md)
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6e4a776bd9aaf3900d05a6191b8ff4dcbb11fd52
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731667"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -156,7 +156,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |---|---|---|---|---|---|---|
 |Active-Timer-Count|Tak|Active-Timer-Count|Liczba|Średnia|Liczba czasomierzy, które są obecnie aktywne|Wdrożenie, nazwa_aplikacji, pod|
 |Alokacja — stawka|Tak|Alokacja — stawka|Bajty|Średnia|Liczba bajtów przydzielono w zarządzanej stercie|Wdrożenie, nazwa_aplikacji, pod|
-|AppCpuUsage|Tak|Użycie procesora CPU aplikacji (wersja zapoznawcza)|Procent|Średnia|Ostatnie użycie procesora CPU dla aplikacji|Wdrożenie, nazwa_aplikacji, pod|
+|AppCpuUsage|Tak|Użycie procesora CPU przez aplikację |Procent|Średnia|Ostatnie użycie procesora CPU dla aplikacji|Wdrożenie, nazwa_aplikacji, pod|
 |liczba zestawów|Tak|liczba zestawów|Liczba|Średnia|Liczba załadowanych zestawów|Wdrożenie, nazwa_aplikacji, pod|
 |Użycie procesora CPU|Tak|Użycie procesora CPU|Procent|Średnia|% czasu, w którym proces używał procesora CPU|Wdrożenie, nazwa_aplikacji, pod|
 |bieżące żądania|Tak|bieżące żądania|Liczba|Średnia|Łączna liczba żądań przetwarzanych w okresie istnienia procesu|Wdrożenie, nazwa_aplikacji, pod|
@@ -2167,9 +2167,9 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metric|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|QueryVolume|Tak|Wolumin zapytania|Liczba|Łącznie|Liczba zapytań obsłużonych dla strefy DNS|Brak wymiarów|
+|QueryVolume|Nie|Wolumin zapytania|Liczba|Łącznie|Liczba zapytań obsłużonych dla strefy DNS|Brak wymiarów|
 |RecordSetCapacityUtilization|Nie|Wykorzystanie pojemności zestawu rekordów|Procent|Maksimum|Procent pojemności zestawu rekordów używany przez strefę DNS|Brak wymiarów|
-|RecordSetCount|Tak|Liczba zestawów rekordów|Liczba|Maksimum|Liczba zestawów rekordów w strefie DNS|Brak wymiarów|
+|RecordSetCount|Nie|Liczba zestawów rekordów|Liczba|Maksimum|Liczba zestawów rekordów w strefie DNS|Brak wymiarów|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft. Network/expressRouteCircuits
@@ -2799,7 +2799,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |SuccessE2ELatency|Tak|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Tak|Opóźnienie serwera sukcesu|)|Średnia|Średni czas potrzebny na przetworzenie żądania zakończonego powodzeniem przez usługę Azure Storage. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |Transakcje|Tak|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, uwierzytelnianie|
-|UsedCapacity|Nie|Używana pojemność|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez konto magazynu. W przypadku kont magazynu w warstwie Standardowa jest to suma pojemności używanej przez obiekt blob, tabelę, plik i kolejkę. W przypadku kont magazynu w warstwie Premium i kont usługi BLOB Storage jest to taka sama jak BlobCapacity lub FileCapacity.|Brak wymiarów|
+|UsedCapacity|Tak|Używana pojemność|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez konto magazynu. W przypadku kont magazynu w warstwie Standardowa jest to suma pojemności używanej przez obiekt blob, tabelę, plik i kolejkę. W przypadku kont magazynu w warstwie Premium i kont usługi BLOB Storage jest to taka sama jak BlobCapacity lub FileCapacity.|Brak wymiarów|
 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
@@ -3137,11 +3137,11 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageResponseTime|Tak|Średni czas odpowiedzi (przestarzałe)|Sekundy|Średnia|Średni czas, w którym aplikacja będzie obsługiwała żądania (w sekundach).|Wystąpienie|
 |BytesReceived|Tak|Dane w|Bajty|Łącznie|Ilość przychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
 |BytesSent|Tak|Dane wychodzące|Bajty|Łącznie|Ilość wychodzącej przepustowości zużywanej przez aplikację w usłudze MiB.|Wystąpienie|
-|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Zobacz https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora).|Wystąpienie|
+|CpuTime|Tak|Czas procesora CPU|Sekundy|Łącznie|Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki. Zobacz https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (czas procesora CPU a procent procesora). Nie ma zastosowania do Azure Functions.|Wystąpienie|
 |CurrentAssemblies|Tak|Bieżące zestawy|Liczba|Średnia|Bieżąca liczba zestawów załadowanych we wszystkich domenach aplikacji.|Wystąpienie|
 |FileSystemUsage|Tak|Użycie systemu plików|Bajty|Średnia|Procent przydziału systemu plików zużywany przez aplikację.|Brak wymiarów|
-|FunctionExecutionCount|Tak|Liczba wykonań funkcji|Liczba|Łącznie|Liczba wykonań funkcji|Wystąpienie|
-|FunctionExecutionUnits|Tak|Jednostki wykonywania funkcji|Liczba|Łącznie|Jednostki wykonywania funkcji|Wystąpienie|
+|FunctionExecutionCount|Tak|Liczba wykonań funkcji|Liczba|Łącznie|Licznik wykonywania funkcji. Obecne tylko dla Azure Functions.|Wystąpienie|
+|FunctionExecutionUnits|Tak|Jednostki wykonywania funkcji|Liczba|Łącznie|Jednostki wykonywania funkcji. Obecne tylko dla Azure Functions.|Wystąpienie|
 |Gen0Collections|Tak|Zbieranie elementów bezużytecznych generacji 0|Liczba|Łącznie|Liczba obiektów generacji 0, które są zbierane jako elementy bezużyteczne od momentu rozpoczęcia procesu aplikacji. Wyższa generacja operacje odzyskiwania pamięci obejmuje wszystkie niższe operacje odzyskiwania pamięci generacji.|Wystąpienie|
 |Gen1Collections|Tak|Wyrzucanie elementów bezużytecznych generacji 1|Liczba|Łącznie|Liczba obiektów generacji 1, które są zbierane jako elementy bezużyteczne od momentu rozpoczęcia procesu aplikacji. Wyższa generacja operacje odzyskiwania pamięci obejmuje wszystkie niższe operacje odzyskiwania pamięci generacji.|Wystąpienie|
 |Gen2Collections|Tak|Zbieranie elementów bezużytecznych generacji 2|Liczba|Łącznie|Liczba obiektów generacji 2, które są zbierane jako elementy bezużyteczne od momentu rozpoczęcia procesu aplikacji.|Wystąpienie|

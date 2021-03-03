@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012320"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723847"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Usuń Start/Stop VMs during off-hours z konta usługi Automation
 
@@ -94,7 +94,7 @@ Gdy informacje są weryfikowane i konto zostało usunięte, możesz śledzić po
 
 ## <a name="delete-the-feature"></a>Usuń funkcję
 
-Aby usunąć Start/Stop VMs during off-hours z konta usługi Automation, wykonaj następujące czynności. Konto usługi Automation i obszar roboczy Log Analytics nie są usuwane w ramach tego procesu. Jeśli nie chcesz przechowywać obszaru roboczego Log Analytics, musisz go usunąć ręcznie. Aby uzyskać więcej informacji na temat usuwania obszaru roboczego, zobacz temat [usuwanie i odzyskiwanie obszaru roboczego usługi Azure log Analytics](../azure-monitor/platform/delete-workspace.md).
+Aby usunąć Start/Stop VMs during off-hours z konta usługi Automation, wykonaj następujące czynności. Konto usługi Automation i obszar roboczy Log Analytics nie są usuwane w ramach tego procesu. Jeśli nie chcesz przechowywać obszaru roboczego Log Analytics, musisz go usunąć ręcznie. Aby uzyskać więcej informacji na temat usuwania obszaru roboczego, zobacz temat [usuwanie i odzyskiwanie obszaru roboczego usługi Azure log Analytics](../azure-monitor/logs/delete-workspace.md).
 
 1. Przejdź do konta usługi Automation, a następnie wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
 

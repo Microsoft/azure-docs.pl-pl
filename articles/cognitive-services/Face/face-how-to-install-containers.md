@@ -1,7 +1,7 @@
 ---
-title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejs API rozpoznawania twarzy
+title: Instalowanie i uruchamianie kontenerów platformy Docker dla Face API
 titleSuffix: Azure Cognitive Services
-description: Użyj kontenera Docker, aby uzyskać interfejs API rozpoznawania twarzy do wykrywania i identyfikowania ludzkich twarzy na obrazach.
+description: Użyj kontenera Docker, aby uzyskać Face API do wykrywania i identyfikowania ludzkich twarzy na obrazach.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,22 +9,22 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/23/2021
 ms.author: aahi
 keywords: lokalna, Docker, kontener, identyfikacja
-ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706796"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalowanie i uruchamianie kontenerów z systemem (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Osiągnięto limit liczby użytkowników kontenera funkcji rozpoznawania twarzy. Obecnie nie akceptujemy nowych aplikacji dla kontenera funkcji rozpoznawania twarzy.
 
-Usługa Azure Cognitive Services interfejs API rozpoznawania twarzy udostępnia kontener platformy Docker systemu Linux, który wykrywa i analizuje ludzkie twarze na obrazach. Identyfikuje także atrybuty, które obejmują dzielnice, takie jak nos i oczy, płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny ufności. Twarz może również porównać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.
+Usługa Azure Cognitive Services Face API udostępnia kontener platformy Docker systemu Linux, który wykrywa i analizuje ludzkie twarze na obrazach. Identyfikuje także atrybuty, które obejmują dzielnice, takie jak nos i oczy, płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny ufności. Twarz może również porównać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -154,5 +154,5 @@ W tym artykule przedstawiono koncepcje i przepływ pracy związane z pobieraniem
 
 * Aby uzyskać ustawienia konfiguracji, zobacz [Konfigurowanie kontenerów](face-resource-container-config.md).
 * Aby dowiedzieć się więcej o wykrywaniu i identyfikowaniu twarzy, zobacz temat [Omówienie funkcji twarz](Overview.md).
-* Aby uzyskać informacje na temat metod obsługiwanych przez kontener, zobacz [interfejs API rozpoznawania twarzy](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+* Aby uzyskać informacje na temat metod obsługiwanych przez kontener, zobacz [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 * Aby korzystać z więcej kontenerów Cognitive Services, zobacz [Cognitive Services Containers](../cognitive-services-container-support.md).

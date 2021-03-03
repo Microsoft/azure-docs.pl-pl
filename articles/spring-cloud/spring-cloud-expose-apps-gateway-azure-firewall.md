@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d5bd62dad5be7f6a6df5b6b037e8eeae13ee48e3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738722"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Uwidacznianie aplikacji w Internecie przy użyciu Application Gateway i zapory platformy Azure
 
@@ -20,7 +20,7 @@ W tym dokumencie wyjaśniono, jak udostępniać aplikacje w Internecie przy uży
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- [Interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej](/cli/azure/install-azure-cli).
 
 ## <a name="define-variables"></a>Definiowanie zmiennych
 
@@ -137,7 +137,7 @@ Skopiuj i wklej publiczny adres IP na pasku adresu przeglądarki.
 
   ![Aplikacja w publicznym adresie IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](spring-cloud-troubleshooting-vnet.md)
 - [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](spring-cloud-vnet-customer-responsibilities.md)

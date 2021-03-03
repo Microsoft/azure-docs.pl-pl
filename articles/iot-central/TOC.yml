@@ -66,10 +66,8 @@
     - name: Rozwiązania dla branż
       items:
         - name: Retail
-          href: retail/overview-iot-central-retail.md
           items:
             - name: Analiza w sklepie — finalizacja zakupu
-              href: retail/store-analytics-architecture.md
               items:
                 - name: 1 — Tworzenie aplikacji handlu detalicznego
                   href: retail/tutorial-in-store-analytics-create-app.md
@@ -77,28 +75,15 @@
                   href: retail/tutorial-in-store-analytics-customize-dashboard.md
                 - name: 3 — Eksportowanie danych i wizualizacja szczegółowych informacji
                   href: retail/tutorial-in-store-analytics-export-data-visualize-insights.md
-            - name: Inteligentne zarządzanie magazynem
-              href: retail/architecture-smart-inventory-management.md
-              items:
-                - name: Tworzenie aplikacji inteligentnego zarządzania magazynem
-                  href: retail/tutorial-iot-central-smart-inventory-management.md
-            - name: Połączona logistyka
-              href: retail/architecture-connected-logistics.md
-              items:
-                - name: Tworzenie aplikacji połączonej logistyki
-                  href: retail/tutorial-iot-central-connected-logistics.md
-            - name: Cyfrowe centrum dystrybucji
-              href: retail/architecture-digital-distribution-center.md
-              items:
-                - name: Tworzenie aplikacji cyfrowego centrum dystrybucji
-                  href: retail/tutorial-iot-central-digital-distribution-center.md
-            - name: Centrum mikrorealizacji
-              href: retail/architecture-micro-fulfillment-center.md
-              items:
-                - name: Tworzenie aplikacji centrum mikrorealizacji
-                  href: retail/tutorial-micro-fulfillment-center.md
+            - name: Tworzenie aplikacji inteligentnego zarządzania magazynem
+              href: retail/tutorial-iot-central-smart-inventory-management.md
+            - name: Tworzenie aplikacji połączonej logistyki
+              href: retail/tutorial-iot-central-connected-logistics.md
+            - name: Tworzenie aplikacji cyfrowego centrum dystrybucji
+              href: retail/tutorial-iot-central-digital-distribution-center.md
+            - name: Tworzenie aplikacji centrum mikrorealizacji
+              href: retail/tutorial-micro-fulfillment-center.md
             - name: Analiza wideo — wykrywanie obiektów i ruchu
-              href: retail/architecture-video-analytics.md
               items:
                 - name: 0 — Wdrażanie aplikacji do wykrywania obiektów i ruchu
                   href: retail/tutorial-video-analytics-deploy.md
@@ -119,38 +104,21 @@
                 - name: 4 — Modyfikowanie i tworzenie modułów bramy analizy wideo na żywo
                   href: retail/tutorial-video-analytics-build-module.md
         - name: Energetyczna
-          href: energy/overview-iot-central-energy.md
           items:
-            - name: Architektura aplikacji inteligentnych liczników
-              href: energy/concept-iot-central-smart-meter-app.md
             - name: Tworzenie aplikacji do monitorowania inteligentnych liczników
               href: energy/tutorial-smart-meter-app.md
-            - name: Architektura aplikacji paneli słonecznych
-              href: energy/concept-iot-central-solar-panel-app.md
             - name: Tworzenie aplikacji do monitorowania paneli słonecznych
               href: energy/tutorial-solar-panel-app.md
         - name: Instytucje rządowe
-          href: government/overview-iot-central-government.md
           items:
-            - name: Architektura referencyjna połączonego zarządzania odpadami
-              href: government/concepts-connectedwastemanagement-architecture.md
             - name: Tworzenie aplikacji połączonego zarządzania odpadami
               href: government/tutorial-connected-waste-management.md
-            - name: Architektura referencyjna monitorowania zużycia wody
-              href: government/concepts-waterconsumptionmonitoring-architecture.md
             - name: Tworzenie aplikacji do monitorowania zużycia wody
               href: government/tutorial-water-consumption-monitoring.md
-            - name: Architektura referencyjna monitorowania jakości wody
-              href: government/concepts-waterqualitymonitoring-architecture.md
             - name: Tworzenie aplikacji do monitorowania jakości wody
               href: government/tutorial-water-quality-monitoring.md
-            - name: Łączenie aplikacji IoT Central platformy Azure z usługami pól Dynamics 365
-              href: government/how-to-configure-connected-field-services.md
         - name: Opieka zdrowotna
-          href: healthcare/overview-iot-central-healthcare.md
           items:
-            - name: Architektura ciągłego monitorowania pacjenta
-              href: healthcare/concept-continuous-patient-monitoring-architecture.md
             - name: Tworzenie aplikacji ciągłego monitorowania pacjenta
               href: healthcare/tutorial-continuous-patient-monitoring.md
             - name: Tworzenie pulpitu nawigacyjnego klasyfikacji danych medycznych
@@ -162,9 +130,51 @@
     - name: Przewodnik dla deweloperów urządzeń
       href: core/overview-iot-central-developer.md
     - name: Przewodnik po konstruktorze rozwiązań
-      href: core/overview-iot-central-developer.md
+      href: core/overview-iot-central-solution-builder.md
     - name: Co to są szablony aplikacji?
       href: core/concepts-app-templates.md
+    - name: Szablony aplikacji specyficznych dla branży
+      items:
+        - name: Retail
+          items:
+            - name: Omówienie
+              href: retail/overview-iot-central-retail.md
+            - name: Architektura wyewidencjonowania analiz w sklepie
+              href: retail/store-analytics-architecture.md
+            - name: Architektura zarządzania magazynem inteligentnego
+              href: retail/architecture-smart-inventory-management.md
+            - name: Architektura połączonej logistyki
+              href: retail/architecture-connected-logistics.md
+            - name: Cyfrowe centrum dystrybucji
+              href: retail/architecture-digital-distribution-center.md
+            - name: Architektura centrum mikrorealizacji
+              href: retail/architecture-micro-fulfillment-center.md
+            - name: Analiza wideo — wykrywanie obiektów i ruchu
+              href: retail/architecture-video-analytics.md
+        - name: Energetyczna
+          items:
+            - name: Omówienie
+              href: energy/overview-iot-central-energy.md
+            - name: Architektura aplikacji inteligentnych liczników
+              href: energy/concept-iot-central-smart-meter-app.md
+            - name: Architektura aplikacji paneli słonecznych
+              href: energy/concept-iot-central-solar-panel-app.md
+        - name: Instytucje rządowe
+          items:
+            - name: Omówienie
+              href: government/overview-iot-central-government.md
+            - name: Architektura monitorowania połączonych odpadów
+              href: government/concepts-connectedwastemanagement-architecture.md
+            - name: Architektura monitorowania zużycia wody
+              href: government/concepts-waterconsumptionmonitoring-architecture.md
+            - name: Architektura monitorowania jakości wody
+              href: government/concepts-waterqualitymonitoring-architecture.md
+        - name: Opieka zdrowotna
+          items:
+            - name: Omówienie
+              href: healthcare/overview-iot-central-healthcare.md
+            - name: Architektura ciągłego monitorowania pacjenta
+              href: healthcare/concept-continuous-patient-monitoring-architecture.md
     - name: Co to są szablony urządzeń?
       href: core/concepts-device-templates.md
     - name: Łączność urządzeń
@@ -221,6 +231,8 @@
           href: core/howto-create-custom-analytics.md
         - name: Wizualizacja danych w usłudze Power BI
           href: core/howto-connect-powerbi.md
+        - name: Łączenie aplikacji z usługami pól Dynamics 365
+          href: government/how-to-configure-connected-field-services.md
     - name: Zarządzanie urządzeniami
       items:
         - name: Dodawanie i usuwanie urządzeń

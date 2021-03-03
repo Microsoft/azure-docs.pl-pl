@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/21/2021
+ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8b412fffdda1ce6a2023a8b9ae459a52986cd93d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 899249c98c3ce0fdf061b1e689182f71c120aa13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729402"
 ---
 # <a name="whats-new-in-azure-automation"></a>Co nowego w Azure Automation?
 
@@ -24,7 +24,55 @@ Azure Automation w bieżąco otrzymuje ulepszenia. Aby zachować aktualność w 
 
 Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedzać.
 
+## <a name="february-2021"></a>Luty 2021 r.
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-japan-west"></a>Obsługa konfiguracji automatyzacji i stanu zadeklarowana w Japonii zachodniej
+
+**Typ:** Nowa funkcja
+
+Dostępność konfiguracji konta i stanu usługi Automation w regionie Japonia Zachodnia. Aby uzyskać więcej informacji, przeczytaj temat [ogłoszenie](https://azure.microsoft.com/updates/azure-automation-in-japan-west-region/).
+
+### <a name="introduced-custom-azure-policy-compliance-to-enforce-runbook-execution-on-hybrid-worker"></a>Wprowadzono niestandardowe zgodność Azure Policy, aby wymusić wykonanie elementu Runbook w hybrydowym procesie roboczym
+
+**Typ:** Nowa funkcja
+
+Możesz użyć nowej reguły zgodności Azure Policy, aby umożliwić tworzenie zadań, elementów webhook i harmonogramów zadań do uruchomienia tylko w grupach hybrydowych procesów roboczych.
+
+### <a name="update-management-availability-in-east-us-france-central-and-north-europe-regions"></a>Update Management dostępność w regionach Wschodnie stany USA, Francja Środkowa i Europa Północna
+
+**Typ:** Nowa funkcja
+
+Funkcja Automatyzacja Update Management jest dostępna w regionach Wschodnie stany USA, Francja Środkowa i Europa Północna. Zobacz sekcję [obsługiwane mapowanie regionów](how-to/region-mappings.md) w celu uzyskania aktualizacji dokumentacji odzwierciedlającej tę zmianę.
+
 ## <a name="january-2021"></a>Styczeń 2021 r.
+
+### <a name="support-for-automation-and-state-configuration-declared-ga-in-switzerland-west"></a>Obsługa konfiguracji automatyzacji i stanu zadeklarowana w Szwajcaria Zachodnia
+
+**Typ:** Nowa funkcja
+
+Dostępność konfiguracji konta i stanu usługi Automation w regionie Szwajcaria Zachodnia. Aby uzyskać więcej informacji, zapoznaj się z [ogłoszeniem](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
+
+### <a name="added-python-3-script-to-import-module-with-multiple-dependencies"></a>Dodano skrypt języka Python 3 służący do importowania modułu z wieloma zależnościami
+
+**Typ:** Nowa funkcja
+
+Skrypt jest dostępny do pobrania z naszego [repozytorium GitHub](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py). 
+ 
+### <a name="hybrid-runbook-worker-role-support-for-centos-8xrhel-8xsles-15"></a>Obsługa roli hybrydowego procesu roboczego elementu Runbook dla CentOS 8. x/RHEL 8. x/SLES 15
+
+**Wprowadź.** Nowa funkcja
+
+Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje dystrybucje CentOS 8. x, REHL 8. x i SLES 15 wyłącznie w przypadku automatyzacji procesów na hybrydowych procesach roboczych elementów Runbook.  Zapoznaj się z [obsługiwanymi systemami operacyjnymi](automation-linux-hrw-install.md#supported-linux-operating-systems) dotyczącymi aktualizacji dokumentacji, aby odzwierciedlić te zmiany.
+
+### <a name="update-management--change-tracking-availability-in-australia-east-east-asia-west-us--central-us-regions"></a>Update Management & Change Tracking dostępność w Australii Wschodniej, Azja Wschodnia zachodnie stany USA & środkowe regiony USA
+
+**Typ:** Nowa funkcja
+
+Konto usługi Automation, Change Tracking i spis i Update Management są dostępne w regionach Australia Wschodnia, Azja Wschodnia zachodnie stany USA & środkowe stany USA. 
+
+### <a name="introduced-public-preview-of-python-3-runbooks-in-us-government-cloud"></a>Wprowadzono publiczną wersję zapoznawczą elementów Runbook języka Python 3 w chmurze dla instytucji rządowych USA
+
+**Typ:** Nowa funkcja Azure Automation wprowadza publiczną obsługę podglądu w chmurze języka Python 3 i wykonywanie hybrydowego elementu Runbook w regionach w chmurze dla instytucji rządowych USA.  Aby uzyskać więcej informacji, zobacz [ogłoszenie](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ### <a name="azure-automation-runbooks-moved-from-technet-script-center-to-github"></a>Azure Automation elementów Runbook przenoszonych z centrum skryptów TechNet do usługi GitHub
 

@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563232"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722283"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
 Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia funkcje przetwarzania języka naturalnego (NLP) na potrzeby wyszukiwania tekstu i analizy tekstu, w tym: Analiza tonacji, wyszukiwanie opinii, wyodrębnianie kluczowych fraz, wykrywanie języka i rozpoznawanie nazw jednostek.
 
-Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/client-libraries-rest-api.md)programu.
+Interfejs API jest częścią usług [Azure Cognitive Services](../index.yml), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Za pomocą tych funkcji można korzystać z interfejsu API REST w [wersji 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) lub [wersji 3,1 — Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)lub [biblioteki klienta](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 

@@ -4,19 +4,21 @@ description: Usługa Azure Security test — tworzenie kopii zapasowych i odzysk
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368889"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724425"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Kontrola zabezpieczeń v2: kopia zapasowa i odzyskiwanie
 
 Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że kopie zapasowe danych i konfiguracji w różnych warstwach usług są wykonywane, weryfikowane i chronione.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na usłudze Azure Security test: Tworzenie kopii zapasowych i odzyskiwanie](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: zapewnianie zwykłych zautomatyzowanych kopii zapasowych
 
@@ -26,9 +28,9 @@ Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że
 
 Upewnij się, że tworzysz kopię zapasową systemów i danych, aby zachować ciągłość działania po nieoczekiwanym zdarzeniu. Powinno to być zdefiniowane przez dowolne cele dotyczące celu punktu odzyskiwania (RPO) i celu czasu odzyskiwania (RTO).
 
-Włącz Azure Backup i skonfiguruj Źródło kopii zapasowych (np. maszyny wirtualne platformy Azure, SQL Server, bazy danych HANA lub udziały plików), a także żądaną częstotliwość i okres przechowywania.  
+Włącz Azure Backup i skonfiguruj Źródło kopii zapasowych (takie jak maszyny wirtualne platformy Azure, SQL Server, bazy danych HANA lub udziały plików), a także żądaną częstotliwość i okres przechowywania.
 
-Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geograficznie nadmiarowego w celu replikowania danych kopii zapasowej do regionu pomocniczego i odzyskania przy użyciu funkcji przywracania między regionami.
+W przypadku wyższego poziomu ochrony można włączyć opcję magazynu geograficznie nadmiarowego, aby replikować dane kopii zapasowej do regionu pomocniczego i odzyskać przy użyciu funkcji przywracania między regionami.
 
 - [Ciągłość działalności biznesowej i odzyskiwanie po awarii w skali przedsiębiorstwa](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
@@ -54,9 +56,9 @@ Aby zapewnić wyższy poziom ochrony, można włączyć opcję magazynu geografi
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
-Upewnij się, że kopie zapasowe są chronione przed atakami. Powinno to obejmować szyfrowanie kopii zapasowych w celu ochrony przed utratą poufności.   
+Upewnij się, że kopie zapasowe są chronione przed atakami. Powinno to obejmować szyfrowanie kopii zapasowych w celu ochrony przed utratą poufności.
 
-W przypadku lokalnych kopii zapasowych przy użyciu Azure Backup szyfrowanie jest dostarczane przy użyciu podanego hasła. W przypadku zwykłych kopii zapasowych usługi Azure dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure. Możesz zaszyfrować kopie zapasowe przy użyciu klucza zarządzanego przez klienta. W takim przypadku upewnij się, że ten klucz zarządzany przez klienta w magazynie kluczy należy również do zakresu kopii zapasowych. 
+W przypadku lokalnych kopii zapasowych przy użyciu Azure Backup szyfrowanie jest dostarczane przy użyciu podanego hasła. W przypadku zwykłych kopii zapasowych usługi Azure dane kopii zapasowej są automatycznie szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure. Możesz zaszyfrować kopie zapasowe przy użyciu klucza zarządzanego przez klienta. W takim przypadku upewnij się, że ten klucz zarządzany przez klienta w magazynie kluczy należy również do zakresu kopii zapasowych.
 
 Użyj kontroli dostępu opartej na rolach platformy Azure w Azure Backup, Azure Key Vault lub innych zasobów, aby chronić kopie zapasowe i klucze zarządzane przez klienta. Dodatkowo można włączyć zaawansowane funkcje zabezpieczeń, aby wymagać uwierzytelniania wieloskładnikowego, zanim będzie można zmienić lub usunąć kopie zapasowe.
 
@@ -104,7 +106,7 @@ Okresowe wykonywanie przywracania danych kopii zapasowej. Upewnij się, że moż
 |--|--|--|--|
 | BR-4 | 10,4 | CP-9 |
 
-Upewnij się, że masz środki, aby zapobiec utracie kluczy i je odzyskać. Włącz usuwanie nietrwałe i przeczyść ochronę w usłudze Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.  
+Upewnij się, że masz miary, aby zapobiec utracie kluczy i je odzyskać. Włącz usuwanie nietrwałe i przeczyść ochronę w usłudze Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 - [Jak włączyć ochronę w formie usuwania nietrwałego i przeczyszczania w usłudze Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

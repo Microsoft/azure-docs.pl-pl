@@ -3,12 +3,12 @@ title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 73f58dbda0e7c073cf4a8d2e846132a102192e93
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: b1f9e61b409c395a13cc6a18d21d17530f38ac7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635918"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722895"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -2265,6 +2265,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | managedInstances/klucze | Nie | Nie |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | Nie | Nie |
 > | managedInstances / vulnerabilityAssessments | Nie | Nie |
+> | longtermRetentionManagedInstance/longtermRetentionDatabase/funkcja longtermretentionbackup | Nie | Nie |
 > | serwerem | Tak | Tak |
 > | serwery/Administratorzy | Nie | Nie |
 > | serwery/communicationLinks | Nie | Nie |
@@ -2275,6 +2276,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | serwery/restorableDroppedDatabases | Nie | Nie |
 > | serwery/cele | Nie | Nie |
 > | serwery/tdeCertificates | Nie | Nie |
+> | longtermRetentionServer/longtermRetentionDatabase/funkcja longtermretentionbackup | Nie | Nie |
 > | virtualClusters | Nie | Nie |
 
 <a id="sqlnote"></a>

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8ed21d8689bf5340c1bde0a7f782bb8614f7cf11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700205"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informacje o usłudze Azure Cloud Services (obsługa rozszerzona)
 
@@ -21,7 +21,7 @@ ms.locfileid: "98762833"
 > Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cloud Services (obsługa rozszerzona) to nowy model wdrażania oparty na [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) na [platformie Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) i jest obecnie w publicznej wersji zapoznawczej. Cloud Services (obsługa rozszerzona) ma podstawowe korzyści wynikające z zapewnienia odporności regionalnej wraz z obsługą funkcji Azure Cloud Services wdrożonej przy użyciu usługi Azure Service Manager. Oferuje on również pewne funkcje ARM, takie jak dostęp oparty na rolach i kontrola (RBAC), Tagi, zasady i obsługa szablonów wdrożenia.  
+Cloud Services (obsługa rozszerzona) to nowy model wdrażania oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na [platformie Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) i jest obecnie w publicznej wersji zapoznawczej. Cloud Services (obsługa rozszerzona) ma podstawowe korzyści wynikające z zapewnienia odporności regionalnej wraz z obsługą funkcji Azure Cloud Services wdrożonej przy użyciu usługi Azure Service Manager. Oferuje on również pewne funkcje ARM, takie jak dostęp oparty na rolach i kontrola (RBAC), Tagi, zasady i obsługa szablonów wdrożenia.  
 
 Wprowadzenie tej zmiany spowoduje zmianę nazwy modelu wdrożenia opartego na usłudze Azure Service Manager dla Cloud Services [Cloud Services (klasyczny)](../cloud-services/cloud-services-choose-me.md). Będziesz mieć możliwość kompilowania i szybkiego wdrażania aplikacji i usług w sieci Web oraz w chmurze. Możesz skalować infrastrukturę usług w chmurze w oparciu o bieżące zapotrzebowanie i upewnić się, że wydajność aplikacji będzie możliwa, jednocześnie zmniejszając koszty.  
 
@@ -41,11 +41,11 @@ Do wdrażania Cloud Services (obsługa rozszerzona) wymagane są minimalne zmian
 
 Główne różnice między Cloud Services (klasyczne) i Cloud Services (obsługa rozszerzona) w odniesieniu do wdrożenia są następujące: 
 
-- Wdrożenia Azure Resource Manager korzystają z [szablonów usługi ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) , czyli pliku JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Konfiguracja usługi i plik definicji usługi muszą być zgodne z [szablonem ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) podczas wdrażania Cloud Services (obsługa rozszerzona). Można to osiągnąć, [ręcznie tworząc szablon ARM](deploy-template.md) lub korzystając z [programu PowerShell](deploy-powershell.md), [portalu](deploy-portal.md) i [programu Visual Studio](deploy-visual-studio.md).  
+- Wdrożenia Azure Resource Manager korzystają z [szablonów usługi ARM](../azure-resource-manager/templates/overview.md) , czyli pliku JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Konfiguracja usługi i plik definicji usługi muszą być zgodne z [szablonem ARM](../azure-resource-manager/templates/overview.md) podczas wdrażania Cloud Services (obsługa rozszerzona). Można to osiągnąć, [ręcznie tworząc szablon ARM](deploy-template.md) lub korzystając z [programu PowerShell](deploy-powershell.md), [portalu](deploy-portal.md) i [programu Visual Studio](deploy-visual-studio.md).  
 
-- Klienci muszą używać [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) do [zarządzania certyfikatami w Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md). Azure Key Vault pozwala bezpiecznie przechowywać poświadczenia aplikacji, takie jak wpisy tajne, klucze i certyfikaty w centralnym i bezpiecznym repozytorium chmury oraz zarządzać nimi. Aplikacje mogą uwierzytelniać się w celu Key Vault w czasie wykonywania w celu pobrania poświadczeń. 
+- Klienci muszą używać [Azure Key Vault](../key-vault/general/overview.md) do [zarządzania certyfikatami w Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md). Azure Key Vault pozwala bezpiecznie przechowywać poświadczenia aplikacji, takie jak wpisy tajne, klucze i certyfikaty w centralnym i bezpiecznym repozytorium chmury oraz zarządzać nimi. Aplikacje mogą uwierzytelniać się w celu Key Vault w czasie wykonywania w celu pobrania poświadczeń. 
 
-- Wszystkie zasoby wdrożone za pomocą [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) muszą znajdować się w sieci wirtualnej. Sieci wirtualne i podsieci są tworzone w Azure Resource Manager przy użyciu istniejących interfejsów API Azure Resource Manager i należy się do nich odwoływać w sekcji NetworkConfiguration pliku. cscfg podczas wdrażania Cloud Services (obsługa rozszerzona).   
+- Wszystkie zasoby wdrożone za pomocą [Azure Resource Manager](../azure-resource-manager/templates/overview.md) muszą znajdować się w sieci wirtualnej. Sieci wirtualne i podsieci są tworzone w Azure Resource Manager przy użyciu istniejących interfejsów API Azure Resource Manager i należy się do nich odwoływać w sekcji NetworkConfiguration pliku. cscfg podczas wdrażania Cloud Services (obsługa rozszerzona).   
 
 - Każda usługa w chmurze (obsługa rozszerzona) to pojedyncze niezależne wdrożenie. Usługi Cloud Services (obsługa rozszerzona) nie obsługują wielu gniazd w ramach jednej usługi w chmurze.  
     - Możliwość wymiany adresów VIP <sup>*</sup> może być używana do wymiany między dwiema usługami w chmurze (obsługa rozszerzona). Aby przetestować i przygotować nową wersję usługi w chmurze, należy wdrożyć usługę w chmurze (obsługę rozszerzoną) i oznaczyć ją jako zamienionej na adresy VIP z inną usługą w chmurze (obsługa rozszerzona)  
@@ -57,13 +57,13 @@ Główne różnice między Cloud Services (klasyczne) i Cloud Services (obsługa
 
 ## <a name="migration-to-azure-resource-manager"></a>Migracja do Azure Resource Manager
 
-Cloud Services (obsługa rozszerzona) oferuje dwie ścieżki migracji z [usługi Azure Service Manager](https://docs.microsoft.com/powershell/azure/servicemanagement/overview?view=azuresmps-4.0.0&preserve-view=true ) do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+Cloud Services (obsługa rozszerzona) oferuje dwie ścieżki migracji z [usługi Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) do [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Klienci wdrażają usługi w chmurze bezpośrednio w Azure Resource Manager a następnie usuwali starą usługę w chmurze na platformie Azure Service Manager. 
 2) Migracja w miejscu obsługuje możliwość migrowania Cloud Services (klasyczny) z minimalnym czasem przestoju do Cloud Services (obsługa rozszerzona). 
 
 ### <a name="additional-migration-options"></a>Dodatkowe opcje migracji
 
-Podczas oceniania planów migracji z Cloud Services (klasycznego) do Cloud Services (obsługa rozszerzona) możesz chcieć zbadać dodatkowe usługi platformy Azure, takie jak: [Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [App Service](https://docs.microsoft.com/azure/app-service/overview), [azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)i [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). Te usługi będą w dalszym ciągu korzystać z dodatkowych możliwości, a podczas Cloud Services (obsługa rozszerzona) będzie przede wszystkim zachować parzystość funkcji z Cloud Services (klasyczny). 
+Podczas oceniania planów migracji z Cloud Services (klasycznego) do Cloud Services (obsługa rozszerzona) możesz chcieć zbadać dodatkowe usługi platformy Azure, takie jak: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [azure Kubernetes Service](../aks/intro-kubernetes.md)i [Azure Service Fabric](../service-fabric/service-fabric-overview.md). Te usługi będą w dalszym ciągu korzystać z dodatkowych możliwości, a podczas Cloud Services (obsługa rozszerzona) będzie przede wszystkim zachować parzystość funkcji z Cloud Services (klasyczny). 
 
 W zależności od aplikacji Cloud Services (obsługa rozszerzona) może wymagać znacznie mniej wysiłku do przejścia do Azure Resource Manager w porównaniu z innymi opcjami. Jeśli aplikacja nie jest rozwijana, Cloud Services (obsługa rozszerzona) jest wykonalną opcją do rozważenia, ponieważ zapewnia szybką ścieżkę migracji. Jeśli jednak aplikacja ciągle się zmienia i wymaga bardziej nowoczesnego zestawu funkcji, zapoznaj się z innymi usługami platformy Azure, aby lepiej rozwiązać bieżące i przyszłe wymagania. 
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 564ebfd0a0a8aa8500b38edbc37c9a42b02b06ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735169"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* u
 > [!WARNING]
 > Aby korzystać z pul węzłów systemu Windows Server, należy użyć usługi Azure CNI. Użycie korzystającą wtyczki kubenet jako modelu sieci nie jest dostępne w przypadku kontenerów systemu Windows Server.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -245,10 +245,9 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 
 ## <a name="next-steps"></a>Następne kroki
 
-W przypadku klastra AKS wdrożonego w istniejącej podsieci sieci wirtualnej można teraz używać klastra jako normalnego. Rozpocznij pracę z [tworzeniem aplikacji przy użyciu Azure dev Spaces][dev-spaces], [Wdróż istniejące aplikacje za pomocą usługi Helm][use-helm]lub twórz [nowe aplikacje za pomocą usługi Helm][develop-helm].
+W przypadku klastra AKS wdrożonego w istniejącej podsieci sieci wirtualnej można teraz używać klastra jako normalnego. Rozpocznij pracę z [tworzeniem nowych aplikacji przy użyciu usługi Helm][develop-helm] lub [Wdróż istniejące aplikacje za pomocą usługi Helm][use-helm].
 
 <!-- LINKS - External -->
-[dev-spaces]: ../dev-spaces/index.yml
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy

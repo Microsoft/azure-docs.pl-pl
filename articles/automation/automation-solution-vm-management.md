@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732279"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -39,7 +39,7 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 - Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./automation-security-overview.md#run-as-accounts). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
 
-- [Azure Monitor Log Analytics obszar roboczy](../azure-monitor/platform/design-logs-deployment.md) , w którym są przechowywane dzienniki zadań elementu Runbook i wyniki strumienia zadań w obszarze roboczym w celu zbadania i przeanalizowania. Konto usługi Automation może być połączone z nowym lub istniejącym obszarem roboczym Log Analytics, a oba zasoby muszą znajdować się w tej samej grupie zasobów.
+- [Azure Monitor Log Analytics obszar roboczy](../azure-monitor/logs/design-logs-deployment.md) , w którym są przechowywane dzienniki zadań elementu Runbook i wyniki strumienia zadań w obszarze roboczym w celu zbadania i przeanalizowania. Konto usługi Automation może być połączone z nowym lub istniejącym obszarem roboczym Log Analytics, a oba zasoby muszą znajdować się w tej samej grupie zasobów.
 
 Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Przed zaimportowaniem zaktualizowanych modułów do kont automatyzacji produkcji zalecamy zaimportowanie ich do konta automatyzacji testów w celu sprawdzenia, czy nie występują żadne problemy ze zgodnością.
 

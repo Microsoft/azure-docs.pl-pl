@@ -2,13 +2,13 @@
 title: Metryki w Azure Monitor — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące monitorowania platformy Azure Event Hubs przy użyciu usługi Azure Monitoring
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a53f69030e8333dfe659b163b83983615212281f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 52ab66fe264b85be117eb8e2e21cb89f38d0fcae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573157"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715585"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metryki usługi Azure Event Hubs na platformie Azure Monitor
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z nastę
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 * [Przykładowe aplikacje korzystające z usługi Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

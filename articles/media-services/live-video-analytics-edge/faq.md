@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge często zadawane pytania — A
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące analizy filmów wideo na żywo na IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 0cb378bf614582070dd1bdd0a11706b26437af53
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880054"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702253"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Analiza filmów wideo na żywo na IoT Edge często zadawane pytania
 
@@ -230,7 +230,7 @@ Tak. Można korzystać z metryk Prometheus i publikować je w usłudze Event Gri
 
 **Czy mogę używać Azure Monitor do wyświetlania kondycji, metryk i wydajności grafów multimediów w chmurze lub na granicy?**
 
-Tak, to podejście jest obsługiwane. Aby dowiedzieć się więcej, zobacz [Azure monitor metryki](../../azure-monitor/platform/data-platform-metrics.md).
+Tak, to podejście jest obsługiwane. Aby dowiedzieć się więcej, zobacz [Azure monitor metryki](../../azure-monitor/essentials/data-platform-metrics.md).
 
 **Czy istnieją jakieś narzędzia ułatwiające monitorowanie modułu Media Services IoT Edge?**
 

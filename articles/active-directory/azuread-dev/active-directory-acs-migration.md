@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687400"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
 
@@ -113,7 +113,7 @@ Od listopada 2017 wszystkie składniki Access Control są w pełni obsługiwane 
 Oto harmonogram dla przestarzałych składników Access Control:
 
 - **Listopad 2017**: środowisko administratora usługi Azure AD w klasycznym portalu Azure [zostało wycofane](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). W tym momencie Zarządzanie przestrzenią nazw dla Access Control jest dostępne pod nowym, dedykowanym adresem URL: `https://manage.windowsazure.com?restoreClassic=true` . Użyj tego adresu URl, aby wyświetlić istniejące przestrzenie nazw, włączyć i wyłączyć obszary nazw oraz usunąć przestrzenie nazw, jeśli wybierzesz opcję.
-- **2 kwietnia 2018**: klasyczny portal Azure jest całkowicie wycofywany, co oznacza, że Access Control Zarządzanie przestrzenią nazw nie jest już dostępne za pośrednictwem żadnego adresu URL. W tym momencie nie można wyłączyć ani włączyć, usunąć ani wyliczyć przestrzeni nazw Access Control. Portal zarządzania Access Control będzie jednak w pełni funkcjonalny i znajdować się w lokalizacji `https://\<namespace\>.accesscontrol.windows.net` . Wszystkie inne składniki Access Control nadal działają normalnie.
+- **2 kwietnia 2018**: klasyczny portal Azure jest całkowicie wycofywany, co oznacza, że Access Control Zarządzanie przestrzenią nazw nie jest już dostępne za pośrednictwem żadnego adresu URL. W tym momencie nie można wyłączyć ani włączyć, usunąć ani wyliczyć przestrzeni nazw Access Control. Portal zarządzania Access Control będzie jednak w pełni funkcjonalny i znajdować się w lokalizacji `https://<namespace>.accesscontrol.windows.net` . Wszystkie inne składniki Access Control nadal działają normalnie.
 - **7 listopada 2018**: wszystkie składniki Access Control są trwale zamknięte. Obejmuje to portal zarządzania Access Control, usługę zarządzania, STS i aparat reguły przekształcania tokenów. W tym momencie wszystkie żądania wysyłane do Access Control (znajdujące się pod adresem \<namespace\> . AccessControl.Windows.NET) kończą się niepowodzeniem. Wszystkie istniejące aplikacje i usługi powinny być migrowane do innych technologii przed tym terminem.
 
 > [!NOTE]
@@ -148,7 +148,7 @@ Każda usługa w chmurze firmy Microsoft, która akceptuje tokeny wystawiane prz
 
 Klienci programu SharePoint 2013, 2016 i SharePoint Online mogą korzystać z usługi ACS na potrzeby uwierzytelniania w środowiskach lokalnych i hybrydowych. W przypadku niektórych funkcji i zastosowań programu SharePoint wpłynie to na wycofanie usług ACS, a inne nie. Poniższa tabela zawiera podsumowanie wskazówek dotyczących migracji dla niektórych najpopularniejszych funkcji programu SharePoint, które wykorzystują usługę ACS:
 
-| Cechy | Wskazówki |
+| Cecha | Wskazówki |
 | ------- | -------- |
 | Uwierzytelnianie użytkowników z usługi Azure AD | Wcześniej usługa Azure AD nie obsługiwała tokenów SAML 1,1 wymaganych przez program SharePoint na potrzeby uwierzytelniania, a składnik ACS został użyty jako pośrednik, który udostępnił program SharePoint w formatach tokenów usługi Azure AD. Teraz możesz [połączyć program SharePoint bezpośrednio z usługą Azure AD za pomocą galerii aplikacja usługi Azure AD SharePoint w aplikacji lokalnej](../saas-apps/sharepoint-on-premises-tutorial.md). |
 | [Uwierzytelnianie aplikacji & uwierzytelnianie między serwerami w programie SharePoint lokalnie](/SharePoint/security-for-sharepoint-server/authentication-overview) | Nie ma to wpływ na wycofanie usługi ACS; nie trzeba zmieniać żadnych zmian. | 

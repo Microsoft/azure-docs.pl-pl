@@ -3,12 +3,12 @@ title: Przywracanie Managed Disks platformy Azure
 description: Dowiedz się, jak przywrócić Managed Disks platformy Azure z Azure Portal.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737380"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703753"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Przywracanie Managed Disks platformy Azure (w wersji zapoznawczej)
 
@@ -66,7 +66,7 @@ Do wykonania operacji przywracania wymagane są następujące wymagania wstępne
     >
     >Podczas zaplanowanych kopii zapasowych lub operacji tworzenia kopii zapasowej na żądanie Azure Backup przechowuje przyrostowe migawki dysku w grupie zasobów migawek podanej podczas konfigurowania kopii zapasowej dysku. Azure Backup używa tych migawek przyrostowych podczas operacji przywracania. Jeśli migawki zostaną usunięte lub przeniesione z grupy zasobów migawek lub przypisania roli magazynu kopii zapasowych zostaną odwołane w grupie zasobów migawka, operacja przywracania zakończy się niepowodzeniem.
 
-1. Jeśli dysk, który ma zostać przywrócony, jest szyfrowany za pomocą [kluczy zarządzanych przez klienta (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) lub przy użyciu [podwójnego szyfrowania przy użyciu kluczy zarządzanych przez platformę i kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), przypisz uprawnienie roli **czytelnik** do zarządzanej tożsamości magazynu kopii zapasowych w ramach zasobu **zestawu szyfrowania dysku** .
+1. Jeśli dysk, który ma zostać przywrócony, jest szyfrowany za pomocą [kluczy zarządzanych przez klienta (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) lub przy użyciu [podwójnego szyfrowania przy użyciu kluczy zarządzanych przez platformę i kluczy zarządzanych przez klienta](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), przypisz uprawnienie roli **czytelnik** do zarządzanej tożsamości magazynu kopii zapasowych w ramach zasobu **zestawu szyfrowania dysku** .
 
 Po spełnieniu wymagań wstępnych wykonaj następujące kroki, aby wykonać operację przywracania.
 

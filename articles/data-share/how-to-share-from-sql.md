@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740379"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -275,7 +275,7 @@ Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywa�
 ### <a name="trigger-a-snapshot"></a>Wyzwalanie migawki
 Te kroki dotyczą tylko udostępniania opartego na migawce.
 
-1. Możesz wyzwolić migawkę, wybierając kartę **szczegóły** , a następnie pozycję **Wyzwalaj migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. W przypadku źródeł SQL obsługiwana jest tylko pełna migawka.
+1. Możesz wyzwolić migawkę, wybierając kartę **szczegóły** , a następnie pozycję **Wyzwalaj migawkę**. Tutaj można wyzwolić pełną lub przyrostową migawkę danych. Jeśli po raz pierwszy otrzymujesz dane od dostawcy danych, wybierz pozycję pełna kopia. W przypadku źródeł SQL obsługiwana jest tylko pełna migawka. Gdy wykonywana jest migawka, kolejne migawki nie rozpocznie się aż do ukończenia poprzedniej.
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
@@ -295,7 +295,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | binarny |Byte [] |
 | bit |Wartość logiczna |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -309,7 +309,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | ntext |String, Char [] |
 | numeryczne |Liczba dziesiętna |
 | nvarchar |String, Char [] |
-| liczba rzeczywista |Pojedyncze |
+| liczba rzeczywista |Pojedynczy |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

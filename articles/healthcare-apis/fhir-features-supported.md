@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: e75cf8d6660bf6f2630b83e0c2c812fa7cf59057
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 19f051320aaa675ebe5ff148fb6580c2a5d8770c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719138"
 ---
 # <a name="features"></a>Funkcje
 
@@ -35,7 +35,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | Aktualizuj przy użyciu optymistycznego blokowania | Tak       | Tak       | Tak       |                                                     |
 | Aktualizuj (warunkowo)           | Tak       | Tak       | Tak       |                                                     |
 | wysłana                          | Nie        | Nie        | Nie        |                                                     |
-| usunięcie                         | Tak       | Tak       | Tak       |                                                     |
+| delete                         | Tak       | Tak       | Tak       |  Zobacz uwagę poniżej                                                   |
 | Usuń (warunkowe)           | Nie        | Nie        | Nie        |                                                     |
 | historia                        | Tak       | Tak       | Tak       |                                                     |
 | create                         | Tak       | Tak       | Tak       | Obsługa funkcji POST/PUT                               |
@@ -48,6 +48,9 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | Transaction                    | Nie        | Tak       | Nie        |                                                     |
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
+
+> [!Note]
+> Usunięcie zdefiniowane przez specyfikację FHIR wymaga, aby po usunięciu kolejne odczyty zasobów, które nie są specyficzne dla wersji, zwracały kod stanu HTTP 410, a zasób nie został już odnaleziony przez wyszukiwanie. Interfejs API platformy Azure dla usługi FHIR umożliwia również całkowite usunięcie (łącznie z całą historią) zasobu. Aby całkowicie usunąć zasób, można przekazać ustawienia parametru `hardDelete` do wartości true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Jeśli nie przekażesz tego parametru lub nie ustawisz `hardDelete` wartości false, nadal będą dostępne wersje historyczne zasobu.
 
 ## <a name="search"></a>Wyszukaj
 
@@ -89,7 +92,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | `_list`                 | Tak       | Tak       | Tak       |         |
 | `_type`                 | Tak       | Tak       | Tak       | [#1562](https://github.com/microsoft/fhir-server/issues/1562) problemu        |
 | `_security`             | Tak       | Tak       | Tak       |         |
-| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane tylko w STU3, brak obsługi w R4 |
+| `_profile`              | Częściowe   | Częściowe   | Częściowe   | Obsługiwane w STU3. Jeśli baza danych została utworzona **po** 20 lutego 2021, będziesz mieć również pomoc techniczną. Pracujemy nad włączeniem _profile baz danych utworzonych przed 20 lutego 2021. |
 | `_text`                 | Nie        | Nie        | Nie        |         |
 | `_content`              | Nie        | Nie        | Nie        |         |
 | `_has`                  | Nie        | Nie        | Nie        |         |
@@ -99,7 +102,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Parametry wyników wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_elements`             | Tak       | Tak       | Tak       | [#1256](https://github.com/microsoft/fhir-server/issues/1256) problemu        |
-| `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 100 znaków. Jeśli ustawiona na wartość większą niż 100, zostaną zwrócone tylko 100, a w pakiecie zostanie zwrócone ostrzeżenie. |
+| `_count`                | Tak       | Tak       | Tak       | `_count` jest ograniczone do 1000 znaków. Jeśli ustawiona na wartość większą niż 1000, zostaną zwrócone tylko 1000, a w pakiecie zostanie zwrócone ostrzeżenie. |
 | `_include`              | Tak       | Tak       | Tak       |Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie obejmuje: ITERING support.|
 | `_revinclude`           | Tak       | Tak       | Tak       | Uwzględnione elementy są ograniczone do 100. Dołączenie do PaaS i OSS na Cosmos DB nie [obejmuje: ITERING support](https://github.com/microsoft/fhir-server/issues/1313). [#1319](https://github.com/microsoft/fhir-server/issues/1319) problemu|
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |

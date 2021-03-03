@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675009"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694992"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Virtual Machines platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -68,13 +68,56 @@ Ta nowa funkcja na poziomie platformy będzie używać systemu AI do automatyczn
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Wypróbuj zalety & przywracania:
-- Domyślnie włączone w przypadku wdrażania maszyny wirtualnej platformy Azure w zestawie skalowania.
 - Podjęto próbę przywrócenia Virtual Machines punktu platformy Azure wykluczonego z powodu pojemności.
 - Przywrócone Virtual Machines na platformie Azure powinny być uruchamiane przez dłuższy czas, co zmniejsza prawdopodobieństwo wyzwolenia wykluczenia pojemności.
 - Usprawnia cykl życia maszyny wirtualnej platformy Azure, więc obciążenia są uruchamiane przez dłuższy czas.
 - Pomaga Virtual Machine Scale Sets, aby zachować liczbę elementów docelowych dla Virtual Machines usługi Azure Spot, podobnie jak w przypadku funkcji liczby elementów docelowych, która już istnieje dla maszyn wirtualnych z opcją płatność zgodnie z rzeczywistym użyciem.
 
 Wypróbuj & przywracanie jest wyłączone w zestawach skalowania, które korzystają z funkcji [automatycznego skalowania](virtual-machine-scale-sets-autoscale-overview.md). Liczba maszyn wirtualnych w zestawie skalowania jest obsługiwana przez reguły skalowania automatycznego.
+
+### <a name="register-for-try--restore"></a>Zarejestruj się w celu wypróbowania & przywrócenia
+
+Aby można było korzystać z funkcji try & Restore, należy zarejestrować swoją subskrypcję w wersji zapoznawczej. Rejestracja może potrwać kilka minut. Aby ukończyć rejestrację funkcji, można użyć interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
+
+
+**Korzystanie z interfejsu wiersza polecenia**
+
+Użyj [AZ Feature Register](/cli/azure/feature#az-feature-register) , aby włączyć podgląd dla Twojej subskrypcji. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Rejestracja funkcji może potrwać do 15 minut. Aby sprawdzić stan rejestracji: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Korzystanie z programu PowerShell** 
+
+Aby włączyć podgląd subskrypcji, użyj polecenia cmdlet [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) . 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Rejestracja funkcji może potrwać do 15 minut. Aby sprawdzić stan rejestracji: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Grupy umieszczania
 

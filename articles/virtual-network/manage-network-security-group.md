@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596666"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694261"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
 
@@ -361,6 +361,11 @@ Aby wykonać zadania dotyczące sieciowych grup zabezpieczeń, reguł zabezpiecz
 | Microsoft. Network/networkSecurityGroups/Write                 |   Utwórz lub Zaktualizuj grupę zabezpieczeń sieci                             |
 | Microsoft. Network/networkSecurityGroups/Delete                |   Usuń sieciową grupę zabezpieczeń                                       |
 | Microsoft. Network/networkSecurityGroups/Join/Action           |   Kojarzenie sieciowej grupy zabezpieczeń z podsiecią lub interfejsem sieciowym 
+
+
+>[!NOTE]
+> Aby wykonać `write` operacje w sieciowej grupie zabezpieczeń, konto subskrypcji musi mieć co najmniej `read` uprawnienia do grupy zasobów wraz z `Microsoft.Network/networkSecurityGroups/write` uprawnieniem.
+
 
 ### <a name="network-security-group-rule"></a>Reguła sieciowej grupy zabezpieczeń
 

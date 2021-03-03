@@ -1,29 +1,29 @@
 ---
-title: Integracja Azure Monitor dla maszyn wirtualnych map z Operations Manager | Microsoft Docs
-description: Azure Monitor dla maszyn wirtualnych automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. W tym artykule omówiono używanie funkcji map do automatycznego tworzenia diagramów aplikacji rozproszonych w Operations Manager.
+title: Integrowanie mapy usługi VM Insights z Operations Manager | Microsoft Docs
+description: Usługa VM Insights automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. W tym artykule omówiono używanie funkcji map do automatycznego tworzenia diagramów aplikacji rozproszonych w Operations Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 0722a1806cc94102f92045c78850d96ed9890d02
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a39f40c2a284a743db258a49f36cb4f13c2a4d1c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613067"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725496"
 ---
-# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integracja System Center Operations Manager z funkcją Azure Monitor dla maszyn wirtualnych map
+# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>Integracja System Center Operations Manager z funkcją mapy usługi VM Insights
 
-W Azure Monitor dla maszyn wirtualnych można wyświetlić odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Dzięki integracji między funkcją mapy a System Center Operations Manager można automatycznie tworzyć diagramy aplikacji rozproszonych w Operations Manager, które są oparte na dynamicznych mapach zależności w Azure Monitor dla maszyn wirtualnych. W tym artykule opisano sposób konfigurowania System Center Operations Manager grupy zarządzania w celu obsługi tej funkcji.
+W usłudze site Insights można wyświetlać odnalezione składniki aplikacji na maszynach wirtualnych z systemem Windows i Linux, które działają na platformie Azure lub w środowisku. Dzięki integracji między funkcją mapy a System Center Operations Manager można automatycznie tworzyć diagramy aplikacji rozproszonych w Operations Manager, które są oparte na dynamicznych mapach zależności w usłudze VM Insights. W tym artykule opisano sposób konfigurowania System Center Operations Manager grupy zarządzania w celu obsługi tej funkcji.
 
 >[!NOTE]
->Jeśli wdrożono już Service Map, można wyświetlić mapy w Azure Monitor dla maszyn wirtualnych, co obejmuje dodatkowe funkcje do monitorowania kondycji i wydajności maszyn wirtualnych. Funkcja map Azure Monitor dla maszyn wirtualnych ma zastąpić rozwiązanie autonomiczne Service Map. Aby dowiedzieć się więcej, zobacz [Azure monitor dla maszyn wirtualnych Omówienie](../vm/vminsights-overview.md).
+>Jeśli wdrożono już Service Map, możesz wyświetlić mapy w usłudze VM Insights, która zawiera dodatkowe funkcje do monitorowania kondycji i wydajności maszyn wirtualnych. Funkcja map usługi VM Insights ma zastąpić rozwiązanie autonomiczne Service Map. Aby dowiedzieć się więcej, zobacz [Omówienie usługi VM Insights](../vm/vminsights-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * System Center Operations Manager grupy zarządzania (2012 R2 lub nowsza).
-* Obszar roboczy Log Analytics skonfigurowany do obsługi Azure Monitor dla maszyn wirtualnych.
+* Obszar roboczy Log Analytics skonfigurowany do obsługi usługi VM Insights.
 * Co najmniej jedna maszyna wirtualna z systemem Windows i Linux albo komputery fizyczne monitorowane przez Operations Manager i wysyłające dane do obszaru roboczego Log Analytics. Serwery z systemem Linux, które są raportowane do grupy zarządzania Operations Manager, muszą być skonfigurowane do bezpośredniego łączenia się z Azure Monitor. Aby uzyskać więcej informacji, zapoznaj się z omówieniem w temacie [zbieranie danych dziennika za pomocą agenta log Analytics](../agents/log-analytics-agent.md).
 * Jednostka usługi z dostępem do subskrypcji platformy Azure, która jest skojarzona z obszarem roboczym Log Analytics. Aby uzyskać więcej informacji, przejdź do [tworzenia nazwy głównej usługi](#create-a-service-principal).
 
@@ -43,7 +43,7 @@ Po zainstalowaniu pakietu administracyjnego Service Map nowy węzeł **Service m
 >[!NOTE]
 >[Pakiet Operations Management Suite to kolekcja usług](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) , która zawiera log Analytics, jest teraz częścią [Azure monitor](../overview.md).
 
-Aby skonfigurować integrację z mapowaniem Azure Monitor dla maszyn wirtualnych, wykonaj następujące czynności:
+Aby skonfigurować integrację mapy usługi VM Insights, wykonaj następujące czynności:
 
 1. Aby otworzyć Kreatora konfiguracji, w okienku **przegląd Service map** kliknij pozycję **Dodaj obszar roboczy**.  
 
@@ -66,7 +66,7 @@ Aby skonfigurować integrację z mapowaniem Azure Monitor dla maszyn wirtualnych
     Aby można było utworzyć diagram aplikacji rozproszonej dla serwera, na serwerze musi być:
 
    * Monitorowane przez Operations Manager
-   * Skonfigurowano w celu raportowania do Log Analytics obszaru roboczego skonfigurowanego za pomocą Azure Monitor dla maszyn wirtualnych
+   * Skonfigurowano w celu raportowania do obszaru roboczego Log Analytics skonfigurowanego za pomocą usługi VM Insights
    * Wymienione w grupie serwery Service Map
 
      ![Grupa konfiguracji Operations Manager](media/service-map-scom/scom-config-group.png)
@@ -92,7 +92,7 @@ Folder Service Map ma cztery węzły:
   >[!NOTE]
   >Te alerty nie są Log Analytics alerty zsynchronizowane z Operations Manager, są generowane w grupie zarządzania w oparciu o przepływy pracy zdefiniowane w pakiecie administracyjnym Service Map.
 
-* **Serwery**: Wyświetla listę monitorowanych serwerów, które są skonfigurowane do synchronizacji z funkcji Azure monitor dla maszyn wirtualnych map.
+* **Serwery**: Wyświetla listę monitorowanych serwerów, które są skonfigurowane do synchronizacji z funkcji mapy usługi VM Insights.
 
     ![Okienko Operations Manager monitorowania serwerów](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -117,7 +117,7 @@ W tej bieżącej wersji można skonfigurować tylko jeden obszar roboczy Log Ana
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurowanie reguł i zastąpień
 
-Reguła, *Microsoft.SystemCenter. ServiceMapImport. Rule*, okresowo pobiera informacje z funkcji mapy Azure monitor dla maszyn wirtualnych. Aby zmodyfikować interwał synchronizacji, można zastąpić regułę i zmodyfikować wartość parametru **IntervalMinutes**.
+Reguła, *Microsoft.SystemCenter. ServiceMapImport. Rule*, okresowo pobiera informacje z funkcji mapy usługi VM Insights. Aby zmodyfikować interwał synchronizacji, można zastąpić regułę i zmodyfikować wartość parametru **IntervalMinutes**.
 
 ![Okno właściwości zastąpień Operations Manager](media/service-map-scom/scom-overrides.png)
 
@@ -131,8 +131,8 @@ Reguła, *Microsoft.SystemCenter. ServiceMapImport. Rule*, okresowo pobiera info
 Bieżący projekt przedstawia następujące problemy i ograniczenia:
 
 * Można nawiązać połączenie tylko z jednym obszarem roboczym Log Analytics.
-* Mimo że serwery programu można dodać do grupy Serwery Service Map ręcznie za pomocą okienka **Tworzenie** , mapy dla tych serwerów nie są synchronizowane natychmiast. Zostaną one zsynchronizowane z funkcji mapy Azure Monitor dla maszyn wirtualnych podczas następnego cyklu synchronizacji.
-* Po wprowadzeniu zmian w diagramach aplikacji rozproszonych utworzonych przez pakiet administracyjny te zmiany prawdopodobnie zostaną zastąpione podczas następnej synchronizacji z Azure Monitor dla maszyn wirtualnych.
+* Mimo że serwery programu można dodać do grupy Serwery Service Map ręcznie za pomocą okienka **Tworzenie** , mapy dla tych serwerów nie są synchronizowane natychmiast. Zostaną one zsynchronizowane z funkcji mapy usługi VM Insights w następnym cyklu synchronizacji.
+* Po wprowadzeniu zmian w diagramach aplikacji rozproszonych utworzonych przez pakiet administracyjny te zmiany prawdopodobnie zostaną zastąpione podczas następnej synchronizacji z usługą VM Insights.
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
@@ -144,5 +144,5 @@ Aby uzyskać oficjalną dokumentację platformy Azure dotyczącą tworzenia nazw
 
 ### <a name="suggestions"></a>Sugestie
 
-Czy masz jakieś opinie o integracji z funkcją mapy Azure Monitor dla maszyn wirtualnych lub z tą dokumentacją? Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zagłosować na istniejące sugestie.
+Czy masz opinię na temat integracji z funkcją mapy usługi VM Insights lub tą dokumentacją? Odwiedź naszą [stronę głosową użytkownika](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na której można zasugerować funkcje lub zagłosować na istniejące sugestie.
 

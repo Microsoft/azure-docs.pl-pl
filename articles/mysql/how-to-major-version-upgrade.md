@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509574"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702151"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Uaktualnienie wersji głównej w Azure Database for MySQL pojedynczym serwerze
 
@@ -59,7 +59,7 @@ Wykonaj następujące kroki, aby przeprowadzić uaktualnienie wersji głównej s
  
    To uaktualnienie wymaga wersji 2.16.0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. Uruchom polecenie az version, aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie az upgrade.
 
-2. Po zalogowaniu Uruchom polecenie [AZ MySQL Server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) :
+2. Po zalogowaniu Uruchom polecenie [AZ MySQL Server upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) :
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
@@ -89,7 +89,7 @@ Za pomocą replik odczytu można przeprowadzić uaktualnienie wersji głównej o
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz istniejące Azure Database for MySQL 5,6.
 
-2. Utwórz [replikę odczytu](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) z serwera podstawowego.
+2. Utwórz [replikę odczytu](./concepts-read-replicas.md#create-a-replica) z serwera podstawowego.
 
 3. [Uaktualnij replikę Read](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) do wersji 5,7.
 
@@ -105,7 +105,7 @@ Za pomocą replik odczytu można przeprowadzić uaktualnienie wersji głównej o
 
    Jeśli stan i ma `Slave_IO_Running` `Slave_SQL_Running` wartość "yes", a wartością `Seconds_Behind_Master` jest "0", replikacja działa prawidłowo. `Seconds_Behind_Master` wskazuje, jak późna jest replika. Jeśli wartość nie jest równa "0", oznacza to, że replika przetwarza aktualizacje. Po potwierdzeniu `Seconds_Behind_Master` "0" można bezpiecznie zatrzymać replikację.
 
-6. Przekształć replikę odczytu na podstawową, [zatrzymując replikację](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+6. Przekształć replikę odczytu na podstawową, [zatrzymując replikację](./howto-read-replicas-portal.md#stop-replication-to-a-replica-server).
 
 7. Wskaż aplikację nową podstawową (wcześniejszą replikę), na której działa serwer 5,7. Każdy serwer ma unikatowe parametry połączenia. Zaktualizuj swoją aplikację, tak aby wskazywała na (dawniej) replikę, a nie źródłową.
 

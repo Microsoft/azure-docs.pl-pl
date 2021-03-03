@@ -1,20 +1,20 @@
 ---
-title: Dodawanie czujników i zarządzanie nimi w portalu Defender for IoT
+title: Dołączanie czujników i subskrypcji w portalu usługi Defender for IoT oraz zarządzanie nimi
 description: Dowiedz się, jak dołączać i wyświetlać czujniki oraz zarządzać nimi w portalu usługi Defender for IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526869"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733265"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Dodawanie czujników i zarządzanie nimi w portalu Defender for IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Dołączanie czujników i subskrypcji w portalu usługi Defender for IoT oraz zarządzanie nimi
 
 W tym artykule opisano sposób dołączania i wyświetlania czujników oraz zarządzania nimi w [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -64,7 +64,7 @@ W [portalu Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT
 
 ## <a name="manage-onboarded-sensors"></a>Zarządzanie czujnikami dołączanymi
 
-[Portal usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) służy do zarządzania zadaniami związanymi z czujnikami.
+Skorzystaj z [portalu usługi Defender for IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) , aby zarządzać zadaniami związanymi z czujnikami.
 
 Czujniki dołączane można wyświetlać na stronie **witryny i czujniki** . Informacje o czujniku można edytować również na tej stronie.
 
@@ -78,9 +78,9 @@ Aby edytować nazwę czujnika i strefę, użyj opcji Edytuj **Lokacje i czujniki
 
 Aby edytować:
 
-1. Kliknij prawym przyciskiem myszy wielokropek (**...**) dla czujnika, który chcesz edytować.
-1. Wybierz pozycję Edytuj.
-1. Zaktualizuj strefę czujnika lub Utwórz nową strefę.
+1. Wybierz **wielokropek** (**...**) dla czujnika, który chcesz edytować.
+1. Wybierz pozycję **Edytuj**.
+1. Zaktualizuj strefę czujników lub Utwórz nową strefę.
 
 ### <a name="delete-a-sensor"></a>Usuwanie czujnika
 
@@ -122,6 +122,24 @@ Aby ponownie uaktywnić Czujnik:
 8. Wybierz pozycję **Przekaż** i wybierz plik zapisany na stronie czujnika dołączania.
 
 9. Wybierz pozycję **Aktywuj**.
+
+## <a name="offboard-a-subscription"></a>Odłączania subskrypcję
+
+Subskrypcje są zarządzane co miesiąc. Po odłączania subskrypcji zostanie naliczona stawka za subskrypcję do końca miesiąca. 
+
+Odinstaluj wszystkie czujniki skojarzone z subskrypcją przed odłączaniem subskrypcji. Aby uzyskać więcej informacji na temat usuwania czujnika, zobacz [usuwanie czujnika](#delete-a-sensor). 
+
+Aby odłączania subskrypcję:
+
+1. Przejdź do strony **Cennik** .
+1. Wybierz subskrypcję, a następnie wybierz ikonę **Usuń** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. W oknie podręcznym potwierdzenie zaznacz pole wyboru, aby potwierdzić, że usunięto wszystkie czujniki skojarzone z subskrypcją.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Zaznacz pole wyboru i wybierz pozycję odłączania, aby odłączania czujnik.":::
+
+1. Wybierz przycisk **odłączania** . 
+
+Nie ma to wpływ na środowisko lokalne, ale należy odinstalować czujnik z środowiska lokalnego lub ponownie przypisać czujnik do innej subskrypcji, aby zapobiec przepływaniu wszystkich powiązanych danych do lokalnej konsoli zarządzania. 
 
 ## <a name="see-also"></a>Zobacz też
 

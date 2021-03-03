@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206456"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687536"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Przekaż dane dotyczące rozliczeń na platformę Azure i Wyświetl je w Azure Portal
 
 > [!IMPORTANT] 
->  W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc. Mimo że system rozliczeń działa jak najlepiej zakończyć licznik rozliczeń jest ustawiony na $0.  Jeśli wykonasz ten scenariusz, zobaczysz wpisy w rozliczeniach dla usługi o nazwie **hybrydowe usługi danych** i dla zasobów typu o nazwie **Microsoft. AzureData/ `<resource type>` **. Będziesz mieć możliwość wyświetlenia rekordu dla każdej usługi danych — utworzonego przez Ciebie łuku platformy Azure, ale każdy rekord zostanie rozliczony dla $0.
+>  W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc. Mimo że system rozliczeń działa jak najlepiej zakończyć licznik rozliczeń jest ustawiony na $0.  Jeśli wykonasz ten scenariusz, zobaczysz wpisy w rozliczeniach dla usługi o nazwie **hybrydowe usługi danych** i dla zasobów typu o nazwie **Microsoft. AzureData/ `<resource type>`**. Będziesz mieć możliwość wyświetlenia rekordu dla każdej usługi danych — utworzonego przez Ciebie łuku platformy Azure, ale każdy rekord zostanie rozliczony dla $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,8 +111,9 @@ azdata arc dc upload -p usage.json
 
 Wykonaj następujące kroki, aby wyświetlić dane dotyczące rozliczeń w Azure Portal:
 
-1. Otwórz Azure Portal przy użyciu specjalnego adresu URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. W polu wyszukiwania w górnej części ekranu wpisz **Cost Management** i kliknij usługę Cost Management.
+1. W obszarze **Cost Management przegląd** kliknij kartę **Cost Management** .
 1. Kliknij kartę **Analiza kosztów** po lewej stronie.
 1. Kliknij przycisk **Koszt według zasobów** w górnej części widoku.
 1. Upewnij się, że Twój zakres jest ustawiony na subskrypcję, w której zostały utworzone zasoby usługi danych.

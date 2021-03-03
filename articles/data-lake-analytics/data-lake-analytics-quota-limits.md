@@ -2,17 +2,14 @@
 title: Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
 description: Dowiedz się, jak dostosować i zwiększyć limity przydziałów i limitów na kontach Azure Data Lake Analytics (ADLA).
 ms.service: data-lake-analytics
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: fd032235f286b5db1930e9c9c6d730b5424aa4eb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 416b77fd86316acb8098531257e12b591a0ff052
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220843"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710179"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
 
@@ -53,7 +50,7 @@ Jest to maksymalna liczba zadań, które mogą być uruchamiane współbieżnie 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz istniejące konto ADLA.
 3. Kliknij pozycję **Właściwości**.
-4. Dostosuj wartości **maksymalnego**punktu, **maksymalnej liczby uruchomionych zadań**i **limitów przesłania zadań** do własnych potrzeb.
+4. Dostosuj wartości **maksymalnego** punktu, **maksymalnej liczby uruchomionych zadań** i **limitów przesłania zadań** do własnych potrzeb.
 
 ## <a name="increase-maximum-quota-limits"></a>Zwiększ maksymalne limity przydziału
 
@@ -65,7 +62,7 @@ Więcej informacji na temat limitów platformy Azure można znaleźć w [dokumen
 
    ![Nowe żądanie obsługi Azure Data Lake Analytics portalu](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 
-2. Wybierz **limit przydziału**typu problemu.
+2. Wybierz **limit przydziału** typu problemu.
 
 3. Wybierz swoją **subskrypcję** (Upewnij się, że nie jest to subskrypcja wersji próbnej).
 

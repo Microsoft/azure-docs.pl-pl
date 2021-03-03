@@ -3,18 +3,18 @@ title: Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtu
 description: Artykuł opisujący sposób użycia Azure Policy do samodzielnego włączania kopii zapasowych dla wszystkich maszyn wirtualnych utworzonych w danym zakresie
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707306"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Automatyczne włączanie kopii zapasowych podczas tworzenia maszyny wirtualnej za pomocą usługi Azure Policy
 
 Jednym z kluczowych obowiązków administratora kopii zapasowej i zgodności w organizacji jest upewnienie się, że kopie zapasowe wszystkich maszyn o krytycznym znaczeniu dla firmy zostały uwzględnione w odpowiednim przechowywaniu.
 
-Obecnie Azure Backup udostępnia wiele wbudowanych zasad (przy użyciu [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)), które ułatwiają automatyczne zagwarantowanie, że maszyny wirtualne platformy Azure są skonfigurowane pod kątem tworzenia kopii zapasowych. W zależności od tego, jak zespoły i zasoby tworzenia kopii zapasowych są zorganizowane, można użyć jednej z poniższych zasad:
+Obecnie Azure Backup udostępnia wiele wbudowanych zasad (przy użyciu [Azure Policy](../governance/policy/overview.md)), które ułatwiają automatyczne zagwarantowanie, że maszyny wirtualne platformy Azure są skonfigurowane pod kątem tworzenia kopii zapasowych. W zależności od tego, jak zespoły i zasoby tworzenia kopii zapasowych są zorganizowane, można użyć jednej z poniższych zasad:
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Zasady 1 — Konfigurowanie kopii zapasowych na maszynach wirtualnych bez danego tagu do istniejącego magazynu usług Recovery Services w tej samej lokalizacji
 
@@ -29,7 +29,7 @@ Jeśli organizujesz aplikacje w dedykowanych grupach zasobów i chcesz utworzyć
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Zasady 4 — [wersja zapoznawcza] Skonfiguruj kopię zapasową na maszynach wirtualnych z danym tagiem do nowego magazynu usługi Recovery Services przy użyciu zasad domyślnych
 Te zasady działają tak samo jak zasady 3 powyżej, z jedyną różnicą, że można użyć tych zasad w celu **uwzględnienia** maszyn wirtualnych zawierających określony tag w zakresie tych zasad. 
 
-Oprócz powyższych, Azure Backup również zawiera zasady [tylko do inspekcji](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) — **Azure Backup należy włączyć dla Virtual Machines**. Te zasady identyfikują, które maszyny wirtualne nie mają włączonej kopii zapasowej, ale nie konfigurują automatycznie kopii zapasowych dla tych maszyn wirtualnych. Jest to przydatne, gdy zamierzasz tylko oszacować ogólną zgodność maszyn wirtualnych, ale nie chcesz natychmiast podjąć działania.
+Oprócz powyższych, Azure Backup również zawiera zasady [tylko do inspekcji](../governance/policy/concepts/effects.md#audit) — **Azure Backup należy włączyć dla Virtual Machines**. Te zasady identyfikują, które maszyny wirtualne nie mają włączonej kopii zapasowej, ale nie konfigurują automatycznie kopii zapasowych dla tych maszyn wirtualnych. Jest to przydatne, gdy zamierzasz tylko oszacować ogólną zgodność maszyn wirtualnych, ale nie chcesz natychmiast podjąć działania.
 
 ## <a name="supported-scenarios"></a>Scenariusze obsługiwane
 

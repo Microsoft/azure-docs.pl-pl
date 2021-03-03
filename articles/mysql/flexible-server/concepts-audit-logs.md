@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591754"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718747"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Śledź aktywność bazy danych za pomocą dzienników inspekcji w Azure Database for MySQL elastycznym serwerze
 
@@ -46,7 +46,7 @@ Inne parametry, które można dostosować do kontroli inspekcji, obejmują:
 | `DCL` | Zapytania, takie jak "Udziel uprawnień" |
 | `ADMIN` | Zapytania, takie jak "Pokaż stan" |
 | `GENERAL` | Wszystkie w DML_SELECT, DML_NONSELECT, DML, DDL, DCL i administrator |
-| `TABLE_ACCESS` | -Dostępne tylko dla MySQL 5,7 <br> — Instrukcje odczytu tabeli, takie jak SELECT lub INSERT INTO... ZAZNACZENIA <br> -Instrukcji DELETE tabeli, takich jak DELETE lub TRUNCATE TABLE <br> — Instrukcje INSERT tabeli, takie jak INSERT lub REPLACE <br> — Instrukcje aktualizacji tabeli, takie jak aktualizacja |
+| `TABLE_ACCESS` | — Instrukcje odczytu tabeli, takie jak SELECT lub INSERT INTO... ZAZNACZENIA <br> -Instrukcji DELETE tabeli, takich jak DELETE lub TRUNCATE TABLE <br> — Instrukcje INSERT tabeli, takie jak INSERT lub REPLACE <br> — Instrukcje aktualizacji tabeli, takie jak aktualizacja |
 
 ## <a name="access-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji
 
@@ -72,7 +72,7 @@ W poniższych sekcjach opisano dane wyjściowe dzienników inspekcji programu My
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nazwa serwera |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (dostępne tylko dla MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | Unikatowy identyfikator połączenia wygenerowany przez MySQL |
 | `host_s` | Pusty |
 | `ip_s` | Adres IP klienta nawiązującego połączenie z bazą danych MySQL |
@@ -116,7 +116,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 ### <a name="table-access"></a>Dostęp do tabeli
 
 > [!NOTE]
-> Dzienniki dostępu do tabel są wyprowadzane wyłącznie dla programu MySQL 5,7.<br>W przypadku programu `sql_text_s` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
+> W przypadku programu `sql_text_s` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
 
 | **Właściwość** | **Opis** |
 |---|---|

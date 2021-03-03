@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e563981d3a68375105256aa6015aa94ada91326b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653116"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711709"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -211,7 +211,7 @@ Skorzystaj z poniższej tabeli, aby wybrać certyfikat.
 | Ustawienie | Opis |
 |-|-|
 | Subskrypcja | Subskrypcja, do której należy Key Vault. |
-| Usługa Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
+| Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
 | Certyfikat | Wybierz z listy PKCS12 certyfikatów w magazynie. Wszystkie certyfikaty PKCS12 w magazynie są wyświetlane z odciskiem palca, ale nie wszystkie są obsługiwane w App Service. |
 
 Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza prywatnego** . Jeśli importowanie nie powiedzie się z powodu błędu, certyfikat nie spełnia [wymagań dotyczących App Service](#private-certificate-requirements).
@@ -389,10 +389,10 @@ Teraz możesz usunąć certyfikat App Service. W lewym okienku nawigacji wybierz
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Dodatkowe zasoby
+## <a name="more-resources"></a>Więcej zasobów
 
 * [Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md)
 * [Wymuszanie protokołu HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Wymuszanie protokołu TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](configure-ssl-certificate-in-code.md)
+* [Używanie certyfikatu TLS/SSL w kodzie w usłudze Azure App Service](configure-ssl-certificate-in-code.md)
 * [Często zadawane pytania: certyfikaty App Service](./faq-configuration-and-management.md)

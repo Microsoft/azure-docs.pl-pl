@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Opisuje sposób tworzenia specyfikacji szablonu i udostępniania ich innym użytkownikom w organizacji.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700392"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Przechowywanie wersji
+
+Podczas tworzenia specyfikacji szablonu należy podać jej nazwę. Podczas iteracji kodu szablonu można zaktualizować istniejącą wersję (w przypadku poprawek) lub opublikować nową wersję. Wersja jest ciągiem tekstowym. Możesz użyć dowolnego systemu obsługi wersji, w tym wersji semantycznej. Użytkownicy specyfikacji szablonu mogą podać nazwę wersji, która ma być używana podczas jej wdrażania.
+
+## <a name="use-tags"></a>Korzystanie z tagów
+
+[Tagi](../management/tag-resources.md) ułatwiają logiczne organizowanie zasobów. Możesz dodać tagi do specyfikacji szablonu przy użyciu Azure PowerShell i interfejsu wiersza polecenia platformy Azure:
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Podczas tworzenia lub modyfikowania specyfikacji szablonu z określonym parametrem wersji, ale bez parametru tagu/tagów:
+
+- Jeśli Specyfikacja szablonu istnieje i ma Tagi, ale wersja nie istnieje, Nowa wersja dziedziczy te same Tagi co istniejąca Specyfikacja szablonu.
+
+Podczas tworzenia lub modyfikowania specyfikacji szablonu z parametrami tagów/tagów i określonym parametrem wersji:
+
+- Jeśli zarówno Specyfikacja szablonu, jak i wersja nie istnieją, Tagi są dodawane do nowej specyfikacji szablonu i nowej wersji.
+- Jeśli istnieje Specyfikacja szablonu, ale wersja nie istnieje, Tagi są dodawane tylko do nowej wersji.
+- Jeśli istnieje zarówno Specyfikacja szablonu, jak i wersja, Tagi stosują się tylko do wersji.
+
+Podczas modyfikowania szablonu z określonym parametrem tagów/tagów, ale bez określonego parametru wersji, Tagi są dodawane tylko do specyfikacji szablonu.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Tworzenie specyfikacji szablonu z połączonymi szablonami
 
 Jeśli główny szablon specyfikacji szablonu odwołuje się do połączonych szablonów, polecenia programu PowerShell i interfejsu CLI mogą automatycznie znajdować i spakować połączone szablony z dysku lokalnego. Nie trzeba ręcznie konfigurować kont magazynu ani repozytoriów, aby hostować specyfikacje szablonu — wszystko to jest samodzielne w szablonie zasobów specyfikacji.
@@ -331,10 +403,6 @@ Poniższy przykład jest podobny do wcześniejszego przykładu, ale użyto wła�
 ```
 
 Aby uzyskać więcej informacji na temat łączenia specyfikacji szablonu, zobacz [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Przechowywanie wersji
-
-Podczas tworzenia specyfikacji szablonu należy podać jej nazwę. Podczas iteracji kodu szablonu można zaktualizować istniejącą wersję (w przypadku poprawek) lub opublikować nową wersję. Wersja jest ciągiem tekstowym. Możesz użyć dowolnego systemu obsługi wersji, w tym wersji semantycznej. Użytkownicy specyfikacji szablonu mogą podać nazwę wersji, która ma być używana podczas jej wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 

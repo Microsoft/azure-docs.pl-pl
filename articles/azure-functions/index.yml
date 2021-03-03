@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Functions
-summary: Azure Functions to dostępna na żądanie usługa w chmurze, która zapewnia całą infrastrukturę i wszystkie zasoby, których potrzebujesz do uruchamiania aplikacji. Wszystko jest nieustannie aktualizowane. Ty skupiasz się na kodzie, który jest dla Ciebie najważniejszy, a usługa Azure Functions zajmuje się resztą. Za pomocą usługi Azure Functions można tworzyć internetowe interfejsy API, reagować na zmiany w bazach danych, przetwarzać strumienie IoT, zarządzać kolejkami komunikatów i nie tylko.
+summary: Azure Functions to dostępna na żądanie usługa w chmurze, która zapewnia całą infrastrukturę i wszystkie zasoby, których potrzebujesz do uruchamiania aplikacji. Wszystko jest nieustannie aktualizowane. Skupiasz się na fragmentach kodu, który najlepiej odpowiada, a funkcje obsługują resztę. Funkcje udostępniają obliczenia bezserwerowe na platformie Azure. Za pomocą funkcji można tworzyć interfejsy API sieci Web, odpowiadać na zmiany bazy danych, przetwarzać strumienie IoT, zarządzać kolejkami komunikatów i nie tylko.
 metadata:
   title: Dokumentacja usługi Azure Functions
-  description: Azure Functions to dostępna na żądanie usługa w chmurze, która zapewnia całą infrastrukturę i wszystkie zasoby, których potrzebujesz do uruchamiania aplikacji. Wszystko jest nieustannie aktualizowane. Ty skupiasz się na kodzie, który jest dla Ciebie najważniejszy, a usługa Azure Functions zajmuje się resztą. Za pomocą usługi Azure Functions można tworzyć internetowe interfejsy API, reagować na zmiany w bazach danych, przetwarzać strumienie IoT, zarządzać kolejkami komunikatów i nie tylko.
+  description: Azure Functions to dostępna na żądanie usługa w chmurze, która zapewnia całą infrastrukturę i wszystkie zasoby, których potrzebujesz do uruchamiania aplikacji. Wszystko jest nieustannie aktualizowane. Ty skupiasz się na kodzie, który jest dla Ciebie najważniejszy, a usługa Azure Functions zajmuje się resztą. Funkcje udostępniają obliczenia bezserwerowe na platformie Azure. Za pomocą usługi Azure Functions można tworzyć internetowe interfejsy API, reagować na zmiany w bazach danych, przetwarzać strumienie IoT, zarządzać kolejkami komunikatów i nie tylko.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 65b2c25bde616f8a2bbc9abf6439871d288306b9
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 4d856232d2f0780852a1f369548b08012d124834
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100363036"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101729168"
 landingContent:
 - title: Informacje o usłudze Azure Functions
   linkLists:

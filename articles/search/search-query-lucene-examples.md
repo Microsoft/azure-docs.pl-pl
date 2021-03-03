@@ -1,273 +1,356 @@
 ---
 title: Użyj pełnej składni zapytań Lucene
 titleSuffix: Azure Cognitive Search
-description: Składnia zapytań Lucene dla wyszukiwania rozmytego, wyszukiwania w sąsiedztwie, zwiększania warunków, wyszukiwania wyrażeń regularnych i wyszukiwania symboli wieloznacznych w usłudze Azure Wyszukiwanie poznawcze.
+description: Przykłady zapytania przedstawiające składnię zapytań Lucene dla wyszukiwania rozmytego, wyszukiwania w sąsiedztwie, zwiększania terminów, wyszukiwania wyrażeń regularnych i wyszukiwania symboli wieloznacznych w indeksie Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 6213efb6ba14052c6f957a6d999f48f55f65186c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693564"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Użyj "pełnej" składni wyszukiwania Lucene (zapytania zaawansowane w usłudze Azure Wyszukiwanie poznawcze)
 
-Podczas konstruowania zapytań dotyczących usługi Azure Wyszukiwanie poznawcze można zastąpić domyślny [prosty Analizator zapytań](query-simple-syntax.md) , używając bardziej zaawansowanego [analizatora zapytań Lucene na platformie Azure wyszukiwanie poznawcze](query-lucene-syntax.md) , aby tworzyć wyspecjalizowane i zaawansowane definicje zapytań. 
+Podczas konstruowania zapytań dotyczących usługi Azure Wyszukiwanie poznawcze można zastąpić domyślny [prosty Analizator zapytań](query-simple-syntax.md) z bardziej zaawansowanym [analizatorem zapytań Lucene](query-lucene-syntax.md) , aby sformułować wyspecjalizowane i zaawansowane wyrażenia zapytań.
 
-Parser Lucene obsługuje złożone konstrukcje zapytań, takie jak zapytania o zakresie pól, Wyszukiwanie rozmyte, wrostkowe i symboli wieloznacznych, wyszukiwanie w sąsiedztwie, zwiększanie terminów i wyszukiwanie wyrażeń regularnych. Dodatkowa moc jest dostarczana z dodatkowymi wymaganiami dotyczącymi przetwarzania, dlatego należy oczekiwać nieco dłuższego czasu wykonania. W tym artykule można zapoznać się z przykładami pokazującymi operacje zapytań na podstawie pełnej składni.
+Parser Lucene obsługuje złożone formaty zapytań, takie jak zapytania o zakresie pól, Wyszukiwanie rozmyte, wrostkowe i symboli wieloznacznych, wyszukiwanie w sąsiedztwie, zwiększanie terminów i wyszukiwanie wyrażeń regularnych. Dodatkowa moc jest dostarczana z dodatkowymi wymaganiami dotyczącymi przetwarzania, dlatego należy oczekiwać nieco dłuższego czasu wykonania. W tym artykule można zapoznać się z przykładami pokazującymi operacje zapytań na podstawie pełnej składni.
 
 > [!Note]
 > Wiele wyspecjalizowanych konstrukcji zapytań włączonych za pomocą pełnej składni zapytań Lucene nie jest w trakcie [analizowania tekstu](search-lucene-query-architecture.md#stage-2-lexical-analysis), co może być zaskakującee, jeśli oczekujesz rdzeni lub Lematyzacja. Analiza leksykalna jest wykonywana tylko w przypadku pełnych warunków (zapytania warunkowego zapytania lub frazy). Typy zapytań z niekompletnymi postanowieniami (zapytanie o prefiks, zapytanie symboli wieloznacznych, zapytanie rozmyte) są dodawane bezpośrednio do drzewa zapytań, pomijając etap analizy. Jedyne przekształcenie wykonywane na częściowych terminach zapytania to lowercasing. 
 >
 
-## <a name="nyc-jobs-examples"></a>Przykłady zadań NYC
+## <a name="hotels-sample-index"></a>Przykładowy indeks hoteli
 
-Poniższe przykłady wykorzystują [indeks wyszukiwania zadań NYC](https://azjobsdemo.azurewebsites.net/)  składający się z zadań dostępnych na podstawie zestawu danych dostarczonego przez [miasto z inicjatywy New York OpenData Initiative](https://nycopendata.socrata.com/). Te dane nie powinny być uważane za bieżące ani ukończone. Indeks znajduje się w usłudze piaskownicy dostarczonej przez firmę Microsoft, co oznacza, że nie potrzebujesz subskrypcji platformy Azure ani usługi Azure Wyszukiwanie poznawcze do wypróbowania tych zapytań.
+Poniższe zapytania opierają się na indeksie z przykładem hoteli, który można utworzyć, postępując zgodnie z instrukcjami w tym [przewodniku szybki start](search-get-started-portal.md).
 
-To, czego potrzebujesz, jest Poster lub równoważne narzędzie do wystawiania żądania HTTP przy POBIERAniu lub WYSYŁAniu. Jeśli nie znasz tych narzędzi, zobacz [Szybki Start: Eksplorowanie interfejsu API REST platformy Azure wyszukiwanie poznawcze](search-get-started-rest.md).
+Przykładowe zapytania są łączone za pomocą interfejsu API REST i żądań POST. Można je wkleić i uruchomić w programie [Poster](search-get-started-rest.md) lub w [Visual Studio Code z rozszerzeniem wyszukiwanie poznawcze](search-get-started-vs-code.md).
 
-## <a name="set-up-the-request"></a>Skonfiguruj żądanie
+Nagłówki żądań muszą mieć następujące wartości:
 
-1. Nagłówki żądań muszą mieć następujące wartości:
+| Klucz | Wartość |
+|-----|-------|
+| Content-Type | application/json|
+| klucz interfejsu API  | `<your-search-service-api-key>`, albo klucz zapytania lub administratora |
 
-   | Klucz | Wartość |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | klucz interfejsu API  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (jest to rzeczywisty klucz interfejsu API zapytania dla usługi wyszukiwania piaskownicy hostującym indeks zadań NYC) |
-
-1. Ustaw zlecenie na **`GET`** .
-
-1. Ustaw adres URL na **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
-
-   + Kolekcja Documents na indeksie zawiera całą zawartość do przeszukiwania. Klucz interfejsu API zapytania podany w nagłówku żądania działa tylko w przypadku operacji odczytu przeznaczonych dla kolekcji dokumentów.
-
-   + **`$count=true`** Zwraca liczbę dokumentów pasujących do kryteriów wyszukiwania. W przypadku pustego ciągu wyszukiwania liczba będzie zawierać wszystkie dokumenty w indeksie (około 2558 w przypadku zadań NYC).
-
-   + **`search=*`** jest nieokreślonym zapytaniem, równoważne wartości null lub pustego wyszukiwania. Nie jest to szczególnie przydatne, ale jest najprostszym wyszukiwaniem, które można wykonać i zawiera wszystkie pola do pobierania w indeksie, ze wszystkimi wartościami.
-
-   + **`queryType=full`** wywołuje pełny Analizator Lucene.
-
-1. W ramach kroku weryfikacji Wklej następujące żądanie do GET i kliknij pozycję **Wyślij**. Wyniki są zwracane w postaci pełnych dokumentów JSON.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-full-lucene-parsing"></a>Jak wywoływać pełne analizowanie Lucene
-
-Dodaj **`queryType=full`** , aby wywołać pełną składnię zapytania, zastępując domyślną prostą składnię zapytania. We wszystkich przykładach w tym artykule określono **`queryType=full`** parametr Search wskazujący, że Pełna składnia jest obsługiwana przez Analizator zapytań Lucene. 
+Parametry identyfikatora URI muszą zawierać punkt końcowy usługi Search z nazwą indeksu, kolekcjami dokumentów, poleceniem Search i wersją interfejsu API, podobnym do poniższego przykładu:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "full"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Przykład 1: zapytanie zakresu zapytania do listy pól
+Treść żądania powinna być sformułowana jako prawidłowy kod JSON:
 
-Pierwszy przykład nie jest specyficzny dla parsera, ale prowadzimy do tego, aby wprowadzić pierwszą podstawową koncepcję zapytania: zawieranie. W tym przykładzie ograniczenie wykonywania zapytania i odpowiedzi do zaledwie kilku określonych pól. Znajomość sposobu tworzenia struktury odpowiedzi w formacie JSON jest ważna, gdy narzędzie jest dostępne po opublikowaniu lub w Eksploratorze wyszukiwania. 
-
-To zapytanie dotyczy tylko *business_title* w **`searchFields`** , określające za pośrednictwem **`select`** parametru tego samego pola w odpowiedzi.
-
-```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "full",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "full",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
++ ustawienie "Wyszukaj" `*` jest nieokreślonym zapytaniem równym null lub pustego wyszukiwania. Nie jest to szczególnie przydatne, ale jest najprostszym wyszukiwaniem, które można wykonać i zawiera wszystkie pola do pobierania w indeksie, ze wszystkimi wartościami.
 
-  ![Przykładowe odpowiedzi Poster z wynikami](media/search-query-lucene-examples/postman-sample-results.png)
++ "querytype" ma wartość "Full" wywołuje pełny Analizator zapytań Lucene i jest wymagany dla tej składni.
 
-Być może zauważono wynik wyszukiwania w odpowiedzi. Jednolite Punktacja **1** występuje, gdy nie ma żadnej rangi, ponieważ wyszukiwanie nie było wyszukiwaniem pełnotekstowym lub nie podano żadnych kryteriów. W przypadku pustego wyszukiwania wiersze są wycofywane w dowolnej kolejności. Jeśli dołączysz rzeczywiste kryteria, wyniki wyszukiwania zostaną rozdzielone na znaczące wartości.
++ Opcja "Select" ustawiona na listę pól rozdzielana przecinkami jest używana do tworzenia struktury wyników wyszukiwania, w tym tylko tych pól, które są przydatne w kontekście wyników wyszukiwania.
 
-## <a name="example-2-fielded-search"></a>Przykład 2: wyszukiwanie polowe
++ wartość "Count" zwraca liczbę dokumentów pasujących do kryteriów wyszukiwania. W przypadku pustego ciągu wyszukiwania liczba będzie zawierać wszystkie dokumenty w indeksie (50 w przypadku hoteli-Sample-index).
 
-Pełna składnia Lucene obsługuje określanie zakresu poszczególnych wyrażeń wyszukiwania do określonego pola. Ten przykład wyszukuje tytuły biznesowe z terminem starszym w nich, ale nie na żadnym z nich. Można określić wiele pól przy użyciu i.
+## <a name="example-1-fielded-search"></a>Przykład 1: wyszukiwanie polowe
+
+Zakres wyszukiwania w polu indywidualny, osadzone wyrażenia wyszukiwania do określonego pola. Ten przykład wyszukuje nazwy hotelu z terminem "Hotel", ale nie "Motel". Można określić wiele pól przy użyciu i. 
+
+Korzystając z tej składni zapytań, można pominąć parametr "searchFields", gdy pola, które mają być zapytania, znajdują się w samym wyrażeniu wyszukiwania. Jeśli dołączysz "searchFields" z wyszukiwaniem w polu, `fieldName:searchExpression` zawsze ma pierwszeństwo przed "searchFields".
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
-    "search": "business_title:(senior NOT junior) AND posting_type:external",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "select": "HotelName, Category",
+    "count": true
 }
 ```
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu (posting_type nie jest wyświetlany).
+Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego przykładu, filtrowanym według wartości "kurort i spa", zwracająca Hotele, które zawierają "Hotel" lub "Motel" w nazwie.
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Wyrażenie wyszukiwania przykładowego odpowiedzi Poster" border="false":::
+```json
+"@odata.count": 4,
+"value": [
+    {
+        "@search.score": 4.481559,
+        "HotelName": "Nova Hotel & Spa",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.4524608,
+        "HotelName": "King's Palace Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.3970203,
+        "HotelName": "Triple Landscape Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.2953436,
+        "HotelName": "Peaceful Market Hotel & Spa",
+        "Category": "Resort and Spa"
+    }
+]
+```
 
-Wyrażenie wyszukiwania może być pojedynczym słowem lub frazą lub bardziej skomplikowanym wyrażeniem w nawiasach, opcjonalnie z operatorami logicznymi. Oto kilka przykładów:
+Wyrażenie wyszukiwania może być pojedynczym terminem lub frazą lub bardziej skomplikowanym wyrażeniem w nawiasach, opcjonalnie z operatorami logicznymi. Oto kilka przykładów:
 
-+ `business_title:(senior NOT junior)`
-+ `state:("New York" OR "New Jersey")`
-+ `business_title:(senior NOT junior) AND posting_type:external`
++ `HotelName:(hotel NOT motel)`
++ `Address/StateProvince:("WA" OR "CA")`
++ `Tags:("free wifi" NOT "free parking") AND "coffee in lobby"`
 
-Pamiętaj, aby umieścić wiele ciągów w cudzysłowie, jeśli chcesz, aby oba ciągi były oceniane jako pojedyncze jednostki, tak jak w tym przypadku wyszukiwanie dwóch odrębnych lokalizacji w `state` polu. W zależności od narzędzia może zajść potrzeba ucieczki ( `\` ) cudzysłowu. 
+Pamiętaj, aby umieścić frazę w cudzysłowie, jeśli chcesz, aby oba ciągi były oceniane jako pojedyncze jednostki, jak w tym przypadku wyszukiwanie dwóch odrębnych lokalizacji w polu Address/StateProvince. W zależności od klienta może zajść potrzeba ucieczki ( `\` ) cudzysłowu.
 
-Pole określone w elemencie **FieldName: searchExpression** musi być polem z możliwością wyszukiwania. Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/create-index) .
+Pole określone w `fieldName:searchExpression` musi być polem z możliwością wyszukiwania. Zobacz [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index) , aby uzyskać szczegółowe informacje na temat sposobu, w jaki definicje pól są przypisane do atrybutu.
 
-> [!NOTE]
-> W powyższym przykładzie **`searchFields`** parametr zostanie pominięty, ponieważ każda część zapytania ma jawnie określoną nazwę pola. Można jednak nadal używać, **`searchFields`** jeśli zapytanie ma wiele części (przy użyciu instrukcji i). Na przykład zapytanie `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` byłoby zgodne tylko z `senior NOT junior` `business_title` polem, a w tym polu będzie pasować wartość "External" `posting_type` . Nazwa pola podana w `fieldName:searchExpression` zawsze ma pierwszeństwo przed **`searchFields`** , co oznacza, że w tym przykładzie można pominąć `business_title` z **`searchFields`** .
+## <a name="example-2-fuzzy-search"></a>Przykład 2: Wyszukiwanie rozmyte
 
-## <a name="example-3-fuzzy-search"></a>Przykład 3: Wyszukiwanie rozmyte
-
-Pełna składnia Lucene obsługuje również Wyszukiwanie rozmyte, które dopasowuje się do warunków, które mają podobną konstrukcję. Aby wykonać Wyszukiwanie rozmyte, Dołącz symbol tyldy `~` na końcu pojedynczego słowa z opcjonalnym parametrem, wartością z przedziału od 0 do 2, która określa odległość edycji. Na przykład, `blue~` lub `blue~1` zwróci niebieskie, blues i przyklej.
+Wyniki wyszukiwania rozmytego są zgodne z podobnymi terminami, w tym błędnie napisanymi wyrazami. Aby wykonać Wyszukiwanie rozmyte, Dołącz symbol tyldy `~` na końcu pojedynczego słowa z opcjonalnym parametrem, wartością z przedziału od 0 do 2, która określa odległość edycji. Na przykład, `blue~` lub `blue~1` zwróci niebieskie, blues i przyklej.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Tags:conserge~",
     "queryType": "full",
-    "search": "business_title:asosiate~",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Category, Tags",
+    "searchFields": "HotelName, Category, Tags",
+    "count": true
 }
 ```
 
-Wyrażenia nie są obsługiwane bezpośrednio, ale można określić dopasowanie rozmyte dla każdego warunku jednoczęściowej frazy, na przykład `search=business_title:asosiate~ AND comm~` .  Na poniższym zrzucie ekranu odpowiedź zawiera dopasowanie do *skojarzenia ze społecznością*.
+Odpowiedź na to zapytanie jest rozpoznawana jako "Concierge" w pasujących dokumentach, przycięta dla zwięzłości:
 
-  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Odpowiedź na Wyszukiwanie rozmyte" border="false":::
+```json
+"@odata.count": 12,
+"value": [
+    {
+        "@search.score": 1.1832147,
+        "HotelName": "Secret Point Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "air conditioning",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1819803,
+        "HotelName": "Twin Dome Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "free wifi",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1773309,
+        "HotelName": "Smile Hotel",
+        "Category": "Suite",
+        "Tags": [
+            "view",
+            "concierge",
+            "laundry service"
+        ]
+    },
+```
+
+Wyrażenia nie są obsługiwane bezpośrednio, ale można określić dopasowanie rozmyte dla każdego warunku jednoczęściowej frazy, na przykład `search=Tags:landy~ AND sevic~` .  To wyrażenie zapytania umożliwia znalezienie 15 dopasowań w "usłudze prania".
 
 > [!Note]
-> Zapytania rozmyte nie są [analizowane](search-lucene-query-architecture.md#stage-2-lexical-analysis). Typy zapytań z niekompletnymi postanowieniami (zapytanie o prefiks, zapytanie symboli wieloznacznych, zapytanie rozmyte) są dodawane bezpośrednio do drzewa zapytań, pomijając etap analizy. Jedyne przekształcenie wykonywane na częściowych terminach zapytania to lowercasing.
+> Zapytania rozmyte nie są [analizowane](search-lucene-query-architecture.md#stage-2-lexical-analysis). Typy zapytań z niekompletnymi postanowieniami (zapytanie o prefiks, zapytanie symboli wieloznacznych, zapytanie rozmyte) są dodawane bezpośrednio do drzewa zapytań, pomijając etap analizy. Jedynym przekształceniem wykonywanym na częściowych terminach zapytania jest mała wielkość liter.
 >
 
-## <a name="example-4-proximity-search"></a>Przykład 4: wyszukiwanie w sąsiedztwie
+## <a name="example-3-proximity-search"></a>Przykład 3: wyszukiwanie zbliżeniowe
 
-Wyszukiwania w sąsiedztwie są używane do znajdowania terminów blisko siebie w dokumencie. Wstaw symbol tyldy "~" na końcu frazy, a po niej liczbę słów, które tworzą granicę bliskości. Na przykład "Port lotniczy" w hotelu "~ 5 zawiera warunki hotelowe i lotnisko w 5 wyrazach innych elementów w dokumencie.
+Wyszukiwanie w sąsiedztwie znajduje się w dokumencie warunki, które są blisko siebie. Wstaw symbol tyldy "~" na końcu frazy, a po niej liczbę słów, które tworzą granicę bliskości.
 
-To zapytanie wyszukuje terminy "starszy" i "analityk", gdzie każdy termin jest oddzielony nie więcej niż jednym słowem, a cudzysłowy są oznaczone znakiem ucieczki ( `\"` ) w celu zachowania frazy:
+To zapytanie wyszukuje terminy "Hotel" i "Lotnisko" w 5 wyrazach innych elementów w dokumencie. Znaki cudzysłowu są oznaczone znakiem ucieczki ( `\"` ), aby zachować frazę:
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~1",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description",
+    "searchFields": "HotelName, Description",
+    "count": true
 }
 ```
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu 
+Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego przykładu:
 
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Zapytanie o bliskość" border="false":::
+```json
+"@odata.count": 2,
+"value": [
+    {
+        "@search.score": 0.6331726,
+        "HotelName": "Trails End Motel",
+        "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport."
+    },
+    {
+        "@search.score": 0.43032226,
+        "HotelName": "Catfish Creek Fishing Cabins",
+        "Description": "Brand new mattresses and pillows.  Free airport shuttle. Great hotel for your business needs. Comp WIFI, atrium lounge & restaurant, 1 mile from light rail."
+    }
+]
+```
 
-Spróbuj ponownie, eliminując każdą odległość ( `~0` ) między warunkami "wyższy analityk". Zwróć uwagę, że 8 dokumentów jest zwracanych dla tego zapytania, a nie do 10 dla poprzedniego zapytania.
+## <a name="example-4-term-boosting"></a>Przykład 4: zwiększenie warunków
+
+Zwiększenie warunków dotyczy klasyfikacji dokumentu, jeśli zawiera on podwyższony termin względem dokumentów, które nie zawierają warunków. Aby zwiększyć okres obowiązywania, użyj karetki, `^` symbolu ze współczynnikiem zwiększania (liczba) na końcu wyszukiwanego okresu. Współczynnik zwiększania wydajności jest wartością domyślną 1, a chociaż musi być dodatnia, może być mniejsza niż 1 (na przykład 0,2). Zwiększenie okresu różni się od profilów oceniania w tym profilu oceniania, a nie na określonych warunkach.
+
+W tym zapytaniu "Before" Wyszukaj ciąg "sekwencje Access" i zwróć uwagę na to, że istnieje siedem dokumentów pasujących do jednego lub obu warunków.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "beach access",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~0",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description, Tags",
+    "searchFields": "HotelName, Description, Tags",
+    "count": true
 }
 ```
 
-## <a name="example-5-term-boosting"></a>Przykład 5: zwiększenie warunków
+W rzeczywistości istnieje tylko jeden dokument, który pasuje do "Access" i ponieważ jest to jedyne dopasowanie, jego położenie jest wysokie (Druga pozycja), nawet jeśli dokument nie ma terminu "sekwencje".
 
-Zwiększenie warunków dotyczy klasyfikacji dokumentu, jeśli zawiera on podwyższony termin względem dokumentów, które nie zawierają warunków. Aby zwiększyć okres obowiązywania, użyj karetki, `^` symbolu ze współczynnikiem zwiększania (liczba) na końcu wyszukiwanego okresu.
-
-W tym zapytaniu "Before" Wyszukaj zadania z takim *analitykiem komputerowym* i zwróć uwagę na to, że nie ma żadnych wyników zarówno dla *komputera* , jak i *analityka*, ale zadania *komputera* znajdują się w górnej części wyników.
-
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.2723424,
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown."
+    },
+    {
+        "@search.score": 1.5507699,
+        "HotelName": "Old Carrabelle Hotel",
+        "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center."
+    },
+    {
+        "@search.score": 1.5358944,
+        "HotelName": "Whitefish Lodge & Suites",
+        "Description": "Located on in the heart of the forest. Enjoy Warm Weather, Beach Club Services, Natural Hot Springs, Airport Shuttle."
+    },
+    {
+        "@search.score": 1.3433652,
+        "HotelName": "Ocean Air Motel",
+        "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+    },
 ```
 
-W zapytaniu "After" Powtórz wyszukiwanie, a tym samym czasie zwiększy wyniki za pomocą warunkowego *analityka* na *komputerze* , jeśli oba słowa nie istnieją. Czytelna dla człowieka wersja zapytania to `search=business_title:computer analyst^2` . W przypadku zapytania wykonywanego w programie Poster `^2` jest zakodowany jako `%5E2` .
+W zapytaniu "After" Powtórz wyszukiwanie, tym samym czasie, które zwiększają wyniki z terminem "sekwencje" w ciągu terminu "dostęp". Czytelna dla człowieka wersja zapytania to `search=Description:beach^2 access` . W zależności od klienta może być konieczne wyraźne wyrażenie `^2` `%5E2` .
 
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst%5e2",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
-```
+Po zwiększeniu okresu "sekwencje" dopasowanie w starym hotelu Carrabelle przenosi się w dół do szóstego miejsca.
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
+<!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Zwiększenie warunków" border="false":::
-
-Zwiększenie okresu różni się od profilów oceniania w tym profilu oceniania, a nie na określonych warunkach. Poniższy przykład pomaga zilustrować różnice.
-
-Rozważmy profil oceniania, który zwiększa dopasowań w określonym polu, takich jak **gatunek** w przykładowym musicstoreindex. Zwiększenie okresu może służyć do dalszej promocji niektórych wyszukiwanych terminów wyższych niż inne. Na przykład "skała ^ 2 elektroniczna" spowoduje zwiększenie poziomu dokumentów zawierających terminy wyszukiwania w polu **gatunek** powyżej innych pól, które można wyszukiwać w indeksie. Ponadto dokumenty zawierające termin wyszukiwania "skały" będą wyższe niż w przypadku innych wyszukiwanych terminów "elektroniczny" w wyniku okresu zwiększenia wartości (2).
-
-W przypadku ustawienia poziomu współczynnika wyższa wartość współczynnika zwiększania istotny termin będzie odnosić się do innych wyszukiwanych terminów. Domyślnie współczynnik zwiększania wynosi 1. Chociaż współczynnik zwiększania wartości musi być dodatni, może być mniejszy niż 1 (na przykład 0,2).
-
-## <a name="example-6-regex"></a>Przykład 6: wyrażenie regularne
+## <a name="example-5-regex"></a>Przykład 5: wyrażenie regularne
 
 Wyszukiwanie w wyrażeniu regularnym wyszukuje dopasowanie na podstawie zawartości między ukośnikami "/", zgodnie z opisem w [klasie RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
-    "search": "business_title:/(Sen|Jun)ior/",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
+Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego przykładu:
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Zapytanie wyrażenia regularnego" border="false":::
+```json
+    "@odata.count": 22,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Days Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Triple Landscape Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Smile Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Pelham Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Sublime Cliff Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Twin Dome Motel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Nova Hotel & Spa"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+```
 
 > [!Note]
-> Zapytania wyrażenia regularnego nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonywane na częściowych terminach zapytania to lowercasing.
+> Zapytania wyrażenia regularnego nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedynym przekształceniem wykonywanym na częściowych terminach zapytania jest mała wielkość liter.
 >
 
-## <a name="example-7-wildcard-search"></a>Przykład 7: wyszukiwanie przy użyciu symboli wieloznacznych
+## <a name="example-6-wildcard-search"></a>Przykład 6: wyszukiwanie przy użyciu symboli wieloznacznych
 
-Można użyć ogólnie rozpoznanej składni dla wielu \* symboli wieloznacznych () lub pojedynczych znaków (?). Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
+Można użyć ogólnie rozpoznanej składni dla wielu `*` symboli wieloznacznych () lub pojedynczych ( `?` ). Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
 
-W tym zapytaniu Wyszukaj zadania, które zawierają prefiks "program", który zawiera tytuły biznesowe z programowaniem terminów i programistą. Nie można użyć `*` symbolu or `?` jako pierwszego znaku wyszukiwania.
+W tej kwerendzie Wyszukaj nazwy hotelu zawierające prefiks "SC". Nie można użyć `*` symbolu or `?` jako pierwszego znaku wyszukiwania.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:sc*",
     "queryType": "full",
-    "search": "business_title:prog*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
+Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego przykładu:
 
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Zapytanie symboli wieloznacznych" border="false":::
+```json
+    "@odata.count": 2,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scottish Inn"
+        }
+    ]
+```
 
 > [!Note]
-> Zapytania z symbolami wieloznacznymi nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonywane na częściowych terminach zapytania to lowercasing.
+> Zapytania z symbolami wieloznacznymi nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedynym przekształceniem wykonywanym na częściowych terminach zapytania jest mała wielkość liter.
 >
 
 ## <a name="next-steps"></a>Następne kroki

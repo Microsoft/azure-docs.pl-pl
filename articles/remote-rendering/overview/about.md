@@ -5,18 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6001fff54b86b7c18684092aad6c7fdf64f81990
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729950"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering — informacje
-
-> [!IMPORTANT]
-> **Zdalne renderowanie na platformie Azure** jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 *Zdalne renderowanie na platformie Azure* (ARR) to usługa, która pozwala na renderowanie wysokiej jakości interaktywnej zawartości 3D w chmurze i przesyłanie strumieniowe w czasie rzeczywistym do urządzeń, takich jak HoloLens 2.
 

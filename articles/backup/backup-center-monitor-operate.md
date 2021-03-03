@@ -3,20 +3,20 @@ title: Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak monitorować i obsługiwać kopie zapasowe na dużą skalę przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893782"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719546"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Monitorowanie i wykonywanie kopii zapasowych za pomocą centrum kopii zapasowych (wersja zapoznawcza)
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorowanie i obsługa kopii zapasowych w centrum kopii zapasowych
 
 Jako administrator kopii zapasowej można użyć centrum kopii zapasowych jako jednego okienka Glass do monitorowania zadań i spisu kopii zapasowych w codziennym okresie. Centrum kopii zapasowych umożliwia również wykonywanie zwykłych operacji, takich jak reagowanie na żądania kopii zapasowych na żądanie, przywracanie kopii zapasowych, tworzenie zasad tworzenia kopii zapasowych i tak dalej.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files Azure Database for PostgreSQL tworzenia
+* Centrum kopii zapasowych jest obecnie obsługiwane w przypadku kopii zapasowych maszyny wirtualnej platformy Azure, bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure, SAP HANA w ramach kopii zapasowej maszyny wirtualnej platformy Azure, Azure Files tworzenia kopii zapasowych, tworzenia kopii zapasowych Azure Database for PostgreSQL Managed Disks Azure
 * Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
 ## <a name="backup-instances"></a>Wystąpienia kopii zapasowej

@@ -6,23 +6,23 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 255de7d6739691c479e1ae98e37bc6d3e01a6710
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100643633"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713018"
 ---
 # <a name="what-is-document-translation-preview"></a>Co to jest tłumaczenie dokumentu (wersja zapoznawcza)?
 
-Tłumaczenie dokumentu to oparta na chmurze funkcja usługi [Azure translator](../translator-info-overview.md) , która jest częścią rodziny usługi Azure poznawczej w ramach interfejsów API REST. Interfejs API tłumaczenia dokumentów tłumaczy dokumenty na i z więcej niż 70 języków podczas zachowywania struktury dokumentu i formatu danych.
+Tłumaczenie dokumentu to oparta na chmurze funkcja usługi [Azure translator](../translator-info-overview.md) , która jest częścią rodziny usługi Azure poznawczej w ramach interfejsów API REST. Interfejs API tłumaczenia dokumentów tłumaczy dokumenty na i z 90 języków i dialektów przy zachowaniu struktury dokumentu i formatu danych.
 
 ## <a name="document-translation-key-features"></a>Funkcje klucza tłumaczenia dokumentu
 
 | Cecha | Opis |
 | ---------| -------------|
 | **Tłumaczenie dużych plików**| Asynchroniczne tłumaczenie całych dokumentów.|
-|**Tłumaczenie wielu plików**|Przetłumacz wiele plików na i z więcej niż 70 języków.|
+|**Tłumaczenie wielu plików**|Przetłumacz wiele plików na i z 90 języków i dialektów.|
 |**Zachowaj prezentację pliku źródłowego**| Tłumaczenie plików przy zachowaniu oryginalnego układu i formatu.|
 |**Zastosuj tłumaczenie niestandardowe**| Tłumaczenie dokumentów przy użyciu ogólnych i [niestandardowych modeli tłumaczenia](../customization.md#custom-translator) .|
 |**Zastosuj niestandardowy Glossaries**|Tłumaczenie dokumentów przy użyciu niestandardowych Glossaries.|

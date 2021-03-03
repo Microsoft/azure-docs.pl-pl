@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720940"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opcje obliczeń i magazynowania w Azure Database for MySQL-elastycznym serwerze (wersja zapoznawcza)
 
@@ -72,7 +72,7 @@ Szczegółowe specyfikacje dostępnych typów serwerów są następujące:
 Aby uzyskać więcej szczegółowych informacji o dostępnych seriach obliczeniowych, zapoznaj się z dokumentacją maszyn wirtualnych platformy Azure w celu ich przełożenia ( [Seria B)](../../virtual-machines/sizes-b-series-burstable.md), [ogólnego przeznaczenia (Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)i [zoptymalizowana pod kątem pamięci (seria Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->W przypadku [warstwy obliczeniowej serii B](../../virtual-machines/sizes-b-series-burstable.md) , jeśli maszyna wirtualna zostanie uruchomiona/zatrzymana lub uruchomiona ponownie, kredyty mogą zostać utracone. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące możliwości pierścieniowania (Seria B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>W przypadku [warstwy obliczeniowej serii B](../../virtual-machines/sizes-b-series-burstable.md) , jeśli maszyna wirtualna zostanie uruchomiona/zatrzymana lub uruchomiona ponownie, kredyty mogą zostać utracone. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące możliwości pierścieniowania (Seria B)](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Storage
 
@@ -83,7 +83,7 @@ Zainicjowanym magazynem jest ilość miejsca do magazynowania dostępna dla serw
 
 Użycie magazynu w Azure Portal (z Azure Monitor) można monitorować przy użyciu metryk magazynu, procentu magazynu i użytych zasobów magazynu. Zapoznaj się z [artykułem monitorowanie](./concepts-monitoring.md) , aby dowiedzieć się więcej o metrykach. 
 
-### <a name="reaching-the-storage-limit"></a>Osiąganie limitu magazynu
+### <a name="reaching-the-storage-limit"></a>Osiągnięcie limitu magazynu
 
 Gdy Magazyn używany na serwerze zbliża się do osiągnięcia limitu, serwer jest w trybie tylko do odczytu, aby chronić wszelkie utracone zapisy na serwerze. Serwery z magazynem o rozmiarze mniejszym niż 100 GiB są oznaczone jako tylko do odczytu, jeśli ilość wolnego miejsca w magazynie jest mniejsza niż 5% rozmiaru magazynu. Serwery z więcej niż 100 GiB magazynu są oznaczone jako tylko do odczytu, jeśli ilość wolnego miejsca w magazynie jest mniejsza niż 5 GiB.
 

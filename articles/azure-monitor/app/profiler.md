@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947034"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717761"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilowanie aplikacji Azure App Service na żywo za pomocą Application Insights
 
@@ -25,8 +25,12 @@ Aby włączyć program Profiler dla aplikacji, postępuj zgodnie z poniższymi i
 
 Application Insights Profiler jest wstępnie zainstalowany w ramach środowiska uruchomieniowego App Services. W poniższych krokach pokazano, jak włączyć ją dla App Service. Wykonaj następujące kroki, nawet jeśli zestaw SDK usługi App Insights został uwzględniony w aplikacji w czasie kompilacji.
 
+> [!NOTE]
+> Instalacja bezkodowa Application Insights Profiler jest zgodna z zasadami obsługi .NET Core.
+> Aby uzyskać więcej informacji na temat obsługiwanych środowisk uruchomieniowych, zobacz temat [zasady obsługi platformy .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Przejdź do panelu sterowania platformy Azure, aby uzyskać App Service.
-1. Włącz ustawienie "Always On" dla usługi App Service. To ustawienie można znaleźć w obszarze **Ustawienia**, na stronie **Konfiguracja** (Zobacz zrzut ekranu w następnym kroku), a następnie kliknąć kartę **Ustawienia ogólne** .
+1. Włącz ustawienie "Always On" dla usługi App Service. To ustawienie można znaleźć w obszarze **Ustawienia**, na stronie **Konfiguracja** (Zobacz zrzut ekranu w następnym kroku), a następnie wybrać kartę **Ustawienia ogólne** .
 1. Przejdź do strony **ustawienia > Application Insights** .
 
    ![Włączanie usługi App Insights w portalu App Services](./media/profiler/AppInsights-AppServices.png)
@@ -63,7 +67,7 @@ Jeśli chcesz włączyć Profiler dla innych chmur, możesz użyć poniższych u
 
 ## <a name="disable-profiler"></a>Wyłącz Profiler
 
-Aby zatrzymać lub uruchomić ponownie program Profiler dla wystąpienia pojedynczej aplikacji, w obszarze **zadania** WebJob i Zatrzymaj zadanie drukowania o nazwie ApplicationInsightsProfiler3. Nawet jeśli Profiler jest wyłączony przy użyciu przełącznika na stronie Application Insights, jak opisano powyżej, proces profilera będzie nadal działać. Profiler sprawdzi, czy jest włączony. Jeśli ta wartość jest wyłączona, przejdzie w stan uśpienia przez pewien czas przed ponownym sprawdzeniem. Jeśli jest wyłączone, nie wykonuje żadnego profilowania. W przypadku wyłączenia tego zadania WebJob proces profilera nie będzie działać w ogóle, nawet w celu sprawdzenia, czy jest włączony.
+Aby zatrzymać lub uruchomić ponownie Profiler dla wystąpienia pojedynczej aplikacji, na lewym pasku bocznym wybierz pozycję **WebJobs** i Zatrzymaj zadanie WebJob o nazwie `ApplicationInsightsProfiler3` .
 
   ![Wyłącz Profiler dla zadania sieci Web][disable-profiler-webjob]
 

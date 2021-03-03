@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738195"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -138,7 +138,9 @@ Odp **.: tak**. Możesz transkrypcja go samodzielnie lub korzystać z profesjona
 
 Odp **.:** uczenie modelu z danymi audio może być długotrwałym procesem. W zależności od ilości danych Tworzenie niestandardowego modelu może potrwać kilka dni. Jeśli nie można jej zakończyć w ciągu jednego tygodnia, usługa może przerwać operację uczenia i zgłosić model jako niepowodzenie.
 
-W celu uzyskania szybszych wyników użyj jednego z [regionów](custom-speech-overview.md#set-up-your-azure-account) , w których dedykowany sprzęt jest dostępny do uczenia się. Ogólnie rzecz biorąc, usługa przetwarza około 10 godzin danych audio dziennie w regionach z takim sprzętem. Może przetwarzać około 1 godziny danych audio dziennie w innych regionach. Możesz skopiować w pełni przeszkolony model do innego regionu przy użyciu [interfejsu API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Szkolenie z zaledwie tekstem jest znacznie szybsze i zwykle kończy się w ciągu kilku minut.
+Użyj jednego z [regionów](custom-speech-overview.md#set-up-your-azure-account) , w którym dedykowany sprzęt jest dostępny do uczenia się. W przypadku szkolenia w tych regionach usługa Speech będzie używać maksymalnie 20 godzin audio. W innych regionach zostanie użyta tylko do 8 godzin.
+
+Ogólnie rzecz biorąc, usługa przetwarza około 10 godzin danych audio dziennie w regionach z dedykowanym sprzętem. Może przetwarzać około 1 godziny danych audio dziennie w innych regionach. Możesz skopiować w pełni przeszkolony model do innego regionu przy użyciu [interfejsu API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Szkolenie z zaledwie tekstem jest znacznie szybsze i zwykle kończy się w ciągu kilku minut.
 
 Niektóre modele podstawowe nie mogą być dostosowane do danych audio. W przypadku usługi będą po prostu używać tekstu transkrypcji do uczenia i ignorować dane audio. Szkolenie zostanie wykonane znacznie szybciej, a wyniki będą takie same jak w przypadku szkoleń w postaci zwykłego tekstu. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio.
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492135"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737617"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -73,7 +73,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="tier-options"></a>
   **Jakie warstwy magazynowania są obsługiwane w Azure Files?**  
-    Azure Files obsługuje dwie warstwy magazynowania: Premium i Standard. Standardowe udziały plików są tworzone na kontach magazynu ogólnego przeznaczenia (GPv1 lub GPv2), a udziały plików w warstwie Premium są tworzone na kontach magazynu FileStorage. Dowiedz się więcej na temat tworzenia [standardowych udziałów plików](storage-how-to-create-file-share.md) i [udziałów plików w warstwie Premium](storage-how-to-create-premium-fileshare.md). 
+    Azure Files obsługuje dwie warstwy magazynowania: Premium i Standard. Standardowe udziały plików są tworzone na kontach magazynu ogólnego przeznaczenia (GPv1 lub GPv2), a udziały plików w warstwie Premium są tworzone na kontach magazynu FileStorage. Dowiedz się więcej na temat tworzenia [standardowych udziałów plików](storage-how-to-create-file-share.md) i [udziałów plików w warstwie Premium](./storage-how-to-create-file-share.md). 
     
     > [!NOTE]
     > Nie można tworzyć udziałów plików platformy Azure z kont magazynu obiektów blob lub ogólnego przeznaczenia (GPv1 lub GPv2) w *warstwie Premium* . Standardowe udziały plików platformy Azure muszą zostać utworzone wyłącznie w ramach *standardowych* kont ogólnego przeznaczenia, a udziały plików platformy Azure w warstwie Premium muszą zostać utworzone tylko na kontach magazynu FileStorage. Konta magazynu ogólnego przeznaczenia (GPv1 i GPv2) są przeznaczone tylko dla stron sieci Web *w warstwie Premium* . 

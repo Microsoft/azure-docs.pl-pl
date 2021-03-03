@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572965"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726771"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -30,6 +30,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 | ---------------------- | ---------------------------------------- |
 | Zaległe zdarzenia wejściowe       | Liczba zarejestrowanych zdarzeń wejściowych. Wartość różna od zera dla tej metryki oznacza, że zadanie nie jest w stanie zachować liczby zdarzeń przychodzących. Jeśli ta wartość jest powoli zwiększana lub konsekwentnie różna od zera, należy przeskalować zadanie. Więcej informacji można znaleźć w [opisie i dostosowaniu jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
 | Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Drop", aby porzucić zdarzenia, które napotykają ten scenariusz. |
+| Użycie procesora CPU (%) (wersja zapoznawcza)       | Procent użycia procesora CPU przez zadanie. Jeśli ta Metryka jest stale wyższa niż 80%, może to oznaczać, że zadanie jest wąskie w przypadku użycia procesora CPU i prawdopodobnie spowoduje, że zdarzenia wejściowe będą mogły zostać zarejestrowane. Można zwiększyć liczbę programów SUs przydzieloną do zadania, aby wyeliminować takie problemy. |
 | Wczesne zdarzenia wejściowe       | Zdarzenia, których sygnatura czasowa aplikacji jest wcześniejsza niż ich czas przybycia o więcej niż 5 minut. |
 | Nieudane żądania funkcji | Liczba wywołań funkcji zakończonych niepowodzeniem Azure Machine Learning (jeśli istnieją). |
 | Zdarzenia funkcji        | Liczba zdarzeń wysyłanych do funkcji Azure Machine Learning (jeśli istnieje). |
@@ -42,7 +43,7 @@ Okno zostanie wyświetlone w sposób pokazany:
 | Zdarzenia poza kolejnością    | Liczba zdarzeń odebranych poza kolejnością, które zostały usunięte lub uzyskały skorygowaną sygnaturę czasową, na podstawie zasad określania kolejności zdarzeń. Może to mieć wpływ na konfigurację ustawienia okna tolerancja poza kolejnością. |
 | Zdarzenia wyjściowe          | Ilość danych wysyłanych przez zadanie Stream Analytics do elementu docelowego danych wyjściowych, w liczbie zdarzeń. |
 | Błędy środowiska uruchomieniowego         | Łączna liczba błędów związanych z przetwarzaniem zapytań (z wyjątkiem błędów znalezionych podczas pozyskiwania zdarzeń lub wyprowadzania wyników) |
-| Użycie SU%       | Jeśli wykorzystanie zasobów odbywa się w sposób ciągły przez 80%, wydłuża się opóźnienie i liczba zdarzeń zaległych, należy rozważyć zwiększenie jednostek przesyłania strumieniowego. Wysokie wykorzystanie wskazuje, że zadanie jest używane blisko maksymalnych przydziałów zasobów. |
+| Użycie SU%       | Procent wykorzystania pamięci używanej przez zadanie. Jeśli użycie SU% jest stale większe niż 80%, zwiększa się opóźnienie i liczbę zaległych zdarzeń, należy rozważyć zwiększenie jednostek przesyłania strumieniowego. Wysokie wykorzystanie wskazuje, że zadanie jest używane blisko maksymalnych przydziałów zasobów. |
 | Opóźnienie znaku wodnego       | Maksymalne opóźnienie dla wszystkich partycji wszystkich danych wyjściowych w zadaniu. |
 
 Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

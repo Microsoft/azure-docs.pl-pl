@@ -2,13 +2,13 @@
 title: Zmienne w szablonach
 description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager (szablon ARM) i pliku Bicep.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700341"
 ---
 # <a name="variables-in-arm-templates"></a>Zmienne w szablonach ARM
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 Możesz użyć [funkcji szablonu](template-functions.md) do skonstruowania wartości zmiennej.
 
-W szablonach JSON nie można używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w deklaracji zmiennej. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
-
-Funkcje Reference i list są prawidłowe w przypadku deklarowania zmiennej w pliku Bicep.
-
 Poniższy przykład tworzy wartość ciągu dla nazwy konta magazynu. Używa kilka funkcji szablonu do uzyskania wartości parametru i łączy ją z unikatowym ciągiem.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+W szablonach JSON nie można używać funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w deklaracji zmiennej. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
+
+W plikach Bicep funkcje odwołania i listy są prawidłowe podczas deklarowania zmiennej.
+
 ## <a name="use-variable"></a>Użyj zmiennej
 
 Poniższy przykład pokazuje, jak używać zmiennej dla właściwości zasobu.
@@ -101,6 +101,9 @@ Poniższy przykład pokazuje, jak używać zmiennej dla właściwości zasobu.
 W szablonie JSON należy odwołać się do wartości zmiennej przy użyciu funkcji [zmienne](template-functions-deployment.md#variables) .
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ W szablonie JSON należy odwołać się do wartości zmiennej przy użyciu funkc
 W pliku Bicep należy odwołać się do wartości zmiennej, podając nazwę zmiennej.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

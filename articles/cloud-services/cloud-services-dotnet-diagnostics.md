@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e4b5372a2b6e9b833f3a0213d69649b75ae2589b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578179"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703511"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services (klasyczny)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md) to nowy model wdrażania oparty na Azure Resource Manager dla produktu Cloud Services platformy Azure.Ta zmiana spowoduje, że usługa Azure Cloud Services uruchomiona w ramach modelu wdrażania opartego na usłudze Azure Service Manager została zmieniona jako Cloud Services (klasyczny), a wszystkie nowe wdrożenia powinny używać [Cloud Services (obsługa rozszerzona)](../cloud-services-extended-support/overview.md).
 
-Zobacz [Diagnostyka Azure przegląd](../azure-diagnostics.md) dla tła na Diagnostyka Azure.
+Zobacz [Diagnostyka Azure przegląd](../azure-monitor/agents/diagnostics-extension-overview.md) dla tła na Diagnostyka Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Jak włączyć diagnostykę w roli procesu roboczego
 W tym przewodniku opisano sposób implementacji roli procesu roboczego platformy Azure, która emituje dane telemetryczne przy użyciu klasy EventSource programu .NET. Diagnostyka Azure służy do zbierania danych telemetrycznych i przechowywania ich na koncie usługi Azure Storage. Podczas tworzenia roli procesu roboczego program Visual Studio automatycznie włącza diagnostykę 1,0 w ramach rozwiązania w zestawach SDK platformy Azure dla platformy .NET 2,4 i starszych. Poniższe instrukcje opisują proces tworzenia roli procesu roboczego, wyłączania diagnostyki 1,0 z rozwiązania oraz wdrażania diagnostyki 1,2 lub 1,3 do roli procesu roboczego.

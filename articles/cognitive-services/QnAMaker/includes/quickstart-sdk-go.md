@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 1ca800574f4a1c370d953c90ea5abad1a64f47b2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 39df309a4c4c9c1db181a6081afe00498d449957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351043"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731021"
 ---
 Użyj biblioteki klienta QnA Maker, aby przejść do:
 
@@ -59,7 +59,7 @@ Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource.
 
 QnA Maker używa dwóch różnych modeli obiektów:
 * **[QnAMakerClient](#qnamakerclient-object-model)** jest obiektem, który umożliwia tworzenie, publikowanie i pobieranie bazy wiedzy oraz zarządzanie nią.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../how-to/use-active-learning.md)).
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
@@ -82,7 +82,7 @@ Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://
 * Dla **plików** Użyj obiektu [FileDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#FileDTO) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
 * W przypadku **adresów URL** Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
 
-Wywołaj metodę [Create](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Create) , a następnie Przekaż `operationId` Właściwość zwracanej operacji do metody Details w celu sondowania stanu. [getDetails](#get-status-of-an-operation)
+Wywołaj metodę [Create](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Create) , a następnie Przekaż `operationId` Właściwość zwracanej operacji do metody Details w celu sondowania stanu. [](#get-status-of-an-operation)
 
 Ostatni wiersz poniższego kodu zwraca identyfikator bazy wiedzy.
 

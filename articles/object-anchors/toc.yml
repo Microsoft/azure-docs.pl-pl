@@ -1,0 +1,46 @@
+- name: Dokumentacja zakotwiczenia obiektów
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Kotwice obiektów — informacje
+      href: overview.md
+    - name: Najlepsze rozwiązania
+      href: best-practices.md
+- name: Pojęcia
+  items:
+    - name: Omówienie zestawu SDK środowiska uruchomieniowego
+      href: concepts/sdk-overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Tworzenie modelu
+      href: quickstarts/get-started-model-ingestion.md
+    - name: Tworzenie aplikacji aparatu Unity
+      expanded: true
+      items:
+        - name: HoloLens
+          href: quickstarts/get-started-unity-hololens.md
+        - name: Urządzenie HoloLens z MRTK
+          href: quickstarts/get-started-unity-hololens-mrtk.md
+    - name: Tworzenie aplikacji programu DirectX dla programu HoloLens
+      href: quickstarts/get-started-hololens-directx.md
+- name: Samples
+  items:
+    - name: Przykłady zakotwiczenia obiektów platformy Azure (GitHub)
+      href: 'https://github.com/Azure/azure-object-anchors'
+- name: Odwołania
+  items:
+    - name: Zestaw SDK środowiska uruchomieniowego dla aparatu Unity
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.ObjectAnchors/'
+    - name: Zestaw SDK środowiska uruchomieniowego dla urządzeń HoloLens C++/WinRT
+      href: 'https://docs.microsoft.com/cpp/api/object-anchors/winrt/'
+- name: Zasoby
+  items:
+    - name: Informacje o wersji
+      href: 'https://github.com/Azure/azure-object-anchors/releases'
+    - name: Interfejs API REST zarządzania zasobami usługi Azure Mixed Reality
+      href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-object-anchors'

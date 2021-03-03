@@ -1,17 +1,17 @@
 ---
-title: Tworzenie klastra AKS w portalu
+title: 'Szybki Start: Wdrażanie klastra AKS przy użyciu Azure Portal'
 titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację i monitorować wydajność w usłudze Azure Kubernetes Service (AKS) przy użyciu witryny Azure Portal.
 services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 7f59924b2a50f29e01d46e12389e5ca52769225d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.custom: mvc, seo-javascript-october2019, contperfq3
+ms.openlocfilehash: 443c9e0cebe2a45386b63b3a0bc4a813d243e49e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714565"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
@@ -47,7 +47,7 @@ Aby utworzyć klaster AKS, wykonaj następujące czynności:
 
 4. Na stronie **Pule węzłów** Zachowaj ustawienia domyślne. W dolnej części ekranu kliknij przycisk **Dalej: uwierzytelnianie**.
     > [!CAUTION]
-    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź [tutaj](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) , aby rozwiązać problem.
+    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź stronę [Rozwiązywanie typowych problemów z usługą Azure Kubernetes](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) w celu rozwiązania problemu.
 
 5. Na stronie **Uwierzytelnianie** skonfiguruj następujące opcje:
     - Utwórz nową nazwę główną usługi, pozostawiając w polu **Nazwa główna usługi** **domyślną nazwę główną usługi (nowa)**. Możesz też wybrać opcję *Skonfiguruj nazwę główną usługi*, aby użyć istniejącej usługi. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
@@ -78,7 +78,7 @@ Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastr
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-get], aby powrócić do listy węzłów klastra.
+Aby sprawdzić połączenie z klastrem, użyj polecenia, `kubectl get` Aby zwrócić listę węzłów klastra.
 
 ```console
 kubectl get nodes
@@ -93,7 +93,7 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym przewodniku Szybki start manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote. Ten manifest obejmuje dwa [wdrożenia platformy Kubernetes][kubernetes-deployment] — jedno dla aplikacji Azure Vote w języku Python i jedno dla wystąpienia usługi Redis. Tworzone są również dwie [usługi platformy Kubernetes][kubernetes-service] — wewnętrzna usługa dla wystąpienia usługi Redis i zewnętrzna usługa służąca do uzyskiwania dostępu do aplikacji Azure Vote z Internetu.
+Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera do uruchomienia. W tym przewodniku Szybki start manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote. Ten manifest obejmuje dwa wdrożenia platformy Kubernetes — jedno dla aplikacji Azure Vote w języku Python i jedno dla wystąpienia usługi Redis. Tworzone są również dwie usługi platformy Kubernetes — wewnętrzna usługa dla wystąpienia usługi Redis i zewnętrzna usługa służąca do uzyskiwania dostępu do aplikacji Azure Vote z Internetu.
 
 W Cloud Shell Użyj edytora, aby utworzyć plik o nazwie `azure-vote.yaml` , taki jak `code azure-vote.yaml` , `nano azure-vote.yaml` lub `vi azure-vote.yaml` . Następnie skopiuj w następującej definicji YAML:
 
@@ -185,7 +185,7 @@ spec:
     app: azure-vote-front
 ```
 
-Wdróż aplikację przy użyciu polecenia [kubectl apply][kubectl-apply] i podaj nazwę manifestu YAML:
+Wdróż aplikację przy użyciu `kubectl apply` polecenia i określ nazwę manifestu YAML:
 
 ```console
 kubectl apply -f azure-vote.yaml
@@ -204,7 +204,7 @@ service "azure-vote-front" created
 
 Podczas uruchamiania aplikacji usługa Kubernetes uwidacznia fronton aplikacji w Internecie. Ten proces może potrwać kilka minut.
 
-Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z argumentem `--watch`.
+Aby monitorować postęp, użyj `kubectl get service` polecenia z `--watch` argumentem.
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -267,7 +267,7 @@ W tym przewodniku Szybki start utworzono wdrożenie platformy Kubernetes za pomo
 
 W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim aplikację obsługującą wiele kontenerów.
 
-Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
+Aby dowiedzieć się więcej na temat AKS poprzez przechodzenie przez pełny przykład, w tym Kompilowanie aplikacji, wdrażanie z Azure Container Registry, aktualizowanie działającej aplikacji i skalowanie i Uaktualnianie klastra, przejdź do samouczka klastra Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Samouczek usługi AKS][aks-tutorial]
@@ -288,6 +288,3 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[azure-dev-spaces]: ../dev-spaces/index.yml
-[kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: concepts-network.md#services

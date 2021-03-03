@@ -1,6 +1,6 @@
 ---
 title: Powiadomienia o zaawansowaniu (wersja zapoznawcza) dla planowanych zdarzeń konserwacji
-description: Pobierz powiadomienie przed planowaną konserwacją Azure SQL Database lub wystąpienia zarządzanego Azure SQL.
+description: Pobierz powiadomienie przed planowaną konserwacją Azure SQL Database.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -11,24 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 3f63a8d2f75a58a771d837128c2b2498c28948ef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690893"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Powiadomienia z wyprzedzeniem dotyczące planowanych zdarzeń konserwacji (wersja zapoznawcza)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Powiadomienia z wyprzedzeniem (wersja zapoznawcza) są dostępne dla baz danych skonfigurowanych pod kątem [okna obsługi (wersja zapoznawcza)](maintenance-window.md). Powiadomienia z wyprzedzeniem umożliwiają klientom Konfigurowanie powiadomień do wysłania do 24 godzin przed zaplanowanym wydarzeniem.
 
 Powiadomienia można skonfigurować w taki sposób, aby można było otrzymywać teksty, wiadomości e-mail, powiadomienia wypychane platformy Azure oraz pocztę głosową, gdy planowana konserwacja będzie zaczynać się w ciągu najbliższych 24 godzin. Dodatkowe powiadomienia są wysyłane po rozpoczęciu konserwacji i po zakończeniu konserwacji.
 
+> [!Note]
+> Gdy możliwość wyboru okna obsługi jest dostępna dla wystąpień zarządzanych usługi Azure SQL, powiadomienia z wyprzedzeniem nie są obecnie dostępne dla wystąpień zarządzanych usługi Azure SQL.
 
 ## <a name="create-an-advance-notification"></a>Utwórz powiadomienie z wyprzedzeniem
 
-Powiadomienia z wyprzedzeniem są dostępne dla baz danych SQL Azure i wystąpień zarządzanych, dla których skonfigurowano okno obsługi. 
+W przypadku baz danych usługi Azure SQL, dla których skonfigurowano okno obsługi, są dostępne zaawansowane powiadomienia. 
 
 Wykonaj następujące kroki, aby włączyć powiadomienie.  
 

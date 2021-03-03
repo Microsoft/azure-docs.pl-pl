@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982264"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701522"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Samouczek: korzystanie z konfiguracji dynamicznej za pomocą odświeżania wypychanego w aplikacji .NET Core
 
@@ -27,7 +27,7 @@ Biblioteka kliencka konfiguracji aplikacji platformy .NET Core obsługuje aktual
 
 1. Model sondowania: jest to domyślne zachowanie, które używa sondowania do wykrywania zmian w konfiguracji. Po wygaśnięciu wartości w pamięci podręcznej, następnym wywołaniu `TryRefreshAsync` lub `RefreshAsync` wysyła żądanie do serwera w celu sprawdzenia, czy konfiguracja została zmieniona, i w razie potrzeby pobiera zaktualizowaną konfigurację.
 
-1. Model wypychania: służy do wykrywania zmian w konfiguracji przy użyciu [zdarzeń konfiguracji aplikacji](./concept-app-configuration-event.md) . Po skonfigurowaniu konfiguracji aplikacji do wysyłania zdarzeń zmiany wartości klucza do Azure Event Grid aplikacja może używać tych zdarzeń do optymalizowania łącznej liczby żądań, które są konieczne do zaktualizowania konfiguracji. Aplikacje mogą subskrybować te elementy bezpośrednio z Event Grid lub w przypadku jednego z [obsługiwanych zdarzeń](https://docs.microsoft.com/azure/event-grid/event-handlers) , takich jak element webhook, funkcja platformy Azure lub temat Service Bus.
+1. Model wypychania: służy do wykrywania zmian w konfiguracji przy użyciu [zdarzeń konfiguracji aplikacji](./concept-app-configuration-event.md) . Po skonfigurowaniu konfiguracji aplikacji do wysyłania zdarzeń zmiany wartości klucza do Azure Event Grid aplikacja może używać tych zdarzeń do optymalizowania łącznej liczby żądań, które są konieczne do zaktualizowania konfiguracji. Aplikacje mogą subskrybować te elementy bezpośrednio z Event Grid lub w przypadku jednego z [obsługiwanych zdarzeń](../event-grid/event-handlers.md) , takich jak element webhook, funkcja platformy Azure lub temat Service Bus.
 
 Aplikacje mogą subskrybować te zdarzenia bezpośrednio z Event Grid lub za pośrednictwem elementu webhook lub przez funkcję przesyłania dalej zdarzeń do Azure Service Bus. Zestaw Azure Service Bus SDK udostępnia interfejs API umożliwiający zarejestrowanie programu obsługi komunikatów, który upraszcza ten proces w przypadku aplikacji, które nie mają punktu końcowego HTTP lub nie chcą w sposób ciągły sondować usługi Event Grid.
 
@@ -50,7 +50,7 @@ Aby wykonać ten samouczek, zainstaluj [zestaw .NET Core SDK](https://dotnet.mic
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Konfigurowanie tematu Azure Service Bus i subskrypcji
 
-W tym samouczku zawarto Service Bus integrację Event Grid, aby uprościć wykrywanie zmian konfiguracji aplikacji, które nie chcą w sposób ciągły wykrywać zmian w konfiguracji aplikacji. Zestaw SDK Azure Service Bus udostępnia interfejs API umożliwiający zarejestrowanie procedury obsługi komunikatów, która może służyć do aktualizowania konfiguracji w przypadku wykrycia zmian w konfiguracji aplikacji. Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal do utworzenia tematu Service Bus i subskrypcji](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) , aby utworzyć obszar nazw, temat i subskrypcję usługi Service Bus.
+W tym samouczku zawarto Service Bus integrację Event Grid, aby uprościć wykrywanie zmian konfiguracji aplikacji, które nie chcą w sposób ciągły wykrywać zmian w konfiguracji aplikacji. Zestaw SDK Azure Service Bus udostępnia interfejs API umożliwiający zarejestrowanie procedury obsługi komunikatów, która może służyć do aktualizowania konfiguracji w przypadku wykrycia zmian w konfiguracji aplikacji. Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal do utworzenia tematu Service Bus i subskrypcji](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) , aby utworzyć obszar nazw, temat i subskrypcję usługi Service Bus.
 
 Po utworzeniu zasobów Dodaj następujące zmienne środowiskowe. Zostaną one użyte do zarejestrowania programu obsługi zdarzeń w celu zmiany konfiguracji w kodzie aplikacji.
 
@@ -81,7 +81,7 @@ Po utworzeniu zasobów Dodaj następujące zmienne środowiskowe. Zostaną one u
     ![Subskrypcje zdarzeń konfiguracji aplikacji](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Gdy subskrybujesz zmiany konfiguracji, można użyć co najmniej jednego filtru, aby zmniejszyć liczbę zdarzeń wysyłanych do aplikacji. Można je skonfigurować jako [Event Grid filtry subskrypcji](https://docs.microsoft.com/azure/event-grid/event-filtering) lub [Service Bus filtry subskrypcji](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). Na przykład można użyć filtru subskrypcji, aby subskrybować zdarzenia dotyczące zmian w kluczu, który rozpoczyna się od określonego ciągu.
+> Gdy subskrybujesz zmiany konfiguracji, można użyć co najmniej jednego filtru, aby zmniejszyć liczbę zdarzeń wysyłanych do aplikacji. Można je skonfigurować jako [Event Grid filtry subskrypcji](../event-grid/event-filtering.md) lub [Service Bus filtry subskrypcji](../service-bus-messaging/topic-filters.md). Na przykład można użyć filtru subskrypcji, aby subskrybować zdarzenia dotyczące zmian w kluczu, który rozpoczyna się od określonego ciągu.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Zarejestruj procedurę obsługi zdarzeń w celu ponownego załadowania danych z konfiguracji aplikacji
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-Metoda [SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) służy do ustawiania wartości pamięci podręcznej dla wartości kluczy zarejestrowanych do odświeżania jako zanieczyszczone. Pozwala to zagwarantować, że następne wywołanie `RefreshAsync` lub `TryRefreshAsync` ponownie zweryfikuje buforowane wartości przy użyciu konfiguracji aplikacji i aktualizuje je w razie potrzeby.
+Metoda [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) służy do ustawiania wartości pamięci podręcznej dla wartości kluczy zarejestrowanych do odświeżania jako zanieczyszczone. Pozwala to zagwarantować, że następne wywołanie `RefreshAsync` lub `TryRefreshAsync` ponownie zweryfikuje buforowane wartości przy użyciu konfiguracji aplikacji i aktualizuje je w razie potrzeby.
 
 Do momentu, gdy wartość buforowana zostanie oznaczona jako zanieczyszczona, należy dodać losowe opóźnienie, aby zmniejszyć potencjalne ograniczenie przepustowości w przypadku odświeżenia wielu wystąpień jednocześnie. Domyślne maksymalne opóźnienie, zanim wartość buforowana zostanie oznaczona jako zanieczyszczona, wynosi 30 sekund, ale można je zastąpić przez przekazanie opcjonalnego `TimeSpan` parametru do `SetDirty` metody.
 

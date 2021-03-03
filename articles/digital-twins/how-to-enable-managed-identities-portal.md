@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545919"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703097"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Włącz zarządzaną tożsamość do routingu zdarzeń usługi Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza): Azure Portal
 
@@ -89,8 +89,7 @@ Aby uzyskać więcej informacji na temat punktów końcowych, tras i typów miej
 
 ### <a name="assign-the-role"></a>Przypisywanie roli
 
->[!NOTE]
-> Ta sekcja musi zostać wykonana przez użytkownika platformy Azure z uprawnieniami do zarządzania dostępem użytkowników do zasobów platformy Azure (w tym przyznawania i delegowania uprawnień). Typowe role spełniające to wymaganie są *właścicielami*, *administratorami kont* lub kombinacją administratorów i *współautorów* *dostępu użytkowników* . Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień dla ról bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*How to: Konfiguracja instance and Authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Aby przypisać rolę do tożsamości, Zacznij od otworzenia [Azure Portal](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ Aby przypisać rolę do tożsamości, Zacznij od otworzenia [Azure Portal](https
 
 Po zakończeniu wprowadzania szczegółów wybierz pozycję **Zapisz**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Tworzenie punktu końcowego z autoryzacją opartą na tożsamościach
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Tworzenie punktu końcowego z uwierzytelnianiem na podstawie tożsamości
 
 Po skonfigurowaniu tożsamości zarządzanej przez system dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji i przypisaniu go do odpowiednich ról można utworzyć usługi Azure Digital bliźniaczych reprezentacji [Endpoints](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) , które mogą korzystać z tożsamości na potrzeby uwierzytelniania. Ta opcja jest dostępna tylko dla punktów końcowych centrum zdarzeń i typu Service Bus (nie jest to obsługiwane w przypadku Event Grid).
 

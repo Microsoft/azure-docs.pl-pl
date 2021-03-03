@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 472d55f79033d60c4f40e60b55e0f7fc2ea4517e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537259"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716656"
 ---
 # <a name="disclosure-design-guidelines"></a>Wytyczne dotyczące projektowania ujawniania
 Dowiedz się, jak tworzyć i obsługiwać relacje zaufania z klientami, ponieważ są one przejrzyste na temat syntetycznego charakteru Twojego środowiska głosowego.
@@ -77,5 +77,5 @@ Użyj poniższego diagramu, aby określić, czy Twoje syntetyczne środowisko g�
 ## <a name="see-also"></a>Zobacz też
 
 * [Wzorce projektowania ujawniania](concepts-disclosure-patterns.md)
-* [Ujawnienie dla talent głosu](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Ujawnienie dla talent głosu](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Wytyczne dotyczące odpowiedzialnego wdrożenia syntetycznej technologii głosowej](concepts-guidelines-responsible-deployment-synthetic.md)

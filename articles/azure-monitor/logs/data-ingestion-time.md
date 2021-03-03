@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 17d89414a762dd6bf68176b5044787179eb80250
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 501e395cf91630789824cc111614e7150dddaa7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614070"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700613"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Często zadawane pytania dotyczące czasu potrzebnego do uzyskania danych dziennika stają się dostępne po ich zebraniu. W tym artykule wyjaśniono różne czynniki wpływające na to opóźnienie.
@@ -57,7 +57,7 @@ Niektóre rozwiązania nie zbierają danych od agenta i mogą korzystać z metod
 Zapoznaj się z dokumentacją każdego rozwiązania, aby określić jego częstotliwość zbierania danych.
 
 ### <a name="pipeline-process-time"></a>Potok — czas procesu
-Po pobraniu rekordów dziennika do potoku Azure Monitor (zgodnie z definicją we właściwości [_TimeReceived](../platform/log-standard-columns.md#_timereceived) ) są one zapisywane w magazynie tymczasowym w celu zapewnienia izolacji dzierżawy i upewnienia się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują algorytmy cięższe w celu agregowania danych i uzyskiwania szczegółowych informacji, jak dane przesyłane strumieniowo. Na przykład monitorowanie wydajności sieci agreguje dane przychodzące przez 3-minutowy interwały, co skutecznie dodaje 3 minuty opóźnienia. Innym procesem, który dodaje opóźnienie, jest proces obsługujący dzienniki niestandardowe. W niektórych przypadkach ten proces może dodawać kilka minut opóźnienia do dzienników zbieranych z plików przez agenta.
+Po pobraniu rekordów dziennika do potoku Azure Monitor (zgodnie z definicją we właściwości [_TimeReceived](./log-standard-columns.md#_timereceived) ) są one zapisywane w magazynie tymczasowym w celu zapewnienia izolacji dzierżawy i upewnienia się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują algorytmy cięższe w celu agregowania danych i uzyskiwania szczegółowych informacji, jak dane przesyłane strumieniowo. Na przykład monitorowanie wydajności sieci agreguje dane przychodzące przez 3-minutowy interwały, co skutecznie dodaje 3 minuty opóźnienia. Innym procesem, który dodaje opóźnienie, jest proces obsługujący dzienniki niestandardowe. W niektórych przypadkach ten proces może dodawać kilka minut opóźnienia do dzienników zbieranych z plików przez agenta.
 
 ### <a name="new-custom-data-types-provisioning"></a>Nowe niestandardowe typy danych — Inicjowanie obsługi
 Po utworzeniu nowego typu danych niestandardowych z [dziennika niestandardowego](../agents/data-sources-custom-logs.md) lub [interfejsu API modułu zbierającego dane](../logs/data-collector-api.md)system tworzy dedykowany kontener magazynu. Jest to jednorazowe obciążenie, które występuje tylko przy pierwszym pojawieniu się tego typu danych.
@@ -77,8 +77,8 @@ Czas pozyskiwania może różnić się w zależności od różnych zasobów w r�
 
 | Krok | Właściwość lub funkcja | Komentarze |
 |:---|:---|:---|
-| Rekord utworzony w źródle danych | [TimeGenerated](../platform/log-standard-columns.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas co _TimeReceived. |
-| Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](../platform/log-standard-columns.md#_timereceived) | |
+| Rekord utworzony w źródle danych | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas co _TimeReceived. |
+| Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Opóźnienia w czasie przyjmowania

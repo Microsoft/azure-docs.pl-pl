@@ -1,33 +1,33 @@
 ---
-title: Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu programu PowerShell
-description: Opisuje sposób włączania Azure Monitor dla maszyn wirtualnych dla maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure PowerShell.
+title: Włączanie usługi VM Insights przy użyciu programu PowerShell
+description: Zawiera opis sposobu włączania usługi VM Insights dla maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717081"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu programu PowerShell
-W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych w usłudze Azure Virtual Machines przy użyciu programu PowerShell. Ta procedura może być używana w następujących kwestiach:
+# <a name="enable-vm-insights-using-powershell"></a>Włączanie usługi VM Insights przy użyciu programu PowerShell
+W tym artykule opisano sposób włączania usługi VM Insights na maszynach wirtualnych platformy Azure przy użyciu programu PowerShell. Ta procedura może być używana w następujących kwestiach:
 
 - Maszyna wirtualna platformy Azure
 - Zestaw skalowania maszyn wirtualnych platformy Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Utwórz i skonfiguruj obszar roboczy log Analytics](../insights/vminsights-configure-workspace.md).
-- Zobacz [obsługiwane systemy operacyjne](../insights/vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
+- [Utwórz i skonfiguruj obszar roboczy log Analytics](./vminsights-configure-workspace.md).
+- Zobacz [obsługiwane systemy operacyjne](./vminsights-enable-overview.md#supported-operating-systems) , aby upewnić się, że jest obsługiwany system operacyjny maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 
 
 ## <a name="powershell-script"></a>Skrypt programu PowerShell
 
-Aby włączyć Azure Monitor dla maszyn wirtualnych dla wielu maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, użyj [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)skryptu programu PowerShell, który jest dostępny w Galerii Azure PowerShell. Ten skrypt wykonuje iterację w następujący sposób:
+Aby włączyć szczegółowe informacje o maszynie wirtualnej dla wielu maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, użyj [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)skryptu programu PowerShell, który jest dostępny w Galerii Azure PowerShell. Ten skrypt wykonuje iterację w następujący sposób:
 
 - Każdej maszyny wirtualnej i zestawu skalowania maszyn wirtualnych w ramach subskrypcji.
 - Grupa zasobów należących do zakresu, która jest określona przez grupę *resources*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-Poniższy przykład ilustruje użycie poleceń programu PowerShell w folderze, aby włączyć Azure Monitor dla maszyn wirtualnych i zrozumieć oczekiwane dane wyjściowe:
+Poniższy przykład ilustruje użycie poleceń programu PowerShell w folderze, aby włączyć szczegółowe informacje o maszynie wirtualnej i zrozumieć oczekiwane dane wyjściowe:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [Użyj mapy Azure monitor dla maszyn wirtualnych](vminsights-maps.md) , aby wyświetlić odnalezione zależności aplikacji. 
+* Zobacz [Używanie mapy usługi VM Insights](vminsights-maps.md) , aby wyświetlić odnalezione zależności aplikacji. 
 * Zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md) , aby identyfikować wąskie gardła, ogólne wykorzystanie i wydajność maszyny wirtualnej.

@@ -8,16 +8,16 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705113"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
-[Azure Files](storage-files-introduction.md)   obsługuje uwierzytelnianie oparte na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) przez dwa typy usług domenowych: lokalne Active Directory Domain Services (AD DS) i Azure Active Directory Domain Services (AD DS platformy Azure). Zdecydowanie zalecamy zapoznanie się z [sekcją jak to działa](./storage-files-active-directory-overview.md#how-it-works) w celu wybrania odpowiedniej usługi domeny do uwierzytelnienia. Konfiguracja różni się od wybranej usługi domeny. Ten artykuł koncentruje się na włączaniu i konfigurowaniu usługi Azure AD DS na potrzeby uwierzytelniania przy użyciu udziałów plików platformy Azure.
+[Azure Files](storage-files-introduction.md)   obsługuje uwierzytelnianie oparte na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) przez dwa typy usług domenowych: lokalne Active Directory Domain Services (AD DS) i Azure Active Directory Domain Services (AD DS platformy Azure). Zdecydowanie zalecamy zapoznanie się z [sekcją jak to działa](./storage-files-active-directory-overview.md#how-it-works) w celu wybrania odpowiedniej usługi domeny do uwierzytelnienia. Konfiguracja różni się w zależności od wybranej usługi domeny. Ten artykuł koncentruje się na włączaniu i konfigurowaniu usługi Azure AD DS na potrzeby uwierzytelniania przy użyciu udziałów plików platformy Azure.
 
 Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalecamy zapoznanie się z naszym [przewodnikiem planowania](storage-files-planning.md) przed przeczytaniem następującej serii artykułów.
 

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/22/2021
+ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007367"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729712"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -29,6 +29,37 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 >
 > Możesz również współtworzyć. Dołącz do nas w [społeczności usługi GitHub](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+- [UEBA szczegółowych informacji na stronie jednostki](#ueba-insights-in-the-entity-page)
+- [Ulepszone wyszukiwanie zdarzeń](#improved-incident-search)
+
+### <a name="ueba-insights-in-the-entity-page"></a>UEBA szczegółowych informacji na stronie jednostki
+
+Strony szczegółów jednostki wskaźnikowej platformy Azure udostępniają [okienko Insights](identify-threats-with-entity-behavior-analytics.md#entity-insights), w którym są wyświetlane szczegółowe informacje o działaniu jednostki i pomoc w szybkim wykrywaniu anomalii i zagrożeń bezpieczeństwa.
+
+Jeśli masz [UEBA włączony](ueba-enrichments.md)i wybrałeś okres z przedziału czasu wynoszący co najmniej cztery dni, to okienko szczegółowych informacji będzie zawierać również następujące nowe sekcje dla usługi UEBA Insights:
+
+|Sekcja  |Opis  |
+|---------|---------|
+|**UEBA Insights**     | Podsumowuje nietypowe działania użytkowników: <br>— Między lokalizacjami geograficznymi, urządzeniami i środowiskami<br>— W Horizons czasu i częstotliwości w porównaniu z własną historią użytkownika <br>— W porównaniu z zachowaniem elementów równorzędnych <br>— W porównaniu z zachowaniem organizacji     |
+|**Elementy równorzędne użytkowników na podstawie przynależności do grupy zabezpieczeń**     |   Wyświetla listę elementów równorzędnych użytkownika w oparciu o członkostwo w grupach zabezpieczeń usługi Azure AD, dostarczając zespoły operacji zabezpieczeń z listą innych użytkowników, którzy mają podobne uprawnienia.  |
+|**Uprawnienia dostępu użytkowników do subskrypcji platformy Azure**     |     Wyświetla uprawnienia dostępu użytkownika do subskrypcji platformy Azure dostępnych bezpośrednio lub za pośrednictwem grup/jednostek usługi Azure AD.   |
+|**Wskaźniki zagrożeń powiązane z użytkownikiem**     |  Wyświetla listę znanych zagrożeń odnoszących się do adresów IP reprezentowanych w działaniach użytkownika. Zagrożenia są wymienione według typu i rodziny zagrożeń i są wzbogacane przez usługę analizy zagrożeń firmy Microsoft.       |
+|     |         |
+
+### <a name="improved-incident-search"></a>Ulepszone wyszukiwanie zdarzeń
+
+Ulepszono środowisko wyszukiwania zdarzeń na platformie Azure, co pozwala na szybsze nawigowanie po zdarzeniach podczas badania określonego zagrożenia.
+
+Podczas wyszukiwania zdarzeń na platformie Azure wskaźnikowej jest teraz możliwe wyszukiwanie według następujących szczegółów zdarzenia:
+
+- ID (Identyfikator)
+- Tytuł
+- Produkt
+- Właściciel
+- Tag
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 
@@ -57,7 +88,7 @@ Usługa Azure SecurityInsights obsługuje teraz nowy moduł [AZ.](https://www.po
 
 Moduł **AZ. SecurityInsights** obsługuje typowe przypadki użycia platformy Azure, takie jak manipulowanie zdarzeniami w celu zmiany Statues, ważności, właściciela i tak dalej, dodawania komentarzy i etykiet do zdarzeń oraz tworzenia zakładek.
 
-Chociaż zalecamy używanie szablonów [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) dla potoku ciągłej integracji/ciągłego wdrażania, moduł **AZ. SecurityInsights** jest przydatny do wykonywania zadań po wdrożeniu i jest przeznaczony dla automatyzacji SOC.  Na przykład Automatyzacja SOC może obejmować kroki konfigurowania łączników danych, tworzenia reguł analizy lub dodawania akcji automatyzacji do reguł analizy.
+Chociaż zalecamy używanie szablonów [Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) dla potoku ciągłej integracji/ciągłego wdrażania, moduł **AZ. SecurityInsights** jest przydatny do wykonywania zadań po wdrożeniu i jest przeznaczony dla automatyzacji SOC.  Na przykład Automatyzacja SOC może obejmować kroki konfigurowania łączników danych, tworzenia reguł analizy lub dodawania akcji automatyzacji do reguł analizy.
 
 Aby uzyskać więcej informacji, w tym pełną listę i opis dostępnych poleceń cmdlet, opisów parametrów i przykładów, zobacz [AZ. SecurityInsights PowerShell — dokumentacja](/powershell/module/az.securityinsights/).
 
@@ -85,7 +116,7 @@ Na platformie Azure jest teraz obsługiwane dedykowane klastry Log Analytics jak
 
 Dedykowane klastry umożliwiają korzystanie z takich funkcji, jak klucze zarządzane przez klienta, skrytka, podwójne szyfrowanie i szybsze zapytania między obszarami roboczymi, gdy istnieje wiele obszarów roboczych w tym samym klastrze.
 
-Aby uzyskać więcej informacji, zobacz [Azure monitor dzienniki dedykowanych klastrów](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters).
+Aby uzyskać więcej informacji, zobacz [Azure monitor dzienniki dedykowanych klastrów](../azure-monitor/logs/logs-dedicated-clusters.md).
 
 ### <a name="logic-apps-managed-identities"></a>Tożsamości zarządzane przez aplikacje logiki
 
@@ -97,7 +128,7 @@ Usługa Azure element PlayBook obsługuje teraz zarządzane tożsamości dla ł�
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Uwierzytelnianie za pomocą tożsamości zarządzanej w Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+- [Uwierzytelnianie za pomocą tożsamości zarządzanej w Azure Logic Apps](../logic-apps/create-managed-service-identity.md)
 - [Dokumentacja dotycząca łącznika Logic Apps Azure wskaźnikowego](/connectors/azuresentinel) 
 
 ### <a name="improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview"></a>Ulepszone dostrajanie reguł przy użyciu wykresów z podglądem reguł analizy (publiczna wersja zapoznawcza)
@@ -151,18 +182,18 @@ Usługa Azure CEF używa agenta Log Analytics do wysyłania zdarzeń do obszaru 
 > Agent Log Analytics jest czasami określany jako agent pakietu OMS lub Microsoft Monitoring Agent (MMA). 
 > 
 
-Aby uzyskać więcej informacji, zobacz [dokumentację log Analytics](/azure/azure-monitor/platform/log-analytics-agent) i informacje o [wersji agenta log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
+Aby uzyskać więcej informacji, zobacz [dokumentację log Analytics](../azure-monitor/agents/log-analytics-agent.md) i informacje o [wersji agenta log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## <a name="november-2020"></a>Listopad 2020 r.
 
 - [Monitoruj Logic Apps elementy PlayBook na platformie Azure — wskaźnik](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
 - [Łącznik Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-connector-public-preview)
 ### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Monitoruj Logic Apps elementy PlayBook na platformie Azure — wskaźnik
 
-Na platformie Azure jest teraz integrowane z [aplikacjami usługi Azure log](/azure/logic-apps/), usługą w chmurze, która pomaga zaplanować, zautomatyzować i organizować zadania, procesy biznesowe i przepływy pracy.
+Na platformie Azure jest teraz integrowane z [aplikacjami usługi Azure log](../logic-apps/index.yml), usługą w chmurze, która pomaga zaplanować, zautomatyzować i organizować zadania, procesy biznesowe i przepływy pracy.
 
 Użyj aplikacji logiki platformy Azure na platformie Azure jako element PlayBook, która może być wywoływana automatycznie podczas tworzenia zdarzenia lub w przypadku segregowania i pracy z zdarzeniami. 
 
-Aby zapewnić wgląd w kondycję, wydajność i użycie elementy PlayBook, w tym dołączenie dowolnych danych z Azure Logic Apps, dodaliśmy [skoroszyt platformy Azure](/azure/azure-monitor/platform/workbooks-overview) o nazwie **monitorowanie kondycji elementy PlayBook**. 
+Aby zapewnić wgląd w kondycję, wydajność i użycie elementy PlayBook, w tym dołączenie dowolnych danych z Azure Logic Apps, dodaliśmy [skoroszyt platformy Azure](../azure-monitor/visualize/workbooks-overview.md) o nazwie **monitorowanie kondycji elementy PlayBook**. 
 
 Użyj skoroszytu **monitorowania kondycji programu elementy PlayBook** , aby monitorować kondycję elementy PlayBook, lub poszukać anomalii w ilości pomyślnych lub nieudanych uruchomień. 
 
@@ -172,9 +203,9 @@ Skoroszyt **monitorowania kondycji elementy PlayBook** jest teraz dostępny w ga
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [Dokumentacja Logic Apps](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs)
+- [Dokumentacja Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
 
-- [Dokumentacja usługi Azure Monitor](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
+- [Dokumentacja usługi Azure Monitor](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 ### <a name="microsoft-365-defender-connector-public-preview"></a>Łącznik Microsoft 365 Defender (publiczna wersja zapoznawcza)
  

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680356"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694805"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Dodawanie sprawdzania pisowni do zapytań w Wyszukiwanie poznawcze
 
@@ -36,7 +36,7 @@ Można poprawić odwołania przez poprawność poszczególnych terminów zapytan
   QueryLanguage jest wymagany w przypadku sprawdzania pisowni, a obecnie jedyną prawidłową wartością jest "en-us".
 
 > [!Note]
-> Parametr modułu sprawdzania pisowni jest dostępny we wszystkich warstwach w tych samych regionach, które zapewniają wyszukiwanie semantyczne. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
+> Parametr modułu sprawdzania pisowni jest dostępny we wszystkich warstwach w tych samych regionach, które zapewniają wyszukiwanie semantyczne. Nie musisz rejestrować się w celu uzyskania dostępu do tej funkcji w wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
 ## <a name="spell-correction-with-simple-search"></a>Poprawianie pisowni przy użyciu prostego wyszukiwania
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>Zagadnienia dotyczące języka
 
-Parametr queryLanguage wymagany dla narzędzia sprawdzania pisowni musi być zgodny z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. Określony w żądaniu zapytania, queryLanguage określa, które leksykony są używane do sprawdzania pisowni i są również używane jako dane wejściowe [algorytmu klasyfikacji semantycznej](semantic-how-to-query-response.md) , jeśli są używane. Analizatory języka są używane podczas indeksowania i podczas pobierania pasujących dokumentów w indeksie wyszukiwania. Aby zapewnić spójność, jeśli queryLanguage jest "pl-US", wszystkie analizatory języka muszą być również w języku angielskim ("en. Microsoft" lub "en. Lucene"). 
+Parametr queryLanguage wymagany dla narzędzia sprawdzania pisowni musi być zgodny z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. 
+
++ queryLanguage określa, które leksykony są używane do sprawdzania pisowni i są również używane jako dane wejściowe [algorytmu klasyfikacji semantycznej](semantic-how-to-query-response.md) , jeśli używasz "querytype = semantyka".
+
++ Analizatory języka są używane podczas indeksowania i wykonywania zapytań, aby znaleźć pasujące dokumenty w indeksie wyszukiwania. Przykładem definicji pola korzystającej z analizatora języka jest `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
+
+Aby uzyskać najlepsze wyniki przy korzystaniu z narzędzia sprawdzania pisowni, jeśli queryLanguage jest "en-us", wówczas wszystkie analizatory języka muszą być w języku angielskim ("en. Microsoft" lub "en. Lucene").
 
 > [!NOTE]
 > Analizatory języka niezależny od (takie jak słowo kluczowe, proste, standardowe, zatrzymywanie, odstępy lub `standardasciifolding.lucene` ) nie powodują konfliktu z ustawieniami queryLanguage.

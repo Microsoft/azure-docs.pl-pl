@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721739"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Przepływy pracy ExpressRoute dla aprowizacji obwodu i stanów obwodu
 
@@ -77,8 +77,12 @@ Skonfiguruj domeny routingu. Jeśli dostawca połączenia zarządza konfiguracj�
 
 Włącz prywatną komunikację równorzędną, aby połączyć się z maszynami wirtualnymi i usługami w chmurze wdrożonymi w ramach sieci wirtualnej platformy Azure.
 
-* Podsieć komunikacji równorzędnej dla ścieżki 1 (/30)
-* Podsieć komunikacji równorzędnej dla ścieżki 2 (/30)
+* Podsieci IPv4:
+    * Podsieć komunikacji równorzędnej dla ścieżki 1 (/30)
+    * Podsieć komunikacji równorzędnej dla ścieżki 2 (/30)
+* Podsieci IPv6 (opcjonalnie):
+    * Podsieć komunikacji równorzędnej dla ścieżki 1 (/126)
+    * Podsieć komunikacji równorzędnej dla ścieżki 2 (/126)
 * Identyfikator sieci VLAN dla komunikacji równorzędnej
 * ASN dla komunikacji równorzędnej
 * ExpressRoute ASN = 12076
@@ -88,8 +92,12 @@ Włącz prywatną komunikację równorzędną, aby połączyć się z maszynami 
 
 Włącz tę opcję, aby uzyskać dostęp do programu Microsoft Usługi online, takiego jak Microsoft 365. Ponadto wszystkie usługi Azure PaaS są dostępne za pomocą komunikacji równorzędnej firmy Microsoft. Musisz się upewnić, że używasz oddzielnego serwera proxy/krawędzi do łączenia się z firmą Microsoft niż ten, który jest używany przez Internet. Korzystanie z tej samej krawędzi zarówno dla ExpressRoute, jak i Internetu spowoduje, że Routing asymetryczny i spowoduje awarię łączności dla sieci.
 
-* Podsieć komunikacji równorzędnej dla ścieżki 1 (/30) — musi być publicznym adresem IP
-* Podsieć komunikacji równorzędnej dla ścieżki 2 (/30) — musi być publicznym adresem IP
+* Podsieci IPv4:
+    * Podsieć komunikacji równorzędnej dla ścieżki 1 (/30) — musi być publicznym adresem IP
+    * Podsieć komunikacji równorzędnej dla ścieżki 2 (/30) — musi być publicznym adresem IP
+* Podsieci IPv6 (opcjonalnie):
+    * Podsieć komunikacji równorzędnej dla ścieżki 1 (/126) — musi być publicznym adresem IP
+    * Podsieć komunikacji równorzędnej dla ścieżki 2 (/126) — musi być publicznym adresem IP
 * Identyfikator sieci VLAN dla komunikacji równorzędnej
 * ASN dla komunikacji równorzędnej
 * Anonsowane prefiksy — muszą być publicznymi prefiksami adresów IP

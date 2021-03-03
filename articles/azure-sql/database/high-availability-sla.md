@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690587"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Konfiguracja nadmiarowa strefy dla warstwy usług ogólnego przeznaczenia wykorz
 
 Konfiguracja nadmiarowa strefy dla warstwy ogólnego zastosowania ma dwie warstwy:  
 
-- Warstwa danych stanowych z plikami bazy danych (. mdf/. ldf), które są przechowywane w ZRS PFS ( [udział plików magazynu](../../storage/files/storage-how-to-create-premium-fileshare.md)Strefowo nadmiarowego w warstwie Premium. Korzystanie z [magazynu Strefowo nadmiarowego](../../storage/common/storage-redundancy.md) pliki danych i dziennika są synchronicznie kopiowane w ramach trzech fizycznie odizolowanych stref dostępności platformy Azure.
+- Warstwa danych stanowych z plikami bazy danych (. mdf/. ldf), które są przechowywane w ZRS PFS ( [udział plików magazynu](../../storage/files/storage-how-to-create-file-share.md)Strefowo nadmiarowego w warstwie Premium. Korzystanie z [magazynu Strefowo nadmiarowego](../../storage/common/storage-redundancy.md) pliki danych i dziennika są synchronicznie kopiowane w ramach trzech fizycznie odizolowanych stref dostępności platformy Azure.
 - Warstwa obliczeń bezstanowych, która uruchamia proces sqlservr.exe i zawiera tylko dane przejściowe i buforowane, takie jak TempDB, modeluje bazy danych na dołączonym dysku SSD, oraz pamięć podręczną planu, pulę buforów i pulę magazynu kolumn w pamięci. Ten bezstanowy węzeł jest obsługiwany przez usługę Azure Service Fabric, która inicjuje sqlservr.exe, steruje kondycją węzła i wykonuje przejście w tryb failover do innego węzła w razie potrzeby. W przypadku strefowo nadmiarowych baz danych ogólnego przeznaczenia węzły o pojemności zapasowej są łatwo dostępne w innych Strefy dostępności do pracy w trybie failover.
 
 Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy usług ogólnego przeznaczenia przedstawiono na poniższym diagramie:

@@ -1,19 +1,19 @@
 ---
-title: Wyświetl Azure Monitor dla wdrożeń kontenerów (wersja zapoznawcza) | Microsoft Docs
-description: W tym artykule opisano widok Kubernetes wdrożeń w czasie rzeczywistym bez użycia polecenia kubectl w Azure Monitor dla kontenerów.
+title: Wyświetlanie wdrożeń usługi Container Insights (wersja zapoznawcza) | Microsoft Docs
+description: W tym artykule opisano widok Kubernetes wdrożeń w czasie rzeczywistym bez używania polecenia kubectl w usłudze Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713919"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Jak wyświetlać wdrożenia (wersja zapoznawcza) w czasie rzeczywistym
 
-Za pomocą Azure Monitor dla kontenerów Funkcja Wyświetl wdrożenia (wersja zapoznawcza) emuluje bezpośredni dostęp do obiektów wdrożenia Kubernetes w czasie rzeczywistym przez udostępnienie `kubeclt get deployments` `kubectl describe deployment {your deployment}` poleceń i.
+Za pomocą usługi Container Insights Funkcja Wyświetl wdrożenia (wersja zapoznawcza) emuluje bezpośredni dostęp do obiektów wdrożenia Kubernetes w czasie rzeczywistym przez udostępnienie `kubeclt get deployments` `kubectl describe deployment {your deployment}` poleceń i.
 
 >[!NOTE]
 >Klastry AKS włączone jako [klastry prywatne](https://azure.microsoft.com/updates/aks-private-cluster/) są nieobsługiwane w przypadku tej funkcji. Ta funkcja używa bezpośrednio dostępu do interfejsu API Kubernetes za pomocą serwera proxy z przeglądarki. Włączenie zabezpieczeń sieci w celu blokowania interfejsu API Kubernetes z tego serwera proxy spowoduje zablokowanie tego ruchu.
@@ -56,7 +56,7 @@ Po wybraniu wdrożenia z listy okienko właściwości zostanie automatycznie wy�
 
 Podczas przeglądania szczegółów wdrożenia można zobaczyć dzienniki kontenerów i zdarzenia w czasie rzeczywistym. Wybierz pozycję **Pokaż konsolę na żywo** i konsolę dane dynamiczne (wersja zapoznawcza) pojawi się poniżej siatki wdrożenia, w której można wyświetlić dane dziennika na żywo w strumieniu ciągłym. Jeśli wskaźnik stanu pobierania zawiera zielony znacznik wyboru, który znajduje się po prawej stronie okienka, oznacza to, że dane mogą być pobierane i rozpoczyna przesyłanie strumieniowe do konsoli programu.
 
-Można również filtrować według przestrzeni nazw lub zdarzeń na poziomie klastra. Aby dowiedzieć się więcej na temat wyświetlania danych w czasie rzeczywistym w konsoli programu, zobacz [Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure monitor dla kontenerów](container-insights-livedata-overview.md).
+Można również filtrować według przestrzeni nazw lub zdarzeń na poziomie klastra. Aby dowiedzieć się więcej na temat wyświetlania danych w czasie rzeczywistym w konsoli programu, zobacz [Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą usługi Container Insights](container-insights-livedata-overview.md).
 
 ![Wdrożenia wyświetlanie danych na żywo w konsoli](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

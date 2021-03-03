@@ -10,20 +10,20 @@ ms.custom: how-to, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: 6784361dde67d7dcc1423d9edbcc92ec513ff6d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/25/2021
+ms.openlocfilehash: 2c61cfaf0e97f7d483239a23e5eea52b51c6a126
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222636"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690213"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
 
 
-## <a name="overview-of-model-interpretability"></a>Przegląd interpretacji modelu
+## <a name="model-interpretability-overview"></a>Przegląd interpretacji modelu
 
-Interpretacja jest niezwykle ważna dla analityków danych, audytorów i osób podejmujących decyzje biznesowe, które są takie same, aby zapewnić zgodność z zasadami firmy, standardami branżowymi i przepisami rządowymi:
+Interpretacja modeli jest niezwykle ważna dla analityków danych, audytorów i osób podejmujących decyzje biznesowe, które są podobne, aby zapewnić zgodność z zasadami firmy, standardami branżowymi i przepisami rządowymi:
 
 + Osoby odpowiedzialne za dane muszą wyjaśnić swoje modele do kierownictwa i udziałowców, aby mogli zrozumieć wartość i dokładność ich wyników. Wymagają one również interpretacji do debugowania modeli i podejmowania świadomych decyzji o sposobie ich udoskonalania. 
 
@@ -31,15 +31,15 @@ Interpretacja jest niezwykle ważna dla analityków danych, audytorów i osób p
 
 + Twórcy zajmujący się decyzjami biznesowymi muszą mieć możliwość zapewnienia przejrzystości użytkownikom końcowym. Pozwala to na otrzymywanie i zachowanie zaufania.
 
-
 Umożliwienie wyjaśnienia modelu uczenia maszynowego jest ważne w przypadku dwóch głównych etapów tworzenia modeli:
+
 + W fazie uczenia się projektanci modeli i oceniający mogą wykorzystać dane wyjściowe z możliwością interpretacji modelu do zweryfikowania pożądanych elementów i utworzenia relacji zaufania z uczestnikami projektu. Wykorzystują one również wgląd w model do debugowania, sprawdzanie poprawności zachowania modelu dopasowuje się do ich celów i sprawdza, czy istnieją niesprawiedliwe funkcje modelu.
 
 + W fazie inferencing, tak jakby miał przezroczystość w porównaniu ze wdrożonymi modelami, pozwala kierownictwu zrozumieć "po wdrożeniu", jak działa model i jakie decyzje są traktowane i wpływają na użytkowników w czasie rzeczywistym. 
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretowanie przy użyciu Azure Machine Learning
 
-Klasy interpretacji są udostępniane za pomocą następującego pakietu SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+Klasy z możliwością interpretacji modelu są udostępniane za pomocą następującego pakietu SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`Program zawiera funkcje obsługiwane przez firmę Microsoft.
 
@@ -52,11 +52,7 @@ Korzystając z klas i metod w zestawie SDK, można:
 + Zapewnij spójność modelu w rzeczywistych zestawach danych na dużą skalę podczas szkoleń i wnioskowania.
 + Korzystanie z interaktywnego pulpitu nawigacyjnego wizualizacji w celu odnajdywania wzorców danych i wyjaśnień w czasie uczenia
 
-
 W uczeniu maszynowym **funkcje** są polami danych używanymi do przewidywania docelowego punktu danych. Na przykład w celu przewidywania ryzyka kredytowego mogą być używane pola danych dla wieku, rozmiaru konta i wieku konta. W tym przypadku wiek, rozmiar konta i wiek konta są **funkcjami**. Ważność funkcji informuje o tym, jak każde pole danych ma wpływ na przewidywania modelu. Na przykład wiek może być wielokrotnie używany w prognozie, podczas gdy rozmiar konta i wiek nie mają znaczącego wpływu na wartości prognoz. Ten proces umożliwia analitykom danych wyjaśnienie powstających prognoz, dzięki czemu zainteresowane strony mają wgląd w to, jakie funkcje są najważniejsze w modelu.
-
-Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynowego i obsługiwane środowiska uruchomieniowe tutaj.
-
 
 ## <a name="supported-interpretability-techniques"></a>Obsługiwane techniki interpretacji
 
@@ -70,9 +66,6 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 |Wyjaśnienie jądra kształtu| Wyjaśnienie jądra kształtu używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości kształtu dla **dowolnego modelu**.|Model — niezależny od|
 |Objaśnienie śladowe (globalny Surogat)| Objaśnienie śladów opiera się na pomysłie na [globalne modele wieloskładnikowe](https://christophm.github.io/interpretable-ml-book/global.html) do naśladowania modeli blackbox. Globalny model zastępczy jest modelem, który jest interpretowany wewnętrznie, aby przybliżyć prognozy **dowolnego czarnego modelu** , jak to możliwe. Naukowcy danych mogą interpretować model zastępczy, aby rysować wnioski o modelu czarnego pudełka. Można użyć jednego z następujących modeli interpretowanych jako model zastępczy: LightGBM (LGBMExplainableModel), regresja liniowa (LinearExplainableModel), Gradient stochastycznego, który jest bardziej wyjaśniony model (SGDExplainableModel) i drzewo decyzyjne (DecisionTreeExplainableModel).|Model — niezależny od|
 |Objaśnienie ważności funkcji permutacji (PFI)| Ważność funkcji permutacji jest techniką używaną do wyjaśnienia modeli klasyfikacji i regresji, które są [sponsorowane przez papier Breimanych lasów](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie, w jaki działa, jest to spowodowane losowo Shuffling danych jedną funkcją w danym czasie dla całego zestawu danych i obliczaniem, ile jest Metryka wydajności. Im większa zmiana, tym bardziej ważna jest funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego** , ale nie wyjaśnia poszczególnych prognoz. |Model — niezależny od|
-
-
-
 
 Oprócz opisanych powyżej technik interpretacji obsługujemy inne objaśnienie oparte na KSZTAŁTach, zwane `TabularExplainer` . W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
 

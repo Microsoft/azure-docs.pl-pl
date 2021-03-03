@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652959"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738994"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Importowanie danych do platformy Azure Blob Storage przy użyciu usługi Azure Import/Export
 
@@ -62,13 +62,13 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Otwórz okno programu PowerShell lub wiersza polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na folder niespakowany, uruchom następujące polecenie:
+5. Otwórz program PowerShell lub okno wiersza polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na folder niespakowany, uruchom następujące polecenie:
 
     `cd C:\WaImportExportV1`
 6. Aby uzyskać klucz funkcji BitLocker dysku, uruchom następujące polecenie:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Aby przygotować dysk, uruchom następujące polecenie. **W zależności od rozmiaru danych może to potrwać kilka godzin.**
+7. Aby przygotować dysk, uruchom następujące polecenie. **W zależności od rozmiaru danych przygotowanie dysku może potrwać kilka godzin.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -86,13 +86,14 @@ Wykonaj poniższe kroki, aby przygotować dyski.
     |/bk:     |Klucz funkcji BitLocker dla dysku. Hasło liczbowe z danych wyjściowych `manage-bde -protectors -get D:`      |
     |/srcdir:     |Litera dysku, po którym następuje wydanie `:\` . Na przykład `D:\`.         |
     |/dstdir:     |Nazwa kontenera docelowego w usłudze Azure Storage.         |
-    |/blobtype:     |Ta opcja określa typ obiektów blob, do których mają zostać zaimportowane dane. W przypadku blokowych obiektów BLOB jest to `BlockBlob` i dla stronicowych obiektów BLOB `PageBlob` .         |
-    |/skipwrite:     |Opcja, która określa, że nie są wymagane żadne nowe dane do skopiowania, a istniejące dane na dysku muszą zostać przygotowane.          |
+    |/blobtype:     |Ta opcja określa typ obiektów blob, do których mają zostać zaimportowane dane. W przypadku blokowych obiektów BLOB typem obiektu BLOB jest `BlockBlob` i dla stronicowych obiektów BLOB `PageBlob` .         |
+    |/skipwrite:     | Określa, że nie są wymagane żadne nowe dane do skopiowania, a istniejące dane na dysku muszą zostać przygotowane.          |
     |/enablecontentmd5:     |Opcja po włączeniu zapewnia, że MD5 jest obliczany i ustawiany jako `Content-md5` Właściwość dla każdego obiektu BLOB. Użyj tej opcji tylko wtedy, gdy chcesz użyć `Content-md5` pola po przekazaniu danych na platformę Azure. <br> Ta opcja nie ma wpływu na sprawdzanie integralności danych (domyślnie występuje). Ustawienie to zwiększa czas przekazywania danych do chmury.          |
 8. Powtórz poprzedni krok dla każdego dysku, który należy dostarczyć. Plik dziennika o podanej nazwie jest tworzony dla każdego przebiegu wiersza polecenia.
 
     > [!IMPORTANT]
     > * Wraz z plikiem dziennika `<Journal file name>_DriveInfo_<Drive serial ID>.xml` tworzony jest również plik w tym samym folderze, w którym znajduje się narzędzie. Plik. XML jest używany zamiast pliku dziennika podczas tworzenia zadania, jeśli plik dziennika jest zbyt duży.
+   > * Maksymalny rozmiar pliku dziennika dozwolony przez portal to 2 MB. Jeśli plik dziennika przekracza ten limit, zwracany jest błąd.
 
 ## <a name="step-2-create-an-import-job"></a>Krok 2. Tworzenie zadania importu
 
@@ -323,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Krok 3 (opcjonalny): Konfigurowanie klucza zarządzanego przez klienta
 
-Pomiń ten krok i przejdź do następnego kroku, jeśli chcesz użyć klucza zarządzanego przez firmę Microsoft w celu ochrony kluczy funkcji BitLocker dla dysków. Aby skonfigurować własny klucz do ochrony klucza funkcji BitLocker, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie kluczy zarządzanych przez klienta w Azure Key Vault na potrzeby importowania/eksportowania na platformie Azure w Azure Portal](storage-import-export-encryption-key-portal.md)
+Pomiń ten krok i przejdź do następnego kroku, jeśli chcesz użyć klucza zarządzanego przez firmę Microsoft w celu ochrony kluczy funkcji BitLocker dla dysków. Aby skonfigurować własny klucz do ochrony klucza funkcji BitLocker, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie kluczy zarządzanych przez klienta w Azure Key Vault na potrzeby importowania/eksportowania platformy Azure w Azure Portal](storage-import-export-encryption-key-portal.md).
 
 ## <a name="step-4-ship-the-drives"></a>Krok 4. dostarczenie dysków
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730511"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -92,7 +92,7 @@ Platforma Azure obsługuje dwa typy zarządzanych tożsamości: przypisane do sy
 
 Do uwierzytelniania w ramach [niestandardowego punktu końcowego](concepts-route-events.md#create-an-endpoint)platformy Azure można użyć zarządzanej tożsamości przypisanej do systemu. Usługa Azure Digital bliźniaczych reprezentacji obsługuje uwierzytelnianie oparte na tożsamościach przypisane do punktów końcowych dla [centrów zdarzeń](../event-hubs/event-hubs-about.md) i [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)   miejsc docelowych oraz punkt końcowy [kontenera usługi Azure Storage](../storage/blobs/storage-blobs-introduction.md)   dla [zdarzeń utraconych](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md)   punkty końcowe nie są obecnie obsługiwane dla tożsamości zarządzanych.
 
-Aby uzyskać instrukcje dotyczące włączania tożsamości zarządzanej przez system dla usługi Azure Digital bliźniaczych reprezentacji i używania jej do kierowania zdarzeń, zobacz [*How to: Enable Managed Identity for Routing Events (wersja zapoznawcza)*](how-to-enable-managed-identities.md).
+Aby uzyskać instrukcje dotyczące włączania tożsamości zarządzanej przez system dla usługi Azure Digital bliźniaczych reprezentacji i używania jej do kierowania zdarzeń, zobacz [*How to: Enable Managed Identity for Routing Events (wersja zapoznawcza)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Dostęp do sieci prywatnej za pomocą prywatnego linku platformy Azure (wersja zapoznawcza)
 
@@ -106,7 +106,7 @@ Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualne
 
 Skonfigurowanie prywatnego punktu końcowego dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji umożliwia zabezpieczenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji i wyeliminowanie ryzyka publicznego, a także uniknięcie eksfiltracji danych z sieci wirtualnej.
 
-Aby uzyskać instrukcje dotyczące konfigurowania prywatnego linku do usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Enable Private Access with Private link (wersja zapoznawcza)*](how-to-enable-private-link.md).
+Aby uzyskać instrukcje dotyczące konfigurowania prywatnego linku do usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Enable Private Access with Private link (wersja zapoznawcza)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Zagadnienia dotyczące projektowania 
 

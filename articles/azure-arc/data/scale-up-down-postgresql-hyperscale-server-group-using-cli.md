@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687553"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Skalowanie w górę i w dół grupy serwerów z Azure Database for PostgreSQLm skalowaniem przy użyciu interfejsu wiersza polecenia (azdata lub polecenia kubectl)
 
@@ -180,6 +180,21 @@ Zostanie wyświetlona nowa definicja grupy serwerów:
 ## <a name="scale-down-the-server-group"></a>Skalowanie w dół grupy serwerów
 
 Aby skalować w dół grupę serwerów, należy wykonać to samo polecenie, ale ustawić mniejsze wartości dla ustawień, które mają być skalowane w dół. Aby usunąć żądania i/lub limity, określ jej wartość jako pusty ciąg.
+
+## <a name="reset-to-default-values"></a>Przywróć wartości domyślne
+Aby zresetować limity rdzeni/pamięci/żądania do ich wartości domyślnych, należy je edytować i przekazać pusty ciąg zamiast wartości rzeczywistej. Na przykład jeśli chcesz zresetować limit rdzenia (CL), uruchom następujące polecenia:
+- na kliencie z systemem Linux:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- na kliencie systemu Windows: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 

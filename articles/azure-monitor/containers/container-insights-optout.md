@@ -1,24 +1,24 @@
 ---
 title: Jak zatrzymać monitorowanie klastra usługi Azure Kubernetes Service | Microsoft Docs
-description: W tym artykule opisano, jak można przestać kontynuować monitorowanie klastra usługi Azure AKS za pomocą Azure Monitor dla kontenerów.
+description: W tym artykule opisano, jak można przestać kontynuować monitorowanie klastra usługi Azure AKS za pomocą szczegółowych informacji o kontenerze.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616190"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723541"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Jak zatrzymać monitorowanie usługi Azure Kubernetes Service z usługą Azure Monitor dla kontenerów
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>Jak zatrzymać monitorowanie usługi Azure Kubernetes Service (AKS) za pomocą szczegółowych informacji o kontenerze
 
 Po włączeniu monitorowania klastra AKS można zatrzymać monitorowanie klastra, jeśli zdecydujesz, że nie chcesz już go monitorować. W tym artykule pokazano, jak to zrobić za pomocą interfejsu wiersza polecenia platformy Azure lub z podanymi szablonami Azure Resource Manager.  
 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Użyj polecenia [AZ AKS Disable-dodatkis](/cli/azure/aks#az-aks-disable-addons) , aby wyłączyć Azure monitor dla kontenerów. Polecenie usuwa agenta z węzłów klastra, nie usuwa rozwiązania lub dane są już zbierane i przechowywane w zasobie Azure Monitor.  
+Aby wyłączyć usługi Container Insights, użyj polecenia [AZ AKS Disable-dodatkis](/cli/azure/aks#az-aks-disable-addons) . Polecenie usuwa agenta z węzłów klastra, nie usuwa rozwiązania lub dane są już zbierane i przechowywane w zasobie Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -165,4 +165,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli obszar roboczy został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz sekcję [Usuwanie obszaru roboczego usługi Azure log Analytics przy użyciu Azure Portal](../platform/delete-workspace.md). Nie zapomnij o **identyfikatorze zasobu obszaru roboczego** skopiowanym wcześniej w kroku 4, który będzie potrzebny.
+Jeśli obszar roboczy został utworzony tylko w celu obsługi monitorowania klastra i nie jest już wymagany, trzeba go ręcznie usunąć. Jeśli nie wiesz, jak usunąć obszar roboczy, zobacz sekcję [Usuwanie obszaru roboczego usługi Azure log Analytics przy użyciu Azure Portal](../logs/delete-workspace.md). Nie zapomnij o **identyfikatorze zasobu obszaru roboczego** skopiowanym wcześniej w kroku 4, który będzie potrzebny.

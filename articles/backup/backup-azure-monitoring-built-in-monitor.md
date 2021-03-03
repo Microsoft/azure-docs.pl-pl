@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713375"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -119,6 +119,18 @@ Jeśli częstotliwość została ustawiona na podsumowanie godzinowe, a alert zo
 Aby dezaktywować/rozwiązywać aktywny alert, możesz wybrać element listy odpowiadający Alertowi, który ma zostać zdezaktywowany. Spowoduje to otwarcie ekranu wyświetlającego szczegółowe informacje o alercie, z przyciskiem **Dezaktywuj** u góry. Wybranie tego przycisku spowoduje zmianę stanu alertu na **nieaktywny**. Możesz również dezaktywować alert, klikając prawym przyciskiem myszy element listy odpowiadający temu Alertowi i wybierając pozycję **Dezaktywuj**.
 
 ![Dezaktywacja alertu dotyczącego magazynu RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Azure Monitor alertów dla Azure Backup (wersja zapoznawcza)
+
+Azure Backup udostępnia również alerty za pośrednictwem Azure Monitor, aby umożliwić użytkownikom spójne środowisko zarządzania alertami w różnych usługach platformy Azure, łącznie z tworzeniem kopii zapasowych. Za pomocą alertów Azure Monitor można kierować alerty do dowolnego kanału powiadomień obsługiwanego przez Azure Backup, takich jak wiadomości e-mail, narzędzia ITSM, webhook, Logic App i tak dalej.
+
+Obecnie ta funkcja jest dostępna dla baz danych platformy Azure dla serwera PostgreSQL, obiektów blob platformy Azure i platformy Azure Managed Disks. Alerty są generowane dla następujących scenariuszy i można uzyskać do nich dostęp, przechodząc do magazynu kopii zapasowych i klikając element menu **alerty** :
+
+- Usuń dane kopii zapasowej
+- Niepowodzenie kopii zapasowej (aby otrzymywać alerty dotyczące błędu kopii zapasowej, należy zarejestrować flagę AFEC o nazwie **EnableAzureBackupJobFailureAlertsToAzureMonitor** za pośrednictwem portalu w wersji zapoznawczej)
+- Niepowodzenie przywracania (aby otrzymywać alerty dotyczące błędów przywracania, należy zarejestrować flagę AFEC o nazwie **EnableAzureBackupJobFailureAlertsToAzureMonitor** za pośrednictwem portalu w wersji zapoznawczej)
+
+Aby uzyskać więcej informacji na temat alertów Azure Monitor, zobacz [Omówienie alertów na platformie Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,19 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724289"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
 
-
 > [!IMPORTANT]
-> Niektóre funkcje Fusion na platformie Azure wskaźnikowej są obecnie dostępne w **publicznej wersji zapoznawczej**.
-> Te funkcje są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Niektóre wykrywania syntezy (Zobacz te, które zostały wskazane poniżej) są obecnie dostępne w **wersji zapoznawczej**. Zapoznaj się z dodatkowymi [warunkami użytkowania Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych, aby uzyskać dodatkowe postanowienia prawne dotyczące funkcji systemu Azure, które są w wersji beta, Preview lub w inny sposób nie zostały jeszcze udostępnione publicznie.
 
 Korzystając z technologii Fusion na podstawie uczenia maszynowego, wskaźnik platformy Azure może automatycznie wykrywać ataki potokach wieloetapowych, identyfikując kombinacje nietypowych zachowań i podejrzanych działań, które są obserwowane na różnych etapach łańcucha kasowania. W oparciu o te odnajdywania wskaźnik produktów platformy Azure będzie generował zdarzenia, które w przeciwnym razie byłyby trudne do przechwycenia. Zdarzenia te obejmują dwa lub więcej alertów lub działań. Zgodnie z projektem te zdarzenia to niskie ilości, wysokiej jakości i wysokiej ważności.
 
@@ -60,12 +58,12 @@ Jak wspomniano powyżej, ponieważ fuzja skorelować wiele alertów zabezpiecze�
 Aby umożliwić te scenariusze wykrywania ataków opartych na fuzji, wszystkie źródła danych wymienione na liście muszą być pozyskiwane przy użyciu skojarzonych łączników danych wskaźnikowych platformy Azure.
 
 > [!NOTE]
-> Niektóre z tych scenariuszy są w **publicznej wersji zapoznawczej**. Zostanie to wskazane.
+> Niektóre z tych scenariuszy są w **wersji zapoznawczej**. Zostanie to wskazane.
 
 ## <a name="compute-resource-abuse"></a>Użycie zasobów obliczeniowych
 
 ### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>Działania tworzenia wielu maszyn wirtualnych następujące po podejrzanym zalogowaniu Azure Active Directory
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, wpływ 
 
@@ -214,7 +212,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Podejrzane reguły manipulowania skrzynką odbiorczą ustawione po podejrzanym zalogowaniu do usługi Azure AD
 Ten scenariusz należy do dwóch klasyfikacji zagrożeń na tej liście: **eksfiltracji danych** i **ruchy poprzeczne**. Dla jasności, pojawia się w obu sekcjach.
 
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, ruchy boczne, Eksfiltracji
 
@@ -235,7 +233,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanej reguły manipulowania skrzynką odbiorczą**
 
 ### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>Wiele Power BI działań związanych z udostępnianiem raportów po podejrzanym zalogowaniu do usługi Azure AD 
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji 
 
@@ -256,7 +254,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do wielu Power BI działań udostępniania raportów**
 
 ### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>Podejrzane Power BI udostępnianie raportów po podejrzanym zalogowaniu do usługi Azure AD
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji 
 
@@ -299,7 +297,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do usunięcia pliku masowego**
 
 ### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>Podejrzane działanie dotyczące usuwania wiadomości e-mail po podejrzanym zalogowaniu do usługi Azure AD
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, wpływ 
 
@@ -322,7 +320,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ## <a name="denial-of-service"></a>Odmowa usługi
 
 ### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>Wiele działań usuwania maszyn wirtualnych po podejrzanym zalogowaniu do usługi Azure AD
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, wpływ
 
@@ -367,7 +365,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Podejrzane reguły manipulowania skrzynką odbiorczą ustawione po podejrzanym zalogowaniu do usługi Azure AD
 Ten scenariusz należy do dwóch klasyfikacji zagrożeń na tej liście: **przemieszczanie boczne** i **eksfiltracji danych**. Dla jasności, pojawia się w obu sekcjach.
 
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, ruchy boczne, Eksfiltracji
 
@@ -412,7 +410,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ## <a name="malicious-execution-with-legitimate-process"></a>Złośliwe wykonanie przy użyciu legalnego procesu
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Program PowerShell wykonał podejrzane połączenie sieciowe, a po nim nietypowy ruch oflagowany przez zaporę Palo Alto Networks.
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Działania
 
@@ -423,7 +421,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 **Opis:** Zdarzenia Fusion tego typu wskazują, że żądanie połączenia wychodzącego zostało wykonane za pośrednictwem polecenia programu PowerShell, a po wykryciu nietypowej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca prawdopodobnie uzyska dostęp do sieci i próbuje wykonać złośliwe działania. Próby połączenia wykonywane przez program PowerShell, które są zgodne z tym wzorcem, mogą wskazywać na polecenia złośliwego oprogramowania i sterowanie nim, żądania pobrania dodatkowego złośliwego oprogramowania lub osoby atakujące ustanawiające zdalny dostęp interaktywny. Podobnie jak w przypadku ataków "żyjące", to działanie może być uprawnionym użyciem programu PowerShell. Jednak wykonanie polecenia programu PowerShell po podejrzanej aktywności w zaporze przychodzącej zwiększa pewność, że program PowerShell jest używany w złośliwy sposób i powinien zostać przeanalizowany dalej. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
 
 ### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Podejrzane zdalne wykonanie usługi WMI następuje przez nietypowy ruch oflagowany przez zaporę Palo Alto Networks
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wykonywanie, odnajdywanie
 
@@ -456,7 +454,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ## <a name="malware-c2-or-download"></a>Złośliwe oprogramowanie C2 lub pobieranie
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Żądanie sieciowe do sieci TOR zachowywanie anonimowości, po którym następuje anomalia ruch oflagowany przez zaporę Palo Alto Networks.
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Polecenie i kontrola
 
@@ -467,7 +465,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 **Opis:** Zdarzenie Fusion tego typu wskazuje, że zostało wysłane żądanie połączenia wychodzącego do usługi TOR zachowywanie anonimowości, a po wykryciu nietypowej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca prawdopodobnie uzyska dostęp do sieci i próbuje ukryć swoje działania i intencje. Połączenia z siecią TOR następujące po tym wzorcu mogą wskazywać na polecenia złośliwego oprogramowania oraz działania kontroli, żądania pobrania dodatkowego złośliwego oprogramowania lub osoby atakującej, która ustanawia zdalny dostęp interaktywny. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, po których następuje nietypowy ruch oflagowany przez zaporę Palo Alto Networks
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Polecenie i kontrola
 
@@ -502,7 +500,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 ## <a name="remote-exploitation"></a>Zdalne wykorzystanie
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Podejrzane użycie struktury ataków następuje przez nietypowy ruch oflagowany przez zaporę Palo Alto Networks
-Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+Ten scenariusz jest obecnie w **wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, wykonywanie, przenoszenie boczne, eskalacja uprawnień
 

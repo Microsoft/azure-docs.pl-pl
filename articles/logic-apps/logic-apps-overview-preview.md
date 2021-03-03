@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715211"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -38,7 +38,7 @@ To omówienie obejmuje następujące zagadnienia:
 
 * [Limity w wersji Zapoznawczej Azure Logic Apps](#limits).
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami:
 
 * [Azure Logic Apps uruchamianie w dowolnym miejscu — głębokie szczegółowe środowiska uruchomieniowego](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej używa rozszerzalności [Azure Functions](../azure-functions/functions-overview.md) i jest hostowane jako rozszerzenie w środowisku uruchomieniowym Azure Functions. Ta architektura oznacza, że można uruchomić nowy typ aplikacji logiki w dowolnym miejscu, w którym Azure Functions uruchamiane. Środowisko uruchomieniowe Azure Logic Apps w wersji zapoznawczej można hostować na niemal dowolnej topologii sieci, a następnie wybrać dowolny dostępny rozmiar do obsługi wymaganego obciążenia, które jest potrzebne przez przepływ pracy. Aby uzyskać więcej informacji o rozszerzalności Azure Functions, zobacz [zestaw WebJobs SDK: Tworzenie niestandardowych powiązań wejściowych i wyjściowych](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Dzięki temu nowemu podejściu środowisko uruchomieniowe programu Azure Logic Apps w wersji zapoznawczej i przepływy pracy są częścią aplikacji, którą można spakować razem. Ta funkcja umożliwia wdrażanie i uruchamianie przepływów pracy przez proste Kopiowanie artefaktów do środowiska hostingu i uruchamianie aplikacji. Takie podejście zapewnia również bardziej ustandaryzowane środowisko tworzenia potoków DevOps wokół projektów przepływu pracy na potrzeby uruchamiania wymaganych testów i walidacji przed wdrożeniem zmian w środowiskach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Azure Logic Apps uruchamianie w dowolnym miejscu — głębokie szczegółowe środowiska uruchomieniowego](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Dzięki temu nowemu podejściu środowisko uruchomieniowe programu Azure Logic Apps w wersji zapoznawczej i przepływy pracy są częścią aplikacji, którą można spakować razem. Ta funkcja umożliwia wdrażanie i uruchamianie przepływów pracy przez proste Kopiowanie artefaktów do środowiska hostingu i uruchamianie aplikacji. Takie podejście zapewnia również bardziej ustandaryzowane środowisko budowania potoków wdrożenia wokół projektów przepływu pracy do uruchamiania wymaganych testów i walidacji przed wdrożeniem zmian w środowiskach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Azure Logic Apps uruchamianie w dowolnym miejscu — głębokie szczegółowe środowiska uruchomieniowego](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 W poniższej tabeli krótko podsumowano różnice w sposobie, w jaki przepływy pracy współużytkują zasoby, w zależności od środowiska, w którym są uruchamiane. Aby uzyskać różnice w limitach, zobacz [limity w wersji Zapoznawczej Azure Logic Apps](#limits).
 
@@ -139,10 +139,17 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 
 * Włączenie funkcji rejestrowania i śledzenia diagnostyki dla aplikacji logiki przy użyciu [Application Insights](../azure-monitor/app/app-insights-overview.md) , gdy są one obsługiwane przez ustawienia subskrypcji platformy Azure i aplikacji logiki.
 
+* Uzyskaj dostęp do funkcji sieciowych, takich jak łączenie i integrowanie prywatnie z sieciami wirtualnymi platformy Azure, podobnie jak Azure Functions podczas tworzenia i wdrażania aplikacji logiki przy użyciu [planu Azure Functions Premium](../azure-functions/functions-premium-plan.md). Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami:
+
+  * [Opcje sieciowe usługi Azure Functions](../azure-functions/functions-networking-options.md)
+
+  * [Azure Logic Apps uruchamianie dowolnych możliwości sieciowych za pomocą wersji zapoznawczej Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Wygeneruj ponownie klucze dostępu dla połączeń zarządzanych używanych przez poszczególne przepływy pracy w ramach zasobu **aplikacji logiki (wersja zapoznawcza)** . W przypadku tego zadania [wykonaj te same kroki dla zasobu **Logic Apps** , ale na poziomie pojedynczego przepływu pracy, a](logic-apps-securing-a-logic-app.md#regenerate-access-keys)nie na poziomie zasobów aplikacji logiki.
 
-> [!NOTE]
-> Informacje o bieżących znanych problemach można znaleźć na [stronie Logic Apps znane problemy w wersji zapoznawczej w witrynie GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Dodaj gałęzie równoległe w nowym projektancie, wykonując te same czynności co Projektant niebędący podglądem w wersji zapoznawczej.
+ 
+Aby uzyskać więcej informacji, zobacz sekcję [zmiany, ograniczone, niedostępne i nieobsługiwane](#limited-unavailable-unsupported) oraz [Logic Apps publicznej wersji zapoznawczej w](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)serwisie GitHub.
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
 
 * **Obsługa systemu operacyjnego**: obecnie projektant w Visual Studio Code nie działa w systemie operacyjnym Linux, ale nadal można wdrożyć aplikacje logiki, które używają środowiska uruchomieniowego Logic Apps w wersji zapoznawczej do maszyn wirtualnych opartych na systemie Linux. Na razie możesz skompilować Aplikacje logiki w Visual Studio Code w systemie Windows lub macOS, a następnie wdrożyć je na maszynie wirtualnej z systemem Linux.
 
-* **Wyzwalacze i akcje**: niektóre wbudowane wyzwalacze są niedostępne, takie jak przesuwanie okna i zadania wsadowego. Aby uruchomić przepływ pracy, użyj [wbudowanego wyzwalacza, żądania, protokołu HTTP, elementu webhook, Event Hubs lub Service Bus](../connectors/apis-list.md). Wbudowane wyzwalacze i akcje działają natywnie w środowisku uruchomieniowym Azure Logic Apps w wersji zapoznawczej, podczas gdy łączniki zarządzane są wdrażane na platformie Azure. W projektancie wbudowane wyzwalacze i akcje są wyświetlane na karcie **wbudowane** , podczas gdy zarządzane wyzwalacze łącznika i akcje są wyświetlane na karcie **Azure** .
+* **Wyzwalacze i akcje**: wbudowane wyzwalacze i akcje działają natywnie w środowisku uruchomieniowym Azure Logic Apps w wersji zapoznawczej, podczas gdy łączniki zarządzane są wdrażane na platformie Azure. Niektóre wbudowane wyzwalacze są niedostępne, na przykład przedziały ruchome i wsadowe.
+
+  Aby uruchomić przepływ pracy, użyj [wbudowanego wyzwalacza, żądania, protokołu HTTP, elementu webhook, Event Hubs lub Service Bus](../connectors/apis-list.md). W projektancie wbudowane wyzwalacze i akcje są wyświetlane na karcie **wbudowane** , podczas gdy zarządzane wyzwalacze łącznika i akcje są wyświetlane na karcie **Azure** .
 
   > [!NOTE]
   > Aby uruchamiać lokalnie w Visual Studio Code, wyzwalacze i akcje oparte na elementach webhook wymagają dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Tworzenie stanowych i bezstanowych przepływów pracy w Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
@@ -199,11 +208,11 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
 
       * Akcje operacji kodu wbudowanego nie wymagają już konta integracji.
 
-      * W przypadku korzystania z macOS lub Linux **operacje kodu wbudowanego** są obecnie niedostępne w przypadku używania rozszerzenia Azure Logic Apps (wersja zapoznawcza) w programie Visual Studio Code.
+      * W przypadku systemów macOS i Linux **operacje kodu wbudowanego** są teraz obsługiwane w przypadku używania rozszerzenia Azure Logic Apps (wersja zapoznawcza) w Visual Studio Code.
 
-      * Jeśli wprowadzisz zmiany w akcji operacji w kodzie wbudowanym, musisz ponownie uruchomić aplikację logiki.
+      * Nie trzeba już ponownie uruchamiać aplikacji logiki, jeśli wprowadzisz zmiany w akcji **operacji w kodzie wbudowanym** .
 
-      * Akcje operacji kodu wbudowanego mają [zaktualizowane limity](logic-apps-overview-preview.md#inline-code-limits).
+      * Akcje **operacji kodu wbudowanego** mają [zaktualizowane limity](logic-apps-overview-preview.md#inline-code-limits).
 
     * Niektóre [wbudowane wyzwalacze i akcje B2B dla kont integracji](../connectors/apis-list.md#integration-account-connectors) są niedostępne, na przykład w przypadku prostych operacji kodowania i dekodowania **plików** .
 
@@ -211,17 +220,15 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
 
 * **Dostępność planu hostingu**: niezależnie od tego, czy tworzony jest nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** w Azure Portal lub Deploy from Visual Studio Code, można użyć planu hostingu Premium lub App Service na platformie Azure. Plany hostingu zużycia są niedostępne i nie są obsługiwane w przypadku wdrażania tego typu zasobu. Program można wdrożyć z Visual Studio Code do kontenera platformy Docker, ale nie do [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Gałęzie równoległe**: obecnie nie można dodać gałęzi równoległych za pomocą nowego środowiska projektanta. Można jednak nadal dodawać te gałęzie za pomocą oryginalnego środowiska projektanta i wyświetlać je w nowym projektancie.
-
-  1. W dolnej części projektanta Wyłącz nowe środowisko, wybierając nową kontrolkę **kanwy** .
-
-  1. Dodaj gałęzie równoległe do przepływu pracy.
-
-  1. Włącz nowe środowisko, wybierając ponownie nową kontrolkę **kanwy** .
+* **Debugowanie punktu przerwania w Visual Studio Code**: Chociaż można dodawać punkty przerwania i używać ich w **workflow.js** pliku dla przepływu pracy, punkty przerwania są obsługiwane tylko w przypadku akcji, które nie są wyzwalane. Aby uzyskać więcej informacji, zobacz [Tworzenie stanowych i bezstanowych przepływów pracy w Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Kontrolka powiększenia**: kontrolka powiększenia jest aktualnie niedostępna w projektancie.
 
-* **Debugowanie punktu przerwania w Visual Studio Code**: Chociaż można dodawać punkty przerwania i używać ich w **workflow.js** pliku dla przepływu pracy, punkty przerwania są obsługiwane tylko w przypadku akcji, które nie są wyzwalane. Aby uzyskać więcej informacji, zobacz [Tworzenie stanowych i bezstanowych przepływów pracy w Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* Historia **i historia uruchamiania wyzwalacza**: dla typu zasobu **aplikacja logiki (wersja zapoznawcza)** , historia wyzwalacza i historia przebiegu w Azure Portal pojawia się na poziomie przepływu pracy, a nie na poziomie aplikacji logiki. Aby znaleźć te dane historyczne, wykonaj następujące kroki:
+
+   * Aby wyświetlić historię uruchamiania, Otwórz przepływ pracy w aplikacji logiki. W menu przepływ pracy w obszarze **deweloper** wybierz pozycję **Monitoruj**.
+
+   * Aby przejrzeć historię wyzwalacza, Otwórz przepływ pracy w aplikacji logiki. W menu przepływ pracy w obszarze **deweloper** wybierz pozycję **Wyzwalaj historie**.
 
 <a name="limits"></a>
 

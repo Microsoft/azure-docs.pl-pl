@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026492"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713052"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Wprowadzenie do asystentów głosowych w systemie Windows
 
@@ -34,7 +34,7 @@ Aby rozpocząć tworzenie asystenta głosowego dla systemu Windows, musisz upewn
 
 Niektóre zasoby wymagane przez całkowicie dostosowany agenta głosu w systemie Windows będą wymagały zasobów od firmy Microsoft. [Przykład asystenta głosowego platformy UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) zawiera przykładowe wersje tych zasobów na potrzeby wstępnego tworzenia i testowania, dlatego ta sekcja nie jest konieczna do tworzenia początkowego.
 
-- **Model słów kluczowych:** Aktywacja głosowa wymaga modelu słowo kluczowe od firmy Microsoft w postaci pliku bin. Plik bin podany w próbce asystenta głosowego platformy UWP jest szkolony na słowie kluczowym "contoso".
+- **Model słów kluczowych:** Aktywacja głosowa wymaga modelu słowo kluczowe od firmy Microsoft w postaci pliku bin. Plik bin podany w próbce asystenta głosowego platformy UWP jest szkolony na słowie kluczowym *contoso*.
 - **Token funkcji ograniczonego dostępu:** Ponieważ interfejsy API ConversationalAgent zapewniają dostęp do dźwięku mikrofonu, są one chronione w ramach ograniczeń funkcji ograniczonego dostępu. Aby można było korzystać z funkcji ograniczonego dostępu, należy uzyskać token funkcji ograniczonego dostępu połączonego z tożsamością pakietu aplikacji od firmy Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Ustanów usługę okna dialogowego

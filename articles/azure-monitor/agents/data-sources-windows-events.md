@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: c911b3a2ef927bf000513665dfafd735e3bcf181
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615533"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719869"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics
 Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](../agents/agent-data-sources.md) dla agentów log Analytics na maszynach wirtualnych z systemem Windows, ponieważ wiele aplikacji zapisuje je w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
 
 > [!IMPORTANT]
-> W tym artykule opisano zbieranie zdarzeń systemu Windows za pomocą [agenta log Analytics](../platform/log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
+> W tym artykule opisano zbieranie zdarzeń systemu Windows za pomocą [agenta log Analytics](./log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Zdarzenia systemu Windows](media/data-sources-windows-events/overview.png)     
 
@@ -73,5 +73,5 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 
 ## <a name="next-steps"></a>Następne kroki
 * Skonfiguruj Log Analytics, aby zbierać inne [źródła danych](../agents/agent-data-sources.md) na potrzeby analizy.
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.  
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.  
 * Skonfiguruj [kolekcję liczników wydajności](data-sources-performance-counters.md) z poziomu agentów systemu Windows.

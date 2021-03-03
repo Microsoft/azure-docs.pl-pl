@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723184"
 ---
 # <a name="log-analytics-tutorial"></a>Samouczek usługi Log Analytics
 Log Analytics to narzędzie w Azure Portal do edytowania i uruchamiania zapytań dzienników z danych zebranych przez dzienniki Azure Monitor i interaktywnie analizować ich wyniki. Za pomocą zapytań Log Analytics można pobierać rekordy spełniające określone kryteria, identyfikować trendy, analizować wzorce i udostępniać różnorodne informacje w danych. 
@@ -33,7 +33,7 @@ Ten samouczek przeprowadzi Cię przez interfejs Log Analytics, pozwala rozpoczą
 W tym samouczku jest używany [środowisko demonstracyjne log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), które obejmuje wiele przykładowych danych obsługujących przykładowe zapytania. Możesz również użyć własnej subskrypcji platformy Azure, ale nie masz danych w tych samych tabelach.
 
 ## <a name="open-log-analytics"></a>Otwórz Log Analytics
-Otwórz [środowisko demonstracyjne log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) lub wybierz pozycję **dzienniki** z menu Azure monitor w subskrypcji. Spowoduje to ustawienie zakresu początkowego do obszaru roboczego Log Analytics, co oznacza, że zapytanie zostanie wybrane z wszystkich danych w tym obszarze roboczym. W przypadku wybrania opcji **dzienniki** z menu zasobów platformy Azure zakres jest ustawiany na tylko rekordy z tego zasobu. Aby uzyskać szczegółowe informacje o zakresie, zobacz [zakres zapytania dziennika](../log-query/scope.md) .
+Otwórz [środowisko demonstracyjne log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) lub wybierz pozycję **dzienniki** z menu Azure monitor w subskrypcji. Spowoduje to ustawienie zakresu początkowego do obszaru roboczego Log Analytics, co oznacza, że zapytanie zostanie wybrane z wszystkich danych w tym obszarze roboczym. W przypadku wybrania opcji **dzienniki** z menu zasobów platformy Azure zakres jest ustawiany na tylko rekordy z tego zasobu. Aby uzyskać szczegółowe informacje o zakresie, zobacz [zakres zapytania dziennika](./scope.md) .
 
 Zakres można wyświetlić w lewym górnym rogu ekranu. Jeśli używasz własnego środowiska, zobaczysz opcję wyboru innego zakresu, ale ta opcja jest niedostępna w środowisku demonstracyjnym.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78eed4086c04ceca677a96f03875481e56206e0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550003"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724024"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -231,6 +231,70 @@ W Azure Portal przejdź do pozycji Azure Active Directory, wybierz pozycję *apl
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Nieudany wpis logowania ze względu na zasady dostępu warunkowego":::
 
+## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Konfigurowanie dostępu just in Time do klastra za pomocą usługi Azure AD i AKS
+
+Kolejną opcją dla kontroli dostępu do klastra jest użycie Privileged Identity Management (PIM) dla żądań just-in-Time.
+
+>[!NOTE]
+> PIM jest możliwością Azure AD — wersja Premium wymagającą jednostki SKU Premium P2. Więcej informacji o jednostkach SKU usługi Azure AD znajduje się w [przewodniku po cenach][aad-pricing].
+
+Aby zintegrować żądania dostępu just in Time z klastrem AKS przy użyciu integracji usługi Azure AD zarządzanej przez usługę AKS, wykonaj następujące czynności:
+
+1. W górnej części Azure Portal Wyszukaj i wybierz pozycję Azure Active Directory.
+1. Zanotuj identyfikator dzierżawy, do którego odnosi się pozostała część tych instrukcji jak `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="w przeglądarce internetowej, Azure Portal ekranie dla Azure Active Directory zostanie wyświetlony z WYRÓŻNIONym identyfikatorem dzierżawy.":::
+1. W menu dla Azure Active Directory po lewej stronie, w obszarze *Zarządzaj* Wybieranie *grup* , a następnie kliknij pozycję *Nowa grupa*.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Wyświetla ekran Azure Portal grupy Active Directory z wyróżnioną opcją &quot;Nowa grupa&quot;.":::
+1. Upewnij się, że wybrano typ grupy *zabezpieczeń* , a następnie wprowadź nazwę grupy, taką jak *myJITGroup*. W obszarze *role usługi Azure AD można przypisać do tej grupy (wersja zapoznawcza)*, wybierz pozycję *tak*. Na koniec wybierz pozycję *Utwórz*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Wyświetla ekran tworzenia nowej grupy Azure Portal.":::
+1. Nastąpi powrót do strony *grup* . Wybierz nowo utworzoną grupę i zanotuj identyfikator obiektu, do którego odnosi się pozostała część tych instrukcji jako `<object-id>` .
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Wyświetla ekran Azure Portal dla grupy po prostu, wyróżnianie identyfikatora obiektu":::
+1. Wdróż klaster AKS z integracją usługi Azure AD zarządzanej za pomocą funkcji AKS przy użyciu `<tenant-id>` `<object-id>` wartości i z wcześniejszych:
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+1. Wróć do Azure Portal, w menu dla *działania* po lewej stronie, wybierz pozycję *dostęp uprzywilejowany (wersja zapoznawcza)* i wybierz pozycję *Włącz dostęp uprzywilejowany*.
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="Zostanie wyświetlona strona uprzywilejowany dostęp do Azure Portal (wersja zapoznawcza) z wyróżnioną opcją &quot;Włącz dostęp uprzywilejowany&quot;":::
+1. Wybierz pozycję *Dodaj przypisania* , aby rozpocząć udzielanie dostępu.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="Zostanie wyświetlony ekran uprzywilejowany dostęp (wersja zapoznawcza) Azure Portal. Opcja &quot;Dodaj przypisania&quot; została wyróżniona.":::
+1. Wybierz rolę *elementu członkowskiego* i wybierz użytkowników i grupy, do których chcesz udzielić dostępu do klastra. Te przypisania można modyfikować w dowolnym momencie przez administratora grupy. Gdy wszystko będzie gotowe do przejścia, wybierz pozycję *dalej*.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="Zostanie wyświetlony ekran dodawaj przypisanie do Azure Portal, z przykładowym użytkownikiem wybranym do dodania jako element członkowski. Opcja &quot;Next&quot; została wyróżniona.":::
+1. Wybierz typ przypisania *aktywny*, żądany czas trwania i podaj uzasadnienie. Gdy wszystko będzie gotowe, wybierz pozycję *Przypisz*. Aby uzyskać więcej informacji na temat typów przypisań, zobacz [przypisywanie uprawnień do uprzywilejowanej grupy dostępu (wersja zapoznawcza) w Privileged Identity Management][aad-assignments].
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Zostanie wyświetlony ekran Ustawienia Dodawanie przypisań Azure Portal. Wybrano typ przypisania &quot;aktywny&quot; i podano przykładowe uzasadnienie. Opcja &quot;Assign&quot; została wyróżniona.":::
+
+Po wykonaniu przypisań Sprawdź, czy dostęp just in Time działa przez dostęp do klastra. Na przykład:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Postępuj zgodnie z instrukcjami, aby się zalogować.
+
+Użyj `kubectl get nodes` polecenia, aby wyświetlić węzły w klastrze:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Zanotuj wymagania dotyczące uwierzytelniania i postępuj zgodnie z instrukcjami w celu uwierzytelnienia. Jeśli to się powiedzie, powinny pojawić się dane wyjściowe podobne do następujących:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Jeśli `kubectl get nodes` zwraca błąd podobny do poniższego:
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Upewnij się, że administrator grupy zabezpieczeń przyznał *aktywne* przypisanie do konta.
+
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [integracji z usługą Azure RBAC na potrzeby autoryzacji Kubernetes][azure-rbac-integration]
@@ -243,6 +307,7 @@ W Azure Portal przejdź do pozycji Azure Active Directory, wybierz pozycję *apl
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: /azure/pricing/details/active-directory
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
@@ -260,3 +325,4 @@ W Azure Portal przejdź do pozycji Azure Active Directory, wybierz pozycję *apl
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group

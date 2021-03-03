@@ -9,15 +9,15 @@ manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 01/11/2021
-ms.openlocfilehash: cb5bac06ab6eeaa00e72ba6068328a972b8ac37b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/01/2021
+ms.openlocfilehash: 25340af243217313ce6d3f7205c102d4bcd350b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698114"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Szybki Start: Eksplorowanie środowiska demonstracyjnego Azure Time Series Insights Gen2
+# <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>Szybki start: Eksplorowanie środowiska demonstracyjnego usługi Azure Time Series Insights Gen2
 
 Ten przewodnik Szybki Start umożliwia rozpoczęcie pracy z Azure Time Series Insights środowiskiem Gen2. W bezpłatnej wersji demonstracyjnej zawarto podstawowe funkcje, które zostały dodane do Azure Time Series Insights Gen2.
 
@@ -129,13 +129,6 @@ Za pomocą Azure Time Series Insights Gen2 i danych telemetrycznych, wykryliśmy
     * Zmień widok tak, aby wszystkie czujniki **systemu generatora** były nakładane na tę samą skalę wykresu.
 
       [![Zmień widok tak, aby obejmował wszystko](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
-
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-Po zakończeniu przewodnika Szybki Start Wyczyść utworzone zasoby:
-
-1. W menu po lewej stronie w [Azure Portal](https://portal.azure.com)wybierz pozycję **wszystkie zasoby** i Znajdź grupę zasobów Azure Time Series Insights Gen2.
-1. Usuń całą grupę zasobów (i wszystkie znajdujące się w niej zasoby), wybierając pozycję **Usuń** lub Usuń osobno każdy zasób.
 
 ## <a name="next-steps"></a>Następne kroki
 

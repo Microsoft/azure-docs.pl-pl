@@ -1,17 +1,16 @@
 ---
 title: Historia wersji schematu konfiguracji rozszerzenia Diagnostyka Azure systemu Windows (funkcji wad)
 description: Ważne do zbierania liczników wydajności na platformie Azure Virtual Machines, VM Scale Sets, Service Fabric i Cloud Services.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 3b6dc0e19c181ebf4df2778633f981258023e046
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617320"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719818"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Wersje i historia schematu konfiguracji rozszerzenia Diagnostyka Azure systemu Windows (funkcji wad)
 Ten artykuł zawiera informacje o historii wersji [Diagnostyka Azure rozszerzeń schematu dla systemu Windows (funkcji wad)](diagnostics-extension-overview.md) , które zostały wysłane jako część zestawu Microsoft Azure SDK.  
@@ -47,7 +46,7 @@ Różne wersje usługi Azure Diagnostics używają różnych schematów konfigur
 ### <a name="diagnostics-extension-111"></a>Rozszerzenie diagnostyki 1,11
 Dodano obsługę ujścia Azure Monitor. Ten obiekt ujścia ma zastosowanie tylko do liczników wydajności. Umożliwia wysyłanie liczników wydajności zebranych w ramach maszyny wirtualnej, VMSS lub usługi w chmurze w celu Azure Monitor jako metryki niestandardowych. Azure Monitor sink obsługuje:
 * Pobieranie wszystkich liczników wydajności wysyłanych do Azure Monitor za pośrednictwem [interfejsów API metryk Azure monitor.](/rest/api/monitor/metrics/list)
-* Alerty dotyczące wszystkich liczników wydajności wysyłanych do Azure Monitor za pomocą nowych [ujednoliconych alertów](../platform/alerts-overview.md) w programie Azure monitor
+* Alerty dotyczące wszystkich liczników wydajności wysyłanych do Azure Monitor za pomocą nowych [ujednoliconych alertów](../alerts/alerts-overview.md) w programie Azure monitor
 * Sposób traktowania operatora wieloznacznego w licznikach wydajności jako wymiar "wystąpienie" w metryce. Na przykład jeśli zebrano licznik "dysk logiczny ( \* )/DiskWrites/SEC", można filtrować i dzielić na wymiarze "wystąpienie", aby wykreślić lub alertować na dyskach zapisy/s dla każdego dysku logicznego (C:, D:, itp.)
 
 Zdefiniuj Azure Monitor jako nowy ujścia w konfiguracji rozszerzenia diagnostyki
@@ -190,4 +189,3 @@ Jeśli uaktualniasz projekt z zestawu Azure SDK 2,4 do zestawu Azure SDK 2,5 lub
 * **Diagnostykę aplikacji usługi w chmurze można skonfigurować tylko na poziomie roli, a nie na poziomie wystąpienia.**
 * Za **każdym razem, gdy wdrażana jest aplikacja, konfiguracja diagnostyki zostaje zaktualizowana** — może to spowodować problemy z parzystością w przypadku zmiany konfiguracji diagnostyki z Eksplorator serwera, a następnie ponownego wdrożenia aplikacji.
 * **W zestawie Azure sdk 2,5 i nowszych Zrzuty awaryjne są konfigurowane w pliku konfiguracji diagnostyki, a nie w kodzie** — w przypadku braku zrzutów awaryjnych skonfigurowanych w kodzie trzeba ręcznie przetransferować konfigurację z kodu do pliku konfiguracji, ponieważ Zrzuty awaryjne nie są transferowane podczas migracji do zestawu Azure SDK 2,6.
-

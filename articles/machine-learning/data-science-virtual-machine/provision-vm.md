@@ -2,18 +2,18 @@
 title: 'Szybki Start: Tworzenie Data Science Virtual Machine systemu Windows'
 titleSuffix: Azure Data Science Virtual Machine
 description: Skonfiguruj i Utwórz Data Science Virtual Machine na platformie Azure na potrzeby analiz i uczenia maszynowego.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53c7eb899578a044ecca0900da722c594bdac8dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109729"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691845"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Windows
 
@@ -44,10 +44,10 @@ Aby utworzyć wystąpienie DSVM:
       * **Rozmiar**: powinno to być automatycznie wypełniane rozmiarem odpowiednim dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/sizes.md).
       * **Nazwa użytkownika**: Wprowadź nazwę użytkownika administratora. Jest to nazwa użytkownika, która będzie używana do logowania się do maszyny wirtualnej i nie musi być taka sama jak nazwa użytkownika platformy Azure.
       * **Hasło**: wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. **Przegląd + tworzenie**
    * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
-   * Wybierz pozycję **Utwórz**.
+   * Wybierz przycisk **Utwórz**.
 
 
 > [!NOTE]

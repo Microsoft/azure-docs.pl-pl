@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczenia ko
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806108"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707221"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Macierz obsługi kopii zapasowych na dysku platformy Azure (w wersji zapoznawczej)
 
@@ -58,7 +58,7 @@ Więcej regionów zostanie ogłoszonych, gdy staną się dostępne.
 
 - Obecnie (w trakcie korzystania z wersji zapoznawczej) korzystanie z programu PowerShell i interfejsu wiersza polecenia platformy Azure w celu skonfigurowania kopii zapasowych i przywracania dysków nie jest obsługiwane.
 
-- Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
+- Podczas konfigurowania kopii zapasowej dysk wybrany do utworzenia kopii zapasowej i Grupa zasobów migawek, w której mają być przechowywane migawki, muszą być częścią tej samej subskrypcji. Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku. Dowiedz się więcej na temat [migawek przyrostowych](../virtual-machines/disks-incremental-snapshots.md#restrictions) dla dysku zarządzanego. Aby uzyskać więcej informacji na temat wybierania grupy zasobów migawek, zobacz  [Konfigurowanie kopii zapasowej](backup-managed-disks.md#configure-backup).
 
 - W przypadku pomyślnej operacji tworzenia kopii zapasowej i przywracania wymagane są przypisania ról zarządzane przez magazyn kopii zapasowych. Używaj tylko definicji ról znajdujących się w dokumentacji. Korzystanie z innych ról, takich jak właściciel, współautor i tak dalej, nie jest obsługiwane. Mogą wystąpić problemy z uprawnieniami, jeśli zaczniesz konfigurować operacje tworzenia kopii zapasowej lub przywracania wkrótce po przypisaniu ról. Wynika to z faktu, że przypisanie roli trwa kilka minut.
 

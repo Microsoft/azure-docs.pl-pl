@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: f878d7cf5fdc2eb6538c1192319405dbde098ba6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a765525b12431c68aa0bba0c0f49c477defff0f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723218"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Wykonywanie zapytań dzienników w Azure Monitor obejmujących obszary robocze i aplikacje
 
@@ -19,7 +19,7 @@ Azure Monitor dzienniki obsługują zapytania w wielu obszarach roboczych Log An
 
 Istnieją dwie metody wykonywania zapytań dotyczących danych przechowywanych w wielu obszarach roboczych i aplikacjach:
 1. Jawnie przez określenie obszaru roboczego i szczegółów aplikacji. Ta technika została szczegółowo opisana w tym artykule.
-2. Niejawnie użycie [zapytań kontekstu zasobów](../platform/design-logs-deployment.md#access-mode). Podczas wykonywania zapytania w kontekście określonego zasobu, grupy zasobów lub subskrypcji, odpowiednie dane zostaną pobrane ze wszystkich obszarów roboczych zawierających dane dla tych zasobów. Application Insights dane przechowywane w aplikacjach nie będą pobierane.
+2. Niejawnie użycie [zapytań kontekstu zasobów](./design-logs-deployment.md#access-mode). Podczas wykonywania zapytania w kontekście określonego zasobu, grupy zasobów lub subskrypcji, odpowiednie dane zostaną pobrane ze wszystkich obszarów roboczych zawierających dane dla tych zasobów. Application Insights dane przechowywane w aplikacjach nie będą pobierane.
 
 > [!IMPORTANT]
 > Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Użyj wyrażenia Workspace (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
@@ -28,12 +28,12 @@ Istnieją dwie metody wykonywania zapytań dotyczących danych przechowywanych w
 ## <a name="cross-resource-query-limits"></a>Limity zapytania między zasobami 
 
 * Liczba zasobów Application Insights i Log Analytics obszarów roboczych, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
-* Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć je do pulpitu nawigacyjnego platformy Azure, aby [wyświetlić wizualizację zapytania dziennika](../learn/tutorial-logs-dashboards.md). 
+* Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć je do pulpitu nawigacyjnego platformy Azure, aby [wyświetlić wizualizację zapytania dziennika](../visualize/tutorial-logs-dashboards.md). 
 * Zapytania między zasobami w alertach dziennika są obsługiwane tylko w bieżącym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli używasz starszej wersji interfejsu API alertów Log Analytics, musisz [przełączyć się do bieżącego interfejsu API](../alerts/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Wykonywanie zapytań w obszarach roboczych Log Analytics i z Application Insights
-Aby odwołać się do innego obszaru roboczego w zapytaniu, użyj identyfikatora [*obszaru roboczego*](../logs/workspace-expression.md) i dla aplikacji z Application Insights Użyj identyfikatora [*aplikacji*](../log-query/app-expression.md) .  
+Aby odwołać się do innego obszaru roboczego w zapytaniu, użyj identyfikatora [*obszaru roboczego*](../logs/workspace-expression.md) i dla aplikacji z Application Insights Użyj identyfikatora [*aplikacji*](./app-expression.md) .  
 
 ### <a name="identifying-workspace-resources"></a>Identyfikowanie zasobów obszaru roboczego
 Poniższe przykłady przedstawiają zapytania w obszarze roboczym Log Analytics, aby zwrócić podsumowania dzienników z tabeli aktualizacji w obszarze roboczym o nazwie *ContosoRetail*. 
@@ -107,9 +107,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Używanie zapytania między zasobami dla wielu zasobów
-W przypadku korzystania z zapytań między zasobami w celu skorelowania danych z wielu obszarów roboczych Log Analytics i zasobów Application Insights, zapytanie może stać się skomplikowane i trudne do utrzymania. W celu oddzielenia logiki zapytania od zakresu zasobów zapytania, które upraszczają strukturę zapytań, należy korzystać z [funkcji w kwerendach dzienników Azure monitor](../log-query/functions.md) . W poniższym przykładzie pokazano, jak można monitorować wiele zasobów Application Insights i wizualizować liczbę żądań nieudanych przez nazwę aplikacji. 
+W przypadku korzystania z zapytań między zasobami w celu skorelowania danych z wielu obszarów roboczych Log Analytics i zasobów Application Insights, zapytanie może stać się skomplikowane i trudne do utrzymania. W celu oddzielenia logiki zapytania od zakresu zasobów zapytania, które upraszczają strukturę zapytań, należy korzystać z [funkcji w kwerendach dzienników Azure monitor](./functions.md) . W poniższym przykładzie pokazano, jak można monitorować wiele zasobów Application Insights i wizualizować liczbę żądań nieudanych przez nazwę aplikacji. 
 
-Utwórz zapytanie podobne do zakresu zasobów Application Insights. `withsource= SourceApp`Polecenie dodaje kolumnę, która określa nazwę aplikacji, która wysłała dziennik. [Zapisz zapytanie jako funkcję](../log-query/functions.md#create-a-function) z aliasem _applicationsScoping_.
+Utwórz zapytanie podobne do zakresu zasobów Application Insights. `withsource= SourceApp`Polecenie dodaje kolumnę, która określa nazwę aplikacji, która wysłała dziennik. [Zapisz zapytanie jako funkcję](./functions.md#create-a-function) z aliasem _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -123,7 +123,7 @@ app('Contoso-app5').requests
 
 
 
-Teraz można [używać tej funkcji](../log-query/functions.md#use-a-function) w zapytaniach między zasobami, takimi jak poniższe. Alias funkcji _applicationsScoping_ zwraca Unię tabeli żądań ze wszystkich zdefiniowanych aplikacji. Zapytanie następnie filtruje żądania nieudane i wizualizowa trendy według aplikacji. Operator _Parse_ jest opcjonalny w tym przykładzie. Wyodrębnia nazwę aplikacji z właściwości _SourceApp_ .
+Teraz można [używać tej funkcji](./functions.md#use-a-function) w zapytaniach między zasobami, takimi jak poniższe. Alias funkcji _applicationsScoping_ zwraca Unię tabeli żądań ze wszystkich zdefiniowanych aplikacji. Zapytanie następnie filtruje żądania nieudane i wizualizowa trendy według aplikacji. Operator _Parse_ jest opcjonalny w tym przykładzie. Wyodrębnia nazwę aplikacji z właściwości _SourceApp_ .
 
 ```Kusto
 applicationsScoping 
@@ -142,5 +142,4 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj [dane dzienników Analizuj w Azure monitor](../log-query/log-query-overview.md) , aby zapoznać się z omówieniem zapytań dzienników oraz o tym, jak Azure monitor dane dziennika.
-
+- Przejrzyj [dane dzienników Analizuj w Azure monitor](./log-query-overview.md) , aby zapoznać się z omówieniem zapytań dzienników oraz o tym, jak Azure monitor dane dziennika.

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a8ab7195958a6c2d5a730c38232eb348d505deda
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729399"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure przy użyciu Azure Portal
 
@@ -90,7 +90,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby wyświetlać, dodawać i usuw
 1. Przejdź do menu Azure Portal lub strony głównej, a następnie wybierz pozycję **wszystkie zasoby**.
 1. W polu Filtr wprowadź nazwę dostawcy zaświadczania.
 1. Wybierz dostawcę zaświadczania i przejdź do strony przegląd.
-1. Wybierz opcję **Certyfikaty osoby podpisującej zasady** w menu zasób po lewej stronie okna lub w dolnym okienku.
+1. Wybierz opcję **Certyfikaty osoby podpisującej zasady** w menu zasób po lewej stronie okna lub w dolnym okienku. Zostanie wyświetlony monit o wybranie certyfikatu do uwierzytelnienia. Wybierz odpowiednią opcję, aby wykonać operację.
 1. Wybierz pozycję **Pobierz certyfikaty podpisywania zasad**. Przycisk zostanie wyłączony dla dostawców zaświadczania utworzonych bez wymagania dotyczącego podpisywania zasad.
 1. Pobrany plik tekstowy będzie miał wszystkie certyfikaty w formacie JWS.
 1. Sprawdź liczbę certyfikatów i pobrane certyfikaty.
@@ -122,7 +122,7 @@ W tej sekcji opisano sposób wyświetlania zasad zaświadczania i konfigurowania
 1.  Przejdź do menu Azure Portal lub strony głównej, a następnie wybierz pozycję **wszystkie zasoby**.
 1.  W polu Filtr wprowadź nazwę dostawcy zaświadczania.
 1.  Wybierz dostawcę zaświadczania i przejdź do strony przegląd.
-1.  Wybierz pozycję **zasady** w menu zasób po lewej stronie okna lub w dolnym okienku.
+1.  Wybierz pozycję **zasady** w menu zasób po lewej stronie okna lub w dolnym okienku. Zostanie wyświetlony monit o wybranie certyfikatu do uwierzytelnienia. Wybierz odpowiednią opcję, aby wykonać operację.
 1.  Wybierz preferowany **Typ zaświadczania** i Wyświetl **bieżące zasady**.
 
 ### <a name="configure-an-attestation-policy"></a>Konfigurowanie zasad zaświadczania
@@ -144,6 +144,7 @@ Wykonaj następujące kroki, aby przekazać zasady w formacie JWT lub tekstowym,
    W przypadku opcji przekazywanie plików Podgląd zasad jest wyświetlany w formacie tekstowym i nie można go edytować.
 
 1. Wybierz pozycję **Odśwież** w górnym menu, aby wyświetlić skonfigurowane zasady.
+
 
 Jeśli dostawca zaświadczania został utworzony przy użyciu wymagania dotyczącego podpisywania zasad, wykonaj następujące kroki, aby przekazać zasady w formacie tokenu JWT.
 

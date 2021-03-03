@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739835"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -133,6 +133,7 @@ Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wycho
 - Przepływ wychodzący z maszyny wirtualnej zaplecza do frontonu wewnętrznej Load Balancer zakończy się niepowodzeniem.
 - Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
 - Fragmenty adresów IP przekazywania nie są obsługiwane w regułach równoważenia obciążenia. Fragmentacja IP pakietów UDP i TCP nie jest obsługiwana w regułach równoważenia obciążenia. Reguły równoważenia obciążenia portów HA mogą służyć do przesyłania dalej istniejących fragmentów adresów IP. Aby uzyskać więcej informacji, zobacz [Omówienie portów wysokiej dostępności](load-balancer-ha-ports-overview.md).
+- Można mieć tylko 1 Load Balancer publiczny i 1 wewnętrzny Load Balancer na zestaw dostępności
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,19 +1,18 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493315"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699423"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
-Azure Policy ustanawia konwencje dla zasobów. Definicje zasad opisują [warunki](#conditions) zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. Warunek porównuje [pole](#fields) właściwości zasobu lub [wartość](#value) z wymaganą wartością. Pola właściwości zasobu są dostępne za pomocą [aliasów](#aliases). Gdy pole właściwości zasobu jest tablicą, można użyć specjalnego [aliasu tablicy](#understanding-the--alias) do wybrania wartości ze wszystkich elementów członkowskich tablicy i zastosować warunek do każdego z nich.
-Dowiedz się więcej o [warunkach](#conditions).
+Azure Policy ustanawia konwencje dla zasobów. Definicje zasad opisują [warunki](#conditions) zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. Warunek porównuje [pole](#fields) właściwości zasobu lub [wartość](#value) z wymaganą wartością. Pola właściwości zasobu są dostępne za pomocą [aliasów](#aliases). Gdy pole właściwości zasobu jest tablicą, można użyć specjalnego [aliasu tablicy](#understanding-the--alias) do wybrania wartości ze wszystkich elementów członkowskich tablicy i zastosować warunek do każdego z nich. Dowiedz się więcej o [warunkach](#conditions).
 
 Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby zasoby miały określony tag. Przypisania zasad są dziedziczone przez zasoby podrzędne. Jeśli przypisanie zasad zostanie zastosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
 
@@ -118,7 +117,7 @@ Następujące tryby dostawcy zasobów są obecnie obsługiwane jako **wersja zap
 
 ## <a name="metadata"></a>Metadane
 
-Właściwość opcjonalna `metadata` przechowuje informacje o definicji zasad. Klienci mogą definiować wszelkie właściwości i wartości przydatne w organizacji w programie `metadata` . Istnieją jednak _typowe_ właściwości, które są używane przez Azure Policy i wbudowane.
+Właściwość opcjonalna `metadata` przechowuje informacje o definicji zasad. Klienci mogą definiować wszelkie właściwości i wartości przydatne w organizacji w programie `metadata` . Istnieją jednak _typowe_ właściwości, które są używane przez Azure Policy i wbudowane. Każda `metadata` Właściwość ma limit 1024 znaków.
 
 ### <a name="common-metadata-properties"></a>Wspólne właściwości metadanych
 
@@ -148,7 +147,7 @@ Parametr ma następujące właściwości, które są używane w definicji zasad:
   - `description`: Wyjaśnienie, do czego służy parametr. Może służyć do podania przykładów akceptowalnych wartości.
   - `displayName`: Przyjazna nazwa wyświetlana w portalu dla parametru.
   - `strongType`: (Opcjonalnie) używany podczas przypisywania definicji zasad za pomocą portalu. Zawiera listę kontekstową. Aby uzyskać więcej informacji, zobacz [strongtype](#strongtype).
-  - `assignPermissions`: (Opcjonalnie) ustawiono _wartość true_ , aby Azure Portal utworzyć przypisania roli podczas przypisywania zasad. Ta właściwość jest przydatna w przypadku, gdy chcesz przypisać uprawnienia poza zakresem przypisania. Istnieje jedno przypisanie roli w ramach zasad (lub definicji roli we wszystkich zasadach z inicjatywy). Wartość parametru musi być prawidłowym zasobem lub zakresem.
+  - `assignPermissions`: (Opcjonalnie) ustawiono _wartość true_ , aby Azure Portal utworzyć przypisania roli podczas przypisywania zasad. Ta właściwość jest przydatna w przypadku, gdy chcesz przypisać uprawnienia poza zakresem przypisania. Istnieje jedno przypisanie roli w ramach zasad (lub dla każdej roli we wszystkich zasadach w ramach inicjatywy). Wartość parametru musi być prawidłowym zasobem lub zakresem.
 - `defaultValue`: (Opcjonalnie) ustawia wartość parametru w przypisaniu, jeśli nie podano wartości.
   Wymagane podczas aktualizowania istniejącej definicji zasad, która jest przypisana.
 - `allowedValues`: (Opcjonalnie) zawiera tablicę wartości akceptowanych przez parametr podczas przypisywania.
@@ -286,15 +285,13 @@ Warunek oblicza, czy wartość spełnia określone kryteria. Obsługiwane są na
 
 W przypadku **mniej**, **lessOrEquals**, **większych** i **greaterOrEquals**, jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy użyciu `InvariantCultureIgnoreCase` .
 
-W przypadku używania warunków **like** i **notLike** , w wartości można podać symbol wieloznaczny `*` .
-Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
+W przypadku używania warunków **like** i **notLike** , w wartości można podać symbol wieloznaczny `*` . Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
 
 W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. Chociaż **dopasowuje** i **notMatch** uwzględnia wielkość liter, wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
 
 ### <a name="fields"></a>Pola
 
-Warunki, które sprawdzają, czy wartości właściwości w ładunku żądania zasobu spełniają określone kryteria, można utworzyć przy użyciu wyrażenia **pola** .
-Obsługiwane są następujące pola:
+Warunki, które sprawdzają, czy wartości właściwości w ładunku żądania zasobu spełniają określone kryteria, można utworzyć przy użyciu wyrażenia **pola** . Obsługiwane są następujące pola:
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Obsługiwane są następujące pola:
 > `tags.<tagName>`, `tags[tagName]` i `tags[tag.with.dots]` są nadal akceptowalnymi sposobami deklarowania pola Tagi. Jednak preferowane wyrażenia są wymienione powyżej.
 
 > [!NOTE]
-> W wyrażeniach **pola** odnoszących się do **\[ \* \] aliasu** każdy element w tablicy jest obliczany pojedynczo przy użyciu koniunkcji logicznej **i** między elementami.
-> Aby uzyskać więcej informacji, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+> W wyrażeniach **pola** odnoszących się do **\[ \* \] aliasu** każdy element w tablicy jest obliczany pojedynczo przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Używanie tagów z parametrami
 
@@ -472,6 +468,7 @@ Wyrażenia **Count pól** mogą wyliczyć tę samą tablicę pól do trzech razy
 Aby uzyskać szczegółowe informacje na temat sposobu pracy z właściwościami tablicy w Azure Policy, w tym szczegółowe wyjaśnienie sposobu oceniania wyrażenia **liczby pól** , zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="value-count"></a>Liczba wartości
+
 Zlicz liczbę elementów członkowskich tablicy spełniających warunek. Tablica może być tablicą literałową lub [odwołaniem do parametru array](#using-a-parameter-value). Struktura wyrażeń **zliczania wartości** :
 
 ```json
@@ -500,7 +497,7 @@ Są wymuszane następujące limity:
 
 #### <a name="the-current-function"></a>Bieżąca funkcja
 
-`current()`Funkcja jest dostępna tylko w ramach `count.where` warunku. Zwraca wartość elementu członkowskiego tablicy, który jest aktualnie wyliczany przez ocenę wyrażenia **liczby** .
+`current()`Funkcja jest dostępna tylko w ramach `count.where` warunku. Zwraca wartość elementu członkowskiego tablicy, który jest aktualnie wyliczany przez obliczenie wyrażenia **liczby** .
 
 **Użycie liczby wartości**
 
@@ -769,7 +766,7 @@ Azure Policy obsługuje następujące typy efektów:
 - **Odmów**: generuje zdarzenie w dzienniku aktywności i kończy się niepowodzeniem żądania
 - **DeployIfNotExists**: wdraża powiązane zasoby, jeśli jeszcze nie istnieją
 - **Wyłączone**: nie oblicza zasobów pod kątem zgodności z regułą zasad
-- **Modyfikowanie**: dodaje, aktualizuje lub usuwa zdefiniowane znaczniki z zasobu
+- **Modyfikowanie**: dodaje, aktualizuje lub usuwa zdefiniowane znaczniki z zasobu lub subskrypcji.
 - **EnforceOPAConstraint** (przestarzałe): konfiguruje kontroler "Open Policy Agent Admission Control" z strażnikiem v3 dla samozarządzanego klastra Kubernetes na platformie Azure
 - **EnforceRegoPolicy** (przestarzałe): konfiguruje kontroler "Open Policy Agent Admission Control" z strażnikiem v2 w usłudze Azure Kubernetes Service
 
@@ -822,18 +819,18 @@ Następujące funkcje są dostępne tylko w regułach zasad:
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **zakres**: [Required] ciąg-ciąg określający zakres adresów IP.
-    - **targetRange**: [Required] ciąg ciągu określający zakres adresów IP.
+  - **zakres**: [Required] ciąg-ciąg określający zakres adresów IP.
+  - **targetRange**: [Required] ciąg ciągu określający zakres adresów IP.
 
-    Zwraca czy dany zakres adresów IP zawiera docelowy zakres adresów IP. Puste zakresy lub mieszanie między rodzinami adresów IP nie są dozwolone i skutkuje niepowodzeniem oceny.
+  Zwraca czy dany zakres adresów IP zawiera docelowy zakres adresów IP. Puste zakresy lub mieszanie między rodzinami adresów IP nie są dozwolone i skutkuje niepowodzeniem oceny.
 
-    Obsługiwane formaty:
-    - Pojedynczy adres IP (przykłady: `10.0.0.0` , `2001:0DB8::3:FFFE` )
-    - Zakres CIDR (przykłady: `10.0.0.0/24` , `2001:0DB8::/110` )
-    - Zakres zdefiniowany przez początkowy i końcowy adres IP (przykłady: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+  Obsługiwane formaty:
+  - Pojedynczy adres IP (przykłady: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+  - Zakres CIDR (przykłady: `10.0.0.0/24` , `2001:0DB8::/110` )
+  - Zakres zdefiniowany przez początkowy i końcowy adres IP (przykłady: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
 - `current(indexName)`
-    - Funkcja specjalna, która może być używana tylko w [wyrażeniach Count](#count).
+  - Funkcja specjalna, która może być używana tylko w [wyrażeniach Count](#count).
 
 #### <a name="policy-function-example"></a>Przykład funkcji zasad
 
@@ -918,7 +915,7 @@ Alias "normal" reprezentuje pole jako pojedynczą wartość. To pole jest przezn
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Elementy `ipRules` tablicy. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Wartości `action` właściwości z każdego elementu `ipRules` tablicy. |
 
-W przypadku użycia w warunku [pola](#fields) aliasy tablic umożliwiają porównanie poszczególnych elementów tablicy z wartością docelową. W przypadku użycia z wyrażeniem [Count](#count) możliwe jest:
+W przypadku użycia w warunku [pola](#fields) aliasy tablic umożliwiają porównanie poszczególnych elementów tablicy z wartością docelową. Gdy jest używany z wyrażeniem [Count](#count) , możliwe jest:
 
 - Sprawdzanie rozmiaru tablicy
 - Sprawdź, czy all\any\none elementów tablicy spełnia warunki złożone

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574788"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738756"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurowanie środowiska przejściowego w chmurze Azure wiosennej
 
@@ -23,7 +23,7 @@ W tym artykule wyjaśniono, jak skonfigurować wdrożenie przejściowe przy uży
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Wystąpienie chmury Azure wiosny w **warstwie cenowej** *standardowa* .
-* [Rozszerzenie Cloud wiosny](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) Azure dla interfejsu wiersza polecenia platformy Azure
+* [Rozszerzenie Cloud wiosny](/cli/azure/azure-cli-extensions-overview) Azure dla interfejsu wiersza polecenia platformy Azure
 
 W tym artykule jest stosowana aplikacja skompilowana z inicjatora sprężyny. Jeśli chcesz użyć innej aplikacji do tego przykładu, musisz wprowadzić prostą zmianę w publicznej części aplikacji w celu odróżnienia wdrożenia przemieszczania od środowiska produkcyjnego.
 

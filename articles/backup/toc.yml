@@ -68,6 +68,8 @@
           href: azure-file-share-support-matrix.md
         - name: Macierz obsługi kopii zapasowych dysków na platformie Azure
           href: disk-backup-support-matrix.md
+        - name: Macierz obsługi kopii zapasowych obiektów blob platformy Azure
+          href: blob-backup-support-matrix.md
         - name: Kontrolery domeny usługi Active Directory
           href: active-directory-backup-restore.md
         - name: Obsługiwane jednostki SKU maszyny wirtualnej dla usługi Azure Policy
@@ -132,6 +134,8 @@
           href: backup-center-govern-environment.md
         - name: Wykonywanie akcji
           href: backup-center-actions.md
+        - name: Zasoby społeczności
+          href: backup-center-community.md
     - name: Kopia zapasowa maszyny wirtualnej platformy Azure
       items:
         - name: Omówienie
@@ -224,6 +228,14 @@
           href: backup-managed-disks.md
         - name: Przywracanie
           href: restore-managed-disks.md
+    - name: Kopia zapasowa obiektów blob platformy Azure
+      items:
+        - name: Omówienie
+          href: blob-backup-overview.md
+        - name: Konfigurowanie i zarządzanie
+          href: blob-backup-configure-manage.md
+        - name: Przywracanie
+          href: blob-restore.md
     - name: Kopia zapasowa udziału plików platformy Azure
       items:
         - name: Omówienie
@@ -437,6 +449,10 @@
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
+    - name: Warstwa dostępu
+      items:
+        - name: Warstwa Archiwum
+          href: archive-tier-support.md
     - name: Rozwiązywanie problemów
       items:
         - name: Maszyna wirtualna platformy Azure

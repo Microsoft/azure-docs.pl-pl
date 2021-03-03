@@ -3,18 +3,18 @@ title: Omówienie dedykowanych centrów zdarzeń — Azure Event Hubs | Microsof
 description: Ten artykuł zawiera omówienie dedykowanych Event Hubs platformy Azure, które oferują wdrożenia z jedną dzierżawą centrów zdarzeń.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358868"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715619"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie Event Hubs — warstwa Dedykowana
 
 *Klastry Event Hubs* oferują wdrożenia z jedną dzierżawą dla klientów z najbardziej wymaganymi potrzebami przesyłania strumieniowego. Ta oferta z jedną dzierżawą ma gwarantowaną 99,99% umowy SLA i jest dostępna tylko w naszej dedykowanej warstwie cenowej. Klaster Event Hubs może odbierać miliony zdarzeń na sekundę z gwarantowaną pojemnością i drugim opóźnieniem. Przestrzenie nazw i centra zdarzeń utworzone w dedykowanym klastrze obejmują wszystkie funkcje standardowej oferty i wiele innych, ale bez ograniczeń związanych z transferem danych przychodzących. Zawiera również popularne funkcje [przechwytywania Event Hubs](event-hubs-capture-overview.md) bez dodatkowych kosztów. Ta funkcja umożliwia automatyczne wsadowe i rejestrowanie strumieni danych w usłudze Azure Storage lub Azure Data Lake. 
 
-Klastry są udostępniane i są rozliczane według **jednostek pojemności** , wstępnie przydzielonej ilości zasobów procesora i pamięci. W każdym klastrze można zakupić 1, 2, 4, 8, 12, 16 lub 20 jednostek. Ilość danych do pozyskiwania i przesyłania strumieniowego na jednostkę CU zależy od różnych czynników, takich jak następujące: 
+Klastry są udostępniane i są rozliczane według **jednostek pojemności**, wstępnie przydzielonej ilości zasobów procesora i pamięci. W każdym klastrze można zakupić 1, 2, 4, 8, 12, 16 lub 20 jednostek. Ilość danych do pozyskiwania i przesyłania strumieniowego na jednostkę CU zależy od różnych czynników, takich jak następujące: 
 
 - Liczba producentów i konsumentów
 - Kształt ładunku
@@ -42,9 +42,9 @@ W przypadku dużych ilości danych wejściowych (>100 jednostek przepływności)
 
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z pojemnością i limitami skali przedsiębiorstwa dla klientów wymagających obciążeń. 
 
-| Cechy | Standardowa | Dedykowane |
+| Cecha | Standardowa | Dedykowane |
 | --- |:---|:---|
-| Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
+| Szerokość pasma | 20 TUs (do 40 TUs) | 20 jednostek |
 | Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
@@ -52,7 +52,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 | Partycje | 32 za centrum zdarzeń | 1024 za centrum zdarzeń<br/>2000 na CU |
 | Grupy odbiorców | 20 na centrum zdarzeń | Brak limitu na wartość CU, 1000 na centrum zdarzeń |
 | Połączenia obsługiwane przez brokera | 1 000, maksymalnie 5 000 | 100 K uwzględnione i maks. |
-| Przechowywanie komunikatów | 7 dni, 84 GB uwzględnionych na jednostek PRZEPŁYWNOŚCI | 90 dni, 10 TB uwzględnionych na CU |
+| [Przechowywanie zdarzeń](event-hubs-features.md#event-retention) | 7 dni, 84 GB uwzględnionych na jednostek PRZEPŁYWNOŚCI | 90 dni, 10 TB uwzględnionych na CU |
 | Przechwytywanie | Płatność za godzinę | Dołączono |
 
 Aby uzyskać więcej przydziałów i limitów, zobacz [Event Hubs przydziały i limity](event-hubs-quotas.md)

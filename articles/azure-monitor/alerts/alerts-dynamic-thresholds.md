@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614710"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718067"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alerty metryk z progami dynamicznymi w Azure Monitor
 
@@ -22,7 +22,7 @@ Chętnie poznamy Twoją opinię <azurealertsfeedback@microsoft.com> .
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Dlaczego i kiedy jest zalecany typ warunku dynamicznego?
 
-1. **Skalowalne alerty** — reguły alertów dotyczących progów dynamicznych mogą tworzyć dostosowane progi dla setek serii metrycznych jednocześnie, zapewniając tym samym łatwość definiowania reguły alertu w ramach jednej metryki. Zapewniają one mniejszą liczbę alertów do utworzenia i zarządzania. Aby je utworzyć, można użyć Azure Portal lub interfejsu API Azure Resource Manager. Skalowalne podejście jest szczególnie przydatne podczas pracy z wymiarami metryk lub stosowania do wielu zasobów, na przykład do wszystkich zasobów subskrypcji.  [Dowiedz się więcej o sposobie konfigurowania alertów metryk z progami dynamicznymi przy użyciu szablonów](../platform/alerts-metric-create-templates.md).
+1. **Skalowalne alerty** — reguły alertów dotyczących progów dynamicznych mogą tworzyć dostosowane progi dla setek serii metrycznych jednocześnie, zapewniając tym samym łatwość definiowania reguły alertu w ramach jednej metryki. Zapewniają one mniejszą liczbę alertów do utworzenia i zarządzania. Aby je utworzyć, można użyć Azure Portal lub interfejsu API Azure Resource Manager. Skalowalne podejście jest szczególnie przydatne podczas pracy z wymiarami metryk lub stosowania do wielu zasobów, na przykład do wszystkich zasobów subskrypcji.  [Dowiedz się więcej o sposobie konfigurowania alertów metryk z progami dynamicznymi przy użyciu szablonów](./alerts-metric-create-templates.md).
 
 1. **Inteligentne Rozpoznawanie wzorców metryk** — korzystając z technologii ml, możemy automatycznie wykrywać wzorce metryk i dostosowywać je do zmian metryk w miarę upływu czasu, co może często obejmować sezonowości (co godzinę/codziennie/tydzień). Dostosowanie do zachowania metryk w czasie i alertów na podstawie odchyleń od jej wzorca zwalnia obciążenie dotyczące progu "Right" dla każdej metryki. Algorytm ML używany w dynamicznych progach został zaprojektowany w celu zapobiegania zakłóceniom (o niskiej dokładności) lub szerokim (niskim odwróceniu), które nie mają oczekiwanego wzorca.
 
@@ -75,7 +75,7 @@ Aby wyzwolić alert w przypadku naruszenia progów dynamicznych przez 20 minut z
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Jak dowiedzieć się, dlaczego wyzwolono alert dotyczący progów dynamicznych?
 
-Wyzwolone wystąpienia alertów można eksplorować w widoku alertów przez kliknięcie linku w wiadomości e-mail lub tekstowej lub w przeglądarce w celu wyświetlenia widoku alertów w Azure Portal. [Dowiedz się więcej o widoku alertów](../platform/alerts-overview.md#alerts-experience).
+Wyzwolone wystąpienia alertów można eksplorować w widoku alertów przez kliknięcie linku w wiadomości e-mail lub tekstowej lub w przeglądarce w celu wyświetlenia widoku alertów w Azure Portal. [Dowiedz się więcej o widoku alertów](./alerts-overview.md#alerts-experience).
 
 Widok alertu wyświetla następujące:
 
@@ -188,4 +188,4 @@ Użyj poniższych informacji, aby zinterpretować poprzedni wykres.
 - **Czerwona kropka z czarnym kółkiem** — pokazuje pierwszą wartość metryki z dozwolonego zakresu. Jest to wartość, która wyzwala alert metryki i umieszcza ją w stanie aktywnym.
 - **Czerwone kropki**— wskazuje dodatkowe wartości mierzone poza dozwolonym zakresem. Nie będą wyzwalać dodatkowych alertów metryk, ale alert pozostaje aktywny.
 - **Czerwony obszar** — pokazuje czas, w którym wartość metryki mieści się poza dozwolonym zakresem. Alert pozostaje w stanie aktywnym, tak długo, jak kolejne mierzone wartości są poza dozwolonym zakresem, ale nie są wyzwalane żadne nowe alerty.
-- **Koniec czerwonego obszaru** — gdy niebieska linia znajduje się w dozwolonych wartościach, czerwona powierzchnia zostaje zatrzymana, a wartość pola przemierzona jest niebieska. Stan alertu metryki, który został wyzwolony w momencie czerwonej kropki z czarnym konturem jest ustawiony na rozwiązane. 
+- **Koniec czerwonego obszaru** — gdy niebieska linia znajduje się w dozwolonych wartościach, czerwona powierzchnia zostaje zatrzymana, a wartość pola przemierzona jest niebieska. Stan alertu metryki, który został wyzwolony w momencie czerwonej kropki z czarnym konturem jest ustawiony na rozwiązane.

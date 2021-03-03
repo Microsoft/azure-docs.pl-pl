@@ -1,5 +1,5 @@
 ---
-title: Prywatne linki na platformie Azure — często zadawane pytania
+title: Azure Private Link — często zadawane pytania
 description: Dowiedz się więcej o usłudze Azure Private link.
 services: private-link
 author: malopMSFT
@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582013"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709413"
 ---
-# <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
+# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link — często zadawane pytania
 
 ## <a name="private-link"></a>Private Link
 
@@ -65,6 +65,12 @@ Usługę linku prywatnego można skalować na kilka różnych sposobów:
 - Dodaj maszyny wirtualne zaplecza do puli za usługa Load Balancer w warstwie Standardowa 
 - Dodaj adres IP do usługi łącza prywatnego. Zezwalamy na maksymalnie 8 adresów IP na usługę łącza prywatnego.  
 - Dodaj nową usługę linku prywatnego do usługa Load Balancer w warstwie Standardowa. Zezwalamy na maksymalnie osiem usług linków prywatnych na moduł równoważenia obciążenia.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>Co to jest konfiguracja protokołu IP NAT (translator adresów sieciowych) używana w usłudze link prywatny? Jak można skalować w zakresie dostępnych portów i połączeń? 
+
+Konfiguracja protokołu IP translatora adresów sieciowych gwarantuje, że nie występuje konflikt adresów IP między źródłem (po stronie klienta) a przestrzenią docelową (dostawcy usługi), dostarczając źródłowy translator adresów sieciowych na stronie docelowej (po stronie usługodawcy). Adres IP translatora adresów sieciowych będzie wyświetlany jako źródłowy adres IP dla wszystkich pakietów odebranych przez usługę i docelowy adres IP dla wszystkich pakietów wysłanych przez usługę.  Adres IP NAT można wybrać z dowolnej podsieci w sieci wirtualnej dostawcy usług. 
+
+Każdy adres IP translatora adresów sieciowych zapewnia 64 KB połączeń TCP (64 KB) na maszynę wirtualną za usługa Load Balancer w warstwie Standardowa. Aby skalować i dodawać więcej połączeń, można dodać nowe adresy IP translatora adresów sieciowych lub dodać więcej maszyn wirtualnych za usługa Load Balancer w warstwie Standardowa. Wykonanie tej operacji spowoduje przeskalowanie dostępności portu i umożliwi obsługę większej liczby połączeń. Połączenia będą dystrybuowane między adresami IP i maszynami wirtualnymi NAT za usługa Load Balancer w warstwie Standardowa.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Czy mogę połączyć usługę z wieloma prywatnymi punktami końcowymi?
 Tak. Jedna usługa linku prywatnego może odbierać połączenia z wielu prywatnych punktów końcowych. Jednak jeden prywatny punkt końcowy może nawiązać połączenie tylko z jedną usługą linku prywatnego.  

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 8d8ef4236a9dd993faaaa2aacfd40a7592e9017f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698675"
 ---
 # <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
 
 
-## <a name="free-option-vs-azure-defender-enabled"></a>Opcja bezpłatna a usługa Azure Defender włączona
+## <a name="security-center-free-vs-azure-defender-enabled"></a>Security Center bezpłatna usługa vs Azure Defender
 
 Security Center jest oferowane w dwóch trybach:
 

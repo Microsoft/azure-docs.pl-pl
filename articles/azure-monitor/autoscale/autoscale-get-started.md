@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617660"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726057"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do autoskalowania na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -128,7 +128,7 @@ W tej sekcji opisano, jak przenieść automatyczne skalowanie platformy Azure do
 ### <a name="move"></a>Move
 Użyj [interfejsu API REST](/rest/api/monitor/autoscalesettings/createorupdate) , aby utworzyć ustawienie automatycznego skalowania w nowym środowisku. Ustawienie skalowania automatycznego utworzone w regionie docelowym będzie kopią ustawienia skalowania automatycznego w regionie źródłowym.
 
-Nie można przenieść [ustawień diagnostycznych](../platform/diagnostic-settings.md) , które zostały utworzone w skojarzeniu z ustawieniem skalowania automatycznego w regionie źródłowym. Należy ponownie utworzyć ustawienia diagnostyczne w regionie docelowym po zakończeniu tworzenia ustawień autosprzedaży. 
+Nie można przenieść [ustawień diagnostycznych](../essentials/diagnostic-settings.md) , które zostały utworzone w skojarzeniu z ustawieniem skalowania automatycznego w regionie źródłowym. Należy ponownie utworzyć ustawienia diagnostyczne w regionie docelowym po zakończeniu tworzenia ustawień autosprzedaży. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Dowiedz się więcej o przenoszeniu zasobów między regionami platformy Azure
 Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zapoznaj się z tematem [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md) .

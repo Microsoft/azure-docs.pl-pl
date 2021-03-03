@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703685"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -105,7 +105,7 @@ Kopie zapasowe (Dziennik i niedziennik) w SAP HANA maszynach wirtualnych platfor
 
 Składnik BACKINT platformy HANA udostępnia "potoki" (potok do odczytu i potok do zapisu), połączony z dyskami źródłowymi, w których znajdują się pliki bazy danych, które są następnie odczytywane przez usługę Azure Backup i transportowane do magazynu usługi Azure Recovery Services. Usługa Azure Backup wykonuje również sumę kontrolną, aby sprawdzić poprawność strumieni, oprócz natywnych testów weryfikacyjnych BACKINT. Te walidacji będą mieć pewność, że dane znajdujące się w magazynie usługi Azure Recovery Services są rzeczywiście niezawodne i odzyskiwalne.
 
-Ponieważ strumienie polegają głównie na dyskach, należy zrozumieć wydajność dysku, aby zmierzyć wydajność tworzenia kopii zapasowych i przywracania. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/virtual-machines/disks-performance) , aby uzyskać szczegółowe informacje na temat przepływności i wydajności dysków na maszynach wirtualnych platformy Azure. Dotyczą one również wydajności tworzenia kopii zapasowych i przywracania.
+Ponieważ strumienie polegają głównie na dyskach, należy zrozumieć wydajność dysku, aby zmierzyć wydajność tworzenia kopii zapasowych i przywracania. Zapoznaj się z [tym artykułem](../virtual-machines/disks-performance.md) , aby uzyskać szczegółowe informacje na temat przepływności i wydajności dysków na maszynach wirtualnych platformy Azure. Dotyczą one również wydajności tworzenia kopii zapasowych i przywracania.
 
 **Usługa Azure Backup próbuje uzyskać maksymalnie 420 MB/s dla kopii zapasowych bez dziennika (takich jak pełna, różnicowa i przyrostowa) i do 100 MB/s dla kopii zapasowych dzienników dla platformy Hana**. Jak wspomniano powyżej, nie są one gwarantowane szybkości i są zależne od następujących czynników:
 
@@ -267,8 +267,8 @@ Określ ustawienia zasad w następujący sposób:
    ![Zasady różnicowych kopii zapasowych](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Przyrostowe kopie zapasowe są teraz dostępne w publicznej wersji zapoznawczej. Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
-   >
+   >Można wybrać różnicową lub przyrostową kopię zapasową, ale nie oba jednocześnie.
+
 7. W obszarze **zasady przyrostowej kopii zapasowej** wybierz pozycję **Włącz** , aby otworzyć kontrolki częstotliwość i przechowywanie.
     * Co więcej, można wyzwolić jedną przyrostową kopię zapasową dziennie.
     * Przyrostowe kopie zapasowe mogą być przechowywane przez maksymalnie 180 dni. Jeśli potrzebujesz dłuższego okresu przechowywania, musisz użyć pełnych kopii zapasowych.

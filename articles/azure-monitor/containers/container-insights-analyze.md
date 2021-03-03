@@ -1,26 +1,26 @@
 ---
-title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
+title: Kubernetes monitorowanie za pomocą usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą usługi Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 9bb21f7a651d773806a96bb19044abf3bc7dda5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620203"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711352"
 ---
-# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
+# <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorowanie wydajności klastra Kubernetes za pomocą usługi Container Insights
 
-Za pomocą Azure Monitor dla kontenerów można użyć wykresów wydajności i stanu kondycji do monitorowania obciążenia klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innych środowiskach z dwóch perspektyw. Można monitorować bezpośrednio z klastra lub wyświetlać wszystkie klastry w ramach subskrypcji z Azure Monitor. Przeglądanie Azure Container Instances jest również możliwe podczas monitorowania określonego klastra AKS.
+Usługa Container Insights umożliwia monitorowanie obciążeń klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innych środowiskach z dwóch perspektyw przy użyciu wykresów wydajności i stanu kondycji. Można monitorować bezpośrednio z klastra lub wyświetlać wszystkie klastry w ramach subskrypcji z Azure Monitor. Przeglądanie Azure Container Instances jest również możliwe podczas monitorowania określonego klastra AKS.
 
 Ten artykuł pomaga zrozumieć dwie perspektywy i jak Azure Monitor pomaga szybko ocenić, zbadać i rozwiązać wykryte problemy.
 
-Informacje o sposobie włączania Azure Monitor dla kontenerów znajdują się w sekcji Dołączanie [Azure monitor dla kontenerów](container-insights-onboard.md).
+Aby uzyskać informacje na temat sposobu włączania usługi Container Insights, zobacz Dołączanie do usługi [Container Insights](container-insights-onboard.md).
 
 Azure Monitor zawiera widok z obsługą wielu klastrów, który pokazuje stan kondycji wszystkich monitorowanych klastrów Kubernetes z systemem Linux i Windows Server 2019 wdrożonych w grupach zasobów w Twoich subskrypcjach. Pokazuje ona klastry odnalezione we wszystkich środowiskach, które nie są monitorowane przez rozwiązanie. Możesz natychmiast zrozumieć kondycję klastra, a w tym miejscu możesz przejść do szczegółów na stronie wydajność węzła i kontrolera lub przejść do sekcji wykresy wydajności dla klastra. W przypadku klastrów AKS, które zostały odnalezione i zidentyfikowane jako niemonitorowane, można je włączyć w dowolnym momencie.
 
-Główne różnice w monitorowaniu klastra systemu Windows Server z Azure Monitor dla kontenerów w porównaniu z klastrem z systemem Linux [zostały opisane w](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) artykule Omówienie.
+Główne różnice w monitorowaniu klastra systemu Windows Server z usługą Container Insights w porównaniu z klastrem z systemem Linux [zostały opisane w](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) artykule Omówienie.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -37,7 +37,7 @@ Można zakres wyników przedstawionych w siatce, aby pokazać klastry, które s�
 * Klastry **Azure** -AKS i AKS-Engine hostowane w usłudze Azure Kubernetes Service
 * **Azure Stack (wersja zapoznawcza)** — AKS-Engine klastrów hostowanych w Azure Stack
 * **Platformy inne niż Azure (wersja zapoznawcza)** — klastry Kubernetes hostowane lokalnie
-* **Wszystkie** — Wyświetl wszystkie klastry Kubernetes hostowane na platformie Azure, Azure Stack i środowiskach lokalnych, które są dołączane do Azure monitor dla kontenerów
+* **Wszystkie** — Wyświetl wszystkie klastry Kubernetes hostowane na platformie Azure, Azure Stack i środowiskach lokalnych, które zostały dołączone do usługi Container Insights
 
 Aby wyświetlić klastry z określonego środowiska, wybierz je ze **środowisk** pill w lewym górnym rogu strony.
 
@@ -59,7 +59,7 @@ Uwzględnione są następujące stany kondycji:
 * **Nie znaleziono**: Usunięto obszar roboczy, grupę zasobów lub subskrypcję zawierającą obszar roboczy tego rozwiązania.
 * **Nieautoryzowane**: użytkownik nie ma wymaganych uprawnień do odczytu danych w obszarze roboczym.
 * **Błąd**: Wystąpił błąd podczas próby odczytania danych z obszaru roboczego.
-* **Błędna konfiguracja**: Azure monitor dla kontenerów nie zostały poprawnie skonfigurowane w określonym obszarze roboczym.
+* **Błędna konfiguracja**: szczegółowe informacje o kontenerze nie zostały poprawnie skonfigurowane w określonym obszarze roboczym.
 * **Brak danych**: dane nie zostały zgłoszone do obszaru roboczego w ciągu ostatnich 30 minut.
 
 Stan kondycji oblicza ogólny stan klastra jako *najgorszy* z trzech stanów z jednym wyjątkiem. Jeśli którykolwiek z trzech stanów jest nieznany, ogólny stan klastra pokazuje **nieznane**.
@@ -88,7 +88,7 @@ Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wy
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Wyświetlanie wydajności bezpośrednio z klastra
 
-Dostęp do Azure monitor dla kontenerów jest dostępny bezpośrednio w klastrze AKS przez wybranie klastra usługi **Insights**  >   w okienku po lewej stronie lub po wybraniu klastra z widoku wiele klastrów. Informacje o klastrze są zorganizowane w czterech perspektyw:
+Dostęp do usługi Container Insights jest dostępny bezpośrednio w klastrze AKS przez wybranie klastra usługi **Insights**  >   w okienku po lewej stronie lub w przypadku wybrania klastra z widoku wiele klastrów. Informacje o klastrze są zorganizowane w czterech perspektyw:
 
 - Klaster
 - Węzły
@@ -109,13 +109,13 @@ Na wykresach wydajności są wyświetlane cztery metryki wydajności:
 - **Liczba węzłów**: liczba węzłów i stan z Kubernetes. Stanem reprezentowanego węzła klastra są łącznie, gotowe i niegotowe. Można je filtrować pojedynczo lub łączyć w selektorze powyżej wykresu.
 - **Liczba aktywnych pod**: liczba i stan z Kubernetes. Stany reprezentowanego obszaru są całkowite, oczekujące, uruchomione, nieznane, zakończone powodzeniem lub niepowodzeniem. Można je filtrować pojedynczo lub łączyć w selektorze powyżej wykresu.
 
-Użyj klawiszy strzałek w lewo i w prawo, aby przechodzić przez każdy punkt danych na wykresie. Użyj klawiszy strzałek w górę i w dół, aby przechodzić do kolejnych wierszy percentylu. Wybierz ikonę pinezki w prawym górnym rogu dowolnego z wykresów, aby przypiąć wybrany wykres do ostatniego wyświetlonego pulpitu nawigacyjnego platformy Azure. Z poziomu pulpitu nawigacyjnego można zmieniać rozmiar wykresu i zmienić jego położenie. Wybranie wykresu z pulpitu nawigacyjnego przekierowuje Cię do Azure Monitor kontenerów i ładuje prawidłowy zakres i widok.
+Użyj klawiszy strzałek w lewo i w prawo, aby przechodzić przez każdy punkt danych na wykresie. Użyj klawiszy strzałek w górę i w dół, aby przechodzić do kolejnych wierszy percentylu. Wybierz ikonę pinezki w prawym górnym rogu dowolnego z wykresów, aby przypiąć wybrany wykres do ostatniego wyświetlonego pulpitu nawigacyjnego platformy Azure. Z poziomu pulpitu nawigacyjnego można zmieniać rozmiar wykresu i zmienić jego położenie. Wybranie wykresu z pulpitu nawigacyjnego przekierowuje do usługi Container Insights i ładuje prawidłowy zakres i widok.
 
-Azure Monitor for Containers obsługują również [Eksploratora metryk](../essentials/metrics-getting-started.md)Azure monitor, w którym można tworzyć własne wykresy wykresów, skorelować i badać trendy oraz przypinać do pulpitów nawigacyjnych. W Eksploratorze metryk można również użyć kryteriów ustawionych do wizualizacji metryk jako podstawy [reguły alertu opartej na metrykach](../alerts/alerts-metric.md).
+Usługi Container Insights obsługują również [Eksploratora metryk](../essentials/metrics-getting-started.md)Azure monitor, w którym można tworzyć własne wykresy wykresów, skorelować i badać trendy oraz przypinać do pulpitów nawigacyjnych. W Eksploratorze metryk można również użyć kryteriów ustawionych do wizualizacji metryk jako podstawy [reguły alertu opartej na metrykach](../alerts/alerts-metric.md).
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Wyświetlanie metryk kontenera w Eksploratorze metryk
 
-W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzła i użycia z Azure Monitor dla kontenerów. W poniższej tabeli zestawiono szczegółowe informacje ułatwiające zrozumienie sposobu używania wykresów metryk do wizualizacji metryk kontenera.
+W Eksploratorze metryk można wyświetlić zagregowane metryki dotyczące węzła i użycia z usługi Container Insights. W poniższej tabeli zestawiono szczegółowe informacje ułatwiające zrozumienie sposobu używania wykresów metryk do wizualizacji metryk kontenera.
 
 |Przestrzeń nazw | Metric | Opis |
 |----------|--------|-------------|
@@ -297,12 +297,12 @@ Menedżer zasad sieciowych platformy Azure zawiera Prometheus metryki, które um
 
 ## <a name="workbooks"></a>Skoroszyty
 
-Skoroszyty łączą tekst, kwerendy dzienników, metryki i parametry w rozbudowanych interaktywnych raportach, które umożliwiają analizowanie wydajności klastra. Zobacz [skoroszyty w Azure monitor for Containers](../insights/container-insights-reports.md) , aby uzyskać opis skoroszytów dostępnych dla Azure monitor kontenerów.
+Skoroszyty łączą tekst, kwerendy dzienników, metryki i parametry w rozbudowanych interaktywnych raportach, które umożliwiają analizowanie wydajności klastra. Zobacz [skoroszyty w usłudze Container Insights](../insights/container-insights-reports.md) , aby zapoznać się z opisem skoroszytów dostępnych dla usługi Container Insights.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z tematem [tworzenie alertów wydajności za pomocą Azure monitor dla kontenerów](./container-insights-log-alerts.md) , aby dowiedzieć się, jak tworzyć alerty dotyczące wysokiego użycia procesora i pamięci w celu obsługi procesów i procedur operacyjnych DevOps.
+- Zapoznaj się z tematem [tworzenie alertów wydajności za pomocą usługi Container Insights](./container-insights-log-alerts.md) , aby dowiedzieć się, jak tworzyć alerty dotyczące wysokiego użycia procesora i pamięci w celu obsługi procesów i procedur operacyjnych DevOps.
 
 - Wyświetl [przykłady zapytań dotyczących dzienników](container-insights-log-search.md#search-logs-to-analyze-data) , aby wyświetlić wstępnie zdefiniowane zapytania i przykłady do oszacowania lub dostosowania do alertów, wizualizacji lub analizowania klastrów.
 

@@ -6,24 +6,24 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 02/24/2021
 ms.author: rezar
-ms.openlocfilehash: e2d9ef1d864d18122e7718c9be99eba8b7cf3973
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a5675b313586615d4bad733aec6eabf0360f8489
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672119"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694714"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Jakie rozwiązania umożliwiają uruchamianie serwera Oracle WebLogic Server w usłudze Azure Virtual Machines?
 
 Na tej stronie opisano rozwiązania do uruchamiania programu Oracle webWebLogicc Server (WLS) na maszynach wirtualnych platformy Azure. Te rozwiązania są wspólnie opracowywane i obsługiwane przez oprogramowanie Oracle i firmę Microsoft.
 
-Można również uruchomić usługę WLS w usłudze Azure Kubernetes. Rozwiązania, które należy wykonać, zostały opisane w [tym artykule firmy Microsoft](./weblogic-aks.md).
+Usługę WLS można również uruchomić w usłudze Azure Kubernetes. Rozwiązania, które należy wykonać, zostały opisane w [tym artykule firmy Microsoft](./weblogic-aks.md).
 
 WLS to wiodący serwer aplikacji Java, na którym działają niektóre z najważniejszych aplikacji Java przedsiębiorstwa na całym świecie. Usługi WLS tworzą podstawę programu pośredniczącego dla pakietu oprogramowania Oracle. Firmy Oracle i Microsoft są zaangażowane w umożliwienie klientom usługi WLS wyboru i elastyczności uruchamiania obciążeń na platformie Azure jako wiodącej platformy w chmurze.
 
-Rozwiązania usługi Azure WLS mają na celu ułatwienie tworzenia i przenoszenia aplikacji Java EE do usługi Azure Virtual Machines przez Automatyzowanie większości standardowych operacji. Rozwiązania automatycznie udostępniają zasoby sieci wirtualnej, magazynu, środowiska Java i systemu Linux. Przy minimalnym wysiłku serwer WebLogic jest instalowany. Rozwiązania mogą konfigurować zabezpieczenia za pomocą sieciowej grupy zabezpieczeń, równoważenia obciążenia za pomocą usługi Azure App Gateway i uwierzytelniania za pomocą Azure Active Directory. Możesz również automatycznie połączyć się z istniejącą bazą danych, w tym Azure PostgreSQL, Azure SQL i Oracle DB w chmurze Oracle lub na platformie Azure. Mapa drogowa dla rozwiązań obejmuje możliwość włączenia rejestrowania rozproszonego i rozproszonego buforowania za pośrednictwem spójności Oracle.  
+Rozwiązania usługi Azure WLS mają na celu ułatwienie migracji aplikacji Java do maszyn wirtualnych platformy Azure. Rozwiązania tego problemu generują wdrożone zasoby dla najpopularniejszych scenariuszy aprowizacji w chmurze. Rozwiązania automatycznie udostępniają zasoby sieci wirtualnej, magazynu, środowiska Java, usługi WLS i systemu Linux. Przy minimalnym wysiłku serwer WebLogic jest instalowany. Rozwiązania mogą konfigurować zabezpieczenia za pomocą sieciowej grupy zabezpieczeń, równoważenia obciążenia za pomocą usługi Azure App Gateway, uwierzytelniania Azure Active Directory, scentralizowanego rejestrowania przy użyciu ELK i rozproszonego buforowania z spójnością programu Oracle. Możesz również automatycznie połączyć się z istniejącą bazą danych, w tym Azure PostgreSQL, Azure SQL i Oracle DB w chmurze Oracle lub na platformie Azure. 
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Za pomocą Azure Portal można wdrożyć serwer WebLogic na platformie Azure":::
 
@@ -31,9 +31,9 @@ Dostępne są cztery oferty do realizacji różnych scenariuszy: [pojedynczy wę
 
 _Oferty te są oferowane w ramach własnych licencji_. Zakładamy, że masz już odpowiednie licencje na oprogramowanie Oracle i są prawidłowo licencjonowane do uruchamiania ofert na platformie Azure.
 
-Oferty obsługują różne wersje systemów operacyjnych, Java i WLS za pomocą obrazów podstawowych (takich jak WebLogic Server 14 i JDK 11 w Oracle Linux 7,6). Te obrazy podstawowe są również dostępne na platformie Azure. Obrazy podstawowe są odpowiednie dla klientów, którzy wymagają złożonych, niestandardowych wdrożeń platformy Azure. Bieżący zestaw obrazów podstawowych jest dostępny [tutaj](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
+Oferty obsługują różne wersje systemów operacyjnych, Java i WLS za pomocą obrazów podstawowych (takich jak WebLogic Server 14 i JDK 11 w Oracle Linux 7,6). Te obrazy podstawowe są również dostępne na platformie Azure. Obrazy podstawowe są odpowiednie dla klientów, którzy wymagają złożonych, niestandardowych wdrożeń platformy Azure. Bieżący zestaw obrazów podstawowych jest dostępny [tutaj](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
-_Jeśli interesuje Cię ścisłą pracę nad scenariuszami migracji z zespołem inżynierów, opracowując te oferty, wybierz przycisk [kontakt ze mną](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ na [stronie przeglądu Oferty Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Menedżery programów, architekty i inżynierowie będą wkrótce dotrzeć do Ciebie i zaczynają bliskią współpracę. Możliwość współpracy w ramach scenariusza migracji jest bezpłatna, gdy oferty są objęte aktywnym programowaniem początkowym.
+_Jeśli interesuje Cię ścisłą pracę nad scenariuszami migracji z zespołem inżynierów, opracowując te oferty, wybierz przycisk [kontakt ze mną](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ na [stronie przeglądu Oferty Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Menedżery programów, architekty i inżynierowie będą wkrótce dotrzeć do Ciebie i zaczynają bliskią współpracę. Możliwość współpracy w ramach scenariusza migracji jest bezpłatna, gdy oferty są aktywne.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Pojedynczy węzeł serwera Oracle WebLogic Server
 
@@ -51,11 +51,11 @@ _Jeśli interesuje Cię ścisłą pracę nad scenariuszami migracji z zespołem 
 
 [Ta oferta](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster) tworzy wysoce dostępny i skalowalny dynamiczny klaster maszyn wirtualnych z systemem WLS. Serwer administracyjny i wszystkie zarządzane serwery są uruchamiane domyślnie.
 
-Rozwiązania te umożliwiają szeroką gamę architektur wdrożenia gotowych do użycia w środowisku produkcyjnym. Większość przypadków migracji można spełnić w najbardziej wydajny sposób dzięki umożliwieniu skoncentrowania się na tworzeniu aplikacji biznesowej.
+Rozwiązania te umożliwiają szeroką gamę architektur wdrożenia gotowych do użycia w środowisku produkcyjnym. Większość przypadków migracji można osiągnąć w najbardziej wydajny sposób, co pozwala skupić się na tworzeniu aplikacji biznesowej.
 
 :::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Złożone wdrożenia serwera WebLogic są włączone na platformie Azure":::
 
-Oprócz tego, co jest automatycznie obsługiwane przez rozwiązania, klienci mają pełną elastyczność, aby jeszcze bardziej dostosować swoje wdrożenia. Prawdopodobnie na podstawie wdrażania aplikacji klienci będą integrować dalsze zasoby platformy Azure ze swoimi wdrożeniami. Zachęcamy klientów do przekazywania opinii na temat dalszej poprawy rozwiązań.
+Oprócz tego, co jest automatycznie obsługiwane przez rozwiązania, klienci mają pełną elastyczność, aby jeszcze bardziej dostosować swoje wdrożenia. Prawdopodobnie na podstawie wdrażania aplikacji klienci będą integrować dalsze zasoby platformy Azure ze swoimi wdrożeniami. Zachęcamy klientów do [nawiązywania połączeń z zespołem programistycznym](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) i przesyłania opinii na temat dalszej poprawy rozwiązań.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,25 +1,25 @@
 ---
-title: Wyłącz monitorowanie w Azure Monitor dla maszyn wirtualnych
-description: W tym artykule opisano sposób zatrzymania monitorowania maszyn wirtualnych w programie Azure Monitor dla maszyn wirtualnych.
+title: Wyłącz monitorowanie w usłudze VM Insights
+description: W tym artykule opisano sposób zatrzymania monitorowania maszyn wirtualnych w usłudze VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7eca08abf1ef3bed1aa7fdd806853b94d5615854
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717064"
 ---
-# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Wyłącz monitorowanie maszyn wirtualnych w Azure Monitor dla maszyn wirtualnych
+# <a name="disable-monitoring-of-your-vms-in-vm-insights"></a>Wyłączanie monitorowania maszyn wirtualnych w usłudze VM Insights
 
-Po włączeniu monitorowania maszyn wirtualnych można później wyłączyć monitorowanie w programie Azure Monitor dla maszyn wirtualnych. W tym artykule pokazano, jak wyłączyć monitorowanie dla co najmniej jednej maszyny wirtualnej.  
+Po włączeniu monitorowania maszyn wirtualnych można później wyłączyć monitorowanie w usłudze VM Insights. W tym artykule pokazano, jak wyłączyć monitorowanie dla co najmniej jednej maszyny wirtualnej.  
 
-Obecnie Azure Monitor dla maszyn wirtualnych nie obsługuje selektywnego wyłączania monitorowania maszyn wirtualnych. Obszar roboczy Log Analytics może obsługiwać Azure Monitor dla maszyn wirtualnych i inne rozwiązania. Może również zbierać inne dane monitorowania. Jeśli obszar roboczy Log Analytics zawiera te usługi, należy zrozumieć efekt i metody wyłączenia monitorowania przed rozpoczęciem.
+Obecnie w usłudze VM Insights nie jest obsługiwane selektywne wyłączanie monitorowania maszyn wirtualnych. Obszar roboczy Log Analytics może obsługiwać szczegółowe informacje o maszynach wirtualnych i innych rozwiązaniach. Może również zbierać inne dane monitorowania. Jeśli obszar roboczy Log Analytics zawiera te usługi, należy zrozumieć efekt i metody wyłączenia monitorowania przed rozpoczęciem.
 
-Azure Monitor dla maszyn wirtualnych opiera się na następujących składnikach, aby zapewnić ich środowisko pracy:
+Informacje o usłudze VM są oparte na następujących składnikach, aby zapewnić ich środowisko pracy:
 
 * Obszar roboczy Log Analytics, w którym są przechowywane dane monitorowania z maszyn wirtualnych i innych źródeł.
 * Kolekcja liczników wydajności skonfigurowanych w obszarze roboczym. Kolekcja aktualizuje konfigurację monitorowania na wszystkich maszynach wirtualnych podłączonych do obszaru roboczego.
@@ -34,19 +34,19 @@ Przygotowując się do wyłączenia monitorowania maszyn wirtualnych, pamiętaj 
 >[!NOTE]
 > Po usunięciu składników rozwiązania z obszaru roboczego można nadal wyświetlać dane dotyczące wydajności i mapy dla maszyn wirtualnych platformy Azure. Dane zostaną ostatecznie zatrzymane w widokach **wydajność** i **Mapa** . Opcja **Włącz** będzie dostępna na wybranej maszynie wirtualnej platformy Azure, dzięki czemu można ponownie włączyć monitorowanie w przyszłości.  
 
-## <a name="remove-azure-monitor-for-vms-completely"></a>Usuń Azure Monitor dla maszyn wirtualnych całkowicie
+## <a name="remove-vm-insights-completely"></a>Całkowicie Usuń szczegółowe informacje o maszynie wirtualnej
 
-Jeśli nadal potrzebujesz obszaru roboczego Log Analytics, wykonaj następujące kroki, aby całkowicie usunąć Azure Monitor dla maszyn wirtualnych. Rozwiązanie zostanie usunięte `VMInsights` z obszaru roboczego.  
+Jeśli nadal potrzebujesz obszaru roboczego Log Analytics, wykonaj następujące kroki, aby całkowicie usunąć informacje o maszynie wirtualnej. Rozwiązanie zostanie usunięte `VMInsights` z obszaru roboczego.  
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu wpisywania lista filtruje sugestie w oparciu o dane wejściowe. Wybierz pozycję **Log Analytics**.
-3. Na liście obszarów roboczych Log Analytics wybierz obszar roboczy wybrany podczas włączania Azure Monitor dla maszyn wirtualnych.
+3. Na liście obszarów roboczych Log Analytics wybierz obszar roboczy wybrany podczas włączania usługi VM Insights.
 4. Po lewej stronie wybierz pozycję **rozwiązania**.  
 5. Na liście rozwiązań wybierz pozycję **VMInsights (nazwa obszaru roboczego)**. Na stronie **Przegląd** rozwiązania wybierz pozycję **Usuń**. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
 
 ## <a name="disable-monitoring-and-keep-the-workspace"></a>Wyłącz monitorowanie i Zachowaj obszar roboczy  
 
-Jeśli obszar roboczy Log Analytics nadal musi obsługiwać monitorowanie z innych źródeł, wykonaj następujące kroki, aby wyłączyć monitorowanie na maszynie wirtualnej użytej do oszacowania Azure Monitor dla maszyn wirtualnych. W przypadku maszyn wirtualnych platformy Azure należy usunąć rozszerzenie maszyny wirtualnej agenta zależności oraz rozszerzenie maszyny wirtualnej agenta Log Analytics dla systemu Windows lub Linux bezpośrednio z maszyny wirtualnej. 
+Jeśli obszar roboczy Log Analytics nadal musi obsługiwać monitorowanie z innych źródeł, wykonaj następujące kroki, aby wyłączyć monitorowanie na maszynie wirtualnej użytej do oszacowania szczegółowych informacji o maszynie wirtualnej. W przypadku maszyn wirtualnych platformy Azure należy usunąć rozszerzenie maszyny wirtualnej agenta zależności oraz rozszerzenie maszyny wirtualnej agenta Log Analytics dla systemu Windows lub Linux bezpośrednio z maszyny wirtualnej. 
 
 >[!NOTE]
 >Nie usuwaj agenta Log Analytics, jeśli: 

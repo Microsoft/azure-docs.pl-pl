@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372149"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693768"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Jak zbiorczo edytować elementy zawartości do słownika tagów
 
@@ -63,11 +63,15 @@ W tym artykule opisano, jak oznaczyć wiele terminów słownika do listy wybrany
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Zrzut ekranu przedstawiający warunki usuwania.":::
 
-7. Po zakończeniu zamknij blok edycji zbiorczej, wybierając pozycję **Zamknij** lub **Usuń wszystkie i Zamknij**. Wartość Zamknij nie spowoduje usunięcia wybranych zasobów. usunięcie wszystkich i zamknięcie spowoduje usunięcie wszystkich wybranych zasobów.
+7. Powtórz powyższe czynności dla klasyfikacji, właścicieli i ekspertów.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Zrzut ekranu przedstawiający warunki usuwania.":::
+
+8. Po zakończeniu zamknij blok edycji zbiorczej, wybierając pozycję **Zamknij** lub **Usuń wszystkie i Zamknij**. Wartość Zamknij nie spowoduje usunięcia wybranych zasobów. usunięcie wszystkich i zamknięcie spowoduje usunięcie wszystkich wybranych zasobów.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Zrzut ekranu przedstawiający zamknięcie.":::
 
    > [!Important]
-   > Zalecana liczba zasobów do edycji zbiorczej to 15. Wybranie więcej niż 15 może spowodować problemy z wydajnością.
+   > Zalecana liczba zasobów do edycji zbiorczej to 15. Wybranie więcej niż 25 może spowodować problemy z wydajnością.
    > **Wybrane pole widok** będzie widoczne tylko wtedy, gdy wybrano co najmniej jeden zasób.
 
 

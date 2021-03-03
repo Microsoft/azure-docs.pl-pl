@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/18/2020
+ms.date: 02/28/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 64054a2bb5c1f7e17eef87c3babb28137b6c912a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097128"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692729"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,56 +57,39 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 > * [Gremlin danych wiosennych z Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
-## <a name="start-here"></a>Zacznij tutaj
+## <a name="get-started-fast"></a>Szybkie rozpoczynanie pracy
 
-# <a name="explore"></a>[Eksplorowanie](#tab/explore)
+  Zacznij korzystać z danych wiosennych Azure Cosmos DB, postępując zgodnie z [przewodnikiem po rozpoczęciu uruchamiania sprężyny](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). Podejście do rozruchu sprężynowego jest zalecanym sposobem rozpoczęcia korzystania z łącznika Azure Cosmos DB danych sprężyny.
 
-<img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
-
-#### <a name="these-tabs-contain-basic-spring-data-azure-cosmos-db-samples"></a>Te karty zawierają podstawowe dane Azure Cosmos DB próbki.
-
-# <a name="pomxml"></a>[pom.xml](#tab/pom)
-
-### <a name="configure-dependencies"></a>Konfigurowanie zależności
+  Alternatywnie możesz dodać zależność Azure Cosmos DB danych sprężyny do `pom.xml` pliku, jak pokazano poniżej:
 
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-spring-data-cosmos</artifactId>
-      <version>latest</version>
+      <version>latest-version</version>
   </dependency>
   ```
 
-# <a name="connect"></a>[Połącz](#tab/connect)
+## <a name="helpful-content"></a>Przydatna zawartość
 
-### <a name="connect"></a>Connect
-
-Określ konto Azure Cosmos DB i szczegóły kontenera. Dane sprężynowe Azure Cosmos DB automatycznie tworzą klienta i łączą się z kontenerem.
-
-[Application. Properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties):
-```
-cosmos.uri=${ACCOUNT_HOST}
-cosmos.key=${ACCOUNT_KEY}
-cosmos.secondaryKey=${SECONDARY_ACCOUNT_KEY}
-
-dynamic.collection.name=spel-property-collection
-# Populate query metrics
-cosmos.queryMetricsEnabled=true
-```
-
-# <a name="doc-ops"></a>[Doc Ops](#tab/docs)
-
-### <a name="document-operations"></a>Operacje dokumentu
-
----
-
-## <a name="resources"></a>Zasoby
-
-* **Współtworzenie zestawu SDK** : [dane wiosenne Azure Cosmos DB repozytorium w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
-
-* **Samouczek** : [Azure Cosmos DB samouczek dotyczący sprężyny danych w witrynie GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
+| Zawartość | Link |
+|---|---|
+|**Zestaw SDK do pobrania**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
+|**Dokumentacja interfejsu API** | [Dokumentacja interfejsu API języka Java](/java/api/com.azure.spring.data.cosmos) |
+|**Współtworzenie zestawu SDK** | [Zestaw Azure SDK dla centralnego repozytorium Java w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
+|**Wprowadzenie** | [Szybki Start: Tworzenie aplikacji wiosennej Azure Cosmos DB danych w celu zarządzania Azure Cosmos DB danymi interfejsu API SQL](./create-sql-api-spring-data.md) <br> [Repozytorium GitHub z kodem szybkiego startu](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
+|**Podstawowe przykłady kodu** | [Azure Cosmos DB: sprężynowe Azure Cosmos DB danych dla interfejsu API SQL](sql-api-spring-data-sdk-samples.md) <br> [Repozytorium GitHub z przykładowym kodem](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
+| **Porady dotyczące wydajności**| [Wskazówki dotyczące wydajności dla zestawu Java SDK v4 (mające zastosowanie do sprężyny danych)](performance-tips-java-sdk-v4-sql.md)| 
+| **Rozwiązywanie problemów** | [Rozwiązywanie problemów z zestawem Java SDK v4 (dotyczy to sprężyny danych)](troubleshoot-java-sdk-v4-sql.md) | 
+| **Azure Cosmos DB warsztatów i laboratoriów** |[Strona główna Cosmos DB warsztatów](https://aka.ms/cosmosworkshop)
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
+
+## <a name="additional-notes"></a>Uwagi dodatkowe
+
+* Dane wiosenne Azure Cosmos DB obsługują Java JDK 8 i Java JDK 11.
+* Dane wiosenne 2,3 są obecnie obsługiwane, sprężynowe 2,4 dane nie są obecnie obsługiwane.
 
 ## <a name="faq"></a>Często zadawane pytania
 

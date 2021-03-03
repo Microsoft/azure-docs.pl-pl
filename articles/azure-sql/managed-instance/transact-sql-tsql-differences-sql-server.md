@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378625"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691199"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 - [UTWÓRZ INSPEKCJĘ SERWERA](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Inspekcja](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [Kontroli](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certyfikaty
 
@@ -277,7 +277,7 @@ Nie można modyfikować następujących opcji:
 - `SINGLE_USER`
 - `WITNESS`
 
-Niektóre `ALTER DATABASE` instrukcje (na przykład [ustawienie zawierania](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) mogą przejściowo kończyć się niepowodzeniem, na przykład podczas tworzenia zautomatyzowanej kopii zapasowej bazy danych lub bezpośrednio po utworzeniu bazy danych. W tej `ALTER DATABASE` instrukcji case należy ponowić próbę. Aby uzyskać więcej informacji na temat powiązanych komunikatów o błędach, zobacz [sekcję Uwagi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Niektóre `ALTER DATABASE` instrukcje (na przykład [ustawienie zawierania](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) mogą przejściowo kończyć się niepowodzeniem, na przykład podczas tworzenia zautomatyzowanej kopii zapasowej bazy danych lub bezpośrednio po utworzeniu bazy danych. W tej `ALTER DATABASE` instrukcji case należy ponowić próbę. Aby uzyskać więcej informacji na temat powiązanych komunikatów o błędach, zobacz [sekcję Uwagi](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -395,12 +395,12 @@ Aby uzyskać więcej informacji, zobacz [FILESTREAM](/sql/relational-databases/b
 Połączone serwery w wystąpieniu zarządzanym SQL obsługują ograniczoną liczbę elementów docelowych:
 
 - Obsługiwane elementy docelowe to wystąpienia zarządzane SQL, SQL Database, usługa Azure Synapse SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) i pule dedykowane oraz wystąpienia SQL Server. 
-- Rozproszone transakcje zapisywalne są możliwe tylko między wystąpieniami zarządzanymi. Aby uzyskać więcej informacji, zobacz [transakcje rozproszone](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Jednak usługa MS DTC nie jest obsługiwana.
+- Rozproszone transakcje zapisywalne są możliwe tylko między wystąpieniami zarządzanymi. Aby uzyskać więcej informacji, zobacz [transakcje rozproszone](../database/elastic-transactions-overview.md). Jednak usługa MS DTC nie jest obsługiwana.
 - Elementy docelowe, które nie są obsługiwane to pliki, Analysis Services i inne RDBMS. Spróbuj użyć natywnego importu CSV z platformy Azure Blob Storage przy użyciu `BULK INSERT` lub `OPENROWSET` jako alternatywy dla importu plików lub załadować pliki przy użyciu [puli SQL bezserwerowej w usłudze Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operacje: 
 
-- Transakcje zapisu [między wystąpieniami](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) są obsługiwane tylko dla wystąpień zarządzanych.
+- Transakcje zapisu [między wystąpieniami](../database/elastic-transactions-overview.md) są obsługiwane tylko dla wystąpień zarządzanych.
 - `sp_dropserver` jest obsługiwany w przypadku upuszczania połączonego serwera. Zobacz [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE`Funkcja może służyć do wykonywania zapytań tylko w wystąpieniach SQL Server. Mogą być zarządzane, lokalne lub na maszynach wirtualnych. Tylko `SQLNCLI` wartości, `SQLNCLI11` i `SQLOLEDB` są obsługiwane jako dostawcy. Może to być na przykład `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Zobacz [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).

@@ -86,8 +86,10 @@
               href: add-user-without-invite.md
             - name: Dostosowywanie zaproszeń przy użyciu interfejsu API
               href: customize-invitation-api.md
-        - name: Sfederować z zewnętrznymi dostawcami tożsamości
+        - name: Dostawcy tożsamości
           items:
+            - name: Konto Microsoft (wersja zapoznawcza)
+              href: microsoft-account.md
             - name: Federacja z firmą Google
               href: google-federation.md
             - name: Federacja z firmą Facebook

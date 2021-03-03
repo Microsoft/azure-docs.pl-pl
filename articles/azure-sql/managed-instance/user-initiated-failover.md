@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/23/2021
-ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660801"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691148"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Zainicjowane przez użytkownika ręczne przejście w tryb failover w usłudze SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -151,6 +151,7 @@ Krótka utrata łączności od klienta podczas pracy w trybie failover, zazwycza
 > - W przypadku wystąpień usługi BC musi istnieć kworum replik dla żądania trybu failover, które ma zostać zaakceptowane.
 > - W przypadku wystąpień usługi BC nie można określić, która odczytana replika pomocnicza ma inicjować tryb failover.
 > - Tryb failover nie będzie dozwolony do momentu ukończenia pierwszej pełnej kopii zapasowej nowej bazy danych przez automatyczne systemy tworzenia kopii zapasowych.
+> - Przełączenie w tryb failover nie będzie dozwolone, jeśli istnieje przywracanie bazy danych w toku.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o testowaniu aplikacji pod kątem gotowości do chmury dzięki [testom gotowości do pracy w chmurze w celu zapewnienia odporności na awarie przy użyciu kodu wideo wystąpienia zarządzanego SQL](https://youtu.be/FACWYLgYDL8) .

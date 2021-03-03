@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2564fd38056241fd48f58f5f6039bf64f92b6741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714412"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Co to jest Application Gateway kontroler transferu danych przychodzących?
 Application Gateway AGIC (transfer danych przychodzących) to aplikacja Kubernetes, która umożliwia klientom korzystającym z [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) korzystanie z natywnego [Application Gateway](https://azure.microsoft.com/services/application-gateway/) P7 modułu równoważenia obciążenia platformy Azure w celu udostępnienia oprogramowania chmury do Internetu. AGIC monitoruje klaster Kubernetes, na którym jest on hostowany, i ciągle aktualizuje Application Gateway, dzięki czemu wybrane usługi są dostępne w Internecie.
@@ -37,7 +37,7 @@ AGIC konfiguruje się za pośrednictwem [zasobu](https://kubernetes.io/docs/user
   - Zintegrowana Zapora aplikacji sieci Web
 
 ## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Różnica między wdrożeniem Helm i AKS Add-On
-Istnieją dwa sposoby wdrażania AGIC dla klastra AKS. Pierwszy sposób polega na Helm; Druga z nich to AKS jako dodatek. Główną zaletą wdrażania AGIC jako dodatku AKS jest znacznie prostsze niż wdrażanie przez Helm. Aby uzyskać nową konfigurację, można wdrożyć nowe Application Gateway i nowy klaster AKS z włączoną funkcją AGIC jako dodatek w jednym wierszu w interfejsie wiersza polecenia platformy Azure. Dodatek to również w pełni zarządzana usługa, która zapewnia dodatkowe korzyści, takie jak aktualizacje automatyczne i zwiększona pomoc techniczna. AGIC wdrożone za pomocą Helm nie są obsługiwane przez AKS, jednak AGIC wdrożony jako dodatek AKS jest obsługiwany przez AKS. 
+Istnieją dwa sposoby wdrażania AGIC dla klastra AKS. Pierwszy sposób polega na Helm; Druga z nich to AKS jako dodatek. Główną zaletą wdrażania AGIC jako dodatku AKS jest znacznie prostsze niż wdrażanie przez Helm. Aby uzyskać nową konfigurację, można wdrożyć nowe Application Gateway i nowy klaster AKS z włączoną funkcją AGIC jako dodatek w jednym wierszu w interfejsie wiersza polecenia platformy Azure. Dodatek to również w pełni zarządzana usługa, która zapewnia dodatkowe korzyści, takie jak aktualizacje automatyczne i zwiększona pomoc techniczna. Obie metody wdrażania AGIC (Helm i AKS) są w pełni obsługiwane przez firmę Microsoft. Ponadto dodatek umożliwia lepszą integrację z usługą AKS jako dodatkiem pierwszej klasy.
 
 Dodatek AGIC jest nadal wdrażany jako na przykład w klastrze AKS klienta, jednak istnieje kilka różnic między wersją wdrożenia Helm i wersją dodatku AGIC. Poniżej znajduje się lista różnic między dwiema wersjami: 
   - Helm wdrożenia nie mogą być modyfikowane w dodatku AKS:
@@ -50,27 +50,7 @@ Dodatek AGIC jest nadal wdrażany jako na przykład w klastrze AKS klienta, jedn
   - Ponieważ dodatek AGIC jest usługą zarządzaną, klienci zostaną automatycznie zaktualizowani do najnowszej wersji dodatku AGIC, w przeciwieństwie do AGIC wdrożonego za pomocą Helm, gdzie klient musi ręcznie zaktualizować AGIC. 
 
 > [!NOTE]
-> Metoda dodatku AGIC AKS dla wdrożenia jest obecnie dostępna w wersji zapoznawczej. Nie zalecamy uruchamiania obciążeń produkcyjnych na funkcjach dostępnych w wersji zapoznawczej, więc jeśli chcesz wiedzieć chcesz ją wypróbować, zalecamy skonfigurowanie nowego klastra w celu przetestowania go w programie. 
-
-W poniższych tabelach przedstawiono, które scenariusze są obecnie obsługiwane w przypadku Helm wdrożenia i wersji AKS dodatku AGIC. 
-
-### <a name="aks-add-on-agic-single-aks-cluster"></a>AKS — dodatek AGIC (pojedynczy klaster AKS)
-|                  |1 Application Gateway |dwie bramy aplikacji |
-|------------------|---------|--------|
-|**1 AGIC**|Tak, jest to obsługiwane |Nie, to jest w naszym zaległości |
-|**2 + AGICs**|Nie, tylko 1 AGIC obsługiwane/klaster |Nie, tylko 1 AGIC obsługiwane/klaster |
-
-### <a name="helm-deployed-agic-single-aks-cluster"></a>Helm wdrożone AGIC (pojedynczy klaster AKS)
-|                  |1 Application Gateway |dwie bramy aplikacji |
-|------------------|---------|--------|
-|**1 AGIC**|Tak, jest to obsługiwane |Nie, to jest w naszym zaległości |
-|**2 + AGICs**|Musi używać współużytkowanych funkcji ProhibitedTarget i oglądać oddzielne przestrzenie nazw |Tak, jest to obsługiwane |
-
-### <a name="helm-deployed-agic-2-aks-clusters"></a>Helm wdrożone AGIC (2 + AKS klastrów)
-|                  |1 Application Gateway |dwie bramy aplikacji |
-|------------------|---------|--------|
-|**1 AGIC**|NIE DOTYCZY |NIE DOTYCZY |
-|**2 + AGICs**|Musi używać funkcji Shared ProhibitedTarget |Brak |
+> Klienci mogą wdrażać tylko jeden dodatek AGIC na klastrze AKS, a każdy dodatek AGIC jest obecnie przeznaczony tylko do jednego Application Gateway. W przypadku wdrożeń, które wymagają więcej niż jednego AGIC na klaster lub wiele AGICs przeznaczonych dla jednego Application Gateway, należy nadal używać AGIC wdrożonych za pomocą Helm. 
 
 ## <a name="next-steps"></a>Następne kroki
 - [**AKS Add-On Greenfield Deployment**](tutorial-ingress-controller-add-on-new.md): instrukcje dotyczące instalowania dodatku AGIC, AKS i Application Gateway dla infrastruktury pustej.

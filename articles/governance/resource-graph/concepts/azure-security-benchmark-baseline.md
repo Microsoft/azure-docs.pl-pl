@@ -1,103 +1,100 @@
 ---
-title: Punkt odniesienia zabezpieczeń usługi Azure Resource Graph dla usługi Azure Security test
+title: Podstawowa baza zabezpieczeń Azure dla wykresu zasobów platformy Azure
 description: Linia bazowa zabezpieczeń grafu zasobów platformy Azure zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
 author: msmbaldwin
 ms.service: resource-graph
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a85fdf1e1e27b1ce5abb0c7890b717d48ba3bd3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738977"
 ---
-# <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Punkt odniesienia zabezpieczeń usługi Azure Resource Graph dla usługi Azure Security test
+# <a name="azure-security-baseline-for-azure-resource-graph"></a>Podstawowa baza zabezpieczeń Azure dla wykresu zasobów platformy Azure
 
-Ta linia bazowa zabezpieczeń stosuje wskazówki z [testu porównawczego zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md) do grafu zasobów platformy Azure. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące wykresu zasobów platformy Azure. Wykluczenia **nie mają** zastosowania do grafu zasobów platformy Azure. Aby dowiedzieć się, jak usługa Azure Resource Graph jest całkowicie mapowana na test porównawczy zabezpieczeń platformy Azure, zapoznaj się z [pełnym plikiem mapowania podstawy zabezpieczeń usługi azure Virtual Network](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Ta linia bazowa zabezpieczeń ma zastosowanie do grafu zasobów platformy Azure ze wskazówkami dotyczącymi [usługi Azure Security test w wersji 1,0](../../../security/benchmarks/overview-v1.md) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure.
+Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące wykresu zasobów platformy Azure. Wykluczenia **nie mają** zastosowania do grafu zasobów platformy Azure.
 
-
+ 
+Aby dowiedzieć się, jak usługa Azure Resource Graph jest całkowicie mapowana na test porównawczy zabezpieczeń Azure, zapoznaj się z [pełnym plikiem mapowania linii bazowej zabezpieczeń grafu zasobów platformy Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: tożsamość i kontrola dostępu](../../../security/benchmarks/security-control-identity-access-control.md).*
+*Aby uzyskać więcej informacji, zobacz informacje o [teście zabezpieczeń Azure: Identity i Access Control](../../../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: usługa Azure Resource Graph zapewnia dostęp do typów zasobów i właściwości na podstawie kontroli dostępu opartej na rolach (Azure RBAC). Regularnie przeprowadzaj inspekcję i przeglądanie dostępu udzielanego do podmiotów zabezpieczeń (użytkowników, grup i kont usług), aby upewnić się, że zapytania zwracają wyniki dla odpowiednich zasobów.
+**Wskazówki**: usługa Azure Resource Graph zapewnia dostęp do typów zasobów i właściwości na podstawie kontroli dostępu opartej na ROLACH (RBAC) platformy Azure. Regularnie przeprowadzaj inspekcję i przeglądanie dostępu udzielanego do podmiotów zabezpieczeń (użytkowników, grup i kont usług), aby upewnić się, że zapytania zwracają wyniki dla odpowiednich zasobów.
 
-* [Uprawnienia w usłudze Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
+- [Uprawnienia w usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
 
-* [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../../../active-directory/governance/access-reviews-overview.md)
+- [Jak korzystać z przeglądów dostępu do tożsamości platformy Azure](../../../active-directory/governance/access-reviews-overview.md)
 
+**Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: tak
-
-**Odpowiedzialność**: klient
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](../../../security/benchmarks/security-control-data-protection.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów 
 
-**Wskazówki**: Kontrola dostępu do danych i zasobów przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure. Aby korzystać z grafu zasobów platformy Azure, musisz mieć również odpowiedni dostęp do zasobów, które chcesz zbadać. Ten dostęp powinien być objęty zakresem tylko do odczytu i może być przyznany tylko do wymaganego personelu.
+**Wskazówki**: korzystanie z usługi Azure RBAC do kontrolowania dostępu do danych i zasobów. Aby korzystać z grafu zasobów platformy Azure, musisz mieć również odpowiedni dostęp do zasobów, które chcesz zbadać. Ten dostęp powinien być objęty zakresem tylko do odczytu i może być przyznany tylko do wymaganego personelu.
 
-* [Uprawnienia w usłudze Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
+- [Uprawnienia w usłudze Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
 
-* [Jak skonfigurować usługę Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
+- [Jak skonfigurować usługę Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
+**Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: obecnie niedostępna
-
-**Odpowiedzialność**: klient
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Spis i zarządzanie zasobami](../../../security/benchmarks/security-control-inventory-asset-management.md).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](../../../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania wszystkich obsługiwanych zasobów w ramach subskrypcji, grup zarządzania i dzierżawców. Upewnij się, że masz odpowiednie uprawnienia w dzierżawie i że można wyliczyć wszystkie subskrypcje platformy Azure oraz zasoby w ramach subskrypcji.
 
-* [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../first-query-portal.md)
+- [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../first-query-portal.md)
 
-* [Opis kontroli RBAC platformy Azure](../../../role-based-access-control/overview.md)
+- [Opis kontroli RBAC platformy Azure](../../../role-based-access-control/overview.md)
 
+**Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: klient
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i konserwowanie spisu zatwierdzonych zasobów platformy Azure
 
 **Wskazówki**: Tworzenie spisu zatwierdzonych zasobów platformy Azure oraz zatwierdzonego oprogramowania do zasobów obliczeniowych zgodnie z potrzebami organizacji. Użyj grafu zasobów platformy Azure, aby wykonać zapytanie o zatwierdzone zasoby platformy Azure i historię zmian (wersja zapoznawcza) w celu przejrzenia migawek i zobacz, co zmieniono.
 
-* [Tworzenie zapytań dotyczących zasobów platformy Azure za pomocą usługi Azure Resource Graph](../first-query-portal.md)
+- [Tworzenie zapytań dotyczących zasobów platformy Azure za pomocą usługi Azure Resource Graph](../first-query-portal.md)
 
-* [Uzyskiwanie zmian zasobów](../how-to/get-resource-changes.md)
+- [Uzyskiwanie zmian zasobów](../how-to/get-resource-changes.md)
 
+**Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: klient
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania zasobów w ramach subskrypcji, grup zarządzania i dzierżawców. Upewnij się, że wszystkie zasoby platformy Azure w środowisku są zatwierdzone.
 
-* [Tworzenie zapytań dotyczących zasobów platformy Azure za pomocą usługi Azure Resource Graph](../first-query-portal.md)
+- [Tworzenie zapytań dotyczących zasobów platformy Azure za pomocą usługi Azure Resource Graph](../first-query-portal.md)
 
-* [Przykłady: początkowe zapytania dla wykresu zasobów platformy Azure](../samples/starter.md)
+- [Przykłady: początkowe zapytania dla wykresu zasobów platformy Azure](../samples/starter.md)
 
+**Odpowiedzialność**: Klient
 
-**Monitorowanie Azure Security Center**: nie dotyczy
-
-**Odpowiedzialność**: klient
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](../../../security/benchmarks/overview.md)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../../../security/benchmarks/security-baselines-overview.md)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

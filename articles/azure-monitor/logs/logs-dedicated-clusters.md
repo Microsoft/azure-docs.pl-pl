@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614043"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707646"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -34,7 +34,7 @@ Po utworzeniu klastra można go skonfigurować i połączyć z nim obszary roboc
 
 Dane pozyskane do dedykowanych klastrów są szyfrowane dwa razy — raz na poziomie usługi przy użyciu kluczy zarządzanych przez firmę Microsoft lub [klucza zarządzanego przez klienta](../logs/customer-managed-keys.md), a raz na poziomie infrastruktury przy użyciu dwóch różnych algorytmów szyfrowania i dwóch różnych kluczy. [Szyfrowanie podwójne](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W takim przypadku dodatkowa warstwa szyfrowania nadal chroni dane. Dedykowany klaster umożliwia również ochronę danych za pomocą kontrolki [skrytki](../logs/customer-managed-keys.md#customer-lockbox-preview) .
 
-Wszystkie operacje na poziomie klastra wymagają `Microsoft.OperationalInsights/clusters/write` uprawnienia akcja w klastrze. To uprawnienie można udzielić za pośrednictwem właściciela lub współautora, który zawiera `*/write` akcję, lub za pośrednictwem roli współautor log Analytics, która zawiera `Microsoft.OperationalInsights/*` akcję. Aby uzyskać więcej informacji na temat uprawnień Log Analytics, zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](../platform/manage-access.md). 
+Wszystkie operacje na poziomie klastra wymagają `Microsoft.OperationalInsights/clusters/write` uprawnienia akcja w klastrze. To uprawnienie można udzielić za pośrednictwem właściciela lub współautora, który zawiera `*/write` akcję, lub za pośrednictwem roli współautor log Analytics, która zawiera `Microsoft.OperationalInsights/*` akcję. Aby uzyskać więcej informacji na temat uprawnień Log Analytics, zobacz [Zarządzanie dostępem do danych dziennika i obszarów roboczych w programie Azure monitor](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Model cenowy klastra
@@ -77,7 +77,7 @@ Należy określić następujące właściwości:
 - **ClusterName**: służy do celów administracyjnych. Użytkownicy nie są narażeni na tę nazwę.
 - **ResourceGroupName**: podobnie jak w przypadku dowolnego zasobu platformy Azure, klastry należą do grupy zasobów. Zalecamy korzystanie z centralnej grupy zasobów IT, ponieważ klastry są zwykle udostępniane przez wiele zespołów w organizacji. Aby uzyskać więcej informacji dotyczących projektowania, zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](../logs/design-logs-deployment.md)
 - **Lokalizacja**: klaster znajduje się w określonym regionie platformy Azure. Tylko obszary robocze znajdujące się w tym regionie mogą być połączone z tym klastrem.
-- **SkuCapacity**: należy określić poziom *rezerwacji zdolności produkcyjnych* (SKU) podczas tworzenia zasobu *klastra* . Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 gb do 3 000 GB dziennie. W razie konieczności można ją zaktualizować w krokach 100 w dalszej części. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 3 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . Aby uzyskać więcej informacji na temat kosztów klastrów, zobacz [Zarządzanie kosztami klastrów log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **SkuCapacity**: należy określić poziom *rezerwacji zdolności produkcyjnych* (SKU) podczas tworzenia zasobu *klastra* . Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 gb do 3 000 GB dziennie. W razie konieczności można ją zaktualizować w krokach 100 w dalszej części. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 3 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . Aby uzyskać więcej informacji na temat kosztów klastrów, zobacz [Zarządzanie kosztami klastrów log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Po utworzeniu zasobu *klastra* można edytować dodatkowe właściwości, takie jak *SKU*, * keyVaultProperties lub *rozliczeń*. Zobacz więcej szczegółów poniżej.
 
@@ -300,7 +300,7 @@ Po utworzeniu zasobu *klastra* , który jest w pełni zainicjowany, można edyto
 - **keyVaultProperties** — aktualizuje klucz w Azure Key Vault. Zobacz temat [Aktualizowanie klastra przy użyciu identyfikatora klucza](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Zawiera następujące parametry: *KeyVaultUri*, *KeyName*, *wersja* klucza. 
 - **rozliczenia** — Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
   - **Klaster** (domyślnie) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
-  - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
+  - **Obszary robocze** — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](./manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
 
 > [!NOTE]
 > Właściwość *rozliczeniatype* nie jest obsługiwana w programie PowerShell.
@@ -573,5 +573,5 @@ Aby usunąć klaster, użyj następującego wywołania REST:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [log Analytics rozliczania dedykowanego klastra](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Dowiedz się więcej o [log Analytics rozliczania dedykowanego klastra](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Dowiedz się więcej o [odpowiednim projekcie log Analytics obszarów roboczych](../logs/design-logs-deployment.md)

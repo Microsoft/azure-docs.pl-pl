@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386718"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721024"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia w Azure Database for MySQL
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych. Zapoznaj się również z [ogólnymi ograniczeniami](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) dotyczącymi aparatu bazy danych MySQL.
@@ -29,7 +29,7 @@ Wtyczki hasła, takie jak "validate_password" i "caching_sha2_password", nie są
 
 ## <a name="storage-engines"></a>Aparaty pamięci masowej
 
-Program MySQL obsługuje wiele aparatów pamięci masowej. Na Azure Database for MySQL elastycznym serwerze obsługiwane są następujące aparaty magazynu:
+Program MySQL obsługuje wiele aparatów pamięci masowej. Na Azure Database for MySQL następujące aparaty magazynu są obsługiwane i nieobsługiwane:
 
 ### <a name="supported"></a>Obsługiwane
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

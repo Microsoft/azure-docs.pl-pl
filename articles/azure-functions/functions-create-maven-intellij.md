@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: ed8948ddeddf25272355cd1dc06d4e95c52f7f62
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708819"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Tworzenie pierwszej funkcji języka Java na platformie Azure przy użyciu IntelliJ
 
@@ -56,7 +56,7 @@ Aby tworzyć i publikować funkcje języka Java na platformie Azure przy użyciu
 
    ![Przeglądarka z oknem logowania do urządzenia][intellij-azure-link-ms-account]
 
-6. W oknie dialogowym **Select Subscriptions** (Wybieranie subskrypcji) wybierz subskrypcje do użycia, a następnie kliknij przycisk **OK**.
+6. W oknie dialogowym **Wybieranie subskrypcji** wybierz subskrypcje, których chcesz użyć, a następnie kliknij przycisk **Wybierz**.
 
    ![Okno dialogowe Select Subscriptions (Wybieranie subskrypcji)][intellij-azure-login-select-subs]
    

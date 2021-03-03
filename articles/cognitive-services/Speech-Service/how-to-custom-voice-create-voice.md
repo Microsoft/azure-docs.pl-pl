@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 541448f08e4ce9961d34063dcc225bf89d969a73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524519"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703375"
 ---
 # <a name="create-a-custom-voice"></a>Tworzenie niestandardowego głosu
 
@@ -60,7 +60,7 @@ Rozważ ponowne nagranie wszelkich wyrażenia długości z wynikami niskiej wymo
 
 > [!NOTE]
 > W przypadku korzystania z niestandardowego głosu neuronowych należy zarejestrować talent głosu na karcie **Voice talent** . Podczas przygotowywania skryptu nagrywania upewnij się, że dołączysz poniższe zdanie, aby uzyskać potwierdzenie Talenti głosu przy użyciu danych głosowych, aby utworzyć model głosu TTS i wygenerować syntetyczną mowę. "I [stan imię i nazwisko] wie, że nagrania mojego głosu będą używane przez użytkownika [Nadaj nazwę firmie] do tworzenia i używania syntetycznej wersji mojego głosu".
-To zdanie zostanie użyte do sprawdzenia, czy nagrania w zestawach danych szkoleniowych są wykonywane przez tę samą osobę, która wyraża zgodę. [Dowiedz się więcej na temat sposobu przetwarzania danych i sposobu weryfikacji talent głosu](https://aka.ms/CNV-data-privacy). 
+To zdanie zostanie użyte do sprawdzenia, czy nagrania w zestawach danych szkoleniowych są wykonywane przez tę samą osobę, która wyraża zgodę. [Dowiedz się więcej na temat sposobu przetwarzania danych i sposobu weryfikacji talent głosu](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## <a name="build-your-custom-voice-model"></a>Tworzenie niestandardowego modelu głosu
 
@@ -87,7 +87,7 @@ Po sprawdzeniu poprawności zestawu danych można go użyć do utworzenia niesta
 5. Wybierz **metodę uczenia** w następnym kroku. 
 
     > [!NOTE]
-    > Jeśli chcesz przeprowadzić uczenie głosu neuronowych, musisz określić profil talenta głosowego z plikiem zgody na dźwięk dostarczonym w przypadku głosu talent, aby użyć jego danych mowy do uczenia niestandardowego modelu głosowego. Niestandardowy głos neuronowych jest dostępny z ograniczonym dostępem. Upewnij się, że rozumiesz odpowiednie [wymagania AI](https://aka.ms/gating-overview) , i [Zastosuj tutaj dostęp](https://aka.ms/customneural). 
+    > Jeśli chcesz przeprowadzić uczenie głosu neuronowych, musisz określić profil talenta głosowego z plikiem zgody na dźwięk dostarczonym w przypadku głosu talent, aby użyć jego danych mowy do uczenia niestandardowego modelu głosowego. Niestandardowy głos neuronowych jest dostępny z ograniczonym dostępem. Upewnij się, że rozumiesz odpowiednie [wymagania AI](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) , i [Zastosuj tutaj dostęp](https://aka.ms/customneural). 
     
     Na tej stronie możesz również wybrać opcję przekazania skryptu do testowania. Skrypt testowy musi być plikiem txt, mniejszym niż 1 MB. Obsługiwany format kodowania obejmuje ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE lub UTF-16. W każdym akapicie wypowiedź zostanie oddzielny dźwięk. Jeśli chcesz połączyć wszystkie zdania w jeden dźwięk, wprowadź je w jednym akapicie. 
 
@@ -126,7 +126,7 @@ Każde szkolenie spowoduje automatyczne wygenerowanie 100 przykładowych plików
 
 3.  Na stronie Szczegóły modelu można znaleźć przykładowe pliki audio na karcie **testowanie** . 
 
-Jakość głosu zależy od wielu czynników, w tym rozmiaru danych szkoleniowych, jakości nagrania, dokładności pliku transkrypcji, jak dobrze zarejestrowany głos w danych szkoleniowych pasuje do osobowości zamierzonego głosu na potrzeby planowanego użycia i nie tylko. Zapoznaj się [z tym tutaj, aby dowiedzieć się więcej o możliwościach i ograniczeniach naszej technologii oraz najlepszych sposobach poprawy jakości modelu](https://aka.ms/CNV-limits). 
+Jakość głosu zależy od wielu czynników, w tym rozmiaru danych szkoleniowych, jakości nagrania, dokładności pliku transkrypcji, jak dobrze zarejestrowany głos w danych szkoleniowych pasuje do osobowości zamierzonego głosu na potrzeby planowanego użycia i nie tylko. Zapoznaj się [z tym tutaj, aby dowiedzieć się więcej o możliwościach i ograniczeniach naszej technologii oraz najlepszych sposobach poprawy jakości modelu](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Tworzenie niestandardowego punktu końcowego głosu i korzystanie z niego
 

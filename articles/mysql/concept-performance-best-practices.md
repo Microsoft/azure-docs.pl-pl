@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727162"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Najlepsze rozwiązania w zakresie optymalnej wydajności Azure Database for MySQL pojedynczego serwera
 
@@ -65,7 +65,7 @@ Zalecamy testowanie i monitorowanie czasu ponownego uruchomienia, aby upewnić s
 Aby zapisać stan puli buforów podczas zamykania serwera, ustaw parametr serwera `innodb_buffer_pool_dump_at_shutdown` na `ON` . Analogicznie ustaw parametr Server `innodb_buffer_pool_load_at_startup` na, aby `ON` przywrócić stan puli buforów podczas uruchamiania serwera. Można kontrolować wpływ na czas uruchamiania/ponownego uruchamiania przez obniżenie i dostosowanie wartości parametru serwera `innodb_buffer_pool_dump_pct` . Domyślnie ten parametr jest ustawiony na `25` .
 
 > [!Note]
-> Parametry rozgrzewania puli buforów InnoDB są obsługiwane tylko na serwerach magazynu ogólnego przeznaczenia z magazynem o pojemności do 16 TB. Dowiedz się więcej na temat [opcji magazynu Azure Database for MySQL w tym miejscu](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
+> Parametry rozgrzewania puli buforów InnoDB są obsługiwane tylko na serwerach magazynu ogólnego przeznaczenia z magazynem o pojemności do 16 TB. Dowiedz się więcej na temat [opcji magazynu Azure Database for MySQL w tym miejscu](./concepts-pricing-tiers.md#storage).
 
 ## <a name="next-steps"></a>Następne kroki
 

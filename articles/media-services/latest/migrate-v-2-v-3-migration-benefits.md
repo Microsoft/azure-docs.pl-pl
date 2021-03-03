@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698845"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Krok 1. zapoznanie się z zaletami migracji do Media Services API v3
 
@@ -38,7 +38,7 @@ Wprowadzono znaczne ulepszenia Media Services w wersji 3.
 | Aktualizacje Azure Portal | Azure Portal zostało zaktualizowane w celu uwzględnienia zarządzania jednostkami interfejsu API v3. Umożliwia ona klientom korzystanie z portalu do uruchamiania przesyłania strumieniowego na żywo, przesyłanie zadań transformacji v3, zarządzanie zasadami ochrony zawartości, punktami końcowymi przesyłania strumieniowego, uzyskiwanie dostępu do interfejsu API, Zarządzanie połączonymi kontami magazynu i wykonywanie zadań monitorowania. |
 | **Konta i magazyn** | |
 | Kontrola dostępu oparta na rolach (RBAC) na platformie Azure | Klienci mogą teraz definiować własne role i kontrolować dostęp do każdej jednostki w interfejsie API usługi Media Services ARM. Ułatwia to kontrolowanie dostępu do zasobów według kont usługi AAD. |
-| Tożsamości zarządzane | Tożsamości zarządzane eliminują konieczność zarządzania poświadczeniami przez deweloperów, dostarczając tożsamość dla zasobu platformy Azure w usłudze Azure AD. Zobacz szczegóły dotyczące tożsamości zarządzanych [tutaj](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Tożsamości zarządzane | Tożsamości zarządzane eliminują konieczność zarządzania poświadczeniami przez deweloperów, dostarczając tożsamość dla zasobu platformy Azure w usłudze Azure AD. Zobacz szczegóły dotyczące tożsamości zarządzanych [tutaj](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Obsługa linków prywatnych | Klienci będą uzyskiwać dostęp do Media Services punktów końcowych w celu dostarczania kluczy, LiveEvents i StreamingEndpoints za pośrednictwem PrivateEndpoint w swojej sieci wirtualnej. |
 | [Klucze zarządzane przez klienta](concept-use-customer-managed-keys-byok.md) lub zapewniają obsługę własnych kluczy (BYOK) | Klienci mogą szyfrować dane na koncie Media Services przy użyciu klucza w ich Azure Key Vault. |
 | **Elementy zawartości** | |

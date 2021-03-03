@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adbd7deccf32312f67cff7b92ff7813036e9b1b3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4623610960d8f21a2dab3293c7499a2112416254
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898532"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101718917"
 ---
 # <a name="create-a-transform"></a>Tworzenie przekształcenia
 
@@ -33,8 +33,6 @@ Skrypt interfejsu wiersza polecenia platformy Azure w tym artykule pokazuje spos
 [Utwórz konto Media Services](./create-account-howto.md).
 
 ## <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
 > Można określić tylko ścieżkę do niestandardowego pliku JSON domyślnego kodera dla [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset), zobacz przykład [kodowania z niestandardowym przekształceniem](custom-preset-cli-howto.md) .
@@ -53,4 +51,4 @@ Skrypt interfejsu wiersza polecenia platformy Azure w tym artykule pokazuje spos
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Więcej informacji o transformacjech i zadaniach](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717149"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -26,7 +26,7 @@ W tym artykule opisano szczegóły dotyczące dołączania i korzystania z Servi
 * [Agent zależności](vminsights-enable-overview.md#agents) zainstalowany na komputerze z systemem Windows lub Linux.
 
 >[!NOTE]
->Jeśli wdrożono już Service Map, można teraz również przeglądać mapy w Azure Monitor dla maszyn wirtualnych, co obejmuje dodatkowe funkcje monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Azure monitor dla maszyn wirtualnych Omówienie](../vm/vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy Azure Monitor dla maszyn wirtualnych, zobacz poniższe [często zadawane pytania](../faq.md#azure-monitor-for-vms).
+>Jeśli wdrożono już Service Map, możesz również wyświetlić mapy w usłudze VM Insights, która zawiera dodatkowe funkcje do monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Omówienie usługi VM Insights](../vm/vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy usługi VM Insights, zobacz poniższe [często zadawane pytania](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -241,7 +241,7 @@ Service Map integruje się z funkcją wyszukiwania w dziennikach, aby wyświetli
 
 ## <a name="service-desk-integration"></a>Integracja z obsługą techniczną
 
-Integracja Service Map z łącznik zarządzania usługami IT jest automatyczna, gdy oba rozwiązania zostały włączone i skonfigurowane w obszarze roboczym Log Analytics. Integracja w Service Map ma etykietę "Service Desk". Aby uzyskać więcej informacji, zobacz [centralne zarządzanie narzędzia ITSM elementami roboczymi przy użyciu Łącznik zarządzania usługami IT](../platform/itsmc-overview.md).
+Integracja Service Map z łącznik zarządzania usługami IT jest automatyczna, gdy oba rozwiązania zostały włączone i skonfigurowane w obszarze roboczym Log Analytics. Integracja w Service Map ma etykietę "Service Desk". Aby uzyskać więcej informacji, zobacz [centralne zarządzanie narzędzia ITSM elementami roboczymi przy użyciu Łącznik zarządzania usługami IT](../alerts/itsmc-overview.md).
 
 W okienku **usługi Machine Service** jest wyświetlane wszystkie zdarzenia zarządzania usługą IT dla wybranego serwera w wybranym zakresie czasu. Na serwerze zostanie wyświetlona ikona, jeśli istnieją bieżące elementy, a w okienku stanowiska usługi Machine Service znajduje się lista.
 
@@ -304,7 +304,7 @@ W okienku **aktualizacje komputera** są wyświetlane dane z rozwiązania Update
 
 ## <a name="log-analytics-records"></a>Rekordy usługi Log Analytics
 
-Service Map komputer i dane spisu procesu są dostępne do [wyszukiwania](../log-query/log-query-overview.md) w log Analytics. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
+Service Map komputer i dane spisu procesu są dostępne do [wyszukiwania](../logs/log-query-overview.md) w log Analytics. Te dane można zastosować do scenariuszy, które obejmują Planowanie migracji, analizę pojemności, odnajdywanie i rozwiązywanie problemów z wydajnością na żądanie.
 
 Jeden rekord jest generowany na godzinę dla każdego unikatowego komputera i procesu, oprócz rekordów generowanych podczas uruchamiania procesu lub komputera w celu Service Map. Te rekordy mają właściwości w poniższych tabelach. Pola i wartości w ServiceMapComputer_CL zdarzenia są mapowane na pola zasobu maszyny w interfejsie API usługi ServiceMap Azure Resource Manager. Pola i wartości w zdarzeniach ServiceMapProcess_CL są mapowane na pola zasobu procesu w interfejsie API usługi ServiceMap Azure Resource Manager. Pole ResourceName_s pasuje do pola Nazwa w odpowiednim zasobie Menedżer zasobów. 
 
@@ -550,7 +550,7 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [przeszukiwaniu dzienników](../log-query/log-query-overview.md) w log Analytics, aby pobrać dane zbierane przez Service map.
+Dowiedz się więcej o [przeszukiwaniu dzienników](../logs/log-query-overview.md) w log Analytics, aby pobrać dane zbierane przez Service map.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

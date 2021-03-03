@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534683"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735543"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -258,6 +258,7 @@ Podwójne szyfrowanie w spoczynku | Obsługiwane | Dowiedz się więcej na temat
 Azure Disk Encryption (ADE) dla systemu operacyjnego Windows | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. |
 Azure Disk Encryption (ADE) dla systemu operacyjnego Linux | Obsługiwane w przypadku maszyn wirtualnych z dyskami zarządzanymi. | Maszyny wirtualne korzystające z dysków niezarządzanych nie są obsługiwane. <br/><br/> Klucze chronione przez moduł HSM nie są obsługiwane. <br/><br/> Szyfrowanie pojedynczych woluminów na pojedynczym dysku nie jest obsługiwane. <br><br> Znany problem dotyczący włączania replikacji. [Dowiedz się więcej.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Obrót klucza SAS | Nieobsługiwane | Jeśli klucz sygnatury dostępu współdzielonego dla kont magazynu zostanie obrócony, klient musi wyłączyć i ponownie włączyć replikację. |
+Buforowanie hosta | Obsługiwane
 Dodawanie gorące    | Obsługiwane | W przypadku maszyn wirtualnych korzystających z dysków zarządzanych można włączyć replikację dla dysku danych dodawanego do zreplikowanej maszyny wirtualnej platformy Azure. <br/><br/> Tylko jeden dysk można dodać do maszyny wirtualnej platformy Azure jednocześnie. Równoległe Dodawanie wielu dysków nie jest obsługiwane. |
 Gorąca usuwanie dysku    | Nieobsługiwane | Jeśli usuniesz dysk z danymi na maszynie wirtualnej, musisz wyłączyć replikację i ponownie włączyć replikację dla maszyny wirtualnej.
 Wykluczanie dysku | Pomocy. Aby skonfigurować program, należy użyć [programu PowerShell](azure-to-azure-exclude-disks.md) . |    Dyski tymczasowe są domyślnie wykluczone.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6f677c8753f09e146d300186e19217568952b417
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705402"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia i zmiany jednostek między Media Services V2 i V3
 
@@ -73,7 +73,7 @@ Zapoznaj się z konwencjami nazewnictwa, które są stosowane do zasobów Media 
 | **Kodowanie** <!--new row --> |||
 | Kodowanie szybkości transmisji bitów <!--new row --> | szybkość transmisji bitów mierzona w KB/s: 128 (KB/s)| bity na sekundę: 128000 (bity/s)|
 | Kodowanie FairPlay DRM <!--new row --> | W Media Services V2 można określić wektor inicjalizacji (IV). | W Media Services V3 nie można określić FairPlay IV.|
-| Koder w warstwie Premium <!--new row --> | Koder w warstwie Premium i starszy indeksator| [Koder w warstwie Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) i starsze [procesory analizy multimediów](https://docs.microsoft.com/azure/media-services/previous/legacy-components) (Azure Media Services Indexer 2 — wersja zapoznawcza, Front redactor itp.) nie są dostępne za pośrednictwem wersji 3. Dodaliśmy obsługę mapowania kanału dźwiękowego do kodera standardowego.  Zapoznaj [się z artykułem audio w dokumentacji programu Media Servicesing Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Zobacz tematy dotyczące kodowania w [kodowaniu opartym na scenariuszu](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Koder w warstwie Premium <!--new row --> | Koder w warstwie Premium i starszy indeksator| [Koder w warstwie Premium](../previous/media-services-encode-asset.md) i starsze [procesory analizy multimediów](../previous/legacy-components.md) (Azure Media Services Indexer 2 — wersja zapoznawcza, Front redactor itp.) nie są dostępne za pośrednictwem wersji 3. Dodaliśmy obsługę mapowania kanału dźwiękowego do kodera standardowego.  Zapoznaj [się z artykułem audio w dokumentacji programu Media Servicesing Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Zobacz tematy dotyczące kodowania w [kodowaniu opartym na scenariuszu](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transformacje i zadania** <!--new row -->|||
 | Przetwarzanie przy użyciu protokołu HTTPS na podstawie zadania <!--new row --> |<!-- empty -->| W przypadku przetwarzania zadań opartych na plikach można użyć adresu URL protokołu HTTPS jako dane wejściowe. Nie musisz mieć już zawartości przechowywanej na platformie Azure ani nie musisz tworzyć zasobów. |
 | Szablony usługi ARM dla zadań <!--new row --> | Szablony ARM nie istnieją w wersji 2. | Przekształcenie może służyć do kompilowania konfiguracji do wielokrotnego użytku, tworzenia Azure Resource Manager szablonów i izolowania ustawień przetwarzania między wieloma klientami lub dzierżawcami. |

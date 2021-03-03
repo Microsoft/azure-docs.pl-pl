@@ -1,30 +1,24 @@
 ---
-title: Rozwiązywanie problemów z ConstrainedAllocationFailed podczas wdrażania usługi w chmurze na platformie Azure | Microsoft Docs
-description: W tym artykule opisano sposób rozwiązywania wyjątku ConstrainedAllocationFailed podczas wdrażania usługi w chmurze na platformie Azure.
+title: Rozwiązywanie problemów z ConstrainedAllocationFailed podczas wdrażania usługi w chmurze (klasycznej) na platformie Azure | Microsoft Docs
+description: W tym artykule opisano sposób rozwiązywania wyjątku ConstrainedAllocationFailed podczas wdrażania usługi w chmurze (klasycznej) na platformie Azure.
 services: cloud-services
 author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: de344bbcd89158676bacf2a8aa1743d282700b9d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/22/2021
+ms.openlocfilehash: 346e7eb77039ab80e6f9dffb8ea8360198040504
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738291"
 ---
-# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-to-azure"></a>Rozwiązywanie problemów z ConstrainedAllocationFailed podczas wdrażania usługi w chmurze na platformie Azure
+# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Rozwiązywanie problemów z ConstrainedAllocationFailed podczas wdrażania usługi w chmurze (klasycznej) na platformie Azure
 
-W tym artykule opisano Rozwiązywanie problemów z błędami alokacji, w których usługa Azure Cloud Services nie może zostać wdrożona ze względu na ograniczenia.
+W tym artykule opisano Rozwiązywanie problemów z błędami alokacji w przypadku, gdy usługi Azure Cloud Services (klasyczny) nie mogą zostać wdrożone ze względu na ograniczenia alokacji.
 
-Microsoft Azure przydzielane, gdy jesteś:
-
-- Uaktualnianie wystąpień usług Cloud Services
-
-- Dodawanie nowych wystąpień roli sieci Web lub procesu roboczego
-
-- Wdrażanie wystąpień do usługi w chmurze
+W przypadku wdrażania wystąpień do usługi w chmurze (klasycznej) lub dodawania nowych wystąpień roli sieci Web lub procesu roboczego Microsoft Azure przydziela zasoby obliczeniowe.
 
 Czasami możesz otrzymywać błędy podczas tych operacji nawet przed osiągnięciem limitu subskrypcji platformy Azure.
 
@@ -33,9 +27,11 @@ Czasami możesz otrzymywać błędy podczas tych operacji nawet przed osiągnię
 
 ## <a name="symptom"></a>Objaw
 
-W Azure Portal przejdź do usługi w chmurze, a następnie na pasku bocznym wybierz pozycję *dzienniki operacji (klasyczny)* , aby wyświetlić dzienniki.
+W Azure Portal przejdź do usługi w chmurze (klasycznej), a następnie na pasku bocznym wybierz pozycję *dziennik operacji (klasyczny)* , aby wyświetlić dzienniki.
 
-Podczas inspekcji dzienników usługi w chmurze zobaczysz następujący wyjątek:
+![Obraz przedstawia blok dziennik operacji (klasyczny).](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-allocation-logs.png)
+
+Podczas inspekcji dzienników usługi w chmurze (klasycznej) zobaczysz następujący wyjątek:
 
 |Typ wyjątku  |Komunikat o błędzie  |
 |---------|---------|
@@ -43,99 +39,42 @@ Podczas inspekcji dzienników usługi w chmurze zobaczysz następujący wyjątek
 
 ## <a name="cause"></a>Przyczyna
 
-Występuje problem z pojemnością w ramach tego regionu lub klastra, na którym jest wdrażana. Występuje, gdy wybrana jednostka SKU zasobu nie jest dostępna dla określonej lokalizacji.
+Po wdrożeniu pierwszego wystąpienia w usłudze w chmurze (w ramach przemieszczania lub produkcji) usługa w chmurze jest przypięta do klastra.
 
-> [!NOTE]
-> Gdy pierwszy węzeł usługi w chmurze zostanie wdrożony, zostanie on *przypięty* do puli zasobów. Pula zasobów może być pojedynczym klastrem lub grupą klastrów.
->
-> W miarę upływu czasu zasoby w tej puli zasobów mogą być w pełni wykorzystane. Jeśli usługa w chmurze wykonuje żądanie alokacji dodatkowych zasobów, gdy w przypiętej puli zasobów są dostępne niewystarczające zasoby, żądanie spowoduje [Niepowodzenie alokacji](cloud-services-allocation-failures.md).
+W miarę upływu czasu zasoby w tym klastrze mogą być w pełni wykorzystane. Jeśli usługa w chmurze (klasyczna) wykonuje żądanie alokacji w celu uzyskania większej ilości zasobów w przypadku, gdy w przypiętym klastrze są dostępne niewystarczające zasoby, żądanie spowoduje niepowodzenie alokacji. Aby uzyskać więcej informacji, zobacz [typowe problemy związane z błędami alokacji](cloud-services-allocation-failures.md#common-issues).
 
 ## <a name="solution"></a>Rozwiązanie
 
-W tym scenariuszu należy wybrać inny region lub jednostkę SKU, w której ma zostać wdrożona usługa w chmurze. Przed wdrożeniem lub uaktualnieniem usługi w chmurze możesz określić, które jednostki SKU są dostępne w obszarze regionu lub strefy dostępności. Postępuj zgodnie z poniższymi procesami interfejsu [wiersza polecenia platformy Azure](#list-skus-in-region-using-azure-cli), [programu PowerShell](#list-skus-in-region-using-powershell)lub [interfejsem API REST](#list-skus-in-region-using-rest-api) .
+Istniejące usługi w chmurze są *przypięte* do klastra. Wszelkie dalsze wdrożenia usługi w chmurze (klasycznej) będą wykonywane w tym samym klastrze.
 
-### <a name="list-skus-in-region-using-azure-cli"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu interfejsu wiersza polecenia platformy Azure
+W przypadku wystąpienia błędu alokacji w tym scenariuszu zalecanym sposobem działania jest ponowne wdrożenie do nowej usługi w chmurze (klasycznej) (i aktualizacja *rekordu CNAME*).
 
-Możesz użyć polecenia [AZ VM list-SKU](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) .
+> [!TIP]
+> To rozwiązanie ma największą szansę na powodzenie, ponieważ pozwala platformie na wybór spośród wszystkich klastrów w tym regionie.
 
-- Użyj `--location` parametru, aby odfiltrować dane wyjściowe do lokalizacji, której używasz.
-- Użyj `--size` parametru, aby wyszukać według częściowej nazwy rozmiaru.
-- Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów dotyczących niedostępnej jednostki SKU](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli) .
+> [!NOTE]
+> To rozwiązanie powinno mieć zero przestojów.
 
-    **Na przykład:**
+1. Wdróż obciążenie w nowej usłudze w chmurze (klasycznej).
+    - Dalsze instrukcje można znaleźć w przewodniku [jak utworzyć i wdrożyć usługę w chmurze (klasyczną)](cloud-services-how-to-create-deploy-portal.md) .
 
-    ```azurecli
-    az vm list-skus --location southcentralus --size Standard_F --output table
-    ```
+    > [!WARNING]
+    > Jeśli nie chcesz stracić adresu IP skojarzonego z tym miejscem wdrożenia, możesz użyć [rozwiązania 3 — Zachowaj adres IP](cloud-services-allocation-failures.md#solutions).
 
-    **Przykładowe wyniki:** ![ W danych wyjściowych interfejsu wiersza polecenia platformy Azure można uruchomić polecenie "AZ VM list-SKU--Location southcentralus--size Standard_F--Output Table", które wyświetla dostępne jednostki SKU.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
+1. Zaktualizuj rekord *CNAME* lub *A* , aby wskazywał ruch do nowej usługi w chmurze (klasycznej).
+    - Dalsze instrukcje można znaleźć w temacie [Konfigurowanie niestandardowej nazwy domeny dla przewodnika usługi Azure Cloud Service (klasyczny)](cloud-services-custom-domain-name-portal.md#understand-cname-and-a-records) .
 
-#### <a name="list-skus-in-region-using-powershell"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu programu PowerShell
+1. Gdy zerowy ruch przechodzi do starej lokacji, można usunąć starą usługę w chmurze (klasyczną).
+    - Dalsze instrukcje można znaleźć w przewodniku [usuwanie wdrożeń i usługi w chmurze (klasycznej)](cloud-services-how-to-manage-portal.md#delete-deployments-and-a-cloud-service) .
+    - Aby wyświetlić ruch sieciowy w usłudze w chmurze (klasyczny), zobacz [wprowadzenie do monitorowania usługi w chmurze (klasycznego)](cloud-services-how-to-monitor.md).
 
-Można użyć polecenia [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) .
-
-- Filtruj wyniki według lokalizacji.
-- Dla tego polecenia trzeba mieć najnowszą wersję programu PowerShell.
-- Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów dotyczących niedostępnej jednostki SKU](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell) .
-
-**Na przykład:**
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
-```
-
-**Inne przydatne polecenia:**
-
-Odfiltruj lokalizacje, które zawierają rozmiar (Standard_DS14_v2):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-```
-
-Odfiltruj wszystkie lokalizacje, które zawierają rozmiar (V3):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
-
-#### <a name="list-skus-in-region-using-rest-api"></a>Wyświetlanie listy jednostek SKU w regionie przy użyciu interfejsu API REST
-
-Możesz użyć operacji [SKU zasobów — lista](https://docs.microsoft.com/rest/api/compute/resourceskus/list) . Zwraca dostępne jednostki SKU i regiony w następującym formacie:
-
-```json
-{
-  "value": [
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A0",
-      "tier": "Standard",
-      "size": "A0",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A1",
-      "tier": "Standard",
-      "size": "A1",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    <Rest_of_your_file_is_located_here...>
-  ]
-}
-    
-```
+Zobacz [Rozwiązywanie problemów z błędami alokacji usługi w chmurze (klasycznej) | Microsoft Docs](cloud-services-allocation-failures.md#common-issues) w celu wykonania dalszych czynności naprawczych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej rozwiązań dotyczących błędów alokacji i lepiej zrozumieć, jak są generowane:
+Aby uzyskać więcej informacji o rozwiązaniach błędów alokacji i tle:
 
 > [!div class="nextstepaction"]
-> [Błędy alokacji (Cloud Services)](cloud-services-allocation-failures.md)
+> [Błędy alokacji — usługa w chmurze (klasyczna)](cloud-services-allocation-failures.md)
 
 Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w [witrynie MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Możesz ogłosić swój problem na tych forach lub opublikować go w serwisie [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Możesz również przesłać żądanie pomocy technicznej platformy Azure. Aby przesłać żądanie pomocy technicznej, na stronie [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) wybierz pozycję *Uzyskaj pomoc techniczną*.

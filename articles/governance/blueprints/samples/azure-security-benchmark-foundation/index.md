@@ -3,16 +3,16 @@ title: Przykładowy plan usługi Azure Security test Foundation — Omówienie
 description: Omówienie i architektura przykładowego planu usługi Azure Security test Foundation.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741875"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Omówienie przykładu planu usługi Azure Security test Foundation
 
-Przykładowy plan usługi Azure Security test Foundation zawiera zestaw wzorców infrastruktury bazowej, które ułatwiają tworzenie bezpiecznego i zgodnego środowiska platformy Azure. Plan pomaga wdrożyć architekturę opartą na chmurze, która oferuje rozwiązania do scenariuszy, które mają akredytacji lub wymagania dotyczące zgodności. Tym podstawą przykładowego planu jest rozszerzenie [przykładowego planu wydajności Azure Security](../azure-security-benchmark/index.md). Wdraża i konfiguruje granice sieci, monitorowanie i inne zasoby z zastosowaniem zasad i innych guardrails zdefiniowanych w [teście zabezpieczeń platformy Azure](../../../../security/benchmarks/index.yml).
+Przykładowy plan usługi Azure Security test Foundation zawiera zestaw wzorców infrastruktury bazowej, które ułatwiają tworzenie bezpiecznego i zgodnego środowiska platformy Azure. Plan pomaga wdrożyć architekturę opartą na chmurze, która oferuje rozwiązania do scenariuszy, które mają akredytacji lub wymagania dotyczące zgodności. Tym podstawą przykładowego planu jest rozszerzenie [przykładowego planu wydajności Azure Security](../azure-security-benchmark.md). Wdraża i konfiguruje granice sieci, monitorowanie i inne zasoby z zastosowaniem zasad i innych guardrails zdefiniowanych w [teście zabezpieczeń platformy Azure](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Architektura
 
@@ -23,7 +23,7 @@ Plan służy do wdrażania sieci wirtualnej centrum, która zawiera wspólne i u
 
 Ten plan wdraża kilka usług platformy Azure, aby zapewnić bezpieczną, monitorowaną i przygotowaną przez przedsiębiorstwo podstawę. To środowisko zawiera następujące składniki:
 
-- [Dzienniki Azure monitor](../../../../azure-monitor/platform/data-platform-logs.md) i konto usługi Azure Storage w celu zapewnienia, że dzienniki zasobów, dzienniki aktywności, metryki i sieci ruchu są przechowywane w centralnej lokalizacji w celu łatwego wykonywania zapytań, analiz, archiwizacji i alertów.
+- [Dzienniki Azure monitor](../../../../azure-monitor/logs/data-platform-logs.md) i konto usługi Azure Storage w celu zapewnienia, że dzienniki zasobów, dzienniki aktywności, metryki i sieci ruchu są przechowywane w centralnej lokalizacji w celu łatwego wykonywania zapytań, analiz, archiwizacji i alertów.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md) (wersja standardowa), aby zapewnić ochronę przed zagrożeniami dla zasobów platformy Azure.
 - [Platforma Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) w centrum obsługuje podsieci w celu połączenia z siecią lokalną, ruchu przychodzącego i wychodzącego do/do łączności z Internetem oraz opcjonalnych podsieci na potrzeby wdrażania dodatkowych usług administracyjnych lub zarządzania. Virtual Network w szprychie zawiera podsieci do hostowania obciążeń aplikacji. Dodatkowe podsieci można utworzyć po wdrożeniu w razie potrzeby w celu zapewnienia obsługi odpowiednich scenariuszy.
 - [Zapora platformy Azure](../../../../firewall/overview.md) do kierowania całego ruchu wychodzącego z Internetu oraz do włączania przychodzącego ruchu internetowego za pośrednictwem pola skoku. (Domyślne reguły zapory blokują cały ruch przychodzący i wychodzący z Internetu, a zasady muszą być skonfigurowane po wdrożeniu, zgodnie z wymaganiami).

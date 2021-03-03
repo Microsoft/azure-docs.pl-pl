@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733214"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Samouczek: Tworzenie nowej podrzędnej strefy DNS
 
@@ -81,7 +81,8 @@ Możesz również utworzyć nową podrzędną strefę DNS i delegować ją do na
 1.  Wybierz pozycję **Dalej: Tagi** , a następnie kliknij przycisk **Dalej: przegląd + Utwórz**.
 1.  Na karcie **Recenzja + tworzenie** Przejrzyj podsumowanie, popraw błędy walidacji, a następnie wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Zrzut ekranu przedstawiający strefę podrzędną" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Zrzut ekranu przedstawiający strefę podrzędną" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Weryfikuj podrzędną strefę DNS
 Teraz masz utworzoną nową podrzędną strefę DNS *subdomain.contoso.com* . Aby sprawdzić, czy delegowanie poszło prawidłowo, sprawdź, czy rekordy serwer nazw (NS) dla strefy podrzędnej są w strefie nadrzędnej, zgodnie z poniższym opisem.  
 
@@ -100,7 +101,7 @@ Teraz w tym kroku przejdziemy do *contoso.com* nadrzędnej strefy DNS i sprawdź
 1.  Ten zestaw rekordów typu NS i nazwa poddomeny jest już utworzony w nadrzędnej strefie DNS. Sprawdź wartości dla tego zestawu rekordów, podobnie jak lista serwer nazw, która została pobrana z podrzędnej strefy DNS w powyższym kroku.
 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Zrzut ekranu przedstawiający serwery nazw weryfikacji strefy podrzędnej" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, usuń je, usuwając **grupę zasobów.** Otwórz grupę **zasobów zasobu** i wybierz pozycję **Usuń grupę zasobów**.
 
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369424"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711947"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia aplikacji SAP NetWeaver
 
@@ -119,7 +119,7 @@ Aby rozpocząć replikowanie wszystkich maszyn wirtualnych aplikacji SAP do cent
 
 ## <a name="networking-configuration"></a>Konfiguracja sieci
 
-Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do karty **sieciowe ustawienia obliczeń i sieci**  >  **Network interface card**.
+Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do karty **sieciowe ustawienia obliczeń i sieci**  >  .
 
 ![Zrzut ekranu pokazujący sposób ustawiania prywatnego adresu IP w okienku karty sieciowej Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -167,5 +167,5 @@ Aby uzyskać więcej informacji, zobacz [test pracy w trybie failover na platfor
 Aby uzyskać więcej informacji, zobacz [tryb failover w Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o tworzeniu rozwiązania do odzyskiwania po awarii dla wdrożeń oprogramowania SAP NetWeaver przy użyciu Site Recovery. Zobacz oficjalny dokument [SAP NetWeaver: kompilowanie rozwiązania do odzyskiwania po awarii przy użyciu Site Recovery](https://aka.ms/asr_sap). Oficjalny dokument omawia zalecenia dotyczące różnych architektur SAP. Możesz zobaczyć obsługiwane aplikacje i typy maszyn wirtualnych dla oprogramowania SAP na platformie Azure. Dostępne są również opcje planu testowania rozwiązania do odzyskiwania po awarii.
+* Dowiedz się więcej o tworzeniu rozwiązania do odzyskiwania po awarii dla wdrożeń oprogramowania SAP NetWeaver przy użyciu Site Recovery. Zobacz oficjalny dokument [SAP NetWeaver: kompilowanie rozwiązania do odzyskiwania po awarii przy użyciu Site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). Oficjalny dokument omawia zalecenia dotyczące różnych architektur SAP. Możesz zobaczyć obsługiwane aplikacje i typy maszyn wirtualnych dla oprogramowania SAP na platformie Azure. Dostępne są również opcje planu testowania rozwiązania do odzyskiwania po awarii.
 * Dowiedz się więcej o [replikacji innych obciążeń](site-recovery-workload.md) przy użyciu Site Recovery.

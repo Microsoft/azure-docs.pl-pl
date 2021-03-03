@@ -42,7 +42,7 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 
 ## <a name="storage-account-double-encryption"></a>Podwójne szyfrowanie konta magazynu
 
-Konta magazynu obsługują podwójne szyfrowanie, ale druga warstwa musi być jawnie włączona. Zobacz [szyfrowanie usługi Azure Storage dla danych przechowywanych w spoczynku](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+Konta magazynu obsługują podwójne szyfrowanie, ale druga warstwa musi być jawnie włączona. Zobacz [szyfrowanie usługi Azure Storage dla danych przechowywanych w spoczynku](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Błędy konta magazynu
 

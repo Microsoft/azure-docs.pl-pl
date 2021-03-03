@@ -1,19 +1,19 @@
 ---
-title: Skonfiguruj Azure Monitor dla kontenerów dane dynamiczne (wersja zapoznawcza) | Microsoft Docs
-description: W tym artykule opisano sposób konfigurowania widoku w czasie rzeczywistym dzienników kontenerów (stdout/stderr) i zdarzeń bez używania polecenia kubectl z Azure Monitor dla kontenerów.
+title: Skonfiguruj dane dynamiczne usługi Container Insights (wersja zapoznawcza) | Microsoft Docs
+description: W tym artykule opisano sposób konfigurowania widoku w czasie rzeczywistym dzienników kontenerów (stdout/stderr) i zdarzeń bez używania polecenia kubectl z usługą Container Insights.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614320"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713783"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
-Aby wyświetlić dane na żywo (wersja zapoznawcza) przy użyciu Azure Monitor kontenerów z klastrów usługi Azure Kubernetes Service (AKS), należy skonfigurować uwierzytelnianie, aby udzielić uprawnień dostępu do danych Kubernetes. Ta konfiguracja zabezpieczeń umożliwia dostęp do danych w czasie rzeczywistym za pomocą interfejsu API Kubernetes bezpośrednio w Azure Portal.
+Aby wyświetlić dane na żywo (wersja zapoznawcza) za pomocą klastrów usługi Azure Kubernetes Service (AKS), należy skonfigurować uwierzytelnianie, aby udzielić uprawnień dostępu do danych Kubernetes. Ta konfiguracja zabezpieczeń umożliwia dostęp do danych w czasie rzeczywistym za pomocą interfejsu API Kubernetes bezpośrednio w Azure Portal.
 
 Ta funkcja obsługuje następujące metody kontroli dostępu do dzienników, zdarzeń i metryk:
 
@@ -46,7 +46,7 @@ Azure Portal poprosi o zweryfikowanie poświadczeń logowania do klastra Azure A
 
 Aby wyeliminować konieczność stosowania dodatkowych zmian w konfiguracji, aby umożliwić roli użytkownika Kubernetes wiązanie **clusterUser** dostępu do funkcji dane dynamiczne (wersja zapoznawcza) po [włączeniu autoryzacji RBAC Kubernetes](#configure-kubernetes-rbac-authorization) , AKS dodał nowe powiązanie roli klastra Kubernetes o nazwie **clusterMonitoringUser**. To powiązanie roli klastra ma wszystkie niezbędne uprawnienia dostępne w celu uzyskania dostępu do interfejsu API Kubernetes oraz punktów końcowych służących do używania funkcji Live Data (wersja zapoznawcza).
 
-Aby można było korzystać z funkcji danych na żywo (wersja zapoznawcza) z nowym użytkownikiem, musisz być członkiem roli [współautora](../../role-based-access-control/built-in-roles.md#contributor) [usługi Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) lub współpracownika w zasobie klastra AKS. Azure Monitor dla kontenerów, gdy jest włączone, jest skonfigurowany do uwierzytelniania przy użyciu domyślnie clusterMonitoringUser. Jeśli w klastrze nie ma powiązania roli clusterMonitoringUser, w zamian jest używana wartość **clusterUser** w ramach uwierzytelniania. Współautor daje dostęp do clusterMonitoringUser (jeśli istnieje), a użytkownik klastra usługi Azure Kuberenetes Service zapewnia dostęp do clusterUser. Każda z tych dwóch ról zapewnia wystarczający dostęp do korzystania z tej funkcji.
+Aby można było korzystać z funkcji danych na żywo (wersja zapoznawcza) z nowym użytkownikiem, musisz być członkiem roli [współautora](../../role-based-access-control/built-in-roles.md#contributor) [usługi Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) lub współpracownika w zasobie klastra AKS. Po włączeniu usługi Container Insights konfiguracja jest konfigurowana do uwierzytelniania przy użyciu domyślnie clusterMonitoringUser. Jeśli w klastrze nie ma powiązania roli clusterMonitoringUser, w zamian jest używana wartość **clusterUser** w ramach uwierzytelniania. Współautor daje dostęp do clusterMonitoringUser (jeśli istnieje), a użytkownik klastra usługi Azure Kuberenetes Service zapewnia dostęp do clusterUser. Każda z tych dwóch ról zapewnia wystarczający dostęp do korzystania z tej funkcji.
 
 AKS to nowe powiązanie roli w styczniu 2020, dlatego klastry utworzone przed 2020 stycznia nie są dostępne. Jeśli masz klaster, który został utworzony przed stycznia 2020, nowy **clusterMonitoringUser** można dodać do istniejącego klastra, WYKONUJĄC operację Put w klastrze lub wykonując inną operację w klastrze, która wykonuje operację Put w klastrze, na przykład aktualizując wersję klastra.
 
@@ -106,7 +106,7 @@ Należy zmienić rejestrację klienta usługi Azure AD, aby umożliwić Azure Po
 Aby uzyskać więcej informacji na temat zaawansowanej konfiguracji zabezpieczeń w programie Kubernetes, zapoznaj się z [dokumentacją Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Jeśli tworzysz nowy klaster z obsługą RBAC Kubernetes, zobacz [integrowanie Azure Active Directory z usługą Azure Kubernetes](../../aks/azure-ad-integration-cli.md) i wykonaj kroki konfigurowania uwierzytelniania usługi Azure AD. Podczas wykonywania kroków w celu utworzenia aplikacji klienckiej w tej sekcji wyróżniane są dwa adresy URL przekierowania, które należy utworzyć dla Azure Monitor kontenery pasujące do tych określonych w kroku 3 poniżej.
+>Jeśli tworzysz nowy klaster z obsługą RBAC Kubernetes, zobacz [integrowanie Azure Active Directory z usługą Azure Kubernetes](../../aks/azure-ad-integration-cli.md) i wykonaj kroki konfigurowania uwierzytelniania usługi Azure AD. Podczas wykonywania kroków w celu utworzenia aplikacji klienckiej w tej sekcji wyróżniane są dwa adresy URL przekierowania, które należy utworzyć dla usługi Container Insights, które są zgodne z określonymi w kroku 3 poniżej.
 
 ### <a name="client-registration-reconfiguration"></a>Ponowna konfiguracja rejestracji klienta
 

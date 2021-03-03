@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 46d8fe6427b2a3e7811719792ac4bf67ddbcc3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f15d2d712f4b571d3f27e3535c69f5f4f9732
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732772"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Tworzenie sieci wirtualnych i zarządzanie nimi dla Azure Database for PostgreSQL-elastyczny serwer przy użyciu Azure Portal
 
@@ -34,6 +34,13 @@ Aby utworzyć elastyczny serwer w sieci wirtualnej, potrzebne są:
     > Sieć wirtualna i podsieć powinna znajdować się w tym samym regionie i subskrypcji co serwer elastyczny.
 
 -  Aby [delegować podsieć](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) do **firmy Microsoft. DBforPostgreSQL/flexibleServers**. To delegowanie oznacza, że tylko Azure Database for PostgreSQL elastycznych serwerów może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure.
+-  Dodaj `Microsoft.Storage` do punktu końcowego usługi dla podsieci delegowanej do elastycznych serwerów. W tym celu wykonaj następujące czynności:
+     1. Przejdź do strony sieci wirtualnej.
+     2. Wybierz sieć wirtualną, w której planujesz wdrożyć serwer elastyczny.
+     3. Wybierz podsieć delegowaną dla serwera elastycznego.
+     4. Na ekranie ściągania w obszarze **punkt końcowy usługi** wybierz pozycję `Microsoft.storage` z listy rozwijanej.
+     5. Zapisz zmiany.
+
 
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Utwórz serwer elastyczny Azure Database for PostgreSQL w już istniejącej sieci wirtualnej
 
@@ -42,7 +49,7 @@ Aby utworzyć elastyczny serwer w sieci wirtualnej, potrzebne są:
 3. Wybierz pozycję **elastyczny serwer** jako opcję wdrożenia.
 4. Wypełnij formularz **podstawy** .
 5. Przejdź do karty **Sieć** , aby skonfigurować sposób nawiązywania połączenia z serwerem.
-6. W polu **Metoda łączności**wybierz pozycję **dostęp prywatny (Integracja z siecią wirtualną)**. Przejdź do **Virtual Network** i wybierz już istniejącą *sieć wirtualną* i *podsieć* utworzoną w ramach wymagań wstępnych.
+6. W polu **Metoda łączności** wybierz pozycję **dostęp prywatny (Integracja z siecią wirtualną)**. Przejdź do **Virtual Network** i wybierz już istniejącą *sieć wirtualną* i *podsieć* utworzoną w ramach wymagań wstępnych.
 7. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć konfigurację elastycznego serwera.
 8. Wybierz pozycję **Utwórz**, aby aprowizować serwer. Inicjowanie obsługi może potrwać kilka minut.
 

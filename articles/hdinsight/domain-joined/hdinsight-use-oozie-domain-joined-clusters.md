@@ -1,18 +1,16 @@
 ---
 title: Przepływy pracy Apache Oozie & zabezpieczenia przedsiębiorstwa — Azure HDInsight
 description: Zabezpiecz przepływy pracy Apache Oozie przy użyciu usługi Azure HDInsight pakiet Enterprise Security. Dowiedz się, jak zdefiniować przepływ pracy Oozie i przesłać zadanie Oozie.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 559779e3979ab2ada2191f55cfc06ceb2470bd7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc20a258028bb76351ae70362234e7c4c8c741a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933491"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699406"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Uruchamianie programu Apache Oozie w klastrach usługi Azure HDInsight przy użyciu pakiet Enterprise Security
 

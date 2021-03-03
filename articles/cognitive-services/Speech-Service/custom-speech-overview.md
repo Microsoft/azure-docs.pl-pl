@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388655"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716571"
 ---
 # <a name="what-is-custom-speech"></a>Czym jest usługa Custom Speech?
 
@@ -45,7 +45,9 @@ Ten diagram przedstawia elementy wchodzące w skład [obszaru Custom Speech w pr
 Musisz mieć subskrypcję usługi Azure Account i Speech Service, aby można było użyć programu [Speech Studio](https://speech.microsoft.com/customspeech) do utworzenia modelu niestandardowego. Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Jeśli planujesz uczenie modelu niestandardowego z **danymi audio**, wybierz jeden z następujących regionów, w których jest dostępny dedykowany sprzęt do szkoleń. Pozwala to skrócić czas potrzebny do uczenia modelu.
+> Pamiętaj, aby utworzyć subskrypcję standardową (S0). Bezpłatne subskrypcje (F0) nie są obsługiwane.
+
+Jeśli planujesz uczenie modelu niestandardowego z **danymi audio**, wybierz jeden z następujących regionów, w których jest dostępny dedykowany sprzęt do szkoleń. Pozwala to skrócić czas potrzebny do uczenia modelu i umożliwia korzystanie z większej liczby materiałów audio na potrzeby szkoleń. W tych regionach usługa mowy będzie korzystać z maksymalnie 20 godzin korzystania z dźwięku na potrzeby szkolenia; w innych regionach zostanie użyta tylko do 8 godzin.
 
 * Australia Wschodnia
 * Kanada Środkowa
@@ -61,9 +63,6 @@ Musisz mieć subskrypcję usługi Azure Account i Speech Service, aby można by�
 * US Gov Wirginia
 * West Europe
 * Zachodnie stany USA 2
-
-> [!NOTE]
-> Pamiętaj, aby utworzyć subskrypcję standardową (S0). Bezpłatne subskrypcje (F0) nie są obsługiwane.
 
 Po utworzeniu konta platformy Azure i subskrypcji usługi mowy należy zalogować się do programu [Speech Studio](https://speech.microsoft.com/customspeech) i połączyć swoją subskrypcję.
 

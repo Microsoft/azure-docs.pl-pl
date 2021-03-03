@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621284"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736495"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Samouczek: wykonywanie klasyfikacji obrazów na urządzeniach brzegowych za pomocą usługi Custom Vision
 
@@ -22,7 +22,7 @@ Usługa Azure IoT Edge może usprawnić Twoje rozwiązanie IoT przez przeniesien
 
 Na przykład usługa Custom Vision na urządzeniu usługi IoT Edge może określić, czy ruch na autostradzie jest większy, czy mniejszy niż zwykle, albo czy w hali garażowej są dostępne miejsca parkingowe w jednym rzędzie. Te informacje można udostępnić innej usłudze w celu wykonania akcji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 >[!TIP]
->Ten samouczek to uproszczona wersja [Custom Vision i Azure IoT Edge w projekcie przykładowym Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) . Ten samouczek został zaprojektowany do uruchamiania na maszynie wirtualnej w chmurze i używa statycznych obrazów do uczenia i przetestowania klasyfikatora obrazu, który jest przydatny dla kogoś, co jest przydatne w celu ocenienia Custom Vision w IoT Edge. Przykładowy projekt korzysta z sprzętu fizycznego i konfiguruje kanał fotograficzny na żywo w celu uczenia się i przetestowania klasyfikatora obrazu, który jest przydatny dla kogoś, kto chce próbować bardziej szczegółowy scenariusz w czasie rzeczywistym.
+>Ten samouczek to uproszczona wersja [Custom Vision i Azure IoT Edge w projekcie przykładowym Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) . Ten samouczek został zaprojektowany do uruchamiania na maszynie wirtualnej w chmurze i używa statycznych obrazów do uczenia i przetestowania klasyfikatora obrazu, który jest przydatny dla kogoś, co jest przydatne w celu ocenienia Custom Vision w IoT Edge. Przykładowy projekt korzysta z sprzętu fizycznego i konfiguruje kanał fotograficzny na żywo w celu uczenia się i przetestowania klasyfikatora obrazu, który jest przydatny dla kogoś, kto chce próbować bardziej szczegółowy scenariusz w czasie rzeczywistym.
 
 Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując ten samouczek, należy spełnić następujące wymagania wstępne:
 
@@ -53,7 +53,7 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 Aby utworzyć moduł IoT Edge przy użyciu usługi Custom Vision, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim:
 
 * [Python](https://www.python.org/downloads/)
-* [Narzędzia](https://git-scm.com/downloads)
+* [Usługa Git](https://git-scm.com/downloads)
 * [Rozszerzenie języka Python dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Tworzenie klasyfikatora obrazów za pomocą usługi Custom Vision
@@ -324,7 +324,7 @@ W tej sekcji dodasz nowy moduł do tego samego rozwiązania CustomVisionSolution
 
 Zamiast dostarczać źródło obrazów dla tego scenariusza przy użyciu prawdziwej kamery, użyjemy pojedynczego obrazu testowego. Obraz testowy znajduje się w repozytorium GitHub, które zostało pobrane na potrzeby obrazów szkoleniowych we wcześniejszej części tego samouczka. 
 
-1. Przejdź do obrazu testowego znajdującego się w teście **"poznawcze-CustomVision-Windows**  /  **Samples**  /  **Images**  /  **test**". 
+1. Przejdź do obrazu testowego znajdującego się w teście **"poznawcze-CustomVision-Windows**  /  **Samples**  /    /  **test**". 
 
 2. Skopiuj plik **test_image.jpg** 
 

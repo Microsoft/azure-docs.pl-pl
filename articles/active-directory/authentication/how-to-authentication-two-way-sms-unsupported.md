@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662761"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689032"
 ---
 # <a name="two-way-sms-unsupported"></a>Nieobsługiwana dwukierunkowa wiadomość SMS
 
@@ -27,7 +27,7 @@ Powiadomienia e-mail i powiadomienia dotyczące Service Health Azure Portal (wys
 ## <a name="required-actions"></a>Wymagane akcje
 
 1. Włącz aplikację mobilną dla użytkowników, jeśli jeszcze jej nie zrobiono. Aby uzyskać więcej informacji, zobacz [Włączanie uwierzytelniania aplikacji mobilnych za pomocą serwera usługi MFA](howto-mfaserver-deploy-mobileapp.md).
-1. Powiadom użytkowników końcowych, aby odwiedzali [Portal użytkowników](howto-mfaserver-deploy-userportal.md) serwera usługi MFA w celu aktywowania aplikacji mobilnej. [Aplikacja Microsoft Authenticator](https://www.microsoft.com/account/authenticator) jest zalecaną opcją weryfikacji, ponieważ jest bardziej bezpieczna niż dwukierunkowa wiadomość SMS. Aby uzyskać więcej informacji, zobacz [czas, który można rozłożyć na transporty telefoniczne na potrzeby uwierzytelniania](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Powiadom użytkowników końcowych, aby odwiedzali [Portal użytkowników](howto-mfaserver-deploy-userportal.md) serwera usługi MFA w celu aktywowania aplikacji mobilnej. [Aplikacja Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) jest zalecaną opcją weryfikacji, ponieważ jest bardziej bezpieczna niż dwukierunkowa wiadomość SMS. Aby uzyskać więcej informacji, zobacz [czas, który można rozłożyć na transporty telefoniczne na potrzeby uwierzytelniania](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Zmień ustawienia użytkownika z dwukierunkowej wiadomości tekstowej na aplikację mobilną jako domyślną metodę.
 
 ## <a name="faq"></a>Często zadawane pytania

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 36885e4673b83d1db7972f03c4a6309f766206c5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713103"
 ---
 # <a name="what-is-custom-neural-voice"></a>Co to jest niestandardowy neuronowych Voice?
 
-Custom neuronowych Voice to funkcja [zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) (TTS), która pozwala na utworzenie jednorazowego, dostosowanego głosu syntetycznego dla aplikacji, dostarczając własne dane audio jako przykład. Zamiana tekstu na mowę polega na konwertowaniu tekstu na syntetyczną mowę przy użyciu modelu uczenia maszynowego, który brzmi jak wybrany głos. Korzystając z [interfejsu API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), możesz umożliwić aplikacjom korzystanie z [wstępnie skompilowanych głosów](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) lub własnych niestandardowych modeli [głosu](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-prepare-data) opracowanych za pomocą funkcji niestandardowego głosu neuronowych. Niestandardowy głos neuronowych jest oparty na technologii neuronowych TTS, która tworzy naturalny głos dźwiękowy, który często nie jest odróżniany w porównaniu z głosem ludzkim.
+Custom neuronowych Voice to funkcja [zamiany tekstu na mowę](./text-to-speech.md) (TTS), która pozwala na utworzenie jednorazowego, dostosowanego głosu syntetycznego dla aplikacji, dostarczając własne dane audio jako przykład. Zamiana tekstu na mowę polega na konwertowaniu tekstu na syntetyczną mowę przy użyciu modelu uczenia maszynowego, który brzmi jak wybrany głos. Korzystając z [interfejsu API REST](./rest-text-to-speech.md), możesz umożliwić aplikacjom korzystanie z [wstępnie skompilowanych głosów](./language-support.md#neural-voices) lub własnych niestandardowych modeli [głosu](./how-to-custom-voice-prepare-data.md) opracowanych za pomocą funkcji niestandardowego głosu neuronowych. Niestandardowy głos neuronowych jest oparty na technologii neuronowych TTS, która tworzy naturalny głos dźwiękowy, który często nie jest odróżniany w porównaniu z głosem ludzkim.
 Realistyczny i naturalny dźwięk dźwięku niestandardowego głosu neuronowych może reprezentować marki, Personify maszyny i umożliwić użytkownikom współpracę z aplikacjami w naturalny sposób.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Następnie sekwencja fonem przechodzi do modelu akustycznego neuronowych w celu 
 
 Modele głosu neuronowych TTS są przeszkolone przy użyciu głębokiej sieci neuronowych na podstawie próbek zapisujących głosów ludzkich. W tym [blogu](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911)opisano sposób, w jaki neuronowych TTS współpracuje z najnowocześniejszymi modelami syntezy mowy neuronowych. W blogu wyjaśniono również, jak można dostosować uniwersalny model podstawowy do mniej niż 2 godzin danych mowy (lub mniej niż 2 000 zarejestrowanych wyrażenia długości) od prelegenta docelowego i dowiedzieć się, jak mówić. Aby dowiedzieć się więcej o tym, jak neuronowych vocoder jest szkolony, zapoznaj się z [wpisem w blogu](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860).
 
-Dzięki możliwości dostosowywania niestandardowego głosu neuronowych można dostosować aparat neuronowych TTS, aby lepiej odpowiadał Twoim scenariuszom użytkownika. Aby utworzyć niestandardowy głos neuronowych, użyj programu [Speech Studio](https://speech.microsoft.com/customvoice) do przekazywania nagranego dźwięku i odpowiednich skryptów, uczenia modelu i wdrażania dźwięku w niestandardowym punkcie końcowym. W zależności od przypadku użycia funkcja niestandardowego głosu neuronowych może służyć do konwertowania tekstu na mowę w czasie rzeczywistym (np. używanym w inteligentnym Asystencie wirtualnym) lub generowania zawartości audio w trybie offline (np. w książce dźwiękowej lub instrukcji w aplikacjach elektronicznych) za pomocą tekstu wejściowego dostarczonego przez użytkownika. Jest to udostępniane za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech), [zestawu mowy SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp)lub [portalu sieci Web](https://speech.microsoft.com/audiocontentcreation).
+Dzięki możliwości dostosowywania niestandardowego głosu neuronowych można dostosować aparat neuronowych TTS, aby lepiej odpowiadał Twoim scenariuszom użytkownika. Aby utworzyć niestandardowy głos neuronowych, użyj programu [Speech Studio](https://speech.microsoft.com/customvoice) do przekazywania nagranego dźwięku i odpowiednich skryptów, uczenia modelu i wdrażania dźwięku w niestandardowym punkcie końcowym. W zależności od przypadku użycia funkcja niestandardowego głosu neuronowych może służyć do konwertowania tekstu na mowę w czasie rzeczywistym (np. używanym w inteligentnym Asystencie wirtualnym) lub generowania zawartości audio w trybie offline (np. w książce dźwiękowej lub instrukcji w aplikacjach elektronicznych) za pomocą tekstu wejściowego dostarczonego przez użytkownika. Jest to udostępniane za pośrednictwem [interfejsu API REST](./rest-text-to-speech.md), [zestawu mowy SDK](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall)lub [portalu sieci Web](https://speech.microsoft.com/audiocontentcreation).
 
 ## <a name="terms-and-definitions"></a>Warunki i definicje
 

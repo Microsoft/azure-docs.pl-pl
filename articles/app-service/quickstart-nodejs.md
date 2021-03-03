@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359106"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735118"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure
 
@@ -69,7 +72,7 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 
     ![Logowanie do platformy Azure](media/quickstart-nodejs/sign-in.png)
 
-1. W Eksploratorze **usługi Azure App SERVICE** vs Code wybierz ikonę niebieską Strzałka w górę, aby wdrożyć aplikację na platformie Azure. (Możesz również wywołać to samo polecenie w **palecie poleceń** ( **Ctrl** + **SHIFT** + **P** ), wpisując "Deploy to Web App" i wybierając **Azure App Service: Deploy to Web App** ).
+1. W Eksploratorze **usługi Azure App SERVICE** vs Code wybierz ikonę niebieską Strzałka w górę, aby wdrożyć aplikację na platformie Azure. (Możesz również wywołać to samo polecenie w **palecie poleceń** (**Ctrl** + **SHIFT** + **P**), wpisując "Deploy to Web App" i wybierając **Azure App Service: Deploy to Web App**).
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.":::
         
@@ -85,9 +88,9 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
 
 1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
+    1. Wybierz pozycję **Utwórz nową grupę zasobów**, a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
     1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
+    1. Wybierz pozycję **Utwórz nowy plan App Service**, a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
     1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
     1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
 
@@ -103,7 +106,7 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 
 1. W przypadku wdrażania w systemie Windows należy najpierw ustawić numer wersji Node.js dla aplikacji sieci Web:
 
-    1. W VS Code rozwiń węzeł nowej usługi App Service, kliknij prawym przyciskiem myszy pozycję **Ustawienia aplikacji** , a następnie wybierz pozycję **Dodaj nowe ustawienie...** :
+    1. W VS Code rozwiń węzeł nowej usługi App Service, kliknij prawym przyciskiem myszy pozycję **Ustawienia aplikacji**, a następnie wybierz pozycję **Dodaj nowe ustawienie...**:
 
         ![Dodaj ustawienie aplikacji — polecenie](media/quickstart-nodejs/add-setting.png)
 
@@ -195,7 +198,7 @@ Po zainstalowaniu rozszerzenia Zaloguj się do konta platformy Azure. Na pasku d
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli zostanie wyświetlony komunikat o błędzie **"nie można odnaleźć subskrypcji o nazwie [Identyfikator subskrypcji]"** , może to być spowodowane faktem, że jesteś za serwerem proxy i nie można skontaktować się z interfejsem API platformy Azure. Skonfiguruj `HTTP_PROXY` i `HTTPS_PROXY` zmienne środowiskowe za pomocą informacji o serwerze proxy w terminalu przy użyciu `export` .
+Jeśli zostanie wyświetlony komunikat o błędzie **"nie można odnaleźć subskrypcji o nazwie [Identyfikator subskrypcji]"**, może to być spowodowane faktem, że jesteś za serwerem proxy i nie można skontaktować się z interfejsem API platformy Azure. Skonfiguruj `HTTP_PROXY` i `HTTPS_PROXY` zmienne środowiskowe za pomocą informacji o serwerze proxy w terminalu przy użyciu `export` .
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -273,11 +276,11 @@ W Eksploratorze **usługi Azure App Service** wybierz ikonę strzałki w górę,
 
 1. Wybierz katalog, który jest aktualnie otwarty `myExpressApp` .
 
-1. Wybierz pozycję **Utwórz nową aplikację sieci Web** , która domyślnie wdraża App Service w systemie Linux.
+1. Wybierz pozycję **Utwórz nową aplikację sieci Web**, która domyślnie wdraża App Service w systemie Linux.
 
 1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz ENTER. Prawidłowymi znakami dla nazwy aplikacji są "a-z", "0-9" i "-".
 
-1. Wybierz **wersjęNode.js** , zalecamy LTS.
+1. Wybierz **wersjęNode.js**, zalecamy LTS.
 
     Kanał powiadomień przedstawia zasoby platformy Azure, które są tworzone dla aplikacji.
 
@@ -298,7 +301,7 @@ Po zakończeniu wdrażania wybierz pozycję **Przeglądaj witrynę sieci** Web w
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli zostanie wyświetlony komunikat o błędzie **"nie masz uprawnień do wyświetlenia tego katalogu lub strony"** , uruchomienie aplikacji prawdopodobnie nie powiodło się. Przejdź do następnej sekcji i Przejrzyj dane wyjściowe dziennika, aby znaleźć i naprawić błąd. Jeśli nie możesz rozwiązać tego problemu, skontaktuj się z nami, wybierając Poniższy **problem** . Mamy przyjemność pomóc!
+Jeśli zostanie wyświetlony komunikat o błędzie **"nie masz uprawnień do wyświetlenia tego katalogu lub strony"**, uruchomienie aplikacji prawdopodobnie nie powiodło się. Przejdź do następnej sekcji i Przejrzyj dane wyjściowe dziennika, aby znaleźć i naprawić błąd. Jeśli nie możesz rozwiązać tego problemu, skontaktuj się z nami, wybierając Poniższy **problem** . Mamy przyjemność pomóc!
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)

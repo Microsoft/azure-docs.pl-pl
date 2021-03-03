@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: 3ca776a1869874042a6a97cdd59dc00d3a917d33
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98558c2b1525094277dd6c165349f25ce5cd3b23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614503"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717880"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Zachowanie alertów SMS w grupach akcji
 
@@ -42,7 +42,6 @@ Odbiornik SMS skonfigurowany jako część grupy akcji odbiera wiadomość SMS p
 >Jeśli użytkownik anulował subskrypcję alertów SMS, ale zostanie dodany do nowej grupy akcji; otrzymają one alerty programu SMS dla nowej grupy akcji, ale pozostaną bez subskrypcji ze wszystkich poprzednich grup akcji.
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z [omówieniem alertów dziennika aktywności](../platform/alerts-overview.md) i Dowiedz się, jak uzyskać alerty  
+Zapoznaj się z [omówieniem alertów dziennika aktywności](./alerts-overview.md) i Dowiedz się, jak uzyskać alerty  
 Dowiedz się więcej na temat [ograniczania szybkości SMS](alerts-rate-limiting.md)  
-Dowiedz się więcej na temat [grup akcji](../platform/action-groups.md)
-
+Dowiedz się więcej na temat [grup akcji](./action-groups.md)

@@ -2,14 +2,14 @@
 title: Konfigurowanie kontenera niestandardowego
 description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007640"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704875"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
@@ -111,7 +111,7 @@ W programie PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-Gdy aplikacja zostanie uruchomiona, ustawienia aplikacji App Service są wprowadzane do procesu jako zmienne środowiskowe automatycznie. 
+Gdy aplikacja zostanie uruchomiona, ustawienia aplikacji App Service są wprowadzane do procesu jako zmienne środowiskowe automatycznie. Zmienne środowiskowe kontenera można zweryfikować przy użyciu adresu URL `https://<app-name>.scm.azurewebsites.net/Env)` .
 
 ::: zone pivot="container-windows"
 W przypadku kontenerów opartych na usługach IIS lub .NET Framework (4,0 lub nowsze) są one wstawiane do `System.ConfigurationManager` programu jako ustawienia aplikacji .NET i parametry połączenia automatycznie przez App Service. Dla wszystkich innych języków i struktur są one dostarczane jako zmienne środowiskowe dla procesu, z jednym z następujących prefiksów:
@@ -292,44 +292,55 @@ Konta usług zarządzane przez grupę (kont gMSA) nie są obecnie obsługiwane w
 
 ## <a name="enable-ssh"></a>Włączanie protokołu SSH
 
-Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem. Aby kontener niestandardowy obsługiwał protokół SSH, należy dodać go do samego pliku dockerfile.
+Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem. Aby kontener niestandardowy obsługiwał protokół SSH, należy dodać go do samego obrazu platformy Docker.
 
 > [!TIP]
-> Wszystkie wbudowane kontenery systemu Linux dodaliśmy instrukcje protokołu SSH w swoich repozytoriach obrazów. Aby zobaczyć, jak to jest włączone, możesz przejść przez następujące instrukcje dotyczące [ repozytoriumNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) .
+> Wszystkie wbudowane kontenery systemu Linux w App Service dodaliśmy instrukcje protokołu SSH w swoich repozytoriach obrazów. Aby zobaczyć, jak to jest włączone, możesz przejść przez następujące instrukcje dotyczące [ repozytoriumNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) . Konfiguracja w obrazie wbudowanym Node.js jest nieco inna, ale jest taka sama w zasadzie.
 
-- Użyj instrukcji [Run](https://docs.docker.com/engine/reference/builder/#run) , aby zainstalować serwer SSH i ustawić hasło dla konta głównego `"Docker!"` . Na przykład dla obrazu opartego na systemie [Alpine Linux](https://hub.docker.com/_/alpine)wymagane są następujące polecenia:
+- Dodaj [plik sshd_config](https://man.openbsd.org/sshd_config) do repozytorium, jak w poniższym przykładzie.
 
-    ```Dockerfile
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
     ```
-
-    Ta konfiguracja nie zezwala na połączenia zewnętrzne z kontenerem. Protokół SSH jest dostępny tylko za pośrednictwem `https://<app-name>.scm.azurewebsites.net` uwierzytelniania i uwierzytelniany przy użyciu poświadczeń publikowania.
-
-- Dodaj [ten plik sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) do repozytorium obrazów i użyj instrukcji [copy](https://docs.docker.com/engine/reference/builder/#copy) , aby skopiować plik do katalogu */etc/ssh/* . Aby uzyskać więcej informacji na temat plików *sshd_config* , zobacz [dokumentację OpenBSD](https://man.openbsd.org/sshd_config).
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
+    Port            2222
+    ListenAddress       0.0.0.0
+    LoginGraceTime      180
+    X11Forwarding       yes
+    Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+    MACs hmac-sha1,hmac-sha1-96
+    StrictModes         yes
+    SyslogFacility      DAEMON
+    PasswordAuthentication  yes
+    PermitEmptyPasswords    no
+    PermitRootLogin     yes
+    Subsystem sftp internal-sftp
     ```
 
     > [!NOTE]
-    > Plik *sshd_config* musi zawierać następujące elementy:
+    > Ten plik konfiguruje OpenSSH i musi zawierać następujące elementy:
+    > - `Port` musi być ustawiona na 2222.
     > - Element `Ciphers` musi zawierać co najmniej jeden element z tej listy: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - Element `MACs` musi zawierać co najmniej jeden element z tej listy: `hmac-sha1,hmac-sha1-96`.
 
-- Użyj instrukcji [uwidaczniania](https://docs.docker.com/engine/reference/builder/#expose) , aby otworzyć port 2222 w kontenerze. Mimo że hasło główne jest znane, port 2222 jest niedostępny z Internetu. Jest on dostępny tylko dla kontenerów w sieci mostkowej prywatnej sieci wirtualnej.
+- W pliku dockerfile Dodaj następujące polecenia:
 
     ```Dockerfile
+    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
+    RUN apk add openssh \
+         && echo "root:Docker!" | chpasswd 
+
+    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY sshd_config /etc/ssh/
+
+    # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
+
+    Ta konfiguracja nie zezwala na połączenia zewnętrzne z kontenerem. Port 2222 kontenera jest dostępny tylko w sieci mostkowej prywatnej sieci wirtualnej i nie jest dostępny dla osoby atakującej w Internecie.
 
 - W skrypcie uruchamiania kontenera Uruchom serwer SSH.
 
     ```bash
     /usr/sbin/sshd
     ```
-
-    Aby zapoznać się z przykładem, zobacz jak domyślny [ kontenerNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) uruchamia serwer SSH.
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
@@ -353,7 +364,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 W pliku *Docker-Compose. yml* zamapuj `volumes` opcję na `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Przykład:
+`WEBAPP_STORAGE_HOME` to zmienna środowiskowa w usłudze App Service mapowana na magazyn trwały aplikacji. Na przykład:
 
 ```yaml
 wordpress:

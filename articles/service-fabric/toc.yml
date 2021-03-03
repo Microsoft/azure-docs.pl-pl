@@ -448,12 +448,14 @@
           href: how-to-managed-cluster-vmss-extension.md
         - name: Konfigurowanie zarządzanego klastra
           href: how-to-managed-cluster-configuration.md
+        - name: Dodaj reguły sieciowej grupy zabezpieczeń i inne opcje sieci zarządzanych klastrów
+          href: how-to-managed-cluster-networking.md
         - name: Wdróż zarządzane aplikacje klastra przy użyciu szablonu ARM
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Konfigurowanie zarządzanego klastra z tożsamością zarządzaną
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Włącz szyfrowanie dysków dla zarządzanych węzłów klastra
           href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Używanie tożsamości zarządzanej dla zarządzanych węzłów klastra
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planowanie i przygotowanie
       items:
         - name: Planowanie pojemności klastra

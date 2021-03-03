@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715160"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -47,7 +47,7 @@ Nowo dodana funkcja wpływająca na dźwięk jest dostępna podczas indeksowania
 
 Typ zdarzenia **clapping** , który został uwzględniony w poprzednim modelu efektów audio, jest teraz rozpakowywany częścią typu zdarzenia **reakcji** na działanie.
 
-Po wybraniu **opcji wyświetlania zawartości wideo w witrynie internetowej** [Video Indexer](https://www.videoindexer.ai/) efekty audio są wyświetlane na stronie.
+Po wybraniu opcji wyświetlania **szczegółowych** informacji wideo w witrynie internetowej [Video Indexer](https://www.videoindexer.ai/) efekty audio są wyświetlane na stronie.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Wykrywanie zdarzeń audio":::
 

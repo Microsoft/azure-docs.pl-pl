@@ -1,19 +1,19 @@
 ---
-title: Jak aktualizować Azure Monitor kontenerów dla metryk | Microsoft Docs
-description: W tym artykule opisano sposób aktualizowania Azure Monitor dla kontenerów w celu włączenia funkcji metryk niestandardowych, która obsługuje eksplorowanie i zgłaszanie alertów dotyczących zagregowanych metryk.
+title: Jak zaktualizować usługi Container Insights dla metryk | Microsoft Docs
+description: W tym artykule opisano sposób aktualizowania usługi Container Insights w celu włączenia funkcji metryk niestandardowych, która obsługuje eksplorowanie i zgłaszanie alertów dotyczących zagregowanych metryk.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37c19cd074e9ce1985d5d0e82137d8603913d4bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708275"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Jak zaktualizować usługę Azure Monitor dla kontenerów w celu włączenia metryk
+# <a name="how-to-update-container-insights-to-enable-metrics"></a>Jak zaktualizować usługi Container Insights w celu włączenia metryk
 
-Azure Monitor dla kontenerów wprowadza obsługę zbierania metryk z usług Azure Kubernetes Services (AKS) i Azure ARC z włączonymi węzłami klastrów Kubernetes i piszą je w magazynie metryk Azure Monitor. Ta zmiana ma na celu dostarczenie ulepszonej osi czasu podczas prezentowania obliczeń agregacji (średni, Count, Max, min, sum) na wykresach wydajności, obsługę przypinania wykresów wydajności w Azure Portal pulpitów nawigacyjnych i obsługę alertów dotyczących metryk.
+Usługa Container Insights wprowadza obsługę zbierania metryk z usług Azure Kubernetes Services (AKS) i Azure ARC z włączonymi węzłami klastrów Kubernetes i piszą je w magazynie metryk Azure Monitor. Ta zmiana ma na celu dostarczenie ulepszonej osi czasu podczas prezentowania obliczeń agregacji (średni, Count, Max, min, sum) na wykresach wydajności, obsługę przypinania wykresów wydajności w Azure Portal pulpitów nawigacyjnych i obsługę alertów dotyczących metryk.
 
 >[!NOTE]
 >Ta funkcja nie obsługuje obecnie klastrów usługi Azure Red Hat OpenShift.
@@ -47,7 +47,7 @@ Jeśli zdecydujesz się na korzystanie z interfejsu wiersza polecenia platformy 
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uaktualnianie klastra z Azure Portal
 
-W przypadku istniejących klastrów AKS monitorowanych przez Azure Monitor kontenerów, po wybraniu klastra w celu wyświetlenia jego kondycji z widoku wiele klastrów w Azure Monitor lub bezpośrednio z klastra przez wybranie **szczegółowych** informacji z okienka po lewej stronie, w górnej części portalu powinien zostać wyświetlony transparent.
+W przypadku istniejących klastrów AKS monitorowanych przez usługi Container Insights po wybraniu klastra w celu wyświetlenia jego kondycji z widoku wiele klastrów w Azure Monitor lub bezpośrednio z klastra, wybierając pozycję **szczegółowe** dane w okienku po lewej stronie, zobaczysz transparent w górnej części portalu.
 
 ![Transparent uaktualniania klastra AKS w Azure Portal](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

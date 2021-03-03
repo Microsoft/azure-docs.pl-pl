@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Korzystanie z usług Azure Files i AD DS
           href: create-file-share.md
+        - name: Instalowanie pakietu Office z kontenerami aplikacji FSLogix
+          href: fslogix-office-app-rule-editor.md
     - name: Konfigurowanie ustawień puli hostów
       items:
         - name: Właściwości RDP
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: Konfigurowanie udziału plików
           href: app-attach-file-share.md
+        - name: Konfigurowanie narzędzia MSIXMGR
+          href: app-attach-msixmgr.md
     - name: Używanie usługi Microsoft Teams
       href: teams-on-wvd.md
     - name: Konfigurowanie uwierzytelniania wieloskładnikowego w usłudze Azure AD

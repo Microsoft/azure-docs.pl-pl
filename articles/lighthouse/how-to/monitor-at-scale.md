@@ -3,12 +3,12 @@ title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742589"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 
@@ -49,7 +49,7 @@ Po wdrożeniu zasad dane będą rejestrowane w obszarach roboczych Log Analytics
 
 [Alerty](../../azure-monitor/alerts/alerts-overview.md) dla delegowanych subskrypcji można wyświetlać w dzierżawach klientów zarządzanych przez użytkownika.
 
-Z poziomu dzierżawy zarządzającej możesz [tworzyć i wyświetlać alerty dzienników aktywności oraz zarządzać nimi](../../azure-monitor/platform/alerts-activity-log.md) w Azure Portal lub za pośrednictwem interfejsów API i narzędzi do zarządzania.
+Z poziomu dzierżawy zarządzającej możesz [tworzyć i wyświetlać alerty dzienników aktywności oraz zarządzać nimi](../../azure-monitor/alerts/alerts-activity-log.md) w Azure Portal lub za pośrednictwem interfejsów API i narzędzi do zarządzania.
 
 Aby automatycznie odświeżać alerty w wielu klientach, należy użyć zapytania [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) do filtrowania alertów. Możesz przypiąć zapytanie do pulpitu nawigacyjnego i wybrać wszystkich odpowiednich klientów i subskrypcje. Na przykład poniższe zapytanie będzie wyświetlać alerty o ważności 0 i 1, odświeżanie co 60 minut.
 

@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f0ff7a54c2ad1fa1af649c8082498b442783c7e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608151"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704858"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kupowanie niestandardowej nazwy domeny dla usługi Azure App Service
 
@@ -211,7 +211,7 @@ Platforma Azure zajmuje się wygaśniemi lub wygasłymi domenami App Service w n
 * Jeśli automatyczne odnawianie jest wyłączone: 90 dni przed wygaśnięciem domeny, zostanie do Ciebie wysłana wiadomość e-mail z powiadomieniem o odnowieniu, a przycisk **Odnów domenę** zostanie aktywowany w portalu.
 * Jeśli automatyczne odnawianie jest włączone: w dniu po dacie wygaśnięcia domeny, platforma Azure podejmie próbę naliczania opłat za odnowienie nazwy domeny.
 * Jeśli wystąpi błąd podczas automatycznego odnawiania (na przykład Twoja karta w pliku wygasła) lub jeśli automatyczne odnawianie jest wyłączone i zezwolisz na wygaśnięcie domeny, system Azure powiadamia użytkownika o wygaśnięciu domeny i parkach nazwy domeny. Możesz [ręcznie odnowić](#renew-the-domain) domenę.
-* W dniu 4 i 12 dni po wygaśnięciu na platformie Azure są wysyłane dodatkowe wiadomości e-mail z powiadomieniami. Możesz [ręcznie odnowić](#renew-the-domain) domenę.
+* W dniu 4 i 12 dni po wygaśnięciu na platformie Azure są wysyłane dodatkowe wiadomości e-mail z powiadomieniami. Możesz [ręcznie odnowić](#renew-the-domain) domenę. W piątym dniu po wygaśnięciu, rozpoznawanie nazw DNS zostaje zatrzymane dla wygasłej domeny.
 * W dniu 19 po wygaśnięciu domena pozostaje wstrzymana, ale podlega opłacie za realizację. Można skontaktować się z pomocą techniczną, aby odnowić nazwę domeny, z zastrzeżeniem odpowiednich opłat za odnowienie i umorzenie.
 * W 25-dniowym dniu po wygaśnięciu platforma Azure umieszcza swoją domenę na potrzeby aukcji za pomocą usługi aukcyjnej o nazwie domeny. Można skontaktować się z pomocą techniczną, aby odnowić nazwę domeny, z zastrzeżeniem odpowiednich opłat za odnowienie i umorzenie.
 * Na 30 dzień po wygaśnięciu nie można już zrealizować Twojej domeny.

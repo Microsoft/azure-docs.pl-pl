@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: glenga
-ms.openlocfilehash: b4b2409928b6a4196738c7cc6c7040e781d34686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bff2f05a95faf9c475189cb5a8003cb7fd9f69be
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80056616"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701410"
 ---
-1. Aby uruchomić funkcję, naciśnij klawisz F5 w programie Visual Studio. Może być konieczne włączenie wyjątku zapory, aby narzędzia mogły obsługiwać żądania HTTP. Poziomy autoryzacji nigdy nie są wymuszane w przypadku lokalnego uruchamiania funkcji.
+1. Aby uruchomić funkcję, naciśnij klawisz <kbd>F5</kbd> w programie Visual Studio. Może być konieczne włączenie wyjątku zapory, aby narzędzia mogły obsługiwać żądania HTTP. Poziomy autoryzacji nigdy nie są wymuszane w przypadku lokalnego uruchamiania funkcji.
 
 2. Skopiuj adres URL funkcji z danych wyjściowych środowiska uruchomieniowego usługi Azure Functions.
 
@@ -21,4 +21,4 @@ ms.locfileid: "80056616"
 
     ![Odpowiedź hosta localhost funkcji wyświetlona w przeglądarce](./media/functions-run-function-test-local-vs/functions-run-browser-local-vs.png)
 
-4. Aby zatrzymać debugowanie, naciśnij klawisze Shift + F5 w programie Visual Studio.
+4. Aby zatrzymać debugowanie, naciśnij klawisz <kbd>SHIFT</kbd> + <kbd>F5</kbd> w programie Visual Studio.

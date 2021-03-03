@@ -1,19 +1,19 @@
 ---
-title: Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
-description: Uprość złożone raporty ze wstępnie zdefiniowanymi i niestandardowymi skoroszytami dla Azure Monitor dla maszyn wirtualnych.
+title: Twórz interaktywne raporty usługi VM Insights ze skoroszytami
+description: Uprość złożone raporty ze wstępnie zdefiniowanymi i niestandardowymi skoroszytami dla szczegółowych informacji o maszynach wirtualnych.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619600"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731293"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Twórz interaktywne raporty usługi VM Insights ze skoroszytami
 
 Skoroszyty łączą tekst, [kwerendy dzienników](/azure/data-explorer/kusto/query/), metryki i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
 
@@ -24,7 +24,7 @@ Skoroszyty są przydatne w scenariuszach takich jak:
 * Udostępnianie wyników eksperymentu zmiany rozmiarów maszyny wirtualnej z innymi członkami zespołu. Można wyjaśnić cele eksperymentu z tekstem, a następnie pokazać wszystkie metryki użycia i zapytania analityczne używane do szacowania eksperymentu, a także wyraźne wywołania dla tego, czy każda Metryka była większa niż wartość docelowa.
 * Raportowanie wpływu awarii na korzystanie z maszyny wirtualnej, łączenie danych, wyjaśnienie tekstu i Omówienie następnych kroków, aby zapobiec awarii w przyszłości.
 
-Poniższa tabela zawiera podsumowanie skoroszytów, które Azure Monitor dla maszyn wirtualnych zawiera, aby rozpocząć pracę.
+Poniższa tabela zawiera podsumowanie skoroszytów uwzględnionych w usłudze VM Insights, aby rozpocząć pracę.
 
 | skoroszyt | Opis | Zakres |
 |----------|-------------|-------|
@@ -96,7 +96,7 @@ Sekcje zapytań są wysoce elastyczne i mogą być używane do udzielania odpowi
 
 Nie można również wykonywać zapytania tylko w kontekście maszyny wirtualnej, z której został uruchomiony skoroszyt. Możesz wykonywać zapytania na wielu maszynach wirtualnych, a także Log Analytics obszary robocze, o ile masz uprawnienia dostępu do tych zasobów.
 
-Aby dołączyć dane z innych obszarów roboczych Log Analytics lub z określonej aplikacji Application Insights przy użyciu identyfikatora **obszaru roboczego** . Aby dowiedzieć się więcej o zapytaniach między zasobami, zapoznaj się z [oficjalnymi wskazówkami](../log-query/cross-workspace-query.md).
+Aby dołączyć dane z innych obszarów roboczych Log Analytics lub z określonej aplikacji Application Insights przy użyciu identyfikatora **obszaru roboczego** . Aby dowiedzieć się więcej o zapytaniach między zasobami, zapoznaj się z [oficjalnymi wskazówkami](../logs/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Zaawansowane ustawienia zapytania analitycznego
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Dodawanie sekcji metryk
 
-Sekcje metryk zapewniają pełny dostęp do dołączania danych metryk Azure Monitor do raportów interaktywnych. W Azure Monitor dla maszyn wirtualnych wstępnie skompilowane skoroszyty zwykle zawierają dane analityczne zapytań, a nie dane metryk.  Można utworzyć skoroszyty z danymi metryk, co pozwala w pełni wykorzystać zalety obu funkcji w jednym miejscu. Istnieje również możliwość ściągania danych metryk z zasobów we wszystkich subskrypcjach, do których masz dostęp.
+Sekcje metryk zapewniają pełny dostęp do dołączania danych metryk Azure Monitor do raportów interaktywnych. W przypadku usługi VM Insights wstępnie skompilowane skoroszyty zwykle zawierają dane analityczne zapytań, a nie dane metryk.  Można utworzyć skoroszyty z danymi metryk, co pozwala w pełni wykorzystać zalety obu funkcji w jednym miejscu. Istnieje również możliwość ściągania danych metryk z zasobów we wszystkich subskrypcjach, do których masz dostęp.
 
 Poniżej znajduje się przykład danych maszyny wirtualnej, które są ściągane do skoroszytu w celu zapewnienia wizualizacji wydajności procesora CPU:
 
@@ -244,4 +244,4 @@ Aby przypiąć link do skoroszytu na pulpicie nawigacyjnym platformy Azure:
 
 - Aby zidentyfikować ograniczenia i ogólną wydajność maszyn wirtualnych, zobacz [Wyświetlanie wydajności maszyny wirtualnej platformy Azure](vminsights-performance.md).
 
-- Aby dowiedzieć się więcej o wykrytych zależnościach aplikacji, zobacz [View Azure monitor dla maszyn wirtualnych map](vminsights-maps.md).
+- Aby dowiedzieć się więcej o wykrytych zależnościach aplikacji, zobacz [Wyświetlanie mapy usługi VM Insights](vminsights-maps.md).

@@ -113,6 +113,9 @@
       items:
         - name: Interfejs wiersza polecenia platformy Azure
           href: sample-scripts-azure-cli.md
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Serwery
@@ -572,14 +575,6 @@
         - name: Projektowanie pulpitu nawigacyjnego w czasie rzeczywistym
           href: tutorial-design-database-hyperscale-realtime.md
           displayName: 'hyperscale, tutorial, real-time'
-    - name: Samples
-      items:
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: sample-scripts-azure-cli.md
-          displayName: 'samples, azure cli'
-        - name: Elementy wbudowane usługi Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Rozproszone dane

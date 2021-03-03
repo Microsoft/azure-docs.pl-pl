@@ -7,27 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694465"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Zarządzanie źródłami danych w usłudze Azure kontrolą (wersja zapoznawcza)
 
-W tym artykule dowiesz się, jak zarejestrować nowe źródła danych, zarządzać kolekcjami źródeł danych i wyświetlać źródła w usłudze Azure kontrolą (wersja zapoznawcza). Usługa Azure kontrolą obsługuje następujące źródła danych:
-
-* SQL Server w środowisku lokalnym
-* Usługa Azure Data Lake Storage 1. generacji 
-* Usługa Azure Data Lake Storage 2. generacji
-* Azure Blob Storage
-* Azure Data Explorer
-* Azure SQL DB
-* Wystąpienie zarządzane usługi Azure SQL DB
-* Azure Synapse Analytics (dawniej SQL DW)
-* Azure Cosmos DB
-* Power BI
+W tym artykule dowiesz się, jak zarejestrować nowe źródła danych, zarządzać kolekcjami źródeł danych i wyświetlać źródła w usłudze Azure kontrolą (wersja zapoznawcza)
 
 ## <a name="register-a-new-source"></a>Rejestrowanie nowego źródła
 

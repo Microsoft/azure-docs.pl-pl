@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686482"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Utwórz kontroler danych usługi Azure Arc w Azure Portal
 
@@ -48,6 +48,10 @@ Wykonaj poniższe kroki, aby utworzyć kontroler danych usługi Azure ARC przy u
 1. Wybierz profil konfiguracji wdrożenia.
 1. Kliknij przycisk **Otwórz w programie Azure Studio** .
 1. Na następnym ekranie zobaczysz podsumowanie wybranych opcji i wygenerowany Notes.  Możesz kliknąć przycisk **Pobierz Notes aprowizacji** , aby pobrać Notes.
+
+   > [!IMPORTANT]
+   > Na platformie Azure Red Hat OpenShift lub Red Hat OpenShift kontenera należy zastosować ograniczenie kontekstu zabezpieczeń przed utworzeniem kontrolera danych. Postępuj zgodnie z instrukcjami w obszarze [Zastosuj ograniczenie kontekstu zabezpieczeń dla usług danych z obsługą usługi Azure Arc w systemie OpenShift](how-to-apply-security-context-constraint.md).
+
 1. Otwórz Notes w Azure Data Studio i kliknij przycisk **Uruchom wszystko** w górnej części ekranu.
 1. Postępuj zgodnie z monitami i instrukcjami w notesie, aby ukończyć tworzenie kontrolera danych.
 

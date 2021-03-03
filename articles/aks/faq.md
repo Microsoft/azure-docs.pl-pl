@@ -3,12 +3,13 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739631"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -134,7 +135,7 @@ Obsługa systemu Windows Server dla puli węzłów obejmuje pewne ograniczenia, 
 
 AKS zapewnia gwarancje SLA jako opcjonalną funkcję dodatku z umową [SLA][uptime-sla]dotyczącą czasu pracy. 
 
-Bezpłatna umowa SLA oferowana domyślnie nie gwarantuje punktu końcowego serwera interfejsu API o wysokiej dostępności (cel poziomu usługi to 99,5%). Może się tak zdarzyć, że problemy z łącznością są obserwowane w przypadku uaktualnień, węzłów underlay w złej kondycji, konserwacji platformy itp... Jeśli obciążenie nie jest tolerowane w APIServer ponownych uruchomień, zalecamy użycie umowy SLA dotyczącej czasu pracy.
+Bezpłatna jednostka SKU oferowana domyślnie nie ma skojarzonej *umowy* dotyczącej poziomu usług, ale ma *cel* poziomu usługi równy 99,5%. Mogło się zdarzyć, że problemy z łącznością są obserwowane w przypadku uaktualnień, węzłów underlay w złej kondycji, konserwacji platformy, aplikacji przenoszącej Przeciążenie serwera interfejsu API żądaniami itp. Jeśli obciążenie nie jest tolerowane w przypadku ponownego uruchomienia serwera interfejsu API, zalecamy użycie umowy SLA dotyczącej czasu pracy.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Czy mogę zastosować rabaty rezerwacji platformy Azure do węzłów agenta AKS?
 
@@ -202,7 +203,7 @@ Agent Log Analytics jest obsługiwany, ponieważ jest rozszerzeniem zarządzanym
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Czy AKS przechowuje dane klienta poza regionem klastra?
 
-Funkcja umożliwiająca przechowywanie danych klienta w jednym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur) Azja i Pacyfik geograficznej. W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej.
+Funkcja umożliwiająca przechowywanie danych klienta w pojedynczym regionie jest obecnie dostępna tylko w regionie Azja Południowo-Wschodnia (Singapur Azja i Pacyfik) regionu geograficznego i Brazylia Południowa (stan Świętego Paulo). W przypadku wszystkich innych regionów dane klienta są przechowywane w lokalizacji geograficznej.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>Czy obrazy AKS są wymagane do uruchomienia jako główne?
 

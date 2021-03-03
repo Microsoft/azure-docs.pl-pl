@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: dead60b9d8e0872f3d46b1f223ccf5e6697cbd90
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100056"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715517"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Zabezpiecz swoje źródło za pomocą prywatnego linku na platformie Azure Front-Standard/Premium (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ ms.locfileid: "101100056"
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Jednostka SKU platformy Azure z przodu Premium może połączyć się ze źródłem przy użyciu usługi link prywatny. Aplikacje mogą być hostowane w prywatnej sieci wirtualnej lub za pomocą usługi PaaS, ale nie są dostępne z publicznego Internetu.
+Jednostka SKU platformy Azure z drzwiami Premium może nawiązać połączenie ze źródłem danych za pośrednictwem aplikacji sieci Web i konta magazynu przy użyciu usługi link prywatny, co eliminuje konieczność publicznego dostępu do źródła.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Architektura prywatnych punktów końcowych z drzwiami":::
 
@@ -38,7 +38,8 @@ Po włączeniu prywatnego linku do źródła w konfiguracji Premium drzwi platfo
 
 :::image type="content" source="../media/concept-private-link/enable-private-endpoint.png" alt-text="Włącz prywatny punkt końcowy":::
 
-Platforma Azure Front-Premium obsługuje różne typy pochodzenia. Jeśli źródło jest hostowane na zestawie maszyn wirtualnych w sieci prywatnej, musisz najpierw utworzyć wewnętrzny moduł równoważenia obciążenia, włączyć usługę link prywatny do standardowego modułu równoważenia obciążenia, a następnie wybrać niestandardowy typ źródła. W obszarze Konfiguracja linku prywatnego wybierz pozycję "Microsoft. Network/PrivateLinkServices jako typ zasobu. W przypadku usług PaaS Services, takich jak Azure Web App i konto magazynu, można najpierw włączyć usługę link prywatny z odpowiednich usług, a następnie wybrać pozycję Microsoft. Web/Sites dla aplikacji sieci Web i Microsoft. Storage/StorageAccounts dla typów usługi link prywatny konta magazynu.
+> [!NOTE]
+> Po włączeniu prywatnego źródła linku i zaakceptowaniu prywatnego punktu końcowego Conenction potrwa kilka minut, aby można było nawiązać połączenie. W tym czasie żądania kierowane do źródła otrzymają komunikat o błędzie z Drzwiem przednim. Po nawiązaniu połączenia zostanie wyświetlony komunikat o błędzie.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -50,6 +51,5 @@ Prywatne punkty końcowe platformy Azure są zarządzane przez platformę i w ra
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby nawiązać połączenie z platformą Azure w warstwie Premium w celu Virtual Machines przy użyciu usługi link prywatny, zobacz [Tworzenie prywatnego punktu końcowego](../../private-link/create-private-endpoint-portal.md).
 * Aby nawiązać połączenie z platformą Azure w warstwie Premium z aplikacją sieci Web za pośrednictwem usługi link prywatny, zobacz [nawiązywanie połączenia z aplikacją internetową przy użyciu prywatnego punktu końcowego](../../private-link/tutorial-private-endpoint-webapp-portal.md).
 * Aby nawiązać połączenie z platformą Azure przed drzwiami do konta magazynu za pośrednictwem usługi link prywatny, zobacz [nawiązywanie połączenia z kontem magazynu przy użyciu prywatnego punktu końcowego](../../private-link/tutorial-private-endpoint-storage-portal.md).

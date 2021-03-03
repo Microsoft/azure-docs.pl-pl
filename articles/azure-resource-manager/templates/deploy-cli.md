@@ -1,18 +1,18 @@
 ---
 title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu
-description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
+description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie Menedżer zasobów lub pliku Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6a8efcebcd6ae18eaf91c6ec1e7df184db8c244c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/02/2021
+ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741127"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
-W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md).
+W tym artykule wyjaśniono, jak używać interfejsu wiersza polecenia platformy Azure z szablonami Azure Resource Manager (szablony ARM) lub pliku Bicep do wdrażania zasobów na platformie Azure. Jeśli nie znasz pojęć związanych z wdrażaniem rozwiązań platformy Azure i zarządzaniem nimi, zobacz [Omówienie wdrażania szablonów](overview.md) lub [Przegląd Bicep](bicep-overview.md).
 
 Polecenia wdrożenia zmieniły się w interfejsie CLI platformy Azure w wersji 2.2.0. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej.
 
@@ -27,13 +27,13 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 * Aby wdrożyć w **grupie zasobów**, użyj [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
 * Aby wdrożyć w **ramach subskrypcji**, użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template>
+  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
@@ -41,7 +41,7 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 * Aby wdrożyć w **grupie zarządzania**, użyj [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template>
+  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
@@ -49,14 +49,14 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 * Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template>
+  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy](deploy-to-tenant.md).
 
-Dla każdego zakresu użytkownik wdrażający szablon musi mieć uprawnienia wymagane do tworzenia zasobów.
+Dla każdego zakresu użytkownik wdrażający szablon lub plik Bicep musi mieć uprawnienia wymagane do tworzenia zasobów.
 
-## <a name="deploy-local-template"></a>Wdrażanie szablonu lokalnego
+## <a name="deploy-local-template-or-bicep-file"></a>Wdróż plik szablonu lokalnego lub Bicep
 
 Szablon można wdrożyć z komputera lokalnego lub z niego, który jest przechowywany zewnętrznie. W tej sekcji opisano Wdrażanie szablonu lokalnego.
 
@@ -66,13 +66,13 @@ Jeśli wdrażasz w grupie zasobów, która nie istnieje, Utwórz grupę zasobów
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Aby wdrożyć szablon lokalny, użyj `--template-file` parametru w poleceniu wdrażania. Poniższy przykład pokazuje również, jak ustawić wartość parametru, która pochodzi z szablonu.
+Aby wdrożyć szablon lokalny lub plik Bicep, użyj `--template-file` parametru w poleceniu Deployment. Poniższy przykład pokazuje również, jak ustawić wartość parametru.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file azuredeploy.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,6 +83,9 @@ Wdrożenie może potrwać kilka minut. Po zakończeniu zobaczysz komunikat, któ
 ```
 
 ## <a name="deploy-remote-template"></a>Wdróż zdalny szablon
+
+> [!NOTE]
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje wdrażania plików Remove Bicep.
 
 Zamiast przechowywać szablony ARM na komputerze lokalnym, warto przechowywać je w lokalizacji zewnętrznej. Szablony można przechowywać w repozytorium kontroli źródła (na przykład GitHub). Można je również przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji.
 
@@ -144,6 +147,9 @@ Aby uniknąć konfliktów z jednoczesnymi wdrożeniami i zapewnić unikatowe wpi
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
+> [!NOTE]
+> Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje tworzenia specyfikacji szablonu przez udostępnienie plików Bicep. Można jednak utworzyć szablon ARM lub plik Bicep za pomocą zasobu [Microsoft. resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) w celu wdrożenia specyfikacji szablonu. Oto [przykład](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+
 Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
 W poniższych przykładach pokazano, jak utworzyć i wdrożyć specyfikację szablonu.
@@ -186,7 +192,7 @@ Aby przekazać parametry wbudowane, podaj wartości w `parameters` . Na przykła
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -197,7 +203,7 @@ Możesz również pobrać zawartość pliku i podać tę zawartość jako parame
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -236,7 +242,7 @@ Użyj podwójnych cudzysłowów wokół kodu JSON, które chcesz przekazać do o
 
 ### <a name="parameter-files"></a>Pliki parametrów
 
-Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametru musi być plikiem lokalnym. Zewnętrzne pliki parametrów nie są obsługiwane w interfejsie wiersza polecenia platformy Azure.
+Zamiast przekazywania parametrów jako wartości śródwierszowych w skrypcie prostszym może się okazać użycie pliku JSON zawierającego wartości parametrów. Plik parametru musi być plikiem lokalnym. Zewnętrzne pliki parametrów nie są obsługiwane w interfejsie wiersza polecenia platformy Azure. Zarówno szablon ARM, jak i plik Bicep używają plików parametrów JSON.
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów usługi Resource Manager](parameter-files.md).
 
@@ -274,7 +280,7 @@ Aby wdrożyć szablon z wielowierszowymi ciągami lub komentarzami przy użyciu 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz [wycofywanie po pomyślnym wdrożeniu](rollback-on-error.md).
-- Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
-- Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
-- Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
+* Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz [wycofywanie po pomyślnym wdrożeniu](rollback-on-error.md).
+* Aby określić sposób obsługi zasobów, które istnieją w grupie zasobów, ale nie są zdefiniowane w szablonie, zobacz [Azure Resource Manager trybami wdrożenia](deployment-modes.md).
+* Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
+* Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).

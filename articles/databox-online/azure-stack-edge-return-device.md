@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703188"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Zwróć urządzenie Azure Stack Edge w wersji Pro
 
@@ -30,26 +30,16 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="erase-data-from-the-device"></a>Wymazywanie danych z urządzenia
 
-Aby wyczyścić dane z dysków danych urządzenia, należy zresetować urządzenie. Możesz zresetować urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web lub interfejsu programu PowerShell.
+Aby wyczyścić dane z dysków danych urządzenia, należy zresetować urządzenie.
 
-Przed zresetowaniem Utwórz kopię danych lokalnych na urządzeniu, jeśli jest to konieczne. Dane z urządzenia można skopiować do kontenera usługi Azure Storage.
+Przed zresetowaniem Utwórz kopię danych lokalnych na urządzeniu, jeśli jest to konieczne. Dane z urządzenia można skopiować do kontenera usługi Azure Storage. 
 
-Możesz zainicjować zwracanie urządzenia nawet przed zresetowaniem urządzenia. 
+Możesz zainicjować zwracanie urządzenia nawet przed zresetowaniem urządzenia.
 
-Aby zresetować urządzenie przy użyciu lokalnego interfejsu użytkownika sieci Web, wykonaj następujące czynności.
+Możesz zresetować urządzenie w lokalnym interfejsie użytkownika sieci Web lub w programie PowerShell. Aby uzyskać instrukcje dotyczące programu PowerShell, zobacz [Resetowanie urządzenia](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja > Resetowanie urządzenia**.
-2. Wybierz pozycję **Zresetuj urządzenie**.
 
-    ![Resetowanie urządzenia](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. Po wyświetleniu monitu o potwierdzenie Sprawdź ostrzeżenie i wybierz pozycję **tak** , aby kontynuować.
-
-    ![Potwierdzenie resetowania](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-Zresetowanie powoduje wymazanie danych z dysków danych urządzenia. W zależności od ilości danych na urządzeniu proces ten zajmie około 30-40 minut.
-
-Alternatywnie można nawiązać połączenie z interfejsem programu PowerShell urządzenia i użyć `Reset-HcsAppliance` polecenia cmdlet w celu wymazania danych z dysków danych. Aby uzyskać więcej informacji, zobacz [Resetowanie urządzenia](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[! INCLUDE] [Resetowanie danych z urządzenia](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - Jeśli wymieniasz lub uaktualniasz nowe urządzenie, zalecamy zresetowanie urządzenia tylko po odebraniu nowego urządzenia.
@@ -67,15 +57,15 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
     1. Podaj numer seryjny urządzenia. Aby uzyskać numer seryjny urządzenia, przejdź do lokalnego interfejsu użytkownika sieci Web urządzenia, a następnie przejdź do **omówienia**.  
     
-    ![Numer seryjny urządzenia 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Numer seryjny urządzenia 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Wprowadź numer tagu usługi, który jest co najmniej pięcioma identyfikatorem znaku, który jest unikatowy dla Twojego urządzenia. Tag usługi znajduje się w prawym dolnym rogu urządzenia (w przypadku urządzenia). Pobierz tag informacji (jest to panel etykiet z slajdem). Ten panel zawiera informacje o systemie, takie jak tag usługi, karta sieciowa, adres MAC i tak dalej. 
+    2. Wprowadź numer tagu usługi. Numer znacznika usługi jest identyfikatorem składającym się z co najmniej pięciu znaków, który jest unikatowy dla Twojego urządzenia. Tag usługi znajduje się w prawym dolnym rogu urządzenia (w przypadku urządzenia). Pobierz tag informacji (jest to panel etykiet z slajdem). Ten panel zawiera informacje o systemie, takie jak tag usługi, karta sieciowa, adres MAC i tak dalej. 
     
-    ![Numer znacznika usługi 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Numer znacznika usługi 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. Z listy rozwijanej wybierz przyczynę powrotu.
 
-    ![Zwróć urządzenie 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Zwróć urządzenie 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. W obszarze **Szczegóły wysyłki**:
 
@@ -84,7 +74,7 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
     ![Zwróć urządzenie 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Zapoznaj się z **warunkami zachowania poufności** i zaznacz pole wyboru obok uwagi, że zostały przejrzane i zgadzasz się na warunki zachowania poufności informacji.
+4. Zapoznaj się z **warunkami zachowania poufności**, a następnie zaznacz pole wyboru w obszarze uwagi, które zostały przejrzane i zgadzasz się na warunki zachowania poufności informacji.
 
 5. Wybierz pozycję **Inicjuj zwrot**.
 
@@ -123,8 +113,8 @@ Gdy urządzenie zostanie odebrane w centrum danych platformy Azure, urządzenie 
 
 Urządzenie można usunąć w Azure Portal:
 
-- Po złożeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
-- Po dodaniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a usługa Azure Stack Edge w ramach zespołu ds. operacji w wersji brzegowej w celu potwierdzenia, że urządzenie zostało zwrócone.
+- Po umieszczeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
+- Po powrocie urządzenia do firmy Microsoft i rozpoczęciu działania zespołu operacji Azure Stack Edge w celu potwierdzenia, że urządzenie zostało zwrócone. Zespół operacyjny nie wywołuje do momentu, aż zwrócone urządzenie przejdzie do fizycznej kontroli w centrum danych platformy Azure.
 
 Jeśli urządzenie zostało aktywowane na inną subskrypcję lub lokalizację, firma Microsoft przeniesie zamówienie do nowej subskrypcji lub lokalizacji w ciągu jednego dnia roboczego. Po przeniesieniu zamówienia można usunąć ten zasób.
 

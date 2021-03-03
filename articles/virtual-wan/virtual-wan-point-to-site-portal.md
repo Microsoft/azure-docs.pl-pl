@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9d207e2ee0ddff49ab01094626b9af1c8505cb4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732494"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
@@ -50,7 +50,6 @@ Konfiguracja typu punkt-lokacja (P2S) definiuje parametry połączenia klientów
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-
 ## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Wybierz P2S pule adresów klienta
 
 [!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
@@ -79,8 +78,6 @@ Po zakończeniu konfigurowania klienta można nawiązać połączenie.
 1. Przejdź do wirtualnej sieci WAN.
 1. Na stronie **Przegląd** każdy punkt na mapie reprezentuje centrum.
 1. W sekcji **centra i połączenia** można wyświetlić stan centrum, lokację, region, stan połączenia sieci VPN oraz liczbę bajtów do i wychodzące.
-
-
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 

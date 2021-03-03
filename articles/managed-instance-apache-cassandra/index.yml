@@ -1,0 +1,54 @@
+### YamlMime:Landing
+title: Wystąpienie zarządzane platformy Azure dla dokumentacji Apache Cassandra
+summary: Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla centrów danych w zarządzanych źródłach oprogramowania Apache Cassandra. Przyspiesza scenariusze hybrydowe i zmniejsza trwającą konserwację.
+metadata:
+  title: Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra
+  description: Wystąpienie zarządzane platformy Azure dla systemu Apache Cassandra zapewnia zautomatyzowane operacje wdrażania i skalowania dla centrów danych w zarządzanych źródłach oprogramowania Apache Cassandra. Przyspiesza scenariusze hybrydowe i zmniejsza trwającą konserwację.
+  services: service
+  ms.service: managed-instance-apache-cassandra
+  ms.topic: landing-page
+  ms.collection: collection
+  author: TheovanKraay
+  ms.author: thvankra
+  ms.date: 01/18/2021
+  ms.openlocfilehash: 8300012954756f1083c93745299ca57e4c4db0d3
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749130"
+landingContent:
+- title: Informacje o wystąpieniu zarządzanym platformy Azure dla oprogramowania Apache Cassandra
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest wystąpienie zarządzane platformy Azure dla oprogramowania Apache Cassandra?
+      url: introduction.md
+  - linkListType: get-started
+    links:
+    - text: Wystąpienie zarządzane platformy Azure dla oprogramowania Apache Cassandra vs Azure Cosmos DB interfejs API Cassandra
+      url: compare-cosmosdb-managed-instance.md
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie klastra — Portal
+      url: create-cluster-portal.md
+    - text: Tworzenie klastra — interfejs wiersza polecenia
+      url: create-cluster-cli.md
+    - text: Wdrażanie klastra Spark przy użyciu Azure Databricks
+      url: deploy-cluster-databricks.md
+  - linkListType: concept
+    links:
+    - text: Często zadawane pytania
+      url: faq.md
+- title: Konfigurowanie zasobów klastra i zarządzanie nimi
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Konfigurowanie klastra hybrydowego
+      url: configure-hybrid-cluster.md
+  - linkListType: how-to-guide
+    links:
+    - text: Zarządzanie zasobami za pomocą interfejsu wiersza polecenia platformy Azure
+      url: manage-resources-cli.md
+    - text: Wizualizowanie metryk w Prometheus z Grafana
+      url: visualize-prometheus-grafana.md

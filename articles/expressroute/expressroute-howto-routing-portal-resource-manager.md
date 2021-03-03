@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721907"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Samouczek: Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu Azure Portal
 
@@ -30,7 +30,7 @@ W tym samouczku pokazano, jak utworzyć konfigurację routingu dla Azure Resourc
 
 Można skonfigurować prywatną komunikację równorzędną i komunikację równorzędną firmy Microsoft dla obwodu usługi ExpressRoute (publiczna Komunikacja równorzędna Azure jest przestarzała dla nowych obwodów). Komunikację równorzędną można skonfigurować w dowolnej wybranej kolejności. Musisz jednak pamiętać, aby kończyć konfiguracje poszczególnych komunikacji równorzędnych pojedynczo. Aby uzyskać więcej informacji o domenach routingu i komunikacji równorzędnej, zobacz [ExpressRoute Routing domen](expressroute-circuit-peerings.md). Aby uzyskać informacje na temat publicznej komunikacji równorzędnej, zobacz [ExpressRoute publicznej komunikacji równorzędnej](about-public-peering.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Konfigurowanie, aktualizowanie i usuwanie komunikacji równorzędnej firmy Microsoft dla obwodu
 > - Konfigurowanie, aktualizowanie i usuwanie prywatnej komunikacji równorzędnej Azure dla obwodu
@@ -75,14 +75,17 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
 2. Skonfiguruj komunikację równorzędną Microsoft dla obwodu. Przed kontynuowaniem upewnij się, że masz poniższe informacje.
 
-   * Para/30 podsieci należących do użytkownika i zarejestrowana w RIR/IRR. Muszą to być prawidłowe publiczne prefiksy IPv4. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera.
-   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN. Zarówno linki podstawowe, jak i pomocnicze muszą używać tego samego identyfikatora sieci VLAN.
+   * Para podsieci należących do użytkownika i zarejestrowana w RIR/IRR. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera. Dla tej pary podsieci dostępne są trzy opcje:
+       * IPv4: dwie podsieci/30. Muszą to być prawidłowe publiczne prefiksy IPv4.
+       * IPv6: dwie podsieci/126. Muszą to być prawidłowe publiczne Prefiksy IPv6.
+       * Oba: dwie podsieci/30 i dwie podsieci/126.
+   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN. W przypadku łączy podstawowych i pomocniczych należy użyć tego samego identyfikatora sieci VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS.
    * Anonsowane prefiksy: zawiera listę wszystkich prefiksów, które planujesz anonsować za pośrednictwem sesji BGP. Akceptowane są tylko prefiksy publicznych adresów IP. Jeśli planujesz wysłanie zestawu prefiksów, możesz wysłać listę rozdzieloną przecinkami. Prefiksy te muszą być zarejestrowane na Ciebie w RIR/IRR.
    * **Opcjonalne-** Numer ASN klienta: w przypadku anonsowania prefiksów, które nie są zarejestrowane w komunikacji równorzędnej jako liczba, można określić liczbę AS, do której są zarejestrowani.
    * Nazwa rejestru routingu: możesz określić RIR/IRR, względem którego rejestrowany jest numer AS i prefiksy.
    * **Opcjonalne-** Skrót MD5, jeśli zdecydujesz się na użycie jednego z nich.
-3. Możesz wybrać komunikację równorzędną, którą chcesz skonfigurować, jak pokazano w poniższym przykładzie. Zaznacz wiersz dotyczący komunikacji równorzędnej firmy Microsoft.
+1. Możesz wybrać komunikację równorzędną, którą chcesz skonfigurować, jak pokazano w poniższym przykładzie. Zaznacz wiersz dotyczący komunikacji równorzędnej firmy Microsoft.
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Wybierz wiersz komunikacji równorzędnej firmy Microsoft":::
 
@@ -120,6 +123,11 @@ Możesz wybrać wiersz dla komunikacji równorzędnej, którą chcesz zmodyfikow
 
 Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 
+> [!IMPORTANT]
+> Obsługa protokołu IPv6 dla prywatnej komunikacji równorzędnej jest obecnie dostępna w **publicznej wersji zapoznawczej**. Jeśli chcesz połączyć sieć wirtualną z obwodem ExpressRoute przy użyciu skonfigurowanej prywatnej komunikacji równorzędnej IPv6, upewnij się, że sieć wirtualna jest podwójnym stosem, i postępuj zgodnie z wytycznymi opisanymi [tutaj](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
 
 1. Skonfiguruj obwód usługi ExpressRoute. Zanim przejdziesz dalej, upewnij się, że obwód jest w całości obsługiwany przez dostawcę połączenia. 
@@ -136,8 +144,11 @@ Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji
 
 2. Skonfiguruj prywatną komunikację równorzędną Azure dla obwodu. Przed przejściem do następnego kroku upewnij się, że masz następujące elementy:
 
-   * Para z/30 podsieciami należącymi do użytkownika. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera.
-   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN. Zarówno linki podstawowe, jak i pomocnicze muszą używać tego samego identyfikatora sieci VLAN.
+   * Para podsieci, które nie są częścią przestrzeni adresowej zarezerwowanej dla sieci wirtualnych. Jedna podsieć zostanie użyta dla linku podstawowego, a druga zostanie użyta dla linku pomocniczego. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera. Dla tej pary podsieci dostępne są trzy opcje:
+       * IPv4: dwie podsieci/30.
+       * IPv6: dwie podsieci/126.
+       * Oba: dwie podsieci/30 i dwie podsieci/126.
+   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN. W przypadku łączy podstawowych i pomocniczych należy użyć tego samego identyfikatora sieci VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS. Możesz użyć numeru prywatnego jako dla tej komunikacji równorzędnej z wyjątkiem liczby od 65515 do 65520 włącznie.
    * Trasy należy anonsować od lokalnego routera brzegowego do platformy Azure za pośrednictwem protokołu BGP podczas konfigurowania prywatnej komunikacji równorzędnej.
    * **Opcjonalne-** Skrót MD5, jeśli zdecydujesz się na użycie jednego z nich.

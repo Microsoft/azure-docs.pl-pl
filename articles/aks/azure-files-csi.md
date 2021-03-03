@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0fc291403997cdccbfa190fcd5739e97c47eab6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636984"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729440"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -33,13 +33,13 @@ Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje ma
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Dynamicznie Twórz Azure Files PVs przy użyciu wbudowanych klas magazynu
 
-Klasa magazynu służy do definiowania sposobu tworzenia udziału Azure Files. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów Azure Files. Wybierz jedną z następujących [jednostek SKU nadmiarowości usługi Azure Storage][storage-skus] dla *skuName* :
+Klasa magazynu służy do definiowania sposobu tworzenia udziału Azure Files. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów Azure Files. Wybierz jedną z następujących [jednostek SKU nadmiarowości usługi Azure Storage][storage-skus] dla *skuName*:
 
-* **Standard_LRS** : standardowy magazyn lokalnie nadmiarowy
-* **Standard_GRS** : standardowy magazyn Geograficznie nadmiarowy
-* **Standard_ZRS** : Strefa standardowa — magazyn nadmiarowy
-* **Standard_RAGRS** : standardowy magazyn Geograficznie nadmiarowy do odczytu
-* **Premium_LRS** : Magazyn lokalnie nadmiarowy w warstwie Premium
+* **Standard_LRS**: standardowy magazyn lokalnie nadmiarowy
+* **Standard_GRS**: standardowy magazyn Geograficznie nadmiarowy
+* **Standard_ZRS**: Strefa standardowa — magazyn nadmiarowy
+* **Standard_RAGRS**: standardowy magazyn Geograficznie nadmiarowy do odczytu
+* **Premium_LRS**: Magazyn lokalnie nadmiarowy w warstwie Premium
 
 > [!NOTE]
 > Azure Files obsługuje platformę Azure Premium Storage. Minimalny udział plików w warstwie Premium to 100 GB.
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Tworzenie konta magazynu dla udziału plików NFS
 
-[Utwórz `Premium_LRS` Konto usługi Azure Storage](../storage/files/storage-how-to-create-premium-fileshare.md) z następującymi konfiguracjami do obsługi udziałów NFS:
+[Utwórz `Premium_LRS` Konto usługi Azure Storage](../storage/files/storage-how-to-create-file-share.md) z następującymi konfiguracjami do obsługi udziałów NFS:
 - rodzaj konta: FileStorage
 - wymagany bezpieczny transfer (Włącz tylko ruch HTTPS): FAŁSZ
 - w obszarze zapory i sieci wirtualne wybierz sieć wirtualną węzłów agenta, aby utworzyć konto magazynu w MC_ grupie zasobów.

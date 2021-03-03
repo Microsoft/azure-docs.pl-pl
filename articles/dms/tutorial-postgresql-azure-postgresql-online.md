@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: e5efa30343afcda736946164eb271ad0bf420cab
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 87b3ecd9b77fcf07e6c41bce0a38ef4f99da1006
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740940"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Samouczek: Migrowanie PostgreSQL do usługi Azure DB for PostgreSQL online za pomocą usługi DMS za pośrednictwem interfejsu wiersza polecenia platformy Azure
 
@@ -62,7 +62,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * [Zapora sytemu Windows skonfigurowana pod kątem dostępu do aparatu bazy danych](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do źródłowego serwera PostgreSQL, który domyślnie jest portem TCP 5432.
 * W przypadku korzystania z urządzenia zapory przed źródłową bazą danych konieczne może być dodanie reguł zapory, aby zezwolić usłudze Azure Database Migration Service na dostęp do źródłowej bazy danych podczas migracji.
-* Utwórz [regułę zapory](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) na poziomie serwera dla Azure Database for PostgreSQL, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
+* Utwórz [regułę zapory](../postgresql/concepts-firewall-rules.md) na poziomie serwera dla Azure Database for PostgreSQL, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
 * Istnieją dwie metody wywoływania interfejsu wiersza polecenia:
 
   * W prawym górnym rogu Azure Portal wybierz przycisk Cloud Shell:

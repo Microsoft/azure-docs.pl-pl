@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 703a5f145aee93fe7ec4ad2f8ec102f98bdd4174
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2b7648155c28ec9b6cf2048246c17805b5f22404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616880"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700732"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Zbierz dane z rozszerzenia diagnostyki platformy Azure do dzienników Azure Monitor
 Rozszerzenie diagnostyki Azure to [Agent w Azure monitor](../agents/agents-overview.md) , który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. W tym artykule opisano sposób zbierania danych zbieranych przez rozszerzenie diagnostyki z usługi Azure Storage do dzienników Azure Monitor.
@@ -63,7 +63,6 @@ W ciągu około 30 minut można zobaczyć dane z konta magazynu w obszarze roboc
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zbieraj dzienniki i metryki dla usług platformy Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) dla obsługiwanych usług platformy Azure.
+* [Zbieraj dzienniki i metryki dla usług platformy Azure](./resource-logs.md#send-to-log-analytics-workspace) dla obsługiwanych usług platformy Azure.
 * [Umożliwiaj rozwiązanie](../insights/solutions.md) w celu zapewnienia wglądu w dane.
-* Przeanalizuj dane przy [użyciu zapytań wyszukiwania](../log-query/log-query-overview.md) .
-
+* Przeanalizuj dane przy [użyciu zapytań wyszukiwania](../logs/log-query-overview.md) .

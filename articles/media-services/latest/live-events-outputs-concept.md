@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fac823cc43ed4606db3e7f86bc5c1e36ee50fadb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730307"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
 
@@ -53,7 +53,7 @@ Możesz wysyłać kanał informacyjny o rozdzielczości maksymalnie 4K oraz z sz
 > Użycie metody przekazującej to najbardziej ekonomiczny sposób wykonywania transmisji strumieniowej na żywo, gdy wykonujesz wiele zdarzeń w długim czasie, i już zainwestowano w kodery lokalne. Zobacz szczegóły [cennika](https://azure.microsoft.com/pricing/details/media-services/) .
 >
 
-Zobacz przykład kodu platformy .NET w [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+Zobacz przykład kodu platformy .NET służący do tworzenia zdarzenia Pass-through Live w [zdarzeniu na żywo przy użyciu DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/4a436376e77bad57d6cbfdc02d7df6c615334574/Live/LiveEventWithDVR/Program.cs#L214).
 
 ### <a name="live-encoding"></a>Kodowanie na żywo  
 

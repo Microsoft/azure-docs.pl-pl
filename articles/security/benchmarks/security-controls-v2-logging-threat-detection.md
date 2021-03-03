@@ -4,19 +4,21 @@ description: Rejestrowanie testów zabezpieczeń Azure w wersji 2 i wykrywanie z
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720685"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Kontrola zabezpieczeń v2: rejestrowanie i wykrywanie zagrożeń
 
-Rejestrowanie i wykrywanie zagrożeń obejmują kontrolę w zakresie wykrywania zagrożeń na platformie Azure oraz włączanie, zbieranie i przechowywanie dzienników inspekcji dla usług platformy Azure. Obejmuje to Włączanie procesów wykrywania, badania i korygowania przy użyciu kontrolek w celu generowania alertów o wysokiej jakości z natywnym wykrywaniem zagrożeń w usługach platformy Azure. obejmuje to również zbieranie dzienników z Azure Monitor, scentralizowanie analizy zabezpieczeń dzięki wskaźnikom danych platformy Azure, synchronizacji czasu i przechowywaniu dzienników. 
+Rejestrowanie i wykrywanie zagrożeń obejmują kontrolę w zakresie wykrywania zagrożeń na platformie Azure oraz włączanie, zbieranie i przechowywanie dzienników inspekcji dla usług platformy Azure. Obejmuje to Włączanie procesów wykrywania, badania i korygowania przy użyciu kontrolek w celu generowania alertów o wysokiej jakości z natywnym wykrywaniem zagrożeń w usługach platformy Azure. obejmuje to również zbieranie dzienników z Azure Monitor, scentralizowanie analizy zabezpieczeń dzięki wskaźnikom danych platformy Azure, synchronizacji czasu i przechowywaniu dzienników.
+
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły wbudowanej inicjatywy zgodność z przepisami usługi Azure Security test: rejestrowanie i wykrywanie zagrożeń](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Włączanie wykrywania zagrożeń dla zasobów platformy Azure
 
@@ -46,7 +48,7 @@ Ponadto przy użyciu wskaźnikowego platformy Azure można tworzyć reguły anal
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ Azure Security Center może również otrzymywać alerty dotyczące niektórych 
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Analiza zagrożeń](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ Azure Security Center może również otrzymywać alerty dotyczące niektórych 
 |--|--|--|--|
 | LT-3 | 9,3, 12,2, 12,5, 12,8 | AU-3, AU-6, AU-12, SI-4 |
 
-Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), dzienników przepływów sieciowej grupy zabezpieczeń, dzienników zapory platformy Azure i dzienników zapory aplikacji sieci Web (WAF) na potrzeby analizy zabezpieczeń, aby obsługiwać badania zdarzeń, łowiectwo zagrożeń oraz generowanie alertów zabezpieczeń. Dzienniki przepływów można wysłać do obszaru roboczego Log Analytics Azure Monitor, a następnie użyć Analiza ruchu w celu uzyskania szczegółowych informacji. Upewnij się, że zbierasz dzienniki zapytań DNS, aby pomóc w skorelowaniu innych danych sieciowych.
+Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), dzienników przepływów sieciowej grupy zabezpieczeń, dzienników zapory platformy Azure i dzienników zapory aplikacji sieci Web (WAF) na potrzeby analizy zabezpieczeń, aby obsługiwać badania zdarzeń, łowiectwo zagrożeń oraz generowanie alertów zabezpieczeń. Dzienniki przepływów można wysłać do obszaru roboczego Log Analytics Azure Monitor, a następnie użyć Analiza ruchu w celu uzyskania szczegółowych informacji.
+
+Upewnij się, że zbierasz dzienniki zapytań DNS, aby pomóc w skorelowaniu innych danych sieciowych.
 
 - [Jak włączyć dzienniki przepływu sieciowych grup zabezpieczeń](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabez
 
 - [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabez
 
 Włącz rejestrowanie zasobów platformy Azure, aby spełnić wymagania dotyczące zgodności, wykrywania zagrożeń, łowiectwa i badania incydentu. 
 
-Azure Security Center i Azure Policy umożliwiają włączenie dzienników zasobów i danych dzienników zbieranych w zasobach platformy Azure w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i zasobów. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy. 
+Azure Security Center i Azure Policy umożliwiają włączenie dzienników zasobów i danych dzienników zbieranych w zasobach platformy Azure w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i zasobów. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy.
 
 - [Informacje o rejestrowaniu i różnych typach dzienników na platformie Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Azure Security Center i Azure Policy umożliwiają włączenie dzienników zasob
 
 Zabezpieczenia infrastruktury i punktu końcowego 
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Analiza zagrożeń](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -155,13 +159,13 @@ Zabezpieczenia infrastruktury i punktu końcowego
 |--|--|--|--|
 | LT-5 | 6,5, 6,6 | AU-3, SI-4 |
 
-Scentralizowany magazyn rejestrowania i analiza w celu włączenia korelacji. Dla każdego źródła dziennika upewnij się, że masz przypisanego właściciela danych, wskazówki dotyczące dostępu, lokalizację magazynu, narzędzia używane do przetwarzania i uzyskiwania dostępu do danych oraz wymagania dotyczące przechowywania danych.
+Scentralizowany magazyn rejestrowania i analiza w celu włączenia korelacji. Dla każdego źródła dziennika upewnij się, że masz przypisany właściciel danych, wskazówki dotyczące dostępu, lokalizację magazynu, narzędzia używane do przetwarzania i uzyskiwania dostępu do danych oraz wymagania dotyczące przechowywania danych.
 
 Upewnij się, że masz integrację dzienników aktywności platformy Azure z centralnym logowaniem. Pozyskiwanie dzienników za pośrednictwem Azure Monitor do agregowania danych zabezpieczeń wygenerowanych przez urządzenia, zasoby sieciowe i inne systemy zabezpieczeń. W Azure Monitor używać Log Analytics obszarów roboczych do wykonywania zapytań i przeprowadzania analiz oraz używania kont usługi Azure Storage do przechowywania długoterminowego i archiwizowania.
 
 Ponadto należy włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane. 
+Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby danych "gorąca", które są często używane, i usługi Azure Storage dla danych "zimnych", które są rzadziej używane.
 
 - [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 
 - [Zmień okres przechowywania danych w Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center alertów i zaleceń — eksport](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboc
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-Firma Microsoft przechowuje źródła czasu dla większości usług Azure PaaS i SaaS. W przypadku maszyn wirtualnych Użyj domyślnego serwera NTP firmy Microsoft do synchronizacji czasu, chyba że masz określone wymagania.  Jeśli musisz zainstalować własny serwer protokołu NTP (Network Time Protocol), pamiętaj, aby zabezpieczyć Port usługi UDP 123.
+Firma Microsoft przechowuje źródła czasu dla większości usług Azure PaaS i SaaS. W przypadku maszyn wirtualnych Użyj domyślnego serwera NTP firmy Microsoft do synchronizacji czasu, chyba że masz określone wymagania. Jeśli musisz zainstalować własny serwer protokołu NTP (Network Time Protocol), pamiętaj, aby zabezpieczyć Port usługi UDP 123.
 
 Wszystkie dzienniki wygenerowane przez zasoby w ramach platformy Azure zapewniają sygnatury czasowe z określoną wartością domyślną.
 

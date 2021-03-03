@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f924bcdce0937c74c3deeab96f3d4b2a85e3944d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616883"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704450"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Zbieranie liczników wydajności dla aplikacji systemu Linux w Azure Monitor 
 
@@ -167,4 +167,4 @@ Po skonfigurowaniu agenta Log Analytics dla systemu Linux w celu wysyłania dany
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zbieraj liczniki wydajności](data-sources-performance-counters.md) z agentów systemu Linux.
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.

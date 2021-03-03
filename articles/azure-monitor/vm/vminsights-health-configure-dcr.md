@@ -1,31 +1,31 @@
 ---
-title: Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa przy użyciu reguł zbierania danych (wersja zapoznawcza)
-description: Opisuje sposób modyfikowania domyślnego monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa na dużą skalę przy użyciu szablonów Menedżer zasobów.
+title: Konfigurowanie monitorowania w usłudze VM Insights gość przy użyciu reguł zbierania danych (wersja zapoznawcza)
+description: Opisuje sposób modyfikowania domyślnego monitorowania kondycji gościa usługi VM Insights na dużą skalę przy użyciu szablonów Menedżer zasobów.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731225"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Konfigurowanie monitorowania w Azure Monitor dla maszyn wirtualnych kondycji gościa przy użyciu reguł zbierania danych (wersja zapoznawcza)
-[Azure monitor dla maszyn wirtualnych kondycja gościa](vminsights-health-overview.md) umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak można modyfikować domyślne monitorowanie wielu maszyn wirtualnych przy użyciu reguł zbierania danych.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Konfigurowanie monitorowania w usłudze VM Insights gość przy użyciu reguł zbierania danych (wersja zapoznawcza)
+[Kondycja gościa usługi VM Insights](vminsights-health-overview.md) umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak można modyfikować domyślne monitorowanie wielu maszyn wirtualnych przy użyciu reguł zbierania danych.
 
 
 ## <a name="monitors"></a>Monitory
-Stan kondycji maszyny wirtualnej jest określany przez [zestawienie kondycji](vminsights-health-overview.md#health-rollup-policy) z poszczególnych monitorów. Istnieją dwa typy monitorów w Azure Monitor dla maszyn wirtualnych kondycji gościa, jak pokazano w poniższej tabeli.
+Stan kondycji maszyny wirtualnej jest określany przez [zestawienie kondycji](vminsights-health-overview.md#health-rollup-policy) z poszczególnych monitorów. Istnieją dwa typy monitorów w obszarze kondycja gościa usługi VM Insights, jak pokazano w poniższej tabeli.
 
 | Monitor | Opis |
 |:---|:---|
 | Monitor jednostkowy | Mierzy pewien aspekt zasobu lub aplikacji. Może to spowodować sprawdzenie licznika wydajności w celu określenia wydajności zasobu lub jego dostępności. |
 | Monitor agregacji | Grupuje wiele monitorów, aby zapewnić pojedynczy zagregowany stan kondycji. Monitor agregacji może zawierać co najmniej jeden monitor jednostkowy i inne monitory agregacji. |
 
-Nie można bezpośrednio zmienić zestawu monitorów używanych przez Azure Monitor dla maszyn wirtualnych kondycji gościa i ich konfiguracji. Można utworzyć [zastąpienia](#overrides) , chociaż modyfikując zachowanie konfiguracji domyślnej. Zastąpienia są zdefiniowane w regułach zbierania danych. Można utworzyć wiele reguł zbierania danych zawierających wiele zastąpień, aby osiągnąć wymaganą konfigurację monitorowania.
+Nie można bezpośrednio zmienić zestawu monitorów używanych przez kondycję gościa usługi VM Insights i ich konfiguracji. Można utworzyć [zastąpienia](#overrides) , chociaż modyfikując zachowanie konfiguracji domyślnej. Zastąpienia są zdefiniowane w regułach zbierania danych. Można utworzyć wiele reguł zbierania danych zawierających wiele zastąpień, aby osiągnąć wymaganą konfigurację monitorowania.
 
 ## <a name="monitor-properties"></a>Właściwości monitora
 W poniższej tabeli opisano właściwości, które można skonfigurować na każdym monitorze.

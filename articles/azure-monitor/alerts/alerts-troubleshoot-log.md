@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614500"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738654"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
 W tym artykule opisano sposób rozwiązywania typowych problemów z alertami dzienników w Azure Monitor. Zawiera również rozwiązania typowych problemów z funkcjonalnością i konfiguracją alertów dzienników.
 
-Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../log-query/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](../platform/action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
+Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics](../logs/log-analytics-tutorial.md) w celu obliczenia dzienników zasobów co określoną częstotliwość i wyzwolenia alertu na podstawie wyników. Reguły mogą wyzwalać jedną lub więcej akcji przy użyciu [grup akcji](./action-groups.md). [Dowiedz się więcej o funkcjach i terminologii alertów dzienników](alerts-unified-log.md).
 
 > [!NOTE]
 > W tym artykule nie są brane pod uwagę przypadki, w których Azure Portal pokazuje wyzwalaną regułę alertu, a powiadomienie nie jest wykonywane przez skojarzoną grupę akcji. W takich przypadkach należy zapoznać się z szczegółowymi informacjami na [temat rozwiązywania](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)problemów.
@@ -26,7 +26,7 @@ Alerty dzienników umożliwiają użytkownikom użycie zapytania [log Analytics]
 
 ### <a name="data-ingestion-time-for-logs"></a>Czas pozyskiwania danych dzienników
 
-Azure Monitor przetwarza terabajtów dzienników klientów na całym świecie, co może spowodować opóźnienie pozyskiwania [dzienników](../platform/data-ingestion-time.md).
+Azure Monitor przetwarza terabajtów dzienników klientów na całym świecie, co może spowodować opóźnienie pozyskiwania [dzienników](../logs/data-ingestion-time.md).
 
 Dzienniki to dane z częściową strukturą, które są z natury bardziej ukryte niż metryki. Jeśli występuje więcej niż 4 minuty opóźnienia w wyzwalanych alertach, należy rozważyć użycie [alertów metryk](alerts-metric-overview.md). Dane można wysyłać do magazynu metryk z dzienników przy użyciu [alertów metryk dla dzienników](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Skonfigurowana [reguła alertu dziennika w Azure monitor](./alerts-log.md) może
 
 ### <a name="alert-triggered-by-partial-data"></a>Alert wywołany przez częściowe dane
 
-Azure Monitor przetwarza terabajtów dzienników klientów na całym świecie, co może spowodować opóźnienie pozyskiwania [dzienników](../platform/data-ingestion-time.md).
+Azure Monitor przetwarza terabajtów dzienników klientów na całym świecie, co może spowodować opóźnienie pozyskiwania [dzienników](../logs/data-ingestion-time.md).
 
 Dzienniki to dane z częściową strukturą, które są z natury bardziej ukryte niż metryki. Jeśli masz wiele niestabilnych uruchomień w wyzwalanych alertach, należy rozważyć użycie [alertów metryk](alerts-metric-overview.md). Dane można wysyłać do magazynu metryk z dzienników przy użyciu [alertów metryk dla dzienników](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 Nie ma potrzeby dodawania logiki alertu do zapytania i wykonywania operacji, które mogą nawet powodować problemy. W powyższym przykładzie, jeśli dołączysz `count` do zapytania, zawsze będzie to wartość 1, ponieważ usługa alertu wykona `count` `count` .
 
-Zoptymalizowane zapytanie jest wykonywane przez usługę alertów dziennika. Zmodyfikowane zapytanie można uruchomić w [portalu](../log-query/log-query-overview.md) log Analytics lub w [interfejsie API](/rest/api/loganalytics/).
+Zoptymalizowane zapytanie jest wykonywane przez usługę alertów dziennika. Zmodyfikowane zapytanie można uruchomić w [portalu](../logs/log-query-overview.md) log Analytics lub w [interfejsie API](/rest/api/loganalytics/).
 
 W przypadku obszarów roboczych i Application Insights jest on nazywany **kwerendą wykonywaną** w okienku warunek. We wszystkich innych typach zasobów wybierz pozycję **Zobacz zapytanie dotyczące końcowego alertu** na karcie warunek.
 
@@ -108,7 +108,7 @@ Azure Monitor spowoduje wyłączenie alertu dziennika po tygodniu, jeśli zakoń
 Po utworzeniu reguły alertu dotyczącego dziennika zapytanie jest sprawdzane pod kątem poprawnej składni. Jednak czasami zapytanie podane w regule alertu dziennika może się nie powieść. Najczęstsze przyczyny są następujące:
 
 - Zasady zostały utworzone za pośrednictwem interfejsu API i weryfikacja została pominięta przez użytkownika.
-- Zapytanie [jest uruchamiane na wielu zasobach](../log-query/cross-workspace-query.md) , a co najmniej jeden z zasobów został usunięty lub przeniesiony.
+- Zapytanie [jest uruchamiane na wielu zasobach](../logs/cross-workspace-query.md) , a co najmniej jeden z zasobów został usunięty lub przeniesiony.
 - [Zapytanie nie powiedzie się](https://dev.loganalytics.io/documentation/Using-the-API/Errors) , ponieważ:
     - Rozwiązanie rejestrowania nie zostało [wdrożone w obszarze roboczym](../insights/solutions.md#install-a-monitoring-solution), dlatego tabele nie są tworzone.
     - Dane przepływają do tabeli w zapytaniu przez ponad 30 dni.
@@ -219,5 +219,5 @@ Jeśli zapytanie kończy się niepowodzeniem przez siedem dni, Azure Monitor spo
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej [na temat alertów dziennika na platformie Azure](./alerts-unified-log.md).
-- Dowiedz się więcej o [konfigurowaniu alertów dzienników](../log-query/log-query-overview.md).
-- Dowiedz się więcej o [zapytaniach dziennika](../log-query/log-query-overview.md).
+- Dowiedz się więcej o [konfigurowaniu alertów dzienników](../logs/log-query-overview.md).
+- Dowiedz się więcej o [zapytaniach dziennika](../logs/log-query-overview.md).

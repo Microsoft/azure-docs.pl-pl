@@ -7,13 +7,14 @@ ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
-ms.openlocfilehash: 03c033ac5d0f20bbfd4f5dccfb5c2900596d2a41
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: mathapli
+ms.reviewer: cynthn
+ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694686"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -108,6 +109,8 @@ Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191023) | Są to obrazy z RHEL 8 LVM na partycje połączone z standardowymi repozytoriami Red Hat.
 |RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL — SAP-APPS | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.1.2021012201) | Obrazy te są RHEL dla obrazów aplikacji SAP. Są one uprawnione do uzyskiwania dostępu do repozytoriów aplikacji SAP i podstawowych repozytoriów RHEL.
+|RedHat | RHEL | RHEL — SAP-HA | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.1.2021010602) | Te obrazy są RHEL dla oprogramowania SAP z obrazami wysokiej dostępności i aktualizacji usług. Są one uprawnione do uzyskiwania dostępu do repozytoriów rozwiązań i aplikacji SAP oraz repozytoriów o wysokiej dostępności, a także repozytoriów RHEL E4S. Rozliczenia obejmują usługę RHEL Premium, SAP Premium i High Availability Premium na podstawie podstawowej opłaty za obliczenia.
 
 ## <a name="rhel-extended-support-add-ons"></a>Dodatki obsługi rozszerzonej RHEL
 

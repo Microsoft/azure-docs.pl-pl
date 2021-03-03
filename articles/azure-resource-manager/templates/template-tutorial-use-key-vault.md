@@ -2,16 +2,16 @@
 title: Używanie Azure Key Vault w szablonach
 description: Dowiedz się, w jaki sposób używać Azure Key Vault do przekazywania bezpiecznych wartości parametrów podczas wdrażania szablonu Azure Resource Manager szablon (ARM).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674161"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703889"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Samouczek: Integracja z usługą Azure Key Vault podczas wdrażania szablonu usługi ARM
 
@@ -93,7 +93,14 @@ Po skopiowaniu i wklejeniu identyfikatora można go podzielić na wiele wierszy.
 Aby sprawdzić poprawność wdrożenia, uruchom następujące polecenie programu PowerShell w tym samym okienku powłoki, aby pobrać klucz tajny w postaci zwykłego tekstu. Polecenie działa tylko w tej samej sesji powłoki, ponieważ używa zmiennej `$keyVaultName` , która jest zdefiniowana w poprzednim skrypcie programu PowerShell.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Teraz przygotowano Magazyn kluczy i wpis tajny. W poniższych sekcjach pokazano, jak dostosować istniejący szablon w celu pobrania klucza tajnego podczas wdrażania.
@@ -141,7 +148,7 @@ Przy użyciu metody identyfikatora statycznego nie trzeba wprowadzać żadnych z
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

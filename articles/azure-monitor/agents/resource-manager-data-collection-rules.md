@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f98e22ba28dcd05d164f40c301a2e43df66898de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60de25231f5fad3e7b1ddec21048d048e31f3416
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627441"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737328"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł zbierania danych w programie Azure Monitor
-Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](../platform/log-analytics-agent.md) i [rozszerzenia diagnostycznego](../platform/diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
+Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania [agenta log Analytics](./log-analytics-agent.md) i [rozszerzenia diagnostycznego](./diagnostics-extension-overview.md) dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -144,6 +144,6 @@ Poniższy przykład tworzy skojarzenie między serwerem z obsługą usługi Azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz inne przykładowe szablony dla Azure monitor](../samples/resource-manager-samples.md).
-* [Dowiedz się więcej o log Analytics agencie](../platform/log-analytics-agent.md).
-* [Dowiedz się więcej o rozszerzeniu diagnostyki](../platform/diagnostics-extension-overview.md).
+* [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
+* [Dowiedz się więcej o log Analytics agencie](./log-analytics-agent.md).
+* [Dowiedz się więcej o rozszerzeniu diagnostyki](./diagnostics-extension-overview.md).

@@ -4,27 +4,27 @@ description: Linia bazowa zabezpieczeń usługi Azure Kubernetes Service zawiera
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8e86679e7531bb70d6d4f1a27718c2fc8f0e8a9c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: de32de5fc78919154bade3895cab6da82b175a93
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578544"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740639"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Podstawowa baza zabezpieczeń Azure dla usługi Azure Kubernetes
 
-Podstawowa baza danych zabezpieczeń Azure dla usługi Azure Kubernetes zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
+Ta linia bazowa zabezpieczeń stosuje wskazówki z [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview-v1.md) do usługi Azure Kubernetes. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure.
+Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące usługi Azure Kubernetes. **Formanty** nie mają zastosowania do usługi Azure Kubernetes zostały wykluczone.
 
-Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](../security/benchmarks/overview.md), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
-
-Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure — omówienie](../security/benchmarks/security-baselines-overview.md).
+ 
+Aby dowiedzieć się, jak usługa Azure Kubernetes jest całkowicie mapowana na test porównawczy zabezpieczeń platformy Azure, zobacz [pełny plik mapowania podstawy zabezpieczeń usługi Azure Kubernetes](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: bezpieczeństwo sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
@@ -40,9 +40,13 @@ Można zaimplementować prywatny klaster AKS, aby zapewnić ruch sieciowy międz
 
 - [Tworzenie prywatnego klastra usługi Azure Kubernetes Service](private-clusters.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+
+**Azure Policy wbudowane definicje — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-1-1.md)]
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: Monitoruj i Rejestruj konfigurację oraz ruch sieci wirtualnych, podsieci i kart sieciowych
 
@@ -56,9 +60,9 @@ Włącz dzienniki przepływu sieciowych grup zabezpieczeń i Wyślij dzienniki d
 
 - [Jak włączyć i używać Analiza ruchu](../network-watcher/traffic-analytics.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="13-protect-critical-web-applications"></a>1,3: Ochrona krytycznych aplikacji sieci Web
 
@@ -72,13 +76,14 @@ Użyj bramy interfejsu API do uwierzytelniania, autoryzacji, ograniczania, bufor
 
 - [Korzystanie z usługi Azure API Management z mikrousługami wdrożonymi w usłudze Azure Kubernetes Service](../api-management/api-management-kubernetes.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: odmowa komunikacji ze znanymi złośliwymi adresami IP
 
 **Wskazówki**: Włącz funkcję rozproszonej odmowy usługi firmy Microsoft (DDoS) w sieciach wirtualnych, w których są wdrażane składniki usługi Azure Kubernetes Service (AKS) w celu ochrony przed atakami na DDoS.
+
 Zainstaluj aparat zasad sieciowych i Utwórz zasady sieciowe Kubernetes w celu kontrolowania przepływu ruchu między nazwami w AKS, ponieważ domyślnie cały ruch jest dozwolony między tymi zasobnikami. Zasady sieciowe powinny być używane tylko dla węzłów i zasobników opartych na systemie Linux w AKS. Zdefiniuj reguły ograniczające komunikację pod kątem lepszego zabezpieczenia. 
 
 Wybierz, aby zezwalać na ruch lub odmawiać go na podstawie ustawień, takich jak przypisane etykiety, przestrzeń nazw lub port ruchu. Wymagane zasady sieciowe mogą być automatycznie stosowane w przypadku, gdy w klastrze AKS są tworzone w sposób dynamiczny. 
@@ -87,21 +92,21 @@ Wybierz, aby zezwalać na ruch lub odmawiać go na podstawie ustawień, takich j
 
 - [Jak skonfigurować ochronę DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="15-record-network-packets"></a>1,5: rejestrowanie pakietów sieciowych
 
 **Wskazówki**: Użyj funkcji przechwytywania pakietów Network Watcher zgodnie z wymaganiami, aby przebadać nietypowe działanie. 
 
-Network Watcher jest włączana automatycznie w regionie sieci wirtualnej podczas tworzenia lub aktualizowania sieci wirtualnej w ramach subskrypcji. Można również tworzyć nowe wystąpienia Network Watcher przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure, API REST lub metody ARMClient
+Network Watcher jest włączana automatycznie w regionie sieci wirtualnej podczas tworzenia lub aktualizowania sieci wirtualnej w ramach subskrypcji. Można również tworzyć nowe wystąpienia Network Watcher przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure, API REST lub metody klienta Azure Resource Manager
 
 - [Jak włączyć Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: wdrażanie opartych na sieci systemów zapobiegania wykrywaniem i dostępem intruzów (identyfikatorów/adresów IP)
 
@@ -109,29 +114,13 @@ Network Watcher jest włączana automatycznie w regionie sieci wirtualnej podcza
 
 Jeśli wykrywanie i/lub Zapobieganie włamaniom nie są wymagane na podstawie inspekcji ładunku lub analizy zachowań, nie jest to konieczne, Application Gateway platformy Azure z usługą WAF można używać i konfigurować w trybie wykrywania w celu rejestrowania alertów i zagrożeń lub "trybu zapobiegania", aby aktywnie blokować wykryte wtargnięcie i ataki.
 
-- [Poznaj najlepsze rozwiązania dotyczące zabezpieczania klastra AKS za pomocą WAF](operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Poznaj najlepsze rozwiązania dotyczące zabezpieczania klastra AKS za pomocą WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Jak wdrożyć usługę Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
 
 **Odpowiedzialność**: Klient
 
-### <a name="17-manage-traffic-to-web-applications"></a>1,7: zarządzanie ruchem do aplikacji sieci Web
-
-**Wskazówki**: Aby filtrować ruch przychodzący, użyj zapory aplikacji sieci Web z obsługą Application Gateway platformy Azure przed klastrem AKS. Projekt Open Web Application Security Project (OWASP) zawiera zestaw reguł, które są używane w usłudze Azure WAF do oglądania ataków, takich jak skrypty między lokacjami lub zatrucie plików cookie.
-
-Stosowanie w pełni kwalifikowanych tagów nazw domen (FQDN) do aplikacji w celu ułatwienia korzystania z konfiguracji reguł aplikacji w sieciowej grupie zabezpieczeń. Po skonfigurowaniu reguł sieci. Dodaj regułę aplikacji przy użyciu znacznika FQDN, na przykład AzureKubernetesService, który zawiera wszystkie wymagane nazwy FQDN dostępne za pośrednictwem portu TCP 443 i portu 80. 
-
-- [Poznaj najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w AKS](operator-best-practices-network.md)
-
-- [Zabezpieczanie ruchu między różnymi sieciami przy użyciu zasad sieciowych w usłudze Azure Kubernetes Service (AKS)](use-network-policies.md)
-
-- [Jak wdrożyć usługę Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: Minimalizacja złożoności i kosztów administracyjnych reguł zabezpieczeń sieci
 
@@ -147,33 +136,38 @@ Zastosuj tag platformy Azure do pul węzłów w klastrze AKS. Są one inne niż 
 
 - [Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)](limit-egress-traffic.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń Azure Policy dla zasobów sieciowych skojarzonych z klastrami usługi Azure Kubernetes Service (AKS). Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. ContainerService" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieciowej klastrów AKS. 
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń Azure Policy dla zasobów sieciowych skojarzonych z klastrami usługi Azure Kubernetes Service (AKS). 
+
+Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. ContainerService" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieciowej klastrów AKS. 
 
 Ponadto Użyj wbudowanych definicji zasad związanych z AKS, takich jak:
 
-• Zakres autoryzowanych adresów IP powinien być zdefiniowany w usługach Kubernetes Services
+- Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services
 
-• Wymuś ruch przychodzący protokołu HTTPS w klastrze Kubernetes
+- Wymuszaj ruch przychodzący HTTPS w klastrze Kubernetes
 
-• Upewnij się, że usługi nasłuchują tylko na dozwolonych portach w klastrze Kubernetes
+- Upewnij się, że usługi nasłuchują tylko na dozwolonych portach w klastrze Kubernetes
+
+Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przykłady Azure Policy dla sieci](../governance/policy/samples/built-in-policies.md#network)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Przykłady Azure Policy dla sieci](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: udokumentowanie reguł konfiguracji ruchu
 
 **Wskazówki**: Użyj tagów dla sieciowych grup zabezpieczeń i innych zasobów na potrzeby przepływu ruchu do i z klastrów usługi Azure Kubernetes Service (AKS). Użyj pola "opis" dla poszczególnych reguł grupy zabezpieczeń sieci, aby określić potrzeby biznesowe i/lub czas trwania itd., dla wszystkich reguł zezwalających na ruch do/z sieci.
+
 Użyj dowolnych wbudowanych Azure Policy znaczników, na przykład "Wymagaj tagu i jego wartości", aby upewnić się, że wszystkie zasoby są tworzone za pomocą tagów i aby otrzymywać powiadomienia o istniejących nieoznakowanych zasobach.
 
 Wybierz, aby zezwalać na określone ścieżki sieciowe w ramach klastra lub odrzucać je na podstawie obszarów nazw i selektorów etykiet z zasadami sieci. Użyj tych przestrzeni nazw i etykiet jako deskryptorów dla reguł konfiguracji ruchu. Użyj Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów.
@@ -184,9 +178,9 @@ Wybierz, aby zezwalać na określone ścieżki sieciowe w ramach klastra lub odr
 
 - [Jak utworzyć sieciowej grupy zabezpieczeń z konfiguracją zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Użyj zautomatyzowanych narzędzi do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian
 
@@ -196,15 +190,15 @@ Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzen
 
 Użyj dzienników Azure Monitor, aby włączyć i wysyłać zapytania do dzienników z AKS składników głównych, polecenia-apiserver i polecenia-Controller-Manager. Utwórz węzły, które uruchamiają kubelet z środowiskiem uruchomieniowym kontenera i zarządzaj nimi, i wdrażaj ich aplikacje za pomocą zarządzanego serwera interfejsu API Kubernetes. 
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [Jak utworzyć alerty w Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Jak utworzyć alerty w Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service](view-master-logs.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service](/azure/aks/view-master-logs)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
@@ -218,19 +212,19 @@ Upewnij się, że serwery NTP są dostępne dla węzłów klastra, jeśli są u�
 
 - [Omówienie wymagań dotyczących domen i portów NTP dla węzłów klastra AKS](limit-egress-traffic.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
 **Wskazówki**: Włączanie dzienników inspekcji z poziomu składników Master usługi Azure Kubernetes Services (AKS), polecenia-apiserver i polecenia-Controller-Manager, które są udostępniane jako usługa zarządzana. 
 
-• polecenia-auditaksService: Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny kontroli (z hcpService) 
+- polecenia-auditaksService: Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny kontroli (z hcpService) 
 
-• MasterClient: Nazwa wyświetlana w dzienniku inspekcji dla MasterClientCertificate, certyfikat uzyskany z AZ AKS Get-Credentials 
+- MasterClient: Nazwa wyświetlana w dzienniku inspekcji dla MasterClientCertificate, certyfikat uzyskany z AZ AKS Get-Credentials 
 
-• nodeclient: Nazwa wyświetlana dla ClientCertificate, która jest używana przez węzły agenta
+- nodeclient: Nazwa wyświetlana dla ClientCertificate, która jest używana przez węzły agenta
 
 Włącz również inne dzienniki inspekcji, takie jak polecenia-Audit. 
 
@@ -238,45 +232,44 @@ Wyeksportuj te dzienniki do Log Analytics lub innej platformy magazynu. W Azure 
 
 Włączaj i dołączaj te dane do usługi Azure wskaźnikowej lub SIEM innej firmy na podstawie wymagań firmy obowiązujących w organizacji.
 
-- [Przejrzyj schemat dziennika, w tym tutaj role dzienników](view-master-logs.md)
+- [Przejrzyj schemat dziennika, w tym tutaj role dzienników](/azure/aks/view-master-logs)
 
-- [Omówienie Azure Monitor kontenerów](../azure-monitor/containers/container-insights-overview.md)
+- [Omówienie Azure Monitor kontenerów](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Jak włączyć Azure Monitor dla kontenerów](../azure-monitor/containers/container-insights-onboard.md)
+- [Jak włączyć Azure Monitor dla kontenerów](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service](view-master-logs.md)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service](/azure/aks/view-master-logs)
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Włączanie rejestrowania inspekcji dla zasobów platformy Azure
 
-**Wskazówki**: używanie dzienników aktywności do monitorowania akcji w zasobach usługi Azure Kubernetes Service (AKS) w celu wyświetlenia wszystkich działań i ich stanu. Określ, jakie operacje zostały wykonane względem zasobów w ramach subskrypcji z dziennikami aktywności: kto uruchomił operację
+**Wskazówki**: używanie dzienników aktywności do monitorowania akcji w zasobach usługi Azure Kubernetes Service (AKS) w celu wyświetlenia wszystkich działań i ich stanu. Określ, jakie operacje zostały wykonane względem zasobów w ramach subskrypcji z dziennikami aktywności: 
 
-gdy wystąpiła operacja
-
-stan operacji
-
-wartości innych właściwości, które mogą pomóc w zbadaniu operacji
+- kto uruchomił operację
+- gdy wystąpiła operacja
+- stan operacji
+- wartości innych właściwości, które mogą pomóc w zbadaniu operacji
 
 Pobierz informacje z dziennika aktywności za pośrednictwem Azure PowerShell, interfejsu wiersza polecenia platformy Azure, interfejsu API REST platformy Azure lub Azure Portal. 
 
 Włącz dzienniki inspekcji na głównych składnikach AKS, takich jak: 
 
-• polecenia-auditaksService: Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny kontroli (z hcpService) 
+- polecenia-auditaksService: Nazwa wyświetlana w dzienniku inspekcji dla operacji płaszczyzny kontroli (z hcpService) 
 
-• MasterClient: Nazwa wyświetlana w dzienniku inspekcji dla MasterClientCertificate, certyfikat uzyskany z AZ AKS Get-Credentials 
+- MasterClient: Nazwa wyświetlana w dzienniku inspekcji dla MasterClientCertificate, certyfikat uzyskany z AZ AKS Get-Credentials 
 
-• nodeclient: Nazwa wyświetlana dla ClientCertificate, która jest używana przez węzły agenta
+- nodeclient: Nazwa wyświetlana dla ClientCertificate, która jest używana przez węzły agenta
 
 Włącz również inne dzienniki inspekcji, takie jak polecenia-Audit. 
 
-- [Jak włączyć i przejrzeć dzienniki węzła głównego Kubernetes w AKS](view-master-logs.md)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak włączyć i przejrzeć dzienniki węzła głównego Kubernetes w AKS](/azure/aks/view-master-logs)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2,4: Zbierz dzienniki zabezpieczeń z systemów operacyjnych
 
@@ -286,19 +279,19 @@ Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualiza
 
 - [Jak włączyć automatyczną obsługę administracyjną agenta Log Analytics](../security-center/security-center-enable-data-collection.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurowanie przechowywania magazynu dzienników zabezpieczeń
 
 **Wskazówki**: dołączanie wystąpień usługi Azure Kubernetes Service (AKS) do Azure monitor i Ustawianie odpowiedniego okresu przechowywania obszaru roboczego log Analytics platformy Azure zgodnie z wymaganiami firmy dotyczącymi zgodności. 
 
-- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak ustawić parametry przechowywania dzienników dla obszarów roboczych Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
@@ -308,27 +301,29 @@ Użyj Azure Monitor Log Analytics obszaru roboczego do przeglądania dzienników
 
 Wyświetlanie dzienników generowanych przez składniki AKS Master (polecenia-apiserver i polecenia-controllermanager) w celu rozwiązywania problemów dotyczących aplikacji i usług. Włączaj i dołączaj dane do usługi Azure wskaźnikowej lub SIEM innych firm w celu scentralizowanego zarządzania dziennikami i monitorowania.
 
-- [Jak włączyć i przejrzeć dzienniki węzła głównego Kubernetes w AKS](view-master-logs.md)
+- [Jak włączyć i przejrzeć dzienniki węzła głównego Kubernetes w AKS](/azure/aks/view-master-logs)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: Włączanie alertów dla nietypowych działań
 
-**Wskazówki**: Użyj usługi Azure Kubernetes Service (AKS) wraz z Security Center, aby uzyskać lepszy wgląd w węzły AKS. Przejrzyj Security Center alerty dotyczące zagrożeń i złośliwych działań wykrytych na hoście i na poziomie klastra. Security Center implementuje ciągłej analizy nieprzetworzonych zdarzeń zabezpieczeń występujących w klastrze AKS, takich jak dane sieci, tworzenie procesów i dziennik inspekcji Kubernetes. Ustal, czy to działanie jest oczekiwane, czy też czy aplikacja jest błędna. Użyj metryk i dzienników w Azure Monitor, aby uzasadnić swoje ustalenia. 
+**Wskazówki**: Użyj usługi Azure Kubernetes Service (AKS) wraz z Security Center, aby uzyskać lepszy wgląd w węzły AKS. 
+
+Przejrzyj Security Center alerty dotyczące zagrożeń i złośliwych działań wykrytych na hoście i na poziomie klastra. Security Center implementuje ciągłej analizy nieprzetworzonych zdarzeń zabezpieczeń występujących w klastrze AKS, takich jak dane sieci, tworzenie procesów i dziennik inspekcji Kubernetes. Ustal, czy to działanie jest oczekiwane, czy też czy aplikacja jest błędna. Użyj metryk i dzienników w Azure Monitor, aby uzasadnić swoje ustalenia. 
 
 - [Omówienie integracji usług Azure Kubernetes Services z usługą Security Center](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Jak włączyć warstwę Standardowa Azure Security Center](../security-center/security-center-get-started.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="28-centralize-anti-malware-logging"></a>2,8: scentralizowanie rejestrowania chroniącego przed złośliwym oprogramowaniem
 
@@ -338,11 +333,11 @@ Wyświetlanie dzienników generowanych przez składniki AKS Master (polecenia-ap
 
 - [Przewodnik dotyczący alertów zabezpieczeń](../security-center/alerts-reference.md)
 
-- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="29-enable-dns-query-logging"></a>2,9: Włączanie rejestrowania zapytań DNS
 
@@ -352,9 +347,9 @@ Włącz rejestrowanie zapytań DNS, stosując udokumentowaną konfigurację w co
 
 - [Dostosowywanie serwera CoreDNS w usłudze Azure Kubernetes Service](coredns-custom.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="210-enable-command-line-audit-logging"></a>2,10: Włączanie rejestrowania inspekcji w wierszu polecenia
 
@@ -364,31 +359,31 @@ Włącz rejestrowanie zapytań DNS, stosując udokumentowaną konfigurację w co
 
 - [Pobieranie dzienników agenta kubelet z węzłów klastra usługi Azure Kubernetes Service](kubelet-logs.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
+*Aby uzyskać więcej informacji, zobacz informacje o [teście zabezpieczeń Azure: Identity i Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: usługa Azure Kubernetes Service (AKS) sama nie oferuje rozwiązania do zarządzania tożsamościami, które przechowuje regularne konta użytkowników i hasła. Dzięki integracji z usługą Azure Active Directory (Azure AD) można udzielić użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze. 
+**Wskazówki**: usługa Azure Kubernetes Service (AKS) sama nie oferuje rozwiązania do zarządzania tożsamościami, które przechowuje regularne konta użytkowników i hasła. Dzięki integracji z usługą Azure Active Directory (Azure AD) można udzielić użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze.
 
 Wykonywanie zapytań ad hoc w celu odnajdywania kont należących do grup administracyjnych AKS za pomocą modułu Azure AD PowerShell
 
 Użyj interfejsu wiersza polecenia platformy Azure w celu wykonywania operacji, takich jak "Uzyskaj poświadczenia dostępu dla zarządzanego klastra Kubernetes", aby pomóc w regularnym uzgadnianiu dostępu. Zaimplementuj ten proces, aby zachować zaktualizowany spis kont usług, który jest innym głównym typem użytkownika w AKS. Wymuś zalecenia dotyczące zarządzania tożsamościami i dostępem Security Center.
 
-- [Jak zintegrować usługę AKS z usługą Azure AD](./azure-ad-integration-cli.md)
+- [Jak zintegrować usługę AKS z usługą Azure AD](azure-ad-integration-cli.md)
 
 - [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Jak monitorować tożsamość i dostęp przy użyciu Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: Zmień domyślne hasła, jeśli ma to zastosowanie
 
@@ -398,9 +393,9 @@ Wykonywanie zapytań ad hoc w celu odnajdywania kont należących do grup admini
 
 - [Informacje na temat opcji dostępu i tożsamości dla AKS](concepts-identity.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
@@ -414,44 +409,45 @@ Utwórz zasady i procedury dotyczące korzystania z dedykowanych kont administra
 
 - [Korzystanie z kontroli dostępu opartej na rolach na platformie Azure](control-kubeconfig-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
 **Wskazówki**: Użyj logowania jednokrotnego w usłudze Azure Kubernetes Service (AKS) przy użyciu zintegrowanego uwierzytelniania Azure Active Directory (Azure AD) dla klastra AKS.
 
-- [Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego](../azure-monitor/containers/container-insights-livedata-overview.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
 **Wskazówki**: integracja uwierzytelniania dla usługi Azure Kubernetes Service (AKS) z usługą Azure Active Directory (Azure AD). 
 
-Włącz usługę Azure AD Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Security Center.
+Włącz uwierzytelnianie wieloskładnikowe usługi Azure AD i postępuj zgodnie z zaleceniami Security Center zarządzaniem tożsamościami i dostępem.
 
-- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Jak włączyć uwierzytelnianie wieloskładnikowe na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md) 
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3,6: Używaj dedykowanych maszyn (uprzywilejowany dostęp do stacji roboczych) dla wszystkich zadań administracyjnych
 
 **Wskazówki**: Używanie stacji roboczej z dostępem uprzywilejowanym (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowanym do logowania się do określonych klastrów usługi Azure Kubernetes Service (AKS) i powiązanych zasobów.
+
 - [Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak włączyć Multi-Factor Authentication (MFA) na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: Rejestruj i Ostrzegaj o podejrzanych działaniach z kont administracyjnych
 
@@ -461,9 +457,9 @@ Włącz usługę Azure AD Multi-Factor Authentication (MFA) i postępuj zgodnie 
 
 - [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: Zarządzaj zasobami platformy Azure tylko z zatwierdzonych lokalizacji
 
@@ -475,9 +471,9 @@ Ogranicz dostęp do serwera interfejsu API AKS z ograniczonego zestawu zakresów
 
 - [Jak skonfigurować nazwane lokalizacje na platformie Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
@@ -487,13 +483,13 @@ Używanie wbudowanych ról AKS z kontrolą dostępu opartą na rolach (Azure RBA
 
 - [Przegląd zasad platformy Azure](../governance/policy/overview.md)
 
-- [Jak zintegrować usługę Azure AD z usługą AKS](./azure-ad-integration-cli.md) 
+- [Jak zintegrować usługę Azure AD z usługą AKS](azure-ad-integration-cli.md)
 
 - [Integrowanie usługi Azure AD zarządzanej przez usługę AKS](managed-aad.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
@@ -509,20 +505,20 @@ Należy pamiętać o rolach używanych na potrzeby obsługi lub rozwiązywania p
 
 - [Jak monitorować aktywność użytkownika i dostęp w Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych poświadczeń
 
 **Wskazówki**: Integruj uwierzytelnianie użytkowników w usłudze Azure Kubernetes Service (AKS) z usługą Azure Active Directory (Azure AD). Tworzenie ustawień diagnostycznych dla usługi Azure AD, wysyłanie dzienników inspekcji i logowania do obszaru roboczego usługi Azure Log Analytics. Skonfiguruj żądane alerty (takie jak w przypadku próby zalogowania się przy użyciu konta) w obszarze roboczym usługi Azure Log Analytics.
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Jak tworzyć, wyświetlać i zarządzać alertami dzienników przy użyciu Azure Monitor](../azure-monitor/alerts/alerts-log.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak tworzyć, wyświetlać i zarządzać alertami dzienników przy użyciu Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
@@ -534,22 +530,13 @@ Należy pamiętać o rolach używanych na potrzeby obsługi lub rozwiązywania p
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3,13: Zapewnij firmie Microsoft dostęp do odpowiednich danych klienta w scenariuszach pomocy technicznej
-
-**Wskazówki**: nie dotyczy usługi Azure Kubernetes Service (AKS), ponieważ nie jest ona obsługiwana przez skrytka klienta.
-- [Lista obsługiwanych usług Skrytka klienta](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
-**Odpowiedzialność**: nie dotyczy
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](../security/benchmarks/security-control-data-protection.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: ochrona danych](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
@@ -559,9 +546,9 @@ Należy pamiętać o rolach używanych na potrzeby obsługi lub rozwiązywania p
 
 - [Aktualizowanie tagów dla zarządzanych klastrów](/rest/api/aks/managedclusters/updatetags)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
@@ -577,9 +564,9 @@ Zaimplementuj osobne subskrypcje i/lub grupy zarządzania dla środowisk program
 
 - [Poznaj najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w AKS](operator-best-practices-network.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: Monitoruj i blokuj nieautoryzowany transfer informacji poufnych
 
@@ -593,9 +580,9 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
@@ -609,9 +596,9 @@ Ruch wychodzący Kubernetes jest domyślnie szyfrowany przy użyciu protokołu H
 
 - [Lista potencjalnych portów i protokołów używanych przez AKS](limit-egress-traffic.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Użyj aktywnego narzędzia do odnajdywania, aby identyfikować poufne dane
 
@@ -622,9 +609,9 @@ Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsof
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
@@ -636,9 +623,13 @@ Używanie wbudowanych ról AKS z usługą Azure RBAC — współautor zasad zaso
 
 - [Jak kontrolować dostęp do zasobów klastra przy użyciu usług Azure RBAC i tożsamości usługi Azure AD w AKS](azure-ad-rbac.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+
+**Azure Policy wbudowane definicje — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 4.6](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-4-6.md)]
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
@@ -647,9 +638,9 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 - [Informacje na temat ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: Szyfruj poufne informacje w spoczynku
 
@@ -661,9 +652,9 @@ Szyfrowanie — w spoczynku przy użyciu kluczy zarządzanych przez klienta jest
 
 - [Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)](azure-disk-customer-managed-keys.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: Rejestruj i Ostrzegaj o zmianach krytycznych zasobów platformy Azure
 
@@ -673,15 +664,15 @@ Konfigurowanie alertów dotyczących aktywnego powiadamiania lub tworzenia dzien
 
 Użyj dziennika aktywności platformy Azure do monitorowania klastrów AKS i powiązanych zasobów na wysokim poziomie. Integracja z usługą Prometheus w celu wyświetlania metryk aplikacji i obciążeń zbieranych z węzłów i Kubernetes przy użyciu zapytań w celu utworzenia niestandardowych alertów, pulpitów nawigacyjnych i szczegółowej szczegółowej analizy.
 
-- [Omówienie Azure Monitor kontenerów](../azure-monitor/containers/container-insights-overview.md)
+- [Omówienie Azure Monitor kontenerów](/azure/azure-monitor/insights/container-insights-overview)
 
-- [Jak włączyć Azure Monitor dla kontenerów](../azure-monitor/containers/container-insights-onboard.md)
+- [Jak włączyć Azure Monitor dla kontenerów](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
-
-**Monitorowanie usługi Azure Security Center**: Yes
+- [Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
@@ -691,7 +682,7 @@ Użyj dziennika aktywności platformy Azure do monitorowania klastrów AKS i pow
 
 **Wskazówki**: Użyj Security Center, aby monitorować Azure Container Registry, w tym wystąpienia usługi Azure Kubernetes Service (AKS) dla luk w zabezpieczeniach. Włącz pakiet rejestrów kontenerów w Security Center, aby upewnić się, że Security Center jest gotowy do skanowania obrazów, które są przekazywane do rejestru.
 
-Otrzymuj powiadomienia na pulpicie nawigacyjnym Security Center po znalezieniu problemów po Security Center zeskanowaniu obrazu przy użyciu Qualys. Funkcja zbioru rejestrów kontenerów zapewnia lepszy wgląd w luki w zabezpieczeniach obrazów używanych w rejestrach opartych na Azure Resource Managerach. 
+Otrzymuj powiadomienia na pulpicie nawigacyjnym Security Center po znalezieniu problemów po Security Center zeskanowaniu obrazu przy użyciu Qualys. Funkcja zbioru rejestrów kontenerów zapewnia dokładniejszy wgląd w luki w zabezpieczeniach obrazów używanych w rejestrach opartych na Azure Resource Manager. 
 
 Dla każdej luki w zabezpieczeniach należy używać Security Center. Zalecenia te obejmują klasyfikację ważności i wskazówki dotyczące korygowania. 
 
@@ -701,9 +692,9 @@ Dla każdej luki w zabezpieczeniach należy używać Security Center. Zalecenia 
 
 - [Omówienie integracji rejestru kontenerów z Azure Security Center](../security-center/defender-for-container-registries-introduction.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Wdróż automatyczne rozwiązanie do zarządzania poprawkami systemu operacyjnego
 
@@ -713,33 +704,37 @@ Należy pamiętać, że proces zachowania aktualności węzłów systemu Windows
 
 - [Dowiedz się, jak aktualizacje są stosowane do węzłów klastra AKS z systemem Linux](node-updates-kured.md)
 
-- [Jak uaktualnić pulę węzłów AKS dla klastrów AKS korzystających z węzłów systemu Windows Server](use-multiple-node-pools.md#upgrade-a-node-pool)
+- [Jak uaktualnić pulę węzłów AKS dla klastrów AKS korzystających z węzłów systemu Windows Server](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Uaktualnienia obrazu węzła usługi Azure Kubernetes Service (AKS)](node-image-upgrade.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: Wdróż automatyczne rozwiązanie do zarządzania poprawkami dla tytułów oprogramowania innych firm
 
 **Wskazówki**: Zaimplementuj proces ręczny, aby upewnić się, że aplikacje innych firm węzła klastra usługi Azure Kubernetes Service (AKS) pozostają poprawione na czas istnienia klastra. Może to wymagać włączenia aktualizacji automatycznych, monitorowania węzłów lub wykonywania okresowych ponownych uruchomień.
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Azure Security Center monitorowania**: [wzorzec zabezpieczeń platformy Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) jest domyślną inicjatywy zasad dla Security Center i jest podstawą dla [zaleceń Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Definicje Azure Policy powiązane z tym formantem są włączane automatycznie przez Security Center. Alerty związane z tym formantem mogą wymagać planu [usługi Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) dla powiązanych usług.
+
+**Azure Policy wbudowane definicje — Microsoft. ContainerService**:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-5-3.md)]
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5,4: porównanie luk w zabezpieczeniach z tyłu do tyłu
 
-**Wskazówki**: Eksportuj wyniki skanowania Security Center w regularnych odstępach czasu i Porównaj wyniki, aby sprawdzić, czy luki zostały skorygowane. 
+**Wskazówki**: Eksportuj wyniki skanowania Security Center w regularnych odstępach czasu i Porównaj wyniki, aby sprawdzić, czy luki zostały skorygowane.
 
 Użyj polecenia cmdlet "Get-AzSecurityTask" programu PowerShell, aby zautomatyzować pobieranie zadań zabezpieczeń, które Security Center zalecane do wykonania, aby wzmocnić wyniki skanowania stan i rozwiązywania problemów z zabezpieczeniami.
 
 - [Jak używać programu PowerShell do wyświetlania luk w zabezpieczeniach wykrytych przez Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Użyj procesu oceny ryzyka, aby określić priorytety korygowania odkrytych luk w zabezpieczeniach
 
@@ -747,9 +742,9 @@ Użyj polecenia cmdlet "Get-AzSecurityTask" programu PowerShell, aby zautomatyzo
 
 Użyj typowego systemu oceny luk w zabezpieczeniach (CVSS) (lub innych systemów oceniania zgodnie z opisem w narzędziu do skanowania), jeśli korzystasz z wbudowanego narzędzia do oceniania luk w zabezpieczeniach (takiego jak Qualys lub Rapid7) oferowanych przez platformę Azure.
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
@@ -767,9 +762,9 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="62-maintain-asset-metadata"></a>6,2: Konserwowanie metadanych zasobów
 
@@ -777,9 +772,9 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 - [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
 
@@ -797,19 +792,19 @@ W celu regularnego uzgadniania spisu, można użyć etykiet lub tagów oraz upew
 
 - [Klastry zarządzane — aktualizacje tagów](/rest/api/aks/managedclusters/updatetags)
 
-- [Określ przebarwienie, etykietę lub tag dla puli węzłów](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Określ przebarwienie, etykietę lub tag dla puli węzłów](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: Definiowanie i obsługa spisu zatwierdzonych zasobów platformy Azure
 
 **Wskazówki**: zdefiniuj listę zatwierdzonych zasobów platformy Azure i zatwierdzonego oprogramowania dla zasobów obliczeniowych na podstawie potrzeb firmy.
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: Monitoruj niezatwierdzone zasoby platformy Azure
 
@@ -824,9 +819,9 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 - [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: Monitoruj niezatwierdzone aplikacje oprogramowania w ramach zasobów obliczeniowych
 
@@ -838,9 +833,9 @@ Zbieraj i wyświetlaj Spis oprogramowania, plików, demonów systemu Linux, usł
 
 - [Jak włączyć Spis maszyn wirtualnych platformy Azure](../automation/automation-tutorial-installed-software.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6,7: Usuń niezatwierdzone zasoby platformy Azure i aplikacje oprogramowania
 
@@ -856,9 +851,9 @@ Zbieraj i wyświetlaj Spis oprogramowania, plików, demonów systemu Linux, usł
 
 - [Omówienie usługi Azure Change Tracking](../automation/change-tracking/overview.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="68-use-only-approved-applications"></a>6,8: Używaj tylko zatwierdzonych aplikacji
 
@@ -872,13 +867,11 @@ Włącz adaptacyjną analizę aplikacji w Security Center dla aplikacji, które 
 
 - [Jak włączyć Spis maszyn wirtualnych platformy Azure](../automation/automation-tutorial-installed-software.md)
 
- 
-Jak używać Azure Security Center aplikacji adaptacyjnej
-- [Formanty](../security-center/security-center-adaptive-application.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak używać Azure Security Center adaptacyjnych kontroli aplikacji](../security-center/security-center-adaptive-application.md)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: Używaj tylko zatwierdzonych usług platformy Azure
 
@@ -894,11 +887,11 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: przechowywanie spisu zatwierdzonych tytułów oprogramowania
 
@@ -906,24 +899,24 @@ Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasob
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: Ogranicz możliwość korzystania przez użytkowników z Azure Resource Manager
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 - [Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: Ogranicz możliwość wykonywania skryptów w zasobach obliczeniowych przez użytkowników
 
-**Wskazówki**: usługa Azure Kubernetes Service (AKS) sama nie udostępnia rozwiązania do zarządzania tożsamościami, w którym są przechowywane regularne konta użytkowników i hasła. Zamiast tego należy używać Azure Active Directory (Azure AD) jako zintegrowanego rozwiązania do tworzenia tożsamości dla klastrów AKS. 
+**Wskazówki**: usługa Azure Kubernetes Service (AKS) sama nie udostępnia rozwiązania do zarządzania tożsamościami, w którym są przechowywane regularne konta użytkowników i hasła. Zamiast tego należy używać Azure Active Directory (Azure AD) jako zintegrowanego rozwiązania do tworzenia tożsamości dla klastrów AKS.
 
-Udziel użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze za pomocą integracji z usługą Azure AD. 
+Udziel użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze za pomocą integracji z usługą Azure AD.
 
 Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdywania kont, które są członkami grup administracyjnych AKS i używania go do regularnego uzgadniania dostępu. Użyj interfejsu wiersza polecenia platformy Azure w celu wykonywania operacji, takich jak "Uzyskiwanie poświadczeń dostępu dla zarządzanego klastra Kubernetes. Zaimplementuj zalecenia dotyczące zarządzania tożsamościami i dostępem Security Center.
 
@@ -931,7 +924,7 @@ Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdy
 
 - [Informacje na temat integracji usług AKS i Azure AD](concepts-identity.md)
 
-- [Jak zintegrować usługę AKS z usługą Azure AD](./azure-ad-integration-cli.md)
+- [Jak zintegrować usługę AKS z usługą Azure AD](azure-ad-integration-cli.md)
 
 - [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -939,9 +932,9 @@ Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdy
 
 - [Jak monitorować tożsamość i dostęp przy użyciu Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6,13: fizyczne lub logiczne rozdzielenie aplikacji wysokiego ryzyka
 
@@ -949,7 +942,7 @@ Moduł Azure AD PowerShell służy do wykonywania zapytań ad hoc w celu odnajdy
 
 Zaimplementuj przestrzeń nazw w Kubernetes, aby utworzyć logiczną granicę izolacji. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. ContainerService", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień usługi Azure Kubernetes Service (AKS). 
 
-Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczące izolacji i wielu dzierżawców, aby uwzględnić następujące kwestie: planowanie, Sieć, uwierzytelnianie/autoryzacja i kontenery. Należy również używać oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Oddziel klastry AKS z sieciami wirtualnymi, podsieciami, które są odpowiednio oznakowane i zabezpieczone za pomocą zapory aplikacji sieci Web (WAF).
+Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczące izolacji i wielu dzierżawców, aby uwzględnić następujące kwestie: planowanie, Sieć, uwierzytelnianie/autoryzacja i kontenery. Używaj również oddzielnych subskrypcji i grup zarządzania na potrzeby tworzenia, testowania i produkcji. Oddziel klastry AKS z sieciami wirtualnymi, podsieciami, które są odpowiednio oznakowane i zabezpieczone za pomocą zapory aplikacji sieci Web (WAF).
 
 - [Dowiedz się więcej o najlepszych rozwiązaniach dotyczących izolacji klastra w AKS](operator-best-practices-cluster-isolation.md)
 
@@ -959,9 +952,9 @@ Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczą
 
 - [Poznaj najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w AKS](operator-best-practices-network.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
@@ -973,13 +966,13 @@ Przejrzyj i zaimplementuj dodatkowe funkcje Kubernetes oraz zagadnienia dotyczą
 
 Przykłady wbudowanych definicji zasad dla AKS obejmują:
 
-• Wymuś ruch przychodzący protokołu HTTPS w klastrze Kubernetes
+- Wymuszaj ruch przychodzący HTTPS w klastrze Kubernetes
 
-• Zakres autoryzowanych adresów IP powinien być zdefiniowany w usługach Kubernetes Services
+- Dozwolone zakresy adresów IP powinny być zdefiniowane w usługach Kubernetes Services
 
-• Kontrola dostępu oparta na rolach (RBAC) powinna być używana w usługach Kubernetes Services
+- Access Control oparte na rolach (RBAC) powinny być używane w usługach Kubernetes Services
 
-• Upewnij się, że tylko dozwolone obrazy kontenerów w klastrze Kubernetes
+- Zapewnij stosowanie tylko dozwolonych obrazów kontenerów w klastrze Kubernetes
 
 Wyeksportuj szablon konfiguracji AKS w JavaScript Object Notation (JSON) z Azure Resource Manager. Okresowe przeglądy należy przeglądać w celu zapewnienia, że te konfiguracje spełniają wymagania dotyczące zabezpieczeń Twojej organizacji. Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla zasobów platformy Azure. 
 
@@ -987,9 +980,9 @@ Wyeksportuj szablon konfiguracji AKS w JavaScript Object Notation (JSON) z Azure
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7,2: Ustanów bezpieczne konfiguracje systemów operacyjnych
 
@@ -1001,9 +994,9 @@ Na platformie Azure są stosowane codzienne poprawki (w tym poprawki zabezpiecze
 
 - [Informacje o zabezpieczaniu zabezpieczeń w AKS hostach maszyn wirtualnych](security-hardened-vm-host-image.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: obsługa bezpiecznych konfiguracji zasobów platformy Azure
 
@@ -1015,17 +1008,19 @@ Należy również użyć Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje],
 
 Utwórz niestandardowe definicje Azure Policy przy użyciu aliasów z następujących przestrzeni nazw: 
 
-• Microsoft. ContainerService
+- Microsoft. ContainerService
 
-• Microsoft. Network
+- Microsoft.Network
+
+Dodatkowe informacje są dostępne w linkach, do których istnieją odwołania.
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
 - [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: Zachowaj konfiguracje bezpiecznego systemu operacyjnego
 
@@ -1035,39 +1030,37 @@ Zapoznaj się z listą kontrolek Centrum zabezpieczeń internetowych (CIS), któ
 
 - [Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS](security-hardened-vm-host-image.md)
 
-- [Opis konfiguracji stanu klastrów AKS](concepts-clusters-workloads.md#control-plane)
+- [Opis konfiguracji stanu klastrów AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Informacje o zabezpieczaniu zabezpieczeń w AKS hostach maszyn wirtualnych](security-hardened-vm-host-image.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: bezpiecznie przechowuj konfigurację zasobów platformy Azure
 
-**Wskazówki**: Użyj Azure Repos, aby bezpiecznie przechowywać konfiguracje i zarządzać nimi, jeśli są używane definicje Azure Policy niestandardowych. Wyeksportuj szablon konfiguracji usługi Azure Kubernetes Service (AKS) w JavaScript Object Notation (JSON) z Azure Resource Manager. Okresowe przeglądy, aby upewnić się, że konfiguracje spełniają wymagania dotyczące zabezpieczeń Twojej organizacji. 
+**Wskazówki**: Użyj Azure Repos, aby bezpiecznie przechowywać konfiguracje i zarządzać nimi, jeśli są używane definicje Azure Policy niestandardowych. Wyeksportuj szablon konfiguracji usługi Azure Kubernetes Service (AKS) w JavaScript Object Notation (JSON) z Azure Resource Manager. Okresowe przeglądy, aby upewnić się, że konfiguracje spełniają wymagania dotyczące zabezpieczeń Twojej organizacji.
 
 Wdrażaj rozwiązania innych firm, takie jak Terraform, aby utworzyć plik konfiguracji, który deklaruje zasoby dla klastra Kubernetes. Wdrożenie AKS można zabezpieczyć, wdrażając najlepsze rozwiązania w zakresie zabezpieczeń i przechowując konfigurację jako kod w zabezpieczonej lokalizacji.
 
 - [Definiowanie klastra Kubernetes](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks#define-a-kubernetes-cluster)
 
-Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS
-
-security-hardened-vm-host-image.md
+- [Ograniczanie zabezpieczeń dla systemu operacyjnego hosta węzła agenta AKS](security-hardened-vm-host-image.md)
 
 - [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
 **Wskazówki**: nie dotyczy usługi Azure Kubernetes Service (AKS). AKS zapewnia domyślnie zoptymalizowany pod kątem zabezpieczeń system operacyjny hosta (OS). Nie ma bieżącej opcji, aby wybrać alternatywny lub niestandardowy system operacyjny.
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją dla zasobów platformy Azure
 
@@ -1077,11 +1070,11 @@ Tworzenie zasad niestandardowych na potrzeby inspekcji i wymuszania konfiguracji
 
 - [Jak skonfigurować usługę Azure Policy i zarządzać nią](../governance/policy/tutorials/create-and-manage.md)
 
-- [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak używać aliasów](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: Wdrażanie narzędzi do zarządzania konfiguracją dla systemów operacyjnych
 
@@ -1093,11 +1086,11 @@ Zapoznaj się z listą kontrolek Centrum zabezpieczeń internetowych (CIS), któ
 
 - [Informacje o zabezpieczaniu zabezpieczeń w AKS hostach maszyn wirtualnych](security-hardened-vm-host-image.md)
 
-- [Opis konfiguracji stanu klastrów AKS](concepts-clusters-workloads.md#control-plane)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Opis konfiguracji stanu klastrów AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla zasobów platformy Azure
 
@@ -1105,19 +1098,21 @@ Zapoznaj się z listą kontrolek Centrum zabezpieczeń internetowych (CIS), któ
 
 - [Jak skorygować zalecenia w Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: Zaimplementuj automatyczne monitorowanie konfiguracji dla systemów operacyjnych
 
-**Wskazówki**: Użyj zaleceń dotyczących kontenera Security Center w sekcji "aplikacje obliczeniowe &amp; ", aby przeprowadzić skanowanie linii bazowej dla klastrów usługi Azure KUBERNETES Service (AKS). Otrzymuj powiadomienia na pulpicie nawigacyjnym Security Center, gdy zostaną znalezione problemy z konfiguracją lub luki w zabezpieczeniach. Wymaga to włączenia opcjonalnego zbioru rejestrów kontenerów, który umożliwia Security Center skanowania obrazu.  
+**Wskazówki**: Użyj zaleceń dotyczących kontenera Security Center w sekcji "aplikacje obliczeniowe &amp; ", aby przeprowadzić skanowanie linii bazowej dla klastrów usługi Azure KUBERNETES Service (AKS). 
+
+Otrzymuj powiadomienia na pulpicie nawigacyjnym Security Center, gdy zostaną znalezione problemy z konfiguracją lub luki w zabezpieczeniach. Wymaga to włączenia opcjonalnego zbioru rejestrów kontenerów, który umożliwia Security Center skanowania obrazu.  
 
 - [Omówienie rekomendacji dotyczących kontenera usługi Azure Security Center](../security-center/container-security.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
@@ -1129,27 +1124,27 @@ Unikaj stosowania poświadczeń stałych lub udostępnionych.
 
 - [Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)](concepts-security.md)
 
-- [Jak używać Key Vault z klastrem AKS](developer-best-practices-pod-security.md#limit-credential-exposure)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak używać Key Vault z klastrem AKS](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: nie należy definiować poświadczeń w kodzie aplikacji jako najlepsze rozwiązanie w zakresie zabezpieczeń. Użyj zarządzanych tożsamości dla zasobów platformy Azure, aby zezwolić na uwierzytelnianie pod względem dowolnej usługi platformy Azure, która ją obsługuje, w tym Azure Key Vault. W obszarze jest przypisana tożsamość platformy Azure służąca do uwierzytelniania w usłudze Azure Active Directory (Azure AD) i otrzymywania tokenów cyfrowych, które mogą być prezentowane innym usługom platformy Azure, które sprawdzają, czy element jest autoryzowany do uzyskiwania dostępu do usługi i wykonując wymagane akcje. 
+**Wskazówki**: nie należy definiować poświadczeń w kodzie aplikacji jako najlepsze rozwiązanie w zakresie zabezpieczeń. Użyj zarządzanych tożsamości dla zasobów platformy Azure, aby zezwolić na uwierzytelnianie pod względem dowolnej usługi platformy Azure, która ją obsługuje, w tym Azure Key Vault. W obszarze jest przypisana tożsamość platformy Azure służąca do uwierzytelniania w usłudze Azure Active Directory (Azure AD) i otrzymywania tokenów cyfrowych, które mogą być prezentowane innym usługom platformy Azure, które sprawdzają, czy element jest autoryzowany do uzyskiwania dostępu do usługi i wykonując wymagane akcje.
 
 Należy zauważyć, że tożsamości zarządzane pod nie są przeznaczone do użytku tylko z magazynami systemu Linux i obrazami kontenerów. Udostępnij Azure Key Vault do przechowywania i pobierania kluczy cyfrowych i poświadczeń. Klucze, takie jak te używane do szyfrowania dysków systemu operacyjnego, AKS dane klastra mogą być przechowywane w Azure Key Vault.
 
 Jednostki usługi mogą być również używane w klastrach AKS. Jednak klastry korzystające z jednostek usługi mogą ostatecznie dotrzeć do stanu, w którym należy przeprowadzić odnowienie jednostki usługi w celu zapewnienia działania klastra. Zarządzanie jednostkami usługi zwiększa złożoność, dlatego łatwiej jest używać zarządzanych tożsamości. Te same wymagania dotyczące uprawnień dotyczą zarówno jednostek głównych usługi, jak i zarządzanych tożsamości.
 
-- [Poznaj zarządzane tożsamości i Key Vault za pomocą usługi Azure Kubernetes Service (AKS)](developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Poznaj zarządzane tożsamości i Key Vault za pomocą usługi Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
-- [Azure Active Directory pod tożsamością](https://github.com/Azure/aad-pod-identity)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Tożsamość usługi Azure AD pod](https://github.com/Azure/aad-pod-identity)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminowanie nieprzewidzianego narażenia na poświadczenia
 
@@ -1161,9 +1156,9 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 - [Najlepsze rozwiązania dla deweloperów dotyczące zabezpieczeń pod kątem bezpieczeństwa](developer-best-practices-pod-security.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
@@ -1175,13 +1170,13 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 - [Przewodnik dotyczący alertów zabezpieczeń](../security-center/alerts-reference.md)
 
-- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS współdzielona i zestawy demonów](support-policies.md#shared-responsibility)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [AKS współdzielona i zestawy demonów](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: przeskanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
 
@@ -1189,9 +1184,9 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 - [Zrozumienie wykrywania zagrożeń Azure Security Center dla usług danych](../security-center/azure-defender.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: Upewnij się, że oprogramowanie chroniące przed złośliwym oprogramowaniem i podpisy zostały zaktualizowane
 
@@ -1199,13 +1194,13 @@ Ogranicz ekspozycję poświadczeń, nie definiując poświadczeń w kodzie aplik
 
 - [Przewodnik dotyczący alertów zabezpieczeń](../security-center/alerts-reference.md)
 
-- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerty dla kontenerów — klastry usługi Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS współdzielona i zestawy demonów](support-policies.md#shared-responsibility)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [AKS współdzielona i zestawy demonów](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Odpowiedzialność**: Współużytkowane
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
@@ -1225,19 +1220,15 @@ Usuń stan z aplikacji przed utworzeniem kopii zapasowej. W przypadkach, gdy nie
 
 - [Jak skonfigurować Velero na platformie Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: wykonaj kompletne kopie zapasowe systemu i Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta
 
 **Wskazówki**: Tworzenie kopii zapasowych danych przy użyciu odpowiedniego narzędzia dla typu magazynu, takiego jak Velero, który może tworzyć kopie zapasowe woluminów trwałych wraz z dodatkowymi zasobami i konfiguracjami klastra. 
 
 Wykonywanie zwykłych zautomatyzowanych kopii zapasowych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
-
-Na przykład:
-
-Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Jak utworzyć kopię zapasową certyfikatów Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1247,35 +1238,31 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Jak utworzyć kopię zapasową Key Vault Secret](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Jak włączyć Azure Backup](../backup/index.yml)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak włączyć Azure Backup](/azure/backup/)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: Weryfikuj wszystkie kopie zapasowe, w tym klucze zarządzane przez klienta
 
 **Wskazówki**: okresowe wykonywanie przywracania danych zawartości w ramach kopii zapasowej Velero. W razie potrzeby przetestuj przywracanie do izolowanej sieci wirtualnej.
 
-Okresowe wykonywanie przywracania danych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell. 
+Okresowe wykonywanie przywracania danych Key Vault certyfikatów, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą poleceń programu PowerShell.
 
-Na przykład:
+- [Jak przywrócić Key Vault certyfikaty](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
 
-Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
-
-- [Jak przywrócić Key Vault certyfikaty](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
-
-- [Jak przywrócić klucze Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak przywrócić klucze Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
 - [Jak przywrócić Key Vault zarządzanych kont magazynu](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Jak przywrócić Key Vault wpisy tajne](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Jak przywrócić Key Vault wpisy tajne](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
 
-- [Jak odzyskać pliki z kopii zapasowej maszyny wirtualnej platformy Azure](../backup/backup-azure-restore-files-from-vm.md)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak odzyskać pliki z kopii zapasowej maszyny wirtualnej platformy Azure](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
@@ -1285,15 +1272,15 @@ Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub zło
 
 - [Omówienie usługi Azure szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md)
 
-- [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Jak włączyć Soft-Delete w Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Odpowiedzialność**: Klient
 
+**Monitorowanie Azure Security Center**: brak
+
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
+*Aby uzyskać więcej informacji, zobacz [Test porównawczy platformy Azure: reagowanie na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -1305,62 +1292,66 @@ Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub zło
 
 - [Anatomia incydentu centrum Microsoft Security Response](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [Klient może również korzystać z przewodnika obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
-
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Przewodnik obsługi zdarzeń zabezpieczeń komputera NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: Tworzenie oceny incydentu i procedury priorytetyzacji
 
-**Wskazówki**: Określanie priorytetu, które alerty muszą być najpierw badane z przypisaną ważnością Security Center do alertów. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które prowadziło do alertu.
+**Wskazówki**: Określanie priorytetu, które alerty muszą być najpierw badane z przypisaną ważnością Security Center do alertów. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analizach używanych do wystawiania alertu, a także poziom pewności, że istniało złośliwe zamiar w odniesieniu do działania, które doprowadziło do alertu.
 Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utwórz system nazewnictwa, aby jasno identyfikować i klasyfikować zasoby platformy Azure.
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="103-test-security-response-procedures"></a>10,3: procedury odpowiedzi na zabezpieczenia testowe
 
-**Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zapoznaj się z publikacją NIST, aby identyfikować słabe punkty i przerwy i zmieniać plan w miarę potrzeby.
+**Wskazówki**: przeprowadzanie ćwiczeń do testowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plany reagowania na zdarzenia zgodnie z wymaganiami.
 
 - [Przewodnik testowania, uczenia i ćwiczeń programów dla planów i możliwości IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
-**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
+**Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę. 
+
+Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
 - [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitorowanie usługi Azure Security Center**: Yes
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: Uwzględnij alerty zabezpieczeń w systemie odpowiedzi na zdarzenia
 
-**Wskazówki**: eksportowanie alertów Security Center i rekomendacji przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz również wybrać Łącznik danych Security Center, aby przesyłać strumieniowo alerty do usługi Azure wskaźnik na podstawie wymagań firmy dotyczących organizacji.
+**Wskazówki**: eksportowanie alertów Security Center i rekomendacji przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. 
+
+Wybierz łącznik danych Security Center, aby przesyłać strumieniowo alerty do platformy Azure, zgodnie z potrzebami i zgodnie z wymaganiami biznesowymi obowiązującymi w organizacji.
 
 - [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
 - [Jak przesłać strumieniowo alerty do usługi Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10,6: Automatyzowanie odpowiedzi na alerty zabezpieczeń
 
-**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
+**Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
 - [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
-
 **Odpowiedzialność**: Klient
+
+**Monitorowanie Azure Security Center**: brak
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
@@ -1368,15 +1359,17 @@ Wyraźnie oznaczaj subskrypcje (na przykład produkcyjne, nieprodukcyjne) i Utw�
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
-**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft. Dodatkowe informacje na temat strategii i sposobu wykonywania czerwonych zespołów tworzenia zespołu i testowania aplikacji na żywo w witrynie firmy Microsoft, a w odniesieniu do infrastruktury i usług w chmurze, które znajdują się w odwołaniach.
 
-- [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Reguły testów penetracyjnych zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-**Monitorowanie usługi Azure Security Center**: Nie dotyczy
+- [Testy typu „red team” w chmurze firmy Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Odpowiedzialność**: Współużytkowane
 
+**Monitorowanie Azure Security Center**: brak
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)
+- Zobacz [Omówienie testu porównawczego zabezpieczeń platformy Azure w wersji 2](/azure/security/benchmarks/overview)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638890"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688046"
 ---
 # <a name="api-management-caching-policies"></a>Zasady buforowania usługi API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -248,7 +248,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 `cache-store-value`Magazyn pamięci podręcznej przez klucz. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad.
 
 > [!NOTE]
-> Te zasady muszą mieć odpowiednie [wartości Get z zasad pamięci podręcznej](#GetFromCacheByKey) .
+> Operacja przechowywania wartości w pamięci podręcznej wykonywanej przez te zasady jest asynchroniczna. Składowaną wartość można pobrać przy użyciu opcji [Pobierz wartość z zasad pamięci podręcznej](#GetFromCacheByKey) . Jednak przechowywana wartość może nie być natychmiast dostępna do pobrania, ponieważ asynchroniczna operacja, która przechowuje wartość w pamięci podręcznej, może być nadal w toku. 
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -279,7 +279,7 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal` Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external` Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | czas trwania         | Wartość zostanie zbuforowana dla podanej wartości czasu trwania określonej w sekundach.                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy               |
 | key              | Klucz pamięci podręcznej, w której będzie przechowywana wartość.                                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
-| value            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
+| wartość            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 

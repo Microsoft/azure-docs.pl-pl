@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740906"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute przy użyciu Azure Portal
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "91761836"
 
 Ten samouczek przeprowadzi Cię przez kroki umożliwiające dodanie bramy sieci wirtualnej do istniejącej sieci wirtualnej. W tym artykule omówiono procedurę dodawania, zmieniania rozmiaru i usuwania bramy sieci wirtualnej (VNet) dla istniejącej sieci wirtualnej. Kroki tej konfiguracji są przeznaczone dla sieci wirtualnych, które zostały utworzone przy użyciu modelu wdrażania Menedżer zasobów, który będzie używany w konfiguracji ExpressRoute. Aby uzyskać więcej informacji na temat bram sieci wirtualnej i ustawień konfiguracji bramy dla usługi ExpressRoute, zobacz [Informacje o bramach sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Utwórz podsieć bramy.
 > - Utwórz bramę Virtual Network.
@@ -50,6 +50,11 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
 
 [Film wideo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dotyczący tych kroków można wyświetlić przed rozpoczęciem konfiguracji.
 
+> [!IMPORTANT]
+> Obsługa protokołu IPv6 dla prywatnej komunikacji równorzędnej jest obecnie dostępna w **publicznej wersji zapoznawczej**. Jeśli chcesz połączyć sieć wirtualną z obwodem usługi ExpressRoute przy użyciu skonfigurowanej prywatnej komunikacji równorzędnej opartej na protokole IPv6, upewnij się, że sieć wirtualna jest podwójna, i postępuj zgodnie z wytycznymi dotyczącymi [protokołu IPv6 dla sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Tworzenie podsieci bramy
 
 1. W [portalu](https://portal.azure.com) przejdź do sieci wirtualnej usługi Resource Manager, dla której chcesz utworzyć bramę sieci wirtualnej.
@@ -58,13 +63,17 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Dodaj podsieć bramy":::
 
-1. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj wartości **zakresu adresów** , które mają być zgodne z wymaganiami dotyczącymi konfiguracji. Zalecamy utworzenie podsieci bramy z/27 lub większą (/26,/25 itd.). Następnie wybierz przycisk **OK** , aby zapisać wartości i utworzyć podsieć bramy.
+1. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj wartości **zakresu adresów** , które mają być zgodne z wymaganiami dotyczącymi konfiguracji. Zalecamy utworzenie podsieci bramy z/27 lub większą (/26,/25 itd.).
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Dodawanie podsieci":::
+    Jeśli używasz sieci wirtualnej o podwójnym stosie i planujesz korzystanie z prywatnej komunikacji równorzędnej opartej na protokole IPv6 za pośrednictwem usługi ExpressRoute, kliknij pozycję **Dodaj przestrzeń adresową IP6** i wprowadź wartości **zakresu adresów IPv6** .
+
+Następnie wybierz przycisk **OK** , aby zapisać wartości i utworzyć podsieć bramy.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Tworzenie bramy sieci wirtualnej
 
-1. W portalu po lewej stronie wybierz pozycję **Utwórz zasób** , a następnie w polu wyszukiwania wpisz ciąg "Virtual Network Gateway". Znajdź **bramę sieci wirtualnej** w zwracanym wyszukiwaniu i wybierz wpis. Na stronie **Brama sieci wirtualnej** wybierz pozycję **Utwórz**.
+1. W portalu po lewej stronie wybierz pozycję **Utwórz zasób**, a następnie w polu wyszukiwania wpisz ciąg "Virtual Network Gateway". Znajdź **bramę sieci wirtualnej** w zwracanym wyszukiwaniu i wybierz wpis. Na stronie **Brama sieci wirtualnej** wybierz pozycję **Utwórz**.
 1. Na stronie **Tworzenie bramy sieci wirtualnej** wprowadź lub wybierz następujące ustawienia:
 
     | Ustawienie | Wartość |
@@ -74,12 +83,17 @@ Kroki dla tego zadania używają sieci wirtualnej na podstawie wartości z poni�
     | Nazwa | Nadaj nazwę bramie. Ta wartość nie jest taka sama jak nazwa podsieci bramy. Jest to nazwa tworzonego obiektu bramy.|
     | Region (Region) | Zmień pole **region** tak, aby wskazywało lokalizację, w której znajduje się Twoja sieć wirtualna. Jeśli lokalizacja nie wskazuje regionu, w którym znajduje się Twoja sieć wirtualna, Sieć wirtualna nie zostanie wyświetlona na liście rozwijanej "Wybierz sieć wirtualną". |
     | Typ bramy | Wybierz **ExpressRoute**|
-    | Jednostka SKU | Wybierz jednostkę SKU bramy z listy rozwijanej. |
+    | SKU | Wybierz jednostkę SKU bramy z listy rozwijanej. |
     | Sieć wirtualna | Wybierz pozycję *TestVNet*. |
     | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**.|
     | Nazwa publicznego adresu IP | Podaj nazwę publicznego adresu IP. |
 
-1. Wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby rozpocząć tworzenie bramy. Ustawienia zostaną zweryfikowane i brama zostanie wdrożona. Tworzenie bramy sieci wirtualnej może potrwać do 45 minut.
+    > [!IMPORTANT]
+    > Jeśli planujesz używanie prywatnej komunikacji równorzędnej opartej na protokole IPv6 za pośrednictwem usługi ExpressRoute, upewnij się, że wybrano polecenie AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) dla **jednostki SKU**.
+    > 
+    > 
+
+1. Wybierz pozycję **Przegląd + Utwórz**, a następnie **Utwórz** , aby rozpocząć tworzenie bramy. Ustawienia zostaną zweryfikowane i brama zostanie wdrożona. Tworzenie bramy sieci wirtualnej może potrwać do 45 minut.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Utwórz pola strony bramy sieci wirtualnej":::
 

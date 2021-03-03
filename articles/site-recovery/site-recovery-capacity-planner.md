@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737719"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planowanie wydajności na potrzeby odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V 
 
@@ -43,7 +43,7 @@ Narzędzie można uruchomić w dwóch trybach:
 
 
 ## <a name="run-the-quick-planner"></a>Uruchamianie szybkiego planisty
-1. Pobierz i Otwórz [Planista wydajności Site Recovery](https://aka.ms/asr-capacity-planner-excel). Należy uruchomić makra. Po wyświetleniu monitu wybierz opcje, aby włączyć edytowanie i zawartość.
+1. Pobierz i Otwórz [Planista wydajności Site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). Należy uruchomić makra. Po wyświetleniu monitu wybierz opcje, aby włączyć edytowanie i zawartość.
 
 2. W polu listy **Wybierz typ planisty** wybierz pozycję **Quick Planner**.
 
@@ -51,13 +51,13 @@ Narzędzie można uruchomić w dwóch trybach:
 
 3. W arkuszu **planista wydajności** wprowadź wymagane informacje. Wypełnij wszystkie pola wyróżnione czerwonymi na poniższym zrzucie ekranu:
 
-   a. W obszarze **Wybierz swój scenariusz**wybierz pozycję **Hyper-V do platformy Azure** lub **oprogramowanie VMware/Physical na platformie Azure**.
+   a. W obszarze **Wybierz swój scenariusz** wybierz pozycję **Hyper-V do platformy Azure** lub **oprogramowanie VMware/Physical na platformie Azure**.
 
    b. W polu **Średni dzienny współczynnik zmian danych (%)** wprowadź informacje zbierane przy użyciu [narzędzia planowania pojemności funkcji Hyper-V](./hyper-v-deployment-planner-overview.md) lub [planista wdrażania Site Recovery](./site-recovery-deployment-planner.md).
 
    c. Ustawienie **kompresji** nie jest używane w przypadku replikowania maszyn wirtualnych funkcji Hyper-V do platformy Azure. W przypadku kompresji Użyj urządzenia innej firmy, takiego jak Riverbed.
 
-   d. W polu **przechowywanie w dniach**Określ czas przechowywania replik w dniach.
+   d. W polu **przechowywanie w dniach** Określ czas przechowywania replik w dniach.
 
    e. W **godzinach, w których replikacja początkowa partii maszyn wirtualnych powinna zakończyć** się i **Liczba maszyn wirtualnych na partię replikacji początkowej**, wprowadź ustawienia, które są używane do obliczania wymagań replikacji początkowej. Po wdrożeniu Site Recovery cały początkowy zestaw danych zostanie przekazany.
 
@@ -81,33 +81,33 @@ Narzędzie można uruchomić w dwóch trybach:
 
 ## <a name="run-the-detailed-planner"></a>Uruchamianie szczegółowego planisty
 
-1. Pobierz i Otwórz [Planista wydajności Site Recovery](https://aka.ms/asr-capacity-planner-excel). Należy uruchomić makra. Po wyświetleniu monitu wybierz opcje, aby włączyć edytowanie i zawartość.
+1. Pobierz i Otwórz [Planista wydajności Site Recovery](/samples/browse/?redirectedfrom=TechNet-Gallery). Należy uruchomić makra. Po wyświetleniu monitu wybierz opcje, aby włączyć edytowanie i zawartość.
 
-2. W obszarze **Wybierz typ planisty**wybierz pozycję **szczegółowy planista** w polu listy.
+2. W obszarze **Wybierz typ planisty** wybierz pozycję **szczegółowy planista** w polu listy.
 
    ![Zrzut ekranu przedstawiający opcję Wybierz typ planisty z wybraną szczegółowym terminarzem.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. W arkuszu **kwalifikacje obciążenia** wprowadź wymagane informacje. Musisz wypełnić wszystkie pola oznaczone.
 
-   a. W obszarze **rdzenie procesora**Określ łączną liczbę rdzeni na serwerze źródłowym.
+   a. W obszarze **rdzenie procesora** Określ łączną liczbę rdzeni na serwerze źródłowym.
 
    b. W obszarze **alokacja pamięci (w MB)** Określ rozmiar pamięci RAM serwera źródłowego.
 
-   c. W obszarze **Liczba kart interfejsu**sieciowego Określ liczbę karty sieciowych na serwerze źródłowym.
+   c. W obszarze **Liczba kart interfejsu** sieciowego Określ liczbę karty sieciowych na serwerze źródłowym.
 
    d. W obszarze **łączny rozmiar magazynu (w GB)** Określ łączną ilość miejsca w magazynie maszyn wirtualnych. Jeśli na przykład serwer źródłowy ma trzy dyski z 500 GB każdy, łączny rozmiar magazynu to 1 500 GB.
 
-   e. W polu **liczba podłączonych dysków**Określ łączną liczbę dysków serwera źródłowego.
+   e. W polu **liczba podłączonych dysków** Określ łączną liczbę dysków serwera źródłowego.
 
    f. W obszarze **wykorzystanie pojemności dysku (%)** Określ średnie użycie.
 
    przykład W **dziennym współczynniku zmian danych (%)** Określ dzienny współczynnik zmian danych serwera źródłowego.
 
-   h. W obszarze **Mapowanie rozmiaru maszyny wirtualnej platformy Azure**wprowadź rozmiar maszyny wirtualnej platformy Azure, która ma zostać zmapowana. Jeśli nie chcesz tego robić ręcznie, wybierz pozycję **obliczenia IaaS maszyny wirtualne**. Jeśli wprowadzasz ustawienia ręczne, a następnie wybierzesz pozycję **COMPUTE IaaS maszyny wirtualne**, ustawienie ręczne może zostać nadpisane. Proces obliczeń automatycznie identyfikuje najlepsze dopasowanie rozmiaru maszyny wirtualnej platformy Azure.
+   h. W obszarze **Mapowanie rozmiaru maszyny wirtualnej platformy Azure** wprowadź rozmiar maszyny wirtualnej platformy Azure, która ma zostać zmapowana. Jeśli nie chcesz tego robić ręcznie, wybierz pozycję **obliczenia IaaS maszyny wirtualne**. Jeśli wprowadzasz ustawienia ręczne, a następnie wybierzesz pozycję **COMPUTE IaaS maszyny wirtualne**, ustawienie ręczne może zostać nadpisane. Proces obliczeń automatycznie identyfikuje najlepsze dopasowanie rozmiaru maszyny wirtualnej platformy Azure.
 
    ![Zrzut ekranu arkusza kwalifikacji obciążeń przedstawiający wymagane informacje wejściowe.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
-4. W przypadku wybrania opcji **Oblicz IaaS maszyny wirtualne**można wykonać następujące czynności:
+4. W przypadku wybrania opcji **Oblicz IaaS maszyny wirtualne** można wykonać następujące czynności:
 
    * Weryfikuje obowiązkowe dane wejściowe.
    * Oblicza liczbę IOPS i sugeruje najlepszą zgodność rozmiaru maszyny wirtualnej platformy Azure dla każdej maszyny wirtualnej, która kwalifikuje się do replikacji na platformę Azure. Jeśli nie można wykryć odpowiedniego rozmiaru maszyny wirtualnej platformy Azure, zostanie wyświetlony komunikat o błędzie. Jeśli na przykład liczba podłączonych dysków to 65, zostanie wyświetlony błąd, ponieważ najwyższy rozmiar maszyny wirtualnej platformy Azure to 64.

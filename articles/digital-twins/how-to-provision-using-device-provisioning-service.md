@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044394"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736546"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -174,7 +174,7 @@ Wykonaj kroki opisane w sekcji [*Tworzenie centrum zdarzeń*](../event-hubs/even
 
 ### <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
 
-Następnie utworzysz funkcję wyzwalającą Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych. 
+Następnie utworzysz funkcję wyzwalaną przez usługę Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych. 
 
 Nazwij wyzwalacz centrum zdarzeń *lifecycleevents* i Połącz wyzwalacz centrum zdarzeń z centrum zdarzeń utworzonym w poprzednim kroku. Jeśli użyto innej nazwy centrum zdarzeń, Zmień ją na zgodną z nazwą wyzwalacza poniżej.
 
@@ -223,7 +223,7 @@ Aby wyzwolić proces wycofania, należy ręcznie usunąć urządzenie z IoT Hub.
 
 W [pierwszej połowie tego artykułu](#auto-provision-device-using-device-provisioning-service)utworzono urządzenie w IoT Hub i odpowiadające im sznurki cyfrowe. 
 
-Teraz przejdź do IoT Hub i usuń to urządzenie (możesz to zrobić za pomocą [polecenia interfejsu CLI platformy Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) lub w [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Teraz przejdź do IoT Hub i usuń to urządzenie (możesz to zrobić za pomocą [polecenia interfejsu CLI platformy Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) lub w [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 Urządzenie zostanie automatycznie usunięte z usługi Azure Digital bliźniaczych reprezentacji. 
 

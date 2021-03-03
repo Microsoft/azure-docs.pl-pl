@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731446"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla ustawień diagnostycznych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia ustawień diagnostycznych dla zasobu platformy Azure. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -349,7 +349,7 @@ Poniższy przykład tworzy ustawienie diagnostyczne dla bazy danych SQL Azure, d
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Ustawienie diagnostyczne dla magazynu Recovery Services
-Poniższy przykład tworzy ustawienie diagnostyczne dla magazynu Recovery Services platformy Azure, dodając zasób typu `microsoft.recoveryservices/vaults/providers/diagnosticSettings` do szablonu. Ten przykład określa tryb kolekcji zgodnie z opisem w temacie [dzienniki zasobów platformy Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Określ `Dedicated` lub `AzureDiagnostics` dla `logAnalyticsDestinationType` właściwości.
+Poniższy przykład tworzy ustawienie diagnostyczne dla magazynu Recovery Services platformy Azure, dodając zasób typu `microsoft.recoveryservices/vaults/providers/diagnosticSettings` do szablonu. Ten przykład określa tryb kolekcji zgodnie z opisem w temacie [dzienniki zasobów platformy Azure](./resource-logs.md#send-to-log-analytics-workspace). Określ `Dedicated` lub `AzureDiagnostics` dla `logAnalyticsDestinationType` właściwości.
 
 ### <a name="template-file"></a>Plik szablonu
 
@@ -812,5 +812,5 @@ Poniższy przykład tworzy ustawienie diagnostyczne dla każdego punktu końcowe
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Pobierz inne przykładowe szablony dla Azure monitor](../samples/resource-manager-samples.md).
+* [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
 * [Dowiedz się więcej na temat ustawień diagnostycznych](../essentials/diagnostic-settings.md).

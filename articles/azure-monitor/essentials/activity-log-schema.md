@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a050e9832537dd9b6690c7f9409bfbb5b795af2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2cea95dba3be02b9db584b0650761cb2d640283
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728777"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
-[Dziennik aktywności platformy Azure](../platform/platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
+[Dziennik aktywności platformy Azure](./platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano kategorie dziennika aktywności i schemat dla każdego z nich. 
 
 Schemat będzie się różnić w zależności od sposobu uzyskania dostępu do dziennika:
  
 - Schematy opisane w tym artykule mają na celu uzyskanie dostępu do dziennika aktywności z [interfejsu API REST](/rest/api/monitor/activitylogs). Jest to również schemat używany w przypadku wybrania opcji **JSON** podczas wyświetlania zdarzenia w Azure Portal.
-- [Aby wysłać](../platform/diagnostic-settings.md) dziennik aktywności do usługi Azure Storage lub Azure Event Hubs, zobacz ostatni [schemat sekcji z konta magazynu i centrów zdarzeń](#schema-from-storage-account-and-event-hubs) dla schematu.
-- W przypadku korzystania z [ustawień diagnostycznych](../platform/diagnostic-settings.md) do wysyłania dziennika aktywności do log Analytics obszaru roboczego zobacz [Azure monitor odwołanie do danych](/azure/azure-monitor/reference/) schematu.
+- [Aby wysłać](./diagnostic-settings.md) dziennik aktywności do usługi Azure Storage lub Azure Event Hubs, zobacz ostatni [schemat sekcji z konta magazynu i centrów zdarzeń](#schema-from-storage-account-and-event-hubs) dla schematu.
+- W przypadku korzystania z [ustawień diagnostycznych](./diagnostic-settings.md) do wysyłania dziennika aktywności do log Analytics obszaru roboczego zobacz [Azure monitor odwołanie do danych](/azure/azure-monitor/reference/) schematu.
 
 ## <a name="severity-level"></a>Poziom ważności
 Każdy wpis w dzienniku aktywności ma poziom ważności. Poziom ważności może mieć jedną z następujących wartości:  
@@ -36,7 +36,7 @@ Każdy wpis w dzienniku aktywności ma poziom ważności. Poziom ważności moż
 Developers każdego dostawcy zasobów wybiera poziomy ważności ich wpisów zasobów. W związku z tym rzeczywista ważność może się różnić w zależności od sposobu, w jaki aplikacja została skompilowana. Na przykład elementy, które są "krytyczne" do określonego zasobu w izolacji, mogą nie być uznawane za "błędy" w typie zasobu, który jest centralną aplikacją platformy Azure. Pamiętaj, aby wziąć pod uwagę ten fakt przy wyborze zdarzeń, które mają być wyzwalane.  
 
 ## <a name="categories"></a>Kategorie
-Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która została opisana w poniższej tabeli. Zapoznaj się z poniższymi sekcjami, aby uzyskać więcej szczegółów na temat każdej kategorii i jej schematu podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](../platform/resource-logs.md#send-to-azure-event-hubs). Mapowanie właściwości do [schematu dzienników zasobów](../platform/resource-logs-schema.md) znajduje się w ostatniej sekcji artykułu.
+Każde zdarzenie w dzienniku aktywności ma określoną kategorię, która została opisana w poniższej tabeli. Zapoznaj się z poniższymi sekcjami, aby uzyskać więcej szczegółów na temat każdej kategorii i jej schematu podczas uzyskiwania dostępu do dziennika aktywności z poziomu portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Schemat jest różny podczas [przesyłania strumieniowego dziennika aktywności do magazynu lub Event Hubs](./resource-logs.md#send-to-azure-event-hubs). Mapowanie właściwości do [schematu dzienników zasobów](./resource-logs-schema.md) znajduje się w ostatniej sekcji artykułu.
 
 | Kategoria | Opis |
 |:---|:---|
@@ -804,10 +804,10 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schemat z centrów zdarzeń i kont magazynu
-Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](../platform/resource-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
+Podczas przesyłania strumieniowego dziennika aktywności platformy Azure do konta magazynu lub centrum zdarzeń dane są zgodne ze [schematem dziennika zasobów](./resource-logs-schema.md). Poniższa tabela zawiera mapowanie właściwości z powyższych schematów do schematu dzienników zasobów.
 
 > [!IMPORTANT]
-> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](../platform/resource-logs-blob-format.md) .
+> Format danych dziennika aktywności zapisany na koncie magazynu został zmieniony na wiersze JSON na lis. 1, 2018. Aby uzyskać szczegółowe informacje na temat tego formatu [, zobacz Przygotowywanie do zmiany formatu do Azure monitor dzienników zasobów zarchiwizowanych na koncie magazynu](./resource-logs-blob-format.md) .
 
 
 | Właściwości schematu dzienników zasobów | Właściwość schematu interfejsu API REST dziennika aktywności | Uwagi |
@@ -894,5 +894,5 @@ Poniżej znajduje się przykład zdarzenia korzystającego z tego schematu.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o dzienniku aktywności](../platform/platform-logs-overview.md)
-* [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](../platform/diagnostic-settings.md)
+* [Dowiedz się więcej o dzienniku aktywności](./platform-logs-overview.md)
+* [Tworzenie ustawień diagnostycznych w celu wysyłania dziennika aktywności do Log Analytics obszaru roboczego, usługi Azure Storage lub centrów zdarzeń](./diagnostic-settings.md)

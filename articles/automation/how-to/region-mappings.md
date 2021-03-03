@@ -1,20 +1,24 @@
 ---
 title: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 description: W tym artykule opisano obsługiwane mapowania regionów między kontem usługi Automation a obszarem roboczym Log Analytics, które odnoszą się do niektórych funkcji Azure Automation.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704325"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720175"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
 W Azure Automation można włączyć funkcje Update Management, Change Tracking i spisu oraz Start/Stop VMs during off-hours dla serwerów i maszyn wirtualnych. Te funkcje mają zależność od obszaru roboczego Log Analytics i dlatego wymagają konsolidacji obszaru roboczego z kontem usługi Automation. Jednak tylko niektóre regiony są obsługiwane do łączenia ich ze sobą. Ogólnie rzecz biorąc mapowanie *nie* ma zastosowania, jeśli planujesz połączyć konto usługi Automation z obszarem roboczym, w którym te funkcje nie są włączone.
+
+Mapowania omówione tutaj dotyczą tylko łączenia obszaru roboczego Log Analytics z kontem usługi Automation. Nie mają zastosowania do maszyn wirtualnych, które są połączone z obszarem roboczym połączonym z kontem usługi Automation. Maszyny wirtualne nie są ograniczone do regionów obsługiwanych przez dany obszar roboczy Log Analytics. Mogą one znajdować się w dowolnym regionie. Należy pamiętać, że maszyny wirtualne w innym regionie mogą wpływać na stan, lokalne i krajowe wymagania prawne lub wymagania dotyczące zgodności firmy. Korzystanie z maszyn wirtualnych w innym regionie również może spowodować naliczenie opłat za przepustowość danych.
+
+Przed połączeniem maszyn wirtualnych z obszarem roboczym w innym regionie należy zapoznać się z wymaganiami i potencjalnymi kosztami, aby potwierdzić i zrozumieć skutki prawne i koszty.
 
 Ten artykuł zawiera obsługiwane mapowania, aby można było pomyślnie włączyć te funkcje i korzystać z nich na koncie usługi Automation.
 

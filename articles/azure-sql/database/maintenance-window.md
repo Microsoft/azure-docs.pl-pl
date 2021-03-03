@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679612"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692814"
 ---
 # <a name="maintenance-window-preview"></a>Okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji na temat zdarzeń konserwacji, zobacz [Planowani
 
 Na platformie Azure są wykonywane planowane aktualizacje konserwacji dotyczące Azure SQL Database i zasobów wystąpienia zarządzanego SQL okresowo, które często obejmują aktualizacje sprzętu podstawowego, oprogramowania, w tym podstawowy system operacyjny (OS) i aparat SQL. W trakcie aktualizacji konserwacji zasoby są w pełni dostępne i dostępne, ale niektóre aktualizacje konserwacji wymagają przełączenia w tryb failover, ponieważ usługa Azure pobiera wystąpienia w trybie offline przez krótki czas, aby zastosować aktualizacje konserwacji (osiem sekund w czasie trwania).  Aktualizacje planowanej konserwacji są przeprowadzane raz na 35 dni, co oznacza, że klient może oczekiwać około jednego zaplanowanego zdarzenia konserwacji miesięcznie na Azure SQL Database lub wystąpienie zarządzane SQL i tylko w gniazdach okna obsługi wybranych przez klienta.   
 
-Okno obsługi jest przeznaczone dla obciążeń firmowych, które są wrażliwe na potencjalne przerwy w łączności, które mogą wynikać z planowanych zdarzeń konserwacji w oknie domyślnym.  
+Okno obsługi jest przeznaczone dla obciążeń firmowych, które nie są odporne na sporadyczne problemy z łącznością, które mogą wynikać z planowanych zdarzeń konserwacji.
 
 Okno obsługi można skonfigurować przy użyciu interfejsu API Azure Portal, PowerShell, interfejsu wiersza polecenia lub platformy Azure. Można go skonfigurować podczas tworzenia lub dla istniejących baz danych SQL i wystąpień zarządzanych przez program SQL.
 
@@ -37,15 +37,15 @@ Okno obsługi można skonfigurować przy użyciu interfejsu API Azure Portal, Po
 Domyślnie wszystkie bazy danych Azure SQL Database i zarządzane wystąpienia bazy danych są aktualizowane tylko podczas 17:00 8:00 czasu lokalnego, aby uniknąć przerw w pracy w godzinach pracy. Czas lokalny jest określany na podstawie [regionu platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , który hostuje zasób. Możesz dodatkowo dostosować aktualizacje konserwacji do czasu odpowiedniego dla bazy danych, wybierając spośród dwóch dodatkowych gniazd okna obsługi:
 
 * Okno **domyślne** , 17:00 do 8:00 czasu lokalnego poniedziałek-niedziela 
-* Okno dnia tygodnia, 10PM do 6:00 czas lokalny poniedziałek — czwartek: **wymaga zgody klienta** 
-* Okno weekendowe, 10PM do 6:00 czas lokalny piątek-niedziela: **wymaga zgody klienta**  
+* Okno dnia tygodnia, 10PM do 6:00 lokalnego czasu poniedziałek — czwartek
+* Okno weekendowe, 10PM do 6:00 czas lokalny piątek — niedziela
 
 Po dokonaniu wyboru okna obsługi wszystkie planowane aktualizacje konserwacji będą wykonywane tylko w wybranym oknie.   
 
 > [!Note]
 > Oprócz planowanych aktualizacji konserwacji w rzadkich przypadkach nieplanowane zdarzenia konserwacji mogą spowodować niedostępność. 
 
-### <a name="cost"></a>Koszt
+### <a name="cost-and-eligibility"></a>Koszt i kwalifikowanie się
 
 Wybór okna obsługi jest bezpłatny dla następujących [typów ofert](https://azure.microsoft.com/support/legal/offer-details/)subskrypcji: płatność zgodnie z rzeczywistym użyciem, dostawca rozwiązań w chmurze (CSP), Microsoft Enterprise lub umowa klienta firmy Microsoft.
 

@@ -2,13 +2,13 @@
 title: Samouczek — dostęp do chmury prywatnej
 description: Dowiedz się, jak uzyskać dostęp do chmury prywatnej rozwiązania Azure VMware
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/22/2021
+ms.openlocfilehash: 81296223ab941633a4b0f1316e359a0eb2ff73ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738484"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Samouczek: dostęp do chmury prywatnej rozwiązania Azure VMware
 
@@ -16,7 +16,7 @@ Rozwiązanie Azure VMware nie pozwala na zarządzanie chmurą prywatną przy uż
 
 W tym samouczku utworzysz pole skoku w grupie zasobów utworzonej w [poprzednim samouczku](tutorial-configure-networking.md) i zalogujesz się do programu vCenter. Pole skoku jest maszyną wirtualną z systemem Windows w tej samej sieci wirtualnej, która została utworzona.  Zapewnia ona dostęp do programu vCenter i NSX Manager. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej z systemem Windows do użycia w celu nawiązania połączenia z programem vCenter
@@ -30,9 +30,12 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. W polu skoku Zaloguj się, aby vSphere klienta z programem VMware vCenter SSO przy użyciu nazwy użytkownika administratora chmury i Verity, że interfejs użytkownika zostanie wyświetlony pomyślnie.
 
-1. W Azure Portal Wybierz chmurę prywatną, a następnie w widoku **Przegląd** wybierz pozycję **tożsamość > domyślna**. 
+1. W Azure Portal Wybierz chmurę prywatną, a następnie **Zarządzaj**  >  **tożsamością**. 
 
    Adresy URL i poświadczenia użytkownika dla usługi Private Cloud vCenter i NSX-T Menedżera.
+
+   >[!TIP]
+   >Wybierz pozycję **Generuj nowe hasło** , aby wygenerować nowe hasła VCENTER i NSX-T.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
 
@@ -44,13 +47,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Na karcie vCenter wprowadź `cloudadmin@vmcp.local` poświadczenia użytkownika z poprzedniego kroku.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Zaloguj się do usługi vCenter w chmurze prywatnej." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Portal vCenter." border="true":::
 
 1. Na drugiej karcie przeglądarki Zaloguj się do Menedżera NSX-T.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Wyświetlaj adresy URL i poświadczenia usługi Cloud webvcenter i NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Na drugiej karcie przeglądarki Zaloguj się do Menedżera NSX-T." border="true":::
 
 
 

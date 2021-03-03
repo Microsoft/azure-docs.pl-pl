@@ -1,26 +1,26 @@
 ---
-title: Azure Monitor dla maszyn wirtualnych kondycja gościa (wersja zapoznawcza)
-description: Omówienie funkcji kondycji w Azure Monitor dla maszyn wirtualnych, w tym sposób wyświetlania kondycji maszyn wirtualnych i otrzymywania alertów w przypadku nieprawidłowej kondycji maszyny wirtualnej.
+title: Kondycja gościa usługi VM Insights (wersja zapoznawcza)
+description: Omówienie funkcji kondycji w usłudze VM Insights, w tym sposób wyświetlania kondycji maszyn wirtualnych i otrzymywania alertów w przypadku nieprawidłowej kondycji maszyny wirtualnej.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614893"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707459"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Azure Monitor dla maszyn wirtualnych kondycja gościa (wersja zapoznawcza)
-Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyn wirtualnych w oparciu o zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu od systemu operacyjnego gościa. Można szybko sprawdzać kondycję wszystkich maszyn wirtualnych w ramach subskrypcji lub grupy zasobów, przełączać się do szczegółowej kondycji konkretnej maszyny wirtualnej lub aktywnie powiadamiać o nieprawidłowym stanie maszyny wirtualnej. 
+# <a name="vm-insights-guest-health-preview"></a>Kondycja gościa usługi VM Insights (wersja zapoznawcza)
+Kondycja gościa usługi VM Insights umożliwia wyświetlanie kondycji maszyn wirtualnych w oparciu o zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu od systemu operacyjnego gościa. Można szybko sprawdzać kondycję wszystkich maszyn wirtualnych w ramach subskrypcji lub grupy zasobów, przełączać się do szczegółowej kondycji konkretnej maszyny wirtualnej lub aktywnie powiadamiać o nieprawidłowym stanie maszyny wirtualnej. 
 
 ## <a name="enable-virtual-machine-health"></a>Włącz kondycję maszyny wirtualnej
-Aby uzyskać szczegółowe informacje na temat włączania funkcji kondycji gościa i dołączania maszyn wirtualnych, zobacz [włączanie Azure monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)](vminsights-health-enable.md) .
+Aby uzyskać szczegółowe informacje na temat włączania funkcji kondycji gościa i dołączania maszyn wirtualnych, zobacz [Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)](vminsights-health-enable.md) .
 
 ## <a name="pricing"></a>Cennik
-Nie ma bezpośredniego kosztu dla funkcji kondycji gościa, ale koszt pozyskiwania i przechowywania danych stanu kondycji jest dostępny w obszarze roboczym Log Analytics. Wszystkie dane są przechowywane w tabeli *HealthStateChangeEvent* . Aby uzyskać szczegółowe informacje dotyczące modeli cenowych i kosztów, zobacz temat [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../platform/manage-cost-storage.md) .
+Nie ma bezpośredniego kosztu dla funkcji kondycji gościa, ale koszt pozyskiwania i przechowywania danych stanu kondycji jest dostępny w obszarze roboczym Log Analytics. Wszystkie dane są przechowywane w tabeli *HealthStateChangeEvent* . Aby uzyskać szczegółowe informacje dotyczące modeli cenowych i kosztów, zobacz temat [Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](../logs/manage-cost-storage.md) .
 
 ## <a name="view-virtual-machine-health"></a>Wyświetl kondycję maszyny wirtualnej
 Kolumna **kondycja maszyny wirtualnej gościa** na stronie **wprowadzenie** umożliwia szybki wgląd w kondycję każdej maszyny wirtualnej w określonej subskrypcji lub grupie zasobów. Bieżąca kondycja każdej maszyny wirtualnej jest wyświetlana, gdy ikony dla każdej grupy pokazują liczbę maszyn wirtualnych aktualnie w poszczególnych stanach w tej grupie.
@@ -95,7 +95,7 @@ Wybierz monitor, aby wyświetlić jego szczegóły, w tym następujące karty.
 [![Historia szczegółów monitora](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Konfigurowanie
-Wyświetl i zmodyfikuj konfigurację monitora dla wybranej maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [konfigurowanie monitorowania w Azure monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)](vminsights-health-enable.md) .
+Wyświetl i zmodyfikuj konfigurację monitora dla wybranej maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [konfigurowanie monitorowania w usłudze VM Insights (wersja zapoznawcza)](vminsights-health-enable.md) .
 
 [![Konfiguracja szczegółów monitora](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +104,6 @@ Wyświetl i zmodyfikuj konfigurację monitora dla wybranej maszyny wirtualnej. A
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włączaj kondycję gościa w Azure Monitor dla maszyn wirtualnych i dołączaj agentów.](vminsights-health-enable.md)
+- [Włącz kondycję gościa w informacjach o usłudze VM i agencie dołączania.](vminsights-health-enable.md)
 - [Skonfiguruj monitory przy użyciu Azure Portal.](vminsights-health-configure.md)
 - [Skonfiguruj monitory przy użyciu reguł zbierania danych.](vminsights-health-configure-dcr.md)

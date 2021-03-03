@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: b6a0dee4c3fef1be4f4b9f910b4c6256b4924a2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795380"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700222"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
@@ -32,11 +32,15 @@ Na tym diagramie:
 
 W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a usługą Azure bastionu oraz docelowymi maszynami wirtualnymi w sieci wirtualnej:
 
+> [!IMPORTANT]
+> Jeśli zdecydujesz się używać sieciowej grupy zabezpieczeń z zasobem platformy Azure bastionu, **musisz** utworzyć wszystkie poniższe reguły ruchu przychodzącego i wychodzącego. Pominięcie któregokolwiek z następujących reguł w programie sieciowej grupy zabezpieczeń spowoduje zablokowanie przez zasób usługi Azure bastionu otrzymywania niezbędnych aktualizacji w przyszłości i w związku z tym otwarcie zasobu do przyszłych luk w zabezpieczeniach.
+> 
+
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Usługa Azure bastionu jest wdrażana w specjalnej postaci ***AzureBastionSubnet** _.
+Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet***.
 
-**Ruch związany** z transferem danych przychodzących:
+* **Ruch przychodzący:**
 
    * **Ruch przychodzący z publicznej sieci Internet:** Usługa Azure bastionu utworzy publiczny adres IP, który wymaga, aby port 443 był włączony w publicznym adresie IP dla ruchu przychodzącego. NIE trzeba otwierać portu 3389/22 w AzureBastionSubnet.
    * **Ruch przychodzący z płaszczyzny kontroli usługi Azure bastionu:** W przypadku łączności z płaszczyzną kontroli Włącz port 443 przychodzące z tagu usługi **bramy** . Dzięki temu płaszczyzna kontroli, czyli Menedżer bramy, może komunikować się z usługą Azure bastionu.

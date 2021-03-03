@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721841"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -30,13 +30,22 @@ Należy zarezerwować kilka bloków adresów IP, aby skonfigurować routing mię
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Adresy IP używane do prywatnej komunikacji równorzędnej Azure
 Do konfigurowania komunikacji równorzędnej można użyć prywatnych lub publicznych adresów IP. Zakres adresów używany do konfigurowania tras nie może pokrywać się z zakresami adresów używanymi do tworzenia sieci wirtualnych na platformie Azure. 
 
-* Należy zarezerwować podsieć /29 lub dwie podsieci /30 dla interfejsów routingu.
-* Podsieci używane do routingu mogą być prywatnymi adresami IP lub publicznymi adresami IP.
-* Podsieci nie mogą powodować konfliktu z zakresem zarezerwowanym przez klienta do użycia w chmurze firmy Microsoft.
-* Jeśli zostanie użyta podsieć /29, zostanie ona podzielona na dwie podsieci /30. 
-  * Pierwsza podsieć /30 zostanie użyta na potrzeby linku podstawowego, a druga — dodatkowego.
-  * Dla każdej podsieci /30 należy użyć pierwszego adresu IP podsieci /30 na routerze. Firma Microsoft używa drugiego adresu IP podsieci /30 do skonfigurowania sesji protokołu BGP.
-  * Aby zapewnić ważność [umowy SLA dotyczącej dostępności](https://azure.microsoft.com/support/legal/sla/), musisz skonfigurować obie sesje protokołu BGP.  
+* Adresów
+    * Należy zarezerwować podsieć /29 lub dwie podsieci /30 dla interfejsów routingu.
+    * Podsieci używane do routingu mogą być prywatnymi adresami IP lub publicznymi adresami IP.
+    * Podsieci nie mogą powodować konfliktu z zakresem zarezerwowanym przez klienta do użycia w chmurze firmy Microsoft.
+    * Jeśli zostanie użyta podsieć /29, zostanie ona podzielona na dwie podsieci /30. 
+      * Pierwsza podsieć /30 zostanie użyta na potrzeby linku podstawowego, a druga — dodatkowego.
+      * Dla każdej podsieci /30 należy użyć pierwszego adresu IP podsieci /30 na routerze. Firma Microsoft używa drugiego adresu IP podsieci /30 do skonfigurowania sesji protokołu BGP.
+      * Aby zapewnić ważność [umowy SLA dotyczącej dostępności](https://azure.microsoft.com/support/legal/sla/), musisz skonfigurować obie sesje protokołu BGP.
+* If
+    * Należy zarezerwować podsieć/125 lub dwie podsieci/126 dla interfejsów routingu.
+    * Podsieci używane do routingu mogą być prywatnymi adresami IP lub publicznymi adresami IP.
+    * Podsieci nie mogą powodować konfliktu z zakresem zarezerwowanym przez klienta do użycia w chmurze firmy Microsoft.
+    * Jeśli zostanie użyta podsieć /125, zostanie ona podzielona na dwie podsieci /126. 
+      * Pierwsza podsieć/126 jest używana na potrzeby linku podstawowego, a druga podsieć/30 jest używana na potrzeby linku pomocniczego.
+      * Dla każdej podsieci /126 należy użyć pierwszego adresu IP podsieci /126 na routerze. Firma Microsoft używa drugiego adresu IP podsieci /126 do skonfigurowania sesji protokołu BGP.
+      * Aby zapewnić ważność [umowy SLA dotyczącej dostępności](https://azure.microsoft.com/support/legal/sla/), musisz skonfigurować obie sesje protokołu BGP.
 
 #### <a name="example-for-private-peering"></a>Przykład prywatnej komunikacji równorzędnej
 Jeśli do skonfigurowania komunikacji równorzędnej zdecydujesz się użyć podsieci a.b.c.d/29, zostanie ona podzielona na dwie podsieci /30. W poniższym przykładzie Zwróć uwagę na to, jak jest używana podsieć a. b. c. d/29:
@@ -122,7 +131,7 @@ Firma Microsoft używa numeru AS 12076 do publicznej i prywatnej komunikacji ró
 Nie ma żadnych wymagań związanych z symetrią transferu danych. Ścieżki przekazywania dalej i ścieżki zwracania mogą przechodzić różne pary routerów. Trasy identyczne muszą być anonsowane z obu stron w wielu parach obwodów należących do użytkownika. Metryki tras nie muszą być identyczne.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agregacja tras i limity prefiksów
-Firma Microsoft obsługuje do 4000 prefiksów anonsowanych nam za pośrednictwem prywatnej komunikacji równorzędnej Azure. Tę liczbę można zwiększyć do 10 000 prefiksów, jeśli zostanie włączony dodatek Premium usługi ExpressRoute. Akceptujemy do 200 prefiksów na sesję protokołu BGP dla publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
+Obsługujemy do 4000 prefiksów IPv4 oraz prefiksów IPv6 do 100, które są anonsowane do nas za pomocą prywatnej komunikacji równorzędnej Azure. Można to zwiększyć do 10 000 prefiksów IPv4, jeśli włączono dodatek ExpressRoute Premium. Akceptujemy do 200 prefiksów na sesję protokołu BGP dla publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
 
 Sesja protokołu BGP zostanie przerwana, jeśli liczba prefiksów przekroczy limit. Będziemy akceptować domyślne trasy tylko dla linku prywatnej komunikacji równorzędnej. Dostawca musi odfiltrować trasę domyślną i prywatne adresy IP (RFC 1918) ze ścieżek publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft. 
 
@@ -167,7 +176,7 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Kanada Środkowa | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 | 12076:55020 |
 | Kanada Wschodnia | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 | 12076:55021 |
 | **Ameryka Południowa** | |
-| Brazil South | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
+| Brazylia Południowa | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
 | **Europa** | |
 | Europa Północna | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 | 12076:55003 |
 | West Europe | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
@@ -185,7 +194,7 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Azja Wschodnia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
 | Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japonia** | |
-| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japonia Wschodnia | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | Japonia Zachodnia | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
 | Australia Wschodnia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
@@ -225,7 +234,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Skype dla firm Online\*\*/\*\*\* | 12076:5030 |
 | CRM Online\*\*\*\* |12076:5040 |
 | Usługi globalne platformy Azure\* | 12076:5050 |
-| Usługa Azure Active Directory |12076:5060 |
+| Azure Active Directory |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
@@ -261,7 +270,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype dla firm Online |12076:5130 |
-| Usługa Azure Active Directory |12076:5160 |
+| Azure Active Directory |12076:5160 |
 | Inne usługi online Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -3,12 +3,12 @@ title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager (szablony ARM) przy użyciu składni deklaratywnej JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722708"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów usługi ARM
 
@@ -35,13 +35,13 @@ W najprostszym strukturze szablon zawiera następujące elementy:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| $schema |Yes |Lokalizacja pliku schematu JavaScript Object Notation (JSON) opisującego wersję języka szablonów. Używany numer wersji zależy od zakresu wdrożenia i edytora JSON.<br><br>Jeśli używasz [Visual Studio Code z rozszerzeniem narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), użyj najnowszej wersji dla wdrożeń grup zasobów:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Inne edytory (w tym Visual Studio) mogą nie być w stanie przetworzyć tego schematu. Dla tych edytorów należy użyć:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>W przypadku wdrożeń subskrypcji Użyj:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>W przypadku wdrożeń grup zarządzania Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>W przypadku wdrożeń dzierżawców Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
-| Contentversion — |Yes |Wersja szablonu (na przykład 1.0.0.0). Możesz podać dowolną wartość dla tego elementu. Użyj tej wartości, aby udokumentować znaczące zmiany w szablonie. W przypadku wdrażania zasobów przy użyciu szablonu Ta wartość może być używana do upewnienia się, że odpowiedni szablon jest używany. |
+| $schema |Tak |Lokalizacja pliku schematu JavaScript Object Notation (JSON) opisującego wersję języka szablonów. Używany numer wersji zależy od zakresu wdrożenia i edytora JSON.<br><br>Jeśli używasz [Visual Studio Code z rozszerzeniem narzędzi Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), użyj najnowszej wersji dla wdrożeń grup zasobów:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Inne edytory (w tym Visual Studio) mogą nie być w stanie przetworzyć tego schematu. Dla tych edytorów należy użyć:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>W przypadku wdrożeń subskrypcji Użyj:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>W przypadku wdrożeń grup zarządzania Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>W przypadku wdrożeń dzierżawców Użyj:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| Contentversion — |Tak |Wersja szablonu (na przykład 1.0.0.0). Możesz podać dowolną wartość dla tego elementu. Użyj tej wartości, aby udokumentować znaczące zmiany w szablonie. W przypadku wdrażania zasobów przy użyciu szablonu Ta wartość może być używana do upewnienia się, że odpowiedni szablon jest używany. |
 | apiProfile |Nie | Wersja interfejsu API, która służy jako kolekcja wersji interfejsu API dla typów zasobów. Użyj tej wartości, aby uniknąć konieczności określania wersji interfejsu API dla każdego zasobu w szablonie. W przypadku określenia wersji profilu interfejsu API i nieokreślenia wersji interfejsu API dla typu zasobu Menedżer zasobów używa wersji interfejsu API dla tego typu zasobu, który jest zdefiniowany w profilu.<br><br>Właściwość profil interfejsu API jest szczególnie przydatna w przypadku wdrażania szablonu w różnych środowiskach, takich jak Azure Stack i globalny platformę Azure. Użyj wersji profilu interfejsu API, aby upewnić się, że szablon automatycznie używa wersji, które są obsługiwane w obu środowiskach. Listę bieżących wersji profilu interfejsu API i wersje interfejsu API zasobów zdefiniowane w profilu znajdują się w temacie [profil interfejsu API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Aby uzyskać więcej informacji, zobacz [śledzenie wersji przy użyciu profilów interfejsu API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [wejściowe](#parameters) |Nie |Wartości, które są dostarczane, gdy wdrożenie jest wykonywane w celu dostosowania wdrożenia zasobów. |
 | [modyfikacj](#variables) |Nie |Wartości, które są używane jako fragmenty JSON w szablonie, aby uprościć wyrażenia języka szablonów. |
 | [obowiązki](#functions) |Nie |Funkcje zdefiniowane przez użytkownika, które są dostępne w ramach szablonu. |
-| [produkcyjnych](#resources) |Yes |Typy zasobów wdrożone lub zaktualizowane w grupie zasobów lub subskrypcji. |
+| [produkcyjnych](#resources) |Tak |Typy zasobów wdrożone lub zaktualizowane w grupie zasobów lub subskrypcji. |
 | [wydajności](#outputs) |Nie |Wartości, które są zwracane po wdrożeniu. |
 
 Każdy element ma właściwości, które można ustawić. W tym artykule opisano bardziej szczegółowe sekcje szablonu.
@@ -74,8 +74,8 @@ Poniższy szablon przedstawia format typów danych. Każdy typ ma wartość domy
       "defaultValue": 1
     },
     "boolParameter": {
-        "type": "bool",
-        "defaultValue": true
+      "type": "bool",
+      "defaultValue": true
     },
     "objectParameter": {
       "type": "object",
@@ -127,15 +127,15 @@ Dostępne są następujące właściwości parametrów:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| Nazwa parametru |Yes |Nazwa parametru. Musi być prawidłowym identyfikatorem JavaScript. |
-| typ |Yes |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject** i **Array**. Zobacz [typy danych](#data-types). |
+| Nazwa parametru |Tak |Nazwa parametru. Musi być prawidłowym identyfikatorem JavaScript. |
+| typ |Tak |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject** i **Array**. Zobacz [typy danych](#data-types). |
 | defaultValue |Nie |Wartość domyślna parametru, jeśli nie podano wartości dla parametru. |
 | allowedValues |Nie |Tablica dozwolonych wartości parametru, aby upewnić się, że podano odpowiednią wartość. |
 | minValue |Nie |Minimalna wartość parametrów typu int, ta wartość jest dopuszczalna. |
 | maxValue |Nie |Maksymalna wartość parametrów typu int, ta wartość jest dopuszczalna. |
 | minLength |Nie |Minimalna długość dla parametrów typu String, Secure String i Array, ta wartość jest włącznie. |
 | maxLength |Nie |Maksymalna długość parametrów ciągu, bezpiecznego ciągu i typu tablicy, ta wartość jest włącznie. |
-| description |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
+| description (opis) |Nie |Opis parametru, który jest wyświetlany użytkownikom w portalu. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](#comments). |
 
 Aby uzyskać przykłady użycia parametrów, zobacz [Parametry w szablonach ARM](template-parameters.md).
 
@@ -210,12 +210,12 @@ Podczas definiowania funkcji użytkownika istnieją pewne ograniczenia:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| namespace |Yes |Przestrzeń nazw dla funkcji niestandardowych. Użyj, aby uniknąć konfliktu nazw z funkcjami szablonu. |
-| Nazwa funkcji |Yes |Nazwa funkcji niestandardowej. Podczas wywoływania funkcji Połącz nazwę funkcji z przestrzenią nazw. Na przykład, aby wywołać funkcję o nazwie `uniqueName` w przestrzeni nazw contoso, użyj `"[contoso.uniqueName()]"` . |
+| namespace |Tak |Przestrzeń nazw dla funkcji niestandardowych. Użyj, aby uniknąć konfliktu nazw z funkcjami szablonu. |
+| Nazwa funkcji |Tak |Nazwa funkcji niestandardowej. Podczas wywoływania funkcji Połącz nazwę funkcji z przestrzenią nazw. Na przykład, aby wywołać funkcję o nazwie `uniqueName` w przestrzeni nazw contoso, użyj `"[contoso.uniqueName()]"` . |
 | Nazwa parametru |Nie |Nazwa parametru, który ma być używany w funkcji niestandardowej. |
 | wartość parametru-value |Nie |Typ wartości parametru. Dozwolone typy i wartości to **String**, **SecureString**, **int**, **bool**, **Object**, **secureobject** i **Array**. |
-| Typ danych wyjściowych |Yes |Typ wartości wyjściowej. Wartości wyjściowe obsługują te same typy jak parametry wejściowe funkcji. |
-| Wartość wyjściowa |Yes |Wyrażenie języka szablonu, które jest oceniane i zwracane przez funkcję. |
+| Typ danych wyjściowych |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują te same typy jak parametry wejściowe funkcji. |
+| Wartość wyjściowa |Tak |Wyrażenie języka szablonu, które jest oceniane i zwracane przez funkcję. |
 
 Przykłady korzystania z funkcji niestandardowych można znaleźć [w sekcji funkcje zdefiniowane przez użytkownika w szablonie usługi ARM](template-user-defined-functions.md).
 
@@ -282,9 +282,9 @@ Należy zdefiniować zasoby o następującej strukturze:
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
 | rozgrzewa | Nie | Wartość logiczna wskazująca, czy zasób zostanie zainicjowany podczas tego wdrożenia. Gdy `true` zasób jest tworzony podczas wdrażania. Gdy `false` zasób jest pomijany dla tego wdrożenia. Zobacz [warunek](conditional-resource-deployment.md). |
-| typ |Yes |Typ zasobu. Ta wartość jest kombinacją przestrzeni nazw dostawcy zasobów i typu zasobu (np `Microsoft.Storage/storageAccounts` .). Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). W przypadku zasobu podrzędnego format typu zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
-| apiVersion |Yes |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. Podczas tworzenia nowego szablonu należy ustawić tę wartość na najnowszą wersję zasobu, który jest wdrażany. Dopóki szablon działa zgodnie z wymaganiami, Kontynuuj korzystanie z tej samej wersji interfejsu API. Kontynuując korzystanie z tej samej wersji interfejsu API, można zminimalizować ryzyko nowej wersji interfejsu API w celu zmiany sposobu działania szablonu. Aktualizację wersji interfejsu API należy rozważyć tylko wtedy, gdy chcesz użyć nowej funkcji wprowadzonej w nowszej wersji. Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). |
-| name |Yes |Nazwa zasobu. Nazwa musi następować zgodnie z ograniczeniami składnika URI zdefiniowanymi w RFC3986. Usługi platformy Azure, które uwidaczniają nazwę zasobu podmiotom zewnętrznym, sprawdzają poprawność nazwy, aby upewnić się, że nie jest próbą sfałszowania innej tożsamości. W przypadku zasobu podrzędnego format nazwy zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
+| typ |Tak |Typ zasobu. Ta wartość jest kombinacją przestrzeni nazw dostawcy zasobów i typu zasobu (np `Microsoft.Storage/storageAccounts` .). Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). W przypadku zasobu podrzędnego format typu zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
+| apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. Podczas tworzenia nowego szablonu należy ustawić tę wartość na najnowszą wersję zasobu, który jest wdrażany. Dopóki szablon działa zgodnie z wymaganiami, Kontynuuj korzystanie z tej samej wersji interfejsu API. Kontynuując korzystanie z tej samej wersji interfejsu API, można zminimalizować ryzyko nowej wersji interfejsu API w celu zmiany sposobu działania szablonu. Aktualizację wersji interfejsu API należy rozważyć tylko wtedy, gdy chcesz użyć nowej funkcji wprowadzonej w nowszej wersji. Aby określić dostępne wartości, zobacz [Dokumentacja szablonu](/azure/templates/). |
+| name |Tak |Nazwa zasobu. Nazwa musi następować zgodnie z ograniczeniami składnika URI zdefiniowanymi w RFC3986. Usługi platformy Azure, które uwidaczniają nazwę zasobu podmiotom zewnętrznym, sprawdzają poprawność nazwy, aby upewnić się, że nie jest próbą sfałszowania innej tożsamości. W przypadku zasobu podrzędnego format nazwy zależy od tego, czy jest on zagnieżdżony w obrębie zasobu nadrzędnego, czy zdefiniowany poza zasobem nadrzędnym. Zobacz [Set Name i Type dla zasobów podrzędnych](child-resource-name-type.md). |
 | komentarz |Nie |Twoje notatki umożliwiające dokumentowanie zasobów w szablonie. Aby uzyskać więcej informacji, zobacz [Komentarze w szablonach](template-syntax.md#comments). |
 | location |Różnie |Obsługiwane lokalizacje geograficzne podanego zasobu. Można wybrać dowolną z dostępnych lokalizacji, ale zazwyczaj warto ją wybrać blisko użytkowników. Zwykle warto również umieścić zasoby, które współpracują ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale niektóre typy (takie jak przypisanie roli) nie wymagają lokalizacji. Zobacz [Ustawianie lokalizacji zasobu](resource-location.md). |
 | dependsOn |Nie |Zasoby, które muszą zostać wdrożone przed wdrożeniem tego zasobu. Menedżer zasobów oblicza zależności między zasobami i wdraża je w odpowiedniej kolejności. Gdy zasoby nie są od siebie zależne, są wdrażane równolegle. Wartość może być rozdzielaną przecinkami listą nazw zasobów lub unikatowych identyfikatorów zasobów. Tylko zasoby, które są wdrożone w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie, muszą już istnieć. Należy unikać dodawania niepotrzebnych zależności, ponieważ mogą one spowalniać wdrożenie i tworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące ustawiania zależności, zobacz [Definiowanie kolejności wdrażania zasobów w usłudze ARM](define-resource-dependency.md). |
@@ -318,9 +318,9 @@ Poniższy przykład pokazuje strukturę definicji wyjściowej:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| Nazwa wyjściowa |Yes |Nazwa wartości wyjściowej. Musi być prawidłowym identyfikatorem JavaScript. |
+| Nazwa wyjściowa |Tak |Nazwa wartości wyjściowej. Musi być prawidłowym identyfikatorem JavaScript. |
 | rozgrzewa |Nie | Wartość logiczna wskazująca, czy ta wartość wyjściowa jest zwracana. Gdy `true` wartość jest uwzględniona w danych wyjściowych dla wdrożenia. Gdy `false` Wartość wyjściowa jest pomijana dla tego wdrożenia. Gdy nie zostanie określony, wartość domyślna to `true` . |
-| typ |Yes |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
+| typ |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
 | wartość |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
 | kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach ARM](copy-outputs.md). |
 

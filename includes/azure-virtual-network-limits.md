@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734099"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -59,7 +59,7 @@ Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarzą
 | Prefiksy publicznego adresu IP | ograniczone przez liczbę standardowych publicznych adresów IP w ramach subskrypcji | Skontaktuj się z pomocą techniczną. |
 | Długość prefiksu publicznego adresu IP | /28 | Skontaktuj się z pomocą techniczną. |
 
-<sup>1</sup> Domyślne limity dla publicznych adresów IP różnią się w zależności od typu kategorii oferty, takiego jak bezpłatna wersja próbna, płatność zgodnie z rzeczywistym użyciem, dostawca usług kryptograficznych. Na przykład domyślna wartość dla subskrypcji Umowa Enterprise to 1000.
+<sup>1</sup> Domyślne limity dla publicznych adresów IP różnią się w zależności od typu kategorii oferty, takiego jak bezpłatna wersja próbna, płatność zgodnie z rzeczywistym użyciem, dostawca usług kryptograficznych. Na przykład domyślna wartość dla subskrypcji Enterprise Agreement to 1000.
 
 #### <a name="load-balancer-limits"></a><a name="load-balancer"></a>Limity usługi równoważenia obciążenia
 Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu usługi Azure Resource Manager, które przypadają na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -69,7 +69,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Zasób                                | Limit         |
 |-----------------------------------------|-------------------------------|
 | Moduły równoważenia obciążenia                          | 1000                         |
-| Reguły na zasób                      | 1500                         |
+| Reguły (Load Balancer + przychodzące NAT) na zasób                      | 1500                         |
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                           |
 | Konfiguracje adresów IP frontonu              | 600                           |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 1 000, pojedynczej sieci wirtualnej |
@@ -78,7 +78,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
 | Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)   |
 
-<sup>1</sup> Limit wynosi do 150 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
+<sup>1</sup> limit wynosi do 150 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
 
 **Load Balancer podstawowa**
 
@@ -87,10 +87,12 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Moduły równoważenia obciążenia                          | 1000                        |
 | Reguły na zasób                      | 250                          |
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                          |
-| Konfiguracje adresów IP frontonu              | 200                          |
+| Konfiguracje adresów IP frontonu <sup> 2<sup>  | 200                          |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 300, zestaw o pojedynczej dostępności |
 | Zestawy dostępności na Load Balancer     | 1                            |
 | Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)  |
+
+<sup>2</sup> limit pojedynczego dyskretnego zasobu w puli zaplecza (autonomicznej maszyny wirtualnej, zestawu dostępności lub grupy rozmieszczenia zestawu skalowania maszyn wirtualnych) ma mieć do 250 konfiguracji adresów IP frontonu w ramach jednej podstawowej publicznej Load Balancer i podstawowych Load Balancer wewnętrznych.
 
 <a name="virtual-networking-limits-classic"></a>Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu **klasycznego** modelu wdrażania na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
 

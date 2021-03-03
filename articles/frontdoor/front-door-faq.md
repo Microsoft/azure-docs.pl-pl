@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741858"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -97,9 +97,9 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
     > [!WARNING]
     > Przestrzeń adresów IP zaplecza z drzwiami może ulec zmianie później, jednak zapewnimy, że przed takim wdrożeniem będziemy zintegrowane z [zakresem adresów IP i tagami usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519). Zalecamy, aby zasubskrybować [zakresy adresów IP platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
 
--    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji interfejsu API `2020-01-01` lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości jako pola `frontdoorID` . Możesz również znaleźć `Front Door ID` wartość w sekcji Przegląd na stronie portalu front-drzwi. 
+- Poszukaj `Front Door ID` wartości w sekcji Przegląd na stronie portalu front-drzwi. Następnie można filtrować w przychodzącym nagłówku "**X-Azure-FDID**", który jest wysyłany przez tylne drzwi do zaplecza z tą wartością, aby zapewnić, że tylko Twoje własne wystąpienie typu front-drzwi jest dozwolone (ponieważ powyższe zakresy adresów IP są współdzielone z innymi wystąpieniami zewnętrznych drzwi innych klientów).
 
-- Zastosuj filtrowanie reguł na serwerze sieci Web zaplecza, aby ograniczyć ruch na podstawie otrzymanej wartości nagłówka "X-Azure-FDID".
+- Zastosuj filtrowanie reguł na serwerze sieci Web zaplecza, aby ograniczyć ruch na podstawie otrzymanej wartości nagłówka "X-Azure-FDID". Należy pamiętać, że niektóre usługi, takie jak Azure App Service zapewniają możliwość [filtrowania na podstawie tego nagłówka](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) , bez konieczności zmiany aplikacji lub hosta.
 
   Oto przykład dla [programu Microsoft Internet Information Services (IIS)](https://www.iis.net/):
 

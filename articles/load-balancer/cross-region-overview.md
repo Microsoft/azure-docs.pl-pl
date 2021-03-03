@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946260"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742606"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -35,7 +35,7 @@ Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje międzyreg
 * [Kompiluj na istniejącym rozwiązaniu modułu równoważenia obciążenia](#build-cross-region-solution-on-existing-azure-load-balancer) bez krzywej uczenia
 
 > [!IMPORTANT]
-> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej i można go wdrożyć w portalu. Zaloguj się, aby **https://preview.portal.azure.com** wyświetlić i wdrożyć funkcję... </br> </br>
+> Moduł równoważenia obciążenia między regionami jest obecnie w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Równoważenie obciążenia między regionami zapewnia te same korzyści wynikające z wysokiej wydajności i małych opóźnień jako regionalnej standardowej usługi równoważenia obciążenia. 
@@ -79,7 +79,7 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie trybu dystrybucji dla Az
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Możliwość skalowania w górę/w dół za pojedynczym punktem końcowym
 
-Po udostępnieniu globalnego punktu końcowego międzyregionowego modułu równoważenia obciążenia klientom można dodać lub usunąć wdrożenia regionalne za globalnym punktem końcowym bez wpływu na klienta. 
+Po udostępnieniu globalnego punktu końcowego międzyregionowego modułu równoważenia obciążenia klientom można dodać lub usunąć wdrożenia regionalne za globalnym punktem końcowym bez przerw w działaniu. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ Pula zaplecza modułu równoważenia obciążenia między regionami zawiera co n
 
 Dodaj istniejące wdrożenia modułu równoważenia obciążenia do międzyregionowego modułu równoważenia obciążenia w przypadku wdrożenia o wysokiej dostępności.
 
-W **regionie głównym** jest wdrażany moduł równoważenia obciążenia między regionami. Ten region nie ma wpływu na sposób, w jaki ruch będzie kierowany. Jeśli region domowy ulegnie awarii, nie ma to wpływu na przepływ ruchu.
+W **regionie głównym** jest wdrażany moduł równoważenia obciążenia między regionami. Ten region nie ma wpływu na sposób, w jaki ruch będzie kierowany. W przypadku przekroczenia regionu macierzystego nie ma to żadnego wpływu na przepływ ruchu.
 
 ### <a name="home-regions"></a>Regiony domowe
 * Wschodnie stany USA 2
@@ -137,13 +137,13 @@ Moduł równoważenia obciążenia między regionami kieruje ruch do odpowiednie
 
 * Konfiguracje adresów IP frontonu w różnych regionach są tylko publiczne. Wewnętrzna fronton nie jest obecnie obsługiwana.
 
-* Nie można dodać prywatnego lub wewnętrznego modułu równoważenia obciążenia do puli zaplecza międzyregionalnego modułu równoważenia obciążenia 
+* Nie można dodać modułu równoważenia obciążenia prywatnego lub wewnętrznego do puli zaplecza modułu równoważenia obciążenia obejmującego wiele regionów 
 
 * Konfiguracje adresów IP frontonu IPv6 między regionami nie są obsługiwane. 
 
 * Nie można obecnie skonfigurować sondy kondycji. Domyślna sonda kondycji automatycznie zbiera informacje o dostępności dla regionalnego modułu równoważenia obciążenia co 20 sekund. 
 
-* Obecnie nie można zintegrować usługi Azure Kubernetes Service (AKS) z Load Balancerem między regionami. Podczas konfigurowania Load Balancer międzyregionowego przed publicznym Load Balancer wdrożonym za pomocą AKS należy oczekiwać utraty łączności.
+* Integracja z usługą Azure Kubernetes Service (AKS) jest obecnie niedostępna. Podczas wdrażania międzyregionowego modułu równoważenia obciążenia za pomocą publicznego modułu równoważenia obciążenia AKS nastąpi utrata łączności.
 
 ## <a name="pricing-and-sla"></a>Cennik i Umowa SLA
 Moduł równoważenia obciążenia dla wielu regionów, udostępnia umowę [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) usługi równoważenia obciążenia w warstwie Standardowa.

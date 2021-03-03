@@ -3,12 +3,12 @@ title: Azure Service Bus wykrywania duplikatów komunikatów | Microsoft Docs
 description: W tym artykule wyjaśniono, jak można wykrywać duplikaty w komunikatach Azure Service Bus. Zduplikowany komunikat można zignorować i usunąć.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711929"
 ---
 # <a name="duplicate-detection"></a>Wykrywanie duplikatów
 
@@ -48,7 +48,7 @@ W portalu funkcja jest włączana podczas tworzenia jednostki przy użyciu pola 
 
 Programowo ustawiasz flagę przy użyciu właściwości [QueueDescription. requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) w pełnym interfejsie API platformy .NET. W przypadku interfejsu API Azure Resource Manager wartość jest ustawiana za pomocą właściwości [queueProperties. requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) .
 
-Wartość domyślna historii czasu wykrywania duplikatów wynosi 30 sekund dla kolejek i tematów z maksymalną wartością siedem dni. To ustawienie można zmienić w oknie właściwości kolejki i tematu w Azure Portal.
+Ustawienia historia czasu wykrywania duplikatów domyślnie 10 minut dla kolejek i tematów, z minimalną wartością 20 sekund do maksymalnej wartości wynoszącej 7 dni. To ustawienie można zmienić w oknie właściwości kolejki i tematu w Azure Portal.
 
 ![Zrzut ekranu przedstawiający funkcję Service Bus z wyróżnionym ustawieniem właściwości i opcją duplikowanie historii wykrywania zakreśloną na czerwono.][2]
 

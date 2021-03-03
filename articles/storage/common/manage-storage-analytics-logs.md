@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701709"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Włączanie dzienników Azure Storage Analytics i zarządzanie nimi (klasyczne)
 
-[Azure Storage Analytics](storage-analytics.md) zawiera dzienniki dla obiektów blob, kolejek i tabel. Aby skonfigurować dzienniki dla Twojego konta, można użyć [Azure Portal](https://portal.azure.com) . W tym artykule przedstawiono sposób włączania dzienników i zarządzania nimi. Aby dowiedzieć się, jak włączyć metryki, zobacz temat [Włączanie i zarządzanie metrykami Azure Storage Analytics (klasycznymi)](storage-monitor-storage-account.md).  Istnieją koszty związane z badaniem i przechowywaniem danych monitorowania w Azure Portal. Aby uzyskać więcej informacji, zobacz [Usługa Storage Analytics](storage-analytics.md).
+[Azure Storage Analytics](storage-analytics.md) zawiera dzienniki dla obiektów blob, kolejek i tabel. Aby skonfigurować dzienniki dla Twojego konta, można użyć [Azure Portal](https://portal.azure.com) . W tym artykule przedstawiono sposób włączania dzienników i zarządzania nimi. Aby dowiedzieć się, jak włączyć metryki, zobacz temat [Włączanie i zarządzanie metrykami Azure Storage Analytics (klasycznymi)]().  Istnieją koszty związane z badaniem i przechowywaniem danych monitorowania w Azure Portal. Aby uzyskać więcej informacji, zobacz [Usługa Storage Analytics](storage-analytics.md).
 
 > [!NOTE]
 > Zalecamy używanie dzienników usługi Azure Storage w Azure Monitor zamiast dzienników analityka magazynu. Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Ta wersja zapoznawcza umożliwia korzystanie z dzienników dla obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek i tabel. Aby dowiedzieć się więcej, zobacz dowolny z następujących artykułów:
@@ -191,7 +191,7 @@ Dane dzienników można zbierać na koncie z upływem czasu, co może zwiększy�
 
    * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu. 
 
-6. Użyj [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) , aby wyświetlić bieżące zasady przechowywania dzienników. Poniższy przykład drukuje do konsoli okres przechowywania dla usług BLOB i queue storage.
+6. Użyj [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) , aby wyświetlić bieżące zasady przechowywania dzienników. Poniższy przykład drukuje do konsoli okres przechowywania dla usług BLOB i queue storage.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ Dane dzienników można zbierać na koncie z upływem czasu, co może zwiększy�
    > [!div class="mx-imgBorder"]
    > ![Zasady przechowywania w danych wyjściowych programu PowerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Aby zmienić okres przechowywania, użyj [Ustawienia Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) . Poniższy przykład zmienia okres przechowywania na 4 dni.  
+7. Aby zmienić okres przechowywania, użyj [Ustawienia Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) . Poniższy przykład zmienia okres przechowywania na 4 dni.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te p
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat analityka magazynu, zobacz [analityka magazynu](storage-analytics.md) for analityka magazynu.
-* [Skonfiguruj metryki analityka magazynu](storage-monitor-storage-account.md).
 * Aby uzyskać więcej informacji na temat konfigurowania rejestrowania magazynu przy użyciu języka .NET, zobacz [Dokumentacja biblioteki klienta usługi Storage](/previous-versions/azure/dn261237(v=azure.100)). 
 * Aby uzyskać ogólne informacje o konfigurowaniu rejestrowania magazynu za pomocą interfejsu API REST, zobacz [Włączanie i konfigurowanie analityka magazynu](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Dowiedz się więcej o formacie dzienników analityka magazynu. Zobacz [format dziennika analityka magazynu](/rest/api/storageservices/storage-analytics-log-format).

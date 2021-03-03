@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689066"
 ---
-# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Funkcja Replica ustawia koncepcje i funkcje Azure Active Directory Domain Services (wersja zapoznawcza)
+# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Funkcja Replica ustawia koncepcje i funkcje Azure Active Directory Domain Services
 
 Podczas tworzenia domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS) należy zdefiniować unikatową przestrzeń nazw. Ta przestrzeń nazw jest nazwą domeny, na przykład *aaddscontoso.com*, a dwa kontrolery domeny (DC) są wdrażane w wybranym regionie platformy Azure. To wdrożenie kontrolerów domeny jest znane jako zestaw replik.
 
 Można rozszerzyć domenę zarządzaną, aby mieć więcej niż jeden zbiór replik dla dzierżawy usługi Azure AD. Zestawy replik można dodawać do dowolnej komunikacji równorzędnej sieci wirtualnej w dowolnym regionie świadczenia usługi Azure, który obsługuje usługę Azure AD DS. Dodatkowe zestawy replik w różnych regionach platformy Azure zapewniają geograficzne odzyskiwanie po awarii dla starszych aplikacji, jeśli region platformy Azure przejdzie w tryb offline.
-
-Zestawy replik są obecnie dostępne w wersji zapoznawczej.
 
 > [!NOTE]
 > Zestawy replik nie umożliwiają wdrażania wielu unikatowych domen zarządzanych w jednej dzierżawie platformy Azure. Każdy zestaw replik zawiera te same dane.
@@ -56,15 +54,11 @@ Poniższy przykład przedstawia domenę zarządzaną z trzema zestawami replik w
 
 Domyślną *jednostką* SKU dla domeny zarządzanej jest jednostka SKU przedsiębiorstwa, która obsługuje wiele zestawów replik. Aby utworzyć dodatkowe zestawy replik w przypadku zmiany *standardowej* jednostki SKU, należy [uaktualnić domenę zarządzaną](change-sku.md) do *wersji Enterprise* lub *Premium*.
 
-Maksymalna liczba zestawów replik obsługiwanych w ramach wersji zapoznawczej to cztery, łącznie z pierwszą repliką utworzoną podczas tworzenia domeny zarządzanej.
+Obsługiwana Maksymalna liczba zestawów replik to cztery, łącznie z pierwszą repliką utworzoną podczas tworzenia domeny zarządzanej.
 
 Rozliczenia dla każdego zestawu replik bazują na JEDNOSTKAch konfiguracji domeny. Na przykład jeśli masz domenę zarządzaną, która korzysta z jednostki SKU *przedsiębiorstwa* i masz trzy zestawy replik, subskrypcja jest rozliczana za godzinę dla każdego z trzech zestawów replik.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
-
-### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>Czy mogę używać mojej produkcyjnej domeny zarządzanej z tą wersją zapoznawczą?
-
-Zestawy replik są funkcją publicznej wersji zapoznawczej w Azure AD Domain Services. Można użyć produkcyjnej domeny zarządzanej, ale należy pamiętać o różnicach w zakresie pomocy technicznej istniejących dla funkcji w wersji zapoznawczej. Aby uzyskać więcej informacji o wersjach zapoznawczych, [Azure Active Directory wersji zapoznawczej umowy SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>Czy można utworzyć zestaw replik w ramach subskrypcji innej niż domena zarządzana?
 
@@ -72,7 +66,7 @@ Nie. Zestawy replik muszą znajdować się w tej samej subskrypcji co domena zar
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Ile zestawów replik można utworzyć?
 
-Wersja zapoznawcza jest ograniczona do maksymalnie czterech zestawów replik — początkowej repliki zestawu dla domeny zarządzanej oraz trzech dodatkowych zestawów replik.
+Można utworzyć maksymalnie cztery zestawy replik — początkową replikę dla domeny zarządzanej oraz trzy dodatkowe zestawy replik.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Jak informacje o użytkownikach i grupach są synchronizowane z zestawami replik?
 

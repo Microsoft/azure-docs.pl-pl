@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259342"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687672"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -57,7 +57,7 @@ Po skonfigurowaniu usług pulpitu zdalnego i serwer proxy aplikacji usługi Azur
 ### <a name="publish-the-rd-host-endpoint"></a>Publikowanie punktu końcowego hosta usług pulpitu zdalnego
 
 1. [Opublikuj nową aplikację serwera proxy aplikacji](application-proxy-add-on-premises-application.md) o następujących wartościach:
-   - Wewnętrzny adres URL: `https://\<rdhost\>.com/` , gdzie `\<rdhost\>` jest wspólnym katalogiem głównym usług pulpitu zdalnego sieci Web i bramy usług pulpitu zdalnego.
+   - Wewnętrzny adres URL: `https://<rdhost>.com/` , gdzie `<rdhost>` jest wspólnym katalogiem głównym usług pulpitu zdalnego sieci Web i bramy usług pulpitu zdalnego.
    - Zewnętrzny adres URL: to pole jest wypełniane automatycznie na podstawie nazwy aplikacji, ale można ją modyfikować. Użytkownicy będą przechodzić do tego adresu URL, gdy uzyskują dostęp do usług pulpitu zdalnego.
    - Metoda wstępnego uwierzytelniania: Azure Active Directory
    - Tłumaczenie nagłówków adresów URL: nie
@@ -69,7 +69,7 @@ Po skonfigurowaniu usług pulpitu zdalnego i serwer proxy aplikacji usługi Azur
 
 4. Wybierz **Azure Active Directory**, a następnie **rejestracje aplikacji**. Wybierz aplikację z listy.
 5. W obszarze **Zarządzaj** wybierz opcję **znakowanie**.
-6. Zaktualizuj pole **adres URL strony głównej** , aby wskazywało punkt końcowy sieci Web usług pulpitu zdalnego (na przykład `https://\<rdhost\>.com/RDWeb` ).
+6. Zaktualizuj pole **adres URL strony głównej** , aby wskazywało punkt końcowy sieci Web usług pulpitu zdalnego (na przykład `https://<rdhost>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Bezpośredni ruch RDS do serwera proxy aplikacji
 

@@ -1,20 +1,21 @@
 ---
-title: Domyślne zasady protokołu IPsec dla wirtualnej sieci WAN platformy Azure | Microsoft Docs
+title: Zasady IPsec wirtualnej sieci WAN między lokacjami
+titleSuffix: Azure Virtual WAN
 description: Dowiedz się więcej na temat zasad łączności usługi Azure Virtual WAN IPsec, w tym domyślnych zasad inicjatora i obiektu odpowiadającego oraz niestandardowych kombinacji zasad.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/24/2021
 ms.author: cherylmc
-ms.openlocfilehash: 30c58a26a326370a2566bc9ebbec33bfbd4b3173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94225ea6ef8b53a83388b2be6ea3b32c1e5204bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267367"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726686"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Domyślne zasady wirtualnej sieci WAN dla łączności IPsec
+# <a name="site-to-site-ipsec-policies"></a>Zasady IPsec między lokacjami
 
 W tym artykule przedstawiono obsługiwane kombinacje zasad protokołu IPsec.
 
@@ -29,4 +30,5 @@ W tym artykule przedstawiono obsługiwane kombinacje zasad protokołu IPsec.
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać instrukcje dotyczące konfigurowania niestandardowych zasad protokołu IPsec, zobacz [Konfigurowanie niestandardowych zasad protokołu IPSec dla wirtualnej sieci WAN](virtual-wan-custom-ipsec-portal.md).
+
 Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [temat informacje o wirtualnej sieci WAN platformy Azure](virtual-wan-about.md) i [usłudze Azure Virtual WAN — często zadawane pytania](virtual-wan-faq.md).

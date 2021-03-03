@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388026"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723813"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -160,7 +160,7 @@ Jeśli próbujesz uzyskać dostęp do zasobów w innej subskrypcji, wykonaj nast
 
 1. Skopiuj nazwę subskrypcji.
 
-1. Teraz można użyć poniższego kodu elementu Runbook do przetestowania uprawnień z konta usługi Automation do innej subskrypcji. Zamień na `"\<CertificateThumbprint\>"` wartość skopiowaną w kroku 1. Zamień na `"\<SubscriptionName\>"` wartość skopiowaną w kroku 4.
+1. Teraz można użyć poniższego kodu elementu Runbook do przetestowania uprawnień z konta usługi Automation do innej subskrypcji. Zamień na `<CertificateThumbprint>` wartość skopiowaną w kroku 1. Zamień na `"<SubscriptionName>"` wartość skopiowaną w kroku 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection

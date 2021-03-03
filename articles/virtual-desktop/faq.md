@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720277"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Często zadawane pytania na temat usługi Windows Virtual Desktop
 
@@ -125,7 +125,7 @@ Czynniki te mogą mieć wpływ na limit skalowania pul hostów:
 
 - Szablon platformy Azure jest ograniczony do 800 obiektów. Aby dowiedzieć się więcej, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Każda maszyna wirtualna tworzy również około sześciu obiektów, co oznacza, że można utworzyć około 132 maszyn wirtualnych przy każdym uruchomieniu szablonu.
 
-- Istnieją ograniczenia dotyczące liczby rdzeni, które można utworzyć na region i na subskrypcję. Na przykład jeśli masz subskrypcję Umowa Enterprise, możesz utworzyć 350 rdzeni. Aby określić liczbę maszyn wirtualnych, które można utworzyć przy każdym uruchomieniu szablonu, należy podzielić 350 przez wartość domyślną liczbę rdzeni na maszynę wirtualną lub własny limit rdzeni. Więcej informacji znajduje się w [Virtual Machines limitów — Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+- Istnieją ograniczenia dotyczące liczby rdzeni, które można utworzyć na region i na subskrypcję. Na przykład jeśli masz subskrypcję Enterprise Agreement, możesz utworzyć 350 rdzeni. Aby określić liczbę maszyn wirtualnych, które można utworzyć przy każdym uruchomieniu szablonu, należy podzielić 350 przez wartość domyślną liczbę rdzeni na maszynę wirtualną lub własny limit rdzeni. Więcej informacji znajduje się w [Virtual Machines limitów — Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Nazwa prefiksu maszyny wirtualnej i liczba maszyn wirtualnych są krótsze niż 15 znaków. Aby dowiedzieć się więcej, zobacz [reguły nazewnictwa i ograniczenia dotyczące zasobów platformy Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
@@ -136,3 +136,7 @@ Usługa Azure Lighthouse nie obsługuje w pełni zarządzania środowiskami pulp
 Nie można również używać subskrypcji piaskownicy CSP z usługą pulpitu wirtualnego systemu Windows. Aby dowiedzieć się więcej, zobacz [konto piaskownicy integracji](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Na koniec po włączeniu dostawcy zasobów z poziomu konta właściciela dostawcy CSP konta klienta CSP nie będą mogły modyfikować dostawcy zasobów.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Jak często należy włączyć maszynę wirtualną, aby zapobiec problemom z rejestracją?
+
+Po zarejestrowaniu maszyny wirtualnej w puli hostów w ramach usługi pulpitu wirtualnego systemu Windows Agent regularnie odświeża token maszyny wirtualnej za każdym razem, gdy maszyna wirtualna jest aktywna. Certyfikat dla tokenu rejestracji jest ważny przez 90 dni. Ze względu na 90 dzienny limit zalecamy rozpoczęcie maszyn wirtualnych co 90 dni. Włączenie tej maszyny wirtualnej w tym limicie czasu uniemożliwi wygaśnięcie tokenu rejestracji lub jego nieprawidłowość. Jeśli maszyna wirtualna została uruchomiona po upływie 90 dni i występują problemy z rejestracją, postępuj zgodnie z instrukcjami w [przewodniku rozwiązywania problemów agenta usług pulpitu wirtualnego systemu Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) , aby usunąć maszynę wirtualną z puli hostów, ponownie zainstaluj agenta i zarejestruj go w puli.

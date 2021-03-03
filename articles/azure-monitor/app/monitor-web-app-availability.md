@@ -2,14 +2,14 @@
 title: Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web | Microsoft Docs
 description: Konfigurowanie testów sieci Web w usłudze Application Insights. Otrzymywanie alertów, kiedy witryna sieci Web staje się niedostępna lub wolno odpowiada.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585949"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729032"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -72,7 +72,6 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ### <a name="location-population-tags"></a>Tagi populacji lokalizacji

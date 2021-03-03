@@ -10,6 +10,8 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Tworzenie szablonów — program VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Utwórz Bicep VS Code
+      href: quickstart-create-bicep-use-visual-studio-code.md
     - name: Tworzenie i wdrażanie specyfikacji szablonu
       href: quickstart-create-template-specs.md
     - name: Usługi platformy Azure
@@ -141,7 +143,7 @@
             - name: Aplikacje zarządzane
               href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Monitorowanie
-              href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+              href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
             - name: Zasady
               href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Portal
@@ -220,7 +222,7 @@
               href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Samouczki
   items:
-    - name: Szablony dla początkujących
+    - name: Szablony JSON początkujących
       items:
         - name: 1. Tworzenie pierwszego szablonu
           href: template-tutorial-create-first-template.md
@@ -242,6 +244,28 @@
           href: template-tutorial-add-tags.md
         - name: 10. Używanie pliku parametrów
           href: template-tutorial-use-parameter-file.md
+    - name: Bicep początkującego
+      items:
+        - name: 1. Tworzenie pierwszego szablonu
+          href: bicep-tutorial-create-first-bicep.md
+        - name: 2 — Dodawanie parametrów
+          href: bicep-tutorial-add-parameters.md
+        - name: 3 — Dodawanie funkcji szablonu
+          href: bicep-tutorial-add-functions.md
+        - name: 4 — Dodawanie zmiennych
+          href: bicep-tutorial-add-variables.md
+        - name: 5 — Dodawanie danych wyjściowych
+          href: bicep-tutorial-add-outputs.md
+        - name: 6 — Korzystanie z wyeksportowanego szablonu
+          href: bicep-tutorial-export-template.md
+        - name: 7 — korzystanie z szablonu szybkiego startu
+          href: bicep-tutorial-quickstart-template.md
+        - name: 8 — Dodawanie tagów
+          href: bicep-tutorial-add-tags.md
+        - name: 9 — Użyj pliku parametrów
+          href: bicep-tutorial-use-parameter-file.md
+        - name: 10 — Dodawanie modułów
+          href: bicep-tutorial-add-modules.md
     - name: Wdrożenie
       items:
         - name: 1 — Wdrażanie szablonu lokalnego
@@ -298,6 +322,12 @@
   items:
     - name: Najlepsze rozwiązania dotyczące szablonów
       href: template-best-practices.md
+    - name: Bicep
+      items:
+        - name: Omówienie
+          href: bicep-overview.md
+        - name: Przechodzenie z formatu JSON do Bicep
+          href: compare-template-syntax.md
     - name: Często zadawane pytania
       href: frequently-asked-questions.md
     - name: Szablony pozwalające zachować spójność w chmurze
@@ -333,6 +363,8 @@
           href: template-user-defined-functions.md
         - name: Zasoby
           items:
+            - name: Deklaracja zasobu
+              href: resource-declaration.md
             - name: Nazwa i typ zasobu podrzędnego
               href: child-resource-name-type.md
             - name: Wdrożenie warunkowe
@@ -491,6 +523,8 @@
       items:
         - name: Wszystkie funkcje
           href: template-functions.md
+        - name: Dowolna funkcja (Bicep)
+          href: template-functions-any.md
         - name: Funkcje tablicy
           href: template-functions-array.md
         - name: Funkcje porównania

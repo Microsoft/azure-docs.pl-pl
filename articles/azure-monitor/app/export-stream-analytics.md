@@ -3,22 +3,21 @@ title: Eksportowanie za pomocą Stream Analytics z platformy Azure Application I
 description: Stream Analytics mogą w sposób ciągły przekształcać, filtrować i kierować dane eksportowane z Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: c8486d7e5656a7770aec4a50739d3a9160e123e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a517bddd8981554b7fb5044d33b6c6777df51e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719801"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
+
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jest idealnym narzędziem do przetwarzania danych [wyeksportowanych z Application Insights](export-telemetry.md). Stream Analytics może pobierać dane z różnych źródeł. Może on przekształcać i filtrować dane, a następnie kierować je do różnych zlewów.
 
 W tym przykładzie utworzymy adapter, który pobiera dane z Application Insights, zmienia nazwy i przetwarza niektóre pola, a następnie przekazuje je do Power BI.
 
 > [!WARNING]
 > Istnieje dużo lepszych i łatwiejszych [sposobów wyświetlania danych Application Insights w Power BI](./export-power-bi.md). Ścieżka zilustrowana poniżej to przykład ilustrujący, jak przetwarzać eksportowane dane.
-> 
-> 
 
 ![Diagram blokowy do eksportowania przez SA do PBI](./media/export-stream-analytics/020.png)
 
@@ -38,6 +37,7 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
     ![W obszarze magazyn Otwórz pozycję Ustawienia, klucze i wykonaj kopię podstawowego klucza dostępu](./media/export-stream-analytics/045.png)
 
 ## <a name="start-continuous-export-to-azure-storage"></a>Rozpocznij eksport ciągły do usługi Azure Storage
+
 [Eksport ciągły](export-telemetry.md) przenosi dane z Application Insights do usługi Azure Storage.
 
 1. W Azure Portal przejdź do zasobu Application Insights utworzonego dla aplikacji.
@@ -55,18 +55,19 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
 
     ![Wybieranie typów zdarzeń](./media/export-stream-analytics/080.png)
 
-1. Umożliwia gromadzenie danych. Powróć i pozwól, aby użytkownicy korzystali z aplikacji przez pewien czas. Dane telemetryczne będą dostępne, a wykresy statystyczne są wyświetlane w [Eksploratorze metryk](../essentials/metrics-charts.md) i w poszczególnych zdarzeniach w [przeszukiwaniu diagnostycznym](./diagnostic-search.md). 
+1. Umożliwia gromadzenie danych. Powróć i pozwól, aby użytkownicy korzystali z aplikacji przez pewien czas. Dane telemetryczne będą dostępne, a wykresy statystyczne są wyświetlane w [Eksploratorze metryk](../essentials/metrics-charts.md) i w poszczególnych zdarzeniach w [przeszukiwaniu diagnostycznym](./diagnostic-search.md).
    
     Ponadto dane zostaną wyeksportowane do magazynu. 
 2. Sprawdź wyeksportowane dane. W programie Visual Studio wybierz pozycję **Widok/Eksplorator chmury** i Otwórz pozycję Azure/Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe Nowy projekt i otwórz Visual C#/Cloud/Get Zestaw Microsoft Azure SDK dla platformy .NET).
    
     ![Zrzut ekranu przedstawiający sposób ustawiania typów zdarzeń, które mają być wyświetlane.](./media/export-stream-analytics/04-data.png)
    
-    Zanotuj wspólną część nazwy ścieżki, która jest pochodną nazwy aplikacji i klucza Instrumentacji. 
+    Zanotuj wspólną część nazwy ścieżki, która jest pochodną nazwy aplikacji i klucza Instrumentacji.
 
 Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do potoku danych do Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Tworzenie wystąpienia Azure Stream Analytics
+
 W [Azure Portal](https://portal.azure.com/)wybierz usługę Azure Stream Analytics i Utwórz nowe zadanie Stream Analytics:
 
 ![Zrzut ekranu przedstawiający stronę główną służącą do tworzenia Stream Analytics zadania w Azure Portal.](./media/export-stream-analytics/SA001.png)
@@ -104,9 +105,9 @@ W tym przykładzie:
 
 > [!NOTE]
 > Sprawdź magazyn, aby upewnić się, że pobrano odpowiednie ścieżki.
-> 
 
 ## <a name="add-new-output"></a>Dodaj nowe dane wyjściowe
+
 Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  .
 
 ![Zrzut ekranu pokazujący Wybieranie zadania Stream Analytics, aby dodać nowe dane wyjściowe.](./media/export-stream-analytics/SA006.png)
@@ -117,11 +118,13 @@ Teraz wybierz zadanie > Dodawanie danych **wyjściowych**  >  .
 Podaj swoje **konto służbowe** , aby autoryzować Stream Analytics dostępu do zasobu Power BI. Następnie wynalazek nazwę danych wyjściowych i dla docelowego zestawu danych Power BI i tabeli.
 
 ## <a name="set-the-query"></a>Ustaw zapytanie
+
 Zapytanie reguluje tłumaczenie danych wyjściowych na dane wyjściowe.
 
-Użyj funkcji testowej, aby sprawdzić, czy otrzymujesz odpowiednie dane wyjściowe. Nadaj mu przykładowe dane, które zostały wykonane ze strony danych wejściowych. 
+Użyj funkcji testowej, aby sprawdzić, czy otrzymujesz odpowiednie dane wyjściowe. Nadaj mu przykładowe dane, które zostały wykonane ze strony danych wejściowych.
 
 ### <a name="query-to-display-counts-of-events"></a>Zapytanie w celu wyświetlenia liczby zdarzeń
+
 Wklej to zapytanie:
 
 ```SQL
@@ -154,7 +157,7 @@ OUTER APPLY GetElements(A.context.custom.metrics) as flat
 GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
 ```
 
-* To zapytanie służy do przechodzenia do danych telemetrycznych metryk w celu uzyskania czasu zdarzenia i wartości metryki. Wartości metryk znajdują się wewnątrz tablicy, dlatego w celu wyodrębnienia wierszy używamy wzorca APPLY GetElements. "fotometryczne" to nazwa metryki w tym przypadku. 
+* To zapytanie służy do przechodzenia do danych telemetrycznych metryk w celu uzyskania czasu zdarzenia i wartości metryki. Wartości metryk znajdują się wewnątrz tablicy, dlatego w celu wyodrębnienia wierszy używamy wzorca APPLY GetElements. "fotometryczne" to nazwa metryki w tym przypadku.
 
 ### <a name="query-to-include-values-of-dimension-properties"></a>Zapytanie w celu uwzględnienia wartości właściwości wymiaru
 
@@ -178,17 +181,18 @@ FROM flat
 * To zapytanie zawiera wartości właściwości wymiaru bez w zależności od określonego wymiaru w stałym indeksie macierzy wymiarowej.
 
 ## <a name="run-the-job"></a>Uruchamianie zadania
-Możesz wybrać datę z przeszłości, aby uruchomić zadanie z. 
+
+Możesz wybrać datę z przeszłości, aby uruchomić zadanie z.
 
 ![Wybierz zadanie, a następnie kliknij pozycję zapytanie. Wklej poniższy przykład.](./media/export-stream-analytics/SA008.png)
 
 Poczekaj, aż zadanie zostanie uruchomione.
 
 ## <a name="see-results-in-power-bi"></a>Zobacz wyniki w Power BI
+
 > [!WARNING]
 > Istnieje dużo lepszych i łatwiejszych [sposobów wyświetlania danych Application Insights w Power BI](./export-power-bi.md). Ścieżka zilustrowana poniżej to przykład ilustrujący, jak przetwarzać eksportowane dane.
-> 
-> 
+
 
 Otwórz Power BI przy użyciu konta służbowego i wybierz zestaw danych i tabelę zdefiniowane jako dane wyjściowe zadania Stream Analytics.
 
@@ -199,17 +203,10 @@ Teraz można użyć tego zestawu danych w raportach i pulpitach nawigacyjnych w 
 ![Zrzut ekranu przedstawia przykład raportu z zestawu danych w Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Brak danych?
+
 * Sprawdź, czy [Format daty](#set-path-prefix-pattern) jest prawidłowo ustawiony na rrrr-mm-dd (z kreskami).
-
-## <a name="video"></a>Wideo
-Noam Ben Zeev pokazuje, jak przetwarzać eksportowane dane przy użyciu Stream Analytics.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Eksport ciągły](export-telemetry.md)
 * [Szczegółowe informacje o modelu danych dla typów i wartości właściwości.](export-data-model.md)
 * [Application Insights](./app-insights-overview.md)
-

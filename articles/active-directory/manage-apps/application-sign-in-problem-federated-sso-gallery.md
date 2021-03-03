@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 97ce1fe43bc831661a8590921d8121a8a82ba7e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430415"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687179"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemy z logowaniem do aplikacji skonfigurowanych przy użyciu logowania jednokrotnego opartego na protokole SAML
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych czynności w celu lepszego zdiagnozowania i zautomatyzowania kroków rozwiązania:
@@ -41,7 +41,8 @@ Aby otworzyć stronę konfiguracji logowania jednokrotnego opartego na protokole
 1. Wybierz pozycję Logowanie jednokrotne oparte na protokole SAML.
 
 ## <a name="application-not-found-in-directory"></a>Nie znaleziono aplikacji w katalogu
-`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
+
+`Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory.`
 
 **Możliwa przyczyna**
 
@@ -69,7 +70,7 @@ Sprawdź lub zaktualizuj wartość w polu tekstowym adres URL odpowiedzi, aby do
 Po zaktualizowaniu wartości adresu URL odpowiedzi w usłudze Azure AD, która jest zgodna z wartością wysyłaną przez aplikację w żądaniu SAML, powinno być możliwe zalogowanie się do aplikacji.
 
 ## <a name="user-not-assigned-a-role"></a>Użytkownik nie ma przypisanej roli
-`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
+`Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application.`
 
 **Możliwa przyczyna**
 

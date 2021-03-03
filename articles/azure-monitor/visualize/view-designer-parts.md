@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613943"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710876"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. Ten artykuł zawiera Przewodnik dotyczący ustawień części wizualizacji, które są dostępne w niestandardowych widokach.
@@ -39,7 +39,7 @@ Dostępne typy kafelków projektanta widoków są opisane w poniższej tabeli:
 W następnych sekcjach szczegółowo opisano typy kafelków i ich właściwości.
 
 > [!NOTE]
-> Części w widokach opierają się na [zapytaniach dzienników](../log-query/log-query-overview.md) w obszarze roboczym log Analytics. Nie obsługują one obecnie [zapytań między zasobami](../log-query/cross-workspace-query.md) w celu pobierania danych z Application Insights.
+> Części w widokach opierają się na [zapytaniach dzienników](../logs/log-query-overview.md) w obszarze roboczym log Analytics. Nie obsługują one obecnie [zapytań między zasobami](../logs/cross-workspace-query.md) w celu pobierania danych z Application Insights.
 
 ## <a name="list-of-queries-part"></a>Lista części zapytań
 Lista zapytań zawiera listę kwerend dzienników. Możesz wybrać każde zapytanie, aby wyświetlić jego wyniki. Widok domyślnie zawiera pojedyncze zapytanie i można wybrać opcję **+ zapytanie** , aby dodać dodatkowe zapytania.
@@ -318,7 +318,7 @@ Separator nazwy i wartości jest ogranicznikiem pojedynczego znaku, który ma by
 Rozważmy na przykład właściwość o nazwie *Location* , która zawiera wartości, takie jak *Redmond-Building 41* i *Bellevue-Building 12*. Można określić kreskę (-) dla separatora *nazwy i wartości oraz dla* nazwy. Takie podejście analizuje każdą wartość w dwie właściwości o nazwie *miasto* i *budynek*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Nawigacja przez klikanie
-Nawigacja po kliknięciu definiuje, jaka akcja zostanie podjęta po kliknięciu nagłówka lub elementu listy w widoku.  Spowoduje to otwarcie zapytania w [log Analytics](../log-query/log-query-overview.md) lub uruchomienie innego widoku.
+Nawigacja po kliknięciu definiuje, jaka akcja zostanie podjęta po kliknięciu nagłówka lub elementu listy w widoku.  Spowoduje to otwarcie zapytania w [log Analytics](../logs/log-query-overview.md) lub uruchomienie innego widoku.
 
 W poniższej tabeli opisano ustawienia nawigowania po kliknięciu.
 
@@ -357,4 +357,4 @@ W poniższej tabeli opisano ustawienia progów:
 | Kolor |Kolor wskazujący wartość progową. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [zapytaniach dzienników](../log-query/log-query-overview.md) do obsługi zapytań w częściach wizualizacji.
+* Dowiedz się więcej o [zapytaniach dzienników](../logs/log-query-overview.md) do obsługi zapytań w częściach wizualizacji.

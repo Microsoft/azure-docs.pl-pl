@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 51c194ca9b091bc685f293320750da55925ad49d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20b54afdfbb5641def921ffc17b3c38f6650acab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91565619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736223"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Co to jest usługa Azure Database for MySQL?
 
@@ -50,7 +50,7 @@ Aby zapoznać się z szczegółowym omówieniem trybu wdrażania na jednym serwe
 
 ### <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
-Azure Database for MySQL elastyczny serwer to w pełni zarządzana usługa bazy danych, która umożliwia dokładniejszą kontrolę i elastyczność w zakresie funkcji zarządzania bazami danych i ustawień konfiguracji. Ogólnie rzecz biorąc, usługa zapewnia większą elastyczność i dostosowanie w zależności od wymagań użytkownika. Elastyczna architektura serwera umożliwia użytkownikom wybór wysokiej dostępności w ramach strefy pojedynczej dostępności i wielu stref dostępności. Elastyczne serwery zapewniają lepszą kontrolę kosztów dzięki możliwości zatrzymywania/uruchamiania serwera i możliwego do naliczania mocy obliczeniowej, idealnym rozwiązaniem w przypadku obciążeń, które nie wymagają ciągłej pojemności obliczeniowej. Usługa obecnie obsługuje wersje społeczności MySQL 5,7 z planami, aby wkrótce dodać nowsze wersje. Usługa jest obecnie w publicznej wersji zapoznawczej, która jest dostępna dzisiaj w wielu [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL elastyczny serwer to w pełni zarządzana usługa bazy danych, która umożliwia dokładniejszą kontrolę i elastyczność w zakresie funkcji zarządzania bazami danych i ustawień konfiguracji. Ogólnie rzecz biorąc, usługa zapewnia większą elastyczność i dostosowanie w zależności od wymagań użytkownika. Elastyczna architektura serwera umożliwia użytkownikom wybór wysokiej dostępności w ramach strefy pojedynczej dostępności i wielu stref dostępności. Elastyczne serwery zapewniają lepszą kontrolę kosztów dzięki możliwości zatrzymywania/uruchamiania serwera i możliwego do naliczania mocy obliczeniowej, idealnym rozwiązaniem w przypadku obciążeń, które nie wymagają ciągłej pojemności obliczeniowej. Usługa obsługuje wersję społeczności MySQL 5,7 i 8,0. Usługa jest obecnie w publicznej wersji zapoznawczej, która jest dostępna dzisiaj w wielu [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
 Serwery elastyczne najlepiej nadają się do 
 - Rozwój aplikacji wymagający lepszej kontroli i dostosowań.

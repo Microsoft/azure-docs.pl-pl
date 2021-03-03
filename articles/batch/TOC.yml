@@ -158,9 +158,6 @@
           href: batch-sig-images.md
         - name: Tworzenie puli z zasobem zarządzanego obrazu
           href: batch-custom-images.md
-        - name: Tworzenie puli w Strefy dostępności
-          displayName: 'region, zonal policy'
-          href: create-pool-availability-zones.md
         - name: Tworzenie puli z włączonym szyfrowaniem dysku
           href: disk-encryption.md
         - name: Tworzenie puli w sieci wirtualnej
@@ -172,8 +169,6 @@
         - name: Tworzenie puli z publicznymi adresami IP
           displayName: private
           href: batch-pool-no-public-ip-address.md
-        - name: Korzystanie z rozszerzeń z pulami
-          href: create-pool-extensions.md
         - name: Konfigurowanie tożsamości zarządzanych
           displayName: user-assigned
           href: managed-identity-pools.md

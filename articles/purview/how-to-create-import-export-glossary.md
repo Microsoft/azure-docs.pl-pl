@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: a693761bcecab87e343014127ad37077c2569e21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553546"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694494"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Tworzenie, importowanie i eksportowanie terminów słownika
 
@@ -88,6 +88,10 @@ Należy mieć możliwość eksportowania terminów z słownika tak długo, jak w
 1. Gdy jesteś w słowniku, domyślnie przycisk **Eksportuj** jest wyłączony. Po wybraniu warunków do wyeksportowania przycisk **Eksportuj** jest aktywny, jeśli wybrane warunki należą do tego samego szablonu.
 
 2. Wybierz pozycję **Eksportuj** , aby pobrać wybrane warunki.
+
+ > [!Important]
+   > Jeśli warunki w hierarchii należą do różnych szablonów terminów, należy podzielić je na inne. Pliki CSV do zaimportowania. Ponadto aktualizowanie elementu nadrzędnego terminu nie jest obecnie obsługiwane w procesie importowania.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

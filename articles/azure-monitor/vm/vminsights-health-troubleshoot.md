@@ -1,20 +1,20 @@
 ---
-title: Rozwiązywanie problemów Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)
-description: Opisuje kroki rozwiązywania problemów, które można podjąć w przypadku problemów z Azure Monitor dla maszyn wirtualnych kondycji.
+title: Rozwiązywanie problemów z kondycją gościa usługi VM Insights (wersja zapoznawcza)
+description: Opisuje kroki rozwiązywania problemów, które można wykonać w przypadku problemów z kondycją usługi VM Insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
-ms.openlocfilehash: da8097341f8499be4e28fa37c06d963d057966ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6ae0a9e20d6aad7200729419ece333d80e652c3c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614863"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703923"
 ---
-# <a name="troubleshoot-azure-monitor-for-vms-guest-health-preview"></a>Rozwiązywanie problemów Azure Monitor dla maszyn wirtualnych kondycji gościa (wersja zapoznawcza)
-W tym artykule opisano kroki rozwiązywania problemów, które można podjąć w przypadku problemów z Azure Monitor dla maszyn wirtualnych kondycji.
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>Rozwiązywanie problemów z kondycją gościa usługi VM Insights (wersja zapoznawcza)
+W tym artykule opisano kroki rozwiązywania problemów, które można wykonać w przypadku problemów z kondycją usługi VM Insights.
 
 ## <a name="error-message-that-no-data-is-available"></a>Komunikat o błędzie, że żadne dane nie są dostępne 
 
@@ -34,7 +34,7 @@ Sprawdź, czy na maszynie wirtualnej pomyślnie zainicjowano rozszerzenie agenta
 ![Rozszerzenia maszyn wirtualnych](media/vminsights-health-troubleshoot/extensions.png)
 
 ### <a name="verify-the-system-assigned-identity-is-enabled-on-the-virtual-machine"></a>Sprawdź, czy na maszynie wirtualnej jest włączona tożsamość przypisana przez system
-Sprawdź, czy na maszynie wirtualnej jest włączona tożsamość przypisana do systemu. Wybierz opcję **tożsamość** z menu maszyny wirtualnej w Azure Portal. 
+Sprawdź, czy na maszynie wirtualnej jest włączona tożsamość przypisana do systemu. Wybierz opcję **tożsamość** z menu maszyny wirtualnej w Azure Portal. Jeśli tożsamość zarządzana przez użytkownika jest włączona, niezależnie od stanu tożsamości zarządzanej przez system Agent Azure Monitor nie będzie mógł komunikować się z usługą konfiguracji, a rozszerzenie kondycji gościa nie będzie działać.
 
 ![Tożsamość przypisana przez system](media/vminsights-health-troubleshoot/system-identity.png)
 
@@ -48,4 +48,4 @@ Ten błąd wskazuje, że dostawca zasobów **Microsoft. Monitor obciążenia zos
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapoznaj się z omówieniem funkcji kondycji gościa Azure Monitor dla maszyn wirtualnych](vminsights-health-overview.md)
+- [Zapoznaj się z omówieniem funkcji kondycji gościa usługi VM Insights](vminsights-health-overview.md)

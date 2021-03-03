@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944849"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715415"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight
 
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 - [Cele skalowalności i wydajności dla usługi BLOB Storage](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist (Lista kontrolna dotycząca wydajności i skalowalności usługi Microsoft Azure Storage)](../../storage/blobs/storage-performance-checklist.md)
 - [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Monitorowanie konta magazynu w witrynie Azure Portal](../../storage/common/storage-monitor-storage-account.md)
+- [Monitorowanie konta magazynu w witrynie Azure Portal](../../storage/common/manage-storage-analytics-logs.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
 

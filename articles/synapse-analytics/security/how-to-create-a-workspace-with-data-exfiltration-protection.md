@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384490"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694142"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Utwórz obszar roboczy z włączoną ochroną eksfiltracji danych
 W tym artykule opisano sposób tworzenia obszaru roboczego z włączoną ochroną eksfiltracji danych oraz zarządzania zatwierdzonymi dzierżawcami usługi Azure AD dla tego obszaru roboczego.
@@ -50,7 +50,7 @@ Można utworzyć zarządzane prywatne punkty końcowe, aby połączyć się z za
 >Zasoby w dzierżawach innych niż dzierżawa obszaru roboczego nie mogą blokować reguł zapory, aby pule SQL mogły się z nimi łączyć. Zasoby w zarządzanej sieci wirtualnej obszaru roboczego, takie jak klastry Spark, mogą łączyć zarządzane linki prywatne z zasobami chronionymi przez zaporę.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
-Użytkownicy mogą udostępnić plik konfiguracyjny środowiska, aby zainstalować pakiety języka Python z publicznych repozytoriów, takich jak PyPI. W chronionych obszarach roboczych danych eksfiltracji połączenia z repozytoriami wychodzącymi są blokowane. W związku z tym biblioteka języka Python zainstalowana z repozytoriów publicznych, takich jak PyPI, nie jest obsługiwana. 
+Użytkownicy mogą udostępnić plik konfiguracyjny środowiska, aby zainstalować pakiety języka Python z publicznych repozytoriów, takich jak PyPI. W chronionych obszarach roboczych danych eksfiltracji połączenia z repozytoriami wychodzącymi są blokowane. W związku z tym biblioteka języka Python zainstalowana z repozytoriów publicznych, takich jak PyPI, nie jest obsługiwana. Alternatywnie użytkownicy mogą utworzyć kanał prywatny w ramach swojego konta Azure Data Lake Storage podstawowego i odwołać się do pliku konfiguracji środowiska Conda. 
   
 ## <a name="next-steps"></a>Następne kroki
 

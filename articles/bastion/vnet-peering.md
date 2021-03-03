@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094895"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710587"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Wirtualne sieci równorzędne i Azure bastionu (wersja zapoznawcza)
 
@@ -40,9 +40,15 @@ Na tym rysunku przedstawiono architekturę wdrożenia usługi Azure bastionu w m
 **Czynnooci**
 
 1. Połącz się z Azure Portal przy użyciu dowolnej przeglądarki HTML5.
-1. Wybierz maszynę wirtualną, z którą chcesz nawiązać połączenie.
-1. Usługa Azure bastionu jest bezproblemowo wykrywana w ramach równorzędnej sieci wirtualnej.
-1. Po jednym kliknięciu sesja RDP/SSH zostanie otwarta w przeglądarce. W przypadku limitów sesji współbieżnych połączeń RDP i SSH zobacz [sesje protokołu RDP i SSH](bastion-faq.md#limits).
+2. Upewnij się, że masz dostęp do **odczytu** zarówno dla docelowej maszyny wirtualnej, jak i z równorzędnej sieci wirtualnej. Ponadto sprawdź, czy w obszarze IAM masz dostęp do odczytu następujących zasobów:
+   * Rola czytelnika na maszynie wirtualnej.
+   * Rola czytelnika na karcie sieciowej z prywatnym adresem IP maszyny wirtualnej.
+   * Rola czytelnika w zasobie Azure bastionu.
+   * Rola czytnika na Virtual Network (niezbędna, jeśli nie istnieje równorzędna Sieć wirtualna).
+3. Aby wyświetlić bastionu z menu rozwijanego **Połącz** , należy wybrać subskrypcję, do której masz dostęp w **subskrypcji > globalnej**.
+4. Wybierz maszynę wirtualną, z którą chcesz nawiązać połączenie.
+5. Usługa Azure bastionu jest bezproblemowo wykrywana w ramach równorzędnej sieci wirtualnej.
+6. Po jednym kliknięciu sesja RDP/SSH zostanie otwarta w przeglądarce. W przypadku limitów sesji współbieżnych połączeń RDP i SSH zobacz [sesje protokołu RDP i SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Połącz":::
 

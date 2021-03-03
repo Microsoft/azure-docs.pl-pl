@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712610"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -43,7 +43,10 @@ Usługa Azure Import/Export obsługuje następujące typy kont magazynu:
 
 - Standardowe konta magazynu Ogólnego przeznaczenia v2 (zalecane w przypadku większości scenariuszy)
 - Konta usługi Blob Storage
-- Konta magazynu Ogólnego przeznaczenia V1 (zarówno w przypadku wdrożeń klasycznych, jak i Azure Resource Manager),
+- Konta magazynu Ogólnego przeznaczenia V1 (wdrożenia klasyczne lub Azure Resource Manager)
+
+> [!IMPORTANT]
+> Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage nie jest obsługiwana w przypadku usługi Azure Import/Export.
 
 Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie kont usługi Azure Storage](../storage/common/storage-account-overview.md).
 
@@ -59,7 +62,7 @@ Poniższa lista typów magazynu jest obsługiwana przez usługę Azure Import/Ex
 
 |Zadanie  |Usługa magazynu |Obsługiwane  |Nieobsługiwane  |
 |---------|---------|---------|---------|
-|Importuj     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
+|Import     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
 |Eksportowanie     |   Azure Blob Storage       | Obsługiwane są blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob         | Nieobsługiwane Azure Files
 
 

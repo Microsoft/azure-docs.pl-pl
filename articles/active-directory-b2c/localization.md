@@ -1,22 +1,10 @@
 ---
-title: Lokalizacja — Azure Active Directory B2C
-description: Określ element lokalizacji niestandardowych zasad w Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 10/15/2020
-ms.author: mimart
-ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108624"
+title: Lokalizacja — Azure Active Directory B2C opis: Określ element lokalizacji zasad niestandardowych w Azure Active Directory B2C.
+usługi: Active-Directory-B2C Author: msmimart Manager: celestedg
+
+MS. Service: Active-Directory MS. obciążenie: Identity MS. temat: Reference MS. Date: 10/15/2020 MS. Author: mimart MS. subservice: B2C MS. Custom: "B2C-Support"
 ---
+
 # <a name="localization-element"></a>Element lokalizacji
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -335,7 +323,7 @@ Wartość UxElement służy do lokalizowania jednego z elementów interfejsu uż
 
 ### <a name="displaycontrol"></a>Wyowietl
 
-Wartość DisplayControl jest używana do lokalizowania jednego z elementów interfejsu użytkownika [kontrolki wyświetlania](display-controls.md) . Poniższy przykład pokazuje, jak zlokalizować przyciski Wyślij i Weryfikuj. 
+Wartość DisplayControl jest używana do lokalizowania jednego z elementów interfejsu użytkownika [kontrolki wyświetlania](display-controls.md) . Po włączeniu kontrolki wyświetlania localizedStrings przyjmuje ***pierwszeństwo** dla niektórych _ *UxElement** StringIDs, takich jak **ver_but_send**, **ver_but_edit**, **ver_but_resend** i **ver_but_verify**. Poniższy przykład pokazuje, jak zlokalizować przyciski Wyślij i Weryfikuj. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

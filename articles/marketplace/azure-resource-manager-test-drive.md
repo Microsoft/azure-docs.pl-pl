@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730375"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
@@ -75,7 +75,7 @@ Możesz użyć dowolnej prawidłowej nazwy dla parametrów; Test Drive rozpoznaj
 
 | Typ metadanych   | Typ parametru  | Opis     | Przykładowa wartość    |
 |---|---|---|---|
-| **baseUri**     | ciąg          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseUri**     | ciąg          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https://<..>.blob.core.windows.net/<..>` |
 | **uż**    | ciąg          | Nowa losowa nazwa użytkownika.| admin68876      |
 | **hasło**    | ciąg zabezpieczony    | Nowe hasło losowe | LP! \^ 2KH ACS     |
 | **Identyfikator sesji**   | ciąg          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -313,7 +313,7 @@ Ostatnia sekcja do ukończenia polega na automatycznym wdrożeniu dysków testow
    3. Podaj nazwę aplikacji.
    4. Wybierz **Typ** **aplikacji sieci Web/interfejsu API**.
    5. Podaj dowolną wartość w adresie URL logowania, to pole nie jest używane.
-   6. Wybierz pozycję **Utwórz**.
+   6. Wybierz przycisk **Utwórz**.
    7. Po utworzeniu aplikacji wybierz pozycję **Właściwości**  >  **Ustaw aplikację jako wiele dzierżawców** , a następnie **Zapisz**.
 
 4. Wybierz pozycję **Zapisz**.

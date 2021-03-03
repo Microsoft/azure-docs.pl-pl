@@ -1,19 +1,19 @@
 ---
-title: Wyświetl metryki w czasie rzeczywistym za pomocą Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano widok metryk w czasie rzeczywistym bez używania polecenia kubectl z Azure Monitor for Containers.
+title: Wyświetlanie metryk w czasie rzeczywistym za pomocą usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano widok metryk w czasie rzeczywistym bez używania polecenia kubectl z usługą Container Insights.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731854"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Jak wyświetlać metryki w czasie rzeczywistym
 
-Funkcja Azure Monitor dla kontenerów dane dynamiczne (wersja zapoznawcza) umożliwia wizualizację metryk dotyczących stanu węzła i pod w klastrze w czasie rzeczywistym. Emuluje bezpośredni dostęp do `kubectl top nodes` `kubectl get pods –all-namespaces` poleceń, i `kubectl get nodes` umożliwia wywoływanie, analizowanie i wizualizowanie danych w wykresach wydajności, które są zawarte w tym temacie.
+Funkcja informacji o usłudze Container Insights (wersja zapoznawcza) umożliwia wizualizację metryk dotyczących stanu węzła i pod w klastrze w czasie rzeczywistym. Emuluje bezpośredni dostęp do `kubectl top nodes` `kubectl get pods –all-namespaces` poleceń, i `kubectl get nodes` umożliwia wywoływanie, analizowanie i wizualizowanie danych w wykresach wydajności, które są zawarte w tym temacie.
 
 Ten artykuł zawiera szczegółowe omówienie i pomaga zrozumieć, jak korzystać z tej funkcji.
 
@@ -26,7 +26,7 @@ Aby uzyskać pomoc dotyczącą konfigurowania lub rozwiązywania problemów doty
 
 Funkcja dane dynamiczne (wersja zapoznawcza) bezpośrednio uzyskuje dostęp do interfejsu API Kubernetes. dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Ta funkcja wykonuje operację sondowania dla punktów końcowych metryk (w tym `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` i `/api/v1/pods` ), co jest domyślnie co pięć sekund. Te dane są przechowywane w pamięci podręcznej w przeglądarce i przedstawiane na czterech wykresach wydajności zawartych w Azure Monitor dla kontenerów na karcie **klaster** , wybierając pozycję **Przejdź na żywo (wersja zapoznawcza)**. Każda kolejna sonda jest przedstawiana w stopniowanym oknie wizualizacji.
+Ta funkcja wykonuje operację sondowania dla punktów końcowych metryk (w tym `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` i `/api/v1/pods` ), co jest domyślnie co pięć sekund. Te dane są przechowywane w pamięci podręcznej w przeglądarce i przedstawiane na czterech wykresach wydajności zawartych w usłudze Container Insights na karcie **klaster** , wybierając pozycję **Przejdź na żywo (wersja zapoznawcza)**. Każda kolejna sonda jest przedstawiana w stopniowanym oknie wizualizacji.
 
 ![Opcja Przejdź na żywo w widoku klastra](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

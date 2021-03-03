@@ -4,12 +4,12 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 93f72b7e2f709f32942564dc7322a4c5d1064cfc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711505"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -30,9 +30,6 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](/aspnet/core/tut
 
 > [!NOTE]
 > ASP.NET Core 3,1 wymaga [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) lub nowszego.
-
-> [!IMPORTANT]
-> Obsługiwane są następujące wersje ASP.NET Core: ASP.NET Core 2,1 i 3,1. Wersje 2,0, 2,2 i 3,0 zostały wycofane i nie są już obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

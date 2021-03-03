@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688420"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
@@ -62,7 +62,10 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="cors"></a><a name="CORS"></a> SPECYFIKACJI
-`cors`Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
+`cors`Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce. 
+
+> [!NOTE]
+> Jeśli żądanie pasuje do operacji przy użyciu metody OPTIONS zdefiniowanej w interfejsie API, logika przetwarzania żądań przed inspekcją, skojarzona z zasadami CORS, nie zostanie uruchomiona. W związku z tym operacje te mogą służyć do implementowania niestandardowej logiki przetwarzania przed lotem.
 
 Mechanizm CORS pozwala przeglądarce i serwerowi na współpracujące i określać, czy zezwolić na określone żądania między źródłami (tj. wywołania XMLHttpRequest wykonane ze skryptu JavaScript na stronie sieci Web do innych domen). Zapewnia to większą elastyczność niż Zezwalanie na żądania tego samego źródła, ale jest bezpieczniejsze niż Zezwalanie na wszystkie żądania między źródłami.
 
@@ -71,7 +74,7 @@ Należy zastosować zasady CORS, aby włączyć konsolę interaktywną w portalu
 ### <a name="policy-statement"></a>Instrukcja zasad
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -138,6 +141,7 @@ W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |Zezwalaj — poświadczenia|W `Access-Control-Allow-Credentials` nagłówku odpowiedzi na inspekcję wstępną zostanie ustawiona wartość tego atrybutu i będzie ona mieć wpływ na zdolność klienta do przesyłania poświadczeń w żądaniach międzydomenowych.|Nie|fałsz|
+|Przerwij — niedopasowane-żądanie|Ten atrybut steruje przetwarzaniem żądań między źródłami, które nie są zgodne z ustawieniami zasad CORS. Gdy żądanie OPTIONS jest przetwarzane jako żądanie przed inspekcją i nie jest zgodne z ustawieniami zasad CORS: Jeśli atrybut jest ustawiony na `true` , natychmiast Przerwij żądanie z pustą odpowiedzią 200 OK; Jeśli atrybut jest ustawiony na `false` , sprawdź ruch przychodzący dla innych zasad CORS w zakresie, które są bezpośrednimi elementami podrzędnymi elementu przychodzącego i zastosuj je.  Jeśli nie zostaną znalezione żadne zasady CORS, Zakończ żądanie z pustą odpowiedzią 200 OK. Gdy żądanie GET lub główny zawiera nagłówek źródła (i dlatego jest przetwarzane jako żądanie między źródłami) i nie jest zgodne z ustawieniami zasad CORS: Jeśli atrybut jest ustawiony na `true` , natychmiast Przerwij żądanie z pustą odpowiedzią 200 OK; Jeśli atrybut jest ustawiony na `false` , Zezwól na normalne wykonanie żądania i nie dodawaj nagłówków CORS do odpowiedzi.|Nie|true|
 |Inspekcja wstępna — wynik — maks. wiek|`Access-Control-Max-Age`Nagłówek w odpowiedzi na inspekcję wstępną zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na zdolność agenta użytkownika do buforowania przed lotem odpowiedzi.|Nie|0|
 
 ### <a name="usage"></a>Użycie

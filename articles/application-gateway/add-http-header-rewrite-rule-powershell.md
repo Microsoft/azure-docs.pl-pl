@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397920"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711692"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Ponowne zapisywanie nagłówków żądań i odpowiedzi HTTP przy użyciu usługi Azure Application Gateway — Azure PowerShell
 
@@ -20,7 +20,7 @@ W tym artykule opisano, jak za pomocą Azure PowerShell skonfigurować wystąpie
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 - Aby wykonać kroki opisane w tym artykule, musisz uruchomić Azure PowerShell lokalnie. Musisz również mieć zainstalowany AZ module w wersji 1.0.0 lub nowszej. Uruchom `Import-Module Az` polecenie, a następnie `Get-Module Az` Określ zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Po zweryfikowaniu wersji programu PowerShell uruchom polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
 - Musisz mieć wystąpienie jednostki SKU Application Gateway v2. Ponowne zapisywanie nagłówków nie jest obsługiwane w jednostce SKU v1. Jeśli nie masz jednostki SKU w wersji 2, przed rozpoczęciem Utwórz wystąpienie [jednostki sku Application Gateway v2](./tutorial-autoscale-ps.md) .
@@ -31,23 +31,23 @@ Aby skonfigurować ponowne zapisywanie nagłówka HTTP, należy wykonać te krok
 
 1. Utwórz obiekty wymagane do ponownego zapisania nagłówka HTTP:
 
-   - **RequestHeaderConfiguration** : służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości dla nagłówków.
+   - **RequestHeaderConfiguration**: służy do określania pól nagłówka żądania, które mają być ponownie zapisane, oraz do nowej wartości dla nagłówków.
 
-   - **ResponseHeaderConfiguration** : służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, i nową wartością dla nagłówków.
+   - **ResponseHeaderConfiguration**: służy do określania pól nagłówka odpowiedzi, które mają być ponownie zapisane, i nową wartością dla nagłówków.
 
-   - **ActionSet** : zawiera konfiguracje żądań i nagłówków odpowiedzi określonych wcześniej.
+   - **ActionSet**: zawiera konfiguracje żądań i nagłówków odpowiedzi określonych wcześniej.
 
-   - **Warunek** : opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
+   - **Warunek**: opcjonalna konfiguracja. Warunki ponownego zapisu sprawdzają zawartość żądań i odpowiedzi HTTP (S). Akcja ponownego zapisu zostanie wykonana, jeśli żądanie HTTP (S) lub odpowiedź pasuje do warunku ponownego zapisu.
 
      Jeśli powiążesz więcej niż jeden warunek z akcją, Akcja występuje tylko wtedy, gdy wszystkie warunki są spełnione. Innymi słowy, operacja jest operacją logiczną i.
 
-   - **RewriteRule** : zawiera wielokrotne ponowne zapisywanie kombinacji warunku/ponownego zapisywania.
+   - **RewriteRule**: zawiera wielokrotne ponowne zapisywanie kombinacji warunku/ponownego zapisywania.
 
-   - **RuleSequence** : opcjonalna konfiguracja, która pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama wartość sekwencji reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
+   - **RuleSequence**: opcjonalna konfiguracja, która pomaga określić kolejność wykonywania reguł ponownego zapisywania. Ta konfiguracja jest przydatna, jeśli masz wiele reguł ponownego zapisywania w zestawie do wielokrotnego zapisu. Reguła ponownego zapisu, która ma niższą wartość sekwencji reguł, jest uruchamiana jako pierwsza. Jeśli ta sama wartość sekwencji reguł zostanie przypisana do dwóch reguł ponownego zapisywania, kolejność wykonywania nie jest deterministyczna.
 
      Jeśli nie określisz jawnie RuleSequence, zostanie ustawiona wartość domyślna 100.
 
-   - **RewriteRuleSet** : zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
+   - **RewriteRuleSet**: zawiera wiele reguł ponownego zapisywania, które zostaną skojarzone z regułą routingu żądania.
 
 2. Dołącz RewriteRuleSet do reguły routingu. Konfiguracja ponownego zapisywania jest dołączona do odbiornika źródłowego za pośrednictwem reguły routingu. W przypadku korzystania z podstawowej reguły routingu, konfiguracja ponownego zapisywania nagłówka jest skojarzona z odbiornikiem źródłowym i jest ponownym zapisem nagłówka globalnego. W przypadku korzystania z reguły routingu opartej na ścieżce, konfiguracja ponownego zapisywania nagłówka jest definiowana na mapie ścieżki URL. W takim przypadku ma zastosowanie tylko do obszaru określonej ścieżki w lokacji.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Określ konfigurację reguły ponownego zapisywania nagłówka HTTP
 
-W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisanie nagłówka lokalizacji w odpowiedzi HTTP, gdy nagłówek lokalizacji zawiera odwołanie do azurewebsites.net. W tym celu dodamy warunek, aby sprawdzić, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.net. Użyjemy wzorca `(https?):\/\/.*azurewebsites\.net(.*)$` . I będziemy używać `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` jako wartości nagłówka. Ta wartość spowoduje zamienienie *azurewebsites.NET* z *contoso.com* w nagłówku lokalizacji.
+W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisanie nagłówka lokalizacji w odpowiedzi HTTP, gdy nagłówek lokalizacji zawiera odwołanie do azurewebsites.net. W tym celu dodamy warunek, aby sprawdzić, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.net. Użyjemy wzorca `(https?)://.*azurewebsites.net(.*)$` . I będziemy używać `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` jako wartości nagłówka. Ta wartość spowoduje zamienienie *azurewebsites.NET* z *contoso.com* w nagłówku lokalizacji.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

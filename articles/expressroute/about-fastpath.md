@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: e1ec175653316029932e0c03214f6f1e1d81e0f1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: ba23319c35aed1d09da652e6f84b60e5f8e9495e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185652"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740889"
 ---
 # <a name="about-expressroute-fastpath"></a>Informacje o usłudze ExpressRoute FastPath
 
@@ -32,6 +32,11 @@ Aby można było skonfigurować FastPath, Brama sieci wirtualnej musi być:
 
 * Niezwykle wydajna
 * ErGw3AZ
+
+> [!IMPORTANT]
+> Jeśli planujesz używać FastPath z prywatną komunikację równorzędną IPv6 za pośrednictwem ExpressRoute, upewnij się, że wybrano opcję ErGw3AZ dla **jednostki SKU**.
+> 
+>
 
 ## <a name="limitations"></a>Ograniczenia
 

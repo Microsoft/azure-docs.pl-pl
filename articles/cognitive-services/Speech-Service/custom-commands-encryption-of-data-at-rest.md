@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716588"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych przy użyciu poleceń niestandardowych
 
 Polecenia niestandardowe automatycznie szyfrują dane, gdy są utrwalane w chmurze. Szyfrowanie usługi poleceń niestandardowych chroni dane i pomaga spełnić wymagania dotyczące zabezpieczeń i zgodności organizacji.
 
 > [!NOTE]
-> Usługa poleceń niestandardowych nie włącza automatycznie szyfrowania dla zasobów LUIS skojarzonych z aplikacją. W razie potrzeby należy włączyć szyfrowanie dla zasobu LUIS z tego [miejsca](./../LUIS/luis-encryption-of-data-at-rest.md).
+> Usługa poleceń niestandardowych nie włącza automatycznie szyfrowania dla zasobów LUIS skojarzonych z aplikacją. W razie potrzeby należy włączyć szyfrowanie dla zasobu LUIS z tego [miejsca](../luis/encrypt-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Informacje o szyfrowaniu Cognitive Services
 Dane są szyfrowane i odszyfrowywane przy użyciu zgodności ze standardem [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [256-bitowego szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) . Szyfrowanie i odszyfrowywanie są przezroczyste, co oznacza, że szyfrowanie i dostęp są zarządzane przez Ciebie. Dane są domyślnie bezpieczne i nie trzeba modyfikować kodu ani aplikacji, aby korzystać z szyfrowania.

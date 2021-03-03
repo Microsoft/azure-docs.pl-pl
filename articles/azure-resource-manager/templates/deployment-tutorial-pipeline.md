@@ -1,15 +1,15 @@
 ---
 title: Ciągła integracja z użyciem usługi Azure Pipelines
 description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablony Azure Resource Manager (szablony ARM).
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722818"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów ARM z Azure Pipelines
 
@@ -83,8 +83,8 @@ Folder _CreateWebApp_ jest folderem, w którym przechowywany jest szablon. `pwd`
 
 Zamiast tworzyć szablony, można pobrać szablony i zapisać je w folderze _CreateWebApp_ .
 
-* Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* Główny szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* Połączony szablon: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Nazwa folderu i nazwy plików są używane, ponieważ znajdują się w potoku. W przypadku zmiany tych nazw należy zaktualizować nazwy używane w potoku.
 
@@ -106,7 +106,7 @@ _azuredeploy.js_ została dodana do repozytorium lokalnego. Następnie Przekaż 
     Może pojawić się ostrzeżenie dotyczące LF. Możesz zignorować to ostrzeżenie. **główny** jest gałęzią główną.  Tworzona jest zwykle gałąź dla każdej aktualizacji. Aby uprościć samouczek, należy bezpośrednio użyć gałęzi głównej.
 
 1. Przejdź do repozytorium GitHub z przeglądarki. Adres URL to `https://github.com/[YourAccountName]/[YourGitHubRepository]` . Zobaczysz folder _CreateWebApp_ i dwa pliki znajdujące się w folderze.
-1. Wybierz pozycję _linkedStorageAccount.js_ , aby otworzyć szablon.
+1. Wybierz pozycję _azuredeploy.js_ , aby otworzyć szablon.
 1. Wybierz przycisk **RAW** . Adres URL zaczyna się od `https://raw.githubusercontent.com` .
 1. Utwórz kopię adresu URL. Należy podać tę wartość podczas konfigurowania potoku w dalszej części tego samouczka.
 
@@ -174,10 +174,10 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
     * **Akcja**: Wybierz akcję **Utwórz lub Zaktualizuj grupę zasobów** — 2 akcje — 1. Utwórz grupę zasobów, jeśli podano nową nazwę grupy zasobów; dwóch. Wdróż określony szablon.
     * **Grupa zasobów**: wprowadź nową nazwę grupy zasobów. Na przykład **AzureRmPipeline-RG**.
     * **Lokalizacja**: Wybierz lokalizację dla grupy zasobów, na przykład **środkowe stany USA**.
-    * **Lokalizacja szablonu**: wybierz pozycję **połączone artefakty**, co oznacza, że zadanie szuka pliku szablonu bezpośrednio z połączonego repozytorium.
-    * **Szablon**: wprowadź _CreateWebApp/azuredeploy.json_. Jeśli zmieniono nazwę folderu i nazwę pliku, należy zmienić tę wartość.
-    * **Parametry szablonu**: pozostaw to pole puste. Wartości parametrów należy określić w **parametrach szablonu przesłonięć**.
-    * **Przesłoń parametry szablonu**: ENTER `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Zastąp nazwę projektu i adres URL połączonego szablonu. Adres URL połączonego szablonu jest zapisany na końcu [tworzenia repozytorium GitHub](#create-a-github-repository). Zaczyna się od `https://raw.githubusercontent.com` .
+    * **Lokalizacja szablonu**: Wybierz **adres URL pliku**, co oznacza, że zadanie szuka pliku szablonu przy użyciu adresu URL. Ponieważ _RelativePath_ jest używany w szablonie głównym, a _RelativePath_ jest obsługiwana tylko w przypadku wdrożeń opartych na identyfikatorze URI, należy użyć tutaj adresu URL.
+    * **Link szablonu**: wprowadź adres URL uzyskany na końcu sekcji [Przygotowywanie repozytorium GitHub](#prepare-a-github-repository) . Zaczyna się od `https://raw.githubusercontent.com` .
+    * **Link parametrów szablonu**: pozostaw to pole puste. Wartości parametrów należy określić w **parametrach szablonu przesłonięć**.
+    * **Przesłoń parametry szablonu**: ENTER `-projectName [EnterAProjectName]` .
     * **Tryb wdrożenia**: wybierz pozycję **przyrostowe**.
     * **Nazwa wdrożenia**: wprowadź **DeployPipelineTemplate**. Wybierz pozycję **Zaawansowane** , aby zobaczyć **nazwę wdrożenia**.
 

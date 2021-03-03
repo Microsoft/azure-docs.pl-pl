@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 743fe146042c7b52394cc4ee8ced49a0f540e79c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 69930e06e2ce7f2679feec74ca8ccbc93bdb8d30
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844288"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101721127"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Jak utworzyć nakładkę z Media Encoder Standard
 
@@ -53,4 +53,4 @@ Pobierz [próbkę nakładki multimediów i usług](https://github.com/Azure-Samp
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET](subclip-video-dotnet-howto.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

@@ -1,24 +1,24 @@
 ---
-title: Jak rozwiązywać problemy z Azure Monitorami dla kontenerów | Microsoft Docs
-description: W tym artykule opisano, jak rozwiązywać problemy z Azure Monitorami dla kontenerów i je rozwiązać.
+title: Jak rozwiązywać problemy z usługą Container Insights | Microsoft Docs
+description: W tym artykule opisano, jak rozwiązywać problemy z usługą Container Insights i je rozwiązywać.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60a6e76d43d954b27336b9631c48328aeff0b69b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708309"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Azure Monitor rozwiązywania problemów z kontenerami
+# <a name="troubleshooting-container-insights"></a>Rozwiązywanie problemów dotyczących usługi Container Insights
 
-Podczas konfigurowania monitorowania klastra usługi Azure Kubernetes Service (AKS) za pomocą Azure Monitor dla kontenerów może wystąpić problem uniemożliwiający zbieranie danych lub raportowanie stanu. W tym artykule opisano niektóre typowe problemy i kroki rozwiązywania problemów.
+W przypadku skonfigurowania monitorowania klastra usługi Azure Kubernetes Service (AKS) z usługą Container Insights może wystąpić problem uniemożliwiający zbieranie danych lub raportowanie stanu. W tym artykule opisano niektóre typowe problemy i kroki rozwiązywania problemów.
 
 ## <a name="authorization-error-during-onboarding-or-update-operation"></a>Błąd autoryzacji podczas operacji dołączania lub aktualizowania
 
-Podczas włączania Azure Monitor dla kontenerów lub aktualizowania klastra w celu obsługi zbierania metryk może zostać wyświetlony błąd podobny do poniższego: *klient <tożsamość użytkownika> "z identyfikatorem obiektu" <objectid użytkownika> "nie ma autoryzacji do wykonania akcji" Microsoft. Authorization/roleAssignments/Write "w zakresie*
+Podczas włączania usługi Container Insights lub aktualizowania klastra w celu obsługi zbierania metryk może zostać wyświetlony błąd podobny do poniższego: *klient <tożsamość użytkownika> "z identyfikatorem obiektu" <objectid użytkownika> "nie ma autoryzacji do wykonania akcji" Microsoft. Authorization/roleAssignments/Write "w zakresie*
 
-Podczas procesu dołączania lub aktualizacji należy podjąć próbę przypisania roli **wydawcy metryk monitorowania** do zasobu klastra. Użytkownik inicjujący proces włączania Azure Monitor dla kontenerów lub aktualizacja do obsługi kolekcji metryk musi mieć dostęp do uprawnienia **Microsoft. Authorization/roleAssignments/Write** w zakresie zasobów klastra AKS. Dostęp do tego uprawnienia mają tylko członkowie roli wbudowanej **administratora dostępu** **właściciela** i użytkownika. Jeśli zasady zabezpieczeń wymagają przypisania uprawnień na poziomie szczegółowości, zalecamy wyświetlenie [ról niestandardowych](../../role-based-access-control/custom-roles.md) i przypisanie ich do użytkowników, którzy ich potrzebują.
+Podczas procesu dołączania lub aktualizacji należy podjąć próbę przypisania roli **wydawcy metryk monitorowania** do zasobu klastra. Użytkownik inicjujący proces włączania usługi Container Insights lub aktualizacji do obsługi kolekcji metryk musi mieć dostęp do uprawnienia **Microsoft. Authorization/roleAssignments/Write** w zakresie zasobów klastra AKS. Dostęp do tego uprawnienia mają tylko członkowie roli wbudowanej **administratora dostępu** **właściciela** i użytkownika. Jeśli zasady zabezpieczeń wymagają przypisania uprawnień na poziomie szczegółowości, zalecamy wyświetlenie [ról niestandardowych](../../role-based-access-control/custom-roles.md) i przypisanie ich do użytkowników, którzy ich potrzebują.
 
 Możesz również ręcznie udzielić tej roli z Azure Portal, wykonując następujące czynności:
 
@@ -29,9 +29,9 @@ Możesz również ręcznie udzielić tej roli z Azure Portal, wykonując następ
 3. Wybierz pozycję **+ Dodaj** , aby dodać przypisanie roli i wybierz rolę **wydawcy metryk monitorowania** i w obszarze **Wybierz** typ **AKS** , aby filtrować wyniki tylko do podmiotów usługi klastrów zdefiniowanych w ramach subskrypcji. Wybierz z listy odpowiedni dla tego klastra.
 4. Wybierz pozycję **Zapisz** , aby zakończyć Przypisywanie roli.
 
-## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor dla kontenerów jest włączona, ale nie zgłasza żadnych informacji
+## <a name="container-insights-is-enabled-but-not-reporting-any-information"></a>Usługi Container Insights są włączone, ale nie zgłaszają żadnych informacji
 
-Jeśli Azure Monitor dla kontenerów zostanie pomyślnie włączona i skonfigurowana, ale nie będzie można wyświetlić informacji o stanie lub żadne wyniki nie są zwracane z zapytania dziennika, można zdiagnozować problem, wykonując następujące czynności:
+Jeśli szczegółowe informacje o kontenerze zostały pomyślnie włączone i skonfigurowane, ale nie będzie można wyświetlić informacji o stanie lub nie zostaną zwrócone żadne wyniki zapytania dziennika, można zdiagnozować problem, wykonując następujące czynności:
 
 1. Sprawdź stan agenta, uruchamiając polecenie:
 
@@ -84,19 +84,19 @@ Jeśli Azure Monitor dla kontenerów zostanie pomyślnie włączona i skonfiguro
 
 ## <a name="error-messages"></a>Komunikaty o błędach
 
-Poniższa tabela zawiera podsumowanie znanych błędów, które mogą wystąpić podczas korzystania z Azure Monitor dla kontenerów.
+W poniższej tabeli zestawiono znane błędy, które można napotkać podczas korzystania z usługi Container Insights.
 
 | Komunikaty o błędach  | Akcja |
 | ---- | --- |
 | Komunikat o błędzie `No data for selected filters`  | Uruchomienie przepływu danych monitorowania z nowo utworzonych klastrów może zająć trochę czasu. Zezwalaj na wyświetlanie danych dla klastra co najmniej 10 do 15 minut. |
-| Komunikat o błędzie `Error retrieving data` | Podczas konfigurowania klastra usługi Azure Kubernetes na potrzeby monitorowania kondycji i wydajności jest nawiązywane połączenie między klastrem i obszarem roboczym usługi Azure Log Analytics. Obszar roboczy Log Analytics służy do przechowywania wszystkich danych monitorowania dla klastra. Ten błąd może wystąpić, gdy obszar roboczy Log Analytics został usunięty. Sprawdź, czy obszar roboczy został usunięty, a jeśli był, należy ponownie włączyć monitorowanie klastra przy użyciu Azure Monitor dla kontenerów i określić istniejący lub utworzyć nowy obszar roboczy. Aby ponownie włączyć, należy [wyłączyć](container-insights-optout.md) monitorowanie klastra i ponownie [włączyć](container-insights-enable-new-cluster.md) Azure monitor dla kontenerów. |
-| `Error retrieving data` Po dodaniu Azure Monitor kontenerów za za poorednictwem interfejsu wiersza polecenia AZ AKS | Po włączeniu monitorowania za pomocą programu `az aks cli` Azure monitor dla kontenerów mogą nie być poprawnie wdrożone. Sprawdź, czy rozwiązanie zostało wdrożone. Aby sprawdzić, przejdź do obszaru roboczego Log Analytics i sprawdź, czy rozwiązanie jest dostępne, wybierając pozycję **rozwiązania** z okienka po lewej stronie. Aby rozwiązać ten problem, należy ponownie wdrożyć rozwiązanie, postępując zgodnie z instrukcjami dotyczącymi [wdrażania Azure monitor dla kontenerów](container-insights-onboard.md) |
+| Komunikat o błędzie `Error retrieving data` | Podczas konfigurowania klastra usługi Azure Kubernetes na potrzeby monitorowania kondycji i wydajności jest nawiązywane połączenie między klastrem i obszarem roboczym usługi Azure Log Analytics. Obszar roboczy Log Analytics służy do przechowywania wszystkich danych monitorowania dla klastra. Ten błąd może wystąpić, gdy obszar roboczy Log Analytics został usunięty. Sprawdź, czy obszar roboczy został usunięty, a jeśli był, należy ponownie włączyć monitorowanie klastra przy użyciu usługi Container Insights i określić istniejący lub nowy obszar roboczy. Aby ponownie włączyć, należy [wyłączyć](container-insights-optout.md) monitorowanie dla klastra i ponownie [włączyć](container-insights-enable-new-cluster.md) usługi Container Insights. |
+| `Error retrieving data` Po dodaniu szczegółowych informacji o kontenerach za poorednictwem polecenia AZ AKS CLI | Po włączeniu monitorowania za pomocą usługi `az aks cli` , szczegółowe informacje kontenera mogą nie być poprawnie wdrożone. Sprawdź, czy rozwiązanie zostało wdrożone. Aby sprawdzić, przejdź do obszaru roboczego Log Analytics i sprawdź, czy rozwiązanie jest dostępne, wybierając pozycję **rozwiązania** z okienka po lewej stronie. Aby rozwiązać ten problem, należy ponownie wdrożyć rozwiązanie, postępując zgodnie z instrukcjami dotyczącymi wdrażania usługi [Container Insights](container-insights-onboard.md) |
 
-Aby ułatwić zdiagnozowanie problemu, podano [skrypt rozwiązywania problemów](https://aka.ms/troubleshooting-script).
+Aby ułatwić zdiagnozowanie problemu, podano [skrypt rozwiązywania problemów](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
 
-## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Azure Monitor dla ReplicaSet kontenerów agentów nie są zaplanowani w klastrze Kubernetes innym niż Azure
+## <a name="container-insights-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>ReplicaSetki agentów usługi Container Insights nie są planowane w klastrze Kubernetes innym niż Azure
 
-Azure Monitor dla agentów kontenerów ReplicaSeta jest zależność od następujących selektorów węzłów w węzłach procesu roboczego (lub agenta) na potrzeby planowania:
+Moduł ReplicaSets agenta usługi Container Insights ma zależność od następujących selektorów węzłów w węzłach procesu roboczego (lub agenta) do planowania:
 
 ```
 nodeSelector:
@@ -108,12 +108,12 @@ Jeśli węzły procesu roboczego nie mają dołączonych etykiet, to nie zostani
 
 ## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>Wykresy wydajności nie pokazują procesora ani pamięci węzłów i kontenerów w klastrze nienależącym do platformy Azure
 
-Usługa Azure Monitor dla zasobników agenta kontenerów zbiera metryki wydajności przy użyciu punktu końcowego cAdvisor w agencie węzła. Upewnij się, że kontener kontenera w węźle został skonfigurowany tak, aby zezwalać na `cAdvisor port: 10255` otwieranie go we wszystkich węzłach w klastrze w celu zbierania metryk wydajności.
+Moduł do zbierania informacji o kontenerach usługi Container Insights używa punktu końcowego cAdvisor w agencie węzła w celu zebrania metryk wydajności. Upewnij się, że kontener kontenera w węźle został skonfigurowany tak, aby zezwalać na `cAdvisor port: 10255` otwieranie go we wszystkich węzłach w klastrze w celu zbierania metryk wydajności.
 
-## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Klaster Kubernetes spoza platformy Azure nie jest wyświetlany w Azure Monitor dla kontenerów
+## <a name="non-azure-kubernetes-cluster-are-not-showing-in-container-insights"></a>Klaster Kubernetes spoza platformy Azure nie jest wyświetlany w usłudze Container Insights
 
-Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w Azure Monitor dla kontenerów, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz na platformie Azure Insights Resource **ContainerInsights (*obszar roboczy*)**.
+Aby wyświetlić klaster programu spoza platformy Azure Kubernetes w usłudze Container Insights, należy uzyskać dostęp do odczytu w obszarze roboczym Log Analytics, który obsługuje tę usługę Insights, oraz w obszarze roboczym rozwiązania usługi Container Insights **ContainerInsights (*przestrzeń robocza*)**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po włączeniu monitorowania pod kątem przechwytywania metryk kondycji zarówno dla węzłów klastra AKS, jak i dla każdego zasobnika te metryki kondycji są dostępne w Azure Portal. Aby dowiedzieć się, jak używać Azure Monitor kontenerów, zobacz temat [Wyświetlanie kondycji usługi Azure Kubernetes](container-insights-analyze.md).
+Po włączeniu monitorowania pod kątem przechwytywania metryk kondycji zarówno dla węzłów klastra AKS, jak i dla każdego zasobnika te metryki kondycji są dostępne w Azure Portal. Aby dowiedzieć się, jak używać usługi Container Insights, zobacz [Wyświetlanie kondycji usług Kubernetes platformy Azure](container-insights-analyze.md).

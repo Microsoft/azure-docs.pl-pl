@@ -2,16 +2,20 @@
 title: Ciągły eksport danych telemetrycznych z Application Insights | Microsoft Docs
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.custom: references_regions
+ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737039"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
+
+> [!IMPORTANT]
+> Eksport ciągły został uznany za przestarzały. [Przeprowadź migrację do zasobu Application Insights opartego na obszarze roboczym](convert-classic-resource.md) , aby użyć [ustawień diagnostycznych](#diagnostic-settings-based-export) do eksportowania danych telemetrycznych.
 
 > [!NOTE]
 > Eksport ciągły jest obsługiwany tylko w przypadku klasycznych zasobów usługi Application Insights. [Zasoby usługi Application Insights na podstawie obszaru roboczego](./create-workspace-resource.md) muszą używać [ustawień diagnostycznych](./create-workspace-resource.md#export-telemetry).
@@ -27,6 +31,44 @@ Przed skonfigurowaniem eksportu ciągłego należy wziąć pod uwagę pewne alte
 * Możesz również uzyskać dostęp do ustawień [eksport ciągły za pomocą programu PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Gdy eksport ciągły kopiuje dane do magazynu (o ile będzie to możliwe), nadal jest dostępny w Application Insights w przypadku normalnego [okresu przechowywania](./data-retention-privacy.md).
+
+## <a name="supported-regions"></a>Obsługiwane regiony
+
+Eksport ciągły jest obsługiwany w następujących regionach:
+
+* Southeast Asia
+* Kanada Środkowa
+* Indie Środkowe
+* Europa Północna
+* Południowe Zjednoczone Królestwo
+* Australia Wschodnia
+* Japonia Wschodnia
+* Korea Środkowa
+* Francja Środkowa
+* Azja Wschodnia
+* Zachodnie stany USA
+* Środkowe stany USA
+* Wschodnie stany USA 2
+* South Central US
+* Zachodnie stany USA 2
+* Północna Republika Południowej Afryki
+* Północno-środkowe stany USA
+* Brazylia Południowa
+* Szwajcaria Północna
+* Australia Południowo-Wschodnia
+* Zachodnie Zjednoczone Królestwo
+* Niemcy Środkowo-Zachodnie
+* Szwajcaria Zachodnia
+* Australia Środkowa 2
+* Środkowy Zjednoczone Emiraty Arabskie
+* Brazylia Południowo-Wschodnia
+* Australia Środkowa
+* Północne Zjednoczone Emiraty Arabskie
+* Norwegia Wschodnia
+* Japonia Zachodnia
+
+> [!NOTE]
+> Aplikacje już skonfigurowane w **Europie zachodniej** i **Wschodnie stany USA** są obsługiwane, ale nie jest obsługiwane dołączanie nowych aplikacji w tych regionach.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Konfiguracja ciągłego magazynu zaawansowanego eksportu
 

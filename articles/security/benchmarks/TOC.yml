@@ -235,3 +235,11 @@
   items:
     - name: Mapowanie między ASB i CIS — test porównawczy
       href: v2-cis-benchmark.md
+    - name: Podstawy zabezpieczeń platformy Azure
+      href: ../fundamentals/index.yml
+    - name: Wspólna odpowiedzialność w chmurze
+      href: ../fundamentals/shared-responsibility.md
+    - name: Azure Security Center
+      href: ../../security-center/index.yml
+    - name: Przykładowy plan usługi Azure Security test Foundation
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml

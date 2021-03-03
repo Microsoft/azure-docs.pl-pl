@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881140"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737061"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -45,15 +45,23 @@ Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełni skonfigurowa
 
 Najlepszym sposobem, aby sprawdzić, czy określone oświadczenie rejestrowania spełnia warunki skonfigurowanej progu rejestrowania, ma potwierdzić, że jest on wyświetlany w normalnym dzienniku aplikacji (np. pliku lub konsoli).
 
+Należy również zauważyć, że jeśli do rejestratora zostanie przekazana wyjątek, komunikat dziennika (i wyjątek) zostanie wyświetlony w Azure Portal w `exceptions` tabeli zamiast `traces` tabeli.
+
 Aby uzyskać więcej informacji, zobacz [konfigurację rejestrowania z autozbieraniem](./java-standalone-config.md#auto-collected-logging) .
 
 ## <a name="import-ssl-certificates"></a>Importuj certyfikaty SSL
 
 Ta sekcja pomaga w rozwiązywaniu problemów i ewentualnym usunięciu wyjątków związanych z certyfikatami SSL podczas korzystania z agenta Java.
 
-Istnieją dwie różne ścieżki umożliwiające rozwiązanie tego problemu.
+Poniżej znajdują się dwie różne ścieżki umożliwiające rozwiązanie tego problemu:
+* Jeśli używany jest domyślny magazyn kluczy języka Java
+* W przypadku korzystania z niestandardowego magazynu kluczy języka Java
 
-### <a name="if-using-a-default-java-keystore"></a>Jeśli używany jest domyślny magazyn kluczy języka Java:
+Jeśli nie masz pewności, która ścieżka ma być zgodna, sprawdź, czy masz JVM ARG `-Djavax.net.ssl.trustStore=...` .
+Jeśli _nie_ masz takiego JVMego argumentu, prawdopodobnie używasz domyślnego magazynu kluczy języka Java.
+Jeśli jest _to_ JVM ARG, prawdopodobnie używasz niestandardowego magazynu kluczy, a argument JVM wskazuje na niestandardowy Magazyn kluczy.
+
+### <a name="if-using-the-default-java-keystore"></a>Jeśli używany jest domyślny magazyn kluczy języka Java:
 
 Zazwyczaj domyślnym magazynem kluczy języka Java będzie już wszystkie certyfikaty główne urzędu certyfikacji. Mogą jednak wystąpić pewne wyjątki, takie jak certyfikat punktu końcowego pozyskiwania może być podpisany przez inny certyfikat główny. Zalecamy wykonanie następujących trzech kroków w celu rozwiązania tego problemu:
 

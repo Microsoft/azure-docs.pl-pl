@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2d7406c1e801a07f10342c47e7334e6a12bfd449
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729202"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Zbierz źródła danych dziennika systemowego za pomocą agenta Log Analytics
 Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać komunikaty, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego dziennik systemowy. Po zainstalowaniu agenta Log Analytics dla systemu Linux program skonfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta. Następnie Agent wysyła komunikat do Azure Monitor, w którym zostanie utworzony odpowiedni rekord.  
 
 > [!IMPORTANT]
-> W tym artykule opisano zbieranie zdarzeń dziennika systemu przy użyciu [agenta log Analytics](../platform/log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
+> W tym artykule opisano zbieranie zdarzeń dziennika systemu przy użyciu [agenta log Analytics](./log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 > [!NOTE]
 > Azure Monitor obsługuje zbieranie komunikatów wysyłanych przez rsyslog lub Dziennik systemowy, gdzie rsyslog jest demonem domyślnym. Domyślny demon dziennika systemowego w wersji 5 Red Hat Enterprise Linux, CentOS i Oracle Linux wersja (sysklog) nie jest obsługiwany w przypadku zbierania zdarzeń dziennika systemowego. Aby zebrać dane dziennika systemu z tej wersji dystrybucji, [demona rsyslog](http://rsyslog.com) powinna zostać zainstalowana i skonfigurowana do zastępowania sysklog.
@@ -57,7 +57,7 @@ Aby dodać nową funkcję, należy najpierw wybrać opcję **Zastosuj poniższą
 Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów. Jeśli chcesz ręcznie skonfigurować dziennik systemu na każdym agencie systemu Linux, usuń zaznaczenie pola *Zastosuj poniżej konfiguracji do moich maszyn*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Konfigurowanie dziennika systemowego w agencie systemu Linux
-Po [zainstalowaniu agenta log Analytics na kliencie z systemem Linux](../learn/quick-collect-linux-computer.md)instalowany jest domyślny plik konfiguracji dziennika systemowego, który określa zakres i ważność komunikatów, które są zbierane. Możesz zmodyfikować ten plik, aby zmienić konfigurację. Plik konfiguracji różni się w zależności od demona dziennika systemu zainstalowanego przez klienta programu.
+Po [zainstalowaniu agenta log Analytics na kliencie z systemem Linux](../vm/quick-collect-linux-computer.md)instalowany jest domyślny plik konfiguracji dziennika systemowego, który określa zakres i ważność komunikatów, które są zbierane. Możesz zmodyfikować ten plik, aby zmienić konfigurację. Plik konfiguracji różni się w zależności od demona dziennika systemu zainstalowanego przez klienta programu.
 
 > [!NOTE]
 > W przypadku edytowania konfiguracji dziennika systemowego należy ponownie uruchomić demona dziennika systemu, aby zmiany zaczęły obowiązywać.
@@ -230,7 +230,6 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 | Dziennik systemowy &#124; Sumuj AggregatedValue = Count () według funkcji |Liczba rekordów dziennika systemowego według funkcji. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.
-* [Pola niestandardowe](./../platform/custom-fields.md) służą do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.
-* [Skonfiguruj agentów systemu Linux](../learn/quick-collect-linux-computer.md) do zbierania innych typów danych.
-
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.
+* [Pola niestandardowe](../logs/custom-fields.md) służą do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.
+* [Skonfiguruj agentów systemu Linux](../vm/quick-collect-linux-computer.md) do zbierania innych typów danych.

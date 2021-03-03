@@ -6,25 +6,25 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1908232184218316a1a887f17f2fc8104529a0e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79cc7e1e4b574533fcad4592134109c52897e9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737260"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk usługi Azure Monitor 
 
 W tym artykule omówiono typowe problemy w Azure Monitor [alertach metryk](alerts-metric-overview.md) i sposobach ich rozwiązywania.
 
-Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Aby uzyskać więcej informacji na temat alertów, zobacz [Omówienie alertów w Microsoft Azure](../platform/alerts-overview.md).
+Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Aby uzyskać więcej informacji na temat alertów, zobacz [Omówienie alertów w Microsoft Azure](./alerts-overview.md).
 
 ## <a name="metric-alert-should-have-fired-but-didnt"></a>Alert dotyczący metryki powinien zostać wywołany, ale nie był 
 
 Jeśli uważasz, że alert dotyczący metryki powinien zostać wywołany, ale nie został uruchomiony i nie został znaleziony w Azure Portal, spróbuj wykonać następujące czynności:
 
 1. **Konfiguracja** — Sprawdź konfigurację reguły alertu metryki, aby upewnić się, że została prawidłowo skonfigurowana:
-    - Sprawdź, czy **typ agregacji** i **stopień szczegółowości agregacji (okres)** są skonfigurowane zgodnie z oczekiwaniami. **Typ agregacji** określa sposób agregowania wartości metryk (Dowiedz się więcej [tutaj](../platform/metrics-aggregation-explained.md#aggregation-types)), a **stopień szczegółowości agregacji (okres)** określa, jak daleko z powrotem agreguje wartości metryk przy każdym uruchomieniu reguły alertu.
+    - Sprawdź, czy **typ agregacji** i **stopień szczegółowości agregacji (okres)** są skonfigurowane zgodnie z oczekiwaniami. **Typ agregacji** określa sposób agregowania wartości metryk (Dowiedz się więcej [tutaj](../essentials/metrics-aggregation-explained.md#aggregation-types)), a **stopień szczegółowości agregacji (okres)** określa, jak daleko z powrotem agreguje wartości metryk przy każdym uruchomieniu reguły alertu.
     -  Sprawdź, czy **wartość progowa** lub **czułość** są skonfigurowane zgodnie z oczekiwaniami.
     - Dla reguły alertu korzystającej z progów dynamicznych Sprawdź, czy skonfigurowano ustawienia zaawansowane, ponieważ **Liczba naruszeń** może odfiltrować alerty i **ignorować dane, zanim** będzie można mieć wpływ na sposób obliczania progów.
 
@@ -69,10 +69,10 @@ Jeśli uważasz, że alert dotyczący metryk nie powinien zostać wywołany, ale
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Nie można znaleźć metryki do alertu na maszynie wirtualnej — metryki gościa
 
 Aby otrzymywać alerty dotyczące metryk systemu operacyjnego gościa maszyn wirtualnych (na przykład: pamięć, miejsce na dysku), upewnij się, że zainstalowano wymaganego agenta w celu zebrania tych danych w celu Azure Monitor metryk:
-- [Maszyny wirtualne z systemem Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Maszyny wirtualne z systemem Linux](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Maszyny wirtualne z systemem Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Maszyny wirtualne z systemem Linux](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego gościa maszyny wirtualnej, zobacz [tutaj](../insights/monitor-vm-azure.md#guest-operating-system).
+Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego gościa maszyny wirtualnej, zobacz [tutaj](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE] 
 > W przypadku skonfigurowania metryk gościa do wysłania do obszaru roboczego Log Analytics metryki są wyświetlane w obszarze zasób obszaru roboczego Log Analytics i rozpoczną wyświetlanie danych **dopiero** po utworzeniu reguły alertu, która je monitoruje. W tym celu postępuj zgodnie z instrukcjami, aby [skonfigurować alert metryki na potrzeby dzienników](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
@@ -84,8 +84,8 @@ Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego
 
 Jeśli szukasz alertu dotyczącego określonej metryki, ale nie widzisz go podczas tworzenia reguły alertu, sprawdź następujące kwestie:
 - Jeśli nie widzisz żadnych metryk dla zasobu, [sprawdź, czy typ zasobu jest obsługiwany na potrzeby alertów dotyczących metryk](./alerts-metric-near-real-time.md).
-- Jeśli widzisz pewne metryki dla zasobu, ale nie możesz znaleźć określonej metryki, [sprawdź, czy ta metryka jest dostępna](../platform/metrics-supported.md), i jeśli tak, zobacz jej opis, aby sprawdzić, czy jest ona dostępna tylko w określonych wersjach lub wydaniach zasobu.
-- Jeśli metryka nie jest dostępna dla zasobu, może być dostępna w dziennikach zasobu i monitorowana przy użyciu alertów dzienników. Zobacz tutaj, aby uzyskać więcej informacji o [gromadzeniu i analizowaniu dzienników z zasobu platformy Azure](../learn/tutorial-resource-logs.md).
+- Jeśli widzisz pewne metryki dla zasobu, ale nie możesz znaleźć określonej metryki, [sprawdź, czy ta metryka jest dostępna](../essentials/metrics-supported.md), i jeśli tak, zobacz jej opis, aby sprawdzić, czy jest ona dostępna tylko w określonych wersjach lub wydaniach zasobu.
+- Jeśli metryka nie jest dostępna dla zasobu, może być dostępna w dziennikach zasobu i monitorowana przy użyciu alertów dzienników. Zobacz tutaj, aby uzyskać więcej informacji o [gromadzeniu i analizowaniu dzienników z zasobu platformy Azure](../essentials/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Nie można znaleźć wymiaru metryki dla alertu
 
@@ -211,7 +211,7 @@ Upewnij się, że używasz właściwych poleceń interfejsu wiersza polecenia dl
 
 - Jeśli `Metric not found` wystąpi błąd:
 
-   - Dla metryki platformy: Upewnij się, że używasz nazwy **metryki** na [stronie Azure monitor obsługiwane metryki](../platform/metrics-supported.md), a nie **Nazwa wyświetlana metryki**
+   - Dla metryki platformy: Upewnij się, że używasz nazwy **metryki** na [stronie Azure monitor obsługiwane metryki](../essentials/metrics-supported.md), a nie **Nazwa wyświetlana metryki**
 
    - W przypadku metryki niestandardowej: Upewnij się, że Metryka jest już emitowana (nie można utworzyć reguły alertu dla niestandardowej metryki, która jeszcze nie istnieje) i że udostępniana jest przestrzeń nazw metryki niestandardowej (Zobacz przykład szablonu Menedżer zasobów [tutaj](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 

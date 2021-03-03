@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738638"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709516"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Wizualizowanie wzorców ruchu sieciowego do i z maszyn wirtualnych za pomocą narzędzi open source
 
@@ -47,7 +47,7 @@ Przechwycenie pakietu wykonane przez obserwatora sieci można przekazać bezpoś
 
 Po udostępnieniu linku do CapAnalysis upewnij się, że w adresie URL obiektu blob magazynu zostanie dołączony token sygnatury dostępu współdzielonego.  W tym celu przejdź do sygnatury dostępu współdzielonego z konta magazynu, Wyznacz dozwolone uprawnienia i naciśnij przycisk Generuj SAS, aby utworzyć token. Następnie można dołączyć token sygnatury dostępu współdzielonego do adresu URL obiektu blob magazynu przechwytywania pakietów.
 
-Otrzymany adres URL będzie wyglądać podobnie do następującego adresu URL: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+Otrzymany adres URL będzie wyglądać podobnie do następującego adresu URL: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analizowanie przechwytywania pakietów

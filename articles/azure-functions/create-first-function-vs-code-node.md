@@ -3,12 +3,16 @@ title: Tworzenie funkcji języka JavaScript przy użyciu Visual Studio Code-Azur
 description: Dowiedz się, jak utworzyć funkcję języka JavaScript, a następnie opublikować lokalny projekt Node.js do hostingu bezserwerowego w Azure Functions przy użyciu rozszerzenia Azure Functions w Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-node_uiex
+ms.openlocfilehash: 6c32570c8ebea3c1d127fc26b0d78287dbeb817f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729287"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure przy użyciu Visual Studio Code
 

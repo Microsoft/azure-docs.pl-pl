@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548186"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718526"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault Microsoft Azure Storage
 
@@ -132,6 +132,8 @@ Istnieją dwa niezbędne pakiety do integracji Key Vault:
 * Platforma Azure. Core zawiera `IKeyEncryptionKey` `IKeyEncryptionKeyResolver` interfejsy i. Biblioteka klienta usługi Storage dla platformy .NET definiuje już ją jako zależność.
 * Azure. Security. Keys. klucze (v4. x) zawierają Key Vault klienta REST, a także klientów kryptograficznych używanych z szyfrowaniem po stronie klienta.
 
+Key Vault jest zaprojektowana dla kluczy głównych o wysokiej wartości, a limity ograniczania dla Key Vault są z tego względu zaprojektowane. W przypadku usługi Azure. Security. Key 4.1.0 nie istnieje `IKeyEncryptionKeyResolver` implementacja, która obsługuje buforowanie kluczy. Powinna być konieczna pamięć podręczna z powodu ograniczania przepustowości, w [tym przykładzie](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) można dodać warstwę buforowania do `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` wystąpienia.
+
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Istnieją trzy Key Vault pakiety:
@@ -140,15 +142,15 @@ Istnieją trzy Key Vault pakiety:
 * Magazyn Microsoft. Azure. kluczy (v3. x) zawiera Key Vault klienta REST.
 * Microsoft. Azure. RSAKey. Extensions (v3. x) zawiera kod rozszerzenia zawierający implementacje algorytmów kryptograficznych i oraz SymmetricKey. Jest ona zależna od podstawowych i przestrzeni nazw magazynu kluczy i oferuje funkcje do definiowania zagregowanego programu rozpoznawania nazw (gdy użytkownicy chcą korzystać z wielu dostawców kluczy) i rozpoznawania klucza buforowania. Mimo że Biblioteka klienta usługi Storage nie zależy bezpośrednio od tego pakietu, jeśli użytkownicy chcą używać Azure Key Vault do przechowywania swoich kluczy lub używania rozszerzeń Key Vault do korzystania z dostawców usług kryptograficznych lokalnych i w chmurze, będą oni potrzebować tego pakietu.
 
-Więcej informacji dotyczących użycia Key Vault w v11 można znaleźć w [przykładach kodu szyfrowania v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 Key Vault jest zaprojektowana dla kluczy głównych o wysokiej wartości, a limity ograniczania dla Key Vault są z tego względu zaprojektowane. Podczas wykonywania szyfrowania po stronie klienta przy użyciu Key Vault, preferowanym modelem jest użycie symetrycznego klucza głównego przechowywanych jako wpisy tajne w Key Vault i w pamięci podręcznej lokalnie. Użytkownicy muszą wykonać następujące czynności:
 
 1. Utwórz klucz tajny w trybie offline i przekaż go do Key Vault.
 2. Użyj identyfikatora podstawowego wpisu tajnego jako parametru, aby rozwiązać bieżącą wersję klucza tajnego w celu szyfrowania, a następnie Buforuj te informacje lokalnie. Użyj CachingKeyResolver do buforowania; Użytkownicy nie oczekują implementacji własnej logiki buforowania.
 3. Użyj mechanizmu rozwiązywania konfliktów jako danych wejściowych podczas tworzenia zasad szyfrowania.
+
+Więcej informacji dotyczących użycia Key Vault w v11 można znaleźć w [przykładach kodu szyfrowania v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

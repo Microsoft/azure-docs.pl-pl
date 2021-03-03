@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 65a00cd898ef63dd3194e48ad6dd3fb73a211d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429606"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709873"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
 Pula zaplecza jest krytycznym składnikiem modułu równoważenia obciążenia. Pula zaplecza definiuje grupę zasobów, która będzie obsługiwała ruch dla danej reguły równoważenia obciążenia.
@@ -255,8 +255,16 @@ W scenariuszach z wstępnie wypełnionymi pulami zaplecza Użyj protokołu IP i 
 
 Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli zaplecza, jak wyróżniono w poniższych przykładach.
 
-  >[!IMPORTANT] 
-  >Ta funkcja jest obecnie w wersji zapoznawczej. Bieżące limity tej funkcji można znaleźć w [sekcji ograniczenia](#limitations) .
+### <a name="limitations"></a>Ograniczenia
+Pula zaplecza skonfigurowana przy użyciu adresu IP ma następujące ograniczenia:
+  * Może być używany tylko dla usług równoważenia obciążenia w warstwie Standardowa
+  * Limit 100 adresów IP w puli zaplecza
+  * Zasoby zaplecza muszą znajdować się w tej samej sieci wirtualnej co moduł równoważenia obciążenia
+  * Load Balancer z pulą zaplecza opartego na protokole IP nie może pełnić funkcji usługi linku prywatnego
+  * Ta funkcja nie jest obecnie obsługiwana w Azure Portal
+  * Kontenery ACI nie są obecnie obsługiwane przez tę funkcję
+  * Moduły równoważenia obciążenia lub usługi frontonu nie mogą być umieszczane w puli zaplecza modułu równoważenia obciążenia
+  * Nie można określać reguł NAT dla ruchu przychodzącego za pomocą adresu IP
 
 ### <a name="powershell"></a>PowerShell
 Utwórz nową pulę zaplecza:
@@ -517,17 +525,6 @@ Treść żądania JSON:
   }
 }
 ```
-
-## <a name="limitations"></a>Ograniczenia
-Pula zaplecza skonfigurowana przy użyciu adresu IP ma następujące ograniczenia:
-  * Tylko Standardowa usługa równoważenia obciążenia
-  * Limit 100 adresów IP w puli zaplecza
-  * Zasoby zaplecza muszą znajdować się w tej samej sieci wirtualnej co moduł równoważenia obciążenia
-  * Load Balancer z pulą zaplecza opartego na protokole IP nie może pełnić funkcji usługi linku prywatnego
-  * Ta funkcja nie jest obecnie obsługiwana w Azure Portal
-  * Kontenery ACI nie są obecnie obsługiwane przez tę funkcję
-  * Moduły równoważenia obciążenia lub usługi frontonu nie mogą być umieszczane w puli zaplecza modułu równoważenia obciążenia
-  * Nie można określać reguł NAT dla ruchu przychodzącego za pomocą adresu IP
   
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono informacje dotyczące zarządzania pulą zaplecza Azure Load Balancer oraz konfigurowania puli zaplecza przy użyciu adresu IP i sieci wirtualnej.

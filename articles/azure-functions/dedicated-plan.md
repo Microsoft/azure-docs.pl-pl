@@ -3,12 +3,12 @@ title: Azure Functions hosting dedykowany
 description: Dowiedz się więcej na temat korzyści z używania Azure Functions na dedykowanym App Service plan hostingu.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591057"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704569"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Dedykowane plany hostingu dla Azure Functions
 
@@ -41,7 +41,7 @@ Korzystając z planu App Service, można ręcznie skalować w poziomie, dodając
 
 ## <a name="app-service-environments"></a>Środowiska usługi App Service
 
-Uruchamianie w [App Service Environment](../app-service/environment/intro.md) (ASE) pozwala w pełni izolować funkcje i korzystać z większej liczby wystąpień niż plan App Service. Aby rozpocząć, zobacz.
+Uruchamianie w App Service Environment (ASE) pozwala w pełni izolować funkcje i korzystać z większej liczby wystąpień niż plan App Service. Aby rozpocząć, zobacz [wprowadzenie do środowisk App Service](../app-service/environment/intro.md).
 
 Jeśli chcesz po prostu uruchomić aplikację funkcji w sieci wirtualnej, możesz to zrobić przy użyciu [planu Premium](functions-premium-plan.md). Aby dowiedzieć się więcej, zobacz [ustanawianie Azure Functions dostępu do lokacji prywatnej](functions-create-private-site-access.md). 
 

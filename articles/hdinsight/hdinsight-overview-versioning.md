@@ -1,0 +1,44 @@
+---
+title: Wprowadzenie do obsługi wersji — usługa Azure HDInsight
+description: Dowiedz się, jak działa przechowywanie wersji w usłudze Azure HDInsight.
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: deshriva
+ms.date: 02/08/2021
+ms.openlocfilehash: c4dddeef5daf167eeef92532b61ed986861896e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101745358"
+---
+# <a name="how-versioning-works-in-hdinsight"></a>Jak działa przechowywanie wersji w usłudze HDInsight
+
+Usługa HDInsight ma dwa główne składniki: dostawcę zasobów i składniki Apache Hadoop, które są wdrożone w klastrze. 
+
+## <a name="hdinsight-resource-provider"></a>Dostawca zasobów usługi HDInsight
+
+Zasoby na platformie Azure są udostępniane przez dostawcę zasobów. Dostawca zasobów usługi HDInsight jest odpowiedzialny za tworzenie i usuwanie klastrów oraz zarządzanie nimi.
+
+## <a name="hdinsight-images"></a>Obrazy usługi HDInsight
+
+Usługa HDInsight używa obrazów do łączenia składników oprogramowania typu "open source" (OSS), które można wdrożyć w klastrze. Te obrazy zawierają podstawowy system operacyjny Ubuntu i podstawowe składniki, takie jak Spark, Hadoop, Kafka, HBase lub Hive.
+
+## <a name="versioning-in-hdinsight"></a>Przechowywanie wersji w usłudze HDInsight
+
+Firma Microsoft okresowo uaktualnia obrazy i dostawcę zasobów usługi HDInsight w celu uwzględnienia nowych ulepszeń i funkcji.
+
+Nową wersję usługi HDInsight można utworzyć, gdy spełnione są co najmniej jedno z następujących warunków:
+
+- Najważniejsze zmiany lub aktualizacje funkcjonalności dostawcy zasobów usługi HDInsight
+- Główne wersje składników usługi OSS
+- Istotne zmiany w systemie operacyjnym Ubuntu
+
+Zostanie utworzona nowa wersja obrazu, gdy co najmniej jeden z następujących warunków jest spełniony:
+
+- Wersje główne lub pomocnicze oraz aktualizacje składników usługi OSS
+- Poprawki lub poprawki dla składnika w obrazie
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Składniki i wersje oprogramowania Apache w usłudze HDInsight](./hdinsight-component-versioning.md)

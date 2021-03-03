@@ -4,19 +4,19 @@ description: Informacje o schemacie JSON, który jest publikowany w adresie URL 
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: bdac71655ca0c517624f8aa033ee5bc7fcc9d12a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701148"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
 W ramach definicji grupy akcji można skonfigurować punkty końcowe elementu webhook, aby otrzymywać powiadomienia o alertach dziennika aktywności. Za pomocą elementów webhook można kierować te powiadomienia do innych systemów na potrzeby akcji wykonywanych po przetworzeniu lub w niestandardowym. W tym artykule przedstawiono sposób, w jaki zostanie wyświetlony ładunek dla wpisu HTTP dla elementu webhook.
 
-Aby uzyskać więcej informacji na temat alertów dziennika aktywności, zobacz jak [utworzyć alerty dziennika aktywności platformy Azure](../platform/activity-log-alerts.md).
+Aby uzyskać więcej informacji na temat alertów dziennika aktywności, zobacz jak [utworzyć alerty dziennika aktywności platformy Azure](./activity-log-alerts.md).
 
-Aby uzyskać informacje na temat grup akcji, zobacz How to [Create Action Groups](../platform/action-groups.md).
+Aby uzyskać informacje na temat grup akcji, zobacz How to [Create Action Groups](./action-groups.md).
 
 > [!NOTE]
 > Można również użyć [typowego schematu alertu](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor, dla integracji elementów webhook. [Dowiedz się więcej na temat typowych definicji schematu alertów.](./alerts-common-schema-definitions.md)
@@ -298,10 +298,10 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | status |Ciąg. Stan operacji. Wspólne wartości obejmują rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne i rozwiązane. |
 | subStatus |Zwykle zawiera kod stanu HTTP odpowiadającego wywołania REST. Może również zawierać inne ciągi opisujące podstan. Typowe wartości Substatus to OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowano (kod stanu HTTP: 202), brak zawartości (kod stanu HTTP: 204), niewłaściwe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu http: 404), konflikt (kod stanu usługi http: 409), wewnętrzny błąd serwera (kod stanu http: 500), Usługa niedostępna (kod stanu http: 503) i limit czasu bramy : 504). |
 
-Szczegółowe informacje o schemacie wszystkich innych alertów dziennika aktywności można znaleźć w temacie [Omówienie dziennika aktywności platformy Azure](../platform/platform-logs-overview.md).
+Szczegółowe informacje o schemacie wszystkich innych alertów dziennika aktywności można znaleźć w temacie [Omówienie dziennika aktywności platformy Azure](../essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o dzienniku aktywności](../platform/platform-logs-overview.md).
+* [Dowiedz się więcej o dzienniku aktywności](../essentials/platform-logs-overview.md).
 * [Wykonaj skrypty usługi Azure Automation (elementy Runbook) w alertach platformy Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Użyj aplikacji logiki, aby wysłać wiadomość SMS za pośrednictwem Twilio z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.
 * [Użyj aplikacji logiki do wysłania komunikatu o zapasach z alertu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Ten przykład dotyczy alertów metryk, ale można go zmodyfikować do pracy z alertem dziennika aktywności.

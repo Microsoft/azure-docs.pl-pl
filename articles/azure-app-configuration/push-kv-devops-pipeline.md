@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979610"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718186"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia wypychania do konfiguracji aplikacji z Azure Pipelines
 
@@ -80,7 +80,7 @@ Następujące parametry są używane przez zadanie wypychania konfiguracji aplik
 
 - **Subskrypcja platformy Azure**: Lista rozwijana zawierająca dostępne połączenia usługi platformy Azure. Aby zaktualizować i odświeżyć listę dostępnych połączeń usługi platformy Azure, kliknij przycisk **Odśwież subskrypcję platformy Azure** z prawej strony pola tekstowego.
 - **Nazwa konfiguracji aplikacji**: Lista rozwijana, która ładuje dostępne magazyny konfiguracji w ramach wybranej subskrypcji. Aby zaktualizować i odświeżyć listę dostępnych magazynów konfiguracji, naciśnij przycisk **Odśwież nazwę konfiguracji aplikacji** z prawej strony pola tekstowego.
-- **Ścieżka pliku konfiguracji**: ścieżka do pliku konfiguracji. Możesz przeglądać artefakt kompilacji, aby wybrać plik konfiguracji. ( `...` przycisk z prawej strony pola tekstowego).
+- **Ścieżka pliku konfiguracji**: ścieżka do pliku konfiguracji. Możesz przeglądać artefakt kompilacji, aby wybrać plik konfiguracji. ( `...` przycisk z prawej strony pola tekstowego). Obsługiwane formaty plików to: YAML, JSON, Properties.
 - **Separator**: separator używany do spłaszczania plików JSON i YML.
 - **Głębokość**: głębokość, do której zostaną spłaszczone pliki JSON i YML.
 - **Prefix**: ciąg, który jest dołączany na początku każdego klucza wypychanego do magazynu konfiguracji aplikacji.

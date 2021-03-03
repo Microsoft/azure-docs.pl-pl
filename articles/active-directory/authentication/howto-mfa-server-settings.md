@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689049"
 ---
 # <a name="configure-mfa-server-settings"></a>Konfigurowanie ustawień serwera usługi MFA
 
@@ -27,7 +27,7 @@ Ten artykuł ułatwia zarządzanie ustawieniami serwera usługi Azure MFA w Azur
 
 Dostępne są następujące ustawienia serwera MFA:
 
-| Cechy | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | Ustawienia serwera | Pobierz serwer usługi MFA i Wygeneruj poświadczenia aktywacji w celu zainicjowania środowiska |
 | [Jednorazowe obejście](#one-time-bypass) | Zezwalaj użytkownikowi na uwierzytelnianie bez uwierzytelniania wieloskładnikowego przez ograniczony czas. |
@@ -44,7 +44,7 @@ Aby utworzyć jednorazowe obejście, wykonaj następujące czynności:
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie przejdź do usługi **Security**  >  **MFA**  >  **jednorazowe obejście**.
 1. Wybierz pozycję **Dodaj**.
 1. W razie potrzeby wybierz grupę replikacji dla obejścia.
-1. Wprowadź nazwę użytkownika jako `username\@domain.com` . Wprowadź liczbę sekund, przez jaką obejście ma być ostatni i powód obejścia.
+1. Wprowadź nazwę użytkownika jako `username@domain.com` . Wprowadź liczbę sekund, przez jaką obejście ma być ostatni i powód obejścia.
 1. Wybierz pozycję **Dodaj**. Limit czasu zaczyna obowiązywać natychmiast. Użytkownik musi się zalogować przed upływem jednorazowego obejścia.
 
 Możesz również wyświetlić raport jednorazowe obejście z tego samego okna.
@@ -60,7 +60,7 @@ Buforowanie jest używane głównie w przypadku systemów lokalnych, takich jak 
 
 Aby skonfigurować buforowanie, wykonaj następujące czynności:
 
-1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **reguły buforowania** usługi MFA.
+1. Przejdź do **Azure Active Directory**  >    >    >  **reguły buforowania** usługi MFA.
 1. Wybierz pozycję **Dodaj**.
 1. Z listy rozwijanej wybierz **Typ pamięci podręcznej** . Wprowadź maksymalną liczbę sekund w **pamięci podręcznej**.
 1. W razie potrzeby wybierz typ uwierzytelniania i Określ aplikację.

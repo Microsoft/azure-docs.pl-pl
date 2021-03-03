@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bccd1f001cca67a5be3d14c50e6a6db96cb6584c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731701"
 ---
 # <a name="azure-monitor-data-platform"></a>Platforma danych Azure Monitor
 
@@ -28,7 +28,7 @@ Umożliwienie wglądu w współczesnych środowiskach obliczeniowych uruchamiaj�
 ## <a name="observability-data-in-azure-monitor"></a>Dane dotyczące zaobserwowania w Azure Monitor
 Metryki, dzienniki i rozproszone ślady są często określane jako trzy filary przestrzegania. Są to różne rodzaje danych, które narzędzie monitorowania musi zbierać i analizować, aby zapewnić wystarczającą zauważalność monitorowanego systemu. Zauważalność można osiągnąć poprzez skorelowanie danych z wielu filarów i agregowanie danych w całym monitorowanym zestawie zasobów. Ponieważ Azure Monitor przechowuje dane z wielu źródeł jednocześnie, dane mogą być skorelowane i analizowane przy użyciu wspólnego zestawu narzędzi. W programie są również skorelowane dane wielu subskrypcji platformy Azure i dzierżawców, a także dane hostingu dla innych usług.
 
-Zasoby platformy Azure generują znaczną ilość danych monitorowania. Azure Monitor konsoliduje te dane wraz z danymi monitorowania z innych źródeł na platformie metryk lub dzienników. Każda z nich jest zoptymalizowana pod kątem określonych scenariuszy monitorowania, a każdy z nich obsługuje różne funkcje w Azure Monitor. Funkcje, takie jak analiza danych, wizualizacje lub alerty, wymagają zrozumienia różnic, dzięki czemu można zaimplementować wymagany scenariusz w najbardziej efektywny i ekonomiczny sposób. Szczegółowe informacje w Azure Monitor takich jak [Application Insights](app/app-insights-overview.md) lub [Azure monitor dla maszyn wirtualnych](vm/vminsights-overview.md) zawierają narzędzia analityczne, które umożliwiają skoncentrowanie się na konkretnym scenariuszu monitorowania bez konieczności zrozumienia różnic między dwoma typami danych. 
+Zasoby platformy Azure generują znaczną ilość danych monitorowania. Azure Monitor konsoliduje te dane wraz z danymi monitorowania z innych źródeł na platformie metryk lub dzienników. Każda z nich jest zoptymalizowana pod kątem określonych scenariuszy monitorowania, a każdy z nich obsługuje różne funkcje w Azure Monitor. Funkcje, takie jak analiza danych, wizualizacje lub alerty, wymagają zrozumienia różnic, dzięki czemu można zaimplementować wymagany scenariusz w najbardziej efektywny i ekonomiczny sposób. Szczegółowe informacje w Azure Monitor takich jak [Application Insights](app/app-insights-overview.md) lub [Informacje o maszynie wirtualnej](vm/vminsights-overview.md) zawierają narzędzia analityczne, które umożliwiają skoncentrowanie się na konkretnym scenariuszu monitorowania bez konieczności zrozumienia różnic między dwoma typami danych. 
 
 
 ### <a name="metrics"></a>Metryki

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 37b9860546f9fd16045906ce9385a1590c46b970
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712933"
 ---
 # <a name="create-a-translator-resource"></a>Tworzenie zasobu usługi translator
 
@@ -57,7 +57,7 @@ Dostęp do usługi translator można uzyskać za pomocą dwóch różnych typów
 
 1. **Grupa zasobów**. Wybrana grupa zasobów platformy Azure będzie stanowić kontener wirtualny dla nowego zasobu. Można utworzyć nową grupę zasobów lub dodać zasób do istniejącej grupy zasobów, która współużytkuje ten sam cykl życia, uprawnienia i zasady.
 
-1. **Region zasobu**. Wybierz pozycję **globalne** , chyba że Twoja firma lub aplikacja nie wymaga określonego regionu. Translator jest usługą nieregionalną — nie ma zależności w określonym regionie świadczenia usługi Azure. *Zobacz* [regiony i strefy dostępności na platformie Azure](/azure/availability-zones/az-overview).
+1. **Region zasobu**. Wybierz pozycję **globalne** , chyba że Twoja firma lub aplikacja nie wymaga określonego regionu. Translator jest usługą nieregionalną — nie ma zależności w określonym regionie świadczenia usługi Azure. *Zobacz* [regiony i strefy dostępności na platformie Azure](../../availability-zones/az-overview.md).
 
 1. **Nazwa**. Wprowadź nazwę wybraną dla zasobu. Wybrana nazwa musi być unikatowa w ramach platformy Azure.
 

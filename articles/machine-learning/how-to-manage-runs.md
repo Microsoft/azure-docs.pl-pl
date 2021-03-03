@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691505"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 
@@ -112,17 +112,7 @@ Potrzebne będą następujące elementy:
         > Więcej przykładowych plików runconfig można znaleźć w temacie [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
         Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    Aby rozpocząć przesyłanie potoku w projektancie, wykonaj następujące czynności:
-    
-    1. Ustaw domyślny element docelowy obliczeń dla potoku.
-    
-    1. Wybierz pozycję **Uruchom** w górnej części kanwy potoku.
-    
-    1. Wybierz eksperyment, aby zgrupować uruchomienia potoku.
-    
+
     ---
 
 * Monitorowanie stanu przebiegu
@@ -183,24 +173,128 @@ Potrzebne będą następujące elementy:
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    Aby wyświetlić liczbę aktywnych przebiegów eksperymentu w programie Studio.
+    Aby wyświetlić przebiegi w programie Studio: 
     
-    1. Przejdź do sekcji **eksperymenty** .
+    1. Przejdź do karty **eksperymenty** .
     
-    1. Wybierz eksperyment.
+    1. Wybierz **wszystkie eksperymenty** , aby wyświetlić wszystkie uruchomienia w eksperymentie, lub wybierz pozycję **wszystkie uruchomienia** , aby wyświetlić wszystkie uruchomienia przesłane w obszarze roboczym.
     
-        Na stronie eksperymentów można zobaczyć liczbę aktywnych elementów docelowych obliczeń i czas trwania każdego uruchomienia. 
+        Na stronie **wszystkie uruchomienia** można filtrować listę uruchamiania według tagów, eksperymentów, obiektów docelowych obliczeń i nie tylko w celu lepszego organizowania i określania zakresu pracy.  
     
-    1. Dodawaj do eksperymentu, wybierając pozycję uruchomienia do porównania, dodając wykresy lub stosując filtry. Te zmiany można zapisać jako **widok niestandardowy** , aby można było łatwo wrócić do swojej pracy. Użytkownicy z uprawnieniami obszaru roboczego mogą edytować lub wyświetlać widok niestandardowy. Ponadto udostępnianie widoku niestandardowego innym osobom przez kopiowanie i wklejanie adresu URL w przeglądarce.  
+    1. Wprowadź dostosowania na stronie, wybierając pozycję uruchomienia do porównania, dodając wykresy lub stosując filtry. Te zmiany można zapisać jako **widok niestandardowy** , aby można było łatwo wrócić do swojej pracy. Użytkownicy z uprawnieniami obszaru roboczego mogą edytować lub wyświetlać widok niestandardowy. Ponadto Udostępnij widok niestandardowy członkom zespołu w celu zwiększenia współpracy, wybierając pozycję **Udostępnij widok**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Zrzut ekranu: Tworzenie widoku niestandardowego":::
     
-    1. Wybierz konkretny numer uruchomienia.
-    
-    1. Na karcie **dzienniki** można znaleźć dzienniki diagnostyczne i błędy dla uruchomienia potoku.
+    1. Aby wyświetlić dzienniki uruchamiania, wybierz konkretny przebieg i na karcie dane **wyjściowe + dzienniki** możesz znaleźć dzienniki diagnostyki i błędów dla przebiegu.
     
     ---
+
+## <a name="run-description"></a>Opis uruchomienia 
+
+Opis uruchomienia można dodać do przebiegu, aby zapewnić więcej kontekstu i informacje o przebiegu. Możesz również wyszukać te opisy z listy uruchomień i dodać opis uruchomienia jako kolumnę na liście uruchomień. 
+
+Przejdź do strony **szczegóły uruchamiania** dla przebiegu i wybierz ikonę Edytuj lub ołówka, aby dodać, edytować lub usunąć opisy dla przebiegu. Aby zachować zmiany na liście uruchomień, Zapisz zmiany w istniejącym widoku niestandardowym lub w nowym widoku niestandardowym. Format promocji jest obsługiwany w przypadku opisów uruchamiania, które umożliwiają osadzanie obrazów i głębokie łączenie, jak pokazano poniżej.
+
+:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Zrzut ekranu: Tworzenie opisu przebiegu"::: 
     
+
+## <a name="tag-and-find-runs"></a>Tagi i Znajdź przebiegi
+
+W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić organizowanie i wykonywanie zapytań dotyczących przebiegów w celu uzyskania ważnych informacji.
+
+* Dodaj właściwości i Tagi
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    Właściwości są niezmienne, więc tworzą stałe rekordy do celów inspekcji. Poniższy przykład kodu powoduje błąd, ponieważ został już dodany `"azureml-user"` jako `"author"` wartość właściwości w poprzednim kodzie:
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) metody.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    Możesz również dodać proste Tagi ciągu. Gdy Tagi są wyświetlane w słowniku tagów jako klucze, mają one wartość `None` .
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    > [!NOTE]
+    > Za pomocą interfejsu wiersza polecenia można dodawać i aktualizować tylko Tagi.
+    
+    Aby dodać lub zaktualizować tag, użyj następującego polecenia:
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Możesz dodawać, edytować lub usuwać Tagi uruchomieniowe z Studio. Przejdź do strony **szczegóły uruchamiania** dla przebiegu i wybierz ikonę Edytuj lub ołówka, aby dodać, edytować lub usunąć Tagi dla przebiegów. Możesz również wyszukiwać Tagi i filtrować je na stronie listy uruchamiania.
+    
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Zrzut ekranu: Dodawanie, edytowanie lub usuwanie tagów uruchamiania":::
+    
+    ---
+
+* Właściwości zapytania i Tagi
+
+    Możesz wykonywać zapytania w ramach eksperymentu, aby zwrócić listę przebiegów zgodnych z określonymi właściwościami i tagami.
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+    
+    Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. Poniższe przykłady przedstawiają niektóre zapytania przy użyciu właściwości i tagów:
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    1. Przejdź do listy  **wszystkie uruchomienia** .
+    
+    1. Użyj paska wyszukiwania, aby odfiltrować metadane uruchamiania, takie jak Tagi, opisy, nazwy eksperymentów i nazwisko osoby przesyłającej. Filtr tagów może również służyć do filtrowania tagów. 
+    
+    ---
+
+
 ## <a name="cancel-or-fail-runs"></a>Anulowanie lub niepowodzenie przebiegów
 
 Jeśli zauważysz błąd lub jeśli wykonywanie przebiegu trwa zbyt długo, możesz anulować przebieg.
@@ -344,101 +438,6 @@ current_child_run = Run.get_context()
 root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
 
 ```
-
-
-## <a name="tag-and-find-runs"></a>Tagi i Znajdź przebiegi
-
-W Azure Machine Learning można użyć właściwości i tagów, aby ułatwić organizowanie i wykonywanie zapytań dotyczących przebiegów w celu uzyskania ważnych informacji.
-
-* Dodaj właściwości i Tagi
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    Aby dodać metadane z możliwością wyszukiwania do przebiegów, użyj [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) metody. Na przykład poniższy kod dodaje `"author"` Właściwość do przebiegu:
-    
-    ```Python
-    local_run.add_properties({"author":"azureml-user"})
-    print(local_run.get_properties())
-    ```
-    
-    Właściwości są niezmienne, więc tworzą stałe rekordy do celów inspekcji. Poniższy przykład kodu powoduje błąd, ponieważ został już dodany `"azureml-user"` jako `"author"` wartość właściwości w poprzednim kodzie:
-    
-    ```Python
-    try:
-        local_run.add_properties({"author":"different-user"})
-    except Exception as e:
-        print(e)
-    ```
-    
-    W przeciwieństwie do właściwości, Tagi są modyfikowalne. Aby dodać wyszukiwanie i istotne informacje dla klientów eksperymentu, użyj [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) metody.
-    
-    ```Python
-    local_run.tag("quality", "great run")
-    print(local_run.get_tags())
-    
-    local_run.tag("quality", "fantastic run")
-    print(local_run.get_tags())
-    ```
-    
-    Możesz również dodać proste Tagi ciągu. Gdy Tagi są wyświetlane w słowniku tagów jako klucze, mają one wartość `None` .
-    
-    ```Python
-    local_run.tag("worth another look")
-    print(local_run.get_tags())
-    ```
-    
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-    
-    > [!NOTE]
-    > Za pomocą interfejsu wiersza polecenia można dodawać i aktualizować tylko Tagi.
-    
-    Aby dodać lub zaktualizować tag, użyj następującego polecenia:
-    
-    ```azurecli-interactive
-    az ml run update -r runid --add-tag quality='fantastic run'
-    ```
-    
-    Aby uzyskać więcej informacji, zobacz [AZ ml Run Update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    Możesz wyświetlić właściwości i Tagi w programie Studio, ale nie można ich modyfikować.
-    
-    ---
-
-* Właściwości zapytania i Tagi
-
-    Możesz wykonywać zapytania w ramach eksperymentu, aby zwrócić listę przebiegów zgodnych z określonymi właściwościami i tagami.
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    ```Python
-    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-    ```
-    
-    # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-    
-    Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. Poniższe przykłady przedstawiają niektóre zapytania przy użyciu właściwości i tagów:
-    
-    ```azurecli-interactive
-    # list runs where the author property = 'azureml-user'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-    # list runs where the tag contains a key that starts with 'worth another look'
-    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-    ```
-    
-    Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących wyników interfejsu wiersza polecenia platformy Azure, zobacz temat [zapytanie dotyczące danych wyjściowych poleceń platformy Azure](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    1. Przejdź do sekcji **potoki** .
-    
-    1. Korzystając z paska wyszukiwania, można filtrować potoki przy użyciu tagów, opisów, nazw eksperymentów i nazwiska osoby przesyłającej.
-    
-    ---
 
 ## <a name="example-notebooks"></a>Przykładowe notesy
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993673"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728199"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
 Kompresja plików to prosta i skuteczna metoda zwiększania szybkości transferu plików i zwiększania wydajności ładowania strony poprzez zmniejszenie rozmiaru pliku przed jego wysłaniem z serwera. Kompresja plików pozwala zmniejszyć koszty przepustowości i zapewnić użytkownikom większą wydajność.
@@ -153,10 +153,10 @@ W poniższych tabelach opisano zachowanie kompresji Azure CDN w każdym scenariu
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Kompresja jest włączona i plik kwalifikuje się do kompresji
 | Format żądany przez klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | Uwagi |
 | --- | --- | --- | --- |
-| Skompresowane |Skompresowane |Skompresowane |Transkodowanie między obsługiwanymi formatami przez sieć CDN. |
+| Skompresowane |Skompresowane |Skompresowane |Transkodowanie między obsługiwanymi formatami przez sieć CDN. <br/>**Azure CDN firmy Microsoft** nie obsługuje transkodowania między formatami, a zamiast tego pobiera dane ze źródła, kompresuje i buforuje oddzielnie dla formatu. |
 | Skompresowane |Nieskompresowanych |Skompresowane |Usługa CDN wykonuje kompresję. |
 | Skompresowane |Niebuforowane |Skompresowane |Usługa CDN wykonuje kompresję, jeśli źródło zwróci nieskompresowany plik. <br/>**Azure CDN z Verizon** przekazuje nieskompresowany plik pierwszego żądania, a następnie kompresuje i buforuje plik pod kątem kolejnych żądań. <br/>Pliki z `Cache-Control: no-cache` nagłówkiem nigdy nie są kompresowane. |
-| Nieskompresowanych |Skompresowane |Nieskompresowanych |Usługa CDN wykonuje dekompresowanie. |
+| Nieskompresowanych |Skompresowane |Nieskompresowanych |Usługa CDN wykonuje dekompresowanie. <br/>**Azure CDN firmy Microsoft** nie obsługuje dekompresji i zamiast tego pobiera dane z lokalizacji źródłowej i pamięci podręcznej oddzielnie dla nieskompresowanych klientów. |
 | Nieskompresowanych |Nieskompresowanych |Nieskompresowanych | |
 | Nieskompresowanych |Niebuforowane |Nieskompresowanych | |
 

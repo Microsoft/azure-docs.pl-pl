@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ca039a449e355e47563b689f5f44cced164fea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231439"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724153"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure
 
@@ -23,6 +23,8 @@ WAF na wierzchu drzwi to globalne i scentralizowane rozwiązanie. Jest ona wdra�
 WAF zapobiega złośliwym atakom blisko źródeł ataków przed wprowadzeniem do sieci wirtualnej. Na dużą skalę możesz uzyskać ochronę globalną, bez obniżania wydajności. Zasady WAF łatwo łączą się z dowolnym profilem drzwi do przodu w ramach subskrypcji. Nowe reguły można wdrożyć w ciągu kilku minut, dzięki czemu można szybko reagować na zmiany wzorców zagrożeń.
 
 ![Zapora aplikacji internetowej platformy Azure](../media/overview/wafoverview.png)
+
+[W wersji zapoznawczej platformy Azure z przodu wprowadzono dwie nowe jednostki SKU](https://docs.microsoft.com/azure/frontdoor/standard-premium/overview): Standard tylnego drzwi i jednostkę SKU w warstwie Premium. WAF jest natywnie zintegrowana z jednostką SKU Premium dla drzwi z pełnymi możliwościami. Dla standardowej jednostki SKU z przodu, obsługiwane są tylko [reguły niestandardowe](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#custom-authored-rules) .
 
 ## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 
@@ -117,7 +119,7 @@ Nieznane botów są klasyfikowane przez opublikowanych agentów użytkownika bez
 
 Jeśli ochrona bot jest włączona, przychodzące żądania zgodne z regułami bot są rejestrowane w dzienniku FrontdoorWebApplicationFirewallLog. Użytkownik może uzyskać dostęp do dzienników WAF z konta magazynu, centrum zdarzeń lub usługi log Analytics.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

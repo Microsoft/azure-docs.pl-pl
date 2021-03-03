@@ -1,18 +1,18 @@
 ---
-title: Rejestrowanie alertów z Azure Monitor dla kontenerów | Microsoft Docs
-description: W tym artykule opisano sposób tworzenia niestandardowych alertów dziennika dla pamięci i wykorzystania procesora CPU z Azure Monitor dla kontenerów.
+title: Rejestrowanie alertów z usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano sposób tworzenia niestandardowych alertów dziennika dla wykorzystania pamięci i procesora CPU z usługi Container Insights.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711199"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Jak utworzyć alerty dzienników z usługi Azure Monitor dla kontenerów
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Jak tworzyć alerty dzienników z usługi Container Insights
 
-Azure Monitor dla kontenerów monitoruje wydajność obciążeń kontenera wdrożonych w zarządzanych lub samozarządzanej klastrów Kubernetes. Aby otrzymywać alerty dotyczące zagadnień, w tym artykule opisano sposób tworzenia alertów opartych na dzienniku dla następujących sytuacji z klastrami AKS:
+Usługi Container Insights monitorują wydajność obciążeń kontenera wdrożonych w zarządzanych lub samozarządzanej klastrów Kubernetes. Aby otrzymywać alerty dotyczące zagadnień, w tym artykule opisano sposób tworzenia alertów opartych na dzienniku dla następujących sytuacji z klastrami AKS:
 
 - Gdy użycie procesora CPU lub pamięci w węzłach klastra przekracza wartość progową
 - Gdy użycie procesora lub pamięci w dowolnym kontenerze w kontrolerze przekracza próg w porównaniu z limitem ustawionym dla odpowiedniego zasobu
@@ -20,9 +20,9 @@ Azure Monitor dla kontenerów monitoruje wydajność obciążeń kontenera wdro�
 - Liczba *zakończonych niepowodzeniem*, *oczekujących*, *nieznanych*, *uruchomionych* lub *zakończonych powodzeniem*
 - Gdy ilość wolnego miejsca na dysku w węzłach klastra przekracza wartość progową
 
-Aby otrzymywać alerty dotyczące wysokiego użycia procesora CPU lub pamięci lub małej ilości wolnego miejsca na dysku klastra, użyj zapytań dostarczonych do utworzenia alertu metryki lub alertu pomiaru metryki. Alerty metryk mają mniejsze opóźnienia niż alerty dzienników, ale alerty dzienników zapewniają zaawansowane zapytania i złożoności. Zapytania alertów dziennika porównują datę i godzinę do obecne przy użyciu operatora *Now* i cofają jedną godzinę. (Azure Monitor dla kontenerów przechowuje wszystkie daty w formacie uniwersalnego czasu koordynowanego (UTC).)
+Aby otrzymywać alerty dotyczące wysokiego użycia procesora CPU lub pamięci lub małej ilości wolnego miejsca na dysku klastra, użyj zapytań dostarczonych do utworzenia alertu metryki lub alertu pomiaru metryki. Alerty metryk mają mniejsze opóźnienia niż alerty dzienników, ale alerty dzienników zapewniają zaawansowane zapytania i złożoności. Zapytania alertów dziennika porównują datę i godzinę do obecne przy użyciu operatora *Now* i cofają jedną godzinę. (W usłudze Container Insights są przechowywane wszystkie daty w formacie uniwersalnego czasu koordynowanego (UTC).)
 
-Jeśli nie masz doświadczenia w Azure Monitor alertów, zobacz [Omówienie alertów w usłudze Microsoft Azure](../platform/alerts-overview.md) przed rozpoczęciem. Aby dowiedzieć się więcej o alertach korzystających z zapytań dzienników, zobacz [alerty dzienników w Azure monitor](../alerts/alerts-unified-log.md). Aby uzyskać więcej informacji na temat alertów metryk, zobacz [alerty metryk w Azure monitor](../alerts/alerts-metric-overview.md).
+Jeśli nie masz doświadczenia w Azure Monitor alertów, zobacz [Omówienie alertów w usłudze Microsoft Azure](../alerts/alerts-overview.md) przed rozpoczęciem. Aby dowiedzieć się więcej o alertach korzystających z zapytań dzienników, zobacz [alerty dzienników w Azure monitor](../alerts/alerts-unified-log.md). Aby uzyskać więcej informacji na temat alertów metryk, zobacz [alerty metryk w Azure monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Zapytania wyszukiwania dzienników wykorzystania zasobów
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
 
-Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla kontenerów. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności. Użyj jednej z zapytań przeszukiwania dzienników podanych wcześniej, aby zacząć od. Aby utworzyć przy użyciu szablonu ARM, zobacz [przykłady tworzenia alertów dziennika przy użyciu szablonu zasobów platformy Azure](../alerts/alerts-log-create-templates.md).
+Ta sekcja zawiera informacje na temat tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z usługi Container Insights. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności. Użyj jednej z zapytań przeszukiwania dzienników podanych wcześniej, aby zacząć od. Aby utworzyć przy użyciu szablonu ARM, zobacz [przykłady tworzenia alertów dziennika przy użyciu szablonu zasobów platformy Azure](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >Poniższa procedura umożliwia utworzenie reguły alertu dotyczącego użycia zasobów kontenera. w tym celu należy przełączyć się do nowego interfejsu API alertów dziennika, zgodnie z opisem w [preferencjach przełącznika interfejsu API dla alertów dzienników](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu p
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W Azure Portal Wyszukaj i wybierz pozycję **log Analytics obszary robocze**.
-3. Na liście obszarów roboczych Log Analytics wybierz obszar roboczy obsługujący Azure Monitor kontenerów. 
+3. Na liście obszarów roboczych Log Analytics wybierz obszar roboczy obsługujący szczegółowe informacje o kontenerze. 
 4. W okienku po lewej stronie wybierz pozycję **dzienniki** , aby otworzyć stronę Dzienniki Azure monitor. Ta strona służy do zapisywania i wykonywania zapytań dotyczących dzienników platformy Azure.
 5. Na stronie **dzienniki** wklej jedno z [zapytań](#resource-utilization-log-search-queries) dostarczonych wcześniej do pola **zapytania wyszukiwania** , a następnie wybierz polecenie **Uruchom** , aby sprawdzić poprawność wyników. Jeśli ten krok nie zostanie wykonane, opcja **+ Nowy alert** nie jest dostępna do wybrania.
 6. Wybierz pozycję **+ Nowy alert** , aby utworzyć alert dziennika.

@@ -6,42 +6,28 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718781"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Obsługiwane wersje serwera Azure Database for MySQL
 
-Azure Database for MySQL został opracowany z firmy [MySQL Community Edition](https://www.mysql.com/products/community/)przy użyciu aparatu InnoDB.
-
-Baza danych MySQL używa schematu nazewnictwa X. Y. Z. X jest wersją główną, Y jest wersją pomocniczą, a Z Z to Poprawka błędu Release. Aby uzyskać więcej informacji na temat schematu, zobacz [dokumentację programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
-
+Azure Database for MySQL został opracowany z firmy [MySQL Community Edition](https://www.mysql.com/products/community/)przy użyciu aparatu magazynu InnoDB. Usługa obsługuje wszystkie bieżące wersje główne obsługiwane przez społeczność, mianowicie MySQL 5,6, 5,7 i 8,0. Baza danych MySQL używa schematu nazewnictwa X. Y, gdzie X jest wersją główną, Y jest wersją pomocniczą, a Z Z to Poprawka błędu. Aby uzyskać więcej informacji na temat schematu, zobacz [dokumentację programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 > [!NOTE]
-> W usłudze brama służy do przekierowywania połączeń do wystąpień serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL.
+> W przypadku opcji wdrożenia pojedynczego serwera Brama jest używana do przekierowywania połączeń z wystąpieniami serwera. Po nawiązaniu połączenia klient oprogramowania MySQL wyświetla wersję oprogramowania MySQL ustawioną w bramie, a nie rzeczywistą wersję uruchomioną w wystąpieniu serwera MySQL. Aby określić wersję wystąpienia serwera MySQL, użyj polecenia `SELECT VERSION();` w wierszu polecenia MySQL.
 
-Azure Database for MySQL obecnie obsługuje następujące wersje:
+Azure Database for MySQL obecnie obsługuje następujące główne i pomocnicze wersje programu MySQL:
 
-## <a name="mysql-version-56"></a>Baza danych MySQL w wersji 5,6
 
-Poprawka poprawek usterek: 5.6.47
-
-Zapoznaj się z [informacjami o wersji](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) programu MySQL, aby dowiedzieć się więcej na temat ulepszeń i poprawek w tej wersji.
-
-## <a name="mysql-version-57"></a>Baza danych MySQL w wersji 5,7
-
-Poprawka poprawek usterek: 5.7.29
-
-Zapoznaj się z [informacjami o wersji](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) programu MySQL, aby dowiedzieć się więcej na temat ulepszeń i poprawek w tej wersji.
-
-## <a name="mysql-version-80"></a>Baza danych MySQL w wersji 8,0
-
-Poprawka poprawek usterek: 8.0.15
-
-Zapoznaj się z [informacjami o wersji](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) programu MySQL, aby dowiedzieć się więcej na temat ulepszeń i poprawek w tej wersji.
+| Wersja | Pojedynczy serwer <br/> Bieżąca wersja pomocnicza |Serwer elastyczny (wersja zapoznawcza) <br/> Bieżąca wersja pomocnicza  |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|
+|Baza danych MySQL w wersji 5,6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Nieobsługiwane|
+|Baza danych MySQL w wersji 5,7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|Baza danych MySQL w wersji 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
 ## <a name="managing-updates-and-upgrades"></a>Zarządzanie aktualizacjami i uaktualnieniami
 Usługa automatycznie zarządza poprawkami do poprawek błędów wersji. Na przykład 5.7.20 do 5.7.21.  

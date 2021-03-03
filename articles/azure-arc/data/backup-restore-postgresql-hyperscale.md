@@ -7,92 +7,28 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071442"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686703"
 ---
-# <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Tworzenie kopii zapasowych i przywracanie dla usługi Azure ARC z włączonymi grupami serwerów PostgreSQL
+# <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Tworzenie kopii zapasowej i przywracanie grup serwerów PostgreSQL z funkcją Azure Arc
 
-Możesz wykonywać pełną kopię zapasową/przywracanie grupy serwerów PostgreSQL z funkcją Azure Arc. Po wykonaniu tej czynności zostanie utworzona kopia zapasowa całego zestawu baz danych we wszystkich węzłach z włączoną grupą serwerów PostgreSQL i/lub przywrócona.
-Aby utworzyć kopię zapasową i przywrócić ją, należy upewnić się, że dla grupy serwerów skonfigurowano klasę magazynu kopii zapasowych. Na razie należy wskazać klasę magazynu kopii zapasowych podczas tworzenia grupy serwerów. Nie można jeszcze skonfigurować grupy serwerów tak, aby korzystała z klasy magazynu kopii zapasowej po jej utworzeniu.
+[!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-> [!CAUTION]
-> Wersja zapoznawcza nie obsługuje tworzenia kopii zapasowych i przywracania w wersji 11 aparatu Postgres. Obsługuje tylko tworzenie kopii zapasowych i przywracanie dla Postgres w wersji 12.
+Po utworzeniu kopii zapasowej lub przywróceniu grupy serwerów z włączoną funkcją Azure Arc PostgreSQL w celu utworzenia kopii zapasowej i/lub przywrócenia całego zestawu baz danych we wszystkich węzłach PostgreSQL grupy serwerów.
 
-## <a name="verify-configuration"></a>Weryfikuj konfigurację
-
-Najpierw sprawdź, czy istniejąca Grupa serwerów została skonfigurowana do korzystania z klasy magazynu kopii zapasowej.
-
-Uruchom następujące polecenie po ustawieniu nazwy grupy serwerów:
-```console
- azdata arc postgres server show -n postgres01
-```
-Zapoznaj się z sekcją magazyn danych wyjściowych:
-```console
-...
-"storage": {
-      "backups": {
-        "className": "local-storage"
-      },
-      "data": {
-        "className": "local-storage",
-        "size": "5Gi"
-      },
-      "logs": {
-        "className": "local-storage",
-        "size": "5Gi"
-      }
-    }
-...
-```
-Jeśli zobaczysz nazwę klasy magazynu wskazanej w sekcji "kopie zapasowe" danych wyjściowych tego polecenia, oznacza to, że Grupa serwerów została skonfigurowana do używania klasy magazynu kopii zapasowych i jest gotowa do wykonania kopii zapasowych i przywrócenia. Jeśli nie widzisz sekcji "kopie zapasowe", musisz usunąć i utworzyć ponownie grupę serwerów, aby skonfigurować klasę magazynu kopii zapasowych. W tym momencie nie można jeszcze konfigurować klasy magazynu kopii zapasowej po utworzeniu grupy serwerów.
-
->[!IMPORTANT]
->Jeśli Grupa serwerów jest już skonfigurowana do używania klasy magazynu kopii zapasowych, Pomiń następny krok i przejdź bezpośrednio do kroku "wykonaj ręczną pełną kopię zapasową".
-
-## <a name="create-a-server-group"></a>Tworzenie grupy serwerów 
-
-Następnie utwórz grupę serwerów skonfigurowaną na potrzeby tworzenia kopii zapasowej/przywracania.
-
-Aby można było tworzyć kopie zapasowe i przywracać je, należy utworzyć serwer, który jest skonfigurowany z klasą magazynu.
-
-Aby uzyskać listę klas magazynu dostępnych w klastrze Kubernetes, uruchom następujące polecenie:
-
-```console
-kubectl get sc
-```
-
-<!--The general format of create server group command is documented [here](create-postgresql-instances.md)-->
-
-```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-backups <storage class name> [--storage-class-data <storage class name>] [--storage-class-logs <storage class name>]
-```
-
-Na przykład jeśli utworzono proste środowisko na podstawie kubeadm:
-```console
-azdata arc postgres server create -n postgres01 --workers 2 --storage-class-backups local-storage
-```
-
-## <a name="take-manual-full-backup"></a>Wykonaj ręczną pełną kopię zapasową
-
-
-Następnie wypełnij ręcznie pełną kopię zapasową.
-
-> [!CAUTION]
-> **Tylko dla użytkowników usługi Azure Kubernetes Service (AKS):** mamy świadomość problemu z tworzeniem kopii zapasowych grupy serwerów hostowanej w usłudze Azure Kubernetes Service (AKS). Już pracujemy nad rozwiązaniem tego problemu. Dopóki aktualizacja nie zostanie wdrożona w przyszłej wersji/aktualizacji, przed rozpoczęciem tworzenia kopii zapasowej należy usunąć wszystkie te grupy serwerów. Dla każdego z zasobników grupy serwerów (można wyświetlić listę zasobników, uruchamiając **polecenia kubectl Get-n \<namespace name> **) usuń je przez uruchomienie **polecenia kubectl Delete pod \<server group pod name> -n \<namespace name> **. Nie usuwaj z nich elementów, które nie są częścią grupy serwerów. Usuwanie z nich nie jest ryzykowne. Poczekaj, aż wszystkie zasobniki przestaną działać w trybie online i w stanie = uruchomiona przed utworzeniem kopii zapasowej. Stan elementu pod jest podany w danych wyjściowych powyższego polecenia Get polecenia kubectl.
-
+## <a name="take-a-manual-full-backup"></a>Ręczna pełna kopia zapasowa
 
 Aby wykonać pełną kopię zapasową wszystkich folderów danych i dzienników grupy serwerów, uruchom następujące polecenie:
-
 ```console
-azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
+azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
 Gdzie:
 - __Nazwa__ wskazuje nazwę kopii zapasowej
@@ -102,18 +38,22 @@ Gdzie:
 To polecenie służy do koordynowania rozproszonej pełnej kopii zapasowej we wszystkich węzłach, które stanowią grupę serwerów z funkcją Azure Arc PostgreSQL. Innymi słowy, będzie tworzyć kopie zapasowe wszystkich danych w koordynatorze i węzłach procesu roboczego.
 
 Na przykład:
+
 ```console
-azdata arc postgres backup create --name MyBackup_Aug31_0730amPST --server-name postgres01
+azdata arc postgres backup create --name backup12082020-0250pm --server-name postgres01
 ```
 
-Po zakończeniu wykonywania kopii zapasowej zostanie zwrócony identyfikator, nazwa i stan kopii zapasowej. Na przykład:
+Po zakończeniu wykonywania kopii zapasowej zostaną zwrócone identyfikatory, nazwy, rozmiar, stan i sygnatura czasowa kopii zapasowej. Na przykład:
 ```console
 {
-  "ID": "d134f51aa87f4044b5fb07cf95cf797f",
-  "name": "MyBackup_Aug31_0730amPS",
-  "state": "Done"
+  "ID": "8085723fcbae4aafb24798c1458f4bb7",
+  "name": "backup12082020-0250pm",
+  "size": "9.04 MiB",
+  "state": "Done",
+  "timestamp": "2020-12-08 22:50:22+00:00"
 }
 ```
+`+xx:yy` wskazuje strefę czasową dla czasu utworzenia kopii zapasowej. W tym przykładzie "+ 00:00" oznacza czas UTC (UTC + 00 godz. 00 minut).
 
 > [!NOTE]
 > Nie jest to jeszcze możliwe:
@@ -122,8 +62,6 @@ Po zakończeniu wykonywania kopii zapasowej zostanie zwrócony identyfikator, na
 
 ## <a name="list-backups"></a>Wyświetlenie listy kopii zapasowych
 
-Utwórz listę kopii zapasowych, które są dostępne do przywrócenia.
-
 Aby wyświetlić listę kopii zapasowych, które są dostępne do przywrócenia, uruchom następujące polecenie:
 
 ```console
@@ -131,55 +69,124 @@ azdata arc postgres backup list --server-name <servergroup name>
 ```
 
 Na przykład:
+
 ```console
 azdata arc postgres backup list --server-name postgres01
 ```
 
-Zwróci dane wyjściowe podobne do:
-```console
-ID                                Name                      State    Timestamp
---------------------------------  ------------------------  -------  ------------------------------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
+Zwraca dane wyjściowe podobne do:
+
+```output
+ID                                Name                   Size       State    Timestamp
+--------------------------------  ---------------------  ---------  -------  -------------------------
+d744303b1b224ef48be9cba4f58c7cb9  backup12072020-0731pm  13.83 MiB  Done     2020-12-08 03:32:09+00:00
+c4f964d28da34318a420e6d14374bd36  backup12072020-0819pm  9.04 MiB   Done     2020-12-08 04:19:49+00:00
+a304c6ef99694645a2a90ce339e94714  backup12072020-0822pm  9.1 MiB    Done     2020-12-08 04:22:26+00:00
+47d1f57ec9014328abb0d8fe56020760  backup12072020-0827pm  9.06 MiB   Done     2020-12-08 04:27:22+00:00
+8085723fcbae4aafb24798c1458f4bb7  backup12082020-0250pm  9.04 MiB   Done     2020-12-08 22:50:22+00:00
 ```
 
-Sygnatura czasowa wskazuje punkt w czasie UTC, w którym wykonano kopię zapasową.
+Kolumna timestamp wskazuje punkt w czasie UTC, w którym wykonano kopię zapasową.
 
 ## <a name="restore-a-backup"></a>Przywracanie kopii zapasowej
+W tej sekcji pokazano, jak wykonać pełne przywracanie lub przywracanie do punktu w czasie. Podczas przywracania pełnej kopii zapasowej, przywracana jest cała zawartość kopii zapasowej. W przypadku przywracania do punktu w czasie należy przywrócić do punktu w czasie. Wszystkie transakcje, które zostały wykonane później niż ten punkt w czasie, nie są przywracane.
 
-Aby przywrócić kopię zapasową całej grupy serwerów, uruchom polecenie:
-
+### <a name="restore-a-full-backup"></a>Przywróć pełną kopię zapasową
+Aby przywrócić całą zawartość kopii zapasowej, uruchom polecenie:
 ```console
-azdata arc postgres backup restore --server-name <server group name> --backup-id <backup id>
+azdata arc postgres backup restore --server-name <target server group name> [--source-server-name <source server group name> --backup-id <backup id>]
+or
+azdata arc postgres backup restore -sn <target server group name> [-ssn <source server group name> --backup-id <backup id>]
 ```
+<!--To read the general format of restore command, run: azdata arc postgres backup restore --help -->
 
 Gdzie:
-- __Backup-ID__ to identyfikator kopii zapasowej pokazanej w poleceniu list Backup (zobacz krok 3).
+- __Backup-ID__ to identyfikator kopii zapasowej pokazanej w powyższym poleceniu tworzenia kopii zapasowej.
 Spowoduje to skoordynowanie rozproszonego pełnego przywracania we wszystkich węzłach, które stanowią grupę serwerów PostgreSQL z funkcją Azure Arc. Innymi słowy, spowoduje to przywrócenie wszystkich danych z koordynatora i węzłów procesu roboczego.
 
-Na przykład:
+#### <a name="examples"></a>Przykłady:
+
+__Przywróć grupę serwerów postgres01 na samą siebie:__
+
 ```console
-azdata arc postgres backup restore --server-name postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
+azdata arc postgres backup restore -sn postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
 ```
 
-Po zakończeniu operacji przywracania zwróci dane wyjściowe podobne do wiersza polecenia:
+Ta operacja jest obsługiwana tylko dla PostgreSQL w wersji 12 lub nowszej.
+
+__Przywróć grupę serwerów postgres01 do innej grupy serwerów postgres02:__
+
 ```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 --backup-id d134f51aa87f4044b5fb07cf95cf797f
+```
+Ta operacja jest obsługiwana dla dowolnej wersji programu PostgreSQL, która rozpoczyna się w wersji 11. Należy utworzyć docelową grupę serwerów przed operacją przywracania, która musi mieć taką samą konfigurację i musi używać tego samego obwodu PVC kopii zapasowej, co źródłowa Grupa serwerów.
+
+Po zakończeniu operacji przywracania zwróci dane wyjściowe podobne do wiersza polecenia:
+
+```json
 {
   "ID": "d134f51aa87f4044b5fb07cf95cf797f",
   "state": "Done"
 }
 ```
+
 > [!NOTE]
 > Nie jest to jeszcze możliwe:
 > - Przywróć kopię zapasową, wskazując jej nazwę
-> - Przywracanie grupy serwerów pod inną nazwą lub w innej grupie serwerów
+> - Pokaż postęp operacji przywracania
+
+
+### <a name="do-a-point-in-time-restore"></a>Przywracanie do punktu w czasie
+
+Aby przywrócić grupę serwerów do określonego czasu punktu, uruchom polecenie:
+```console
+azdata arc postgres backup restore --server-name <target server group name> --source-server-name <source server group name> --time <point in time to restore to>
+or
+azdata arc postgres backup restore -sn <target server group name> -ssn <source server group name> -t <point in time to restore to>
+```
+
+Aby odczytać ogólny format polecenia Restore, uruchom polecenie: `azdata arc postgres backup restore --help` .
+
+Gdzie `time` jest punkt w czasie do przywrócenia. Podaj sygnaturę czasową lub liczbę i sufiks ( `m` w minutach, w `h` godzinach, `d` w dniach lub `w` w tygodniach). Na przykład wraca do `1.5h` 90 minut.
+
+#### <a name="examples"></a>Przykłady:
+__Wykonaj przywracanie do punktu w czasie w postgres01 grupy serwerów na samą siebie:__
+
+Nie jest jeszcze możliwe przeprowadzenie przywracania do punktu w czasie grupy serwerów.
+
+__Wykonaj przywracanie do punktu w czasie z grupy serwerów postgres01 do innej grupy serwerów postgres02 do określonej sygnatury czasowej:__
+```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "2020-12-08 04:23:48.751326+00"
+``` 
+
+Ten przykład przywraca do grupy serwerów postgres02 stan, w którym Grupa serwerów postgres01 była 8 grudnia 2020 o 04:23:48.75 UTC. Należy zauważyć, że wartość "+ 00" wskazuje strefę czasową dla danego punktu w czasie. Jeśli nie wskazano strefy czasowej, zostanie użyta strefa czasowa klienta z uruchomioną operacją przywracania.
+
+Na przykład:
+- `2020-12-08 04:23:48.751326+00` jest interpretowany jako `2020-12-08 04:23:48.751326` czas UTC
+- Jeśli jesteś w standardowym obszarze czasu pacyficznego (PST = UTC + 08), `2020-12-08 04:23:48.751326` jest interpretowany jako `2020-12-08 12:23:48.751326` UTC, ponieważ ta operacja jest obsługiwana dla dowolnej wersji programu PostgreSQL, która jest uruchamiana w wersji 11. Należy utworzyć docelową grupę serwerów przed operacją przywracania i musi ona używać tego samego obwodu PVC kopii zapasowej, co źródłowa Grupa serwerów.
+
+
+__Wykonaj przywracanie do punktu w czasie z grupy serwerów postgres01 do innej grupy serwerów postgres02 w określonym czasie w przeszłości:__
+```console
+azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "22m"
+```
+
+Ten przykład przywraca do grupy serwerów postgres02 stan, w którym Grupa serwerów postgres01 była 22 minut temu.
+Ta operacja jest obsługiwana dla dowolnej wersji programu PostgreSQL, która rozpoczyna się w wersji 11. Należy utworzyć docelową grupę serwerów przed operacją przywracania i musi ona używać tego samego obwodu PVC kopii zapasowej, co źródłowa Grupa serwerów.
+
+> [!NOTE]
+> Nie jest to jeszcze możliwe:
 > - Pokaż postęp operacji przywracania
 
 ## <a name="delete-backups"></a>Usuwanie kopii zapasowych
+
 Nie można ustawić przechowywania kopii zapasowych w wersji zapoznawczej. Można jednak ręcznie usunąć kopie zapasowe, które nie są potrzebne.
 Ogólne polecenie usuwania kopii zapasowych jest następujące:
+
 ```console
 azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 ```
+
 gdzie:
 - `--server-name` jest nazwą grupy serwerów, z której użytkownik chce usunąć kopię zapasową
 - `--name` jest nazwą kopii zapasowej do usunięcia
@@ -188,17 +195,8 @@ gdzie:
 > [!NOTE]
 > `--name` i wykluczają `-id` się wzajemnie.
 
-Możesz pobrać nazwę i identyfikator kopii zapasowych, uruchamiając polecenie Utwórz kopię zapasową zgodnie z opisem w poprzednim akapicie.
+Na przykład:
 
-Rozważmy na przykład następujące kopie zapasowe wymienione poniżej:
-```console
-azdata arc postgres backup list -sn postgres01
-ID                                Name                    State
---------------------------------  ----------------------  -------
-5b0481dfc1c94b4cac79dd56a1bb21f4  MyBackup091720200110am  Done
-0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
-```
-a chcesz usunąć pierwsze z nich, uruchom następujące polecenie:
 ```console
 azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
 {
@@ -207,15 +205,11 @@ azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am
   "state": "Done"
 }
 ```
-Jeśli w tym momencie zawarto listę kopii zapasowych, uzyskasz następujące dane wyjściowe:
-```console
-azdata arc postgres backup list -sn postgres01
-ID                                Name                    State
---------------------------------  ----------------------  -------
-0cf39f1e92344e6db4cfa285d36c7b14  MyBackup091720200111am  Done
-```
+
+Możesz pobrać nazwę i identyfikator kopii zapasowych, uruchamiając polecenie Utwórz kopię zapasową zgodnie z opisem w poprzednim akapicie.
 
 Aby uzyskać więcej informacji na temat polecenia Delete, uruchom polecenie:
+
 ```console
 azdata arc postgres backup delete --help
 ```

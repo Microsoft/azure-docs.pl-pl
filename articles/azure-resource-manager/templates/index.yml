@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 11/06/2020
-  ms.openlocfilehash: 72129eb10de042252c33784d7d98081f0f22a8b9
-  ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
-  ms.translationtype: HT
+  ms.openlocfilehash: 5eb48265241bb6db312ef952e2e0cc5f0519022a
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97346626"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101741093"
 landingContent:
 - title: Informacje o szablonach usługi ARM
   linkLists:
@@ -45,10 +45,12 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Tworzenie szablonów — portal
+    - text: Tworzenie szablonów JSON — Portal
       url: quickstart-create-templates-use-the-portal.md
-    - text: Tworzenie szablonów — program VS Code
+    - text: Tworzenie szablonów JSON — VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Tworzenie szablonów Bicep — VS Code
+      url: quickstart-create-bicep-templates-use-visual-studio-code.md
     - text: Tworzenie i wdrażanie specyfikacji szablonu
       url: quickstart-create-template-specs.md
   - linkListType: tutorial

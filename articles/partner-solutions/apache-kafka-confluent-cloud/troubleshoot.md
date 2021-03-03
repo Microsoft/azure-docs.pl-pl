@@ -3,15 +3,15 @@ title: Rozwiązywanie problemów Apache Kafka w przypadku rozwiązań partnerski
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów i często zadawanych pytań dotyczących usługi Cloud w chmurze na platformie Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253528"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709400"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Apache Kafka rozwiązywania problemów z rozwiązaniami dla rozwiązań w chmurze
 
@@ -28,6 +28,16 @@ Aby znaleźć ofertę w portalu Azure Marketplace, wykonaj następujące czynno�
 1. Wybierz kafelek aplikacji.
 
 Jeśli oferta nie zostanie wyświetlona, skontaktuj się z [pomocą techniczną](https://support.confluent.io). Identyfikator dzierżawy Azure Active Directory musi znajdować się na liście dozwolonych dzierżawców. Aby dowiedzieć się, jak znaleźć swój identyfikator dzierżawy, zobacz [jak znaleźć identyfikator dzierżawy Azure Active Directory](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## <a name="purchase-errors"></a>Błędy zakupów
+
+* Zakup nie powiódł się, ponieważ ważna karta kredytowa nie jest połączona z subskrypcją platformy Azure lub nie jest skojarzona z subskrypcją.
+
+  Użyj innej subskrypcji platformy Azure. Można też dodać lub zaktualizować kartę kredytową lub formę płatności dla subskrypcji. Aby uzyskać więcej informacji, zobacz [Aktualizowanie kredytu i formy płatności](../../cost-management-billing/manage/change-credit-card.md).
+
+* Subskrypcja EA nie zezwala na zakupy w portalu Marketplace.
+
+  Użyj innej subskrypcji. Lub sprawdź, czy subskrypcja EA jest włączona dla zakupu w witrynie Marketplace. Aby uzyskać więcej informacji, zobacz [Włączanie zakupów w portalu Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Jeśli te opcje nie rozwiązują problemu, skontaktuj się z [pomocą techniczną](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>Błąd konfliktu
 

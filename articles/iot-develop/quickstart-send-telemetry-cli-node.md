@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
 ms.date: 01/11/2021
-ms.openlocfilehash: 895b49779a202b817af1ede5082a11a5b1736afd
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6e0264bc0d1bea91a6094f90c4cb41f071e17dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654997"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712587"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-nodejs"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub (Node.js)
 
@@ -73,7 +73,7 @@ W tej sekcji użyjesz zestawu SDK Node.js do wysyłania komunikatów z symulowan
     export DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
 
-1. W otwartej powłoki interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Hub monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) , aby rozpocząć monitorowanie zdarzeń na symulowanym urządzeniu IoT.  Komunikaty o zdarzeniach będą drukowane w terminalu po ich nadejściu.
+1. W otwartej powłoki interfejsu wiersza polecenia Uruchom polecenie [AZ IoT Hub monitor-Events](/cli/azure/ext/azure-iot/iot/hub?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) , aby rozpocząć monitorowanie zdarzeń na symulowanym urządzeniu IoT.  Komunikaty o zdarzeniach będą drukowane w terminalu po ich nadejściu.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -191,12 +191,12 @@ Jeśli zasoby platformy Azure utworzone w ramach tego przewodnika Szybki Start n
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
 Aby usunąć grupę zasobów na podstawie nazwy:
-1. Uruchom polecenie [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) . To polecenie usuwa grupę zasobów, IoT Hub i utworzoną rejestrację urządzenia.
+1. Uruchom polecenie [AZ Group Delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) . To polecenie usuwa grupę zasobów, IoT Hub i utworzoną rejestrację urządzenia.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Uruchom polecenie [AZ Group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) , aby potwierdzić, że grupa zasobów została usunięta.  
+1. Uruchom polecenie [AZ Group list](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-list) , aby potwierdzić, że grupa zasobów została usunięta.  
 
     ```azurecli
     az group list
@@ -208,4 +208,4 @@ W tym przewodniku szybki start przedstawiono podstawowy przepływ pracy aplikacj
 
 Następnym krokiem jest zapoznanie się z zestawem SDK usługi Azure IoT Node.js za pomocą przykładów aplikacji.
 
-- [Więcej przykładów Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples): ten katalog zawiera więcej przykładów z repozytorium zestawu SDK Node.js w celu pokazania IoT Hub scenariuszy. 
+- [Więcej przykładów Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples): ten katalog zawiera więcej przykładów z repozytorium zestawu SDK Node.js w celu pokazania IoT Hub scenariuszy.

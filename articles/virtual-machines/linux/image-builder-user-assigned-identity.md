@@ -3,17 +3,17 @@ title: Tworzenie obrazu maszyny wirtualnej i używanie tożsamości zarządzanej
 description: Utwórz obraz maszyny wirtualnej za pomocą narzędzia Azure Image Builder, który może uzyskiwać dostęp do plików przechowywanych w usłudze Azure Storage przy użyciu tożsamości zarządzanej przypisanej przez użytkownika.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: bed861fe392703c99c088372fa9bdf58ad9572ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9bcb7a94cdf1d5478db32a22ba6e612a90c53ed9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668223"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695383"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Tworzenie obrazu i używanie tożsamości zarządzanej przypisanej przez użytkownika w celu uzyskiwania dostępu do plików w usłudze Azure Storage 
 
@@ -49,6 +49,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 Jeśli nie powiedzie się, uruchom następujące polecenie:
@@ -58,6 +59,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 
@@ -110,7 +112,7 @@ imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
 # download preconfigured role definition example
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # update the definition
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
@@ -148,7 +150,7 @@ az storage blob copy start \
     --destination-blob customizeScript.sh \
     --destination-container $scriptStorageAccContainer \
     --account-name $scriptStorageAcc \
-    --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
+    --source-uri https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
 Nadaj konstruktorowi obrazu uprawnienia do tworzenia zasobów w grupie zasobów obrazu. `--assignee`Wartość jest identyfikatorem użytkownika-tożsamości.
@@ -168,7 +170,7 @@ az role assignment create \
 Pobierz przykładowy plik JSON i skonfiguruj go przy użyciu utworzonych zmiennych.
 
 ```console
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateMsi.json

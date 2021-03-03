@@ -4,12 +4,12 @@ description: Informacje o typowym schemacie alertów, dlaczego należy z nich ko
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 70e37f8f1c9391eee5901f611bae579efe1cd9b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737294"
 ---
 # <a name="common-alert-schema"></a>Typowe schematy alertów
 
@@ -52,7 +52,7 @@ Możesz wybrać lub zrezygnować ze wspólnego schematu alertu za pomocą grup a
 > 1. Następujące typy alertów obsługują domyślnie wspólny schemat (brak zgody na wymagane):
 >     * Alerty inteligentnego wykrywania
 > 1. Następujące typy alertów nie obsługują obecnie wspólnego schematu:
->     * Alerty wygenerowane przez [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md)
+>     * Alerty wygenerowane przez [szczegółowe informacje o maszynie wirtualnej](../vm/vminsights-overview.md)
 >     * Alerty wygenerowane przez [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Za pomocą Azure Portal

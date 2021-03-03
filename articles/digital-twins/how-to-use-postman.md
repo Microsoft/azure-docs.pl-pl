@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715704"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Jak wysyłać żądania do interfejsów API Digital bliźniaczych reprezentacji na platformie Azure przy użyciu programu Poster
 
@@ -140,7 +140,7 @@ Aby kontynuować przykładowe zapytanie, w tym artykule zostanie użyty interfej
 1. Sprawdź, czy nagłówki pokazywane dla żądania na karcie *nagłówki* są zgodne z tymi opisanymi w dokumentacji referencyjnej. Dla tego żądania kilka nagłówków zostało wypełnionych automatycznie. W przypadku interfejsu API zapytań żadna z opcji nagłówka nie jest wymagana, więc ten krok jest wykonywany.
 1. Sprawdź, czy treść pokazana dla żądania na karcie *treść* jest zgodna z wymaganiami opisanymi w dokumentacji referencyjnej. W przypadku interfejsu API zapytań do dostarczania tekstu zapytania jest wymagana treść JSON. Poniżej znajduje się Przykładowa treść tego żądania, która wykonuje zapytania dla wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Szczegóły nowego żądania są wyświetlane na karcie treść. Zawiera on niesformatowaną treść JSON z zapytaniem &quot;SELECT * FROM DIGITALTWINS&quot;."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Szczegóły nowego żądania są wyświetlane na karcie treść. Zawiera on niesformatowaną treść JSON z zapytaniem &quot;SELECT * FROM DIGITALTWINS&quot;." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Aby uzyskać więcej informacji na temat tworzenia zapytań bliźniaczych reprezentacji cyfrowych platformy Azure, zobacz [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
 

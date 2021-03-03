@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 6e65b828e2cf86614707c8a859abc0c4f2395899
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616363"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723643"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 
@@ -82,7 +82,7 @@ Wykonaj poniższe kroki, aby utworzyć regułę zbierania danych i skojarzenia p
 
 ## <a name="create-association-using-resource-manager-template"></a>Utwórz skojarzenie przy użyciu szablonu Menedżer zasobów
 
-Nie można utworzyć reguły zbierania danych przy użyciu szablonu Menedżer zasobów, ale można utworzyć skojarzenie między maszyną wirtualną platformy Azure lub serwerem z obsługą usługi Azure ARC przy użyciu szablonu Menedżer zasobów. Zobacz [przykłady szablonów Menedżer zasobów dla reguł zbierania danych w Azure monitor](../samples/resource-manager-data-collection-rules.md) dla przykładowych szablonów.
+Nie można utworzyć reguły zbierania danych przy użyciu szablonu Menedżer zasobów, ale można utworzyć skojarzenie między maszyną wirtualną platformy Azure lub serwerem z obsługą usługi Azure ARC przy użyciu szablonu Menedżer zasobów. Zobacz [przykłady szablonów Menedżer zasobów dla reguł zbierania danych w Azure monitor](./resource-manager-data-collection-rules.md) dla przykładowych szablonów.
 
 ## <a name="next-steps"></a>Następne kroki
 

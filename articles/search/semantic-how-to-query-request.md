@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 0af868f62f9bc62ee6b4b2a10d16f8eed632b6d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680366"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693649"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
 
@@ -82,7 +82,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formułowanie żądania
 
-1. Ustaw wartość "querytype" na "semantykę" i "queryLanguage" na "pl-US. Oba parametry są wymagane.
+1. Ustaw wartość **`"queryType"`** "semantyka" i **`"queryLanguage"`** "pl-US". Oba parametry są wymagane.
 
    QueryLanguage musi być zgodna z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. Jeśli queryLanguage ma wartość "en-us", wszystkie analizatory języka muszą być również w języku angielskim ("en. Microsoft" lub "en. Lucene"). Wszystkie analizatory języka niezależny od, takie jak słowo kluczowe lub proste, nie mają konfliktu z wartościami queryLanguage.
 
@@ -90,7 +90,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Gdy zawartość w indeksie wyszukiwania może być złożona w wielu językach, dane wejściowe zapytania najprawdopodobniej są w jednym. Aparat wyszukiwania nie sprawdza zgodności queryLanguage, analizatora języka i języka, w którym składa się zawartość, dlatego należy odpowiednio wprowadzić zakres zapytań, aby uniknąć tworzenia nieprawidłowych wyników.
 
-1. Opcjonalne, ale zalecane, ustaw wartość "searchFields".
+<a name="searchfields"></a>
+
+1. Ustaw wartość **`"searchFields"`** (opcjonalnie, ale zalecana).
 
    W kwerendzie semantycznej kolejność pól w "searchFields" odzwierciedla priorytet lub względną ważność pola w klasyfikacjach semantycznych. Będą używane tylko pola ciągu najwyższego poziomu (autonomiczne lub w kolekcji). Ponieważ searchFields ma inne zachowania w prostych i pełnych zapytaniach Luce (w przypadku których nie ma domniemanej kolejności priorytetów), wszystkie pola niebędące ciągami i podpolami nie spowodują błędu, ale nie będą również używane w klasyfikacji semantycznej.
 
@@ -104,9 +106,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + Jeśli nie określono żadnych pól, wszystkie pola z możliwością wyszukiwania będą brane pod uwagę w przypadku semantycznej klasyfikacji dokumentów. Nie jest to jednak zalecane, ponieważ może nie dać optymalnych wyników z indeksu wyszukiwania.
 
-1. Usuń klauzule "orderBy", jeśli istnieją w istniejącym żądaniu. Wynik semantyczny jest używany do porządkowania wyników, a jeśli dołączysz jawną logikę sortowania, zwracany jest błąd HTTP 400.
+1. Usuń **`"orderBy"`** klauzule, jeśli istnieją w istniejącym żądaniu. Wynik semantyczny jest używany do porządkowania wyników, a jeśli dołączysz jawną logikę sortowania, zwracany jest błąd HTTP 400.
 
-1. Opcjonalnie możesz dodać "odpowiedzi" jako "Wyodrębnianie" i określić liczbę odpowiedzi, jeśli potrzebujesz więcej niż 1.
+1. Opcjonalnie można dodać **`"answers"`** zestaw do "Extract" i określić liczbę odpowiedzi, jeśli potrzebujesz więcej niż 1.
 
 1. Opcjonalnie Dostosuj styl podświetlania zastosowany do napisów. Podpisy mają wyróżnione formatowanie dla fragmentów klucza w dokumencie, który podsumowuje odpowiedź. Wartość domyślna to `<em>`. Jeśli chcesz określić typ formatowania (na przykład żółte tło), możesz ustawić highlightPreTag i highlightPostTag.
 

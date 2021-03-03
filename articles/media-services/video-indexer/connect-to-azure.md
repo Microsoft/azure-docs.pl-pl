@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fe6be5778997f0ef4a3f53ae45d17352eca60d8e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727264"
 ---
 # <a name="create-a-video-indexer-account"></a>Utwórz konto Video Indexer
 
@@ -201,7 +201,7 @@ Aby zautomatyzować tworzenie konta, należy wykonać dwa kroki:
 
 ### <a name="prerequisites-for-connecting-to-azure-government"></a>Wymagania wstępne dotyczące nawiązywania połączenia z usługą Azure Government
 
--   Subskrypcja platformy Azure w [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+-   Subskrypcja platformy Azure w [Azure Government](../../azure-government/index.yml).
 - Konto usługi Azure AD w Azure Government.
 - Wszystkie wymagania wstępne dotyczące uprawnień i zasobów zgodnie z powyższym opisem w sekcji [wymagania wstępne dotyczące nawiązywania połączenia z platformą Azure](#prerequisites-for-connecting-to-azure).
 
@@ -222,7 +222,7 @@ Aby utworzyć płatne konto za pośrednictwem portalu Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Utwórz nowe konto za pośrednictwem interfejsu API na Azure Government
 
-Aby utworzyć płatne konto w Azure Government, postępuj zgodnie z instrukcjami w temacie [Create-wpłacony-Account](/azure/media-services/video-indexer/connect-to-azure). Ten punkt końcowy interfejsu API obejmuje tylko regiony w chmurze dla instytucji rządowych.
+Aby utworzyć płatne konto w Azure Government, postępuj zgodnie z instrukcjami w temacie [Create-wpłacony-Account](). Ten punkt końcowy interfejsu API obejmuje tylko regiony w chmurze dla instytucji rządowych.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Ograniczenia Video Indexer na Azure Government
 

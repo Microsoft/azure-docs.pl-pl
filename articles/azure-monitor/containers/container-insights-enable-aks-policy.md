@@ -3,20 +3,20 @@ title: Włącz dodatek monitorowania AKS przy użyciu Azure Policy
 description: Opisuje sposób włączania AKS monitorowania przy użyciu zasad niestandardowych platformy Azure.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808303"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713902"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Włącz dodatek monitorowania AKS przy użyciu Azure Policy
 W tym artykule opisano sposób włączania AKS monitorowania przy użyciu zasad niestandardowych platformy Azure. Zasady niestandardowe z dodatkiem do monitorowania można przypisywać w zakresie subskrypcji lub grupy zasobów. Jeśli klaster usługi Azure Log Analytics Workspace i AKS znajdują się w różnych subskrypcjach, zarządzana tożsamość używana przez przypisanie zasad musi mieć uprawnienia roli wymagane zarówno w przypadku subskrypcji, jak i najmniejszej ilości zasobów w obszarze roboczym Log Analytics. Analogicznie, jeśli zasady są objęte zakresem grupy zasobów, tożsamość zarządzana powinna mieć uprawnienia roli wymagane w obszarze roboczym Log Analytics, jeśli obszar roboczy nie znajduje się w wybranym zakresie grupy zasobów.
 
 Dodatek monitorowania wymaga następujących ról w zarządzanej tożsamości używanej przez Azure Policy:
 
- - [Azure-Kubernetes-Service-współautor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-Analytics — współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [Azure-Kubernetes-Service-współautor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-Analytics — współautor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Tworzenie i przypisywanie definicji zasad za pomocą Azure Portal
 
@@ -79,6 +79,5 @@ Dodatek monitorowania wymaga następujących ról w zarządzanej tożsamości u�
 
 - Dowiedz się więcej o [Azure Policy](../../governance/policy/overview.md).
 - Dowiedz się, jak [działa korygowanie zabezpieczeń](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
-- Dowiedz się więcej [na temat Azure monitor kontenerów](../insights/container-insights-overview.md).
-- Zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- Dowiedz się więcej o usłudze [Container Insights](./container-insights-overview.md).
+- Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).

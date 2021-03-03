@@ -55,7 +55,7 @@
             - name: Konfigurowanie usługi Azure Monitor dla kontenerów na potrzeby usługi ARO 4 (wersja zapoznawcza)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Wyłączanie usługi Azure Monitor dla kontenerów w usłudze ARO 4 (wersja zapoznawcza)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Opracowywanie i uruchamianie aplikacji
       items:
         - name: Wdrażanie aplikacji Open Liberty/WebSphere Liberty
@@ -80,10 +80,10 @@
             - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 3.11 (wersja zapoznawcza)
               items:
                 - name: Konfigurowanie usługi Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Wyłączanie usługi Azure Monitor dla kontenerów na platformie Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Uruchamianie uprzywilejowanych kontenerów w usłudze Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md

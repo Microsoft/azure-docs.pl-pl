@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750046"
 ---
 Profile dla klientów sieci VPN platformy Azure (Windows 10) można wdrożyć przy użyciu Microsoft Intune. W tym artykule opisano tworzenie profilu usługi Intune przy użyciu ustawień niestandardowych.
 
@@ -30,7 +30,7 @@ W poniższych krokach użyto przykładowego kodu XML dla niestandardowego profil
 * Połącz ponownie
 * Włączono funkcję wykrywania zaufanych sieci.
 
-Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci VPNV2 CSP](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp) .
+Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci VPNV2 CSP](/windows/client-management/mdm/vpnv2-csp) .
 
 1. Pobierz profil sieci VPN z Azure Portal i wyodrębnij plik *azurevpnconfig.xml* z pakietu.
 1. Skopiuj i wklej poniższy tekst do nowego pliku edytora tekstu.
@@ -82,4 +82,4 @@ W tej sekcji utworzysz profil Microsoft Intune z ustawieniami niestandardowymi.
 1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
     :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/create-profile.png" alt-text="Utwórz profil":::
-1. Profil niestandardowy został utworzony. Aby uzyskać Microsoft Intune kroków związanych z wdrażaniem tego profilu, zobacz [przypisywanie profilów użytkowników i urządzeń](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. Profil niestandardowy został utworzony. Aby uzyskać Microsoft Intune kroków związanych z wdrażaniem tego profilu, zobacz [przypisywanie profilów użytkowników i urządzeń](/mem/intune/configuration/device-profile-assign).

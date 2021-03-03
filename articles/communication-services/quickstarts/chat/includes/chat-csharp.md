@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: cea87f23bcd9dc21ab9f594d6cb0d6008ef98f13
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ca6ef57db062ff22b20a8e968eaac39388b9551f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661668"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750950"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
-- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Zainstaluj [program Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- Utwórz konto platformy Azure z aktywną subskrypcją. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie konta bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Zainstaluj [program Visual Studio](https://visualstudio.microsoft.com/downloads/) 
 - Utwórz zasób usług Azure Communications Services. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie zasobu komunikacyjnego platformy Azure](../../create-communication-resource.md). Musisz zarejestrować **punkt końcowy** zasobu dla tego przewodnika Szybki Start.
 - [Token dostępu użytkownika](../../access-tokens.md). Upewnij się, że ustawiono zakres "Rozmowa" i zanotuj ciąg tokenu, a także ciąg identyfikatora użytkownika.
 
@@ -47,7 +47,7 @@ Zainstaluj bibliotekę kliencką rozmowy komunikacyjnej platformy Azure dla plat
 
 ```PowerShell
 dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-```
+``` 
 
 ## <a name="object-model"></a>Model obiektów
 
@@ -60,7 +60,7 @@ Poniższe klasy obsługują niektóre główne funkcje biblioteki klienta czatu 
 
 ## <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
-Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z biblioteki klienta tożsamości, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
+Aby utworzyć klienta programu chat, należy użyć punktu końcowego usług komunikacyjnych i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Musisz użyć `CommunicationIdentityClient` klasy z `Administration` biblioteki klienta, aby utworzyć użytkownika i wydać token do przekazania do klienta czatu.
 
 Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md).
 
@@ -69,6 +69,8 @@ Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarząd
 ```csharp
 using Azure.Communication.Identity;
 using Azure.Communication.Chat;
+using Azure;
+using Azure.Communication
 
 // Your unique Azure Communication service endpoint
 Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
@@ -83,7 +85,7 @@ Użyj `createChatThread` metody z chatClient, aby utworzyć wątek rozmowy
 - Użyj, `topic` Aby przekazać temat do tego rozmowy. Temat można zaktualizować po utworzeniu wątku rozmowy przy użyciu `UpdateTopic` funkcji.
 - Użyj `participants` właściwości, aby przekazać listę `ChatParticipant` obiektów do dodania do wątku rozmowy. `ChatParticipant`Obiekt jest inicjowany z `CommunicationIdentifier` obiektem. `CommunicationIdentifier` może być typu `CommunicationUserIdentifier` `MicrosoftTeamsUserIdentifier` lub `PhoneNumberIdentifier` . Na przykład aby uzyskać `CommunicationIdentifier` obiekt, należy przekazać identyfikator dostępu, który został utworzony przez następującą instrukcję, aby [utworzyć użytkownika](../../access-tokens.md#create-an-identity)
 
-Obiekt Response z `createChatThread` metody zawiera `chatThread` szczegóły. Aby można było korzystać z operacji wątku rozmowy, takich jak dodawanie uczestników, wysyłanie komunikatu, usuwanie komunikatu itp., `chatThreadClient` wystąpienie klienta musi być tworzone przy użyciu `GetChatThreadClient` metody na `ChatClient` kliencie.
+Obiekt Response z metody createChatThread zawiera szczegóły chatThread. Aby współdziałać z operacjami wątku rozmowy, takimi jak dodawanie uczestników, wysyłanie komunikatu, usuwanie komunikatu itp., wystąpienie klienta chatThreadClient musi zostać utworzone przy użyciu metody GetChatThreadClient na kliencie ChatClient. 
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
@@ -112,7 +114,7 @@ Użyj `SendMessage` , aby wysłać komunikat do wątku.
 - Użyj, `senderDisplayName` Aby określić nazwę wyświetlaną nadawcy. Jeśli nie zostanie określony, zostanie ustawiony pusty ciąg.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: );
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
 ```
 ## <a name="get-a-message"></a>Pobierz komunikat
 
@@ -133,7 +135,7 @@ Komunikaty czatu można pobrać, sondowanie `GetMessages` metody na kliencie wą
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
 await foreach (ChatMessage message in allMessages)
 {
-    Console.WriteLine($"{message.Id}:{message.Sender.Id}:{message.Content}");
+    Console.WriteLine($"{message.Id}:{message.Id}:{message.Content}");
 }
 ```
 

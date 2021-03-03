@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: c42eb8cac283ce096c42c9e5d4b7eac9a3e12625
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 44f093f96d0f4653a6fcca94aaa97264c93e3c7d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727944"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Łączenie Data Factory z usługą Azure kontrolą (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,10 +40,10 @@ Jeśli po zarejestrowaniu konta usługi Azure kontrolą do Data Factory zostanie
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Zrzut ekranu przedstawiający Tagi rejestrowania konta kontrolą.":::
 
-2. Sprawdź, czy uprawnienie jest przyznane do rejestracji konta usługi Azure kontrolą w celu Data Factory. Zobacz [, jak nawiązać połączenie Azure Data Factory i Azure kontrolą](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection)
+2. Sprawdź, czy uprawnienie jest przyznane do rejestracji konta usługi Azure kontrolą w celu Data Factory. Zobacz [, jak nawiązać połączenie Azure Data Factory i Azure kontrolą](../purview/how-to-link-azure-data-factory.md#create-new-data-factory-connection)
 
 ### <a name="register-data-factory-in-azure-purview"></a>Rejestrowanie Data Factory w usłudze Azure kontrolą
-Aby dowiedzieć się, jak zarejestrować Data Factory w usłudze Azure kontrolą, zobacz [jak nawiązać połączenie Azure Data Factory i Azure kontrolą](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
+Aby dowiedzieć się, jak zarejestrować Data Factory w usłudze Azure kontrolą, zobacz [jak nawiązać połączenie Azure Data Factory i Azure kontrolą](../purview/how-to-link-azure-data-factory.md). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Raportowanie danych z platformy Azure do kontrolą
 Gdy klienci uruchamiają działania kopiowania, przepływu danych lub wykonywania pakietów usług SSIS w Azure Data Factory, klienci mogą uzyskać relację zależności i zapewnić wysoki poziom całego procesu przepływu pracy między źródłami danych i miejscem docelowym.

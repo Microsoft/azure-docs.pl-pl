@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: adcfef19de5987b9b4c54f6765589f2ae9868c11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585079"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736750"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Wbudowany model faktury aparatu rozpoznawania formularzy
 
@@ -41,7 +41,7 @@ Potrzebna jest subskrypcja platformy Azure ([Utwórz ją bezpłatnie](https://az
 
 ### <a name="input-requirements"></a>Wymagania wejściowe 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-invoice-operation"></a>Operacja analizy faktury
 
@@ -80,8 +80,8 @@ Usługa Invoice wyodrębni pola tekstu, tabel i 26 pól faktury. Poniżej przeds
 | CustomerId | ciąg | Identyfikator odwołania dla klienta | IDENTYFIKATOR CID 12345 |  |
 | PurchaseOrder | ciąg | Numer referencyjny zamówienia zakupu | ZZ – 3333 | |  |
 | InvoiceId | ciąg | Identyfikator dla tej konkretnej faktury (często "numer faktury") | INV-100 | |  |
-| InvoiceDate | data | Data wystawienia faktury | 11/15/2019 | 
-| DueDate | data | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | data | Data wystawienia faktury | 11/15/2019 | 2019-11-15 |
+| DueDate | data | Data płatności dla tej faktury przypada | 12/15/2019 | 2019-12-15 |
 | NazwaDostawcy | ciąg | Dostawca, który utworzył tę fakturę | CONTOSO LTD. | |
 | VendorAddress | ciąg | Adres korespondencyjny dla dostawcy | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | ciąg | Nazwa skojarzona z VendorAddress | Oddział firmy Contoso | |

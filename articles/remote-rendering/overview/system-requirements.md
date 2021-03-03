@@ -6,18 +6,14 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705164"
 ---
 # <a name="system-requirements"></a>Wymagania systemowe
-
-> [!IMPORTANT]
-> **Zdalne renderowanie na platformie Azure** jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ten rozdział zawiera listę minimalnych wymagań systemowych, które należy wykonać, aby korzystać z *zdalnego renderowania platformy Azure* (ARR).
 

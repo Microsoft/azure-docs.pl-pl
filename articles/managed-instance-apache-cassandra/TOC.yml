@@ -1,0 +1,28 @@
+- name: Wystąpienie zarządzane platformy Azure dla dokumentacji Apache Cassandra
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest wystąpienie zarządzane platformy Azure dla oprogramowania Apache Cassandra?
+      href: introduction.md
+- name: Pojęcia
+  items:
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Wystąpienie zarządzane a Azure Cosmos DB interfejs API Cassandra
+      href: compare-cosmosdb-managed-instance.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie klastra — Portal
+      href: create-cluster-portal.md
+    - name: Tworzenie klastra — interfejs wiersza polecenia
+      href: create-cluster-cli.md
+    - name: Konfigurowanie klastra hybrydowego
+      href: configure-hybrid-cluster.md
+    - name: Wdrażanie klastra Spark z kostkami
+      href: deploy-cluster-databricks.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
+      href: manage-resources-cli.md
+    - name: Wizualizowanie metryk w Prometheus z Grafana
+      href: visualize-prometheus-grafana.md

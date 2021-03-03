@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: duau
-ms.openlocfilehash: b721a9b8d8bdff3f3aaf05f15857c00347e7abb4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 45b059784cc0b442b615a2a1cb50386da6ee990f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740923"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Informacje o bramach sieci wirtualnej ExpressRoute
 
@@ -53,7 +53,7 @@ Przed utworzeniem bramy ExpressRoute należy utworzyć podsieć bramy. Podsieć 
 
 Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzieleni do maszyn wirtualnych bramy i usług bramy. Niektóre konfiguracje wymagają większej liczby adresów IP niż inne. 
 
-Podczas planowania rozmiaru podsieci bramy zapoznaj się z dokumentacją dotyczącą konfiguracji, która ma zostać utworzona. Na przykład Konfiguracja współdzielenia ExpressRoute/VPN Gateway wymaga większej podsieci bramy niż większość innych konfiguracji. Ponadto warto upewnić się, że podsieć bramy zawiera wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje dodatkowe. Chociaż można utworzyć małą podsieć bramy (/29), zalecamy utworzenie podsieci bramy/27 lub większej (/27,/26 itp.), jeśli masz dostępną przestrzeń adresową. Obejmuje to większość konfiguracji.
+Podczas planowania rozmiaru podsieci bramy zapoznaj się z dokumentacją dotyczącą konfiguracji, która ma zostać utworzona. Na przykład Konfiguracja współdzielenia ExpressRoute/VPN Gateway wymaga większej podsieci bramy niż większość innych konfiguracji. Ponadto warto upewnić się, że podsieć bramy zawiera wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje dodatkowe. Chociaż można utworzyć małą podsieć bramy (/29), zalecamy utworzenie podsieci bramy/27 lub większej (/27,/26 itp.), jeśli masz dostępną przestrzeń adresową. Jeśli tworzysz podsieć bramy o podwójnej stercie, zalecamy również użycie zakresu adresów IPv6/64 lub większego. Obejmuje to większość konfiguracji.
 
 Poniższy przykład Menedżer zasobów PowerShell przedstawia podsieć bramy o nazwie GatewaySubnet. W notacji CIDR można zobaczyć wartość/27, która pozwala na wystarczającą liczbę adresów IP dla większości konfiguracji, które obecnie istnieją.
 
@@ -77,6 +77,11 @@ Bramy strefowo nadmiarowe korzystają z określonych nowych jednostek SKU bramy 
 
 Nowe jednostki SKU bramy obsługują również inne opcje wdrażania, które najlepiej pasują do Twoich potrzeb. Podczas tworzenia bramy sieci wirtualnej przy użyciu nowych jednostek SKU bramy istnieje również możliwość wdrożenia bramy w określonej strefie. Jest to nazywane bramą strefową. Po wdrożeniu bramy zona wszystkie wystąpienia bramy są wdrażane w tej samej strefie dostępności.
 
+> [!IMPORTANT]
+> Jeśli planujesz używanie prywatnej komunikacji równorzędnej opartej na protokole IPv6 za pośrednictwem usługi ExpressRoute, upewnij się, że wybrano polecenie AZ SKU dla bramy wdrożonej w podsieci bramy o podwójnej stercie.
+> 
+>
+
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 
 Brama sieci wirtualnej ExpressRoute jest przeznaczona do wymiany tras sieciowych i kierowania ruchu sieciowego. FastPath zaprojektowano w celu poprawienia wydajności ścieżki danych między siecią lokalną i siecią wirtualną. Po włączeniu FastPath wysyła ruch sieciowy bezpośrednio do maszyn wirtualnych w sieci wirtualnej, pomijając bramę.
@@ -86,7 +91,7 @@ Aby uzyskać więcej informacji na temat FastPath, w tym ograniczeń i wymagań,
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>Interfejsy API REST i polecenia cmdlet programu PowerShell
 Dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST i poleceń cmdlet programu PowerShell dla konfiguracji bramy sieci wirtualnej można znaleźć na następujących stronach:
 
-| **Klasyczny** | **Resource Manager** |
+| **Motyw** | **Resource Manager** |
 | --- | --- |
 | [Program PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[Program PowerShell](/powershell/module/az.network#networking) |
 | [Interfejs API REST](/previous-versions/azure/reference/jj154113(v=azure.100)) |[Interfejs API REST](/rest/api/virtual-network/) |

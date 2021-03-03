@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687825"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
@@ -46,13 +46,7 @@ Użytkownicy-Goście, którzy zobaczą "nagłówek zbyt długi", mogą wyczyści
 
 ## <a name="sign-in-endpoints"></a>Punkty końcowe logowania
 
-Użytkownicy usługi gościa Google mogą teraz logować się do aplikacji firmowych z wieloma dzierżawcami lub aplikacjami firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Poniżej przedstawiono przykłady typowych punktów końcowych:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje logowanie się przy użyciu swoich poświadczeń Google.
+Użytkownicy usługi gościa Google mogą teraz logować się do aplikacji firmowych z wieloma dzierżawcami lub aplikacjami firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje logowanie się przy użyciu swoich poświadczeń Google.
 
 Użytkownicy usługi Google Guest mogą również korzystać z punktów końcowych aplikacji, które zawierają informacje o dzierżawie, na przykład:
 

@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820572"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722691"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -160,7 +160,7 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 
 Środowisko użytkownika do przywracania regionu pomocniczego będzie podobne do środowiska użytkownika w regionie podstawowym. Podczas konfigurowania szczegółów w okienku Przywracanie konfiguracji w celu skonfigurowania przywracania zostanie wyświetlony monit o podanie tylko parametrów regionu pomocniczego.
 
-Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objective) regionu pomocniczego to do 12 godzin z regionu podstawowego, nawet jeśli replikacja [geograficznie nadmiarowa do odczytu (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) jest 15 minut.
+Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objective) regionu pomocniczego to do 12 godzin z regionu podstawowego, nawet jeśli replikacja [geograficznie nadmiarowa do odczytu (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) jest 15 minut.
 
 ![Wybierz maszynę wirtualną do przywrócenia](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,7 +179,7 @@ Obecnie punkt [odzyskiwania](azure-backup-glossary.md#rpo-recovery-point-objecti
 >- Funkcja przywracania między regionami przywraca maszyny wirtualne platformy Azure, których kopie zapasowe są włączone przy użyciu CMK (klucze zarządzane przez klienta), które nie są tworzone w magazynie Recovery Services, jako maszyny wirtualne z włączonym systemem innym niż CMK
 >- Role platformy Azure, które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
 
-[Maszyny wirtualne przypięte strefy platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) można przywrócić w [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview) tego samego regionu.
+[Maszyny wirtualne przypięte strefy platformy Azure](../virtual-machines/windows/create-portal-availability-zone.md) można przywrócić w [strefach dostępności](../availability-zones/az-overview.md) tego samego regionu.
 
 W procesie przywracania zostanie wyświetlona **strefa dostępności opcji.** Najpierw zobaczysz strefę domyślną. Aby wybrać inną strefę, wybierz wybraną liczbę wybranych stref. Jeśli przypięta strefa jest niedostępna, nie będzie można przywrócić danych do innej strefy, ponieważ dane kopii zapasowej nie zonally zreplikowane.
 

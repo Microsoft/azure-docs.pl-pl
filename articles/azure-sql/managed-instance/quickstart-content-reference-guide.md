@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c84c81fa81cf4ba9be454eea5782927a09c3252a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325137"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690967"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,7 @@ Pierwszym krokiem jest utworzenie pierwszego wystąpienia zarządzanego SQL przy
   > - Możesz też użyć usługi ExpressRoute lub połączenia lokacja-lokacja z sieci lokalnej, lecz te podejścia są poza zakresem tych przewodników Szybki start.
   > - Jeśli zmienisz okres przechowywania z 0 (nieograniczony czas przechowywania) na inną wartość, należy pamiętać, że przechowywanie będzie dotyczyło tylko dzienników utworzonych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy czas przechowywania był ustawiony na nieograniczony, nawet po włączeniu przechowywania).
 
-Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego SQL jest używanie [programu PowerShell](scripts/create-configure-managed-instance-powershell.md), [programu PowerShell z szablonem Menedżer zasobów](scripts/create-powershell-azure-resource-manager-template.md)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/mi#az-sql-mi-create) do tworzenia skryptów i automatyzowania tego procesu.
+Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego SQL jest używanie [programu PowerShell](scripts/create-configure-managed-instance-powershell.md), [programu PowerShell z szablonem Menedżer zasobów](./create-template-quickstart.md)lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/mi#az-sql-mi-create) do tworzenia skryptów i automatyzowania tego procesu.
 
 ### <a name="migrate-your-databases"></a>Migrowanie baz danych
 

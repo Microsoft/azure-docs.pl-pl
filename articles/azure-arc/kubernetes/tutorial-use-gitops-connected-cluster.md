@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0ff300a90876841e5a25e4e44ffdaecab2eaee95
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689236"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Samouczek: wdrażanie konfiguracji przy użyciu GitOps na klastrze Kubernetes z włączonym usługą Azure Arc 
 
@@ -26,7 +26,7 @@ W ramach tego samouczka nastąpi zastosowanie konfiguracji przy użyciu programu
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie] (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Istniejący klaster z włączonym usługą Azure Arc Kubernetes.
     - Jeśli jeszcze nie nawiązano połączenia z klastrem, zapoznaj [się z naszymi krokami Przewodnik Szybki Start dotyczący usługi Azure Arc Kubernetes](quickstart-connect-cluster.md).
 - Zrozumienie korzyści i architektury tej funkcji. Więcej informacji można znaleźć w temacie [konfiguracje i GitOps — artykuł Kubernetes z obsługą usługi Azure Arc](conceptual-configurations.md).
@@ -152,7 +152,7 @@ Dostosuj konfigurację przy użyciu następujących parametrów opcjonalnych:
 | ------------- | ------------- |
 | `--enable-helm-operator`| Przełącz, aby włączyć obsługę wdrożeń wykresów Helm. |
 | `--helm-operator-params` | Wartości wykresu dla operatora Helm (jeśli jest włączony). Na przykład `--set helm.versions=v3`. |
-| `--helm-operator-version` | Wersja wykresu dla operatora Helm (jeśli jest włączona). Użyj wersji 1.2.0 +. Wartość domyślna: "1.2.0". |
+| `--helm-operator-chart-version` | Wersja wykresu dla operatora Helm (jeśli jest włączona). Użyj wersji 1.2.0 +. Wartość domyślna: "1.2.0". |
 | `--operator-namespace` | Nazwa dla przestrzeni nazw operatora. Wartość domyślna: "default". Maks.: 23 znaki. |
 | `--operator-params` | Parametry operatora. Musi być określona w cudzysłowie pojedynczym. Na przykład ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719087"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym
 
@@ -21,7 +21,8 @@ W tym samouczku pokazano, jak rozpocząć pracę, wdrażając szablon IoT Centra
 W ramach tego samouczka nauczysz się, jak,
 
 > [!div class="checklist"]
-> Tworzenie aplikacji do zarządzania magazynem inteligentnym za pomocą aplikacji 
+> * Tworzenie aplikacji do zarządzania magazynem inteligentnym 
+> * Przechodzenie przez aplikację 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

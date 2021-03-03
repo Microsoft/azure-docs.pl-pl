@@ -4,15 +4,15 @@ description: Dowiedz się, jak aprowizować środowisko Azure SSIS Integration R
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391358"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740413"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Inicjowanie obsługi platformy Azure-SSIS Integration Runtime w Azure Data Factory
 
@@ -149,6 +149,12 @@ W przypadku zaznaczenia tego pola wyboru wykonaj następujące kroki, aby utworz
    1. W polu **Nazwa użytkownika administratora** wprowadź nazwę użytkownika uwierzytelniania SQL dla serwera bazy danych, który będzie hostować SSISDB. 
 
    1. W polu **hasło administratora** wprowadź hasło uwierzytelniania SQL dla serwera bazy danych, aby hostować SSISDB. 
+
+   1. Zaznacz pole wyboru **Użyj podwójnej Azure-SSIS Integration Runtime w stanie wstrzymania z trybem failover SSISDB** , aby skonfigurować podwójną, niegotową parę środowiska IR platformy Azure SSIS, która działa w synchronizacji z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR).
+   
+      Jeśli zaznaczysz pole wyboru, wprowadź nazwę identyfikującą parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS w polu tekstowym **Nazwa pary o podwójnej gotowości** . Należy wprowadzić tę samą nazwę pary podczas tworzenia podstawowego i pomocniczego urzędu skarbowego Azure-SSIS.
+
+      Aby uzyskać więcej informacji, zobacz [konfigurowanie Azure-SSIS IR dla BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. W polu **warstwa usługi bazy danych wykazu** wybierz warstwę usług dla serwera bazy danych, która będzie hostować SSISDB. Wybierz warstwę podstawowa, standardowa lub Premium lub wybierz nazwę puli elastycznej.
 

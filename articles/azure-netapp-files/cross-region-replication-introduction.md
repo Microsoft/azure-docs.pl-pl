@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 02/25/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4d4cf7a0dc73070f4f48ed87f60a2458bc925b13
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707357"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikacja między regionami Azure NetApp Files woluminów
 
@@ -31,7 +31,7 @@ Funkcja replikacji Azure NetApp Files zapewnia ochronę danych za pomocą replik
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Obsługiwane pary replikacji między regionami
 
-Azure NetApp Files replikacja woluminu jest obsługiwana między różnymi [lokalnymi parami](/azure/best-practices-availability-paired-regions#azure-regional-pairs) i Nieparami platformy Azure. Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących regionach:  
+Azure NetApp Files replikacja woluminu jest obsługiwana między różnymi [lokalnymi parami](../best-practices-availability-paired-regions.md#azure-regional-pairs) i Nieparami platformy Azure. Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących regionach:  
 
 ### <a name="azure-regional-pairs"></a>Pary regionalne platformy Azure
 
@@ -52,6 +52,7 @@ Azure NetApp Files replikacja woluminu jest obsługiwana między różnymi [loka
 *   Południowo-środkowe stany USA i Wschodnie stany USA
 *   Południowo-środkowe stany USA i Wschodnie stany USA 2
 *   Wschodnie stany USA i Wschodnie stany USA 2
+*   Wschodnie stany USA 2 i zachodnie stany USA 2
 *   Australia Wschodnia i Azja Południowo-Wschodnia 
 *   Niemcy Środkowo-Zachodnie i Południowe Zjednoczone Królestwo
 
@@ -125,5 +126,3 @@ Zwykła Azure NetApp Files opłata za magazyn w miesiącu 2 dotyczy woluminu doc
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
 * [Usuwanie replikacji woluminów lub woluminów](cross-region-replication-delete.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)
-
-

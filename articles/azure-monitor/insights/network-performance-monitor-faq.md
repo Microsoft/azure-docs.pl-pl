@@ -1,24 +1,23 @@
 ---
 title: Często zadawane pytania — Network Performance Monitor rozwiązanie na platformie Azure | Microsoft Docs
 description: W tym artykule opisano często zadawane pytania dotyczące Network Performance Monitor na platformie Azure. Network Performance Monitor (NPM) ułatwia monitorowanie wydajności sieci niemal w czasie rzeczywistym oraz wykrywanie i lokalizowanie wąskich gardeł wydajności sieci.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909cbd6174fe7eceaa8b53b5ba44fe72990b56d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587277"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708054"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
 ![Symbol Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
 
 > [!IMPORTANT]
-> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) na platformie Azure Network Watcher przed 29 lutego 2024.
+> Od 1 lipca 2021 nie będzie można dodawać nowych testów w istniejącym obszarze roboczym ani włączać nowego obszaru roboczego w Network Performance Monitor. Można nadal korzystać z testów utworzonych przed 1 lipca 2021. Aby zminimalizować zakłócenia działania usługi dla bieżących obciążeń, należy [migrować testy z Network Performance Monitor do nowego monitora połączeń](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) na platformie Azure Network Watcher przed 29 lutego 2024.
 
 W tym artykule zapoznaj się z często zadawanymi pytaniami dotyczącymi Network Performance Monitor (NPM) na platformie Azure
 

@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393755"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727961"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF 
 
@@ -162,7 +162,7 @@ Przede wszystkim, tylko w celu opublikowania potoku usługi ADF dla wdrożeń by
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Ulepszono proces ciągłej integracji/ciągłego wdrażania. Funkcja **automatycznego publikowania** wykonuje walidację i eksportuje wszystkie funkcje szablonu Azure Resource Manager (ARM) z poziomu środowiska ADF. Umożliwia ona korzystanie z logiki za pośrednictwem publicznie dostępnego pakietu npm [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Pozwala to na programowe wyzwalanie tych akcji zamiast konieczności przechodzenia do interfejsu użytkownika funkcji ADF i kliknięcia przycisku. Dzięki temu **Usługa ciągłej** integracji potoku Ci/CD. Aby uzyskać szczegółowe informacje, postępuj zgodnie z ulepszeniami dotyczącymi wdrażania w usłudze [ADF/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) 
+Ulepszono proces ciągłej integracji/ciągłego wdrażania. Funkcja **automatycznego publikowania** wykonuje walidację i eksportuje wszystkie funkcje szablonu Azure Resource Manager (ARM) z poziomu środowiska ADF. Umożliwia ona korzystanie z logiki za pośrednictwem publicznie dostępnego pakietu npm [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Pozwala to na programowe wyzwalanie tych akcji zamiast konieczności przechodzenia do interfejsu użytkownika funkcji ADF i kliknięcia przycisku. Dzięki temu **Usługa ciągłej** integracji potoku Ci/CD. Aby uzyskać szczegółowe informacje, postępuj zgodnie z ulepszeniami dotyczącymi wdrażania w usłudze [ADF/CD](./continuous-integration-deployment-improvements.md) 
 
 ###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Nie można opublikować z powodu limitu szablonów ARM 4 MB  
 
@@ -176,7 +176,45 @@ Azure Resource Manager ogranicza rozmiar szablonu do 4 MB. Ogranicz rozmiar szab
 
 #### <a name="resolution"></a>Rozwiązanie
 
-W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi [korzystania z szablonów połączonych i zagnieżdżonych](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+W przypadku małych i średnich rozwiązań łatwiej jest zrozumieć i utrzymywać jeden szablon. Wszystkie zasoby i wartości są widoczne w jednym pliku. W przypadku zaawansowanych scenariuszy połączone szablony umożliwiają podzielenie rozwiązania na składniki przeznaczone do realizacji. Postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi [korzystania z szablonów połączonych i zagnieżdżonych](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### <a name="cannot-connect-to-git-enterprise"></a>Nie można nawiązać połączenia z przedsiębiorstwem GIT 
+
+##### <a name="issue"></a>Problem
+
+Nie można nawiązać połączenia z przedsiębiorstwem GIT z powodu problemów z uprawnieniami. Zobaczysz błąd, jak **422-obiekt nieprzetwarzany.**
+
+#### <a name="cause"></a>Przyczyna
+
+Nie skonfigurowano uwierzytelniania OAuth dla usługi ADF. Twój adres URL jest niepoprawnie skonfigurowany.
+
+##### <a name="resolution"></a>Rozwiązanie
+
+Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klientów, ponieważ usługa ADF najpierw podejmie próbę https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... i zakończy się niepowodzeniem. Następnie zostanie podjęta próba https://hostname/api/v3/orgs/ <vaorg> / <repo> i zakończy się pomyślnie. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>Odzyskaj z usuniętej fabryki danych
+
+#### <a name="issue"></a>Problem
+Klient usunął fabrykę danych lub grupę zasobów zawierającą Data Factory. Chcemy wiedzieć, jak przywrócić usuniętą fabrykę danych.
+
+#### <a name="cause"></a>Przyczyna
+
+Możliwe jest odzyskanie Data Factory tylko wtedy, gdy klient ma skonfigurowaną kontrolę źródła (DevOps lub Git). Spowoduje to przeniesienie wszystkich najnowszych opublikowanych zasobów **i przywrócenie** nieopublikowanego potoku, zestawu danych i połączonej usługi.
+
+W przypadku braku kontroli źródła nie jest możliwe odzyskanie usuniętej Data Factory z zaplecza, ponieważ po odebraniu przez usługę usuniętego polecenia wystąpienie zostanie usunięte i nie będzie przechowywane żadne kopie zapasowe.
+
+#### <a name="resoloution"></a>Resoloution
+Aby odzyskać usunięte Data Factory z kontrolą źródła, należy wykonać poniższe czynności:
+
+ * Utwórz nowy Azure Data Factory.
+
+ * Skonfiguruj ponownie usługę git przy użyciu tych samych ustawień, ale upewnij się, że Importuj istniejące zasoby Data Factory do wybranego repozytorium, a następnie wybierz pozycję nowe rozgałęzienie.
+
+ * Utwórz żądanie ściągnięcia w celu scalenia zmian w gałęzi współpracy i publikacji.
+
+ * Jeśli klient miał Integration Runtime samodzielny w usuniętym podajniku APD, będzie musiał utworzyć nowe wystąpienie w nowym podajniku APD, odinstalować i ponownie zainstalować wystąpienie na komputerze/maszynie wirtualnej Premium z nowym uzyskanym kluczem. Po zakończeniu instalacji środowiska IR klient będzie musiał zmienić połączoną usługę, aby wskazywała na nowe środowisko IR i przetestować połączenie, lub zakończy się niepowodzeniem z błędnym **odwołaniem.**
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

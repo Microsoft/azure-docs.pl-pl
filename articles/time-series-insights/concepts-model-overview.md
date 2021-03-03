@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 37c24f2d785bbdd9847e0dadaa47969f5b090ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736805"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698097"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Model szeregów czasowych w Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Te składniki są łączone w celu określenia modelu szeregów czasowych i orga
 
 [![Wykres przeglądów modelu szeregów czasowych](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [eksploratora Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](/rest/api/time-series-insights/reference-model-apis).
+Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [eksploratora Azure Time Series Insights](./concepts-ux-panels.md). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Wystąpienia modelu szeregów czasowych
 

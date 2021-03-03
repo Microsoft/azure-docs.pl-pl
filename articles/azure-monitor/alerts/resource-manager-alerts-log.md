@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714128"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla reguł alertów dziennika w programie Azure Monitor
 Ten artykuł zawiera przykłady [szablonów Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania alertów zapytań dzienników w programie Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -479,4 +479,4 @@ Poniższy przykład tworzy regułę, która może być docelowa dla dowolnego za
 ## <a name="next-steps"></a>Następne kroki
 
 * [Pobierz inne przykładowe szablony dla Azure monitor](../resource-manager-samples.md).
-* [Dowiedz się więcej o regułach alertów](../platform/alerts-overview.md).
+* [Dowiedz się więcej o regułach alertów](./alerts-overview.md).

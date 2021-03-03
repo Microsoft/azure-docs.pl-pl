@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616473"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717540"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Wspólny schemat dotyczący dzienników zasobów platformy Azure
 
@@ -73,7 +73,7 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Front Door | [Rejestrowanie dla drzwi przednich](../../frontdoor/front-door-diagnostics.md) |
 | Usługa IoT Hub | [Operacje IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Rejestrowanie usługi Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Kubernetes Service |[Rejestrowanie usługi Azure Kubernetes](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Analiza dzienników dotyczących usługi Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupy zabezpieczeń sieci |[Usługa Log Analytics dla sieciowych grup zabezpieczeń](../../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -82,7 +82,7 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Recovery Services | [Model danych dla Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Wyszukaj |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
 | Service Bus |[Dzienniki Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Rejestrowanie Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| Baza danych SQL | [Rejestrowanie Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Dzienniki zadań](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager schematu dziennika](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Sieci wirtualne | Schemat jest niedostępny. |

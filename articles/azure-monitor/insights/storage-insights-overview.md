@@ -1,17 +1,16 @@
 ---
 title: Monitorowanie usług Azure Storage za pomocą Azure Monitor dla magazynu | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Storage, która zapewnia administratorom magazynu szybkie zrozumienie problemów z wydajnością i wykorzystaniem ich kont usługi Azure Storage.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708071"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -85,7 +84,7 @@ Po wybraniu wartości w jednej z kolumn w skoroszycie przejdź do arkusza **poje
 
 ## <a name="view-from-a-storage-account"></a>Wyświetlanie z konta magazynu
 
-Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z konta magazynu:
+Aby uzyskać dostęp do usługi VM Insights bezpośrednio z konta magazynu:
 
 1. W Azure Portal wybierz pozycję konta magazynu.
 

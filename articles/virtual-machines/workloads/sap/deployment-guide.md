@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695519"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -1057,47 +1057,17 @@ Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej 
    az login
    ```
 
-1. Wykonaj kroki opisane w artykule [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure][qs-configure-cli-windows-vm] , aby włączyć System-Assigned tożsamość zarządzaną dla maszyny wirtualnej. User-Assigned tożsamości zarządzane nie są obsługiwane przez rozszerzenie maszyny wirtualnej dla oprogramowania SAP. Można jednak włączyć zarówno tożsamość przypisaną przez system, jak i przypisanej do użytkownika.
-
-   Przykład:
+1. Zainstaluj rozszerzenie AEM interfejsu wiersza polecenia platformy Azure. Upewnij się, że korzystasz z co najmniej wersji 0.2.0 lub nowszej.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Przypisz dostęp do tożsamości zarządzanej do grupy zasobów maszyny wirtualnej lub wszystkich interfejsów sieciowych, dysków zarządzanych i maszyny wirtualnej zgodnie z opisem w temacie [przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure][howto-assign-access-cli]
-
-    Przykład:
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, aby zainstalować rozszerzenie platformy Azure dla oprogramowania SAP.
-    Rozszerzenie jest obecnie obsługiwane tylko w AzureCloud. Platformy Azure z Chin, Azure Government lub innych specjalnych środowisk nie są jeszcze obsługiwane.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Zainstaluj nowe rozszerzenie za pomocą
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Sprawdzenia i rozwiązywanie problemów
 

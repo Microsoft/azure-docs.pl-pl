@@ -3,12 +3,12 @@ title: Nadzór nad zasobami dla kontenerów i usług
 description: Usługa Azure Service Fabric pozwala określić żądania zasobów i limity dla usług uruchomionych jako procesy lub kontenery.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 889fce77c1a3a743e9805ec482a9c87b9bf8da65
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735662"
 ---
 # <a name="resource-governance"></a>Nadzór nad zasobami
 
@@ -95,12 +95,12 @@ Oto przykład sposobu poinstruować Service Fabric, aby użyć 50% dostępnego p
 W przypadku większości klientów i scenariuszy zalecaną konfiguracją jest automatyczne wykrywanie pojemności węzłów w przypadku procesora CPU i pamięci (automatyczne wykrywanie jest domyślnie włączone). Jeśli jednak potrzebna jest pełna ręczna konfiguracja pojemności węzłów, można je skonfigurować dla każdego typu węzła przy użyciu mechanizmu opisywania węzłów w klastrze. Oto przykład sposobu konfigurowania typu węzła z czterema rdzeniami i 2 GB pamięci:
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 Po włączeniu automatycznego wykrywania dostępnych zasobów i pojemności węzłów są ręcznie definiowane w manifeście klastra, Service Fabric sprawdza, czy węzeł ma wystarczającą ilość zasobów do obsługi pojemności zdefiniowanej przez użytkownika:
@@ -120,8 +120,8 @@ Funkcję automatycznego wykrywania dostępnych zasobów można wyłączyć, jeś
 W celu uzyskania optymalnej wydajności należy również włączyć następujące ustawienie w manifeście klastra:
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" />
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -249,7 +249,7 @@ Podczas stosowania nadzoru zasobów do Service Fabric usług gwarantuje, że te 
 * Węzły kończące się w złej kondycji
 * Nieodpowiadające interfejsy API zarządzania klastrem Service Fabric
 
-Aby zapobiec wystąpieniu tych sytuacji, Service Fabric umożliwia *wymuszenie limitów zasobów dla wszystkich Service Fabric usług użytkowników działających w węźle* (podlegających i niezarządzana) w celu zagwarantowania, że usługi użytkownika nigdy nie będą używać więcej niż określonej ilości zasobów. Można to osiągnąć przez ustawienie wartości właściwości EnforceUserServiceMetricCapacities w sekcji PlacementAndLoadBalancing w ClusterManifest na true. To ustawienie jest domyślnie wyłączone.
+Aby zapobiec wystąpieniu tych sytuacji, Service Fabric umożliwia *wymuszenie limitów zasobów dla wszystkich Service Fabric usług użytkowników działających w węźle* (podlegających i niezarządzana) w celu zagwarantowania, że usługi użytkownika nigdy nie będą używać więcej niż określonej ilości zasobów. Można to osiągnąć przez ustawienie wartości właściwości EnforceUserServiceMetricCapacities w sekcji PlacementAndLoadBalancing w ClusterManifest na true. To ustawienie jest domyślnie wyłączone.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -260,7 +260,7 @@ Aby zapobiec wystąpieniu tych sytuacji, Service Fabric umożliwia *wymuszenie 
 Dodatkowe uwagi:
 
 * Wymuszanie limitu zasobów dotyczy tylko `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` metryk zasobów i
-* Wymuszanie limitu zasobów działa tylko wtedy, gdy pojemność węzłów dla metryk zasobów jest dostępna do Service Fabric, za pomocą mechanizmu autowykrywania, lub przez użytkowników ręcznie określając pojemności węzła (zgodnie z opisem w sekcji [Konfiguracja klastra dla włączania zarządzania zasobami](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ).Jeśli nie skonfigurowano pojemności węzła, nie można użyć możliwości wymuszania limitu zasobów, ponieważ Service Fabric nie może znać ilości zasobów zarezerwowanych dla usług użytkownika.Service Fabric wystawia ostrzeżenia o kondycji, jeśli "EnforceUserServiceMetricCapacities" ma wartość true, ale pojemności węzła nie są skonfigurowane.
+* Wymuszanie limitu zasobów działa tylko wtedy, gdy pojemność węzłów dla metryk zasobów jest dostępna do Service Fabric, za pomocą mechanizmu autowykrywania, lub przez użytkowników ręcznie określając pojemności węzła (zgodnie z opisem w sekcji [Konfiguracja klastra dla włączania zarządzania zasobami](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Jeśli nie skonfigurowano pojemności węzła, nie można użyć możliwości wymuszania limitu zasobów, ponieważ Service Fabric nie może znać ilości zasobów zarezerwowanych dla usług użytkownika. Service Fabric wystawia ostrzeżenia o kondycji, jeśli "EnforceUserServiceMetricCapacities" ma wartość true, ale pojemności węzła nie są skonfigurowane.
 
 ## <a name="other-resources-for-containers"></a>Inne zasoby dla kontenerów
 

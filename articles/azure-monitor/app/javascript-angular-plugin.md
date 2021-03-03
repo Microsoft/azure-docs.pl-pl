@@ -8,19 +8,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: lagayhar
-ms.openlocfilehash: 152ba4b1c8a4e09db0bce759f5b67f577ec5d584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d45d8bed328dc91dfeeabd6ce878074fa1218623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844029"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737022"
 ---
 # <a name="angular-plugin-for-application-insights-javascript-sdk"></a>Wtyczka kątowa dla Application Insights JavaScript SDK
 
 Wtyczka kątowa dla Application Insights JavaScript SDK umożliwia:
 
 - Śledzenie zmian w routerze
-- Statystyki użycia składników kątowych
 
 > [!WARNING]
 > Wtyczka kątowa nie jest zgodna z językiem ECMAScript 3 (ES3).
@@ -38,9 +37,9 @@ npm install @microsoft/applicationinsights-angularplugin-js
 Skonfiguruj wystąpienie Application Insights w składniku wprowadzania w aplikacji:
 
 ```js
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { AngularPlugin, AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,61 +47,20 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-    private appInsights;
+export class AppComponent {
     constructor(
-        private router: Router,
-        private angularPluginService: AngularPluginService 
+        private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-        this.angularPluginService.init(angularPlugin, this.router);
-        this.appInsights = new ApplicationInsights({ config: {
+        const appInsights = new ApplicationInsights({ config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [angularPlugin],
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }
         }
         } });
+        appInsights.loadAppInsights();
     }
-
-    ngOnInit() {
-        this.appInsights.loadAppInsights();
-    }
-}
-
-```
-
-Aby użyć `trackMetric` metody do śledzenia użycia składnika kątowego, Dodaj `AngularPluginService` jako dostawcę na liście dostawców w `app.module.ts` pliku.
-
-```js
-import { AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@NgModule({
-    ...
-  providers: [ AngularPluginService ],
-})
-export class AppModule { }
-```
-
-Aby śledzić okres istnienia składnika, należy wywołać `trackMetric` metodę tego `ngOnDestroy` składnika. Gdy składnik zostanie zniszczony, zostanie wyzwolone `trackMetric` zdarzenie, które wysyła użytkownika na stronę i nazwę składnika.
-
-```js
-import { Component, OnDestroy, HostListener } from '@angular/core';
-import { AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
-})
-export class TestComponent implements OnDestroy {
-
-  constructor(private angularPluginService: AngularPluginService) {}
-
-  @HostListener('window:beforeunload')
-  ngOnDestroy() {
-    this.angularPluginService.trackMetric();
-  }
 }
 ```
 

@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339805"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690655"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importuj notesy z repozytorium GitHub do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,7 +57,12 @@ W regularnym przepływie usługi GitHub po zatwierdzeniu zmian zwykle wypychane 
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edytuj Notesy i zatwierdź zmiany w serwisie GitHub":::
 
+Po przeprowadzeniu edycji notesu można [go opublikować w galerii notesów](publish-notebook-gallery.md). 
+
 ## <a name="next-steps"></a>Następne kroki
 
 * Poznaj zalety [Azure Cosmos DB notesów Jupyter.](cosmosdb-jupyter-notebooks.md)
-
+* [Eksploruj galerię przykładów notesu](https://cosmos.azure.com/gallery.html)
+* [Publikowanie notesów w galerii notesów Azure Cosmos DB](publish-notebook-gallery.md)
+* [Korzystanie z funkcji i poleceń notesu języka Python](use-python-notebook-features-and-commands.md)
+* [Korzystanie z funkcji i poleceń notesu języka C#](use-csharp-notebook-features-and-commands.md)

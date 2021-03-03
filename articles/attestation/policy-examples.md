@@ -7,18 +7,39 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720158"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Przykłady zasad zaświadczania
 
-Zasady zaświadczania są używane do przetwarzania dowodów zaświadczania i ustalania, czy zaświadczanie platformy Azure wystawia token zaświadczania. Generowanie tokenu zaświadczania może być kontrolowane za pomocą zasad niestandardowych. Poniżej przedstawiono kilka przykładów zasad zaświadczania.
+Zasady zaświadczania są używane do przetwarzania dowodów zaświadczania i ustalania, czy zaświadczanie platformy Azure wystawia token zaświadczania. Generowanie tokenu zaświadczania może być kontrolowane za pomocą zasad niestandardowych. Poniżej przedstawiono kilka przykładów zasad zaświadczania. 
 
-## <a name="default-policy-for-an-sgx-enclave"></a>Zasady domyślne dla elementu SGX enklawy 
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Przykładowe zasady niestandardowe dla elementu SGX enklawy 
+
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+issuancerules {
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
+};
+
+```
+Aby uzyskać więcej informacji na temat oświadczeń przychodzących wygenerowanych przez zaświadczanie platformy Azure, zobacz [zestawy oświadczeń](/azure/attestation/claim-sets). Oświadczenia przychodzące mogą być używane przez autorów zasad do definiowania reguł autoryzacji w niestandardowych zasadach. 
+
+Sekcja reguł wystawiania nie jest obowiązkowa. Ta sekcja może być używana przez użytkowników w celu wygenerowania dodatkowych oświadczeń wychodzących w tokenie zaświadczania z nazwami niestandardowymi. Aby uzyskać więcej informacji na temat oświadczeń wychodzących wygenerowanych przez usługę w tokenie zaświadczania, zobacz [zestawy oświadczeń](/azure/attestation/claim-sets).
+
+## <a name="default-policy-for-an-sgx-enclave"></a>Zasady domyślne dla elementu SGX enklawy
 
 ```
 version= 1.0;
@@ -38,17 +59,18 @@ issuancerules
 };
 ```
 
-## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Przykładowe zasady niestandardowe dla elementu SGX enklawy 
+Oświadczenia używane w zasadach domyślnych są uznawane za przestarzałe, ale są w pełni obsługiwane i nadal będą uwzględniane w przyszłości. Zaleca się użycie nieprzestarzałych nazw zgłoszeń. Aby uzyskać więcej informacji na temat zalecanych nazw zgłoszeń, zobacz [zestawy roszczeń](/azure/attestation/claim-sets). 
+
+## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Przykładowe zasady niestandardowe do obsługi wielu SGX enclaves
 
 ```
 version= 1.0;
-authorizationrules
+authorizationrules 
 {
-       [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
-    => permit();
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
 };
 ```
 

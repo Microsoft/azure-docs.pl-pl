@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: dfbc63ccbdf6f0a8abe1e955b43240d799d6783d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583519"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727621"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: aprowizowanie usługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
@@ -55,7 +55,7 @@ Przed wdrożeniem urządzenia wirtualnego upewnij się, że są spełnione nast�
 * System hosta może przeznaczyć następujące zasoby wyłącznie na potrzeby aprowizacji urządzenia wirtualnego:
 
   * Co najmniej 4 rdzenie.
-  * Co najmniej 8 GB pamięci RAM.
+  * Co najmniej 8 GB pamięci RAM. Zdecydowanie zalecamy co najmniej 16 GB pamięci RAM.
   * Jeden interfejs sieciowy.
   * Dysk systemu operacyjnego o rozmiarze 250 GB.
   * Dysk wirtualny o rozmiarze 2 TB do przechowywania danych systemu.

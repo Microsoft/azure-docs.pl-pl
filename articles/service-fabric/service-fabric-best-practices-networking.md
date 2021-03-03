@@ -5,14 +5,14 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630706"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732568"
 ---
-# <a name="networking"></a>Networking
+# <a name="networking"></a>Sieć
 
 Podczas tworzenia klastrów Service Fabric platformy Azure i zarządzania nimi można zapewnić łączność sieciową dla węzłów i aplikacji. Zasoby sieci obejmują zakresy adresów IP, sieci wirtualne, moduły równoważenia obciążenia i sieciowe grupy zabezpieczeń. W tym artykule przedstawiono najlepsze rozwiązania dotyczące tych zasobów.
 
@@ -39,7 +39,7 @@ Zmaksymalizuj wydajność maszyny wirtualnej za pomocą przyspieszonej sieci, de
 ```
 Klaster Service Fabric może być inicjowany w systemie [Linux przy użyciu przyspieszonej sieci](../virtual-network/create-vm-accelerated-networking-cli.md)i [systemu Windows z przyspieszoną siecią](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-Przyspieszona sieć jest obsługiwana w przypadku jednostek SKU serii maszyn wirtualnych platformy Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 i MS/MMS. Przyspieszona sieć została pomyślnie przetestowana przy użyciu jednostki SKU Standard_DS8_v3 na 01/23/2019 dla Service Fabric klastra systemu Windows i przy użyciu Standard_DS12_v2 na 01/29/2019 dla klastra Service Fabric Linux.
+Przyspieszona sieć jest obsługiwana w przypadku jednostek SKU serii maszyn wirtualnych platformy Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 i MS/MMS. Przyspieszona sieć została pomyślnie przetestowana przy użyciu jednostki SKU Standard_DS8_v3 na 01/23/2019 dla Service Fabric klastra systemu Windows i przy użyciu Standard_DS12_v2 na 01/29/2019 dla klastra Service Fabric Linux. Należy pamiętać, że przyspieszone sieci wymaga co najmniej 4 procesorów wirtualnych vCPU. 
 
 Aby włączyć przyspieszone sieci w istniejącym klastrze Service Fabric, należy najpierw [skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych](./virtual-machine-scale-set-scale-node-type-scale-out.md), aby wykonać następujące czynności:
 1. Inicjowanie obsługi administracyjnej NodeType z włączoną obsługą przyspieszonej sieci
@@ -61,7 +61,7 @@ Skalowanie w górę infrastruktury jest wymagane do włączenia przyspieszonej s
 
 Podstawowe reguły w tym miejscu są minimalne dla blokady zabezpieczeń w klastrze Service Fabric zarządzanym przez platformę Azure. Nie można otworzyć następujących portów lub zatwierdzeniu adresu IP/adresu URL uniemożliwi prawidłowe działanie klastra i może nie być obsługiwane. W przypadku tego ustawienia reguły jest wymagana wyłącznie do korzystania z [automatycznych uaktualnień obrazu systemu operacyjnego](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). w przeciwnym razie konieczne będzie otwarcie dodatkowych portów.
 
-### <a name="inbound"></a>Inbound 
+### <a name="inbound"></a>Przychodzący 
 |Priorytet   |Nazwa               |Port        |Protokół  |Element źródłowy             |Element docelowy       |Akcja   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Zezwalaj
@@ -95,7 +95,7 @@ Więcej informacji na temat reguł zabezpieczeń dla ruchu przychodzącego:
 
 * **Niestandardowy punkt końcowy**. Przykład dla aplikacji, aby umożliwić dostęp do internetowego punktu końcowego.
 
-### <a name="outbound"></a>Outbound
+### <a name="outbound"></a>Wychodzący
 
 |Priorytet   |Nazwa               |Port        |Protokół  |Element źródłowy             |Element docelowy       |Akcja   
 |---        |---                |---         |---       |---                |---               |---

@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616440"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708088"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń lub zewnętrznego partnera
 
@@ -58,10 +58,9 @@ Kierowanie danych monitorowania do centrum zdarzeń za pomocą Azure Monitor poz
 | LogRhythm | Nie| Instrukcje dotyczące konfigurowania LogRhythm do zbierania dzienników z centrum zdarzeń są dostępne [tutaj](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [wprowadzenie do monitorowania i rejestrowania przy użyciu programu Logz.IO for Java Apps uruchomionego na platformie Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
-Inni partnerzy mogą również być dostępni. Aby zapoznać się z bardziej kompletną listą wszystkich partnerów Azure Monitor i ich możliwości, zobacz [Azure monitor integracji partnerów](../platform/partners.md).
+Inni partnerzy mogą również być dostępni. Aby zapoznać się z bardziej kompletną listą wszystkich partnerów Azure Monitor i ich możliwości, zobacz [Azure monitor integracji partnerów](../partners.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Archiwizowanie dziennika aktywności na koncie magazynu](./activity-log.md#legacy-collection-methods)
 * [Zapoznaj się z omówieniem dziennika aktywności platformy Azure](../essentials/platform-logs-overview.md)
 * [Konfigurowanie alertu na podstawie zdarzenia dziennika aktywności](../alerts/alerts-log-webhook.md)
-

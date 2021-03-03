@@ -3,15 +3,15 @@ title: Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8905c3e4dfa1053646ede5c0b62149844e21ee7d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617250"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701165"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -118,6 +118,8 @@ Limity dotyczące ładunków elementów Runbook można znaleźć w [limitach us�
 W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook. 
 
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
+Włącz powiadomienia wypychane do [aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/) , podając adres e-mail używany jako identyfikator konta podczas konfigurowania aplikacja mobilna platformy Azure.
+
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
 ### <a name="email"></a>E-mail
@@ -139,11 +141,11 @@ Jeśli nie otrzymujesz powiadomień dotyczących *głównej poczty e-mail*, moż
 2. Kliknięcie przycisku wszyscy użytkownicy (w lewym okienku) spowoduje wyświetlenie listy użytkowników (w okienku po prawej stronie).
 3. Wybierz użytkownika, dla którego chcesz przejrzeć podstawowe informacje o *wiadomości e-mail* .
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Przykład dotyczący sposobu przeglądu profilu użytkownika."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Przykład dotyczący sposobu przeglądu profilu użytkownika." border="true":::
 
 4. W obszarze profil użytkownika w obszarze informacje kontaktowe, jeśli karta "E-mail" jest pusta, kliknij przycisk *Edytuj* u góry i Dodaj swój *podstawowy adres e-mail* i naciśnij przycisk *Zapisz* w górnej części ekranu.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Przykład dodawania podstawowej poczty e-mail."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Przykład dodawania podstawowej poczty e-mail." border="true":::
 
 W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./alerts-rate-limiting.md) .
 
@@ -153,7 +155,7 @@ Wywołuje istniejący punkt końcowy wyzwalacza HTTP w [Azure Functions](../../a
 W grupie akcji może istnieć ograniczona liczba akcji funkcji.
 
 ### <a name="itsm"></a>ITSM
-Akcja narzędzia ITSM wymaga połączenia narzędzia ITSM. Dowiedz się, jak utworzyć [połączenie narzędzia ITSM](../platform/itsmc-overview.md).
+Akcja narzędzia ITSM wymaga połączenia narzędzia ITSM. Dowiedz się, jak utworzyć [połączenie narzędzia ITSM](./itsmc-overview.md).
 
 W grupie akcji może istnieć ograniczona liczba akcji narzędzia ITSM. 
 
@@ -191,7 +193,7 @@ Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Director
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
@@ -334,7 +336,7 @@ Zobacz [adresy IP grupy akcji](../app/ip-addresses.md) dla zakresów źródłowy
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [zachowania alertu programu SMS](./alerts-sms-behavior.md).  
 * Uzyskaj [informacje na temat schematu elementu webhook alertu dziennika aktywności](./activity-log-alerts-webhook.md).  
-* Dowiedz się więcej o [Łącznik ITSM](../platform/itsmc-overview.md).
+* Dowiedz się więcej o [Łącznik ITSM](./itsmc-overview.md).
 * Dowiedz się więcej o [ograniczaniu](./alerts-rate-limiting.md) liczby alertów.
-* Zapoznaj się z [omówieniem alertów dziennika aktywności](../platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
+* Zapoznaj się z [omówieniem alertów dziennika aktywności](./alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
 * Informacje o sposobie [konfigurowania alertów za każdym razem, gdy jest ogłaszane powiadomienie o kondycji usługi](../../service-health/alerts-activity-log-service-notifications-portal.md).

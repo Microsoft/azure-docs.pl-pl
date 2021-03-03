@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65da8e07c01561577fe7eff449bfc10348c7f277
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88031429"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716605"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorowanie, odbieranie i wysyłanie zdarzeń za pomocą usług Azure Event Hubs i Azure Logic Apps
 
@@ -35,22 +35,22 @@ Aby mieć pewność, że aplikacja logiki może uzyskać dostęp do centrum zdar
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do *obszaru nazw*Event Hubs, a nie do określonego centrum zdarzeń. 
+1. Przejdź do *obszaru nazw* Event Hubs, a nie do określonego centrum zdarzeń. 
 
-1. W menu Przestrzeń nazw w obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia**Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
+1. W menu Przestrzeń nazw w obszarze **Ustawienia** wybierz pozycję **zasady dostępu współdzielonego**. W obszarze **oświadczenia** Sprawdź, czy masz uprawnienia do **zarządzania** tą przestrzenią nazw.
 
    ![Zarządzanie uprawnieniami dla przestrzeni nazw centrum zdarzeń](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
 1. Jeśli chcesz później ręcznie wprowadzić informacje o połączeniu, Pobierz parametry połączenia dla przestrzeni nazw Event Hubs.
 
-   1. W obszarze **zasady**wybierz pozycję **RootManageSharedAccessKey**.
+   1. W obszarze **zasady** wybierz pozycję **RootManageSharedAccessKey**.
 
    1. Znajdź parametry połączenia klucza podstawowego. Wybierz przycisk Kopiuj i Zapisz parametry połączenia do późniejszego użycia.
 
       ![Kopiuj parametry połączenia Event Hubs przestrzeni nazw](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Event Hubs, czy z określonym centrum zdarzeń, upewnij się, że parametry połączenia nie mają `EntityPath`   parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia dotyczy określonego centrum zdarzeń "Entity" i nie jest poprawnym ciągiem używanym z aplikacją logiki.
+      > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Event Hubs, czy z określonym centrum zdarzeń, upewnij się, że parametry połączenia nie mają `EntityPath` parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia dotyczy określonego centrum zdarzeń "Entity" i nie jest poprawnym ciągiem używanym z aplikacją logiki.
 
 1. Teraz Kontynuuj [Dodawanie wyzwalacza Event Hubs](#add-trigger) lub [Dodaj akcję Event Hubs](#add-action).
 

@@ -160,8 +160,6 @@
           href: load-balancer-troubleshoot-health-probe-status.md
         - name: Ruch w puli zaplecza (maszyna wirtualna)
           href: load-balancer-troubleshoot-backend-traffic.md
-        - name: Typowe błędy związane z wdrażaniem
-          href: load-balancer-common-deployment-errors.md
         - name: Typowe problemy z połączeniem wychodzącym
           href: troubleshoot-outbound-connection.md
         - name: Problemy z kondycją zasobów i dostępnością dla ruchu przychodzącego
@@ -191,6 +189,8 @@
       displayName: ARM
     - name: Typowe kody błędów dla Instance Metadata Service platformy Azure (IMDS)
       href: troubleshoot-load-balancer-imds.md
+    - name: Typowe błędy związane z wdrażaniem
+      href: load-balancer-common-deployment-errors.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712219"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opcje obliczeń i magazynowania w Azure Database for PostgreSQL-elastycznym serwerze
 
@@ -120,6 +120,9 @@ Możesz monitorować użycie we/wy w Azure Portal lub przy użyciu poleceń inte
 
 W przypadku zaznaczenia z liczbą operacji we \* /wy są ograniczone przez wybrany typ maszyny wirtualnej. W przeciwnym razie operacje we/wy są ograniczone przez wybrany rozmiar magazynu.
 
+>[!NOTE]
+> W metrykach może być widocznych więcej operacji we/wy z powodu dużego poziomu dysku. Więcej informacji można znaleźć w [dokumentacji](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) . 
+
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Maksymalna przepustowość operacji we/wy (MiB/s) dla konfiguracji
 
 |Nazwa jednostki SKU            |Rozmiar magazynu, GiB                             |32 |64 |128 |256 |512  |1 024|2048|4 096|8192 |16 384|
@@ -147,7 +150,7 @@ W przypadku zaznaczenia z liczbą operacji we \* /wy są ograniczone przez wybra
 
 Po oznaczeniu z opcją \* przepustowość we/wy jest ograniczona przez wybrany typ maszyny wirtualnej. W przeciwnym razie przepustowość we/wy jest ograniczona przez wybrany rozmiar magazynu.
 
-### <a name="reaching-the-storage-limit"></a>Osiąganie limitu magazynu
+### <a name="reaching-the-storage-limit"></a>Osiągnięcie limitu magazynu
 
 Po osiągnięciu limitu magazynu serwer zacznie zwracać błędy i uniemożliwia dalsze modyfikacje. Może to również spowodować problemy z innymi działaniami operacyjnymi, takimi jak kopie zapasowe i archiwum WAL.
 

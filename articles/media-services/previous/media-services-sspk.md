@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 8e2217c04f5c39ad93185273d537324f4b56e456
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f6c43f943bb12e8230772f2d195589ecc4543030
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099544"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705317"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
 
@@ -46,7 +46,7 @@ SSPK jest licencjonowane na warunkach, które oferują doskonałą wartość biz
   * Interfejsy programowania do interakcji z sprzętowymi dekoderami A/V (dekodowanie, renderowanie)
 * Interfejs Digital Rights Management (DRM) 
   * Interfejsy programowania do obsługi technologii DRM za pomocą warstwy abstrakcji DRM (DAL)
-  * Zestaw portów Microsoft PlayReady, który jest dostarczany oddzielnie, ale integruje się z tym interfejsem. Aby uzyskać więcej informacji na temat licencjonowania urządzeń firmy Microsoft PlayReady, kliknij [tutaj](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Zestaw portów Microsoft PlayReady, który jest dostarczany oddzielnie, ale integruje się z tym interfejsem. [Zobacz więcej szczegółów na temat licencjonowania urządzeń firmy Microsoft PlayReady](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Przykłady implementacji 
   * Przykładowa implementacja PAL dla systemu Linux
   * Implementacja przykładowej warstwy HAL dla GStreamer
@@ -148,6 +148,7 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do p
 * Shenzhen Skyworth — Technologia cyfrowa co., Ltd
 * Sichuan Changhong, co., Ltd.
 * Skardin przemysł Corp.
+* 'C CP Ltd
 * Fernsehen & GmbH Deutschland
 * SMARDTV GLOBALNE SAS
 * SoftAtHome

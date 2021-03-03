@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: ff5dbc8e643137008aa7819b455adcf97c05bfc9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491794"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718934"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na
 * Urządzenie z systemem x86/64 lub ARM64 z jednym z [obsługiwanych systemów operacyjnych Linux](../../iot-edge/support.md#operating-systems)
 * Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](../../role-based-access-control/built-in-roles.md#owner)
 * [Utwórz i skonfiguruj IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge.md)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
 
@@ -61,8 +61,8 @@ Wykonaj kroki opisane w tym artykule, aby uzyskać poświadczenia dostępu do in
 Aby uruchomić usługę analiza filmów wideo na żywo w IoT Edge module, Utwórz konto użytkownika lokalnego z możliwie jak najmniejszej liczby uprawnień. Na przykład uruchom następujące polecenia na komputerze z systemem Linux:
 
 ```
-sudo groupadd -g 1010 localuser
-sudo adduser --home /home/edgeuser --uid 1010 -gid 1010 edgeuser
+sudo groupadd -g 1010 localusergroup
+sudo useradd --home-dir /home/edgeuser --uid 1010 --gid 1010 lvaedgeuser
 ```
 
 ## <a name="granting-permissions-to-device-storage"></a>Przyznawanie uprawnień do magazynu urządzeń
@@ -72,15 +72,15 @@ Teraz, gdy utworzono konto użytkownika lokalnego,
 * Do przechowywania danych konfiguracji aplikacji potrzebny jest folder lokalny. Utwórz folder i Udziel uprawnień do zapisu konta LocalUser w tym folderze przy użyciu następujących poleceń:
 
 ```
-sudo mkdir /var/lib/azuremediaservices
-sudo chown -R edgeuser /var/lib/azuremediaservices
+sudo mkdir -p /var/lib/azuremediaservices
+sudo chown -R lvaedgeuser /var/lib/azuremediaservices
 ```
 
 * Potrzebny będzie również folder do [nagrywania filmów wideo do pliku lokalnego](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources). Użyj następujących poleceń, aby utworzyć folder lokalny dla tego samego:
 
 ```
-sudo mkdir /var/media
-sudo chown -R edgeuser /var/media
+sudo mkdir -p /var/media
+sudo chown -R lvaedgeuser /var/media
 ```
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Wdrażanie modułu usługi Microsoft Live Video Analytics

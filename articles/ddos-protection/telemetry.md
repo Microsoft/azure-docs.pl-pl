@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522669"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716197"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
 
-Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Alerty można skonfigurować dla dowolnych metryk Azure Monitor uwidocznionych przez DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
+Azure DDoS Protection Standard zapewnia szczegółowe informacje o atakach i wizualizacje z DDoSą analizą ataków. Klienci chroniący sieci wirtualne przed atakami DDoS mają szczegółowy wgląd w ruch związany z atakami i działania podejmowane w celu ograniczenia ataku za pośrednictwem raportów ograniczenia ataków, które &ją dzienniki przepływów ograniczenia. Bogate dane telemetryczne są udostępniane za pośrednictwem Azure Monitor, w tym szczegółowych metryk w czasie trwania ataku DDoS. Można skonfigurować alerty dla dowolnych metryk usługi Azure Monitor ujawnionych przez usługę DDoS Protection. Rejestrowanie może być dodatkowo zintegrowane z [platformą Azure](../sentinel/connect-azure-ddos-protection.md), Splunk (Azure Event Hubs), pakietem OMS log Analytics i usługą Azure Storage, aby uzyskać zaawansowaną analizę za pośrednictwem interfejsu diagnostyki Azure monitor.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -34,7 +34,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!NOTE]
 > W przypadku wyświetlenia wielu opcji **agregacji** w Azure Portal są obsługiwane tylko typy agregacji wymienione w poniższej tabeli. Przepraszamy za to pomyłkę i pracujemy nad rozwiązaniem tego problemu.
 
-Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) są dostępne dla Azure DDoS Protection Standard. Te metryki można również eksportować za pośrednictwem ustawień diagnostycznych (zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md)).
+Następujące [metryki](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) są dostępne dla Azure DDoS Protection Standard. Te metryki można również eksportować za pośrednictwem ustawień diagnostycznych (zobacz [Wyświetlanie i Konfigurowanie rejestrowania diagnostycznego DDoS](diagnostic-logging.md)).
 
 
 | Metric | Nazwa wyświetlana metryki | Jednostka | Typ agregacji | Opis |
@@ -70,11 +70,11 @@ Następujące [metryki](../azure-monitor/platform/metrics-supported.md#microsoft
 
 ## <a name="view-ddos-protection-telemetry"></a>Wyświetlanie telemetrii ochrony DDoS
 
-Dane telemetryczne dla ataku są udostępniane za pośrednictwem Azure Monitor w czasie rzeczywistym. Dane telemetryczne są dostępne tylko wtedy, gdy publiczny adres IP został objęty ograniczeniem. 
+Dane telemetryczne w przypadku ataku są udostępniane za pośrednictwem usługi Azure Monitor w czasie rzeczywistym. Dane telemetryczne są dostępne tylko wtedy, gdy publiczny adres IP został objęty ograniczeniem. 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do planu DDoS Protection.
 2. W obszarze **Monitorowanie** wybierz pozycję **Metryki**.
-3. Wybierz **zakres**. Wybierz **subskrypcję** zawierającą publiczny adres IP, który chcesz zalogować, wybierz pozycję **publiczny adres IP** dla opcji **Typ zasobu**, a następnie wybierz konkretny publiczny adres IP, dla którego chcesz rejestrować metryki, a następnie wybierz pozycję **Zastosuj**.
+3. Wybierz pozycję **Zakres**. Wybierz **subskrypcję** zawierającą publiczny adres IP, który chcesz zalogować, wybierz pozycję **publiczny adres IP** dla opcji **Typ zasobu**, a następnie wybierz konkretny publiczny adres IP, dla którego chcesz rejestrować metryki, a następnie wybierz pozycję **Zastosuj**.
 4. Wybierz typ **agregacji** jako **maksimum**.
 
 Nazwy metryk składają się z różnych typów pakietów i bajtów zamiast pakietów, a podstawowa konstrukcja nazw tagów w każdej metryce w następujący sposób:

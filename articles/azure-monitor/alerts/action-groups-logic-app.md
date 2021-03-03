@@ -4,14 +4,14 @@ description: Dowiedz się, jak utworzyć akcję aplikacji logiki w celu przetwor
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: adef1f729cbecd08b2cf99231423287bdc4c6ae0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620313"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701182"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Jak wyzwolić złożone akcje z alertami Azure Monitor
 
@@ -19,7 +19,7 @@ W tym artykule opisano sposób konfigurowania i wyzwalania aplikacji logiki w ce
 
 ## <a name="overview"></a>Omówienie
 
-Po wyzwoleniu alertu Azure Monitor jest on wywoływany przez [grupę akcji](../platform/action-groups.md). Grupy akcji umożliwiają wywoływanie co najmniej jednej akcji w celu powiadomienia innych o alercie, a także ich korygowania.
+Po wyzwoleniu alertu Azure Monitor jest on wywoływany przez [grupę akcji](./action-groups.md). Grupy akcji umożliwiają wywoływanie co najmniej jednej akcji w celu powiadomienia innych o alercie, a także ich korygowania.
 
 Ogólny proces to:
 
@@ -35,29 +35,15 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Tworzenie alertu dziennika aktywności: administracyjne
 
-1.  W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
+1. [Tworzenie aplikacji logiki](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Wyszukaj i wybierz pozycję **aplikacja logiki**, a następnie wybierz pozycję **Utwórz**.
+2.  Wybierz wyzwalacz: **po odebraniu żądania HTTP**.
 
-3.  Nadaj **nazwę** aplikacji logiki, wybierz **grupę zasobów** i tak dalej.
+1. W oknie dialogowym dla **momentu odebrania żądania HTTP** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-    ![Tworzenie aplikacji logiki](media/action-groups-logic-app/create-logic-app-dialog.png "Tworzenie aplikacji logiki")
+    ![Zrzut ekranu, na którym jest wyświetlane okno dialogowe żądanie H T t P, a w polu Użyj przykładowego ładunku do wygenerowania wybranego schematu opion. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Wybierz pozycję **Utwórz** , aby utworzyć aplikację logiki. Komunikat podręczny wskazuje, że utworzono aplikację logiki. Wybierz pozycję **Uruchom zasób** , aby otworzyć **projektanta Logic Apps**.
-
-5.  Wybierz wyzwalacz: **po odebraniu żądania HTTP**.
-
-    ![Wyzwalacze aplikacji logiki](media/action-groups-logic-app/logic-app-triggers.png "Wyzwalacze aplikacji logiki")
-
-6.  Wybierz pozycję **Edytuj** , aby zmienić wyzwalacz żądania HTTP.
-
-    ![Wyzwalacze żądań HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Wyzwalacze żądań HTTP")
-
-7.  Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
-
-    ![Użyj przykładowego ładunku](media/action-groups-logic-app/use-sample-payload-button.png "Użyj przykładowego ładunku")
-
-8.  Skopiuj i wklej następujący przykładowy ładunek do okna dialogowego:
+3.  Skopiuj i wklej następujący przykładowy ładunek do okna dialogowego:
 
     ```json
         {
@@ -128,7 +114,7 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
 14. W górnej części **projektanta Logic Apps** wybierz pozycję **Zapisz** , aby zapisać aplikację logiki.
 
-15. Otwórz istniejącą grupę akcji i Dodaj akcję odwołującą się do aplikacji logiki. Jeśli nie masz istniejącej grupy akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal,](../platform/action-groups.md) aby je utworzyć. Nie zapomnij zapisać zmian.
+15. Otwórz istniejącą grupę akcji i Dodaj akcję odwołującą się do aplikacji logiki. Jeśli nie masz istniejącej grupy akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal,](./action-groups.md) aby je utworzyć. Nie zapomnij zapisać zmian.
 
     ![Aktualizowanie grupy akcji](media/action-groups-logic-app/update-action-group.png "Aktualizowanie grupy akcji")
 
@@ -138,8 +124,8 @@ Następnym razem, gdy alert wywoła grupę akcji, wywoływana jest aplikacja log
 
 Wpisy Azure Service Health są częścią dziennika aktywności. Proces tworzenia alertu jest podobny do [tworzenia alertu dziennika aktywności](#create-an-activity-log-alert-administrative), ale z kilkoma zmianami:
 
-- Kroki od 1 do 7 są takie same.
-- W kroku 8 Użyj następującego przykładowego ładunku dla wyzwalacza żądania HTTP:
+- Kroki od 1 do 3 są takie same.
+- W kroku 4 Użyj następującego przykładowego ładunku dla wyzwalacza żądania HTTP:
 
     ```json
     {
@@ -183,8 +169,8 @@ Wpisy Azure Service Health są częścią dziennika aktywności. Proces tworzeni
     }
     ```
 
--  Kroki 9 i 10 są takie same.
--  Dla kroków od 11 do 14 wykonaj następujący proces:
+-  Kroki 5 i 6 są takie same.
+-  W przypadku kroków od 7 do 11 wykonaj następujące czynności:
 
    1. Wybierz pozycję **+** **nowy krok** , a następnie wybierz pozycję **Dodaj warunek**. Ustaw następujące warunki, aby aplikacja logiki była uruchamiana tylko wtedy, gdy dane wejściowe pasują do poniższych wartości.  Gdy wprowadzasz wartość wersji do pola tekstowego, umieść cudzysłowy wokół niego ("0.1.1"), aby upewnić się, że jest ono oceniane jako ciąg, a nie typ liczbowy.  W przypadku powrotu do strony w systemie nie są wyświetlane cudzysłowy, ale kod źródłowy nadal utrzymuje typ ciągu.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +212,8 @@ Wpisy Azure Service Health są częścią dziennika aktywności. Proces tworzeni
 
 Proces tworzenia alertu dotyczącego metryki jest podobny do [tworzenia alertu dziennika aktywności](#create-an-activity-log-alert-administrative), ale z kilkoma zmianami:
 
-- Kroki od 1 do 7 są takie same.
-- W kroku 8 Użyj następującego przykładowego ładunku dla wyzwalacza żądania HTTP:
+- Kroki od 1 do 3 są takie same.
+- W kroku 4 Użyj następującego przykładowego ładunku dla wyzwalacza żądania HTTP:
 
     ```json
     {
@@ -271,8 +257,8 @@ Proces tworzenia alertu dotyczącego metryki jest podobny do [tworzenia alertu d
     }
     ```
 
-- Kroki 9 i 10 są takie same.
-- Dla kroków od 11 do 14 wykonaj następujący proces:
+- Kroki 5 i 6 są takie same.
+- W przypadku kroków od 7 do 11 wykonaj następujące czynności:
 
   1. Wybierz pozycję **+** **nowy krok** , a następnie wybierz pozycję **Dodaj warunek**. Ustaw następujące warunki, aby aplikacja logiki była uruchamiana tylko wtedy, gdy dane wejściowe pasują do poniższych wartości. Gdy wprowadzasz wartość wersji do pola tekstowego, umieść cudzysłowy wokół niego ("2,0"), aby upewnić się, że jest ono oceniane jako ciąg, a nie typ liczbowy.  W przypadku powrotu do strony w systemie nie są wyświetlane cudzysłowy, ale kod źródłowy nadal utrzymuje typ ciągu. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +280,6 @@ Proces tworzenia alertu dotyczącego metryki jest podobny do [tworzenia alertu d
 Logic Apps ma wiele różnych łączników, które umożliwiają wyzwalanie akcji w szerokim zakresie aplikacji i baz danych. Przykłady czasu, SQL Server, Oracle, Salesforce, są tylko przykładami. Aby uzyskać więcej informacji na temat łączników, zobacz [Łączniki aplikacji logiki](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się [z omówieniem alertów dziennika aktywności platformy Azure](../platform/alerts-overview.md) i Dowiedz się, jak otrzymywać alerty.  
+* Zapoznaj się [z omówieniem alertów dziennika aktywności platformy Azure](./alerts-overview.md) i Dowiedz się, jak otrzymywać alerty.  
 * Dowiedz się, jak [skonfigurować alerty po opublikowaniu powiadomienia Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Dowiedz się więcej na temat [grup akcji](../platform/action-groups.md).
-
+* Dowiedz się więcej na temat [grup akcji](./action-groups.md).

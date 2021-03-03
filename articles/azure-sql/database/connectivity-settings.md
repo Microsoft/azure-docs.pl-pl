@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: e3422f468d1355245fb31e8f04d5f8625f583c37
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462182"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691930"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności z usługą Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 Ustawienie wersji minimalnej [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) umożliwia klientom wybór wersji protokołu TLS używanej przez bazę danych SQL.
 
-Obecnie obsługujemy protokół TLS 1.0, 1.1 i 1.2. Ustawienie minimalnej wersji protokołu TLS zapewnia obsługę nowszych wersji tego protokołu. Na przykład wybranie wersji TLS nowszej niż 1.1 oznacza, że akceptowane będą tylko połączenia nawiązywane za pomocą protokołu TLS 1.1 i 1.2, a protokół TLS 1.0 będzie odrzucany. Zalecamy ustawienie minimalnej wersji protokołu TLS na 1.2 po wcześniejszym przeprowadzeniu testów potwierdzających zgodność aplikacji z tą wersją. Zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wydaniach i jest najwyższą wersją protokołu TLS obsługiwaną w usłudze Azure SQL Database.
+Obecnie obsługujemy protokół TLS 1.0, 1.1 i 1.2. Ustawienie minimalnej wersji protokołu TLS zapewnia obsługę nowszych wersji tego protokołu. Na przykład wybranie wersji 1,1 protokołu TLS oznacza, że tylko połączenia z protokołem TLS 1,1 i 1,2 są akceptowane, a połączenia z protokołem TLS 1,0 są odrzucane. Zalecamy ustawienie minimalnej wersji protokołu TLS na 1.2 po wcześniejszym przeprowadzeniu testów potwierdzających zgodność aplikacji z tą wersją. Zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wydaniach i jest najwyższą wersją protokołu TLS obsługiwaną w usłudze Azure SQL Database.
 
 > [!IMPORTANT]
 > Wartością domyślną dla minimalnej wersji protokołu TLS jest Zezwalanie na wszystkie wersje. Po wymuszeniu wersji protokołu TLS nie można przywrócić jej wartości domyślnej.

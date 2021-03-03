@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8f698aadc24d0dc0691743f1d8dd54c5d5fd287e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: d900ffa4481ba2b6deb21a8325f3f8def8084f84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714735"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metryki Azure Storage Analytics (klasyczne)
 
@@ -25,7 +25,7 @@ Usługa Azure Storage korzysta z rozwiązania analityka magazynu do przechowywan
 - Diagnozuj problemy z żądaniami skierowanymi do usługi Storage.
 - Zwiększenie wydajności aplikacji korzystających z usługi.
 
- Metryki analityka magazynu są domyślnie włączone dla nowych kont magazynu. Metryki można skonfigurować w [Azure Portal](https://portal.azure.com/)przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać wskazówki krok po kroku, zobacz temat [Włączanie metryk analitycznych usługi Azure Storage i zarządzanie nimi (klasyczne)](./storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustawiania właściwości usługi, aby włączyć analityka magazynu dla każdej usługi.  
+ Metryki analityka magazynu są domyślnie włączone dla nowych kont magazynu. Metryki można skonfigurować w [Azure Portal](https://portal.azure.com/)przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać wskazówki krok po kroku, zobacz temat [Włączanie metryk analitycznych usługi Azure Storage i zarządzanie nimi (klasyczne)](./manage-storage-analytics-logs.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustawiania właściwości usługi, aby włączyć analityka magazynu dla każdej usługi.  
 
 > [!NOTE]
 > Metryki analityka magazynu są dostępne dla usługi Azure Blob Storage, Azure queue storage, Azure Table Storage i Azure Files.
@@ -69,7 +69,7 @@ Usługa Azure Storage korzysta z rozwiązania analityka magazynu do przechowywan
  Te tabele są tworzone automatycznie, gdy analityka magazynu jest włączona dla punktu końcowego usługi magazynu. Są one dostępne za pośrednictwem przestrzeni nazw konta magazynu, na przykład `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")` . Tabele metryk nie są wyświetlane w operacji tworzenia listy i należy uzyskać do nich dostęp bezpośrednio za pośrednictwem nazwy tabeli.
 
 ## <a name="metrics-alerts"></a>Alerty metryk
-Rozważ skonfigurowanie alertów w [Azure Portal](https://portal.azure.com) , aby otrzymywać powiadomienia o ważnych zmianach w zachowaniu usług magazynu. Instrukcje krok po kroku znajdują się w temacie [Create Metric Alerts](storage-monitor-storage-account.md#create-metric-alerts).
+Rozważ skonfigurowanie alertów w [Azure Portal](https://portal.azure.com) , aby otrzymywać powiadomienia o ważnych zmianach w zachowaniu usług magazynu. Instrukcje krok po kroku znajdują się w temacie [Create Metric Alerts](./manage-storage-analytics-logs.md).
 
 Jeśli użyjesz narzędzia Eksplorator usługi Storage, aby pobrać te dane metryk w formacie rozdzielanym, możesz użyć programu Microsoft Excel do przeanalizowania danych. Aby uzyskać listę dostępnych narzędzi Eksplorator usługi Storage, zobacz [narzędzia klienckie usługi Azure Storage](./storage-explorers.md).
 

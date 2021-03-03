@@ -6,30 +6,35 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 12983f43e5f778cdf46c2ea3e0177d43838e5b47
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: ff20479062e31bb61756b3de7bbf04540b2d5598
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051602"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690400"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB emulator — informacje o wersji i pobrania
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 W tym artykule przedstawiono informacje o wersji emulatora Azure Cosmos DB z listą aktualizacji funkcji, które zostały wprowadzone w poszczególnych wydaniach. Znajduje się w nim również Najnowsza wersja emulatora do pobrania i użycia.
 
-## <a name="download"></a>Pobieranie
+## <a name="download"></a>Pobierz
 
 | | |
 |---------|---------|
 |**Pobieranie pliku MSI**|[Centrum pobierania Microsoft](https://aka.ms/cosmosdb-emulator)|
 |**Wprowadzenie**|[Programowanie lokalne przy użyciu emulatora Azure Cosmos DB](local-emulator.md)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="21111-22-february-2021"></a>2.11.11 (22 lutego 2021)
+
+ - W tej wersji zaktualizowano zawartość lokalną Eksplorator danych do najnowszej wersji Azure Portal.
+
 
 ### <a name="21110-5-january-2021"></a>2.11.10 (5 stycznia 2021)
 
- - Ta wersja aktualizuje zawartość lokalną Eksplorator danych do najnowszej wersji witryny Azure Portal i dodaje nową opcję publiczną "/ExportPemCert", która umożliwia użytkownikowi emulatora bezpośrednie Eksportowanie certyfikatu emulatora publicznego jako. Plik PEM.
+ - Ta wersja aktualizuje zawartość lokalną Eksplorator danych do najnowszej wersji Azure Portal i dodaje nową opcję publiczną "/ExportPemCert", która umożliwia użytkownikowi emulatora bezpośrednie Eksportowanie certyfikatu emulatora publicznego jako. Plik PEM.
 
 ### <a name="2119-3-december-2020"></a>2.11.9 (3 grudnia 2020)
 

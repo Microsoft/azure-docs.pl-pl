@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616333"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711556"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics
 Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności z agentów Log Analytics w częstych odstępach czasu dla analizy niemal w czasie rzeczywistym (NRT), a także do agregowania danych wydajności na potrzeby analizy i raportowania w dłuższym okresie.
 
 > [!IMPORTANT]
-> W tym artykule opisano zbieranie danych wydajności za pomocą [agenta log Analytics](../platform/log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
+> W tym artykule opisano zbieranie danych wydajności za pomocą [agenta log Analytics](./log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Liczniki wydajności](media/data-sources-performance-counters/overview.png)
 
@@ -224,5 +224,5 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zbieraj liczniki wydajności z aplikacji systemu Linux, w](data-sources-linux-applications.md) tym MySQL i Apache HTTP Server.
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.  
-* Eksportuj zebrane dane do [Power BI](../platform/powerbi.md) , aby uzyskać dodatkowe wizualizacje i analizę.
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.  
+* Eksportuj zebrane dane do [Power BI](../visualize/powerbi.md) , aby uzyskać dodatkowe wizualizacje i analizę.

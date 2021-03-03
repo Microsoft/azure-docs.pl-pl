@@ -1,26 +1,26 @@
 ---
-title: Informacje o pojęciach repozytorium modelu urządzenia | Microsoft Docs
-description: Jako deweloper rozwiązania lub Specjalista IT zapoznaj się z podstawowymi pojęciami dotyczącymi repozytorium modelu urządzeń.
+title: Opis pojęć repozytorium modeli urządzeń | Microsoft Docs
+description: Jako deweloper rozwiązania lub Specjalista IT zapoznaj się z podstawowymi pojęciami repozytorium modeli urządzeń.
 author: rido-min
 ms.author: rmpablos
 ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920546"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742147"
 ---
-# <a name="device-model-repository"></a>Repozytorium modelu urządzenia
+# <a name="device-models-repository"></a>Repozytorium modeli urządzeń
 
-Repozytorium modeli urządzeń (DMR) umożliwia konstruktorom urządzeń zarządzanie i udostępnianie modeli urządzeń Plug and Play IoT. Modele urządzeń to JSON LD dokumenty zdefiniowane przy użyciu [języka Digital bliźniaczych reprezentacji Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Repozytorium modele urządzeń (DMR) umożliwia konstruktorom urządzeń zarządzanie i udostępnianie modeli urządzeń Plug and Play IoT. Modele urządzeń to JSON LD dokumenty zdefiniowane przy użyciu [języka Digital bliźniaczych reprezentacji Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 DMR definiuje wzorzec do przechowywania interfejsów DTDL w strukturze folderów na podstawie identyfikatora modelu sznurka urządzenia (DTMI). Interfejs można zlokalizować w DMR, konwertując DTMI na ścieżkę względną. Na przykład `dtmi:com:example:Thermostat;1` DTMI tłumaczy na `/dtmi/com/example/thermostat-1.json` .
 
-## <a name="public-device-model-repository"></a>Repozytorium modelu urządzenia publicznego
+## <a name="public-device-models-repository"></a>Repozytorium modeli urządzeń publicznych
 
 Firma Microsoft udostępnia publiczną DMR z następującymi cechami:
 
@@ -28,7 +28,7 @@ Firma Microsoft udostępnia publiczną DMR z następującymi cechami:
 - Niezmienności.  Po opublikowaniu nie można zaktualizować interfejsu.
 - Skalowanie w poziomie. Firma Microsoft zapewnia wymaganą infrastrukturę do tworzenia bezpiecznego, skalowalnego punktu końcowego, który umożliwia publikowanie i korzystanie z modeli urządzeń.
 
-## <a name="custom-device-model-repository"></a>Niestandardowe repozytorium modeli urządzeń
+## <a name="custom-device-models-repository"></a>Repozytorium niestandardowych modeli urządzeń
 
 Użyj tego samego wzorca DMR, aby utworzyć niestandardowe DMR w dowolnym nośniku magazynującym, takim jak lokalny system plików lub niestandardowe serwery sieci Web HTTP. Modele urządzeń można pobrać z niestandardowego DMR w taki sam sposób jak w przypadku publicznego DMR, zmieniając podstawowy adres URL używany do uzyskiwania dostępu do DMR.
 
@@ -37,7 +37,7 @@ Użyj tego samego wzorca DMR, aby utworzyć niestandardowe DMR w dowolnym nośni
 
 ## <a name="public-models"></a>Modele publiczne
 
-Modele urządzeń publicznych przechowywane w repozytorium modelu są dostępne dla wszystkich użytkowników w celu korzystania z nich i integrowania ich w aplikacjach. Modele urządzeń publicznych umożliwiają twórcom urządzeń, którzy mają możliwość udostępniania i ponownego wykorzystywania modeli urządzeń Plug and Play IoT w otwartym systemie ekonomicznym dla konstruktorów i deweloperów rozwiązań.
+Modele urządzeń publicznych przechowywane w repozytorium modele są dostępne dla wszystkich użytkowników w celu korzystania z nich i integrowania ich w aplikacjach. Modele urządzeń publicznych umożliwiają twórcom urządzeń, którzy mają możliwość udostępniania i ponownego wykorzystywania modeli urządzeń Plug and Play IoT w otwartym systemie ekonomicznym dla konstruktorów i deweloperów rozwiązań.
 
 Zapoznaj się z sekcją [Publikowanie modelu](#publish-a-model) , aby uzyskać instrukcje dotyczące publikowania modelu w repozytorium modeli w celu udostępnienia go jako publicznego.
 

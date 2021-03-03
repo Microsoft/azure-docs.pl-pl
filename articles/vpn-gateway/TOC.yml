@@ -85,7 +85,7 @@
               href: create-routebased-vpn-gateway-cli.md
         - name: Weryfikowanie połączenia z bramą VPN Gateway
           href: vpn-gateway-verify-connection-resource-manager.md
-        - name: Resetowanie bramy VPN Gateway
+        - name: Resetowanie bramy sieci VPN lub połączenia
           href: reset-gateway.md
         - name: Usuwanie bramy VPN Gateway
           items:
@@ -177,6 +177,10 @@
               href: about-vpn-profile-download.md
             - name: Intune — wdrażanie profilu klienta VPN
               href: vpn-profile-intune.md
+        - name: Wiele typów uwierzytelniania
+          items:
+            - name: Azure Portal
+              href: howto-point-to-site-multi-auth.md
         - name: OpenVPN
           items:
             - name: Konfigurowanie typu tunelu OpenVPN
@@ -205,6 +209,8 @@
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: bgp-how-to-cli.md
+        - name: Diagnostyka BGP
+          href: bgp-diagnostics.md
         - name: Konfigurowanie wymuszonego tunelowania
           items:
             - name: Azure PowerShell

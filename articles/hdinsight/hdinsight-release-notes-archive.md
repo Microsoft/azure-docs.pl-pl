@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 902b13c947cb005189e23dee943867100809564e
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988549"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705657"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
@@ -34,7 +34,7 @@ Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji
 
 ### <a name="deprecation"></a>Przestarzałe
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
-Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
 
 #### <a name="disabled-vm-sizes"></a>Wyłączone rozmiary maszyn wirtualnych
 Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 maszyn wirtualnych. Nie ma to wpływu na istniejących klientów, którzy korzystali z tych rozmiarów maszyn wirtualnych w ciągu ostatnich trzech miesięcy. Począwszy od stycznia 9 2021, Usługa HDInsight będzie blokować wszystkim klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 rozmiary maszyn wirtualnych. Istniejące klastry będą działać w postaci, w jakiej jest. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
@@ -62,7 +62,7 @@ Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji
 
 ### <a name="deprecation"></a>Przestarzałe
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
-Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+Typ klastra usług HDInsight 3,6 ML ma koniec wsparcia z grudnia 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML po 31 2020 grudnia. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#supported-hdinsight-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
 
 #### <a name="disabled-vm-sizes"></a>Wyłączone rozmiary maszyn wirtualnych
 Począwszy od listopada 16 2020, Usługa HDInsight będzie blokować nowym klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 maszyn wirtualnych. Nie ma to wpływu na istniejących klientów, którzy korzystali z tych rozmiarów maszyn wirtualnych w ciągu ostatnich trzech miesięcy. Począwszy od stycznia 9 2021, Usługa HDInsight będzie blokować wszystkim klientom tworzenie klastrów przy użyciu standand_A8, standand_A9, standand_A10 i standand_A11 rozmiary maszyn wirtualnych. Istniejące klastry będą działać w postaci, w jakiej jest. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
@@ -77,7 +77,7 @@ Następujące zmiany zostaną wykonane w przyszłych wydaniach.
 Usługa HDInsight obecnie nie obsługuje dostosowywania rozmiaru węzła dozorcy dla typów klastrów usługi Spark, Hadoop i ML. Domyślnie A2_v2/a2 rozmiary maszyn wirtualnych, które są dostępne bezpłatnie. W nadchodzącym wydaniu można wybrać dozorcy rozmiar maszyny wirtualnej, który jest najbardziej odpowiedni dla danego scenariusza. Dozorcy węzły z maszyną wirtualną o rozmiarze innym niż A2_v2/a2 będą obciążane opłatami. Maszyny wirtualne A2_v2 i a2 są nadal udostępniane bezpłatnie.
 
 #### <a name="default-cluster-version-will-be-changed-to-40"></a>Domyślna wersja klastra zostanie zmieniona na 4,0
-Od lutego 2021 domyślna wersja klastra usługi HDInsight zostanie zmieniona z 3,6 na 4,0. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [dostępne wersje](./hdinsight-component-versioning.md#available-versions). Dowiedz się więcej na temat Nowości w usłudze [HDInsight 4,0](./hdinsight-version-release.md)
+Od lutego 2021 domyślna wersja klastra usługi HDInsight zostanie zmieniona z 3,6 na 4,0. Aby uzyskać więcej informacji na temat dostępnych wersji, zobacz [obsługiwane wersje](./hdinsight-component-versioning.md#supported-hdinsight-versions). Dowiedz się więcej na temat Nowości w usłudze [HDInsight 4,0](./hdinsight-version-release.md)
 
 #### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>Usługa HDInsight 3,6 koniec wsparcia z 30 2021 czerwca
 Usługa HDInsight 3,6 zostanie zakończona. Od czerwca 30 2021 klienci nie mogą tworzyć nowych klastrów usługi HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do usługi HDInsight 4,0, aby uniknąć potencjalnych przerw w działaniu systemu/obsługi.
@@ -103,7 +103,7 @@ Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji
 
 ### <a name="deprecation"></a>Przestarzałe
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Wycofanie klastra usług HDInsight 3,6 ML
-Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#available-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
+Typ klastra usług HDInsight 3,6 ML zostanie zakończony przez gru 31 2020. Klienci nie będą mogli tworzyć nowych klastrów usług 3,6 ML. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Sprawdź w [tym miejscu](./hdinsight-component-versioning.md#supported-hdinsight-versions)wygaśnięcie pomocy technicznej dotyczącej wersji i typów klastrów usługi HDInsight.
 
 ### <a name="behavior-changes"></a>Zmiany zachowania
 Brak zmian w zachowaniu dla tej wersji.

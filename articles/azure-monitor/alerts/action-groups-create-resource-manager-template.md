@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć grupę akcji przy użyciu szablonu Azur
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/19/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 2275ea059b762e81330d3e6150c563e18a64b554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 978372481513f3d68fdc587ccc1148976640bc80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729134"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Tworzenie grupy akcji przy użyciu szablonu Menedżer zasobów
 W tym artykule pokazano, jak skonfigurować grupy akcji przy użyciu [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) . Za pomocą szablonów można automatycznie konfigurować grupy akcji, które mogą być ponownie używane w niektórych typach alertów. Te grupy akcji zapewniają, że wszystkie odpowiednie strony są powiadamiane po wyzwoleniu alertu.
@@ -50,7 +50,7 @@ Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla 
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -71,21 +71,26 @@ Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla 
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -133,7 +138,7 @@ Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla 
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -146,7 +151,8 @@ Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla 
         "webhookReceivers": [
           {
             "name": "[parameters('webhookReceiverName')]",
-            "serviceUri": "[parameters('webhookServiceUri')]"
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -163,7 +169,6 @@ Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla 
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat [grup akcji](../platform/action-groups.md).
-* Dowiedz się więcej o [alertach](../platform/alerts-overview.md).
-* Dowiedz się, jak dodawać [alerty przy użyciu szablonu Menedżer zasobów](../platform/alerts-activity-log.md).
-
+* Dowiedz się więcej na temat [grup akcji](./action-groups.md).
+* Dowiedz się więcej o [alertach](./alerts-overview.md).
+* Dowiedz się, jak dodawać [alerty przy użyciu szablonu Menedżer zasobów](./alerts-activity-log.md).

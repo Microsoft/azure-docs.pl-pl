@@ -3,12 +3,12 @@ title: 'Szybki Start: QnA Makera Biblioteka kliencka dla platformy .NET'
 description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką klienta QnA Maker dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.  Usługa QnA Maker umożliwia zasilanie usługi pytań i odpowiedzi za pomocą częściowo ustrukturyzowanej zawartości, takiej jak dokumenty z często zadawanymi pytaniami, adresy URL i podręczniki produktów.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 18d8dbc59d1c43961cd665a3ea98d1041516afb7
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d14c137150b802c734a0386536fbe32a6917cd92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616610"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731005"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (wersja stabilna)](#tab/version-1)
 
@@ -153,7 +153,7 @@ W `Main` metodzie aplikacji Dodaj zmienne i kod, które przedstawiono w poniższ
 > [!IMPORTANT]
 > Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
 
-Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker).
+Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
 - Utwórz zmienne środowiskowe o nazwach QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT i QNA_MAKER_RUNTIME_ENDPOINT, aby zapisać te wartości.
 - Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
@@ -167,7 +167,7 @@ Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać 
 > [!IMPORTANT]
 > Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**. 
 
-Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker).
+Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać więcej informacji na temat klucza tworzenia, należy użyć [klawiszy w QNA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
 - Utwórz zmienne środowiskowe o nazwie QNA_MAKER_SUBSCRIPTION_KEY i QNA_MAKER_ENDPOINT, aby zapisać te wartości.
 - Wartość QNA_MAKER_ENDPOINT ma format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . 
@@ -184,7 +184,7 @@ Korzystamy z klucza subskrypcji i tworzenia klucza interchangably. Aby uzyskać 
 
 [QNA Maker](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) używa dwóch różnych modeli obiektów:
 * **[QnAMakerClient](#qnamakerclient-object-model)** jest obiektem, który umożliwia tworzenie, publikowanie i pobieranie bazy wiedzy oraz zarządzanie nią.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../how-to/use-active-learning.md)).
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/version-2)
 

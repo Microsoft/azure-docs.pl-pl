@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712916"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działanie Lookup w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie Lookup może pobrać zestaw danych z dowolnych ze źródeł danych obsługiwanych przez Azure Data Factory. Użyj go w następującym scenariuszu:
-- Dynamiczne określanie, które obiekty mają być używane w kolejnym działaniu, zamiast twardej kodowania nazwy obiektu. Niektóre przykłady obiektów to pliki i tabele.
+Działanie Lookup może pobrać zestaw danych z dowolnych ze źródeł danych obsługiwanych przez Azure Data Factory. można jej użyć do dynamicznego określania, które obiekty mają działać w kolejnym działaniu, a nie do twardej kodowania nazwy obiektu. Niektóre przykłady obiektów to pliki i tabele.
 
-Działanie Lookup odczytuje i zwraca zawartość pliku konfiguracji lub tabeli. Zwraca również wynik wykonania zapytania lub procedury składowanej. Wyniki działania Lookup można użyć w kolejnych działaniach kopiowania lub przekształcania, jeśli jest to wartość singleton. Dane wyjściowe mogą być używane w działaniu ForEach, jeśli jest tablicą atrybutów.
+Działanie Lookup odczytuje i zwraca zawartość pliku konfiguracji lub tabeli. Zwraca również wynik wykonania zapytania lub procedury składowanej. Wynik może być wartością pojedynczą lub tablicą atrybutów, które mogą być używane w kolejnych operacjach kopiowania, przekształcania lub przepływu sterowania, takich jak działanie ForEach.
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
-Dla działania Lookup są obsługiwane następujące źródła danych. 
+. Weź pod uwagę następujące kwestie:
 
-Działanie Lookup może zwrócić do 5000 wierszy; Jeśli zestaw wyników zawiera więcej rekordów, zwracane są pierwsze 5000 wierszy. Dane wyjściowe działania Lookup obsługują maksymalnie około 4 MB, działanie zakończy się niepowodzeniem, jeśli rozmiar przekracza limit. Obecnie najdłuższy czas trwania działania wyszukiwania przed upływem limitu czasu wynosi 24 godziny.
+- Działanie Lookup może zwrócić do **5000 wierszy**; Jeśli zestaw wyników zawiera więcej rekordów, zwracane są pierwsze 5000 wierszy.
+- Dane wyjściowe działania Lookup obsługują rozmiar do **4 MB** , działanie zakończy się niepowodzeniem, jeśli rozmiar przekracza limit. 
+- Najdłuższy czas trwania działania Lookup przed upływem limitu czasu wynosi **24 godziny**.
+- Gdy używasz zapytania lub procedury składowanej do wyszukiwania danych, upewnij się, że został zwrócony jeden i dokładnie jeden zestaw wyników. W przeciwnym razie działanie Lookup kończy się niepowodzeniem.
+
+Dla działania Lookup są obsługiwane następujące źródła danych. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -381,7 +385,7 @@ Poniżej przedstawiono niektóre ograniczenia działania wyszukiwania i sugerowa
 
 | Ograniczenie | Obejście |
 |---|---|
-| Działanie Lookup ma maksymalnie 5 000 wierszy i ma maksymalny rozmiar wynoszący 2 MB. | Zaprojektuj potok dwupoziomowy, w którym potok zewnętrzny iteruje za pośrednictwem wewnętrznego potoku, który pobiera dane, które nie przekraczają maksymalnej liczby wierszy lub rozmiaru. |
+| Działanie Lookup ma maksymalnie 5 000 wierszy i ma maksymalny rozmiar 4 MB. | Zaprojektuj potok dwupoziomowy, w którym potok zewnętrzny iteruje za pośrednictwem wewnętrznego potoku, który pobiera dane, które nie przekraczają maksymalnej liczby wierszy lub rozmiaru. |
 | | |
 
 ## <a name="next-steps"></a>Następne kroki

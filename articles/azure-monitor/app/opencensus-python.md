@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584037"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704416"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -221,6 +221,15 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
 ### <a name="metrics"></a>Metryki
 
+OpenCensus. destandards obsługuje 4 metody agregacji, ale zapewnia częściową pomoc techniczną dla Azure Monitor:
+
+- **Liczba:** Liczba punktów pomiaru. Wartość jest zbiorcza, w przypadku ponownego uruchomienia można zwiększyć i zresetować tylko wartość 0. 
+- **Suma:** Suma punktów pomiarowych. Wartość jest zbiorcza, w przypadku ponownego uruchomienia można zwiększyć i zresetować tylko wartość 0. 
+- **LastValue:** Zachowuje ostatnio zarejestrowana wartość, porzuca wszystkie inne.
+- **Dystrybucja:** Rozkład histogramu punktów pomiarowych. Ta metoda **nie jest obsługiwana przez eksportera platformy Azure**.
+
+### <a name="count-aggregation-example"></a>Przykład agregacji liczby
+
 1. Najpierw wygenerujmy pewne dane lokalnej metryki. Utworzymy prostą metrykę do śledzenia liczby prób klawisza **Enter** .
 
     ```python
@@ -320,7 +329,7 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
         main()
     ```
 
-1. Eksporter wysyła dane metryk do Azure Monitor w stałym interwale. Wartość domyślna to co 15 sekund. Śledzimy jedną metrykę, więc dane metryk, z dowolną wartością i sygnaturą czasową, są wysyłane każdego interwału. Dane można znaleźć w sekcji `customMetrics` .
+1. Eksporter wysyła dane metryk do Azure Monitor w stałym interwale. Wartość domyślna to co 15 sekund. Śledzimy jedną metrykę, więc dane metryk, z dowolną wartością i sygnaturą czasową, są wysyłane każdego interwału. Wartość jest zbiorcza, w przypadku ponownego uruchomienia można zwiększyć i zresetować tylko wartość 0. Dane można znaleźć w obszarze `customMetrics` , ale `customMetrics` Właściwości ValueCount, ValueSum, ValueMin, ValueMax i valueStdDev nie są efektywnie używane.
 
 #### <a name="performance-counters"></a>Liczniki wydajności
 

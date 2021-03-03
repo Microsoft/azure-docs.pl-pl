@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726397"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -751,7 +751,7 @@ Poniższa konfiguracja przedstawia sposób `{id}` przekazywania parametru do pow
 
 W przypadku używania parametrów trasy `invoke_URL_template` jest automatycznie tworzony dla funkcji. Klienci mogą używać szablonu adresu URL, aby zrozumieć parametry, które muszą zostać przekazane w adresie URL podczas wywoływania funkcji przy użyciu adresu URL. Przejdź do jednej z funkcji wyzwalanych przez protokół HTTP w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Pobierz adres URL funkcji**.
 
-Można programowo uzyskać dostęp do programu przy `invoke_URL_template` użyciu interfejsów api Azure Resource Manager dla [funkcji list](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) lub [funkcji Get](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+Można programowo uzyskać dostęp do programu przy `invoke_URL_template` użyciu interfejsów api Azure Resource Manager dla [funkcji list](/rest/api/appservice/webapps/listfunctions) lub [funkcji Get](/rest/api/appservice/webapps/getfunction).
 
 ## <a name="working-with-client-identities"></a>Praca z tożsamościami klientów
 

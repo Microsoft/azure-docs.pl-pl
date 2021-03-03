@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575247"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715551"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
@@ -25,7 +25,7 @@ Korzystając z usług frontonu platformy Azure, można monitorować zasoby w nas
 - **Metryki**. Drzwi frontonu platformy Azure mają obecnie osiem metryk do wyświetlania liczników wydajności.
 - **Dzienniki**. Dzienniki działań i diagnostyki umożliwiają zapisywanie lub zużywanie wydajności, dostępu i innych danych z zasobów na potrzeby monitorowania.
 
-### <a name="metrics"></a>Metryki
+##  <a name="metrics"></a><a name="metrics"></a>Metryki
 
 Metryki to funkcja niektórych zasobów platformy Azure, która umożliwia wyświetlanie liczników wydajności w portalu. Dostępne są następujące metryki czołowych drzwi:
 

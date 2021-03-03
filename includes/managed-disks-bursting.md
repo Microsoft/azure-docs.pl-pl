@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 634deb655620f99c7b7b2b55819c58308eaa5a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f85f2770b98507618d5cbfdec1b55f397c7f514
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749989"
 ---
-Na platformie Azure oferujemy możliwość zwiększenia liczby operacji wejścia/wyjścia magazynu na dysku oraz wydajności MB/s, jak w przypadku Virtual Machines i dysków. Tworzenie serii jest przydatne w wielu scenariuszach, takich jak obsługa nieoczekiwanego ruchu na dysku lub przetwarzanie zadań wsadowych. Możesz efektywnie korzystać z maszyn wirtualnych i obciążeń na poziomie dysku, aby osiągnąć doskonałą linię bazową i rozbicie na maszynę wirtualną i na dysku. W ten sposób można osiągnąć doskonałą podstawę wydajności i wydajności w przypadku maszyn wirtualnych i dysków. 
+Platforma Azure oferuje możliwość zwiększenia wydajności operacji we/wy na sekundę i MB/s, nazywana także rozbiciem maszyn wirtualnych i dysków. Możesz efektywnie wykorzystać możliwości maszyn wirtualnych i dysków, aby osiągnąć lepszą wydajność na maszynach wirtualnych i na dysku.
 
-Należy pamiętać, że na dyskach i maszynach wirtualnych są niezależne od siebie. Jeśli korzystasz z dysku z dyskami, nie potrzebujesz maszyny wirtualnej do przenoszenia na dysk. Jeśli masz maszynę wirtualną do przenoszenia, nie potrzebujesz dysku do przenoszenia, aby umożliwić korzystanie z maszyny wirtualnej. 
+Przenoszenie maszyn wirtualnych platformy Azure i zasobów dyskowych nie jest zależne od siebie. Nie trzeba mieć maszyny wirtualnej z obsługą serii dla dołączonego dysku z obsługą serii do serii. Podobnie nie trzeba mieć dysku z obsługą serii, który jest dołączony do maszyny wirtualnej z obsługą serii, w przypadku maszyny wirtualnej.

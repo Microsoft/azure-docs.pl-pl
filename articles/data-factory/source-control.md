@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392446"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719415"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -67,7 +67,7 @@ Na kanwie tworzenia Azure Data Factory środowiska użytkownika wybierz **Data F
 
 ### <a name="configuration-method-3-management-hub"></a>Konfiguracja — Metoda 3: centrum zarządzania
 
-Przejdź do centrum zarządzania w obszarze środowiska ADF. Wybierz pozycję **konfiguracja Git** w sekcji **Kontrola źródła** . Jeśli nie masz połączenia z repozytorium, kliknij pozycję **Konfiguruj repozytorium kodu**.
+Przejdź do centrum zarządzania w obszarze środowiska ADF. Wybierz pozycję **konfiguracja Git** w sekcji **Kontrola źródła** . Jeśli nie masz połączenia z repozytorium, kliknij przycisk **Konfiguruj**.
 
 ![Konfigurowanie ustawień repozytorium kodu z poziomu centrum zarządzania](media/author-visually/configure-repo-3.png)
 

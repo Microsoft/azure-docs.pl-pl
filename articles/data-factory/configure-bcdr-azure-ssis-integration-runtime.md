@@ -1,275 +1,129 @@
 ---
-title: Konfigurowanie środowiska Azure-SSIS Integration Runtime dla SQL Database trybu failover
-description: W tym artykule opisano sposób konfigurowania środowiska Azure-SSIS Integration Runtime z Azure SQL Database replikacją geograficzną i przełączeniem w tryb failover dla bazy danych SSISDB
+title: Konfigurowanie środowiska Azure-SSIS Integration Runtime w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR)
+description: W tym artykule opisano sposób konfigurowania środowiska Azure-SSIS Integration Runtime w Azure Data Factory z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR).
+services: data-factory
 ms.service: data-factory
+ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
 ms.author: sawinark
+manager: mflasko
+ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/06/2020
-ms.openlocfilehash: e12939d1003ce708889ca0b3dbc710096f9ee955
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 73c27204ee8730c95d1cbeecf8777767173e73d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710268"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Konfigurowanie środowiska Azure-SSIS Integration Runtime z SQL Database replikacją geograficzną i trybem failover
+# <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Konfigurowanie środowiska Azure-SSIS Integration Runtime w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR) 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano sposób konfigurowania środowiska Azure-SSIS Integration Runtime (IR) Azure SQL Database replikacji geograficznej dla bazy danych SSISDB. W przypadku przejścia w tryb failover można upewnić się, że Azure-SSIS IR nadal pracuje z pomocniczą bazą danych.
+Azure SQL Database/wystąpienie zarządzane i SQL Server Integration Services (SSIS) w Azure Data Factory (ADF) można łączyć jako zalecane rozwiązanie PaaS (All-Platform as a Service) do migracji SQL Server. Możesz wdrożyć projekty SSIS w bazie danych wykazu usług SSIS (SSISDB) hostowanej przez wystąpienie Azure SQL Database/zarządzane i uruchamiać pakiety usług SSIS na platformie Azure SSIS Integration Runtime (IR) w podajniku ADF.
 
-Aby uzyskać więcej informacji na temat replikacji geograficznej i trybu failover dla SQL Database, zobacz temat [przegląd: aktywnej replikacji geograficznej i grup Autotryb failover](../azure-sql/database/auto-failover-group-overview.md).
+W celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR) można skonfigurować wystąpienie Azure SQL Database/zarządzane z [grupą replikacji geograficznej/trybu failover](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), gdzie SSISDB w podstawowym regionie platformy Azure z dostępem do odczytu i zapisu (rola podstawowa) będzie stale replikowana do regionu pomocniczego z dostępem tylko do odczytu (rola pomocnicza). Gdy wystąpi awaria w regionie podstawowym, zostanie wyzwolone przejście w tryb failover, gdzie podstawowa i pomocnicza SSISDBs zastąpią role.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+W przypadku usługi BCDR można również skonfigurować podwójną, niegotową parę IR platformy Azure SSIS, która działa w synchronizacji z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego. Dzięki temu można mieć parę uruchomionych usług Azure-SSIS IRs, które w danym momencie tylko jeden z nich może uzyskać dostęp do podstawowego SSISDB do pobierania i wykonywania pakietów, a także zapisywać dzienniki wykonywania pakietów (rolę podstawową), podczas gdy inne mogą wykonywać te same czynności dla pakietów wdrożonych w innym miejscu, na przykład w Azure Files (rola pomocnicza). W przypadku przełączenia SSISDB w tryb failover podstawowy i pomocniczy urząd platformy Azure-SSIS będą również zamieniać role
 
-## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Azure-SSIS IR trybu failover z wystąpieniem zarządzanym SQL
+W tym artykule opisano sposób konfigurowania Azure-SSIS IR z grupą trybu failover wystąpienia Azure SQL Database/zarządzanego dla BCDR.
 
-### <a name="prerequisites"></a>Wymagania wstępne
+## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-database-failover-group"></a>Skonfiguruj podwójną parę Azure-SSIS IR w stanie wstrzymania z grupą Azure SQL Database trybu failover
 
-Wystąpienie zarządzane Azure SQL używa *klucza głównego bazy danych (DMK)* , aby pomóc w zabezpieczeniu danych, poświadczeń i informacji o połączeniu, które są przechowywane w bazie danych. Aby włączyć automatyczne odszyfrowywanie DMK, kopia klucza jest szyfrowana za pomocą *klucza głównego serwera (klucza)*. 
+Aby skonfigurować podwójną parę Azure-SSIS IR w stanie wstrzymania, która działa w synchronizacji z Azure SQL Database grupą trybu failover, wykonaj następujące czynności.
 
-KLUCZA nie jest replikowana w grupie trybu failover. Należy dodać hasło zarówno z wystąpienia podstawowego, jak i pomocniczego do odszyfrowania DMK po przejściu w tryb failover.
+1. Za pomocą interfejsu użytkownika usługi Azure Portal/ADF można utworzyć nowe Azure-SSIS IR z podstawowym serwerem Azure SQL Database, aby hostować SSISDB w regionie podstawowym. Jeśli masz istniejące Azure-SSIS IR, które są już dołączone do SSIDB hostowanego przez podstawowy serwer Azure SQL Database i nadal działa, należy najpierw go zatrzymać. Będzie to podstawowy Azure-SSIS IR. Gdy wybierzesz opcję [używania SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** , zaznacz również pole wyboru **Użyj podwójnej integracji Azure-SSIS Integration Runtime z trybem failover SSISDB** . Dla **podwójnej nazwy pary nazw**, wprowadź nazwę identyfikującą parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS. Po zakończeniu tworzenia Azure-SSIS IR podstawowej zostanie on uruchomiony i dołączony do podstawowego SSISDB, który zostanie utworzony w Twoim imieniu przy użyciu dostępu do odczytu i zapisu. Jeśli konfiguracja została właśnie skonfigurowana, należy ją uruchomić ponownie.
 
-1. Uruchom następujące polecenie dla SSISDB na wystąpieniu podstawowym. Ten krok powoduje dodanie nowego hasła szyfrowania.
+1. Za pomocą Azure Portal można sprawdzić, czy podstawowy SSISDB został utworzony na stronie **Przegląd** podstawowego serwera Azure SQL Database. Po jego utworzeniu można [utworzyć grupę trybu failover dla serwerów podstawowych i pomocniczych Azure SQL Database i dodać do niej SSISDB](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) na stronie **grupy trybu failover** . Po utworzeniu grupy trybu failover można sprawdzić, czy główny SSISDB został zreplikowany do pomocniczej bazy danych z dostępem tylko do odczytu na stronie **Przegląd** na serwerze pomocniczym Azure SQL Database.
+
+1. Za pomocą interfejsu użytkownika usługi Azure Portal/ADF można utworzyć kolejną Azure-SSIS IR z serwerem pomocniczym Azure SQL Database, aby hostować SSISDB w regionie pomocniczym. Będzie to Azure-SSIS IR pomocniczy. W celu uzyskania pełnej BCDR upewnij się, że wszystkie zasoby, od których zależy, zostały również utworzone w regionie pomocniczym, na przykład Azure Storage do przechowywania niestandardowych skryptów/plików instalacyjnych, ADF dla aranżacji/planowania wykonywania pakietów itp. Gdy wybierzesz opcję [używania SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** , zaznacz również pole wyboru **Użyj podwójnej integracji Azure-SSIS Integration Runtime z trybem failover SSISDB** . Dla **podwójnej nazwy pary**, wprowadź tę samą nazwę, aby zidentyfikować parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS. Po zakończeniu tworzenia Azure-SSIS IR dodatkowej zostanie on uruchomiony i dołączony do pomocniczej SSISDB.
+
+1. Jeśli chcesz mieć bliski czas przestoju w przypadku SSISDB trybu failover, Zachowaj oba z nich. Tylko podstawowy Azure-SSIS IR może uzyskać dostęp do podstawowego SSISDB do pobierania i wykonywania pakietów, a także do zapisywania dzienników wykonywania pakietów, podczas gdy pomocniczy Azure-SSIS IR może wykonać te same dla pakietów wdrożonych w innym miejscu, na przykład w Azure Files. Jeśli chcesz zminimalizować koszt działania, możesz zatrzymać Azure-SSIS IR pomocniczy po jego utworzeniu. W przypadku przełączenia SSISDB w tryb failover podstawowy i pomocniczy urząd Azure-SSIS (IRs) zastąpią role. Jeśli podstawowa Azure-SSIS IR jest zatrzymana, należy uruchomić ją ponownie. W zależności od tego, czy jest on wprowadzany do sieci wirtualnej, a użyta metoda wstrzykiwania zostanie wykonana w ciągu 5 minut lub około 20-30 minut na uruchomienie.
+
+1. W przypadku [korzystania z podajnika APD na potrzeby aranżacji/planowania pakietów](./how-to-invoke-ssis-package-ssis-activity.md)należy upewnić się, że wszystkie powiązane potoki ADF z działaniami pakietu SSIS i skojarzonymi wyzwalaczami są kopiowane do pomocniczego modułu ADF z wyłączonymi wyzwalaczami. Gdy SSISDB tryb failover, należy je włączyć.
+
+1. Możesz [przetestować grupę Azure SQL Database trybu failover](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) i sprawdzić [Azure-SSIS IR stronę monitorowania w portalu ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) , niezależnie od tego, czy podstawowy i pomocniczy urząd Azure-SSIS ma zamienione role. 
+
+## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Konfigurowanie podwójnej pary Azure-SSIS IR w stanie wstrzymania z grupą trybu failover wystąpienia zarządzanego Azure SQL
+
+Aby skonfigurować podwójną parę Azure-SSIS IR w stanie wstrzymania, która działa w synchronizacji z grupą trybu failover wystąpienia zarządzanego Azure SQL, wykonaj następujące czynności.
+
+1. Za pomocą Azure Portal można [utworzyć grupę trybu failover dla podstawowych i pomocniczych wystąpień usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) na stronie **grupy trybu failover** w podstawowym wystąpieniu zarządzanym Azure SQL.
+
+1. Za pomocą interfejsu użytkownika usługi Azure Portal/ADF można utworzyć nowe Azure-SSIS IR z podstawowym wystąpieniem zarządzanym Azure SQL, aby hostować SSISDB w regionie podstawowym. Jeśli masz istniejące Azure-SSIS IR, które są już dołączone do usługi SSIDB hostowanej przez główne wystąpienie zarządzane Azure SQL, a nadal działa, musisz najpierw go zatrzymać. Będzie to podstawowy Azure-SSIS IR. Gdy wybierzesz opcję [używania SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** , zaznacz również pole wyboru **Użyj podwójnej integracji Azure-SSIS Integration Runtime z trybem failover SSISDB** . Dla **podwójnej nazwy pary nazw**, wprowadź nazwę identyfikującą parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS. Po zakończeniu tworzenia Azure-SSIS IR podstawowej zostanie on uruchomiony i dołączony do podstawowego SSISDB, który zostanie utworzony w Twoim imieniu przy użyciu dostępu do odczytu i zapisu. Jeśli konfiguracja została właśnie skonfigurowana, należy ją uruchomić ponownie. Możesz również sprawdzić, czy podstawowy SSISDB został zreplikowany do pomocniczej bazy danych z dostępem tylko do odczytu na stronie **Przegląd** w ramach pomocniczego wystąpienia zarządzanego Azure SQL.
+
+1. Za pomocą interfejsu użytkownika usługi Azure Portal/ADF można utworzyć kolejną Azure-SSIS IR z pomocniczym wystąpieniem zarządzanym Azure SQL, aby hostować SSISDB w regionie pomocniczym. Będzie to Azure-SSIS IR pomocniczy. W celu uzyskania pełnej BCDR upewnij się, że wszystkie zasoby, od których zależy, zostały również utworzone w regionie pomocniczym, na przykład Azure Storage do przechowywania niestandardowych skryptów/plików instalacyjnych, ADF dla aranżacji/planowania wykonywania pakietów itp. Gdy wybierzesz opcję [używania SSISDB](./create-azure-ssis-integration-runtime.md#creating-ssisdb) na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** , zaznacz również pole wyboru **Użyj podwójnej integracji Azure-SSIS Integration Runtime z trybem failover SSISDB** . Dla **podwójnej nazwy pary**, wprowadź tę samą nazwę, aby zidentyfikować parę podstawowego i pomocniczego urzędu skarbowego Azure-SSIS. Po zakończeniu tworzenia Azure-SSIS IR dodatkowej zostanie on uruchomiony i dołączony do pomocniczej SSISDB.
+
+1. Wystąpienie zarządzane usługi Azure SQL może zabezpieczać poufne dane w bazach danych, takich jak SSISDB, przez szyfrowanie ich przy użyciu klucza głównego bazy danych (DMK). DMK sam jest domyślnie szyfrowany przy użyciu klucza głównego usługi (klucza). W momencie pisania Grupa trybu failover wystąpienia zarządzanego Azure SQL nie replikuje klucza z podstawowego wystąpienia zarządzanego Azure SQL, dlatego nie można odszyfrować DMK i z usługi SSISDB w pomocniczym wystąpieniu programu Azure SQL po przejściu w tryb failover. Aby obejść ten sposób, można dodać szyfrowanie hasła dla DMK, które ma zostać odszyfrowane w pomocniczym wystąpieniu zarządzanym usługi Azure SQL. Za pomocą programu SSMS wykonaj następujące czynności.
+
+   1. Uruchom następujące polecenie dla SSISDB w podstawowym wystąpieniu zarządzanym Azure SQL, aby dodać hasło do szyfrowania DMK.
+
+      ```sql
+      ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'YourPassword'
+      ```
+   
+   1. Uruchom następujące polecenie dla SSISDB w podstawowym i pomocniczym wystąpieniu zarządzanym Azure SQL, aby dodać nowe hasło do odszyfrowywania DMK.
+
+      ```sql
+      EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'YourPassword', @action = N'add'
+      ```
+
+1. Jeśli chcesz mieć bliski czas przestoju w przypadku SSISDB trybu failover, Zachowaj oba z nich. Tylko podstawowy Azure-SSIS IR może uzyskać dostęp do podstawowego SSISDB do pobierania i wykonywania pakietów, a także do zapisywania dzienników wykonywania pakietów, podczas gdy pomocniczy Azure-SSIS IR może wykonać te same dla pakietów wdrożonych w innym miejscu, na przykład w Azure Files. Jeśli chcesz zminimalizować koszt działania, możesz zatrzymać Azure-SSIS IR pomocniczy po jego utworzeniu. W przypadku przełączenia SSISDB w tryb failover podstawowy i pomocniczy urząd Azure-SSIS (IRs) zastąpią role. Jeśli podstawowa Azure-SSIS IR jest zatrzymana, należy uruchomić ją ponownie. W zależności od tego, czy jest on wprowadzany do sieci wirtualnej, a użyta metoda wstrzykiwania zostanie wykonana w ciągu 5 minut lub około 20-30 minut na uruchomienie.
+
+1. Jeśli [używasz agenta wystąpienia zarządzanego usługi Azure SQL na potrzeby aranżacji/planowania pakietów](./how-to-invoke-ssis-package-managed-instance-agent.md), upewnij się, że wszystkie powiązane zadania SSIS z ich etapami i skojarzonymi harmonogramami są kopiowane do pomocniczego wystąpienia zarządzanego usługi Azure SQL z początkowo wyłączonymi harmonogramami. Za pomocą programu SSMS wykonaj następujące czynności.
+
+   1. Dla każdego zadania SSIS kliknij prawym przyciskiem myszy i wybierz elementy menu rozwijanego **zadanie skryptu jako**, **Utwórz do** i **nowe okno edytora zapytań** w celu wygenerowania jego skryptu.
+
+      ![Generuj skrypt zadania SSIS](media/configure-bcdr-azure-ssis-integration-runtime/generate-ssis-job-script.png)
+
+   1. Dla każdego wygenerowanego skryptu zadania programu SSIS Znajdź polecenie wykonywania `sp_add_job` procedury składowanej, a następnie zmodyfikuj/usuń przypisanie wartości do `@owner_login_name` argumentu w razie potrzeby.
+
+   1. Dla każdego zaktualizowanego skryptu zadania programu SSIS należy uruchomić go na pomocniczym wystąpieniu zarządzanym usługi Azure SQL, aby skopiować zadanie wraz z jego etapami zadania i skojarzonymi harmonogramami.
+
+   1. Korzystając z następującego skryptu, można utworzyć nowe zadanie T-SQL w celu włączenia/wyłączenia harmonogramów zadań SSIS opartych na podstawowej lub pomocniczej roli SSISDB, zarówno w podstawowym, jak i pomocniczym wystąpieniu usługi Azure SQL. Gdy SSISDB tryb failover, harmonogramy zadań SSIS, które zostały wyłączone, zostaną włączone i na odwrót.
+
+      ```sql
+      IF (SELECT Top 1 role_desc FROM SSISDB.sys.dm_geo_replication_link_status WHERE partner_database = 'SSISDB') = 'PRIMARY'
+         BEGIN
+            IF (SELECT enabled FROM msdb.dbo.sysschedules WHERE schedule_id = <ScheduleID>) = 0
+               EXEC msdb.dbo.sp_update_schedule @schedule_id = <ScheduleID >, @enabled = 1
+         END
+      ELSE
+         BEGIN
+            IF (SELECT enabled FROM msdb.dbo.sysschedules WHERE schedule_id = <ScheduleID>) = 1
+               EXEC msdb.dbo.sp_update_schedule @schedule_id = <ScheduleID >, @enabled = 0
+         END
+      ```
+
+1. W przypadku [korzystania z podajnika APD na potrzeby aranżacji/planowania pakietów](./how-to-invoke-ssis-package-ssis-activity.md)należy upewnić się, że wszystkie powiązane potoki ADF z działaniami pakietu SSIS i skojarzonymi wyzwalaczami są kopiowane do pomocniczego modułu ADF z wyłączonymi wyzwalaczami. Gdy SSISDB tryb failover, należy je włączyć.
+
+1. Możesz [przetestować grupę trybu failover wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) i zapoznaj się ze [stroną monitorowania Azure-SSIS IR w portalu ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) , czy podstawowy i pomocniczy urząd usługi Azure-SSIS ma zamienione role. 
+
+## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Dołącz nowy Azure-SSIS IR do istniejącego SSISDB hostowanego przez wystąpienie Azure SQL Database/Managed
+
+Jeśli wystąpi awaria i ma wpływ na istniejące Azure-SSIS IR, ale nie Azure SQL Database/wystąpienia zarządzanego w tym samym regionie, można zastąpić go nowym w innym regionie. Aby dołączyć istniejące SSISDB hostowane przez wystąpienie Azure SQL Database/zarządzane do nowego Azure-SSIS IR, wykonaj następujące czynności.
+
+1. Jeśli istniejący Azure-SSIS IR nadal działa, należy go zatrzymać najpierw za pomocą interfejsu użytkownika usługi Azure Portal/ADF lub Azure PowerShell. Jeśli awaria również ma wpływ na funkcję ADF w tym samym regionie, można pominąć ten krok.
+
+1. Za pomocą programu SSMS Uruchom następujące polecenie dla SSISDB w wystąpieniu Azure SQL Database/zarządzanym, aby zaktualizować metadane zezwalające na połączenia z nowego ADF/Azure-SSIS IR.
 
    ```sql
-   ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
+   EXEC [catalog].[failover_integration_runtime] @data_factory_name = 'YourNewADF', @integration_runtime_name = 'YourNewAzureSSISIR'
    ```
 
-2. Utwórz grupę trybu failover w wystąpieniu zarządzanym SQL.
-
-3. Uruchom **sp_control_dbmasterkey_password** w wystąpieniu pomocniczym przy użyciu nowego hasła szyfrowania.
-
-   ```sql
-   EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB', @password = N'<password>', @action = N'add';  
-   GO
-   ```
-
-### <a name="scenario-1-azure-ssis-ir-is-pointing-to-a-readwrite-listener-endpoint"></a>Scenariusz 1: Azure-SSIS IR wskazuje punkt końcowy odbiornika do odczytu/zapisu
-
-Jeśli Azure-SSIS IR ma wskazywać punkt końcowy odbiornika odczytu/zapisu, należy najpierw wskazać punkt końcowy serwera podstawowego. Po umieszczeniu SSISDB w grupie trybu failover można zatrzymać Azure-SSIS IR, zmienić ją tak, aby wskazywała punkt końcowy odbiornika odczytu/zapisu przy użyciu Azure PowerShell, i uruchomić go ponownie.
-
-```powershell
-Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Managed Instance read/write listener endpoint"
-```
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności:
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Edytuj Azure-SSIS IR za pomocą nowego regionu, sieci wirtualnej i identyfikatora URI sygnatury dostępu współdzielonego (SAS) dla konfiguracji niestandardowej w wystąpieniu pomocniczym. Ponieważ Azure-SSIS IR wskazuje odbiornik odczytu/zapisu, a punkt końcowy jest niewidoczny dla Azure-SSIS IR, nie trzeba edytować punktu końcowego.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Uruchom ponownie Azure-SSIS IR.
-
-### <a name="scenario-2-azure-ssis-ir-is-pointing-to-a-primary-server-endpoint"></a>Scenariusz 2. Azure-SSIS IR wskazuje na podstawowy punkt końcowy serwera
-
-Ten scenariusz jest odpowiedni, jeśli Azure-SSIS IR wskazuje podstawowy punkt końcowy serwera.
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności:
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Edytuj Azure-SSIS IR przy użyciu nowego regionu, punktu końcowego i informacji o sieci wirtualnej dla wystąpienia pomocniczego.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database endpoint" `
-      -CatalogAdminCredential "Azure SQL Database admin credentials" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Uruchom ponownie Azure-SSIS IR.
-
-### <a name="scenario-3-azure-ssis-ir-is-pointing-to-a-public-endpoint-of-a-sql-managed-instance"></a>Scenariusz 3: Azure-SSIS IR wskazuje publiczny punkt końcowy wystąpienia zarządzanego SQL
-
-Ten scenariusz jest odpowiedni, jeśli Azure-SSIS IR wskazuje publiczny punkt końcowy wystąpienia zarządzanego usługi Azure SQL i nie łączy się z siecią wirtualną. Jedyną różnicą w scenariuszu 2 jest to, że nie trzeba edytować informacji o sieci wirtualnej dla Azure-SSIS IR po przejściu w tryb failover.
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności:
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Edytuj Azure-SSIS IR przy użyciu nowego regionu i informacji o punkcie końcowym dla wystąpienia pomocniczego.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-      -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Uruchom ponownie Azure-SSIS IR.
-
-### <a name="scenario-4-attach-an-existing-ssisdb-instance-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenariusz 4: dołączanie istniejącego wystąpienia SSISDB (katalog SSIS) do nowego Azure-SSIS IR
-
-Ten scenariusz jest przydatny, jeśli chcesz, aby SSISDB pracował z nowym Azure-SSIS IR w nowym regionie, gdy wystąpi awaria Azure Data Factory lub Azure-SSIS IR w bieżącym regionie.
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności.
-
-> [!NOTE]
-> Użyj programu PowerShell dla kroku 4 (Tworzenie IR). Jeśli tego nie zrobisz, Azure Portal zgłosi błąd informujący o tym, że SSISDB już istnieje.
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Uruchom procedurę składowaną, aby zaktualizować metadane w programie SSISDB, aby akceptować połączenia z **\<new_data_factory_name\>** i **\<new_integration_runtime_name\>** .
-   
-   ```sql
-   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-   ```
-
-3. Utwórz nową fabrykę danych o nazwie **\<new_data_factory_name\>** w nowym regionie.
-
-   ```powershell
-   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-      -Location "new region"`
-      -Name "<new_data_factory_name>"
-   ```
-   
-   Aby uzyskać więcej informacji o tym poleceniu programu PowerShell, zobacz [Tworzenie fabryki danych Azure przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
-
-4. Utwórz nową Azure-SSIS IR o nazwie **\<new_integration_runtime_name\>** w nowym regionie przy użyciu Azure PowerShell.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-      -DataFactoryName "new data factory name" `
-      -Name "<new_integration_runtime_name>" `
-      -Description $AzureSSISDescription `
-      -Type Managed `
-      -Location $AzureSSISLocation `
-      -NodeSize $AzureSSISNodeSize `
-      -NodeCount $AzureSSISNodeNumber `
-      -Edition $AzureSSISEdition `
-      -LicenseType $AzureSSISLicenseType `
-      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-      -VnetId "new vnet" `
-      -Subnet "new subnet" `
-      -CatalogServerEndpoint $SSISDBServerEndpoint `
-      -CatalogPricingTier $SSISDBPricingTier
-   ```
-   
-   Aby uzyskać więcej informacji na temat tego polecenia programu PowerShell, zobacz temat [Tworzenie środowiska Azure SSIS Integration Runtime w Azure Data Factory](create-azure-ssis-integration-runtime.md).
-
-## <a name="azure-ssis-ir-failover-with-sql-database"></a>Azure-SSIS IR trybu failover z SQL Database
-
-### <a name="scenario-1-azure-ssis-ir-is-pointing-to-a-readwrite-listener-endpoint"></a>Scenariusz 1: Azure-SSIS IR wskazuje punkt końcowy odbiornika do odczytu/zapisu
-
-Ten scenariusz jest odpowiedni w przypadku:
-
-- Azure-SSIS IR wskazuje punkt końcowy odbiornika do odczytu/zapisu grupy trybu failover.
-- Serwer SQL Database *nie* jest skonfigurowany z regułą dla punktu końcowego usługi sieci wirtualnej.
-
-Jeśli Azure-SSIS IR ma wskazywać punkt końcowy odbiornika odczytu/zapisu, należy najpierw wskazać punkt końcowy serwera podstawowego. Po umieszczeniu SSISDB w grupie trybu failover można zatrzymać Azure-SSIS IR, zmienić ją tak, aby wskazywała punkt końcowy odbiornika odczytu/zapisu przy użyciu Azure PowerShell, i uruchomić go ponownie.
-
-```powershell
-Set-AzDataFactoryV2IntegrationRuntime -CatalogServerEndpoint "Azure SQL Database read/write listener endpoint"
-```
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover jest on niewidoczny dla Azure-SSIS IR. Azure-SSIS IR automatycznie nawiązuje połączenie z nowym podstawowym grupą trybu failover. 
-
-Jeśli chcesz zaktualizować region lub inne informacje w Azure-SSIS IR, możesz je zatrzymać, edytować i ponownie uruchomić.
-
-
-### <a name="scenario-2-azure-ssis-ir-is-pointing-to-a-primary-server-endpoint"></a>Scenariusz 2. Azure-SSIS IR wskazuje na podstawowy punkt końcowy serwera
-
-Ten scenariusz jest odpowiedni, jeśli Azure-SSIS IR wskazuje podstawowy punkt końcowy serwera.
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności:
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Edytuj Azure-SSIS IR przy użyciu nowego regionu, punktu końcowego i informacji o sieci wirtualnej dla wystąpienia pomocniczego.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-      -CatalogServerEndpoint "Azure SQL Database endpoint" `
-      -CatalogAdminCredential "Azure SQL Database admin credentials" `
-      -VNetId "new VNet" `
-      -Subnet "new subnet" `
-      -SetupScriptContainerSasUri "new custom setup SAS URI"
-   ```
-
-3. Uruchom ponownie Azure-SSIS IR.
-
-### <a name="scenario-3-attach-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenariusz 3: dołączanie istniejącego SSISDB (katalog SSIS) do nowego Azure-SSIS IR
-
-Ten scenariusz jest odpowiedni, jeśli chcesz zainicjować obsługę nowego Azure-SSIS IR w regionie pomocniczym. Jest ona również odpowiednia, jeśli chcesz, aby SSISDB pracował z nowym Azure-SSIS IR w nowym regionie, gdy Azure Data Factory lub Azure-SSIS IR awarii występuje w bieżącym regionie.
-
-#### <a name="solution"></a>Rozwiązanie
-
-W przypadku przejścia w tryb failover wykonaj następujące czynności.
-
-> [!NOTE]
-> Użyj programu PowerShell dla kroku 4 (Tworzenie IR). Jeśli tego nie zrobisz, Azure Portal zgłosi błąd informujący o tym, że SSISDB już istnieje.
-
-1. Zatrzymaj Azure-SSIS IR w regionie podstawowym.
-
-2. Uruchom procedurę składowaną, aby zaktualizować metadane w programie SSISDB, aby akceptować połączenia z **\<new_data_factory_name\>** i **\<new_integration_runtime_name\>** .
-   
-   ```sql
-   EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
-   ```
-
-3. Utwórz nową fabrykę danych o nazwie **\<new_data_factory_name\>** w nowym regionie.
-
-   ```powershell
-   Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
-      -Location "new region"`
-      -Name "<new_data_factory_name>"
-   ```
-   
-   Aby uzyskać więcej informacji o tym poleceniu programu PowerShell, zobacz [Tworzenie fabryki danych Azure przy użyciu programu PowerShell](quickstart-create-data-factory-powershell.md).
-
-4. Utwórz nową Azure-SSIS IR o nazwie **\<new_integration_runtime_name\>** w nowym regionie przy użyciu Azure PowerShell.
-
-   ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
-      -DataFactoryName "new data factory name" `
-      -Name "<new_integration_runtime_name>" `
-      -Description $AzureSSISDescription `
-      -Type Managed `
-      -Location $AzureSSISLocation `
-      -NodeSize $AzureSSISNodeSize `
-      -NodeCount $AzureSSISNodeNumber `
-      -Edition $AzureSSISEdition `
-      -LicenseType $AzureSSISLicenseType `
-      -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-      -VnetId "new vnet" `
-      -Subnet "new subnet" `
-      -CatalogServerEndpoint $SSISDBServerEndpoint `
-      -CatalogPricingTier $SSISDBPricingTier
-   ```
-
-   Aby uzyskać więcej informacji na temat tego polecenia programu PowerShell, zobacz temat [Tworzenie środowiska Azure SSIS Integration Runtime w Azure Data Factory](create-azure-ssis-integration-runtime.md).
+1. Za pomocą [interfejsu użytkownika usługi Azure Portal/ADF](./create-azure-ssis-integration-runtime.md#use-the-azure-portal-to-create-an-integration-runtime) lub [Azure PowerShell](./create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime)Utwórz nowy moduł ADF/Azure-SSIS IR o nazwie *YourNewADF* / *YourNewAzureSSISIR* odpowiednio w innym regionie. Jeśli używasz interfejsu użytkownika usługi Azure Portal/ADF, możesz zignorować błąd połączenia testowego na stronie **Ustawienia wdrożenia** w okienku **Konfiguracja środowiska Integration Runtime** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Należy wziąć pod uwagę następujące inne opcje konfiguracji Azure-SSIS IR:
+Można wziąć pod uwagę następujące inne opcje konfiguracji Azure-SSIS IR:
 
-- [Konfigurowanie środowiska Azure-SSIS Integration Runtime w celu zapewnienia wysokiej wydajności](configure-azure-ssis-integration-runtime-performance.md)
+- [Konfigurowanie magazynów pakietów dla Azure-SSIS IR](./create-azure-ssis-integration-runtime.md#creating-azure-ssis-ir-package-stores)
 
-- [Dostosowywanie konfiguracji środowiska Azure SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Skonfiguruj niestandardowe ustawienia Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md)
 
-- [Inicjowanie obsługi administracyjnej wersji Enterprise dla środowiska Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Skonfiguruj iniekcję sieci wirtualnej dla Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md)
+
+- [Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md)

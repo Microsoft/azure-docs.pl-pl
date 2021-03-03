@@ -2,13 +2,13 @@
 title: Monitorowanie za pomocą wieloetapowych testów sieci Web — Application Insights platformy Azure
 description: Konfigurowanie wieloetapowych testów sieci Web w celu monitorowania aplikacji sieci Web przy użyciu usługi Azure Application Insights
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/14/2021
+ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934858"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719852"
 ---
 # <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 
@@ -65,7 +65,6 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ## <a name="configuration"></a>Konfigurowanie

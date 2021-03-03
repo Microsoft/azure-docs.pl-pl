@@ -2,13 +2,13 @@
 title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/19/2021
+ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791950"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739079"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -47,7 +47,12 @@ Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartość klucz
 
 ### <a name="event-retention"></a>Przechowywanie zdarzeń
 
-Opublikowane zdarzenia są usuwane z centrum zdarzeń na podstawie konfigurowalnych zasad przechowywania opartych na czasie. Wartość domyślna i najkrótszy możliwy okres przechowywania to 1 dzień (24 godziny). W przypadku Event Hubs Standard maksymalny okres przechowywania wynosi 7 dni. W przypadku Event Hubs — warstwa Dedykowana maksymalny okres przechowywania to 90 dni.
+Opublikowane zdarzenia są usuwane z centrum zdarzeń na podstawie konfigurowalnych zasad przechowywania opartych na czasie. Oto kilka istotnych kwestii:
+
+- Wartość **Domyślna** i **najkrótszy** możliwy okres przechowywania to **1 dzień (24 godziny)**.
+- W przypadku Event Hubs **Standard** maksymalny okres przechowywania wynosi **7 dni**. 
+- W przypadku Event Hubs **dedykowany** maksymalny okres przechowywania to **90 dni**.
+- Jeśli zmienisz okres przechowywania, dotyczy to wszystkich komunikatów, w tym komunikatów, które znajdują się już w centrum zdarzeń. 
 
 > [!NOTE]
 > Event Hubs to aparat strumienia zdarzeń w czasie rzeczywistym i nie jest przeznaczony do użycia zamiast bazy danych i/lub jako trwały magazyn dla nieskończonie przechowywanych strumieni zdarzeń. 
@@ -117,6 +122,9 @@ Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usłu
 *Tworzenie punktów kontrolnych* jest procesem, za pomocą którego czytniki oznaczają lub zatwierdzają swoją pozycję w sekwencji zdarzeń partycji. Odpowiedzialność za tworzenie punktów kontrolnych spoczywa na odbiorcy i odbywa się dla każdej partycji w ramach grupy odbiorców. Ta odpowiedzialność oznacza, że dla każdej grupy odbiorców każdy czytnik partycji musi śledzić swoją bieżącą pozycję w strumieniu zdarzeń i może poinformować usługi, gdy uzna, że strumień danych jest pełny.
 
 Jeśli czytnik rozłączy się od partycji, po swoim ponownym połączeniu rozpoczyna odczyt punktu kontrolnego, który został wcześniej przesłany przez ostatni czytnik tej partycji w danej grupie odbiorców. Po nawiązaniu połączenia z czytnikiem przekazuje przesunięcie do centrum zdarzeń, aby określić lokalizację, w której ma zostać rozpoczęte odczytywanie. W ten sposób można użyć procesu tworzenia punktów kontrolnych zarówno do oznaczenia zdarzeń jako „ukończone” przez aplikacje podrzędne, jak i zapewnienia odporności zdarzenia na pracę w trybie failover między czytnikami działającymi na różnych komputerach. Istnieje możliwość powrotu do starszych danych przez określenie niższego przesunięcia od tego procesu tworzenia punktów kontrolnych. Dzięki temu mechanizmowi tworzenie punktów kontrolnych zapewnia zarówno odporność na pracę w trybie failover, jak i powtarzanie strumienia zdarzeń.
+
+> [!IMPORTANT]
+> Przesunięcia są udostępniane przez usługę Event Hubs. Odbiorca jest odpowiedzialny za tworzenie punktów kontrolnych podczas przetwarzania zdarzeń.
 
 > [!NOTE]
 > Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 

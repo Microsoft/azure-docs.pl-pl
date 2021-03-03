@@ -1,5 +1,5 @@
 ---
-title: Omówienie klastrów Azure Stream Analytics (wersja zapoznawcza)
+title: Omówienie klastrów Azure Stream Analytics
 description: Dowiedz się więcej o dedykowanej ofercie Stream Analytics klastrze.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709295"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Omówienie klastra Azure Stream Analytics (wersja zapoznawcza)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Omówienie klastra Azure Stream Analytics
 
 Klaster Azure Stream Analytics oferuje wdrożenie pojedynczej dzierżawy dla złożonych i wymagających scenariuszy przesyłania strumieniowego. W pełnej skali klastry Stream Analytics mogą przetwarzać ponad 200 MB na sekundę w czasie rzeczywistym. Stream Analytics zadania uruchomione w dedykowanych klastrach mogą korzystać ze wszystkich funkcji w ramach standardowej oferty oraz obsługują połączenia prywatne z danymi wejściowymi i wyjściowymi.
 

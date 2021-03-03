@@ -1,22 +1,22 @@
 ---
-title: Alerty metryk z Azure Monitor dla kontenerów
-description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
+title: Alerty metryk z usługi Container Insights
+description: W tym artykule opisano zalecane alerty metryk dostępne z usługi Container Insights w publicznej wersji zapoznawczej.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 59c8d7b58809c981130d2ce92406fb5b1ce146ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618800"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728896"
 ---
-# <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
+# <a name="recommended-metric-alerts-preview-from-container-insights"></a>Zalecane alerty metryk (wersja zapoznawcza) z usługi Container Insights
 
-Aby otrzymywać alerty dotyczące problemów z zasobami systemu, gdy występują szczytowe zapotrzebowanie i działają blisko pojemności, z Azure Monitor dla kontenerów utworzysz alert dziennika na podstawie danych wydajności przechowywanych w dziennikach Azure Monitor. Azure Monitor dla kontenerów zawiera teraz wstępnie skonfigurowane reguły alertów metryk dla klastra Kubernetes z obsługą usługi Azure ARC, który jest w publicznej wersji zapoznawczej.
+Aby otrzymywać alerty dotyczące problemów z zasobami systemowymi, gdy występuje szczytowe zapotrzebowanie i działające blisko pojemności, usługa Container Insights tworzy alert dziennika na podstawie danych wydajności przechowywanych w dziennikach Azure Monitor. Usługa Container Insights zawiera teraz wstępnie skonfigurowane reguły alertów metryk dla klastra Kubernetes z włączoną obsługą usługi Azure AKS, który jest w publicznej wersji zapoznawczej.
 
 W tym artykule omówiono środowisko i przedstawiono wskazówki dotyczące konfigurowania tych reguł alertów i zarządzania nimi.
 
-Jeśli nie masz doświadczenia w Azure Monitor alertów, zobacz [Omówienie alertów w usłudze Microsoft Azure](../platform/alerts-overview.md) przed rozpoczęciem. Aby dowiedzieć się więcej na temat alertów metryk, zobacz [alerty metryk w Azure monitor](../alerts/alerts-metric-overview.md).
+Jeśli nie masz doświadczenia w Azure Monitor alertów, zobacz [Omówienie alertów w usłudze Microsoft Azure](../alerts/alerts-overview.md) przed rozpoczęciem. Aby dowiedzieć się więcej na temat alertów metryk, zobacz [alerty metryk w Azure monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,13 +31,13 @@ Przed rozpoczęciem Potwierdź następujące kwestie:
     * Uruchom polecenie: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . W wyświetlonym stanie Zwróć uwagę na wartość w obszarze **obraz** dla omsagent w sekcji *kontenery* w danych wyjściowych. 
     * Na karcie **węzły** wybierz węzeł klastra i w okienku **Właściwości** po prawej stronie Sprawdź wartość w obszarze **tag obrazu agenta**.
 
-    Wartość pokazana dla AKS powinna być w wersji **ciprod05262020** lub nowszej. Wartość pokazana dla klastra Kubernetes z obsługą usługi Azure Arc powinna być w wersji **ciprod09252020** lub nowszej. Jeśli klaster ma starszą wersję, zapoznaj się z tematem [jak uaktualnić agenta Azure monitor for Containers](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby poznać procedurę pobierania najnowszej wersji.
+    Wartość pokazana dla AKS powinna być w wersji **ciprod05262020** lub nowszej. Wartość pokazana dla klastra Kubernetes z obsługą usługi Azure Arc powinna być w wersji **ciprod09252020** lub nowszej. Jeśli klaster ma starszą wersję, zapoznaj się z tematem [jak uaktualnić agenta usługi Container Insights](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby poznać procedurę pobierania najnowszej wersji.
 
     Aby uzyskać więcej informacji dotyczących wydania agenta, zobacz [Historia wydania agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Aby sprawdzić, czy metryki są zbierane, możesz użyć Eksploratora metryk Azure Monitor i sprawdzić, czy w **przestrzeni nazw metryk** znajduje się lista **szczegółowych** informacji. Jeśli tak jest, możesz rozpocząć Konfigurowanie alertów. Jeśli nie widzisz żadnych zebranych metryk, nazwa główna usługi klastra lub plik MSI nie ma wystarczających uprawnień. Aby sprawdzić, czy nazwa SPN lub plik MSI jest członkiem roli **wydawcy metryk monitorowania** , wykonaj kroki opisane w sekcji [uaktualnianie dla klastra za pomocą interfejsu wiersza polecenia platformy Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) , aby potwierdzić i ustawić przypisanie roli.
 
 ## <a name="alert-rules-overview"></a>Przegląd reguł alertów
 
-Aby otrzymywać alerty dotyczące tego, co się stało, Azure Monitor dla kontenerów obejmują następujące alerty metryk dla klastrów Kubernetes z włączonym AKS i Azure ARC:
+Aby otrzymywać alerty dotyczące tego, co się stało, usługa Container Insights obejmuje następujące alerty metryk dla klastrów Kubernetes z włączonym AKS i Azure ARC:
 
 |Nazwa| Opis |Domyślny próg |
 |----|-------------|------------------|
@@ -108,15 +108,15 @@ Wykonaj następujące kroki, aby włączyć alerty metryk w Azure Monitor z Azur
 
 ### <a name="from-the-azure-portal"></a>Z witryny Azure Portal
 
-Ta sekcja zawiera szczegółowe instrukcje dotyczące włączania alertu metryki Azure Monitor dla kontenerów (wersja zapoznawcza) z Azure Portal.
+W tej sekcji omówiono Włączanie alertu metryki usługi Container Insights (wersja zapoznawcza) z Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Dostęp do funkcji alertu metryki usługi Azure Monitor dla kontenerów (wersja zapoznawcza) jest dostępny bezpośrednio w klastrze AKS, wybierając pozycję **szczegółowe** dane w okienku po lewej stronie Azure Portal.
+2. Dostęp do funkcji alertu metryk usługi Container Insights (wersja zapoznawcza) jest dostępny bezpośrednio w klastrze AKS, wybierając pozycję **szczegółowe** dane w okienku po lewej stronie Azure Portal.
 
 3. Na pasku poleceń wybierz pozycję **zalecane alerty**.
 
-    ![Opcja zalecane alerty w Azure Monitor dla kontenerów](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Opcja zalecanych alertów w usłudze Container Insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. Okienko właściwości **zalecane alerty** zostanie automatycznie wyświetlone po prawej stronie. Domyślnie wszystkie reguły alertów na liście są wyłączone. Po wybraniu opcji **Włącz** reguła alertu zostanie utworzona, a nazwa reguły zostanie zaktualizowana w celu uwzględnienia linku do zasobu alertu.
 
@@ -198,7 +198,7 @@ Podstawowe kroki są następujące:
 
 ## <a name="edit-alert-rules"></a>Edytuj reguły alertów
 
-Można wyświetlać reguły alertów Azure Monitor dla kontenerów i zarządzać nimi, aby edytować jego próg lub skonfigurować [grupę akcji](../alerts/action-groups.md) dla klastra AKS. Chociaż można wykonać te działania z Azure Portal i interfejsu wiersza polecenia platformy Azure, można to zrobić również bezpośrednio z klastra AKS w Azure Monitor for Containers.
+Można wyświetlać reguły alertów usługi Container Insights i zarządzać nimi, aby edytować jego próg lub skonfigurować [grupę akcji](../alerts/action-groups.md) dla klastra AKS. Chociaż można wykonać te działania z Azure Portal i interfejsu wiersza polecenia platformy Azure, można to zrobić również bezpośrednio z klastra AKS w usłudze Container Insights.
 
 1. Na pasku poleceń wybierz pozycję **zalecane alerty**.
 

@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691488"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Parametr strojenia modelu z Azure Machine Learning
 
@@ -25,7 +25,7 @@ Automatyzuj wydajne dostrajanie parametrów przy użyciu [pakietu](/python/api/a
 1. Zdefiniuj miejsce przeszukiwania parametrów
 1. Określ metrykę podstawową do optymalizacji  
 1. Określ zasady wczesnego zakończenia dla przebiegów o niskiej wydajności
-1. Przydzielanie zasobów
+1. Tworzenie i przypisywanie zasobów
 1. Uruchom eksperyment ze zdefiniowaną konfiguracją
 1. Wizualizuj przebiegi szkoleniowe
 1. Wybierz najlepszą konfigurację dla modelu
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 [Próbkowanie siatki](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) obsługuje dyskretne parametry. Użyj próbkowania siatki, jeśli możesz zabudżetować, aby w sposób wyczerpujący przeszukiwać miejsce wyszukiwania. Obsługuje wczesne zakończenie uruchamiania niskiej wydajności.
 
-Wykonuje proste przeszukiwanie siatki dla wszystkich możliwych wartości. Próbkowanie siatki może być używane tylko z `choice` parametrami. Na przykład następujące miejsce ma sześć przykładów:
+Próbkowanie siatki wykonuje proste przeszukiwanie siatki dla wszystkich możliwych wartości. Próbkowanie siatki może być używane tylko z `choice` parametrami. Na przykład następujące miejsce ma sześć przykładów:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Próbkowanie Bayesowskie
 
-[Próbkowanie bayesowskie](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) jest oparte na algorytmie optymalizacji bayesowskie. Wybiera próbki w oparciu o sposób wykonywania poprzednich przykładów, dzięki czemu nowe przykłady zwiększają podstawową metrykę.
+[Próbkowanie bayesowskie](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) jest oparte na algorytmie optymalizacji bayesowskie. Wybiera próbki w oparciu o to, jak poprzednie przykłady zakończyły się, więc nowe przykłady zwiększają podstawową metrykę.
 
 Próbkowanie bayesowskie jest zalecane, jeśli masz wystarczającą ilość budżetu do eksplorowania miejsca na parametrze. Aby uzyskać najlepsze wyniki, zaleca się, aby maksymalna liczba przebiegów była większa niż lub równa 20 razy liczba dostrojenia parametrów. 
 
@@ -203,7 +203,7 @@ Azure Machine Learning obsługuje następujące zasady wczesnego zakończenia:
 
 ### <a name="bandit-policy"></a>Zasady Bandit
 
-[Zasady Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) są oparte na wartości współczynnika zapasu/zapasu czasu i interwału obliczania. Przerwania Bandit są uruchamiane, gdy Metryka podstawowa nie mieści się w określonym współczynniku zapasu/zapasu czasu w porównaniu do najlepszego przebiegu.
+[Zasady Bandit](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) są oparte na wartości współczynnika zapasu/zapasu czasu i interwału obliczania. Bandit kończy się, gdy Metryka podstawowa nie znajduje się w określonym współczynniku zapasu/zapasie czasu dla najbardziej pomyślnego uruchomienia.
 
 > [!NOTE]
 > Próbkowanie bayesowskie nie obsługuje wczesnego kończenia pracy. W przypadku korzystania z próbkowania bayesowskie Ustaw `early_termination_policy = None` .
@@ -226,7 +226,7 @@ W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwal
 
 ### <a name="median-stopping-policy"></a>Średnie zatrzymywanie zasad
 
-[Mediana zatrzymywana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) to zasady wczesnej zakończenia na podstawie średnich podstawowych metryk raportowanych przez uruchomienia. Te zasady obliczą średnie uruchamiania w ramach wszystkich przebiegów szkoleniowych i kończy działanie z podstawowymi wartościami metryk, które są mniejsze niż mediana średnia.
+[Mediana zatrzymywana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) to zasady wczesnej zakończenia na podstawie średnich podstawowych metryk raportowanych przez uruchomienia. Te zasady obliczają średnie uruchamiania w ramach wszystkich przebiegów szkoleniowych i przerywają uruchomienia, których podstawowa Metryka jest gorsza niż wartość mediana średnika.
 
 Te zasady pobierają następujące parametry konfiguracji:
 * `evaluation_interval`: częstotliwość stosowania zasad (parametr opcjonalny).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwale, rozpoczynając od okresu ewaluacyjnego 5. Przebieg jest zakończony z upływem interwału 5, jeśli jego Najlepsza Metryka podstawowa jest gorsza niż wartość mediana średnich wartości z interwałów 1:5 dla wszystkich przebiegów szkoleniowych.
+W tym przykładzie zasady wczesnej zakończenia są stosowane w każdym interwale, rozpoczynając od okresu ewaluacyjnego 5. Uruchomienie jest zatrzymane w przedziale 5, jeśli jego Najlepsza Metryka podstawowa jest gorsza niż wartość mediana średnich wartości z interwałów 1:5 dla wszystkich przebiegów szkoleniowych.
 
 ### <a name="truncation-selection-policy"></a>Zasady wyboru obcinania
 
@@ -271,7 +271,7 @@ policy=None
 * Aby zapoznać się z zasadami, które zapewniają oszczędności bez kończenia zadań obietnicy, należy wziąć pod uwagę średnią zatrzymywanie zasad z `evaluation_interval` 1 i `delay_evaluation` 5. Są to ustawienia, które mogą zapewnić około 25%-35% oszczędności bez utraty podstawowej metryki (na podstawie naszych danych oceny).
 * Aby uzyskać bardziej agresywne oszczędności, użyj zasad Banditymi z mniejszym dozwolonym użyciem zapasu lub zasad wyboru obcięcia z większym procentem obcięcia.
 
-## <a name="allocate-resources"></a>Przydzielanie zasobów
+## <a name="create-and-assign-resources"></a>Tworzenie i przypisywanie zasobów
 
 Kontroluj budżet zasobów, określając maksymalną liczbę przebiegów szkoleniowych.
 
@@ -302,18 +302,28 @@ Aby [skonfigurować eksperyment strojenia parametrów](/python/api/azureml-train
 * Zasady wczesnego zakończenia
 * Podstawowa metryka
 * Ustawienia przydziału zasobów
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 ScriptRunConfig to skrypt szkoleniowy, który będzie uruchamiany przy użyciu parametrów z próbkami. Definiuje zasoby na zadanie (jeden lub wiele węzłów) oraz miejsce docelowe obliczeń do użycia.
 
 > [!NOTE]
->Element docelowy obliczeń określony w elemencie `src` musi mieć wystarczającą ilość zasobów, aby spełnić poziom współbieżności. Aby uzyskać więcej informacji na temat ScriptRunConfig, zobacz [Konfigurowanie przebiegów szkoleniowych](how-to-set-up-training-targets.md).
+>Obiekt docelowy obliczeń używany w programie `script_run_config` musi mieć wystarczającą ilość zasobów do spełnienia poziomu współbieżności. Aby uzyskać więcej informacji na temat ScriptRunConfig, zobacz [Konfigurowanie przebiegów szkoleniowych](how-to-set-up-training-targets.md).
 
 Konfigurowanie eksperymentu strojenia parametrów:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+`HyperDriveConfig`Ustawia parametry przesłane do `ScriptRunConfig script_run_config` . `script_run_config`, Z kolei, przekazuje parametry do skryptu szkoleniowego. Powyższy fragment kodu jest pobierany z przykładowego [uczenia się notesu, dostrajania parametrów i wdrażania przy użyciu PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). W tym przykładzie `learning_rate` `momentum` Parametry i zostaną dostrojone. Wczesne zatrzymanie przebiegów zostanie określone przez `BanditPolicy` , która zatrzymuje przebieg, którego Podstawowa metryka znajduje się poza `slack_factor` (zobacz [odwołanie do klasy BanditPolicy](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+
+Poniższy kod z przykładu pokazuje, w jaki sposób wartości są odbierane, analizowane i przenoszone do funkcji skryptu szkoleniowego `fine_tune_model` :
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Każde uruchomienie każdego z parametrów powoduje ponowne uruchomienie szkolenia od podstaw, w tym Odbudowywanie modelu i _wszystkich modułów ładujących dane_. Możesz zminimalizować ten koszt przy użyciu potoku Azure Machine Learning lub ręcznego procesu, aby jak najszybciej przygotować dane przed uruchomieniem szkolenia. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Prześlij eksperyment strojenia parametru
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Dostrajanie parametru uruchomienia ciepłego (opcjonalnie)
 
 Znalezienie najlepszych wartości parametrów dla modelu może być procesem iteracyjnym. Możesz ponownie użyć wiedzy z pięciu poprzednich przebiegów, aby przyspieszyć dostrajanie parametrów.
-
 
 Uruchamianie ciepłe jest obsługiwane w różny sposób w zależności od metody próbkowania:
 - **Bayesowskie próbkowanie**: próby z poprzedniego przebiegu są używane jako wcześniejsza wiedza, aby wybrać nowe przykłady i zwiększyć podstawową metrykę.
@@ -368,7 +407,7 @@ Możesz skonfigurować eksperyment strojenia parametrów, aby rozpocząć pracę
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

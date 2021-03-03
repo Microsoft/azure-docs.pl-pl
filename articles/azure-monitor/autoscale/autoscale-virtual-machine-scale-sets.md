@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617570"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717744"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets
 Możesz skalować w poziomie i skalować w Virtual Machine Scale Sets na podstawie progów metryk wydajności, harmonogramu cyklicznego lub określonego dnia. Możesz również skonfigurować powiadomienia e-mail i elementy webhook dla akcji skalowania. W tym instruktażu przedstawiono przykład konfigurowania wszystkich tych obiektów przy użyciu szablonu Menedżer zasobów na zestawie skalowania maszyn wirtualnych.
@@ -243,9 +243,9 @@ Skorzystaj z tych linków, aby dowiedzieć się więcej o automatycznym skalowan
 
 [Najlepsze rozwiązania dotyczące automatycznego skalowania na platformie Azure](autoscale-best-practices.md)
 
-[Zarządzanie automatycznym skalowaniem przy użyciu programu PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Zarządzanie automatycznym skalowaniem przy użyciu programu PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Zarządzanie funkcją automatycznego skalowania przy użyciu interfejsu wiersza polecenia](../samples/cli-samples.md#autoscale)
+[Zarządzanie funkcją automatycznego skalowania przy użyciu interfejsu wiersza polecenia](../cli-samples.md#autoscale)
 
 [Konfigurowanie elementu webhook & powiadomienia E-mail na potrzeby automatycznego skalowania](autoscale-webhook-email.md)
 

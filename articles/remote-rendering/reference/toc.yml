@@ -17,4 +17,4 @@
 - name: Dokumentacja interfejsu API języka C#
   href: /dotnet/api/Microsoft.Azure.RemoteRendering
 - name: Dokumentacja interfejsu C++ API
-  href: 'https://docs.microsoft.com/cpp/api/remote-rendering'
+  href: /cpp/api/remote-rendering

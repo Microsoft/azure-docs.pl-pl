@@ -6,18 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: e3a9810aef356b7acf5ae2522645c14ee445812b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bf55d66f7099717079190a538bad8bf777581825
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614593"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723558"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
 
-Alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekroczy próg. Alerty dotyczące metryk działają na wielu metrykach wielowymiarowych platform, metrykach niestandardowych i standardowych i niestandardowych metrykach usługi Application Insights. W tym artykule opisano sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal i interfejsu wiersza polecenia platformy Azure. Reguły alertów dotyczących metryk można również tworzyć przy użyciu szablonów Azure Resource Manager, które są opisane w [osobnym artykule](../platform/alerts-metric-create-templates.md).
+Alerty metryk w Azure Monitor umożliwiają otrzymywanie powiadomień, gdy jedna z metryk przekroczy próg. Alerty dotyczące metryk działają na wielu metrykach wielowymiarowych platform, metrykach niestandardowych i standardowych i niestandardowych metrykach usługi Application Insights. W tym artykule opisano sposób tworzenia i wyświetlania reguł alertów dotyczących metryk oraz zarządzania nimi za pomocą Azure Portal i interfejsu wiersza polecenia platformy Azure. Reguły alertów dotyczących metryk można również tworzyć przy użyciu szablonów Azure Resource Manager, które są opisane w [osobnym artykule](./alerts-metric-create-templates.md).
 
-Aby dowiedzieć się więcej o tym, jak alerty metryk działają na podstawie [alertów dotyczących metryk](../platform/alerts-metric-overview.md).
+Aby dowiedzieć się więcej o tym, jak alerty metryk działają na podstawie [alertów dotyczących metryk](./alerts-metric-overview.md).
 
 ## <a name="create-with-azure-portal"></a>Tworzenie przy użyciu witryny Azure Portal
 
@@ -32,7 +32,7 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 
 3. Kliknij pozycję **Wybierz element docelowy**, w okienku kontekstu, który ładuje, wybierz zasób docelowy, na którym chcesz utworzyć alert. Użyj listy rozwijanej Typ **subskrypcji** i **zasobu** , aby znaleźć zasób, który chcesz monitorować. Możesz również użyć paska wyszukiwania, aby znaleźć zasób.
 
-4. Jeśli wybrany zasób ma metryki, na których można tworzyć alerty, **dostępne sygnały** z prawej strony będą zawierać metryki. W tym [artykule](../platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)można wyświetlić pełną listę typów zasobów, które są obsługiwane w przypadku alertów dotyczących metryk.
+4. Jeśli wybrany zasób ma metryki, na których można tworzyć alerty, **dostępne sygnały** z prawej strony będą zawierać metryki. W tym [artykule](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)można wyświetlić pełną listę typów zasobów, które są obsługiwane w przypadku alertów dotyczących metryk.
 
 5. Po wybraniu zasobu docelowego kliknij pozycję **Dodaj warunek**.
 
@@ -45,7 +45,7 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
     - Jeśli wartość wymiaru, którego szukasz, nie jest wyświetlana, kliknij pozycję "Dodaj wartość niestandardową", aby dodać niestandardową wartość wymiaru.
     - Możesz również **wybrać wszystkie bieżące i przyszłe wartości** dla dowolnego z wymiarów. Spowoduje to dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
 
-    Reguła alertu metryki będzie szacować warunek dla wszystkich wybranych kombinacji wartości. [Dowiedz się więcej o tym, jak działa alert dotyczący metryk wielowymiarowych](../platform/alerts-metric-overview.md).
+    Reguła alertu metryki będzie szacować warunek dla wszystkich wybranych kombinacji wartości. [Dowiedz się więcej o tym, jak działa alert dotyczący metryk wielowymiarowych](./alerts-metric-overview.md).
 
 9. Wybierz typ **progu** , **operator** i **typ agregacji**. Spowoduje to określenie logiki, która będzie Szacowana przez regułę alertu metryki.
     - Jeśli używasz progu **statycznego** , Kontynuuj definiowanie **wartości progowej**. Wykres metryk może pomóc w ustaleniu, co może być rozsądnym progiem.
@@ -154,8 +154,8 @@ Reguły alertów dotyczących metryk mają dostępne dedykowane polecenia cmdlet
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](../platform/alerts-metric-create-templates.md)
-- [Objaśnienie działania alertów metryk](../platform/alerts-metric-overview.md)
+- [Tworzenie alertów metryk przy użyciu szablonów Azure Resource Manager](./alerts-metric-create-templates.md)
+- [Objaśnienie działania alertów metryk](./alerts-metric-overview.md)
 - [Informacje o działaniu alertów metryk z dynamicznymi progami](../alerts/alerts-dynamic-thresholds.md)
-- [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](../platform/alerts-metric-near-real-time.md#payload-schema)
-- [Rozwiązywanie problemów z alertami metryk](../platform/alerts-troubleshoot-metric.md)
+- [Informacje o schemacie elementu webhook dla alertów dotyczących metryk](./alerts-metric-near-real-time.md#payload-schema)
+- [Rozwiązywanie problemów z alertami metryk](./alerts-troubleshoot-metric.md)

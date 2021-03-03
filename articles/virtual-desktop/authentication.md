@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500304"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709261"
 ---
 # <a name="supported-authentication-methods"></a>Obsługiwane metody uwierzytelniania
 
@@ -21,14 +21,14 @@ W tym artykule przedstawiono krótkie omówienie rodzajów uwierzytelniania, kt�
 
 ## <a name="session-host-authentication"></a>Uwierzytelnianie hosta sesji
 
-Pulpit wirtualny systemu Windows obsługuje uwierzytelnianie hosta sesji zarówno NT LAN Manager (NTLM), jak i protokołu Kerberos. Aby jednak korzystać z protokołu Kerberos, klient musi uzyskać bilety zabezpieczeń Kerberos z usługi centrum dystrybucji kluczy (KDC) działającej na kontrolerze domeny. Aby uzyskać bilety, klient potrzebuje bezpośredniej linii wglądu do kontrolera domeny. Możesz uzyskać bezpośredni wgląd w szczegółowe informacje przy użyciu sieci firmowej. Możesz również użyć połączenia sieci VPN z siecią firmową.
+Pulpit wirtualny systemu Windows obsługuje uwierzytelnianie hosta sesji zarówno NT LAN Manager (NTLM), jak i protokołu Kerberos. Aby jednak korzystać z protokołu Kerberos, klient musi uzyskać bilety zabezpieczeń Kerberos z usługi centrum dystrybucji kluczy (KDC) działającej na kontrolerze domeny. Aby uzyskać bilety, klient potrzebuje bezpośredniej linii wglądu do kontrolera domeny. Możesz uzyskać bezpośredni wgląd w szczegółowe informacje przy użyciu sieci firmowej. Można również użyć połączenia sieci VPN z siecią firmową lub skonfigurować [serwer proxy centrum dystrybucji kluczy](key-distribution-center-proxy.md).
 
 Są to obecnie obsługiwane metody logowania:
 
 - Klient klasyczny systemu Windows
     - Nazwa użytkownika i hasło
     - Kart
-    - Windows Hello
+    - Windows Hello dla firm (tylko zaufanie do certyfikatów)
 - Klient sklepu Windows
     - Nazwa użytkownika i hasło
 - Klient internetowy
@@ -41,7 +41,7 @@ Są to obecnie obsługiwane metody logowania:
     - Nazwa użytkownika i hasło
 
 >[!NOTE]
->Karty inteligentne i Windows Hello mogą korzystać tylko z protokołu Kerberos do logowania. Zalogowanie się przy użyciu protokołu Kerberos wymaga linii wglądu do kontrolera domeny.
+>Karty inteligentne i Windows Hello dla firm mogą korzystać tylko z protokołu Kerberos do logowania. Zalogowanie się przy użyciu protokołu Kerberos wymaga linii wglądu do kontrolera domeny lub [serwera proxy centrum dystrybucji kluczy](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Tożsamość hybrydowa
 

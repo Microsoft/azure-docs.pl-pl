@@ -8,42 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 02/23/2021
 ms.author: aahi
-ms.openlocfilehash: af7c3f85a75cfb425003b0da2af268fbba1d1d10
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f6a109c10491ad2eabb12069157e9e6f394bc1f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092588"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736614"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
 #### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
 
-| Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
-|:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chiński uproszczony    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` również zaakceptowane |
-| Chiński tradycyjny   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
-| Duński               |     `da`      |     ✓      |            |                            |                    |
-| Niderlandzki                 |     `nl`      |     ✓      |            |                            |                    |
-| Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Fiński               |     `fi`      |     ✓      |            |                            |                    |
-| Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Grecki                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
-| Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
-| Polski                |     `pl`      |     ✓      |            |                            |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
-| Rosyjski               |     `ru`      |     ✓      |            |                            |                    |
-| Hiszpański               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Szwedzki               |     `sv`      |     ✓      |            |                            |                    |
-| Turecki               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
+| Język              | Kod języka | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
+|:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
+| Chiński uproszczony    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` również zaakceptowane |
+| Chiński tradycyjny   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Angielski               |     `en`      |     ✓      |         2019-10-01         |                    |
+| Francuski                |     `fr`      |     ✓      |         2019-10-01         |                    |
+| Niemiecki                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Włoski               |     `it`      |     ✓      |         2019-10-01         |                    |
+| japoński              |     `ja`      |     ✓      |         2019-10-01         |                    |
+| Koreański                |     `ko`      |    ✓      |         2019-10-01         |                    |
+| Norweski (bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
+| Hiszpański               |     `es`      |     ✓      |         2019-10-01         |                    |
+| Turecki               |     `tr`      |     ✓       |         2020-07-01        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Wyszukiwanie opinii (tylko wersja zapoznawcza w wersji 3.1)
 
@@ -85,31 +77,46 @@ ms.locfileid: "99092588"
 
 #### <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/key-phrase-extraction)
 
-| Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
-|:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Duński                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
-| Niderlandzki                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2020-07-01                 | `nb` również zaakceptowane |
-| Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` również zaakceptowane |
-| Rosyjski               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Hiszpański               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Szwedzki               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Język              | Kod języka |  Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
+|:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
+| Duński                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Niderlandzki                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
+| Angielski               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Fiński               |     `fi`      |     ✓      |                2019-10-01                 |                    |
+| Francuski                |     `fr`      |     ✓      |                2019-10-01                 |                    |
+| Niemiecki                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Włoski               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| japoński              |     `ja`      |     ✓      |                2019-10-01                 |                    |
+| Koreański                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Norweski (bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` również zaakceptowane |
+| Polski                |     `pl`      |    ✓      |                2019-10-01                 |                    |
+| Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
+| Portugalski (Portugalia) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` również zaakceptowane |
+| Rosyjski               |     `ru`      |     ✓      |                2019-10-01                 |                    |
+| Hiszpański               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Szwedzki               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 
 #### <a name="entity-linking"></a>[Łączenie jednostek](#tab/entity-linking)
 
-| Język | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: | Uwagi |
-|:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| Angielski  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
-| Hiszpański  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Język | Kod języka |  Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: | Uwagi |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Angielski  |     `en`      |     ✓      |                2019-10-01                 |       |
+| Hiszpański  |     `es`      |    ✓      |                2019-10-01                 |       |
+
+#### <a name="personally-identifiable-information-pii"></a>[Identyfikowalne dane osobowe](#tab/pii)
+
+| Język               | Kod języka | Obsługa wersji 3 | Począwszy od wersji modelu v3: |       Uwagi        |
+|:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
+| Chiński uproszczony     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` również zaakceptowane |
+| Angielski                |     `en`      |     ✓      |               2020-07-01        |                    |
+| Francuski                 |     `fr`      |     ✓      |               2021-01-15        |                    |
+| Niemiecki                 |     `de`      |     ✓      |               2021-01-15        |                    |
+| Włoski               |     `it`      |     ✓       |               2021-01-15        |                    |
+| japoński              |     `ja`      |     ✓       |               2021-01-15        |                    |
+| Koreański                |     `ko`      |     ✓       |               2021-01-15        |                    |
+| Portugalski (Brazylia)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` również zaakceptowane |
+| Hiszpański               |     `es`      |     ✓       |               2020-04-01        |                    |
 
 #### <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
 
@@ -222,6 +229,7 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 |Tybetański|`bo`|✓|2021-01-05|
 |Tigrinia|`ti`|✓|2021-01-05|
 |Tonga|`to`|✓|2020-09-01|
+|Turecki|`tr`|✓|2021-01-05|
 |Turkmeński|`tk`|✓|2021-01-05|
 |Xhosa|`xh`|✓|2021-01-05|
 |Joruba|`yo`|✓|2021-01-05|

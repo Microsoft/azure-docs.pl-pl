@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240719"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715058"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Przegląd ciągłości działania z serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ W poniższej tabeli przedstawiono funkcje, które oferuje elastyczny serwer.
 | **Odzyskiwanie & kopii zapasowej** | Elastyczny serwer automatycznie wykonuje codzienne kopie zapasowe plików bazy danych i ciągle tworzy kopie zapasowe dzienników transakcji. Kopie zapasowe mogą być przechowywane przez dowolny okres od 1 do 35 dni. Serwer bazy danych będzie można przywrócić do dowolnego punktu w czasie w ramach okresu przechowywania kopii zapasowej. Czas odzyskiwania zależy od rozmiaru danych do przywrócenia i czasu na odzyskanie dziennika. Aby uzyskać więcej informacji, zobacz temat [koncepcje — tworzenie kopii zapasowych i przywracanie](./concepts-backup-restore.md) . |Dane kopii zapasowej pozostają w regionie |
 | **Lokalna nadmiarowa kopia zapasowa** | Elastyczne kopie zapasowe serwera są automatycznie i bezpiecznie przechowywane w lokalnym nadmiarowym magazynie w regionie i w tej samej strefie dostępności. Lokalnie nadmiarowe kopie zapasowe replikuje pliki danych kopii zapasowej serwera trzy razy w jednej lokalizacji fizycznej w regionie podstawowym. Magazyn lokalnie nadmiarowy zapewnia co najmniej 99,999999999% (11 dziewięciu danych) trwałości obiektów w danym roku. Aby uzyskać więcej informacji, zobacz temat [koncepcje — tworzenie kopii zapasowych i przywracanie](./concepts-backup-restore.md) .| Dotyczy we wszystkich regionach |
 | **Strefa nadmiarowa wysokiej dostępności** | Elastyczny serwer można wdrożyć w trybie wysokiej dostępności, który wdraża serwery podstawowe i rezerwowe w dwóch różnych strefach dostępności w obrębie regionu. Zapewnia to ochronę przed awariami na poziomie strefy, a także zmniejsza przestoje aplikacji podczas planowanych i nieplanowanych przestojów. Dane z serwera podstawowego są synchronicznie replikowane do repliki w stanie wstrzymania. Podczas każdego zdarzenia przestoju serwer bazy danych jest automatycznie przełączona w tryb failover do repliki w stanie wstrzymania. Zapoznaj się z [pojęciami — wysoka dostępność](./concepts-high-availability.md) , aby uzyskać więcej szczegółów. | Obsługiwane w warstwach obliczeniowych ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Dostępne tylko w regionach, w których jest dostępnych wiele stref.|
-| **Udziały plików w warstwie Premium** | Pliki bazy danych są przechowywane w wysoce trwałych i niezawodnych udziałach plików platformy Azure w warstwie Premium, które zapewniają nadmiarowość danych z trzema kopiami replik przechowywanych w strefie dostępności z automatycznym odzyskiwaniem danych. Aby uzyskać więcej informacji, zapoznaj się z [udziałami plików w warstwie Premium](../../storage/files/storage-how-to-create-premium-fileshare.md) . | Dane przechowywane w strefie dostępności |
+| **Udziały plików w warstwie Premium** | Pliki bazy danych są przechowywane w wysoce trwałych i niezawodnych udziałach plików platformy Azure w warstwie Premium, które zapewniają nadmiarowość danych z trzema kopiami replik przechowywanych w strefie dostępności z automatycznym odzyskiwaniem danych. Aby uzyskać więcej informacji, zapoznaj się z [udziałami plików w warstwie Premium](../../storage/files/storage-how-to-create-file-share.md) . | Dane przechowywane w strefie dostępności |
 
 > [!IMPORTANT]
 > W okresie zapoznawczym są oferowane bezpłatne warunki umowy SLA RTO i punktu odzyskiwania. Szczegóły podane na tej stronie są przeznaczone tylko do celów związanych z informacjami i planowaniem.
@@ -42,7 +42,7 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji, które ponos
 | **Nowe wdrożenie oprogramowania (Azure)** | Nowe funkcje wdrażania lub rozwiązywania błędów są automatycznie wykonywane w ramach planowanej konserwacji usługi i można zaplanować, kiedy te działania mają być wykonywane. Aby uzyskać więcej informacji, zobacz [dokumentację](https://aka.ms/servicehealthpm), a także sprawdź [Portal](https://aka.ms/servicehealthpm) |
 | **Uaktualnienia wersji pomocniczej (Azure)** | Azure Database for MySQL automatycznie poprawek serwerów baz danych do wersji pomocniczej ustalonej przez platformę Azure. Odbywa się to w ramach planowanej konserwacji usługi. Może to spowodować skrócenie przestoju w ciągu kilku sekund, a serwer bazy danych zostanie automatycznie uruchomiony ponownie z nową wersją pomocniczą. Aby uzyskać więcej informacji, zobacz [dokumentację](../concepts-monitoring.md#planned-maintenance-notification), a także sprawdź [Portal](https://aka.ms/servicehealthpm).|
 
-Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy** , elastyczny serwer wykonuje operacje na serwerze rezerwy najpierw, a następnie na serwerze podstawowym bez trybu failover. Zapoznaj się z [pojęciami — wysoka dostępność](./concepts-high-availability.md) , aby uzyskać więcej szczegółów.
+Gdy elastyczny serwer jest skonfigurowany z **nadmiarową wysoką dostępnością strefy**, elastyczny serwer wykonuje operacje na serwerze rezerwy najpierw, a następnie na serwerze podstawowym bez trybu failover. Zapoznaj się z [pojęciami — wysoka dostępność](./concepts-high-availability.md) , aby uzyskać więcej szczegółów.
 
 ## <a name="unplanned-downtime-mitigation"></a>Nieplanowane ograniczenie przestoju
 

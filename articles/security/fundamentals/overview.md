@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f1e56c38353b43faf600fdd8e6405eced7f1b8a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720566"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Poniższe funkcje są możliwościami, które można sprawdzić, aby zapewnić g
 | [Obowiązkowe szkolenia w zakresie zabezpieczeń, kontrole w tle](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Kontrola lokalizacji danych](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Centrum formantów wspólnych](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Jak firma Microsoft zarządza lokalizacją danych w usługach platformy Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Testowanie penetracji](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [Wykrywanie intruzów, DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [inspekcje & rejestrowanie](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Zapewnianie dostępu do danych na Twoich warunkach](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Lista kontrolna Cloud Services](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Kto w firmie Microsoft może uzyskiwać dostęp do Twoich danych, na jakich warunkach](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Stan centrum danych sztuki](https://www.microsoft.com/cloud-platform/global-datacenters), zabezpieczenia fizyczne, [bezpieczna sieć](network-overview.md) | [Reagowanie na egzekwowanie prawa](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Zgodność według usługi, lokalizacji & branży](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Jak firma Microsoft zabezpiecza dane klientów w usługach platformy Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
-|  [Reagowanie na zdarzenia zabezpieczeń](https://aka.ms/SecurityResponsepaper), [współdzielona odpowiedzialność](./shared-responsibility.md) |[Rygorystyczne standardy ochrony prywatności](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Przejrzyj certyfikaty dla usług platformy Azure, centrum przezroczystości](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
+|  [Reagowanie na zdarzenia zabezpieczeń](/samples/browse/?redirectedfrom=TechNet-Gallery), [współdzielona odpowiedzialność](./shared-responsibility.md) |[Rygorystyczne standardy ochrony prywatności](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Przejrzyj certyfikaty dla usług platformy Azure, centrum przezroczystości](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
 
 ### <a name="features-to-secure-data-and-application"></a>Funkcje zabezpieczania danych i aplikacji
 W zależności od modelu usług w chmurze istnieje zmienna odpowiedzialność za zarządzanie zabezpieczeniami aplikacji lub usługi. Na platformie Azure dostępne są funkcje, które ułatwiają spełnienie tych obowiązków dzięki wbudowanym funkcjom i rozwiązaniom partnerskim, które można wdrożyć w ramach subskrypcji platformy Azure.
@@ -288,7 +288,7 @@ Następujące kategorie dzienników diagnostycznych można włączyć dla siecio
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-introduction.md) stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/security-center-recommendations.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Obliczenia
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji w tym obszarze oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="antimalware--antivirus"></a>Złośliwe oprogramowanie & antywirusowe

@@ -1,22 +1,22 @@
 ---
-title: Koszt monitorowania Azure Monitor kontenerów | Microsoft Docs
-description: W tym artykule opisano koszt monitorowania metryk & dane spisu zbierane przez Azure Monitor dla kontenerów, aby pomóc klientom w zarządzaniu ich użyciem i powiązanymi kosztami.
+title: Monitorowanie kosztów usługi Container Insights | Microsoft Docs
+description: W tym artykule opisano koszt monitorowania metryk & dane spisu zbierane przez usługi Container Insights w celu ułatwienia klientom zarządzania ich użyciem i powiązanymi kosztami.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 0a3118e1dd839eced5e1f15d28feff4bbb58014f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620093"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728913"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informacje o kosztach monitorowania w usłudze Azure Monitor dla kontenerów
+# <a name="understand-monitoring-costs-for-container-insights"></a>Informacje o monitorowaniu kosztów usługi Container Insights
 
-Ten artykuł zawiera wskazówki dotyczące cen dla Azure Monitor kontenerów, które ułatwiają zapoznanie się z następującymi kwestiami:
+Ten artykuł zawiera wskazówki dotyczące cen usługi Container Insights, które ułatwiają zapoznanie się z następującymi kwestiami:
 
 * Jak oszacować koszty w przód przed włączeniem tego wglądu
 
-* Sposób mierzenia kosztów po włączeniu Azure Monitor dla kontenerów dla co najmniej jednego kontenera
+* Jak mierzyć koszty po włączeniu usługi Container Insights dla co najmniej jednego kontenera
 
 * Jak kontrolować zbieranie danych i zmniejszanie kosztów
 
@@ -27,7 +27,7 @@ Model cen Azure Monitor jest przede wszystkim oparty na ilości danych pozyskany
 >[!NOTE]
 >Wszystkie rozmiary i ceny są przeznaczone wyłącznie do oceny przykładowej. Zapoznaj się ze stroną [cennika](https://azure.microsoft.com/pricing/details/monitor/) Azure monitor, aby uzyskać najnowsze ceny na podstawie modelu cen Azure Monitor Log Analytics i regionu platformy Azure.
 
-Poniżej znajduje się podsumowanie typów danych zbieranych z klastra Kubernetes z Azure Monitorami kontenerów mających wpływ na koszt i można je dostosować w zależności od użycia:
+Poniżej znajduje się podsumowanie typów danych zbieranych z klastra Kubernetes z informacjami o kontenerach mających wpływ na koszt i można je dostosować w zależności od użycia:
 
 - Stdout, stderr dzienników kontenerów z każdego monitorowanego kontenera w każdej przestrzeni nazw Kubernetes w klastrze
 
@@ -37,11 +37,11 @@ Poniżej znajduje się podsumowanie typów danych zbieranych z klastra Kubernete
 
 - Aktywne odpadkami metryk Prometheus
 
-- [Zbieranie dzienników diagnostycznych](../../aks/view-master-logs.md) w klastrze AKS w celu analizowania danych dzienników generowanych przez składniki Master, takie jak *polecenia-apiserver* i *polecenia-Controller-Manager*.
+- [Zbieranie dzienników diagnostycznych](../../aks/view-control-plane-logs.md) w klastrze AKS w celu analizowania danych dzienników generowanych przez składniki Master, takie jak *polecenia-apiserver* i *polecenia-Controller-Manager*.
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>Co jest zbierane z klastrów Kubernetes
 
-Azure Monitor kontenerów zawiera wstępnie zdefiniowany zestaw metryk i zebranych elementów spisu, które są zapisywane jako dane dziennika w obszarze roboczym Log Analytics. Wszystkie metryki wymienione poniżej są zbierane domyślnie co minutę.
+Informacje o kontenerze obejmują wstępnie zdefiniowany zestaw metryk i zebrane elementy spisu, które są zapisywane jako dane dziennika w obszarze roboczym Log Analytics. Wszystkie metryki wymienione poniżej są zbierane domyślnie co minutę.
 
 ### <a name="node-metrics-collected"></a>Zebrane metryki węzła
 
@@ -194,10 +194,10 @@ Jeśli korzystasz z [wycinków Prometheus](container-insights-prometheus-integra
 
 - Upewnij się, że częstotliwość odpadków jest ustawiona optymalnie (wartość domyślna to 60 sekund). Chociaż można zwiększyć częstotliwość do 15 sekund, należy się upewnić, że metryki, które są odpadków, są publikowane z tą częstotliwością. W przeciwnym razie wiele zduplikowanych metryk i zostanie wysłanych do obszaru roboczego Log Analytics w odstępach czasu dodawania do kosztów pozyskiwania i przechowywania danych, ale nie są one mniejsze. 
 
-- Azure Monitor kontenerów obsługuje wykluczanie & listy dołączania według nazwy metryki. Na przykład w przypadku wycinków **kubedns** metryk w klastrze mogą znajdować się setki z nich, które domyślnie odnoszą się do nich, ale najprawdopodobniej interesują się one tylko podzbiorem. Upewnij się, że określono listę metryk dla wycinków, lub Wyklucz inne z wyjątkiem kilku, aby zaoszczędzić na woluminie pozyskiwania danych. Można łatwo włączyć odchody i nie używać wielu z tych metryk, co spowoduje dodanie dodatkowych opłat do Log Analytics rachunku.
+- Usługi Container Insights obsługują wykluczenie & listy dołączania według nazwy metryki. Na przykład w przypadku wycinków **kubedns** metryk w klastrze mogą znajdować się setki z nich, które domyślnie odnoszą się do nich, ale najprawdopodobniej interesują się one tylko podzbiorem. Upewnij się, że określono listę metryk dla wycinków, lub Wyklucz inne z wyjątkiem kilku, aby zaoszczędzić na woluminie pozyskiwania danych. Można łatwo włączyć odchody i nie używać wielu z tych metryk, co spowoduje dodanie dodatkowych opłat do Log Analytics rachunku.
 
 - W przypadku wycinków za pośrednictwem adnotacji należy przefiltrować według przestrzeni nazw, aby wykluczyć braki metryk pod względem przestrzeni nazw, których nie używasz (na przykład przestrzeń nazw **Dev-Test** ).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat sposobu zrozumienia, jakie koszty mogą opierać się na najnowszych wzorcach użycia danych zbieranych za pomocą Azure Monitor dla kontenerów, zobacz [Zarządzanie użyciem i szacowanie kosztów](../platform/manage-cost-storage.md).
+Aby uzyskać więcej informacji na temat sposobu zrozumienia, jakie koszty mogą opierać się na niedawnych wzorcach użycia danych zebranych za pomocą usługi Container Insights, zobacz [Zarządzanie użyciem i szacowanie kosztów](../logs/manage-cost-storage.md).

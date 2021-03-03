@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699763"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -39,9 +39,9 @@ W większości przypadków dobrym sposobem jest skompilowanie przepływów danyc
 
 ## <a name="cluster-status"></a>Stan klastra
 
-Wskaźnik stanu klastra w górnej części powierzchni projektowej zmieni kolor na zielony, gdy klaster jest gotowy do debugowania. Jeśli klaster jest już grzany, zielony wskaźnik zostanie wyświetlony niemal natychmiast. Jeśli klaster nie był jeszcze uruchomiony po wprowadzeniu trybu debugowania, należy poczekać 5-7 minut, aż klaster wyjdzie. Wskaźnik zostanie zastosowany do momentu jego gotowości.
+Wskaźnik stanu klastra w górnej części powierzchni projektowej zmieni kolor na zielony, gdy klaster jest gotowy do debugowania. Jeśli klaster jest już grzany, zielony wskaźnik zostanie wyświetlony niemal natychmiast. Jeśli klaster nie był już uruchomiony po wprowadzeniu trybu debugowania, klaster Spark przeprowadzi rozruch zimny. Wskaźnik zostanie zastosowany do momentu, aż środowisko będzie gotowe do debugowania interaktywnego.
 
-Po zakończeniu debugowania należy wyłączyć przełącznik debugowania, aby klaster Azure Databricks mógł zakończyć pracę i nie będzie już rozliczany dla działania debugowania.
+Po zakończeniu debugowania należy wyłączyć przełącznik debugowania, aby klaster Spark mógł zakończyć pracę i nie będzie już rozliczany dla działania debugowania.
 
 ## <a name="debug-settings"></a>Ustawienia debugowania
 
@@ -50,6 +50,8 @@ Po włączeniu trybu debugowania można edytować sposób, w jaki przepływ dany
 ![Ustawienia debugowania](media/data-flow/debug-settings.png "Ustawienia debugowania")
 
 Jeśli masz parametry w przepływie danych lub w dowolnym z nich, do których istnieją odwołania, możesz określić wartości, które mają być używane podczas debugowania, wybierając kartę **Parametry** .
+
+W tym miejscu Użyj ustawień próbkowania, aby wskazać przykładowe pliki lub przykładowe tabele danych, aby nie trzeba było zmieniać źródłowych zestawów elementów DataSet. Korzystając z przykładowego pliku lub tabeli, można zachować te same ustawienia logiki i właściwości w przepływie danych podczas testowania względem podzestawu danych.
 
 ![Parametry ustawień debugowania](media/data-flow/debug-settings2.png "Parametry ustawień debugowania")
 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
-ms.openlocfilehash: 089c0739ff091d49734cad048c2bfb10d857617c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732058"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
-Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez agenta Log Analytics i przechowywane w [dziennikach Azure monitor](../platform/data-platform.md).
+Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez agenta Log Analytics i przechowywane w [dziennikach Azure monitor](../data-platform.md).
 
 > [!IMPORTANT]
-> W tym artykule opisano zbieranie dzienników usług IIS za pomocą [agenta log Analytics](../platform/log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
+> W tym artykule opisano zbieranie dzienników usług IIS za pomocą [agenta log Analytics](./log-analytics-agent.md) , który jest jednym z agentów używanych przez Azure monitor. Inni Agenci zbierają różne dane i są skonfigurowani inaczej. Zobacz [Omówienie agentów Azure monitor](../agents/agents-overview.md) , aby uzyskać listę dostępnych agentów oraz dane, które mogą zbierać.
 
 ![Dzienniki usług IIS](media/data-sources-iis-logs/overview.png)
 
@@ -75,4 +75,4 @@ W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, któr
 
 ## <a name="next-steps"></a>Następne kroki
 * Skonfiguruj Azure Monitor, aby zbierać inne [źródła danych](../agents/agent-data-sources.md) na potrzeby analizy.
-* Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.
+* Informacje na temat [zapytań dzienników](../logs/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań.

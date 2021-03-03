@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 3f858067d8a44b1d8c46b04b9912df9bbcf17b26
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d0085dc1cd7afa1fd8f557db27d30fd76ca05fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732738"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -65,6 +65,7 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 | Azure Container Registry (Microsoft. ContainerRegistry/rejestry)/rejestr | privatelink.azurecr.io | azurecr.io |
 | Konfiguracja aplikacji platformy Azure (Microsoft. AppConfiguration/configurationStores)/magazyn konfiguracji | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft. RecoveryServices/magazyny)/magazyn | privatelink. {Region}. Backup. windowsazure. com | {Region}. Backup. windowsazure. com |
+| Azure Site Recovery (Microsoft. RecoveryServices/magazyny)/magazyn | {Region}. privatelink. siterecovery. windowsazure. com | {Region}. hypervrecoverymanager. windowsazure. com |
 | Event Hubs platformy Azure (Microsoft. EventHub/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft. ServiceBus/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure IoT Hub (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -73,7 +74,6 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 | Azure Event Grid (Microsoft. EventGrid/domen)/domena | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Web Apps (Microsoft. Web/Sites)/Lokacje | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>aznbcontent.net |
-| IoT Hub (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
 | Sygnalizujący (Microsoft. SignalRService/Signaler)/sygnalizujący | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Microsoft. CognitiveServices/accounts)/Account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |

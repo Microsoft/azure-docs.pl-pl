@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577943"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702508"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Obsługa błędów i wyjątków w usłudze Azure Logic Apps
 
@@ -263,13 +263,14 @@ Aby uzyskać ograniczenia dotyczące zakresów, zobacz [limity i konfiguracja](.
 
 ### <a name="get-context-and-results-for-failures"></a>Pobierz kontekst i wyniki dla niepowodzeń
 
-Chociaż przechwytywanie błędów z zakresu jest przydatne, można również zastanowić się, że kontekst pomaga zrozumieć, które akcje nie powiodły się, oraz wszelkie zwrócone błędy lub kody stanu.
+Chociaż przechwytywanie błędów z zakresu jest przydatne, można również zastanowić się, że kontekst pomaga zrozumieć, które akcje nie powiodły się, oraz wszelkie zwrócone błędy lub kody stanu. [ `result()` Funkcja](../logic-apps/workflow-definition-language-functions-reference.md#result) zwraca wyniki z akcji najwyższego poziomu w akcji z określonym zakresem, akceptując pojedynczy parametr, który jest nazwą zakresu i zwracając tablicę zawierającą wyniki z tych akcji pierwszego poziomu. Te obiekty akcji obejmują te same atrybuty, co zwracane przez `actions()` funkcję, takie jak godzina rozpoczęcia akcji, godzina zakończenia, stan, dane wejściowe, identyfikatory korelacji i wyjścia. 
 
-[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)Funkcja zawiera kontekst dotyczący wyników wszystkich akcji w zakresie. `result()`Funkcja akceptuje pojedynczy parametr, który jest nazwą zakresu i zwraca tablicę zawierającą wszystkie wyniki akcji z tego zakresu. Te obiekty akcji zawierają te same atrybuty co `actions()` obiekt, takie jak godzina rozpoczęcia akcji, czas zakończenia, stan, dane wejściowe, identyfikatory korelacji i wyjścia. Aby wysłać kontekst dla wszystkich akcji, które zakończyły się niepowodzeniem w zakresie, można łatwo sparować `@result()` wyrażenie z `runAfter` właściwością.
+> [!NOTE]
+> `result()`Funkcja zwraca wyniki *tylko* z akcji pierwszego poziomu, a nie przed bardziej zagnieżdżonymi akcjami, takimi jak akcje przełącznika lub warunku.
 
-Aby uruchomić akcję dla każdej akcji w zakresie, który ma `Failed` wynik, i filtrować tablicę wyników w dół do akcji zakończonych niepowodzeniem, można sparować `@result()` wyrażenie z akcją [**Filtruj tablicę**](logic-apps-perform-data-operations.md#filter-array-action) i pętlą [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Można zastosować przefiltrowaną tablicę wyników i wykonać akcję dla każdej awarii przy użyciu `For_each` pętli.
+Aby uzyskać kontekst o akcjach, które zakończyły się niepowodzeniem w zakresie, można użyć `@result()` wyrażenia z nazwą zakresu i `runAfter` właściwością. Aby odfiltrować zwracaną tablicę do akcji mających `Failed` stan, można dodać [akcję **Filtruj tablicę**](logic-apps-perform-data-operations.md#filter-array-action). Aby uruchomić akcję dla zwróconej akcji zakończonej niepowodzeniem, weź zwrotną filtrowaną tablicę i Użyj [ **dla każdej** pętli](../logic-apps/logic-apps-control-flow-loops.md).
 
-Oto przykład, a następnie szczegółowy opis, który wysyła żądanie HTTP POST z treścią odpowiedzi dla wszystkich akcji, które zakończyły się niepowodzeniem w zakresie "My_Scope":
+Oto przykład, a następnie szczegółowy opis, który wysyła żądanie HTTP POST z treścią odpowiedzi dla wszystkich akcji, które zakończyły się niepowodzeniem w ramach akcji zakresu o nazwie "My_Scope":
 
 ```json
 "Filter_array": {

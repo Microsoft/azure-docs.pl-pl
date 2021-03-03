@@ -2,13 +2,13 @@
 title: Dane wyjściowe w szablonach
 description: Opisuje sposób definiowania wartości wyjściowych w pliku szablonu Azure Resource Manager (szablon ARM) i Bicep.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653802"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703838"
 ---
 # <a name="outputs-in-arm-templates"></a>Dane wyjściowe w szablonach ARM
 
@@ -35,7 +35,21 @@ Dla elementu JSON Dodaj `outputs` sekcję do szablonu. Wartość wyjściowa pobi
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Dla Bicep Użyj `output` słowa kluczowego.
+
+W poniższym przykładzie `publicIP` jest identyfikator publicznego adresu IP wdrożonego w pliku Bicep. Wartość wyjściowa pobiera w pełni kwalifikowaną nazwę domeny dla publicznego adresu IP.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 Jeśli musisz wyprowadzić właściwość, która zawiera Łącznik w nazwie, użyj nawiasów wokół nazwy zamiast notacji kropkowej. Na przykład użyj  `['property-name']` zamiast `.property-name` .
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -58,16 +72,6 @@ Jeśli musisz wyprowadzić właściwość, która zawiera Łącznik w nazwie, u�
 ```
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Dla Bicep Użyj `output` słowa kluczowego.
-
-W poniższym przykładzie `publicIP` jest to Nazwa symboliczna publicznego adresu IP wdrożonego w pliku Bicep. Wartość wyjściowa pobiera w pełni kwalifikowaną nazwę domeny dla publicznego adresu IP.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-Jeśli musisz wyprowadzić właściwość, która zawiera Łącznik w nazwie, użyj nawiasów wokół nazwy zamiast notacji kropkowej. Na przykład użyj  `['property-name']` zamiast `.property-name` .
 
 ```bicep
 var user = {
@@ -99,9 +103,7 @@ W formacie JSON Dodaj `condition` element, aby określić, czy dane wyjściowe s
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Dane wyjściowe warunkowe nie są obecnie dostępne dla Bicep.
-
-Można jednak użyć `?` operatora, aby zwrócić jedną z dwóch wartości w zależności od warunku.
+Aby określić dane wyjściowe warunkowe w Bicep, użyj `?` operatora. Poniższy przykład zwraca adres URL punktu końcowego lub pusty ciąg w zależności od warunku.
 
 ```bicep
 param deployStorage bool = true

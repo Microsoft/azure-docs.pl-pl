@@ -3,15 +3,15 @@ title: Tworzenie zadań automatyzacji do zarządzania i monitorowania zasobów p
 description: Konfigurowanie zautomatyzowanych zadań, które ułatwiają zarządzanie zasobami platformy Azure i monitorowanie kosztów dzięki tworzeniu przepływów pracy uruchamianych na Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719053"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Zarządzanie zasobami platformy Azure i monitorowanie kosztów dzięki tworzeniu zadań automatyzacji (wersja zapoznawcza)
 
@@ -71,13 +71,15 @@ Porównując Azure Automation to oparta na chmurze usługa automatyzacji i konfi
 
    ![Zrzut ekranu przedstawiający okienko "zadania" konta magazynu, w którym zaznaczono pasek narzędzi "Dodaj"](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. W okienku **Dodawanie zadania** w obszarze **Wybierz szablon**wybierz szablon zadania, które chcesz utworzyć, a następnie wybierz pozycję **Dalej: uwierzytelnianie**.
+1. W okienku **Dodawanie zadania** w obszarze **Wybierz szablon** wybierz szablon zadania, które chcesz utworzyć. Jeśli następna strona nie zostanie wyświetlona, wybierz pozycję **Dalej: uwierzytelnianie**.
 
    Ten przykład kontynuuje, wybierając szablon zadania **Wyślij koszt miesięczny dla zasobu** .
 
    ![Zrzut ekranu pokazujący wybrane opcje, "Wyślij koszt miesięczny dla zasobu" i "dalej: uwierzytelnianie"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. W obszarze **uwierzytelnianie**w sekcji **połączenia** wybierz pozycję **Utwórz** dla każdego połączenia, aby zapewnić poświadczenia uwierzytelniania dla tego połączenia. Typy połączeń w poszczególnych zadaniach różnią się w zależności od zadania.
+1. W obszarze **uwierzytelnianie** w sekcji **połączenia** wybierz pozycję **Utwórz** dla każdego połączenia, które pojawia się w zadaniu, aby umożliwić podawanie poświadczeń uwierzytelniania dla wszystkich połączeń. Typy połączeń w poszczególnych zadaniach różnią się w zależności od zadania.
+
+   Ten przykład pokazuje tylko jedno z połączeń, które są wymagane przez to zadanie.
 
    ![Zrzut ekranu przedstawiający wybraną opcję "Utwórz" dla połączenia Azure Resource Manager](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,9 +91,9 @@ Porównując Azure Automation to oparta na chmurze usługa automatyzacji i konfi
 
    ![Zrzut ekranu pokazujący pomyślne utworzenie połączenia](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Po uwierzytelnieniu wszystkich wymaganych połączeń wybierz pozycję **Dalej: Konfiguracja**.
+1. Po uwierzytelnieniu wszystkich połączeń wybierz pozycję **Dalej: Konfiguracja** , jeśli Następna strona nie zostanie wyświetlona.
 
-1. W obszarze **Konfiguracja**Podaj nazwę zadania i inne informacje wymagane do wykonania zadania. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+1. W obszarze **Konfiguracja** Podaj nazwę zadania i inne informacje wymagane do wykonania zadania. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    > [!NOTE]
    > Nie można zmienić nazwy zadania po utworzeniu, dlatego należy rozważyć nazwę, która nadal ma zastosowanie [w przypadku edytowania źródłowego przepływu pracy](#edit-task-workflow). Zmiany wprowadzone w bazowym przepływie pracy mają zastosowanie tylko do zadania, które zostało utworzone, a nie szablonu zadania.
@@ -121,7 +123,7 @@ Aby wyświetlić historię uruchamiania zadań wraz z ich stanami, danymi wejśc
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź zasób, który ma historię zadań, którą chcesz przejrzeć.
 
-1. W menu zasób w obszarze **Ustawienia**wybierz pozycję **zadania automatyzacji**.
+1. W menu zasób w obszarze **Ustawienia** wybierz pozycję **zadania automatyzacji**.
 
 1. Na liście zadania Znajdź zadanie, które chcesz przejrzeć. W kolumnie **uruchomienia** tego zadania wybierz pozycję **Widok**.
 
@@ -136,9 +138,9 @@ Aby wyświetlić historię uruchamiania zadań wraz z ich stanami, danymi wejśc
    | Stan | Opis |
    |--------|-------------|
    | **Zerwan** | Zadanie zostało anulowane podczas działania. |
-   | **Awarii** | Zadanie ma co najmniej jedną akcję, która nie powiodła się, ale nie istniały żadne kolejne akcje do obsłużenia błędu. |
+   | **Niepowodzenie** | Zadanie ma co najmniej jedną akcję, która nie powiodła się, ale nie istniały żadne kolejne akcje do obsłużenia błędu. |
    | **Uruchomienie** | Zadanie jest obecnie uruchomione. |
-   | **Powiodło się** | Wszystkie akcje zostały wykonane pomyślnie. Zadanie można nadal zakończyć pomyślnie, jeśli akcja zakończyła się niepowodzeniem, ale w celu obsłużenia błędu istniała kolejna Akcja. |
+   | **Powodzenie** | Wszystkie akcje zostały wykonane pomyślnie. Zadanie można nadal zakończyć pomyślnie, jeśli akcja zakończyła się niepowodzeniem, ale w celu obsłużenia błędu istniała kolejna Akcja. |
    | **Oczekiwanie** | Przebieg nie został jeszcze uruchomiony i jest wstrzymany, ponieważ wcześniejsze wystąpienie zadania jest nadal uruchomione. |
    |||
 
@@ -148,7 +150,7 @@ Aby wyświetlić historię uruchamiania zadań wraz z ich stanami, danymi wejśc
 
    Zostanie otwarte okienko **uruchamiania aplikacji logiki** i zostanie wyświetlony źródłowy przepływ pracy, który został uruchomiony.
 
-   * Przepływ pracy zawsze rozpoczyna się od [*wyzwalacza*](../connectors/apis-list.md#triggers-actions). W przypadku tego zadania przepływ pracy rozpoczyna się od [wyzwalacza **cyklu** ](../connectors/connectors-native-recurrence.md).
+   * Przepływ pracy zawsze rozpoczyna się od [*wyzwalacza*](../connectors/apis-list.md#triggers-actions). W przypadku tego zadania przepływ pracy rozpoczyna się od [wyzwalacza **cyklu**](../connectors/connectors-native-recurrence.md).
 
    * Każdy krok pokazuje jego stan i czas trwania. Wykonanie kroków, które mają czas trwania 0 sekund, trwało mniej niż 1 sekundę.
 
@@ -182,7 +184,7 @@ Aby zmienić zadanie, dostępne są następujące opcje:
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź zasób zawierający zadanie, które chcesz zaktualizować.
 
-1. W menu zasób w obszarze **Automatyzacja**wybierz pozycję **zadania**.
+1. W menu zasób w obszarze **Automatyzacja** wybierz pozycję **zadania**.
 
 1. Na liście zadania Znajdź zadanie, które chcesz zaktualizować. Otwórz menu wielokropka zadania (**...**), a następnie wybierz pozycję **Edytuj w wierszu**.
 
@@ -213,7 +215,7 @@ W przypadku zmiany podstawowego przepływu pracy dla zadania automatyzacji zmian
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź zasób zawierający zadanie, które chcesz zaktualizować.
 
-1. W menu zasób w obszarze **Automatyzacja**wybierz pozycję **zadania**.
+1. W menu zasób w obszarze **Automatyzacja** wybierz pozycję **zadania**.
 
 1. Na liście zadania Znajdź zadanie, które chcesz zaktualizować. Otwórz menu wielokropka zadania (**...**), a następnie wybierz pozycję **Otwórz w Logic Apps**.
 
@@ -235,11 +237,11 @@ W przypadku zmiany podstawowego przepływu pracy dla zadania automatyzacji zmian
 
    1. Na pasku narzędzi okienka przegląd wybierz pozycję **Klonuj**.
 
-   1. W okienku Tworzenie aplikacji logiki w obszarze **Nazwa**wprowadź nową nazwę dla skopiowanego przepływu pracy aplikacji logiki.
+   1. W okienku Tworzenie aplikacji logiki w obszarze **Nazwa** wprowadź nową nazwę dla skopiowanego przepływu pracy aplikacji logiki.
 
-      Oprócz **stanu aplikacji logiki**inne właściwości nie są dostępne do edycji. 
+      Oprócz **stanu aplikacji logiki** inne właściwości nie są dostępne do edycji. 
       
-   1. W obszarze **stan aplikacji logiki**wybierz pozycję **wyłączone** , aby sklonowany przepływ pracy nie był uruchamiany podczas wprowadzania zmian. Możesz włączyć przepływ pracy, gdy wszystko będzie gotowe do testowania zmian.
+   1. W obszarze **stan aplikacji logiki** wybierz pozycję **wyłączone** , aby sklonowany przepływ pracy nie był uruchamiany podczas wprowadzania zmian. Możesz włączyć przepływ pracy, gdy wszystko będzie gotowe do testowania zmian.
 
    1. Po zakończeniu aprowizacji sklonowanego przepływu pracy na platformie Azure Znajdź i Otwórz ten przepływ pracy w Projektancie aplikacji logiki.
 
@@ -263,9 +265,9 @@ W przypadku zmiany podstawowego przepływu pracy dla zadania automatyzacji zmian
 
 1. Aby wyłączyć przepływ pracy w taki sposób, aby zadanie nie było nadal wykonywane, zobacz [Zarządzanie aplikacjami logiki w Azure Portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
-Chcemy poznać Twoją opinię! Aby zgłosić błędy, przekazać opinię lub zadawać pytania dotyczące tej funkcji w wersji zapoznawczej, [skontaktuj się z zespołem Azure Logic Apps](mailto:logicapps@microsoft.com).
+Chcemy poznać Twoją opinię! Aby zgłosić błędy, przekazać opinię lub zadawać pytania dotyczące tej funkcji w wersji zapoznawczej, [skontaktuj się z zespołem Azure Logic Apps](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Następne kroki
 

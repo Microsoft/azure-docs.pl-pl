@@ -12,17 +12,17 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 02/23/2021
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 59f8d721c23cbb033f295f2ef3045fc96f08ba96
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733191"
 ---
-# <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla platformy .NET przy użyciu usługi Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla platformy .NET za pomocą usługi Azure DevOps Starter
 
 Skonfiguruj ciągłą integrację (CI) i ciągłe dostarczanie (CD) dla aplikacji platformy .NET Core lub ASP.NET z DevOps Starter. DevOps Starter upraszcza konfigurację początkową potoku kompilacji i wydania w Azure Pipelines.
 
@@ -43,7 +43,9 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania na platfo
 1. Wybierz przykładową aplikację **.NET**. Przykłady platformy .NET umożliwiają wybór struktury ASP.NET typu open source lub międzyplatformowej struktury .NET Core.
 
    ![Struktura .NET](_img/azure-devops-project-aspnet-core/select-dotnet.png)
-
+   
+   > [!NOTE]
+   > Opcja domyślna do konfigurowania DevOps Starter jest w serwisie **GitHub**, ale to ustawienie można zmienić za pomocą kreatora.
 2. Ten przykład to aplikacja ASP.NET Core MVC. Wybierz platformę aplikacji **.NET Core** , a następnie wybierz przycisk **dalej**.    
     
 3. Wybierz pozycję **aplikacja sieci Web systemu Windows** jako element docelowy wdrożenia, a następnie wybierz pozycję **dalej**. Opcjonalnie możesz wybrać inne usługi platformy Azure dla danego wdrożenia. Wybrana wcześniej struktura aplikacji określa typ miejsca docelowego wdrożenia usługi platformy Azure, który jest dostępny tutaj.
@@ -88,7 +90,7 @@ W poprzednim kroku usługa Azure DevOps Starter automatycznie skonfigurowała pe
 
 1. Wybierz wielokropek (...).  Ta akcja powoduje otwarcie menu, w którym można rozpocząć kilka działań, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
     ![Potok kompilacji](_img/azure-devops-project-aspnet-core/builddef.png)
 
@@ -124,7 +126,7 @@ DevOps Starter tworzy potok wydania do zarządzania wdrożeniami na platformie A
 
 1. Wybierz pozycję **dzienniki**. Dzienniki zawierają przydatne informacje na temat procesu wdrażania. Mogą być wyświetlane zarówno podczas wdrożeń, jak i po nich.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy usługa Azure App Service i inne utworzone powiązane zasoby nie będą już potrzebne, możesz je usunąć. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 

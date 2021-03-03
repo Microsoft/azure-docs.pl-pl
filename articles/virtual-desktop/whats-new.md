@@ -3,17 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: a2afd47db01725c56f4fe571f1b464818653081d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575317"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737498"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -39,6 +39,26 @@ Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach 
 ## <a name="fslogix-updates"></a>Aktualizacje FSLogix
 
 Chcesz wiedzieć o najnowszych aktualizacjach dla FSLogix? Zapoznaj się z [nowościami w witrynie FSLogix](/fslogix/whats-new).
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+Poniżej przedstawiono zmiany w lutym 2021.
+
+### <a name="portal-experience"></a>Środowisko portalu
+
+Ulepszono środowisko Azure Portal w następujący sposób:
+
+- Tryb opróżniania zbiorczego na hostach na karcie Siatka hosta sesji. 
+- Dołączenie do aplikacji MSIX jest teraz dostępne w publicznej wersji zapoznawczej.
+- Informacje o stałej puli hostów dla trybu ciemnego.
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>Magazyn metadanych UE teraz w publicznej wersji zapoznawczej
+
+Teraz udostępniamy publiczną wersję zapoznawczą geografii Europa (UE) jako opcję magazynu dla metadanych usługi w systemie Windows Virtual Desktop. Klienci mogą wybrać między Europa Zachodnia lub północnym podczas tworzenia obiektów usługi. Obiekty i metadane usługi dla pul hostów będą przechowywane w lokalizacji geograficznej platformy Azure skojarzonej z każdym regionem. Aby dowiedzieć się więcej, Przeczytaj [nasz wpis w blogu przedstawiający publiczną wersję zapoznawczą](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Zespoły dotyczące aktualizacji wtyczki pulpitu wirtualnego systemu Windows
+
+Ulepszono jakość połączeń wideo w dodatku plug-in Windows Virtual Desktop przez rozpoznajenie najczęściej raportowanych problemów, takich jak w przypadku nagłego przechodzenia ekranu lub wideo i dźwiękowego. Te ulepszenia powinny zwiększyć wydajność widoku pojedynczego wideo z aktywnym przełączaniem głośników. Rozwiązano również problem polegający na tym, że urządzenia sprzętowe ze znakami specjalnymi nie były dostępne w programie Teams.
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

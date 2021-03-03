@@ -1,18 +1,17 @@
 ---
 title: Azure SQL Analytics rozwiązanie w Azure Monitor | Microsoft Docs
 description: Rozwiązanie Azure SQL Analytics ułatwia zarządzanie bazami danych Azure SQL Database
-ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 54ef88e65925ba9c7e9fe2e44ef0c76fbc9ceb04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717489"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687247"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 
@@ -42,13 +42,7 @@ W przypadku federacji bezpośredniej użytkownicy-Goście logują się do dzier�
 
 ## <a name="sign-in-endpoints"></a>Punkty końcowe logowania
 
-Bezpośredni dostęp Gości w Federacji może teraz zalogować się do aplikacji firmowych z wieloma dzierżawcami lub firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Poniżej przedstawiono przykłady typowych punktów końcowych:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje Logowanie przy użyciu własnych poświadczeń.
+Bezpośredni dostęp Gości w Federacji może teraz zalogować się do aplikacji firmowych z wieloma dzierżawcami lub firmy Microsoft przy użyciu [wspólnego punktu końcowego](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (innymi słowy, ogólny adres URL aplikacji, który nie obejmuje kontekstu dzierżawy). Podczas procesu logowania użytkownik-Gość wybierze **Opcje logowania**, a następnie wybierze opcję **Zaloguj się do organizacji**. Następnie użytkownik wpisze nazwę organizacji i kontynuuje Logowanie przy użyciu własnych poświadczeń.
 
 Bezpośredni dostęp gościa Federacji może również używać punktów końcowych aplikacji, które zawierają informacje o dzierżawie, na przykład:
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585219"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724255"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -789,7 +789,7 @@ Więcej informacji można znaleźć na [Application Insights](../../azure-monito
 
 Aby uzyskać więcej informacji na temat analiz w usłudze Azure Storage, zobacz następujące zasoby:
 
-* [Monitorowanie konta magazynu w witrynie Azure Portal](storage-monitor-storage-account.md)
+* [Monitorowanie konta magazynu w witrynie Azure Portal](./manage-storage-analytics-logs.md)
 * [Analiza magazynu](storage-analytics.md)
 * [Metryki analizy magazynu](storage-analytics-metrics.md)
 * [Schemat tabeli metryk usługi Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)

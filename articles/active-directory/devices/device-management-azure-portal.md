@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683814"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688913"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -161,7 +161,7 @@ Do wyświetlania ustawień urządzenia i zarządzania nimi w Azure Portal należ
 - **Użytkownicy mogą dołączać urządzenia do usługi Azure AD** — to ustawienie umożliwia wybranie użytkowników, którzy mogą rejestrować swoje urządzenia jako urządzenia przyłączone do usługi Azure AD. Wartością domyślną jest **wszystkich**.
 
 > [!NOTE]
-> **Użytkownicy mogą dołączać urządzenia do ustawienia usługi Azure AD** mają zastosowanie tylko do usługi Azure AD JOIN w systemie Windows 10.
+> **Użytkownicy mogą dołączać urządzenia do ustawienia usługi Azure AD** mają zastosowanie tylko do usługi Azure AD JOIN w systemie Windows 10. To ustawienie nie ma zastosowania do hybrydowych urządzeń przyłączonych do usługi Azure AD, [przyłączonych do usługi Azure AD maszyn wirtualnych na platformie Azure i w](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) usłudze Azure AD przyłączonych za pomocą [trybu samodzielnego wdrażania systemu Windows](/mem/autopilot/self-deploying) , ponieważ te metody działają w kontekście bez użytkownika.
 
 - **Dodatkowi Administratorzy lokalni na urządzeniach dołączonych do usługi Azure AD** — możesz wybrać użytkowników, którym udzielono uprawnień administratora lokalnego na urządzeniu. Ci użytkownicy są dodawani do roli *Administratorzy urządzenia* w usłudze Azure AD. Administratorzy globalni w usłudze Azure AD i właściciele urządzeń mają domyślnie przyznane prawa administratora lokalnego. Ta opcja to funkcja wersji Premium dostępna za pomocą produktów, takich jak Azure AD — wersja Premium lub pakiet Enterprise Mobility Suite (EMS).
 - **Użytkownicy mogą zarejestrować swoje urządzenia w usłudze Azure AD** — należy skonfigurować to ustawienie, aby zezwolić na rejestrację urządzeń z systemem Windows 10 Personal, iOS, Android i macOS w usłudze Azure AD. W przypadku wybrania opcji **Brak** urządzenia nie mogą zarejestrować się w usłudze Azure AD. Rejestracja przy użyciu Microsoft Intune lub zarządzania urządzeniami przenośnymi (MDM) dla Microsoft 365 wymaga rejestracji. W przypadku skonfigurowania jednej z tych usług jest zaznaczona opcja **wszystkie** nie **jest dostępna** .

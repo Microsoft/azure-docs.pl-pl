@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616580"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731497"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -62,7 +62,7 @@ Kolekcja metryk **systemu operacyjnego gościa** wymaga skonfigurowania rozszerz
 
 Ten problem może wystąpić, gdy pulpit nawigacyjny został utworzony z metryką, która później stała się przestarzała i została usunięta z platformy Azure. Aby sprawdzić, czy tak jest, Otwórz kartę **metryki** zasobu i sprawdź dostępne metryki w selektorze metryki. Jeśli metryka nie jest wyświetlana, oznacza to, że została usunięta z platformy Azure. Gdy metryka jest przestarzała, zazwyczaj istnieje nowa, lepsza metryka, która zapewnia podobną perspektywę na kondycję zasobu.
 
-**Rozwiązanie:** Zaktualizuj niepowodzenie kafelka, wybierając alternatywną metrykę wykresu na pulpicie nawigacyjnym. Możesz [przejrzeć listę dostępnych metryk dla usług platformy Azure](../platform/metrics-supported.md).
+**Rozwiązanie:** Zaktualizuj niepowodzenie kafelka, wybierając alternatywną metrykę wykresu na pulpicie nawigacyjnym. Możesz [przejrzeć listę dostępnych metryk dla usług platformy Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>Wykres zawiera linię przerywaną
 
@@ -104,5 +104,5 @@ Domyślnie metryki systemu operacyjnego gościa są przechowywane na koncie usł
 
 * [Dowiedz się więcej o rozpoczynaniu pracy z Eksploratorem metryk](metrics-getting-started.md)
 * [Dowiedz się więcej na temat zaawansowanych funkcji Eksploratora metryk](../essentials/metrics-charts.md)
-* [Zobacz listę dostępnych metryk dla usług platformy Azure](../platform/metrics-supported.md)
+* [Zobacz listę dostępnych metryk dla usług platformy Azure](./metrics-supported.md)
 * [Zobacz przykłady skonfigurowanych wykresów](../essentials/metric-chart-samples.md)

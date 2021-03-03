@@ -7,16 +7,16 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734353"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Szybki Start: wysyłanie dziennika aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu szablonu ARM
 
-Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak używać szablonów Azure Resource Manager (szablony ARM) do tworzenia Log Analytics obszaru roboczego i ustawienia diagnostycznego w celu wysyłania dziennika aktywności do dzienników Azure Monitor, w których można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md).
+Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak używać szablonów Azure Resource Manager (szablony ARM) do tworzenia Log Analytics obszaru roboczego i ustawienia diagnostycznego w celu wysyłania dziennika aktywności do dzienników Azure Monitor, w których można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start skonfigurowano wysyłanie dziennika aktywności do obszaru roboczego Log Analytics. Teraz można skonfigurować inne dane do zebrania w obszarze roboczym, w którym można je analizować przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) w Azure monitor i korzystać z funkcji, takich jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). Następnie należy zebrać [dzienniki zasobów](../essentials/resource-logs.md) z zasobów platformy Azure, które pomogą uzyskać szczegółowe dane w dzienniku aktywności.
+W tym przewodniku szybki start skonfigurowano wysyłanie dziennika aktywności do obszaru roboczego Log Analytics. Teraz można skonfigurować inne dane do zebrania w obszarze roboczym, w którym można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md) w Azure monitor i korzystać z funkcji, takich jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). Następnie należy zebrać [dzienniki zasobów](../essentials/resource-logs.md) z zasobów platformy Azure, które pomogą uzyskać szczegółowe dane w dzienniku aktywności.
 
 > [!div class="nextstepaction"]
 > [Zbieranie i analizowanie dzienników zasobów przy użyciu Azure Monitor](../essentials/tutorial-resource-logs.md)

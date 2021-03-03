@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736375"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Twórz stanowe i bezstanowe przepływy pracy w Azure Portal z podglądem Azure Logic Apps
 
@@ -34,7 +34,7 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
 * Wyzwalanie przebiegu przepływu pracy.
 
-* Wyświetl historię przebiegu przepływu pracy.
+* Wyświetl historię uruchomienia i wyzwalacza przepływu pracy.
 
 * Włącz lub Otwórz Application Insights po wdrożeniu.
 
@@ -51,6 +51,8 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
   > [!NOTE]
   > [Aplikacje logiki stanowej](logic-apps-overview-preview.md#stateful-stateless) wykonują transakcje magazynu, takie jak używanie kolejek do planowania i przechowywania stanów przepływu pracy w tabelach i obiektach Blob. Te transakcje wiążą się z [opłatami za usługę Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Aby uzyskać więcej informacji o tym, jak stanowe Aplikacje logiki są przechowywane w magazynie zewnętrznym, zobacz [stanowe i bezstanowe](logic-apps-overview-preview.md#stateful-stateless).
+
+* Do wdrożenia w kontenerze platformy Docker potrzebny jest istniejący obraz kontenera Docker. Na przykład można utworzyć ten obraz za pomocą [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)lub [wystąpienia kontenera platformy Azure](../container-instances/container-instances-overview.md). 
 
 * Aby móc utworzyć tę samą przykładową aplikację logiki w tym artykule, potrzebujesz konta e-mail programu Outlook w usłudze Office 365, które używa konta służbowego firmy Microsoft do logowania.
 
@@ -74,11 +76,11 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Subskrypcja** | Yes | <*Azure — nazwa subskrypcji*> | Subskrypcja platformy Azure do użycia w aplikacji logiki. |
-   | **Grupa zasobów** | Yes | <*Azure-Resource-Group-Name*> | Grupa zasobów platformy Azure, w której tworzysz aplikację logiki i powiązane zasoby. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>Ten przykład tworzy grupę zasobów o nazwie `Fabrikam-Workflows-RG` . |
-   | **Nazwa aplikacji logiki** | Yes | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>W tym przykładzie jest tworzona aplikacja logiki o nazwie `Fabrikam-Workflows` . <p><p>**Uwaga**: Nazwa aplikacji logiki automatycznie pobiera sufiks, `.azurewebsites.net` ponieważ zasób **aplikacji logiki (wersja zapoznawcza)** jest obsługiwany przez Azure Functions, który używa tej samej konwencji nazewnictwa aplikacji. |
-   | **Publikowanie** | Yes | <*wdrożenie — środowisko*> | Miejsce docelowe wdrożenia aplikacji logiki. Możesz wdrożyć na platformie Azure, wybierając **przepływ pracy** lub kontener platformy Docker. <p><p>Ten przykład używa **przepływu pracy**, który jest zasobem **aplikacji logiki (wersja zapoznawcza)** na platformie Azure. <p><p>W przypadku wybrania **kontenera Docker** [Określ kontener, który ma być używany w ustawieniach aplikacji logiki](#set-docker-container). |
-   | **Region** | Yes | <*Platforma Azure — region*> | Region platformy Azure, który ma być używany podczas tworzenia grupy zasobów i zasobów. <p><p>W tym przykładzie zastosowano **zachodnie stany USA**. |
+   | **Subskrypcja** | Tak | <*Azure — nazwa subskrypcji*> | Subskrypcja platformy Azure do użycia w aplikacji logiki. |
+   | **Grupa zasobów** | Tak | <*Azure-Resource-Group-Name*> | Grupa zasobów platformy Azure, w której tworzysz aplikację logiki i powiązane zasoby. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>Ten przykład tworzy grupę zasobów o nazwie `Fabrikam-Workflows-RG` . |
+   | **Nazwa aplikacji logiki** | Tak | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. Ta nazwa zasobu musi być unikatowa w różnych regionach i może zawierać tylko litery, cyfry, łączniki ( **-** ), podkreślenia (**_**), nawiasy (**()**) i kropki (**.**). <p><p>W tym przykładzie jest tworzona aplikacja logiki o nazwie `Fabrikam-Workflows` . <p><p>**Uwaga**: Nazwa aplikacji logiki automatycznie pobiera sufiks, `.azurewebsites.net` ponieważ zasób **aplikacji logiki (wersja zapoznawcza)** jest obsługiwany przez Azure Functions, który używa tej samej konwencji nazewnictwa aplikacji. |
+   | **Publikowanie** | Tak | <*wdrożenie — środowisko*> | Miejsce docelowe wdrożenia aplikacji logiki. Środowisko można wdrożyć na platformie Azure, wybierając kolejno opcje **przepływ pracy** lub **kontener platformy Docker**. <p><p>W tym przykładzie jest używany **przepływ pracy**, który wdraża zasób **aplikacji logiki (wersja zapoznawcza)** do Azure Portal. <p><p>**Uwaga**: przed wybraniem **kontenera Docker** upewnij się, że utworzono obraz kontenera Docker. Na przykład można utworzyć ten obraz za pomocą [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)lub [wystąpienia kontenera platformy Azure](../container-instances/container-instances-overview.md). Dzięki temu po wybraniu **kontenera Docker** można [określić kontener, który ma być używany w ustawieniach aplikacji logiki](#set-docker-container). |
+   | **Region** | Tak | <*Platforma Azure — region*> | Region platformy Azure, który ma być używany podczas tworzenia grupy zasobów i zasobów. <p><p>W tym przykładzie zastosowano **zachodnie stany USA**. |
    |||||
 
    Oto przykład:
@@ -89,10 +91,10 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Konto magazynu** | Yes | <*Azure-Storage-account-name*> | [Konto usługi Azure Storage](../storage/common/storage-account-overview.md) do użycia w przypadku transakcji magazynu. Ta nazwa zasobu musi być unikatowa w różnych regionach i zawierać 3-24 znaków z tylko cyframi i małymi literami. Wybierz istniejące konto lub Utwórz nowe konto. <p><p>Ten przykład tworzy konto magazynu o nazwie `fabrikamstorageacct` . |
-   | **Typ planu** | Yes | <*Azure-hosting — Plan*> | [Plan hostingu](../app-service/overview-hosting-plans.md) używany do wdrażania aplikacji logiki, która jest [**planem usługi**](../azure-functions/dedicated-plan.md) [**Premium**](../azure-functions/functions-premium-plan.md) lub App Service. Wybór ma wpływ na warstwy cenowe, które można wybrać później. <p><p>Ten przykład używa **planu usługi App Service**. <p><p>**Uwaga**: podobnie jak w przypadku Azure Functions, typ zasobu **aplikacja logiki (wersja zapoznawcza)** wymaga planu hostingu i warstwy cenowej. Plany hostingu zużycia nie są obsługiwane ani niedostępne dla tego typu zasobu. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami: <p><p>- [Azure Functions skalowanie i hosting](../azure-functions/functions-scale.md) <br>- [App Service szczegóły cennika](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
-   | **Plan systemu Windows** | Yes | <*Nazwa planu*> | Nazwa planu do użycia. Wybierz istniejący plan lub podaj nazwę nowego planu. <p><p>Ten przykład używa nazwy `Fabrikam-Service-Plan` . |
-   | **Jednostka SKU i rozmiar** | Yes | <*Cennik — warstwa*> | [Warstwa cenowa](../app-service/overview-hosting-plans.md) używana do hostowania aplikacji logiki. Do wybranych przez siebie typu planu została wybrana wartość. Aby zmienić warstwę domyślną, wybierz pozycję **Zmień rozmiar**. Następnie można wybrać inne warstwy cenowe na podstawie obciążenia, którego potrzebujesz. <p><p>W tym przykładzie zastosowano bezpłatną **warstwę cenową F1** dla obciążeń **deweloperskich/testowych** . Aby uzyskać więcej informacji, zobacz [szczegóły cennika App Service](https://azure.microsoft.com/pricing/details/app-service/). |
+   | **Konto magazynu** | Tak | <*Azure-Storage-account-name*> | [Konto usługi Azure Storage](../storage/common/storage-account-overview.md) do użycia w przypadku transakcji magazynu. Ta nazwa zasobu musi być unikatowa w różnych regionach i zawierać 3-24 znaków z tylko cyframi i małymi literami. Wybierz istniejące konto lub Utwórz nowe konto. <p><p>Ten przykład tworzy konto magazynu o nazwie `fabrikamstorageacct` . |
+   | **Typ planu** | Tak | <*Azure-hosting — Plan*> | [Plan hostingu](../app-service/overview-hosting-plans.md) służący do wdrażania aplikacji logiki, która jest w wersji [**Premium**](../azure-functions/functions-premium-plan.md) lub [ **plan usługi App Service** (dedykowany)](../azure-functions/dedicated-plan.md). Wybór ma wpływ na możliwości i warstwy cenowe, które są później dostępne dla Ciebie. <p><p>Ten przykład używa **planu usługi App Service**. <p><p>**Uwaga**: podobnie jak w przypadku Azure Functions, typ zasobu **aplikacja logiki (wersja zapoznawcza)** wymaga planu hostingu i warstwy cenowej. Plany zużycia nie są obsługiwane ani niedostępne dla tego typu zasobu. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami: <p><p>- [Azure Functions skalowanie i hosting](../azure-functions/functions-scale.md) <br>- [App Service szczegóły cennika](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Na przykład plan usługi Functions w warstwie Premium zapewnia dostęp do funkcji sieciowych, takich jak łączenie i integrowanie prywatnie z sieciami wirtualnymi platformy Azure, podobnie jak Azure Functions podczas tworzenia i wdrażania aplikacji logiki. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami: <p><p>- [Opcje sieci Azure Functions](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps uruchamianie dowolnych możliwości sieciowych za pomocą wersji zapoznawczej Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
+   | **Plan systemu Windows** | Tak | <*Nazwa planu*> | Nazwa planu do użycia. Wybierz istniejący plan lub podaj nazwę nowego planu. <p><p>Ten przykład używa nazwy `Fabrikam-Service-Plan` . |
+   | **Jednostka SKU i rozmiar** | Tak | <*Cennik — warstwa*> | [Warstwa cenowa](../app-service/overview-hosting-plans.md) używana do hostowania aplikacji logiki. Do wybranych przez siebie typu planu została wybrana wartość. Aby zmienić warstwę domyślną, wybierz pozycję **Zmień rozmiar**. Następnie można wybrać inne warstwy cenowe na podstawie obciążenia, którego potrzebujesz. <p><p>W tym przykładzie zastosowano bezpłatną **warstwę cenową F1** dla obciążeń **deweloperskich/testowych** . Aby uzyskać więcej informacji, zobacz [szczegóły cennika App Service](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
 
 1. Następnie, jeśli ustawienia tworzenia i wdrażania obsługują używanie [Application Insights](../azure-monitor/app/app-insights-overview.md), można opcjonalnie włączyć rejestrowanie diagnostyczne i śledzenie dla aplikacji logiki.
@@ -103,13 +105,16 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
 1. Po sprawdzeniu przez platformę Azure ustawień aplikacji logiki na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu przedstawiający Azure Portal i nowe ustawienia zasobów aplikacji logiki.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > Jeśli po wybraniu opcji **Utwórz**, Otwórz i przejrzyj szczegóły błędu, zostanie wyświetlony komunikat o błędzie. Na przykład jeśli wybrany region osiągnie limit przydziału dla zasobów, które próbujesz utworzyć, może być konieczne wypróbowanie innego regionu.
+
    Po zakończeniu wdrażania na platformie Azure aplikacja logiki jest automatycznie aktywna i uruchomiona, ale nie wykonuje jeszcze żadnych działań, ponieważ nie istnieją żadne przepływy pracy.
 
-1. Na stronie ukończenie wdrożenia wybierz pozycję **Przejdź do zasobu** , aby można było rozpocząć Kompilowanie przepływu pracy.
+1. Na stronie ukończenie wdrożenia wybierz pozycję **Przejdź do zasobu** , aby można było rozpocząć Kompilowanie przepływu pracy. W przypadku wybrania **kontenera Docker** do wdrażania aplikacji logiki wykonaj [kroki, aby podać informacje o tym kontenerze platformy Docker](#set-docker-container).
 
    ![Zrzut ekranu pokazujący Azure Portal i gotowe wdrożenie.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -117,15 +122,13 @@ W tym artykule przedstawiono sposób tworzenia aplikacji logiki i przepływu pra
 
 ## <a name="specify-docker-container-for-deployment"></a>Określ kontener platformy Docker na potrzeby wdrożenia
 
-W przypadku wybrania **kontenera platformy Docker** podczas tworzenia aplikacji logiki upewnij się, że podajesz informacje o kontenerze, który ma być używany do wdrażania po Azure Portal tworzenia zasobu **aplikacji logiki (wersja zapoznawcza)** .
+Przed rozpoczęciem tych kroków potrzebny jest obraz kontenera Docker. Na przykład można utworzyć ten obraz za pomocą [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md)lub [wystąpienia kontenera platformy Azure](../container-instances/container-instances-overview.md). Następnie można podać informacje o kontenerze platformy Docker po utworzeniu aplikacji logiki.
 
 1. W Azure Portal przejdź do zasobu aplikacji logiki.
 
-1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia kontenera**. Podaj szczegóły i lokalizację obrazu kontenera Docker.
+1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **centrum wdrażania**.
 
-   ![Zrzut ekranu pokazujący menu aplikacji logiki z wybraną pozycją "Ustawienia kontenera".](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. Po zakończeniu Zapisz ustawienia.
+1. W okienku **centrum wdrażania** postępuj zgodnie z instrukcjami dotyczącymi udostępniania i zarządzania szczegółami kontenera Docker.
 
 <a name="add-workflow"></a>
 
@@ -223,9 +226,9 @@ Aby można było dodać wyzwalacz do pustego przepływu pracy, należy się upew
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Do** | Yes | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
-   | **Temat** | Yes | `An email from your example workflow` | Temat wiadomości e-mail |
-   | **Treść** | Yes | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
+   | **Do** | Tak | <*adres e-mail użytkownika*> | Odbiorca wiadomości e-mail, który może być Twoim adresem e-mail do celów testowych. Ten przykład używa fikcyjnej poczty e-mail `sophiaowen@fabrikam.com` . |
+   | **Temat** | Tak | `An email from your example workflow` | Temat wiadomości e-mail |
+   | **Treść** | Tak | `Hello from your example workflow!` | Zawartość wiadomości e-mail |
    ||||
 
    > [!NOTE]
@@ -286,9 +289,11 @@ W tym przykładzie przepływ pracy jest uruchamiany, gdy wyzwalacz żądania odb
 
       ![Zrzut ekranu przedstawiający wiadomości e-mail w programie Outlook zgodnie z opisem w przykładzie](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## <a name="review-run-history"></a>Przeglądać historię uruchamiania
 
-W przypadku przepływu pracy stanowej po każdym uruchomieniu przepływu pracy można wyświetlić historię uruchamiania, w tym stan ogólnego przebiegu, dla wyzwalacza oraz dla każdej akcji wraz z danymi wejściowymi i wyjściowymi.
+W przypadku przepływu pracy stanowej po każdym uruchomieniu przepływu pracy można wyświetlić historię uruchamiania, w tym stan ogólnego przebiegu, dla wyzwalacza oraz dla każdej akcji wraz z danymi wejściowymi i wyjściowymi. W Azure Portal, historia uruchamiania i historie wyzwalacza są wyświetlane na poziomie przepływu pracy, a nie na poziomie aplikacji logiki. Aby przejrzeć historie wyzwalacza poza kontekstem uruchamiania historii, zobacz [Przegląd historii wyzwalaczy](#view-trigger-histories).
 
 1. W Azure Portal w menu przepływu pracy wybierz pozycję **Monitoruj**.
 
@@ -320,15 +325,15 @@ W przypadku przepływu pracy stanowej po każdym uruchomieniu przepływu pracy m
 
    | Stan akcji | Ikona | Opis |
    |---------------|------|-------------|
-   | Zostało przerwane | ![Ikona stanu akcji "przerwane"][aborted-icon] | Akcja została zatrzymana lub nie została zakończona z powodu problemów zewnętrznych, na przykład awarii systemu lub subskrypcji platformy Azure. |
-   | Anulowano | ![Ikona stanu akcji "anulowana"][cancelled-icon] | Akcja była uruchomiona, ale odebrała żądanie anulowania. |
-   | Niepowodzenie | ![Ikona stanu akcji "Niepowodzenie"][failed-icon] | Akcja nie powiodła się. |
-   | Uruchomienie | ![Ikona stanu akcji "uruchomiona"][running-icon] | Akcja jest obecnie uruchomiona. |
-   | Pominięto | ![Ikona stanu akcji "pominięto"][skipped-icon] | Akcja została pominięta, ponieważ Poprzednia akcja nie powiodła się. Akcja ma `runAfter` warunek, który wymaga, aby poprzednia akcja została zakończona pomyślnie, zanim będzie można uruchomić bieżącą akcję. |
-   | Powodzenie | ![Ikona stanu akcji "powodzenie"][succeeded-icon] | Akcja zakończyła się pomyślnie. |
-   | Powodzenie z ponownymi próbami | ![Ikona stanu akcji "powodzenie z ponownymi próbami"][succeeded-with-retries-icon] | Akcja zakończyła się powodzeniem, ale tylko po wykonaniu jednej lub kilku ponownych prób. Aby przejrzeć historię ponownych prób, w widoku szczegółów historii uruchamiania wybierz tę akcję, aby wyświetlić dane wejściowe i wyjściowe. |
-   | Przekroczono limit czasu | ![Ikona stanu akcji "Przekroczono limit czasu"][timed-out-icon] | Akcja została zatrzymana z powodu przekroczenia limitu czasu określonego przez ustawienia tej akcji. |
-   | Oczekiwanie | ![Ikona stanu akcji "oczekiwanie"][waiting-icon] | Dotyczy akcji elementu webhook, która oczekuje na żądanie przychodzące od wywołującego. |
+   | **Zostało przerwane** | ![Ikona stanu akcji "przerwane"][aborted-icon] | Akcja została zatrzymana lub nie została zakończona z powodu problemów zewnętrznych, na przykład awarii systemu lub subskrypcji platformy Azure. |
+   | **Zerwan** | ![Ikona stanu akcji "anulowana"][cancelled-icon] | Akcja była uruchomiona, ale otrzymała żądanie anulowania. |
+   | **Niepowodzenie** | ![Ikona stanu akcji "Niepowodzenie"][failed-icon] | Akcja nie powiodła się. |
+   | **Uruchomienie** | ![Ikona stanu akcji "uruchomiona"][running-icon] | Akcja jest obecnie uruchomiona. |
+   | **Pominięto** | ![Ikona stanu akcji "pominięto"][skipped-icon] | Akcja została pominięta, ponieważ Poprzednia akcja nie powiodła się. Akcja ma `runAfter` warunek, który wymaga, aby poprzednia akcja została zakończona pomyślnie, zanim będzie można uruchomić bieżącą akcję. |
+   | **Powodzenie** | ![Ikona stanu akcji "powodzenie"][succeeded-icon] | Akcja zakończyła się pomyślnie. |
+   | **Powodzenie z ponownymi próbami** | ![Ikona stanu akcji "powodzenie z ponownymi próbami"][succeeded-with-retries-icon] | Akcja zakończyła się powodzeniem, ale tylko po wykonaniu jednej lub kilku ponownych prób. Aby przejrzeć historię ponownych prób, w widoku szczegółów historii uruchamiania wybierz tę akcję, aby wyświetlić dane wejściowe i wyjściowe. |
+   | **Przekroczono limit czasu** | ![Ikona stanu akcji "Przekroczono limit czasu"][timed-out-icon] | Akcja została zatrzymana z powodu przekroczenia limitu czasu określonego przez ustawienia tej akcji. |
+   | **Oczekiwanie** | ![Ikona stanu akcji "oczekiwanie"][waiting-icon] | Dotyczy akcji elementu webhook, która oczekuje na żądanie przychodzące od wywołującego. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -346,6 +351,18 @@ W przypadku przepływu pracy stanowej po każdym uruchomieniu przepływu pracy m
    ![Zrzut ekranu pokazujący wejścia i wyjścia w wybranej akcji "Wyślij wiadomość e-mail".](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. Aby dodatkowo przejrzeć nieprzetworzone dane wejściowe i wyjściowe dla tego kroku, wybierz pozycję **Pokaż nieprzetworzone dane wejściowe** lub **Pokaż nieprzetworzone wyjścia**.
+
+<a name="view-trigger-histories"></a>
+
+## <a name="review-trigger-histories"></a>Przejrzyj historie wyzwalacza
+
+Dla przepływu pracy stanowej można przejrzeć historię wyzwalacza dla każdego przebiegu, łącznie ze stanem wyzwalacza wraz z danymi wejściowymi i wyjściowymi niezależnie od [kontekstu historii uruchamiania](#view-run-history). W Azure Portal historia wyzwalacza i historia uruchamiania są wyświetlane na poziomie przepływu pracy, a nie na poziomie aplikacji logiki. Aby znaleźć te dane historyczne, wykonaj następujące kroki:
+
+1. W Azure Portal w menu przepływu pracy w obszarze **deweloper** wybierz pozycję **Wyzwalaj historie**.
+
+   W okienku **historie wyzwalaczy** wyświetlane są historie wyzwalania dla przebiegów przepływu pracy.
+
+1. Aby przejrzeć określoną historię wyzwalacza, wybierz identyfikator tego uruchomienia.
 
 <a name="enable-open-application-insights"></a>
 
@@ -365,7 +382,10 @@ Aby włączyć Application Insights w wdrożonej aplikacji logiki lub otworzyć 
 
    Jeśli Application Insights jest włączona, w okienku **Application Insights** wybierz pozycję **Wyświetl Application Insights dane**.
 
-Po otwarciu Application Insights można przejrzeć różne metryki dla aplikacji logiki.
+Po otwarciu Application Insights można przejrzeć różne metryki dla aplikacji logiki. Aby uzyskać więcej informacji, zapoznaj się z następującymi tematami:
+
+* [Azure Logic Apps uruchamianie w dowolnym miejscu i monitorze z Application Insights — część 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Azure Logic Apps uruchamianie w dowolnym miejscu i monitorze z Application Insights — część 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 
@@ -385,7 +405,7 @@ Aby ułatwić debugowanie bezstanowego przepływu pracy, można włączyć histo
 
 1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
 
-   Przykład:
+   Na przykład:
 
    ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i "przepływy pracy". {yourWorkflowName}. Opcja "OperationOptions" ma wartość "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 

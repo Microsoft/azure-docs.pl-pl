@@ -1,25 +1,25 @@
 ---
 title: Korygowanie niezgodnych zasobów
 description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które są niezgodne z zasadami w Azure Policy.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742232"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
 
-Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikacjami** , mogą zostać umieszczone w stanie zgodnym przez **skorygowanie**. Korygowanie jest realizowane przez podzielenie Azure Policy do uruchamiania efektu **deployIfNotExists** lub **Modyfikowanie operacji** przypisanych zasad w istniejących zasobach, niezależnie od tego, czy przypisanie jest grupą zarządzania, subskrypcją, grupą zasobów czy pojedynczym zasobem. W tym artykule przedstawiono kroki niezbędne do zrozumienia i wykonania korygowania Azure Policy.
+Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikacjami** , mogą zostać umieszczone w stanie zgodnym przez **skorygowanie**. Korygowanie jest realizowane przez podzielenie Azure Policy do uruchamiania efektu **deployIfNotExists** lub **Modyfikowanie operacji** przypisanych zasad w istniejących zasobach i subskrypcjach, niezależnie od tego, czy przypisanie jest grupą zarządzania, subskrypcją, grupą zasobów czy pojedynczym zasobem. W tym artykule przedstawiono kroki niezbędne do zrozumienia i wykonania korygowania Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Jak działa zabezpieczenia korygujące
 
 Gdy Azure Policy uruchamia szablon w definicji zasad **deployIfNotExists** , robi to przy użyciu [tożsamości zarządzanej](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy tworzy tożsamość zarządzaną dla każdego przydziału, ale musi mieć szczegółowe informacje o rolach, które mają udzielić zarządzanej tożsamości. Jeśli zarządzana tożsamość nie ma ról, podczas przypisywania zasad lub inicjatywy jest wyświetlany błąd. W przypadku korzystania z portalu Azure Policy automatycznie przyznaje zarządzane tożsamości po rozpoczęciu przypisywania. W przypadku korzystania z zestawu SDK role muszą zostać ręcznie przyznane zarządzanej tożsamości. _Lokalizacja_ zarządzanej tożsamości nie ma wpływu na jej działanie z Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Zrzut ekranu zasad deployIfNotExists, w którym brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 > [!IMPORTANT]
 > W następujących scenariuszach zarządzana tożsamość przypisywania musi mieć [ręcznie przyznane uprawnienia](#manually-configure-the-managed-identity) lub wdrożenie korygowania zakończy się niepowodzeniem:
@@ -123,17 +123,18 @@ Aby dodać rolę do zarządzanej tożsamości przypisania, wykonaj następujące
 
 ### <a name="create-a-remediation-task-through-portal"></a>Tworzenie zadania korygującego za pomocą portalu
 
-Podczas obliczania przypisanie zasad z **deployIfNotExists** lub **modyfikowaniem** efektów określa, czy istnieją niezgodne zasoby. Po znalezieniu niezgodnych zasobów szczegóły są dostępne na stronie **korygowanie** . Wraz z listą zasad, które mają niezgodne zasoby, jest opcja wyzwalająca **zadanie korygowania**. Ta opcja polega na utworzeniu wdrożenia z szablonu **deployIfNotExists** lub operacji **modyfikowania** .
+Podczas obliczania przypisanie zasad z **deployIfNotExists** lub **modyfikowaniem** efektów określa, czy istnieją niezgodne zasoby lub subskrypcje. Gdy zostaną znalezione niezgodne zasoby lub subskrypcje, szczegóły są dostępne na stronie **korygowanie** . Wraz z listą zasad, które mają niezgodne zasoby lub subskrypcje, jest opcja wyzwalająca **zadanie korygowania**.
+Ta opcja polega na utworzeniu wdrożenia z szablonu **deployIfNotExists** lub operacji **modyfikowania** .
 
 Aby utworzyć **zadanie korygowania**, wykonaj następujące kroki:
 
 1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad w wszystkich usługach." border="false":::
 
 1. Wybierz pozycję **korygowanie** po lewej stronie Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Zrzut ekranu przedstawiający węzeł korygowania na stronie zasady." border="false":::
 
 1. Wszystkie przypisania zasad **deployIfNotExists** i **Modify** z niezgodnymi zasobami są zawarte w **zasadach do korygowania** kart i tabeli danych. Wybierz zasadę z zasobami, które są niezgodne. Zostanie otwarta strona **nowe zadanie korygowania** .
 
@@ -142,17 +143,17 @@ Aby utworzyć **zadanie korygowania**, wykonaj następujące kroki:
 
 1. Na stronie **nowe zadanie korygowania** odfiltruj zasoby do skorygowania, używając wielokropka **zakresu** , aby wybrać zasoby podrzędne, z których są przypisane zasady (w tym w dół do poszczególnych obiektów zasobów). Ponadto należy użyć listy rozwijanej **lokalizacje** do dalszej odfiltrowania zasobów. Korygowane są tylko zasoby wymienione w tabeli.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Zrzut ekranu przedstawiający węzeł korygowanie oraz siatkę zasobów do skorygowania." border="false":::
 
 1. Rozpocznij zadanie korygowania, gdy zasoby zostały odfiltrowane, wybierając pozycję **Koryguj**. Strona zgodność zasad zostanie otwarta na karcie **zadania korygowania** , aby wyświetlić stan zadań postępu. Wdrożenia utworzone przez zadanie korygowania zaczynają się od razu.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Zrzut ekranu przedstawiający kartę zadania korygowania i postęp istniejących zadań korygowania." border="false":::
 
 1. Aby uzyskać szczegółowe informacje o postępie, wybierz **zadanie korygowania** na stronie zgodność zasad. Filtrowanie używane na potrzeby zadania jest wyświetlane wraz z listą zasobów, które są korygowane.
 
 1. Na stronie **zadanie korygowania** kliknij prawym przyciskiem myszy zasób, aby wyświetlić jego wdrożenie lub zasób. Na końcu wiersza wybierz pozycję dla **powiązanych zdarzeń** , aby wyświetlić szczegóły, takie jak komunikat o błędzie.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Zrzut ekranu przedstawiający menu kontekstowe dla zasobu na karcie korygowanie zadania." border="false":::
 
 Zasoby wdrożone za pośrednictwem **zadania korygowania** są dodawane do karty **wdrożone zasoby** na stronie Zgodność z zasadami.
 

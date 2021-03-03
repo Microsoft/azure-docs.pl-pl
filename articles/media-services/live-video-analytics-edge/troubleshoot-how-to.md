@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051299"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698743"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Rozwiązywanie problemów z analizą filmów wideo na żywo na IoT Edge
 
@@ -105,7 +105,7 @@ Podczas uruchamiania **[skryptu konfiguracji zasobów analizy wideo na żywo](ht
 * **Wdrożenie szablonu nie powiodło się z powodu naruszenia zasad.**
     * Aby rozwiązać ten problem, skontaktuj się z administratorem IT, aby upewnić się, że wywołania, aby utworzyć maszynę wirtualną, aby obejść blokowanie uwierzytelniania SSH. Nie jest to konieczne, ponieważ korzystamy z bezpiecznej sieci bastionu, która wymaga nazwy użytkownika i hasła do komunikowania się z zasobami platformy Azure. Te poświadczenia będą przechowywane w pliku **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** w Cloud Shell, gdy maszyna wirtualna zostanie pomyślnie utworzona, wdrożona i dołączona do IoT Hub.
 * Skrypt Instalatora nie może utworzyć jednostki usługi i/lub zasobów platformy Azure.
-    * Aby obsłużyć ten problem, upewnij się, że Twoja subskrypcja i dzierżawa platformy Azure nie osiągnęły maksymalnych limitów usługi. Dowiedz się więcej o ograniczeniach [i ograniczeniach usługi Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) oraz o limitach [subskrypcji i usług platformy Azure, przydziałach i ograniczeniach.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    * Aby obsłużyć ten problem, upewnij się, że Twoja subskrypcja i dzierżawa platformy Azure nie osiągnęły maksymalnych limitów usługi. Dowiedz się więcej o ograniczeniach [i ograniczeniach usługi Azure AD](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) oraz o limitach [subskrypcji i usług platformy Azure, przydziałach i ograniczeniach.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!TIP]
 > Jeśli występują dodatkowe problemy, z którymi może być potrzebna pomoc, **[Zbierz dzienniki i Prześlij bilet pomocy technicznej](#collect-logs-for-submitting-a-support-ticket)**. Możesz również skontaktować się z nami, wysyłając do nas wiadomość e-mail na adres **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .

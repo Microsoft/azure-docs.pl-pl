@@ -1,24 +1,24 @@
 ---
-title: Włącz Azure Monitor dla maszyn wirtualnych kondycję gościa (wersja zapoznawcza)
-description: Zawiera opis sposobu włączania Azure Monitor dla maszyn wirtualnych kondycji gościa w ramach subskrypcji oraz dołączania maszyn wirtualnych.
+title: Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)
+description: W tym artykule opisano, jak włączyć kondycję gościa usługi VM Insights w Twojej subskrypcji oraz jak dołączyć maszyny wirtualne.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617073"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733724"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Włącz Azure Monitor dla maszyn wirtualnych kondycję gościa (wersja zapoznawcza)
-Azure Monitor dla maszyn wirtualnych kondycja gościa umożliwia wyświetlanie kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
+# <a name="enable-vm-insights-guest-health-preview"></a>Włącz kondycję gościa usługi VM Insights (wersja zapoznawcza)
+Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. W tym artykule opisano, jak włączyć tę funkcję w ramach subskrypcji i jak włączyć monitorowanie Gości dla każdej maszyny wirtualnej.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
-Azure Monitor dla maszyn wirtualnych kondycja gościa ma następujące ograniczenia w publicznej wersji zapoznawczej:
+W publicznej wersji zapoznawczej kondycja gościa usługi VM Insights ma następujące ograniczenia:
 
 - Obecnie są obsługiwane tylko maszyny wirtualne platformy Azure. Usługa Azure Arc dla serwerów nie jest obecnie obsługiwana.
 
@@ -36,19 +36,25 @@ Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
 - Australia Środkowa
 - Australia Wschodnia
 - Australia Południowo-Wschodnia
+- Kanada Środkowa
 - Indie Środkowe
 - Central US
 - Azja Wschodnia
 - East US
 - Wschodnie stany USA 2
 - Wschodnie stany USA 2 — EUAP
+- Francja Środkowa
 - Niemcy Środkowo-Zachodnie
 - Japonia Wschodnia
+- Korea Środkowa
 - Północno-środkowe stany USA
 - Europa Północna
 - South Central US
+- Północna Republika Południowej Afryki
 - Southeast Asia
+- Szwajcaria Północna
 - Południowe Zjednoczone Królestwo
+- Zachodnie Zjednoczone Królestwo
 - Zachodnio-środkowe stany USA
 - West Europe
 - Zachodnie stany USA
@@ -57,24 +63,36 @@ Maszyna wirtualna musi znajdować się w jednym z następujących regionów:
 
 Obszar roboczy Log Analytics musi znajdować się w jednym z następujących regionów:
 
+- Australia Środkowa
+- Australia Wschodnia
+- Australia Południowo-Wschodnia
+- Kanada Środkowa
+- Kanada Indie
 - Central US
+- Azja Wschodnia
 - East US
 - Wschodnie stany USA 2
 - Wschodnie stany USA 2 — EUAP
+- Francja Środkowa
+- Japonia Wschodnia
+- Północno-środkowe stany USA
 - Europa Północna
-- Azja Południowo-Wschodnia
+- South Central US
+- Southeast Asia
+- Szwajcaria Północna
 - Południowe Zjednoczone Królestwo
 - Region Europa Zachodnia
+- Zachodnie stany USA
 - Zachodnie stany USA 2
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Maszyna wirtualna musi zostać dołączona do Azure Monitor dla maszyn wirtualnych.
+- Maszyna wirtualna musi zostać dołączona do usługi VM Insights.
 - Wykonanie kroków dołączania musi mieć minimalny dostęp do subskrypcji, w której znajduje się maszyna wirtualna i Reguła zbierania danych.
 - Wymagane dostawcy zasobów platformy Azure muszą być zarejestrowane zgodnie z opisem w poniższej sekcji.
 
 ## <a name="register-required-azure-resource-providers"></a>Zarejestruj wymaganych dostawców zasobów platformy Azure
-Następujący dostawcy zasobów platformy Azure są zarejestrowani w ramach subskrypcji, aby umożliwić Azure Monitor dla maszyn wirtualnych kondycję gościa. 
+Następujący dostawcy zasobów platformy Azure są zarejestrowani w ramach subskrypcji, aby włączyć kondycję gościa usługi VM Insights. 
 
 - Microsoft. Monitor obciążenia został
 - Microsoft. Insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Włączanie maszyny wirtualnej za pomocą witryny Azure Portal
 Po włączeniu funkcji kondycji gościa dla maszyny wirtualnej w witrynie Azure Portal wykonywana jest automatycznie cała wymagana konfiguracja. Obejmuje to utworzenie reguły Wymagaj zbierania danych, zainstalowanie rozszerzenia kondycji gościa na maszynie wirtualnej i utworzenie skojarzenia z regułą zbierania danych.
 
-**W widoku wprowadzenie** w Azure monitor dla maszyn wirtualnych kliknij link obok komunikatu uaktualnienia dla maszyny wirtualnej, a następnie kliknij przycisk **Uaktualnij** . Możesz również wybrać wiele maszyn wirtualnych, aby uaktualnić je razem.
+W widoku **wprowadzenie** w usłudze VM Insights kliknij link obok komunikatu uaktualnienia dla maszyny wirtualnej, a następnie kliknij przycisk **Uaktualnij** . Możesz również wybrać wiele maszyn wirtualnych, aby uaktualnić je razem.
 
 ![Włącz funkcję kondycji na maszynie wirtualnej](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ Aby włączyć maszyny wirtualne przy użyciu Azure Resource Manager, należy wy
 > [!NOTE]
 > W przypadku włączenia maszyny wirtualnej przy użyciu Azure Portal zostanie utworzona opisana tutaj Reguła zbierania danych. W takim przypadku nie trzeba wykonywać tego kroku.
 
-Konfiguracja monitorów w Azure Monitor dla maszyn wirtualnych kondycji gościa jest przechowywana w [zasadach zbierania danych (DCR)](../agents/data-collection-rule-overview.md). Każda maszyna wirtualna z rozszerzeniem kondycji gościa będzie potrzebować skojarzenia z tą regułą.
+Konfiguracja monitorów w usłudze VM Insights kondycja gościa jest przechowywana w [zasadach zbierania danych (DCR)](../agents/data-collection-rule-overview.md). Każda maszyna wirtualna z rozszerzeniem kondycji gościa będzie potrzebować skojarzenia z tą regułą.
 
 > [!NOTE]
-> Można utworzyć dodatkowe reguły zbierania danych w celu zmodyfikowania konfiguracji domyślnej monitorów zgodnie z opisem w temacie [konfigurowanie monitorowania w Azure monitor dla maszyn wirtualnych kondycja gościa (wersja zapoznawcza)](vminsights-health-configure.md).
+> Można utworzyć dodatkowe reguły zbierania danych w celu zmodyfikowania konfiguracji domyślnej monitorów zgodnie z opisem w temacie [konfigurowanie monitorowania w usłudze VM Insights Health (wersja zapoznawcza)](vminsights-health-configure.md).
 
 Szablon wymaga wartości dla następujących parametrów:
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dostosowywanie monitorów włączonych przez Azure Monitor dla maszyn wirtualnych](vminsights-health-configure.md)
+- [Dostosowywanie monitorów włączonych przez szczegółowe informacje o maszynie wirtualnej](vminsights-health-configure.md)
