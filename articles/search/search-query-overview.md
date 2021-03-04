@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400815"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043018"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Wykonywanie zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -84,8 +84,8 @@ Mogą również być potrzebne filtry do wywołania wyspecjalizowanego formularz
 
 | Scenariusz filtru | Opis |
 |-----------------|-------------|
-| Filtry zakresu | Na platformie Azure Wyszukiwanie poznawcze zapytania zakresu są kompilowane przy użyciu parametru filtru. Aby uzyskać więcej informacji i przykładów, zobacz [przykład Filter Range](search-query-simple-examples.md#example-4-range-filters). |
-| Wyszukiwanie lokalizacji geograficznej | Jeśli pole z możliwością wyszukiwania jest [typu EDM. geographyPoint względem](/rest/api/searchservice/supported-data-types), można utworzyć wyrażenie filtru dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowanie". Pola, które są używane do wyszukiwania geograficznego, zawierają współrzędne. Aby uzyskać więcej informacji i przykład, zobacz [przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-5-geo-search). |
+| Filtry zakresu | Na platformie Azure Wyszukiwanie poznawcze zapytania zakresu są kompilowane przy użyciu parametru filtru. Aby uzyskać więcej informacji i przykładów, zobacz [przykład Filter Range](search-query-simple-examples.md#example-5-range-filters). |
+| Wyszukiwanie lokalizacji geograficznej | Jeśli pole z możliwością wyszukiwania jest [typu EDM. geographyPoint względem](/rest/api/searchservice/supported-data-types), można utworzyć wyrażenie filtru dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowanie". Pola, które są używane do wyszukiwania geograficznego, zawierają współrzędne. Aby uzyskać więcej informacji i przykład, zobacz [przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-6-geo-search). |
 | Nawigacja aspektowa | Struktura nawigacji aspektów jest obiektem nawigacyjnym w nawigacji ukierunkowanej na użytkownika po wywołaniu filtru w odpowiedzi na `onclick` zdarzenie w aspekcie. W związku z tym aspekty i filtry są gotowe do użycia. Jeśli dodasz nawigację aspektów, będziesz potrzebować filtrów do ukończenia tego środowiska. Aby uzyskać więcej informacji, zobacz [How to Build a facet Filter](search-filters-facets.md). |
 
 > [!NOTE]
@@ -101,12 +101,12 @@ Zaawansowana forma zapytania zależy od pełnego analizatora Lucene i operatoró
 
 | Typ zapytania | Użycie | Przykłady i więcej informacji |
 |------------|--------|------------------------------|
-| [Wyszukiwanie polowe](query-lucene-syntax.md#bkmk_fields) | **`search`**  konstruktora **`queryType=full`**  | Utwórz złożone wyrażenie zapytania określające jedno pole. <br/>[Przykład wyszukiwania w polu](search-query-lucene-examples.md#example-2-fielded-search) |
-| [Wyszukiwanie rozmyte](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się do warunków mających podobną konstrukcję lub pisownię. <br/>[Przykład wyszukiwania rozmytego](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [Wyszukiwanie w sąsiedztwie](query-lucene-syntax.md#bkmk_proximity) | **`search`** konstruktora **`queryType=full`** | Znajduje terminy, które są blisko siebie w dokumencie. <br/>[Przykład wyszukiwania w sąsiedztwie](search-query-lucene-examples.md#example-4-proximity-search) |
-| [zwiększenie warunków](query-lucene-syntax.md#bkmk_termboost) | **`search`** konstruktora **`queryType=full`** | Określa wyższy poziom dokumentu, jeśli zawiera on podwyższony termin względem innych, które nie są. <br/>[Przykład zwiększania warunków](search-query-lucene-examples.md#example-5-term-boosting) |
-| [Wyszukiwanie wyrażeń regularnych](query-lucene-syntax.md#bkmk_regex) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się w oparciu o zawartość wyrażenia regularnego. <br/>[Przykład wyrażenia regularnego](search-query-lucene-examples.md#example-6-regex) |
-|  [Wyszukiwanie przy użyciu symboli wieloznacznych lub prefiksów](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parametr z * *_`~`_* lub **`?`** , **`queryType=full`**| Dopasowuje się na podstawie prefiksu i tyldy ( `~` ) lub pojedynczego znaku ( `?` ). <br/>[Przykład wyszukiwania symboli wieloznacznych](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Wyszukiwanie polowe](query-lucene-syntax.md#bkmk_fields) | **`search`**  konstruktora **`queryType=full`**  | Utwórz złożone wyrażenie zapytania określające jedno pole. <br/>[Przykład wyszukiwania w polu](search-query-lucene-examples.md#example-1-fielded-search) |
+| [Wyszukiwanie rozmyte](query-lucene-syntax.md#bkmk_fuzzy) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się do warunków mających podobną konstrukcję lub pisownię. <br/>[Przykład wyszukiwania rozmytego](search-query-lucene-examples.md#example-2-fuzzy-search) |
+| [Wyszukiwanie w sąsiedztwie](query-lucene-syntax.md#bkmk_proximity) | **`search`** konstruktora **`queryType=full`** | Znajduje terminy, które są blisko siebie w dokumencie. <br/>[Przykład wyszukiwania w sąsiedztwie](search-query-lucene-examples.md#example-3-proximity-search) |
+| [zwiększenie warunków](query-lucene-syntax.md#bkmk_termboost) | **`search`** konstruktora **`queryType=full`** | Określa wyższy poziom dokumentu, jeśli zawiera on podwyższony termin względem innych, które nie są. <br/>[Przykład zwiększania warunków](search-query-lucene-examples.md#example-4-term-boosting) |
+| [Wyszukiwanie wyrażeń regularnych](query-lucene-syntax.md#bkmk_regex) | **`search`** konstruktora **`queryType=full`** | Dopasowuje się w oparciu o zawartość wyrażenia regularnego. <br/>[Przykład wyrażenia regularnego](search-query-lucene-examples.md#example-5-regex) |
+|  [Wyszukiwanie przy użyciu symboli wieloznacznych lub prefiksów](query-lucene-syntax.md#bkmk_wildcard) | **`search`** parametr z * *_`~`_* lub **`?`** , **`queryType=full`**| Dopasowuje się na podstawie prefiksu i tyldy ( `~` ) lub pojedynczego znaku ( `?` ). <br/>[Przykład wyszukiwania symboli wieloznacznych](search-query-lucene-examples.md#example-6-wildcard-search) |
 
 ## <a name="next-steps"></a>Następne kroki
 

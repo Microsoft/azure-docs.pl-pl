@@ -1,17 +1,16 @@
 ---
 title: Zarządzanie obszarami roboczymi Log Analytics w Azure Monitor | Microsoft Docs
 description: Możesz zarządzać dostępem do danych przechowywanych w obszarze roboczym Log Analytics w Azure Monitor przy użyciu zasobów, obszaru roboczego lub uprawnień na poziomie tabeli. W tym artykule szczegółowo opisano, jak to zrobić.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: bc03d8cdcaf0079ef15e648d16fd5656d9da368c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79bcca688146b2c2382876b6a61bc0eee34382a1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725683"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040961"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 

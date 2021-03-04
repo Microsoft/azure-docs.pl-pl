@@ -5,25 +5,26 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
+ms.custom: references_regions
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: 188bc14de502640ae05f1d1eb55330d86cee50b4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 1e8a8aa632d4c91cdfc6753d988a439d2de8938e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621483"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040547"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Wirtualne partnerzy sieci WAN i wirtualne lokalizacje koncentratora
 
 Ten artykuł zawiera informacje na temat regionów i partnerów obsługiwanych przez wirtualną sieć WAN na potrzeby łączności z koncentratorem wirtualnym.
 
-Azure Virtual WAN to usługa sieciowa zapewniająca zoptymalizowaną i zautomatyzowaną łączność między oddziałami za pośrednictwem platformy Azure. Usługa Virtual WAN umożliwia łączenie urządzeń w oddziałach z platformą Azure i konfigurowanie ich komunikacji. Można to zrobić ręcznie lub za pomocą urządzeń dostawcy za pośrednictwem wirtualnego partnera sieci WAN. Korzystanie z urządzeń partnerskich umożliwia łatwe korzystanie z programu, uproszczenie łączności i zarządzanie konfiguracją.
+Azure Virtual WAN to usługa sieciowa zapewniająca zoptymalizowaną i zautomatyzowaną łączność między oddziałami za pośrednictwem platformy Azure. Usługa Virtual WAN umożliwia łączenie urządzeń w oddziałach z platformą Azure i konfigurowanie ich komunikacji. Połączenie i konfiguracja można wykonać ręcznie lub za pomocą urządzeń dostawcy za pośrednictwem wirtualnego partnera sieci WAN. Korzystanie z urządzeń partnerskich umożliwia łatwe korzystanie z programu, uproszczenie łączności i zarządzanie konfiguracją.
 
 Połączenie z urządzeniem lokalnym jest nawiązywane w zautomatyzowany sposób z koncentratorem wirtualnym. Koncentratorem wirtualnym jest sieć wirtualna zarządzana przez firmę Microsoft. Koncentrator zawiera różne punkty końcowe usług, umożliwiające łączność z siecią lokalną (zasobem vpnsite). Możesz mieć tylko jeden koncentrator na region.
 
-## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>Automatyzacja połączeń IPSec z gałęzią od partnerów
+## <a name="branch-ipsec-connectivity-automation-from-partners"></a><a name="automation"></a>Automatyzacja połączeń IPsec z gałęzią od partnerów
 
 Urządzenia łączące się z wirtualną siecią WAN platformy Azure mają wbudowaną automatyzację, aby nawiązać połączenie. Jest to zazwyczaj skonfigurowane w interfejsie użytkownika zarządzania urządzeniami (lub równoważne), które konfiguruje zarządzanie łącznością i konfiguracją między urządzeniem oddziału sieci VPN a punktem końcowym sieci VPN usługi Azure Virtual Hub (Brama sieci VPN).
 
@@ -36,23 +37,25 @@ Następująca Automatyzacja wysokiego poziomu jest skonfigurowana w konsoli urz�
 
 Niektórzy partnerzy łączności mogą zwiększyć automatyzację, aby uwzględnić tworzenie sieci wirtualnej i VPN Gateway usługi Azure Virtual Hub. Jeśli chcesz dowiedzieć się więcej o automatyzacji, zobacz [wskazówki dotyczące automatyzacji dla partnerów wirtualnych sieci WAN](virtual-wan-configure-automation-providers.md).
 
-## <a name="branch-ipsec-connectivity-partners"></a><a name="partners"></a>Partnerzy łączności protokołu IPSec dla gałęzi
+## <a name="branch-ipsec-connectivity-partners"></a><a name="partners"></a>Partnerzy łączności protokołu IPsec dla gałęzi
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Następujący partnerzy są styczeń na naszym planie w oparciu o arkusz warunków podpisanych między firmami wskazujący zakres pracy do automatyzowania łączności protokołu IPsec między urządzeniem partnerskim i bramami sieci VPN platformy Azure Virtual Network: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) i SharpLink.
+Następujący partnerzy są styczeń na naszym planie w oparciu o terminy podpisane między firmami wskazujące zakres pracy w celu zautomatyzowania łączności protokołu IPsec między urządzeniem partnerskim i bramami sieci VPN platformy Azure Virtual Network: 128 technologie, Arista, F5 Networks, Oracle SD-WAN (Talari) i SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Partnerzy ze zintegrowanymi ofertami koncentratora wirtualnego
-Oprócz zautomatyzowanej łączności z pakietem IPSec w biurze oddziału niektórzy Partnerzy oferują **wirtualne urządzenia sieciowe (urządzeń WUS)** , które można zintegrować bezpośrednio z wirtualnym KONCENTRATOREM sieci WAN platformy Azure.  Dzięki temu klienci mogą zakończyć połączenia gałęzi do zgodnego urządzenia innej firmy w koncentratorze wirtualnym.  
+
+Oprócz zautomatyzowanej łączności z pakietem IPsec w biurze oddziału niektórzy Partnerzy oferują **wirtualne urządzenia sieciowe (urządzeń WUS)** , które można zintegrować bezpośrednio z wirtualnym KONCENTRATOREM sieci WAN platformy Azure.  Dzięki temu klienci mogą zakończyć połączenia gałęzi do zgodnego urządzenia innej firmy w koncentratorze wirtualnym.  
 
 Partnerzy, którzy oferują urządzenie WUS w wirtualnym koncentratorze sieci WAN, muszą:
 
-* Zaimplementowano automatyzację łączności protokołu IPSec na urządzeniu oddziału i masz wbudowaną urządzenie WUS swoją ofertę do wirtualnego centrum sieci WAN platformy Azure.
+* Zaimplementowano automatyzację łączności protokołu IPsec na urządzeniu oddziału i masz wbudowaną urządzenie WUS swoją ofertę do wirtualnego centrum sieci WAN platformy Azure.
 * Masz dostęp do istniejącej oferty sieciowego urządzenia wirtualnego w portalu Azure Marketplace.
 
 Jeśli jesteś partnerem i masz pytania dotyczące zarządzanego urządzenie WUS w ramach oferty koncentratora wirtualnego, skontaktuj się z nami, wysyłając wiadomość e-mail na adres vwannvaonboarding@microsoft.com
 
 ## <a name="integrated-virtual-hub-nva-partners"></a>Partnerzy urządzenie WUS zintegrowanego koncentratora wirtualnego
+
 Ci partnerzy mają oferty **aplikacji zarządzanych** , które są teraz dostępne do wdrożenia w wirtualnym KONCENTRATORZE sieci WAN.
 
 |Partnerzy|Konfiguracja/Przewodnik dotyczący wdrażania|
@@ -62,9 +65,9 @@ Ci partnerzy mają oferty **aplikacji zarządzanych** , które są teraz dostęp
 
 Następujący partnerzy mają styczeń do urządzenie WUS w usłudze Virtual Hub w najbliższej przyszłości: Aviatrix, Citrix, VeloCloud i Verse Networks.
 
-## <a name="locations"></a><a name="locations"></a>Lokalizacje
+## <a name="locations"></a><a name="locations"></a>Miejsce
 
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+[!INCLUDE [Virtual WAN regions file](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

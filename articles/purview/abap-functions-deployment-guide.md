@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 1d9f1c5beafb7b54c5fd0189dd738ff8e346a3e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 911238efafb948b304455cf75cc4ec2c3c605c76
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695993"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042099"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Wdróż moduł funkcji ABAP wyodrębniania metadanych dla rodziny SAP R3 
 W tym artykule przedstawiono kroki wdrażania modułu funkcji ABAP na serwerze SAP
@@ -74,7 +74,7 @@ Po utworzeniu modułu podaj następujące informacje:
 
 3.  Przejdź do \" karty kod źródłowy \" . Istnieją dwa sposoby wdrażania kodu dla funkcji:
 
-    a.  Z menu głównego Przekaż \_ plik Z MITI \_DOWNLOAD.txt, wybierając pozycję narzędzia = \> więcej narzędzi = \> przekazywanie/pobieranie = \> przekazywanie.
+    a.  Z menu głównego Przekaż plik tekstowy [z MITI pliku do \_ \_ pobrania](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) , wybierając pozycję Narzędzia: \> więcej narzędzi = \> przekazywanie/pobieranie = \> przekazywanie.
 
     b.  Alternatywnie Otwórz plik, skopiuj jego zawartość i wklej go do \" obszaru kod źródłowy \" .
 

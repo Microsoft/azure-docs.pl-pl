@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547200"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040383"
 ---
 # <a name="versions-in-azure-api-management"></a>Wersje na platformie Azure API Management
 
@@ -42,7 +42,7 @@ Gdy jest używany schemat przechowywania wersji ścieżki, identyfikator wersji 
 
 Na przykład, `https://apis.contoso.com/products/v1` i `https://apis.contoso.com/products/v2` może odwoływać się do tego samego `products` interfejsu API, ale do wersji `v1` i `v2` odpowiednio.
 
-Format adresu URL żądania interfejsu API w przypadku korzystania z wersji opartej na nagłówkach: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
+Format adresu URL żądania interfejsu API w przypadku korzystania z wersji opartej na ścieżkach: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
 
 ### <a name="header-based-versioning"></a>Przechowywanie wersji na podstawie nagłówka
 

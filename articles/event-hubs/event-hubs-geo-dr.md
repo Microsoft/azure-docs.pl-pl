@@ -3,12 +3,12 @@ title: Replikacja geograficzna — odzyskiwanie po awarii — Event Hubs platfor
 description: Jak używać regionów geograficznych do przełączania awaryjnego i wykonywania odzyskiwania po awarii na platformie Azure Event Hubs
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390678"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042372"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
 
@@ -44,11 +44,7 @@ W tym artykule są używane następujące terminy:
 -  *Alias*: Nazwa skonfigurowanej konfiguracji odzyskiwania po awarii. Alias zawiera pojedyncze stałe parametry połączenia w pełni kwalifikowanej nazwy domeny (FQDN). Aplikacje używają tego ciągu połączenia z aliasem do łączenia się z przestrzenią nazw. 
 
 -  *Podstawowa/pomocnicza przestrzeń nazw*: przestrzenie nazw, które odpowiadają aliasu. Podstawowa przestrzeń nazw jest "aktywna" i odbiera komunikaty (może to być istniejąca lub Nowa przestrzeń nazw). Pomocnicza przestrzeń nazw jest "pasywna" i nie odbiera komunikatów. Metadane między obydwoma są zsynchronizowane, dzięki czemu oba mogą bezproblemowo akceptować komunikaty bez konieczności zmiany kodu aplikacji ani parametrów połączenia. Aby upewnić się, że tylko aktywna przestrzeń nazw odbiera komunikaty, należy użyć aliasu.
-
-    > [!IMPORTANT]
-    > Funkcja odzyskiwania geograficznego po awarii wymaga, aby subskrypcja i Grupa zasobów były takie same dla podstawowych i pomocniczych przestrzeni nazw. 
 -  *Metadane*: jednostki, takie jak centra zdarzeń i grupy konsumentów; i ich właściwości usługi, które są skojarzone z przestrzenią nazw. Tylko jednostki i ich ustawienia są replikowane automatycznie. Komunikaty i zdarzenia nie są replikowane. 
-
 -  *Tryb failover*: proces aktywowania pomocniczej przestrzeni nazw.
 
 ## <a name="supported-namespace-pairs"></a>Obsługiwane pary przestrzeni nazw
@@ -75,13 +71,13 @@ Poniższa sekcja zawiera omówienie procesu pracy w trybie failover i wyjaśnia,
 Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
 
 1. Utwórz podstawową przestrzeń nazw.
-1. Utwórz pomocniczą przestrzeń nazw w ramach subskrypcji i grupy zasobów, która ma podstawową przestrzeń nazw, ale w innym regionie. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
+1. Utwórz pomocniczą przestrzeń nazw w innym regionie. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
 1. W Azure Portal przejdź do podstawowej przestrzeni nazw.
 1. Wybierz opcję **odzyskiwanie geograficzne** z menu po lewej stronie, a następnie wybierz pozycję **Inicjuj parowanie** na pasku narzędzi. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicjuj Parowanie z podstawowej przestrzeni nazw":::    
 1. Na stronie **Inicjowanie parowania** wykonaj następujące kroki:
-    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w ramach subskrypcji i grupy zasobów, która ma podstawową przestrzeń nazw. W tym przykładzie wybrano istniejącą przestrzeń nazw.  
+    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w innym regionie. W tym przykładzie wybrano istniejącą przestrzeń nazw.  
     1. Dla **aliasu** wprowadź alias dla parowania geograficznego odzyskiwania po awarii. 
     1. Następnie wybierz przycisk **Utwórz**. 
 

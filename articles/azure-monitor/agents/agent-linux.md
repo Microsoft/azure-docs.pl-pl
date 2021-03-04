@@ -1,17 +1,16 @@
 ---
 title: Instalowanie agenta usługi Log Analytics na komputerach z systemem Linux
 description: W tym artykule opisano sposób łączenia komputerów z systemem Linux hostowanych w innych chmurach lub lokalnych w celu Azure Monitor z agentem Log Analytics dla systemu Linux.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 06b59aa1fe6b51bf237c0cd64117166ca4ece10b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c86086a636ea667cff4fc8a853c4ef20fa6ae04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734931"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041845"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta usługi Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:

@@ -1,26 +1,21 @@
 ---
 title: Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure
-description: Wyświetlanie dzienników aktywności na potrzeby kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby zasobów platformy Azure w ciągu ostatnich 90 dni.
+description: Wyświetlanie dzienników aktywności dla kontroli dostępu opartej na rolach (Azure RBAC) w ciągu ostatnich 90 dni.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 03/01/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 53b72ac22df845f88dc82b14aa5dfaa57973b0d1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d9b39bc9a2f00fe83cae0ff78c6346042967e8bf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595837"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042139"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure
 
@@ -41,6 +36,10 @@ Najprostszym sposobem rozpoczęcia pracy jest wyświetlenie dzienników aktywno�
 
 ![Dzienniki aktywności przy użyciu portalu — zrzut ekranu](./media/change-history-report/activity-log-portal.png)
 
+Aby uzyskać więcej informacji, kliknij wpis, aby otworzyć okienko podsumowania. Kliknij kartę **JSON** , aby uzyskać szczegółowy dziennik.
+
+![Dzienniki aktywności przy użyciu okna podsumowanie Otwórz okienko podsumowania — zrzut ekranu](./media/change-history-report/activity-log-summary-portal.png)
+
 Dziennik aktywności w portalu ma kilka filtrów. Oto filtry powiązane z usługą Azure RBAC:
 
 | Filtr | Wartość |
@@ -50,9 +49,24 @@ Dziennik aktywności w portalu ma kilka filtrów. Oto filtry powiązane z usług
 
 Więcej informacji o dziennikach aktywności znajduje się w temacie [Wyświetlanie dzienników aktywności w celu monitorowania akcji na zasobach](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
-## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+## <a name="interpret-a-log-entry"></a>Interpretowanie wpisu dziennika
+
+Dane wyjściowe dziennika z karty JSON, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure mogą zawierać wiele informacji. Poniżej przedstawiono niektóre właściwości klucza do wyszukania podczas próby zinterpretowania wpisu dziennika. Aby dowiedzieć się, jak filtrować dane wyjściowe dziennika za pomocą Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, zobacz następujące sekcje.
+
+> [!div class="mx-tableFixed"]
+> | Właściwość | Przykładowe wartości | Opis |
+> | --- | --- | --- |
+> | Autoryzacja: Akcja | Microsoft.Authorization/roleAssignments/write | Utwórz przypisanie roli |
+> |  | Microsoft. Authorization/roleAssignments/Delete | Usuń przypisanie roli |
+> |  | Microsoft. Authorization/roleDefinitions/Write | Utwórz lub zaktualizuj definicję roli |
+> |  | Microsoft. Authorization/roleDefinitions/Delete | Usuń definicję roli |
+> | Autoryzacja: zakres | /subscriptions/{subscriptionId}<br/>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId} | Zakres akcji |
+> | Obiekt wywołujący | admin@example.com<br/>Obiektu | Kto zainicjował akcję |
+> | eventTimestamp | 2021-03-01T22:07:41.126243 Z | Czas wystąpienia akcji |
+> | stan: wartość | Rozpoczęto<br/>Powodzenie<br/>Niepowodzenie | Stan akcji |
+
+## <a name="azure-powershell"></a>Azure PowerShell
 
 Aby wyświetlić dzienniki aktywności z Azure PowerShell, użyj polecenia [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) .
 
@@ -68,56 +82,115 @@ To polecenie wyświetla listę wszystkich zmian definicji ról w grupie zasobów
 Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
-To polecenie wyświetla listę wszystkich zmian przypisań ról i definicji ról w ramach subskrypcji przez ostatnie siedem dni, a następnie wyświetla wyniki na liście:
+### <a name="filter-log-output"></a>Filtruj dane wyjściowe dziennika
+
+Dane wyjściowe dziennika mogą zawierać wiele informacji. To polecenie wyświetla listę wszystkich zmian przypisań ról i definicji ról w ramach subskrypcji przez ostatnie siedem dni i filtruje dane wyjściowe:
 
 ```azurepowershell
 Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
-```Example
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:07 PM
+Poniżej przedstawiono przykład przefiltrowanych danych wyjściowych dziennika podczas tworzenia przypisania roli:
+
+```azurepowershell
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:42 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
-                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          serviceRequestId: {serviceRequestId}
                           eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
-Caller                  : alain@example.com
-EventTimestamp          : 2/27/2020 9:18:05 PM
+Caller                  : admin@example.com
+EventTimestamp          : 3/1/2021 10:07:41 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
-                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
+                          requestbody    : {"Id":"{roleAssignmentId}","Properties":{"PrincipalId":"{principalId}","PrincipalType":"User","RoleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64","Scope":"/subscriptions/
+                          {subscriptionId}/resourceGroups/example-group"}}
+                          eventCategory  : Administrative
+                          entity         : /subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}
+                          message        : Microsoft.Authorization/roleAssignments/write
+                          hierarchy      : {tenantId}/{subscriptionId}
 
 ```
 
-Jeśli używasz nazwy głównej usługi do tworzenia przypisań ról, właściwość Caller będzie IDENTYFIKATORem obiektu. Aby uzyskać informacje o jednostce usługi, można użyć [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) .
+Jeśli używasz jednostki usługi do tworzenia przypisań ról, właściwość Caller będzie IDENTYFIKATORem obiektu głównego usługi. Aby uzyskać informacje o jednostce usługi, można użyć [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) .
 
 ```Example
-Caller                  : 44444444-4444-4444-4444-444444444444
-EventTimestamp          : 6/4/2020 9:43:08 PM
+Caller                  : {objectId}
+EventTimestamp          : 3/1/2021 9:43:08 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              : 
                           statusCode     : Created
-                          serviceRequestId: 55555555-5555-5555-5555-555555555555
-                          category       : Administrative
+                          serviceRequestId: {serviceRequestId}
+                          eventCategory  : Administrative
 ```
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby wyświetlić dzienniki aktywności przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ monitor Activity-Log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) .
+Aby wyświetlić dzienniki aktywności przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ monitor Activity-Log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) .
 
-To polecenie wyświetla listę dzienników aktywności w grupie zasobów od 27 lutego, szukając do przodu siedem dni:
+To polecenie wyświetla listę dzienników aktywności w grupie zasobów od 1 marca, patrząc na siedem dni:
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --resource-group example-group --start-time 2021-03-01 --offset 7d
 ```
 
-To polecenie wyświetla listę dzienników aktywności dostawcy zasobów autoryzacji od 27 lutego, szukając do przodu siedem dni:
+To polecenie wyświetla listę dzienników aktywności dla dostawcy zasobów autoryzacji od 1 marca, patrząc na siedem dni:
 
 ```azurecli
-az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2020-02-27 --offset 7d
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d
+```
+
+### <a name="filter-log-output"></a>Filtruj dane wyjściowe dziennika
+
+Dane wyjściowe dziennika mogą zawierać wiele informacji. To polecenie wyświetla listę wszystkich zmian ról i definicji ról w subskrypcji, które przeszukują siedem dni i filtruje dane wyjściowe:
+
+```azurecli
+az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2021-03-01 --offset 7d --query '[].{authorization:authorization, caller:caller, eventTimestamp:eventTimestamp, properties:properties}'
+```
+
+Poniżej przedstawiono przykład przefiltrowanych danych wyjściowych dziennika podczas tworzenia przypisania roli:
+
+```azurecli
+[
+ {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:42.456241+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "serviceRequestId": "{serviceRequestId}",
+      "statusCode": "Created"
+    }
+  },
+  {
+    "authorization": {
+      "action": "Microsoft.Authorization/roleAssignments/write",
+      "role": null,
+      "scope": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}"
+    },
+    "caller": "admin@example.com",
+    "eventTimestamp": "2021-03-01T22:07:41.126243+00:00",
+    "properties": {
+      "entity": "/subscriptions/{subscriptionId}/resourceGroups/example-group/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}",
+      "eventCategory": "Administrative",
+      "hierarchy": "{tenantId}/{subscriptionId}",
+      "message": "Microsoft.Authorization/roleAssignments/write",
+      "requestbody": "{\"Id\":\"{roleAssignmentId}\",\"Properties\":{\"PrincipalId\":\"{principalId}\",\"PrincipalType\":\"User\",\"RoleDefinitionId\":\"/providers/Microsoft.Authorization/roleDefinitions/fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64\",\"Scope\":\"/subscriptions/{subscriptionId}/resourceGroups/example-group\"}}"
+    }
+  }
+]
 ```
 
 ## <a name="azure-monitor-logs"></a>Dzienniki usługi Azure Monitor
@@ -139,7 +212,7 @@ Oto podstawowe kroki, które należy wykonać, aby rozpocząć pracę:
 
    ![Opcja dzienników Azure Monitor w portalu](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcjonalnie można użyć [Log Analytics Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) , aby zbadać i wyświetlić dzienniki. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/logs/get-started-queries.md).
+1. Opcjonalnie można użyć [Log Analytics Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) , aby zbadać i wyświetlić dzienniki. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z zapytaniami dzienników w Azure monitor](../azure-monitor/logs/get-started-queries.md).
 
 Oto zapytanie zwracające nowe przypisania ról uporządkowane według docelowego dostawcy zasobów:
 
@@ -162,5 +235,5 @@ AzureActivity
 ![Dzienniki aktywności przy użyciu portalu analizy zaawansowanej — zrzut ekranu](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wyświetlanie zdarzeń w dzienniku aktywności](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorowanie aktywności subskrypcji za pomocą dziennika aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)
+* [Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Monitorowanie działania subskrypcji przy użyciu dziennika aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md)

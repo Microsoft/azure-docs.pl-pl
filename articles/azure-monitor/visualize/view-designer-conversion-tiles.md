@@ -3,15 +3,14 @@ title: Konwersja kafelków z Azure Monitor View na skoroszyty
 description: Szczegóły dotyczące konwertowania kafelków na skoroszyty podczas przechodzenia z widoków w Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 0fe1c5a4e6da1cb2955542c2651fcaf2d015b8f8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8d1840c0b1cea4c03312d38ed892fde94faa4c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619030"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043341"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Konwersje kafelków projektanta widoków Azure Monitor
 [Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. Ten artykuł zawiera szczegółowe informacje dotyczące konwertowania różnych kafelków do skoroszytów.

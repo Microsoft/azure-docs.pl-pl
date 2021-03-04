@@ -10,17 +10,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
-ms.openlocfilehash: 35e2a73b0cfae104cee417e7d4a159e7fd169a17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/03/2021
+ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042525"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Azure SQL Database automatycznie zarządza usługami danych, które stale monitorują zapytania i identyfikują akcję, którą można wykonać w celu zwiększenia wydajności obciążeń. Możesz przejrzeć zalecenia i ręcznie zastosować je lub zezwolić Azure SQL Database automatycznie stosować akcje naprawcze — jest to nazywane **trybem dostrajania automatycznego**.
 
@@ -111,11 +110,26 @@ Ustawienie opcji dostrajania indywidualnego na włączone spowoduje zastąpienie
 
 Aby dowiedzieć się więcej na temat opcji obejmować języka T-SQL w celu skonfigurowania dostrajania automatycznego, zobacz [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## <a name="disabled-by-the-system"></a>Wyłączone przez system
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Dostrajanie automatyczne sprawdza wszystkie akcje wykonywane w bazie danych, a w niektórych przypadkach może określić, że dostrajanie automatyczne nie może prawidłowo współpracować z bazą danych. W takiej sytuacji opcja dostrajania zostanie wyłączona przez system. W większości przypadków dzieje się tak, ponieważ magazyn zapytań nie jest włączony lub jest w stanie tylko do odczytu w określonej bazie danych.
+### <a name="automated-recommendation-management-is-disabled"></a>Zautomatyzowane zarządzanie zaleceniami jest wyłączone
 
-## <a name="permissions"></a>Uprawnienia
+W przypadku komunikatów o błędach, które automatyczne zarządzanie rekomendacjami zostały wyłączone lub po prostu wyłączone przez system, Najczęstszymi przyczynami są:
+- Magazyn zapytań nie jest włączony lub
+- Magazyn zapytań jest w trybie tylko do odczytu dla określonej bazy danych lub
+- Magazyn zapytań został zatrzymany, ponieważ wykorzystał przydzieloną przestrzeń dyskową.
+
+Aby rozwiązać ten problem, można rozważyć następujące czynności:
+- Wyczyść magazyn zapytań lub zmodyfikuj okres przechowywania danych na wartość "Auto" przy użyciu języka T-SQL. Zobacz jak [skonfigurować zalecane zasady przechowywania i przechwytywania dla magazynu zapytań](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Użyj SQL Server Management Studio (SSMS) i wykonaj następujące kroki:
+  - Połącz z Azure SQL Database
+  - Kliknij prawym przyciskiem myszy bazę danych
+  - Przejdź do właściwości i kliknij pozycję Magazyn zapytań
+  - Zmień tryb operacji na Read-Write
+  - Zmień tryb przechwytywania magazynu na
+  - Zmień tryb oczyszczania na podstawie rozmiaru na
+
+### <a name="permissions"></a>Uprawnienia
 
 Ponieważ dostrajanie automatyczne to funkcja platformy Azure, aby jej używać, należy użyć wbudowanych ról platformy Azure. Tylko uwierzytelnianie SQL nie wystarcza do korzystania z funkcji z Azure Portal.
 
@@ -123,7 +137,7 @@ Aby można było korzystać z dostrajania automatycznego, minimalnym wymaganym u
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfiguruj automatyczne dostrajanie powiadomień e-mail
 
-Zobacz przewodnik po [powiadomieniach o automatycznym dostrajania poczty e-mail](automatic-tuning-email-notifications-configure.md) .
+Aby otrzymywać automatyczne powiadomienia e-mail dotyczące rekomendacji dokonanych przez dostrajanie automatyczne, zobacz Przewodnik po [powiadomieniach o automatycznym dostrajania poczty e-mail](automatic-tuning-email-notifications-configure.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,17 +1,16 @@
 ---
 title: Rejestruj zapytania w Azure Monitor
 description: Informacje referencyjne dotyczące języka zapytań Kusto używanego przez Azure Monitor. Zawiera dodatkowe elementy charakterystyczne dla Azure Monitor i elementy nieobsługiwane w zapytaniach dziennika Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704229"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041029"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Rejestruj zapytania w Azure Monitor
 Dzienniki Azure Monitor opierają się na usłudze Azure Eksplorator danych, a zapytania dzienników są zapisywane przy użyciu tego samego języka zapytań Kusto (KQL). Jest to bogaty język zaprojektowany tak, aby można było go łatwo odczytywać i tworzyć, aby można było zacząć pisać zapytania z niektórymi podstawowymi wskazówkami.

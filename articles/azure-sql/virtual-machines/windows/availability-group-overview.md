@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042457"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtu
 
 Umieszczenie zestawu maszyn wirtualnych w tym samym zestawie dostępności chroni przed awarią w centrum danych z powodu awarii sprzętu (maszyny wirtualne w zestawie dostępności nie udostępniają zasobów) lub z aktualizacji (maszyny wirtualne w zestawie dostępności nie są aktualizowane w tym samym czasie). Strefy dostępności chronić przed awarią całego centrum danych, z każdą strefą reprezentującą zestaw centrów danych w regionie.  Dzięki zapewnieniu, że zasoby są umieszczane w różnych Strefy dostępnościach, awarie na poziomie centrum danych mogą przełączeć wszystkie maszyny wirtualne w tryb offline.
 
-Podczas tworzenia maszyn wirtualnych platformy Azure należy wybrać między konfigurowaniem zestawów dostępności a Strefy dostępności.  Nie można maszyny wirtualnej platformy Azure uczestniczy w obu tych systemach.
+Podczas tworzenia maszyn wirtualnych platformy Azure należy wybrać między konfigurowaniem zestawów dostępności a Strefy dostępności.  Maszyna wirtualna platformy Azure nie może uczestniczyć w obu tych usługach.
 
 
 ## <a name="connectivity"></a>Łączność 
@@ -51,6 +51,7 @@ W tradycyjnym wdrożeniu lokalnym klienci nawiązują połączenie z odbiornikie
 
 W SQL Server na maszynach wirtualnych platformy Azure Skonfiguruj [moduł równoważenia obciążenia](availability-group-vnn-azure-load-balancer-configure.md) , aby kierować ruchem do odbiornika grupy dostępności, lub jeśli korzystasz z SQL Server 2019 CU8 i nowszych, możesz skonfigurować [odbiornik nazwy sieci rozproszonej (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) w celu zastąpienia odbiornika tradycyjnej grupy dostępności VNN. 
 
+Aby uzyskać więcej informacji na temat opcji łączności klastra, zobacz [Route HADR Cluster Connections to SQL Server na maszynach wirtualnych platformy Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Odbiornik nazwy sieci wirtualnej 
 
@@ -71,7 +72,7 @@ Użyj odbiornika DNN, aby zastąpić istniejący odbiornik VNN lub użyć go w p
 Aby rozpocząć, zobacz [Konfigurowanie odbiornika DNN](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
-## <a name="deployment"></a>Wdrażanie 
+## <a name="deployment"></a>Wdrożenie 
 
 Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach wirtualnych platformy Azure, a w przypadku większej automatyzacji niż inne. 
 

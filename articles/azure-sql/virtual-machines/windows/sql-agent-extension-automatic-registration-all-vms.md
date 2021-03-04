@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360003"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042426"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Automatyczna rejestracja przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Zarejestrowanie maszyny wirtualnej SQL Server przy użyciu [rozszerzenia program
 
 Po włączeniu automatycznej rejestracji zadanie jest uruchamiane codziennie w celu wykrycia, czy SQL Server jest zainstalowana na wszystkich niezarejestrowanych maszynach wirtualnych w ramach subskrypcji. W tym celu należy skopiować pliki binarne rozszerzenia agenta SQL IaaS do maszyny wirtualnej, a następnie uruchomić narzędzie jednorazowe, które sprawdza gałąź rejestru SQL Server. Jeśli zostanie wykryta SQL Server Hive, maszyna wirtualna zostanie zarejestrowana z rozszerzeniem w trybie uproszczonym. Jeśli w rejestrze nie istnieje gałąź SQL Server, pliki binarne zostaną usunięte.
 
-Po włączeniu automatycznej rejestracji w ramach subskrypcji wszystkie bieżące i przyszłe maszyny wirtualne, na których zainstalowano SQL Server, zostaną zarejestrowane przy użyciu rozszerzenia agenta SQL IaaS w trybie uproszczonym. Nadal musisz [ręcznie uaktualnić do trybu pełnego zarządzania](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) , aby skorzystać z pełnego zestawu funkcji. 
+Po włączeniu automatycznej rejestracji w ramach subskrypcji wszystkie bieżące i przyszłe maszyny wirtualne, na których zainstalowano SQL Server, zostaną zarejestrowane przy użyciu rozszerzenia agenta SQL IaaS **w trybie uproszczonym bez przestojów i bez ponownego uruchamiania usługi SQL Server**. Nadal musisz [ręcznie uaktualnić do trybu pełnego zarządzania](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) , aby skorzystać z pełnego zestawu funkcji. 
 
 > [!IMPORTANT]
 > Rozszerzenie SQL IaaS Agent zbiera dane w celu udzielenia klientom opcjonalnych korzyści w przypadku korzystania z SQL Server w ramach Virtual Machines platformy Azure. Firma Microsoft nie będzie używać tych danych do inspekcji licencjonowania bez wcześniejszej zgody klienta. Aby uzyskać więcej informacji, zobacz [dodatek SQL Server privacy](/sql/sql-server/sql-server-privacy#non-personal-data) .
@@ -47,7 +47,7 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu rozszerzenia, bę
 
 Aby włączyć automatyczną rejestrację maszyn wirtualnych SQL Server w Azure Portal, wykonaj następujące kroki:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 1. Przejdź do strony zasobów [**maszyn wirtualnych SQL**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Wybierz pozycję **automatyczne SQL Server Rejestracja maszyny wirtualnej** , aby otworzyć stronę **rejestracji automatycznej** . 
 

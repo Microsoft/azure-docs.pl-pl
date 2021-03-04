@@ -7,16 +7,20 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834039"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043052"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
+
+## <a name="update-march-2021"></a>Aktualizacja (marzec 2021)
+- Obsługa dostarczania wielu poświadczeń serwera na Azure Migrate urządzeniu w celu odnajdywania zainstalowanych aplikacji (spisu oprogramowania), analizy zależności bez wykorzystania agentów oraz odnajdywania wystąpień SQL Server i baz danych w środowisku programu VMware. [Dowiedz się więcej](tutorial-discover-vmware.md#provide-server-credentials)
+- Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. [Więcej informacji](concepts-azure-sql-assessment-calculation.md)<br/>Aby wypróbować tę funkcję, użyj [tego linku](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Aby rozpocząć, zapoznaj się z samouczkami [odnajdywania](tutorial-discover-vmware.md) i [oceny](tutorial-assess-sql.md) .
 
 ## <a name="update-january-2021"></a>Aktualizacja (styczeń 2021)
 -  Azure Migrate: Narzędzie do migracji serwera umożliwia teraz Migrowanie maszyn wirtualnych VMware, serwerów fizycznych i maszyn wirtualnych z innych chmur do maszyn wirtualnych platformy Azure z dyskami szyfrowanymi przy użyciu szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta (CMK).

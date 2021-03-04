@@ -1,21 +1,24 @@
 ---
-title: Dokumentacja dla deweloperów Azure Functions C#
-description: Dowiedz się, jak opracowywać Azure Functions przy użyciu języka C#.
+title: Opracowywanie funkcji języka C# przy użyciu Azure Functions
+description: Dowiedz się, jak używać języka C# do tworzenia i publikowania kodu, który jest uruchamiany w procesie przy użyciu środowiska uruchomieniowego Azure Functions.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806321"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041199"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions C#
+# <a name="develop-c-functions-using-azure-functions"></a>Opracowywanie funkcji języka C# przy użyciu Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 Ten artykuł stanowi wprowadzenie do tworzenia Azure Functions przy użyciu języka C# w bibliotekach klas platformy .NET.
+
+>[!IMPORTANT]
+>Ten artykuł obsługuje funkcje biblioteki klas .NET, które są uruchamiane w procesie w środowisku uruchomieniowym. Funkcja Functions również obsługuje platformę .NET 5. x przez uruchamianie funkcji języka C# poza procesem i izolowanie od środowiska uruchomieniowego. Aby dowiedzieć się więcej, zobacz [funkcje izolowane procesów platformy .NET](dotnet-isolated-process-guide.md).
 
 Jako deweloper języka C# może być również interesujący jeden z następujących artykułów:
 
@@ -31,9 +34,11 @@ Wersje środowiska uruchomieniowego Functions działają z określonymi wersjami
 
 | Wersja środowiska uruchomieniowego funkcji | Maksymalna wersja platformy .NET |
 | ---- | ---- |
-| Funkcje 3. x | .NET Core 3.1 |
+| Funkcje 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
 | Functions w wersji 2.x | .NET Core 2.2 |
 | Functions w wersji 1.x |  .NET Framework 4.7 |
+
+<sup>*</sup> Musi działać [poza procesem](dotnet-isolated-process-guide.md).
 
 Aby dowiedzieć się więcej, zobacz [Omówienie wersji środowiska uruchomieniowego Azure Functions](functions-versions.md)
 
@@ -94,9 +99,11 @@ Sygnatura metody może zawierać parametry inne niż używane z atrybutem wyzwal
 
 Kolejność parametrów w sygnaturze funkcji nie ma znaczenia. Na przykład można umieścić parametry wyzwalacza przed lub po innych powiązaniach i można umieścić parametr rejestratora przed lub po parametrach parametrów lub powiązania.
 
-### <a name="output-binding-example"></a>Przykład powiązania danych wyjściowych
+### <a name="output-bindings"></a>Powiązania wyjściowe
 
-Poniższy przykład modyfikuje poprzednią wartość, dodając powiązanie kolejki wyjściowej. Funkcja zapisuje komunikat kolejki, który wyzwala funkcję do nowej kolejki komunikatu w innej kolejce.
+Funkcja może mieć zero lub jedno powiązanie wyjściowe zdefiniowane przy użyciu parametrów wyjściowych. 
+
+Poniższy przykład modyfikuje poprzednią wartość, dodając powiązanie kolejki wyjściowej o nazwie `myQueueItemCopy` . Funkcja zapisuje zawartość komunikatu, który wyzwala funkcję, do nowej wiadomości w innej kolejce.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +119,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Wartości przypisane do powiązań wyjściowych są zapisywane, gdy funkcja zostanie zakończona. Można użyć więcej niż jednego powiązania danych wyjściowych w funkcji, po prostu przypisując wartości do wielu parametrów wyjściowych. 
 
 Szczegółowe artykuły referencyjne (na przykład[kolejki magazynu](functions-bindings-storage-queue.md)) wyjaśniają, które typy parametrów mogą być używane z atrybutami wyzwalacza, danych wejściowych lub wyjściowych.
 
@@ -361,7 +370,7 @@ Poniżej przedstawiono przykładową reprezentację danych w formacie JSON `cust
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry in C# functions (Rejestrowanie telemetrii niestandardowej w funkcjach języka C#)
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>Rejestruj niestandardową telemetrię
 
 Istnieje oparta na funkcjach wersja zestawu SDK Application Insights, której można użyć do wysyłania niestandardowych danych telemetrycznych z funkcji do Application Insights: [Microsoft. Azure. WebJobs. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Użyj następującego polecenia w wierszu polecenia, aby zainstalować ten pakiet:
 

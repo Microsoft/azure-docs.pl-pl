@@ -3,12 +3,12 @@ title: Uwierzytelnianie przy użyciu tożsamości zarządzanej
 description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera przy użyciu przypisanej do użytkownika lub zarządzanej tożsamości platformy Azure przypisanej do systemu.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987746"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041471"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Uwierzytelnianie w usłudze Azure Container Registry za pomocą tożsamości zarządzanej platformy Azure 
 
@@ -107,13 +107,13 @@ Zakończ sesję SSH.
 
 ### <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identit#az-identity-create) . Możesz użyć tej samej grupy zasobów, która została wcześniej użyta do utworzenia rejestru kontenerów lub maszyny wirtualnej, lub innej.
+Utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identity#az_identity_create) . Możesz użyć tej samej grupy zasobów, która została wcześniej użyta do utworzenia rejestru kontenerów lub maszyny wirtualnej, lub innej.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-Aby skonfigurować tożsamość w poniższych krokach, użyj polecenia [AZ Identity show][az-identity-show] , aby zapisać identyfikator zasobu tożsamości i identyfikator jednostki usługi w zmiennych.
+Aby skonfigurować tożsamość w poniższych krokach, użyj polecenia [AZ Identity show] [az_identity_show] w celu przechowywania identyfikatora zasobu tożsamości i identyfikatora jednostki usługi w zmiennych.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753879"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043069"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -36,21 +36,20 @@ Poniżej przedstawiono więcej informacji o urządzeniu Azure Migrate:
 
 ## <a name="how-can-i-deploy-the-appliance"></a>Jak można wdrożyć urządzenie?
 
-Urządzenie można wdrożyć w następujący sposób:
+Urządzenie można wdrożyć przy użyciu kilku metod:
 
-- Używanie szablonu do odnajdywania maszyn wirtualnych VMware (. Plik komórki jajowe) i maszyny wirtualne funkcji Hyper-V (. Plik VHD), aby utworzyć nową maszynę wirtualną, która hostuje urządzenie.
-- Jeśli nie chcesz używać szablonu, możesz wdrożyć urządzenie na istniejącej maszynie fizycznej lub wirtualnej na potrzeby odnajdywania maszyn wirtualnych VMware lub maszyn wirtualnych funkcji Hyper-V przy użyciu skryptu Instalatora programu PowerShell dostępnego do pobrania w pliku zip z portalu.
-- W przypadku serwerów fizycznych lub wirtualnych z poziomu lokalnego lub dowolnej chmury zawsze można wdrożyć urządzenie przy użyciu skryptu na istniejącym serwerze.
-- W przypadku Azure Government wszystkie trzy urządzenia można wdrożyć tylko przy użyciu skryptu Instalatora programu PowerShell.
+- Urządzenie można wdrożyć przy użyciu szablonu dla serwerów działających w środowisku VMware lub funkcji Hyper-V ([szablon komórki jajowe dla oprogramowania VMware](how-to-set-up-appliance-vmware.md) lub [wirtualnego dysku twardego dla funkcji Hyper-v](how-to-set-up-appliance-hyper-v.md)).
+- Jeśli nie chcesz używać szablonu, możesz wdrożyć urządzenie dla środowiska VMware lub funkcji Hyper-V przy użyciu [skryptu Instalatora programu PowerShell](deploy-appliance-script.md).
+- W Azure Government należy wdrożyć urządzenie przy użyciu skryptu Instalatora programu PowerShell. W [tym miejscu](deploy-appliance-script-government.md)zapoznaj się z krokami wdrożenia.
+- W przypadku serwerów fizycznych lub zwirtualizowanych lokalnie lub w innych chmurach urządzenie jest zawsze wdrażane przy użyciu skryptu Instalatora programu PowerShell. W [tym miejscu](how-to-set-up-appliance-physical.md)zapoznaj się z krokami wdrożenia.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Jak urządzenie nawiązuje połączenie z platformą Azure?
 
 Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. 
 
 - Upewnij się, że urządzenie może połączyć się z tymi [adresami URL platformy Azure](./migrate-appliance.md#url-access). 
-- Możesz użyć ExpressRoute z usługą komunikacji równorzędnej firmy Microsoft.  Publiczna Komunikacja równorzędna jest przestarzała i nie jest dostępna dla nowych obwodów usługi ExpressRoute.
+- Możesz użyć ExpressRoute z usługą komunikacji równorzędnej firmy Microsoft. Publiczna Komunikacja równorzędna jest przestarzała i nie jest dostępna dla nowych obwodów usługi ExpressRoute.
 - Prywatna Komunikacja równorzędna nie jest obsługiwana.
-
 
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Czy analiza urządzenia ma wpływ na wydajność?
@@ -109,7 +108,7 @@ Nie. Istnieje mapowanie jeden do jednego między [urządzeniem Azure Migrate](mi
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Czy projekt Azure Migrate ma wiele urządzeń?
 
-Projekt może mieć dołączone wiele urządzeń. Urządzenie może być jednak skojarzone tylko z jednym projektem. 
+Projekt może mieć zarejestrowane wiele urządzeń. Jednak jedno urządzenie może być zarejestrowane tylko w jednym projekcie.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Czy urządzenie Azure Migrate/urządzenie do replikacji nawiązuje połączenie z tym samym programem vCenter?
 
@@ -135,7 +134,7 @@ Nie można również użyć istniejącego klucza projektu Azure Migrate na urzą
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Czy mogę skonfigurować urządzenie na maszynie wirtualnej platformy Azure?
 
-Nie. Obecnie ta opcja nie jest obsługiwana. 
+Nie. Obecnie ta opcja nie jest obsługiwana.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Czy mogę odnaleźć na hoście ESXi?
 
@@ -150,6 +149,19 @@ Te aktualizacje automatyczne są aktualizowane tylko przez urządzenie i agentó
 ## <a name="can-i-check-agent-health"></a>Czy mogę sprawdzić kondycję agentów?
 
 Tak. W portalu przejdź do strony **kondycja agenta** , aby uzyskać Azure Migrate: Ocena serwera lub Azure Migrate: Narzędzie migracji serwera. W tym miejscu można sprawdzić stan połączenia między platformą Azure a agentami odnajdywania i oceny na urządzeniu.
+
+## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Czy mogę dodać wiele poświadczeń serwera na urządzeniu VMware?
+
+Tak. teraz Obsługujemy wiele poświadczeń serwera w celu przeprowadzenia spisu oprogramowania (odnajdywania zainstalowanych aplikacji), analizy zależności bez agenta oraz odnajdywania wystąpień SQL Server i baz danych. [Dowiedz się więcej](tutorial-discover-vmware.md#provide-server-credentials) na temat udostępniania poświadczeń w Menedżerze konfiguracji urządzeń.
+
+## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Jakiego typu poświadczenia serwera można dodać na urządzeniu VMware?
+W Menedżerze konfiguracji urządzeń można podać domenę/system Windows (niebędący domeną)/Linux (niebędący domeną)/SQL Server poświadczenia uwierzytelniania. [Dowiedz się więcej](add-server-credentials.md) na temat podania poświadczeń i sposobu ich obsługi.
+
+## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Jakiego typu SQL Server właściwości połączenia są obsługiwane przez Azure Migrate na potrzeby odnajdywania SQL?
+Azure Migrate zaszyfruje komunikację między urządzeniem Azure Migrate i SQL Server wystąpieniami źródła (z właściwością Szyfruj połączenie ustawioną na wartość TRUE). Te połączenia są szyfrowane za pomocą [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (wartość true). Warstwa transportu będzie używać protokołu SSL do szyfrowania kanału i pomijania łańcucha certyfikatów w celu zweryfikowania zaufania. Serwer urządzenia musi być skonfigurowany do [zaufania głównego urzędu certyfikacji](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
+Jeśli podczas uruchamiania nie zainicjowano obsługi administracyjnej certyfikatu na serwerze, SQL Server generuje certyfikat z podpisem własnym, który jest używany do szyfrowania pakietów logowania. [Dowiedz się więcej](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

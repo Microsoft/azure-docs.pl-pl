@@ -1,17 +1,16 @@
 ---
 title: Integracja Log Analytics i programu Excel
 description: Pobierz Log Analytics zapytanie do programu Excel i Odśwież wyniki w programie Excel.
-ms.subservice: logs
 ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2834e9bd91ecbbf32e0321179c2359862a5b605
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619253"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041114"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integracja Log Analytics i programu Excel
 

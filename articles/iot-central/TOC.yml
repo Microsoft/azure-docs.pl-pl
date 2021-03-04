@@ -183,6 +183,8 @@
       href: core/concepts-telemetry-properties-commands.md
     - name: Łączenie urządzeń usługi IoT Edge
       href: core/concepts-iot-edge.md
+    - name: Najlepsze rozwiązania
+      href: core/concepts-best-practices.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie i łączenie urządzeń

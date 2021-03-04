@@ -3,12 +3,12 @@ title: Wdrażanie do IoT Edge dla systemu Linux w systemie Windows — Azure
 description: Ten artykuł zawiera wskazówki dotyczące sposobu wdrażania programu w IoT Edge dla systemu Linux na urządzeniu z systemem Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 5cf4184857f12065d808d7b528dbfe8258950cd8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745478"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042185"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Wdrażanie do IoT Edge dla systemu Linux na urządzeniu z systemem Windows (EFLOW)
 
@@ -107,7 +107,7 @@ Poniżej przedstawiono ogólny przepływ dokumentu oraz 5 prostych kroków, któ
 ## <a name="next-steps"></a>Następne kroki
 
 * Wypróbuj wykrywanie ruchu wraz z nagrywaniem odpowiednich filmów wideo w chmurze. Wykonaj kroki opisane w sekcji [wykrywanie ruchu, Nagrywanie klipów wideo w celu Media Services](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) przewodnika Szybki Start.
-* Uruchom [AI na żywo wideo](use-your-model-quickstart#overview) (możesz pominąć konfigurację wymagań wstępnych, ponieważ została już wykonana powyżej)
+* Uruchom [AI na żywo wideo](use-your-model-quickstart.md#overview) (możesz pominąć konfigurację wymagań wstępnych, ponieważ została już wykonana powyżej)
 * Użyj naszego [rozszerzenia vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) , aby wyświetlić dodatkowe wykresy multimedialne.
 * Użyj [kamery IP](https://en.wikipedia.org/wiki/IP_camera)  , która obsługuje protokół RTSP zamiast korzystania z symulatora RTSP. Kamery IP obsługujące protokół RTSP można znaleźć na stronie [ONVIF zgodne produkty](https://www.onvif.org/conformant-products/) . Wyszukaj urządzenia zgodne z profilami G, S lub T.
 

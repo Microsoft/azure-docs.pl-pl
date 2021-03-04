@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 1daf5fef1383272f728ff3dac7557e55398f7d50
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bfff962f6d302f589acc437550fa25f76ec7ce35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720226"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040429"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway
 
@@ -82,7 +82,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Jeśli chcesz użyć Azure Portal, aby włączyć dodatek AGIC, przejdź do [( https://aka.ms/azure/portal/aks/agic) ](https://aka.ms/azure/portal/aks/agic) i przejdź do klastra AKS za pomocą linku portalu). W tym miejscu przejdź do karty sieć w klastrze AKS. Zostanie wyświetlona sekcja Application Gatewaya kontrolera transferu danych przychodzących, która umożliwia włączenie/wyłączenie dodatku transferu danych przychodzących przy użyciu interfejsu użytkownika portalu. Zaznacz pole wyboru obok pozycji "Włącz kontroler transferu danych przychodzących" i wybierz utworzony Application Gateway, *myApplicationGateway* z menu rozwijanego. 
 
-![Application Gateway portalu transferu danych przychodzących](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway portalu transferu danych przychodzących](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="peer-the-two-virtual-networks-together"></a>Łączenie równorzędne dwóch sieci wirtualnych
 

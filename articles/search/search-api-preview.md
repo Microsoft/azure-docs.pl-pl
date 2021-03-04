@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670892"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041981"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Funkcje wersji zapoznawczej, które przechodzą do ogólnej dostępności, są u
 |---------|------------------|-------------|---------------|
 | [**Wyszukiwanie semantyczne**](semantic-search-overview.md) | Istotność (ocenianie) | Algorytm klasyfikacji semantycznej, typ zapytania i odpowiedź na zapytanie. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/) |
 | [**sprawdzania pisowni**](cognitive-search-aml-skill.md) | Zapytanie | Opcjonalna Korekcja pisowni w przypadku danych wejściowych terminu zapytania dla prostych, pełnych i semantycznych zapytań. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/) |
-| Indeksator usługi SharePoint Online | Źródło danych indeksatora | Nowe źródło danych dla indeksowania zawartości programu SharePoint na podstawie indeksatora. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/) |
+| [**Indeksator usługi SharePoint Online**](search-howto-index-sharepoint-online.md) | Źródło danych indeksatora | Nowe źródło danych dla indeksowania zawartości programu SharePoint na podstawie indeksatora. | [Search 2020-06-30 API REST — wersja zapoznawcza](/rest/api/searchservice/) |
 | [**Umiejętność Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Wzbogacanie sztucznej inteligencji| Nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md). | Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja](/rest/api/searchservice/) zapoznawcza lub 2019-05-06 — wersja zapoznawcza. Dostępne również w portalu w projekcie zestawu umiejętności, przy założeniu, że Wyszukiwanie poznawcze i usługi Azure ML są wdrażane w tej samej subskrypcji. |
 | [**featuremode — parametr**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Istotność (ocenianie) | Rozszerzanie wyniku dopasowania do uwzględnienia szczegółów: wynikowe wyniki dla pola, częstotliwość poszczególnych pól oraz Liczba pasujących tokenów dla każdego pola. Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial). | Dodaj ten parametr zapytania przy użyciu opcji [Wyszukaj dokumenty (REST)](/rest/api/searchservice/preview-api/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub 2019-05-06 — wersja zapoznawcza. |
 | [**Sesje debugowania**](cognitive-search-debug-session.md) | Portal, wzbogacanie AI (zestawu umiejętności) | Edytor zestawu umiejętności w sesji używany do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki stosowane podczas sesji debugowania można zapisać w zestawu umiejętności w usłudze. | Tylko Portal przy użyciu linków strony średniej na stronie Przegląd, aby otworzyć sesję debugowania. |

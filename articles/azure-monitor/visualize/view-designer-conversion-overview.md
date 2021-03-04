@@ -3,15 +3,14 @@ title: Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
 description: Przejście z widoków do skoroszytów w Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 7c43d1e4dda10cca6b868ef814ec8298d6e21fd0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19de2a3d3f5a998c09db7c4df689b0378e2597fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736971"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043375"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Przewodnik przejścia projektanta widoku Azure Monitor do skoroszytów
 [Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Zostały one przenoszone do skoroszytów, aby zapewnić elastyczną kanwę do analizy danych i tworzenia bogatych raportów wizualnych w Azure Portal. Ten artykuł pomaga w wprowadzeniu przejścia z projektanta widoku do skoroszytów. 

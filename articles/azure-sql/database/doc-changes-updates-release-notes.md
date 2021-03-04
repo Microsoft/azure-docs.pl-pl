@@ -1,5 +1,5 @@
 ---
-title: Co nowego?
+title: Co nowego
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Dowiedz się więcej na temat nowych funkcji i ulepszeń dokumentacji Azure SQL Database & wystąpienia zarządzane SQL.
 services: sql-database
@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 86687e8259e7abcb9ff0e97f8cb75d96c0abfca8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703771"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042508"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym artykule wymieniono Azure SQL Database i funkcje wystąpienia zarządzanego usługi Azure SQL, które są obecnie dostępne w publicznej wersji zapoznawczej. Aby uzyskać SQL Database i ulepszenia i usprawnienia wystąpienia zarządzanego przez usługę SQL, zobacz [SQL Database & aktualizacje usługi wystąpienia zarządzanego SQL](https://azure.microsoft.com/updates/?product=sql-database). Aby uzyskać aktualizacje i ulepszenia dla innych usług platformy Azure, zobacz [aktualizacje usługi](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Co nowego?
+## <a name="whats-new"></a>Co nowego
 
 Dokumentacja Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL zostały podzielone na oddzielne sekcje. Zaktualizowaliśmy również sposób odwoływania się do wystąpienia zarządzanego z *Azure SQL Database wystąpienia zarządzanego* do *wystąpienia zarządzanego Azure SQL*.
 
@@ -48,7 +48,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
-| Cechy | Szczegóły |
+| Cecha | Szczegóły |
 | ---| --- |
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
 | Odnajdowanie i klasyfikacja danych  |Aby uzyskać więcej informacji, zobacz [Azure SQL Database i Synapse Analytics Data discovery & Klasyfikacja](data-discovery-and-classification-overview.md).|
@@ -62,7 +62,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
 
-| Cechy | Szczegóły |
+| Cecha | Szczegóły |
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Transakcje rozproszone</a> | Transakcje rozproszone między wystąpieniami zarządzanymi. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
@@ -89,7 +89,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
   - Obsługa programów <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 i sharepoint 2019 </a> oraz <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Utwórz wystąpienie zarządzane z <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">sortowaniem na poziomie wystąpienia</a> i wybraną <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">strefę czasową</a> .
   - Zarządzane wystąpienia są teraz chronione za pomocą [wbudowanej zapory](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Skonfiguruj wystąpienie zarządzane SQL, tak aby korzystało z [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="/azure/azure-sql/database/automated-backups-overview">Skonfiguruj przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md#sql-managed-instance-support) (do 10 lat) jest obecnie w ograniczonej publicznej wersji zapoznawczej.  
+  - Skonfiguruj wystąpienie zarządzane SQL, tak aby korzystało z [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="/azure/azure-sql/database/automated-backups-overview">Skonfiguruj przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md) (do 10 lat) jest obecnie dostępne w publicznej wersji zapoznawczej.  
   - Nowe funkcje umożliwiają <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">przeprzywracanie geograficznej bazy danych do innego centrum danych przy użyciu programu PowerShell</a>, [zmiana nazwy bazy danych](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [usunięcie klastra wirtualnego](../managed-instance/virtual-cluster-delete.md).
   - Nowa [rola współautor](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) wbudowanego wystąpienia umożliwia rozdzielenie cła (SOD) z zasadami zabezpieczeń i zgodności z normami przedsiębiorstwa.
   - Wystąpienie zarządzane SQL jest dostępne w następujących regionach Azure Government, do GA (US Gov Teksas, US Gov Arizona) i w Chiny Północne 2 i Chiny Wschodnie 2. Jest ona również dostępna w następujących regionach publicznych: Australia Środkowa, Australia Środkowa 2, Brazylia Południowa, Francja Południowa, Europa Środkowa, Płn. Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki.

@@ -1,17 +1,16 @@
 ---
 title: Tworzenie widoków w celu analizowania danych dziennika w Azure Monitor | Microsoft Docs
 description: Za pomocą projektanta widoków w Azure Monitor można utworzyć niestandardowe widoki, które są wyświetlane w Azure Portal i zawierać różne wizualizacje danych w obszarze roboczym Log Analytics. Ten artykuł zawiera omówienie projektanta widoków i prezentuje procedury tworzenia i edytowania widoków niestandardowych.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb0274260022c55ae657b5b28b2c9ad1903d0296
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700545"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043273"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor
 Za pomocą projektanta widoków w Azure Monitor można utworzyć różne widoki niestandardowe w Azure Portal, które mogą ułatwić wizualizację danych w obszarze roboczym Log Analytics. W tym artykule przedstawiono omówienie projektanta widoków i procedur tworzenia i edytowania widoków niestandardowych.

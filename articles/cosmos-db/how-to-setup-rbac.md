@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować kontrolę dostępu opartą na rola
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.author: thweiss
-ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: acb82a66c8ef4adcfeef0fcb527c44512ad4feaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040876"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Konfigurowanie kontroli dostępu opartej na rolach za pomocą Azure Active Directory dla konta Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -370,6 +370,7 @@ Te dodatkowe informacje są przesyłane w kategorii dziennika **DataPlaneRequest
 - Można utworzyć maksymalnie 100 definicji ról i przypisań ról 2 000 na konto Azure Cosmos DB.
 - Rozwiązanie grupy usługi Azure AD nie jest obecnie obsługiwane w przypadku tożsamości należących do więcej niż 200 grup.
 - Token usługi Azure AD jest obecnie przekazywany jako nagłówek z każdym indywidualnym żądaniem wysyłanym do usługi Azure Cosmos DB, zwiększając ogólny rozmiar ładunku.
+- Uzyskiwanie dostępu do danych za pomocą usługi Azure AD za pomocą [eksploratora Azure Cosmos DB](data-explorer.md) nie jest jeszcze obsługiwane. Korzystanie z Eksploratora Azure Cosmos DB nadal wymaga, aby użytkownik miał teraz dostęp do klucza podstawowego konta.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
