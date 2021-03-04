@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: HT
+ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873937"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703137"
 ---
 ::: zone target="docs"
 
@@ -79,6 +79,9 @@ Poniżej znajduje się lista obsługiwanych typów magazynów dla urządzenia Da
 | Wdrożenie klasyczne | Standardowa (Standard) |
 | Ogólnego przeznaczenia  |Standardowe; obsługiwane są wersje V1 i V2. Obsługiwane są warstwy Gorąca i Chłodna. |
 | Konto magazynu obiektów blob | |
+
+> [!IMPORTANT]
+> Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage nie jest obsługiwana w przypadku Data Box Disk.
 
 ## <a name="supported-storage-types-for-upload"></a>Obsługiwane typy magazynu dla przekazywania
 
