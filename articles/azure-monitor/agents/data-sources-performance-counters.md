@@ -1,17 +1,16 @@
 ---
 title: Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics w programie Azure Monitor
 description: Liczniki wydajności są zbierane przez Azure Monitor w celu przeanalizowania wydajności agentów systemu Windows i Linux.  W tym artykule opisano sposób konfigurowania kolekcji liczników wydajności dla agentów systemu Windows i Linux. szczegóły są przechowywane w obszarze roboczym i sposób analizowania ich w Azure Portal.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711556"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036785"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics
 Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności z agentów Log Analytics w częstych odstępach czasu dla analizy niemal w czasie rzeczywistym (NRT), a także do agregowania danych wydajności na potrzeby analizy i raportowania w dłuższym okresie.
@@ -22,7 +21,7 @@ Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajnoś�
 ![Liczniki wydajności](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
-Skonfiguruj liczniki wydajności z [menu dane w obszarze Ustawienia zaawansowane](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
+Skonfiguruj liczniki wydajności z [menu konfiguracji agentów](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
 
 Podczas pierwszej konfiguracji liczników wydajności systemu Windows lub Linux dla nowego obszaru roboczego można szybko utworzyć kilka typowych liczników.  Na liście obok każdego z nich znajduje się pole wyboru.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć, są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności**.
 
@@ -36,28 +35,28 @@ W przypadku liczników wydajności systemu Windows można wybrać określone wys
 
 ### <a name="windows-performance-counters"></a>Liczniki wydajności systemu Windows
 
-![Konfigurowanie liczników wydajności systemu Windows](media/data-sources-performance-counters/configure-windows.png)
+[![Konfigurowanie liczników wydajności systemu Windows](media/data-sources-performance-counters/configure-windows.png)](media/data-sources-performance-counters/configure-windows.png#lightbox)
 
 Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu Windows do zbierania danych. Należy pamiętać, że liczniki wydajności systemu Windows w wersji 2 nie są obsługiwane.
 
-1. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  Możesz również zwrócić wszystkie wystąpienia dla określonego licznika, określając *object\counter*.  
+1. Kliknij pozycję **Dodaj licznik wydajności**.
+2. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  Możesz również zwrócić wszystkie wystąpienia dla określonego licznika, określając *object\counter*.  
 
     Podczas zbierania SQL Server liczników wydajności z nazwanych wystąpień wszystkie liczniki nazwanego wystąpienia zaczynają się od *MSSQL $* i po nim nazwa wystąpienia.  Na przykład, aby zebrać licznik Współczynnik trafień pamięci podręcznej dzienników dla wszystkich baz danych z obiektu wydajności bazy danych dla nazwanego wystąpienia SQL INST2, określ `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` .
 
-2. Kliknij **+** lub naciśnij klawisz **Enter** , aby dodać licznik do listy.
-3. Po dodaniu licznika zostanie użyta wartość domyślna wynosząca 10 sekund dla **interwału próbkowania**.  Można zmienić tę wartość na wyższą niż 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
-4. Po zakończeniu dodawania liczników kliknij przycisk **Zapisz** znajdujący się u góry ekranu, aby zapisać konfigurację.
+4. Po dodaniu licznika zostanie użyta wartość domyślna wynosząca 10 sekund dla **interwału próbkowania**.  Można zmienić tę wartość na wyższą niż 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
+5. Po zakończeniu dodawania liczników kliknij przycisk **Zastosuj** w górnej części ekranu, aby zapisać konfigurację.
 
 ### <a name="linux-performance-counters"></a>Liczniki wydajności systemu Linux
 
-![Konfigurowanie liczników wydajności systemu Linux](media/data-sources-performance-counters/configure-linux-1.png)
+[![Konfigurowanie liczników wydajności systemu Linux](media/data-sources-performance-counters/configure-linux.png)](media/data-sources-performance-counters/configure-linux.png#lightbox)
 
 Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu Linux do zebrania.
 
+1. Kliknij pozycję **Dodaj licznik wydajności**.
 1. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  
-1. Kliknij **+** lub naciśnij klawisz **Enter** , aby dodać licznik do listy innych liczników dla obiektu.
 1. Wszystkie liczniki dla obiektu używają tego samego **interwału próbkowania**.  Wartość domyślna to 10 sekund.  Tę zmianę można zmienić na maksymalnie 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
-1. Po zakończeniu dodawania liczników kliknij przycisk **Zapisz** znajdujący się u góry ekranu, aby zapisać konfigurację.
+1. Po zakończeniu dodawania liczników kliknij przycisk **Zastosuj** w górnej części ekranu, aby zapisać konfigurację.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurowanie liczników wydajności systemu Linux w pliku konfiguracyjnym
 Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu Azure Portal istnieje możliwość edytowania plików konfiguracji w agencie systemu Linux.  Metryki wydajności do zebrania są kontrolowane przez konfigurację w **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 277b1a46ad480be8313f6971dc600d3dd911c09d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: b108e757ed9fe9ab7038cae4240f0f749ac19675
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762362"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036048"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack EDGE Pro z procesorem GPU 
 
@@ -66,7 +66,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące konfiguracji dla zasobu us�
 
 Przed rozpoczęciem upewnij się, że:
 
-- Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatnością zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
+- Twoja subskrypcja platformy Microsoft Azure obsługuje zasób rozwiązania Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatność zgodnie z rzeczywistym użyciem nie są obsługiwane. Aby zidentyfikować typ posiadanej subskrypcji platformy Azure, zobacz artykuł [co to jest oferta platformy Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack EDGE Pro/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
 
     - Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. 
@@ -102,6 +102,8 @@ Przed rozpoczęciem upewnij się, że:
 ## <a name="create-a-new-resource"></a>Tworzenie nowego zasobu
 
 Jeśli masz istniejący zasób Azure Stack Edge do zarządzania urządzeniem fizycznym, Pomiń ten krok i przejdź do pozycji [Pobierz klucz aktywacji](#get-the-activation-key).
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure Portal.
 
@@ -143,7 +145,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
         ![Tworzenie zasobu 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
-    - Jeśli jest to nowe urządzenie, które ma być uporządkowane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
+    - Jeśli jest to nowe urządzenie, które ma być używane, wprowadź nazwę kontaktu, firmę, adres, który ma zostać wysłany do urządzenia, i informacje kontaktowe.
 
         ![Tworzenie zasobu 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
@@ -163,7 +165,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Przejdź do zasobu Azure Stack EDGE Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
-Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
+Po złożeniu zamówienia firma Microsoft przegląda zamówienie i kontaktuje się z nim za pośrednictwem poczty e-mail z informacjami dotyczącymi wysyłki.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
 
@@ -171,6 +173,51 @@ Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Cie
 > Jeśli chcesz utworzyć wiele zamówień w tym samym czasie lub sklonować istniejące zamówienie, możesz użyć [skryptów w przykładach platformy Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Aby uzyskać więcej informacji, zobacz plik Readme.
 
 W przypadku wystąpienia problemów występujących w procesie zamówienia zobacz [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+W razie potrzeby Przygotuj środowisko dla interfejsu wiersza polecenia platformy Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Aby utworzyć zasób Azure Stack Edge, uruchom następujące polecenia w interfejsie wiersza polecenia platformy Azure.
+
+1. Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group#az_group_create) lub Użyj istniejącej grupy zasobów:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Aby utworzyć urządzenie, użyj polecenia [AZ databoxedge Device Create](/cli/azure/databoxedge/device#az_databoxedge_device_create) :
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeP_Base
+   ```
+
+   Wybierz lokalizację najbliżej regionu geograficznego, w którym chcesz wdrożyć urządzenie. Region przechowuje tylko metadane dotyczące zarządzania urządzeniami. Rzeczywiste dane mogą być przechowywane na dowolnym koncie magazynu.
+
+   Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). W przypadku korzystania z Azure Government wszystkie regiony rządowe są dostępne, jak pokazano w [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. Aby utworzyć zamówienie, uruchom polecenie [AZ databoxedge Order Create](/cli/azure/databoxedge/order#az_databoxedge_order_create) :
+
+   ```azurecli 
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+Tworzenie zasobu trwa kilka minut. Uruchom polecenie [AZ databoxedge Order Show](/cli/azure/databoxedge/order#az_databoxedge_order_show) , aby zobaczyć kolejność:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Po umieszczeniu zamówienia firma Microsoft przegląda zamówienie i kontaktuje się z nim za pośrednictwem poczty e-mail z informacjami dotyczącymi wysyłki.
+
+---
 
 ## <a name="get-the-activation-key"></a>Uzyskiwanie klucza aktywacji
 

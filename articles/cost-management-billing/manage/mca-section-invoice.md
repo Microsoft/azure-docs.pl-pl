@@ -8,18 +8,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: HT
+ms.openlocfilehash: c3ee643d525cb5394369aba3b0e803bd1a94c852
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362779"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036240"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizowanie kosztów przez dostosowanie konta rozliczeniowego
 
 Konto rozliczeniowe dla Umowy z Klientem Microsoft zapewnia elastyczność organizowania kosztów w zależności od potrzeb: według działu, projektu lub środowiska programistycznego.
 
 W tym artykule opisano, jak można zorganizować koszty za pomocą witryny Azure Portal. Ten artykuł dotyczy konta rozliczeniowego dla Umowy z Klientem Microsoft. [Sprawdź, czy masz dostęp do umowy klienta firmy Microsoft](#check-access-to-a-microsoft-customer-agreement).
+
+Obejrzyj informacje o [organizowaniu kosztów, dostosowując swoje wideo dotyczące konta rozliczeń umowy klienta firmy Microsoft](https://www.youtube.com/watch?v=7RxTfShGHwU) , aby dowiedzieć się, jak organizować koszty dla konta rozliczeniowego.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
 
 ## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Przygotowanie struktury konta za pomocą profilów rozliczeniowych i sekcji faktury
 

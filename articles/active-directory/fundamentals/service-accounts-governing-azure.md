@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c43125edab0f5ed097b99798ca22e5543e15a2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693130"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034549"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Zarządzanie kontami usług Azure AD
 
@@ -51,13 +51,13 @@ Zalecamy stosowanie następujących zasad dotyczących uprawnień konta usługi.
 
 **Uprawnienia**
 
-* Nie należy przypisywać wbudowanych ról do kont usług. Zamiast tego należy użyć [OAuth2ego modelu przydzielenia uprawnień dla Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0),
+* Nie należy przypisywać wbudowanych ról do kont usług. Zamiast tego należy użyć [OAuth2ego modelu przydzielenia uprawnień dla Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
 * Jeśli jednostka usługi musi mieć przypisaną rolę uprzywilejowaną, należy rozważyć przypisanie [roli niestandardowej](https://docs.microsoft.com/azure/active-directory/roles/custom-create) z określonym, wymaganym uprzywilejowanym, w sposób związany z czasem.
 
 * Nie dołączaj kont usług jako członków grup z podwyższonym poziomem uprawnień. 
 
-* [Użyj programu PowerShell, aby wyliczyć członków ról uprzywilejowanych](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0), takich jak   
+* [Użyj programu PowerShell, aby wyliczyć członków ról uprzywilejowanych](/powershell/module/azuread/get-azureaddirectoryrolemember), takich jak   
 `Get-AzureADDirectoryRoleMember`i filtru dla elementu ObjectType "Nazwa główna usługi".
 
    lub użyj  
@@ -117,7 +117,7 @@ Zalecamy wyeksportowanie dzienników logowania usługi Azure AD i zaimportowanie
 
 Regularnie sprawdzaj przyznane uprawnienia i zakresy dostępne dla kont usług, aby sprawdzić, czy można je zmniejszyć.
 
-* Użyj [programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) , aby [skompilować automatyzację do sprawdzania i dokumentowania](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) zakresów, do których wyraża zgodę na konto usługi.
+* Użyj [programu PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) , aby [skompilować automatyzację do sprawdzania i dokumentowania](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) zakresów, do których wyraża zgodę na konto usługi.
 
 * Użyj programu PowerShell, aby [przejrzeć istniejące poświadczenia nazw podmiotów usługi](https://github.com/AzureAD/AzureADAssessment) i sprawdzić ich poprawność.
 
@@ -172,7 +172,7 @@ Ustanów proces przeglądu, aby upewnić się, że konta usług są regularnie p
 
 **Proces anulowania aprowizacji powinien obejmować następujące zadania.**
 
-1. Po cofnięciu aprowizacji skojarzonej aplikacji lub skryptu Monitoruj konta usługi [logowania](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) i dostępu do zasobów.
+1. Po cofnięciu aprowizacji skojarzonej aplikacji lub skryptu Monitoruj konta usługi [logowania](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) i dostępu do zasobów.
 
    * Jeśli konto nadal jest aktywne, określ, jak jest używane przed wykonaniem kolejnych kroków.
  

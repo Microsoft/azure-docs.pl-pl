@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d8694a715e53f820556231ae6a549e98b2963fa1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035708"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>How to detach a data disk from a Linux virtual machine (Jak odłączyć dysk od maszyny wirtualnej systemu Linux)
 
@@ -108,13 +108,10 @@ Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.
 
 1. W menu po lewej stronie wybierz pozycję **Virtual Machines**.
 1. W bloku maszyna wirtualna wybierz pozycję **dyski**.
-1. W górnej części bloku **dyski** wybierz pozycję **Edytuj**.
-1. W bloku **dyski** z prawej strony dysku danych, który chcesz odłączyć, kliknij ![ przycisk Odłącz obraz przycisku ](./media/detach-disk/detach.png) Odłącz.
-1. Po usunięciu dysku kliknij pozycję **Zapisz** w górnej części bloku.
+1. W bloku **dyski** z prawej strony dysku danych, który chcesz odłączyć, wybierz przycisk **X** , aby odłączyć dysk.
+1. Po usunięciu dysku wybierz pozycję **Zapisz** w górnej części bloku.
 
-Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.
-
-
+Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej. Dysk nie został usunięty.
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli chcesz ponownie użyć dysku z danymi, możesz [dołączyć go do innej maszyny wirtualnej](add-disk.md).

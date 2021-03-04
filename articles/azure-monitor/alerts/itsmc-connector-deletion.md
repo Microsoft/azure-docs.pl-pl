@@ -1,18 +1,17 @@
 ---
 title: Usuwanie łącznika narzędzia ITSM i skojarzonej z nim akcji
 description: Ten artykuł zawiera wyjaśnienie sposobu usuwania łącznika narzędzia ITSM i skojarzonych z nim grup akcji.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/29/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1fbaa48d104642984e604bc66a3aa914fbfed44c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e73510b6c61c58f6f0b2b8067a240214ee35a46c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036490"
 ---
 # <a name="deletion-of-unused-itsm-connectors"></a>Usuwanie nieużywanych łączników narzędzia ITSM
 

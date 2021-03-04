@@ -1,17 +1,16 @@
 ---
 title: Przykłady szablonów Menedżer zasobów dla grup akcji
 description: Przykładowe szablony Azure Resource Manager do wdrożenia Azure Monitor grup akcji.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 12/03/2020
-ms.openlocfilehash: 13a353ba469f0a01011b72b9c014b8f97e4d6fae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c7982c108cf6c238c28c843e1dfbb881a6e0bb4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627838"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036405"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla grup akcji w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia [grup akcji](../alerts/action-groups.md) w programie Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.

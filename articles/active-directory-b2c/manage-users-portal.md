@@ -7,23 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2019
+ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ace0ccb8372ff21a2d3e8721baf09bab539846c2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387528"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033682"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Użyj Azure Portal, aby tworzyć i usuwać użytkowników w programie Azure AD B2C
 
 Mogą istnieć scenariusze, w których chcesz ręcznie utworzyć konta konsumentów w katalogu Azure Active Directory B2C (Azure AD B2C). Mimo że konta konsumentów w katalogu Azure AD B2C są najczęściej tworzone, gdy użytkownicy logują się w celu korzystania z jednej z aplikacji, można je tworzyć programowo i przy użyciu Azure Portal. Ten artykuł koncentruje się na Azure Portal metodzie tworzenia i usuwania użytkowników.
 
 Aby dodać lub usunąć użytkowników, Twoje konto musi mieć przypisaną rolę *administrator użytkownika* lub *administrator globalny* .
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="types-of-user-accounts"></a>Typy kont użytkowników
 
@@ -47,10 +45,30 @@ Ten artykuł koncentruje się na pracy z **kontami konsumentów** w Azure Portal
 1. Wprowadź **nazwę** użytkownika. Jest to zazwyczaj pełna nazwa (imię i nazwisko) użytkownika.
 1. Obowiązkowe Możesz **zablokować logowanie** , jeśli chcesz opóźnić możliwość logowania się użytkownika. Logowanie można włączyć później, edytując **profil** użytkownika w Azure Portal.
 1. Wybierz opcję **Automatyczne generowanie hasła** lub **pozwól mi tworzyć hasło**.
-1. Określ **imię** **i nazwisko**użytkownika.
+1. Określ **imię** **i nazwisko** użytkownika.
 1. Wybierz przycisk **Utwórz**.
 
 Jeśli nie wybrano opcji **Zablokuj logowanie**, użytkownik może teraz zalogować się przy użyciu podanej metody logowania (adresu e-mail lub nazwy użytkownika).
+
+## <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
+
+Jako administrator możesz zresetować hasło użytkownika, jeśli użytkownik zapomni hasła. Po zresetowaniu hasła użytkownika zostanie automatycznie wygenerowane hasło tymczasowe dla użytkownika. Tymczasowe hasło nigdy nie wygasa. Po następnym zalogowaniu się użytkownika hasło będzie nadal działało, niezależnie od tego, jak dużo czasu upłynął od momentu wygenerowania hasła tymczasowego. Następnie użytkownik musi zresetować hasło do stałego. 
+
+> [!IMPORTANT]
+> Przed zresetowaniem hasła użytkownika [Skonfiguruj przepływ wymuszania resetowania hasła w Azure Active Directory B2C](force-password-reset.md), w przeciwnym razie użytkownik nie będzie mógł się zalogować.
+
+Aby zresetować hasło użytkownika:
+
+1. W katalogu Azure AD B2C wybierz pozycję **Użytkownicy**, a następnie wybierz użytkownika, dla którego chcesz zresetować hasło.
+1. Wyszukaj i wybierz użytkownika, który wymaga resetowania, a następnie wybierz pozycję **Resetuj hasło**.
+
+    Zostanie wyświetlona strona **Alain Charon-profile** z opcją **resetowania hasła** .
+
+    ![Strona profil użytkownika z wyróżnioną opcją resetowania hasła](media/manage-users-portal/user-profile-reset-password-link.png)
+
+1. Na stronie **Resetowanie hasła** wybierz pozycję **Resetuj hasło**.
+1. Skopiuj hasło i nadaj użytkownikowi. Użytkownik będzie musiał zmienić hasło podczas następnego procesu logowania.
+
 
 ## <a name="delete-a-consumer-user"></a>Usuwanie użytkownika odbiorcy
 

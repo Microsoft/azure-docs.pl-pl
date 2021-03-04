@@ -3,12 +3,12 @@ title: Azure Service Bus odzyskiwania po awarii geograficznej | Microsoft Docs
 description: Jak używać regionów geograficznych do przełączania awaryjnego i odzyskiwania po awarii w Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384330"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035398"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
 
@@ -47,11 +47,7 @@ W tym artykule są używane następujące terminy:
 -  *Alias*: Nazwa skonfigurowanej konfiguracji odzyskiwania po awarii. Alias zawiera pojedyncze stałe parametry połączenia w pełni kwalifikowanej nazwy domeny (FQDN). Aplikacje używają tego ciągu połączenia z aliasem do łączenia się z przestrzenią nazw. Użycie aliasu gwarantuje, że parametry połączenia nie zmienią się podczas wyzwolenia trybu failover.
 
 -  *Podstawowa/pomocnicza przestrzeń nazw*: przestrzenie nazw, które odpowiadają aliasu. Podstawowa przestrzeń nazw jest "aktywna" i odbiera komunikaty (może to być istniejąca lub Nowa przestrzeń nazw). Pomocnicza przestrzeń nazw jest "pasywna" i nie odbiera komunikatów. Metadane między obydwoma są zsynchronizowane, dzięki czemu oba mogą bezproblemowo akceptować komunikaty bez konieczności zmiany kodu aplikacji ani parametrów połączenia. Aby upewnić się, że tylko aktywna przestrzeń nazw odbiera komunikaty, należy użyć aliasu. 
-
-    > [!IMPORTANT]
-    > Funkcja odzyskiwania geograficznego po awarii wymaga, aby subskrypcja i Grupa zasobów były takie same dla podstawowych i pomocniczych przestrzeni nazw.
 -  *Metadane*: jednostki, takie jak kolejki, tematy i subskrypcje; i ich właściwości usługi, które są skojarzone z przestrzenią nazw. Tylko jednostki i ich ustawienia są replikowane automatycznie. Wiadomości nie są replikowane.
-
 -  *Tryb failover*: proces aktywowania pomocniczej przestrzeni nazw.
 
 ## <a name="setup"></a>Konfigurowanie
@@ -63,13 +59,13 @@ Poniższa sekcja zawiera omówienie konfigurowania parowania między przestrzeni
 Najpierw należy utworzyć lub użyć istniejącej głównej przestrzeni nazw oraz nowej pomocniczej przestrzeni nazw, a następnie sparować te dwa. Ta parowanie zapewnia alias, którego można użyć do nawiązania połączenia. Ponieważ używasz aliasu, nie musisz zmieniać parametrów połączenia. Do parowania trybu failover można dodawać tylko nowe przestrzenie nazw. 
 
 1. Utwórz podstawową przestrzeń nazw.
-1. Utwórz pomocniczą przestrzeń nazw w ramach subskrypcji i grupy zasobów, która ma podstawową przestrzeń nazw, ale w innym regionie. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
+1. Utwórz pomocniczą przestrzeń nazw w innym regionie. Ta czynność jest opcjonalna. Można utworzyć pomocniczą przestrzeń nazw podczas tworzenia parowania w następnym kroku. 
 1. W Azure Portal przejdź do podstawowej przestrzeni nazw.
 1. Wybierz opcję **odzyskiwanie geograficzne** z menu po lewej stronie, a następnie wybierz pozycję **Inicjuj parowanie** na pasku narzędzi. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Inicjuj Parowanie z podstawowej przestrzeni nazw":::    
 1. Na stronie **Inicjowanie parowania** wykonaj następujące kroki:
-    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w ramach subskrypcji i grupy zasobów, która ma podstawową przestrzeń nazw. W tym przykładzie istniejąca przestrzeń nazw jest używana jako pomocnicza przestrzeń nazw.  
+    1. Wybierz istniejącą pomocniczą przestrzeń nazw lub utwórz ją w innym regionie. W tym przykładzie istniejąca przestrzeń nazw jest używana jako pomocnicza przestrzeń nazw.  
     1. Dla **aliasu** wprowadź alias dla parowania geograficznego odzyskiwania po awarii. 
     1. Następnie wybierz przycisk **Utwórz**. 
 

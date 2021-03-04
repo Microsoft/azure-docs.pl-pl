@@ -1,17 +1,16 @@
 ---
 title: wyrażenie Workspace () w kwerendzie dziennika Azure Monitor | Microsoft Docs
 description: Wyrażenie obszaru roboczego jest używane w zapytaniu dziennika Azure Monitor do pobierania danych z określonego obszaru roboczego w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035572"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>wyrażenie obszaru roboczego () w zapytaniu dziennika Azure Monitor
 

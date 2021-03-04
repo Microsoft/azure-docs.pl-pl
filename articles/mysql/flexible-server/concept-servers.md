@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240753"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034663"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące serwerów w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -38,7 +38,7 @@ Serwer elastyczny Azure Database for MySQL:
 - Zapewnia integrację sieci wirtualnej na potrzeby dostępu do serwera bazy danych
 - Zapewnia sposób oszczędzania kosztów, zatrzymując serwer elastyczny, gdy nie jest używany
 - Zapewnia zakres zasad zarządzania, które mają zastosowanie do swoich baz danych: logowania, zapory, użytkowników, ról, konfiguracji itp.
-- Program jest obecnie obsługiwany w wersji MySQL 5,7. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje aparatów Azure Database for MySQL](./concepts-supported-versions.md).
+- Obsługuje wersje główne programu MySQL 5,7 i MySQL 8,0. Aby uzyskać więcej informacji, zobacz [obsługiwane wersje aparatów Azure Database for MySQL](./../concepts-supported-versions.md).
 
 Na serwerze elastycznym Azure Database for MySQL można utworzyć jedną lub wiele baz danych. Możesz wybrać opcję tworzenia pojedynczej bazy danych na serwerze w celu używania wszystkich zasobów lub tworzenia wielu baz danych w celu udostępniania zasobów. Cennik jest uporządkowany według serwera w oparciu o konfigurację warstwy obliczeniowej, rdzeni wirtualnych i magazynu (GB). Aby uzyskać więcej informacji, zobacz artykuł [Obliczanie i magazynowanie](./concepts-compute-storage.md).
 

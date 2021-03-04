@@ -1,20 +1,20 @@
 ---
-title: Wdrażanie modelu programu Vision AI na platformie Azure Percept DK
-description: Dowiedz się, jak wdrożyć model Vision AI na platformie Azure Percept DK z usługi Azure Percept Studio
+title: Przechwytywanie obrazów dla rozwiązania bez obsługi kodu w usłudze Azure Percept Studio
+description: Dowiedz się, jak przechwytywać obrazy za pomocą usługi Azure Percept DK w usłudze Azure Percept Studio na potrzeby rozwiązania bez obsługi kodu
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5ad263f5ae3b0b8e91de30b620002e33086608b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662856"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035538"
 ---
-# <a name="capture-images-for-a-vision-project"></a>Przechwyć obrazy dla projektu programu Vision
+# <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Przechwytywanie obrazów dla projektu wizji w usłudze Azure Percept Studio
 
 Postępuj zgodnie z tym przewodnikiem, aby przechwycić obrazy przy użyciu modelu programu Visioning Percept Jeśli projekt programu Vision nie został jeszcze utworzony, zapoznaj się z [samouczkiem bez obsługi kodu](./tutorial-nocode-vision.md).
 
@@ -56,7 +56,7 @@ Postępuj zgodnie z tym przewodnikiem, aby przechwycić obrazy przy użyciu mode
         1. Wybierz preferowaną szybkość przetwarzania obrazu w obszarze **szybkość przechwytywania**.
         1. Wybierz łączną liczbę obrazów, które mają być zbierane w obszarze **cel**.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Strona urządzenia Percept z dostępnymi akcjami.":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Ekran przechwytywania obrazu.":::
 
 Wszystkie obrazy będą dostępne w [Custom Vision](https://www.customvision.ai/).
 

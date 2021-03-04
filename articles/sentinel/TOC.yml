@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: Pojęcia
   items:
-    - name: Przypisywanie uprawnień za pomocą ról
-      href: roles.md
+    - name: Zarządzanie dostępem
+      items:
+        - name: Uprawnienia w usłudze Azure Sentinel
+          href: roles.md
+        - name: Zarządzanie dostępem do zasobów
+          href: resource-context-rbac.md
     - name: Zaawansowane wieloetapowe wykrywanie ataków
       href: fusion.md
     - name: Korzystanie z własnej platformy uczenia maszynowego
@@ -236,7 +240,7 @@
           href: connect-azure-stack.md
         - name: Monitorowanie kondycji łącznika danych
           href: monitor-data-connector-health.md
-    - name: Umożliwianie analizy zachowań użytkowników i jednostek
+    - name: Włącz analizę zachowania użytkowników i jednostek
       href: enable-entity-behavior-analytics.md
     - name: Zarządzanie wieloma dzierżawami (MSSP)
       href: multiple-tenants-service-providers.md
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: Lepsze zarządzanie centrum operacji zabezpieczeń przy użyciu metryk zdarzeń
       href: manage-soc-with-incident-metrics.md
+    - name: Inspekcja zapytań i działań wskaźnikowych platformy Azure
+      href: audit-sentinel-data.md
     - name: Wyszukiwanie zagrożeń
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Usuwanie usługi Azure Sentinel
       href: offboard.md
+    - name: Zaimplementuj zaawansowaną kontrolę RBAC
+      items: null
 - name: Odwołanie
   items:
     - name: Role RBAC platformy Azure
@@ -293,8 +301,8 @@
   items:
     - name: Przydatne zasoby
       href: resources.md
-    - name: 'Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure'
-      href: /archive/blogs/azuresecurity/
+    - name: Blog dotyczący systemu Azure wskaźnikowego
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Cennik

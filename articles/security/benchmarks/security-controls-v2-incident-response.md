@@ -4,21 +4,21 @@ description: Odpowiedź na zdarzenie usługi Azure Security test w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 002/22/2021
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9295482c2464eb80bc49fa707744f49a2fbebfd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698590"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035381"
 ---
 # <a name="security-control-v2-incident-response"></a>Kontrola zabezpieczeń v2: odpowiedź na zdarzenie
 
 Reagowanie na zdarzenia obejmuje kontrolę w cyklu życia odpowiedzi na zdarzenia — przygotowanie, wykrywanie i analiza, zawieranie i działania po zdarzeniu. Obejmuje to korzystanie z usług platformy Azure, takich jak Azure Security Center i wskaźnik kontrolny, w celu zautomatyzowania procesu reagowania na zdarzenia.
 
-Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na testach zabezpieczeń platformy Azure: odpowiedź na zdarzenia](../../governance/policy/samples/azure-security-benchmark#incident-response)
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na testach zabezpieczeń platformy Azure: odpowiedź na zdarzenia](../../governance/policy/samples/azure-security-benchmark.md#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Przygotowanie — aktualizowanie procesu reagowania na zdarzenia na platformie Azure
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720583"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035419"
 ---
 # <a name="security-control-v2-privileged-access"></a>Kontrola zabezpieczeń v2: uprzywilejowany dostęp
 
 Dostęp uprzywilejowany obejmuje kontrolki umożliwiające ochronę uprzywilejowanego dostępu do dzierżawy i zasobów platformy Azure. Obejmuje to szeroki zakres formantów do ochrony modelu administracyjnego, kont administracyjnych i stacji roboczych dostępu uprzywilejowanego przed rozmyślnymi i nieumyślnie ryzykiem.
 
-Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na systemie Azure Security Tests: Privileged Access](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+Aby wyświetlić odpowiednie wbudowane Azure Policy, zobacz [szczegóły dotyczące zgodności z przepisami opartymi na systemie Azure Security Tests: Privileged Access](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Ochrona i ograniczanie użytkowników z wysokim poziomem uprawnień
 
@@ -160,8 +160,6 @@ Użyj funkcji zarządzania prawami usługi Azure AD, aby zautomatyzować przepł
 Zabezpieczone, izolowane stacje robocze mają kluczowe znaczenie dla bezpieczeństwa ról poufnych, takich jak administrator, deweloper i operator usługi krytycznej. Używaj wysoce bezpiecznych stacji roboczych użytkowników i/lub Azure bastionu na potrzeby zadań administracyjnych. Użyj usługi Azure Active Directory, zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender i/lub usługi Microsoft Intune do wdrożenia bezpiecznej i zarządzanej stacji roboczej użytkownika na potrzeby zadań administracyjnych. Zabezpieczone stacje robocze mogą być zarządzane centralnie w celu wymuszenia bezpiecznej konfiguracji, w tym silnego uwierzytelniania, oprogramowania i sprzętu, a także ograniczonego dostępu logicznego i sieci. 
 
 - [Informacje na temat stacji roboczych uprzywilejowanego dostępu](/security/compass/privileged-access-deployment)
-
-- [Wdrażanie stacji roboczej z dostępem uprzywilejowanym](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Odpowiedzialność**: Klient
 

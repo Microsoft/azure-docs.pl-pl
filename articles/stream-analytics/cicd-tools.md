@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2dbb491e77f132daf7b432f27705eba9e3e3cd3c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718424"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036966"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatyzowanie kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi CI/CD
 
@@ -122,6 +122,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 |---|---|
 | `-project` | Ścieżka **asaproj.js** pliku dla projektu Visual Studio Code lub **[nazwa projektu]. asaproj** dla projektu programu Visual Studio. |
 | `-testConfigPath` | Ścieżka pliku konfiguracji testu. Jeśli nie jest określony, plik zostanie przeszukany w **\Test** w bieżącym katalogu **asaproj.jsw** pliku, a domyślna nazwa pliku **testConfig.jswłączona**. Nowy plik zostanie utworzony, jeśli nie istnieje. |
+
+> [!NOTE]
+> `Script`Wartość w wygenerowanym **testConfig.jsw** pliku jest tylko dla zapewnienia kontekstu; Nie jest on używany w logice testowej. 
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 2/24/2021
-ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691437"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034901"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Zrozumienie i rozwiązywanie problemów z blokowaniem Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -238,7 +238,7 @@ Zapoznaj się z dokumentem zawierającym opis sposobu korzystania z [Kreatora no
 
 ## <a name="identify-and-resolve-common-blocking-scenarios"></a>Identyfikowanie i rozwiązywanie typowych scenariuszy blokowania
 
-Sprawdzając powyższe informacje, można określić przyczynę większości problemów z blokowaniem. Pozostała część tego artykułu zawiera omówienie sposobów korzystania z tych informacji w celu identyfikowania i rozwiązywania typowych scenariuszy blokowania. W tej dyskusji założono, że użyto skryptów blokowania (przywoływanych wcześniej) do przechwytywania informacji na temat blokowania identyfikatorów SPID i przechwycenia działania aplikacji przy użyciu sesji systemu XEvent.
+Sprawdzając poprzednie informacje, można określić przyczynę większości problemów z blokowaniem. Pozostała część tego artykułu zawiera omówienie sposobów korzystania z tych informacji w celu identyfikowania i rozwiązywania typowych scenariuszy blokowania. W tej dyskusji założono, że użyto skryptów blokowania (przywoływanych wcześniej) do przechwytywania informacji na temat blokowania identyfikatorów SPID i przechwycenia działania aplikacji przy użyciu sesji systemu XEvent.
 
 ## <a name="analyze-blocking-data"></a>Analizowanie danych blokowania 
 
@@ -334,7 +334,7 @@ Poniższa tabela mapuje typowe objawy na ich prawdopodobne przyczyny.
 | 5 | NULL | \>2,0 | Wycofywanie | Tak. | Sygnał uwagi może być widoczny w sesji zdarzeń rozszerzonych dla tego identyfikatora SPID, co oznacza, że upłynął limit czasu zapytania lub został anulowany, lub po prostu wydano instrukcję ROLLBACK. |  
 | 6 | NULL | \>2,0 | nocleg | Czasie. Gdy system Windows NT określi, że sesja nie jest już aktywna, połączenie Azure SQL Database zostanie przerwane. | `last_request_start_time`Wartość w sys.dm_exec_sessions jest znacznie wcześniejsza niż bieżąca godzina. |
 
-Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach. 
+## <a name="detailed-blocking-scenarios"></a>Szczegółowe scenariusze blokowania
 
 1.  Blokowanie spowodowane przez normalne uruchomienie zapytania o długim czasie wykonywania
 
@@ -366,7 +366,7 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
 
     Wyjście drugiego zapytania wskazuje, że poziom zagnieżdżenia transakcji jest taki. Wszystkie blokady nabyte w ramach transakcji nadal są przechowywane, dopóki transakcja nie zostanie zatwierdzona lub wycofana. Jeśli aplikacje jawnie otwierają i zatwierdzają transakcje, komunikat lub inny błąd może opuścić sesję i jej transakcję w stanie otwartym. 
 
-    Użyj powyższego skryptu w oparciu o sys.dm_tran_active_transactions, aby zidentyfikować aktualnie niezatwierdzone transakcje.
+    Użyj skryptu znajdującego się wcześniej w tym artykule na podstawie sys.dm_tran_active_transactions, aby identyfikować obecnie niezatwierdzone transakcje w ramach wystąpienia.
 
     **Rozwiązania**:
 
@@ -377,6 +377,7 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
             *    W procedurze obsługi błędów aplikacji klienckiej wykonaj `IF @@TRANCOUNT > 0 ROLLBACK TRAN` następujące błędy, nawet jeśli aplikacja kliencka nie jest uważana za otwartą transakcji. Sprawdzanie otwartych transakcji jest wymagane, ponieważ procedura składowana wywołana podczas wykonywania wsadowego mogła rozpocząć transakcję bez wiedzy aplikacji klienckiej. Niektóre warunki, takie jak anulowanie zapytania, uniemożliwiają wykonywanie procedury poza bieżącą instrukcją, więc nawet jeśli procedura ma logikę do sprawdzania `IF @@ERROR <> 0` i przerywania transakcji, ten kod wycofania nie zostanie wykonany w takich przypadkach.  
             *    Jeśli pule połączeń są używane w aplikacji, która otwiera połączenie i uruchamia niewielką liczbę zapytań przed zwolnieniem połączenia z powrotem do puli, takiej jak aplikacja oparta na sieci Web, tymczasowe wyłączenie puli połączeń może pomóc w zmniejszeniu problemu do momentu zmodyfikowania aplikacji klienckiej w celu odpowiedniego obsłużenia błędów. Wyłączenie puli połączeń zwalnia połączenie spowoduje fizyczne odłączenie połączenia Azure SQL Database, co spowoduje wycofanie wszelkich otwartych transakcji na serwerze.  
             *    Służy `SET XACT_ABORT ON` do połączenia lub w innych procedurach składowanych, które zaczynają transakcję i nie są oczyszczane po błędzie. W przypadku błędu czasu wykonywania to ustawienie spowoduje przerwanie wszelkich otwartych transakcji i zwrócenie kontroli klientowi. Aby uzyskać więcej informacji, zobacz [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
+
     > [!NOTE]
     > Połączenie nie zostanie zresetowane, dopóki nie zostanie ponownie użyte z puli połączeń, więc użytkownik może otworzyć transakcję, a następnie zwolnić połączenie z pulą połączeń, ale może nie być ponownie używane przez kilka sekund, podczas którego transakcja pozostanie otwarta. Jeśli połączenie nie jest ponownie używane, transakcja zostanie przerwana, gdy połączenie zostanie przełączone i zostanie usunięte z puli połączeń. W ten sposób jest optymalne, aby aplikacja kliencka mogła przerwać transakcje w ramach procedury obsługi błędów lub użyć `SET XACT_ABORT ON` , aby uniknąć tego potencjalnego opóźnienia.
 
@@ -385,14 +386,14 @@ Poniższe scenariusze zostaną rozwinięcie w tych scenariuszach.
 
 1.  Blokowanie spowodowane przez identyfikator SPID, którego odpowiadająca aplikacja kliencka nie pobrała wszystkich wierszy wyników do ukończenia
 
-    Po wysłaniu zapytania do serwera wszystkie aplikacje muszą natychmiast pobrać wszystkie wiersze wynikowe. Jeśli aplikacja nie pobiera wszystkich wierszy wynikowych, blokady mogą pozostać w tabelach, blokując innym użytkownikom. Jeśli używasz aplikacji, która w sposób przezroczysty przesyła instrukcje SQL do serwera, aplikacja musi pobrać wszystkie wiersze wynikowe. Jeśli nie (i jeśli nie można go skonfigurować w ten sposób), może być niemożliwe rozwiązanie problemu z blokowaniem. Aby uniknąć tego problemu, można ograniczyć niewłaściwie zachowywać się aplikacje do bazy danych raportowania lub z obsługą decyzji.
+    Po wysłaniu zapytania do serwera wszystkie aplikacje muszą natychmiast pobrać wszystkie wiersze wynikowe. Jeśli aplikacja nie pobiera wszystkich wierszy wynikowych, blokady mogą pozostać w tabelach, blokując innym użytkownikom. Jeśli używasz aplikacji, która w sposób przezroczysty przesyła instrukcje SQL do serwera, aplikacja musi pobrać wszystkie wiersze wynikowe. Jeśli nie (i jeśli nie można go skonfigurować w ten sposób), może być niemożliwe rozwiązanie problemu z blokowaniem. Aby uniknąć tego problemu, można ograniczyć niewłaściwie zachowywać się aplikacje do bazy danych raportowania lub pomocy technicznej, niezależnie od głównej bazy danych OLTP.
     
     > [!NOTE]
     > Zobacz [wskazówki dotyczące logiki ponawiania](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) dla aplikacji łączących się z Azure SQL Database. 
     
     **Rozwiązanie**: aplikacja musi zostać ponownie zapisywana, aby można było pobrać wszystkie wiersze wyniku do ukończenia. Nie powoduje to wykluczenia użycia [przesunięcia i pobrania w klauzuli Order by](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) zapytania do wykonywania stronicowania po stronie serwera.
 
-1.  Blokowanie spowodowane przez identyfikator SPID, który jest w stanie wycofywania
+1.  Blokowanie spowodowane przez sesję w stanie wycofywania
 
     Kwerenda modyfikacji danych, która została przerwana lub anulowana poza transakcją zdefiniowaną przez użytkownika, zostanie wycofana. Może to również wystąpić podczas odłączania sesji sieci klienta lub gdy żądanie jest wybrane jako ofiara zakleszczenia. Może to być często identyfikowane przez obserwowanie danych wyjściowych sys.dm_exec_requests, które mogą wskazywać na WYCOFANie **polecenia**, a **kolumna percent_complete** może pokazywać postęp. 
 

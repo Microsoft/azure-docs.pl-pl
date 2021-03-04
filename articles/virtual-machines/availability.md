@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668303"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036932"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opcje dostępności maszyn wirtualnych na platformie Azure
 
@@ -55,7 +55,7 @@ Zestawy skalowania maszyn wirtualnych upraszczają projektowanie pod kątem wyso
 
 **Tryby aranżacji dla zestawów skalowania**
 
-Tryby aranżacji zestawów skalowania maszyn wirtualnych umożliwiają większą kontrolę nad sposobem, w jaki wystąpienia maszyn wirtualnych są zarządzane przez zestaw skalowania. Na zestawie skalowania można włączyć jednolity lub elastyczny tryb aranżacji. Jednolita aranżacja jest zoptymalizowana pod kątem obciążeń bezstanowych na dużą skalę z identycznymi wystąpieniami. Elastyczna aranżacja (wersja zapoznawcza) jest przeznaczona do wysokiej dostępności na dużą skalę z identycznymi lub wieloma typami maszyn wirtualnych. Dowiedz się więcej o tych [trybach aranżacji](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) i sposobach ich włączania.
+Tryby aranżacji zestawów skalowania maszyn wirtualnych umożliwiają większą kontrolę nad sposobem, w jaki wystąpienia maszyn wirtualnych są zarządzane przez zestaw skalowania. Na zestawie skalowania można włączyć jednolity lub elastyczny tryb aranżacji. Jednolita aranżacja jest zoptymalizowana pod kątem obciążeń bezstanowych na dużą skalę z identycznymi wystąpieniami. Elastyczna aranżacja (wersja zapoznawcza) jest przeznaczona do wysokiej dostępności na dużą skalę z identycznymi lub wieloma typami maszyn wirtualnych. Dowiedz się więcej o tych [trybach aranżacji](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) i sposobach ich włączania.
 
 
 ## <a name="availability-sets"></a>Zestawy dostępności

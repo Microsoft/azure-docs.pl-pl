@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, Głębokość, RGB, wewnętrzny, zewnętrzny, synchronizacja, łańcuch łańcucha, przesunięcie fazy
-ms.openlocfilehash: 914a29882277c11c388d3f81f0b1fe827fc2f156
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce0c72d3d708d5696a9775b3885f278f0c23cac1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277512"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034318"
 ---
 # <a name="capture-azure-kinect-device-synchronization"></a>Przechwyć synchronizację urządzeń z usługą Azure urządzenia Kinect
 
-Sprzęt usługi Azure urządzenia Kinect może wyrównać czas przechwytywania obrazów kolorowych i głębi. Wyrównanie między kamerami na tym samym urządzeniu jest **synchronizacją wewnętrzną**. Wyrównanie czasu przechwytywania między wieloma połączonymi urządzeniami jest **synchronizacją zewnętrzną**.
+Sprzęt usługi Azure urządzenia Kinect może wyrównać czas przechwytywania obrazów kolorowych i głębi. Wyrównanie między kamerami na tym samym urządzeniu jest **synchronizacją wewnętrzną**. Wyrównanie czasu przechwytywania między wieloma połączonymi urządzeniami jest **synchronizacją zewnętrzną**. Tablica mikrofonu działa niezależnie od kamer kolorowych i głębi.
 
 ## <a name="device-internal-synchronization"></a>Wewnętrzna synchronizacja urządzeń
 

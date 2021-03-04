@@ -12,12 +12,12 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952238"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033626"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
@@ -137,6 +137,14 @@ Azure AD B2C udostępnia katalog, który może zawierać 100 atrybutów niestand
 - [Wyświetl listę dzienników inspekcji](/graph/api/directoryaudit-list)
 
 Aby uzyskać więcej informacji na temat uzyskiwania dostępu do dzienników inspekcji Azure AD B2C, zobacz [dostęp do Azure AD B2C inspekcji dzienników](view-audit-logs.md).
+
+## <a name="conditional-access"></a>Dostęp warunkowy
+
+- [Wyświetl wszystkie zasady dostępu warunkowego](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Odczytaj właściwości i relacje zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-get)
+- [Tworzenie nowych zasad dostępu warunkowego](/graph/api/resources/application)
+- [Aktualizowanie zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-update)
+- [Usuwanie zasad dostępu warunkowego](/graph/api/conditionalaccesspolicy-delete)
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Przykład kodu: jak programowo zarządzać kontami użytkowników
 

@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601468"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035997"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Samoobsługowe wymiany i zwroty kosztów dotyczące rezerwacji na platformie Azure
 
-Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można łatwiej sprostać Twoim zmieniającym się potrzebom. Rezerwację można wymienić na inną rezerwację tego samego typu. Można na przykład dokonać wymiany rezerwacji maszyny wirtualnej, aby kupić inną rezerwację dla dowolnego innego rozmiaru maszyny wirtualnej lub regionu. Podobnie rezerwację bazy danych SQL PaaS można wymienić w celu zakupu dowolnej rezerwacji dla dowolnego regionu lub typu bazy danych SQL PaaS. Możesz również zwrócić rezerwacje, ale łączna suma anulowanego zobowiązania z tytułu rezerwacji w zakresie rozliczeniowym (np. umowa EA, Umowa z Klientem Microsoft i umowa Microsoft Partner Agreement) nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu. Pojemność zarezerwowana usługi Azure Databricks, rezerwacja usługi Azure VMware Solution by CloudSimple, rezerwacja usługi Azure Red Hat Open Shift, plany oprogramowania Red Hat i plany oprogramowania SUSE Linux nie podlegają zwrotom.
+Rezerwacje platformy Azure zapewniają elastyczność, dzięki której można łatwiej sprostać Twoim zmieniającym się potrzebom. Można wymienić rezerwacje dla innej rezerwacji tego samego typu. Można na przykład zwrócić wiele rezerwacji obliczeniowych, takich jak dedykowany Host platformy Azure, rozwiązanie VMware platformy Azure i usługa Azure Virtual Machines ze wszystkimi innymi jednocześnie. Innymi słowy, produkty rezerwacji są zamienne ze sobą, jeśli są tego samego typu rezerwacji. Innymi przykładami można wymienić wiele typów rezerwacji bazy danych SQL, w tym wystąpienia zarządzane i Pula elastyczna ze sobą.
+
+Nie można jednak wymieniać niepodobnych rezerwacji. Na przykład nie można wymienić Cosmos DB rezerwacji dla SQL Database.
+
+Istnieje również możliwość wymiany rezerwacji w celu zakupu innej rezerwacji podobnego typu w innym regionie. Na przykład możesz wymienić rezerwację w regionie zachodnie stany USA 2, która jest w regionie Europa Zachodnia.
+
+Podczas wymiany rezerwacji możesz zmienić swój termin w okresie jednego roku na trzy lata.
+
+Możesz również zwrócić rezerwacje, ale łączna suma anulowanego zobowiązania z tytułu rezerwacji w zakresie rozliczeniowym (np. umowa EA, Umowa z Klientem Microsoft i umowa Microsoft Partner Agreement) nie może przekroczyć 50 000 USD w 12-miesięcznym kroczącym przedziale czasu.
+
+Pojemność zarezerwowana usługi Azure Databricks, rezerwacja usługi Azure VMware Solution by CloudSimple, rezerwacja usługi Azure Red Hat Open Shift, plany oprogramowania Red Hat i plany oprogramowania SUSE Linux nie podlegają zwrotom.
 
 Możliwości samoobsługowej wymiany i anulowania nie są dostępne dla klientów z umową Enterprise Agreement dla instytucji rządowych USA. Inne typy subskrypcji dla instytucji rządowych USA, w tym Płatność zgodnie z rzeczywistym użyciem i Dostawca CSP (Cloud Solution Provider), są obsługiwane.
 
@@ -37,9 +47,26 @@ Możesz wymienić rezerwację w witrynie [Azure Portal](https://portal.azure.com
 
 Aby uzyskać zwrot kosztów rezerwacji, przejdź do obszaru **Szczegóły rezerwacji** i wybierz pozycję **Zwrot**.
 
+## <a name="exchange-multiple-reservations"></a>Wymiana wielu rezerwacji
+
+Można zwrócić podobne typy rezerwacji w jednej akcji.
+
+Podczas wymiany zastrzeżeń kwota nowej waluty zakupu musi być większa niż kwota zwrotu. Jeśli nowa kwota zakupu jest mniejsza niż kwota zwrotu, zostanie wyświetlony komunikat o błędzie. Jeśli zobaczysz błąd, Zmniejsz ilość, która ma zostać zwrócona, lub Zwiększ kwotę do zakupu.
+
+1. Zaloguj się do witryny Azure Portal i przejdź do obszaru **Rezerwacje**.
+1. Na liście rezerwacji zaznacz pole wyboru dla każdej rezerwacji, którą chcesz wymienić.
+1. W górnej części strony wybierz pozycję **Exchange**.
+1. W razie potrzeby popraw ilość do zwrócenia dla każdej rezerwacji.
+1. W przypadku wybrania automatycznie wypełnionej ilości zwrotnej można wybrać opcję **zwrotu wszystkiego** , aby wypełnić listę pełną ilością, którą dysponujesz dla każdej rezerwacji, lub **zoptymalizować do użycia (7 dni)** , aby wypełnić listę z ilością, która jest optymalizowana pod kątem użycia na podstawie ostatnich siedmiu dni użytkowania. **Wybierz pozycję Zastosuj**.
+1. W dolnej części strony wybierz pozycję **Dalej: Kup**.
+1. Na karcie zakup wybierz dostępne produkty, dla których chcesz nawiązać wymianę. Można wybrać wiele produktów różnych typów.
+1. W okienku wybierz produkt, który chcesz kupić wybierz odpowiednie produkty, a następnie wybierz pozycję **Dodaj do koszyka** , a następnie wybierz pozycję **Zamknij**.
+1. Po zakończeniu wybierz pozycję **Dalej: przegląd**.
+1. Przejrzyj rezerwacje, aby wrócić i nowe rezerwacje do zakupu, a następnie wybierz pozycję **Potwierdź wymianę**.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Wymiana magazynu spoza warstwy Premium na magazyn w warstwie Premium
 
-Rezerwację zakupioną dla rozmiaru maszyny wirtualnej, który nie obsługuje magazynu w warstwie Premium, można wymienić na odpowiedni rozmiar maszyny wirtualnej, który go obsługuje. Na przykład _F1_ na _F1s_. Aby dokonać wymiany, przejdź do Szczegółów rezerwacji i wybierz pozycję **Wymiana**. Wymiana nie resetuje okresu zarezerwowanego wystąpienia ani nie tworzy nowej transakcji. 
+Rezerwację zakupioną dla rozmiaru maszyny wirtualnej, który nie obsługuje magazynu w warstwie Premium, można wymienić na odpowiedni rozmiar maszyny wirtualnej, który go obsługuje. Na przykład _F1_ na _F1s_. Aby dokonać wymiany, przejdź do Szczegółów rezerwacji i wybierz pozycję **Wymiana**. Wymiana nie resetuje okresu zarezerwowanego wystąpienia ani nie tworzy nowej transakcji.
 
 ## <a name="how-transactions-are-processed"></a>Sposób przetwarzania transakcji
 

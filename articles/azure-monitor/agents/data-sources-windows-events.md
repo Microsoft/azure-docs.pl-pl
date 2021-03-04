@@ -1,17 +1,16 @@
 ---
 title: Zbierz źródła danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics w Azure Monitor
 description: Opisuje sposób konfigurowania kolekcji dzienników zdarzeń systemu Windows przez Azure Monitor i szczegóły tworzonych przez nie rekordów.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719869"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036603"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych dziennika zdarzeń systemu Windows za pomocą agenta Log Analytics
 Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł danych](../agents/agent-data-sources.md) dla agentów log Analytics na maszynach wirtualnych z systemem Windows, ponieważ wiele aplikacji zapisuje je w dzienniku zdarzeń systemu Windows.  Można zbierać zdarzenia z dzienników standardowych, takich jak system i aplikacja, oprócz określania dzienników niestandardowych utworzonych przez aplikacje, które mają być monitorowane.
@@ -22,13 +21,13 @@ Dzienniki zdarzeń systemu Windows to jedno z najpopularniejszych [źródeł dan
 ![Zdarzenia systemu Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Konfigurowanie dzienników zdarzeń systemu Windows
-Skonfiguruj dzienniki zdarzeń systemu Windows z [menu dane w obszarze Ustawienia zaawansowane](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
+Skonfiguruj dzienniki zdarzeń systemu Windows z [menu konfiguracji agentów](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
 
 Azure Monitor zbiera tylko zdarzenia z dzienników zdarzeń systemu Windows, które są określone w ustawieniach.  Możesz dodać dziennik zdarzeń, wpisując nazwę dziennika, a następnie klikając pozycję **+** .  Dla każdego dziennika zbierane są tylko zdarzenia z wybranymi serwerami.  Sprawdź informacje o wykorzystaniu poszczególnych dzienników, które chcesz zebrać.  Nie można podać żadnych dodatkowych kryteriów filtrowania zdarzeń.
 
 Podczas wpisywania nazwy dziennika zdarzeń Azure Monitor zawiera sugestie typowych nazw dzienników zdarzeń. Jeśli dziennik, który chcesz dodać, nie znajduje się na liście, możesz dodać go, wpisując pełną nazwę dziennika. Pełną nazwę dziennika można znaleźć za pomocą podglądu zdarzeń. W Podglądzie zdarzeń Otwórz stronę *Właściwości* dziennika i skopiuj ciąg z pola *pełna nazwa* .
 
-![Konfigurowanie zdarzeń systemu Windows](media/data-sources-windows-events/configure.png)
+[![Konfigurowanie zdarzeń systemu Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Krytyczne zdarzenia w dzienniku zdarzeń systemu Windows będą mieć ważność "błąd" w dziennikach Azure Monitor.

@@ -1,17 +1,16 @@
 ---
 title: Zbierz źródła danych dziennika systemowego za pomocą agenta Log Analytics w Azure Monitor
 description: Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. W tym artykule opisano sposób konfigurowania kolekcji komunikatów dziennika systemu w Log Analytics i szczegóły dotyczące tworzonych przez siebie rekordów.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: e82e74f4cd325444221bbd2e1c060b7cd2f5c6c7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729202"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036739"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Zbierz źródła danych dziennika systemowego za pomocą agenta Log Analytics
 Dziennik systemowy to protokół rejestrowania zdarzeń, który jest wspólny dla systemu Linux. Aplikacje będą wysyłać komunikaty, które mogą być przechowywane na komputerze lokalnym lub dostarczane do modułu zbierającego dziennik systemowy. Po zainstalowaniu agenta Log Analytics dla systemu Linux program skonfiguruje lokalny demon dziennika systemowego, aby przekazywać komunikaty do agenta. Następnie Agent wysyła komunikat do Azure Monitor, w którym zostanie utworzony odpowiedni rekord.  
@@ -48,11 +47,11 @@ W przypadku każdej innej funkcji [Skonfiguruj niestandardowe źródło danych d
 Agent Log Analytics dla systemu Linux będzie zbierać tylko zdarzenia z obiektami i serwerami, które są określone w jego konfiguracji. Dziennik systemowy można skonfigurować za pomocą Azure Portal lub przez zarządzanie plikami konfiguracji w agentach systemu Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Skonfiguruj dziennik systemowy w Azure Portal
-Skonfiguruj dziennik systemowy z [menu dane w obszarze Ustawienia zaawansowane](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics. Ta konfiguracja jest dostarczana do pliku konfiguracji na każdym agencie systemu Linux.
+Skonfiguruj dziennik systemowy z [menu konfiguracji agenta](../agents/agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics. Ta konfiguracja jest dostarczana do pliku konfiguracji na każdym agencie systemu Linux.
 
-Aby dodać nową funkcję, należy najpierw wybrać opcję **Zastosuj poniższą konfigurację do moich maszyn** , a następnie wpisać ją i kliknąć **+** . Dla każdej funkcji zbierane będą tylko komunikaty z wybranymi serwerami.  Sprawdź, czy w przypadku konkretnej funkcji mają być zbierane. Nie można podać żadnych dodatkowych kryteriów filtrowania komunikatów.
+Nową funkcję można dodać, klikając pozycję **Dodaj** funkcję. Dla każdej funkcji zbierane będą tylko komunikaty z wybranymi serwerami.  Sprawdź, czy w przypadku konkretnej funkcji mają być zbierane. Nie można podać żadnych dodatkowych kryteriów filtrowania komunikatów.
 
-![Konfigurowanie dziennika systemowego](media/data-sources-syslog/configure.png)
+[![Konfigurowanie dziennika systemowego](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
 
 Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów. Jeśli chcesz ręcznie skonfigurować dziennik systemu na każdym agencie systemu Linux, usuń zaznaczenie pola *Zastosuj poniżej konfiguracji do moich maszyn*.
 

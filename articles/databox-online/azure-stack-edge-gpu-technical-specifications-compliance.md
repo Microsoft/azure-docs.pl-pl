@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573330"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034748"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack EDGE Pro z procesorem GPU 
 
@@ -25,7 +25,7 @@ Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące oblicz
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
-| Procesor CPU                     | 2 X procesor Intel Xeon Silver 4214 (Kaskada Lake)            |
+| Procesor CPU                     | 2 X procesor Intel Xeon Silver 4214 (Kaskada Lake)<br> 24 rdzenie fizyczne (12 na procesor CPU)<br>48 rdzenie logiczne (procesorów wirtualnych vCPU) (24 na procesor CPU)       |
 | Pamięć                  | 128 (8x16 GB) GB pamięci RAM <br> Zgodny z firmą Dell 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC, zarejestrowane RDIMM       |
 
 

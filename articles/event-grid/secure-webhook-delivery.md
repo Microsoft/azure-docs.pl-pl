@@ -3,12 +3,12 @@ title: Dostarczanie bezpiecznego elementu webhook za pomocą usługi Azure AD w 
 description: Opisuje sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez Azure Active Directory przy użyciu Azure Event Grid
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: be38edfb4edfee5b3a3b42d7b1c5a44c9d72ceef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549156"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035449"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikowanie zdarzeń w punktach końcowych chronionych przez usługę Azure Active Directory
 
@@ -26,7 +26,7 @@ Zacznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowe
 W tej sekcji przedstawiono sposób włączania Event Grid korzystania z aplikacji usługi Azure AD. 
 
 > [!NOTE]
-> Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](../active-directory/roles/permissions-reference.md#available-roles) .
+> Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](../active-directory/roles/permissions-reference.md#all-roles) .
 
 ### <a name="connect-to-your-azure-tenant"></a>Nawiązywanie połączenia z dzierżawcą platformy Azure
 Najpierw Połącz się z dzierżawą platformy Azure przy użyciu `Connect-AzureAD` polecenia. 

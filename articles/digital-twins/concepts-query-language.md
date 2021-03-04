@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028363"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034680"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Informacje o języku zapytań dla usługi Azure Digital bliźniaczych reprezentacji
 
 Odwołaj się do tego, że centrum Digital bliźniaczych reprezentacji na platformie Azure jest [grafem bliźniaczym](concepts-twins-graph.md), zbudowanym na podstawie cyfrowych bliźniaczych reprezentacji i relacji. 
 
-Ten Graf można zbadać, aby uzyskać informacje na temat bliźniaczych reprezentacji cyfrowego i relacji, które zawiera. Te zapytania są zapisywane w niestandardowym języku zapytań przypominającym język SQL, nazywanym **językiem zapytań usługi Azure Digital bliźniaczych reprezentacji**. Jest to podobne do [języka zapytań IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) z wieloma porównywalnymi funkcjami.
+Ten Graf można zbadać, aby uzyskać informacje na temat bliźniaczych reprezentacji cyfrowego i relacji, które zawiera. Te zapytania są zapisywane w niestandardowym języku zapytań przypominającym język SQL, nazywanym **językiem zapytań usługi Azure Digital Twins**. Jest to podobne do [języka zapytań IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) z wieloma porównywalnymi funkcjami.
 
 W tym artykule opisano podstawowe informacje dotyczące języka zapytań i jego możliwości. Aby zapoznać się z bardziej szczegółowymi przykładami składni zapytań i sposobu uruchamiania żądań zapytań, zobacz [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
 
@@ -33,12 +33,17 @@ Możesz użyć języka zapytań Digital bliźniaczych reprezentacji na platformi
 
 Aby przesłać zapytanie do usługi z aplikacji klienckiej, użyj [**interfejsu API zapytań**](/rest/api/digital-twins/dataplane/query)Digital bliźniaczych reprezentacji platformy Azure. Jednym ze sposobów korzystania z interfejsu API jest użycie jednego z [zestawów SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) dla usługi Azure Digital bliźniaczych reprezentacji.
 
+### <a name="considerations-for-querying"></a>Zagadnienia dotyczące zapytań
+
+Podczas pisania zapytań dotyczących usługi Azure Digital bliźniaczych reprezentacji należy pamiętać o następujących kwestiach:
+* **Pamiętaj czułość uwzględniania wielkości liter**: wszystkie operacje zapytań usługi Azure Digital bliźniaczych reprezentacji są rozróżniane wielkości liter, więc pamiętaj, aby użyć dokładnych nazw zdefiniowanych w modelach. Jeśli nazwy właściwości są błędnie napisane lub nieprawidłowo, zestaw wyników jest pusty i nie są zwracane żadne błędy.
+* **Pojedyncze cudzysłowy ucieczki**: Jeśli tekst zapytania zawiera pojedynczy znak cudzysłowu w danych, do cudzysłowu należy użyć znaku ucieczki `\` . Oto przykład, który zajmuje się wartością właściwości *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Odwołanie: wyrażenia i warunki
 
 W tej sekcji opisano operatory i funkcje, które są dostępne do pisania zapytań usługi Azure Digital bliźniaczych reprezentacji. Przykładowe zapytania, które ilustrują korzystanie z tych funkcji, można znaleźć w temacie [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
-
-> [!NOTE]
-> Wszystkie operacje zapytań usługi Azure Digital bliźniaczych reprezentacji są zależne od wielkości liter, dlatego należy zadbać o użycie dokładnych nazw zdefiniowanych w modelach. Jeśli nazwy właściwości są błędnie napisane lub nieprawidłowo, zestaw wyników jest pusty i nie są zwracane żadne błędy.
 
 ### <a name="operators"></a>Operatory
 
@@ -46,7 +51,7 @@ Obsługiwane są następujące operatory:
 
 | Family | Operatory |
 | --- | --- |
-| Logiczny |`AND`, `OR`, `NOT` |
+| Wartości logiczne |`AND`, `OR`, `NOT` |
 | Porównanie | `=`, `!=`, `<`, `>`, `<=`, `>=` |
 | Contains | `IN`, `NIN` |
 

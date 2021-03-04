@@ -1,17 +1,16 @@
 ---
 title: Monitoruj zasoby platformy Azure za pomocą Azure Monitor | Microsoft Docs
 description: Opisuje sposób zbierania i analizowania danych monitorowania z zasobów na platformie Azure przy użyciu Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 7d5fcd4da5ab8b8516794bf99b8aab69ada24644
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af2803a945821a23ff59f196967d792a6593009f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708122"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033388"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez zasoby platformy Azure oraz sposób używania funkcji Azure Monitor do analizowania i generowania alertów dotyczących tych danych.

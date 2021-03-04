@@ -1,17 +1,16 @@
 ---
 title: Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
 description: Opisuje sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli operacji.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710944"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034969"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
 Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.

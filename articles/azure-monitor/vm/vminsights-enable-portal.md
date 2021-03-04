@@ -1,17 +1,16 @@
 ---
 title: Włącz Azure Monitor dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w Azure Portal
 description: Dowiedz się, jak włączyć szczegółowe informacje o maszynie wirtualnej na jednej maszynie wirtualnej platformy Azure lub w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47dde48e916361620a832d26e6249c4147d0f8b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 076fcab7b0747a7993407edd65f9d08efc27309f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733741"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035589"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Włącz Azure Monitor dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w Azure Portal
 W tym artykule opisano sposób włączania usługi VM Insights dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:

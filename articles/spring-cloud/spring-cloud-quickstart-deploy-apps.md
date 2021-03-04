@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7c37fbead3f7b87da16e77caeda8286d05ca628b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035139"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Szybki Start: kompilowanie i wdrażanie aplikacji w chmurze Azure wiosennej
 
@@ -143,7 +143,7 @@ Aby przetestować aplikację, Wyślij żądanie HTTP GET do `solar-system-weathe
 1. Aby przypisać punkt końcowy, uruchom następujące polecenie.
 
    ```azurecli
-   az spring-cloud app update -n solar-system-weather --is-public true
+   az spring-cloud app update -n solar-system-weather --assign-endpoint true
    ```
 
 1. Aby uzyskać adres URL punktu końcowego, uruchom następujące polecenie.
@@ -222,7 +222,7 @@ Kompilowanie projektu trwa około 5 minut. Po ukończeniu należy mieć pojedync
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Tworzenie mikrousług chmurowych w chmurze platformy Azure przy użyciu plików JAR utworzonych w poprzednim kroku. Utworzysz trzy aplikacje: **brama** , **uwierzytelnianie-usługa** i **konto usługi** .
+1. Tworzenie mikrousług chmurowych w chmurze platformy Azure przy użyciu plików JAR utworzonych w poprzednim kroku. Utworzysz trzy aplikacje: **brama**, **uwierzytelnianie-usługa** i **konto usługi**.
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -245,7 +245,7 @@ Potrzebujemy sposobu na dostęp do aplikacji za pośrednictwem przeglądarki sie
 1. Przypisz punkt końcowy przy użyciu następującego polecenia:
 
     ```azurecli
-    az spring-cloud app update -n gateway --is-public true
+    az spring-cloud app update -n gateway --assign-endpoint true
     ```
 
 2. Zbadaj swój publiczny adres IP aplikacji **bramy** , aby można było sprawdzić, czy aplikacja jest uruchomiona:
@@ -306,23 +306,23 @@ Potrzebujemy sposobu na dostęp do aplikacji za pośrednictwem przeglądarki sie
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Wdrażanie aplikacji bramy w chmurze Azure wiosennej
 Aby można było wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure przy użyciu Azure Toolkit for IntelliJ i wybrać subskrypcję. Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej** .
+1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej**.
 
     ![Wdrażanie na platformie Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. W polu **Nazwa** Dołącz *: Brama* do istniejącej **nazwy** .
-1. W polu tekstowym **artefaktu** wybierz pozycję *com. piggymetrics: Gateway: 1.0-Snapshot* .
+1. W polu **Nazwa** Dołącz *: Brama* do istniejącej **nazwy**.
+1. W polu tekstowym **artefaktu** wybierz pozycję *com. piggymetrics: Gateway: 1.0-Snapshot*.
 1. W polu tekstowym **subskrypcja** Sprawdź swoją subskrypcję.
 1. W polu tekstowym **chmura Wiosenna** wybierz wystąpienie chmury Azure wiosennej, która została utworzona w ramach aprowizacji [wystąpienia chmury wiosennej platformy Azure](./spring-cloud-quickstart-provision-service-instance.md).
-1. Ustaw **publiczny punkt końcowy** , aby *włączyć* .
-1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..** ..
-1. Wprowadź *bramę* , a następnie kliknij przycisk **OK** .
+1. Ustaw **publiczny punkt końcowy** , aby *włączyć*.
+1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..**..
+1. Wprowadź *bramę*, a następnie kliknij przycisk **OK**.
 
     ![Wdróż na platformie Azure](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. W sekcji **przed uruchomieniem** okna dialogowego kliknij dwukrotnie pozycję *Uruchom Maven cel* .
+1. W sekcji **przed uruchomieniem** okna dialogowego kliknij dwukrotnie pozycję *Uruchom Maven cel*.
 1. W polu tekstowym **katalog roboczy** przejdź do folderu *piggymetrics/Gateway* .
-1. W polu tekstowym **wiersz polecenia** wprowadź polecenie *Package-DskipTests* . Kliknij pozycję **OK** .
+1. W polu tekstowym **wiersz polecenia** wprowadź polecenie *Package-DskipTests*. Kliknij przycisk **OK**.
 1. Rozpocznij wdrażanie, klikając przycisk **Uruchom** w dolnej części okna dialogowego **wdrażanie aplikacji w chmurze Azure ze sprężyną** . Wtyczka uruchomi polecenie `mvn package` w `gateway` aplikacji i Wdróż plik JAR wygenerowany przez `package` polecenie.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Wdrażanie aplikacji uwierzytelniania-usługi i konta usługi w chmurze platformy Azure
@@ -330,7 +330,7 @@ Możesz powtórzyć powyższe kroki, aby wdrożyć `auth-service` usługi i `acc
 
 1. Zmodyfikuj **nazwę** i **artefakt** , aby zidentyfikować `auth-service` aplikację.
 1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..** ., aby utworzyć `auth-service` aplikacje.
-1. Sprawdź, czy opcja **publiczny punkt końcowy** jest ustawiona na wartość *Disabled* .
+1. Sprawdź, czy opcja **publiczny punkt końcowy** jest ustawiona na wartość *Disabled*.
 1. W sekcji **przed uruchomieniem** okna dialogowego Przełącz **katalog roboczy** do folderu *piggymetrics/auth-Service* .
 1. Rozpocznij wdrażanie, klikając przycisk **Uruchom** w dolnej części okna dialogowego **wdrażanie aplikacji w chmurze Azure ze sprężyną** . 
 1. Powtórz te procedury, aby skonfigurować i wdrożyć `account-service` .

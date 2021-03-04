@@ -2,21 +2,19 @@
 title: Język Bicep dla szablonów Azure Resource Manager
 description: Opisuje język Bicep na potrzeby wdrażania infrastruktury na platformie Azure za pomocą szablonów Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747190"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036388"
 ---
 # <a name="what-is-bicep-preview"></a>Co to jest Bicep (wersja zapoznawcza)?
 
-Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure. Upraszcza to proces tworzenia, zapewniając zwięzłą składnię i lepszą obsługę modularności i kodu. Bicep to język specyficzny dla domeny (DSL), który oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Bicep nie jest zamierzeniem ogólnego języka programowania do pisania aplikacji.
+Bicep to język służący do deklaratywnego wdrażania zasobów platformy Azure. Upraszcza to proces tworzenia, zapewniając zwięzłą składnię i lepszą obsługę ponownego użycia kodu. Bicep to język specyficzny dla domeny (DSL), który oznacza, że jest przeznaczony dla określonego scenariusza lub domeny. Bicep nie jest zamierzeniem ogólnego języka programowania do pisania aplikacji.
 
-Bicep to przezroczyste streszczenie za pośrednictwem szablonów Azure Resource Manager (szablony ARM). Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+W przeszłości opracowano Azure Resource Manager szablonów (szablony ARM) w formacie JSON. Składnia JSON dla tworzenia szablonu może być pełna i wymaga wyrażenia złożonego. Bicep Ulepsza ten proces bez utraty możliwości szablonu JSON. Jest to przezroczyste streszczenie w formacie JSON dla szablonów ARM. Każdy plik Bicep kompiluje się do standardowego szablonu ARM. Typy zasobów, wersje interfejsu API i właściwości, które są prawidłowe w szablonie ARM, są prawidłowe w pliku Bicep.
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
@@ -30,7 +28,26 @@ Jeśli masz istniejący szablon ARM do przekonwertowania na Bicep, zobacz [dekom
 
 ## <a name="bicep-improvements"></a>Udoskonalenia Bicep
 
-Bicep oferuje łatwiejszy i bardziej zwięzłą składnię w porównaniu z równoważnym formatem JSON. Nie można używać `[...]` wyrażeń. Zamiast tego można bezpośrednio wywoływać funkcje, pobierać wartości z parametrów i zmiennych oraz zasobów referencyjnych. Aby zapoznać się z pełnym porównaniem składni, zobacz [porównanie JSON i Bicep dla szablonów](compare-template-syntax.md).
+Bicep oferuje łatwiejszy i bardziej zwięzłą składnię w porównaniu z równoważnym formatem JSON. Nie można używać `[...]` wyrażeń. Zamiast tego należy bezpośrednio wywołać funkcje i uzyskać wartości z parametrów i zmiennych. Każdy wdrożony zasób należy nadać nazwie symbolicznej, co ułatwia odwoływanie się do tego zasobu w szablonie.
+
+Na przykład poniższy kod JSON zwraca wartość wyjściową z właściwości zasobu.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+Równoważne wyrażenie wyjściowe w Bicep jest łatwiejsze do zapisu. Poniższy przykład zwraca tę samą właściwość przy użyciu nazwy symbolicznej **przywołującym element publicip** dla zasobu, który jest zdefiniowany w ramach szablonu:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Aby zapoznać się z pełnym porównaniem składni, zobacz [porównanie JSON i Bicep dla szablonów](compare-template-syntax.md).
 
 Bicep automatycznie zarządza zależnościami między zasobami. Można uniknąć ustawienia `dependsOn` , gdy Nazwa symboliczna zasobu jest używana w innej deklaracji zasobu.
 

@@ -2,17 +2,16 @@
 title: Archiwizowanie danych z obszaru roboczego Log Analytics w usłudze Azure Storage przy użyciu aplikacji logiki
 description: Opisuje metodę, aby użyć Azure Logic Apps do wykonywania zapytań dotyczących danych z obszaru roboczego Log Analytics i wysyłania do usługi Azure Storage.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700647"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035691"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Archiwizowanie danych z obszaru roboczego Log Analytics w usłudze Azure Storage przy użyciu aplikacji logiki
 W tym artykule opisano metodę używania [Azure Logic Apps](../../logic-apps/index.yml) do wykonywania zapytań dotyczących danych z log Analytics obszaru roboczego w Azure monitor i wysyłania do usługi Azure Storage. Tego procesu należy użyć, gdy trzeba wyeksportować dane dziennika Azure Monitor na potrzeby scenariuszy inspekcji i zgodności albo zezwolić innej usłudze na pobieranie tych danych.  

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d46a20079919f052ed343c9702ba02ce7f109b5c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545942"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "102036178"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -107,7 +107,7 @@ Wróć do okna programu Visual Studio, w którym projekt _**AdtE2ESample**_ jest
 
 Przed opublikowaniem aplikacji dobrym pomysłem jest upewnienie się, że Twoje zależności są aktualne, aby upewnić się, że masz najnowszą wersję wszystkich dołączonych pakietów.
 
-W okienku *Eksplorator rozwiązań* rozwiń pozycję *SampleFunctionsApp > zależności*. Wybierz pozycję *pakiety* , a następnie wybierz pozycję *Zarządzaj pakietami NuGet.*...
+W okienku *Eksplorator rozwiązań* rozwiń pozycję _**SampleFunctionsApp** > zależności_. Wybierz pozycję *pakiety* , a następnie wybierz pozycję *Zarządzaj pakietami NuGet.*...
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Zarządzanie pakietami NuGet dla projektu SampleFunctionsApp" border="false":::
 
@@ -131,15 +131,17 @@ W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie apl
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
-Dane wyjściowe to lista ustawień funkcji platformy Azure, która powinna zawierać wpis o nazwie *ADT_SERVICE_URL*.
+Dane wyjściowe to lista ustawień funkcji platformy Azure, która powinna zawierać wpis o nazwie **ADT_SERVICE_URL**.
 
-Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole *principalId* w danych wyjściowych.
+Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Wyszukaj pole **principalId** w danych wyjściowych.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Użyj wartości *principalId* z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Użyj wartości **principalId** z danych wyjściowych w poniższym poleceniu, aby przypisać tożsamość aplikacji funkcji do roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -176,7 +178,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 Dane wyjściowe tego polecenia to informacje o utworzonym Centrum IoT Hub.
 
-Zapisz nazwę nadaną do centrum IoT Hub. Użyjesz jej później.
+Zapisz **nazwę** nadaną do centrum IoT Hub. Użyjesz jej później.
 
 ### <a name="connect-the-iot-hub-to-the-azure-function"></a>Łączenie Centrum IoT Hub z funkcją platformy Azure
 
@@ -269,7 +271,10 @@ W otwartym oknie konsoli projektu uruchom następujące polecenie, aby uzyskać 
 ObserveProperties thermostat67 Temperature
 ```
 
-Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane w konsoli co 10 sekund.
+Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane co dwie sekundy.
+
+>[!NOTE]
+> Propagowanie danych z urządzenia do przędzy może potrwać kilka sekund. Pierwsze odczyty temperatury mogą być widoczne jako 0 przed rozpoczęciem odbierania danych.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Dane wyjściowe konsoli pokazujące dziennik komunikatów o temperaturze z cyfrowych przędzy thermostat67":::
 
@@ -327,7 +332,7 @@ Poszukaj `provisioningState` pola w danych wyjściowych i sprawdź, czy wartoś�
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Wynik zapytania punktu końcowego, który pokazuje punkt końcowy z provisioningStateem zakończonym powodzeniem":::
 
-Zapisz nazwy, które zostały nadaną w temacie usługi Event Grid, i punkt końcowy Event Grid w usłudze Azure Digital bliźniaczych reprezentacji. Będziesz ich używać później.
+Zapisz nazwy, które zostały nadaną w **temacie usługi Event Grid** , i **punkt końcowy** Event Grid w usłudze Azure Digital bliźniaczych reprezentacji. Będziesz ich używać później.
 
 ### <a name="set-up-route"></a>Konfigurowanie trasy
 
@@ -346,7 +351,7 @@ Danymi wyjściowymi tego polecenia są pewne informacje o tworzonej trasie.
 
 Następnie Zasubskrybuj funkcję *ProcessDTRoutedData* platformy Azure w utworzonym wcześniej temacie usługi Event Grid, aby dane telemetryczne mogły być przesyłane z sznurów *thermostat67ych* za pośrednictwem usługi Event Grid do funkcji, która powraca do programu Azure Digital bliźniaczych reprezentacji i odpowiednio aktualizuje siatkę *room21* .
 
-W tym celu utworzysz **subskrypcję Event gridową** z tematu usługi Event Grid do funkcji *ProcessDTRoutedData* platformy Azure jako punktu końcowego.
+W tym celu utworzysz **subskrypcję Event Grid** , która będzie wysyłać dane z tematu usługi **Event Grid** utworzonego wcześniej do funkcji *ProcessDTRoutedData* platformy Azure.
 
 W [Azure Portal](https://portal.azure.com/)przejdź do tematu usługi Event Grid, wyszukując jego nazwę na górnym pasku wyszukiwania. Wybierz pozycję *+ Subskrypcja zdarzeń*.
 
@@ -381,7 +386,7 @@ W otwartym oknie konsoli projektu uruchom następujące polecenie, aby uzyskać 
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane w konsoli co 10 sekund. Należy zauważyć, że temperatura *room21* jest aktualizowana w celu dopasowania do aktualizacji *thermostat67*.
+Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane co dwie sekundy. Należy zauważyć, że temperatura *room21* jest aktualizowana w celu dopasowania do aktualizacji *thermostat67*.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Dane wyjściowe konsoli pokazujące dziennik komunikatów temperatury, z termostatu i pokoju":::
 

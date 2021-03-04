@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569768"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035878"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania aparatu do usługi Azure Front drzwiczk
 
@@ -142,7 +142,7 @@ Operator | Adres URL żądania | Przekształcanie wielkości liter
 
 #### <a name="key-information"></a>Informacje o kluczu
 
-- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: * https://www . \<yourdomain\> . Model com*.
+- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: `https://www.<yourdomain\>.com`.
 
 ## <a name="request-file-extension"></a>Rozszerzenie pliku żądania
 
@@ -181,6 +181,10 @@ Identyfikuje żądania, które zawierają określoną ścieżkę w adresie URL �
 Operator | Wartość | Przekształcanie wielkości liter
 ---------|-------|---------------
 [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+
+#### <a name="key-information"></a>Informacje o kluczu
+
+- W przypadku użycia tego warunku reguły należy zauważyć, że dopasowanie rozpoczyna się po pierwszej `/` ścieżce. Na przykład: `https://www.<yourdomain>.com/folder/page` zacznie dopasowywać w dniu `folder/page` .
 
 ## <a name="standard-operator-list"></a>Standardowa lista operatorów
 

@@ -2,15 +2,15 @@
 title: Często zadawane pytania dotyczące szablonu ARM
 description: Często zadawane pytania dotyczące szablonów Azure Resource Manager (szablony ARM).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036144"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -88,7 +88,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Słyszę, że pracujesz nad nowym szablonem szablonu. Gdzie mogę dowiedzieć się więcej na ten temat?**
 
-  Aby wyświetlić podgląd nowego języka, zobacz [repozytorium Project Bicep](https://github.com/Azure/bicep). Aby otrzymywać informacje o nowym języku, [zarejestruj się w celu otrzymywania powiadomień](https://aka.ms/armLangUpdates).
+  Aby dowiedzieć się więcej o nowym języku, zobacz [co to jest Bicep (wersja zapoznawcza)?](bicep-overview.md).
 
 * **Czy istnieje plan obsługi tworzenia szablonów w programie YAML?**
 
@@ -100,7 +100,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy oferujesz narzędzie do konwersji szablonów JSON do nowego języka szablonów?**
 
-  Tak.
+  Tak. Zobacz [dekompilacja JSON do Bicep](compare-template-syntax.md#decompile-json-to-bicep).
 
 ## <a name="template-specs"></a>Specyfikacje szablonu
 

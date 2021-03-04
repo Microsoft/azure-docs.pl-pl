@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć połączenie SSH z węzłami klastra us
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 96334985862c65000d783df3a205406f046be07a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7455b98348f2b8c40f2ffc125abe1297af88fbd8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740549"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034459"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z węzłami klastra usługi Azure Kubernetes Service w celu konserwacji lub rozwiązywania problemów
 
@@ -168,7 +168,7 @@ Aby utworzyć połączenie SSH z węzłem AKS, należy uruchomić pomocnika w kl
 1. Wróć do sesji terminala do kontenera, zaktualizuj uprawnienia do skopiowanego `id_rsa` prywatnego klucza SSH, tak aby był on tylko do odczytu:
 
     ```console
-    chmod 0600 id_rsa
+    chmod 0400 id_rsa
     ```
 
 1. Utwórz połączenie SSH z węzłem AKS. Ponownie domyślna nazwa użytkownika dla węzłów AKS to *azureuser*. Zaakceptuj monit, aby kontynuować połączenie, ponieważ klucz SSH jest najpierw zaufany. Następnie zostanie wyświetlony monit bash węzła AKS:
