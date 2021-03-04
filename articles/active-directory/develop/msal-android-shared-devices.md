@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: 85f8b340635354d4bb0f28f2b3d79b617bd897f8
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754888"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038581"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem Android
 
@@ -34,7 +34,7 @@ Tryb udostępnionego urządzenia udostępnia również zarządzanie tożsamości
 Aby utworzyć aplikację trybu udostępnionego urządzenia, deweloperzy i Administratorzy urządzeń w chmurze współpracują ze sobą:
 
 - Deweloperzy piszą aplikację jednokontową (aplikacje z wieloma kontami nie są obsługiwane w trybie udostępnionego urządzenia), dodają `"shared_device_mode_supported": true` do konfiguracji aplikacji i zapisują kod do obsługi takich elementów jak udostępnione urządzenie do wylogowania.
-- Administratorzy urządzeń przygotowuje urządzenie do udostępnienia przez zainstalowanie aplikacji Authenticator i ustawienie trybu udostępniania urządzenia przy użyciu aplikacji Authenticator. Tylko użytkownicy znajdujący się w roli [administratora urządzenia w chmurze](../roles/permissions-reference.md#cloud-device-administrator-permissions) mogą umieścić urządzenie w trybie udostępniania przy użyciu [aplikacji Authenticator](../user-help/user-help-auth-app-overview.md). Członkostwo w rolach organizacyjnych można skonfigurować w Azure Portal za pośrednictwem: **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**.
+- Administratorzy urządzeń przygotowuje urządzenie do udostępnienia przez zainstalowanie aplikacji Authenticator i ustawienie trybu udostępniania urządzenia przy użyciu aplikacji Authenticator. Tylko użytkownicy znajdujący się w roli [administratora urządzenia w chmurze](../roles/permissions-reference.md#cloud-device-administrator) mogą umieścić urządzenie w trybie udostępniania przy użyciu [aplikacji Authenticator](../user-help/user-help-auth-app-overview.md). Członkostwo w rolach organizacyjnych można skonfigurować w Azure Portal za pośrednictwem: **Azure Active Directory**  >  **role i Administratorzy**  >  **administrator urządzeń w chmurze**.
 
  Ten artykuł koncentruje się głównie na tym, co deweloperzy powinni wziąć pod uwagę.
 

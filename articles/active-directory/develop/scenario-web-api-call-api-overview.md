@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 03/03/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a66f0a2de1d8239baffbe53dfb5d6f2dd275d448
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 376c61f6a5ba94492cac26950465c61e3d8fe4ed
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756337"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038564"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenariusz: internetowy interfejs API, który wywołuje interfejsy API sieci Web
 
@@ -30,9 +30,7 @@ W tym scenariuszu, w którym chroniony internetowy interfejs API wywołuje inne 
 ## <a name="overview"></a>Omówienie
 
 - Klient sieci Web, pulpitu, aplikacji mobilnej lub jednostronicowej (niereprezentowanej na towarzyszącym diagramie) wywołuje chroniony internetowy interfejs API i udostępnia token okaziciela sieci Web w formacie JSON (JWT) w nagłówku HTTP "Authorization".
-- Chroniony internetowy interfejs API sprawdza token i używa metody Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` w celu zażądania innego tokenu z Azure Active Directory (Azure AD), aby chroniony internetowy interfejs API mógł wywołać drugi internetowy interfejs API lub podrzędny interfejs API sieci Web w imieniu użytkownika.
-- Chroniony internetowy interfejs API może również wywołać `AcquireTokenSilent` później, aby zażądać tokenów innych podrzędnych interfejsów API w imieniu tego samego użytkownika. `AcquireTokenSilent` Odświeża token w razie konieczności.
-
+- Chroniony internetowy interfejs API sprawdza token i używa metody Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` w celu zażądania innego tokenu z Azure Active Directory (Azure AD), aby chroniony internetowy interfejs API mógł wywołać drugi internetowy interfejs API lub podrzędny interfejs API sieci Web w imieniu użytkownika. `AcquireTokenOnBehalfOf` Odświeża token w razie konieczności.
 ![Diagram interfejsu API sieci Web wywołującego interfejs API sieci Web](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>Szczegółowych informacji

@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704433"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040247"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Uaktualnianie z programu Application Insights Java 2. x SDK
 
@@ -219,11 +219,24 @@ W przypadku niektórych aplikacji można nadal preferować widok zagregowany w U
 
 Wcześniej w zestawie SDK 2. x nazwa operacji w telemetrii żądania została również ustawiona dla telemetrii zależności.
 Application Insights Java 3,0 nie wypełnia już nazwy operacji na telemetrii zależności.
-Jeśli chcesz zobaczyć nazwę operacji dla żądania, które jest elementem nadrzędnym telemetrii zależności, możesz napisać zapytanie dzienników (Kusto), aby dołączyć z tabeli zależności do tabeli żądania.
+Jeśli chcesz zobaczyć nazwę operacji dla żądania, które jest elementem nadrzędnym telemetrii zależności, możesz napisać zapytanie dzienników (Kusto), aby dołączyć z tabeli zależności do tabeli żądań, np.
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>dołączenia dzienników zestawu SDK 2. x
 
-Agent 3,0 przeprowadza [autozbieranie informacji o rejestrowaniu](./java-standalone-config#auto-collected-logging) bez konieczności konfigurowania dołączania dzienników.
+Agent 3,0 przeprowadza [autozbieranie informacji o rejestrowaniu](./java-standalone-config.md#auto-collected-logging) bez konieczności konfigurowania dołączania dzienników.
 Jeśli używasz dołączeń do dzienników zestawu SDK 2. x, można je usunąć, ponieważ mimo to zostaną one pominięte przez agenta 3,0.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>rozruch z zestawu SDK 2. x z sprężyną Starter

@@ -3,13 +3,13 @@ title: Włączanie szyfrowania opartego na hoście w usłudze Azure Kubernetes S
 description: Dowiedz się, jak skonfigurować szyfrowanie oparte na hoście w klastrze usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 03/03/2021
+ms.openlocfilehash: 66e71dfd6a76fb4e6b464eb5c44dcc809fb9be38
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071854"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039737"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -26,6 +26,13 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 - Upewnij się, że masz `aks-preview` zainstalowaną 0.4.73 lub nowszą wersję rozszerzenia interfejsu wiersza polecenia.
+- Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
+
+Aby można było używać szyfrowania na hoście dla maszyn wirtualnych lub zestawów skalowania maszyn wirtualnych, należy włączyć tę funkcję w ramach subskrypcji. Wyślij wiadomość e-mail **encryptionAtHost@microsoft.com** z identyfikatorami subskrypcji, aby włączyć funkcję dla subskrypcji. 
+
+> [!IMPORTANT]
+> Musisz wysłać wiadomość e-mail **encryptionAtHost@microsoft.com** z identyfikatorami subskrypcji, aby włączyć funkcję dla zasobów obliczeniowych. Nie można włączyć go samodzielnie w przypadku zasobów obliczeniowych.
+
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 

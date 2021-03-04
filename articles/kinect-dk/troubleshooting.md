@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Rozwiązywanie problemów, aktualizacja, usterka, urządzenia Kinect, opinie, odzyskiwanie, rejestrowanie, porady
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587285"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038824"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Znane problemy i rozwiązywanie problemów z platformą Azure urządzenia Kinect
 
@@ -98,7 +98,7 @@ Rejestrowanie dla K4ABT.dll zestawu SDK śledzenia treści jest podobne, z tą r
 
 ## <a name="azure-kinect-viewer-fails-to-open"></a>Nie można otworzyć podglądu usługi Azure urządzenia Kinect
 
-- Najpierw należy sprawdzić, czy urządzenie wylicza w systemie Windows Menedżer urządzeń.
+- Najpierw należy sprawdzić, czy urządzenie wylicza w systemie Windows Device Manager.
 
     ![Aparaty urządzenia Kinect platformy Azure w Menedżerze urządzeń systemu Windows](./media/resources/viewer-fails.png)
 
@@ -113,9 +113,9 @@ Rejestrowanie dla K4ABT.dll zestawu SDK śledzenia treści jest podobne, z tą r
 
 ## <a name="cannot-find-microphone"></a>Nie można znaleźć mikrofonu
 
-- Najpierw sprawdź, czy tablica mikrofonów jest wyliczona w Menedżer urządzeń.
+- Najpierw sprawdź, czy tablica mikrofonów jest wyliczona w Device Manager.
 - Jeśli urządzenie jest wyliczane i działa prawidłowo w systemie Windows, może to być problem, który po aktualizacji oprogramowania układowego systemu Windows przypisał inny identyfikator kontenera do aparatu.
-- Możesz spróbować zresetować go, przechodząc do Menedżer urządzeń, klikając prawym przyciskiem myszy pozycję "tablica mikrofonów Azure urządzenia Kinect" i wybierając pozycję "Odinstaluj urządzenie". Po zakończeniu odłączania i ponownego dołączania czujnika.
+- Możesz spróbować zresetować go, przechodząc do Device Manager, klikając prawym przyciskiem myszy pozycję "tablica mikrofonów Azure urządzenia Kinect" i wybierając pozycję "Odinstaluj urządzenie". Po zakończeniu odłączania i ponownego dołączania czujnika.
 
     ![Tablica MIC usługi Azure urządzenia Kinect](./media/resources/mic-not-found.png)
 
@@ -148,7 +148,7 @@ W przypadku platformy Azure urządzenia Kinect DK w systemach **Windows, Intel**
 
 Temat kontrolerów hosta USB jest jeszcze bardziej skomplikowany, gdy na komputerze jest zainstalowany więcej niż jeden kontroler hosta. Gdy kontrolery hosta są mieszane, użytkownik może napotkać problemy, w których niektóre porty działają prawidłowo i inne nie działają. W zależności od tego, jak porty są połączone z przypadkiem, mogą zostać wyświetlone wszystkie porty frontonu z usługą Azure urządzenia Kinect
 
-**System Windows:** Aby dowiedzieć się, jaki kontroler hosta został otwarty Menedżer urządzeń
+**System Windows:** Aby dowiedzieć się, jaki kontroler hosta został otwarty Device Manager
 
 1. Wyświetl > urządzenia według typu 
 2. Dzięki połączeniu z usługą Azure urządzenia Kinect wybierz kamerę — >Azure urządzenia Kinect
@@ -174,6 +174,10 @@ Aparat głębokości usługi Azure urządzenia Kinect w systemie Linux używa te
 2. Wyłącz system, Odłącz monitor i Włącz system. Automatyczne logowanie wymusza utworzenie sesji x-Server.
 2. Nawiązywanie połączenia za pośrednictwem protokołu SSH i Ustawianie zmiennej ENV `export DISPLAY=:0`
 3. Uruchom aplikację Azure urządzenia Kinect.
+
+Narzędzie [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) może być używane do natychmiastowego blokowania ekranu po automatycznym logowaniu. Dodaj następujące polecenie do aplikacji startowej lub usługi systemowej:
+
+`bash -c “xtrlock -b”` 
 
 ## <a name="missing-c-documentation"></a>Brakująca Dokumentacja języka C#
 

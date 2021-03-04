@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 402714b55d7513e41458503b12c68768d0c6ad5e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 20b8e354d0c8e2e04cf22d1b8014f5b8e33a860c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747017"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038870"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Dodawanie obsługi protokołu IPv6 do prywatnej komunikacji równorzędnej przy użyciu Azure PowerShell (wersja zapoznawcza)
 
@@ -60,8 +60,8 @@ Twoje żądanie zostanie zatwierdzone przez zespół ExpressRoute w ciągu 2-3 d
 
 3. Dodaj prywatną komunikację równorzędną IPv6 do istniejącej konfiguracji prywatnej komunikacji równorzędnej IPv4. Podaj parę podsieci IPv6/126, które są używane dla linku podstawowego i linki pomocnicze. Z każdej z tych podsieci zostanie przypisany pierwszy, przydatny adres IP do routera, ponieważ firma Microsoft używa drugiego adresu IP do użycia dla jego routera.
 
-> [!Note]
-> Elementy równorzędne ASN i VlanId powinny być zgodne z ustawieniami w konfiguracji prywatnej komunikacji równorzędnej w protokole IPv4.
+    > [!Note]
+    > Elementy równorzędne ASN i VlanId powinny być zgodne z ustawieniami w konfiguracji prywatnej komunikacji równorzędnej w protokole IPv4.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -175,6 +175,7 @@ Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w reg
 * Połączenia z wdrożeniami na platformie Azure za pośrednictwem jednostki SKU bramy ExpressRoute
 * Połączenia z wdrożeniami w regionach innych niż AZ
 * Global Reach połączenia między obwodymi usługi ExpressRoute
+* Korzystanie z ExpressRoute z vWAN
 
 ## <a name="next-steps"></a>Następne kroki
 

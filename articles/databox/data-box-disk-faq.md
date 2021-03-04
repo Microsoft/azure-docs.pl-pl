@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
-ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724833"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039108"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -55,7 +55,7 @@ A. Na pięć dysków, z których każda ma pojemność 8 TB (7 TB pojemności do
 A.  Aby sprawdzić, gdzie urządzenie Data Box dyski są obecnie dostępne, przejdź do [obszaru dostępność w regionie](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>PYTANIE: W jakich regionach mogę zapisać dane, korzystając z usługi Data Box Disk?
-A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Kanadzie, Australii, Europa Zachodnia i Europa Północna, Korea i Japonia. Obsługiwane są tylko regiony chmury publicznej Azure. Usługa Azure Government ani inne suwerenne chmury nie są obsługiwane.
+A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Kanadzie, EU, ZJEDNOCZONYm, Australii, Singapur, Indie, Chiny, Hongkong SAR, Japonia, Korea i Republika Południowej Afryki. Obsługiwane są tylko regiony chmury publicznej Azure. Usługa Azure Government ani inne suwerenne chmury nie są obsługiwane.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>PYTANIE: Jak mogę zaimportować dane źródłowe w mojej lokalizacji w jednym kraju/regionie do regionu świadczenia usługi Azure w innym kraju?
 A. Data Box Disk obsługuje pozyskiwanie danych tylko w obrębie tego samego kraju/regionu co ich miejsce docelowe i nie będzie przekraczać granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), gdzie urządzenie Data Box dyski mogą być dostarczane do i z dowolnego kraju/regionu UE.
@@ -199,7 +199,7 @@ A.  Aby przyspieszyć proces kopiowania:
 - Skopiuj pliki na dysk maszyny wirtualnej.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>PYTANIE: Czy mogę używać wielu kont magazynu z urządzeniami Data Box Disk?
-A.  Nie. Obecnie na potrzeby urządzeń Data Box Disk jest obsługiwane tylko jedno konto magazynu, ogólne lub klasyczne. Obsługiwane są obiekty blob zarówno w warstwie Gorąca, jak i Chłodna. Obecnie są obsługiwane tylko konta magazynu w regionach Stanów Zjednoczonych oraz regionach Europa Zachodnia i Europa Północna chmury publicznej platformy Azure.
+A.  Nie. Obecnie na potrzeby urządzeń Data Box Disk jest obsługiwane tylko jedno konto magazynu, ogólne lub klasyczne. Obsługiwane są obiekty blob zarówno w warstwie Gorąca, jak i Chłodna.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>PYTANIE: Jaki zestaw narzędzi jest dostępny dla moich danych na urządzeniach Data Box Disk?
 A. Zestaw narzędzi dostępny na urządzeniu Data Box Disk zawiera trzy narzędzia:

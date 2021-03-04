@@ -3,14 +3,14 @@ title: Jak wykonywać zapytania dotyczące prognoz przy użyciu przeglądarki �
 description: W tym artykule Użyj dostępnej publicznej aplikacji LUIS, aby określić zamiar użytkownika w przeglądarce.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 11/30/2020
-ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: a3bad4ab69f6950f83db9cf1f49cfa4cb7c7b5f0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436916"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040128"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Jak wykonać zapytanie o środowisko uruchomieniowe przewidywania z tekstem użytkownika
 
@@ -171,7 +171,7 @@ Aby można było wykonywać zapytania dotyczące aplikacji publicznej, potrzebne
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 * [Punkt końcowy przewidywania v3](luis-migration-api-v3.md)
 * [Niestandardowe poddomeny](../cognitive-services-custom-subdomains.md)
 

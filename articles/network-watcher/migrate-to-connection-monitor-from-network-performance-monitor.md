@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: e5053284de18740b761df3e5df256cc79d2e8f1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e95f6fdff164a6f5f9d4af4f19b1876d1483a70c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698692"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038717"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migrowanie do monitora połączeń z Network Performance Monitor
 
@@ -41,7 +41,7 @@ Migracja pomaga generować następujące wyniki:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Upewnij się, że w subskrypcji i regionie obszaru roboczego Log Analytics jest włączona Network Watcher. 
-* W przypadku korzystania z maszyny wirtualnej platformy Azure należącej do innego regionu/subskrypcji niż Log Analytics obszarze roboczym upewnij się, że Network Watcher jest włączona dla tej subskrypcji i regionu.   
+* Jeśli maszyna wirtualna platformy Azure należąca do innego regionu/subskrypcji niż Log Analytics obszar roboczy jest używana jako punkt końcowy, upewnij się, że Network Watcher jest włączona dla tej subskrypcji i regionu.   
 * Maszyny wirtualne platformy Azure z zainstalowanymi agentami Log Analytics muszą być włączone przy użyciu rozszerzenia Network Watcher.
 
 ## <a name="migrate-the-tests"></a>Migrowanie testów

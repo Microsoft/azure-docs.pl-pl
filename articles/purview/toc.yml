@@ -122,8 +122,6 @@ items:
             href: how-to-create-import-export-glossary.md
           - name: Zarządzanie szablonami terminów
             href: how-to-manage-term-templates.md
-          - name: Edycja zbiorcza zasobów w celu przypisania terminów słownika
-            href: how-to-bulk-edit-assets.md
       - name: Edycja zbiorcza
         items:
           - name: Zbiorcze edytowanie zasobów do adnotacji i kontaktów tagów

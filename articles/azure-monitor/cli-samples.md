@@ -1,18 +1,17 @@
 ---
 title: Przykłady interfejsu wiersza polecenia Azure Monitor
 description: Przykłady poleceń interfejsu wiersza polecenia dla Azure Monitor funkcji. Azure Monitor to usługa Microsoft Azure, która umożliwia wysyłanie powiadomień o alertach, wywoływanie internetowych adresów URL na podstawie wartości skonfigurowanych danych telemetrycznych oraz automatyczne skalowanie Cloud Services, Virtual Machines i Web Apps.
-ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 196a1d580bd5888a6604c3f98b108e39c08a3412
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eaf8c2e140f0b323db0c20a2e9946884c51df04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628484"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039176"
 ---
 # <a name="azure-monitor-cli-samples"></a>Przykłady interfejsu wiersza polecenia Azure Monitor
 W tym artykule przedstawiono przykładowe polecenia interfejsu wiersza polecenia (CLI) ułatwiające dostęp do funkcji Azure Monitor. Azure Monitor pozwala na automatyczne skalowanie Cloud Services, Virtual Machines i Web Apps oraz wysyłanie powiadomień o alertach lub wywoływanie adresów URL sieci Web na podstawie wartości skonfigurowanych danych telemetrycznych.

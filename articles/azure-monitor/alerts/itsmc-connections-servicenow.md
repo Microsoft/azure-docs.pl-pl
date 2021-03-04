@@ -1,17 +1,16 @@
 ---
 title: Połącz usługi ServiceNow z łącznik zarządzania usługami IT
 description: Dowiedz się, jak połączyć usługi ServiceNow z łącznik zarządzania usługami IT (ITSMC) w Azure Monitor, aby centralnie monitorować elementy robocze narzędzia ITSM i zarządzać nimi.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: daaaf25bc1739b57d4696dc8978a330b00b08f70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 51d16ae53e34dacfc41e3d31b01115f9c55ca9f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617950"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039550"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Połącz usługi ServiceNow z łącznik zarządzania usługami IT
 

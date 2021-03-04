@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: fdc3a94c081d8a02725f145fc6b20ace4c1731ce
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8bcdb87e04d90aeb3d807e43c53e74d74299091b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090557"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040009"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Co to jest platforma Apache Spark w usłudze Azure HDInsight
 
@@ -26,7 +26,7 @@ Platforma Spark udostępnia typom pierwotnym możliwość używania klastrów ob
 
 Klastry Spark w usłudze HDInsight oferują w pełni zarządzaną usługę Spark. Poniżej przedstawiono korzyści związane z utworzeniem klastra Spark w usłudze HDInsight.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Łatwość tworzenia |Nowy klaster Spark w usłudze HDInsight można utworzyć w kilka minut przy użyciu witryny Azure Portal, programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Zobacz Rozpoczynanie [pracy z klastrem Apache Spark w usłudze HDInsight](apache-spark-jupyter-spark-sql-use-portal.md). |
 | Łatwość użycia |Klaster Spark w usłudze HDInsight obejmuje notesy Jupyter i Apache Zeppelin. Można ich używać do interakcyjnego przetwarzania danych i wizualizacji. Zobacz [Korzystanie z notesów Apache Zeppelin z Apache Spark](apache-spark-zeppelin-notebook.md) i [ładowanie danych i uruchamianie zapytań w klastrze Apache Spark](apache-spark-load-data-run-query.md).|
@@ -50,7 +50,7 @@ Klastry Apache Spark w usłudze HDInsight obejmują następujące składniki, kt
 * [Jupyter Notebook](https://jupyter.org)
 * [Notes Apache Zeppelin](http://zeppelin-project.org/)
 
-Klastry HDInsight Spark są [sterownikiem ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) do łączności z narzędziami analizy biznesowej, takimi jak Microsoft Power BI.
+Klastry HDInsight Spark są [sterownikiem ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server) do łączności z narzędziami analizy biznesowej, takimi jak Microsoft Power BI.
 
 ## <a name="spark-cluster-architecture"></a>Architektura klastra Spark
 

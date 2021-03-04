@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691828"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039924"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -106,10 +106,7 @@ W tej sekcji dowiesz się, jak Azure Machine Learning bezpiecznie komunikuje si�
 
 1. Usługa Azure Batch Services odbierze zadanie z obszaru roboczego i prześle zadanie szkolenia do środowiska obliczeniowego za pośrednictwem publicznego modułu równoważenia obciążenia, który został zainicjowany przy użyciu zasobu obliczeniowego. 
 
-1. Zasób obliczeniowy otrzymuje zadanie i rozpocznie szkolenie. Zasoby obliczeniowe uzyskują dostęp do kont bezpiecznego magazynu, aby pobierać pliki szkoleniowe i przesyłać dane wyjściowe. 
-
-![Diagram architektury pokazujący, jak zostanie przesłane zadanie szkolenia Azure Machine Learning podczas korzystania z sieci wirtualnej](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. Zasób obliczeniowy otrzymuje zadanie i rozpocznie szkolenie. Zasoby obliczeniowe uzyskują dostęp do kont bezpiecznego magazynu, aby pobierać pliki szkoleniowe i przesyłać dane wyjściowe.
 
 ### <a name="limitations"></a>Ograniczenia
 

@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/02/2021
 ms.author: aahi
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862003"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040196"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla usługi LUIS
 
@@ -60,7 +60,7 @@ Tworzenie interfejsów API dla spakowanych aplikacji:
 
 W poniższej tabeli wymieniono minimalne i zalecane wartości dla hosta kontenerów. Wymagania mogą ulec zmianie w zależności od ilości ruchu sieciowego.
 
-|Kontener| Minimum | Zalecane | DODATEK<br>(Minimum, maksimum)|
+|Kontener| Minimum | Zalecane | TPS<br>(Minimum, maksimum)|
 |-----------|---------|-------------|--|
 |LUIS|1 rdzeń, 2 GB pamięci|1 rdzeń, 4 GB pamięci|20, 40|
 
@@ -281,7 +281,7 @@ Parametry zapytania konfigurują sposób i wartość zwracaną w odpowiedzi na z
 |`staging`|boolean|Zwraca zapytanie z wyników środowiska przejściowego, jeśli ma wartość true. |
 |`log`|boolean|Rejestruje zapytania, które mogą być używane później w przypadku [aktywnej nauki](luis-how-to-review-endpoint-utterances.md). Wartość domyślna to „true”.|
 
-**_
+***
 
 ### <a name="query-the-luis-app"></a>Wysyłanie zapytań do aplikacji LUIS
 
@@ -299,7 +299,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-Aby wykonać zapytania w środowisku _ *przemieszczania** Zastąp `production` wartość w marszrucie `staging` :
+Aby wykonać zapytania do środowiska **przejściowego** , Zastąp `production` w trasie `staging` :
 
 `http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
@@ -335,7 +335,7 @@ curl -X GET \
 ```
 Nazwa wersji ma maksymalnie 10 znaków i zawiera tylko znaki dozwolone w adresie URL.
 
-**_
+***
 
 ## <a name="import-the-endpoint-logs-for-active-learning"></a>Importowanie dzienników punktów końcowych dla usługi Active Learning
 
@@ -346,7 +346,7 @@ W następującej lokalizacji przedstawiono zagnieżdżoną strukturę katalogów
 /output/luis/{INSTANCE_ID}/
 ```
 
-W portalu LUIS wybierz aplikację, a następnie wybierz pozycję _ *Importuj dzienniki punktów końcowych*, aby przekazać te dzienniki.
+W portalu LUIS wybierz aplikację, a następnie wybierz pozycję **Importuj dzienniki punktów końcowych** , aby przekazać te dzienniki.
 
 ![Importowanie plików dziennika kontenera do usługi Active Learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

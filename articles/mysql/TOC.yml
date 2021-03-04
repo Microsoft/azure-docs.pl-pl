@@ -413,7 +413,7 @@
         - name: Co to jest serwer elastyczny?
           href: flexible-server/overview.md
         - name: Obsługiwane wersje
-          href: flexible-server/concepts-supported-versions.md
+          href: concepts-supported-versions.md
         - name: Obliczenia i magazyn
           href: flexible-server/concepts-compute-storage.md
     - name: Przewodniki Szybki start

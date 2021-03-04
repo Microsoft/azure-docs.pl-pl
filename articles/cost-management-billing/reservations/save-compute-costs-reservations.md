@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 7c2cf88eed3d8b727147f57ef9e2b52afd07de59
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602063"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039142"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -91,7 +91,8 @@ Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refund
 - **Wystąpienie zarezerwowane maszyny wirtualnej** — rezerwacja obejmuje tylko koszty obliczeń maszyny wirtualnej i usług w chmurze. Nie dotyczy dodatkowych opłat za oprogramowanie, system Windows, sieć ani magazyn.
 - **Pojemność zarezerwowana usługi Azure Storage** — rezerwacja obejmuje pojemność magazynu dla kont magazynu w warstwie Standardowa dla magazynu obiektów blob lub magazynu usługi Azure Data Lake Gen2. Rezerwacja nie obejmuje stawek za przepustowość lub transakcje.
 - **Pojemność zarezerwowana usługi Azure Cosmos DB** — rezerwacja obejmuje przepływność przydzieloną dla zasobów. Nie dotyczy opłat za magazyn i sieć.
-- **Zarezerwowany rdzeń wirtualny w usłudze SQL Database** — obejmuje zarówno usługę SQL Managed Instance, jak i pulę elastyczną usługi SQL Database/pojedynczą bazę danych. W rezerwacji są uwzględniane tylko koszty obliczeń. Opłata za licencję SQL jest naliczana oddzielnie. 
+- **Azure Data Factory przepływy danych** — rezerwacja obejmuje koszt środowiska Integration Runtime dla typu obliczenia i liczby kupionych rdzeni.
+- **Zarezerwowany rdzeń wirtualny w usłudze SQL Database** — obejmuje zarówno usługę SQL Managed Instance, jak i pulę elastyczną usługi SQL Database/pojedynczą bazę danych. W rezerwacji są uwzględniane tylko koszty obliczeń. Opłata za licencję SQL jest naliczana oddzielnie.
 - **Azure Synapse Analytics** — rezerwacja obejmuje użycie jednostek cDWU. Nie pokrywa kosztów magazynu i sieci wynikających z użycia usługi Azure Synapse Analytics.
 - **Azure Databricks** — rezerwacja obejmuje tylko użycie jednostek DBU. Pozostałe opłaty, na przykład za obliczenia, magazyn i sieć, są naliczane oddzielnie.
 - **Podatek od czynności cywilnoprawnych za korzystanie z usługi App Service** — rezerwacja obejmuje użycie sygnatury. Nie dotyczy to procesów roboczych, dlatego opłaty za inne zasoby związane z sygnaturą są naliczane oddzielnie.

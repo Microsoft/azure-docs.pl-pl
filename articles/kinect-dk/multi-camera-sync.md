@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, urządzenia Kinect, specyfikacje, sprzęt, DK, możliwości, Głębokość, kolor, RGB, IMU, tablica, Głębokość, wiele, synchronizacja
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592283"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039958"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchronizowanie wielu urządzeń z usługą Azure urządzenia Kinect DK
 
@@ -36,6 +36,9 @@ Istnieje wiele powodów, dla których można korzystać z wielu urządzeń usłu
 ## <a name="plan-your-multi-device-configuration"></a>Planowanie konfiguracji wielourządzenie
 
 Przed rozpoczęciem upewnij się, że przeglądasz [wymagania dotyczące sprzętu platformy Azure urządzenia Kinect DK](hardware-specification.md) i [aparatu głębokości Azure urządzenia Kinect DK](depth-camera.md).
+
+> [!NOTE]  
+> Usuń zewnętrzną okładki z tworzywa sztucznego, aby uwidocznić i zsynchronizować gniazda.
 
 ### <a name="select-a-device-configuration"></a>Wybierz konfigurację urządzenia
 
@@ -63,6 +66,9 @@ W obu konfiguracjach urządzenie główne zapewnia sygnał wyzwalający dla urz�
 ![Konfiguracje kabli dla zewnętrznego sygnału wyzwalacza](./media/resources/camera-trigger-signal.jpg)
 
 Aby uzyskać więcej informacji na temat pracy z urządzeniem zewnętrznym, zobacz [Korzystanie z usługi Azure urządzenia Kinect Recorder z zewnętrznymi urządzeniami synchronizowanymi](record-external-synchronized-units.md)
+
+> [!NOTE]  
+> Synchronizacja jest pionie dla aparatu RGB. Sygnatury czasowe dla wszystkich urządzeń są ustawione na zero i liczą w górę. Firma Microsoft nie charakteryzuje minimalnej i maksymalnej szerokości pulsu synchronizacji i zaleca naśladując pulsu wygenerowanego przez synchronizację z platformy Azure urządzenia Kinect DK.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Planowanie ustawień aparatu i konfiguracji oprogramowania
 

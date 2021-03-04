@@ -1,17 +1,16 @@
 ---
 title: Przykłady szablonów Menedżer zasobów dla usługi Container Insights
 description: Przykładowe szablony Azure Resource Manager umożliwiające wdrażanie i configureContainer szczegółowych informacji.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68bad5b4bfcef4f0f633bce7e3e352486aed3fdf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723337"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039193"
 ---
 # <a name="resource-manager-template-samples-for-container-insights"></a>Przykłady szablonów Menedżer zasobów dla usługi Container Insights
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do wdrożenia i skonfigurowania agenta log Analytics dla maszyn wirtualnych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.

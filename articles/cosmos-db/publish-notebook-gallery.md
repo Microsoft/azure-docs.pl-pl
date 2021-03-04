@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693213"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039329"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Publikowanie notesów w galerii notesów Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB wbudowane notesy Jupyter są bezpośrednio zintegrowane z kontami Azure Cosmos DB w Azure Portal. Korzystając z tych notesów, można analizować i wizualizować dane z Azure Portal. Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w [29 regionach](#supported-regions). Aby korzystać z notesów, [Utwórz nowe konto Cosmos](#create-a-new-cosmos-account) lub [Włącz Notesy na istniejącym koncie](#enable-notebooks-in-an-existing-cosmos-account) w jednym z tych regionów.
+Azure Cosmos DB wbudowane notesy Jupyter są bezpośrednio zintegrowane z kontami Azure Cosmos DB w Azure Portal. Korzystając z tych notesów, można analizować i wizualizować dane z Azure Portal. Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w [wielu regionach](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Aby korzystać z notesów, [Utwórz nowe konto Cosmos](create-cosmosdb-resources-portal.md) lub [Włącz Notesy na istniejącym koncie](enable-notebooks.md) w jednym z tych regionów.
 
 Środowisko notesu w Azure Portal zawiera kilka przykładów opublikowanych przez zespół Azure Cosmos DB. Zawiera również publiczną galerię, w której można publikować i udostępniać własne notesy. Po opublikowaniu notesu w galerii jest on dostępny dla wszystkich Azure Cosmos DB użytkowników do wyświetlania i używania. W tym artykule dowiesz się, jak używać notesów z publicznej galerii i publikować Notes w galerii.
 
@@ -53,7 +53,7 @@ Aby opublikować Notes, wykonaj następujące kroki:
 
    Możesz również znaleźć opcję **Publikuj w galerii** , wybierając pozycję.. **.** obok nazwy notesu:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Wybierz Notes do opublikowania w galerii.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Inne podejście do wybrania notesu do opublikowania w galerii.":::
 
 1. Wypełnij formularz **Publikuj w galerii** , podając następujące informacje:
 
@@ -61,11 +61,10 @@ Aby opublikować Notes, wykonaj następujące kroki:
    * **Opis:**  Krótki opis działania Twojego notesu.
    * **Tagi:** Tagi są opcjonalne i służą do filtrowania wyników podczas wyszukiwania według słowa kluczowego.
    * **Obraz okładki:** Obraz używany na stronie okładki po opublikowaniu notesu. Można wybrać jedną z następujących opcji:
-
-     * **Obraz niestandardowy** — możesz przekazać obraz z komputera. Wybierz plik obrazu o współczynniku proporcji 256x144.
-     * **URL** — Podaj publicznie dostępny adres URL, pod którym znajduje się obraz.
-     * **Zrób zrzut ekranu** — zrzut ekranu przedstawiający otwarty Notes jest automatycznie pobierany i przekazywany do wersji zapoznawczej.
-     * **Użyj pierwszego wyświetlenia danych wyjściowych** — dane wyjściowe pierwszej komórki, która ma wyświetlane dane wyjściowe. Komórki, w przypadku których wyświetlane są tylko dane dotyczące promocji/tekstu, nie są traktowane jako wyświetlanie danych wyjściowych.
+   * **Obraz niestandardowy** — możesz przekazać obraz z komputera. Wybierz plik obrazu o współczynniku proporcji 256x144.
+   * **URL** — Podaj publicznie dostępny adres URL, pod którym znajduje się obraz.
+   * **Zrób zrzut ekranu** — zrzut ekranu przedstawiający otwarty Notes jest automatycznie pobierany i przekazywany do wersji zapoznawczej.
+   * **Użyj pierwszego wyświetlenia danych wyjściowych** — dane wyjściowe pierwszej komórki, która ma wyświetlane dane wyjściowe. Komórki, w przypadku których wyświetlane są tylko dane dotyczące promocji/tekstu, nie są traktowane jako wyświetlanie danych wyjściowych.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Wypełnij formularz Publikuj w galerii.":::
 

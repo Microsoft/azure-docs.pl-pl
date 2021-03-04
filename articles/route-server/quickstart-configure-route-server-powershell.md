@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c56e7318e24b802ae9ad605a0c9ae5f88397ec8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680638"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039788"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Szybki Start: Tworzenie i Konfigurowanie serwera tras przy użyciu Azure PowerShell
 
@@ -70,7 +70,7 @@ Identyfikator RouteServerSubnet wygląda następująco:
 Utwórz serwer tras za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
 ```
 
 Lokalizacja musi być zgodna z lokalizacją sieci wirtualnej. HostedSubnet jest IDENTYFIKATORem RouteServerSubnet uzyskanym w poprzedniej sekcji.
@@ -80,7 +80,7 @@ Lokalizacja musi być zgodna z lokalizacją sieci wirtualnej. HostedSubnet jest 
 Użyj następującego polecenia, aby ustanowić komunikację równorzędną BGP z serwera tras do urządzenie WUS:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_asn” -RouteServerName "myRouteServer -ResourceGroupName ”RouteServerRG”
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 "nva_ip" to adres IP sieci wirtualnej przypisany do urządzenie WUS. "nva_asn" jest numerem systemu autonomicznego (ASN) skonfigurowanym w urządzenie WUS. Numer ASN może być dowolną liczbą 16-bitową inną niż te w zakresie 65515-65520. Ten zakres numerów ASN jest zarezerwowany przez firmę Microsoft.
@@ -88,7 +88,7 @@ Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_a
 Aby skonfigurować komunikację równorzędną z różnymi urządzenie WUS lub innym wystąpieniem tego samego urządzenie WUS w celu zapewnienia nadmiarowości, użyj tego polecenia:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn “nva2_asn” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 ## <a name="complete-the-configuration-on-the-nva"></a>Ukończ konfigurację na urządzenie WUS
@@ -96,7 +96,7 @@ Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn �
 Aby ukończyć konfigurację urządzenie WUS i włączyć sesje protokołu BGP, wymagany jest adres IP i ASN serwera usługi Azure Route. Te informacje można uzyskać za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterName “myRouteServer” -ResourceGroupName “RouteServerRG”
+Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 Dane wyjściowe zawierają następujące informacje:
@@ -113,13 +113,13 @@ Jeśli masz bramę ExpressRoute i bramę sieci VPN platformy Azure w tej samej s
 1. Aby włączyć wymianę tras między serwerem tras platformy Azure i bramami, użyj tego polecenia:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
 ```
 
 2. Aby wyłączyć wymianę tras między serwerem tras platformy Azure i bramami, użyj tego polecenia:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -137,13 +137,13 @@ Jeśli serwer tras platformy Azure nie jest już potrzebny, Użyj tych poleceń,
 1. Usuń komunikację równorzędną BGP między serwerem tras platformy Azure i urządzenie WUS za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Usuń serwer tras platformy Azure za pomocą tego polecenia:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## <a name="next-steps"></a>Następne kroki

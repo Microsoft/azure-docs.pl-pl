@@ -1,17 +1,16 @@
 ---
 title: Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 description: Przegląd reguł zbierania danych (DCR) w Azure Monitor, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: 0bae058804bdb1f199c39497c59e89bda8087424
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620390"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039618"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reguły zbierania danych w Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają, gdzie mają być wysyłane lub przechowywane dane. Ten artykuł zawiera omówienie zasad zbierania danych, w tym ich zawartości i struktury, oraz sposobu tworzenia i pracy z nimi.
