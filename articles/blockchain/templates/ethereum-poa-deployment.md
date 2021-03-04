@@ -1,16 +1,16 @@
 ---
 title: Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia i skonfigurowania wieloskładnikowej sieci Ethereum konsorcjum na platformie Azure
-ms.date: 07/23/2020
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-js
-ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 70c9498bae9117585963e111bea4f1e127cab232
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024402"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097945"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -48,9 +48,7 @@ Każde wdrożenie składowe konsorcjum obejmuje:
 * Azure Monitor agregowania dzienników i statystyk wydajności
 * Brama sieci wirtualnej (opcjonalnie) do zezwalania na połączenia VPN między prywatnym sieci wirtualnych
 
-Domyślnie punkty końcowe wywołań RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między
-
-Subskrypcje i chmury. W przypadku kontroli dostępu na poziomie aplikacji można użyć [kontraktów z uprawnieniami z parzystością](https://openethereum.github.io/Permissioning.html). Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
+Domyślnie punkty końcowe wywołania RPC i komunikacji równorzędnej są dostępne za pośrednictwem publicznego adresu IP, aby umożliwić uproszczoną łączność między subskrypcjami i chmurami. W przypadku kontroli dostępu na poziomie aplikacji można użyć [kontraktów z uprawnieniami z parzystością](https://openethereum.github.io/Permissioning.html). Sieci, które są wdrożone za pośrednictwem sieci VPN, są obsługiwane w przypadku łączności między subskrypcjami. Ze względu na to, że wdrożenia VPN i sieci wirtualnych są bardziej skomplikowane, warto zacząć od publicznego modelu IP podczas tworzenia prototypów rozwiązania.
 
 Kontenery platformy Docker są używane w celu zapewnienia niezawodności i modularności. Azure Container Registry służy do hostowania i obsługi obrazów z wersjami w ramach każdego wdrożenia. Obrazy kontenerów składają się z:
 
@@ -171,8 +169,8 @@ Parametr | Opis | Przykładowa wartość
 Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
 Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | East US
-Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
-Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
+Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||NA
+Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||NA
 
 Wybierz przycisk **OK**.
 
@@ -273,231 +271,6 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-## <a name="service-monitoring"></a>Monitorowanie usługi
-
-Portal Azure Monitor można znaleźć, korzystając z linku w wiadomości e-mail dotyczącej wdrożenia lub lokalizacji parametru w danych wyjściowych wdrożenia [OMS_PORTAL_URL].
-
-W portalu będzie najpierw wyświetlana statystyka sieci wysokiego poziomu i Omówienie węzła.
-
-![Kategorie monitora](./media/ethereum-poa-deployment/monitor-categories.png)
-
-Wybór **węzła przegląd**  przedstawia statystykę infrastruktury na węzeł.
-
-![Statystyka węzła](./media/ethereum-poa-deployment/node-stats.png)
-
-Wybranie pozycji **Statystyka sieci** pokazuje statystykę sieci Ethereum.
-
-![Statystyka sieci](./media/ethereum-poa-deployment/network-stats.png)
-
-### <a name="sample-kusto-queries"></a>Przykładowe zapytania Kusto
-
-Możesz badać dzienniki monitorowania, aby zbadać błędy lub alerty dotyczące progów ustawień. Następujące zapytania są przykładami, które można uruchomić w narzędziu *Wyszukiwanie dzienników* :
-
-Bloki list, które zostały zgłoszone przez więcej niż jedno zapytanie modułu sprawdzania poprawności, mogą być przydatne do znajdowania rozwidleniów łańcucha.
-
-```sql
-MinedBlock_CL
-| summarize DistinctMiners = dcount(BlockMiner_s) by BlockNumber_d, BlockMiner_s
-| where DistinctMiners > 1
-```
-
-Pobierz średnią liczbę elementów równorzędnych dla określonego węzła modułu sprawdzania poprawności średniego z 5-minutowych zasobników.
-
-```sql
-let PeerCountRegex = @"Syncing with peers: (\d+) active, (\d+) confirmed, (\d+)";
-ParityLog_CL
-| where Computer == "vl-devn3lgdm-reg1000001"
-| project RawData, TimeGenerated
-| where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
-| summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
-```
-
-## <a name="ssh-access"></a>Dostęp SSH
-
-Ze względów bezpieczeństwa dostęp do portu SSH jest domyślnie odrzucony przez regułę zabezpieczeń grupy sieciowej. Aby uzyskać dostęp do wystąpień maszyn wirtualnych w sieci PoA, należy zmienić następujące zabezpieczenia reguły, aby *zezwolić*.
-
-1. Przejdź do sekcji **Omówienie** wdrożonej grupy zasobów w Azure Portal.
-
-    ![Omówienie protokołu SSH](./media/ethereum-poa-deployment/ssh-overview.png)
-
-1. Wybierz **grupę zabezpieczeń sieci** dla regionu maszyny wirtualnej, do której chcesz uzyskać dostęp.
-
-    ![sieciowej grupy zabezpieczeń SSH](./media/ethereum-poa-deployment/ssh-nsg.png)
-
-1. Wybierz regułę **zezwalania na używanie protokołu SSH** .
-
-    ![Przechwytywanie ekranu zawiera okno przegląd z wybraną obsługą protokołu SSH.](./media/ethereum-poa-deployment/ssh-allow.png)
-
-1. Zmień **akcję** na **Zezwalaj**
-
-    ![Zezwalaj na włączanie protokołu SSH](./media/ethereum-poa-deployment/ssh-enable-allow.png)
-
-1. Wybierz pozycję **Zapisz**. Zastosowanie zmian może potrwać kilka minut.
-
-Można zdalnie nawiązać połączenie z maszynami wirtualnymi dla węzłów modułu sprawdzania poprawności za pośrednictwem protokołu SSH z podaną nazwą użytkownika administratora i hasła/klucza SSH. Polecenie SSH, aby uzyskać dostęp do pierwszego węzła modułu sprawdzania poprawności, znajduje się na liście wyjściowej wdrożenia szablonu. Przykład:
-
-``` bash
-ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
-```
-
-Aby przejść do dodatkowych węzłów transakcji, Zwiększ numer portu o jeden.
-
-Jeśli wdrożono w więcej niż jednym regionie, należy zmienić polecenie na nazwę DNS lub adres IP modułu równoważenia obciążenia w tym regionie. Aby znaleźć nazwę DNS lub adres IP innych regionów, Znajdź zasób z konwencją nazewnictwa **\* \* \* \* \* -lbpip-reg \#** i Wyświetl jego właściwości nazwy DNS i adresu IP.
-
-## <a name="azure-traffic-manager-load-balancing"></a>Równoważenie obciążenia Traffic Manager platformy Azure
-
-Usługa Azure Traffic Manager może pomóc w ograniczeniu przestoju i skrócić czas odpowiedzi sieci PoA przez kierowanie ruchu przychodzącego do wielu wdrożeń w różnych regionach. Wbudowane funkcje kontroli kondycji i automatycznego ponownego routingu pomagają zapewnić wysoką dostępność punktów końcowych RPC i zarządzanie DApp. Ta funkcja jest przydatna, jeśli wdrożono w wielu regionach i są gotowe do produkcji.
-
-Użyj Traffic Manager, aby poprawić dostępność sieci PoA przy użyciu automatycznej pracy awaryjnej. Możesz również użyć Traffic Manager, aby zwiększyć czas odpowiedzi sieci przez kierowanie użytkowników końcowych do lokalizacji platformy Azure z najniższym opóźnieniem sieci.
-
-Jeśli zdecydujesz się utworzyć profil Traffic Manager, możesz użyć nazwy DNS profilu, aby uzyskać dostęp do sieci. Po dodaniu innych członków konsorcjum do sieci Traffic Manager może również służyć do równoważenia obciążenia w ramach wdrożonych modułów walidacji.
-
-### <a name="creating-a-traffic-manager-profile"></a>Tworzenie profilu Traffic Manager
-
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
-1. Wyszukaj **profil Traffic Manager**.
-
-    ![Wyszukaj w usłudze Azure Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-search.png)
-
-    Nadaj profilowi unikatową nazwę i wybierz grupę zasobów, która została użyta do wdrożenia PoA.
-
-1. Wybierz pozycję **Utwórz** do wdrożenia.
-
-    ![Utwórz Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-create.png)
-
-1. Po wdrożeniu wybierz wystąpienie w grupie zasobów. Nazwę DNS, aby uzyskać dostęp do usługi Traffic Manager, można znaleźć na karcie Przegląd.
-
-    ![Lokalizowanie usługi Traffic Manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
-
-1. Wybierz kartę **punkty końcowe** i wybierz przycisk **Dodaj** .
-1. Określ unikatową nazwę punktu końcowego.
-1. W obszarze **Typ zasobu docelowego** wybierz pozycję **publiczny adres IP**.
-1. Wybierz publiczny adres IP modułu równoważenia obciążenia pierwszego regionu.
-
-    ![Routing Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
-
-Powtórz te czynności dla każdego regionu w wdrożonej sieci. Gdy punkty końcowe są w stanie **włączonym** , są one automatycznie ładowane i są bilansowane według nazwy DNS usługi Traffic Manager. Teraz można użyć tej nazwy DNS zamiast parametru [CONSORTIUM_DATA_URL] w innych krokach artykułu.
-
-## <a name="data-api"></a>Interfejs API danych
-
-Każdy członek konsorcjum hostuje informacje niezbędne do nawiązania połączenia z siecią przez inne osoby. Aby zapewnić łatwość łączności, każdy element członkowski hostuje zestaw informacji o połączeniu w punkcie końcowym interfejsu API danych.
-
-Istniejący element członkowski zawiera [CONSORTIUM_DATA_URL] przed wdrożeniem elementu członkowskiego. Po wdrożeniu członek łączący będzie pobierał informacje z interfejsu JSON w następującym punkcie końcowym:
-
-`<CONSORTIUM_DATA_URL>/networkinfo`
-
-Odpowiedź zawiera informacje przydatne do przyłączania elementów członkowskich (Genesis Block, walidator Set Contract ABI, bootnodes) i informacje przydatne dla istniejącego elementu członkowskiego (adresy walidacji). Można użyć tej standaryzacji, aby zwiększyć konsorcjum między dostawcami chmury. Ten interfejs API zwraca odpowiedź sformatowaną w formacie JSON o następującej strukturze:
-
-```json
-{
-  "$id": "",
-  "type": "object",
-  "definitions": {},
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "properties": {
-    "majorVersion": {
-      "$id": "/properties/majorVersion",
-      "type": "integer",
-      "title": "This schema’s major version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "minorVersion": {
-      "$id": "/properties/minorVersion",
-      "type": "integer",
-      "title": "This schema’s minor version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "bootnodes": {
-      "$id": "/properties/bootnodes",
-      "type": "array",
-      "items": {
-        "$id": "/properties/bootnodes/items",
-        "type": "string",
-        "title": "This member’s bootnodes",
-        "default": "",
-        "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
-          "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
-        ]
-      }
-    },
-    "valSetContract": {
-      "$id": "/properties/valSetContract",
-      "type": "string",
-      "title": "The ValidatorSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
-      ]
-    },
-    "adminContract": {
-      "$id": "/properties/adminContract",
-      "type": "string",
-      "title": "The AdminSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
-      ]
-    },
-    "adminContractABI": {
-      "$id": "/properties/adminContractABI",
-      "type": "string",
-      "title": "The Admin Contract ABI",
-      "default": "",
-      "examples": [
-        "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
-      ]
-    },
-    "paritySpec": {
-      "$id": "/properties/paritySpec",
-      "type": "string",
-      "title": "The Parity client spec file",
-      "default": "",
-      "examples": [
-        "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
-      ]
-    },
-    "errorMessage": {
-      "$id": "/properties/errorMessage",
-      "type": "string",
-      "title": "Error message",
-      "default": "",
-      "examples": [
-        ""
-      ]
-    },
-    "addressList": {
-      "$id": "/properties/addressList",
-      "type": "object",
-      "properties": {
-        "addresses": {
-          "$id": "/properties/addressList/properties/addresses",
-          "type": "array",
-          "items": {
-            "$id": "/properties/addressList/properties/addresses/items",
-            "type": "string",
-            "title": "This member’s validator addresses",
-            "default": "",
-            "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
-              "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
-            ]
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-
 ## <a name="governance-dapp"></a>DApp ładu
 
 W celu potwierdzenia uwierzytelnienia jest zdecentralizowane ładu. Ponieważ potwierdzenie urzędu jest zależne od dozwolonej listy urzędów sieciowych w celu zapewnienia dobrej kondycji sieci, ważne jest, aby zapewnić sprawiedliwy mechanizm wprowadzania modyfikacji tej listy uprawnień. Każde wdrożenie jest dostarczane z zestawem inteligentnych kontraktów i portalu na potrzeby nadzoru w łańcuchu na tej liście dozwolonych. Gdy proponowana zmiana osiągnie większość głosów przez członków konsorcjum, zmiana zostanie wdrożona. Głosowanie pozwala na dodawanie lub naruszenie przez uczestników nowych uczestników w przejrzysty sposób, który zachęca do uczciwej sieci.
@@ -553,181 +326,7 @@ W prawym górnym rogu jest alias konta Ethereum i identicon.  Jeśli jesteś adm
 
 ![Konto](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## <a name="ethereum-development"></a>Programowanie Ethereum<a id="tutorials"></a>
-
-Aby kompilować, wdrażać i testować inteligentne kontrakty, poniżej przedstawiono kilka opcji, które można wziąć pod uwagę podczas opracowywania Ethereum:
-* [Pakiet Truffle](https://www.trufflesuite.com/docs/truffle/overview) — środowisko deweloperskie Ethereum oparte na kliencie
-* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) — środowisko programistyczne oparte na przeglądarce i lokalnej Ethereum
-
-### <a name="compile-deploy-and-execute-smart-contract"></a>Kompilowanie, wdrażanie i wykonywanie kontraktu inteligentnego
-
-W poniższym przykładzie utworzysz prosty kontrakt inteligentny. Użyj Truffle, aby skompilować i wdrożyć inteligentny kontrakt do sieci łańcucha bloków. Po wdrożeniu wywoływana jest funkcja kontraktu inteligentnego za pośrednictwem transakcji.
-
-#### <a name="prerequisites"></a>Wymagania wstępne
-
-* Zainstaluj środowisko [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Środowisko Python jest niezbędne dla Truffle i Web3. Wybierz opcję Zainstaluj, aby dołączyć Język Python do ścieżki.
-* Zainstaluj Truffle v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle wymaga zainstalowania kilku narzędzi, w tym [Node.js](https://nodejs.org), [git](https://git-scm.com/). Aby uzyskać więcej informacji, zobacz [dokumentację Truffle](https://github.com/trufflesuite/truffle).
-
-### <a name="create-truffle-project"></a>Utwórz projekt Truffle
-
-Zanim będzie możliwe skompilowanie i wdrożenie kontraktu inteligentnego, należy utworzyć projekt Truffle.
-
-1. Otwórz wiersz polecenia lub powłokę.
-1. Utwórz folder o nazwie `HelloWorld`.
-1. Zmień katalog na nowy `HelloWorld` folder.
-1. Zainicjuj nowy projekt Truffle za pomocą polecenia `truffle init` .
-
-    ![Utwórz nowy projekt Truffle](./media/ethereum-poa-deployment/create-truffle-project.png)
-
-### <a name="add-a-smart-contract"></a>Dodawanie kontraktu inteligentnego
-
-Twórz inteligentne kontrakty w podkatalogu **kontraktów** projektu Truffle.
-
-1. Utwórz plik o nazwie `postBox.sol` w podkatalogu **kontraktów** projektu Truffle.
-1. Dodaj następujący kod kryjący do **postBox. peruwiański**.
-
-    ```javascript
-    pragma solidity ^0.5.0;
-    
-    contract postBox {
-        string message;
-        function postMsg(string memory text) public {
-            message = text;
-        }
-        function getMsg() public view returns (string memory) {
-            return message;
-        }
-    }
-    ```
-
-### <a name="deploy-smart-contract-using-truffle"></a>Wdrażanie kontraktu inteligentnego za pomocą Truffle
-
-Projekty Truffle zawierają plik konfiguracyjny łańcucha bloków szczegóły połączenia sieciowego. Zmodyfikuj plik konfiguracji w taki sposób, aby zawierał informacje o połączeniu dla sieci.
-
-> [!WARNING]
-> Nigdy nie wysyłaj klucza prywatnego Ethereum przez sieć. Upewnij się, że każda transakcja jest podpisana lokalnie, a podpisana transakcja jest wysyłana za pośrednictwem sieci.
-
-1. Potrzebujesz frazy dla [konta administratora Ethereum używanego podczas wdrażania sieci łańcucha bloków](#ethereum-settings). Jeśli do utworzenia konta użyto symboli, możesz pobrać wartość z maski. Wybierz ikonę konta administratora w prawym górnym rogu rozszerzenia dbmask i wybierz pozycję **ustawienia > zabezpieczenia & prywatność > Odsłoń słowa inicjatora**.
-1. Zastąp zawartość `truffle-config.js` w projekcie Truffle następującą zawartością. Zastąp symbol zastępczy i wartości.
-
-    ```javascript
-    const HDWalletProvider = require("truffle-hdwallet-provider");
-    const rpc_endpoint = "<Ethereum RPC endpoint>";
-    const mnemonic = "Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words";
-
-    module.exports = {
-      networks: {
-        development: {
-          host: "localhost",
-          port: 8545,
-          network_id: "*" // Match any network id
-        },
-        poa: {
-          provider: new HDWalletProvider(mnemonic, rpc_endpoint),
-          network_id: 10101010,
-          gasPrice : 0
-        }
-      }
-    };
-    ```
-
-1. Ponieważ korzystamy z dostawcy portfela Truffle HD, zainstaluj moduł w projekcie za pomocą polecenia `npm install truffle-hdwallet-provider --save` .
-
-Truffle używa skryptów migracji do wdrożenia inteligentnych kontraktów w sieci łańcucha bloków. Do wdrożenia nowego kontraktu inteligentnego potrzebny jest skrypt migracji.
-
-1. Dodaj nową migrację, aby wdrożyć nowy kontrakt. Utwórz plik `2_deploy_contracts.js` w podkatalogu **migracji** projektu Truffle.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = deployer => {
-        deployer.deploy(postBox);
-    };
-    ```
-
-1. Wdróż w sieci PoA przy użyciu polecenia Truffle migracji. W wierszu polecenia w katalogu projektu Truffle Uruchom polecenie:
-
-    ```javascript
-    truffle migrate --network poa
-    ```
-
-### <a name="call-a-smart-contract-function"></a>Wywoływanie funkcji kontraktu inteligentnego
-
-Po wdrożeniu kontraktu inteligentnego można wysłać transakcję, aby wywołać funkcję.
-
-1. W katalogu projektu Truffle Utwórz nowy plik o nazwie `sendtransaction.js` .
-1. Dodaj następującą zawartość do **sendtransaction.js**.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the postBox smart contract")
-      postBox.deployed().then(function(instance) {
-        console.log("Calling postMsg function for contract ", instance.address);
-        return instance.postMsg("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. Wykonaj skrypt przy użyciu polecenia Truffle Execute.
-
-    ```javascript
-    truffle exec sendtransaction.js --network poa
-    ```
-
-    ![Wykonaj skrypt, aby wywołać funkcję za pośrednictwem transakcji](./media/ethereum-poa-deployment/send-transaction.png)
-
-## <a name="webassembly-wasm-support"></a>Obsługa zestawu webassembly (WASM)
-
-Obsługa zestawu webassembly jest już włączona dla nowo wdrożonych sieci PoA. Umożliwia ona programowanie aplikacji inteligentnych w dowolnym języku, który transstertuje Web-Assembly (Rust, C, C++). Aby uzyskać więcej informacji, zobacz: [Omówienie parzystości zestawu webassembly](https://openethereum.github.io/WebAssembly-Home.html) i [samouczek od firmy o parzystości technicznej](https://github.com/paritytech/pwasm-tutorial)
-
-## <a name="faq"></a>Często zadawane pytania
-
-### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Zauważ, że w sieci nie wysłano wielu transakcji. Skąd pochodzą?
-
-Odblokowanie [osobistego interfejsu API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html)jest niebezpieczne. Botów nasłuchuje odblokowanych kont Ethereum i próbuje opróżnić środki. Bot zakłada, że te konta zawierają rzeczywiste i próbują być pierwszym, aby Siphon saldo. Nie należy włączać osobistego interfejsu API w sieci. Zamiast tego Przedstaw transakcje ręcznie przy użyciu portfela, takiego jak dbmaske lub programowo.
-
-### <a name="how-to-ssh-onto-a-vm"></a>Jak SSH na maszynę wirtualną?
-
-Port SSH nie jest narażony ze względów bezpieczeństwa. Postępuj zgodnie z [tym przewodnikiem, aby włączyć port SSH](#ssh-access).
-
-### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Jak mogę skonfigurować członka lub węzły transakcji inspekcji?
-
-Węzły transakcji to zbiór klientów z parzystością, które są połączone z siecią, ale nie uczestniczą w konsensusie. Te węzły mogą nadal służyć do przesyłania transakcji Ethereum i odczytywania stanu kontraktu inteligentnego. Ten mechanizm działa w celu zapewnienia inspekcji dla członków konsorcjum bez urzędu certyfikacji w sieci. Aby to osiągnąć, postępuj zgodnie z instrukcjami w temacie [rozwój konsorcjum](#growing-the-consortium).
-
-### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Dlaczego transakcje związane z maską są długotrwałe?
-
-Aby zapewnić, że transakcje są odbierane w odpowiedniej kolejności, każda transakcja Ethereum ma przyrostowy identyfikator jednorazowy. Jeśli w innej sieci użyto konta w usłudze maskującej, należy zresetować wartość nonce. Kliknij ikonę ustawień (trzy paski), ustawienia, zresetuj konto. Historia transakcji zostanie wyczyszczona, a teraz można ponownie przesłać transakcję.
-
-### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>Czy muszę określić opłatę za gaz w ramach maskowania?
-
-Eter nie jest celem w przypadku weryfikacji z urzędu certyfikacji. W związku z tym nie ma potrzeby określania opłaty za gaz podczas przesyłania transakcji w ramach maski.
-
-### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Co należy zrobić, jeśli moje wdrożenie nie powiedzie się z powodu niepowodzenia aprowizacji pakietu OMS platformy Azure?
-
-Monitorowanie jest funkcją opcjonalną. W niektórych rzadkich przypadkach, gdy wdrożenie nie powiedzie się z powodu niemożliwości pomyślnego zainicjowania obsługi zasobów Azure Monitor, można je wdrożyć ponownie bez Azure Monitor.
-
-### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Czy publiczne wdrożenia adresów IP są zgodne z wdrożeniami w sieci prywatnej?
-
-Nie. Komunikacja równorzędna wymaga komunikacji dwukierunkowej, dlatego cała sieć musi być publiczna lub prywatna.
-
-### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Jaka jest oczekiwana przepływność transakcji dla potwierdzenia urzędu?
-
-Przepływność transakcji będzie wysoce zależna od typów transakcji i topologii sieci. Przy użyciu prostych transakcji firma Microsoft testuje średnio 400 transakcji na sekundę z siecią wdrożoną w wielu regionach.
-
-### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Jak mogę subskrybować zdarzenia dotyczące kontraktu inteligentnego?
-
-Ethereum potwierdzenie urzędu obsługuje teraz sieci Web-Sockets.  Sprawdź dane wyjściowe wdrożenia, aby znaleźć adres URL i port gniazda sieci Web.
-
-## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
+## <a name="support-and-feedback"></a>Pomoc techniczna i opinie<a id="tutorials"></a>
 
 W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
 

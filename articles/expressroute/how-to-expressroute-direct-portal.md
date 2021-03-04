@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018942"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097078"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
 
@@ -21,12 +21,19 @@ Usługa ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia 
 
 ## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 
-Przed użyciem usługi ExpressRoute Direct należy najpierw zarejestrować swoją subskrypcję. Aby zarejestrować się, Wyślij wiadomość E-mail <ExpressRouteDirect@microsoft.com> z identyfikatorem subskrypcji, w tym następujące szczegóły:
+Przed użyciem usługi ExpressRoute Direct należy najpierw zarejestrować swoją subskrypcję. Aby się zarejestrować, wykonaj następujące czynności za pośrednictwem Azure PowerShell:
+1.  Zaloguj się do platformy Azure i wybierz subskrypcję, którą chcesz zarejestrować.
 
-* Scenariusze, które chcesz zrealizować za pomocą **ExpressRoute Direct**
-* Preferencje lokalizacji — zobacz [partnerzy i lokalizacje komunikacji równorzędnej](expressroute-locations-providers.md) , aby uzyskać pełną listę wszystkich lokalizacji
-* Oś czasu dla wdrożenia
-* Inne pytania
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Zarejestruj swoją subskrypcję dla publicznej wersji zapoznawczej przy użyciu następującego polecenia:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Po zarejestrowaniu upewnij się, że dostawca zasobów **Microsoft. Network** jest zarejestrowany w ramach subskrypcji. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów.
 

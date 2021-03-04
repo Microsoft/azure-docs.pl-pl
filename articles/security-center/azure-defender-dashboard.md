@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bc54cc8dfc34db8aa88690c03ef0b18991e60776
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 16379380fc35bb2355c496dc857e9de3b41347f9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797112"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096908"
 ---
 # <a name="the-azure-defender-dashboard"></a>Pulpit nawigacyjny usługi Azure Defender
 
@@ -33,11 +33,11 @@ Pulpit nawigacyjny zawiera następujące sekcje:
 
 1. **Pokrycie na platformie Azure Defender** — tutaj możesz zobaczyć typy zasobów, które znajdują się w subskrypcji i kwalifikują się do ochrony przez usługę Azure Defender. Wszędzie tam, gdzie ma to zastosowanie, będziesz mieć możliwość uaktualnienia. Jeśli chcesz uaktualnić wszystkie możliwe kwalifikujące się zasoby, wybierz pozycję **Uaktualnij wszystko**.
 
-1. **Obszar alertów zabezpieczeń** — gdy usługa Azure Defender wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi. Wybranie dowolnego miejsca w tym grafie spowoduje otwarcie **strony alerty zabezpieczeń**.
+2. **Alerty zabezpieczeń** — gdy usługa Azure Defender wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi. Wybranie dowolnego miejsca w tym grafie spowoduje otwarcie **strony alerty zabezpieczeń**.
 
-1. **Ochrona zaawansowana** — usługa Azure Defender obejmuje wiele zaawansowanych funkcji ochrony przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji sieci Web, sieci i innych. W tej sekcji zaawansowanej ochrony można zobaczyć stan zasobów w wybranych subskrypcjach dla każdej z tych ochrony. Wybierz dowolne z nich, aby przejść bezpośrednio do obszaru konfiguracji dla tego typu ochrony.
+3. **Ochrona zaawansowana** — usługa Azure Defender obejmuje wiele zaawansowanych funkcji ochrony przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji sieci Web, sieci i innych. W tej sekcji zaawansowanej ochrony można zobaczyć stan zasobów w wybranych subskrypcjach dla każdej z tych ochrony. Wybierz dowolne z nich, aby przejść bezpośrednio do obszaru konfiguracji dla tego typu ochrony.
 
-1. **Insights** — to stopniowe przewijanie wiadomości, sugerowane odczyty i alerty o wysokim priorytecie dają Security Center wgląd w kwestie dotyczące zabezpieczeń, które są istotne dla Ciebie i Twojej subskrypcji. Niezależnie od tego, czy jest to lista CVEs o wysokiej ważności odnalezionych na maszynach wirtualnych za pomocą narzędzia do analizy luk w zabezpieczeniach, czy też nowego wpisu w blogu, który jest członkiem zespołu Security Center, znajdziesz go w okienku Insights (szczegółowe informacje) na **pulpicie nawigacyjnym usługi Azure Defender**.
+4. **Insights** — to stopniowe przewijanie wiadomości, sugerowane odczyty i alerty o wysokim priorytecie dają Security Center wgląd w kwestie dotyczące zabezpieczeń, które są istotne dla Ciebie i Twojej subskrypcji. Niezależnie od tego, czy jest to lista CVEs o wysokiej ważności odnalezionych na maszynach wirtualnych za pomocą narzędzia do analizy luk w zabezpieczeniach, czy też nowego wpisu w blogu, który jest członkiem zespołu Security Center, znajdziesz go w okienku Insights (szczegółowe informacje) na **pulpicie nawigacyjnym usługi Azure Defender**.
 
 
 
@@ -49,4 +49,4 @@ W tym artykule przedstawiono informacje o pulpicie nawigacyjnym usługi Azure De
 Aby uzyskać więcej informacji na temat usługi Azure Defender, zobacz [wprowadzenie do usługi Azure Defender](azure-defender.md)
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Włączanie usługi Azure Defender](enable-azure-defender.md)

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047863"
+ms.locfileid: "102096194"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
@@ -62,7 +62,7 @@ Urządzenie komunikuje się ze źródłami odnajdywania przy użyciu następują
 
 **Proces** | **Urządzenie VMware** | **Urządzenie funkcji Hyper-V** | **Urządzenie fizyczne**
 ---|---|---|---
-**Rozpocznij odnajdowanie**| Urządzenie domyślnie komunikuje się z serwerem vCenter Server na porcie TCP 443. Jeśli serwer vCenter nasłuchuje na innym porcie, można go skonfigurować w Menedżerze konfiguracji urządzenia. | Urządzenie komunikuje się z hostami funkcji Hyper-V na porcie WinRM 5985 (HTTP). | Urządzenie komunikuje się z serwerami z systemem Windows za pośrednictwem portu WinRM 5985 (HTTP) z serwerami z systemem Linux za pośrednictwem portu 22 (TCP).
+**Rozpocznij odnajdowanie** | Urządzenie domyślnie komunikuje się z serwerem vCenter Server na porcie TCP 443. Jeśli serwer vCenter nasłuchuje na innym porcie, można go skonfigurować w Menedżerze konfiguracji urządzenia. | Urządzenie komunikuje się z hostami funkcji Hyper-V na porcie WinRM 5985 (HTTP). | Urządzenie komunikuje się z serwerami z systemem Windows za pośrednictwem portu WinRM 5985 (HTTP) z serwerami z systemem Linux za pośrednictwem portu 22 (TCP).
 **Zbieranie metadanych dotyczących konfiguracji i wydajności** | Urządzenie zbiera metadane serwerów działających na vCenter Server przy użyciu interfejsów API vSphere przez połączenie się z portem 443 (port domyślny) lub dowolnego innego portu, vCenter Server nasłuchuje. | Urządzenie zbiera metadane serwerów uruchomionych na hostach funkcji Hyper-V przy użyciu sesji model wspólnych informacji (CIM) z hostami na porcie 5985.| Urządzenie zbiera metadane z serwerów z systemem Windows przy użyciu sesji model wspólnych informacji (CIM) z serwerami na porcie 5985 i z serwerów z systemem Linux przy użyciu łączności SSH na porcie 22.
 **Wyślij dane odnajdywania** | Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera i Azure Migrate: Migracja serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft). | Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).| Urządzenie wysyła zebrane dane do Azure Migrate: Ocena serwera przez Port SSL 443.<br/><br/> Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).
 **Częstotliwość zbierania danych** | Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 20 sekund i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut. <br/><br/> Dane spisu oprogramowania są wysyłane do platformy Azure co 12 godzin. <br/><br/> Dane zależności bez agenta są zbierane co 5 minut, agregowane na urządzeniu i wysyłane do platformy Azure co 6 godzin. <br/><br/> Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund.| Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 30 sekund i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut.|  Metadane konfiguracji są zbierane i wysyłane co 30 minut. <br/><br/> Metadane wydajności są zbierane co 5 minut i są agregowane w celu wysyłania punktów danych do platformy Azure co 10 minut.

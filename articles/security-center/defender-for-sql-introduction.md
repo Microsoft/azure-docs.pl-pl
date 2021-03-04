@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 21f07ed76ef0b900a723677acc2bf576649fe861
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 532c46c50d0b422946af649801e43904b4b6ed7d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702015"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096874"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Wprowadzenie do usługi Azure Defender dla programu SQL
 
@@ -26,7 +26,7 @@ Usługa Azure Defender dla programu SQL obejmuje dwa plany usługi Azure Defende
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|**Usługa Azure Defender dla serwerów usługi Azure SQL Database** — ogólnie dostępna (ga)<br>**Usługa Azure Defender dla serwerów SQL na maszynach** — ogólnie dostępna (ga) |
-|Wpisaną|Na [stronie cennika](security-center-pricing.md) są naliczane opłaty za dwa plany tworzące **usługę Azure Defender for SQL** .|
+|Wpisaną|W przypadku dwóch planów, które tworzą **usługę Azure Defender for SQL** , są naliczane opłaty zgodnie z [Security Center cenami](https://azure.microsoft.com/pricing/details/security-center/)|
 |Chronione wersje programu SQL:|[SQL na maszynach wirtualnych platformy Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Serwery SQL z włączonym usługą Azure Arc](/sql/sql-server/azure-arc/overview)<br>Lokalne serwery SQL na maszynach z systemem Windows bez usługi Azure Arc<br>[Pojedyncze bazy danych](../azure-sql/database/single-database-overview.md) SQL Azure i [Pule elastyczne](../azure-sql/database/elastic-pool-overview.md)<br>[Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Dedykowana Pula SQL usługi Azure Synapse Analytics (dawniej SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Tak ](./media/icons/yes-icon.png) — Chiny gov (**części**: podzbiór alertów i Ocena luk w zabezpieczeniach dla serwerów SQL. Ochrona przed zagrożeniami nie jest dostępna.|
 |||

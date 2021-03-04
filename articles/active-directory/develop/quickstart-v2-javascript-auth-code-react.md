@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: ae31265aee7b0919daf0fec9efbe4d5c6aa7cd91
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3df3d4a3e87f67678833f097a1e2aa3633a5991e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653460"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096432"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w reakcji SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -26,6 +26,8 @@ W tym przewodniku szybki start pobierasz i uruchamiasz przykładowy kod, który 
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 Ten przewodnik Szybki Start używa reakcji MSAL z przepływem kodu autoryzacji. W przypadku podobnego przewodnika Szybki Start, który używa MSAL.js z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](./quickstart-v2-javascript.md).
+
+Ta funkcja [!INCLUDE [active-directory-develop-preview](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -2,23 +2,18 @@
 title: Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center | Microsoft Docs
 description: Poznaj sposób integracji usługi Azure Security Center z partnerami w celu poprawy ogólnego stanu zabezpieczeń zasobów platformy Azure.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032681"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099254"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -39,7 +34,7 @@ Aby dowiedzieć się więcej na temat integracji narzędzi do skanowania luk w z
 
 Security Center oferuje również analizę luk w zabezpieczeniach dla:
 
-* Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
+* Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
 * Obrazy Azure Container Registry — zobacz [Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach](defender-for-container-registries-usage.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Jak są integrowane rozwiązania zabezpieczeń
@@ -88,8 +83,7 @@ Wybierz opcję **Widok** , aby uzyskać dodatkowe informacje i opcje, takie jak:
 Security Center automatycznie wykrywa rozwiązania zabezpieczeń działające na platformie Azure, ale nie połączyły się z Security Center i wyświetla rozwiązania w sekcji **odnalezione rozwiązania** . Rozwiązania te obejmują rozwiązania platformy Azure, takie jak [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)i rozwiązania partnerskie.
 
 > [!NOTE]
-> Włącz **usługę Azure Defender** na poziomie subskrypcji dla odnalezionych rozwiązań. Zobacz [Cennik](security-center-pricing.md) , aby dowiedzieć się więcej o warstwach cenowych.
->
+> Włącz **usługę Azure Defender** na poziomie subskrypcji dla odnalezionych rozwiązań. Dowiedz się więcej z [przewodnika Szybki Start: Włączanie usługi Azure Defender](enable-azure-defender.md).
 
 Wybierz pozycję **Połącz** w ramach rozwiązania, aby przeprowadzić integrację z usługą Security Center i otrzymywać powiadomienia o alertach zabezpieczeń.
 
@@ -103,7 +97,4 @@ Sekcja **Dodawanie źródeł danych** obejmuje inne dostępne źródła danych, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób zintegrowania rozwiązania partnerskiego w usłudze Security Center. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
-
-* [Ciągłe eksportowanie danych Security Center](continuous-export.md). Dowiedz się, jak skonfigurować integrację z platformą Azure, lub dowolnym innym SIEM.
-* [Monitorowanie kondycji zabezpieczeń w usłudze Security Center](security-center-monitoring.md). Informacje na temat sposobu monitorowania kondycji zasobów platformy Azure.
+W tym artykule przedstawiono sposób zintegrowania rozwiązania partnerskiego w usłudze Security Center. Aby dowiedzieć się, jak skonfigurować integrację z platformą Azure, lub innymi SIEM, zobacz [ciągły eksport danych Security Center](continuous-export.md).

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 593d2ccadf814cb5af27a4bb738f28132f39ab7d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663046"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099016"
 ---
 # <a name="managing-your-voice-assistant"></a>Zarządzanie asystentem głosu
 
@@ -28,7 +28,7 @@ Słowo kluczowe to słowo lub krótka fraza służąca do uaktywnienia asystenta
 
 1. Kliknij pozycję **Zmień** obok **słowa kluczowego Custom** na stronie demonstracyjnej.
 
-    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/hospitality-demo.png" alt-text="Zrzut ekranu przedstawiający okno demonstracyjne Hotelarstwo.":::
 
     Jeśli nie masz otwartej strony demonstracyjnej, przejdź do strony urządzenia (patrz poniżej), a następnie kliknij pozycję **Testuj asystenta głosowego** w obszarze **Akcje** , aby uzyskać dostęp do demonstracyjnej wersji.
 
@@ -40,17 +40,17 @@ Słowo kluczowe to słowo lub krótka fraza służąca do uaktywnienia asystenta
 
 1. Na stronie Przegląd w [usłudze Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)kliknij pozycję **urządzenia** w okienku menu po lewej stronie.
 
-    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/portal-overview-devices.png" alt-text="Zrzut ekranu przedstawiający stronę omówienia usługi Azure Percept Studio z wyróżnionymi urządzeniami.":::
 
 1. Wybierz urządzenie, na którym aplikacja asystenta głosowego została wdrożona.
 
 1. Otwórz kartę **mowa** .
 
-    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/device-page.png" alt-text="Zrzut ekranu przedstawiający stronę urządzenia brzegowego z wyróżnioną kartą mowy.":::
 
 1. Kliknij pozycję **Zmień** obok **słowa kluczowego**.
 
-    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Image.":::
+    :::image type="content" source="./media/manage-voice-assistant/change-keyword-device.png" alt-text="Zrzut ekranu przedstawiający akcje dostępnego rozwiązania mowy.":::
 
 1. Wybierz jedno z dostępnych słów kluczowych i kliknij przycisk **Zapisz** , aby zastosować zmiany.
 

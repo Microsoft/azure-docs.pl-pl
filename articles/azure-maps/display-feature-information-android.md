@@ -3,21 +3,24 @@ title: Wyświetlanie informacji o funkcji w usłudze mapy systemu Android | Mapy
 description: Dowiedz się, jak wyświetlać informacje, gdy użytkownicy współpracują z funkcjami mapy. Użyj Android SDK Azure Maps, aby wyświetlić wyskakujące wiadomości i inne typy komunikatów.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4e84bd821d53048b134db635c7ec541db74fbf11
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: b9926d5d6a70d959c0baacd9602341bb69abe924
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047721"
+ms.locfileid: "102097248"
 ---
 # <a name="display-feature-information"></a>Wyświetlanie informacji o funkcjach
 
 Dane przestrzenne są często reprezentowane przy użyciu punktów, linii i wielokątów. Z tymi danymi często są skojarzone informacje o metadanych. Na przykład punkt może przedstawiać lokalizację restauracji i metadane dotyczące tej restauracji może być nazwą, adresem i typem żywności, którą obsługuje. Te metadane można dodać jako właściwości GEOJSON `Feature` . Poniższy kod tworzy prostą funkcję punktu z `title` właściwością o wartości "Hello World!"
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -34,9 +37,32 @@ feature.addStringProperty("title", "Hello World!");
 source.add(feature);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64))
+
+//Add a property to the feature.
+feature.addStringProperty("title", "Hello World!")
+
+//Create a point feature, pass in the metadata properties, and add it to the data source.
+source.add(feature)
+```
+
+::: zone-end
+
 Zapoznaj się z dokumentacją [Tworzenie źródła danych](create-data-source-android-sdk.md) , aby poznać sposoby tworzenia i dodawania danych do mapy.
 
 Gdy użytkownik współdziała z funkcją na mapie, zdarzenia mogą być używane do reagowania na te akcje. Typowym scenariuszem jest wyświetlenie komunikatu o właściwościach metadanych funkcji, z którą korzysta użytkownik. `OnFeatureClick`Zdarzenie jest głównym zdarzeniem używanym do wykrywania, kiedy użytkownik wykorzystał funkcję na mapie. Istnieje również `OnLongFeatureClick` zdarzenie. Podczas dodawania `OnFeatureClick` zdarzenia do mapy może być ograniczone do pojedynczej warstwy przez przekazanie identyfikatora warstwy w celu ograniczenia. Jeśli żaden identyfikator warstwy nie zostanie przekazana, naciśnięcie dowolnej funkcji na mapie, niezależnie od używanej warstwy, spowoduje uruchomienie tego zdarzenia. Poniższy kod tworzy warstwę symboli w celu renderowania danych punktu na mapie, a następnie dodaje `OnFeatureClick` zdarzenie i ogranicza go do tej warstwy symboli.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a symbol and add it to the map.
@@ -52,9 +78,31 @@ map.events.add((OnFeatureClick) (features) -> {
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a symbol and add it to the map.
+val layer = SymbolLayer(source)
+map.layers.add(layer)
+
+//Add a feature click event to the map.
+map.events.add(OnFeatureClick { features: List<Feature> ->
+    //Retrieve the title property of the feature as a string.
+    val msg = features[0].getStringProperty("title")
+
+    //Do something with the message.
+}, layer.getId()) //Limit this event to the symbol layer.
+```
+
+::: zone-end
+
 ## <a name="display-a-toast-message"></a>Wyświetl wyskakujący komunikat
 
 Komunikat wyskakujący to jeden z najprostszych sposobów wyświetlania informacji dla użytkownika i jest dostępny we wszystkich wersjach systemu Android. Nie obsługuje żadnego typu danych wejściowych użytkownika i jest wyświetlana tylko przez krótki czas. Jeśli chcesz szybko poinformować użytkownika o tym, co Ci się podoba, komunikat wyskakujący może być dobrą opcją. Poniższy kod pokazuje, jak można użyć wyskakującego komunikatu ze `OnFeatureClick` zdarzeniem.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Add a feature click event to the map.
@@ -67,7 +115,24 @@ map.events.add((OnFeatureClick) (features) -> {
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
-![Animacja wybieranej funkcji i wyświetlany wyskakujący komunikat](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Add a feature click event to the map.
+map.events.add(OnFeatureClick { features: List<Feature> ->
+    //Retrieve the title property of the feature as a string.
+    val msg = features[0].getStringProperty("title")
+
+    //Display a toast message with the title information.
+    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+}, layer.getId()) //Limit this event to the symbol layer.
+```
+
+::: zone-end
+
+![Animacja wybieranej funkcji i wyświetlany wyskakujący komunikat](media/display-feature-information-android/symbol-layer-click-toast-message.gif)
 
 Oprócz wyskakujących komunikatów istnieje wiele innych sposobów prezentowania właściwości metadanych funkcji, takich jak:
 
@@ -104,6 +169,8 @@ Android SDK Azure Maps zawiera `Popup` klasę, która ułatwia tworzenie element
 ```
 
 Przy założeniu, że powyższy układ jest przechowywany w pliku o nazwie `popup_text.xml` w `res -> layout` folderze aplikacji, poniższy kod tworzy okno podręczne, dodaje go do mapy. Po kliknięciu funkcji `title` Właściwość jest wyświetlana przy użyciu `popup_text.xml` układu, w dolnej części układu zakotwiczonego do określonego położenia na mapie.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a popup and add it to the map.
@@ -144,8 +211,54 @@ map.events.add((OnFeatureClick)(feature) -> {
     //Open the popup.
     popup.open();
 });
-
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a popup and add it to the map.
+val popup = Popup()
+map.popups.add(popup)
+
+map.events.add(OnFeatureClick { feature: List<Feature> ->
+    //Get the first feature and it's properties.
+    val f = feature[0]
+    val props = f.properties()
+
+    //Retrieve the custom layout for the popup.
+    val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
+
+    //Access the text view within the custom view and set the text to the title property of the feature.
+    val tv: TextView = customView.findViewById(R.id.message)
+    tv.text = props!!["title"].asString
+
+    //Get the coordinates from the clicked feature and create a position object.
+    val c: List<Double> = (f.geometry() as Point?).coordinates()
+    val pos = Position(c[0], c[1])
+
+    //Set the options on the popup.
+    popup.setOptions( 
+        //Set the popups position.
+        position(pos),  
+
+        //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),  
+
+        //Set the content of the popup.
+        content(customView) 
+
+        //Optionally, hide the close button of the popup.
+        //, closeButton(false)
+    )
+
+    //Open the popup.
+    popup.open()
+})
+```
+
+::: zone-end
 
 Na poniższym zrzucie ekranu są wyświetlane wyskakujące okienka, które są wyświetlane, gdy funkcje są klikane i zakotwiczone w określonej lokalizacji na mapie podczas jej przenoszenia.
 

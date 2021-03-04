@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634071"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096976"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -44,7 +44,7 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 |Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|<ul><li>**Administrator zabezpieczeń** lub **właściciel** w grupie zasobów</li><li>Uprawnienia do zapisu dla zasobu docelowego</li><li>Jeśli używasz zasad "DeployIfNotExist" Azure Policy "opisanych poniżej, będziesz mieć również uprawnienia do przypisywania zasad</li></ul>|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, inne gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, inne gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov|
 |||
 
 
@@ -65,7 +65,7 @@ Eksport ciągły może eksportować następujące typy danych przy każdej zmian
 
 Można skonfigurować eksport ciągły ze stron Security Center w Azure Portal, za pośrednictwem interfejsu API REST Security Center lub na skalę przy użyciu dostarczonych szablonów Azure Policy. Wybierz odpowiednią kartę poniżej, aby uzyskać szczegółowe informacje o każdej z nich.
 
-### <a name="use-the-azure-portal"></a>[**Korzystanie z witryny Azure Portal**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Użyj Azure Portal**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Skonfiguruj eksport ciągły na stronach Security Center w Azure Portal
 
@@ -171,7 +171,7 @@ Jeśli chcesz analizować Azure Security Center dane w obszarze roboczym Log Ana
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabele i schematy
 
-Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *SecurityAlert* i *SecurityRecommendations* . 
+Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *SecurityAlert* i *SecurityRecommendation* . 
 
 Nazwa rozwiązania Log Analytics zawierającego te tabele zależy od tego, czy usługa Azure Defender jest włączona: zabezpieczenia ("Security and Audit") czy SecurityCenterFree. 
 

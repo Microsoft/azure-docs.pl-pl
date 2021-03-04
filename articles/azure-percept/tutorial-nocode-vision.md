@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 54d4f1fe983cf20b734351754bb8eba191894dbc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665193"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097911"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Tworzenie rozwiązania "bez obsługi kodu" w usłudze Azure Percept Studio
 
@@ -23,6 +23,7 @@ Usługa Azure Percept Studio umożliwia tworzenie i wdrażanie niestandardowych 
 - Oznacz obrazy szkoleniowe w [Custom Vision](https://www.customvision.ai/)
 - Uczenie niestandardowego wykrywania obiektów lub modelu klasyfikacji
 - Wdrażanie modelu w Devkit
+- Ulepszanie modelu przez skonfigurowanie ponownego szkolenia
 
 Ten samouczek jest przeznaczony dla deweloperów, którzy mają niewielki komfort i nie mają doświadczenia w pracy z usługą Azure Percept.
 
@@ -30,15 +31,13 @@ Ten samouczek jest przeznaczony dla deweloperów, którzy mają niewielki komfor
 
 - Azure Percept DK (Devkit)
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/)
-- Środowisko OOBE (out-of-Box Experience): połączono Devkit z siecią Wi-Fi, utworzono IoT Hub i połączono Devkit z IoT Hub
+- Środowisko instalacyjne platformy Azure Percept DK: nawiązano połączenie Devkit z siecią Wi-Fi, utworzono IoT Hub i połączono Devkit z IoT Hub
 
 ## <a name="create-a-vision-prototype"></a>Tworzenie prototypu wizji
 
 1. Uruchom przeglądarkę i przejdź do [usługi Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. Na stronie Przegląd Kliknij kartę **samouczki & pokazów** .
-
-    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Ekran omówienia usługi Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+1. Na stronie Przegląd Kliknij kartę **samouczki & pokazów** .  :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Ekran omówienia usługi Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
 
 1. W obszarze **samouczki i pokazy wizji** kliknij pozycję **Utwórz prototyp programu Vision**.
 
@@ -142,11 +141,23 @@ Po zamknięciu tego okna możesz wrócić i edytować projekt wizji w dowolnym m
 
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="Strona projektu wizji." lightbox="./media/tutorial-nocode-vision/vision-project.png":::
 
+## <a name="improve-your-model-by-setting-up-retraining"></a>Ulepszanie modelu przez skonfigurowanie ponownego szkolenia
+
+Po przeprowadzeniu szkolenia modelu i wdrożeniu go na urządzeniu można poprawić wydajność modelu przez skonfigurowanie parametrów ponownego uczenia w celu przechwycenia większej ilości danych szkoleniowych. Ta funkcja służy do ulepszania wydajności nauczonego modelu przez umożliwienie przechwytywania obrazów na podstawie zakresu prawdopodobieństwa. Na przykład można ustawić, aby urządzenie przechwycić tylko obrazy szkoleniowe, gdy prawdopodobieństwo jest niskie. Poniżej znajdują się [dodatkowe wskazówki](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) dotyczące dodawania większej liczby obrazów i równoważenia danych szkoleniowych.
+
+1. Aby skonfigurować ponowne szkolenie, Wróć do **projektu**, a następnie do **podsumowania projektu**
+1. Na karcie **Przechwytywanie obrazu** wybierz opcję **Automatyczne przechwytywanie obrazu** i **Skonfiguruj ponowne szkolenie**.
+1. Skonfiguruj automatyczne Przechwytywanie obrazu, aby zebrać dużą liczbę obrazów jednocześnie przez sprawdzenie pola **przechwytywania automatycznego obrazu** .
+1. Wybierz preferowaną szybkość przetwarzania obrazu w obszarze **szybkość przechwytywania** i łączną liczbę obrazów, które mają być zbierane w obszarze **cel**.
+1. W sekcji **Konfigurowanie ponownego uczenia** wybierz iterację, dla której chcesz przechwytywać więcej danych szkoleniowych, a następnie wybierz zakres prawdopodobieństwa. Do projektu zostaną przekazane tylko obrazy, które spełniają wartość współczynnika prawdopodobieństwa.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="Przechwytywanie obrazu.":::
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli utworzono nowy zasób platformy Azure dla tego samouczka i nie chcesz już tworzyć ani korzystać z rozwiązania Vision, wykonaj następujące kroki, aby usunąć zasób:
 
-1. Przejdź do witryny [Azure Portal](https://ms.portal.azure.com/#home).
+1. Przejdź do witryny [Azure Portal](https://ms.portal.azure.com/).
 1. Kliknij pozycję **wszystkie zasoby**.
 1. Kliknij pole wyboru obok zasobu utworzonego w ramach tego samouczka. Typ zasobu zostanie wyświetlony jako **Cognitive Services**.
 1. Kliknij ikonę **Usuń** znajdującą się w górnej części ekranu.

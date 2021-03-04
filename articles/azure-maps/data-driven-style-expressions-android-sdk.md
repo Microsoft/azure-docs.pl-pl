@@ -3,17 +3,18 @@ title: Wyrażenia stylów oparte na danych w usłudze mapy systemu Android | Map
 description: Dowiedz się więcej na temat wyrażeń stylów opartych na danych. Zobacz, jak używać tych wyrażeń w Android SDK Azure Maps, aby dostosować style w usłudze Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/1/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047744"
+ms.locfileid: "102097418"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Wyrażenia w stylu opartym na danych (Android SDK)
 
@@ -38,6 +39,9 @@ Azure Maps Android SDK obsługuje niemal wszystkie te same wyrażenia stylu co A
 | [Wyrażenia powiązań zmiennych](#variable-binding-expressions) | Wyrażenia powiązań zmiennych przechowują wyniki obliczeń w zmiennej i występujące w innym miejscu w wyrażeniu wielokrotnie bez konieczności ponownego obliczania przechowywanej wartości. |
 | [Wyrażenie powiększenia](#zoom-expression) | Pobiera bieżący poziom powiększenia mapy w czasie renderowania. |
 
+> [!NOTE]
+> Składnia wyrażeń jest w dużym stopniu identyczna w języku Java i Kotlin. Jeśli masz dokumentację ustawioną na Kotlin, ale widzisz bloki kodu dla języka Java, kod jest identyczny w obu językach.
+
 Wszystkie przykłady w tej sekcji dokumentu wykorzystują następującą funkcję, aby przedstawić różne sposoby używania tych wyrażeń.
 
 ```json
@@ -47,7 +51,7 @@ Wszystkie przykłady w tej sekcji dokumentu wykorzystują następującą funkcj�
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": { 
+    "properties": {
         "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
@@ -65,6 +69,8 @@ Wszystkie przykłady w tej sekcji dokumentu wykorzystują następującą funkcj�
 ```
 
 Poniższy kod pokazuje, jak ręcznie utworzyć tę funkcję GEOJSON w aplikacji.
+
+::: zone pivot="programming-language-java-android"
 
 ```Java
 //Create a point feature.
@@ -106,13 +112,73 @@ style.addProperty("fillColor", "red");
 feature.addProperty("_style", style);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45))
+
+//Add properties to the feature.
+feature.addNumberProperty("id", 123)
+feature.addStringProperty("entityType", "restaurant")
+feature.addNumberProperty("revenue", 12345)
+feature.addStringProperty("subTitle", "Building 40")
+feature.addNumberProperty("temperature", 64)
+feature.addStringProperty("title", "Cafeteria")
+feature.addStringProperty("zoneColor", "purple")
+
+val abcArray = JsonArray()
+abcArray.add("a")
+abcArray.add("b")
+abcArray.add("c")
+
+feature.addProperty("abcArray", abcArray)
+
+val array1 = JsonArray()
+array1.add("a")
+array1.add("b")
+
+val array2 = JsonArray()
+array1.add("x")
+array1.add("y")
+
+val array2d = JsonArray()
+array2d.add(array1)
+array2d.add(array2)
+
+feature.addProperty("array2d", array2d)
+
+val style = JsonObject()
+style.addProperty("fillColor", "red")
+
+feature.addProperty("_style", style)
+```
+
+::: zone-end
+
 Poniższy kod ilustruje sposób deserializacji wersji skonwertowanej obiektu JSON do funkcji GEOJSON w aplikacji.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 String featureString = "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-122.13284,47.63699]},\"properties\":{\"id\":123,\"entityType\":\"restaurant\",\"revenue\":12345,\"subTitle\":\"Building 40\",\"temperature\":64,\"title\":\"Cafeteria\",\"zoneColor\":\"purple\",\"abcArray\":[\"a\",\"b\",\"c\"],\"array2d\":[[\"a\",\"b\"],[\"x\",\"y\"]],\"_style\":{\"fillColor\":\"red\"}}}";
 
 Feature feature = Feature.fromJson(featureString);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val featureString = "{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-122.13284,47.63699]},\"properties\":{\"id\":123,\"entityType\":\"restaurant\",\"revenue\":12345,\"subTitle\":\"Building 40\",\"temperature\":64,\"title\":\"Cafeteria\",\"zoneColor\":\"purple\",\"abcArray\":[\"a\",\"b\",\"c\"],\"array2d\":[[\"a\",\"b\"],[\"x\",\"y\"]],\"_style\":{\"fillColor\":\"red\"}}}"
+
+val feature = Feature.fromJson(featureString)
+```
+
+::: zone-end
 
 ## <a name="json-based-expressions"></a>Wyrażenia oparte na notacji JSON
 
@@ -125,9 +191,21 @@ JSON.stringify(exp); // = "['get','title']"
 
 Wersja skonwertowanej powyższego wyrażenia byłaby `"['get','title']"` i można ją odczytać w Android SDK w następujący sposób.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 Expression exp = Expression.raw("['get','title']")
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val exp = Expression.raw("['get','title']")
+```
+
+::: zone-end
 
 Zastosowanie tego podejścia może ułatwić ponowne użycie wyrażeń stylu między aplikacjami mobilnymi i sieci Web, które używają Azure Maps.
 
@@ -162,17 +240,34 @@ Następujące wyrażenia stylu zestawu SDK sieci Web nie są obsługiwane w Andr
 
 Do właściwości funkcji można uzyskać dostęp bezpośrednio w wyrażeniu przy użyciu `get` wyrażenia. Ten przykład używa `zoneColor` wartości funkcji, aby określić Właściwość Color warstwy bąbelkowej.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     //Get the zoneColor value.
     bubbleColor(get("zoneColor"))
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    //Get the zoneColor value.
+    bubbleColor(get("zoneColor"))
+)
+```
+
+::: zone-end
+
 Powyższy przykład będzie działał prawidłowo, jeśli wszystkie funkcje punktu mają `zoneColor` Właściwość. Jeśli nie, kolor będzie prawdopodobnie przywrócony do "czerni". Aby zmodyfikować kolor rezerwowy, użyj `switchCase` wyrażenia w połączeniu z `has` wyrażeniem, aby sprawdzić, czy właściwość istnieje. Jeśli właściwość nie istnieje, zwróć kolor rezerwowy.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         //Use a conditional case expression.
         switchCase(
@@ -189,21 +284,73 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        //Use a conditional case expression.
+        switchCase(
+            //Check to see if feature has a "zoneColor" 
+            has("zoneColor"), 
+
+            //If it does, use it.
+            get("zoneColor"), 
+
+            //If it doesn't, default to blue.
+            literal("blue")
+        )
+    )
+)
+```
+
+::: zone-end
+
 Warstwy bąbelków i symboli domyślnie renderują współrzędne wszystkich kształtów w źródle danych. Takie zachowanie może wyróżnić wierzchołki wielokąta lub linii. `filter`Opcja warstwy może służyć do ograniczenia typu geometrii funkcji, które renderuje, przy użyciu `geometryType` wyrażenia w wyrażeniu logicznym. Poniższy przykład ogranicza warstwę bąbelków, tak aby `Point` były renderowane tylko funkcje.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     filter(eq(geometryType(), "Point"))
 );
 ```
 
-Poniższy przykład umożliwia `Point` `MultiPoint` renderowanie obu i funkcji. 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    filter(eq(geometryType(), "Point"))
+)
+```
+
+::: zone-end
+
+Poniższy przykład umożliwia `Point` `MultiPoint` renderowanie obu i funkcji.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     filter(any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint")))
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    filter(any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint")))
+)
+```
+
+::: zone-end
 
 Podobnie konspekt wielokątów będzie renderowany w warstwach liniowych. Aby wyłączyć to zachowanie w warstwie liniowej, Dodaj filtr, który umożliwia tylko `LineString` `MultiLineString` funkcje i.  
 
@@ -250,7 +397,7 @@ Wyrażenia matematyczne zapewniają operatory matematyczne do wykonywania oblicz
 | `ln2()` | liczba | Zwraca stałą matematyczną `ln(2)` . |
 | `max(numbers... | expressions...)` | liczba | Oblicza maksymalną liczbę w określonym zestawie liczb. |
 | `min(numbers... | expressions...)` | liczba | Oblicza minimalną liczbę w określonym zestawie liczb. |
-| `mod(number, number)` \| | `mod(Expression, Expression)` | liczba | Oblicza resztę podczas dzielenia pierwszej liczby przez drugą liczbę. Odpowiednik wyrażenia zestawu SDK sieci Web: `%` |
+| `mod(number, number)` \| `mod(Expression, Expression)` | liczba | Oblicza resztę podczas dzielenia pierwszej liczby przez drugą liczbę. Odpowiednik wyrażenia zestawu SDK sieci Web: `%` |
 | `pi()` | liczba | Zwraca stałą matematyczną `PI` . |
 | `pow(number, number)` \| `pow(Expression, Expression)` | liczba | Oblicza wartość pierwszej wartości podniesioną do potęgi drugiej liczby. |
 | `product(numbers... | expressions...)` | liczba | Mnoży określone liczby razem. Odpowiednik wyrażenia zestawu SDK sieci Web: `*` |
@@ -284,7 +431,7 @@ Porównując wartości, porównanie jest ściśle wpisane. Wartości różnych t
 
 Wyrażenia warunkowe udostępniają operacje logiki, które są podobne do instrukcji if-Statement.
 
-Następujące wyrażenia wykonują warunkowe operacje logiki na danych wejściowych. Na przykład `switchCase` wyrażenie zawiera logikę "if/then/else", podczas gdy `match` wyrażenie jest podobne do "Switch-Statement". 
+Następujące wyrażenia wykonują warunkowe operacje logiki na danych wejściowych. Na przykład `switchCase` wyrażenie zawiera logikę "if/then/else", podczas gdy `match` wyrażenie jest podobne do "Switch-Statement".
 
 ### <a name="switch-case-expression"></a>Wyrażenie CASE Switch
 
@@ -307,8 +454,10 @@ switchCase(
 
 Poniższy przykład przechodzi przez inne warunki logiczne do momentu znalezienia jednego, który jest obliczany przez `true` , a następnie zwraca tę skojarzoną wartość. Jeśli warunek logiczny nie zostanie obliczony `true` , zostanie zwrócona wartość rezerwowa.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         switchCase(
             //Check to see if the first boolean expression is true, and if it is, return its assigned result.
@@ -326,6 +475,31 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        switchCase(
+            //Check to see if the first boolean expression is true, and if it is, return its assigned result.
+            //If it has a zoneColor property, use its value as a color.
+            has("zoneColor"), toColor(get("zoneColor")),
+
+            //Check to see if the second boolean expression is true, and if it is, return its assigned result.
+            //If it has a temperature property with a value greater than or equal to 100, make it red.
+            all(has("temperature"), gte(get("temperature"), 100)), color(Color.RED),
+            
+            //Specify a default value to return. In this case green.
+            color(Color.GREEN)
+        )
+    )
+)
+```
+
+::: zone-end
+
 ### <a name="match-expression"></a>Wyrażenie dopasowania
 
 `match`Wyrażenie jest typem wyrażenia warunkowego, które zawiera instrukcję Switch, taką jak Logic. Wejście może być dowolnym wyrażeniem, takim jak `get( "entityType")` , które zwraca ciąg lub liczbę. Każdy element Stop musi mieć etykietę, która jest pojedynczą wartością literału lub tablicą wartości literału, której wartości muszą zawierać wszystkie ciągi lub wszystkie liczby. Dane wejściowe są zgodne, Jeśli dowolne wartości w tablicy pasują do siebie. Każda etykieta zatrzymania musi być unikatowa. Jeśli typ danych wejściowych nie jest zgodny z typem etykiet, wynik będzie domyślną wartością rezerwową.
@@ -340,8 +514,10 @@ match(Expression input, Expression defaultOutput, Expression.Stop... stops)
 
 Poniższy przykład sprawdza, czy `entityType` Właściwość funkcji punktu w warstwie bąbelka wyszukuje dopasowanie. Jeśli znajdzie dopasowanie, zostanie zwrócona określona wartość lub zwróci wartość rezerwową.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         match(
             //Get the input value to match.
@@ -362,10 +538,40 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        match(
+            //Get the input value to match.
+            get("entityType"),
+
+            //Specify a default value to return if no match is found.
+            color(Color.BLACK),
+
+            //List the values to match and the result to return for each match.
+
+            //If value is "restaurant" return "red".
+            stop("restaurant", color(Color.RED)),
+
+            //If value is "park" return "green".
+            stop("park", color(Color.GREEN))
+        )
+    )
+)
+```
+
+::: zone-end
+
 W poniższym przykładzie zastosowano tablicę, aby wyświetlić zestaw etykiet, które powinny zwracać tę samą wartość. Takie podejście jest znacznie bardziej wydajne niż wymienianie każdej etykiety osobno. W takim przypadku, jeśli `entityType` Właściwość ma wartość "restauracji" lub "grocery_store", zostanie zwrócony kolor "Red".
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         match(
             //Get the input value to match.
@@ -386,6 +592,34 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        match(
+            //Get the input value to match.
+            get("entityType"),
+
+            //Specify a default value to return if no match is found.
+            color(Color.BLACK),
+
+            //List the values to match and the result to return for each match.
+
+            //If value is "restaurant" or "grocery_store" return "red".
+            stop(arrayOf("restaurant", "grocery_store"), color(Color.RED)),
+
+            //If value is "park" return "green".
+            stop("park", color(Color.GREEN))
+        )
+    )
+)
+```
+
+::: zone-end
+
 ### <a name="coalesce-expression"></a>Wyrażenie łączenia
 
 `coalesce`Wyrażenie jest wykonywane przez zestaw wyrażeń do momentu uzyskania pierwszej wartości innej niż null i zwrócenie tej wartości.
@@ -398,10 +632,12 @@ coalesce(Expression... input)
 
 **Przykład**
 
-Poniższy przykład używa wyrażenia, `coalesce` Aby ustawić `textField` opcję warstwy symboli. Jeśli `title` brakuje właściwości w funkcji lub ustawiono ją `null` , wyrażenie będzie próbować wyszukać `subTitle` Właściwość, jeśli jej brakuje lub `null` , spowoduje powrót do pustego ciągu. 
+Poniższy przykład używa wyrażenia, `coalesce` Aby ustawić `textField` opcję warstwy symboli. Jeśli `title` brakuje właściwości w funkcji lub ustawiono ją `null` , wyrażenie będzie próbować wyszukać `subTitle` Właściwość, jeśli jej brakuje lub `null` , spowoduje powrót do pustego ciągu.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
-SymbolLayer layer = new SymbolLayer(dataSource,
+SymbolLayer layer = new SymbolLayer(source,
     textField(
         coalesce(
             //Try getting the title property.
@@ -416,6 +652,29 @@ SymbolLayer layer = new SymbolLayer(dataSource,
     )
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = SymbolLayer(source,
+    textField(
+        coalesce(
+            //Try getting the title property.
+            get("title"),
+
+            //If there is no title, try getting the subTitle. 
+            get("subTitle"),
+
+            //Default to an empty string.
+            literal("")
+        )
+    )
+)
+```
+
+::: zone-end
 
 ## <a name="type-expressions"></a>Wyrażenia typu
 
@@ -452,8 +711,10 @@ Wyrażenia kolorów ułatwiają tworzenie wartości kolorów i manipulowanie nim
 
 W poniższym przykładzie jest tworzona wartość koloru RGB, która ma *czerwoną* wartość `255` , oraz wartości *zielony* i *niebieski* , które są obliczane przez pomnożenie `2.5` przez wartość `temperature` właściwości. W miarę zmieniania temperatury kolor zmieni się na różne odcienie *czerwieni*.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         //Create a RGB color value.
         rgb(
@@ -470,10 +731,36 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        //Create a RGB color value.
+        rgb(
+            //Set red value to 255. Wrap with literal expression since using expressions for other values.
+            literal(255f),    
+
+            //Multiple the temperature by 2.5 and set the green value.
+            product(literal(2.5f), get("temperature")), 
+
+            //Multiple the temperature by 2.5 and set the blue value.
+            product(literal(2.5f), get("temperature")) 
+        )
+    )
+)
+```
+
+::: zone-end
+
 Jeśli wszystkie parametry koloru są liczbami, nie trzeba zawijać ich przy użyciu `literal` wyrażenia. Na przykład:
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         //Create a RGB color value.
         rgb(
@@ -487,6 +774,27 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        //Create a RGB color value.
+        rgb(
+            255f,  //Set red value to 255.
+
+            150f,  //Set green value to 150.
+
+            0f     //Set blue value to 0.
+        )
+    )
+)
+```
+
+::: zone-end
+
 > [!TIP]
 > Wartości koloru ciągu można przekonwertować na kolor przy użyciu `android.graphics.Color.parseColor` metody. Poniższe konwertuje ciąg koloru szesnastkowego na wyrażenie koloru, które może być używane z warstwą.
 >
@@ -496,7 +804,7 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 
 ## <a name="string-operator-expressions"></a>Wyrażenia operatora ciągu
 
-Wyrażenia operatora ciągu wykonują operacje konwersji na ciągach, takich jak łączenie i konwertowanie wielkości liter. 
+Wyrażenia operatora ciągu wykonują operacje konwersji na ciągach, takich jak łączenie i konwertowanie wielkości liter.
 
 | Wyrażenie | Typ zwracany | Opis |
 |------------|-------------|-------------|
@@ -510,8 +818,10 @@ Wyrażenia operatora ciągu wykonują operacje konwersji na ciągach, takich jak
 
 Poniższy przykład konwertuje `temperature` Właściwość punktu na ciąg, a następnie łączy "°f" na końcu.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-SymbolLayer layer = new SymbolLayer(dataSource,
+SymbolLayer layer = new SymbolLayer(source,
     textField(
         concat(Expression.toString(get("temperature")), literal("°F"))
     ),
@@ -522,6 +832,25 @@ SymbolLayer layer = new SymbolLayer(dataSource,
     textColor("white")
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = SymbolLayer(source,
+    textField(
+        concat(Expression.toString(get("temperature")), literal("°F"))
+    ),
+
+    //Some additional style options.
+    textOffset(new Float[] { 0f, -1.5f }),
+    textSize(12f),
+    textColor("white")
+)
+```
+
+::: zone-end
 
 Powyższe wyrażenie renderuje kod PIN na mapie z tekstem "64 °F" na początku, jak pokazano na poniższej ilustracji.
 
@@ -545,15 +874,15 @@ interpolate(Expression.Interpolator interpolation, Expression number, Expression
 
 Istnieją trzy typy metod interpolacji, których można użyć w `interpolate` wyrażeniu:
 
-| Nazwa | Opis | 
+| Nazwa | Opis |
 |------|-------------|
 | `linear()` | Interpoluje liniowo między parą przerwań.  |
 | `exponential(number)` \| `exponential(Expression)` | Interpoluje wykładniczo między zatrzymaniem. Określono wartość "Base" i kontroluje szybkość, z jaką dane wyjściowe rosną. Wyższe wartości sprawiają, że dane wyjściowe zwiększają się w kierunku górnego końca zakresu. Wartość "podstawowa" bliska 1 powoduje generowanie danych wyjściowych, które zwiększają się liniowo.|
 | `cubicBezier(number x1, number y1, number x2, number y2)` \| `cubicBezier(Expression x1, Expression y1, Expression x2, Expression y2)` | Interpoluje przy użyciu [zakrzywionej krzywej Beziera](https://developer.mozilla.org/docs/Web/CSS/timing-function) zdefiniowanej przez podaną punkty kontrolne. |
 
 `stop`Wyrażenie ma format `stop(stop, value)` .
- 
-Oto przykład sposobu, w jaki wyglądają te różne typy interpolacji. 
+
+Oto przykład sposobu, w jaki wyglądają te różne typy interpolacji.
 
 | Liniowe  | Wykładniczy | Metria sześcienne |
 |---------|-------------|--------------|
@@ -563,8 +892,10 @@ Oto przykład sposobu, w jaki wyglądają te różne typy interpolacji.
 
 Poniższy przykład używa wyrażenia, `linear interpolate` Aby ustawić `bubbleColor` Właściwość warstwy bąbelkowej na podstawie `temperature` właściwości funkcji Point. W przypadku `temperature` wartości mniejszej niż 60 zostanie zwrócona wartość "niebieska". Jeśli jest to od 60 do 70, zostaną zwrócone żółte. Jeśli wartość jest z zakresu od 70 do 80, zostanie zwrócony "pomarańczowy" ( `#FFA500` ). Jeśli jest to 80 lub więcej, zostanie zwrócony czerwony znak "Red".
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         interpolate(
             linear(),
@@ -578,13 +909,34 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        interpolate(
+            linear(),
+            get("temperature"),
+            stop(50, color(Color.BLUE)),
+            stop(60, color(Color.YELLOW)),
+            stop(70, color(parseColor("#FFA500"))),
+            stop(80, color(Color.RED))
+        )
+    )
+)
+```
+
+::: zone-end
+
 Na poniższej ilustracji przedstawiono, jak kolory są wybierane dla powyższego wyrażenia.
 
 ![Przykład wyrażenia interpolacji](media/how-to-expressions/interpolate-expression-example.png)
 
 ### <a name="step-expression"></a>Wyrażenie kroku
 
-`step`Wyrażenie może służyć do obliczania dyskretnych, ocenianych wartości wyniku przez obliczenie [funkcji stałej rozkład elementowy](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) zdefiniowanej przez zatrzymywanie. 
+`step`Wyrażenie może służyć do obliczania dyskretnych, ocenianych wartości wyniku przez obliczenie [funkcji stałej rozkład elementowy](http://mathworld.wolfram.com/PiecewiseConstantFunction.html) zdefiniowanej przez zatrzymywanie.
 
 `interpolate`Wyrażenie ma następujące formaty:
 
@@ -606,14 +958,16 @@ step(number input, number defaultOutput, Expression... stops)
 step(number input, number defaultOutput, Expression.Stop... stops)
 ```
 
-Wyrażenia kroków zwracają wartość wyjściową elementu Stop tuż przed wartością wejściową lub pierwszą wartość wejściową, jeśli dane wejściowe są mniejsze niż pierwsze zatrzymanie. 
+Wyrażenia kroków zwracają wartość wyjściową elementu Stop tuż przed wartością wejściową lub pierwszą wartość wejściową, jeśli dane wejściowe są mniejsze niż pierwsze zatrzymanie.
 
 **Przykład**
 
 Poniższy przykład używa wyrażenia, `step` Aby ustawić `bubbleColor` Właściwość warstwy bąbelkowej na podstawie `temperature` właściwości funkcji Point. W przypadku `temperature` wartości mniejszej niż 60 zostanie zwrócona wartość "niebieska". Jeśli wartość jest z zakresu od 60 do 70, zostanie zwrócony "żółty". Jeśli wartość jest z zakresu od 70 do 80, zostanie zwrócony "pomarańczowy". Jeśli jest to 80 lub więcej, zostanie zwrócony czerwony znak "Red".
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(
         step(
             get("temperature"),
@@ -626,8 +980,28 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(
+        step(
+            get("temperature"),
+            color(Color.BLUE),
+            stop(60, color(Color.YELLOW)),
+            stop(70, color(parseColor("#FFA500"))),
+            stop(80, color(Color.RED))
+        )
+    )
+)
+```
+
+::: zone-end
+
 Na poniższej ilustracji przedstawiono, jak kolory są wybierane dla powyższego wyrażenia.
- 
+
 ![Przykład wyrażenia kroku](media/how-to-expressions/step-expression-example.png)
 
 ## <a name="layer-specific-expressions"></a>Wyrażenia specyficzne dla warstwy
@@ -643,10 +1017,12 @@ Wyrażenie gęstości mapy cieplnej Pobiera wartość gęstości mapy cieplnej d
 
 **Przykład**
 
-W tym przykładzie zastosowano wyrażenie interpolacji liniowej w celu utworzenia gładkiego gradientu koloru na potrzeby renderowania mapy cieplnej. 
+W tym przykładzie zastosowano wyrażenie interpolacji liniowej w celu utworzenia gładkiego gradientu koloru na potrzeby renderowania mapy cieplnej.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
-HeatMapLayer layer = new HeatMapLayer(dataSource,
+HeatMapLayer layer = new HeatMapLayer(source,
     heatmapColor(
         interpolate(
             linear(),
@@ -660,10 +1036,33 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 );
 ```
 
-Oprócz używania gładkiego gradientu do kolorowania mapy cieplnej, kolory można określić w ramach zestawu zakresów przy użyciu `step` wyrażenia. Użycie `step` wyrażenia do kolorowania mapy cieplnej powoduje, że rozdzieli gęstość na zakresy podobne do mapy stylu konturu lub wykresu radarowego.  
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+    heatmapColor(
+        interpolate(
+            linear(),
+            heatmapDensity(),
+            stop(0, color(Color.TRANSPARENT)),
+            stop(0.01, color(Color.MAGENTA)),
+            stop(0.5, color(parseColor("#fb00fb"))),
+            stop(1, color(parseColor("#00c3ff")))
+        )
+    )
+)
+```
+
+::: zone-end
+
+Oprócz używania gładkiego gradientu do kolorowania mapy cieplnej, kolory można określić w ramach zestawu zakresów przy użyciu `step` wyrażenia. Użycie `step` wyrażenia do kolorowania mapy cieplnej powoduje, że rozdzieli gęstość na zakresy podobne do mapy stylu konturu lub wykresu radarowego.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
-HeatMapLayer layer = new HeatMapLayer(dataSource,
+HeatMapLayer layer = new HeatMapLayer(source,
     heatmapColor(
         step(
             heatmapDensity(),
@@ -678,6 +1077,28 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+    heatmapColor(
+        step(
+            heatmapDensity(),
+            color(Color.TRANSPARENT),
+            stop(0.01, color(parseColor("#000080"))),
+            stop(0.25, color(parseColor("#000080"))),
+            stop(0.5, color(Color.GREEN)),
+            stop(0.5, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+)
+```
+
+::: zone-end
+
 Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dodawania do warstwy mapy cieplnej](map-add-heat-map-layer-android.md) .
 
 ### <a name="line-progress-expression"></a>Wyrażenie postępu wiersza
@@ -691,7 +1112,9 @@ Wyrażenie postępu wiersza pobiera postęp wzdłuż linii gradientu w warstwie 
 
 Ten przykład używa `lineProgress()` wyrażenia, aby zastosować gradient koloru do obrysu wiersza.
 
-```javascript
+::: zone pivot="programming-language-java-android"
+
+```java
 LineLayer layer = new LineLayer(source,
     strokeGradient(
         interpolate(
@@ -707,6 +1130,29 @@ LineLayer layer = new LineLayer(source,
     )
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+)
+```
+
+::: zone-end
 
 [Zobacz przykład na żywo](map-add-line-layer.md#line-stroke-gradient)
 
@@ -730,8 +1176,10 @@ Dostępne są następujące opcje formatu:
 
 Poniższy przykład formatuje pole tekstowe przez dodanie pogrubionej czcionki i skalowanie w górę rozmiaru czcionki `title` właściwości funkcji. Ten przykład dodaje również `subTitle` Właściwość funkcji w wierszu wiersza z rozmiarem czcionki skalowanej w dół.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-SymbolLayer layer = new SymbolLayer(dataSource,
+SymbolLayer layer = new SymbolLayer(source,
     textField(
         format(
             //Bold the title property and scale its font size up.
@@ -752,6 +1200,34 @@ SymbolLayer layer = new SymbolLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = SymbolLayer(source,
+    textField(
+        format(
+            //Bold the title property and scale its font size up.
+            formatEntry(
+                get("title"),
+                formatTextFont(arrayOf("StandardFont-Bold")),
+                formatFontScale(1.25)),
+
+            //Add a new line without any formatting.
+            formatEntry("\n"),
+
+            //Scale the font size down of the subTitle property.
+            formatEntry(
+                get("subTitle"),
+                formatFontScale(0.75))
+        )
+    )
+)
+```
+
+::: zone-end
+
 Ta warstwa będzie renderować funkcję Point, jak pokazano na poniższej ilustracji:
 
 ![Obraz funkcji punktu z sformatowanym polem tekstowym](media/how-to-expressions/text-field-format-expression.png)
@@ -764,8 +1240,10 @@ Ta warstwa będzie renderować funkcję Point, jak pokazano na poniższej ilustr
 
 Domyślnie promienie punktów danych renderowane w warstwie mapy cieplnej mają stały promień pikseli dla wszystkich poziomów powiększenia. W miarę powiększania mapy dane zagregowane i warstwy mapy cieplnej wyglądają inaczej. `zoom`Wyrażenie może służyć do skalowania promienia dla każdego poziomu powiększenia, tak że każdy punkt danych obejmuje ten sam obszar fizyczny mapy. Spowoduje to, że warstwa mapy cieplnej będzie wyglądać bardziej statyczna i spójna. Każdy poziom powiększenia mapy ma dwa piksele w pionie i poziomie jako poprzedni poziom powiększenia. Skalowanie promienia, w taki sposób, że podwaja się z każdym poziomem powiększenia, spowoduje utworzenie mapy cieplnej, która będzie wyglądać spójnie na wszystkich poziomach powiększenia. Można to zrobić przy użyciu `zoom` wyrażenia z `base 2 exponential interpolation` wyrażeniem, z zestawem pikseli ustawionym dla minimalnego poziomu powiększenia i skalowanego promienia dla maksymalnego poziomu powiększenia obliczonego w sposób `2 * Math.pow(2, minZoom - maxZoom)` pokazany poniżej.
 
-```java 
-HeatMapLayer layer = new HeatMapLayer(dataSource,
+::: zone pivot="programming-language-java-android"
+
+```java
+HeatMapLayer layer = new HeatMapLayer(source,
     heatmapRadius(
         interpolate(
             exponential(2),
@@ -781,6 +1259,29 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+    heatmapRadius(
+        interpolate(
+            exponential(2),
+            zoom(),
+
+            //For zoom level 1 set the radius to 2 pixels.
+            stop(1, 2),
+
+            //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * (maxZoom - minZoom)^2 pixels.
+            stop(19, 2 * Math.pow(2, 19 - 1))
+        )
+    )
+)
+```
+
+::: zone-end
+
 ## <a name="variable-binding-expressions"></a>Wyrażenia powiązań zmiennych
 
 Wyrażenia powiązań zmiennych przechowują wyniki obliczeń w zmiennej. Tak więc wyniki obliczeń mogą być przywoływane w innym miejscu w wyrażeniu. Jest to przydatna Optymalizacja dla wyrażeń, które obejmują wiele obliczeń.
@@ -794,8 +1295,10 @@ Wyrażenia powiązań zmiennych przechowują wyniki obliczeń w zmiennej. Tak wi
 
 W tym przykładzie używane jest wyrażenie, które oblicza przychód względem współczynnika temperatury, a następnie używa `case` wyrażenia, aby oszacować różne operacje logiczne dla tej wartości. `let`Wyrażenie służy do przechowywania przychodu względem współczynnika temperatury, tak aby tylko raz obliczyć tylko raz. `var`Wyrażenie odwołuje się do tej zmiennej tak często, jak to konieczne, bez konieczności ponownego obliczania.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
-BubbleLayer layer = new BubbleLayer(dataSource,
+BubbleLayer layer = new BubbleLayer(source,
     bubbleColor(           
         let(
             //Divide the point features `revenue` property by the `temperature` property and store it in a variable called `ratio`.
@@ -816,6 +1319,35 @@ BubbleLayer layer = new BubbleLayer(dataSource,
     )
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = BubbleLayer(source,
+    bubbleColor(           
+        let(
+            //Divide the point features `revenue` property by the `temperature` property and store it in a variable called `ratio`.
+            literal("ratio"), division(get("revenue"), get("temperature")),
+
+            //Evaluate the child expression in which the stored variable will be used.
+            switchCase(
+                //Check to see if the ratio is less than 100, return 'red'.
+                lt(var("ratio"), 100), color(Color.RED),
+
+                //Check to see if the ratio is less than 200, return 'green'.
+                lt(var("ratio"), 200), color(Color.GREEN),
+
+                //Return `blue` for values greater or equal to 200.
+                color(Color.BLUE)
+            )
+        )
+    )
+)
+```
+
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

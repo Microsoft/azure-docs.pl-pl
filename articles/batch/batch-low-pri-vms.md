@@ -3,14 +3,14 @@ title: Uruchamianie obciążeń na opłacalnych maszynach wirtualnych o niskim p
 description: Dowiedz się, jak zainicjować obsługę maszyn wirtualnych o niskim priorytecie, aby zmniejszyć koszty obciążeń Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 03/03/2021
 ms.custom: seodec18
-ms.openlocfilehash: 9214ef83ec9b8bef4fb7bc7489aa0ab388f67c0d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: cafc7216e8112640f823ecee1aea055ab78b3fc6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507280"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098472"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Używanie maszyn wirtualnych o niskim priorytecie z usługą Batch
 
@@ -25,9 +25,9 @@ Maszyny wirtualne o niskim priorytecie są oferowane w znacznie obniżonej cenie
 > [!NOTE]
 > Na maszynach wirtualnych z [pojedynczym wystąpieniem](../virtual-machines/spot-vms.md) i w [zestawach skalowania maszyn](../virtual-machine-scale-sets/use-spot.md)wirtualnych są teraz dostępne [maszyny wirtualne](https://azure.microsoft.com/pricing/spot/) . Maszyny wirtualne są rozwojem maszyn wirtualnych o niskim priorytecie, ale różnią się w zależności od cen, a opcjonalna maksymalna cena może być ustawiana podczas alokowania dodatkowych maszyn wirtualnych.
 >
-> Pule Azure Batch rozpoczną obsługę maszyn wirtualnych w ciągu kilku miesięcy, które są ogólnie dostępne, z nowymi wersjami [interfejsów API i narzędzi wsadowych](./batch-apis-tools.md). Po udostępnieniu obsługi maszyn wirtualnych o niskim priorytecie zostaną zaniechane — będą one nadal obsługiwane przy użyciu bieżących interfejsów API i wersji narzędzi przez co najmniej 12 miesięcy, aby zapewnić wystarczającą ilość czasu na przeprowadzenia migracji do maszyn wirtualnych.
+>Pule Azure Batch będą w przyszłości uruchamiane na maszynach wirtualnych z nowymi wersjami [interfejsów API i narzędzi wsadowych](./batch-apis-tools.md). Po udostępnieniu obsługi maszyn wirtualnych o niskim priorytecie zostaną one zaniechane — będą one nadal obsługiwane przy użyciu bieżących interfejsów API i wersji narzędzi przez co najmniej 12 miesięcy, aby zapewnić wystarczającą ilość czasu na przeprowadzenia migracji do maszyn wirtualnych.
 >
-> Maszyny wirtualne na miejscu nie będą obsługiwane dla pul [konfiguracji usługi w chmurze](/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Aby można było korzystać z maszyn wirtualnych, pule usług w chmurze muszą zostać zmigrowane do pul [konfiguracji maszyny wirtualnej](/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+> Maszyny wirtualne na miejscu będą obsługiwane tylko dla pul konfiguracji maszyny wirtualnej. Aby można było korzystać z maszyn wirtualnych, wszystkie pule konfiguracji usługi w chmurze muszą zostać [zmigrowane do pul konfiguracji maszyny wirtualnej](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## <a name="batch-support-for-low-priority-vms"></a>Obsługa usługi Batch w przypadku maszyn wirtualnych o niskim priorytecie
 

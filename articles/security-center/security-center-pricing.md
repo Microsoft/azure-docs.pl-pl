@@ -1,30 +1,23 @@
 ---
-title: Cennik Azure Security Center
-description: Azure Security Center jest oferowana w dwóch trybach z usługą Azure Defender i bez niej.
-services: security-center
-documentationcenter: na
+title: Azure Security Center bezpłatna usługa vs Azure Defender
+description: Dowiedz się więcej o zaletach włączania usługi Azure Defender pod kątem ochrony obciążeń w chmurze w Azure Security Center
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 8d8ef4236a9dd993faaaa2aacfd40a7592e9017f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 02/14/2021
+ms.openlocfilehash: 7ca8a89cc93cc36d790eca7b19665e5bfed9695c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099107"
 ---
-# <a name="pricing-of-azure-security-center"></a>Cennik Azure Security Center
-Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby obciążeń uruchamianych na platformie Azure, lokalnie i w innych chmurach. Zapewnia widoczność i kontrolę nad obciążeniami w chmurze hybrydowej, aktywną obroną, która zmniejsza narażenie na zagrożenia oraz Inteligentne wykrywanie, które ułatwiają szybkie rozwijanie zagrożeń cybernetycznymi.
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center bezpłatna usługa vs Azure Defender
+Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni. Po upływie 30 dni, jeśli chcesz kontynuować korzystanie z usługi, automatycznie zaczniemy naliczać opłaty za użycie.
 
-
-## <a name="security-center-free-vs-azure-defender-enabled"></a>Security Center bezpłatna usługa vs Azure Defender
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Jakie korzyści wiążą się z włączeniem usługi Azure Defender?
 
 Security Center jest oferowane w dwóch trybach:
 
@@ -41,43 +34,22 @@ Security Center jest oferowane w dwóch trybach:
     - **Ochrona przed zagrożeniami dla zasobów połączonych ze środowiskiem platformy Azure** — usługa Azure Defender obejmuje usługę Azure — natywną ochronę przed zagrożeniami dla usług platformy Azure wspólnych dla wszystkich zasobów: Azure Resource Manager, Azure DNS, warstwy sieci platformy azure i Azure Key Vault. Usługa Azure Defender ma unikatowy wgląd w warstwę zarządzania platformy Azure i warstwę Azure DNS i w związku z tym może chronić zasoby w chmurze połączone z tymi warstwami.
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>Wypróbuj usługę Azure Defender bezpłatnie przez 30 dni
-Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni. Po upływie 30 dni, jeśli chcesz kontynuować korzystanie z usługi, automatycznie zaczniemy naliczać opłaty za użycie.
-
-## <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
-Możesz chronić całą subskrypcję platformy Azure za pomocą usługi Azure Defender, a ochrona będzie dziedziczona przez wszystkie zasoby w ramach subskrypcji.
-
-Aby włączyć usługę Azure Defender:
-
-1. W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
-1. Wybierz subskrypcję, którą chcesz uaktualnić.
-1. Wybierz pozycję **Azure Defender on** , aby przeprowadzić uaktualnienie.
-1. Wybierz pozycję **Zapisz**.
-
-Poniżej znajduje się Strona z cennikiem przykładowej subskrypcji. Należy zauważyć, że każdy plan w usłudze Azure Defender jest naliczany osobno i może być ustawiony indywidualnie lub wyłączony.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Strona cennika Security Center w portalu":::
-
-> [!NOTE]
-> Aby włączyć wszystkie funkcje Security Center w tym funkcje ochrony przed zagrożeniami, należy włączyć usługę Azure Defender w ramach subskrypcji zawierającej odpowiednie obciążenia. Włączenie tej opcji na poziomie obszaru roboczego nie pozwala na dostęp do programu VM, adaptacyjne kontrolki aplikacji i wykrywanie sieci dla zasobów platformy Azure. Ponadto jedyne plany usługi Azure Defender dostępne na poziomie obszaru roboczego to usługa Azure Defender dla serwerów i usługi Azure Defender dla serwerów SQL na komputerach.
->
-> **Usługę Azure Defender można włączyć dla kont magazynu** na poziomie subskrypcji lub poziomu zasobów.
-> **Usługę Azure Defender dla programu SQL** można włączyć na poziomie subskrypcji lub na poziomie zasobu.
-> Ochronę przed zagrożeniami dla **Azure Database for MariaDB/MySQL/PostgreSQL** można włączyć tylko na poziomie zasobów.
-
-
 ## <a name="faq---pricing-and-billing"></a>Często zadawane pytania — Cennik i rozliczenia 
 
-- [Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Azure Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-- [Jakie są plany oferowane przez Security Center?](#what-are-the-plans-offered-by-security-center)
-- [Jak mogę włączyć usługę Azure Defender dla mojej subskrypcji?](#how-do-i-enable-azure-defender-for-my-subscription)
-- [Czy mogę włączyć usługę Azure Defender dla podzbioru serwerów w mojej subskrypcji?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-- [Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-- [Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-- [Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-- [Jeśli Agent Log Analytics jest raportowany do wielu obszarów roboczych, czy zostanie naliczona dwa razy?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-- [Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-- [Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Azure Security Center bezpłatna usługa vs Azure Defender](#azure-security-center-free-vs-azure-defender-enabled)
+  - [Jakie korzyści wiążą się z włączeniem usługi Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
+  - [Często zadawane pytania — Cennik i rozliczenia](#faq---pricing-and-billing)
+    - [Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+    - [Jakie są plany oferowane przez Security Center?](#what-are-the-plans-offered-by-security-center)
+    - [Jak mogę włączyć usługę Azure Defender dla mojej subskrypcji?](#how-do-i-enable-azure-defender-for-my-subscription)
+    - [Czy mogę włączyć usługę Azure Defender dla podzbioru serwerów w mojej subskrypcji?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+    - [Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+    - [Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+    - [Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+    - [Jeśli Agent Log Analytics jest raportowany do wielu obszarów roboczych, czy zostanie naliczona dwa razy?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+    - [Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+    - [Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+  - [Następne kroki](#next-steps)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?
 Subskrypcje platformy Azure mogą mieć wielu administratorów z uprawnieniami do zmiany ustawień cen. Aby dowiedzieć się, który użytkownik wprowadził zmianę, użyj dziennika aktywności platformy Azure.
@@ -100,7 +72,7 @@ Aby włączyć usługę Azure Defender dla Twojej subskrypcji, można użyć dow
 
 |Metoda  |Instrukcje  |
 |---------|---------|
-|Azure Security Center strony Azure Portal|[Włączanie usługi Azure Defender](#enable-azure-defender)|
+|Azure Security Center strony Azure Portal|[Włączanie usługi Azure Defender](enable-azure-defender.md)|
 |Interfejs API REST|[Interfejs API cen](/rest/api/securitycenter/pricings)|
 |Interfejs wiersza polecenia platformy Azure|[AZ Security Cennik](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|

@@ -6,18 +6,23 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/12/2020
-ms.author: matjazl
-ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.author: zxue
+ms.openlocfilehash: 5e24c7666fd2ece7d284b7705bc481866d7604de
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621882"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097044"
 ---
 # <a name="configure-private-link"></a>Konfigurowanie linku prywatnego
 
 Link prywatny umożliwia dostęp do usługi Azure API for FHIR za pośrednictwem prywatnego punktu końcowego, interfejsu sieciowego, który nawiązuje połączenie prywatnie i bezpiecznie przy użyciu prywatnego adresu IP z sieci wirtualnej. Za pomocą linku prywatnego możesz bezpiecznie uzyskiwać dostęp do naszych usług z sieci wirtualnej jako usługi pierwszej firmy bez konieczności przechodzenia przez publiczny system DNS. W tym artykule omówiono sposób tworzenia, testowania i zarządzania prywatnym punktem końcowym usługi Azure API for FHIR.
+
+>[!Note]
+>Nie można przenieść prywatnych linków ani usługi Azure API for FHIR z jednej grupy zasobów lub subskrypcji do innej po włączeniu linku prywatnego. Aby przenieść, najpierw usuń link prywatny, a następnie przenieś interfejs Azure API for FHIR i Utwórz nowy prywatny link po zakończeniu przenoszenia. Przed usunięciem prywatnego linku Oceń potencjalne konsekwencje dotyczące zabezpieczeń.
+>
+>Jeśli dla usługi Azure API for FHIR jest włączone eksportowanie dzienników inspekcji i/metryk, zaktualizuj ustawienie eksportowania za pomocą ustawień diagnostycznych z portalu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -166,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: Wyświetlanie analiz rozszerzeń nazw plików
             href: file-extension-insights.md
+      - name: Zabezpieczenia & sieci
+        items:
+          - name: Zarządzanie prywatnymi punktami końcowymi
+            href: catalog-private-link.md
   - name: Dokumentacja
     items:
       - name: Obsługiwane klasyfikacje

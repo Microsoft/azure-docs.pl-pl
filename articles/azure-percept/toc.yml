@@ -38,12 +38,6 @@
           href: tutorial-nocode-vision.md
         - name: Kompilowanie i wdrażanie rozwiązania do obsługi mowy bez kodu
           href: tutorial-no-code-speech.md
-    - name: Opracowywanie zaawansowane
-      items:
-        - name: Zaawansowany samouczek programistyczny (Cloud)
-          href: advanced-development-cloud.md
-        - name: Zaawansowany samouczek programistyczny (lokalny)
-          href: advanced-development-local.md
 - name: Pojęcia
   items:
     - name: Azure Percept — dźwięk
@@ -106,5 +100,3 @@
           href: azure-percept-vision-datasheet.md
         - name: Arkusz danych audio usługi Azure Percept
           href: azure-percept-audio-datasheet.md
-- name: Zasoby
-  items: null

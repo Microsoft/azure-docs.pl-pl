@@ -1,23 +1,20 @@
 ---
 title: Tabela referencyjna dla wszystkich alertów zabezpieczeń w Azure Security Center
-description: W tym artykule wymieniono alerty zabezpieczeń widoczne na pulpicie nawigacyjnym usługi Azure Defender Azure Security Center.
+description: W tym artykule wymieniono alerty zabezpieczeń widoczne na pulpicie nawigacyjnym usługi Azure Defender Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2021
+ms.date: 03/03/2021
 ms.author: memildin
-ms.openlocfilehash: a9ba66580d6b98cfde0abe934f53f05d27edc57f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e8ebf47420150c82c8e94299291e9ea6bd7d4d88
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735849"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096959"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
@@ -278,6 +275,9 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Alerty dla kontenerów — poziom hosta
 
+Alerty usługi Azure Defender dla hostów kontenerów nie są ograniczone do alertów poniżej. Wiele alertów na liście [alertów dotyczących warstwy sieci platformy Azure](#alerts-azurenetlayer), [alertów dla maszyn z systemem Windows](#alerts-windows)i [alertów dotyczących tabel maszyn](#alerts-linux) z systemem Linux może być również wyzwalanych na hostach kontenerów. Zespół ds. analizy zagrożeń firmy Microsoft nieustannie mierzy i dostosowuje wiele typów alertów względem klastrów Kubernetes w celu optymalizacji wykrywania i zmniejszania wyników fałszywie dodatnich.
+
+
 [Dalsze szczegóły i uwagi](defender-for-kubernetes-introduction.md)
 
 | Alerty                                                                          | Opis                                                                                                                                                                                                                                                                                                | MITRE taktykę<br>([Dowiedz się więcej](#intentions)) | Ważność |
@@ -294,9 +294,7 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Alerty dotyczące SQL Database i usługi Azure Synapse Analytics
 
-[Dalsze szczegóły i uwagi](defender-for-sql-introduction.md)
-
-| Alerty                                                    | Opis                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE taktykę<br>([Dowiedz się więcej](#intentions)) | Ważność |
+[Dalsze szczegóły i uwagi](defender-for-sql-introduction.md)| Alerty                                                    | Opis                                                                                                                                                                                                                                                                                                                                                                                                                               | MITRE taktykę<br>([Dowiedz się więcej](#intentions)) | Ważność |
 |----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **Możliwa Luka w zabezpieczeniach iniekcji SQL**            | Aplikacja wygenerowała błędną instrukcję SQL w bazie danych. Może to wskazywać na ewentualną lukę w zabezpieczeniach ataków iniekcji SQL. Istnieją dwie możliwe przyczyny błędnej instrukcji. Usterka w kodzie aplikacji mogła skonstruować błędną instrukcję języka SQL. Lub kod aplikacji lub procedury składowane nie oczyszczają danych wejściowych użytkownika podczas konstruowania nieprawidłowej instrukcji SQL, która może zostać wykorzystana do iniekcji SQL. | -                                            | Śred.   |
 | **Próba logowania przez potencjalnie szkodliwą aplikację** | Potencjalnie szkodliwa aplikacja próbowała uzyskać dostęp do programu SQL Server "{name}".                                                                                                                                                                                                                                                                                                                                                               | Zaatakowanie                                    | Wys.     |
@@ -477,8 +475,7 @@ W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania
 
 ## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Alerty zdarzeń zabezpieczeń
 
-[Dalsze szczegóły i uwagi](security-center-alerts-cloud-smart.md)
-
+[Dalsze szczegóły i uwagi](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
 
 | Alerty                                   | Opis                                                          | MITRE taktykę<br>([Dowiedz się więcej](#intentions)) | Ważność |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|

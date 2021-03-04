@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8d150228be2cf6deff3bc2fd0a0599cca70d24ac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8dda18271de9b7d65246f0882ee7a68191031c05
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663016"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096619"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>Nawiązywanie połączenia z platformą Azure Percept DK za pośrednictwem protokołu SSH
 
@@ -25,6 +25,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować połączenie SS
     - Jeśli na komputerze hosta jest uruchomiony system [Windows, w](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) tym przewodniku zostanie użyty skuteczny klient SSH.
     - Jeśli na komputerze hosta jest uruchomiony system Linux lub OS X, usługi SSH są zawarte w tych systemach operacyjnych i można je uruchomić bez oddzielnej aplikacji klienckiej. Więcej informacji na temat sposobu uruchamiania usług SSH można znaleźć w dokumentacji produktu systemu operacyjnego.
 - Azure Percept DK
+- Skonfiguruj konto logowania SSH podczas [korzystania z platformy Azure PERCEPT DK](./quickstart-percept-dk-set-up.md)
 
 ## <a name="initiate-the-ssh-connection"></a>Inicjowanie połączenia SSH
 
@@ -48,15 +49,8 @@ Postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować połączenie SS
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="Image.":::
 
-1. Zaloguj się do terminalu. W przypadku skonfigurowania nazwy użytkownika i hasła SSH w trakcie działania OOBE wprowadź te poświadczenia logowania po wyświetleniu monitu. W przeciwnym razie wprowadź następujące polecenie:  
-
-    1. Zaloguj się jako: główny
-    1. Password (Hasło): p@ssw0rd
-
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="Wydano okno terminalu.":::  
+1. Zaloguj się do terminalu potoku przy użyciu nazwy użytkownika i hasła SSH utworzonego podczas korzystania z platformy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Po pomyślnym nawiązaniu połączenia z usługą Azure Percept DK za pośrednictwem protokołu SSH można wykonać różne zadania, w tym Rozwiązywanie problemów, aktualizacje USB i uruchamianie narzędzia DiagTool lub SoftAP.
-
-

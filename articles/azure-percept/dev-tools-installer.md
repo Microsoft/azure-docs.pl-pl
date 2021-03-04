@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 02292d4559697bc38d47811fe392dc86427515b4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d684311ef959ac13f3be8bac7ffbbb06a741962a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662936"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097707"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Omówienie Instalatora pakietu narzędzi deweloperskich
 
@@ -84,6 +84,8 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 
         > [!NOTE]
         > Platforma Docker obsługuje program Docker Desktop na najnowszych wersjach programu macOS. Oznacza to, że bieżąca wersja programu macOS i poprzednich dwóch wersji. Ponieważ nowe główne wersje macOS są ogólnie dostępne, platforma Docker przestaje obsługiwać najstarszą wersję i obsługuje najnowszą wersję programu macOS (oprócz poprzednich dwóch wersji). Program Docker Desktop obecnie obsługuje macOS Mojave, macOS Catalina i macOS Big Sur.
+        > 
+        - Instalator nie jest obsługiwany przez firmę Apple M1.
 
 ## <a name="instructions"></a>Instrukcje
 
@@ -99,7 +101,7 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
     
         1. Po pobraniu Przenieś plik Dev-Tools-Pack-Installer. app do folderu Applications.
         
-        1. Kliknij pozycję "Dev-Tools-Pack-Installer. app", aby otworzyć Kreatora instalacji.
+        1. Kliknij pozycję **dev-Tools-Pack-Installer. app** , aby otworzyć Kreatora instalacji.
         
         1. Jeśli zostanie wyświetlone okno dialogowe zabezpieczeń "niezidentyfikowane deweloperem":
         
@@ -123,7 +125,7 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
                 
             1. Wpisz następujące w terminalu, aby AppImage plik wykonywalny
             
-                1. chmod + x dev-Tools-Pack-Installer. AppImage
+                1. chmod + x **dev-Tools-Pack-Installer. AppImage**
                 
             1. Wpisz następujące w terminalu, aby uruchomić Instalatora
             
@@ -141,11 +143,11 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 
 1. Na stronie **Instalowanie Instalatora pakietu narzędzi deweloperskich** kliknij pozycję **Wyświetl licencję** , aby wyświetlić umowy licencyjne poszczególnych pakietów oprogramowania zawartych w instalatorze. Jeśli akceptujesz warunki umowy licencyjnej, zaznacz pole wyboru i kliknij przycisk **dalej**.
 
-    ![Ekran Umowa licencyjna w instalatorze.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_license_agreements.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-license-agreements.png" alt-text="Ekran Umowa licencyjna w instalatorze.":::
 
 1. Kliknij zasady **zachowania poufności informacji** , aby zapoznać się z zasadami zachowania poufności informacji firmy Microsoft. Jeśli akceptujesz warunki zasad zachowania poufności informacji i chcesz wysyłać dane diagnostyczne do firmy Microsoft, wybierz pozycję **tak** i kliknij przycisk **dalej**. W przeciwnym razie wybierz pozycję **nie** i kliknij przycisk **dalej**.
 
-    ![Ekran umowa dotycząca zasad zachowania poufności informacji w instalatorze.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_privacy_statement.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-privacy-statement.png" alt-text="Ekran umowa dotycząca zasad zachowania poufności informacji w instalatorze.":::
 
 1. Na stronie **Konfiguruj składniki** Wybierz opcjonalne narzędzia, które chcesz zainstalować (domyślnie zostaną zainstalowane obowiązkowe narzędzia).
 
@@ -153,11 +155,11 @@ Instalator pakietu narzędzi deweloperskich to jedno-stopne rozwiązanie, które
 
     1. Kliknij przycisk **Instaluj** , aby kontynuować instalację.
 
-    ![Ekran Instalatora z informacjami o dostępnych pakietach oprogramowania.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_configure_components.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-configure-components.png" alt-text="Ekran Instalatora z informacjami o dostępnych pakietach oprogramowania.":::
 
 1. Po pomyślnej instalacji wszystkich wybranych składników Kreator przechodzi do strony **kończącej pracę Kreatora instalacji** . Kliknij przycisk **Zakończ** , aby zamknąć Instalatora.
 
-    ![Ekran uzupełniania Instalatora.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_finish.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-finish.png" alt-text="Ekran uzupełniania Instalatora.":::
 
 ## <a name="docker-status-check"></a>Sprawdzenie stanu platformy Docker
 
@@ -168,12 +170,12 @@ Jeśli Instalator powiadamia, aby sprawdzić, czy program Docker Desktop jest w 
       1. Rozwiń ukryte ikony paska zadań:
       
          1. Rozwiń ukryte ikony paska zadań, jeśli są ukryte:
-         
-            * ![Pasek zadań](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/SystemTray.png)
+
+            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="Pasek zadań.":::
          
          1. Sprawdź, czy ikona programu Docker Desktop zawiera element "Docker Desktop działa":
-         
-            * ![Stan platformy Docker](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/DockerStatusRunning.png)
+
+            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Stan platformy Docker.":::
          
          1. Jeśli powyższa ikona nie zostanie wyświetlona na pasku zadań, uruchom program Docker Desktop z menu Start.
          
@@ -181,4 +183,4 @@ Jeśli Instalator powiadamia, aby sprawdzić, czy program Docker Desktop jest w 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [samouczkiem dotyczącym zaawansowanego programowania (lokalnego)](./advanced-development-local.md), aby rozpocząć pracę z zaawansowanym programowaniem na platformie Azure Percept.
+Zapoznaj się z [repozytorium zaawansowanego programowania w usłudze Azure Percept](https://github.com/microsoft/azure-percept-advanced-development) , aby rozpocząć pracę z zaawansowanym programowaniem na platformie Azure Percept.

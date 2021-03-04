@@ -7,20 +7,16 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 0d53ca9a2203dc4c901c62226c584dcef580d648
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 68244e1669bbdce8215df467564ea3aca56b530c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663709"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098132"
 ---
 # <a name="the-azure-percept-dk-update-experience"></a>Środowisko aktualizacji platformy Azure Percept DK
 
-Dzięki usłudze Azure Percept w wersji można korzystać z dwóch opcji aktualizowania systemu operacyjnego i oprogramowania układowego programu dev Kit: za pośrednictwem środowiska AIR (OTA) lub za pośrednictwem portu USB. OTA to najlepszy sposób na łatwe aktualizowanie urządzeń w odpowiedniej skali, podczas gdy aktualizacja USB jest dobrym rozwiązaniem w przypadku, gdy OTA nie jest możliwe lub gdy chcesz zresetować urządzenie do ustawień fabrycznych.
-
-## <a name="update-experience-guides"></a>Przewodniki dotyczące aktualizacji
-
-Aby upewnić się, że możesz skorzystać z metody aktualizacji, która jest Najlepsza dla Ciebie, firma Microsoft umieściła zbiór przewodników, które ułatwią Ci pomoc.
+Dzięki usłudze Azure Percept w wersji można korzystać z dwóch opcji aktualizowania systemu operacyjnego i oprogramowania układowego programu dev Kit: za pośrednictwem środowiska AIR (OTA) lub za pośrednictwem portu USB. Aktualizacja OTA to łatwy sposób zapewnienia aktualności urządzeń, podczas gdy aktualizacja USB jest dobrym rozwiązaniem w przypadku, gdy OTA nie jest możliwe lub gdy chcesz zresetować urządzenie do ustawień fabrycznych. Aby upewnić się, że możesz skorzystać z metody aktualizacji, która jest Najlepsza dla Ciebie, firma Microsoft umieściła zbiór przewodników, które ułatwią Ci pomoc. 
 
 - [Jak skonfigurować usługę Azure IoT Hub w celu wdrożenia aktualizacji w środowisku AIR na platformie Azure Percept DK](./how-to-set-up-over-the-air-updates.md)
 - [Jak zaktualizować platformę Azure Percept DK przez powietrze](./how-to-update-over-the-air.md)

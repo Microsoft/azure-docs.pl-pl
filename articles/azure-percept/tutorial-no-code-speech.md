@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: de85c4f8cdcd9781345ee1488549aab23e38ec5c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665218"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098030"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Tworzenie asystenta głosowego za pomocą usługi Azure Percept DK i usługi Azure Percept audio
 
@@ -24,30 +24,11 @@ Ten przewodnik przeprowadzi Cię przez proces konfigurowania urządzeń, tworzen
 
 - Azure Percept DK (Devkit)
 - Azure Percept — dźwięk
-- Głośnik lub słuchawki (opcjonalnie)
+- Głośnik lub słuchawki, które mogą łączyć się z gniazdem audio 3,5 mm (opcjonalnie)
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/)
 - [Środowisko instalacyjne platformy Azure PERCEPT DK](./quickstart-percept-dk-set-up.md): nawiązano połączenie Devkit z siecią Wi-Fi, utworzono IoT Hub i połączono devkit z IoT Hub
+- [Konfiguracja audio usługi Azure Percept](./quickstart-percept-audio-setup.md)
 
-## <a name="device-setup"></a>Konfiguracja urządzenia
-
-1. (Opcjonalnie) Połącz prelegenta lub słuchawkę z modelem audio SoM za pośrednictwem gniazda słuchawek, które jest oznaczone jako "line out". Pozwoli to na słuchanie odpowiedzi dźwiękowych asystenta głosowego. Jeśli nie połączysz prelegenta lub słuchawki, nadal będzie można zobaczyć odpowiedzi jako tekst w oknie demonstracji.
-
-1. Podłącz model SoM audio do tablicy nośnej Devkit za pomocą kabla USB-A do mikrob.
-
-1. Włącz Devkit.
-
-    - Dioda LED L01 w modelu SoM audio zmieni się na Solid zielony, aby wskazać, że urządzenie zostało włączone.
-    - L02 diody LED zmieni się na miganie, aby wskazać, że model SoM audio jest uwierzytelniany.
-
-1. Poczekaj na zakończenie procesu uwierzytelniania — może to potrwać do 3 minut.
-
-1. Przejdź do następnej sekcji, gdy zobaczysz jedną z następujących czynności:
-
-    - Dioda LED L01 wyłącza się, a L02 wyłącza kolor biały. Oznacza to, że uwierzytelnianie jest ukończone i Devkit nie został jeszcze skonfigurowany za pomocą słowa kluczowego.
-    - Wszystkie trzy diody LED zmienią kolor na niebieski. Oznacza to, że uwierzytelnianie jest ukończone i Devkit jest skonfigurowany za pomocą słowa kluczowego.
-
-    > [!NOTE]
-    > Skontaktuj się z pomocą techniczną, aby dowiedzieć się, czy Devkit nie uwierzytelnia się.
 
 ## <a name="create-a-voice-assistant-using-an-available-template"></a>Tworzenie asystenta głosowego przy użyciu dostępnego szablonu
 
@@ -119,6 +100,7 @@ Demonstracja motoryzacyjna zawiera wirtualne rozgrzane, programowe i termostaty,
 * "Ustaw temperaturę na X stopni". (X jest pożądaną temperaturą, np. 75).
 * "Zwiększ/Zmniejsz temperaturę o stopniu Y".
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/auto-demo.png" alt-text="Zrzut ekranu przedstawiający okno pokazowe platformy motoryzacyjnej.":::
 
 ### <a name="inventory-demo-commands"></a>Polecenia demonstracyjne spisu
@@ -131,19 +113,30 @@ Demonstracja spisu zawiera wybrane niebieskie, żółte i zielone pola, które u
 * "Liczba pól Y". (T to kolor pól, na przykład żółty).
 * "Wyślij wszystko w magazynie".
 
+
 :::image type="content" source="./media/tutorial-no-code-speech/inventory-demo.png" alt-text="Zrzut ekranu przedstawiający okno pokazowe spisu.":::
 
 ## <a name="configure-your-keyword"></a>Skonfiguruj słowo kluczowe
 
-Aby zmienić słowo kluczowe, kliknij przycisk **Zmień** obok **słowa kluczowego Custom** w oknie demonstracyjnym. Wybierz jedno z dostępnych słów kluczowych i kliknij przycisk **Zapisz**. Będziesz mieć możliwość wyboru spośród wstępnie skompilowanych słów kluczowych i utworzonych niestandardowych słów kluczowych.
+Możesz dostosować słowo kluczowe dla aplikacji asystenta głosowego.
 
-:::image type="content" source="./media/tutorial-no-code-speech/change-keyword.png" alt-text="Zrzut ekranu przedstawiający wybór dostępnych słów kluczowych.":::
+1. Kliknij pozycję **Zmień** obok **słowa kluczowego Custom** w oknie demonstracji.
+
+1. Wybierz jedno z dostępnych słów kluczowych. Będziesz mieć możliwość wyboru spośród wybranych przykładowych słów kluczowych i wszystkich utworzonych niestandardowych słów kluczowych.
+
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-a-custom-keyword"></a>Tworzenie niestandardowego słowa kluczowego
 
-Aby utworzyć niestandardowe słowo kluczowe, kliknij pozycję **+ Utwórz niestandardowe słowo kluczowe** w górnej części okna demonstracyjnego. Wprowadź odpowiednie słowo kluczowe, które może być pojedynczym słowem lub krótką frazą, wybierz **zasób mowy** (znajduje się obok **polecenia Custom** w oknie demonstracyjnym i zawiera prefiks aplikacji), a następnie kliknij przycisk **Zapisz**. Szkolenie dotyczące niestandardowego słowa kluczowego może zakończyć się w ciągu zaledwie kilku sekund.
+Możesz utworzyć własne słowo kluczowe dla aplikacji głosowej. Szkolenie dotyczące niestandardowego słowa kluczowego może zakończyć się w ciągu zaledwie kilku minut.
 
-:::image type="content" source="./media/tutorial-no-code-speech/custom-keyword.png" alt-text="Zrzut ekranu przedstawiający okno tworzenia niestandardowego słowa kluczowego.":::
+1. Kliknij pozycję **+ Utwórz niestandardowe słowo kluczowe** w górnej części okna demonstracji. 
+
+1. Wprowadź żądane słowo kluczowe, które może być pojedynczym słowem lub krótką frazą.
+
+1. Wybierz **zasób mowy** (znajduje się obok **polecenia Custom** w oknie demonstracyjnym i zawiera prefiks aplikacji).
+
+1. Kliknij pozycję **Zapisz**. 
 
 ## <a name="create-a-custom-command"></a>Utwórz polecenie niestandardowe
 
@@ -185,13 +178,13 @@ Więcej informacji na temat opracowywania poleceń niestandardowych można znale
 
 ### <a name="voice-assistant-was-created-but-does-not-respond-to-commands"></a>Asystent głosowy został utworzony, ale nie odpowiada na polecenia
 
-Sprawdź sygnalizatory LED w modelu SoM audio:
+Sprawdź sygnalizatory LED na tablicy międzyetapowej:
 
 * Trzy pełne niebieskie sygnalizatory wskazują, że asystent głosowy jest gotowy i oczekuje na słowo kluczowe.
 * Jeśli centralny dioda LED (L02) jest biała, Devkit została zainicjowana i musi być skonfigurowana za pomocą słowa kluczowego.
-* Dowolna kombinacja zielonych sygnalizatorów wskazuje, że nie ukończono jeszcze inicjalizacji modelu audio. Inicjowanie może potrwać kilka minut.
+* Jeśli dioda LED (L02) jest migać, model SoM audio nie zakończył jeszcze inicjalizacji. Inicjowanie może potrwać kilka minut.
 
-Aby uzyskać więcej informacji na temat wskaźników LED modelu SoM (audio), zobacz artykuł dotyczący diody LED.
+Więcej informacji na temat wskaźników LED można znaleźć w artykule dotyczącym [diody LED](./audio-button-led-behavior.md).
 
 ### <a name="voice-assistant-does-not-respond-to-a-custom-keyword-created-in-speech-studio"></a>Asystent głosowy nie odpowiada na niestandardowe słowo kluczowe utworzone w programie Speech Studio
 
@@ -207,22 +200,20 @@ Taka sytuacja może wystąpić, jeśli moduł mowy jest nieaktualny. Wykonaj nas
 
 1. Sprawdź wersję modułu Speech. Jeśli dostępna jest aktualizacja, zobaczysz przycisk **aktualizacji** obok numeru wersji.
 
-    :::image type="content" source="./media/tutorial-no-code-speech/devkit.png" alt-text="Zrzut ekranu przedstawiający okno ustawień mowy Devkit.":::
-
 1. Kliknij przycisk **Aktualizuj** , aby wdrożyć aktualizację modułu mowy. Proces aktualizacji trwa zwykle 2-3 minut.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z aplikacją asystenta głosowego wykonaj następujące kroki, aby wyczyścić zasoby mowy wdrożone w ramach tego samouczka:
 
-1. W [Azure Portal](https://ms.portal.azure.com/#home)wybierz pozycję **grupy zasobów** w panelu menu po lewej stronie lub wpisz ją na pasku wyszukiwania.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **grupy zasobów** w panelu menu po lewej stronie lub wpisz ją na pasku wyszukiwania.
 
     :::image type="content" source="./media/tutorial-no-code-speech/azure-portal.png" alt-text="Zrzut ekranu przedstawiający Azure Portal Strona główna pokazująca panel menu po lewej stronie i grupy zasobów.":::
 
 1. Wybierz swoją grupę zasobów.
 
 1. Zaznacz wszystkie sześć zasobów zawierających prefiks aplikacji i kliknij ikonę **Usuń** w górnym panelu menu.
-
+\
     :::image type="content" source="./media/tutorial-no-code-speech/select-resources.png" alt-text="Zrzut ekranu zasobów mowy wybranych do usunięcia.":::
 
 1. Aby potwierdzić usunięcie, wpisz **tak** w polu potwierdzenia, sprawdź, czy wybrano poprawne zasoby, a następnie kliknij przycisk **Usuń**.
