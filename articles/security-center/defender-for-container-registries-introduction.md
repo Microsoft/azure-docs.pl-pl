@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132736"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100716"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -76,7 +76,7 @@ Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobre
 Tak. Wyniki są dostępne w [interfejsie API REST ocen podrzędnych](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
 
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
-Listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów można znaleźć w temacie [Availability (dostępność](defender-for-container-registries-usage.md#availability)).
+Listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów można znaleźć w temacie [Availability (dostępność](#availability)).
 
 W przypadku łączenia nieobsługiwanych rejestrów z subskrypcją platformy Azure nie będą one przeszukiwane i nie będą naliczane opłaty.
 

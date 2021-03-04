@@ -1,6 +1,6 @@
 ---
-title: Jak używać usługi Azure Defender dla programu SQL
-description: Dowiedz się, jak używać opcjonalnego planu usługi Azure Defender dla programu SQL Azure Security Center
+title: Jak skonfigurować usługę Azure Defender dla programu SQL
+description: Dowiedz się, jak włączyć opcjonalną usługę Azure Defender dla planu SQL Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590385"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100580"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Usługa Azure Defender dla serwerów SQL na maszynach 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Włączanie usługi Azure Defender dla serwerów SQL na maszynach 
 
 Ten plan usługi Azure Defender wykrywa nietypowe działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
@@ -31,7 +31,7 @@ Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych l
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Ogólna dostępność (GA)|
-|Wpisaną|Opłaty za **usługi Azure Defender dla serwerów SQL na maszynach** są rozliczane zgodnie z [cennikiem](security-center-pricing.md) .|
+|Wpisaną|Opłaty **za usługi Azure Defender dla serwerów SQL na maszynach** są rozliczane zgodnie z [cennikiem Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Chronione wersje programu SQL:|Azure SQL Server (wszystkie wersje objęte pomocą techniczną firmy Microsoft)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
@@ -40,11 +40,10 @@ Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych l
 
 Aby włączyć ten plan:
 
-* Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server. Zapewnia to połączenie z platformą Azure.
+[Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Włącz opcjonalny plan na stronie cennika i ustawienia Security Center.
+[Krok 2. Włącz opcjonalny plan na stronie cennika i ustawienia Security Center:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Oba te elementy zostały opisane poniżej.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:
 
@@ -81,31 +80,6 @@ Oba te elementy zostały opisane poniżej.
 1. Opcjonalnie możesz skonfigurować powiadomienia e-mail o alertach zabezpieczeń. 
     Po wygenerowaniu alertów Security Center można ustawić listę adresatów, którzy otrzymają powiadomienie e-mail. Wiadomość e-mail zawiera bezpośredni link do alertu w Azure Security Center ze wszystkimi odpowiednimi szczegółami. Aby uzyskać więcej informacji, zobacz [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md).
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Poznaj raporty oceny luk w zabezpieczeniach
-
-Usługa oceny luk w zabezpieczeniach skanuje bazy danych raz w tygodniu. Skany są uruchamiane w tym samym dniu tygodnia, w którym włączono usługę.
-
-Pulpit nawigacyjny oceny luk w zabezpieczeniach zawiera przegląd wyników oceny dla wszystkich baz danych oraz podsumowanie kondycji i złej jakości baz danych oraz ogólne podsumowanie niepowodzenia kontroli zgodnie z dystrybucją ryzyka.
-
-Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security Center.
-
-1. Na pasku bocznym Security Center Otwórz stronę **zalecenia** i wybierz **luki w zabezpieczeniach serwerów SQL na maszynach, które należy skorygować (wersja zapoznawcza)**. Aby uzyskać więcej informacji, zobacz [Security Center zalecenia](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)":::
-
-    Zostanie wyświetlony szczegółowy widok tego zalecenia.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Szczegółowy widok rekomendacji":::
-
-1. Aby uzyskać więcej informacji, przechodzenie do szczegółów:
-
-    * Aby zapoznać się z omówieniem skanowanych zasobów (bazy danych) i listę testowanych testów zabezpieczeń, wybierz odpowiedni serwer.
-
-    * Aby zapoznać się z omówieniem luk w zabezpieczeniach pogrupowanych według konkretnej bazy danych SQL, wybierz interesującą bazę danych.
-
-    W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alerty usługi Azure Defender dla programu SQL
 Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane na [stronie odniesienia alertów](alerts-reference.md#alerts-sql-db-and-warehouse).

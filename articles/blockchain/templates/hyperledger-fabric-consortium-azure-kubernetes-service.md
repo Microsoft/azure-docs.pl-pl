@@ -1,15 +1,16 @@
 ---
 title: Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
 description: Jak wdrożyć i skonfigurować sieć konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897262"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101107"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
 
@@ -31,34 +32,6 @@ Opcja | Model usług | Typowy przypadek użycia
 Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieciowych i magazynowych dla typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, użyj [strony Microsoft Q&](/answers/topics/azure-blockchain-workbench.html) .
 [Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Usługa Azure łańcucha bloków Service umożliwia korzystanie z rozwiązań, które wymagają PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do prototypowania rozwiązania łańcucha bloków lub weryfikacji koncepcji dla aplikacji łańcucha bloków. Usługa Azure łańcucha bloków Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, użyj [strony Microsoft Q&](/answers/topics/azure-blockchain-workbench.html) .
-
-## <a name="hyperledger-fabric-consortium-architecture"></a>Architektura konsorcjum sieci szkieletowej
-
-Aby utworzyć sieć szkieletową z księgą w systemie Azure, należy wdrożyć usługę zamawiania i organizację z węzłami równorzędnymi. Za pomocą szablonu rozwiązania do obsługi sieci szkieletowej w usłudze Azure Kubernetes Service można tworzyć węzły kolejności lub węzły równorzędne. Należy wdrożyć szablon dla każdego węzła, który ma zostać utworzony.
-
-Podstawowe składniki, które są tworzone w ramach wdrożenia szablonu są następujące:
-
-- **Węzły programu orderer**: węzeł, który jest odpowiedzialny za porządkowanie transakcji w księdze. Wraz z innymi węzłami uporządkowane węzły tworzą usługę porządkowania sieci szkieletowej.
-
-- **Węzły równorzędne**: węzeł, który głównie obsługuje księgi i inteligentne kontrakty, które są podstawowymi elementami sieci.
-
-- **Urząd certyfikacji sieci szkieletowej**: Urząd certyfikacji (CA) dla sieci szkieletowej z księgą. Urząd certyfikacji sieci szkieletowej umożliwia zainicjowanie i uruchomienie procesu serwera, który hostuje urząd certyfikacji. Umożliwia zarządzanie tożsamościami i certyfikatami. Każdy klaster AKS wdrożony jako część szablonu będzie miał domyślnie ten urząd certyfikacji sieci szkieletowej.
-
-- **CouchDB lub LevelDB**: światowe bazy danych stanu dla węzłów równorzędnych. LevelDB jest domyślną bazą danych stanu osadzoną w węźle równorzędnym. Przechowuje dane chaincode jako proste pary klucz/wartość i obsługuje tylko klucz, zakres kluczy i kwerendy klucza złożonego. CouchDB to opcjonalna alternatywna baza danych stanu, która obsługuje zaawansowane zapytania, gdy wartości danych chaincode są modelowane jako kod JSON.
-
-Szablon w ramach wdrożenia umożliwia rozmieszczenie różnych zasobów platformy Azure w ramach subskrypcji. Wdrożone zasoby platformy Azure to:
-
-- **Klaster AKS**: klaster usługi Azure Kubernetes, który jest skonfigurowany zgodnie z parametrami wejściowymi dostarczonymi przez klienta. Klaster AKS ma różne zasobniki skonfigurowane do uruchamiania składników sieci szkieletowej. Utworzone zasobniki to:
-
-  - **Narzędzia sieci szkieletowej**: narzędzia odpowiedzialne za Konfigurowanie składników sieci szkieletowej.
-  - **Zamówienie/elementy równorzędne**: węzły sieci szkieletowej.
-  - **Serwer proxy**: serwer proxy NGNIX pod za pomocą którego aplikacje klienckie mogą komunikować się z klastrem AKS.
-  - **Urząd certyfikacji sieci szkieletowej**: na tym komputerze, na którym działa urząd certyfikacji sieci szkieletowej.
-- **PostgreSQL**: wystąpienie bazy danych, która przechowuje tożsamości urzędu certyfikacji sieci szkieletowej.
-
-- **Magazyn kluczy**: wystąpienie usługi Azure Key Vault, która została wdrożona w celu zapisania poświadczeń urzędu certyfikacji sieci szkieletowej oraz certyfikatów głównych dostarczonych przez klienta. Magazyn jest używany w przypadku ponawiania próby wdrożenia szablonu, aby obsłużyć Mechanics szablonu.
-- **Dysk zarządzany**: wystąpienie usługi Managed disks platformy Azure, która zapewnia trwały magazyn dla księgi i dla bazy danych stanu świata węzła równorzędnego.
-- **Publiczny adres IP**: punkt końcowy klastra AKS wdrożony na potrzeby komunikacji z klastrem.
 
 ## <a name="deploy-the-orderer-and-peer-organization"></a>Wdróż organizację orderer i webpeer
 
@@ -85,10 +58,10 @@ Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejd�
     - **Nazwa organizacji**: Wprowadź nazwę organizacji sieci szkieletowej transakcji, która jest wymagana dla różnych operacji na płaszczyźnie danych. Nazwa organizacji musi być unikatowa dla każdego wdrożenia.
     - **Składnik sieci szkieletowej**: wybierz pozycję **porządkowanie usług** lub **węzłów równorzędnych** w oparciu o składnik sieci łańcucha bloków, który chcesz skonfigurować.
     - **Liczba węzłów**: poniższe dwa typy węzłów:
-        - **Porządkowanie usługi**: Wybierz liczbę węzłów, aby zapewnić odporność na uszkodzenia sieci. Obsługiwana liczba węzłów zamówienia to 3, 5 i 7.
-        - **Węzły równorzędne**: można wybrać od 1 do 10 węzłów na podstawie wymagań.
-    - **Baza danych stanu węzła równorzędnego**: Wybierz między LevelDB i CouchDB. To pole jest wyświetlane po wybraniu **węzła równorzędnego** na liście rozwijanej **składnik sieci szkieletowej** .
-    - **Nazwa użytkownika urzędu sieci szkieletowej**: Wprowadź nazwę użytkownika używaną do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
+        - **Porządkowanie usługi**: węzły odpowiedzialne za porządkowanie transakcji w księdze. Wybierz liczbę węzłów, aby zapewnić odporność na uszkodzenia sieci. Obsługiwana liczba węzłów zamówienia to 3, 5 i 7.
+        - **Węzły równorzędne**: węzły obsługujące księgi i kontrakty inteligentne. Możesz wybrać od 1 do 10 węzłów na podstawie wymagań.
+    - **Baza danych stanu świata węzła równorzędnego**: bazy danych stanu globalnego dla węzłów równorzędnych. LevelDB jest domyślną bazą danych stanu osadzoną w węźle równorzędnym. Przechowuje dane chaincode jako proste pary klucz/wartość i obsługuje tylko klucz, zakres kluczy i kwerendy klucza złożonego. CouchDB to opcjonalna alternatywna baza danych stanu, która obsługuje zaawansowane zapytania, gdy wartości danych chaincode są modelowane jako kod JSON. To pole jest wyświetlane po wybraniu **węzła równorzędnego** na liście rozwijanej **składnik sieci szkieletowej** .
+    - **Nazwa użytkownika urzędu sieci szkieletowej**: Urząd certyfikacji sieci szkieletowej umożliwia zainicjowanie i uruchomienie procesu serwera, który hostuje urząd certyfikacji. Umożliwia zarządzanie tożsamościami i certyfikatami. Każdy klaster AKS wdrożony jako część szablonu będzie miał domyślnie ten urząd certyfikacji sieci szkieletowej. Wprowadź nazwę użytkownika używaną do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
     - **Hasło urzędu sieci szkieletowej**: wprowadź hasło do uwierzytelniania urzędu certyfikacji sieci szkieletowej.
     - **Potwierdź hasło**: Potwierdź hasło urzędu sieci szkieletowej.
     - **Certyfikaty**: Jeśli chcesz użyć własnych certyfikatów głównych, aby zainicjować urząd certyfikacji sieci szkieletowej, a następnie wybierz opcję **Przekaż certyfikat główny dla urzędu certyfikacji sieci szkieletowej** . W przeciwnym razie urząd certyfikacji sieci szkieletowej domyślnie tworzy certyfikaty z podpisem własnym.
@@ -96,11 +69,21 @@ Aby rozpocząć wdrażanie składników sieciowych w sieci szkieletowej, przejd�
     - **Klucz prywatny certyfikatu głównego**: Przekaż klucz prywatny certyfikatu głównego. Jeśli masz certyfikat. pem, który ma połączony klucz publiczny i prywatny, przekaż go również w tym miejscu.
 
 
-6. Wybierz kartę **Ustawienia klastra AKS** , aby zdefiniować konfigurację klastra usługi Azure Kubernetes, która jest podstawową infrastrukturą, w której zostaną skonfigurowane składniki sieci szkieletowej.
+6. Wybierz kartę **Ustawienia klastra AKS** , aby zdefiniować konfigurację klastra usługi Azure Kubernetes. Klaster AKS ma różne zasobniki skonfigurowane do uruchamiania składników sieci szkieletowej. Wdrożone zasoby platformy Azure to:
+
+    - **Narzędzia sieci szkieletowej**: narzędzia odpowiedzialne za Konfigurowanie składników sieci szkieletowej.
+    - **Zamówienie/elementy równorzędne**: węzły sieci szkieletowej.
+    - **Serwer proxy**: serwer proxy NGNIX pod za pomocą którego aplikacje klienckie mogą komunikować się z klastrem AKS.
+    - **Urząd certyfikacji sieci szkieletowej**: na tym komputerze, na którym działa urząd certyfikacji sieci szkieletowej.
+    - **PostgreSQL**: wystąpienie bazy danych, która przechowuje tożsamości urzędu certyfikacji sieci szkieletowej.
+    - **Magazyn kluczy**: wystąpienie usługi Azure Key Vault, która została wdrożona w celu zapisania poświadczeń urzędu certyfikacji sieci szkieletowej oraz certyfikatów głównych dostarczonych przez klienta. Magazyn jest używany w przypadku ponawiania próby wdrożenia szablonu, aby obsłużyć Mechanics szablonu.
+    - **Dysk zarządzany**: wystąpienie usługi Managed disks platformy Azure, która zapewnia trwały magazyn dla księgi i dla bazy danych stanu świata węzła równorzędnego.
+    - **Publiczny adres IP**: punkt końcowy klastra AKS wdrożony na potrzeby komunikacji z klastrem.
+
+    Wprowadź następujące informacje: 
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia klastra K S.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Wprowadź następujące informacje:
     - **Nazwa klastra Kubernetes**: Zmień nazwę klastra AKS, jeśli to konieczne. To pole jest wstępnie wypełniane na podstawie podanego prefiksu zasobu.
     - **Wersja Kubernetes**: Wybierz wersję Kubernetes, która zostanie wdrożona w klastrze. W zależności od regionu wybranego na karcie **podstawowe** dostępne wersje mogą ulec zmianie.
     - **Prefiks DNS**: wprowadź prefiks nazwy systemu nazw domen (DNS) dla klastra AKS. Użyjesz usługi DNS do nawiązywania połączenia z interfejsem API Kubernetes podczas zarządzania kontenerami po utworzeniu klastra.

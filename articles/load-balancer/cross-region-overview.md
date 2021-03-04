@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742606"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101379"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -143,7 +143,7 @@ Moduł równoważenia obciążenia między regionami kieruje ruch do odpowiednie
 
 * Nie można obecnie skonfigurować sondy kondycji. Domyślna sonda kondycji automatycznie zbiera informacje o dostępności dla regionalnego modułu równoważenia obciążenia co 20 sekund. 
 
-* Integracja z usługą Azure Kubernetes Service (AKS) jest obecnie niedostępna. Podczas wdrażania międzyregionowego modułu równoważenia obciążenia za pomocą publicznego modułu równoważenia obciążenia AKS nastąpi utrata łączności.
+* Integracja z usługą Azure Kubernetes Service (AKS) jest obecnie niedostępna. Podczas wdrażania międzyregionowego modułu równoważenia obciążenia z użyciem klastra AKS wdrożonego w zapleczu nastąpi utrata łączności.
 
 ## <a name="pricing-and-sla"></a>Cennik i Umowa SLA
 Moduł równoważenia obciążenia dla wielu regionów, udostępnia umowę [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) usługi równoważenia obciążenia w warstwie Standardowa.

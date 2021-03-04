@@ -6,22 +6,25 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+zone_pivot_groups: manage-asc-initiatives
+ms.openlocfilehash: a39b79c6c209c0fc66edac846d5458475ec75810
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559035"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100869"
 ---
-# <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
+# <a name="create-custom-security-initiatives-and-policies"></a>Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
 
 Aby pomóc w zabezpieczeniu systemów i środowiska, Azure Security Center generuje zalecenia dotyczące zabezpieczeń. Zalecenia te są oparte na najlepszych rozwiązaniach branżowych, które są włączone do ogólnych, domyślnych zasad zabezpieczeń dostarczonych wszystkim klientom. Mogą również pochodzić z Security Center znajomości standardów branżowych i prawnych.
 
 Korzystając z tej funkcji, możesz dodać własne inicjatywy *niestandardowe* . Następnie otrzymasz zalecenia, jeśli środowisko nie będzie zgodne z tworzonymi zasadami. Wszelkie utworzone inicjatywy niestandardowe będą wyświetlane wraz z wbudowanymi inicjatywami na pulpicie nawigacyjnym zgodności z przepisami, zgodnie z opisem w samouczku [poprawa zgodności z przepisami](security-center-compliance-dashboard.md).
 
 Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), gdy określisz lokalizację dla inicjatywy niestandardowej, musi to być grupa zarządzania lub subskrypcja. 
+
+::: zone pivot="azure-portal"
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Aby dodać inicjatywę niestandardową do subskrypcji 
 
@@ -52,7 +55,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/def
     1. Wprowadź lokalizację i nazwę definicji.
     1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
     1. Wprowadź wszelkie wymagane parametry.
-    1. Kliknij przycisk **Zapisz**.
+    1. Kliknij pozycję **Zapisz**.
     1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
     1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
 
@@ -68,6 +71,113 @@ Zgodnie z opisem w [dokumentacji Azure Policy](../governance/policy/concepts/def
 1. Aby zobaczyć, jakie są zalecenia dotyczące zasad, kliknij przycisk **zalecenia** na pasku bocznym, aby otworzyć stronę zalecenia. Zalecenia będą wyświetlane z etykietą "niestandardowy" i będą dostępne w ciągu około godziny.
 
     [![Zalecenia niestandardowe](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w Azure Policy przy użyciu interfejsu API REST
+
+W ramach integracji natywnej z Azure Policy Azure Security Center umożliwia korzystanie z interfejsu API REST Azure Policy do tworzenia przypisań zasad. Poniższe instrukcje przeprowadzą Cię przez proces tworzenia przypisań zasad, a także dostosowywania istniejących przypisań. 
+
+Ważne pojęcia dotyczące Azure Policy: 
+
+- **Definicja zasad** jest regułą 
+
+- **Inicjatywa** jest kolekcją definicji zasad (reguł) 
+
+- **Przypisanie** jest aplikacją inicjatywy lub zasadami do określonego zakresu (grupy zarządzania, subskrypcji itp.) 
+
+Security Center ma wbudowaną inicjatywę Azure Security test, która obejmuje wszystkie jej zasady zabezpieczeń. Aby ocenić zasady Security Center dla zasobów platformy Azure, należy utworzyć przypisanie do grupy zarządzania lub subskrypcję, którą chcesz ocenić.
+
+Z wbudowaną inicjatywą są domyślnie włączone wszystkie zasady Security Center. Niektóre zasady można wyłączyć z poziomu wbudowanej inicjatywy. Na przykład, aby zastosować wszystkie zasady Security Center z wyjątkiem **zapory aplikacji sieci Web**, należy zmienić wartość parametru efektu zasad na **wyłączone**.
+
+## <a name="api-examples"></a>Przykłady dotyczące interfejsu API
+
+W poniższych przykładach Zamień te zmienne:
+
+- **{SCOPE}** wprowadź nazwę grupy zarządzania lub subskrypcji, do której są stosowane zasady
+- **{policyAssignmentName}** wprowadź nazwę odpowiedniego przypisania zasad
+- **{name}** wprowadź swoją nazwę lub nazwę administratora, który zatwierdził zmianę zasad
+
+W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji lub grupy zarządzania
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+W tym przykładzie przedstawiono sposób przypisywania wbudowanej inicjatywy Security Center w ramach subskrypcji, z wyłączeniem następujących zasad: 
+
+- Aktualizacje systemu ("systemUpdatesMonitoringEffect") 
+
+- Konfiguracje zabezpieczeń ("systemConfigurationsMonitoringEffect") 
+
+- Endpoint Protection ("endpointProtectionMonitoringEffect") 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+Ten przykład pokazuje, jak usunąć przypisanie:
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
 
 ## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Ulepszanie niestandardowych zaleceń ze szczegółowymi informacjami
 

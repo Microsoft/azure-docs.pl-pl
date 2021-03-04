@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: memildin
-ms.openlocfilehash: e34d5520e13d45d15079a5f11775d2ef930fc62a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 327103df21dd34347439a833d7ac4b8a21dc66b4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727094"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099849"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -277,7 +277,7 @@ Jeśli użytkownik nie ma uprawnień do wyświetlania Security Center danych, zo
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Transparent informujący użytkownika, że może zażądać uprawnień na poziomie dzierżawy.":::
 
-Zapoznaj się z dodatkowymi [żądaniami w przypadku braku wystarczających uprawnień](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient) .
+Zapoznaj się z dodatkowymi [żądaniami w przypadku braku wystarczających uprawnień](tenant-wide-permissions-management.md#request-tenant-wide-permissions-when-yours-are-insufficient).
 
 
 ### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>35 zaleceń dotyczących wersji zapoznawczej dodano w celu zwiększenia zakresu testów zabezpieczeń platformy Azure
@@ -339,7 +339,7 @@ Podczas definiowania eksportu ciągłego należy ustawić częstotliwość ekspo
 - **Przesyłanie strumieniowe** — oceny zostaną przesłane w czasie rzeczywistym, gdy stan kondycji zasobu zostanie zaktualizowany (jeśli nie wystąpią żadne aktualizacje, żadne dane nie zostaną wysłane).
 - **Migawki** — migawka bieżącego stanu wszystkich ocen zgodności z przepisami będzie wysyłana co tydzień (jest to funkcja w wersji zapoznawczej dla cotygodniowych migawek bezpiecznych ocen i danych zgodności z przepisami).
 
-Dowiedz się więcej na temat pełnych możliwości tej funkcji w [sposób ciągły eksportujący dane Security Center](continuous-export.md)
+Dowiedz się więcej na temat pełnych możliwości tej funkcji w [sposób ciągły eksport danych Security Center](continuous-export.md).
 
 ## <a name="december-2020"></a>Grudzień 2020 r.
 
@@ -393,7 +393,7 @@ Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](defender-for-sq
 
 Użytkownik z rolą Azure Active Directory **administrator globalny** może korzystać z obowiązków obejmujących dzierżawę, ale nie ma uprawnień platformy Azure do wyświetlania informacji o całej organizacji w Azure Security Center. 
 
-Aby przypisać własne uprawnienia na poziomie dzierżawy, postępuj zgodnie z instrukcjami podanymi w temacie [Przyznawanie uprawnień dla całej dzierżawy](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself).
+Aby przypisać własne uprawnienia na poziomie dzierżawy, postępuj zgodnie z instrukcjami podanymi w temacie [Przyznawanie uprawnień dla całej dzierżawy](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself).
 
 
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>Dwa nowe plany usługi Azure Defender: usługa Azure Defender dla systemu DNS i usługi Azure Defender dla Menedżer zasobów (w wersji zapoznawczej)

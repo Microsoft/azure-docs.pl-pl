@@ -1,21 +1,37 @@
 ---
 title: Wdróż ponownie agentów dla Azure Security Center | Microsoft Docs
-description: W tym artykule opisano sposób konfigurowania autoaprowizacji agenta Log Analytics i innych agentów używanych przez Azure Security Center.
-services: security-center
+description: W tym artykule opisano sposób konfigurowania autoaprowizacji agenta Log Analytics i innych agentów i rozszerzeń używanych przez Azure Security Center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/15/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 6130572cedaaabb9d63758a2bc25f6ebd0396562
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d9d0739704a9f5f16bdbde80661192b2f1ca9bb1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729865"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099424"
 ---
-# <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Inicjowanie obsługi administracyjnej agentów i rozszerzeń z Azure Security Center
+# <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Skonfiguruj funkcję autoaprowizacji dla agentów i rozszerzeń z Azure Security Center
+
+Security Center zbiera dane z zasobów przy użyciu odpowiedniego agenta lub rozszerzeń dla tego zasobu oraz typu zbieranych danych. Użyj precedures poniżej, aby upewnić się, że w tym artykule opisano sposób konfigurowania autoaprowizacji agenta Log Analytics i innych agentów i rozszerzeń używanych przez Azure Security Center
+
+## <a name="prerequisites"></a>Wymagania wstępne
+Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="availability"></a>Dostępność
+
+| Aspekt                  | Szczegóły                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Stan wydania:          | **Funkcja**: obsługa autoaprowizacji jest ogólnie dostępna (ga)<br>**Agent i rozszerzenia**: usługa log Analytics Agent dla maszyn wirtualnych platformy Azure jest w wersji zapoznawczej, a dodatek zasad dla Kubernetes został rozbudowany                |
+| Wpisaną                | Bezpłatna                                                                                                                                                                                                                         |
+| Obsługiwane miejsca docelowe: | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure<br>![Nie](./media/icons/no-icon.png) Maszyny usługi Azure Arc<br>![Nie](./media/icons/no-icon.png) Kubernetes węzły<br>![Nie](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| Połączeń                 | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, Chiny gov, inne gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
+
+## <a name="how-does-security-center-collect-data"></a>Jak Security Center zbierać dane?
 
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym lokalnych) maszyn do monitorowania luk w zabezpieczeniach i zagrożeń. 
 
@@ -29,20 +45,6 @@ Dane są zbierane przy użyciu:
 > [!TIP]
 > Jak Security Center, typy zasobów, które mogą być monitorowane, również zostały nahodowane. Liczba rozszerzeń została również osiągnięta. Funkcja autoaprowizacji została rozszerzona o obsługę dodatkowych typów zasobów, wykorzystując możliwości Azure Policy.
 
-:::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Strona ustawień autoaprowizacji Security Center":::
-
-
-## <a name="availability"></a>Dostępność
-
-| Aspekt                  | Szczegóły                                                                                                                                                                                                                      |
-|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Stan wydania:          | **Funkcja**: obsługa autoaprowizacji jest ogólnie dostępna (ga)<br>**Agent i rozszerzenia**: usługa log Analytics Agent dla maszyn wirtualnych platformy Azure jest w wersji zapoznawczej, a dodatek zasad dla Kubernetes został rozbudowany                |
-| Wpisaną                | Bezpłatna                                                                                                                                                                                                                         |
-| Obsługiwane miejsca docelowe: | ![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure<br>![Nie](./media/icons/no-icon.png) Maszyny usługi Azure Arc<br>![Nie](./media/icons/no-icon.png) Kubernetes węzły<br>![Nie](./media/icons/no-icon.png) Virtual Machine Scale Sets |
-| Połączeń                 | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, Chiny gov, inne gov                                                                                                      |
-|                         |                                                                                                                                                                                                                              |
-
-
 ## <a name="why-use-auto-provisioning"></a>Dlaczego warto używać autoaprowizacji?
 Dowolny Agent i rozszerzenia opisane na tej stronie *można* zainstalować ręcznie (zobacz [ręczne Instalowanie agenta log Analytics](#manual-agent)). Jednak **Funkcja autoaprowizacji** zmniejsza obciążenie związane z zarządzaniem przez zainstalowanie wszystkich wymaganych agentów i rozszerzeń na istniejących i nowych maszynach w celu zapewnienia szybszego pokrycia zabezpieczeń dla wszystkich obsługiwanych zasobów. 
 
@@ -54,14 +56,19 @@ Ustawienia autoaprowizacji Security Center są dostępne dla każdego typu obsł
 > [!TIP]
 > Dowiedz się więcej na temat Azure Policy efektów, w tym do wdrożenia, jeśli nie istnieje w temacie [Azure Policy efekty](../governance/policy/concepts/effects.md).
 
-## <a name="enable-auto-provisioning-of-the-log-analytics-agent"></a>Włącz funkcję autoaprowizacji agenta Log Analytics <a name="auto-provision-mma"></a>
+
+## <a name="enable-auto-provisioning-of-the-log-analytics-agent-and-extensions"></a>Włącz funkcję autoaprowizacji agenta Log Analytics i rozszerzeń <a name="auto-provision-mma"></a>
+
 Gdy automatyczne Inicjowanie obsługi jest włączone dla agenta Log Analytics, Security Center wdraża agenta na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych. Listę obsługiwanych platform można znaleźć [w temacie obsługiwane platformy w Azure Security Center](security-center-os-coverage.md).
 
 Aby włączyć funkcję autoaprowizacji agenta Log Analytics:
 
 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz odpowiednią subskrypcję.
-1. Na stronie **autozastrzeganie** Ustaw stan agenta na wartość **włączone**.
+1. Na stronie **autozastrzeganie** Ustaw stan agenta log Analytics na wartość **włączone**.
+
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
+
 1. W okienku Opcje konfiguracji Zdefiniuj obszar roboczy, który ma być używany.
 
     :::image type="content" source="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png" alt-text="Opcje konfiguracji automatycznej aprowizacji Log Analytics agentów na maszynach wirtualnych" lightbox="./media/security-center-enable-data-collection/log-analytics-agent-deploy-options.png":::
@@ -104,6 +111,22 @@ Aby włączyć funkcję autoaprowizacji agenta Log Analytics:
 
 1. Wybierz pozycję **Zastosuj** w okienku Konfiguracja.
 
+1. Aby włączyć automatyczną obsługę rozszerzenia innego niż Agent Log Analytics: 
+
+    1. Jeśli włączysz funkcję autoaprowizacji dla programu Microsoft Dependency Agent, upewnij się, że Agent Log Analytics ma ustawioną funkcję autowdrażanie.
+    1. Przełącz stan na wartość **włączone** dla odpowiedniego rozszerzenia.
+
+        :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Przełącz, aby włączyć funkcję autoaprowizacji dla dodatku zasad K8s":::
+
+    1. Wybierz pozycję **Zapisz**. Zasady platformy Azure są przypisane i tworzone jest zadanie korygowania.
+
+        |Wewnętrzny  |Zasady  |
+        |---------|---------|
+        |Dodatek zasad dla Kubernetes|[Wdrażanie dodatku Azure Policy w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
+        |Microsoft Dependency Agent (wersja zapoznawcza) (maszyny wirtualne z systemem Windows)|[Wdróż agenta zależności dla maszyn wirtualnych z systemem Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
+        |Microsoft Dependency Agent (wersja zapoznawcza) (maszyny wirtualne z systemem Linux)|[Wdróż agenta zależności dla maszyn wirtualnych z systemem Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |||
+
 1. Wybierz pozycję **Zapisz**. Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.
 
 1. Zostanie wyświetlony monit, czy chcesz ponownie skonfigurować monitorowane maszyny wirtualne, które zostały wcześniej połączone z domyślnym obszarem roboczym:
@@ -115,28 +138,6 @@ Aby włączyć funkcję autoaprowizacji agenta Log Analytics:
 
    > [!NOTE]
    > W przypadku wybrania opcji **tak** nie usuwaj obszarów roboczych utworzonych przez Security Center, dopóki wszystkie maszyny wirtualne nie zostaną ponownie połączone z nowym docelowym obszarem roboczym. Ta operacja kończy się niepowodzeniem, jeśli obszar roboczy zostanie zbyt wcześnie usunięty.
-
-
-## <a name="enable-auto-provisioning-of-extensions"></a>Włącz funkcję autoaprowizacji rozszerzeń
-
-Aby włączyć automatyczną obsługę rozszerzenia innego niż Agent Log Analytics: 
-
-1. W Azure Portal z menu Security Center wybierz pozycję **Cennik ustawienia &**.
-1. Wybierz odpowiednią subskrypcję.
-1. Wybierz pozycję **autoinicjowanie obsługi**.
-1. Jeśli włączysz funkcję autoaprowizacji dla programu Microsoft Dependency Agent, upewnij się, że Agent Log Analytics jest ustawiony na wartość autodeploy. 
-1. Przełącz stan na wartość **włączone** dla odpowiedniego rozszerzenia.
-
-    :::image type="content" source="./media/security-center-enable-data-collection/toggle-kubernetes-add-on.png" alt-text="Przełącz, aby włączyć funkcję autoaprowizacji dla dodatku zasad K8s":::
-
-1. Wybierz pozycję **Zapisz**. Zasady platformy Azure są przypisane i tworzone jest zadanie korygowania.
-
-    |Wewnętrzny  |Zasady  |
-    |---------|---------|
-    |Dodatek zasad dla Kubernetes|[Wdrażanie dodatku Azure Policy w klastrach usługi Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
-    |Microsoft Dependency Agent (wersja zapoznawcza) (maszyny wirtualne z systemem Windows)|[Wdróż agenta zależności dla maszyn wirtualnych z systemem Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-    |Microsoft Dependency Agent (wersja zapoznawcza) (maszyny wirtualne z systemem Linux)|[Wdróż agenta zależności dla maszyn wirtualnych z systemem Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
-
 
 
 ## <a name="windows-security-event-options-for-the-log-analytics-agent"></a>Opcje zdarzeń zabezpieczeń systemu Windows dla agenta Log Analytics <a name="data-collection-tier"></a> 
@@ -274,25 +275,11 @@ Aby wyłączyć automatyczne Inicjowanie obsługi agenta:
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
--   Aby zidentyfikować problemy z instalacją automatycznej obsługi administracyjnej, zobacz [monitorowanie problemów z kondycją agenta](security-center-troubleshooting-guide.md#mon-agent).
-
+-   Aby zidentyfikować problemy z instalacją autozastrzegania, zobacz [monitorowanie problemów z kondycją agenta](security-center-troubleshooting-guide.md#mon-agent).
 -  Aby zidentyfikować wymagania sieciowe agenta monitorowania, zobacz [Rozwiązywanie problemów z wymaganiami sieci agenta monitorowania](security-center-troubleshooting-guide.md#mon-network-req).
 -   Aby identyfikować ręczne problemy z dołączaniem, zobacz [Jak rozwiązywać problemy z dołączaniem do pakietu Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
-
-- Aby zidentyfikować problemy dotyczące niemonitorowanych maszyn wirtualnych i komputerów:
-
-    Maszyna wirtualna lub komputer nie jest monitorowany przez Security Center, jeśli na komputerze nie jest uruchomione rozszerzenie agenta Log Analytics. Na komputerze może być już zainstalowany agent lokalny, na przykład Agent usługi OMS Direct lub Agent System Center Operations Manager. Maszyny z tymi agentami są identyfikowane jako niemonitorowane, ponieważ nie są w pełni obsługiwane w Security Center. Aby w pełni skorzystać ze wszystkich funkcji usługi Security Center, wymagane jest rozszerzenie agenta usługi Log Analytics.
-
-    Aby uzyskać więcej informacji na temat przyczyn, Security Center nie może pomyślnie monitorować maszyn wirtualnych i komputerów zainicjowanych do automatycznej aprowizacji, zobacz [monitorowanie problemów z kondycją agenta](security-center-troubleshooting-guide.md#mon-agent).
-
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule pokazano, jak działa zbieranie danych i automatyczne Inicjowanie obsługi w Security Center. Aby dowiedzieć się więcej na temat Security Center, zobacz następujące strony:
-
-- [Centrum zabezpieczeń Azure — często zadawane pytania](faq-general.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
-- [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
-
-W tym artykule opisano sposób instalowania agenta Log Analytics i ustawiania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
-
+Na tej stronie wyjaśniono, jak włączyć funkcję autoaprowizacji dla agenta Log Analytics i innych rozszerzeń Security Center. Opisano w nim również sposób definiowania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać szczegółowe informacje o cenach w wybranej walucie i według regionu, zobacz [Security Center Cennik](https://azure.microsoft.com/pricing/details/security-center/).

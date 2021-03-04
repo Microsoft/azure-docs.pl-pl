@@ -3,17 +3,18 @@ title: Dodawanie formantów do mapy systemu Android | Mapy Microsoft Azure
 description: Jak dodać kontrolkę powiększenia, kontrolkę gęstość, obrócić formant i selektor stylu do mapy w Microsoft Azure Maps Android SDK.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 02/19/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8224192ed0d13af2ff6ac60aac5aa928589ff01a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 90d037fc02bdc1c4d6fe682386790561c890c1e6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054887"
+ms.locfileid: "102100223"
 ---
 # <a name="add-controls-to-a-map-android-sdk"></a>Dodawanie formantów do mapy (Android SDK)
 
@@ -23,9 +24,23 @@ W tym artykule opisano sposób dodawania formantów interfejsu użytkownika do m
 
 Kontrolka powiększenia dodaje przyciski umożliwiające powiększanie mapy w i na zewnątrz. Poniższy przykład kodu tworzy wystąpienie `ZoomControl` klasy i dodaje ją do mapy.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
+//Construct a zoom control and add it to the map.
 map.controls.add(new ZoomControl());
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Construct a zoom control and add it to the map.
+map.controls.add(ZoomControl())
+```
+
+::: zone-end
 
 Zrzut ekranu poniżej jest formantem powiększenia załadowanym na mapie.
 
@@ -35,10 +50,23 @@ Zrzut ekranu poniżej jest formantem powiększenia załadowanym na mapie.
 
 Kontrolka gęstość dodaje przyciski umożliwiające przechylenie skoku na mapę względem zakresu. Poniższy przykład kodu tworzy wystąpienie `PitchControl` klasy i dodaje ją do mapy.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Construct a pitch control and add it to the map.
 map.controls.add(new PitchControl());
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Construct a pitch control and add it to the map.
+map.controls.add(PitchControl())
+```
+
+::: zone-end
 
 Zrzut ekranu poniżej przedstawia kontrolkę gęstość załadowana na mapie.
 
@@ -48,10 +76,23 @@ Zrzut ekranu poniżej przedstawia kontrolkę gęstość załadowana na mapie.
 
 Kontrolka kompas dodaje przycisk służący do obracania mapy. Poniższy przykład kodu tworzy wystąpienie `CompassControl` klasy i dodaje ją do mapy.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Construct a compass control and add it to the map.
 map.controls.add(new CompassControl());
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Construct a compass control and add it to the map.
+map.controls.add(CompassControl())
+```
+
+::: zone-end
 
 Zrzut ekranu poniżej znajduje się w kontrolce kompasu załadowanej na mapie.
 
@@ -61,10 +102,23 @@ Zrzut ekranu poniżej znajduje się w kontrolce kompasu załadowanej na mapie.
 
 Kontrolka ruchu dodaje przycisk służący do przełączania widoczności danych ruchu na mapie. Poniższy przykład kodu tworzy wystąpienie `TrafficControl` klasy i dodaje ją do mapy.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Construct a traffic control and add it to the map.
 map.controls.add(new TrafficControl());
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Construct a traffic control and add it to the map.
+map.controls.add(TrafficControl())
+```
+
+::: zone-end
 
 Zrzut ekranu poniżej dotyczy kontroli ruchu załadowanej na mapie.
 
@@ -73,6 +127,8 @@ Zrzut ekranu poniżej dotyczy kontroli ruchu załadowanej na mapie.
 ## <a name="a-map-with-all-controls"></a>Mapa ze wszystkimi kontrolkami
 
 Wiele kontrolek można umieścić w tablicy i dodać do mapy wszystkie jednocześnie i umieścić w tym samym obszarze mapy, aby uprościć tworzenie. Poniższe podejście dodaje standardowe kontrolki nawigacji do mapy.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 map.controls.add(
@@ -84,6 +140,23 @@ map.controls.add(
     }
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.controls.add(
+    arrayOf<Control>(
+        ZoomControl(),
+        CompassControl(),
+        PitchControl(),
+        TrafficControl()
+    )
+)
+```
+
+::: zone-end
 
 Zrzut ekranu poniżej przedstawia wszystkie formanty załadowane na mapie. Należy zauważyć, że kolejność, w jakiej są dodawane do mapy, jest kolejnością ich wyświetlania.
 

@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: dffb505719e6778adfdd8e99f62790df9ebd615a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796998"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100699"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Wprowadzenie do usługi Azure Defender dla systemu DNS
 
@@ -28,7 +28,7 @@ Usługa Azure Defender dla systemu DNS zapewnia dodatkową warstwę ochrony zaso
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Wpisaną|**Usługa Azure Defender dla systemu DNS** jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)|
+|Wpisaną|**Usługa Azure Defender dla systemu DNS** jest rozliczana zgodnie z [cennikiem Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
@@ -47,7 +47,7 @@ Pełna lista alertów dostarczonych przez usługę Azure Defender dla systemu DN
 
 Usługa Azure Defender dla systemu DNS nie używa żadnych agentów. 
 
-Aby chronić warstwę DNS, Włącz usługę Azure Defender dla systemu DNS dla każdej subskrypcji zgodnie z opisem w temacie [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender).
+Aby chronić warstwę DNS, Włącz usługę Azure Defender dla systemu DNS dla każdej subskrypcji zgodnie z opisem w temacie [Włączanie usługi Azure Defender](enable-azure-defender.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -57,4 +57,4 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla systemu DN
 - Alerty zabezpieczeń mogą być generowane przez Security Center lub odebrane przez Security Center z różnych produktów zabezpieczeń. Aby wyeksportować wszystkie te alerty do usługi Azure wskaźnikowej, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Włączanie usługi Azure Defender](enable-azure-defender.md)

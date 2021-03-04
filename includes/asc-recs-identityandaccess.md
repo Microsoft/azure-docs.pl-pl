@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/16/2021
+ms.date: 02/28/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 8ebd7f245205844ac4b9f35d7205fc7f28502484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1bce65cf0a2edbf87efd2d1d745d90c32fb004c5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574501"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100393"
 ---
 W tej kategorii znajdują się **21** rekomendacji.
 
@@ -28,7 +28,7 @@ W tej kategorii znajdują się **21** rekomendacji.
 |Klucze Key Vault powinny mieć datę wygaśnięcia |Klucze kryptograficzne powinny mieć zdefiniowaną datę wygaśnięcia i nie powinny być trwałe. Klucze, które są prawidłowe w nieskończoność, zapewniają potencjalną osobę atakującą z większą ilością czasu na złamanie klucza. Zalecane jest, aby ustawić daty wygaśnięcia kluczy kryptograficznych.<br />(Powiązane zasady: [klucze Key Vault powinny mieć datę wygaśnięcia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0)) |Wys. |
 |Wpisy tajne Key Vault powinny mieć datę wygaśnięcia |Wpisy tajne powinny mieć zdefiniowaną datę wygaśnięcia i nie powinny być trwałe. Wpisy tajne, które są prawidłowe w nieskończoność, zapewniają potencjalną atakującemu więcej czasu na ich złamanie. Zalecane jest, aby ustawić daty wygaśnięcia dla wpisów tajnych.<br />(Powiązane zasady: [Key Vault wpisy tajne powinny mieć datę wygaśnięcia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f98728c90-32c7-4049-8429-847dc0f4fe37)) |Wys. |
 |W magazynach kluczy powinna być włączona ochrona przed czyszczeniem |Złośliwe usunięcie magazynu kluczy może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może potencjalnie usuwać i czyścić magazyny kluczy. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnym testerem, wymuszając obowiązkowy okres przechowywania dla nieusuniętych magazynów kluczy. Nikt nie jest w Twojej organizacji, a firma Microsoft będzie mogła przeczyścić Twoje magazyny kluczy w okresie przechowywania nietrwałego.<br />(Powiązane zasady: [magazyny kluczy powinny mieć włączoną ochronę przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0b60c0b2-2dc2-4e1c-b5c9-abbed971de53)) |Śred. |
-|Magazyny kluczy powinny mieć włączone usuwanie nietrwałe |Usunięcie magazynu kluczy bez włączonego usuwania nietrwałego umożliwia trwałe usunięcie wszystkich wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy. Przypadkowe usunięcie magazynu kluczy może prowadzić do trwałej utraty danych. Usuwanie nietrwałe pozwala odzyskać przypadkowo usunięty Magazyn kluczy dla konfigurowalnego okresu przechowywania.<br />(Powiązane zasady: [magazyny kluczy powinny mieć włączone usuwanie nietrwałe](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)) |Wys. |
+|Magazyny kluczy powinny mieć włączone usuwanie nietrwałe |Usunięcie magazynu kluczy bez włączonego usuwania nietrwałego umożliwia trwałe usunięcie wszystkich wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy. Przypadkowe usunięcie magazynu kluczy może prowadzić do trwałej utraty danych. Usuwanie nietrwałe pozwala odzyskać przypadkowo usunięty Magazyn kluczy na potrzeby konfigurowalnego okresu przechowywania.<br />(Powiązane zasady: [magazyny kluczy powinny mieć włączone usuwanie nietrwałe](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d)) |Wys. |
 |Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji |Multi-Factor Authentication (MFA) powinna być włączona dla wszystkich kont subskrypcji z uprawnieniami właściciela, aby zapobiec naruszeniu kont lub zasobów.<br />(Powiązane zasady: uwierzytelnianie [wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faa633080-8b72-40c4-a2d7-d00c03e80bed)) |Wys. |
 |Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji |Multi-Factor Authentication (MFA) powinna być włączona dla wszystkich kont subskrypcji z uprawnieniami do odczytu, aby zapobiec naruszeniu kont lub zasobów.<br />(Powiązane zasady: uwierzytelnianie [wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe3576e28-8b17-4677-84c3-db2990658d64)) |Wys. |
 |Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w subskrypcji |Multi-Factor Authentication (MFA) powinna być włączona dla wszystkich kont subskrypcji z uprawnieniami do zapisu, aby zapobiec naruszeniu kont lub zasobów.<br />(Powiązane zasady: uwierzytelnianie [wieloskładnikowe powinno być włączone konta z uprawnieniami do zapisu w ramach subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f9297c21d-2ed6-4474-b48f-163f75654ce3)) |Wys. |

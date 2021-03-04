@@ -3,17 +3,18 @@ title: Dodawanie warstwy mapy cieplnej do map systemu Android | Mapy Microsoft A
 description: Dowiedz się, jak utworzyć mapę cieplną. Zobacz, jak używać zestawu Azure MapsAndroid SDK, aby dodać warstwę mapy cieplnej do mapy. Dowiedz się, jak dostosować warstwy mapy cieplnej.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/01/2020
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4de59bd0b2a9dc9b11acf55a59b82724d2c7b862
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: fce2c2d007f92c43e763826f9345f773324e885e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681778"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100189"
 ---
 # <a name="add-a-heat-map-layer-android-sdk"></a>Dodaj warstwę mapy cieplnej (Android SDK)
 
@@ -43,6 +44,8 @@ Upewnij się, że wykonano kroki opisane w dokumencie [Szybki Start: Tworzenie a
 Aby renderować źródło danych punktów jako mapę cieplną, Przekaż źródło danych do wystąpienia `HeatMapLayer` klasy i Dodaj je do mapy.
 
 Poniższy przykład kodu ładuje źródło danych GEOJSON z ziemi z zeszłego tygodnia i renderuje je jako mapę cieplną. Każdy punkt danych jest renderowany przy użyciu promienia 10 pikseli na wszystkich poziomach powiększenia. Aby zapewnić lepsze środowisko użytkownika, Mapa cieplna znajduje się poniżej warstwy etykiet, dzięki czemu etykiety pozostają widoczne. Dane w tym przykładzie pochodzą z [programu agencji usgse zagrożenia ziemią](https://earthquake.usgs.gov/). Ten przykład służy do ładowania danych GEOJSON z sieci Web przy użyciu bloku kodu narzędzia do importowania danych dostępnego w dokumencie [Tworzenie źródła danych](create-data-source-android-sdk.md) .
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -80,6 +83,49 @@ Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a heat map layer.
+val layer = HeatMapLayer(
+    source,
+    heatmapRadius(10f),
+    heatmapOpacity(0.8f)
+)
+
+//Add the layer to the map, below the labels.
+map.layers.add(layer, "labels")
+
+//Import the geojson data and add it to the data source.
+Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+    this
+) { result: String? ->
+    //Parse the data as a GeoJSON Feature Collection.
+    val fc = FeatureCollection.fromJson(result!!)
+
+    //Add the feature collection to the data source.
+    source.add(fc)
+
+    //Optionally, update the maps camera to focus in on the data.
+    //Calculate the bounding box of all the data in the Feature Collection.
+    val bbox = MapMath.fromData(fc)
+
+    //Update the maps camera so it is focused on the data.
+    map.setCamera(
+        bounds(bbox),
+        padding(20)
+    )
+}
+```
+
+::: zone-end
+
 Poniższy zrzut ekranu przedstawia mapę z załadowaniem mapy cieplnej za pomocą powyższego kodu.
 
 ![Mapa z warstwą mapy cieplnej ostatnich ziemi](media/map-add-heat-map-layer-android/android-heat-map-layer.png)
@@ -110,6 +156,8 @@ Poprzedni przykład dostosowany do mapy cieplnej przez ustawienie opcji promień
 - `visible`: Ukrywa lub pokazuje warstwę.
 
 Poniżej znajduje się przykład mapy cieplnej, w której wyrażenie interpolacji liniowej służy do tworzenia gradientu gładkiego koloru. `mag`Właściwość zdefiniowana w danych jest używana z interpolacją wykładniczą do ustawiania wagi lub znaczenia poszczególnych punktów danych.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 HeatMapLayer layer = new HeatMapLayer(source,
@@ -143,6 +191,44 @@ HeatMapLayer layer = new HeatMapLayer(source,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+    heatmapRadius(10f),
+
+    //A linear interpolation is used to create a smooth color gradient based on the heat map density.
+    heatmapColor(
+        interpolate(
+            linear(),
+            heatmapDensity(),
+            stop(0, color(Color.TRANSPARENT)),
+            stop(0.01, color(Color.BLACK)),
+            stop(0.25, color(Color.MAGENTA)),
+            stop(0.5, color(Color.RED)),
+            stop(0.75, color(Color.YELLOW)),
+            stop(1, color(Color.WHITE))
+        )
+    ),
+
+    //Using an exponential interpolation since earthquake magnitudes are on an exponential scale.
+    heatmapWeight(
+       interpolate(
+            exponential(2),
+            get("mag"),
+            stop(0,0),
+
+            //Any earthquake above a magnitude of 6 will have a weight of 1
+            stop(6, 1)
+       )
+    )
+)
+```
+
+::: zone-end
+
 Poniższy zrzut ekranu przedstawia powyższą niestandardową warstwę mapy cieplnej, korzystając z tych samych danych z poprzedniego przykładu mapy cieplnej.
 
 ![Mapowanie przy użyciu warstwy niestandardowa Mapa cieplna ostatnich ziemi](media/map-add-heat-map-layer-android/android-custom-heat-map-layer.png)
@@ -156,6 +242,8 @@ Domyślnie promienie punktów danych renderowane w warstwie mapy cieplnej mają 
 Użyj `zoom` wyrażenia, aby skalować promień dla każdego poziomu powiększenia, w taki sposób, że każdy punkt danych obejmuje ten sam obszar fizyczny mapy. To wyrażenie sprawia, że warstwa mapy cieplnej jest bardziej statyczna i spójna. Każdy poziom powiększenia mapy ma dwa piksele w pionie i poziomie jako poprzedni poziom powiększenia.
 
 Skalowanie promienia tak, aby podwajał się przy każdym poziomie powiększenia tworzy mapę cieplną, która wygląda spójnie na wszystkich poziomach powiększenia. Aby zastosować to skalowanie, należy użyć `zoom` z `exponential interpolation` wyrażeniem podstawowym 2, z zestawem pikseli dla minimalnego poziomu powiększenia i skalowanego promienia dla maksymalnego poziomu powiększenia obliczonego jak `2 * Math.pow(2, minZoom - maxZoom)` pokazano w poniższym przykładzie. Powiększ mapę, aby zobaczyć, jak mapa cieplna jest skalowana z poziomem powiększenia.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 HeatMapLayer layer = new HeatMapLayer(source,
@@ -174,6 +262,30 @@ HeatMapLayer layer = new HeatMapLayer(source,
   heatmapOpacity(0.75f)
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+  heatmapRadius(
+    interpolate(
+      exponential(2),
+      zoom(),
+
+      //For zoom level 1 set the radius to 2 pixels.
+      stop(1, 2f),
+
+      //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * (maxZoom - minZoom)^2 pixels.
+      stop(19, Math.pow(2.0, 19 - 1.0) * 2f)
+    )
+  ),
+  heatmapOpacity(0.75f)
+)
+```
+
+::: zone-end
 
 Poniższy film wideo pokazuje mapę, w której znajduje się powyższy kod, co skaluje promień, podczas gdy mapa jest powiększona, aby utworzyć spójne renderowanie mapy cieplnej na poziomach powiększenia.
 

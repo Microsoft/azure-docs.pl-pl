@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590349"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101039"
 ---
 # <a name="azure-threat-protection"></a>Ochrona przed zagrożeniami platformy Azure
 
@@ -368,6 +368,6 @@ Przykłady zapór aplikacji sieci Web, które są dostępne w portalu Azure Mark
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Reagowanie na współczesne zagrożenia](../../security-center/security-center-alerts-overview.md#respond-threats): pomaga identyfikować aktywne zagrożenia, które są przeznaczone dla zasobów platformy Azure, i zapewnia szczegółowe informacje potrzebne do szybkiego reagowania.
+- [Reagowanie na współczesne zagrożenia](../../security-center/security-center-managing-and-responding-alerts.md): pomaga identyfikować aktywne zagrożenia, które są przeznaczone dla zasobów platformy Azure, i zapewnia szczegółowe informacje potrzebne do szybkiego reagowania.
 
 - [Azure SQL Database wykrywanie zagrożeń](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): pomaga w rozwiązywaniu problemów dotyczących potencjalnych zagrożeń związanych z bazami danych.

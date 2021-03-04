@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be37f2d361b6bb164a3e01b9ac6f115294137dd0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735866"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099543"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -193,6 +193,12 @@ Aby skorygować problemy:
 
 1. Aby uzyskać więcej szczegółów, a także listę maszyn, których to dotyczy, wybierz alert.
 
+    Na stronie alerty są wyświetlane szczegółowe informacje o alertach i podano link **podejmowania akcji** z zaleceniami dotyczącymi sposobu ograniczenia zagrożenia.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="Czas rozpoczęcia adaptacyjnych kontroli aplikacji alertów to ":::
+
+    > [!NOTE]
+    > Adaptacyjne kontrolki aplikacji obliczają zdarzenia co dwanaście godzin. "Czas rozpoczęcia działania" wyświetlany na stronie alertów to czas, przez który adaptacyjne kontrolki aplikacji utworzyły alert, a **nie** czas aktywności podejrzanego procesu.
 
 
 ## <a name="move-a-machine-from-one-group-to-another"></a>Przenoszenie maszyny z jednej grupy do innej

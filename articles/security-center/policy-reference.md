@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729938"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099832"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Wbudowane definicje usługi Azure Policy dla usługi Azure Security Center
 
@@ -44,13 +44,4 @@ Aby dowiedzieć się więcej na temat wbudowanych zasad monitorowanych przez Sec
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono informacje dotyczące Azure Policy definicji zasad zabezpieczeń w programie Security Center. Aby dowiedzieć się więcej, zobacz następujące artykuły.
-
-- Zobacz wbudowane elementy w [repozytorium GitHub usługi Azure Policy](https://github.com/Azure/azure-policy).
-- Przejrzyj temat [Struktura definicji zasad Azure Policy](../governance/policy/concepts/definition-structure.md).
-- Przejrzyj [wyjaśnienie działania zasad](../governance/policy/concepts/effects.md).
-- [Azure Security Center Przewodnik planowania i](./security-center-planning-and-operations-guide.md)obsługi: informacje na temat planowania i zrozumienia zagadnień projektowych w programie Azure Security Center.
-- [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](./security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
-- [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](./security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
-- [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](./security-center-partner-integration.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
-- [Azure Policy](../governance/policy/overview.md): informacje na temat inspekcji i zarządzania zasobami platformy Azure.
+W tym artykule przedstawiono informacje dotyczące Azure Policy definicji zasad zabezpieczeń w programie Security Center. Aby dowiedzieć się więcej o inicjatywach, zasadach i sposobach ich odnoszących się do Security Center zaleceń, zobacz [co to są zasady zabezpieczeń, inicjatywy i zalecenia?](security-policy-concept.md).

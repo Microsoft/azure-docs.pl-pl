@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/02/2021
-ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/04/2021
+ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048622"
+ms.locfileid: "102101243"
 ---
 # <a name="configure-maintenance-window-preview"></a>Konfiguruj okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ Domyślne okno obsługi *systemu* to 17:00 8:00 (czas lokalny w regionie platfor
 
 Możliwość zmiany w innym oknie obsługi nie jest dostępna dla każdego poziomu usług lub w każdym regionie. Aby uzyskać szczegółowe informacje na temat dostępności, zobacz [dostępność okna obsługi](maintenance-window.md#availability).
 
+> [!Important]
+> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej pracy w trybie failover, która jest wykonywana na końcu operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ trybu failover, należy wykonać operację poza godzinami szczytu.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Konfiguruj okno obsługi podczas tworzenia bazy danych 
 

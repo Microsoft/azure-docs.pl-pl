@@ -1,57 +1,22 @@
 ---
 title: Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure
 description: W tym dokumencie przedstawiono sposób, w jaki zalecenia w Azure Security Center pomagają chronić zasoby platformy Azure i zachować zgodność z zasadami zabezpieczeń.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526528"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100342"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
+# <a name="review-your-security-recommendations"></a>Zapoznaj się z zaleceniami dotyczącymi zabezpieczeń
 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
-
-
-## <a name="what-are-security-recommendations"></a>Co to są zalecenia dotyczące zabezpieczeń?
-
-Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach.
-
-Zalecenia to akcje, które należy podjąć w celu zabezpieczenia i ograniczenia funkcjonalności zasobów. 
-
-Każde zalecenie oferuje następujące informacje:
-
-- Krótki opis problemu
-- Czynności zaradcze, które należy wykonać w celu wdrożenia zalecenia
-- Zasoby, których to dotyczy
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Jak firma Microsoft decyduje o tym, co wymaga zabezpieczenia i Ograniczanie funkcjonalności?
-
-Zalecenia dotyczące Security Center są oparte na teście zabezpieczeń platformy Azure. Prawie każde zalecenie ma podstawowe zasady, które pochodzą z wymogu w teście porównawczym.
-
-Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. Ten powszechnie przestrzegany test porównawczy jest oparty na kontrolkach z [centrum na potrzeby zabezpieczeń internetowych (CIS)](https://www.cisecurity.org/benchmark/azure/) i [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) , które koncentrują się na zabezpieczeniach skoncentrowanych na chmurze. Dowiedz się więcej o [teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
-
-Gdy przeglądasz szczegóły zalecenia, często warto mieć możliwość wyświetlenia podstawowych zasad. Dla każdego zalecenia obsługiwanego przez zasady Użyj linku **Wyświetl definicję zasad** z strony Szczegóły zalecenia, aby przejść bezpośrednio do wpisu Azure Policy dla odpowiednich zasad:
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link do Azure Policy stronie dla określonych zasad wspierających zalecenie":::
-
-Użyj tego linku, aby wyświetlić definicję zasad i przejrzeć logikę oceny. 
-
-Jeśli przeglądasz listę zaleceń w [przewodniku dotyczącym zaleceń dotyczących zabezpieczeń](recommendations-reference.md), zobaczysz także linki do stron definicji zasad:
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Uzyskiwanie dostępu do strony Azure Policy dla określonych zasad bezpośrednio z poziomu strony informacje o zaleceniach Azure Security Center":::
 
 ## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania <a name="monitor-recommendations"></a>
 

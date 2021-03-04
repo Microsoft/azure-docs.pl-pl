@@ -7,12 +7,12 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ee4992e41e792b570d8937edfe31efb4c651d742
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96014582"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100733"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów w celu skanowania obrazów pod kątem luk w zabezpieczeniach
 
@@ -21,8 +21,6 @@ Na tej stronie opisano sposób użycia wbudowanego skanera luk w zabezpieczeniac
 Gdy usługa **Azure Defender dla rejestrów kontenerów** jest włączona, wszystkie obrazy wypychane do rejestru zostaną natychmiast przeskanowane. Ponadto zostanie również zeskanowany dowolny obraz pobrany w ciągu ostatnich 30 dni. 
 
 Gdy skaner zgłasza luki w zabezpieczeniach Security Center, Security Center przedstawia wyniki i powiązane informacje jako zalecenia. Ponadto, ustalenia obejmują powiązane informacje, takie jak czynności zaradcze, odpowiednie CVEs, wyniki CVSS i inne. Zidentyfikowane luki w zabezpieczeniach można wyświetlić dla jednej lub kilku subskrypcji lub dla określonego rejestru.
-
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identyfikowanie luk w zabezpieczeniach obrazów w rejestrach kontenerów platformy Azure 

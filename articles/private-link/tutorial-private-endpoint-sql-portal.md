@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: a7eca29dc9390306ac6ad4e66eec75a25c2d33ff
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dfbd1f4077caa2fd80a00e3cf950735363a0a971
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522162"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099900"
 ---
 # <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure Portal
 
@@ -81,12 +82,12 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz pozycję **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy**. </br> W obszarze **Nazwa** wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -105,7 +106,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -123,10 +124,10 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
     | Publiczny adres IP | Wybierz pozycję **Brak**. |
-    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
-5. Wybierz pozycję **Przeglądanie + tworzenie**. 
+5. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -134,7 +135,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 W tej sekcji utworzysz program SQL Server na platformie Azure. 
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Databases**  >  **bazy danych SQL Database**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >    >  **bazy danych SQL Database**.
 
 1. Na karcie **podstawy** **tworzenia bazy danych SQL** wprowadź lub wybierz następujące informacje:
 
@@ -156,7 +157,7 @@ W tej sekcji utworzysz program SQL Server na platformie Azure.
     | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 8 znaków i spełniać zdefiniowane wymagania. |
     | Lokalizacja | Wybierz **Wschodnie stany USA** |
     
-7. Wybierz pozycję **OK**.
+7. Wybierz przycisk **OK**.
 
 8. Wybierz kartę **Sieć** lub wybierz przycisk **Dalej: sieć** .
 
@@ -185,9 +186,9 @@ W tej sekcji utworzysz program SQL Server na platformie Azure.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak**. |
     | Prywatna strefa DNS | Pozostaw wartość domyślną **(New) privatelink.Database.Windows.NET**. |
 
-12. Wybierz pozycję **OK**. 
+12. Wybierz przycisk **OK**. 
 
-13. Wybierz pozycję **Przeglądanie + tworzenie**.
+13. Wybierz pozycję **Przejrzyj i utwórz**.
 
 14. Wybierz pozycję **Utwórz**.
 
@@ -259,6 +260,8 @@ W tym samouczku utworzono:
 * Serwer SQL Azure z prywatnym punktem końcowym.
 
 Maszyna wirtualna została użyta do bezpiecznego testowania łączności z programem SQL Server przez prywatny punkt końcowy.
+
+W następnym kroku warto również zainteresować [aplikację internetową z prywatnym połączeniem z architekturą usługi Azure SQL Database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) , która łączy aplikację sieci Web spoza sieci wirtualnej z prywatnym punktem końcowym bazy danych.
 
 Dowiedz się, jak utworzyć usługę linku prywatnego:
 > [!div class="nextstepaction"]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007821"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101345"
 ---
 # <a name="container-security-in-security-center"></a>Zabezpieczenia kontenerów w usłudze Security Center
 
@@ -42,7 +42,7 @@ Dowiesz się, jak Security Center ułatwiają następujące podstawowe aspekty z
 
 Poniższy zrzut ekranu przedstawia stronę spisu zasobów i różne typy zasobów kontenera chronione przez Security Center.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Zasoby dotyczące kontenerów na stronie spisu zasobów Security Center" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Zasoby dotyczące kontenerów na stronie spisu zasobów Security Center" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## <a name="vulnerability-management---scanning-container-images"></a>Zarządzanie lukami w zabezpieczeniach — skanowanie obrazów kontenerów
 
@@ -92,7 +92,7 @@ Aby uzyskać szczegółowe informacje dotyczące odpowiednich Security Center za
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Najlepsze rozwiązania w zakresie ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control
 
-Aby uzyskać pakiet zaleceń dotyczących ochrony obciążeń kontenerów usługi Kubernetes, zainstaluj  **dodatek Azure Policy dla Kubernetes**. Ten dodatek można również wdrożyć w sposób opisany w temacie [Włączanie obsługi autoaprowizacji rozszerzeń](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
+Aby uzyskać pakiet zaleceń dotyczących ochrony obciążeń kontenerów usługi Kubernetes, zainstaluj  **dodatek Azure Policy dla Kubernetes**. Ten dodatek można również wdrożyć w sposób opisany w temacie [Włączanie obsługi autoaprowizacji agenta log Analytics i rozszerzeń](security-center-enable-data-collection.md#auto-provision-mma). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
 
 Jak wyjaśniono w [tym Azure Policy stronie Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), dodatek rozszerza element webhook kontrolera Open-Source [strażnik v3](https://github.com/open-policy-agent/gatekeeper)   dla programu [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes Admission Controls to wtyczki, które wymuszają sposób użycia klastrów. Dodatek, który jest rejestrem sieci Web, w celu Kubernetes kontroli wpływu i umożliwia stosowanie zasad wymuszania na skalę i zabezpieczeń w klastrach w scentralizowany, spójny sposób. 
 

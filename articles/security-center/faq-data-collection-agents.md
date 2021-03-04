@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dc277d71f8f39b342095d0ac14b592eb866984d5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705152"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100529"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -33,7 +33,7 @@ Nie. Obszary robocze utworzone przez Security Center, podczas gdy skonfigurowano
 
 - **Usługa Azure Defender on** — Security Center włącza rozwiązanie "zabezpieczenia" w domyślnym obszarze roboczym.
 
-Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Aby uzyskać szczegółowe informacje o cenach w wybranej walucie i według regionu, zobacz [Security Center Cennik](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Warstwa cenowa usługi log Analytics dla obszarów roboczych utworzonych przez Security Center nie ma wpływu na Security Center rozliczanie.

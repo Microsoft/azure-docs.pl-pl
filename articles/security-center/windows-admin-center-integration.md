@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: ca3dd410474af0a42a3cd5b4217c3bba90b8ff1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fc4207547a1f34fca1ef302626f1365572a236b9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511988"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101311"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Ochrona zasobów centrum administracyjnego systemu Windows za pomocą Security Center
 
@@ -21,7 +21,7 @@ Centrum administracyjne systemu Windows to narzędzie do zarządzania dla serwer
 
 > [!NOTE]
 > Aby można było włączyć integrację centrum administracyjnego systemu Windows, w ramach subskrypcji platformy Azure i powiązanego obszaru roboczego Log Analytics należy włączyć usługę Azure Defender.
-> Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni, jeśli nie została wcześniej użyta w subskrypcji i obszarze roboczym. Aby uzyskać więcej informacji, zobacz [stronę informacje o cenach](security-center-pricing.md).
+> Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni, jeśli nie została wcześniej użyta w subskrypcji i obszarze roboczym. Aby uzyskać szczegółowe informacje o cenach w wybranej walucie i według regionu, zobacz [Security Center Cennik](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows do Azure Security Center można:

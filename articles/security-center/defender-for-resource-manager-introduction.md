@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 922189909da21aac65d1e2e898df58598868b929
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 903853f9f37921a68c918d09a94087548b5c562c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590459"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100665"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Wprowadzenie do usługi Azure Defender dla Menedżer zasobów
 
@@ -27,7 +27,7 @@ Usługa Azure Defender dla Menedżer zasobów automatycznie monitoruje operacje 
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Wpisaną|**Usługa Azure Defender dla Menedżer zasobów** jest rozliczana zgodnie z opisem na [stronie cennika](security-center-pricing.md)|
+|Wpisaną|**Usługa Azure Defender dla Menedżer zasobów** jest rozliczana zgodnie z [cennikiem Security Center](https://azure.microsoft.com/pricing/details/security-center/)|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
@@ -75,4 +75,4 @@ W tym artykule przedstawiono informacje o usłudze Azure Defender dla Menedżer 
 - Alerty zabezpieczeń mogą być generowane przez Security Center lub odebrane przez Security Center z różnych produktów zabezpieczeń. Aby wyeksportować wszystkie te alerty do usługi Azure wskaźnikowej, wszelkich SIEM innych firm lub innych zewnętrznych narzędzi, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
+    > [Włączanie usługi Azure Defender](enable-azure-defender.md)

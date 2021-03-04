@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 474bad4c3d7250d93b3e926f6e71da6734d7a4d0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 07a36bb9b9e3baea2136c23208d268c2c196e70f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702049"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099458"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -120,7 +120,7 @@ KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie ni
 
     - Dostęp i wyświetlanie stanu i ustawień każdego obszaru roboczego
 
-    - ![Ikona planu uaktualniania ][4] umożliwia uaktualnienie obszaru roboczego do korzystania z usługi Azure Defender. Ta ikona wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji programu FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender. Aby uzyskać więcej informacji, zobacz [Security Center bezpłatnie a usługa Azure Defender włączona](security-center-pricing.md#security-center-free-vs-azure-defender-enabled).
+    - ![Ikona planu uaktualniania ][4] umożliwia uaktualnienie obszaru roboczego do korzystania z usługi Azure Defender. Ta ikona wskazuje, że obszar roboczy lub subskrypcja nie są chronione przez usługę Azure Defender. Aby można było korzystać z funkcji programu FIM, Twoja subskrypcja musi być chroniona przez usługę Azure Defender. Aby uzyskać więcej informacji, zobacz [Azure Security Center bezpłatnie a usługa Azure Defender włączona](security-center-pricing.md).
 
     - ![Ikona włączania][3] Włącz program FIM na wszystkich komputerach w obszarze roboczym i skonfiguruj opcje programu FIM. Ta ikona wskazuje, że w obszarze roboczym nie jest włączona funkcja FIM.
 

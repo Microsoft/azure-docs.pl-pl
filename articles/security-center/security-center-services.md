@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544820"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100274"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -117,7 +117,7 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 |[Microsoft Defender dla punktu końcowego](harden-docker-hosts.md) (1)|✔|-|
 |[Połącz konto AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Połącz konto GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Eksport ciągły](continuous-export.md)|✔|✔ (2)|
+|[Eksport ciągły](continuous-export.md)|✔|✔|
 |[Automatyzacja przepływu pracy](workflow-automation.md)|✔|✔|
 |[Reguły zwolnienia z rekomendacji](exempt-resource.md)|-|-|
 |[Reguły pomijania alertów](alerts-suppression-rules.md)|✔|✔|

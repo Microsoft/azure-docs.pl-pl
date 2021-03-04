@@ -3,19 +3,19 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 459f61d9e13a2098403f3e78c7a529e49bf65e59
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575621"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100937"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
 Usługa Azure Application Insights wyświetla dane dotyczące aplikacji w Microsoft Azure *zasobu*. Tworzenie nowego zasobu jest w związku z tym częścią [konfigurowania Application Insights do monitorowania nowej aplikacji][start]. Po utworzeniu nowego zasobu można pobrać jego klucz Instrumentacji i użyć go do skonfigurowania zestawu SDK Application Insights. Klucz Instrumentacji łączy dane telemetryczne z zasobem.
 
 > [!IMPORTANT]
-> Klasyczny Application Insights jest przestarzały. Postępuj zgodnie z poniższymi [instrukcjami dotyczącymi uaktualniania do Application Insights opartego na obszarze roboczym](convert-classic-resource.md).
+> [Klasyczny Application Insights jest przestarzały](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024/). Postępuj zgodnie z poniższymi [instrukcjami dotyczącymi uaktualniania do Application Insights opartego na obszarze roboczym](convert-classic-resource.md).
 
 ## <a name="sign-in-to-microsoft-azure"></a>Zaloguj się do Microsoft Azure
 

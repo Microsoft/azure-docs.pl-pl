@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574445"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100410"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — przewodnik referencyjny
 
@@ -49,7 +49,7 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |Zalecenie|Opis powiązanych zasad &|Ważność|Włączono szybką poprawkę? ([Dowiedz się więcej](security-center-remediate-recommendations.md#quick-fix-remediation))|Typ zasobu|
 |----|----|----|----|----|
 |**Dostęp do App Services powinien być ograniczony**|Ogranicz dostęp do App Services, zmieniając konfigurację sieci, aby odmówić ruchu przychodzącego z zakresów, które są zbyt szerokie.<br>(Powiązane zasady: [wersja zapoznawcza]: dostęp do App Services powinien być ograniczony)|Wys.|N|App Service|
-|**Reguły dla aplikacji sieci Web na IaaS sieciowych grup zabezpieczeń powinny być zaostrzone**|Zawzmacniaj grupę zabezpieczeń sieci (sieciowej grupy zabezpieczeń) dla maszyn wirtualnych, na których działają aplikacje sieci Web, z regułami sieciowej grupy zabezpieczeń, które są nadmiernie ograniczające w odniesieniu do portów aplikacji sieci Web.<br>(Powiązane zasady: reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web na IaaS powinny być zaostrzone)|Wys.|N|Maszyna wirtualna|
+|**Reguły dla aplikacji sieci Web na IaaS sieciowych grup zabezpieczeń powinny być zaostrzone**|Zwiększanie funkcjonalności sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) dla maszyn wirtualnych, na których działają aplikacje sieci Web, z regułami sieciowej grupy zabezpieczeń, które są nadmiernie ograniczające w odniesieniu do portów aplikacji sieci Web.<br>(Powiązane zasady: reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web na IaaS powinny być zaostrzone)|Wys.|N|Maszyna wirtualna|
 |**Należy zdefiniować zasady zabezpieczeń pod kątem zmniejszenia możliwości ataku przez usunięcie niepotrzebnych uprawnień aplikacji (wersja zapoznawcza)**|Zdefiniuj zasady zabezpieczeń pod kątem ograniczenia ataku przez usunięcie niepotrzebnych uprawnień aplikacji. Zalecane jest skonfigurowanie zasad zabezpieczeń pod warunkiem, że w celu uzyskania dostępu do zasobów, do których mogą uzyskać dostęp.<br>(Powiązane zasady: [wersja zapoznawcza]: należy zdefiniować zasady zabezpieczeń pod kątem usług Kubernetes Services)|Śred.|N|Zasoby obliczeniowe (kontenery)|
 |**Zainstaluj Azure Security Center usługi IoT Security module, aby uzyskać lepszą widoczność urządzeń IoT**|Zainstaluj Azure Security Center dla usługi IoT Security module, aby uzyskać lepszą widoczność urządzeń IoT.|Niski|N|Urządzenie IoT|
 
@@ -57,5 +57,5 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 
 Aby dowiedzieć się więcej na temat zaleceń, zobacz następujące tematy:
 
-- [Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md)
-- [Ochrona sieci w usłudze Azure Security Center](security-center-network-recommendations.md)
+- [Co to są zasady zabezpieczeń, inicjatywy i zalecenia?](security-policy-concept.md)
+- [Zapoznaj się z zaleceniami dotyczącymi zabezpieczeń](security-center-recommendations.md)

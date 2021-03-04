@@ -3,17 +3,18 @@ title: Tworzenie źródła danych dla map systemu Android | Mapy Microsoft Azure
 description: 'Dowiedz się, jak utworzyć źródło danych dla mapy. Dowiedz się więcej na temat źródeł danych, których używa Android SDK Azure Maps: źródła GEOJSON i kafelki wektorowe.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/03/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: e870134e2ecd431aa3e5c02638120027f0d47df2
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047676"
+ms.locfileid: "102101464"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Tworzenie źródła danych (Android SDK)
 
@@ -25,6 +26,8 @@ Azure Maps Android SDK przechowuje dane w źródłach danych. Użycie źródeł 
 ## <a name="geojson-data-source"></a>Źródło danych GEOJSON
 
 Azure Maps używa GEOJSON jako jednego z podstawowych modeli danych. GEOJSON jest otwartym standardem geograficznym do reprezentowania danych geoprzestrzennych w formacie JSON. Klasy GEOJSON dostępne w Android SDK Azure Maps mogą łatwo tworzyć i serializować dane GEOJSON. Załaduj i Zapisz dane GEOJSON w `DataSource` klasie i Renderuj je przy użyciu warstw. Poniższy kod pokazuje, jak można tworzyć obiekty GEOJSON w Azure Maps.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 /*
@@ -53,7 +56,42 @@ feature.addStringProperty("custom-property", "value");
 source.add(feature);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+/*
+    Raw GeoJSON feature
+    
+    {
+         "type": "Feature",
+         "geometry": {
+             "type": "Point",
+             "coordinates": [-100, 45]
+         },
+         "properties": {
+             "custom-property": "value"
+         }
+    }
+
+*/
+
+//Create a point feature.
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45))
+
+//Add a property to the feature.
+feature.addStringProperty("custom-property", "value")
+
+//Add the feature to the data source.
+source.add(feature)
+```
+
+::: zone-end
+
 Alternatywnie można najpierw załadować właściwości do obiektu JsonObject, a następnie przesłać je do funkcji podczas jej tworzenia, jak pokazano poniżej.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a JsonObject to store properties for the feature.
@@ -62,6 +100,20 @@ properties.addProperty("custom-property", "value");
 
 Feature feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a JsonObject to store properties for the feature.
+val properties = JsonObject()
+properties.addProperty("custom-property", "value")
+
+val feature = Feature.fromGeometry(Point.fromLngLat(-100, 45), properties)
+```
+
+::: zone-end
 
 Po utworzeniu funkcji GEOJSON źródło danych można dodać do mapy za pomocą `sources` Właściwości mapy. Poniższy kod pokazuje, jak utworzyć `DataSource` , dodać go do mapy i dodać funkcję do źródła danych.
 
@@ -75,6 +127,8 @@ source.add(feature);
 ```
 
 Poniższy kod przedstawia kilka sposobów tworzenia funkcji GEOJSON, Featurecollection i geometrie.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //GeoJSON Point Geometry
@@ -112,9 +166,53 @@ FeatureCollection featureCollectionFromSingleFeature = FeatureCollection.fromFea
 FeatureCollection featureCollection = FeatureCollection.fromFeatures(listOfFeatures);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//GeoJSON Point Geometry
+val point = Point.fromLngLat(LONGITUDE, LATITUDE)
+
+//GeoJSON Point Geometry
+val linestring = LineString.fromLngLats(PointList)
+
+//GeoJSON Polygon Geometry
+val polygon = Polygon.fromLngLats(listOfPointList)
+
+val polygonFromOuterInner = Polygon.fromOuterInner(outerLineStringObject, innerLineStringObject)
+
+//GeoJSON MultiPoint Geometry
+val multiPoint = MultiPoint.fromLngLats(PointList)
+
+//GeoJSON MultiLineString Geometry
+val multiLineStringFromLngLat = MultiLineString.fromLngLats(listOfPointList)
+
+val multiLineString = MultiLineString.fromLineString(singleLineString)
+
+//GeoJSON MultiPolygon Geometry
+val multiPolygon = MultiPolygon.fromLngLats(listOflistOfPointList)
+
+val multiPolygonFromPolygon = MultiPolygon.fromPolygon(polygon)
+
+val multiPolygonFromPolygons = MultiPolygon.fromPolygons(PolygonList)
+
+//GeoJSON Feature
+val pointFeature = Feature.fromGeometry(Point.fromLngLat(LONGITUDE, LATITUDE))
+
+//GeoJSON FeatureCollection 
+val featureCollectionFromSingleFeature = FeatureCollection.fromFeature(pointFeature)
+
+val featureCollection = FeatureCollection.fromFeatures(listOfFeatures)
+```
+
+::: zone-end
+
 ### <a name="serialize-and-deserialize-geojson"></a>Serializacja i deserializacja GEOJSON
 
 Wszystkie klasy kolekcji, funkcji i geometrii funkcji mają i są `fromJson()` `toJson()` metodami statycznymi, które pomagają w serializacji. Sformatowany prawidłowy ciąg JSON przeszedł przez `fromJson()` metodę spowoduje utworzenie obiektu Geometry. Ta `fromJson()` Metoda oznacza również, że można użyć Gson lub innych strategii serializacji/deserializacji. Poniższy kod pokazuje, jak wykonać funkcję skonwertowanej GEOJSON i deserializować ją do klasy funkcji, a następnie serializować ją z powrotem do ciągu GEOJSON.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Take a stringified GeoJSON object.
@@ -136,11 +234,39 @@ Feature feature = Feature.fromJson(GeoJSON_STRING);
 String featureString = feature.toJson();
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Take a stringified GeoJSON object.
+val GeoJSON_STRING = ("{"
+        + "      \"type\": \"Feature\","
+        + "      \"geometry\": {"
+        + "            \"type\": \"Point\""
+        + "            \"coordinates\": [-100, 45]"
+        + "      },"
+        + "      \"properties\": {"
+        + "            \"custom-property\": \"value\""
+        + "      },"
+        + "}")
+
+//Deserialize the JSON string into a feature.
+val feature = Feature.fromJson(GeoJSON_STRING)
+
+//Serialize a feature collection to a string.
+val featureString = feature.toJson()
+```
+
+::: zone-end
+
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importuj dane GEOJSON z folderu sieci Web lub zasobów
 
 Większość plików GeoJSON zawiera element Featurecollection. Odczytywanie plików GeoJSON jako ciągów i użycie `FeatureCollection.fromJson` metody do deserializacji.
 
 Poniższy kod jest klasą wielokrotnego użytku do importowania danych z folderu zasobów internetowych lub lokalnych jako ciągu i zwracania go do wątku interfejsu użytkownika za pomocą funkcji wywołania zwrotnego.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 import android.content.Context;
@@ -315,7 +441,78 @@ public class Utils {
 }
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.webkit.URLUtil
+import java.net.URL
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
+class Utils {
+    companion object {
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            */
+        fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
+            importData(urlOrFileName, context, callback, null)
+        }
+
+        /**
+            * Imports data from a web url or asset file name and returns it to a callback.
+            * @param urlOrFileName A web url or asset file name that points to data to load.
+            * @param context The context of the app.
+            * @param callback The callback function to return the data to.
+            * @param error A callback function to return errors to.
+            */
+        public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
+            if (urlOrFileName != null && callback != null) {
+                val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                val handler = Handler(Looper.getMainLooper())
+                executor.execute {
+                    var data: String? = null
+                    
+                    try {
+                        data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
+                            URL(urlOrFileName).readText()
+                        } else { //Assume file is in assets folder.
+                            context.assets.open(urlOrFileName).bufferedReader().use{
+                                it.readText()
+                            }
+                        }
+
+                        handler.post {
+                            //Ensure the resulting data string is not null or empty.
+                            if (data != null && !data.isEmpty()) {
+                                callback(data)
+                            } else {
+                                error!!("No data imported.")
+                            }
+                        }
+                    } catch (e: Exception) {
+                        error!!(e.message)
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+::: zone-end
+
 Poniższy kod pokazuje, jak używać tego narzędzia do importowania danych GEOJSON jako ciągu i zwracania go do wątku interfejsu użytkownika za pośrednictwem wywołania zwrotnego. W wywołaniu zwrotnym dane ciągu mogą być serializowane do kolekcji funkcji GEOJSON i dodawane do źródła danych. Opcjonalnie zaktualizuj aparat mapy, aby skoncentrować się na danych.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -344,6 +541,41 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Import the GeoJSON data and add it to the data source.
+Utils.importData("SamplePoiDataSet.json", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+            val fc = FeatureCollection.fromJson(result!!)
+
+        //Add the feature collection to the data source.
+        source.add(fc)
+
+        //Optionally, update the maps camera to focus in on the data.
+
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc);
+
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+
+            //Padding added to account for pixel size of rendered points.
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 ## <a name="vector-tile-source"></a>Źródło kafelków wektora
 
 Źródło kafelka wektorowego opisuje, jak uzyskać dostęp do warstwy kafelków wektorowych. Użyj `VectorTileSource` klasy, aby utworzyć wystąpienie źródła kafelka wektora. Warstwy kafelków wektorowych są podobne do warstw kafelków, ale nie są one takie same. Warstwa kafelków jest obrazem rastrowym. Warstwy kafelków wektorowych są skompresowanym plikiem w formacie **PBF** . Ten skompresowany plik zawiera dane mapy wektorowej i co najmniej jedną warstwę. Plik może być renderowany i ustalany na podstawie stylu każdej warstwy. Dane w kafelku wektorowym zawierają funkcje geograficzne w postaci punktów, linii i wielokątów. Istnieje kilka zalet używania warstw kafelków wektorowych zamiast warstw kafelków rastrowych:
@@ -364,6 +596,8 @@ Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.
 > W przypadku używania kafelków obrazów wektorowych lub rastrowych z poziomu usługi Azure Maps Render z zestawem SDK sieci Web, można zastąpić `atlas.microsoft.com` symbolem zastępczym `azmapsdomain.invalid` . Ten symbol zastępczy zostanie zastąpiony tą samą domeną używaną przez mapę i automatycznie dołączać te same dane uwierzytelniania. Znacznie upraszcza to uwierzytelnianie za pomocą usługi renderowania przy użyciu uwierzytelniania Azure Active Directory.
 
 Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źródło do jednej z warstw renderowania danych. Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość w opcjach. Poniższy kod ładuje usługę kafelków wektora przepływu ruchu Azure Maps jako źródło kafelka wektora, a następnie wyświetla ją na mapie przy użyciu warstwy liniowej. To źródło kafelka wektorowego zawiera pojedynczy zestaw danych w warstwie źródłowej o nazwie "przepływ ruchu". Dane wiersza w tym zestawie danych mają właściwość o nazwie `traffic_level` , która jest używana w tym kodzie do wybierania koloru i skalowania rozmiaru wierszy.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
@@ -407,6 +641,50 @@ LineLayer layer = new LineLayer(source,
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
+val trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}"
+
+//Create a vector tile source and add it to the map.
+val source = VectorTileSource(
+    tiles(arrayOf(trafficFlowUrl)),
+    maxSourceZoom(22)
+)
+map.sources.add(source)
+
+//Create a layer for traffic flow lines.
+val layer = LineLayer(
+    source,  //The name of the data layer within the data source to pass into this rendering layer.
+    sourceLayer("Traffic flow"),  //Color the roads based on the traffic_level property.
+    strokeColor(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, color(Color.RED)),
+            stop(0.33, color(Color.YELLOW)),
+            stop(0.66, color(Color.GREEN))
+        )
+    ),  //Scale the width of roads based on the traffic_level property.
+    strokeWidth(
+        interpolate(
+            linear(),
+            get("traffic_level"),
+            stop(0, 6),
+            stop(1, 1)
+        )
+    )
+)
+
+//Add the traffic flow layer below the labels to make the map clearer.
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 ![Mapuj z kolorowymi liniami drogowymi pokazującymi poziomy przepływu ruchu](media/create-data-source-android-sdk/android-vector-tile-source-line-layer.png)
 
 ## <a name="connecting-a-data-source-to-a-layer"></a>Łączenie źródła danych z warstwą
@@ -420,6 +698,8 @@ Dane są renderowane na mapie przy użyciu warstw renderowania. Pojedynczemu źr
 - [Warstwa wielokątów](how-to-add-shapes-to-android-map.md) — wypełnia obszar wielokąta przy użyciu pełnego koloru lub wzorca obrazu.
 
 Poniższy kod przedstawia sposób tworzenia źródła danych, dodawania go do mapy i łączenia go z warstwą bąbelkową. A następnie zaimportuj dane punktu GEOJSON z lokalizacji zdalnej do źródła danych.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -452,6 +732,42 @@ Utils.importData("URL_or_FilePath_to_GeoJSON_data",
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a layer that defines how to render points in the data source and add it to the map.
+val layer = BubbleLayer(source)
+map.layers.add(layer)
+
+//Import the geojson data and add it to the data source.
+Utils.importData("URL_or_FilePath_to_GeoJSON_data", this) { 
+    result: String? ->
+        //Parse the data as a GeoJSON Feature Collection.
+        val fc = FeatureCollection.fromJson(result!!)
+    
+        //Add the feature collection to the data source.
+        dataSource.add(fc)
+    
+        //Optionally, update the maps camera to focus in on the data.
+        //Calculate the bounding box of all the data in the Feature Collection.
+        val bbox = MapMath.fromData(fc)
+    
+        //Update the maps camera so it is focused on the data.
+        map.setCamera(
+            bounds(bbox),
+            padding(20)
+        )
+    }
+```
+
+::: zone-end
+
 Istnieją dodatkowe warstwy renderowania, które nie łączą się z tymi źródłami danych, ale bezpośrednio ładują dane do renderowania.
 
 - [Warstwa kafelków](how-to-add-tile-layer-android-map.md) nakłada warstwę kafelków rastrowych na podstawie mapy.
@@ -465,6 +781,8 @@ Wiele warstw można podłączyć do pojedynczego źródła danych. Istnieje wiel
 W większości platform mapowania potrzebny jest obiekt wielokątny, obiekt linii i numer PIN dla każdej pozycji w wielokąta. Gdy Wielokąt jest modyfikowany, trzeba ręcznie zaktualizować linię i numery PIN, co może szybko stać się skomplikowany.
 
 W przypadku Azure Maps, wystarczy, że jest to pojedynczy Wielokąt w źródle danych, jak pokazano w poniższym kodzie.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -497,8 +815,48 @@ BubbleLayer bubbleLayer = new BubbleLayer(source,
 map.layers.add(new Layer[] { polygonLayer, lineLayer, bubbleLayer });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a polygon and add it to the data source.
+source.add(Polygon.fromLngLats())
+
+//Create a polygon layer to render the filled in area of the polygon.
+val polygonLayer = PolygonLayer(
+    source,
+    fillColor("rgba(255,165,0,0.2)")
+)
+
+//Create a line layer for greater control of rendering the outline of the polygon.
+val lineLayer = LineLayer(
+    source,
+    strokeColor("orange"),
+    strokeWidth(2f)
+)
+
+//Create a bubble layer to render the vertices of the polygon as scaled circles.
+val bubbleLayer = BubbleLayer(
+    source,
+    bubbleColor("orange"),
+    bubbleRadius(5f),
+    bubbleStrokeColor("white"),
+    bubbleStrokeWidth(2f)
+)
+
+//Add all layers to the map.
+map.layers.add(arrayOf<Layer>(polygonLayer, lineLayer, bubbleLayer))
+```
+
+::: zone-end
+
 > [!TIP]
-> Podczas dodawania warstw do mapy przy użyciu `map.layers.add` metody, identyfikator lub wystąpienie istniejącej warstwy można przesłać jako drugi parametr. Dzięki temu mapa będzie wstawiać nową warstwę dodawaną poniżej istniejącej warstwy. W elemencie do przekazywania w identyfikatorze warstwy ta metoda obsługuje również następujące wartości.
+> Podczas dodawania warstw do mapy przy użyciu `map.layers.add` metody, identyfikator lub wystąpienie istniejącej warstwy można przesłać jako drugi parametr. Dzięki temu mapa będzie wstawiać nową warstwę dodawaną poniżej istniejącej warstwy. Oprócz przekazywania identyfikatora warstwy ta metoda obsługuje również następujące wartości.
 >
 > - `"labels"` — Wstawia nową warstwę poniżej warstw etykiety mapy.
 > - `"transit"` — Wstawia nową warstwę poniżej warstwy mapy drogowej i tranzytowej.

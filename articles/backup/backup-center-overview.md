@@ -3,12 +3,12 @@ title: Omówienie centrum kopii zapasowych
 description: Ten artykuł zawiera omówienie centrum kopii zapasowych na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725377"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100002"
 ---
 # <a name="overview-of-backup-center"></a>Omówienie centrum kopii zapasowych
 
@@ -27,7 +27,7 @@ Niektóre z najważniejszych zalet centrum kopii zapasowych obejmują:
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby rozpocząć pracę z usługą Backup Center, Wyszukaj pozycję **centrum kopii zapasowych** w Azure Portal i przejdź do pulpitu nawigacyjnego **centrum kopii zapasowych (wersja zapoznawcza)** .
+Aby rozpocząć pracę z usługą Backup Center, Wyszukaj pozycję **centrum kopii zapasowych** w Azure Portal i przejdź do pulpitu nawigacyjnego **centrum kopii zapasowych** .
 
 ![Wyszukiwanie w centrum kopii zapasowych](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ Pierwszy ekran, który widzisz, to **Przegląd**. Zawiera dwa kafelki — **zada
 
 Na kafelku **zadania** uzyskasz podsumowanie wszystkich zadań związanych z tworzeniem kopii zapasowych i przywracania, które zostały wyzwolone w ramach danej kopii zapasowej w ciągu ostatnich 24 godzin. Można wyświetlić informacje o liczbie zadań zakończonych niepowodzeniem i w toku. Wybranie dowolnej liczby z tego kafelka pozwala wyświetlić więcej informacji na temat zadań dla określonego typu źródła danych, typu operacji i stanu.
 
-Na kafelku **wystąpienia kopii zapasowej** można uzyskać widok podsumowania wszystkich wystąpień kopii zapasowej w ramach kopii zapasowej. Można na przykład zobaczyć liczbę wystąpień kopii zapasowych, które są w stanie nieusuniętym, w porównaniu z liczbą wystąpień, które są nadal skonfigurowane do ochrony. Wybranie dowolnej liczby z tego kafelka umożliwia wyświetlenie dodatkowych informacji o wystąpieniach kopii zapasowych dla określonego typu źródła danych i stanu ochrony.
+Na kafelku **wystąpienia kopii zapasowej** można uzyskać widok podsumowania wszystkich wystąpień kopii zapasowej w ramach kopii zapasowej. Można na przykład zobaczyć liczbę wystąpień kopii zapasowych, które są w stanie nieusuniętym, w porównaniu z liczbą wystąpień, które są nadal skonfigurowane do ochrony. Wybranie dowolnej liczby z tego kafelka umożliwia wyświetlenie dodatkowych informacji o wystąpieniach kopii zapasowych dla określonego typu źródła danych i stanu ochrony. Możesz również wyświetlić wszystkie wystąpienia kopii zapasowej, których bazowe źródło danych nie zostało odnalezione (Źródło danych może zostać usunięte lub nie masz dostępu do źródła danych).
 
 Obejrzyj poniższe wideo, aby poznać możliwości centrum kopii zapasowych:
 

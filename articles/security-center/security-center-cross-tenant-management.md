@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922907"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099492"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w Security Center
 
@@ -41,7 +41,7 @@ Na górnym pasku menu kliknij ikonę filtru, a następnie wybierz subskrypcje, z
 
   ![Filtrowanie dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Widoki i akcje są zasadniczo takie same. Poniżej przedstawiono kilka przykładów:
+Widoki i akcje są zasadniczo takie same. Oto kilka przykładów:
 
 - **Zarządzanie zasadami zabezpieczeń**: w jednym widoku Zarządzaj Stanami zabezpieczeń wielu zasobów przy użyciu [zasad](tutorial-security-policy.md), podejmuj działania z zaleceniami dotyczącymi zabezpieczeń, a następnie Zbieraj dane związane z zabezpieczeniami i zarządzaj nimi.
 - **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](secure-score-security-controls.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.
@@ -51,8 +51,4 @@ Widoki i akcje są zasadniczo takie same. Poniżej przedstawiono kilka przykład
 - **Zarządzaj zaawansowanymi funkcjami obrony w chmurze i nie tylko**: Zarządzaj różnymi usługami ochrony przed zagrożeniami, takimi jak [dostęp do maszyn wirtualnych just-in-Time (JIT)](security-center-just-in-time.md), [adaptacyjne Zabezpieczanie sieci](security-center-adaptive-network-hardening.md), [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md)i nie tylko.
  
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule wyjaśniono, jak zarządzanie przez wiele dzierżawców działa w Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
-
-* [Wzmocnij stan zabezpieczeń dzięki Azure Security Center](security-center-monitoring.md) — Dowiedz się, jak monitorować kondycję zasobów platformy Azure.
-* [Azure Security Center często zadawane](faq-general.md) pytania — Znajdź często zadawane pytania dotyczące korzystania z usługi.
-* [Dowiedz się więcej o usłudze Azure Lighthouse w scenariuszach dla przedsiębiorstw](../lighthouse/concepts/enterprise.md) — Odkryj, jak usługa Azure Lighthouse może uprościć zarządzanie różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.
+W tym artykule wyjaśniono, jak zarządzanie przez wiele dzierżawców działa w Security Center. Aby dowiedzieć się, jak usługa Azure Lighthouse może uprościć zarządzanie między dzierżawcami w przedsiębiorstwie korzystającym z wielu dzierżawców usługi Azure AD, zobacz [Azure Lighthouse w scenariuszach dla przedsiębiorstw](../lighthouse/concepts/enterprise.md).

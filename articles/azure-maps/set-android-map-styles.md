@@ -3,17 +3,18 @@ title: Ustawianie stylu mapy w usłudze mapy systemu Android | Mapy Microsoft Az
 description: Poznaj dwa sposoby ustawiania stylu mapy. Aby dostosować styl, zobacz jak używać Android SDK Azure Maps w pliku układu lub w klasie Activity.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 04/26/2019
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1cce355c8ffbcd4704bd32b0e4d1739c77c2b623
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678486"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100988"
 ---
 # <a name="set-map-style-android-sdk"></a>Ustaw styl mapy (Android SDK)
 
@@ -47,6 +48,8 @@ Poniższy zrzut ekranu przedstawia powyższy kod, który wyświetla mapę drogi 
 
 Styl mapy można skonfigurować programowo w kodzie przy użyciu `setStyle` metody mapy. Poniższy kod ustawia lokalizację centrum i poziom powiększenia przy użyciu `setCamera` metody Maps oraz stylu mapy `SATELLITE_ROAD_LABELS` .
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 mapControl.onReady(map -> {
 
@@ -58,6 +61,22 @@ mapControl.onReady(map -> {
 });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+mapControl!!.onReady { map: AzureMap ->
+    //Set the camera of the map.
+    map.setCamera(center(Point.fromLngLat(-122.33, 47.64)), zoom(14))
+
+    //Set the style of the map.
+    map.setStyle(style(MapStyle.SATELLITE_ROAD_LABELS))
+}
+```
+
+::: zone-end
+
 Poniższy zrzut ekranu przedstawia powyższy kod zawierający mapę z stylem satelitarnych etykiet.
 
 ![Mapowanie przy użyciu stylu etykiet dróg satelitarnych](media/set-android-map-styles/android-satellite-road-labels.png)
@@ -65,6 +84,8 @@ Poniższy zrzut ekranu przedstawia powyższy kod zawierający mapę z stylem sat
 ## <a name="setting-the-map-camera"></a>Ustawianie aparatu mapy
 
 Aparat mapy kontroluje, jaka część mapy jest wyświetlana na mapie. Aparat może być w tym samym układzie programowo w kodzie. Gdy ustawiasz ją w kodzie, istnieją dwie główne metody ustawiania pozycji mapy; Używanie centrum i powiększanie lub przekazywanie w polu ograniczenia. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery podczas korzystania z `center` i `zoom` .
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Set the camera of the map using center and zoom.
@@ -88,7 +109,37 @@ map.setCamera(
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Set the camera of the map using center and zoom.
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.64)), 
+
+    //The zoom level. Typically a value between 0 and 22.
+    zoom(14),
+
+    //The amount of tilt in degrees the map where 0 is looking straight down.
+    pitch(45),
+
+    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
+    bearing(90),
+
+    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
+    minZoom(10),
+    
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+)
+```
+
+::: zone-end
+
 Często pożądane jest skoncentrowanie mapy na zestawie danych. Pole ograniczenia można obliczyć na podstawie funkcji przy użyciu `MapMath.fromData` metody i można je przekazywać do `bounds` opcji aparatu mapy. Podczas ustawiania widoku mapy na podstawie pola ograniczenia często warto określić `padding` wartość do konta dla rozmiaru pikseli dla punktów renderowanych jako bąbelki lub symbole. Poniższy kod pokazuje, jak ustawić wszystkie opcjonalne opcje kamery przy użyciu pola ograniczenia, aby ustawić pozycję aparatu.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Set the camera of the map using a bounding box.
@@ -115,6 +166,38 @@ map.setCamera(
     maxZoom(14)
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Set the camera of the map using a bounding box.
+map.setCamera(
+    //The area to focus the map on.
+    bounds(BoundingBox.fromLngLats(
+        //West
+        -122.4594,
+
+        //South
+        47.4333,
+        
+        //East
+        -122.21866,
+        
+        //North
+        47.75758
+    )),
+
+    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
+    padding(20),
+
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+)
+```
+
+::: zone-end
 
 Należy zauważyć, że współczynnik proporcji pola ograniczenia nie może być taki sam jak współczynnik proporcji mapy, ponieważ taka Mapa często pokazuje pełen obszar pola ograniczenia, ale często jest tylko w pionie lub w poziomie.
 

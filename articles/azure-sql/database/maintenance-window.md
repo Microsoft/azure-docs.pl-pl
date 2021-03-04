@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/02/2021
-ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 0a9a4b2de03c62640bb1c643d3ff3da4139d42a4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692814"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101209"
 ---
 # <a name="maintenance-window-preview"></a>Okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,29 +32,31 @@ Okno obsługi jest przeznaczone dla obciążeń firmowych, które nie są odporn
 
 Okno obsługi można skonfigurować przy użyciu interfejsu API Azure Portal, PowerShell, interfejsu wiersza polecenia lub platformy Azure. Można go skonfigurować podczas tworzenia lub dla istniejących baz danych SQL i wystąpień zarządzanych przez program SQL.
 
+> [!Important]
+> Konfigurowanie okna obsługi jest długotrwałą operacją asynchroniczną, podobną do zmiany warstwy usług zasobu SQL platformy Azure. Zasób jest dostępny podczas operacji, z wyjątkiem krótkiej pracy w trybie failover, która jest wykonywana na końcu operacji i zazwyczaj trwa do 8 sekund nawet w przypadku przerwanych długotrwałych transakcji. Aby zminimalizować wpływ trybu failover, należy wykonać operację poza godzinami szczytu.
+
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Zwiększ przewidywalność przy użyciu okna obsługi
 
 Domyślnie wszystkie bazy danych Azure SQL Database i zarządzane wystąpienia bazy danych są aktualizowane tylko podczas 17:00 8:00 czasu lokalnego, aby uniknąć przerw w pracy w godzinach pracy. Czas lokalny jest określany na podstawie [regionu platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , który hostuje zasób. Możesz dodatkowo dostosować aktualizacje konserwacji do czasu odpowiedniego dla bazy danych, wybierając spośród dwóch dodatkowych gniazd okna obsługi:
-
-* Okno **domyślne** , 17:00 do 8:00 czasu lokalnego poniedziałek-niedziela 
+ 
 * Okno dnia tygodnia, 10PM do 6:00 lokalnego czasu poniedziałek — czwartek
 * Okno weekendowe, 10PM do 6:00 czas lokalny piątek — niedziela
 
-Po dokonaniu wyboru okna obsługi wszystkie planowane aktualizacje konserwacji będą wykonywane tylko w wybranym oknie.   
+Po dokonaniu wyboru okna obsługi i zakończeniu konfigurowania usługi wszystkie planowane aktualizacje konserwacji będą wykonywane tylko w wybranym oknie.   
 
 > [!Note]
 > Oprócz planowanych aktualizacji konserwacji w rzadkich przypadkach nieplanowane zdarzenia konserwacji mogą spowodować niedostępność. 
 
 ### <a name="cost-and-eligibility"></a>Koszt i kwalifikowanie się
 
-Wybór okna obsługi jest bezpłatny dla następujących [typów ofert](https://azure.microsoft.com/support/legal/offer-details/)subskrypcji: płatność zgodnie z rzeczywistym użyciem, dostawca rozwiązań w chmurze (CSP), Microsoft Enterprise lub umowa klienta firmy Microsoft.
+Konfigurowanie i korzystanie z okna obsługi jest bezpłatne za wszystkie kwalifikujące się [typy ofert](https://azure.microsoft.com/support/legal/offer-details/): płatność zgodnie z rzeczywistym użyciem, dostawca rozwiązań w chmurze (CSP), Microsoft Enterprise lub umowa klienta firmy Microsoft.
 
 > [!Note]
 > Oferta platformy Azure to typ posiadanej subskrypcji platformy Azure. Na przykład subskrypcja z [stawką płatność zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/)użyciem, [platforma Azure w ramach usługi Open](https://azure.microsoft.com/en-us/offers/ms-azr-0111p/)i [Visual Studio Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) to wszystkie oferty platformy Azure. Każda oferta lub plan ma inne warunki i zalety. Twoja oferta lub plan są wyświetlane na stronie Przegląd subskrypcji. Aby uzyskać więcej informacji na temat przełączania subskrypcji na inną ofertę, zobacz [Zmienianie subskrypcji platformy Azure na inną ofertę](/azure/cost-management-billing/manage/switch-azure-offer).
 
 ## <a name="advance-notifications"></a>Powiadomienia z wyprzedzeniem
 
-Powiadomienia o konserwacji można skonfigurować w taki sposób, aby ostrzegał klientów o nadchodzących zdarzeniach konserwacyjnych 24 godziny z wyprzedzeniem, w czasie konserwacji i po zakończeniu okna obsługi. Aby uzyskać więcej informacji, zobacz [powiadomienia z wyprzedzeniem](advance-notifications.md).
+Powiadomienia dotyczące konserwacji można skonfigurować w taki sposób, aby ostrzegał o przyszłych planowanych zdarzeniach konserwacyjnych Azure SQL Database 24-godzinnym wyprzedzeniu, w czasie konserwacji i po zakończeniu okna obsługi. Aby uzyskać więcej informacji, zobacz [powiadomienia z wyprzedzeniem](advance-notifications.md).
 
 ## <a name="availability"></a>Dostępność
 
@@ -62,6 +64,7 @@ Powiadomienia o konserwacji można skonfigurować w taki sposób, aby ostrzegał
 
 Wybór okna obsługi inne niż domyślne jest dostępne dla wszystkich SLO **z wyjątkiem**:
 * Hiperskala 
+* Pule wystąpień
 * Starsza wersja obliczenia rdzeń wirtualny
 * Basic, S0 i S1 
 * DC, Fsv2, Seria M
@@ -93,7 +96,7 @@ Aby uzyskać maksymalną korzyść z okien obsługi, upewnij się, że aplikacje
 
 * W Azure SQL Database wszystkie połączenia korzystające z zasad połączenia serwera proxy mogą mieć wpływ zarówno z wybranego okna obsługi, jak i okna obsługi węzła bramy. Jednak połączenia klienckie korzystające z zalecanych zasad połączenia przekierowania nie mają wpływ na tryb failover konserwacji węzła bramy. 
 
-* W wystąpieniu zarządzanym usługi Azure SQL węzły bramy znajdują się [w klastrze wirtualnym](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) i mają to samo okno obsługi co wystąpienie zarządzane, dlatego użycie zasad połączenia serwera proxy nie może ujawnić połączeń z dodatkowym oknem obsługi.
+* W wystąpieniu zarządzanym usługi Azure SQL węzły bramy są hostowane [w klastrze wirtualnym](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) i mają takie samo okno obsługi jak wystąpienie zarządzane, ale przy użyciu zasad połączenia przekierowania nadal zaleca się zminimalizowanie liczby przerw w czasie trwania zdarzenia konserwacji.
 
 Więcej informacji na temat zasad połączenia klienta w Azure SQL Database można znaleźć w temacie [Azure SQL Database Policy Connection](../database/connectivity-architecture.md#connection-policy). 
 

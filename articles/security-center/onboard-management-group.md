@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796062"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101294"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Włącz Security Center we wszystkich subskrypcjach w grupie zarządzania
 
@@ -60,7 +60,7 @@ Istnieje wiele różnych sposobów modyfikowania definicji Azure Policy:
     Podana Definicja definiuje *jedno* z poniższych ustawień "cennika" jako zgodne. Oznacza to, że subskrypcja jest zgodna z ustawieniem "Standardowa" lub "Free".
 
     > [!TIP]
-    > Po włączeniu planu usługi Azure Defender jest on opisany jako w ustawieniu "standardowe". Gdy jest wyłączona, jest "bezpłatna". [Dowiedz się więcej o planach usługi Azure Defender](security-center-pricing.md).
+    > Po włączeniu planu usługi Azure Defender jest on opisany w definicji zasad w ramach ustawienia "standardowe". Gdy jest wyłączona, jest "bezpłatna". Aby dowiedzieć się więcej o różnicach między tymi planami, zobacz [Security Center bezpłatnie a usługa Azure Defender włączona](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Istnieje wiele różnych sposobów modyfikowania definicji Azure Policy:
 Teraz, po dodaniu całej grupy zarządzania, Włącz zaawansowaną ochronę usługi Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Włączanie usługi Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Włączanie usługi Azure Defender](enable-azure-defender.md)

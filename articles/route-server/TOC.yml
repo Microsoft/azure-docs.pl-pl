@@ -6,6 +6,8 @@
       href: overview.md
 - name: Przewodniki Szybki start
   items:
+    - name: Konfigurowanie serwera tras — Portal
+      href: quickstart-configure-route-server-portal.md
     - name: Konfigurowanie serwera tras — PowerShell
       href: quickstart-configure-route-server-powershell.md
     - name: Konfigurowanie serwera tras — interfejs wiersza polecenia
