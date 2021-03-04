@@ -1,17 +1,16 @@
 ---
 title: Alerty dotyczące kondycji gościa usługi VM Insights (wersja zapoznawcza)
 description: Opisuje alerty utworzone przez funkcję kondycji gościa usługi VM Insights, w tym sposób włączania i konfigurowania powiadomień.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707510"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052266"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Alerty dotyczące kondycji gościa usługi VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlenie informacji o kondycji maszyny wirtualnej zdefiniowanej przez zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu. Alert można utworzyć, gdy maszyna wirtualna lub monitor zmieni stan w złej kondycji. Można wyświetlać te alerty i zarządzać nimi z [tymi utworzonymi przez reguły alertów w Azure monitor](../alerts/alerts-overview.md) i zdecydować się na ich aktywne powiadamianie o utworzeniu nowego alertu.

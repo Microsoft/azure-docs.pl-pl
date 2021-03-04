@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: aa8f696b6a26e812256be4e93975844f2c721b6e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663011"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095395"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>Aktualizowanie platformy Azure Percept DK przez powietrze
 
@@ -92,7 +92,7 @@ Wymagania dotyczące tagów grup:
 1. Upewnij się, że wybrano poprawną grupę urządzeń jako grupę urządzeń docelowych. Wybierz **datę rozpoczęcia** i **godzinę rozpoczęcia** wdrożenia, a następnie kliknij pozycję **Utwórz wdrożenie**. 
 
     >[!CAUTION]
-    >Ustawienie godziny rozpoczęcia przeszłego spowoduje natychmiastowe wyzwolenie wdrożenia.
+    >Ustawienie godziny rozpoczęcia w przeszłości spowoduje natychmiastowe wyzwolenie wdrożenia.
  
 1. Sprawdź wykres zgodności. Powinna zostać wyświetlona aktualizacja, która jest teraz w toku.
  

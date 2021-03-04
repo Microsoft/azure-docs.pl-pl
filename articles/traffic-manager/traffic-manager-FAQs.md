@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576682"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095021"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
 
@@ -447,7 +447,18 @@ Jeśli nie podano niestandardowego ustawienia nagłówka hosta, nagłówek hosta
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Jakie są adresy IP, z których pochodzą kontrole kondycji?
 
-Kliknij [tutaj](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) , aby wyświetlić plik JSON zawierający listę adresów IP, z których mogą pochodzić Traffic Manager kontrole kondycji. Sprawdź adresy IP wymienione w pliku JSON, aby upewnić się, że połączenia przychodzące z tych adresów IP są dozwolone w punktach końcowych, aby sprawdzić stan kondycji.
+Kliknij [tutaj](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) , aby dowiedzieć się, jak pobrać listy adresów IP, z których mogą pochodzić Traffic Manager kontrole kondycji. Aby pobrać najnowszą listę, można użyć interfejsu API REST, wiersza polecenia platformy Azure lub Azure PowerShell. Przejrzyj wymienione adresy IP, aby upewnić się, że w punktach końcowych są dozwolone połączenia przychodzące z tych adresów, aby sprawdzić stan kondycji.
+
+Przykład użycia Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Publiczne adresy IP mogą ulec zmianie bez powiadomienia. Upewnij się, że pobieranie najnowszych informacji przy użyciu interfejsu API odnajdywania tagów usługi lub pliku JSON do pobrania.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Ile testów kondycji w punkcie końcowym można oczekiwać od Traffic Manager?
 

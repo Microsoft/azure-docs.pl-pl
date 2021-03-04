@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 77dab865b2b023f59e6776349b4045107bdb3a29
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556816"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095497"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -134,7 +134,7 @@ Dowiedz się więcej na temat zasad niestandardowych w [zasadach niestandardowyc
 
 ## <a name="protocols-and-tokens"></a>Protokoły i tokeny
 
-- W przypadku aplikacji Azure AD B2C obsługuje protokoły [OAuth 2,0](protocols-overview.md), [OpenID Connect Connect](openid-connect.md)i [SAML](connect-with-saml-service-providers.md) na potrzeby podróży użytkownika. Aplikacja uruchamia pracę użytkownika, wydając żądania uwierzytelniania do Azure AD B2C. Wynikiem żądania Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora, token dostępu](tokens-overview.md)lub token SAML. Ten token zabezpieczający definiuje tożsamość użytkownika w aplikacji.
+- W przypadku aplikacji Azure AD B2C obsługuje protokoły [OAuth 2,0](protocols-overview.md), [OpenID Connect Connect](openid-connect.md)i [SAML](saml-service-provider.md) na potrzeby podróży użytkownika. Aplikacja uruchamia pracę użytkownika, wydając żądania uwierzytelniania do Azure AD B2C. Wynikiem żądania Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora, token dostępu](tokens-overview.md)lub token SAML. Ten token zabezpieczający definiuje tożsamość użytkownika w aplikacji.
 
 - W przypadku tożsamości zewnętrznych Azure AD B2C obsługuje Federacji z dowolnymi dostawcami OAuth 1,0, OAuth 2,0, OpenID Connect Connect i SAML Identity.
 

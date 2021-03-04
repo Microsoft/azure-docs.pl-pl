@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508054"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095769"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Zarządzanie sesjami logowania jednokrotnego w usłudze Azure Active Directory B2C
 
@@ -135,7 +135,7 @@ Ten dostawca służy do zarządzania sesjami Azure AD B2C między jednostką uza
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Ten dostawca służy do zarządzania Azure AD B2C sesji SAML między aplikacją jednostki uzależnionej lub dostawcą federacyjnego tożsamości SAML. W przypadku korzystania z dostawcy rejestracji jednokrotnej w celu przechowywania sesji dostawcy tożsamości SAML `RegisterServiceProviders` należy ustawić wartość `false` . Poniższy `SM-Saml-idp` profil techniczny jest używany przez [profil techniczny dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md).
+Ten dostawca służy do zarządzania Azure AD B2C sesji SAML między aplikacją jednostki uzależnionej lub dostawcą federacyjnego tożsamości SAML. W przypadku korzystania z dostawcy rejestracji jednokrotnej w celu przechowywania sesji dostawcy tożsamości SAML `RegisterServiceProviders` należy ustawić wartość `false` . Następujący `SM-Saml-idp` profil techniczny jest używany przez [dostawcę tożsamości języka SAML](identity-provider-generic-saml.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -149,7 +149,7 @@ Ten dostawca służy do zarządzania Azure AD B2C sesji SAML między aplikacją 
 
 W przypadku korzystania z dostawcy do przechowywania sesji SAML B2C, `RegisterServiceProviders` musi ona mieć ustawioną wartość `true` . Wylogowywanie sesji języka SAML wymaga `SessionIndex` `NameID` zakończenia i.
 
-Następujący `SM-Saml-issuer` profil techniczny jest używany przez [profil techniczny wystawcy SAML](saml-issuer-technical-profile.md)
+Następujący `SM-Saml-issuer` profil techniczny jest używany przez [profil techniczny wystawcy SAML](saml-service-provider.md)
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">

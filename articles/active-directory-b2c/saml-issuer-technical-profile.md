@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b4fb7c6fb3bbf02e5f1aba25c868e4a44e8507dd
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 54869c14cf7c5a7e43f34102f5c95e37689dfee8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309634"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095344"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -58,9 +58,9 @@ Elementy **InputClaims**, **OutputClaims** i **PersistClaims** są puste lub nie
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna być taka sama jak nazwa skonfigurowana w aplikacji jednostki uzależnionej. |
-| XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania potwierdzenia SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować odpowiedź SAML, zobacz [metadane SAML jednostki uzależnionej](relyingparty.md#metadata)|
+| XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania potwierdzenia SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować odpowiedź SAML, zobacz [Opcje rejestrowania aplikacji SAML](saml-service-provider.md)|
 |TokenNotBeforeSkewInSeconds| Nie| Określa pochylenie jako liczbę całkowitą dla sygnatury czasowej, która oznacza początek okresu ważności. Im wyższy numer to, tym więcej z powrotem w czasie okres ważności rozpoczyna się w odniesieniu do czasu, w którym oświadczenia są wystawiane dla jednostki uzależnionej. Na przykład gdy TokenNotBeforeSkewInSeconds jest ustawiony na 60 sekund, jeśli token jest wystawiony o 13:05:10 czasu UTC, token jest ważny od 13:04:10 czasu UTC. Wartość domyślna to 0. Wartość maksymalna to 3600 (jedna godzina). |
-|TokenLifeTimeInSeconds| Nie| Określa okres istnienia potwierdzenia SAML. Ta wartość jest w sekundach od NotBefore wartość refernced powyżej. Wartość domyślna to 300 sekund (5 minut). |
+|TokenLifeTimeInSeconds| Nie| Określa okres istnienia potwierdzenia SAML. Ta wartość jest w sekundach od wartości NotBefore, do której odwołuje się powyżej. Wartość domyślna to 300 sekund (5 minut). |
 
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
@@ -80,5 +80,5 @@ Aby skonfigurować Azure AD B2C sesje SAML między aplikacją jednostki uzależn
 
 Zapoznaj się z poniższym artykułem, aby zapoznać się z profilem technicznym wystawcy SAML:
 
-- [Rejestrowanie aplikacji SAML w Azure AD B2C](connect-with-saml-service-providers.md)
+- [Rejestrowanie aplikacji SAML w Azure AD B2C](saml-service-provider.md)
 

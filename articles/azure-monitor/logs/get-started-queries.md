@@ -1,17 +1,16 @@
 ---
 title: Rozpoczynanie pracy z zapytaniami dzienników w Azure Monitor | Microsoft Docs
 description: Ten artykuł zawiera samouczek dotyczący rozpoczynania pisania zapytań dzienników w Azure Monitor.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 8cbf3f00da8b647804d0f541b35d8f8c1acb4e04
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c87b70c74a5de9cc4b6c48935b93fdd13295f0f8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628421"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052334"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor
 

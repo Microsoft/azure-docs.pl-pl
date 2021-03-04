@@ -1,22 +1,22 @@
 ---
 title: Wyświetl strumień wideo RTSP usługi Azure Percept DK
-description: Dowiedz się, jak wyświetlić strumień wideo RTSP z modelu "Vision Modeling" platformy Azure Percept DK
+description: Dowiedz się, jak wyświetlić strumień wideo RTSP z platformy Azure Percept DK
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 20fb8495e17d4294351a50c3bc97436de9f03450
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5f77e99dc5c34867fef2b0ac47c709824fa4477d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662986"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096007"
 ---
 # <a name="view-your-azure-percept-dks-rtsp-video-stream"></a>Wyświetl strumień wideo RTSP usługi Azure Percept DK
 
-Postępuj zgodnie z tym przewodnikiem, aby wyświetlić strumień wideo RTSP z modelu "Vision Modeling" platformy Azure Percept DK w ramach platformy Azure Percept Studio. Inferencing z modeli "Vision AI" wdrożonych na urządzeniu będą widoczne w usłudze webstream.
+Postępuj zgodnie z tym przewodnikiem, aby wyświetlić strumień wideo RTSP z platformy Azure Percept DK w ramach platformy Azure Percept Studio. Inferencing z modeli "Vision AI" wdrożonych na urządzeniu będą widoczne w strumieniu sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,15 +36,15 @@ Postępuj zgodnie z tym przewodnikiem, aby wyświetlić strumień wideo RTSP z m
 
 1. Wybierz z listy swój Devkit.
 
-    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Ekran omówienia usługi Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/select-device.png" alt-text="Zrzut ekranu przedstawiający dostępne urządzenia w usłudze Azure Percept Studio.":::
 
 1. Kliknij pozycję **Wyświetl strumień urządzenia**.
 
-    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Ekran omówienia usługi Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/view-device-stream.png" alt-text="Zrzut ekranu przedstawiający stronę urządzenia z widocznymi akcjami projektu wizji.":::
 
-    Spowoduje to otwarcie oddzielnej karty zawierającej dynamiczny element webstream z modelu "Vision Modeling" platformy Azure Percept DK.
+    Spowoduje to otwarcie oddzielnej karty zawierającej strumień sieci Web na żywo z platformy Azure Percept DK.
 
-    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Ekran omówienia usługi Azure Percept Studio.":::
+    :::image type="content" source="./media/how-to-view-video-stream/webstream.png" alt-text="Zrzut ekranu przedstawiający strumień sieci Web urządzenia.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

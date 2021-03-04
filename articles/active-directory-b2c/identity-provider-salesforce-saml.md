@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cfdd96ffa9e7758fc594f7e7ae53c84495b8b2e8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095412"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą dostawcy SAML usługi Salesforce przy użyciu protokołu SAML w Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ ms.locfileid: "98953822"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule opisano sposób włączania logowania dla użytkowników z organizacji usługi Salesforce przy użyciu [zasad niestandardowych](custom-policy-overview.md) w programie Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [profil techniczny dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md) do zasad niestandardowych.
+W tym artykule opisano sposób włączania logowania dla użytkowników z organizacji usługi Salesforce przy użyciu [zasad niestandardowych](custom-policy-overview.md) w programie Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [dostawcę tożsamości SAML](identity-provider-generic-saml.md) do zasad niestandardowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -100,7 +100,7 @@ Należy przechowywać certyfikat utworzony w dzierżawie Azure AD B2C.
 
 Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta usługi Salesforce, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
-Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie profilu technicznego dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md).
+Konto usługi Salesforce można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie dostawcy tożsamości SAML](identity-provider-generic-saml.md).
 
 1. Otwórz *TrustFrameworkExtensions.xml*.
 1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.

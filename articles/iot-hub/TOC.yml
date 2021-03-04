@@ -352,13 +352,13 @@
     - name: Wdrażanie aktualizacji
       items:
         - name: Utwórz konto aktualizacji urządzenia
-          href: /iot-hub-device-update/create-device-update-account.md
+          href: ../iot-hub-device-update/create-device-update-account.md
         - name: Importowanie aktualizacji
-          href: /iot-hub-device-update/import-update.md
+          href: ../iot-hub-device-update/import-update.md
         - name: Utwórz grupę aktualizacji
-          href: /iot-hub-device-update/create-update-group.md
+          href: ../iot-hub-device-update/create-update-group.md
         - name: Wdrażanie aktualizacji
-          href: /iot-hub-device-update/deploy-update.md
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Korzystanie z rzeczywistych urządzeń
       items:
         - name: Korzystanie z symulatora w trybie online

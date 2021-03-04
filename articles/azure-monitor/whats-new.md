@@ -1,17 +1,16 @@
 ---
 title: Co nowego w dokumentacji Azure Monitor
 description: Ważne aktualizacje dokumentacji Azure Monitor aktualizowane co miesiąc.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2021
-ms.openlocfilehash: b21e5ea8e25844e3e025915b0b9f15162c642f25
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dd6c44587ce3f4e2b5de940ef831a20a4079c4ef
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713443"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051926"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -721,7 +720,7 @@ Wiele aktualizacji w ramach ponownego zapisywania zawartości rozszerzenia diagn
 
 - Omówienie tabel z restrukturyzacją [agentów monitorowania platformy Azure](agents/agents-overview.md) w celu lepszego wyjaśnienia unikatowych funkcji poszczególnych agentów.
 - [Przegląd rozszerzenia Diagnostyka Azure](agents/diagnostics-extension-overview.md) — ukończono ponowne zapisywanie.
-- [Używaj usługi BLOB Storage dla usług IIS i magazynu tabel dla zdarzeń w Azure monitor](essentials/diagnostics-extension-logs.md) — ogólne ponowne zapisywanie dla aktualizacji i przejrzystości.
+- [Używaj usługi BLOB Storage dla usług IIS i magazynu tabel dla zdarzeń w Azure monitor](agents/diagnostics-extension-logs.md) — ogólne ponowne zapisywanie dla aktualizacji i przejrzystości.
 - [Zainstaluj i skonfiguruj rozszerzenie Microsoft Azure Diagnostics (funkcji wad)](agents/diagnostics-extension-windows-install.md) — nowy artykuł. 
 - [Schemat rozszerzenia diagnostyki systemu Windows](agents/diagnostics-extension-schema-windows.md) — Reorganizuje.
 - [Wyślij dane z rozszerzenia Diagnostyka systemu Windows Azure do platformy Azure Event Hubs](agents/diagnostics-extension-stream-event-hubs.md) — całkowicie ponownie napisano i Zaktualizowano.

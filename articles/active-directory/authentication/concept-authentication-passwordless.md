@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647561"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096024"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
@@ -89,6 +89,8 @@ Klucze zabezpieczeń FIDO2 to metoda uwierzytelniania bez hasła oparta na stand
 Użytkownicy mogą rejestrować i wybierać klucz zabezpieczeń FIDO2 w interfejsie logowania jako główny sposób uwierzytelniania. Te klucze zabezpieczeń FIDO2 są zazwyczaj urządzeniami USB, ale mogą również korzystać z połączenia Bluetooth lub NFC. W przypadku urządzenia sprzętowego, które obsługuje uwierzytelnianie, zabezpieczenia konta są zwiększane, ponieważ nie ma hasła, które może być ujawnione lub odgadnąć.
 
 Klucze zabezpieczeń FIDO2 mogą służyć do logowania się do usługi Azure AD lub hybrydowych urządzeń z systemem Windows 10 przyłączonych do usługi Azure AD i uzyskiwania rejestracji jednokrotnej w swoich zasobach w chmurze i lokalnych. Użytkownicy mogą również zalogować się w obsługiwanych przeglądarkach. Klucze zabezpieczeń FIDO2 są świetną opcją dla przedsiębiorstw, które mają bardzo duże znaczenie dla bezpieczeństwa lub mają scenariusze lub pracowników, którzy nie chcą korzystać z telefonu jako drugiego czynnika.
+
+Mamy dokument referencyjny, dla którego [przeglądarki obsługują uwierzytelnianie FIDO2 za pomocą usługi Azure AD](fido2-compatibility.md), a także najlepsze rozwiązania dla deweloperów chcące [obsługiwać uwierzytelnianie FIDO2 w aplikacjach, które opracowują](../develop/support-fido2-authentication.md).
 
 ![Zaloguj się do przeglądarki Microsoft Edge przy użyciu klucza zabezpieczeń](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

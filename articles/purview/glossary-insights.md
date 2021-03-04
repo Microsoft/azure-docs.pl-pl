@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eb1d59ae41b04be60dec90aaee4b2305b6d39ca6
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576778"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095854"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Słownik informacji na temat danych na platformie Azure kontrolą
 
@@ -54,19 +54,27 @@ W usłudze Azure kontrolą można tworzyć terminy słownika i dołączać je do
 
 1. W obszarze usługi **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: Wybierz pozycję **słownik** , aby wyświetlić raport **szczegółowe informacje o słowniku** kontrolą.
 
-Na stronie **słownik szczegółowych** informacji są wyświetlane następujące obszary:
-1. **Wskaźniki KPI wysokiego poziomu** umożliwiające wyświetlanie terminów i użytkowników katalogu
+**Szczegółowe** informacje są dostępne dla użytkowników firmowych i cennych informacji w celu utrzymania dobrze zdefiniowanego słownika dla organizacji.
 
-2. **Najważniejsze terminy i liczba elementów zawartości** przedstawiają 5 najważniejszych terminów z dołączonymi do nich zasobami. Wszystkie inne zasoby są uwzględniane w kategorii "inne" na grafie.
+1. Raport rozpoczyna się od **wskaźników KPI wysokiego poziomu** , które przedstawiają **_łączne warunki_*_ na koncie kontrolą, _*_zatwierdzone warunki bez zasobów_*_ i _*_utraciły ważność z zasobami_**. Każda z tych wartości pomoże w zidentyfikowaniu kondycji słownika.
 
-3. **Status słownika — terminy według terminu** przedstawia rozkład terminów słownika według stanu, takich jak "wersja robocza", "zatwierdzone", "Alert" i "wygasłe". 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="Wyświetl wskaźnik KPI szczegółowych informacji o słowniku"::: 
 
-1. Umieść kursor lub kliknij na wycinku wykresu stan i zanotuj liczbę warunków mających ten stan.
 
-1. **Rozkład ról według liczby użytkowników** pokazuje rozkład ról według liczby użytkowników na rolę w kontrolą.
+2. **Migawka sekcji warunków** (wyświetlana powyżej) przedstawia stan terminu jako **_wersja robocza_*_, _*,*_**, a*** w przypadku warunków z użyciem zasobów i terminów bez zasobów.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="Wyświetl szczegółowe informacje o słowniku":::
+3. Kliknij pozycję **Wyświetl więcej** , aby wyświetlić nazwy terminów z różnymi stanami i więcej szczegółów na temat **_Stewards_*_ i _*_ekspertów_**. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Migawka warunków zawierających i bez zasobów":::  
+
+4. Po kliknięciu przycisku "Wyświetl więcej" dla ***zatwierdzone warunki przy użyciu elementów zawartości** _, szczegółowe informacje umożliwiają przejście do strony zawierającej informacje o wyrazie _ *słownik** termin, z którego można przejść do listy zasobów z dołączonymi warunkami. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Szczegółowe informacje na temat słownika"::: 
+
+4. Na stronie informacje o słowniku Wyświetl dystrybucję **niekompletnych terminów** według typu informacji. Wykres pokazuje liczbę terminów z **_brakującą definicją_*_, _* nie ma żadnego _eksperta_*_, _* brakuje _Steward_*_ i _* nie _ma więcej_** pól.
+
+1. Kliknij pozycję ***Wyświetl więcej** niż _ * niekompletne warunki * *, aby wyświetlić warunki, które mają brakujące informacje. Możesz przejść do strony szczegółów terminu słownika, aby wprowadzić brakujące informacje i upewnić się, że termin słownikowy został ukończony.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o raportach usługi Azure kontrolą Insights za pomocą szczegółowych informacji o [zasobach](./asset-insights.md)
+Dowiedz się więcej na temat tworzenia terminów słownika za pomocą [słownika](./how-to-create-import-export-glossary.md)

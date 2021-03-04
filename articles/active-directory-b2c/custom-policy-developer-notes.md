@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218778"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095803"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Uwagi dla deweloperów dotyczące zasad niestandardowych w Azure Active Directory B2C
 
@@ -63,31 +63,31 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoły i przepływy autoryzacji
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Kod autoryzacji OAuth2](authorization-code-flow.md) |  |  | X |  |
 | OAuth2 kod autoryzacji z PKCE |  |  | X | [Klienci publiczni i aplikacje jednostronicowe](authorization-code-flow.md)  |
 | [Niejawny przepływ OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Poświadczenia hasła właściciela zasobu OAuth2](ropc-custom.md) |  | X |  |  |
 | [OIDC połączenie](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | Zaksięguj i Przekieruj powiązania. |
+| [SAML2](saml-service-provider.md)  |  |  |X  | Zaksięguj i Przekieruj powiązania. |
 | OAuth1 |  |  |  | Nieobsługiwane. |
 | WSFED | X |  |  |  |
 
 ### <a name="identify-providers-federation"></a>Identyfikowanie Federacji dostawców 
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Na przykład Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Na przykład w serwisie Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Na przykład serwis Twitter. |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Na przykład usługi Salesforce, ADFS. |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | Na przykład usługi Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
 ### <a name="rest-api-integration"></a>Integracja interfejsu API REST
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Interfejs API REST z uwierzytelnianiem podstawowym](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [Interfejs API REST z uwierzytelnianiem certyfikatu klienta](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -95,7 +95,7 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="component-support"></a>Obsługa składników
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Uwierzytelnianie przy współczynniku telefonicznym](phone-factor-technical-profile.md) |  |  | X |  |
 | [Uwierzytelnianie usługi Azure AD MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -110,7 +110,7 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="app-ief-integration"></a>Integracja App-IEF
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parametr ciągu zapytania `domain_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
 | Parametr ciągu zapytania `login_hint` |  |  | X | Dostępne jako roszczeń mogą być przesyłane do dostawcy tożsamości. |
@@ -121,7 +121,7 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="session-management"></a>Zarządzanie sesjami
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Domyślny dostawca sesji SSO](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Dostawca sesji logowania zewnętrznego](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
@@ -131,7 +131,7 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="security"></a>Zabezpieczenia
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Klucze zasad — generowanie, ręczne, przekazywanie |  |  | X |  |
 | Klucze zasad — RSA/certyfikat, wpisy tajne |  |  | X |  |
@@ -139,7 +139,7 @@ Niestandardowe możliwości zasad są pod stałym programowaniem. Poniższa tabe
 
 ### <a name="developer-interface"></a>Interfejs dewelopera
 
-| Cechy | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
+| Cecha | Opracowywanie zawartości | Wersja zapoznawcza | Ogólna dostępność | Uwagi |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Witryna Azure Portal — środowisko IEF |  |  | X |  |
 | Przekazywanie zasad |  |  | X |  |

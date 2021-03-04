@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3dc0b9e83af5a29172189f75e5a2174dc4d393d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694142"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096126"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Utwórz obszar roboczy z włączoną ochroną eksfiltracji danych
 W tym artykule opisano sposób tworzenia obszaru roboczego z włączoną ochroną eksfiltracji danych oraz zarządzania zatwierdzonymi dzierżawcami usługi Azure AD dla tego obszaru roboczego.
@@ -50,7 +50,9 @@ Można utworzyć zarządzane prywatne punkty końcowe, aby połączyć się z za
 >Zasoby w dzierżawach innych niż dzierżawa obszaru roboczego nie mogą blokować reguł zapory, aby pule SQL mogły się z nimi łączyć. Zasoby w zarządzanej sieci wirtualnej obszaru roboczego, takie jak klastry Spark, mogą łączyć zarządzane linki prywatne z zasobami chronionymi przez zaporę.
 
 ## <a name="known-limitations"></a>Znane ograniczenia
-Użytkownicy mogą udostępnić plik konfiguracyjny środowiska, aby zainstalować pakiety języka Python z publicznych repozytoriów, takich jak PyPI. W chronionych obszarach roboczych danych eksfiltracji połączenia z repozytoriami wychodzącymi są blokowane. W związku z tym biblioteka języka Python zainstalowana z repozytoriów publicznych, takich jak PyPI, nie jest obsługiwana. Alternatywnie użytkownicy mogą utworzyć kanał prywatny w ramach swojego konta Azure Data Lake Storage podstawowego i odwołać się do pliku konfiguracji środowiska Conda. 
+Użytkownicy mogą udostępnić plik konfiguracyjny środowiska, aby zainstalować pakiety języka Python z publicznych repozytoriów, takich jak PyPI. W chronionych obszarach roboczych danych eksfiltracji połączenia z repozytoriami wychodzącymi są blokowane. W związku z tym biblioteka języka Python zainstalowana z repozytoriów publicznych, takich jak PyPI, nie jest obsługiwana. 
+
+Alternatywnie użytkownicy mogą przekazywać pakiety obszarów roboczych lub utworzyć kanał prywatny w ramach swojego konta podstawowego Azure Data Lake Storage. Aby uzyskać więcej informacji, odwiedź stronę [Zarządzanie pakietami w usłudze Azure Synapse Analytics](./spark/../../spark/apache-spark-azure-portal-add-libraries.md) 
   
 ## <a name="next-steps"></a>Następne kroki
 

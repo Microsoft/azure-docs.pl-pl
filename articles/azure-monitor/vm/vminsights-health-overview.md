@@ -1,17 +1,16 @@
 ---
 title: Kondycja gościa usługi VM Insights (wersja zapoznawcza)
 description: Omówienie funkcji kondycji w usłudze VM Insights, w tym sposób wyświetlania kondycji maszyn wirtualnych i otrzymywania alertów w przypadku nieprawidłowej kondycji maszyny wirtualnej.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707459"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052130"
 ---
 # <a name="vm-insights-guest-health-preview"></a>Kondycja gościa usługi VM Insights (wersja zapoznawcza)
 Kondycja gościa usługi VM Insights umożliwia wyświetlanie kondycji maszyn wirtualnych w oparciu o zestaw pomiarów wydajności, które są próbkowane w regularnych odstępach czasu od systemu operacyjnego gościa. Można szybko sprawdzać kondycję wszystkich maszyn wirtualnych w ramach subskrypcji lub grupy zasobów, przełączać się do szczegółowej kondycji konkretnej maszyny wirtualnej lub aktywnie powiadamiać o nieprawidłowym stanie maszyny wirtualnej. 

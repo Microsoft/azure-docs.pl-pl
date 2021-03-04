@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584746"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051909"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Uzyskaj odpowiedź przy użyciu interfejsu API GenerateAnswer i metadanych
 
@@ -272,6 +272,44 @@ Możesz przeszukiwać opublikowaną KB, używając `isTest=false` lub test KB pr
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="return-precise-answers"></a>Zwracanie precyzyjnych odpowiedzi
+
+### <a name="generate-answer-api"></a>Generuj interfejs API odpowiedzi 
+
+Użytkownik może włączyć [precyzyjne odpowiedzi](../reference-precise-answering.md) podczas korzystania z zarządzanego zasobu QNA Maker. Parametr answerSpanRequest musi zostać zaktualizowany dla tego samego elementu.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Podobnie użytkownicy mogą wyłączyć precyzyjne odpowiedzi, nie ustawiając parametru answerSpanRequest.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### <a name="bot-settings"></a>Ustawienia bot
+
+Jeśli chcesz skonfigurować precyzyjne ustawienia odpowiedzi dla usługi bot, przejdź do zasobu usługi App Service, który bot. Następnie należy zaktualizować konfiguracje, dodając następujące ustawienie.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Konfiguracja ekranu|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Precyzyjne odpowiedzi|true|true|
+|Tylko długie odpowiedzi|fałsz|fałsz|
+|Odpowiedzi na długie i precyzyjne|true|fałsz|
 
 ## <a name="common-http-errors"></a>Typowe błędy HTTP
 
