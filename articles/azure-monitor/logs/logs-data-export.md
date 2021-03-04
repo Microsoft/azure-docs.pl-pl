@@ -1,18 +1,17 @@
 ---
 title: Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 description: Log Analytics eksportu danych umożliwia ciągłe eksportowanie danych z wybranych tabel z obszaru roboczego Log Analytics do konta usługi Azure Storage lub Event Hubs platformy Azure w miarę ich zbierania.
-ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713596"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048815"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -36,7 +35,7 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 
 - Konfigurację można wykonać przy użyciu interfejsu wiersza polecenia lub żądań REST. Azure Portal lub program PowerShell nie są jeszcze obsługiwane.
 - ```--export-all-tables```Opcja w interfejsie wiersza polecenia i REST nie jest obsługiwana i zostanie usunięta. Należy jawnie podać listę tabel w regułach eksportowania.
-- Obsługiwane tabele są obecnie ograniczone do określonych w poniższej sekcji [obsługiwane tabele](#supported-tables) . 
+- Obsługiwane tabele są obecnie ograniczone do określonych w poniższej sekcji [obsługiwane tabele](#supported-tables) . Na przykład niestandardowe tabele dzienników nie są obecnie obsługiwane.
 - Jeśli reguła eksportu danych zawiera nieobsługiwaną tabelę, operacja zakończy się pomyślnie, ale żadne dane nie zostaną wyeksportowane do tej tabeli, dopóki tabela nie zostanie obsługiwana. 
 - Jeśli reguła eksportu danych zawiera tabelę, która nie istnieje, wystąpi błąd ```Table <tableName> does not exist in the workspace``` .
 - Obszar roboczy Log Analytics może znajdować się w dowolnym regionie, z wyjątkiem następujących:
@@ -76,7 +75,7 @@ Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmienn
 Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
 
 > [!IMPORTANT]
-> [Liczba obsługiwanych centrów zdarzeń na przestrzeń nazw wynosi 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). Jeśli eksportujesz więcej niż 10 tabel, podaj własną nazwę centrum zdarzeń, aby wyeksportować wszystkie tabele do tego centrum zdarzeń. 
+> [Liczba obsługiwanych centrów zdarzeń na przestrzeń nazw wynosi 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Jeśli eksportujesz więcej niż 10 tabel, podaj własną nazwę centrum zdarzeń, aby wyeksportować wszystkie tabele do tego centrum zdarzeń. 
 
 Zagadnienia do rozważenia:
 1. Jednostka SKU centrum zdarzeń "Basic" obsługuje dolny [Limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) rozmiaru zdarzenia, a niektóre dzienniki w obszarze roboczym mogą przekraczać tę wartość i zostać porzucone. Zalecamy używanie "standardowego" lub "dedykowanego" centrum zdarzeń jako miejsca docelowego eksportu.

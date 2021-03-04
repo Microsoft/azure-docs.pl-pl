@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561108"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050345"
 ---
 # <a name="view-azure-reservations"></a>Wyświetlanie rezerwacji platformy Azure
 
@@ -47,8 +47,15 @@ Jeśli chcesz umożliwić innym osobom zarządzanie rezerwacjami, masz dwie moż
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Jak administratorzy rozliczeń wyświetlają rezerwacje lub zarządzają nimi
 
-1. Przejdź do obszaru **Zarządzanie kosztami i rozliczenia**, a następnie po lewej stronie wybierz pozycję **Transakcje rezerwacji**.
-2. Jeśli masz wymagane uprawnienia do rozliczania, możesz wyświetlać rezerwacje i zarządzać nimi. Jeśli nie widzisz żadnych rezerwacji, zaloguj się przy użyciu dzierżawy usługi Azure AD, w której zostały utworzone rezerwacje.
+Jeśli masz dostęp do rezerwacji lub zamówień rezerwacji z dostępem do usługi Azure RBAC, w przypadku przechodzenia do rezerwacji może być widoczny tylko podzbiór transakcji rezerwacji lub brak. Wykonaj następujące kroki, aby wyświetlić wszystkie rezerwacje i transakcje rezerwacji i zarządzać nimi.
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do **Cost Management i rozliczeń**.
+    - Jeśli jesteś administratorem EA, w menu po lewej stronie wybierz pozycję **zakresy rozliczeń** , a następnie na liście zakresów rozliczeń wybierz jeden z nich.
+    - Jeśli jesteś właścicielem profilu rozliczeń umowy klienta firmy Microsoft, w menu po lewej stronie wybierz pozycję **Profile rozliczeń**. Na liście profilów rozliczeń wybierz jeden z nich.
+1. W menu po lewej stronie wybierz pozycję **transakcje rezerwacji**. Zostanie wyświetlona lista transakcji rezerwacji.
+1. Transparent u góry strony odczytuje *teraz Administratorzy rozliczeń mogą zarządzać rezerwacjami. Kliknij tutaj, aby zarządzać rezerwacjami.* Wybierz transparent.
+1. Zostanie wyświetlona pełna lista rezerwacji dla rejestracji EA lub profilu rozliczeń.
+1. Jeśli chcesz przejąć na własność rezerwację, wybierz ją. Następnie na stronie Ustawianie uprawnień wybierz pozycję **Udziel dostępu**. Masz dostęp właściciela do rezerwacji i zamówienia rezerwacji.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Wyświetlanie rezerwacji i użycia w witrynie Azure Portal
 

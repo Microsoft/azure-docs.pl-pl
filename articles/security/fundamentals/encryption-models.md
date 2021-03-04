@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 141daa485fae5aba2db23647fada30ba5b621cd0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9194f38ddea5570d94ba6c87ea6a537cb41fb98c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854618"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051382"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -199,8 +199,8 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Azure Databricks                 | Tak                | Tak                | -                  |
 | Azure Database Migration Service | Tak                | NIE DOTYCZY\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
-| Azure Repos                      | Tak                | -                  | Tak                |
+| Usługa Azure DevOps Services            | Tak                | -                  | -                  |
+| Azure Repos                      | Tak                | -                  | -                  |
 | **Tożsamość**                     |                    |                    |                    |
 | Azure Active Directory           | Tak                | -                  | -                  |
 | Azure Active Directory Domain Services | Tak          | Tak                | -                  |
@@ -211,7 +211,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | **Usługi IoT**                 |                    |                    |                    |
 | Usługa IoT Hub                          | Tak                | Tak                | Tak                |
 | IoT Hub Device Provisioning      | Tak                | Tak                | -                  |
-| **Zarządzanie i nadzór**    |                    |                    |                    |
+| **Zarządzanie + ład**    |                    |                    |                    |
 | Azure Site Recovery              | Tak                | -                  | -                  |
 | Azure Migrate                    | Tak                | Tak                | -                  |
 | **Media**                        |                    |                    |                    |

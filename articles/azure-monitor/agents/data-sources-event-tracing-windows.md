@@ -2,17 +2,16 @@
 title: Zbieranie zdarzeń śledzenia zdarzeń systemu Windows (ETW) dla dzienników Azure Monitor analizy
 description: Dowiedz się, jak zbierać śledzenie zdarzeń systemu Windows (ETW) do analizy w dziennikach Azure Monitor.
 services: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: d0ded409d76d0b26a76aebb47b8de8f6143ceba5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 096d16bb2c7249ec99f37fbee9d8ffc8f0e45db2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050770"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Zbieranie zdarzeń śledzenia zdarzeń systemu Windows (ETW) dla dzienników Azure Monitor analizy
 
@@ -72,7 +71,7 @@ Po wygenerowaniu pasujących zdarzeń należy zacząć wyświetlać zdarzenia ET
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Krok 4. Konfigurowanie kolekcji kont magazynu Log Analytics
 
-Postępuj zgodnie z [tymi instrukcjami](/azure/azure-monitor/agents/diagnostics-extension-logs#collect-logs-from-azure-storage) , aby zebrać dzienniki z usługi Azure Storage. Po skonfigurowaniu dane zdarzenia ETW powinny pojawić się w Log Analytics w tabeli **ETWEvent** .
+Postępuj zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) , aby zebrać dzienniki z usługi Azure Storage. Po skonfigurowaniu dane zdarzenia ETW powinny pojawić się w Log Analytics w tabeli **ETWEvent** .
 
 ## <a name="next-steps"></a>Następne kroki
 - Używanie [pól niestandardowych](../logs/custom-fields.md) do tworzenia struktury w ZDARZENIAch ETW

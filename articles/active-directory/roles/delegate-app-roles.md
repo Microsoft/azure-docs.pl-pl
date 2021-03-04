@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071271"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051195"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory
 
@@ -77,7 +77,7 @@ Usługa Azure AD ma zestaw wbudowanych ról administracyjnych służących do ud
 - Administrator aplikacji: Użytkownicy w tej roli mogą tworzyć wszystkie aspekty aplikacji przedsiębiorstwa, rejestracji aplikacji i ustawień serwera proxy aplikacji oraz zarządzać nimi. Ta rola umożliwia również zgodę na uprawnienia delegowane i uprawnienia aplikacji z wyłączeniem Microsoft Graph. Użytkownicy przypisani do tej roli nie są dodawani jako właściciele podczas tworzenia nowych rejestracji aplikacji lub aplikacji dla przedsiębiorstw.
 - Administrator aplikacji w chmurze: Użytkownicy w tej roli mają takie same uprawnienia jak rola administratora aplikacji, z wyłączeniem możliwości zarządzania serwerem proxy aplikacji. Użytkownicy przypisani do tej roli nie są dodawani jako właściciele podczas tworzenia nowych rejestracji aplikacji lub aplikacji dla przedsiębiorstw.
 
-Aby uzyskać więcej informacji i wyświetlić opis tych ról, zobacz [dostępne role](permissions-reference.md#available-roles).
+Aby uzyskać więcej informacji i wyświetlić opis tych ról, zobacz [wbudowane role usługi Azure AD](permissions-reference.md).
 
 Postępuj zgodnie z instrukcjami podanymi w temacie [Assign role to users with Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) przewodnik, aby przypisać rolę administratora aplikacji lub administratora aplikacji w chmurze.
 

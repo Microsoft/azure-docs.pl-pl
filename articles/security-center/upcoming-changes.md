@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705096"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051620"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -31,10 +31,28 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 ## <a name="planned-changes"></a>Planowane zmiany
 
+- [Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
 - [Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Ulepszenia zalecenia klasyfikacji danych SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Wycofanie z 11 alertów usługi Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Zalecenia z usługi AWS zostaną wydane w celu uzyskania ogólnej dostępności (GA)
+
+**Szacowana data zmiany:** Kwiecień 2021
+
+Azure Security Center chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
+
+Zalecenia pochodzące z Centrum zabezpieczeń AWS były dostępne w wersji zapoznawczej od momentu wprowadzenia łączników w chmurze. Zalecenia oflagowane jako **wersja zapoznawcza** nie są uwzględniane w obliczeniach bezpiecznego wyniku, ale powinny być nadal korygowane wszędzie tam, gdzie jest to możliwe, dzięki czemu po zakończeniu okresu zapoznawczego dojdzie do oceny.
+
+Dzięki tej zmianie dwa zestawy zaleceń AWS zostaną przeniesione do wersji ogólnie dostępnej:
+
+- [Kontrolki PCI DSS Centrum zabezpieczeń](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Formanty testu porównawczego w centrum zabezpieczeń CIS AWS](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Gdy są one dostępne, a oceny są uruchamiane w swoich zasobach AWS, wyniki będą miały wpływ na łączny, bezpieczny wynik dla wszystkich zasobów chmurowych i hybrydowych. 
+
 
 
 ### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Dwa starsze rekomendacje nie będą już zapisywać danych bezpośrednio w dzienniku aktywności platformy Azure 
@@ -53,7 +71,7 @@ Jeśli uzyskano dostęp do informacji dotyczących tych dwóch zaleceń w katego
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Dwa zalecenia dotyczące kontroli zabezpieczeń "Zastosuj aktualizacje systemu" są przestarzałe 
 
-**Szacowana data zmiany:** Luty 2021
+**Szacowana data zmiany:** Marzec 2021
 
 Następujące dwa zalecenia zaplanowano jako przestarzałe w lutym 2021:
 
@@ -69,7 +87,7 @@ Więcej informacji na temat tych zaleceń znajduje się na [stronie informacje o
 
 **Szacowana data zmiany:** Q2 2021
 
-Dane dotyczące rekomendacji **w bazach danych SQL powinny zostać sklasyfikowane** w kontroli zabezpieczeń **Zastosuj klasyfikację danych** w nowej wersji, która jest lepiej wyrównana przy użyciu strategii klasyfikacji danych firmy Microsoft. W wyniku tego zostanie również zmieniony identyfikator zalecenia (obecnie b0df6f56-862d-4730-8597-38c0fd4ebd59).
+Dane dotyczące rekomendacji **w bazach danych SQL powinny zostać sklasyfikowane** w kontroli zabezpieczeń **Zastosuj klasyfikację danych** w nowej wersji, która jest lepiej wyrównana przy użyciu strategii klasyfikacji danych firmy Microsoft. W efekcie identyfikator zalecenia również zostanie zmieniony (obecnie jest to b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ### <a name="deprecation-of-11-azure-defender-alerts"></a>Wycofanie z 11 alertów usługi Azure Defender

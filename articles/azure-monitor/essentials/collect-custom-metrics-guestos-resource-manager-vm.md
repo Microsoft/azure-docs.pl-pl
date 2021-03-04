@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.subservice: metrics
-ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731718"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049019"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla maszyny wirtualnej z systemem Windows
 Dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych platformy Azure nie są zbierane automatycznie, podobnie jak inne [metryki platformy](./monitor-azure-resource.md#monitoring-data). Zainstaluj [rozszerzenie diagnostyka](../agents/diagnostics-extension-overview.md) Azure monitor, aby zbierać METRYKI systemu operacyjnego gościa do bazy danych metryk, aby można było ich używać ze wszystkimi funkcjami metryk Azure monitor, w tym alertami niemal w czasie rzeczywistym, wykresami, routingiem i dostępem z interfejsu API REST. W tym artykule opisano proces wysyłania metryk wydajności systemu operacyjnego gościa dla maszyny wirtualnej z systemem Windows do bazy danych metryk przy użyciu szablonu Menedżer zasobów. 

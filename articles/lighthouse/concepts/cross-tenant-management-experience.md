@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699253"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050396"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -113,9 +113,11 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 [Azure Policy](../../governance/policy/index.yml):
 
 - Tworzenie i edytowanie definicji zasad w ramach delegowanych subskrypcji
+- Wdrażanie definicji zasad i przypisań zasad dla wielu dzierżawców
 - Przypisywanie definicji zasad zdefiniowanych przez klienta w ramach delegowanych subskrypcji
 - Klienci widzą zasady utworzone przez dostawcę usług wraz ze wszystkimi utworzonymi przez siebie zasadami
 - Może [skorygować deployIfNotExists lub zmodyfikować przypisania w ramach zarządzanej dzierżawy](../how-to/deploy-policy-remediation.md)
+- Należy zauważyć, że wyświetlanie szczegółów zgodności dla niezgodnych zasobów w dzierżawach klientów nie jest obecnie obsługiwane.
 
 [Wykres zasobów platformy Azure](../../governance/resource-graph/index.yml):
 

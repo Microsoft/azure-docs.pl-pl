@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 43dd047738538b0dcc76904e951eccea3a327c19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715959"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050243"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -140,7 +140,8 @@ Aby lokalnie skompilować i uruchomić projekt aplikacji logiki w Visual Studio 
 
 * Aby użyć [akcji operacji kodu wbudowanego](../logic-apps/logic-apps-add-run-inline-code.md) , która uruchamia JavaScript, zainstaluj [Node.js wersja 10. x. x, 11. x. x lub 12. x. x](https://nodejs.org/en/download/releases/).
 
-  > [!TIP] W przypadku systemu Windows Pobierz wersję MSI. Jeśli zamiast tego używasz wersji ZIP, musisz ręcznie udostępnić Node.js za pomocą zmiennej środowiskowej PATH dla danego systemu operacyjnego.
+  > [!TIP] 
+  > W przypadku systemu Windows Pobierz wersję MSI. Jeśli zamiast tego używasz wersji ZIP, musisz ręcznie udostępnić Node.js za pomocą zmiennej środowiskowej PATH dla danego systemu operacyjnego.
 
 * Aby lokalnie uruchomić wyzwalacze i akcje oparte na elemencie webhook, takie jak [wbudowany wyzwalacz http webhook](../connectors/connectors-native-webhook.md), w Visual Studio Code należy [skonfigurować przekazywanie dla adresu URL wywołania zwrotnego](#webhook-setup).
 

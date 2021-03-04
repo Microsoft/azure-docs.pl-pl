@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: fb3ba4ad49cc78b6082d347521cd87be5409cd34
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748780"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050124"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
 
@@ -27,9 +27,10 @@ Po ukończeniu tego przewodnika Szybki Start powiąże się niewielką opłatą 
 
 ![Instalowanie programu Visual Studio przy użyciu obciążeń programistycznych platformy Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
+<br/>
 <details>
-<summary>Zamiast tego użyj projektu Azure Functions</summary>
-Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funkcji, które mogą być wdrażane i zarządzane wspólnie. "> Projekt Azure Functions</abbr> przy użyciu programu Visual Studio 2017 zamiast tego należy najpierw zainstalować [najnowsze narzędzia Azure Functions](functions-develop-vs.md#check-your-tools-version).
+<summary><strong>Zamiast tego użyj projektu Azure Functions</strong></summary>
+Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funkcji, które mogą być wdrażane i zarządzane wspólnie.">Projekt Azure Functions</abbr> przy użyciu programu Visual Studio 2017 zamiast tego należy najpierw zainstalować [najnowsze narzędzia Azure Functions](functions-develop-vs.md#check-your-tools-version).
 </details>
 
 ## <a name="2-create-a-function-app-project"></a>2. Utwórz projekt aplikacji funkcji
@@ -42,13 +43,13 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
 1. Podaj następujące informacje dotyczące **tworzenia nowych Azure Functions ustawień aplikacji** :
 
-    + Wybierz **<abbr title=" tę wartość tworzy projekt funkcji, który używa środowiska uruchomieniowego w wersji 3. x Azure Functions, który obsługuje program .NET Core 3. x. Azure Functions 1. x obsługuje .NET Framework. Aby uzyskać więcej informacji, zobacz [Omówienie wersji środowiska uruchomieniowego Azure Functions](functions-versions.md). "> Azure Functions v3 (.NET Core) </abbr>** z listy rozwijanej środowiska uruchomieniowego funkcji
+    + Wybierz **<abbr title=" tę wartość tworzy projekt funkcji, który używa środowiska uruchomieniowego w wersji 3. x Azure Functions, który obsługuje program .NET Core 3. x. Azure Functions 1. x obsługuje .NET Framework. "> Azure Functions v3 (.NET Core) </abbr>** z listy rozwijanej środowisko uruchomieniowe funkcji. (Aby uzyskać więcej informacji, zobacz [Azure Functions Omówienie wersji środowiska uruchomieniowego](functions-versions.md)).
     
     + Wybierz **<abbr title=" tę wartość, aby utworzyć funkcję wyzwalaną przez żądanie HTTP. "> Wyzwalacz </abbr> http** jako szablon funkcji.
     
-    + Wybierz **<abbr = ", ponieważ funkcja platformy Azure wymaga konta magazynu, a po opublikowaniu projektu na platformie Azure jest przypisywana lub tworzona. Wyzwalacz HTTP nie korzysta z parametrów połączenia konta usługi Azure Storage; wszystkie inne typy wyzwalaczy wymagają prawidłowych parametrów połączenia z kontem usługi Azure Storage. >emulator </abbr> magazynu** z listy rozwijanej konto magazynu.
+    + Wybierz opcję **<abbr title=" , ponieważ funkcja platformy Azure wymaga konta magazynu, po opublikowaniu projektu na platformie Azure jest on przypisywany lub tworzony. Wyzwalacz HTTP nie korzysta z parametrów połączenia konta usługi Azure Storage; wszystkie inne typy wyzwalaczy wymagają prawidłowych parametrów połączenia z kontem usługi Azure Storage. "> Emulator </abbr> magazynu** z listy rozwijanej konta magazynu.
         
-    + Wybierz pozycję **anonimowe** z <abbr title="Utworzona funkcja może zostać wyzwolona przez dowolnego klienta bez podawania klucza. To ustawienie autoryzacji ułatwia testowanie nowej funkcji. Aby uzyskać więcej informacji na temat kluczy i autoryzacji, zobacz temat [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys) i [powiązania protokołu HTTP i elementu webhook](functions-bindings-http-webhook.md).">Poziom autoryzacji</abbr> Przyjmij
+    + Wybierz pozycję **anonimowe** z <abbr title="Utworzona funkcja może zostać wyzwolona przez dowolnego klienta bez podawania klucza. To ustawienie autoryzacji ułatwia testowanie nowej funkcji.">Poziom autoryzacji</abbr> Przyjmij. (Aby uzyskać więcej informacji na temat kluczy i autoryzacji, zobacz temat [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys) i [powiązania protokołu HTTP i elementu webhook](functions-bindings-http-webhook.md)).
 
     + Wybierz pozycję **Utwórz**
         
@@ -77,8 +78,9 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
 1. Aby zatrzymać debugowanie, naciśnij klawisz <kbd>SHIFT</kbd> + <kbd>F5</kbd> w programie Visual Studio.
 
+<br/>
 <details>
-<summary>Rozwiązywanie problemów</summary>
+<summary><strong>Rozwiązywanie problemów</strong></summary>
  Może być konieczne włączenie wyjątku zapory, aby narzędzia mogły obsługiwać żądania HTTP. Poziomy autoryzacji nigdy nie są wymuszane w przypadku lokalnego uruchamiania funkcji.
 </details>
 
@@ -102,7 +104,7 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
     
     + **Wybierz** istniejący <abbr title="Logiczny kontener dla powiązanych zasobów platformy Azure, którymi można zarządzać jako jednostką.">grupa zasobów</abbr> z listy rozwijanej lub wybierz pozycję **Nowy** , aby utworzyć nową grupę zasobów.
     
-    + **Wybierz** <abbr title="Po opublikowaniu projektu w aplikacji funkcji, która jest uruchamiana w [planie zużycia](consumption-plan.md), płacisz tylko za wykonywanie aplikacji funkcji. Inne plany hostingu wiążą się z wyższymi kosztami.">Zużycie</abbr> z listy rozwijanej Typ odtwarzania
+    + **Wybierz** <abbr title="Po opublikowaniu projektu w aplikacji funkcji, która jest uruchamiana w planie zużycia, płacisz tylko za wykonywanie aplikacji funkcji. Inne plany hostingu wiążą się z wyższymi kosztami.">Zużycie</abbr> na liście rozwijanej Typ odtwarzania. (Aby uzyskać więcej informacji, zobacz [Plan zużycia](consumption-plan.md)).
     
     + **Wybierz**  <abbr title="Odniesienia geograficzne do określonego centrum danych platformy Azure, w którym są przydzielono zasoby. Listę dostępnych regionów można znaleźć w [regionach](https://azure.microsoft.com/regions/) .">location</abbr> z listy rozwijanej.
     
@@ -116,8 +118,9 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Zakończ tworzenie profilu":::
 
+    <br/>
     <details>
-    <summary>Co to jest ustawienie?</summary>
+    <summary><strong>Co to jest ustawienie?</strong></summary>
     Przy użyciu polecenia **Uruchom z pliku pakietu** aplikacja funkcji jest wdrażana przy użyciu narzędzia [zip Deploy](functions-deployment-technologies.md#zip-deploy) z włączonym trybem [uruchamiania z pakietu](run-functions-from-deployment-package.md) . Jest to zalecana metoda wdrażania dla projektu usługi Functions, ponieważ powoduje to lepszą wydajność.    
     </details>   
 
@@ -127,14 +130,14 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
 1. Na stronie publikowanie Przejrzyj główny adres URL aplikacji funkcji.
 
-1. Na karcie publikowanie wybierz pozycję **Zarządzaj w programie <abbr title=" Cloud Explorer, aby użyć programu Visual Studio do wyświetlania zawartości witryny, uruchamiania i zatrzymywania aplikacji funkcji oraz przeglądania bezpośrednio do zasobów aplikacji na platformie Azure i w Azure Portal. "> Program Cloud Explorer</>**.
+1. Na karcie publikowanie wybierz pozycję **Zarządzaj w programie <abbr title=" Cloud Explorer, aby użyć programu Visual Studio do wyświetlania zawartości witryny, uruchamiania i zatrzymywania aplikacji funkcji oraz przeglądania bezpośrednio do zasobów aplikacji na platformie Azure i w Azure Portal. "> Eksplorator </abbr> chmury**.
     
     :::image type="content" source="../../includes/media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Komunikat o powodzeniu publikowania":::
     
 
 ## <a name="6-test-your-function-in-azure"></a>6. Przetestuj swoją funkcję na platformie Azure
 
-1. W programie Cloud Explorer należy wybrać nową aplikację funkcji. Jeśli nie, rozwiń **App Services**> subskrypcji i wybierz nową aplikację funkcji.
+1. W programie Cloud Explorer należy wybrać nową aplikację funkcji. Jeśli nie, rozwiń swoją subskrypcję, rozwiń węzeł **App Services** i wybierz nową aplikację funkcji.
 
 1. Kliknij prawym przyciskiem myszy aplikację funkcji i wybierz polecenie **Otwórz w przeglądarce**. Spowoduje to otwarcie katalogu głównego aplikacji funkcji w domyślnej przeglądarce sieci Web i wyświetlenie strony wskazującej, że aplikacja funkcji jest uruchomiona. 
 
@@ -154,7 +157,7 @@ Jeśli chcesz utworzyć <abbr title="Kontener logiczny dla jednej lub kilku funk
 
 Usuń aplikację funkcji i jej zasoby, aby uniknąć ponoszenia dalszych kosztów.
 
-1. W Eksploratorze chmury rozwiń **App Services**> subskrypcji, kliknij prawym przyciskiem myszy aplikację funkcji, a następnie wybierz polecenie **Otwórz w portalu**. 
+1. W programie Cloud Explorer Rozwiń swoją subskrypcję, rozwiń węzeł **App Services**, kliknij prawym przyciskiem myszy aplikację funkcji, a następnie wybierz polecenie **Otwórz w portalu**. 
 
 1. Na stronie aplikacja funkcji wybierz kartę **Przegląd** , a następnie wybierz link w obszarze **Grupa zasobów**.
 

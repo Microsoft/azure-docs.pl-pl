@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693768"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049490"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Jak zbiorczo edytować elementy zawartości do słownika tagów
 
@@ -65,13 +65,13 @@ W tym artykule opisano, jak oznaczyć wiele terminów słownika do listy wybrany
 
 7. Powtórz powyższe czynności dla klasyfikacji, właścicieli i ekspertów.
 
-    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Zrzut ekranu przedstawiający warunki usuwania.":::
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Zrzut ekranu klasyfikacji i kontaktów.":::
 
 8. Po zakończeniu zamknij blok edycji zbiorczej, wybierając pozycję **Zamknij** lub **Usuń wszystkie i Zamknij**. Wartość Zamknij nie spowoduje usunięcia wybranych zasobów. usunięcie wszystkich i zamknięcie spowoduje usunięcie wszystkich wybranych zasobów.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Zrzut ekranu przedstawiający zamknięcie.":::
 
    > [!Important]
-   > Zalecana liczba zasobów do edycji zbiorczej to 15. Wybranie więcej niż 25 może spowodować problemy z wydajnością.
+   > Zalecana liczba zasobów do edycji zbiorczej to 25. Wybranie więcej niż 25 może spowodować problemy z wydajnością.
    > **Wybrane pole widok** będzie widoczne tylko wtedy, gdy wybrano co najmniej jeden zasób.
 
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c2daed4a8df89ed176749900dc75eb231c00af87
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544449"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049274"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Samouczek — szyfrowanie i odszyfrowywanie obiektów BLOB za pomocą Azure Key Vault
 
@@ -90,6 +90,12 @@ Dodaj AppSettings do App.Config.
 
 Dodaj następujące `using` dyrektywy i pamiętaj, aby dodać odwołanie do System.Configwersja do projektu.
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Configuration;
@@ -101,10 +107,17 @@ using Microsoft.Azure.KeyVault;
 using System.Threading;
 using System.IO;
 ```
+---
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Dodawanie metody w celu uzyskania tokenu do aplikacji konsolowej
 
 Następująca metoda jest używana przez klasy Key Vault, które muszą uwierzytelniać się w celu uzyskania dostępu do magazynu kluczy.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -121,10 +134,17 @@ private async static Task<string> GetToken(string authority, string resource, st
     return result.AccessToken;
 }
 ```
+---
 
 ## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Dostęp do usługi Azure Storage i Key Vault w programie
 
 W metodzie Main () Dodaj następujący kod.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -141,6 +161,7 @@ contain.CreateIfNotExists();
 // This is where the GetToken method from above is used.
 KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
+---
 
 > [!NOTE]
 > Key Vault modele obiektów
@@ -156,6 +177,12 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ## <a name="encrypt-blob-and-upload"></a>Szyfrowanie obiektów blob i przekazywanie
 
 Dodaj następujący kod, aby zaszyfrować obiekt BLOB i przekazać go do konta usługi Azure Storage. Używana metoda **ResolveKeyAsync** zwraca wartość iKey.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -175,9 +202,11 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
+---
 
 > [!NOTE]
 > Jeśli zobaczysz Konstruktor BlobEncryptionPolicy, zobaczysz, że może on akceptować klucz i/lub program rozpoznawania nazw. Należy pamiętać, że obecnie nie można użyć programu rozpoznawania nazw do szyfrowania, ponieważ obecnie nie obsługuje on klucza domyślnego.
+
 
 ## <a name="decrypt-blob-and-download"></a>Odszyfruj obiekt BLOB i Pobierz
 
@@ -186,6 +215,12 @@ Odszyfrowywanie jest naprawdę przydatne w przypadku korzystania z klas rozpozna
 Klucz prywatny klucza RSA pozostaje w Key Vault, więc w celu odszyfrowania wystąpił zaszyfrowany klucz z metadanych obiektu BLOB, który zawiera CEK, jest wysyłany do Key Vault w celu odszyfrowania.
 
 Dodaj następujące elementy do odszyfrowania obiektu BLOB, który właśnie został przekazany.
+
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 ```csharp
 // In this case, we will not pass a key and only pass the resolver because
@@ -196,6 +231,7 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
     blob.DownloadToStream(np, null, options, null);
 ```
+---
 
 > [!NOTE]
 > Istnieje kilka innych rodzajów resolverów, które ułatwiają zarządzanie kluczami, w tym: AggregateKeyResolver i CachingKeyResolver.
@@ -226,13 +262,18 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret
 
 W aplikacji konsolowej można użyć tego samego wywołania jak wcześniej, aby pobrać ten klucz tajny jako SymmetricKey.
 
+# <a name="net-v12"></a>[V12 .NET](#tab/dotnet)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-
-To wszystko. Owocnej pracy.
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

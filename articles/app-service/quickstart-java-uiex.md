@@ -11,12 +11,12 @@ ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 03bfca6fe350612b657ad1b8b39534c43cf38db9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 64e4c05e9439c164329dede5d714bec160bc5ae2
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748605"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050379"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service
 
@@ -93,7 +93,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
-1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję domyślną, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `3` .
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
 1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
@@ -125,7 +125,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
-1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję domyślną, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `3` .
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
 1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
@@ -163,7 +163,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
 1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
-1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję domyślną, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
 1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.
@@ -192,7 +192,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
 1. Po wyświetleniu monitu z opcją **Subskrypcja** wybierz odpowiedni element `Subscription`, wprowadzając wartość liczbową na początku wiersza.
-1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję domyślną, `<create>` naciskając klawisz ENTER lub wybierając istniejącą aplikację.
 1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
 1. Po wyświetleniu monitu z opcją **warstwy cenowej** wybierz pozycję **B2** , wprowadzając polecenie `2` .
 1. Użyj domyślnej wersji języka Java, **Java 8**, naciskając klawisz ENTER.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 4b5cb9abe53cdb29cbc1b4c9711fb8efcf0348d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745287"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050838"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>Migrowanie z AGIC Helm do dodatku AGIC 
 
@@ -46,7 +46,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Alternatywnie możesz przejść do klastra usługi AKS w portalu przy użyciu tego [linku](https://portal.azure.com/?feature.aksagic=true) i włączyć dodatek AGIC na karcie sieci w klastrze. Wybierz istniejące Application Gateway z menu rozwijanego, po wybraniu którego Application Gateway dodatek powinien być elementem docelowym. 
 
-![Application Gateway portalu transferu danych przychodzących](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway portalu transferu danych przychodzących](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="next-steps"></a>Następne kroki
 - [**Application Gateway Rozwiązywanie problemów z kontrolerem**](ingress-controller-troubleshoot.md)danych przychodzących: Przewodnik rozwiązywania problemów z AGIC 

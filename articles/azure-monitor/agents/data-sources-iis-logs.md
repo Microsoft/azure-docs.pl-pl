@@ -1,17 +1,16 @@
 ---
 title: Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
 description: Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez Azure Monitor.  W tym artykule opisano sposób konfigurowania kolekcji dzienników usług IIS i szczegółów dotyczących rekordów tworzonych w Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2020
-ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732058"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050736"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Zbierz dzienniki usług IIS z agentem Log Analytics w programie Azure Monitor
 Internet Information Services (IIS) przechowuje aktywność użytkownika w plikach dziennika, które mogą być zbierane przez agenta Log Analytics i przechowywane w [dziennikach Azure monitor](../data-platform.md).
@@ -26,7 +25,7 @@ Azure Monitor zbiera wpisy z plików dziennika utworzonych przez usługi IIS, dl
 
 Usługa Azure Monitor obsługuje tylko pliki dzienników usług IIS przechowywane w formacie W3C i nie obsługuje pól niestandardowych ani funkcji Zaawansowane rejestrowanie usług IIS. Nie zbiera dzienników w formacie NCSA ani w formacie macierzystym IIS.
 
-Skonfiguruj dzienniki usług IIS w Azure Monitor z poziomu [menu Ustawienia zaawansowane](../agents/agent-data-sources.md#configuring-data-sources) dla agenta log Analytics.  Nie jest wymagana żadna konfiguracja, a nie opcja **zbierania plików dziennika usług IIS w formacie W3C**.
+Skonfiguruj dzienniki usług IIS w Azure Monitor z [menu konfiguracji agenta](../agents/agent-data-sources.md#configuring-data-sources) dla agenta log Analytics.  Nie jest wymagana żadna konfiguracja, a nie opcja **zbierania plików dziennika usług IIS w formacie W3C**.
 
 
 ## <a name="data-collection"></a>Zbieranie danych

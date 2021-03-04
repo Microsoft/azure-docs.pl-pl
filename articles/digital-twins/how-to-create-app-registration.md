@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f252471cd3cd7e3a950bf2cfe324e580da129041
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210170"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051025"
 ---
 # <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Tworzenie rejestracji aplikacji do użycia z usługą Azure Digital bliźniaczych reprezentacji
 
-Podczas pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji często można korzystać z tego wystąpienia za pomocą aplikacji klienckich, takich jak niestandardowa aplikacja kliencka lub przykładowa, taka jak [ADT Explorer](quickstart-adt-explorer.md). Te aplikacje muszą uwierzytelniać się za pomocą usługi Azure Digital bliźniaczych reprezentacji, aby można było z nią korzystać, a niektóre z [mechanizmów uwierzytelniania](how-to-authenticate-client.md) obsługiwanych przez aplikacje obejmują **rejestrację aplikacji** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) .
+Podczas pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji często można korzystać z tego wystąpienia za pomocą aplikacji klienckich, takich jak niestandardowa aplikacja kliencka lub Przykładowa [usługa Azure Digital bliźniaczych reprezentacji Explorer](quickstart-adt-explorer.md). Te aplikacje muszą uwierzytelniać się za pomocą usługi Azure Digital bliźniaczych reprezentacji, aby można było z nią korzystać, a niektóre z [mechanizmów uwierzytelniania](how-to-authenticate-client.md) obsługiwanych przez aplikacje obejmują **rejestrację aplikacji** [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) .
 
 Nie jest to wymagane w przypadku wszystkich scenariuszy uwierzytelniania. Jeśli jednak korzystasz z strategii uwierzytelniania lub przykładu kodu, który wymaga rejestracji aplikacji, w tym **identyfikatora klienta** i **identyfikatora dzierżawy**, w tym artykule opisano, jak ustawić jeden z nich.
 
@@ -42,7 +42,7 @@ Na stronie *zarejestruj aplikację* w następującej kolejności wprowadź żąd
 
 Po zakończeniu kliknij przycisk *zarejestruj* .
 
-:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Widok strony &quot;Zarejestruj aplikację&quot; przy użyciu opisanych wartości wypełnionych":::
 
 Po zakończeniu konfigurowania rejestracji Portal przekieruje Cię do strony szczegółów.
 
@@ -50,7 +50,7 @@ Po zakończeniu konfigurowania rejestracji Portal przekieruje Cię do strony szc
 
 Następnie Zbierz istotne wartości dotyczące rejestracji aplikacji na stronie szczegółów:
 
-:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Widok portalu ważnych wartości rejestracji aplikacji":::
 
 Zanotuj _**Identyfikator**_ _**aplikacji (klienta)**_ na stronie **użytkownika** . Są to wartości, których aplikacja kliencka będzie potrzebować do uwierzytelniania za pomocą usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -60,19 +60,19 @@ Następnie skonfiguruj rejestrację aplikacji utworzoną za pomocą uprawnień l
 
 Na stronie portalu rejestracji aplikacji wybierz pozycję *uprawnienia interfejsu API* z menu. Na następującej stronie Uprawnienia kliknij przycisk *+ Dodaj uprawnienie* .
 
-:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Wyświetl rejestrację aplikacji w Azure Portal, wyróżnij opcję menu &quot;uprawnienia interfejsu API&quot; i przycisk &quot;+ Dodaj uprawnienie&quot;":::
 
 Na stronie *uprawnienia do interfejsu API żądania* przejdź do opcji *interfejsy API Moja organizacja używa* karty i Wyszukaj w *usłudze Azure Digital bliźniaczych reprezentacji*. Wybierz pozycję _**Azure Digital bliźniaczych reprezentacji**_ z wyników wyszukiwania, aby kontynuować przypisywanie uprawnień do interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Widok wyników wyszukiwania strony &quot;Zażądaj interfejsu API&quot; przedstawiający usługę Azure Digital bliźniaczych reprezentacji z IDENTYFIKATORem aplikacji (klienta) 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
 >[!NOTE]
 > Jeśli Twoja subskrypcja ma nadal istniejące wystąpienie usługi Azure Digital bliźniaczych reprezentacji z poprzedniej publicznej wersji zapoznawczej usługi (przed lipca 2020), musisz wyszukać i wybrać _**usługę Azure Smart Spaces**_ . Jest to Starsza nazwa tego samego zestawu interfejsów API (Zauważ, że *Identyfikator aplikacji (klienta)* jest taki sam jak na poniższym zrzucie ekranu), a Twoje środowisko nie zostanie zmienione poza ten krok.
-> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Widok wyników wyszukiwania strony &quot;żądanie interfejsu API żądania&quot; przedstawiający usługę Azure Smart Spaces":::
 
 Następnie wybierz uprawnienia, które mają zostać przyznane dla tych interfejsów API. Rozwiń uprawnienie **Odczyt (1)** , a następnie zaznacz pole wyboru *Odczytaj. Zapisz* , aby udzielić uprawnienia czytelnikowi rejestracji aplikacji i składnika zapisywania.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Widok strony &quot;uprawnienia interfejsu API żądania&quot; Wybieranie uprawnień &quot;Odczyt. zapis&quot; dla interfejsów API Digital bliźniaczych reprezentacji platformy Azure":::
 
 Po zakończeniu kliknij przycisk *Dodaj uprawnienia* .
 
@@ -80,27 +80,27 @@ Po zakończeniu kliknij przycisk *Dodaj uprawnienia* .
 
 Na stronie *uprawnienia interfejsu API* Sprawdź, czy istnieje już wpis do usługi Azure Digital bliźniaczych reprezentacji odzwierciedlający uprawnienia do odczytu/zapisu:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Widok portalu uprawnień interfejsu API dla rejestracji aplikacji usługi Azure AD, pokazujący uprawnienie do odczytu/zapisu dla usługi Azure Digital bliźniaczych reprezentacji":::
 
-Możesz również zweryfikować połączenie z usługą Azure Digital bliźniaczych reprezentacji w *manifest.js*rejestracji aplikacji, która została automatycznie zaktualizowana przy użyciu informacji o usłudze Azure Digital bliźniaczych reprezentacji po dodaniu uprawnień interfejsu API.
+Możesz również zweryfikować połączenie z usługą Azure Digital bliźniaczych reprezentacji w *manifest.js* rejestracji aplikacji, która została automatycznie zaktualizowana przy użyciu informacji o usłudze Azure Digital bliźniaczych reprezentacji po dodaniu uprawnień interfejsu API.
 
 W tym celu wybierz pozycję *manifest* z menu, aby wyświetlić kod manifestu rejestracji aplikacji. Przewiń w dół okna kod i poszukaj tych pól w obszarze `requiredResourceAccess` . Wartości powinny być zgodne z poniższymi zrzutu ekranu:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Widok portalu dla rejestracji aplikacji usługi Azure AD. Zagnieżdżone w &quot;requiredResourceAccess&quot; ma wartość &quot;resourceAppId&quot; elementu 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, a wartość &quot;resourceAccess > ID&quot; elementu 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 Jeśli te wartości są niedostępne, spróbuj wykonać kroki opisane w [sekcji dotyczącej dodawania uprawnień interfejsu API](#provide-azure-digital-twins-api-permission).
 
 ## <a name="other-possible-steps-for-your-organization"></a>Inne możliwe kroki dla organizacji
 
-Istnieje możliwość, aby organizacja wymagała dodatkowych akcji od właścicieli/administratorów subskrypcji w celu pomyślnego skonfigurowania rejestracji aplikacji. Wymagane kroki mogą się różnić w zależności od ustawień określonych w organizacji.
+Istnieje możliwość, aby organizacja wymagała dodatkowych akcji od właścicieli/administratorów subskrypcji w celu pomyślnego skonfigurowania rejestracji aplikacji. Wymagane czynności mogą różnić się zależnie od ustawień specyficznych dla organizacji.
 
-Poniżej przedstawiono niektóre typowe potencjalne działania, które mogą być konieczne do wykonania przez właściciela/administratora subskrypcji. Te i inne operacje można wykonać na stronie [*rejestracje aplikacja usługi Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal.
-* Przyznaj zgodę administratora na rejestrację aplikacji. Twoja organizacja może mieć *zgodę administratora* , która została zadana globalnie włączona w usłudze Azure AD dla wszystkich rejestracji aplikacji w ramach subskrypcji. Jeśli tak, właściciel/administrator będzie musiał wybrać ten przycisk dla firmy na stronie *uprawnień interfejsu API* rejestracji aplikacji, aby Rejestracja aplikacji była prawidłowa:
+Poniżej przedstawiono niektóre typowe działania właściciela/administratora subskrypcji, jakie mogą być wymagane. Te i inne operacje można wykonać na stronie [*rejestracje aplikacja usługi Azure AD*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal.
+* Udzielenie zgody administratora na rejestrację aplikacji. Twoja organizacja może mieć *zgodę administratora* , która została zadana globalnie włączona w usłudze Azure AD dla wszystkich rejestracji aplikacji w ramach subskrypcji. Jeśli tak, właściciel/administrator będzie musiał wybrać ten przycisk dla firmy na stronie *uprawnień interfejsu API* rejestracji aplikacji, aby Rejestracja aplikacji była prawidłowa:
 
-    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
-  - Jeśli zgoda została udzielona pomyślnie, wpis na potrzeby usługi Azure Digital bliźniaczych reprezentacji powinien wskazywać wartość *stanu* _przyznany dla **(Twoja firma)** _
+    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Widok portalu przycisku &quot;Udziel zgody administratora&quot; w obszarze uprawnienia interfejsu API":::
+  - Jeśli zgoda została udzielona pomyślnie, wpis na potrzeby usługi Azure Digital bliźniaczych reprezentacji powinien wskazywać wartość *stanu* _przyznany dla **(Twoja firma)**_
    
-    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu &quot;Rejestracje aplikacji&quot; i przycisk &quot;+ Nowa rejestracja&quot;":::
+    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Widok portalu zgody administratora udzielonego dla firmy w ramach uprawnień interfejsu API":::
 * Aktywuj dostęp klienta publicznego
 * Ustawianie określonych adresów URL odpowiedzi dla dostępu do sieci Web i pulpitu
 * Zezwalaj na niejawne przepływy uwierzytelniania OAuth2

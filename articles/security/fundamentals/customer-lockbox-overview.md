@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720617"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051433"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Funkcja Skrytka klienta dla platformy Microsoft Azure
 
@@ -24,7 +24,8 @@ Funkcja Skrytka klienta dla platformy Microsoft Azure udostępnia klientom inter
 
 W tym artykule opisano sposób włączania Skrytka klienta i sposobu, w jaki żądania skrytki są inicjowane, śledzone i przechowywane na potrzeby późniejszych przeglądów i inspekcji.
 
-<a id='supported-services-and-scenarios-in-preview'># # Obsługiwane usługi i scenariusze (ogólna dostępność)
+<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+## <a name="supported-services-and-scenarios-general-availability"></a>Obsługiwane usługi i scenariusze (ogólna dostępność)
 
 Następujące usługi są teraz ogólnie dostępne dla Skrytka klienta:
 

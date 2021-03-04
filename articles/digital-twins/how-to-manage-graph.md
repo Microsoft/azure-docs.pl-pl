@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530454"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050940"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -30,7 +30,7 @@ Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całośc
 
 [!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
-Możesz również wprowadzać zmiany w grafie przy użyciu przykładu Eksploratora Digital bliźniaczych reprezentacji (ADT), który pozwala na wizualizację bliźniaczych reprezentacji i grafu, i używa zestawu SDK w tle. W następnej sekcji opisano ten przykład szczegółowo.
+Możesz również wprowadzać zmiany w grafie przy użyciu przykładowej usługi Azure Digital bliźniaczych reprezentacji Explorer, która pozwala na wizualizację bliźniaczych reprezentacji i grafu oraz korzystanie z zestawu SDK w tle. W następnej sekcji opisano ten przykład szczegółowo.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 

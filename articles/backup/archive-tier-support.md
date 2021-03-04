@@ -3,12 +3,12 @@ title: Obsługa warstwy archiwum (wersja zapoznawcza)
 description: Dowiedz się więcej o obsłudze warstwy Archiwum dla Azure Backup
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: cd9cfc5722dc644dd257738be797f162ac6dc995
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 30a7915332d1d7ecab87b0db1ddc6dacc0fa69c9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050656"
 ---
 # <a name="archive-tier-support-preview"></a>Obsługa warstwy archiwum (wersja zapoznawcza)
 
@@ -35,6 +35,9 @@ Obsługiwani klienci:
 
 - Możliwość jest dostępna przy użyciu programu PowerShell
 
+>[!NOTE]
+>Obsługa warstwy Archiwum dla maszyn wirtualnych platformy Azure i SQL Server na maszynach wirtualnych platformy Azure jest w ograniczonej publicznej wersji zapoznawczej z ograniczoną liczbą rejestracji. Aby utworzyć konto do obsługi archiwum, użyj tego [linku](https://aka.ms/ArchivePreviewInterestForm).
+
 ## <a name="get-started-with-powershell"></a>Wprowadzenie do programu PowerShell
 
 1. Pobierz [najnowszy moduł programu PowerShell](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) (wersja zapoznawcza).
@@ -43,12 +46,30 @@ Obsługiwani klienci:
 
    `Set-AzContext -Subscription "SubscriptionName"`
 
+1. Pobierz magazyn:
+
+    `$vault =  Get-AzRecoveryServicesVault -ResourceGroupName "rgName" -Name "vaultName"`
+
+1. Pobierz listę elementów kopii zapasowej:
+
+    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+
+1. Pobierz element kopii zapasowej.
+
+    - W przypadku maszyn wirtualnych platformy Azure:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<vmName>'}`
+
+    - SQL Server w usłudze Azure Virtual Machines:
+
+        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
 ### <a name="check-archivable-recovery-points"></a>Sprawdź punkty odzyskiwania z archiwum
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
 Spowoduje to wyświetlenie listy wszystkich punktów odzyskiwania skojarzonych z określonym elementem kopii zapasowej, które są gotowe do przeniesienia do archiwum.
@@ -56,7 +77,7 @@ Spowoduje to wyświetlenie listy wszystkich punktów odzyskiwania skojarzonych z
 ### <a name="check-why-a-recovery-point-cannot-be-moved-to-archive"></a>Sprawdź, dlaczego punkt odzyskiwania nie może zostać przeniesiony do archiwum
 
 ```azurepowershell
-$rp.RecoveryPointMoveReadinessInfo["ArchivedRP"]
+$rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
 Gdzie `$rp[0]` jest punktem odzyskiwania, dla którego chcesz sprawdzić, dlaczego nie jest on archiwizowany.
@@ -79,13 +100,13 @@ Dlatego Azure Backup zostało dołączone do zalecanego zestawu punktów odzyski
 >Oszczędności kosztów są zależne od różnych powodów i mogą nie być takie same dla żadnego z dwóch wystąpień.
 
 ```azurepowershell
-$recommendedRPs = SGet-AzRecoveryServicesRecommendedArchivableRPGroup -Item $BackupItem -StartDate $Startdate.ToUniversalTime() -EndDate $Enddate.ToUniversalTime() -VaultId $vault.ID 
+$RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivableRPGroup -Item $bckItm -VaultId $vault.ID
 ```
 
 ### <a name="move-to-archive"></a>Przenieś do archiwum
 
 ```azurepowershell
-Move-AzRecoveryServicesRecoveryPoint -VaultId $vault.ID - RecoveryPoint $RecoveryPoint[10] -SourceTier VaultStandard -DestinationTier VaultArchive 
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
 
 To polecenie przenosi punkt odzyskiwania archiwizowany do archiwum. Zwraca zadanie, które może służyć do śledzenia operacji przenoszenia zarówno z portalu, jak i programu PowerShell.
@@ -95,7 +116,7 @@ To polecenie przenosi punkt odzyskiwania archiwizowany do archiwum. Zwraca zadan
 To polecenie zwraca wszystkie zarchiwizowane punkty odzyskiwania.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -StartDate (Get-Date).AddDays(-180).ToUniversalTime() -EndDate (Get-Date).AddDays(0).ToUniversalTime() -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
 ```
 
 ### <a name="restore-with-powershell"></a>Przywracanie za pomocą programu PowerShell
@@ -122,7 +143,7 @@ Aby przywrócić SQL Server, wykonaj następujące [kroki](backup-azure-sql-auto
 Aby wyświetlić zadania przenoszenia i przywracania, użyj następującego polecenia cmdlet programu PowerShell:
 
 ```azurepowershell
-Get-AzRecoveryservicesBackupJob -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
 
 ## <a name="use-the-portal"></a>Używanie portalu

@@ -4,17 +4,17 @@ description: Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure umo
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051097"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050543"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
@@ -33,6 +33,8 @@ W przypadku produktów i usług platformy Azure płaci się wyłącznie za użyt
 
 Aby dowiedzieć się więcej na temat podejścia do zarządzania kosztami w organizacji, zapoznaj się z artykułem [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) (Najlepsze rozwiązania w usłudze Azure Cost Management).
 
+![Diagram procesu optymalizacji Cost Management i rozliczeń.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Informacje na temat rozliczeń na platformie Azure
 
 Funkcje rozliczeń na platformie Azure umożliwiają przeglądanie zafakturowanych kosztów i zarządzanie dostępem do informacji dotyczących rozliczeń. W większych organizacjach zadania związane z rozliczeniami są zwykle wykonywane przez zespoły ds. zamówień i finansów.
@@ -48,32 +50,6 @@ W witrynie Azure Portal są obecnie obsługiwane następujące typy kont rozlicz
 - **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje umowę Enterprise Agreement (EA) w celu korzystania z platformy Azure.
 
 - **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego [bezpłatnego konta platformy Azure](./manage/create-free-services.md), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Zakresy kont rozliczeniowych
-Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie rozliczeń i zarządzanie nimi. Jest to miejsce, w którym zarządzasz danymi rozliczeniowymi, płatnościami i fakturami oraz przeprowadzasz ogólne czynności dotyczące zarządzania kontami.
-
-#### <a name="microsoft-online-services-program"></a>Microsoft Online Services Program
-
-|Zakres  |Definicja  |
-|---------|---------|
-|Konto billingowe     | Reprezentuje pojedynczego właściciela (administratora konta) co najmniej jednej subskrypcji platformy Azure. Administrator konta jest autoryzowany do wykonywania różnych zadań rozliczeniowych, takich jak tworzenie subskrypcji, wyświetlanie faktur lub zmiana rozliczeń dla subskrypcji.  |
-|Subskrypcja     |  Reprezentuje zgrupowanie zasobów platformy Azure. W zakresie subskrypcji są generowane faktury. Ma swoje formy płatności za faktury.|
-
-#### <a name="enterprise-agreement"></a>Enterprise Agreement
-
-|Zakres  |Definicja  |
-|---------|---------|
-|Konto billingowe    | Reprezentuje rejestrację umów Enterprise Agreement. W zakresie konta rozliczeniowego są generowane faktury. W skład jego struktury wchodzą działy i konta rejestracji.  |
-|Dział     |  Opcjonalne zgrupowanie kont rejestracji.      |
-|Konto rejestracji     |  Reprezentuje pojedynczego właściciela konta. W zakresie konta rejestracji są tworzone subskrypcje platformy Azure.  |
-
-#### <a name="microsoft-customer-agreement"></a>Umowa klienta firmy Microsoft
-
-|Zakres  |Zadania  |
-|---------|---------|
-|Konto billingowe     |   Reprezentuje umowę klienta dla wielu produktów i usług firmy Microsoft. W skład struktury konta rozliczeniowego wchodzą profile rozliczeniowe i sekcje faktur.   |
-|Profil rozliczeniowy     |  Reprezentuje fakturę i formy płatności za nią. W tym zakresie jest generowana faktura. Profil rozliczeniowy może zawierać wiele sekcji faktur.      |
-|Sekcja faktury     |   Reprezentuje grupę kosztów na fakturze. Z zakresem sekcji faktury są skojarzone subskrypcje i inne zakupy.    |
 
 ## <a name="understand-azure-cost-management"></a>Omówienie usługi Azure Cost Management
 

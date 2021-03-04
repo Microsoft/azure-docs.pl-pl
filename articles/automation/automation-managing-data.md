@@ -3,14 +3,14 @@ title: Zabezpieczenia danych Azure Automation
 description: Ten artykuł pomaga dowiedzieć się, jak Azure Automation chroni prywatność i zabezpiecza dane.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581119"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050821"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
@@ -41,7 +41,7 @@ Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics d
 
 ## <a name="data-retention"></a>Przechowywanie danych
 
-Po usunięciu zasobu w Azure Automation jest on przechowywany przez wiele dni do celów inspekcji przed trwałym usunięciem. Nie można zobaczyć lub użyć zasobu w tym czasie. Te zasady dotyczą także zasobów należących do usuniętego konta usługi Automation.
+Po usunięciu zasobu w Azure Automation jest on przechowywany przez wiele dni do celów inspekcji przed trwałym usunięciem. Nie można zobaczyć lub użyć zasobu w tym czasie. Te zasady dotyczą także zasobów należących do usuniętego konta usługi Automation. Zasady przechowywania są stosowane dla wszystkich użytkowników i obecnie nie można ich dostosowywać. Jeśli jednak chcesz przechowywać dane przez dłuższy czas, możesz [przesłać Azure Automation dane zadania do dzienników Azure monitor](automation-manage-send-joblogs-log-analytics.md).
 
 Poniższa tabela zawiera podsumowanie zasad przechowywania dla różnych zasobów.
 
@@ -54,9 +54,9 @@ Poniższa tabela zawiera podsumowanie zasad przechowywania dla różnych zasobó
 | Moduły |Moduł zostanie trwale usunięty 30 dni po usunięciu go przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera moduł. |
 | Konfiguracje węzłów/pliki MOF |Stara konfiguracja węzła zostanie trwale usunięta 30 dni po wygenerowaniu nowej konfiguracji węzła. |
 | Raporty węzła |Raport węzła zostanie trwale usunięty 90 dni po wygenerowaniu nowego raportu dla tego węzła. |
-| Elementy Runbook |Element Runbook zostanie trwale usunięty 30 dni od momentu usunięcia zasobu przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera zasób. |
+| Elementy Runbook |Element Runbook zostanie trwale usunięty 30 dni od momentu usunięcia zasobu przez użytkownika lub 30 dni po usunięciu przez użytkownika konta, które zawiera zasób<sup>1</sup>. |
 
-Zasady przechowywania są stosowane dla wszystkich użytkowników i obecnie nie można ich dostosowywać. Jeśli jednak chcesz przechowywać dane przez dłuższy czas, możesz [przesłać Azure Automation dane zadania do dzienników Azure monitor](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup> Element Runbook można odzyskać w ramach 30-dniowego okna przez zgłoszenie zdarzenia pomocy technicznej platformy Azure z obsługą Microsoft Azure. Przejdź do [witryny pomocy technicznej systemu Azure](/support/options) i wybierz pozycję **Prześlij żądanie pomocy technicznej**.
 
 ## <a name="data-backup"></a>Kopia zapasowa danych
 

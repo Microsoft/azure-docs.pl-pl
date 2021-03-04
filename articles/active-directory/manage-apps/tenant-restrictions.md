@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687077"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050906"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -29,7 +29,7 @@ W przypadku ograniczeń dzierżawy organizacje mogą określić listę dzierżaw
 
 Ten artykuł koncentruje się na ograniczeniach dzierżawy dla Microsoft 365, ale funkcja chroni wszystkie aplikacje, które wysyłają użytkownika do usługi Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez Microsoft 365, upewnij się, że wszystkie wymagane dzierżawcy są dozwolone (np. w scenariuszach współpracy B2B). Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Ponadto funkcja ograniczeń dzierżawy obsługuje teraz [blokowanie używania wszystkich aplikacji dla użytkowników firmy Microsoft](#blocking-consumer-applications) (aplikacji MSA), takich jak OneDrive, Hotmail i Xbox.com.  Powoduje to użycie osobnego nagłówka do `login.live.com` punktu końcowego i szczegółowego na końcu dokumentu.
+Ponadto funkcja ograniczeń dzierżawy obsługuje teraz [blokowanie używania wszystkich aplikacji dla użytkowników firmy Microsoft](#blocking-consumer-applications-public-preview) (aplikacji MSA), takich jak OneDrive, Hotmail i Xbox.com.  Powoduje to użycie osobnego nagłówka do `login.live.com` punktu końcowego i szczegółowego na końcu dokumentu.
 
 ## <a name="how-it-works"></a>Jak to działa
 

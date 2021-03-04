@@ -8,25 +8,28 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
+author: shkale-msft
+ms.author: shkale-msft
 ms.reviewer: mathoma, sstein
-ms.date: 05/18/2019
-ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/25/2021
+ms.openlocfilehash: cd1ba0516d8cb7fdaf3b8d4786cfe68240231303
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782624"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050974"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Długoterminowe przechowywanie — Azure SQL Database i wystąpienie zarządzane Azure SQL
 
-Wiele aplikacji ma przepisy prawne, zgodność lub inne cele biznesowe, które wymagają zachowania kopii zapasowych bazy danych ponad 7-35 dni udostępnionych przez Azure SQL Database i [Automatyczne kopie zapasowe](automated-backups-overview.md)wystąpienia zarządzanego usługi Azure SQL. Za pomocą funkcji długoterminowego przechowywania (LTR) można przechowywać określone SQL Database i wystąpienia zarządzane przez usługę SQL pełne kopie zapasowe w usłudze Azure Blob Storage ze [skonfigurowaną nadmiarowością](automated-backups-overview.md#backup-storage-redundancy) przez maksymalnie 10 lat. Następnie można przywrócić wszystkie kopie zapasowe jako nową bazę danych.
+Wiele aplikacji ma przepisy prawne, zgodność lub inne cele biznesowe, które wymagają zachowania kopii zapasowych bazy danych ponad 7-35 dni udostępnionych przez Azure SQL Database i [Automatyczne kopie zapasowe](automated-backups-overview.md)wystąpienia zarządzanego usługi Azure SQL. Za pomocą funkcji długoterminowego przechowywania (LTR) można przechowywać określone SQL Database i wystąpienia zarządzane przez usługę SQL pełne kopie zapasowe w usłudze Azure Blob Storage ze [skonfigurowaną nadmiarowością](automated-backups-overview.md#backup-storage-redundancy) przez maksymalnie 10 lat. Kopie zapasowe LTR mogą być następnie przywracane jako nowa baza danych.
 
-Przechowywanie w czasie długim można włączyć dla Azure SQL Database i jest w ograniczonej publicznej wersji zapoznawczej wystąpienia zarządzanego Azure SQL. Ten artykuł zawiera omówienie pojęć dotyczących przechowywania długoterminowego. Aby skonfigurować długoterminowe przechowywanie, zobacz [konfigurowanie Azure SQL Database ltr](long-term-backup-retention-configure.md) i [Konfigurowanie programu Azure SQL Managed instance ltr](../managed-instance/long-term-backup-retention-configure.md). 
+Długoterminowe przechowywanie można włączyć dla Azure SQL Database i jest dostępne w publicznej wersji zapoznawczej dla wystąpienia zarządzanego usługi Azure SQL. Ten artykuł zawiera omówienie pojęć dotyczących przechowywania długoterminowego. Aby skonfigurować długoterminowe przechowywanie, zobacz [konfigurowanie Azure SQL Database ltr](long-term-backup-retention-configure.md) i [Konfigurowanie programu Azure SQL Managed instance ltr](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > Zadań programu SQL Agent można użyć do zaplanowania [kopii zapasowych bazy danych tylko do kopiowania](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) jako alternatywy dla listy odwołującej więcej niż 35 dni.
+
+> [!IMPORTANT]
+> Długoterminowe przechowywanie w wystąpieniu zarządzanym jest obecnie dostępne tylko w publicznej wersji zapoznawczej w regionach publicznych platformy Azure. 
 
 
 ## <a name="how-long-term-retention-works"></a>Jak działa długoterminowe przechowywanie
@@ -77,25 +80,20 @@ Jeśli używasz aktywnej replikacji geograficznej lub grup trybu failover jako r
 > [!NOTE]
 > Gdy pierwotna podstawowa baza danych odzyska się z awarii, która spowodowała przejście w tryb failover, stanie się nowym serwerem pomocniczym. W związku z tym tworzenie kopii zapasowej nie zostanie wznowione, a istniejące zasady LTR nie zaczną obowiązywać, dopóki nie staną się pierwotne. 
 
-## <a name="sql-managed-instance-support"></a>Obsługa usługi SQL Managed Instance
-
-Korzystanie z długoterminowego przechowywania kopii zapasowych za pomocą wystąpienia zarządzanego usługi Azure SQL ma następujące ograniczenia:
-
-- **Ograniczona publiczna wersja zapoznawcza** — ta wersja zapoznawcza jest dostępna tylko dla subskrypcji EA i CSP i podlega ograniczonej dostępności.  
-- [**Tylko program PowerShell**](../managed-instance/long-term-backup-retention-configure.md) — obecnie nie ma Azure Portal. Należy włączyć funkcję LTR przy użyciu programu PowerShell. 
-
-Aby zażądać rejestracji, Utwórz [bilet pomocy technicznej systemu Azure](https://azure.microsoft.com/support/create-ticket/). W polu Typ problemu wybierz pozycję problem techniczny, w obszarze usługa wybierz wystąpienie zarządzane SQL, a dla opcji typ problemu wybierz pozycję **kopia zapasowa, przywracanie i ciągłość działania w ramach długoterminowego przechowywania kopii zapasowych** . W żądaniu Określ, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej programu LTR dla wystąpienia zarządzanego SQL.
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurowanie długoterminowego przechowywania kopii zapasowych
 
-Długoterminowe przechowywanie kopii zapasowych można skonfigurować przy użyciu Azure Portal i programu PowerShell dla Azure SQL Database oraz programu PowerShell dla wystąpienia zarządzanego Azure SQL. Aby przywrócić bazę danych z magazynu LTR, można wybrać określoną kopię zapasową w oparciu o sygnaturę czasową. Bazę danych można przywrócić na dowolnym istniejącym serwerze lub wystąpieniu zarządzanym w ramach tej samej subskrypcji, w której znajduje się oryginalna baza danych.
+Długoterminowe przechowywanie kopii zapasowych można skonfigurować przy użyciu Azure Portal i programu PowerShell dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL. Aby przywrócić bazę danych z magazynu LTR, można wybrać określoną kopię zapasową w oparciu o sygnaturę czasową. Bazę danych można przywrócić na dowolnym istniejącym serwerze lub wystąpieniu zarządzanym w ramach tej samej subskrypcji, w której znajduje się oryginalna baza danych.
 
-Aby dowiedzieć się, jak skonfigurować przechowywanie długoterminowe lub przywrócić bazę danych z kopii zapasowej dla SQL Database przy użyciu Azure Portal lub programu PowerShell, zobacz [zarządzanie Azure SQL Database długoterminowym przechowywaniem kopii zapasowych](long-term-backup-retention-configure.md)
+Aby dowiedzieć się, jak skonfigurować przechowywanie długoterminowe lub przywrócić bazę danych z kopii zapasowej dla SQL Database przy użyciu Azure Portal lub programu PowerShell, zobacz [zarządzanie Azure SQL Database długoterminowym przechowywaniem kopii zapasowych](long-term-backup-retention-configure.md).
 
 Aby dowiedzieć się, jak skonfigurować przechowywanie długoterminowe lub przywrócić bazę danych z kopii zapasowej dla wystąpienia zarządzanego SQL przy użyciu programu PowerShell, zobacz [Zarządzanie długoterminowym przechowywaniem kopii zapasowych wystąpienia zarządzanego Azure SQL](../managed-instance/long-term-backup-retention-configure.md).
 
-Aby przywrócić bazę danych z magazynu LTR, można wybrać określoną kopię zapasową w oparciu o sygnaturę czasową. Bazę danych można przywrócić na dowolnym istniejącym serwerze w ramach tej samej subskrypcji, w której znajduje się oryginalna baza danych. Aby dowiedzieć się, jak przywrócić bazę danych z kopii zapasowej LTR przy użyciu Azure Portal lub programu PowerShell, zobacz [zarządzanie Azure SQL Database długoterminowym przechowywaniem kopii zapasowych](long-term-backup-retention-configure.md). W żądaniu Określ, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej programu LTR dla wystąpienia zarządzanego SQL.
+Aby przywrócić bazę danych z magazynu LTR, można wybrać określoną kopię zapasową w oparciu o sygnaturę czasową. Bazę danych można przywrócić na dowolnym istniejącym serwerze w ramach tej samej subskrypcji, w której znajduje się oryginalna baza danych. Aby dowiedzieć się, jak przywrócić bazę danych z kopii zapasowej LTR przy użyciu Azure Portal lub programu PowerShell, zobacz [zarządzanie Azure SQL Database długoterminowym przechowywaniem kopii zapasowych](long-term-backup-retention-configure.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ponieważ kopie zapasowe bazy danych chronią dane przed przypadkowym uszkodzeniem lub usunięciem, są one istotną częścią strategii ciągłości działania i odzyskiwania po awarii. Aby dowiedzieć się więcej na temat innych SQL Database rozwiązań zapewniających ciągłość działania firmy, zobacz temat [ciągłość](business-continuity-high-availability-disaster-recover-hadr-overview.md)działania — Omówienie.
+Ponieważ kopie zapasowe bazy danych chronią dane przed przypadkowym uszkodzeniem lub usunięciem, są one istotną częścią strategii ciągłości działania i odzyskiwania po awarii. 
+
+- Aby dowiedzieć się więcej na temat innych SQL Database rozwiązań zapewniających ciągłość działania firmy, zobacz temat [ciągłość](business-continuity-high-availability-disaster-recover-hadr-overview.md)działania — Omówienie.
+- Aby dowiedzieć się więcej o automatycznych kopiach zapasowych generowanych przez usługi, zobacz artykuł dotyczący [automatycznych kopii zapasowych](../database/automated-backups-overview.md)

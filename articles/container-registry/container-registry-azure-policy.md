@@ -2,13 +2,13 @@
 title: Zgodność przy użyciu Azure Policy
 description: Przypisywanie wbudowanych zasad w Azure Policy do inspekcji zgodności rejestrów kontenerów platformy Azure
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291023"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050583"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Inspekcja zgodności rejestrów kontenerów platformy Azure przy użyciu Azure Policy
 
@@ -22,7 +22,7 @@ Za korzystanie z Azure Policy nie są naliczane opłaty.
 
 Następujące wbudowane definicje zasad są specyficzne dla Azure Container Registry:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 Zobacz również wbudowaną definicję zasad sieciowych: [Container Registry powinna używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
@@ -43,7 +43,7 @@ Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Aby ustalić 
 
 ### <a name="policy-compliance-in-the-portal"></a>Zgodność zasad w portalu:
 
-1. Wybierz pozycję **wszystkie usługi**i Wyszukaj **zasady**.
+1. Wybierz pozycję **wszystkie usługi** i Wyszukaj **zasady**.
 1. Wybierz pozycję **zgodność**.
 1. Użyj filtrów, aby ograniczyć stany zgodności lub wyszukać zasady.
 
