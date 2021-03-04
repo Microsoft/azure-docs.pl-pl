@@ -1,17 +1,16 @@
 ---
 title: Analizowanie danych tekstowych w dziennikach Azure Monitor | Microsoft Docs
 description: W tym artykule opisano różne opcje analizowania danych dziennika w Azure Monitor rekordy, gdy dane są pozyskiwane i pobierane w kwerendzie, porównując zalety poszczególnych.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 8f6c35fd1bb6b46f512f9245d8e3d41df428692b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2e2babd39dc9dadf06c9a3ca3292e021e0c1deaa
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733945"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037187"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizowanie danych tekstowych w dziennikach Azure Monitor
 Niektóre dane dziennika zbierane przez Azure Monitor będą zawierać wiele informacji w jednej właściwości. Analizowanie tych danych w wielu właściwościach ułatwia korzystanie z nich w zapytaniach. Typowym przykładem jest [Dziennik niestandardowy](../agents/data-sources-custom-logs.md) , który zbiera cały wpis dziennika z wieloma wartościami w jednej właściwości. Tworząc osobne właściwości różnych wartości, można wyszukiwać i agregowania na każdej z nich.

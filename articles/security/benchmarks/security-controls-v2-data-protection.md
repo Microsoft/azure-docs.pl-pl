@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50358eed580bbd83f25386feb0068a252060672b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735764"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037119"
 ---
 # <a name="security-control-v2-data-protection"></a>Kontrola zabezpieczeń v2: Ochrona danych
 
 Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tranzycie oraz za pomocą autoryzowanych mechanizmów dostępu. Obejmuje to odnajdywanie, klasyfikowanie, ochronę i monitorowanie poufnych zasobów danych przy użyciu funkcji kontroli dostępu, szyfrowania i rejestrowania na platformie Azure.
 
-Aby wyświetlić odpowiednie Azure Policy, zobacz [szczegóły wbudowanej inicjatywy zgodność z przepisami usługi Azure Security Tests: Ochrona danych](../../governance/policy/samples/azure-security-benchmark#data-protection)
+Aby wyświetlić odpowiednie Azure Policy, zobacz [szczegóły wbudowanej inicjatywy zgodność z przepisami usługi Azure Security Tests: Ochrona danych](../../governance/policy/samples/azure-security-benchmark.md#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Odnajdywanie, klasyfikowanie i etykietowanie danych poufnych
 

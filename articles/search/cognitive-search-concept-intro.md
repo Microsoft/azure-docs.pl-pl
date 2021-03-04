@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 09e7a39a2d97626dd01a00fdaef9bc4d711d557b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 22d7c1bbe03d8b3c0e3b6026c9bac039f0651548
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828088"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037255"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -32,6 +33,17 @@ Wbudowane umiejętności należą do następujących kategorii:
 Wbudowane umiejętności na platformie Azure Wyszukiwanie poznawcze opierają się na wstępnie szkolonych modelach uczenia maszynowego w interfejsy API usług Cognitive Services: [Przetwarzanie obrazów](../cognitive-services/computer-vision/index.yml) i [Analiza tekstu](../cognitive-services/text-analytics/overview.md). Możesz dołączyć zasób Cognitive Services, jeśli chcesz korzystać z tych zasobów podczas przetwarzania zawartości.
 
 Przetwarzanie języka naturalnego i obrazu jest stosowane w fazie pozyskiwania danych, a wyniki stają się częścią kompozycji dokumentu w indeksie wyszukiwania na platformie Azure Wyszukiwanie poznawcze. Dane są źródłem danych jako zestaw danych platformy Azure, a następnie wypychane za pośrednictwem potoku indeksowania przy użyciu zależnych [umiejętności](cognitive-search-predefined-skills.md) , które są potrzebne.  
+
+## <a name="feature-availability"></a>Dostępność funkcji
+
+Wzbogacanie AI jest dostępne w regionach, w których dostępne są również Cognitive Services platformy Azure.  Bieżącą dostępność wzbogacenia AI można sprawdzić na stronie [produktów platformy Azure dostępnych według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=search) .  Wzbogacanie AI jest dostępne we wszystkich obsługiwanych regionach z wyjątkiem:
+
++ Australia Południowo-Wschodnia
++ Chiny Północne 2
++ Norwegia Wschodnia
++ Niemcy Środkowo-Zachodnie
+
+Jeśli usługa wyszukiwania znajduje się w jednym z tych regionów, nie będziesz w stanie tworzyć ani używać umiejętności, ale wszystkie inne funkcje usługi wyszukiwania są dostępne i w pełni obsługiwane.
 
 ## <a name="when-to-use-ai-enrichment"></a>Kiedy używać wzbogacenia AI
 

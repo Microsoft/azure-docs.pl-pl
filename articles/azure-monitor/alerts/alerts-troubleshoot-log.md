@@ -4,14 +4,13 @@ description: Typowe problemy, błędy i rozwiązania dla reguł alertów dzienni
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6b495e8e700f146f5e6c117413456311ac0cdd5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738654"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037884"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Rozwiązywanie problemów z alertami dzienników w Azure Monitor  
 
