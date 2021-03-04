@@ -2,17 +2,16 @@
 title: Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 description: Opisuje sposób zbierania i analizowania danych monitorowania z maszyn wirtualnych na platformie Azure przy użyciu Azure Monitor.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 6209389843b19d933bdce2726b55946b8839a264
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731378"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047047"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](../essentials/monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -56,7 +55,7 @@ Aby włączyć wszystkie funkcje Azure Monitor na potrzeby monitorowania maszyny
 | Krok konfiguracji | Wykonane akcje | Funkcje włączone |
 |:---|:---|:---|
 | Brak konfiguracji | — Metryki platformy hosta zbierane do metryk.<br>-Zebrano dziennik aktywności. | — Eksplorator metryk dla hosta.<br>-Metryki alertów dla hosta.<br>-Alerty dziennika aktywności. |
-| [Włącz szczegółowe informacje o maszynie wirtualnej](#enable-azure-monitor-for-vms) | -Log Analytics zainstalowany agent.<br>Agent zależności został zainstalowany.<br>-Dane wydajności gościa zbierane do dzienników.<br>-Szczegóły procesu i zależności zbierane do dzienników. | -Schematy wydajności i skoroszyty dla danych wydajności gościa.<br>-Rejestruje zapytania dotyczące danych wydajności gościa.<br>-Rejestrowanie alertów dotyczących danych dotyczących wydajności gościa.<br>— Mapa zależności. |
+| [Włącz szczegółowe informacje o maszynie wirtualnej](#enable-vm-insights) | -Log Analytics zainstalowany agent.<br>Agent zależności został zainstalowany.<br>-Dane wydajności gościa zbierane do dzienników.<br>-Szczegóły procesu i zależności zbierane do dzienników. | -Schematy wydajności i skoroszyty dla danych wydajności gościa.<br>-Rejestruje zapytania dotyczące danych wydajności gościa.<br>-Rejestrowanie alertów dotyczących danych dotyczących wydajności gościa.<br>— Mapa zależności. |
 | [Zainstaluj rozszerzenie diagnostyki i agenta telegraf](#enable-diagnostics-extension-and-telegraf-agent) | -Dane wydajności gościa zbierane do metryk. | — Eksplorator metryk dla gościa.<br>-Metryki alertów dla gościa.  |
 | [Konfigurowanie obszaru roboczego usługi Log Analytics](#configure-log-analytics-workspace) | -Zdarzenia zbierane z gościa. | -Rejestruj zapytania dla zdarzeń gościa.<br>-Rejestrowanie alertów dotyczących zdarzeń gościa. |
 | [Utwórz ustawienie diagnostyczne dla maszyny wirtualnej](#collect-platform-metrics-and-activity-log) | — Metryki platformy zbierane do dzienników.<br>-Dziennik aktywności zebrany do dzienników. | -Rejestruje zapytania dotyczące metryk hosta.<br>-Rejestrowanie alertów dotyczących metryk hosta.<br>-Rejestruje zapytania dotyczące dziennika aktywności.

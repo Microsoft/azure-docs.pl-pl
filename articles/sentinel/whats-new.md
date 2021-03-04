@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729712"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048186"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,8 +32,44 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
+- [Łączniki danych innych firm](#third-party-data-connectors)
 - [UEBA szczegółowych informacji na stronie jednostki](#ueba-insights-in-the-entity-page)
 - [Ulepszone wyszukiwanie zdarzeń](#improved-incident-search)
+
+### <a name="third-party-data-connectors"></a>Łączniki danych innych firm
+
+Nasza kolekcja integracji innych firm nadal rośnie, a w ciągu ostatnich dwóch miesięcy zostanie dodana trzydzieści łączników. Oto lista:
+
+- [Agari phishing i ochrona przed markami](connect-agari-phishing-defense.md)
+- [Zdarzenia zabezpieczeń Akamai](connect-akamai-security-events.md)
+- [Alsid Active Directory](connect-alsid-active-directory.md)
+- [Serwer Apache HTTP](connect-apache-http-server.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [BlackBerry CylancePROTECT](connect-data-sources.md)
+- [Funkcja DLP firmy Symantec](connect-broadcom-symantec-dlp.md)
+- [Cisco Firepower eStreamer](connect-data-sources.md)
+- [Cisco Meraki](connect-cisco-meraki.md)
+- [Cisco Umbrella](connect-cisco-umbrella.md)
+- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
+- [ESET Enterprise Inspector](connect-data-sources.md)
+- [Centrum zarządzania zabezpieczeniami ESET](connect-data-sources.md)
+- [Obszar roboczy Google (dawniej: zestaw G Suite)](connect-google-workspace.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
+- [Juniper SRX](connect-juniper-srx.md)
+- [Netskope](connect-data-sources.md)
+- [NXLog dzienników DNS](connect-nxlog-dns.md)
+- [NXLog systemu Linux](connect-nxlog-linuxaudit.md)
+- [Platforma Onapsis](connect-data-sources.md)
+- [Bezpieczeństwo poczty E-mail na żądanie Proofpoint (POD)](connect-proofpoint-pod.md)
+- [Baza wiedzy zarządzania lukami w Qualys](connect-data-sources.md)
+- [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+- [Zapora SonicWall](connect-data-sources.md)
+- [Sophos Cloud OPTIX](connect-sophos-cloud-optix.md)
+- [Squid Proxy](connect-squid-proxy.md)
+- [Endpoint Protection firmy Symantec](connect-data-sources.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Trend Micro XDR](connect-data-sources.md)
+- [ESXi VMWare](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>UEBA szczegółowych informacji na stronie jednostki
 
@@ -66,6 +102,7 @@ Podczas wyszukiwania zdarzeń na platformie Azure wskaźnikowej jest teraz możl
 - [Kreator reguł analizy: Ulepszone środowisko edytowania zapytań (publiczna wersja zapoznawcza)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)](#azsecurityinsights-powershell-module-public-preview)
 - [Łącznik bazy danych SQL](#sql-database-connector)
+- [Łącznik systemu Dynamics 365](#dynamics-365-connector)
 - [Ulepszone komentarze dotyczące zdarzeń](#improved-incident-comments)
 - [Dedykowane klastry Log Analytics](#dedicated-log-analytics-clusters)
 - [Tożsamości zarządzane przez aplikacje logiki](#logic-apps-managed-identities)
@@ -81,7 +118,7 @@ Kreator zaplanowanej reguły analizy wskaźnikowej platformy Azure obejmuje tera
 -   Rozszerzona obsługa autouzupełniania.
 -   Walidacje zapytań w czasie rzeczywistym. Błędy w zapytaniu są teraz wyświetlane jako czerwony blok na pasku przewijania i jako czerwona kropka w nazwie karty **logiki zestawu reguł** . Ponadto nie można zapisać zapytania z błędami.
 
-Aby uzyskać więcej informacji, zobacz [Samouczek: wykrywanie zagrożeń jako](tutorial-detect-threats-built-in.md)wbudowanych.
+Aby uzyskać więcej informacji, zobacz [Samouczek: Tworzenie niestandardowych reguł analizy w celu wykrywania zagrożeń](tutorial-detect-threats-custom.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>AZ. SecurityInsights PowerShell — moduł (publiczna wersja zapoznawcza)
 
 Usługa Azure SecurityInsights obsługuje teraz nowy moduł [AZ.](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell.
@@ -99,6 +136,12 @@ Wskaźnik na platformie Azure przedstawia teraz łącznik usługi Azure SQL Data
 Azure SQL to w pełni zarządzany aparat bazy danych platformy jako usługi (PaaS), który obsługuje większość funkcji zarządzania bazami danych, takich jak uaktualnianie, stosowanie poprawek, tworzenie kopii zapasowych i monitorowanie, bez zaangażowania użytkowników.
 
 Aby uzyskać więcej informacji, zobacz [łączenie dzienników diagnostyki i inspekcji usługi Azure SQL Database](connect-azure-sql-logs.md).
+
+### <a name="dynamics-365-connector"></a>Łącznik systemu Dynamics 365
+
+Centrum danych platformy Azure udostępnia teraz łącznik dla systemu Microsoft Dynamics 365, który umożliwia gromadzenie dzienników aktywności użytkowników, administratorów i pomocy technicznej usługi Dynamics 365 na platformie Azure. Za pomocą tych danych można przeprowadzić inspekcję całości operacji przetwarzania danych i analizować ją pod kątem potencjalnych naruszeń zabezpieczeń.
+
+Aby uzyskać więcej informacji, zobacz temat [łączenie dzienników aktywności Dynamics 365 z platformą Azure](connect-dynamics-365.md).
 
 ### <a name="improved-incident-comments"></a>Ulepszone komentarze dotyczące zdarzeń
 
@@ -185,15 +228,14 @@ Usługa Azure CEF używa agenta Log Analytics do wysyłania zdarzeń do obszaru 
 Aby uzyskać więcej informacji, zobacz [dokumentację log Analytics](../azure-monitor/agents/log-analytics-agent.md) i informacje o [wersji agenta log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## <a name="november-2020"></a>Listopad 2020 r.
 
-- [Monitoruj Logic Apps elementy PlayBook na platformie Azure — wskaźnik](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Monitoruj kondycję elementy PlayBook na platformie Azure — wskaźnik](#monitor-your-playbooks-health-in-azure-sentinel)
 - [Łącznik Microsoft 365 Defender (publiczna wersja zapoznawcza)](#microsoft-365-defender-connector-public-preview)
-### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Monitoruj Logic Apps elementy PlayBook na platformie Azure — wskaźnik
 
-Na platformie Azure jest teraz integrowane z [aplikacjami usługi Azure log](../logic-apps/index.yml), usługą w chmurze, która pomaga zaplanować, zautomatyzować i organizować zadania, procesy biznesowe i przepływy pracy.
+### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Monitoruj kondycję elementy PlayBook na platformie Azure — wskaźnik
 
-Użyj aplikacji logiki platformy Azure na platformie Azure jako element PlayBook, która może być wywoływana automatycznie podczas tworzenia zdarzenia lub w przypadku segregowania i pracy z zdarzeniami. 
+Usługa Azure wskaźnik elementy PlayBook opiera się na przepływach pracy utworzonych w usłudze [Azure log Apps](../logic-apps/index.yml), usłudze w chmurze, która pomaga zaplanować, zautomatyzować i zorganizować zadania, procesy biznesowe i przepływy pracy. Elementy PlayBook może być wywoływana automatycznie podczas tworzenia zdarzenia lub podczas segregowania i pracy z zdarzeniami. 
 
-Aby zapewnić wgląd w kondycję, wydajność i użycie elementy PlayBook, w tym dołączenie dowolnych danych z Azure Logic Apps, dodaliśmy [skoroszyt platformy Azure](../azure-monitor/visualize/workbooks-overview.md) o nazwie **monitorowanie kondycji elementy PlayBook**. 
+Aby uzyskać wgląd w kondycję, wydajność i użycie elementy PlayBook, dodaliśmy [skoroszyt](../azure-monitor/visualize/workbooks-overview.md) o nazwie **monitorowanie kondycji elementy PlayBook**. 
 
 Użyj skoroszytu **monitorowania kondycji programu elementy PlayBook** , aby monitorować kondycję elementy PlayBook, lub poszukać anomalii w ilości pomyślnych lub nieudanych uruchomień. 
 

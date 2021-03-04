@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051534"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048266"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Zarządzanie bezpiecznym dostępem do zasobów w sieci wirtualnych szprych dla klientów sieci VPN użytkowników
 
@@ -50,8 +50,6 @@ Po wybraniu metody uwierzytelniania są dostępne trzy opcje. Każda metoda ma o
 * **Uwierzytelnianie oparte na usłudze RADIUS:** Uzyskaj adres IP serwera RADIUS, klucz tajny serwera usługi RADIUS i informacje o certyfikacie.
 
 * **Certyfikaty platformy Azure:** W przypadku tej konfiguracji wymagane są certyfikaty. Konieczne jest wygenerowanie lub uzyskanie certyfikatów. Dla każdego klienta wymagany jest certyfikat klienta. Ponadto należy przekazać informacje o certyfikacie głównym (klucz publiczny). Więcej informacji o wymaganych certyfikatach znajduje się w temacie [generowanie i eksportowanie certyfikatów](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
-
-Poniższy przykład przedstawia uwierzytelnianie certyfikatu platformy Azure.
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 

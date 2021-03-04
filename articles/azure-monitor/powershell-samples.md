@@ -1,18 +1,17 @@
 ---
 title: Przykłady programu Azure Monitor PowerShell
 description: Użyj programu PowerShell, aby uzyskiwać dostęp do funkcji Azure Monitor, takich jak automatyczne skalowanie, alerty, elementy webhook i wyszukiwanie dzienników aktywności.
-ms.subservice: ''
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9f43531e6b81b9bd4a294d70e9b8091463cf507a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1aa0d44dcb73a925494c0bc4aae43dc93e5a33d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627459"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047081"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Przykłady programu Azure Monitor PowerShell
 W tym artykule przedstawiono przykładowe polecenia programu PowerShell ułatwiające dostęp do funkcji Azure Monitor.

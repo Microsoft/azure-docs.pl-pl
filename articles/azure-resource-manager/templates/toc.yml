@@ -4,6 +4,8 @@
   items:
     - name: Co to są szablony usługi ARM?
       href: overview.md
+    - name: Bicep — Omówienie
+      href: bicep-overview.md
 - name: Przewodniki Szybki start
   items:
     - name: Tworzenie szablonów — portal
@@ -324,9 +326,7 @@
       href: template-best-practices.md
     - name: Bicep
       items:
-        - name: Omówienie
-          href: bicep-overview.md
-        - name: Przechodzenie z formatu JSON do Bicep
+        - name: Porównywanie kodu JSON z Bicep
           href: compare-template-syntax.md
     - name: Często zadawane pytania
       href: frequently-asked-questions.md

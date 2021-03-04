@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674647"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047676"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Tworzenie źródła danych (Android SDK)
 
@@ -360,14 +360,17 @@ Azure Maps jest zgodna ze [specyfikacją kafelka wektora MapBox](https://github.
 - [](/rest/api/maps/traffic/gettrafficflowtile)  |  [Szczegóły formatu danych](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) dokumentacji przepływu ruchu
 - Kreator Azure Maps umożliwia również tworzenie niestandardowych kafelków wektorowych i uzyskiwanie do nich dostępu za pomocą funkcji [renderowania kafelków w wersji 2](/rest/api/maps/renderv2/getmaptilepreview)
 
+> [!TIP]
+> W przypadku używania kafelków obrazów wektorowych lub rastrowych z poziomu usługi Azure Maps Render z zestawem SDK sieci Web, można zastąpić `atlas.microsoft.com` symbolem zastępczym `azmapsdomain.invalid` . Ten symbol zastępczy zostanie zastąpiony tą samą domeną używaną przez mapę i automatycznie dołączać te same dane uwierzytelniania. Znacznie upraszcza to uwierzytelnianie za pomocą usługi renderowania przy użyciu uwierzytelniania Azure Active Directory.
+
 Aby wyświetlić dane ze źródła kafelka wektorowego na mapie, Podłącz źródło do jednej z warstw renderowania danych. Wszystkie warstwy używające źródła wektora muszą określać `sourceLayer` wartość w opcjach. Poniższy kod ładuje usługę kafelków wektora przepływu ruchu Azure Maps jako źródło kafelka wektora, a następnie wyświetla ją na mapie przy użyciu warstwy liniowej. To źródło kafelka wektorowego zawiera pojedynczy zestaw danych w warstwie źródłowej o nazwie "przepływ ruchu". Dane wiersza w tym zestawie danych mają właściwość o nazwie `traffic_level` , która jest używana w tym kodzie do wybierania koloru i skalowania rozmiaru wierszy.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );

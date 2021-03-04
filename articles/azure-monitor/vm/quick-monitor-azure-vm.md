@@ -2,17 +2,16 @@
 title: Monitoruj maszynę wirtualną platformy Azure przy użyciu Azure Monitor
 description: Dowiedz się, jak zbierać i analizować dane dla maszyny wirtualnej platformy Azure w Azure Monitor.
 ms.service: azure-monitor
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: fa0360d6730293f3817d63e31b24464a0e4950ce
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7efd8baf54aeacbd2f55640240a15f2517dcd904
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725479"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046928"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki Start: monitorowanie maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich tworzenia. W tym przewodniku szybki start zawarto krótkie wskazówki dotyczące danych, które są automatycznie zbierane dla maszyny wirtualnej platformy Azure oraz jak wyświetlać ją w Azure Portal. Następnie umożliwisz korzystanie z usługi [VM Insights](../vm/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.

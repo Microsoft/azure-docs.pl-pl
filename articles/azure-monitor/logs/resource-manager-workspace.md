@@ -1,17 +1,16 @@
 ---
 title: Przykłady szablonów Menedżer zasobów dla obszarów roboczych Log Analytics
 description: Przykładowe szablony Azure Resource Manager do wdrażania Log Analytics obszarów roboczych i konfigurowania źródeł danych w Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5c1ef7d8de32564e2b1d3b1578fcd72cefde0327
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725598"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047149"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Przykłady Menedżer zasobów szablonów dla Log Analytics obszarów roboczych w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania log Analytics obszarów roboczych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.

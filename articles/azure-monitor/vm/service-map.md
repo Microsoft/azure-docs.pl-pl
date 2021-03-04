@@ -1,17 +1,16 @@
 ---
 title: Korzystanie z rozwiązania Service Map na platformie Azure | Microsoft Docs
 description: Usługa Service Map jest rozwiązaniem platformy Azure, które automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Ten artykuł zawiera szczegółowe informacje dotyczące wdrażania Service Map w środowisku użytkownika i korzystania z niego w różnych scenariuszach.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717149"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047013"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Korzystanie z rozwiązania Service Map na platformie Azure
 
@@ -26,7 +25,7 @@ W tym artykule opisano szczegóły dotyczące dołączania i korzystania z Servi
 * [Agent zależności](vminsights-enable-overview.md#agents) zainstalowany na komputerze z systemem Windows lub Linux.
 
 >[!NOTE]
->Jeśli wdrożono już Service Map, możesz również wyświetlić mapy w usłudze VM Insights, która zawiera dodatkowe funkcje do monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Omówienie usługi VM Insights](../vm/vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy usługi VM Insights, zobacz poniższe [często zadawane pytania](../faq.md#azure-monitor-for-vms).
+>Jeśli wdrożono już Service Map, możesz również wyświetlić mapy w usłudze VM Insights, która zawiera dodatkowe funkcje do monitorowania kondycji i wydajności maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Omówienie usługi VM Insights](../vm/vminsights-overview.md). Aby dowiedzieć się więcej o różnicach między rozwiązaniem Service Map i funkcją mapy usługi VM Insights, zobacz poniższe [często zadawane pytania](../faq.md#vm-insights).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

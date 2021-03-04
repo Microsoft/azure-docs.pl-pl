@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 6ed5e11a8492314e99b9f105d259fa910dcdb77d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048645"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu Bezpośrednie miejsca do magazynowania (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -93,15 +93,15 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **wybór testu** zaznacz wszystkie testy z wyjątkiem **magazynu**, jak pokazano poniżej:
 
    ![Wybierz testy weryfikacji klastra](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **potwierdzenie** wybierz pozycję **dalej**.
 
     Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
@@ -235,6 +235,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
 Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 (lub nowszego) i systemu Windows Server 2016 (lub nowszego), zamiast tego możesz użyć funkcji [rozproszonej nazwy sieciowej](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
+
+Aby uzyskać więcej informacji na temat opcji łączności klastra, zobacz [Route HADR Cluster Connections to SQL Server na maszynach wirtualnych platformy Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ## <a name="limitations"></a>Ograniczenia
 

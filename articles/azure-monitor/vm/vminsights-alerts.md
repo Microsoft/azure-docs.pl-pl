@@ -1,17 +1,16 @@
 ---
 title: Alerty z usługi VM Insights
 description: Opisuje sposób tworzenia reguł alertów na podstawie danych wydajności zebranych przez usługi VM Insights.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704059"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046809"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Jak tworzyć alerty na podstawie szczegółowych informacji o maszynie wirtualnej
 [Alerty w usłudze Azure monitor](../alerts/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Usługa VM Insights nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można utworzyć własne na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.

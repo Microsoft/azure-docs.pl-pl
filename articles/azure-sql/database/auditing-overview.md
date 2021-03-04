@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691522"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046452"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Zasady inspekcji można zdefiniować dla konkretnej bazy danych lub jako domyśl
 
 - Jeśli *Inspekcja serwera jest włączona*, *zawsze ma zastosowanie do bazy danych programu*. Baza danych będzie poddawana inspekcji, niezależnie od ustawień inspekcji bazy danych.
 
+- Gdy zasady inspekcji są zdefiniowane na poziomie bazy danych w obszarze roboczym Log Analytics lub w miejscu docelowym centrum zdarzeń, następujące operacje nie będą zachować zasad inspekcji na poziomie źródłowej bazy danych:
+    - [Kopia bazy danych](database-copy.md)
+    - [Przywracanie do określonego momentu](recovery-using-backups.md)
+    - [Replikacja geograficzna](active-geo-replication-overview.md) (pomocnicza baza danych nie będzie miała inspekcji na poziomie bazy danych)
+
 - Włączenie inspekcji bazy danych, poza włączeniem jej na serwerze, *nie przesłania ani* nie zmienia żadnych ustawień inspekcji serwera. Obie inspekcje będą istnieć obok siebie. Inaczej mówiąc, baza danych jest monitorowana dwukrotnie. raz przez zasady serwera i jeden raz przez zasady bazy danych.
 
    > [!NOTE]
@@ -94,7 +99,8 @@ Azure SQL Database i usługa Azure Synapse Audit przechowuje 4000 znaków danych
 W poniższej sekcji opisano konfigurację inspekcji przy użyciu Azure Portal.
 
   > [!NOTE]
-  > Włączanie inspekcji wstrzymanej dedykowanej puli SQL nie jest możliwe. Aby włączyć inspekcję, Cofnij wstrzymanie dedykowanej puli SQL. Dowiedz się więcej na temat [dedykowanej puli SQL](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Włączanie inspekcji wstrzymanej dedykowanej puli SQL nie jest możliwe. Aby włączyć inspekcję, Cofnij wstrzymanie dedykowanej puli SQL. Dowiedz się więcej na temat [dedykowanej puli SQL](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - W przypadku skonfigurowania inspekcji do obszaru roboczego Log Analytics lub nawet docelowego centrum za pośrednictwem polecenia cmdlet Azure Portal lub PowerShell zostanie utworzone [ustawienie diagnostyczne](../../azure-monitor/essentials/diagnostic-settings.md) z włączoną kategorią "SQLSecurityAuditEvents".
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Przejdź do opcji **Inspekcja** pod nagłówkiem zabezpieczenia w okienku **bazy danych SQL** lub **SQL Server** .
@@ -104,18 +110,18 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu Azure Portal.
 
 4. Jeśli wolisz włączyć inspekcję na poziomie bazy danych, przełącz **inspekcję** na wartość **włączone**. Jeśli Inspekcja serwera jest włączona, inspekcja skonfigurowana dla bazy danych będzie istnieć równolegle z inspekcją serwera.
 
-5. Istnieje wiele opcji konfigurowania, w których będą zapisywane dzienniki inspekcji. Dzienniki można zapisywać na koncie usługi Azure Storage, w obszarze roboczym Log Analytics do użycia przez dzienniki Azure Monitor (wersja zapoznawcza) lub do centrum zdarzeń w celu użycia przy użyciu centrum zdarzeń (wersja zapoznawcza). Można skonfigurować dowolną kombinację tych opcji, a dzienniki inspekcji będą zapisywane w każdym z nich.
+5. Istnieje wiele opcji konfigurowania, w których będą zapisywane dzienniki inspekcji. Dzienniki można zapisywać na koncie usługi Azure Storage, w obszarze roboczym Log Analytics do użycia przez dzienniki Azure Monitor lub do centrum zdarzeń w celu użycia przy użyciu centrum zdarzeń. Można skonfigurować dowolną kombinację tych opcji, a dzienniki inspekcji będą zapisywane w każdym z nich.
   
    ![Opcje magazynu](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Inspekcja operacji pomoc techniczna firmy Microsoft (wersja zapoznawcza)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Inspekcja operacji pomoc techniczna firmy Microsoft
 
-Inspekcja operacji pomoc techniczna firmy Microsoft (wersja zapoznawcza) dla usługi Azure SQL Server umożliwia inspekcję operacji inżynierów pomocy technicznej firmy Microsoft, gdy potrzebują oni uzyskać dostęp do serwera w trakcie żądania obsługi. Korzystanie z tej funkcji, wraz z inspekcją, umożliwia większej przejrzystości pracowników i pozwala na wykrywanie anomalii, wizualizację trendu i Zapobieganie utracie danych.
+Inspekcja pomoc techniczna firmy Microsoft operacji na platformie Azure SQL Server pozwala na inspekcję operacji inżynierów pomocy technicznej firmy Microsoft, gdy potrzebują dostępu do serwera w trakcie żądania obsługi. Korzystanie z tej funkcji, wraz z inspekcją, umożliwia większej przejrzystości pracowników i pozwala na wykrywanie anomalii, wizualizację trendu i Zapobieganie utracie danych.
 
-Aby włączyć inspekcję operacji pomoc techniczna firmy Microsoft (wersja zapoznawcza), przejdź do pozycji **Inspekcja** w obszarze zabezpieczenia w okienku **programu Azure SQL Server** i Przełącz **inspekcję operacji pomocy technicznej firmy Microsoft (wersja zapoznawcza)** na wartość **włączone**.
+Aby włączyć inspekcję operacji pomoc techniczna firmy Microsoft, przejdź do pozycji **Inspekcja** w obszarze zabezpieczenia w okienku programu **Azure SQL Server** i Przełącz **inspekcję operacji pomocy technicznej firmy Microsoft** na wartość **włączone**.
 
   > [!IMPORTANT]
-  > Inspekcja operacji pomocy technicznej firmy Microsoft (wersja zapoznawcza) nie obsługuje miejsca docelowego konta magazynu. Aby włączyć tę funkcję, należy skonfigurować obszar roboczy Log Analytics lub miejsce docelowe centrum zdarzeń.
+  > Inspekcja operacji pomocy technicznej firmy Microsoft nie obsługuje miejsca docelowego konta magazynu. Aby włączyć tę funkcję, należy skonfigurować obszar roboczy Log Analytics lub miejsce docelowe centrum zdarzeń.
 
 ![Zrzut ekranu przedstawiający operacje pomoc techniczna firmy Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Inspekcja w celu Log Analytics lokalizacji docelowej
   
-Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log Analytics, wybierz pozycję **log Analytics (wersja zapoznawcza)** i Otwórz **log Analytics szczegóły**. Wybierz lub Utwórz obszar roboczy Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**.
+Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log Analytics, wybierz pozycję **log Analytics** i otwórz **szczegóły log Analytics**. Wybierz lub Utwórz obszar roboczy Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Aby uzyskać więcej informacji na temat Azure Monitor Log Analytics obszarze ro
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja w miejscu docelowym centrum zdarzeń
 
-Aby skonfigurować zapisywanie dzienników inspekcji do centrum zdarzeń, wybierz pozycję **centrum zdarzeń (wersja zapoznawcza)** i Otwórz **szczegóły centrum zdarzeń**. Wybierz centrum zdarzeń, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie, w którym znajduje się baza danych i serwer.
+Aby skonfigurować zapisywanie dzienników inspekcji do centrum zdarzeń, wybierz pozycję **centrum zdarzeń** i Otwórz **szczegóły centrum zdarzeń**. Wybierz centrum zdarzeń, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie, w którym znajduje się baza danych i serwer.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 

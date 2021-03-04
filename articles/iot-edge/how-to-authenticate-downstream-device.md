@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9e3e0f96d235829928c1f7c79864b1dc732f9e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391987"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046350"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -35,7 +35,7 @@ Wykonaj kroki opisane w [sekcji Konfigurowanie urządzenia IoT Edge do działani
 
 Jeśli używasz uwierzytelniania X. 509, będziesz generować certyfikaty dla urządzenia podrzędnego. Mieć ten sam certyfikat głównego urzędu certyfikacji i skrypt generujący certyfikat, który został użyty dla przezroczystego artykułu bramy, który jest dostępny do ponownego użycia.
 
-Ten artykuł odnosi się do *nazwy hosta bramy* w kilku punktach. Nazwa hosta bramy jest zadeklarowana w parametrze **hostname** pliku config. YAML na urządzeniu bramy IoT Edge. Jest on określany w parametrach połączenia urządzenia podrzędnego. Nazwa hosta bramy musi być rozpoznawalna na adres IP przy użyciu systemu DNS lub wpisu pliku hosta na urządzeniu podrzędnym.
+Ten artykuł odnosi się do *nazwy hosta bramy* w kilku punktach. Nazwa hosta bramy jest zadeklarowana w parametrze **hostname** pliku konfiguracyjnego na urządzeniu bramy IoT Edge. Jest on określany w parametrach połączenia urządzenia podrzędnego. Nazwa hosta bramy musi być rozpoznawalna na adres IP przy użyciu systemu DNS lub wpisu pliku hosta na urządzeniu podrzędnym.
 
 ## <a name="register-device-with-iot-hub"></a>Rejestrowanie urządzenia w IoT Hub
 
@@ -192,7 +192,7 @@ Parametry połączenia dla urządzeń podrzędnych muszą mieć następujące sk
 * Metoda uwierzytelniania, bez względu na to, czy klucz symetryczny lub certyfikat X. 509
   * W przypadku korzystania z uwierzytelniania przy użyciu klucza symetrycznego Podaj klucz podstawowy lub pomocniczy: `SharedAccessKey={key}`
   * Jeśli używasz uwierzytelniania certyfikatu X. 509, podaj flagę: `x509=true`
-* Urządzenie bramy, za pomocą którego urządzenie nawiązuje połączenie. Podaj wartość **hostname** IoT Edge z pliku config. YAML urządzenia bramy: `GatewayHostName={gateway hostname}`
+* Urządzenie bramy, za pomocą którego urządzenie nawiązuje połączenie. Podaj wartość **hostname** z pliku konfiguracyjnego urządzenia bramy IoT Edge: `GatewayHostName={gateway hostname}`
 
 Wszystkie razem, kompletne parametry połączenia wyglądają następująco:
 

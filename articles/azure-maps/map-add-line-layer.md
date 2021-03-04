@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fedf1bc37661100404106859d3aef52b3eddf06d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891163"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048141"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Dodawanie warstwy liniowej do mapy
 
@@ -66,7 +66,7 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/drBJwX/'>strzałka Pokaż strza
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Dodawanie gradientu obrysu do linii
 
-Możesz zastosować jeden kolor pociągnięcia do linii. Możesz również wypełnić linię gradientem kolorów, aby pokazać przejście z jednego segmentu linii do następnego segmentu wiersza. Na przykład gradienty linii mogą służyć do reprezentowania zmian w czasie i odległości lub w różnych temperaturach w połączonej linii obiektów. Aby można było zastosować tę funkcję do wiersza, do źródła danych musi być `lineMetrics` ustawiona opcja true, a następnie wyrażenie gradientu koloru może być przesyłane do `strokeColor` opcji wiersza. Wyrażenie gradientu obrysu musi odwoływać się do `['line-progress']` wyrażenia danych, które uwidacznia obliczane metryki linii dla wyrażenia.
+Możesz zastosować jeden kolor pociągnięcia do linii. Możesz również wypełnić linię gradientem kolorów, aby pokazać przejście z jednego segmentu linii do następnego segmentu wiersza. Na przykład gradienty linii mogą służyć do reprezentowania zmian w czasie i odległości lub w różnych temperaturach w połączonej linii obiektów. Aby zastosować tę funkcję do linii, źródło danych musi mieć `lineMetrics` ustawioną opcję `true` , a następnie wyrażenie gradientu koloru można przesłać do `strokeColor` opcji wiersza. Wyrażenie gradientu obrysu musi odwoływać się do `['line-progress']` wyrażenia danych, które uwidacznia obliczane metryki linii dla wyrażenia.
 
 <br/>
 

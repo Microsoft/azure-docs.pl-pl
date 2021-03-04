@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1712cedab9cef23108fcc48b8e09bdc3e33065c4
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 25785ae7a214d6122fb90b80e8f0725a3468c48d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679484"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047614"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>Dodawanie warstwy wielokąta do mapy (Android SDK)
 
@@ -97,6 +97,47 @@ Poniższy zrzut ekranu przedstawia powyższy kod, który renderuje wielokąt z k
 > [!TIP]
 > W przypadku tworzenia konspektu wielokąta z warstwą linii należy zamknąć wszystkie pierścienie w wielokątach, tak aby każda tablica punktów była taka sama jak początkowa i końcowa. Jeśli to nie zrobisz, warstwa linii nie może połączyć ostatniego punktu wielokąta z pierwszym punktem.
 
+## <a name="fill-a-polygon-with-a-pattern"></a>Wypełnienie wielokąta z wzorcem
+
+Oprócz wypełniania wielokątów kolorem możesz użyć wzorca obrazu, aby wypełnić wielokąt. Załaduj wzorzec obrazu do zasobów ikon obrazu mapy, a następnie odwołując się do tego obrazu z `fillPattern` opcją warstwy Wielokąt.
+
+```java
+//Load an image pattern into the map image sprite.
+map.images.add("fill-checker-red", R.drawable.fill_checker_red);
+
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
+            Point.fromLngLat(-50, -20),
+            Point.fromLngLat(0, 40),
+            Point.fromLngLat(50, -20),
+            Point.fromLngLat(-50, -20)
+        )
+    )
+));
+
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source,
+        fillPattern("fill-checker-red"),
+        fillOpacity(0.5f)
+), "labels");
+```
+
+Na potrzeby tego przykładu Poniższy obraz został załadowany do folderu do rysowania aplikacji.
+
+| ![Obraz ikony purpurowej strzałki](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
+|:-----------------------------------------------------------------------:|
+| fill_checker_red.png                                                    |
+
+Poniżej znajduje się zrzut ekranu przedstawiający powyższy kod podczas renderowania wielokąta z wzorcem wypełnienia na mapie.
+
+![Wielokąt z wzorcem wypełnienia renderowanym na mapie](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
+
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
@@ -109,3 +150,6 @@ Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów k
 
 > [!div class="nextstepaction"]
 > [Dodawanie warstwy linii](android-map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Dodawanie warstwy wielokąta wytłoczenia](map-extruded-polygon-android.md)

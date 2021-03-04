@@ -36,6 +36,8 @@
           items:
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do maszyn wirtualnych platformy Azure
               href: tutorial-assess-vmware-azure-vm.md
+            - name: Ocenianie wystąpień SQL na potrzeby migracji do usługi Azure SQL
+              href: tutorial-assess-sql.md
             - name: Ocena maszyn wirtualnych VMware pod kątem migracji do usługi AVS
               href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Ocena maszyn wirtualnych funkcji Hyper-V do migracji na platformę Azure
@@ -102,6 +104,8 @@
       items:
         - name: Przegląd oceny (migrowanie do maszyn wirtualnych platformy Azure)
           href: concepts-assessment-calculation.md
+        - name: Przegląd ocen (Migrowanie do usługi Azure SQL)
+          href: concepts-azure-sql-assessment-calculation.md
         - name: Przegląd oceny (migrowanie do usługi AVS)
           href: concepts-azure-vmware-solution-assessment-calculation.md
         - name: Najlepsze rozwiązania dotyczące oceny
@@ -144,8 +148,12 @@
               href: deploy-appliance-script-government.md
         - name: Ograniczanie zakresu odnajdywania dla maszyn wirtualnych VMware
           href: set-discovery-scope.md
+        - name: Jak dodać poświadczenia serwera
+          href: add-server-credentials.md
         - name: Odnajdywanie aplikacji/ról/funkcji
           href: how-to-discover-applications.md
+        - name: Odnajdywanie wystąpień SQL w istniejącym projekcie
+          href: how-to-discover-sql-existing-project.md
         - name: Analizowanie zależności maszyny (opartych na agentach)
           href: how-to-create-group-machine-dependencies.md
         - name: Analizowanie zależności maszyny (bez agentów)
@@ -158,6 +166,8 @@
           href: how-to-create-a-group.md
         - name: Tworzenie oceny maszyny wirtualnej platformy Azure
           href: how-to-create-assessment.md
+        - name: Tworzenie oceny usługi Azure SQL
+          href: how-to-create-azure-sql-assessment.md
         - name: Tworzenie oceny w usłudze AVS
           href: how-to-create-azure-vmware-solution-assessment.md
         - name: Ocena bazy danych programu SQL Server
@@ -176,6 +186,8 @@
       items:
         - name: Dodawanie narzędzi migracji
           href: how-to-migrate.md
+        - name: Replikacja przy użyciu ExpressRoute
+          href: replicate-using-expressroute.md
         - name: Przygotowanie maszyn do migracji
           href: prepare-for-migration.md
         - name: Przygotowywanie serwerów z systemem Windows 2003 do migracji

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 040fcde35707074ffaf102ed6c224b2f47a084bb
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1706b60a61bd3b507d9fbcf555e478b388f51168
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679350"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047574"
 ---
 # <a name="add-a-symbol-layer-android-sdk"></a>Dodaj warstwę symboli (Android SDK)
 
@@ -132,6 +132,52 @@ Poniższy zrzut ekranu przedstawia powyższy kod rending funkcję punktu przy u�
 
 > [!TIP]
 > Aby renderować tylko tekst z warstwą symboli, można ukryć ikonę przez ustawienie `iconImage` Właściwości opcji ikony na `"none"` .
+
+## <a name="modify-symbol-colors"></a>Modyfikuj kolory symboli
+
+Android SDK Azure Maps jest dostarczany z zestawem wstępnie zdefiniowanych wariantów koloru ikony domyślnego znacznika. Na przykład `marker-red` można przesłać do `iconImage` opcji warstwy symboli, aby renderować czerwoną wersję ikony znacznika w tej warstwie. 
+
+```java
+SymbolLayer layer = new SymbolLayer(source,
+    iconImage("marker-red")
+);
+```
+
+W poniższej tabeli wymieniono wszystkie wbudowane nazwy obrazów ikon. Wszystkie te znaczniki pobierają kolory z zasobów kolorów, które można przesłonić. Poza zastępowaniem głównego koloru wypełnienia tego znacznika. Należy jednak pamiętać, że zastępowanie koloru jednego z tych znaczników będzie miało zastosowanie do wszystkich warstw, które używają tego obrazu ikony.
+
+| Nazwa obrazu ikony | Nazwa zasobu koloru |
+|-----------------|---------------------|
+| `marker-default` | `mapcontrol_marker_default` |
+| `marker-black` | `mapcontrol_marker_black` |
+| `marker-blue` | `mapcontrol_marker_blue` |
+| `marker-darkblue` | `mapcontrol_marker_darkblue` |
+| `marker-red` | `mapcontrol_marker_red` |
+| `marker-yellow` | `mapcontrol_marker_yellow` |
+
+Możesz również zastąpić kolor obramowania wszystkich znaczników przy użyciu `mapcontrol_marker_border` nazwy zasobu koloru. Kolory tych znaczników można przesłonić, dodając kolor o tej samej nazwie w `colors.xml` pliku aplikacji. Na przykład następujący `colors.xml` plik spowoduje, że domyślny kolor znacznika zostanie jaśniejszy na zielony.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mapcontrol_marker_default">#00FF00</color>
+</resources>
+```
+
+Poniżej znajduje się zmodyfikowana wersja domyślnego pliku XML wektora znaczników, którą można modyfikować, aby utworzyć dodatkowe niestandardowe wersje domyślnego znacznika. Zmodyfikowaną wersję można dodać do `drawable` folderu aplikacji i dodać do ikonki obrazu mapy przy użyciu `map.images.add` , a następnie użyć z warstwą symboli.
+
+```xml
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.5dp"
+    android:height="36.5dp"
+    android:viewportWidth="24.5"
+    android:viewportHeight="36.5">
+    <path
+        android:pathData="M12.25,0.25a12.2543,12.2543 0,0 0,-12 12.4937c0,6.4436 6.4879,12.1093 11.059,22.5641 0.5493,1.2563 1.3327,1.2563 1.882,0C17.7621,24.8529 24.25,19.1857 24.25,12.7437A12.2543,12.2543 0,0 0,12.25 0.25Z"
+        android:strokeWidth="0.5"
+        android:fillColor="@color/mapcontrol_marker_default"
+        android:strokeColor="@color/mapcontrol_marker_border"/>
+</vector>
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

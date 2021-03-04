@@ -1,17 +1,16 @@
 ---
 title: Twórz interaktywne raporty usługi VM Insights ze skoroszytami
 description: Uprość złożone raporty ze wstępnie zdefiniowanymi i niestandardowymi skoroszytami dla szczegółowych informacji o maszynach wirtualnych.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731293"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046520"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Twórz interaktywne raporty usługi VM Insights ze skoroszytami
 

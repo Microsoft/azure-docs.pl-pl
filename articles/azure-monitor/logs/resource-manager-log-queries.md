@@ -1,17 +1,16 @@
 ---
 title: Przykłady szablonów Menedżer zasobów dla zapytań dziennika
 description: Przykładowe szablony Azure Resource Manager do wdrażania Azure Monitor dzienników zapytań.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: ad8d984f7d363499ed2e85d7d46b95c05460f3eb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b3ac4d693afb8ee2f2dba362e1e2f307e50f78
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627826"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047268"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla zapytań dzienników w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania zapytań dzienników w programie Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.

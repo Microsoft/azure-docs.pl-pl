@@ -1,17 +1,16 @@
 ---
 title: Włącz Azure Monitor środowiska hybrydowego
 description: W tym artykule opisano sposób włączania usługi VM Insights dla hybrydowego środowiska chmury, które zawiera co najmniej jedną maszynę wirtualną.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 6518906f264077ac88a90513a237840f7f814247
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731276"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046642"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>Włączanie usługi VM Insights dla hybrydowej maszyny wirtualnej
 W tym artykule opisano sposób włączania usługi VM Insights dla maszyny wirtualnej poza platformą Azure, w tym w środowiskach lokalnych i innych.

@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663440"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048622"
 ---
 # <a name="configure-maintenance-window-preview"></a>Konfiguruj okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ Poniższe kroki ustawiają okno obsługi w istniejącej bazie danych, puli elast
 1. Przejdź do wystąpienia zarządzanego, dla którego chcesz ustawić okno obsługi.
 1. W menu **Ustawienia** wybierz pozycję **konserwacja**, a następnie wybierz odpowiednie okno obsługi.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Strona obsługi bazy danych SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Strona konserwacji wystąpienia zarządzanego SQL":::
 
 
 

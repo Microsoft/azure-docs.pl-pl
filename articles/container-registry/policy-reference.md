@@ -7,12 +7,12 @@ author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4f3210fb46d5b4a772cdbb125cc5481d7cdd5995
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5dc5d27d0364bf64d9f8b695213c2f71cc822949
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093011"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048492"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure Policy wbudowane definicje Azure Container Registry
 
@@ -26,6 +26,7 @@ Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Zapoznaj się ze wskazówkami dotyczącymi [przypisywania zasad i przeglądu zgodności](container-registry-azure-policy.md).
 - Zobacz wbudowane elementy w [repozytorium GitHub usługi Azure Policy](https://github.com/Azure/azure-policy).
 - Przejrzyj temat [Struktura definicji zasad Azure Policy](../governance/policy/concepts/definition-structure.md).
 - Przejrzyj [wyjaśnienie działania zasad](../governance/policy/concepts/effects.md).

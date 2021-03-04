@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7fe0817abfac3070f77303bb0d2d662d18010862
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66f26cfa14d51a985e2bb420bec294f7ef3a6cd1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090507"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048152"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB migracji NoSQL i partnerów programistycznych aplikacji
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,6 @@ Od NoSQL migracji do tworzenia aplikacji możesz wybrać spośród wielu doświa
 | [Capgemini](https://www.capgemini.com/) | Handel detaliczny, IoT, analiza operacyjna (Spark), programowanie aplikacji | USA, Francja, Zjednoczone Królestwo, Holandia, Finlandia  |
 | [Firma Cognizant](https://www.cognizant.com/) | IoT, Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), programowanie aplikacji |USA, Kanada, Zjednoczone Królestwo, Dania, Holandia, Szwajcaria, Australia, Japonia |
 |[Infosys](https://www.infosys.com/)     | Opracowywanie aplikacji      |    USA    |  
-| [Systemy Lagash](https://www.devex.com/organizations/lagash-systems-131346) | IoT, architektura bezserwerowa, opracowywanie aplikacji | Argentyna, Chile, Kolumbia, Meksyk|
 | [Lambda3 informatyką](https://www.lambda3.com.br/) | Personalizacja w czasie rzeczywistym, magazyn detaliczny i programowanie aplikacji | Brazylia|
 |[Analiza Neala](https://www.nealanalytics.com/)    |     Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), programowanie aplikacji  |    USA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migracja NoSQL      |   USA      |

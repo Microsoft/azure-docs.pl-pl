@@ -1,86 +1,84 @@
 ---
 title: Odnajdywanie aplikacji na serwerach lokalnych przy użyciu Azure Migrate
 description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
-author: vineetvikram
-ms.author: vivikram
+author: vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: eb589c08122cd47747c005c13d12b336319fd558
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8266b585881546b37bbb21b82780ab26d85dada7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752009"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048084"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Odkryj aplikacje maszynowe, role i funkcje
+# <a name="discover-installed-applications-roles-and-features-software-inventory-and-sql-server-instances-and-databases"></a>Odkryj zainstalowane aplikacje, role i funkcje (Spis oprogramowania) oraz SQL Server wystąpienia i bazy danych
 
-W tym artykule opisano sposób odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu Azure Migrate: Ocena serwera.
+W tym artykule opisano, jak odnajdywać zainstalowane aplikacje, role i funkcje (Spis oprogramowania) oraz SQL Server wystąpienia i bazy danych na serwerach działających w środowisku VMware przy użyciu Azure Migrate: narzędzia do oceny serwera.
 
-Odnajdywanie spisu aplikacji, ról i funkcji działających na maszynach lokalnych pomaga identyfikować i dostosowywać ścieżkę migracji do platformy Azure dla obciążeń. Funkcja odnajdywania aplikacji korzysta z urządzenia Azure Migrate, aby przeprowadzić odnajdywanie przy użyciu poświadczeń gościa maszyny wirtualnej. Funkcja odnajdywania aplikacji nie ma żadnego agenta. Nic nie jest zainstalowane na maszynach wirtualnych.
+Wykonanie spisu oprogramowania ułatwia identyfikację i dostosowanie ścieżki migracji do platformy Azure dla obciążeń. Spis oprogramowania korzysta z urządzenia Azure Migrate, aby przeprowadzić odnajdywanie przy użyciu poświadczeń serwera. Jest całkowicie niezależny od agenta — na serwerach nie są zainstalowane żadne agenci, aby zebrać te dane.
 
 > [!NOTE]
-> Funkcja odnajdywania aplikacji jest obecnie dostępna tylko w wersji zapoznawczej dla maszyn wirtualnych VMware i jest ograniczona tylko do odnajdowania. Nie oferujemy jeszcze oceny opartej na aplikacji. 
-
+> Spis oprogramowania jest obecnie w wersji zapoznawczej tylko w przypadku serwerów działających w środowisku VMware i jest ograniczony tylko do odnajdywania. Obecnie firma Microsoft nie oferuje oceny opartej na aplikacjach.<br/> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Upewnij się, że wykonano następujące czynności:
-    - [Utworzono](./create-manage-projects.md) projekt Azure Migrate.
-    - [Dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
-- Przejrzyj temat [Obsługa i wymagania dotyczące odnajdywania aplikacji](migrate-support-matrix-vmware.md#vmware-requirements).
-- Upewnij się, że maszyny wirtualne, na których jest uruchomiona funkcja odnajdywania aplikacji, mają zainstalowany program PowerShell w wersji 2,0 lub nowszej, a zainstalowano narzędzia VMware (nowsze niż 10.2.0).
-- Sprawdź [wymagania](migrate-appliance.md) dotyczące wdrażania urządzenia Azure Migrate.
+- Upewnij się, że [utworzono projekt Azure Migrate](./create-manage-projects.md) z Azure Migrate: Narzędzie do oceny serwera zostało dodane do niego.
+- Zapoznaj się z [wymaganiami programu VMware](migrate-support-matrix-vmware.md#vmware-requirements) w celu przeprowadzenia spisu oprogramowania.
+- Przejrzyj [wymagania dotyczące urządzenia](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) przed skonfigurowaniem urządzenia.
+- Przejrzyj [wymagania dotyczące odnajdywania aplikacji](migrate-support-matrix-vmware.md#application-discovery-requirements) przed zainicjowaniem spisu oprogramowania na serwerach.
 
-
-## <a name="deploy-the-azure-migrate-appliance"></a>Wdrażanie urządzenia usługi Azure Migrate
+## <a name="deploy-and-configure-the-azure-migrate-appliance"></a>Wdróż i Skonfiguruj urządzenie Azure Migrate
 
 1. [Zapoznaj](migrate-appliance.md#appliance---vmware) się z wymaganiami dotyczącymi wdrażania urządzenia Azure Migrate.
-2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [public](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
+2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
 3. [Przejrzyj dane](migrate-appliance.md#collected-data---vmware) zbierane przez urządzenie podczas odnajdywania i oceny.
 4. [Zwróć uwagę](migrate-support-matrix-vmware.md#port-access-requirements) na wymagania dotyczące dostępu do portów dla urządzenia.
-5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia urządzenia jako maszyny wirtualnej VMware. Należy skonfigurować urządzenie, a następnie zarejestrować je w Azure Migrate.
-6. Podczas wdrażania urządzenia w celu rozpoczęcia wykrywania ciągłego należy określić następujące elementy:
-    - Nazwa vCenter Server, z którą chcesz nawiązać połączenie.
-    - Poświadczenia utworzone dla urządzenia w celu nawiązania połączenia z vCenter Server.
-    - Poświadczenia konta utworzone dla urządzenia w celu nawiązania połączenia z maszynami wirtualnymi z systemem Windows/Linux.
-
-Po wdrożeniu urządzenia i uzyskaniu poświadczeń urządzenie uruchamia ciągłe wykrywanie metadanych maszyn wirtualnych i danych wydajności oraz odnajdywanie aplikacji, funkcji i ról.  Czas odnajdowania aplikacji zależy od liczby posiadanych maszyn wirtualnych. Funkcja odnajdywania aplikacji na maszynach wirtualnych 500 zazwyczaj trwa godzinę.
+5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia serwera działającego w vCenter Server. Po wdrożeniu urządzenia należy zarejestrować je w projekcie Azure Migrate i skonfigurować go do inicjowania odnajdywania.
+6. Podczas konfigurowania urządzenia należy określić następujące elementy w Menedżerze konfiguracji urządzenia:
+    - Szczegóły vCenter Server, z którym chcesz nawiązać połączenie.
+    - vCenter Server poświadczenia w zakresie odnajdywania serwerów w środowisku programu VMware.
+    - Poświadczenia serwera, które mogą być poświadczeniami domeny/systemu Windows (niebędącymi domeną)/Linux (nienależących do domeny). [Dowiedz się więcej](add-server-credentials.md) na temat podania poświadczeń i sposobu ich obsługi.
 
 ## <a name="verify-permissions"></a>Weryfikowanie uprawnień
 
-[Utworzono konto vCenter Server tylko do odczytu](./tutorial-discover-vmware.md#prepare-vmware) na potrzeby odnajdywania i oceny. Konto tylko do odczytu wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
+- Należy [utworzyć vCenter Server konto tylko do odczytu](./tutorial-discover-vmware.md#prepare-vmware) na potrzeby odnajdywania i oceny. Konto tylko do odczytu wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby umożliwić współdziałanie z serwerami w celu wykonywania spisu oprogramowania.
+- Można dodać wiele poświadczeń domen i domen nienależących do domeny (Windows/Linux) do programu Configuration Manager na potrzeby odnajdywania aplikacji. Musisz mieć konto użytkownika-gościa dla serwerów z systemem Windows, a normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich serwerów z systemem Linux. [Dowiedz się więcej](add-server-credentials.md) na temat podania poświadczeń i sposobu ich obsługi.
 
-### <a name="add-the-user-account-to-the-appliance"></a>Dodaj konto użytkownika do urządzenia
+### <a name="add-credentials-and-initiate-discovery"></a>Dodawanie poświadczeń i Inicjowanie odnajdywania
 
-Dodaj konto użytkownika w następujący sposób:
+1. Otwórz Menedżera konfiguracji urządzenia, Ukończ sprawdzanie wymagań wstępnych i rejestrację urządzenia.
+2. Przejdź do panelu **Zarządzanie poświadczeniami i źródłami odnajdywania** .
+1.  W **kroku 1: podaj poświadczenia vCenter Server**, kliknij pozycję **Dodaj poświadczenia** , aby podać poświadczenia dla konta vCenter Server, które będzie używane przez urządzenie do odnajdywania serwerów uruchomionych na vCenter Server.
+1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** panelu wystąpienia vCenter Server :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="3 w Menedżerze konfiguracji urządzenia dla vCenter Server Szczegóły":::
+1. W **kroku 3: podawanie poświadczeń serwera do wykonywania spisu oprogramowania, analizy zależności bez agenta oraz odnajdywania wystąpień SQL Server i baz danych**, kliknij przycisk **Dodaj poświadczenia** , aby podać wiele poświadczeń serwera w celu zainicjowania spisu oprogramowania.
+1. Kliknij pozycję **Rozpocznij odnajdywanie**, aby uruchomić odnajdywanie vCenter Server.
 
-1. Otwórz aplikację zarządzanie urządzeniami. 
-2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
-3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych** kliknij pozycję **Dodaj poświadczenia** .
-3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
-6. Kliknij pozycję **Zapisz**.
-7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
-
-    ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
-
+ Po ukończeniu odnajdywania vCenter Server urządzenie inicjuje odnajdywanie zainstalowanych aplikacji, ról i funkcji (Spis oprogramowania). Czas trwania zależy od liczby odnalezionych serwerów. W przypadku serwerów z 500 na wykrytym magazynie w portalu Azure Migrate trwa około godziny.
 
 ## <a name="review-and-export-the-inventory"></a>Przeglądanie i eksportowanie spisu
 
-Po zakończeniu odnajdywania, jeśli podano poświadczenia do odnajdowania aplikacji, możesz przejrzeć i wyeksportować spis aplikacji w Azure Portal.
+Po zakończeniu spisu oprogramowania można przejrzeć i wyeksportować spis w Azure Portal.
 
 1. W **Azure Migrate serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę wyświetlaną, aby otworzyć stronę **odnalezione serwery** .
 
     > [!NOTE]
-    > Na tym etapie można także opcjonalnie skonfigurować analizę zależności dla odnalezionych maszyn, aby można było wizualizować zależności między maszynami, które chcesz ocenić. [Dowiedz się więcej](concepts-dependency-visualization.md) o analizie zależności.
+    > Na tym etapie można także włączyć analizę zależności dla odnalezionych serwerów, aby można było wizualizować zależności między serwerami, które chcesz ocenić. [Dowiedz się więcej](concepts-dependency-visualization.md) o analizie zależności.
 
-2. W **odnalezionych aplikacjach** kliknij liczbę wyświetlaną.
-3. W **spisie aplikacji** można przejrzeć odnalezione aplikacje, role i funkcje.
+2. W kolumnie **odnalezione aplikacje** kliknij liczbę wyświetlaną, aby przejrzeć odnalezione aplikacje, role i funkcje.
 4. Aby wyeksportować spis, w **odnalezionych serwerach** kliknij pozycję **Eksportuj spis aplikacji**.
 
-Spis aplikacji jest eksportowany i pobierany w formacie programu Excel. Arkusz **spisu aplikacji** zawiera wszystkie aplikacje odnalezione na wszystkich komputerach.
+Spis aplikacji jest eksportowany i pobierany w formacie programu Excel. Arkusz **spisu aplikacji** zawiera wszystkie aplikacje odnalezione na wszystkich serwerach.
+
+## <a name="discover-sql-server-instances-and-databases"></a>Odnajdź SQL Server wystąpienia i bazy danych
+
+- Funkcja odnajdywania aplikacji identyfikuje również wystąpienia SQL Server uruchomione w środowisku programu VMware.
+- Jeśli nie podano uwierzytelniania systemu Windows lub SQL Server poświadczeń uwierzytelniania w Menedżerze konfiguracji urządzeń, należy dodać poświadczenia, aby urządzenie mogło używać ich do nawiązywania połączeń z odpowiednimi wystąpieniami SQL Server.
+
+Po nawiązaniu połączenia urządzenie zbiera dane dotyczące konfiguracji i wydajności SQL Server wystąpień i baz danych. Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund. W związku z tym każda zmiana właściwości wystąpienia SQL Server i baz danych, takich jak stan bazy danych, poziom zgodności itp., może zająć do 24 godzin.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Utwórz ocenę](how-to-create-assessment.md) dla odnalezionych serwerów.
-- Ocenianie SQL Server baz danych przy użyciu [Azure Migrate: Ocena bazy danych](/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sql-server-2017).
+- [Ocenianie serwerów SQL](./tutorial-assess-sql.md) na potrzeby migracji do usługi Azure SQL.

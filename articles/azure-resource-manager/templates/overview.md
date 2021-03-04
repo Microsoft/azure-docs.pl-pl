@@ -2,13 +2,13 @@
 title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager (szablony ARM) na potrzeby wdrażania zasobów.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/03/2021
+ms.openlocfilehash: 7f850d06066a6892db9f17ae86a6bba9496bad58
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621843"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046384"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -17,6 +17,8 @@ Dzięki przeniesieniu do chmury wiele zespołów przyjmuje metody programowania 
 Aby sprostać tym wyzwaniom, można zautomatyzować wdrożenia i korzystać z zalet infrastruktury jako kodu. W kodzie można zdefiniować infrastrukturę, która musi zostać wdrożona. Kod infrastruktury jest częścią projektu. Podobnie jak w przypadku kodu aplikacji, kod infrastruktury jest przechowywany w repozytorium źródłowym i w wersji. Każdy z nich w zespole może uruchomić kod i wdrożyć podobne środowiska.
 
 Aby zaimplementować infrastrukturę jako kod dla rozwiązań platformy Azure, użyj szablonów Azure Resource Manager (szablony ARM). Szablon jest plikiem JavaScript Object Notation (JSON), który definiuje infrastrukturę i konfigurację projektu. Szablon używa składni deklaratywnej, która pozwala określić, co zamierzasz wdrożyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. W szablonie należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
+
+Wprowadziliśmy nowy język na potrzeby opracowywania szablonów usługi ARM. Język ma nazwę Bicep i jest obecnie w wersji zapoznawczej. Szablony Bicep i JSON oferują te same możliwości. Szablon można skonwertować między tymi dwoma językami. Bicep zawiera składnię, która jest łatwiejsza do użycia podczas tworzenia szablonów. Aby uzyskać więcej informacji, zobacz [co to jest Bicep (wersja zapoznawcza)?](bicep-overview.md).
 
 ## <a name="why-choose-arm-templates"></a>Dlaczego warto wybrać Szablony ARM?
 
@@ -68,7 +70,7 @@ Szablon zawiera następujące sekcje:
 
 * [Funkcje zdefiniowane przez użytkownika](template-user-defined-functions.md) — tworzenie dostosowanych funkcji, które upraszczają szablon.
 
-* [Zasoby](template-syntax.md#resources) — Określ zasoby do wdrożenia.
+* [Zasoby](resource-declaration.md) — Określ zasoby do wdrożenia.
 
 * Dane [wyjściowe](template-outputs.md) — zwraca wartości ze wdrożonych zasobów.
 

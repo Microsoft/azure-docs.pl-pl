@@ -4,13 +4,15 @@ ms.author: cherylmc
 ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 567c0bb75c30a1f0ccdcde7ec1b0f04f5d6e54c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732505"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048265"
 ---
+[!INCLUDE [Portal feature rollout](virtual-wan-portal-feature-rollout.md)]
+
 1. Przejdź do opcji **wszystkie zasoby** i wybierz utworzoną wirtualną sieć WAN, a następnie wybierz pozycję **konfiguracje sieci VPN użytkownika** z menu po lewej stronie.
 1. Na stronie **konfiguracje sieci VPN użytkowników** wybierz pozycję **+ Utwórz konfigurację sieci VPN użytkownika** w górnej części strony, aby otworzyć stronę **Konfiguracja sieci VPN tworzenia nowego użytkownika** .
 
@@ -23,7 +25,7 @@ ms.locfileid: "101732505"
    **Sieć VPN z protokołem IKEv2**
 
    * **Wymagania:** Po wybraniu typu tunelu **IKEv2** zostanie wyświetlony komunikat z prośbą o wybranie metody uwierzytelniania. W przypadku protokołu IKEv2 można określić tylko jedną metodę uwierzytelniania. Możesz wybrać pozycję certyfikat platformy Azure, Azure Active Directory lub uwierzytelnianie oparte na usłudze RADIUS.
- 
+
    * **Parametry niestandardowe protokołu IPSec:** Aby dostosować parametry dla usługi IKE phase 1 i IKE Phase 2, Przełącz przełącznik IPsec na **niestandardowy** i wybierz wartości parametrów. Więcej informacji na temat dostosowywalnych parametrów można znaleźć w artykule dotyczącym [niestandardowego protokołu IPSec](../articles/virtual-wan/point-to-site-ipsec.md) .
 
      :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Zrzut ekranu przedstawiający przełącznik IPsec z niestandardowym.":::

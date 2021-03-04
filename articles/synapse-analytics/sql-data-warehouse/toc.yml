@@ -1,6 +1,6 @@
 - name: Dedykowana Pula SQL (dawniej SQL DW)
   href: sql-data-warehouse-overview-what-is.md
-- name: Przełączanie do usługi Azure Synapse
+- name: Przełącz do usługi Azure Synapse >
   href: ../overview-what-is.md
 - name: Omówienie
   items:

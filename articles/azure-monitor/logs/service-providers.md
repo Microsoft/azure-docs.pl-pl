@@ -1,17 +1,16 @@
 ---
 title: Dzienniki Azure Monitor dla dostawców usług | Microsoft Docs
 description: Dzienniki Azure Monitor mogą pomóc zarządzanym dostawcom usług (msp), dużymi przedsiębiorstwami, niezależnymi dostawcami oprogramowania (ISV) i dostawcami usług hostingowych oraz zarządzać serwerami w infrastrukturze lokalnej lub w chmurze klienta.
-ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5f1421da10c4748dd78e4c6790568285fa646979
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717387"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047115"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 

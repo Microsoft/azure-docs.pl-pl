@@ -1,17 +1,16 @@
 ---
 title: Przegląd Azure Monitor | Microsoft Docs
 description: Omówienie usług i funkcji Microsoft składających się na pełną strategię monitorowania usług i aplikacji platformy Azure.
-ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 00f1bec4d4117d9ccebb4440e3649dd9dff32058
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717353"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047166"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -145,7 +144,7 @@ Wiele interfejsów API jest dostępnych do odczytu i zapisu metryk i dzienników
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na następujące tematy:
 
-* [Metryki i dzienniki](data-platform.md) dla danych zbieranych przez Azure monitor.
+* [Metryki i dzienniki](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) dla danych zbieranych przez Azure monitor.
 * [Źródła danych](agents/data-sources.md) , dla których różne składniki aplikacji wysyłają dane telemetryczne.
 * [Zapytania dzienników](logs/log-query-overview.md) do analizowania zebranych danych.
 * [Najlepsze rozwiązania](/azure/architecture/best-practices/monitoring) dotyczące monitorowania aplikacji i usług w chmurze.

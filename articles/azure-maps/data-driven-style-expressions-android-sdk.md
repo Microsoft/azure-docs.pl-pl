@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 61d7a295d86fd7da74dee03cd35c79feea0218ed
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681730"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047744"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Wyrażenia w stylu opartym na danych (Android SDK)
 
@@ -662,7 +662,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 Oprócz używania gładkiego gradientu do kolorowania mapy cieplnej, kolory można określić w ramach zestawu zakresów przy użyciu `step` wyrażenia. Użycie `step` wyrażenia do kolorowania mapy cieplnej powoduje, że rozdzieli gęstość na zakresy podobne do mapy stylu konturu lub wykresu radarowego.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -679,6 +679,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dodawania do warstwy mapy cieplnej](map-add-heat-map-layer-android.md) .
+
+### <a name="line-progress-expression"></a>Wyrażenie postępu wiersza
+
+Wyrażenie postępu wiersza pobiera postęp wzdłuż linii gradientu w warstwie liniowej i jest zdefiniowane jako `lineProgress()` . Ta wartość jest liczbą z zakresu od 0 do 1. Jest on używany w połączeniu z `interpolation` `step` wyrażeniem or. Tego wyrażenia można używać tylko z `strokeGradient` opcją warstwy linii.
+
+> [!NOTE]
+> `strokeGradient`Opcja warstwy liniowej wymaga, `lineMetrics` Aby opcja źródła danych była ustawiona na wartość `true` .
+
+**Przykład**
+
+Ten przykład używa `lineProgress()` wyrażenia, aby zastosować gradient koloru do obrysu wiersza.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[Zobacz przykład na żywo](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Wyrażenie formatu pola tekstowego
 

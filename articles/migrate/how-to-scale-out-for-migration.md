@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746577"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048016"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Skalowanie migracji maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów
 
@@ -153,7 +153,7 @@ W tym momencie należy ponownie sprawdzić, czy urządzenie skalowalne w poziomi
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importowanie powiodło się":::
 
 > [!IMPORTANT]
-> Jeśli edytujesz poświadczenia vCenter Server na urządzeniu podstawowym, upewnij się, że pliki konfiguracji zostały ponownie zaimportowane na urządzenie skalowalne w poziomie, aby uzyskać najnowszą konfigurację i kontynuować wszystkie bieżące replikacje.<br/> Jeśli urządzenie skalowalne w poziomie nie jest dłużej potrzebne, należy wyłączyć urządzenie skalowalne w poziomie. [**Dowiedz się więcej**](./common-questions-appliance) na temat sposobu wyłączania urządzenia skalowalnego w poziomie, gdy nie jest to konieczne.
+> Jeśli edytujesz poświadczenia vCenter Server na urządzeniu podstawowym, upewnij się, że pliki konfiguracji zostały ponownie zaimportowane na urządzenie skalowalne w poziomie, aby uzyskać najnowszą konfigurację i kontynuować wszystkie bieżące replikacje.<br/> Jeśli urządzenie skalowalne w poziomie nie jest dłużej potrzebne, należy wyłączyć urządzenie skalowalne w poziomie. [**Dowiedz się więcej**](./common-questions-appliance.md) na temat sposobu wyłączania urządzenia skalowalnego w poziomie, gdy nie jest to konieczne.
 
 ## <a name="replicate"></a>Replikowanie
 

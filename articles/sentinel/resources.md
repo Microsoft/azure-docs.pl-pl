@@ -13,81 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c404aa93669cd95dccb0ad185d71d2ec16256d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570432"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048237"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z platformą Azure — wskaźnikiem
 
-
-
 W tym artykule wymieniono zasoby, które mogą pomóc uzyskać więcej informacji na temat pracy z platformą Azure — wskaźnikiem.
 
-- **Łączniki Azure Logic Apps**: <https://docs.microsoft.com/connectors/>
+## <a name="learn-more-about-creating-queries"></a>Dowiedz się więcej o tworzeniu zapytań
 
+Do kompilowania zapytań za pomocą języka Kusto (KQL) na platformie Azure są wykorzystywane Azure Monitor Log Analytics. Aby uzyskać więcej informacji, zobacz:
 
-## <a name="auditing-and-reporting"></a>Inspekcja i raportowanie
-Dzienniki inspekcji platformy Azure są przechowywane w [dziennikach aktywności platformy Azure](../azure-monitor/essentials/platform-logs-overview.md).
+- [Pojęcia KQL](/azure/data-explorer/kusto/concepts/)
+- [KQL zapytania](/azure/data-explorer/kusto/query/)
+- [KQL Krótki przewodnik](/azure/data-explorer/kql-quick-reference).
+- [Wprowadzenie do zapytań KQL](../azure-monitor/logs/get-started-queries.md)
 
-Możliwe jest przeprowadzenie inspekcji następujących obsługiwanych operacji.
+## <a name="learn-more-about-creating-automation"></a>Dowiedz się więcej o tworzeniu automatyzacji
 
-|Nazwa operacji|    Typ zasobu|
-|----|----|
-|Utwórz lub zaktualizuj skoroszyt  |Microsoft. Insights/skoroszyty|
-|Usuń skoroszyt    |Microsoft. Insights/skoroszyty|
-|Ustaw przepływ pracy   |Microsoft. Logic/przepływy pracy|
-|Usuń przepływ pracy    |Microsoft. Logic/przepływy pracy|
-|Utwórz zapisane wyszukiwanie    |Microsoft. OperationalInsights/Workspaces/savedSearches|
-|Usuń zapisane wyszukiwanie    |Microsoft. OperationalInsights/Workspaces/savedSearches|
-|Aktualizowanie reguł alertów |Microsoft. SecurityInsights/alertRules|
-|Usuń reguły alertów |Microsoft. SecurityInsights/alertRules|
-|Aktualizuj akcje odpowiedzi reguły alertu |Microsoft. SecurityInsights/alertRules/Actions|
-|Usuń akcje odpowiedzi reguły alertu |Microsoft. SecurityInsights/alertRules/Actions|
-|Aktualizuj zakładki   |Microsoft. SecurityInsights/zakładki|
-|Usuń zakładki   |Microsoft. SecurityInsights/zakładki|
-|Przypadki aktualizacji   |Microsoft. SecurityInsights/sprawy|
-|Aktualizacja badania przypadku  |Microsoft. SecurityInsights/sprawy/badania|
-|Utwórz Komentarze do wielkości liter   |Microsoft. SecurityInsights/sprawy/Komentarze|
-|Aktualizuj łączniki danych |Microsoft. SecurityInsights/dataconnecters|
-|Usuń łączniki danych |Microsoft. SecurityInsights/dataconnecters|
-|Aktualizuj ustawienia    |Microsoft. SecurityInsights/ustawienia|
+Utwórz automatyzację na platformie Azure wskaźnikowej przy użyciu Azure Logic Apps z rosnącą galerią wbudowanych elementy PlayBook. 
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Wyświetlanie danych inspekcji i raportowania na platformie Azure — wskaźnik
+Aby uzyskać więcej informacji, zobacz [Azure Logic Apps łączników](https://docs.microsoft.com/connectors/).
 
-Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywności platformy Azure do platformy Azure
+## <a name="comment-on-our-blogs-and-forums"></a>Komentarz dotyczący blogów i forów
 
-1. Połącz źródło danych [aktywności platformy Azure](connect-azure-activity.md) . Po wykonaniu tej czynności zdarzenia inspekcji są przesyłane strumieniowo do nowej tabeli na ekranie **dzienników** o nazwie Azure.
+Chętnie poznamy od naszych użytkowników.
 
-1. Następnie wykonaj zapytanie o dane przy użyciu KQL, tak jak w przypadku każdej innej tabeli.
+W obszarze TechCommunity na potrzeby platformy Azure — wskaźnik:
 
-    Na przykład aby dowiedzieć się, kto był ostatnim użytkownikiem edytującym daną regułę analizy, użyj następującego zapytania (zastępując `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` Identyfikator reguły dla reguły, którą chcesz sprawdzić):
+- [Wyświetlanie i komentowanie ostatnich wpisów w blogu](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
+- [Zamieszczaj własne pytania dotyczące platformy Azure — Wskaźnikowanie](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-    ```kusto
-    AzureActivity
-    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
-    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    | project Caller , TimeGenerated , Properties
-    ```
+Możesz również wysyłać sugestie dotyczące ulepszeń za pośrednictwem naszego programu [głosowego użytkownika](https://feedback.azure.com/forums/920458-azure-sentinel) .
 
+## <a name="join-the-azure-sentinel-github-community"></a>Dołącz do społeczności usługi GitHub dotyczącej platformy Azure
 
-## <a name="blogs-and-forums"></a>Blogi i fora
+[Repozytorium Azure wskaźnikowego GitHub](https://github.com/Azure/Azure-Sentinel) jest zaawansowanym zasobem do wykrywania zagrożeń i automatyzacji. 
 
-Chętnie poznamy od naszych użytkowników!
+Nasi analitycy zabezpieczeń firmy Microsoft stale tworzą i dodają nowe skoroszyty, elementy PlayBook, zapytania polowające i nie tylko publikują je w społeczności, aby można było korzystać z tego środowiska. 
 
-- **Opublikuj swoje pytania** w [obszarze TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) na potrzeby platformy Azure. 
-
-- **Prześlij sugestie dotyczące ulepszeń** za pośrednictwem naszego programu [głosowego użytkownika](https://feedback.azure.com/forums/920458-azure-sentinel) .
-
-- **Wyświetlaj** wpisy w blogu systemu Azure wskaźnikowego i Skomentuj je:
-
-    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
-    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
+Pobierz przykładową zawartość z repozytorium prywatnej społeczności GitHub, aby tworzyć niestandardowe skoroszyty, zapytania polowające, Notesy i elementy PlayBook dla platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

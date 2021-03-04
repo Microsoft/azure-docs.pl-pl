@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69f78f6e70fa4f0b04ca7527751085ec0265363a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570394"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048220"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
@@ -89,12 +89,19 @@ W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sen
 
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>Niestandardowe i zaawansowane role RBAC platformy Azure
 
-- Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- **Role niestandardowe**. Oprócz, lub zamiast, przy użyciu wbudowanych ról platformy Azure, można utworzyć role niestandardowe platformy Azure dla platformy Azure. Role niestandardowe platformy Azure dla usługi Azure wskaźnikowej są tworzone w taki sam sposób, jak w przypadku tworzenia innych [ról niestandardowych platformy](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)Azure, na podstawie [określonych uprawnień do usługi Azure wskaźnikowego](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) i do [zasobów platformy Azure log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Możesz użyć Log Analytics zaawansowanej kontroli dostępu opartej na rolach platformy Azure dla danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to kontroli dostępu na podstawie ról na platformie Azure zarówno w oparciu o typ danych, jak i skoncentrowanej na zasobach. Aby uzyskać więcej informacji o rolach usługi Log Analytics, zobacz [Zarządzanie danymi dziennika i obszarami roboczymi w usłudze Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions).
+- **Log Analytics RBAC**. Możesz użyć Log Analytics zaawansowanej kontroli dostępu opartej na rolach platformy Azure dla danych w obszarze roboczym wskaźnikowego platformy Azure. Dotyczy to zarówno opartego na typie danych kontroli RBAC i kontekstu zasobów Azure RBAC. Aby uzyskać więcej informacji, zobacz:
+
+    - [Zarządzanie danymi dziennika i obszarami roboczymi w Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions)
+
+    - [Kontrola dostępu do kontekstu zasobów dla platformy Azure — wskaźnik kontroli](resource-context-rbac.md)
+    - [Kontrola RBAC na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)
+
+    Kontrola dostępu do zasobów i kontekst na poziomie tabeli to dwie metody udostępniania określonych danych w obszarze roboczym wskaźnikowego platformy Azure bez zezwalania na dostęp do całego środowiska kontroli systemu Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie przedstawiono sposób pracy z rolami dla użytkowników wskaźnikowych platformy Azure oraz tego, co każda rola umożliwia użytkownikom.
 
-* [Blog dotyczący platformy Azure](https://aka.ms/azuresentinelblog). Wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
+Znajdź wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure na blogu dotyczącym [platformy Azure](https://aka.ms/azuresentinelblog).

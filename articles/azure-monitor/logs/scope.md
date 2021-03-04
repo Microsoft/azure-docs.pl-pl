@@ -1,17 +1,16 @@
 ---
 title: Zakres zapytania dziennika w Azure Monitor Log Analytics
 description: Opisuje zakres i zakres czasu dla zapytania dziennika w Azure Monitor Log Analytics.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 892c79d7908903b95a3bbbae2857933d877c7fba
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43e4e861905352c2818dfb08b8cb442bd70481c1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619483"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047183"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
 Po uruchomieniu [zapytania dziennika](../logs/log-query-overview.md) w [log Analytics w Azure Portal](../logs/log-analytics-tutorial.md), zestaw danych ocenianych przez zapytanie zależy od zakresu i wybranego zakresu czasu. W tym artykule opisano zakres i zakres czasu oraz sposób, w jaki można ustawić każdą z nich w zależności od wymagań. Opisano w nim również zachowanie różnych typów zakresów.
@@ -48,7 +47,7 @@ Gdy zakres zapytania jest obszarem roboczym Log Analytics lub aplikacją Applica
 Nie można użyć następujących poleceń w zapytaniu w zakresie zasobu, ponieważ zakres zapytania obejmuje już wszystkie obszary robocze zawierające dane dla tego zasobu lub zestawu zasobów:
 
 - [aplikacje](../logs/app-expression.md)
-- [obszary](../logs/workspace-expression.md)
+- [obszar roboczy](../logs/workspace-expression.md)
  
 
 ## <a name="query-scope-limits"></a>Limity zakresu zapytania

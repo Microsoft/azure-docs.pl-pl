@@ -1,17 +1,16 @@
 ---
 title: Inspekcja zapytań w dziennikach Azure Monitor
 description: Szczegóły dzienników inspekcji zapytania dziennika, które udostępniają dane telemetryczne dotyczące zapytań dzienników działających w Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 70741e91830027e210afce75e93d931d70bdbed1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 28dfac7de8e73adf577b0a13e5fbd8740b1e3b06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617453"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047421"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Inspekcja zapytań w dziennikach Azure Monitor (wersja zapoznawcza)
 Dzienniki inspekcji zapytań dzienników udostępniają dane telemetryczne dotyczące zapytań dzienników uruchomionych w Azure Monitor. Obejmuje to takie informacje, jak w przypadku uruchomienia zapytania, jego uruchomienia, używanego narzędzia, tekstu zapytania i statystyki wydajności opisującej wykonywanie zapytania.
