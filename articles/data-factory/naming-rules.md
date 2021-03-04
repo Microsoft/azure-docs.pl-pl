@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: f0d14760ce3e6403c9b6fe8cc7a2100aeb3f39a6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372913"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034408"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Reguły nazewnictwa Azure Data Factory
 
@@ -27,6 +27,8 @@ W poniższej tabeli przedstawiono reguły nazewnictwa Data Factory artefaktów.
 | Środowisko Integration Runtime |Unikatowa w ramach fabryki danych. W nazwach nie jest rozróżniana wielkość liter. |<ul><li>Nazwa środowiska Integration Runtime może zawierać tylko litery, cyfry i znak kreski (-).</li><li>Pierwszy i ostatni znak musi być literą lub cyfrą. Każdy znak kreski (-) musi być bezpośrednio poprzedzony literą lub cyfrą.</li><li>Kolejne kreski nie są dozwolone w nazwie Integration Runtime. </li></ul> |
 | Przekształcenia przepływu danych | Unikatowa w przepływie danych. W nazwach nie jest rozróżniana wielkość liter | <ul><li>Nazwy transformacji przepływu danych mogą zawierać tylko litery i cyfry</li><li>Pierwszy znak musi być literą. </li></ul> |
 | Grupa zasobów |Unikatowy dla Microsoft Azure. W nazwach nie jest rozróżniana wielkość liter. | Aby uzyskać więcej informacji, zobacz [reguły i ograniczenia nazewnictwa platformy Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). |
+| Zmienna & parametrów potoku  |Unikatowa w potoku. W nazwach nie jest rozróżniana wielkość liter. | <ul><li>Sprawdzanie poprawności nazw parametrów i nazw zmiennych jest ograniczone do unikatowości ze względu na zgodność z poprzednimi wersjami.</li><li>W przypadku używania parametrów lub zmiennych do odwoływania się do nazw jednostek, na przykład połączona usługa, stosowane są reguły nazewnictwa jednostek.</li><li>Dobrym sposobem jest przestrzeganie reguł nazewnictwa transformacji przepływu danych w celu nazywania parametrów i zmiennych potoku.</li></ul> |
 
 ## <a name="next-steps"></a>Następne kroki
+
 Dowiedz się, jak utworzyć fabrykę danych, wykonując instrukcje krok po kroku w [przewodniku szybki start: Tworzenie artykułu dla fabryki danych](quickstart-create-data-factory-powershell.md) . 

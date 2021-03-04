@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341689"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095548"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
@@ -29,7 +29,7 @@ Security Center używa agenta Log Analytics do zbierania i przechowywania danych
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Jak mogę uzyskać Azure Security Center?
-Azure Security Center jest włączona z subskrypcją Microsoft Azure i jest dostępna z [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Aby uzyskać do niego dostęp, [Zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj**i przewiń do **Security Center**.
+Azure Security Center jest włączona z subskrypcją Microsoft Azure i jest dostępna z [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Aby uzyskać do niego dostęp, [Zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj** i przewiń do **Security Center**.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Które zasoby platformy Azure są monitorowane przez Azure Security Center?
@@ -46,10 +46,10 @@ Na stronie **przegląd Security Centeru** są wyświetlane ogólne stan zabezpie
 
 
 
-## <a name="what-is-a-security-policy"></a>Co to są zasady zabezpieczeń?
-Zasady zabezpieczeń definiują zestaw formantów, które są zalecane dla zasobów w ramach określonej subskrypcji. W Azure Security Center definiujesz zasady dla subskrypcji platformy Azure zgodnie z wymaganiami firmy dotyczącymi zabezpieczeń oraz typem aplikacji lub poufnością danych w poszczególnych subskrypcjach.
+## <a name="what-is-a-security-initiative"></a>Co to jest inicjatywa zabezpieczeń?
+Inicjatywa zabezpieczeń definiuje zestaw kontrolek (zasad), które są zalecane dla zasobów w ramach określonej subskrypcji. W Azure Security Center można przypisywać inicjatywy dla subskrypcji platformy Azure zgodnie z wymaganiami firmy dotyczącymi zabezpieczeń i typem aplikacji lub poufnością danych w poszczególnych subskrypcjach.
 
-Zasady zabezpieczeń włączone w Azure Security Center na dysku zalecenia dotyczące zabezpieczeń i monitorowania. Aby dowiedzieć się więcej na temat zasad zabezpieczeń, zobacz [monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md).
+Zasady zabezpieczeń włączone w Azure Security Center na dysku zalecenia dotyczące zabezpieczeń i monitorowania. Dowiedz się więcej w temacie [co to są zasady zabezpieczeń, inicjatywy i zalecenia?](security-policy-concept.md)
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Kto może zmodyfikować zasady zabezpieczeń?

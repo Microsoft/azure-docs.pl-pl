@@ -3,12 +3,12 @@ title: Service Fabric zarządzane klastry (wersja zapoznawcza)
 description: Service Fabric zarządzanych klastrów to ewolucja modelu zasobów klastra usługi Azure Service Fabric, który usprawnia zarządzanie wdrażaniem i klastrem.
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: 8b90b73ef5f3202788ac7857875427673ebb562b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635149"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041233"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Service Fabric zarządzane klastry (wersja zapoznawcza)
 
@@ -69,7 +69,7 @@ Najnowsze funkcje dla Service Fabric zarządzanych klastrów zapoznawczą obejmu
 * [Wdrażanie aplikacji przy użyciu szablonów ARM](how-to-managed-cluster-app-deployment-template.md)
 * [Automatyczne uaktualnienia systemu operacyjnego](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
 * [Szyfrowanie dysków](how-to-enable-managed-cluster-disk-encryption.md)
-* [Stosowanie reguł sieciowej grupy zabezpieczeń](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+* [Stosowanie reguł sieciowej grupy zabezpieczeń](how-to-managed-cluster-networking.md)
 
 Funkcje, które mają zostać dodane w przyszłych wydaniach, obejmują:
 

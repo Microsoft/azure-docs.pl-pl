@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101749056"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049670"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Szybki Start: Tworzenie aplikacji HoloLens przy użyciu kotwic obiektów platformy Azure w językach C++/WinRT i DirectX
 
@@ -23,7 +23,6 @@ Omawiane tematy:
 > [!div class="checklist"]
 > * Tworzenie i ładowanie aplikacji HoloLens
 > * Wykrywanie obiektu i wizualizacja jego modelu
-> * Przechwytywanie diagnostyki środowiska uruchomieniowego
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +63,7 @@ Aby uruchomić i debugować aplikację, wybierz pozycję **debuguj > Rozpocznij 
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Pozyskiwanie modelu obiektów i wykrywanie jego wystąpienia
 
-Musisz utworzyć model obiektów, aby uruchomić przykładową aplikację. Załóżmy, że masz już program CAD lub zeskanowany model siatki 3W obiektu w miejscu. Zapoznaj się z [przewodnikiem Szybki Start: pozyskiwanie modelu 3D](./get-started-model-ingestion.md) na temat tworzenia modelu.
+Musisz utworzyć model obiektów, aby uruchomić przykładową aplikację. Załóżmy, że masz już program CAD lub zeskanowany model siatki 3W obiektu w miejscu. Zapoznaj się z [przewodnikiem Szybki Start: pozyskiwanie modelu 3D](./get-started-model-conversion.md) na temat tworzenia modelu.
 
 Pobierz ten **model w naszym** przypadku do komputera. Następnie w portalu urządzenia HoloLens wybierz pozycję **System > plików eksplorator > LocalAppData > AoaSampleApp > LocalState** i wybierz pozycję **Przeglądaj...**. Następnie wybierz plik modelu, **krzesło. OU** na przykład, a następnie wybierz pozycję **Przekaż**. Następnie należy wyświetlić plik modelu w lokalnej pamięci podręcznej.
 
@@ -86,7 +85,7 @@ Aplikacja dopasowuje model 3D do jego fizycznego odpowiednika. Użytkownik może
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Szybki Start: pozyskiwanie modelu 3D](./get-started-model-ingestion.md)
+> [Szybki Start: pozyskiwanie modelu 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Pojęcia: Omówienie zestawu SDK](../concepts/sdk-overview.md)

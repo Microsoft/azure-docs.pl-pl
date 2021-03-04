@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: b609d8389504eb10dd35a5ab74b0c198d3da57a6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f69fe97c33a17ade39f67078d5b035dac4d0bfaf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090496"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034170"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -102,7 +102,7 @@ Organizacje, które nie integrują swojej tożsamości lokalnej z tożsamościam
 > Należy wybrać katalogi, w których znajdują się konta krytyczne, oraz określić, czy używana stacja robocza stacji roboczej jest zarządzana przez nowe usługi w chmurze czy istniejące. Korzystanie z istniejących procesów zarządzania i inicjowania obsługi tożsamości może zmniejszyć ryzyko, ale może również stworzyć ryzyko naruszenia konta lokalnego i przestawienie go do chmury. Możesz chcieć użyć innej strategii dla różnych ról (na przykład administratorów IT i administratorów jednostek roboczych). Dostępne są dwie opcje. Pierwsza opcja polega na utworzeniu kont usługi Azure AD, które nie są zsynchronizowane z lokalnym wystąpieniem Active Directory. Dołącz do usługi Azure AD swoją administracyjną stację roboczą, którą możesz zarządzać i poprawiać przy użyciu Microsoft Intune. Druga opcja polega na użyciu istniejących kont administratora przez synchronizację z lokalnym wystąpieniem Active Directory. Użyj istniejących stacji roboczych w domenie Active Directory na potrzeby zarządzania i zabezpieczeń.
 
 ## <a name="manage-connected-tenants"></a>Zarządzanie połączonymi dzierżawcami
-Twoja organizacja zabezpieczeń wymaga wglądu w ocenę ryzyka i ustalenia, czy stosowane są zasady organizacji i wymagania prawne. Należy upewnić się, że organizacja zabezpieczeń ma wgląd we wszystkie subskrypcje połączone ze środowiskiem produkcyjnym i siecią (za pośrednictwem [usługi Azure ExpressRoute](../../expressroute/expressroute-introduction.md) lub [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). [Administrator globalny](../../active-directory/roles/permissions-reference.md#global-administrator-permissions) w usłudze Azure AD może podnieść poziom dostępu do roli [administratora dostępu użytkowników](../../role-based-access-control/built-in-roles.md#user-access-administrator) i zobaczyć wszystkie subskrypcje i grupy zarządzane połączone ze środowiskiem.
+Twoja organizacja zabezpieczeń wymaga wglądu w ocenę ryzyka i ustalenia, czy stosowane są zasady organizacji i wymagania prawne. Należy upewnić się, że organizacja zabezpieczeń ma wgląd we wszystkie subskrypcje połączone ze środowiskiem produkcyjnym i siecią (za pośrednictwem [usługi Azure ExpressRoute](../../expressroute/expressroute-introduction.md) lub [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). [Administrator globalny](../../active-directory/roles/permissions-reference.md#global-administrator) w usłudze Azure AD może podnieść poziom dostępu do roli [administratora dostępu użytkowników](../../role-based-access-control/built-in-roles.md#user-access-administrator) i zobaczyć wszystkie subskrypcje i grupy zarządzane połączone ze środowiskiem.
 
 Zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](../../role-based-access-control/elevate-access-global-admin.md) , aby upewnić się, że użytkownik i Twoja grupa zabezpieczeń mogą wyświetlać wszystkie subskrypcje lub grupy zarządzania połączone ze środowiskiem. Ten podwyższony poziom dostępu należy usunąć po przeprowadzeniu oceny ryzyka.
 

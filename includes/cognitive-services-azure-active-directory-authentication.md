@@ -4,17 +4,17 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 1085daca153431a28fdcc2583d0e31308214bf91
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fcb4113a4dab1e3de17eb022b1ad386cbc6a9583
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561125"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109043"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 
 > [!IMPORTANT]
-> 1. Obecnie **tylko** interfejs API przetwarzania obrazów, interfejs API rozpoznawania twarzy, interfejs API analizy tekstu, czytniki immersyjny, aparat rozpoznawania nietypowego wykrywania i wszystkie usługi Bing, z wyjątkiem wyszukiwanie niestandardowe Bing obsługa uwierzytelniania przy użyciu Azure Active Directory (AAD).
+> 1. Obecnie **tylko** interfejs API przetwarzania obrazów, Face API, interfejs API analizy tekstu, czytniki immersyjny, aparat rozpoznawania anomalii, QNA Maker i wszystkie usługi Bing, z wyjątkiem wyszukiwanie niestandardowe Bing obsługują uwierzytelnianie przy użyciu usługi Azure Active Directory (AAD).
 > 2. Uwierzytelnianie w usłudze AAD musi być zawsze używane razem z niestandardową nazwą domeny podrzędnej zasobu platformy Azure. [Regionalne punkty końcowe](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) nie obsługują uwierzytelniania usługi AAD.
 
 W poprzednich sekcjach pokazano, jak uwierzytelniać się w usłudze Azure Cognitive Services przy użyciu pojedynczego lub wielousługowego klucza subskrypcji. Chociaż te klucze zapewniają szybką i łatwą ścieżkę do rozpoczęcia opracowywania, są coraz bardziej złożone scenariusze, które wymagają kontroli dostępu opartej na rolach (Azure RBAC). Spójrzmy na to, co jest wymagane do uwierzytelniania za pomocą usługi Azure Active Directory (AAD).
@@ -128,7 +128,7 @@ Aby można było używać zarządzanych tożsamości dla zasobów platformy Azur
 - [Azure Portal](../articles/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../articles/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../articles/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Szablon Azure Resource Manager](../articles/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Szablon usługi Azure Resource Manager](../articles/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager biblioteki klienckie](../articles/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [zarządzane tożsamości dla zasobów platformy Azure](../articles/active-directory/managed-identities-azure-resources/overview.md).

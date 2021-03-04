@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3ca73e020009817001f309ddf29c2984a8541026
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527482"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033558"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Zabezpieczanie usługi uwierzytelniania wieloskładnikowego opartego na telefonie (MFA)
 
@@ -89,7 +89,7 @@ Wykonaj poniższe czynności, aby pomóc w ograniczeniu fałszywych logowań.
 - Użyj **zalecanych** wersji przepływów użytkowników, aby wykonać następujące czynności:
      
    - [Włącz funkcję jednorazowego kodu dostępu wiadomości e-mail (OTP)](phone-authentication-user-flows.md) dla usługi MFA (dotyczy zarówno przepływów rejestrowania i logowania).
-   - [Skonfiguruj zasady dostępu warunkowego](conditional-access-identity-protection-setup.md) , aby blokować logowania na podstawie lokalizacji (dotyczy tylko przepływów logowania, a nie do przepływów).
+   - [Skonfiguruj zasady dostępu warunkowego](conditional-access-user-flow.md) , aby blokować logowania na podstawie lokalizacji (dotyczy tylko przepływów logowania, a nie do przepływów).
    - Za pomocą łączników interfejsu API można [zintegrować z rozwiązaniem bot, takim jak reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (dotyczy przepływów tworzenia konta).
 
 - Usuń kody krajów, które nie są istotne dla Twojej organizacji, w menu rozwijanym, w którym użytkownik weryfikuje numer telefonu (Ta zmiana zostanie zastosowana do przyszłych logowań):

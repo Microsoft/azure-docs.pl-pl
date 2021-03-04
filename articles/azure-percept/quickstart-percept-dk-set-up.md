@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 3540204d66bb589c567514f92a9a8acb2159e343
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665518"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041692"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Skonfiguruj platformę Azure Percept DK i Wdróż swój pierwszy model AI
 
@@ -173,7 +173,7 @@ Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](https:
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Ostrzeżenie dotyczące rozłączenia środowiska Instalatora."::: 
 
-1. Przejdź do witryny Azure Portal — Wróć do okna środowisko instalacji i kliknij przycisk **Kontynuuj do Azure Portal** , aby rozpocząć tworzenie niestandardowych modeli AI w usłudze Azure Percept Studio.
+1. Przejdź do Azure Portal — Wróć do okna środowisko instalacji i kliknij przycisk **Kontynuuj do Azure Portal** , aby rozpocząć tworzenie niestandardowych modeli AI w usłudze Azure Percept Studio.
 
     > [!NOTE]
     > Sprawdź, czy komputer hosta nie jest już połączony z punktem dostępu do zestawu deweloperów w ustawieniach sieci Wi-Fi i jest teraz ponownie połączony z lokalną siecią Wi-Fi.
@@ -205,8 +205,6 @@ Jeśli chcesz utworzyć nową subskrypcję, wykonaj następujące [kroki](https:
     
 1. Wdróż nowy wstępnie utworzony przykład na podłączonym urządzeniu. Wybierz próbkę z biblioteki i kliknij pozycję "wdróż na urządzeniu".
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-1-select-prebuilt.png" alt-text="Wybierz wstępnie utworzony.":::
-    
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="Zobacz wykrywanie obiektów w akcji.":::
 
 ## <a name="next-steps"></a>Następne kroki

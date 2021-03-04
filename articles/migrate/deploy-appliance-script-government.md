@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: f31211c4448ad5bbe8d839b2ec86b0b61970f568
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6778c8e5e1e4fa83d34141fd13ba21d483ab76e9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752196"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041352"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
 
@@ -36,7 +36,7 @@ Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+1.  W obszarze serwery **celów migracji**  >    >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
 2.  W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
@@ -90,7 +90,7 @@ Aby skonfigurować urządzenie dla funkcji Hyper-V, pobierz spakowany plik z Azu
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+1.  W obszarze serwery **celów migracji**  >    >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
 2.  W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
@@ -145,7 +145,7 @@ Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+1.  W obszarze serwery **celów migracji**  >    >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
 2.  W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** wybierz opcję **niezwirtualizowane/inne**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
@@ -196,6 +196,6 @@ Upewnij się, że urządzenie może połączyć się z adresami URL platformy Az
 
 Po wdrożeniu urządzenia należy skonfigurować je po raz pierwszy i zarejestrować w projekcie Azure Migrate.
 
-- Skonfiguruj urządzenie dla programu [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Skonfiguruj urządzenie dla programu [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Skonfiguruj urządzenie dla [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Skonfiguruj urządzenie dla [serwerów fizycznych](how-to-set-up-appliance-physical.md).

@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6dda65be98934ce90e985b241078ae8019afb7e0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361268"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095735"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ ms.locfileid: "100361268"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule opisano sposób włączania logowania do konta użytkownika AD FS przy użyciu [zasad niestandardowych](custom-policy-overview.md) w Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [profil techniczny dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md) do zasad niestandardowych.
+W tym artykule opisano sposób włączania logowania do konta użytkownika AD FS przy użyciu [zasad niestandardowych](custom-policy-overview.md) w Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [dostawcę tożsamości SAML](identity-provider-generic-saml.md) do zasad niestandardowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +62,7 @@ Musisz przechowywać certyfikat w dzierżawie Azure AD B2C.
 
 Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta AD FS, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
-Konto AD FS można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie profilu technicznego dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md).
+Konto AD FS można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie dostawcy tożsamości SAML](identity-provider-generic-saml.md).
 
 1. Otwórz *TrustFrameworkExtensions.xml*.
 1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
@@ -217,7 +217,7 @@ Ten błąd wskazuje, że żądanie SAML wysyłane przez Azure AD B2C nie jest po
 
 #### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>Opcja 1: Ustaw algorytm podpisu w Azure AD B2C  
 
-Można skonfigurować sposób podpisywania żądania SAML w Azure AD B2C. Metadane [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) kontrolują wartość `SigAlg` parametru (ciąg zapytania lub parametr post) w żądaniu SAML. Poniższy przykład konfiguruje Azure AD B2C, aby użyć `rsa-sha256` algorytmu podpisu.
+Można skonfigurować sposób podpisywania żądania SAML w Azure AD B2C. Metadane [XmlSignatureAlgorithm](identity-provider-generic-saml.md) kontrolują wartość `SigAlg` parametru (ciąg zapytania lub parametr post) w żądaniu SAML. Poniższy przykład konfiguruje Azure AD B2C, aby użyć `rsa-sha256` algorytmu podpisu.
 
 ```xml
 <Metadata>

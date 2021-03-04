@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-object-anchors
 ms.author: crtreasu
-ms.date: 02/19/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 020f727674449523a57a608e8930d67e0f239cf6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747120"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034612"
 ---
 # <a name="runtime-sdk-overview"></a>Omówienie zestawu SDK środowiska uruchomieniowego
 
@@ -25,7 +25,7 @@ Wszystkie typy opisane poniżej można znaleźć w przestrzeni nazw **Microsoft.
 
 ### <a name="objectmodel"></a>ObjectModel
 
-[ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) reprezentuje geometrię obiektu fizycznego i koduje niezbędne parametry na potrzeby wykrywania i szacowania. Należy ją utworzyć za pomocą [usługi kotwice obiektów](../quickstarts/get-started-model-ingestion.md). Następnie aplikacja może załadować wygenerowany plik modelu przy użyciu interfejsu API kotwic obiektów i zbadać siatkę osadzoną w tym modelu do wizualizacji.
+[ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) reprezentuje geometrię obiektu fizycznego i koduje niezbędne parametry na potrzeby wykrywania i szacowania. Należy ją utworzyć za pomocą [usługi kotwice obiektów](../quickstarts/get-started-model-conversion.md). Następnie aplikacja może załadować wygenerowany plik modelu przy użyciu interfejsu API kotwic obiektów i zbadać siatkę osadzoną w tym modelu do wizualizacji.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
@@ -103,7 +103,7 @@ if(status != ObjectObserverStatus.Allowed)
 }
 ```
 
-Następnie aplikacja tworzy obiekt obserwatora i ładuje niezbędne modele wygenerowane przez usługę pozyskiwania [kotwic obiektów](../quickstarts/get-started-model-ingestion.md).
+Następnie aplikacja tworzy obiekt obserwatora i ładuje niezbędne modele wygenerowane przez [usługę konwersji modelu kotwic obiektów](../quickstarts/get-started-model-conversion.md).
 
 ```cs
 var observer = new ObjectObserver();

@@ -1,14 +1,14 @@
 ---
 title: Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 description: Dowiedz się, jak usługa Azure Lighthouse umożliwia wdrożenie definicji zasad i przypisania zasad dla wielu dzierżawców.
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 48354c3cca7574b1d5acf71865218564591bc23e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412072"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049784"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Wdrażanie Azure Policy do delegowanych subskrypcji na dużą skalę
 
@@ -51,6 +51,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Chociaż można wdrażać zasady dla wielu dzierżawców, obecnie nie można [wyświetlić szczegółów zgodności](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) dla niezgodnych zasobów w tych dzierżawcach.
+
 ## <a name="validate-the-policy-deployment"></a>Weryfikowanie wdrożenia zasad
 
 Po wdrożeniu szablonu Azure Resource Manager można potwierdzić, że definicja zasad została pomyślnie zastosowana, próbując utworzyć konto magazynu z **EnableHttpsTrafficOnly** ustawionym na **wartość false** w jednej z delegowanych subskrypcji. W związku z przypisaniem zasad nie powinno być możliwe utworzenie tego konta magazynu.  
@@ -90,9 +93,6 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
-
-> [!NOTE]
-> Chociaż można wdrażać zasady dla wielu dzierżawców, obecnie nie można [wyświetlić szczegółów zgodności](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) dla niezgodnych zasobów w tych dzierżawcach.
 
 ## <a name="next-steps"></a>Następne kroki
 

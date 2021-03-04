@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b03cd8bc71f87e3ce7984a55d330bc116614f928
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07abbc5f5e85c75b73774d11b6b81dd2085735b7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663211"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095327"
 ---
 # <a name="view-your-azure-percept-dks-model-inference-telemetry"></a>Wyświetlanie danych telemetrycznych o wnioskach o modelu w usłudze Azure Percept DK
 
@@ -35,7 +35,7 @@ Postępuj zgodnie z tym przewodnikiem, aby wyświetlić dane telemetryczne dotyc
 
 1. Połącz IoT Hub z Eksploratorem usługi Azure IoT:
 
-    1. Przejdź do witryny [Azure Portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
+    1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
     1. Wybierz pozycję **Wszystkie zasoby**.
 
@@ -70,5 +70,4 @@ Postępuj zgodnie z tym przewodnikiem, aby wyświetlić dane telemetryczne dotyc
     1. Kliknij przycisk **Uruchom** , aby wyświetlić zdarzenia telemetrii z urządzenia.
 
 ## <a name="next-steps"></a>Następne kroki
-
-Dowiedz się, jak wyświetlić [strumień wideo dotyczący usługi Azure PERCEPT DK](how-to-view-video-stream.md).
+Dowiedz się, jak wyświetlić [strumień wideo dotyczący usługi Azure PERCEPT DK](./how-to-view-video-stream.md).

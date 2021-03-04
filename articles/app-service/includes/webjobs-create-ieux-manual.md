@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ef61502d0b2fccc92ca606992e965b45764baa0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746670"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109028"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Utwórz ręcznie wyzwolone zadanie WebJob
 
@@ -28,8 +28,8 @@ ms.locfileid: "101746670"
 
     ![Zrzut ekranu pokazujący ustawienia, które należy ustawić w celu utworzenia ręcznie wyzwalanego Zadania WebJob.](../media/web-sites-create-web-jobs/addwjtriggered.png)
     
-    | Ustawienie      | Wartość przykładowa   | Opis  |
-    | ------------ | ----------------- | ------------ |
+    | Ustawienie      | Wartość przykładowa   | 
+    | ------------ | ----------------- | 
    | <abbr title="Nazwa, która jest unikatowa w ramach aplikacji App Service. Musi zaczynać się literą lub cyfrą i nie może zawierać znaków specjalnych innych niż `-` i `_` .">Nazwa</abbr> | myTriggeredWebJob | 
     | <abbr title="Plik *. zip* , który zawiera plik wykonywalny lub skrypt, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu.">Przekazywanie plików</abbr> | ConsoleApp.zip |
     | <abbr title="Typy obejmują ciągły, wyzwolony.">Typ</abbr> | Wyzwalane | 

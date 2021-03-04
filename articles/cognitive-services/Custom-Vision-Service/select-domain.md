@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624843"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095667"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Wybierz domenę dla projektu Custom Vision
 
@@ -37,7 +37,7 @@ Na karcie Ustawienia projektu Custom Vision możesz wybrać domenę dla projektu
 |Domena|Przeznaczenie|
 |---|---|
 |__Ogólne__| Optymalizacja pod kątem szerokiego zakresu zadań wykrywania obiektów. Jeśli żadna z pozostałych domen nie jest odpowiednia lub nie masz pewności, którą domenę wybrać, wybierz domenę ogólne. #C1 `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__Ogólne [a1]__| Optymalizacja pod kątem lepszej dokładności dzięki porównywalnemu czasowi wnioskowania jako domeny ogólnej. Zalecane w celu uzyskania bardziej dokładnej lokalizacji regionów, większych zestawów danych lub trudniejszych scenariuszy użytkowników. Ta domena wymaga więcej czasu uczenia się, a wyniki nie są deterministyczne: oczekiwano różnicowej mapy +-1% z tymi samymi danymi szkoleniowymi. #C1 `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__Ogólne [a1]__| Optymalizacja pod kątem lepszej dokładności dzięki porównywalnemu czasowi wnioskowania jako domeny ogólnej. Zalecane w celu uzyskania bardziej dokładnej lokalizacji regionów, większych zestawów danych lub trudniejszych scenariuszy użytkowników. Ta domena wymaga więcej czasu uczenia się, a wyniki nie są deterministyczne: Oczekiwano +-1% średniej dokładności (mapy) z tymi samymi danymi szkoleniowymi. #C1 `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logo__|Optymalizacja pod kątem znajdowania logo marki w obrazach. #C1 `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Produkty na półkach__|Optymalizacja pod kątem wykrywania i klasyfikowania produktów na półkach. #C1 `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domeny kompaktowe__| Optymalizacja pod kątem ograniczeń wykrywania obiektów w czasie rzeczywistym na urządzeniach brzegowych.|

@@ -3,12 +3,12 @@ title: Co nowego w usłudze Azure Backup
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728182"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095718"
 ---
 # <a name="whats-new-in-azure-backup"></a>Co nowego w usłudze Azure Backup
 
@@ -18,6 +18,9 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
 
 ## <a name="updates-summary"></a>Podsumowanie aktualizacji
 
+- Marzec 2021
+  - [Centrum kopii zapasowych jest teraz ogólnie dostępne](#backup-center-is-now-generally-available)
+  - [Obsługa warstwy Archiwum dla Azure Backup (w wersji zapoznawczej)](#archive-tier-support-for-azure-backup-in-preview)
 - Luty 2021 r.
   - [Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)](#backup-for-azure-blobs-in-preview)
 - Styczeń 2021 r.
@@ -36,6 +39,18 @@ Więcej informacji o nowych wersjach można uzyskać, zaznaczając je na tej str
   - [SAP HANA kopii zapasowych w usłudze RHEL Azure Virtual Machines (w wersji zapoznawczej)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Magazyn strefowo nadmiarowy (ZRS) dla danych kopii zapasowej (w wersji zapoznawczej)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Usuwanie nietrwałe dla obciążeń SQL Server i SAP HANA na maszynach wirtualnych platformy Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-center-is-now-generally-available"></a>Centrum kopii zapasowych jest teraz ogólnie dostępne
+
+Centrum kopii zapasowych upraszcza zarządzanie ochroną danych w skali, umożliwiając odnajdywanie, monitorowanie, obsługę i optymalizację zarządzania kopiami zapasowymi z jednej pojedynczej konsoli centralnej.
+
+Aby uzyskać więcej informacji, zobacz [Omówienie centrum kopii zapasowych](backup-center-overview.md).
+
+## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Obsługa warstwy Archiwum dla Azure Backup (w wersji zapoznawczej)
+
+Azure Backup teraz umożliwia zredukowanie kosztów długoterminowego przechowywania kopii zapasowych z dostępnością warstwy Archiwum dla maszyn wirtualnych platformy Azure i SQL Server na maszynach wirtualnych platformy Azure.
+
+Aby uzyskać więcej informacji, zobacz [Obsługa warstwy archiwum (wersja zapoznawcza)](archive-tier-support.md).
 
 ## <a name="backup-for-azure-blobs-in-preview"></a>Kopia zapasowa dla obiektów blob platformy Azure (w wersji zapoznawczej)
 

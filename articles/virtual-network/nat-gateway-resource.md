@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c70c575464d82f714022291406418cdd1ca0f8d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954668"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102094970"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -224,7 +224,7 @@ Gdy scenariusz będzie działał, jego model kondycji i tryb błędu nie są zde
 >Właściwość Zones zasobu bramy NAT nie jest modyfikowalna.  Wdróż ponownie zasób bramy translatora adresów sieciowych z zamierzonym preferencjami regionalnymi lub strefy.
 
 >[!NOTE] 
->Adresy IP same przez siebie nie są strefowo nadmiarowe, jeśli nie określono żadnej strefy.  Fronton [Usługa Load Balancer w warstwie Standardowa jest strefowo nadmiarowy](../load-balancer/load-balancer-standard-availability-zones.md#frontend) , jeśli adres IP nie został utworzony w określonej strefie.  Nie dotyczy to translatora adresów sieciowych.  Obsługiwane jest tylko izolacja regionalna lub strefy.
+>Adresy IP same przez siebie nie są strefowo nadmiarowe, jeśli nie określono żadnej strefy.  Fronton [Usługa Load Balancer w warstwie Standardowa jest strefowo nadmiarowy](../load-balancer/load-balancer-standard-availability-zones.md) , jeśli adres IP nie został utworzony w określonej strefie.  Nie dotyczy to translatora adresów sieciowych.  Obsługiwane jest tylko izolacja regionalna lub strefy.
 
 ## <a name="performance"></a>Wydajność
 
@@ -350,20 +350,3 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
 * Dowiedz się więcej o [translatorze adresów sieciowych sieci wirtualnych](nat-overview.md).
 * Informacje o [metrykach i alertach dotyczących zasobów bramy translatora adresów sieciowych](nat-metrics.md).
 * Informacje o [rozwiązywaniu problemów z zasobami bramy translatora adresów sieciowych](troubleshoot-nat.md).
-* Samouczek dotyczący weryfikowania bramy translatora adresów sieciowych
-  - [Interfejs wiersza polecenia platformy Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [Program PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
-  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
-* Przewodnik Szybki Start dotyczący wdrażania zasobu bramy translatora adresów sieciowych
-  - [Interfejs wiersza polecenia platformy Azure](./quickstart-create-nat-gateway-cli.md)
-  - [Program PowerShell](./quickstart-create-nat-gateway-powershell.md)
-  - [Portal](./quickstart-create-nat-gateway-portal.md)
-  - [Szablon](./quickstart-create-nat-gateway-template.md)
-* Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
-  - [Interfejs API REST](/rest/api/virtualnetwork/natgateways)
-  - [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/nat/gateway)
-  - [Program PowerShell](/powershell/module/az.network/new-aznatgateway)
-* Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
-* Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-overview.md).
-* Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).
-* [Powiedz nam, co należy utworzyć obok Virtual Network translatora adresów sieciowych w usłudze UserVoice](https://aka.ms/natuservoice).

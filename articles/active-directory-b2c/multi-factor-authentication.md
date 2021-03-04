@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525148"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033524"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Włączanie uwierzytelniania wieloskładnikowego w usłudze Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Ta funkcja ułatwia aplikacjom obsługę scenariuszy, takich jak:
 1. W sekcji **uwierzytelnianie** wieloskładnikowe wybierz żądaną **metodę MFA**, a następnie w obszarze **wymuszania MFA** wybierz opcję **zawsze włączone**, lub **warunkowo (zalecane)**.
    > [!NOTE]
    >
-   > - W przypadku wybrania **warunkowego (zalecane)** należy również [dodać zasady dostępu warunkowego](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) i określić aplikacje, do których mają być stosowane zasady.
+   > - W przypadku wybrania **warunkowego (zalecane)** należy również [dodać dostęp warunkowy do przepływów użytkowników](conditional-access-user-flow.md)i określić aplikacje, do których mają być stosowane zasady.
    > - Uwierzytelnianie wieloskładnikowe (MFA) jest domyślnie wyłączone dla przepływów użytkowników logujących się. Uwierzytelnianie wieloskładnikowe można włączyć w przepływach użytkownika przy użyciu rejestracji w telefonie, ale ponieważ numer telefonu jest używany jako identyfikator podstawowy, jedyną opcją dostępną dla drugiego czynnika uwierzytelniania jest adres e-mail.
 
 1. Wybierz pozycję **Zapisz**. Uwierzytelnianie wieloskładnikowe jest teraz włączone dla tego przepływu użytkownika.

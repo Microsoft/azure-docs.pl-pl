@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d33634c08b85ad633fdad3f709b2b2182571d7de
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558143"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034765"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Opis modeli cyfrowej reprezentacji bliźniaczej w usłudze Azure Digital Twins
 
@@ -65,7 +65,7 @@ Dane **telemetryczne** są często używane w przypadku urządzeń IoT, poniewa�
 
 W związku z tym podczas projektowania modelu w usłudze Azure Digital bliźniaczych reprezentacji prawdopodobnie będziesz używać **Właściwości** w większości przypadków, aby modelować bliźniaczych reprezentacji. Pozwala to na przechowywanie kopii zapasowych oraz możliwość odczytywania i wykonywania zapytań dotyczących pól danych.
 
-Dane telemetryczne i właściwości często współpracują ze sobą, aby obsługiwać ruch przychodzący z urządzeń. Ponieważ wszystkie dane przychodzące do usługi Azure Digital bliźniaczych reprezentacji są realizowane za pośrednictwem [interfejsów API](how-to-use-apis-sdks.md), zazwyczaj używana jest funkcja transferu danych przychodzących do odczytywania zdarzeń telemetrii lub właściwości z urządzeń oraz ustawiania właściwości w ADT w odpowiedzi. 
+Dane telemetryczne i właściwości często współpracują ze sobą, aby obsługiwać ruch przychodzący z urządzeń. Ponieważ wszystkie dane przychodzące do usługi Azure Digital bliźniaczych reprezentacji są realizowane za pośrednictwem [interfejsów API](how-to-use-apis-sdks.md), zazwyczaj używana jest funkcja transferu danych przychodzących do odczytywania zdarzeń telemetrii lub właściwości z urządzeń oraz ustawiania właściwości w usłudze Azure Digital bliźniaczych reprezentacji w odpowiedzi. 
 
 Możesz również opublikować wydarzenie telemetryczne z interfejsu API Digital bliźniaczych reprezentacji systemu Azure. Podobnie jak w przypadku innych danych telemetrycznych, to jest zdarzenie krótkoterminowe wymagające odbiornika do obsłużenia.
 
@@ -154,7 +154,7 @@ Jeśli jednak masz wiele modeli do przekazania — lub jeśli masz wiele współ
 
 _**Dla modeli wizualizacji**_
 
-Po przekazaniu modeli do wystąpienia usługi Azure Digital bliźniaczych reprezentacji można wyświetlić modele w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, w tym wszelkie dziedziczenie i relacje modelu przy użyciu [**wizualizatora modelu ADT**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Ten przykład jest obecnie w stanie wersji roboczej. Zachęcamy społeczność ds. projektowania Digital bliźniaczych reprezentacji do rozwinięcia i współtworzenia przykładu. 
+Po przekazaniu modeli do wystąpienia usługi Azure Digital bliźniaczych reprezentacji można wyświetlić modele w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, w tym wszelkie dziedziczenie i relacje z modelami, przy użyciu [**wizualizatora modeli cyfrowych bliźniaczych reprezentacji platformy Azure**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Ten przykład jest obecnie w stanie wersji roboczej. Zachęcamy społeczność ds. projektowania Digital bliźniaczych reprezentacji do rozwinięcia i współtworzenia przykładu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

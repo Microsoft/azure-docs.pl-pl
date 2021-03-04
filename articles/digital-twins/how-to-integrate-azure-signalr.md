@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8828b2dc48a8865e43a176757dc973a5cf85b784
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703005"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041505"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -51,7 +51,7 @@ Najpierw pobierz wymagane przykładowe aplikacje. Wymagane są obie następując
 
     Spowoduje to pobranie kopii przykładowego repozytorium do maszyny jako **digital-twins-samples-master.zip**. Rozpakuj folder.
 * [**Przykład aplikacji sieci Web do integracji sygnałów**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): jest to przykładowa aplikacja sieci Web z reakcję, która będzie korzystać z danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji z usługi Azure Signal Service.
-    -  Przejdź do linku przykładowego i naciśnij przycisk *Pobierz plik zip* , aby pobrać kopię przykładu do maszyny jako _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Rozpakuj folder.
+    -  Przejdź do linku przykładowego i Użyj tego samego procesu pobierania, aby pobrać kopię przykładu do maszyny jako _**digitaltwins-signalr-webapp-sample-main.zip**_. Rozpakuj folder.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -139,7 +139,7 @@ Następnie skonfigurujesz przykładową aplikację internetową klienta. Zacznij
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Widok Azure Portal funkcji &quot;Negotiate&quot;. Przycisk &quot;Pobierz adres URL funkcji&quot; jest wyróżniony, a część adresu URL od początku do &quot;/API&quot;":::
 
-1. Korzystając z programu Visual Studio lub dowolnego dowolnego edytora kodu, Otwórz niespakowany folder _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ pobrany w sekcji [*Pobieranie przykładowych aplikacji*](#download-the-sample-applications) .
+1. Korzystając z programu Visual Studio lub dowolnego dowolnego edytora kodu, Otwórz niespakowany folder _**digitaltwins-signaler-webapp-Sample-Main**_ pobrany w sekcji [*Pobieranie przykładowych aplikacji*](#download-the-sample-applications) .
 
 1. Otwórz plik *src/App.js* i Zastąp adres URL funkcji przy `HubConnectionBuilder` użyciu adresu URL punktu końcowego http, który  został zapisany w poprzednim kroku:
 
@@ -148,7 +148,7 @@ Następnie skonfigurujesz przykładową aplikację internetową klienta. Zacznij
             .withUrl('<Function URL>')
             .build();
     ```
-1. W *wierszu polecenia dewelopera* programu Visual Studio lub dowolnym oknie polecenia na maszynie przejdź do folderu *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* . Uruchom następujące polecenie, aby zainstalować pakiety węzła zależnego:
+1. W *wierszu polecenia dewelopera* programu Visual Studio lub dowolnym oknie polecenia na maszynie przejdź do folderu *digitaltwins-SignalR-webapp-Sample-main\src* . Uruchom następujące polecenie, aby zainstalować pakiety węzła zależnego:
 
     ```cmd
     npm install
@@ -175,7 +175,7 @@ Nie musisz wykonywać żadnych innych czynności w tej konsoli, ale pozostawić 
 
 ### <a name="see-the-results"></a>Zobacz wyniki
 
-Aby wyświetlić wyniki w akcji, uruchom **przykład aplikacji sieci Web do integracji sygnałów**. Można to zrobić z dowolnego okna konsoli w Azure_Digital_Twins_SignalR_integration_web_app_sample lokalizacji *\src* , uruchamiając następujące polecenie:
+Aby wyświetlić wyniki w akcji, uruchom **przykład aplikacji sieci Web do integracji sygnałów**. Można to zrobić z dowolnego okna konsoli w lokalizacji *digitaltwins-SignalR-webapp-Sample-main\src* , uruchamiając następujące polecenie:
 
 ```cmd
 npm start
@@ -203,7 +203,7 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 az group delete --name <your-resource-group>
 ```
 
-Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*digital-twins-samples-master.zip* i *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*digital-twins-samples-master.zip*, *digitaltwins-signalr-webapp-sample-main.zip* i ich niespakowanego odpowiedniki).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7f597010f86e0f962f250dcd87d6c78f401a73d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e4926fb228837c3ec0573af8ee5b15da5fd7431
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688988"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033988"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu resetowania hasła w Azure Active Directory B2C
 
@@ -206,7 +206,7 @@ W trakcie podróży użytkownika można reprezentować niezapomniane podjazdę h
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Ustawianie przebiegu użytkownika do wykonania
 
-Po zmodyfikowaniu lub utworzeniu podróży użytkownika w sekcji jednostka **uzależniona** Określ, która Azure AD B2C będzie wykonywana dla tych zasad niestandardowych. W elemencie [RelyingParty](../articles/active-directory-b2c/relyingparty.md) Znajdź element **DefaultUserJourney** . Zaktualizuj  **DefaultUserJourney ReferenceId** w taki sposób, aby odpowiadał identyfikatorowi podróży użytkownika, w którym dodano **ClaimsProviderSelections**.
+Po zmodyfikowaniu lub utworzeniu podróży użytkownika w sekcji jednostka **uzależniona** Określ, która Azure AD B2C będzie wykonywana dla tych zasad niestandardowych. W elemencie [RelyingParty](relyingparty.md) Znajdź element **DefaultUserJourney** . Zaktualizuj  **DefaultUserJourney ReferenceId** w taki sposób, aby odpowiadał identyfikatorowi podróży użytkownika, w którym dodano **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>

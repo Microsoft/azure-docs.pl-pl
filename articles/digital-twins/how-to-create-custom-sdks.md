@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980664"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049801"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
@@ -44,10 +44,10 @@ Aby uruchomić polecenie AutoRest dla pliku programu Azure Digital bliźniaczych
 3. Uruchom polecenie AutoRest przy użyciu poniższego polecenia. Zastąp `<language>` symbol zastępczy wybranym językiem: `python` , `java` , `go` , i tak dalej. (Pełną listę opcji można znaleźć w [pliku Readme AutoRest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi* przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
+W związku z tym zobaczysz nowy folder o nazwie *DigitalTwinsApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *DigitalTwinsApi* przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
 
 AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
@@ -60,8 +60,8 @@ Ta sekcja zawiera instrukcje dotyczące sposobu tworzenia zestawu SDK jako bibli
 Oto konkretne kroki:
 
 1. Tworzenie nowego rozwiązania programu Visual Studio dla biblioteki klas
-2. Użyj *ADTApi* jako nazwy projektu
-3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt *ADTApi* wygenerowanego rozwiązania i wybierz polecenie *Dodaj > istniejący element...*
+2. Użyj *DigitalTwinsApi* jako nazwy projektu
+3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt *DigitalTwinsApi* wygenerowanego rozwiązania i wybierz polecenie *Dodaj > istniejący element...*
 4. Znajdź folder, w którym został wygenerowany zestaw SDK, a następnie wybierz pliki na poziomie głównym
 5. Naciśnij przycisk "OK"
 6. Dodaj folder do projektu (Zaznacz projekt prawym przyciskiem myszy w Eksplorator rozwiązań i wybierz polecenie *dodaj > nowy folder*)

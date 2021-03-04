@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 03/03/2021
+ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532666"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049512"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL — elastyczny serwer
 
@@ -56,7 +56,7 @@ Na poniższej ilustracji przedstawiono przejście do awarii maszyny wirtualnej i
 
 Jeśli skonfigurowano nadmiarową wysoką dostępność strefy, usługa inicjuje i utrzymuje serwer rezerwy dynamicznej w strefie dostępności w tym samym regionie świadczenia usługi Azure. Zmiany danych na serwerze źródłowym są synchronicznie replikowane na serwerze rezerwy w celu zapewnienia zerowej utraty danych. Gdy zostanie wyzwolone planowane lub nieplanowane zdarzenie trybu failover z nadmiarową strefą o nieodpowiedniej dostępności, serwer rezerwy natychmiast przejdzie w tryb online i jest dostępny do przetwarzania przychodzących transakcji. Pozwala to na odporność usługi ze względu na awarię strefy dostępności w regionie świadczenia usługi Azure, który obsługuje wiele stref dostępności, jak pokazano na poniższej ilustracji.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Elastyczny serwer — awarie maszyn wirtualnych i magazynu":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Strefa nadmiarowa wysokiej dostępności":::
 
  Aby uzyskać więcej informacji, zobacz [dokument o wysokiej dostępności](./concepts-high-availability.md) .
 
@@ -85,6 +85,24 @@ Elastyczne serwery umożliwiają pełny prywatny dostęp do serwerów za pomocą
 ## <a name="monitoring-and-alerting"></a>Monitorowanie i zgłaszanie alertów
 
 Elastyczna usługa serwera jest wyposażona w wbudowaną funkcję monitorowania wydajności i alertów. Wszystkie metryki platformy Azure mają częstotliwość jednominutową, a każda Metryka zapewnia 30-dniową historię. Można skonfigurować alerty dotyczące metryk. Usługa udostępnia metryki serwera hosta do monitorowania wykorzystania zasobów i umożliwia konfigurowanie wolnych dzienników zapytań. Korzystając z tych narzędzi, można szybko zoptymalizować obciążenia i skonfigurować serwer w celu uzyskania najlepszej wydajności.
+
+## <a name="azure-regions"></a>Regiony świadczenia usługi Azure
+
+Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer jest dostępny dzisiaj w następujących regionach platformy Azure:
+
+| Region (Region) | Dostępność | Strefa nadmiarowa o wysokiej dostępności | 
+| --- | --- | --- |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Europa Północna | :heavy_check_mark: | :heavy_check_mark: |
+| Południowe Zjednoczone Królestwo | :heavy_check_mark: | :heavy_check_mark: | 
+| Wschodnie stany USA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Zachodnie stany USA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | 
+| East US | :heavy_check_mark: | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Japonia Wschodnia | :heavy_check_mark: | :heavy_check_mark: | 
+
+Będziemy nadal dodawać nowe regiony. 
 
 ## <a name="migration"></a>Migracja
 

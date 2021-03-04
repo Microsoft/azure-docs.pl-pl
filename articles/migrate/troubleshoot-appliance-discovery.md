@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f3331504540e8c23c3a83fe245bae27ca6c49385
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704031"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041284"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -167,6 +167,19 @@ Jeśli odnalezione maszyny wirtualne nie są wyświetlane w portalu lub dane mas
 
 Jeśli usuniesz maszyny wirtualne i nadal pojawią się one w portalu, odczekaj 30 minut. Jeśli nadal są wyświetlane, Odśwież zgodnie z powyższym opisem.
 
+## <a name="discovered-applications-and-sql-server-instances-and-databases-not-in-portal"></a>Odnalezione aplikacje i wystąpienia SQL Server i bazy danych, które nie są w portalu
+
+Po zainicjowaniu odnajdywania urządzenia może upłynąć nawet 24 godziny, aby rozpocząć wyświetlanie danych spisu w portalu.
+
+Jeśli nie podano uwierzytelniania systemu Windows lub SQL Server poświadczeń uwierzytelniania w Menedżerze konfiguracji urządzeń, należy dodać poświadczenia, aby urządzenie mogło używać ich do nawiązywania połączeń z odpowiednimi wystąpieniami SQL Server.
+
+Po nawiązaniu połączenia urządzenie zbiera dane dotyczące konfiguracji i wydajności SQL Server wystąpień i baz danych. Dane konfiguracji SQL Server są aktualizowane co 24 godziny, a dane wydajności są przechwytywane co 30 sekund. W związku z tym każda zmiana właściwości wystąpienia SQL Server i baz danych, takich jak stan bazy danych, poziom zgodności itp., może zająć do 24 godzin.
+
+## <a name="sql-server-instance-is-showing-up-in-not-connected-state-on-portal"></a>Wystąpienie SQL Server jest wyświetlane w stanie "niepołączone" w portalu
+Aby wyświetlić problemy napotkane podczas odnajdywania wystąpień SQL Server i baz danych, kliknij stan "niepołączony" w kolumnie Stan połączenia na stronie "odnalezione serwery" w projekcie.
+
+Tworzenie oceny na serwerach zawierających wystąpienia SQL, które nie zostały całkowicie wykryte lub są w stanie niepołączonym, może doprowadzić do gotowości jako "nieznany".
+
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Nie widzę danych o wydajności niektórych kart sieciowych na serwerach fizycznych
 
 Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wirtualizacja funkcji Hyper-V. Z powodu przerwy w działaniu produktu przepustowość sieci jest przechwytywana na odnalezionych wirtualnych kartach sieciowych.
@@ -199,9 +212,9 @@ Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli.
 
 | **Błąd** | **Przyczyna** | **Akcja** |
 |--|--|--|
-| 9000: nie można wykryć stanu narzędzia VMware. | Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
-| 9001: narzędzia VMware nie są zainstalowane. | Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
-| 9002: narzędzia VMware nie są uruchomione. | Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
+| 9000: nie można wykryć stanu narzędzia VMware. | Narzędzia VMware mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
+| 9001: narzędzia VMware nie są zainstalowane. | Narzędzia VMware mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
+| 9002: narzędzia VMware nie są uruchomione. | Narzędzia VMware mogą nie być zainstalowane lub są uszkodzone. | Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej. |
 | 9003: typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa. | System operacyjny uruchomiony na serwerze nie jest systemem Windows ani Linux. | Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux. Jeśli serwer jest w rzeczywistości Windows lub Linux, Sprawdź typ systemu operacyjnego określony w vCenter Server. |
 | 9004: maszyna wirtualna nie jest uruchomiona. | Maszyna wirtualna jest wyłączona. | Upewnij się, że maszyna wirtualna jest włączona. |
 | 9005: typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa. | Typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa. | Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux. |

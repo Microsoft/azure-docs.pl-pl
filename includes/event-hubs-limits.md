@@ -1,20 +1,8 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.topic: include
-ms.date: 02/01/2021
-ms.author: spelluru
-ms.custom: include file
-ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427408"
+title: Dołącz Opis pliku: Dołącz usługi plików: Event-Hub Author: spelluru MS. Service: Event-Hubs MS. temat: include MS. Date: 02/01/2021 MS. Author: spelluru MS. Custom: "include File", "FastTrack-Edit", "IoT", "Event-Hubs"
+
 ---
+
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="common-limits-for-all-tiers"></a>Typowe limity dla wszystkich warstw
@@ -24,7 +12,6 @@ Poniższe limity są wspólne dla wszystkich warstw.
 | --- |  --- | --- |
 | Liczba przestrzeni nazw Event Hubs na subskrypcję |- |100 |
 | Liczba centrów zdarzeń na przestrzeń nazw | Kolejne żądania utworzenia nowego centrum zdarzeń są odrzucane. |10 |
-| Liczba partycji na centrum zdarzeń |- |32 |
 | Rozmiar nazwy centrum zdarzeń |- | 256 znaków |
 | Rozmiar nazwy grupy odbiorców |- | 256 znaków |
 | Liczba odbiorników niezwiązanych z nieepoką na grupę konsumentów |- |5 |
@@ -39,18 +26,24 @@ W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw P
 
 | Limit | Uwagi | Podstawowa | Standardowa (Standard) |
 |---|---|--|---|
-| Maksymalny rozmiar zdarzenia Event Hubs| &nbsp; | 256 KB | 1 MB |
+| Maksymalny rozmiar publikacji Event Hubs| &nbsp; | 256 KB | 1 MB |
 | Liczba grup odbiorców na centrum zdarzeń | &nbsp; |1 |20 |
 | Liczba połączeń AMQP na przestrzeń nazw | Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. |100 |5000|
 | Maksymalny okres przechowywania danych zdarzenia | &nbsp; |1 dzień |1-7 dni |
 | Maksymalna liczba jednostek przepływności |Przekroczenie tego limitu powoduje ograniczenie danych i wygenerowanie [wyjątku zajętości serwera](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Aby zażądać większej liczby jednostek przepływności dla warstwy Standardowa, należy [wysłać żądanie pomocy technicznej](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). [Dodatkowe jednostki przepływności](../articles/event-hubs/event-hubs-auto-inflate.md) są dostępne w blokach od 20 na podstawie zatwierdzonego zakupu. |20 | 20 | 
+| Liczba partycji na centrum zdarzeń | |32 | 32 | 
+
+> [!NOTE]
+>
+> Możesz publikować zdarzenia pojedynczo lub zbiorczo. 
+> Limit publikacji (zgodnie z jednostką SKU) obowiązuje niezależnie od tego, czy jest to pojedyncze zdarzenie, czy partia. Publikowanie zdarzeń przekraczających maksymalny próg zostanie odrzucone.
 
 ### <a name="dedicated-tier-vs-standard-tier"></a>Warstwa dedykowana a warstwa standardowa
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
 Zapoznaj się z tym [dokumentem](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) , jak utworzyć dedykowany klaster Event Hubs przy użyciu Azure Portal.
 
-| Cechy | Standardowa | Dedykowane |
+| Cecha | Standardowa | Dedykowane |
 | --- |:---|:---|
 | Szerokość pasma | 20 TUs (do 40 TUs) | 20 jednostek |
 | Przestrzenie nazw |  1 | 50 na CU |

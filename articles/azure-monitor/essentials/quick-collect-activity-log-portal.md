@@ -1,17 +1,16 @@
 ---
 title: Wyślij dziennik aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu Azure Portal
 description: Użyj Azure Portal, aby utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne w celu wysłania dziennika aktywności do dzienników Azure Monitor.
-ms.subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fec1f4f3ae13f6c9ed5fdd7ffbcd143e5c5e5f52
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734285"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033252"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Wyślij dziennik aktywności platformy Azure do Log Analytics obszaru roboczego przy użyciu Azure Portal
 Dziennik aktywności jest to dziennik platformy Azure, który zapewnia wgląd w zdarzenia na poziomie subskrypcji. Zawiera on takie informacje jak czas zmodyfikowania zasobu lub czas uruchomienia maszyny wirtualnej. Dziennik aktywności można wyświetlić w Azure Portal lub pobrać wpisów przy użyciu programu PowerShell i interfejsu wiersza polecenia. W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć obszar roboczy Log Analytics i ustawienia diagnostyczne w celu wysłania dziennika aktywności do dzienników Azure Monitor, gdzie można je analizować przy użyciu [zapytań dzienników](../logs/log-query-overview.md) i włączyć inne funkcje, takie jak [alerty dzienników](../alerts/alerts-log-query.md) i [skoroszyty](../visualize/workbooks-overview.md). 
