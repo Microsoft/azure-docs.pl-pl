@@ -2,30 +2,31 @@
 title: Przepływ pracy ciągłej integracji/ciągłego wdrażania za pomocą GitOps — usługa Azure Arc Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: Ten artykuł zawiera omówienie pojęć dotyczących przepływu pracy ciągłej integracji/ciągłego wdrażania przy użyciu GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, ARC, AKS, Azure Kubernetes Service, Containers, CI, CD, Azure DevOps
-ms.openlocfilehash: 044275db0977a20474aa1451324486ad1750a7f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054917"
+ms.locfileid: "102121783"
 ---
-# <a name="overview"></a>Omówienie
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Przepływ pracy ciągłej integracji/ciągłego wdrażania za pomocą GitOps — usługa Azure Arc Kubernetes
 
 Nowoczesne wdrożenia Kubernetes z wieloma aplikacjami, klastrami i środowiskami. Dzięki programowi GitOps można łatwiej zarządzać tymi złożonymi konfiguracjami, śledząc żądany stan środowisk Kubernetes w sposób deklaratywny z usługą git. Korzystając ze wspólnych narzędzi git do śledzenia stanu klastra, można zwiększyć odpowiedzialność, ułatwić badanie błędów i włączyć automatyzację w celu zarządzania środowiskami.
 
-Ten artykuł zawiera ogólne omówienie sposobu, w jaki należy GitOps rzeczywistość w pełnym cyklu życia aplikacji przy użyciu usługi Azure ARC, Azure Repos i Azure Pipelines. Zapoznaj się z kompleksowym przykładem pojedynczej zmiany w aplikacji od dewelopera do środowisk Kubernetes o kontrolowanej GitOps.
+To omówienie koncepcji wyjaśnia GitOps jako rzeczywistość w całym cyklu życia zmiany aplikacji przy użyciu usługi Azure ARC, Azure Repos i Azure Pipelines. [Przejdź do przykładu](#example-workflow) pojedynczej aplikacji zmiana na GitOps środowiska Kubernetes.
 
 ## <a name="architecture"></a>Architektura
 
 Rozważ użycie aplikacji wdrożonej w co najmniej jednym środowisku Kubernetes.
 
 ![Architektura CI/CD GitOps](./media/gitops-arch.png)
+
 ### <a name="application-repo"></a>Repozytorium aplikacji
 Repozytorium aplikacji zawiera kod aplikacji, do której deweloperzy pracują w trakcie ich wewnętrznej pętli. Szablony wdrażania aplikacji na żywo w tym repozytorium w postaci generycznej, takiej jak Helm lub Kustomize. Wartości specyficzne dla środowiska nie są przechowywane. Zmiany w tym repozytorium wywołują potok żądania ściągnięcia lub CI, który uruchamia proces wdrożenia.
 ### <a name="container-registry"></a>Container Registry
@@ -39,9 +40,9 @@ Strumień to usługa, która działa w każdym klastrze i jest odpowiedzialna za
 ### <a name="cd-pipeline"></a>Potok CD
 Potok CD jest automatycznie wyzwalany przez pomyślne kompilacje CI. Używa poprzednio opublikowanych szablonów, zastępuje wartości środowiskowe i otwiera żądanie ściągnięcia do repozytorium GitOps, aby zażądać zmiany żądanego stanu co najmniej jednego klastra Kubernetes. Administratorzy klastrów przeglądają stan żądania ściągnięcia i zatwierdzają Scalanie do repozytorium GitOps. Następnie potok czeka na zakończenie żądania ściągnięcia, co umożliwia strumienie pobranie zmiany stanu.
 ### <a name="gitops-repo"></a>Repozytorium GitOps
-Repozytorium GitOps reprezentuje bieżący żądany stan wszystkich środowisk w klastrach. Każda zmiana tego repozytorium jest wybierana przez usługę strumień w każdym klastrze i wdrożona. Żądań ściągnięcia są tworzone z uwzględnieniem zmian w żądanym stanie, zrecenzowanych i scalonych. Te żądań ściągnięcia zawierają zmiany w szablonach wdrożenia i powstających manifestach Kubernetes. Renderowane manifesty niskiego poziomu unika wszelkiej niedowolnych elementów za podstawieniem szablonu przez umożliwienie dokładnej inspekcji zmian zwykle niewidocznych na poziomie szablonu.
+Repozytorium GitOps reprezentuje bieżący żądany stan wszystkich środowisk w klastrach. Każda zmiana tego repozytorium jest wybierana przez usługę strumień w każdym klastrze i wdrożona. Żądań ściągnięcia są tworzone z uwzględnieniem zmian w żądanym stanie, zrecenzowanych i scalonych. Te żądań ściągnięcia zawierają zmiany w szablonach wdrożenia i powstających manifestach Kubernetes. Renderowane manifesty niskiego poziomu umożliwiają dokładniejszą inspekcję zmian zwykle niewidocznych na poziomie szablonu.
 ### <a name="kubernetes-clusters"></a>Klastry Kubernetes
-Co najmniej jeden klaster Kubernetes z obsługą usługi Azure Arc umożliwia obsługę różnych środowisk wymaganych przez aplikację. Na przykład pojedynczy klaster może obsłużyć zarówno środowisko deweloperskie, jak i usługi pytania i odpowiedzi za pomocą różnych przestrzeni nazw. Drugi klaster może zapewnić łatwiejsze rozdzielenie środowisk i bardziej precyzyjną kontrolę.
+Co najmniej jeden klaster Kubernetes z obsługą usługi Azure Arc obsługuje różne środowiska wymagane przez aplikację. Na przykład pojedynczy klaster może obsłużyć zarówno środowisko deweloperskie, jak i usługi pytania i odpowiedzi za pomocą różnych przestrzeni nazw. Drugi klaster może zapewnić łatwiejsze rozdzielenie środowisk i bardziej precyzyjną kontrolę.
 ## <a name="example-workflow"></a>Przykładowy przepływ pracy
 Jako deweloper aplikacji Alicja:
 * Zapisuje kod aplikacji.
@@ -60,7 +61,7 @@ Załóżmy, że Alicja chce wprowadzić zmianę aplikacji, która zmienia obraz 
     * Zmiana jest bezpieczna do wdrożenia w klastrze, a artefakty są zapisywane w przebiegu potoku CI.
 4. Modyfikowanie i wyzwalanie potoku z dysku CD przez Alicja.
     * Potok CD wybiera artefakty przechowywane przez przebiegu potoku CI programu Alicja.
-    * Potok CD zastępuje szablony z wartościami specyficznymi dla środowiska oraz etapy zmiany stanu istniejącego klastra w repozytorium GitOps.
+    * Potok CD zastępuje szablony z wartościami specyficznymi dla środowiska i etapami wszelkich zmian w istniejącym stanie klastra w repozytorium GitOps.
     * Potok CD tworzy żądanie ściągnięcia dla repozytorium GitOps z żądanymi zmianami stanu klastra.
 5. Zespół Alicja przegląda i zatwierdza swoje żądania ściągnięcia.
     * Zmiana zostanie scalona z gałęzią docelową odpowiadającą środowisku.
@@ -73,4 +74,4 @@ Załóżmy, że Alicja chce wprowadzić zmianę aplikacji, która zmienia obraz 
 8.  Po pomyślnym wdrożeniu wszystkich środowisk zostanie ukończony potok.
 
 ## <a name="next-steps"></a>Następne kroki
-[Konfiguracje i GitOps za pomocą usługi Azure Arc Kubernetes](./conceptual-configurations.md)
+Dowiedz się więcej na temat tworzenia połączeń między klastrem a repozytorium git jako [zasobu konfiguracji z włączonym usługą Azure Arc Kubernetes](./conceptual-configurations.md)

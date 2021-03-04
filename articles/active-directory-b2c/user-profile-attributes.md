@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688556"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120219"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
 
@@ -101,9 +101,9 @@ Konto klienta, które może być odbiorcą, partnerem lub obywatelem, może być
 - **Lokalna** tożsamość — nazwa użytkownika i hasło są przechowywane lokalnie w katalogu Azure AD B2C. Często odwołują się do tych tożsamości jako "konta lokalne".
 - Tożsamość **federacyjna** — znana także jako konta *społecznościowe* *lub firmowe* , tożsamość użytkownika jest zarządzana przez federacyjnego dostawcę tożsamości, takiego jak Facebook, Microsoft, ADFS lub Salesforce.
 
-Użytkownik z kontem klienta może zalogować się przy użyciu wielu tożsamości. Na przykład nazwa użytkownika, adres e-mail, identyfikator pracownika, identyfikator instytucji rządowych i inne. Pojedyncze konto może mieć wiele tożsamości, zarówno lokalnych, jak i społecznościowych, przy użyciu tego samego hasła.
+Użytkownik z kontem klienta może zalogować się przy użyciu wielu tożsamości. Na przykład nazwa użytkownika, adres e-mail, identyfikator pracownika, identyfikator instytucji rządowych i inne. Pojedyncze konto może mieć wiele tożsamości, zarówno lokalnych, jak i społecznościowych, przy użyciu tego samego hasła. 
 
-W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyjna są przechowywane w `identities` atrybucie użytkownika, który jest typu [objectIdentity] [Graph-objectIdentity]. `identities`Kolekcja reprezentuje zestaw tożsamości używany do logowania się do konta użytkownika. Ta kolekcja umożliwia użytkownikowi zalogowanie się do konta użytkownika przy użyciu dowolnej skojarzonej tożsamości.
+W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyjna są przechowywane w `identities` atrybucie użytkownika, który jest typu [objectIdentity](/graph/api/resources/objectidentity). `identities`Kolekcja reprezentuje zestaw tożsamości używany do logowania się do konta użytkownika. Ta kolekcja umożliwia użytkownikowi zalogowanie się do konta użytkownika przy użyciu dowolnej skojarzonej tożsamości. Atrybut tożsamości może zawierać maksymalnie dziesięć obiektów [objectIdentity](/graph/api/resources/objectidentity) . Każdy obiekt zawiera następujące właściwości:
 
 | Nazwa   | Typ |Opis|
 |:---------------|:--------|:----------|

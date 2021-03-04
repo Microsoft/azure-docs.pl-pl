@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a6c580f7d6bc03f298621b1a33fcb9f3f461e802
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59a2c96987762e6b56cc7b453877cebe3124e443
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748611"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109220"
 ---
 <!-- default for linux -->
 
@@ -67,10 +67,14 @@ ms.locfileid: "101748611"
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przeglądaj witrynę sieci** Web w wierszu polecenia, aby wyświetlić świeżą wdrożoną aplikację sieci Web.
 
-<br>
+<br/>
 <details>
-<summary>Rozwiązywanie problemów</summary>
+<summary><strong>Rozwiązywanie problemów</strong></summary>
+
+Jeśli nie możesz wykonać następujących kroków, sprawdź następujące warunki:
+
 * Upewnij się, że aplikacja nasłuchuje na porcie dostarczonym przez zmienną środowiskową portów: `process.env.PORT` .
+
 * Jeśli zostanie wyświetlony komunikat o błędzie **"nie masz uprawnień do wyświetlenia tego katalogu lub strony"**, uruchomienie aplikacji prawdopodobnie nie powiodło się. Przejrzyj dane wyjściowe dziennika, aby znaleźć i naprawić błąd. 
 
 </details>
@@ -80,7 +84,7 @@ ms.locfileid: "101748611"
 [zgłaszanie problemu](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&prepare-your-environment)
 
 
-<br>
+<br/>
 <hr/>
 
 

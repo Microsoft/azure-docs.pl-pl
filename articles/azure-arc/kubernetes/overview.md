@@ -2,19 +2,19 @@
 title: Omówienie usługi Azure ARC z włączonym Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Ten artykuł zawiera omówienie usługi Azure Arc Kubernetes.
 keywords: Kubernetes, łuk, Azure, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 42a04bb349b2acbd68c7088bc0348deda1ee09e1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652272"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121596"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
 
@@ -66,4 +66,6 @@ Usługa Azure ARC z włączonym Kubernetes jest obecnie obsługiwana w następuj
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Łączenie klastra z usługą Azure Arc](./quickstart-connect-cluster.md)
+Dowiedz się, jak połączyć klaster z usługą Azure Arc.
+> [!div class="nextstepaction"]
+> [Łączenie klastra z usługą Azure Arc](./quickstart-connect-cluster.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 2/24/2021
-ms.openlocfilehash: 5d978410cae2b2de1a2f6711de82ae71a1da168c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745277"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120134"
 ---
 # <a name="co-sell-requirements"></a>Wymagania dotyczące wspólnych transakcji
 
@@ -24,7 +24,7 @@ W tej tabeli przedstawiono wszystkie możliwe stany współsprzedażowe:
 | ------------ | ------------- |
 | Nie Współpracuj gotowy | Nie spełniono minimalnych [wymagań dotyczących stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) . |
 | Gotowe do rozłożenia | Wszystkie [wymagania dotyczące stanu gotowości do współsprzedażu](#requirements-for-co-sell-ready-status) zostały spełnione. |
-| Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](#requirements-for-IP-Co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
+| Usługa Azure IP zachęcani — sprzedawanie | Oprócz [tych dodatkowych wymagań](#requirements-for-ip-co-sell-incentivized-status)zostały spełnione wymagania dotyczące wspólnych transakcji. |
 | BIZ Apps ISV Connect Premium  | Ten stan ma zastosowanie do oferty Dynamics 365 i usługi dla aplikacji zaawansowanych i wskazuje, że spełniono wszystkie [wymagania dotyczące tego stanu](#requirements-for-biz-apps-isv-connect-premium-incentive-status) . |
 |||
 

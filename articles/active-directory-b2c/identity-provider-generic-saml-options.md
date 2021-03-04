@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44a084266a083b2cc7c0609e4bfedb10a018585d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107557"
+ms.locfileid: "102119828"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Skonfiguruj opcje dostawcy tożsamości SAML za pomocą Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ Można również uwzględnić oświadczenia, które nie są zwracane przez dosta
 Element Claims Output zawiera następujące atrybuty:
 
 - **ClaimTypeReferenceId** jest odwołaniem do typu zgłoszenia. 
-- **PartnerClaimType** to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}` , gdzie `NAME` jest dodawana właściwość do zdarzenia.
-- **DefaultValue** to wstępnie zdefiniowana wartość, która ma zostać zarejestrowana, taka jak nazwa zdarzenia. Zgłoszenie, które jest używane w podróży użytkownika, takie jak nazwa dostawcy tożsamości. Jeśli to zgłoszenie jest puste, zostanie użyta wartość domyślna. Na przykład to zgłoszenie `identityProvider` jest ustawiane przez profile techniczne Federacji, takie jak Facebook. Jeśli to zgłoszenie jest puste, oznacza to, że użytkownik loguje się przy użyciu konta lokalnego. W ten sposób wartość domyślna to *Local*. Można też zarejestrować [resolvery roszczeń](claim-resolver-overview.md) z wartością kontekstową, taką jak identyfikator aplikacji lub adres IP użytkownika.
+- **PartnerClaimType** jest nazwą właściwości, która wyświetla potwierdzenie SAML. 
+- **DefaultValue** jest wstępnie zdefiniowaną wartością domyślną. Jeśli to zgłoszenie jest puste, zostanie użyta wartość domyślna. Można również użyć [resolverów roszczeń](claim-resolver-overview.md) z wartością kontekstową, taką jak identyfikator korelacji lub adres IP użytkownika.
 
 ### <a name="subject-name"></a>Nazwa podmiotu
 

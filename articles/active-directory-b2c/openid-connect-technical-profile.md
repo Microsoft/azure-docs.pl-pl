@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 670fbeeb006d21e29675f88895018d1a453a1c54
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675156"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120304"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OpenID Connect Connect w zasadach niestandardowych Azure Active Directory B2C
 
@@ -95,6 +95,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | token_endpoint_auth_method | Nie | Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | Nie | Algorytm podpisywania używany na potrzeby potwierdzeń klientów, gdy metadane **token_endpoint_auth_method** są ustawione na `private_key_jwt` . Możliwe wartości: `RS256` (wartość domyślna). |
 | SingleLogoutEnabled | Nie | Wskazuje, czy podczas logowania profil techniczny próbuje wylogować się z federacyjnych dostawców tożsamości. Aby uzyskać więcej informacji, zobacz [Azure AD B2C wylogowania sesji](./session-behavior.md#sign-out).  Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
+|ReadBodyClaimsOnIdpRedirect| Nie| Ustaw na `true` , aby odczytywać oświadczenia z treści odpowiedzi w przypadku przekierowania dostawcy tożsamości. Te metadane są używane z [identyfikatorem Apple ID](identity-provider-apple-id.md), gdzie oświadczenia zwracają w ładunku odpowiedzi.|
 
 ```xml
 <Metadata>

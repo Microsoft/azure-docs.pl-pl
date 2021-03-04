@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203252"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120286"
 ---
 # <a name="stringcollection-claims-transformations"></a>Przekształcenia oświadczeń w programie StringCollection
 
@@ -31,7 +31,7 @@ Dodaje do nowych unikatowych wartości unikatowego żądania StringCollection.
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | element | ciąg | Wartość oświadczenia, która ma zostać dodana do oświadczenia wyjściowego. |
-| Oświadczenie inputclaim |  — kolekcja | stringCollection | Obowiązkowe Jeśli ta wartość jest określona, transformacja oświadczeń Kopiuje elementy z tej kolekcji i dodaje element na końcu oświadczenia kolekcji wyjściowej. |
+| Oświadczenie inputclaim |  — kolekcja | stringCollection | Kolekcja ciągów, która ma zostać dodana do żądania danych wyjściowych. Jeśli kolekcja zawiera elementy, transformacja oświadczeń Kopiuje elementy i dodaje element na końcu oświadczenia kolekcji wyjściowej. |
 | Oświadczenie outputclaim |  — kolekcja | stringCollection | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń, z wartością określoną w potwierdzeniu wejściowym. |
 
 Ta transformacja oświadczeń służy do dodawania ciągu do nowego lub istniejącego ciągu. Jest on często używany w profilu technicznym usługi **AAD-UserWriteUsingAlternativeSecurityId** . Przed utworzeniem nowego konta społecznościowego transformacja oświadczeń **CreateOtherMailsFromEmail** odczytuje element ClaimType i dodaje wartość do **otherMails** ClaimType.
@@ -64,7 +64,7 @@ Dodaje parametr ciągu do nowych unikatowych wartości typu StringCollection.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim |  — kolekcja | stringCollection | Obowiązkowe Jeśli ta wartość jest określona, transformacja oświadczeń Kopiuje elementy z tej kolekcji i dodaje element na końcu oświadczenia kolekcji wyjściowej. |
+| Oświadczenie inputclaim |  — kolekcja | stringCollection | Kolekcja ciągów, która ma zostać dodana do żądania danych wyjściowych. Jeśli kolekcja zawiera elementy, transformacja oświadczeń Kopiuje elementy i dodaje element na końcu oświadczenia kolekcji wyjściowej. |
 | InputParameter | element | ciąg | Wartość, która ma zostać dodana do żądania danych wyjściowych. |
 | Oświadczenie outputclaim |  — kolekcja | stringCollection | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń, z wartością określoną w parametrze wejściowym. |
 
@@ -125,7 +125,7 @@ Poniższy przykład odczytuje **otherMails** i zwraca pierwszy element do roszcz
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Sprawdza, czy typ żądania StringCollection zawiera element
+Sprawdza, czy typ żądania StringCollection zawiera element.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |

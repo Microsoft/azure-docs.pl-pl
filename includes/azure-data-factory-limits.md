@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680794"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109198"
 ---
 Azure Data Factory to wielodostępna usługa, która ma następujące domyślne limity, aby upewnić się, że subskrypcje klientów są chronione przed innymi obciążeniami. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.
 
@@ -57,8 +57,8 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Grupa regionów | Regiony |
 | -------- | ------ |
 | Grupa regionów 1 | Środkowe stany USA, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Europa Zachodnia, zachodnie stany USA, zachodnie stany USA 2 |
-| Grupa regionów 2 | Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Indie Środkowe, Japonia Wschodnia, Northcentral US, Southcentral US, Azja Południowo-Wschodnia, zachodnio-środkowe stany USA |
-| Grupa regionów 3 | Kanada środkowa, Azja Wschodnia, Francja środkowa, Korea środkowa, Południowe Zjednoczone Królestwo |
+| Grupa regionów 2 | Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Indie Środkowe, Japonia Wschodnia, Północno-środkowe stany USA, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, zachodnio-środkowe stany USA |
+| Grupa regionów 3 | Inne regiony |
 
 <sup>3</sup> obiekty potoków, zestawów danych i połączone usługi reprezentują logiczne grupowanie obciążeń. Limity dla tych obiektów nie odnoszą się do ilości danych, które można przenosić i przetwarzać za pomocą Azure Data Factory. Data Factory jest zaprojektowany do skalowania do obsługi petabajtów danych.
 

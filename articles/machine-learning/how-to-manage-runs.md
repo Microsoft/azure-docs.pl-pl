@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 12/04/2020
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb877b208e6c9599347e2b45e140545e5815e695
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691505"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120814"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
 
@@ -113,6 +113,10 @@ Potrzebne będą następujące elementy:
     
         Aby uzyskać więcej informacji, zobacz [AZ ml Run Submit-Script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+
+    Aby zapoznać się z przykładem szkoleń modelu w projektancie Azure Machine Learning, zobacz [Samouczek: przewidywanie ceny za samochód dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md).
+
     ---
 
 * Monitorowanie stanu przebiegu
@@ -195,8 +199,7 @@ Opis uruchomienia można dodać do przebiegu, aby zapewnić więcej kontekstu i 
 
 Przejdź do strony **szczegóły uruchamiania** dla przebiegu i wybierz ikonę Edytuj lub ołówka, aby dodać, edytować lub usunąć opisy dla przebiegu. Aby zachować zmiany na liście uruchomień, Zapisz zmiany w istniejącym widoku niestandardowym lub w nowym widoku niestandardowym. Format promocji jest obsługiwany w przypadku opisów uruchamiania, które umożliwiają osadzanie obrazów i głębokie łączenie, jak pokazano poniżej.
 
-:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Zrzut ekranu: Tworzenie opisu przebiegu"::: 
-    
+:::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Zrzut ekranu: Tworzenie opisu przebiegu"::: 
 
 ## <a name="tag-and-find-runs"></a>Tagi i Znajdź przebiegi
 

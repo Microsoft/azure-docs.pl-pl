@@ -1,21 +1,21 @@
 ---
-title: Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
+title: Wdrażanie obciążeń Azure IoT Edge
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Wdrażanie obciążeń Azure IoT Edge
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: c352455b69360df0b26f5aac38fc40ccb30fb9de
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e77446170e5a6adac995394d66640fd183f453b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650417"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121732"
 ---
-# <a name="deploy-azure-iot-edge-workloads-preview"></a>Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
+# <a name="deploy-azure-iot-edge-workloads"></a>Wdrażanie obciążeń Azure IoT Edge
 
 ## <a name="overview"></a>Omówienie
 
@@ -77,4 +77,4 @@ az k8s-configuration delete -g AzureArcTest --cluster-name AzureArcIotEdge --nam
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie konfiguracją klastra przy użyciu Azure Policy](./use-azure-policy.md)
+Dowiedz się, jak [za pomocą Azure Policy zarządzać konfiguracją klastra](./use-azure-policy.md).

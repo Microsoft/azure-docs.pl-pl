@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: d9c2bec575f2c7a948f3eb6e65be6a735a3c03e8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 809ac72977b670faff984ad39effb1c70767e141
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733817"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120950"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Samouczek: wprowadzenie do Always Encrypted za pomocą bezpiecznego enclaves w Azure SQL Database
 
@@ -71,40 +71,45 @@ Zobacz [pobieranie SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-s
 Wymagana minimalna wersja programu SSMS to 18,8.
 
 
-## <a name="step-1-create-a-server-and-a-dc-series-database"></a>Krok 1. Tworzenie serwera i bazy danych z serii DC
+## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>Krok 1. Tworzenie i Konfigurowanie serwera i bazy danych z serii DC
 
- W tym kroku utworzysz nowy Azure SQL Database serwer logiczny i nową bazę danych przy użyciu konfiguracji sprzętu z serii DC. Always Encrypted z bezpiecznym enclaves w Azure SQL Database korzysta z technologii Intel SGX enclaves, które są obsługiwane w konfiguracji sprzętowej z serii DC. Aby uzyskać więcej informacji, zobacz [kontrolery domeny](service-tiers-vcore.md#dc-series).
+W tym kroku opisano tworzenie nowego Azure SQL Database serwera logicznego i nowej bazy danych przy użyciu generacji sprzętowej serii kontrolerów domeny, co jest wymagane dla Always Encrypted z bezpiecznym enclaves. Aby uzyskać więcej informacji, zobacz [kontrolery domeny](service-tiers-vcore.md#dc-series).
 
-1. Otwórz konsolę programu PowerShell i zaloguj się do platformy Azure. W razie potrzeby [Przejdź do subskrypcji](/powershell/azure/manage-subscriptions-azureps) , która jest używana w tym samouczku.
+1. Otwórz konsolę programu PowerShell i zaimportuj wymaganą wersję polecenia AZ.
+
+  ```PowerShell
+  Import-Module "Az" -MinimumVersion "4.5.0"
+  ```
+  
+2. Zaloguj się do platformy Azure. W razie potrzeby [Przejdź do subskrypcji](/powershell/azure/manage-subscriptions-azureps) , która jest używana w tym samouczku.
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = <your subscription ID>
-  Set-AzContext -Subscription $serverSubscriptionId
+  $subscriptionId = "<your subscription ID>"
+  Set-AzContext -Subscription $subscriptionId
   ```
 
-2. Utwórz grupę zasobów, która będzie zawierać serwer bazy danych. 
-
-  ```powershell
-  $serverResourceGroupName = "<server resource group name>"
-  $serverLocation = "<Azure region that supports DC-series in SQL Database>"
-  New-AzResourceGroup -Name $serverResourceGroupName -Location $serverLocation 
-  ```
+3. Tworzenie nowej grupy zasobów 
 
   > [!IMPORTANT]
-  > Należy utworzyć grupę zasobów w regionie, który obsługuje konfigurację sprzętu z serii DC. Listę obecnie obsługiwanych regionów można znaleźć w temacie [dostępność z serii DC](service-tiers-vcore.md#dc-series-1).
-
-3. Utwórz serwer bazy danych. Po wyświetleniu monitu wprowadź nazwę administratora serwera i hasło.
+  > Należy utworzyć grupę zasobów w regionie (lokalizacji), która obsługuje zarówno generowanie sprzętu z serii kontrolerów domen, jak i zaświadczanie Microsoft Azure. Aby zapoznać się z listą regionów obsługujących serię kontrolerów domen, zobacz [dostępność szeregów kontrolerów domeny](service-tiers-vcore.md#dc-series-1). [Poniżej](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) przedstawiono regionalną dostępność Microsoft Azure zaświadczania.
 
   ```powershell
-  $serverName = "<server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -Location $serverLocation
+  $resourceGroupName = "<your new resource group name>"
+  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+  New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
-4. Utwórz regułę zapory serwera, która zezwala na dostęp z określonego zakresu adresów IP
+4. Utwórz serwer logiczny usługi Azure SQL. Po wyświetleniu monitu wprowadź nazwę administratora serwera i hasło. Upewnij się, że pamiętasz nazwę administratora i hasło — będą one potrzebne później do nawiązania połączenia z serwerem.
+
+  ```powershell
+  $serverName = "<your server name>" 
+  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+  ```
+
+5. Utwórz regułę zapory serwera, która zezwala na dostęp z określonego zakresu adresów IP.
   
   ```powershell
-  # The ip address range that you want to allow to access your server
   $startIp = "<start of IP range>"
   $endIp = "<end of IP range>"
   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
@@ -112,21 +117,11 @@ Wymagana minimalna wersja programu SSMS to 18,8.
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-5. Przypisz do serwera tożsamość systemu zarządzanego. Będzie ona potrzebna później, aby przyznać serwerowi dostęp do Microsoft Azure zaświadczania.
-
-  ```powershell
-  Set-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -AssignIdentity 
-  ```
-
-6. Pobierz identyfikator obiektu tożsamości przypisanej do serwera. Zapisz otrzymany identyfikator obiektu. Potrzebujesz identyfikatora w dalszej części.
-
-  > [!NOTE]
-  > Propagowanie nowo przypisanej tożsamości systemu zarządzanego w Azure Active Directory może potrwać kilka sekund. Jeśli Poniższy skrypt zwróci pusty wynik, ponów próbę.
+6. Przypisz do serwera tożsamość systemu zarządzanego. 
 
   ```PowerShell
-  $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
   $serverObjectId = $server.Identity.PrincipalId
-  $serverObjectId
   ```
 
 7. Utwórz bazę danych serii DC.
@@ -136,12 +131,26 @@ Wymagana minimalna wersja programu SSMS to 18,8.
   $edition = "GeneralPurpose"
   $vCore = 2
   $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $serverResourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $edition -Vcore $vCore -ComputeGeneration $generation
+  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
+    -Edition $edition `
+    -Vcore $vCore `
+    -ComputeGeneration $generation
   ```
 
-## <a name="step-2-configure-an-attestation-provider"></a>Krok 2. Konfigurowanie dostawcy zaświadczania
+8. Pobierz i Zapisz informacje o serwerze i bazie danych. Te informacje będą potrzebne, a także nazwa administratora i hasło z kroku 4 w tej sekcji w dalszych sekcjach.
 
-W tym kroku utworzysz i skonfigurujesz dostawcę zaświadczania w Microsoft Azure zaświadczania. Jest to konieczne, aby zaświadczyć bezpieczną enklawy na serwerze bazy danych.
+  ```powershell
+  Write-Host 
+  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
+  Write-Host "Server Object Id: $serverObjectId"
+  Write-Host "Database name: $databaseName"
+  ```
+  
+## <a name="step-2-configure-an-attestation-provider"></a>Krok 2. Konfigurowanie dostawcy zaświadczania 
+
+W tym kroku utworzysz i skonfigurujesz dostawcę zaświadczania w Microsoft Azure zaświadczania. Jest to konieczne do zaświadczania bezpiecznego enklawy używanego przez bazę danych.
 
 1. Skopiuj poniższe zasady zaświadczania i Zapisz zasady w pliku tekstowym (txt). Aby uzyskać informacje dotyczące poniższych zasad, zobacz [Tworzenie i Konfigurowanie dostawcy zaświadczania](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
@@ -157,60 +166,60 @@ W tym kroku utworzysz i skonfigurujesz dostawcę zaświadczania w Microsoft Azur
   };
   ```
 
-2. Zaimportuj wymagane wersje systemów `Az.Accounts` i `Az.Attestation` .  
+2. Zaimportuj wymaganą wersję programu `Az.Attestation` .  
 
   ```powershell
-  Import-Module "Az.Accounts" -MinimumVersion "1.9.2"
   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
   ```
-
-3. Utwórz grupę zasobów dla dostawcy zaświadczania.
-
-  ```powershell
-  $attestationLocation = $serverLocation
-  $attestationResourceGroupName = "<attestation provider resource group name>"
-  New-AzResourceGroup -Name $attestationResourceGroupName -Location $location  
-  ```
-
-4. Utwórz dostawcę zaświadczania. 
+  
+3. Utwórz dostawcę zaświadczania. 
 
   ```powershell
-  $attestationProviderName = "<attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Location $attestationLocation
+  $attestationProviderName = "<your attestation provider name>" 
+  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
-5. Skonfiguruj zasady zaświadczania.
+4. Skonfiguruj zasady zaświadczania.
   
   ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section>"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Tee $teeType -Policy $policy -PolicyFormat  $policyFormat
+  Set-AzAttestationPolicy -Name $attestationProviderName `
+    -ResourceGroupName $resourceGroupName `
+    -Tee $teeType `
+    -Policy $policy `
+    -PolicyFormat  $policyFormat
   ```
 
-6. Przyznaj serwerowi logicznemu usługi Azure SQL dostęp do swojego dostawcy zaświadczania. W tym kroku używamy identyfikatora obiektu tożsamości usługi zarządzanej, która została wcześniej przypisana do serwera.
+5. Przyznaj serwerowi logicznemu usługi Azure SQL dostęp do swojego dostawcy zaświadczania. W tym kroku jest używany identyfikator obiektu tożsamości usługi zarządzanej, która została wcześniej przypisana do serwera.
 
   ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
+  New-AzRoleAssignment -ObjectId $serverObjectId `
+    -RoleDefinitionName "Attestation Reader" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName  
   ```
 
-7. Pobierz adres URL zaświadczania.
+6. Pobierz adres URL zaświadczania wskazujący na zasady zaświadczania skonfigurowane dla SGX enklawy. Zapisz adres URL, ponieważ będzie on potrzebny później.
 
   ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
+  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
   $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host "Your attestation URL is: " $attestationUrl 
+  Write-Host
+  Write-Host "Your attestation URL is: $attestationUrl"
   ```
-
-8.  Zapisz wynikający z tego adres URL zaświadczania, który wskazuje na zasady zaświadczania skonfigurowane dla SGX enklawy. Będzie on potrzebny później. Adres URL zaświadczania powinien wyglądać następująco: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+  
+  Adres URL zaświadczania powinien wyglądać następująco: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## <a name="step-3-populate-your-database"></a>Krok 3. wypełnienie bazy danych
 
 W tym kroku utworzysz tabelę i wypełnisz ją danymi, które później będą szyfrowane i zapytania.
 
 1. Otwórz program SSMS i nawiąż połączenie z bazą danych **ContosoHR** na serwerze logicznym usługi Azure SQL utworzonym **bez** Always Encrypted włączonej w połączeniu z bazą danych.
-    1. W oknie dialogowym **łączenie z serwerem** Podaj nazwę serwera (na przykład *myserver123.Database.Windows.NET*), a następnie wprowadź nazwę użytkownika i hasło, które zostały wcześniej skonfigurowane.
+    1. W oknie dialogowym **łączenie z serwerem** Określ w pełni kwalifikowaną nazwę serwera (na przykład *myserver123.Database.Windows.NET*), a następnie wprowadź nazwę użytkownika administratora i hasło określone podczas tworzenia serwera.
     2. Kliknij pozycję **opcje >>** a następnie wybierz kartę **Właściwości połączenia** . Upewnij się, że została wybrana baza danych **ContosoHR** (nie domyślna, baza danych Master). 
     3. Wybierz kartę **Always Encrypted** .
     4. Upewnij się, że pole wyboru **włącz Always Encrypted (szyfrowanie kolumn)** **nie** jest zaznaczone.
@@ -292,7 +301,7 @@ W tym kroku zostaną zaszyfrowane dane przechowywane w kolumnach **SSN** i **pen
 
 1. Otwórz nowe wystąpienie programu SSMS i Połącz się z bazą danych **przy użyciu** Always Encrypted włączonej dla połączenia z bazą danych.
     1. Rozpocznij nowe wystąpienie programu SSMS.
-    2. W oknie dialogowym **łączenie z serwerem** Określ nazwę serwera, wybierz metodę uwierzytelniania i podaj swoje poświadczenia.
+    2. W oknie dialogowym **łączenie z serwerem** Określ w pełni kwalifikowaną nazwę serwera (na przykład *myserver123.Database.Windows.NET*), a następnie wprowadź nazwę użytkownika administratora i hasło określone podczas tworzenia serwera.
     3. Kliknij pozycję **opcje >>** a następnie wybierz kartę **Właściwości połączenia** . Upewnij się, że została wybrana baza danych **ContosoHR** (nie domyślna, baza danych Master). 
     4. Wybierz kartę **Always Encrypted** .
     5. Upewnij się, że pole wyboru **włącz Always Encrypted (szyfrowanie kolumn)** jest zaznaczone.

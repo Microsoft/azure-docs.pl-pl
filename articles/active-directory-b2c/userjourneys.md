@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400017"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120746"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -80,7 +80,7 @@ Poniższy przykład pokazuje element podróży użytkownika z profilami technicz
 
 Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Jeśli którykolwiek z kroków zakończy się niepowodzeniem, transakcja nie powiedzie się. Te kroki aranżacji odwołują się zarówno do bloków konstrukcyjnych, jak i dostawców oświadczeń, które są dozwolone w pliku zasad. Każdy krok aranżacji, który jest odpowiedzialny za pokazywanie lub renderowanie środowiska użytkownika, ma również odniesienie do odpowiadającego identyfikatora definicji zawartości.
 
-Kroki aranżacji można wykonać warunkowo na podstawie warunków wstępnych zdefiniowanych w elemencie kroku aranżacji. Na przykład możesz zaznaczyć, aby wykonać krok aranżacji tylko wtedy, gdy istnieją określone oświadczenia, lub jeśli oświadczenie jest równe lub nie jest podaną wartością.
+Kroki aranżacji można wykonać warunkowo na podstawie warunków wstępnych zdefiniowanych w elemencie kroku aranżacji. Na przykład można zaznaczyć, aby wykonać krok aranżacji tylko wtedy, gdy istnieje określone zgłoszenie lub jeśli jest równe lub nie jest to podanej wartości.
 
 Aby określić uporządkowaną listę kroków aranżacji, element **OrchestrationSteps** jest dodawany w ramach zasad. Ten element jest wymagany.
 
@@ -189,9 +189,12 @@ Warunki wstępne mogą sprawdzić wiele warunków wstępnych. Poniższy przykła
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="identity-provider-selection"></a>Wybór dostawcy tożsamości
 
-Krok aranżacji typu `ClaimsProviderSelection` lub `CombinedSignInAndSignUp` może zawierać listę dostawców oświadczeń, za pomocą których użytkownik może się zalogować. Kolejność elementów wewnątrz `ClaimsProviderSelections` elementów steruje kolejnością dostawców tożsamości prezentowanych użytkownikowi.
+Wybór dostawcy tożsamości umożliwia użytkownikom wybranie akcji z listy opcji. Wybór dostawcy tożsamości składa się z pary dwóch kroków aranżacji: 
+
+1. **Przyciski** — zaczynają się od typu `ClaimsProviderSelection` lub, `CombinedSignInAndSignUp` który zawiera listę opcji, spośród których użytkownik może wybrać. Kolejność opcji wewnątrz `ClaimsProviderSelections` elementu określa kolejność przycisków prezentowanych użytkownikowi.
+2. **Akcje** — po którym następuje typ `ClaimsExchange` . ClaimsExchange zawiera listę akcji. Akcja to odwołanie do profilu technicznego, takiego jak [OAuth2](oauth2-technical-profile.md), [OpenID Connect Connect](openid-connect-technical-profile.md), [przekształcenie oświadczeń](claims-transformation-technical-profile.md)lub [samodzielne](self-asserted-technical-profile.md). Gdy użytkownik kliknie jeden z przycisków, odpowiednia akcja jest wykonywana.
 
 Element **ClaimsProviderSelections** zawiera następujący element:
 
@@ -242,7 +245,7 @@ W poniższym kroku aranżacji użytkownik może zalogować się przy użyciu kon
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

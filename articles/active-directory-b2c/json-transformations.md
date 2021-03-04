@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998430"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102119879"
 ---
 # <a name="json-claims-transformations"></a>Przekształcenia oświadczeń JSON
 
@@ -59,7 +59,7 @@ Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON
 
 - Oświadczenia wejściowe:
   - **adres e-mail**, personalizacje typów roszczeń przekształceń  **. 0. do. 0. adres e-mail**: " someone@example.com "
-  - **uwierzytelnianie OTP**typu **personalizations.0.dynamic_template_data. OTP** "346349"
+  - **uwierzytelnianie OTP** typu **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parametr wejściowy:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
   - **z adresu e-mail**: " service@contoso.com "
@@ -117,8 +117,8 @@ Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON
 - Oświadczenia wejściowe:
   - **adres e-mail**, typ zgłoszenia transformacji  **customerEntity. email**: " john.s@contoso.com "
   - **objectid**, typ **customerEntity. userObjectId** "01234567-89ab-cdef-0123-456789ABCDEF"
-  - **objectid**, typ odszkodowania typu **customerEntity. FirstName** "Jan"
-  - **objectid**, typ odszkodowania typu **customerEntity. LastName** "Kowalski"
+  - **podaną** wartośćname, typ zgłoszenia przekształcenia **customerEntity. FirstName** "Jan"
+  - **nazwisko**, typ odszkodowania **customerEntity. LastName** "Kowalski"
 - Parametr wejściowy:
   - **customerEntity.role.Name**: "Administrator"
   - **customerEntity.role.ID** 1

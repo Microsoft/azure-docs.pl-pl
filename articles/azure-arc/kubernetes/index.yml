@@ -9,14 +9,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: f97b1560e062d1849f726baff8cd66d8e75f8b7f
-  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+  ms.openlocfilehash: e9acbb8206985fbc9edebba8d4183ca1a97736f7
+  ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/02/2021
-  ms.locfileid: "101647850"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102121664"
 landingContent:
-- title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
+- title: Informacje na temat platformy Kubernetes z włączoną usługą Azure Arc
   linkLists:
   - linkListType: overview
     links:
@@ -30,6 +30,8 @@ landingContent:
       url: conceptual-agent-architecture.md
     - text: Konfiguracje i GitOps
       url: conceptual-configurations.md
+    - text: Przepływ pracy ciągłej integracji/ciągłego wdrażania przy użyciu GitOps
+      url: conceptual-gitops-ci-cd.md
     - text: Często zadawane pytania
       url: faq.md
 - title: Rozpoczęcie pracy
@@ -44,6 +46,8 @@ landingContent:
     links:
     - text: Wdrażanie konfiguracji przy użyciu metodyki GitOps
       url: tutorial-use-gitops-connected-cluster.md
+    - text: Implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps
+      url: tutorial-gitops-ci-cd.md
 - title: Konfigurowanie, zarządzanie i monitorowanie klastrów
   linkLists:
   - linkListType: how-to-guide

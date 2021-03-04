@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693106"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122004"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Znane problemy — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101693106"
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
-
 - Tryb podłączonego klastra jest wyłączony
-- Usługa Azure ARC z włączonym PostgreSQLem nie zwraca niedokładnego komunikatu o błędzie, gdy nie można go przywrócić do punktu względnego w czasie. Jeśli na przykład do przywracania określono punkt w czasie, który jest starszy niż zawiera kopie zapasowe, przywracanie kończy się niepowodzeniem z komunikatem o błędzie: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}` . W takim przypadku należy ponownie uruchomić polecenie po wskazaniu punktu w czasie, który znajduje się w zakresie dat, dla których istnieją kopie zapasowe. Aby określić ten zakres, Wyświetl kopie zapasowe i sprawdź daty, w których zostały wykonane.
-- Podczas wykonywania pełnego przywracania wymagany jest identyfikator kopii zapasowej. Domyślnie, jeśli nie jest wskazywany identyfikator kopii zapasowej, zostanie użyta najnowsza kopia zapasowa. To nie działa w tej wersji.
 
 ## <a name="introduced-prior-to-february-2021"></a>Wprowadzono przed luty 2021
 

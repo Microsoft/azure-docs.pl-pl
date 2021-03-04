@@ -8,16 +8,20 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4c58d67668a67eee38a73d46a2a40ca29c1dfd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012905"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121256"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w Node.js
 
 W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji Node.js, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
+
+## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w usłudze GitHub
+
+Jeśli chcesz pominąć prosty kod, zapoznaj się z [ przewodnikiem Szybki Start](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) dotyczącymNode.js w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

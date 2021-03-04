@@ -2,18 +2,18 @@
 title: Program Azure ARC z obsługą weryfikacji Kubernetes
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Opisuje program Arc Validation dla dystrybucji Kubernetes
 keywords: Kubernetes, łuk, Azure, K8s, Walidacja
-ms.openlocfilehash: 0d7756f407a3a176c8913d99bdb45a5026300569
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 819df906add6275997e01fab310fe8dd57a87b51
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689219"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121375"
 ---
 # <a name="azure-arc-validation-program"></a>Program weryfikacji usługi Azure Arc
 
@@ -61,6 +61,6 @@ Testy zgodności są uruchamiane jako część usługi Azure ARC, w której wł�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Łączenie klastra z usługą Azure Arc](./connect-cluster.md)
-* [Tworzenie konfiguracji w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md)
-* [Użyj Azure Policy, aby zastosować konfiguracje na dużą skalę](./use-azure-policy.md)
+Dowiedz się, jak połączyć klaster z usługą Azure Arc.
+> [!div class="nextstepaction"]
+> [Łączenie klastra z usługą Azure Arc](./quickstart-connect-cluster.md)

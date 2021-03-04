@@ -5,14 +5,14 @@ author: tcare
 ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 3/2/2021
+ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: ac67c2b0baf923421e8699de587e0e6dbbb97e24
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102055539"
+ms.locfileid: "102121613"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Samouczek: implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps przy użyciu klastrów Kubernetes z obsługą usługi Azure Arc
 
@@ -316,7 +316,7 @@ Wdrożenie zostało zakończone. Spowoduje to zakończenie przepływu pracy cią
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby z następującymi krokami:
 
-1. Łuk GitOps połączenie
+1. Usuń połączenie z konfiguracją usługi Azure Arc GitOps:
    ```azurecli
    az k8sconfiguration delete \
    --name cluster-config \
@@ -324,9 +324,11 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby z nas
    --resource-group myResourceGroup \
    --cluster-type connectedClusters
    ```
-2. `dev` obszaru
+
+2. Usuń `dev` przestrzeń nazw:
    * `kubectl delete namespace dev`
-3. `stage` obszaru
+
+3. Usuń `stage` przestrzeń nazw:
    * `kubectl delete namespace stage`
 
 ## <a name="next-steps"></a>Następne kroki

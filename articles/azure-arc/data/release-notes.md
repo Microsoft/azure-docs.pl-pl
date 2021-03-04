@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d3eb4e4b45a13872a11515dd4f53fcbbc069a954
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6b4d5c1372a8351f1fe5a6608aff38bf232aabd8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686686"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121953"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -36,7 +36,7 @@ Dodatkowe aktualizacje obejmują:
 - Usługa Azure ARC z włączonym skalowaniem PostgreSQL Azure Data Studio: 
    - Na stronie Przegląd jest teraz wyświetlany stan grupy serwerów dla każdego węzła
    - Nowe strony właściwości są teraz dostępne, aby wyświetlić więcej szczegółów na temat grupy serwerów
-   - Konfigurowanie parametrów aparatu Postgres na stronie **parametrów węzła** =
+   - Konfigurowanie parametrów aparatu Postgres na stronie **parametrów węzła**
 
 Problemy związane z tą wersją zawiera temat [znane problemy — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)](known-issues.md)
 

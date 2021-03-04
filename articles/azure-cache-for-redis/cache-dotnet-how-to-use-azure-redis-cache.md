@@ -8,16 +8,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffc5c8ea647d4cadd2d151eb880c794ac5f4ebd4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002470"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121443"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework
 
 W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji .NET Framework, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure. Użytkownik korzystający z programu [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) z kodem C# w aplikacji konsolowej platformy .NET.
+
+## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w usłudze GitHub
+
+Jeśli chcesz pominąć prosty kod, zapoznaj się z [przewodnikiem Szybki Start](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) dotyczącym .NET Framework w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

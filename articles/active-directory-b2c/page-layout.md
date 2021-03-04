@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: df94bb5e6066b83afd566181debbc0872dc1a5b4
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492250"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120266"
 ---
 # <a name="page-layout-versions"></a>Wersje układu strony
 
@@ -76,7 +76,7 @@ Pakiety układów stron są okresowo aktualizowane w celu uwzględnienia poprawe
 
 **2.1.2**
 - Rozwiązano problem z kodowaniem lokalizacji dla języków takich jak hiszpański i francuski.
-- Zezwalanie na używanie linku "zapomniane hasło" jako oświadczenia programu Exchange, takiego jak Social dostawcy tożsamości.
+- Zezwalanie na używanie linku "zapomniane hasło" jako wymiany oświadczeń. Aby uzyskać więcej informacji, zobacz samoobsługowe [Resetowanie hasła](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Dodano element UXString, który `heading` oprócz `intro` elementu ma być wyświetlany na stronie jako tytuł. Ta wartość jest domyślnie ukryta.

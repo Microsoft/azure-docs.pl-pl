@@ -7,16 +7,20 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: b880762d43cd4e105b79613aadb476611228a47e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 342125da35868b2b0f71609c4114cc561821eb1a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536610"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121137"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją internetową ASP.NET 
 
 W tym przewodniku szybki start użyjesz programu Visual Studio 2019 do utworzenia aplikacji sieci Web ASP.NET, która łączy się z usługą Azure cache for Redis w celu przechowywania i pobierania danych z pamięci podręcznej. Następnie aplikacja zostanie wdrożona w Azure App Service.
+
+## <a name="skip-to-the-code-on-github"></a>Przejdź do kodu w usłudze GitHub
+
+Jeśli chcesz pominąć prosty kod, zobacz [Przewodnik Szybki start ASP.NET](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) w witrynie GitHub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,29 +29,29 @@ W tym przewodniku szybki start użyjesz programu Visual Studio 2019 do utworzeni
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik**  > **Nowy**  >  **projekt** .
+1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik**  > **Nowy**  >  **projekt**.
 
 2. W oknie dialogowym **Nowy projekt** wykonaj następujące kroki:
 
     ![Tworzenie projektu](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Na liście **Szablony** rozwiń węzeł **Visual C#** .
+    a. Na liście **Szablony** rozwiń węzeł **Visual C#**.
 
-    b. Wybierz pozycję **Chmura** .
+    b. Wybierz pozycję **Chmura**.
 
-    c. Wybierz pozycję **Aplikacja internetowa platformy ASP.NET** .
+    c. Wybierz pozycję **Aplikacja internetowa platformy ASP.NET**.
 
     d. Upewnij się, że został wybrany program **.NET Framework 4.5.2** lub nowszy.
 
-    e. W polu **Nazwa** podaj nazwę projektu. W tym przykładzie użyliśmy nazwy **ContosoTeamStats** .
+    e. W polu **Nazwa** podaj nazwę projektu. W tym przykładzie użyliśmy nazwy **ContosoTeamStats**.
 
-    f. Wybierz przycisk **OK** .
+    f. Wybierz przycisk **OK**.
    
 3. Wybierz **MVC** jako typ projektu.
 
-4. Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania** . Domyślne ustawienie **Uwierzytelnianie** może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, wybierz pozycję **Zmień uwierzytelnianie** , a następnie pozycję **Bez uwierzytelniania** .
+4. Upewnij się, że dla ustawienia **Uwierzytelnianie** wybrano pozycję **Bez uwierzytelniania**. Domyślne ustawienie **Uwierzytelnianie** może być różne w różnych wersjach programu Visual Studio. Aby je zmienić, wybierz pozycję **Zmień uwierzytelnianie**, a następnie pozycję **Bez uwierzytelniania**.
 
-5. Wybierz przycisk **OK** , aby utworzyć projekt.
+5. Wybierz przycisk **OK**, aby utworzyć projekt.
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 
@@ -59,9 +63,9 @@ Następnie utworzysz pamięć podręczną dla aplikacji.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Aby edytować plik *CacheSecrets.config*
 
-1. Utwórz plik na komputerze o nazwie *CacheSecrets.config* . Umieść go w lokalizacji, w której nie zostanie zaewidencjonowany przy użyciu kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się w lokalizacji *C:\AppSecrets\CacheSecrets.config* .
+1. Utwórz plik na komputerze o nazwie *CacheSecrets.config*. Umieść go w lokalizacji, w której nie zostanie zaewidencjonowany przy użyciu kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się w lokalizacji *C:\AppSecrets\CacheSecrets.config*.
 
-1. Edytuj plik *CacheSecrets.config* . Następnie dodaj następującą zawartość:
+1. Edytuj plik *CacheSecrets.config*. Następnie dodaj następującą zawartość:
 
     ```xml
     <appSettings>
@@ -94,7 +98,7 @@ Jeśli aplikacja jest uruchamiana lokalnie, informacje w pliku *CacheSecrets.con
 Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure za pomocą aplikacji, możesz go używać tylko podczas lokalnego testowania aplikacji. Aby zapobiec złośliwemu dostępowi do danych w pamięci podręcznej, maksymalnie zabezpiecz te informacje.
 
 #### <a name="to-update-the-webconfig-file"></a>Aktualizowanie pliku *web.config*
-1. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik *web.config* , aby go otworzyć.
+1. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik *web.config*, aby go otworzyć.
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
@@ -107,7 +111,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Aby skonfigurować aplikację do korzystania z programu StackExchange.Redis
 
-1. Aby skonfigurować aplikację do używania pakietu NuGet [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dla programu Visual Studio, wybierz pozycje **Narzędzia > Menedżer pakietów NuGet > Konsola menedżera pakietów** .
+1. Aby skonfigurować aplikację do używania pakietu NuGet [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) dla programu Visual Studio, wybierz pozycje **Narzędzia > Menedżer pakietów NuGet > Konsola menedżera pakietów**.
 
 2. W oknie `Package Manager Console` uruchom następujące polecenie:
 
@@ -119,7 +123,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>Aby zaktualizować pliki HomeController i Layout
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery** , a następnie otwórz plik *HomeController.cs* .
+1. W **Eksploratorze rozwiązań** rozwiń folder **Kontrolery**, a następnie otwórz plik *HomeController.cs*.
 
 2. Dodaj następujące dwie instrukcje `using` w górnej części pliku, aby obsłużyć klienta pamięci podręcznej i ustawienia aplikacji.
 
@@ -189,7 +193,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
     ```
 
-4. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** > **Udostępnione** . Następnie otwórz plik *_Layout.cshtml*
+4. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** > **Udostępnione**. Następnie otwórz plik *_Layout.cshtml*
 
     Zastąp:
     
@@ -205,9 +209,9 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
 ### <a name="to-add-a-new-rediscache-view"></a>Aby dodać nowy widok RedisCache
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** , a następnie kliknij prawym przyciskiem myszy folder **Główny** . Wybierz pozycję **Dodaj**  >  **Widok.** ...
+1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie kliknij prawym przyciskiem myszy folder **Główny**. Wybierz pozycję **Dodaj**  >  **Widok.**...
 
-2. W oknie dialogowym **Dodawanie widoku** wprowadź **RedisCache** jako nazwę widoku. Następnie wybierz pozycję **Dodaj** .
+2. W oknie dialogowym **Dodawanie widoku** wprowadź **RedisCache** jako nazwę widoku. Następnie wybierz pozycję **Dodaj**.
 
 3. Zastąp kod w pliku *RedisCache.cshtml* następującym kodem:
 
@@ -266,11 +270,11 @@ Po pomyślnym przetestowaniu aplikacji lokalnie możesz wdrożyć ją na platfor
 
 ### <a name="to-publish-the-app-to-azure"></a>Aby opublikować aplikację na platformie Azure
 
-1. W programie Visual Studio kliknij prawym przyciskiem myszy węzeł projektu w Eksploratorze rozwiązań. Następnie wybierz pozycję **Opublikuj** .
+1. W programie Visual Studio kliknij prawym przyciskiem myszy węzeł projektu w Eksploratorze rozwiązań. Następnie wybierz pozycję **Opublikuj**.
 
     ![Publikowanie](./media/cache-web-app-howto/cache-publish-app.png)
 
-2. Wybierz pozycję **Microsoft Azure App Service** , wybierz opcję **Utwórz nowy** , a następnie wybierz pozycję **Opublikuj** .
+2. Wybierz pozycję **Microsoft Azure App Service**, wybierz opcję **Utwórz nowy**, a następnie wybierz pozycję **Opublikuj**.
 
     ![Publikowanie w usłudze App Service](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
@@ -280,12 +284,12 @@ Po pomyślnym przetestowaniu aplikacji lokalnie możesz wdrożyć ją na platfor
     | ------- | :---------------: | ----------- |
     | **Nazwa aplikacji** | Użyj wartości domyślnej. | Nazwa aplikacji będzie nazwą hosta dla aplikacji po wdrożeniu na platformie Azure. Nazwa może mieć dodany sufiks znacznika czasu, aby zapewnić jej unikatowość w razie potrzeby. |
     | **Subskrypcja** | Wybierz subskrypcję platformy Azure. | Dla tej subskrypcji zostanie naliczona opłata za wszelkie powiązane koszty hostingu. Jeśli masz wiele subskrypcji platformy Azure, sprawdź, czy została wybrana odpowiednia subskrypcja.|
-    | **Grupa zasobów** | Użyj tej samej grupy zasobów, w której została utworzona pamięć podręczna (na przykład *TestResourceGroup* ). | Grupa zasobów pomaga zarządzać wszystkimi zasobami jako grupą. Później, gdy zechcesz usunąć aplikację, wystarczy tylko usunąć grupę. |
-    | **Plan usługi App Service** | Wybierz pozycję **Nowy** , a następnie utwórz nowy plan usługi App Service o nazwie *TestingPlan* . <br />Użyj tej samej **lokalizacji** , która była używana podczas tworzenia pamięci podręcznej. <br />Jako rozmiar wybierz wartość **Bezpłatny** . | Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. |
+    | **Grupa zasobów** | Użyj tej samej grupy zasobów, w której została utworzona pamięć podręczna (na przykład *TestResourceGroup*). | Grupa zasobów pomaga zarządzać wszystkimi zasobami jako grupą. Później, gdy zechcesz usunąć aplikację, wystarczy tylko usunąć grupę. |
+    | **Plan usługi App Service** | Wybierz pozycję **Nowy**, a następnie utwórz nowy plan usługi App Service o nazwie *TestingPlan*. <br />Użyj tej samej **lokalizacji**, która była używana podczas tworzenia pamięci podręcznej. <br />Jako rozmiar wybierz wartość **Bezpłatny**. | Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania. |
 
     ![Okno dialogowe usługi App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-4. Po skonfigurowaniu ustawień hostingu usługi App Service wybierz pozycję **Utwórz** .
+4. Po skonfigurowaniu ustawień hostingu usługi App Service wybierz pozycję **Utwórz**.
 
 5. Monitoruj okno **Dane wyjściowe** w programie Visual Studio, aby zobaczyć stan publikowania. Po opublikowaniu aplikacji zostaje zarejestrowany jej adres URL:
 
@@ -301,7 +305,7 @@ Po opublikowaniu nowej aplikacji dodaj nowe ustawienie aplikacji. To ustawienie 
 
     ![Znajdowanie aplikacji](./media/cache-web-app-howto/cache-find-app-service.png)
 
-2. Dodaj ustawienie nowej aplikacji o nazwie **CacheConnection** dla aplikacji, aby jej używać do łączenia się z pamięcią podręczną. Użyj tej samej wartości, która została skonfigurowana dla `CacheConnection` w pliku *CacheSecrets.config* . Wartość zawiera nazwę hosta pamięci podręcznej i klucz dostępu.
+2. Dodaj ustawienie nowej aplikacji o nazwie **CacheConnection** dla aplikacji, aby jej używać do łączenia się z pamięcią podręczną. Użyj tej samej wartości, która została skonfigurowana dla `CacheConnection` w pliku *CacheSecrets.config*. Wartość zawiera nazwę hosta pamięci podręcznej i klucz dostępu.
 
     ![Dodawanie ustawienia aplikacji](./media/cache-web-app-howto/cache-add-app-setting.png)
 
@@ -324,13 +328,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 
 ### <a name="to-delete-a-resource-group"></a>Aby usunąć grupę zasobów
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Grupy zasobów** .
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Grupy zasobów**.
 
-2. W polu **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources* . Dla grupy zasobów na liście wyników kliknij pozycję **...** , a następnie wybierz pozycję **Usuń grupę zasobów** .
+2. W polu **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
     ![Usuń](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie wybierz pozycję **Usuń** .
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie wybierz pozycję **Usuń**.
 
 Po krótkim czasie grupa zasobów i wszystkie jej zasoby zostaną usunięte.
 

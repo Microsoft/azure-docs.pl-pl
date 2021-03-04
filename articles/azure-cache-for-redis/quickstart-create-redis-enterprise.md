@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8dbde1f74c700e772823d61b3e35a464f9bbc17e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031671"
+ms.locfileid: "102120967"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej Redis Enterprise (wersja zapoznawcza)
 
@@ -49,13 +49,7 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
 
 1. Wybierz pozycję **Dalej: sieci** i Pomiń.
 
-   > [!NOTE] 
-   > Opcja Link prywatny jest pobierana i może nie być dostępna natychmiast w Twoim regionie.
-   >
-
-1. Wybierz pozycję **Dalej: Zaawansowane** i ustaw **zasady klastrowania** dla **przedsiębiorstwa**.
-   
-   Można zachować ustawienia domyślne lub zmienić je odpowiednio do potrzeb. Włączenie opcji **Zezwalaj na dostęp tylko za pośrednictwem protokołu TLS** wymaga użycia protokołu TLS w celu uzyskania dostępu do nowej pamięci podręcznej z poziomu aplikacji.
+1. Wybierz pozycję **Dalej: Zaawansowane** i ustaw **zasady klastrowania** dla **przedsiębiorstwa**. Włącz **dostęp bez protokołu TLS tylko** wtedy, gdy planujesz nawiązać połączenie z nową pamięcią podręczną bez użycia protokołu TLS. Nie jest to jednak zalecane.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Karta Zaawansowane warstwy przedsiębiorstwa":::
 

@@ -2,18 +2,18 @@
 title: Uaktualnianie agentów Kubernetes z włączonym usługą Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Aktualizacje agentów kontroli dla usługi Azure ARC z włączoną obsługą Kubernetes
 keywords: Kubernetes, łuk, Azure, K8s, kontenery, Agent, uaktualnienie
-ms.openlocfilehash: 3a5355269db4ccfc91612f661b464556b22c1d35
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662821"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121919"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Uaktualnianie agentów Kubernetes z włączonym usługą Azure Arc
 
@@ -84,6 +84,6 @@ Jedna wersja pomocnicza agentów Kubernetes z włączoną funkcją Azure Arc jes
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Łączenie klastra z usługą Azure Arc](./connect-cluster.md)
-* [Tworzenie konfiguracji w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md)
-* [Użyj Azure Policy, aby zastosować konfiguracje na dużą skalę](./use-azure-policy.md)
+* Zapoznaj się z naszym przewodnikiem Szybki Start, aby [połączyć klaster Kubernetes z usługą Azure Arc](./connect-cluster.md).
+* Masz już klaster Kubernetes połączony z usługą Azure Arc? [Utwórz konfiguracje w klastrze Kubernetes z włączonym łukiem](./use-gitops-connected-cluster.md).
+* Dowiedz się [, jak używać Azure Policy do stosowania konfiguracji w odpowiedniej skali](./use-azure-policy.md).
