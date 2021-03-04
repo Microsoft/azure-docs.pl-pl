@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890772"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044089"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Dodaj warstwę wytłoczenia wielokąta do mapy
 
@@ -22,7 +22,7 @@ W tym artykule pokazano, jak za pomocą warstwy wytłoczenia wielokąta renderow
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Użyj warstwy wytłoczenia wielokątu
 
-Połącz [warstwę wytłoczenia wielokąta](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) ze źródłem danych. Następnie załadowano ją na mapie. Warstwa wytłoczenia wielokąta renderuje obszary `Polygon` i `MultiPolygon` funkcje jako kształty wyciągnięcia. `height`Właściwości i `base` warstwy wytłoczenia wielokąta definiują odległość bazową od powierzchni i wysokości naciągnięcia kształtu w **licznikach** . Poniższy kod ilustruje sposób tworzenia wielokątów, dodawania go do źródła danych i renderowania przy użyciu klasy warstwy wytłoczenia wielokąt.
+Połącz [warstwę wytłoczenia wielokąta](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) ze źródłem danych. Następnie załadowano ją na mapie. Warstwa wytłoczenia wielokąta renderuje obszary `Polygon` i `MultiPolygon` funkcje jako kształty wyciągnięcia. `height`Właściwości i `base` warstwy wytłoczenia wielokąta definiują odległość bazową od powierzchni i wysokości naciągnięcia kształtu w **licznikach**. Poniższy kod ilustruje sposób tworzenia wielokątów, dodawania go do źródła danych i renderowania przy użyciu klasy warstwy wytłoczenia wielokąt.
 
 > [!Note]
 > `base`Wartość zdefiniowana w warstwie wytłoczenia wielokąta powinna być mniejsza lub równa liczbie `height` .
@@ -32,10 +32,9 @@ Połącz [warstwę wytłoczenia wielokąta](/javascript/api/azure-maps-control/a
 <iframe height="500" style="width: 100%;" scrolling="no" title="Wytłaczany Wielokąt" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zobacz <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Wielokąt</a> wyciąganie z piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.</iframe>
 
-
 ## <a name="add-data-driven-polygons"></a>Dodawanie wielokątów opartych na danych
 
-Mapę na mapie choropleth można renderować przy użyciu warstwy wytłoczenia wielokąta. Ustaw `height` właściwości i `fillColor` warstwy wytłoczenia na pomiar zmiennej statystycznej w `Polygon` `MultiPolygon` funkcji i geometrie. Poniższy przykładowy kod przedstawia wytłaczaną mapę na mapie choropleth U. S na podstawie pomiaru gęstości populacji według stanu.
+Mapę na mapie choropleth można renderować przy użyciu warstwy wytłoczenia wielokąta. Ustaw `height` właściwości i `fillColor` warstwy wytłoczenia na pomiar zmiennej statystycznej w `Polygon` `MultiPolygon` funkcji i geometrie. Poniższy przykładowy kod przedstawia wytłaczaną mapę na mapie choropleth Stany Zjednoczone na podstawie pomiaru gęstości populacji według stanu.
 
 <br/>
 
@@ -45,7 +44,7 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/eYYYNox'>mapę na mapie choropl
 
 ## <a name="add-a-circle-to-the-map"></a>Dodaj okrąg do mapy
 
-Azure Maps używa rozszerzonej wersji schematu GEOJSON, który zawiera definicję okręgów, jak pokazano [tutaj](./extend-geojson.md#circle). Wykreślone koło może być renderowane na mapie przez utworzenie `point` funkcji z `subType` właściwością `Circle` i `Radius` właściwością numerowaną reprezentującą promień w **licznikach** . Na przykład:
+Azure Maps używa rozszerzonej wersji schematu GEOJSON, który zawiera definicję okręgów, jak pokazano [tutaj](./extend-geojson.md#circle). Wykreślone koło może być renderowane na mapie przez utworzenie `point` funkcji z `subType` właściwością `Circle` i `Radius` właściwością numerowaną reprezentującą promień w **licznikach**. Na przykład:
 
 ```javascript
 {

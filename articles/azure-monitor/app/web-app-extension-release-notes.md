@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539724"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042610"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Informacje o wersji rozszerzenia aplikacji internetowej platformy Azure dla Application Insights
 
@@ -21,12 +21,30 @@ Ten artykuł zawiera informacje o wersjach rozszerzenia Web Apps platformy Azure
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 - Jak sprawdzić, która wersja rozszerzenia jest obecnie włączona?
-    - Przejdź do adresu `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Aby uzyskać więcej informacji [, zobacz Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i agentów](./azure-web-apps.md?tabs=net#troubleshooting) .
+    - Przejdź do witryny `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Aby uzyskać więcej informacji [, zobacz Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i agentów](./azure-web-apps.md?tabs=net#troubleshooting) .
 
 - Co zrobić, jeśli używam prywatnych rozszerzeń?
     - Odinstaluj rozszerzenia lokacji prywatnych, ponieważ nie jest już obsługiwane.
 
 ## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="2838"></a>2.8.38
+
+- Rozszerzenie JAVA: uaktualniono do programu [Java Agent 3.0.2 (ga)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) z 2.5.1.
+- Node.js rozszerzenie: Zaktualizowano zestaw AI SDK do [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) z 1.8.7.
+- .NET Core: Usunięto wersje nieobsługiwane (2,0, 2,2, 3,0). Obsługiwane są wersje 2,1 i 3,1.
+
+### <a name="2837"></a>2.8.37
+
+- Rozszerzenie AppSvc systemu Windows: .Net Core pracy z dowolną wersją System.Diagnostics.DiagnosticSource.dll.
+
+### <a name="2836"></a>2.8.36
+
+- Rozszerzenie AppSvc systemu Windows: włączone między innymi przy użyciu zestawu AI SDK w programie .NET Core.
+
+### <a name="2835"></a>2.8.35
+
+- Rozszerzenie systemu Windows AppSvc: Dodano obsługę platformy .NET Core 3,1.
 
 ### <a name="2833"></a>2.8.33
 

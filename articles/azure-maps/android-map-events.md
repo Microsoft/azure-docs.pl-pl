@@ -3,17 +3,18 @@ title: Obsługa zdarzeń mapy w mapach systemu Android | Mapy Microsoft Azure
 description: Informacje o zdarzeniach, które są wywoływane, gdy użytkownicy pracują z usługą Maps. Wyświetl listę wszystkich obsługiwanych zdarzeń mapy. Zobacz, jak używać Android SDK Azure Maps do obsługi zdarzeń.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 818d33947fa079a130c3009a34dcb9b72ad52f91
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 86d1b9ec8a507a5cfaa5502efcb239bceabca665
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681665"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097350"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>Korzystanie z mapy (Android SDK)
 
@@ -23,19 +24,27 @@ W tym artykule pokazano, jak używać Menedżera zdarzeń map.
 
 Mapa zarządza wszystkimi zdarzeniami za pomocą jego `events` właściwości. W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia mapy.
 
-| Wydarzenie                  | Format programu obsługi zdarzeń | Opis |
+| Zdarzenie                  | Format programu obsługi zdarzeń | Opis |
 |------------------------|----------------------|-------------|
 | `OnCameraIdle`         | `()`                 | <p>Uruchamiany po ostatniej klatce renderowanej przed przejściem do stanu "bezczynności":<ul><li>Brak przejść do aparatu.</li><li>Wszystkie aktualnie żądane kafelki zostały załadowane.</li><li>Wszystkie Animacje zanikania/przejścia zostały ukończone.</li></ul></p> |
 | `OnCameraMove`         | `()`                 | Uruchamiany wielokrotnie podczas animowanego przejścia z jednego widoku do drugiego w wyniku interakcji z użytkownikiem lub metod. |
 | `OnCameraMoveCanceled` | `()`                 | Uruchamiany, gdy żądanie przeniesienia do aparatu zostało anulowane. |
-| `OnCameraMoveStarted`  | `(int reason)`       | Uruchamiany tuż przed rozpoczęciem przez mapę przejścia z jednego widoku do drugiego w wyniku interakcji z użytkownikiem lub metod. `reason`Argument odbiornika zdarzeń zwraca liczbę całkowitą, która zawiera szczegółowe informacje o sposobie zainicjowania przenoszenia aparatu. Poniżej znajduje się lista możliwych przyczyn:<ul><li>1: gest</li><li>2: animacja dla deweloperów</li><li>3: Animacja interfejsu API</li></ul>   |
+| `OnCameraMoveStarted`  | `(int reason)`       | Uruchamiany tuż przed rozpoczęciem przez mapę przejścia z jednego widoku do drugiego w wyniku interakcji z użytkownikiem lub metod. `reason`Argument odbiornika zdarzeń zwraca liczbę całkowitą, która zawiera szczegółowe informacje o sposobie zainicjowania przenoszenia aparatu. Na poniższej liście przedstawiono możliwe przyczyny:<ul><li>1: gest</li><li>2: animacja dla deweloperów</li><li>3: Animacja interfejsu API</li></ul>   |
 | `OnClick`              | `(double lat, double lon)` | Uruchamiany, gdy mapa zostanie naciśnięty i zwolniony w tym samym punkcie na mapie. |
 | `OnFeatureClick`       | `(List<Feature>)`    | Uruchamiany, gdy mapa zostanie naciśnięty i zwolniony w tym samym punkcie w funkcji.  |
+| `OnLayerAdded` | `(Layer layer)` | Uruchamiany, gdy warstwa zostanie dodana do mapy. |
+| `OnLayerRemoved` | `(Layer layer)` | Uruchamiany, gdy warstwa zostanie usunięta z mapy. |
+| `OnLoaded` | `()` | Uruchamiany natychmiast po pobraniu wszystkich niezbędnych zasobów i wykonaniu pierwszego wizualnego renderowania mapy. |
 | `OnLongClick`          | `(double lat, double lon)` | Uruchamiany, gdy mapa zostanie naciśnięty, zatrzymywana przez chwilę, a następnie wydano w tym samym punkcie na mapie. |
 | `OnLongFeatureClick `  | `(List<Feature>)`    | Uruchamiany, gdy mapa zostanie naciśnięty, zatrzymywana przez chwilę, a następnie wydaną w tym samym punkcie w funkcji. |
 | `OnReady`              | `(AzureMap map)`     | Uruchamiany po pierwszym załadowaniu mapy lub zmianie orientacji aplikacji oraz załadowaniu minimalnych wymaganych zasobów mapy, a mapa jest gotowa do programistycznego działania z. |
+| `OnSourceAdded` | `(Source source)` | Uruchamiany po `DataSource` `VectorTileSource` dodaniu lub do mapy. |
+| `OnSourceRemoved` | `(Source source)` | Uruchamiany po `DataSource` `VectorTileSource` usunięciu lub z mapy. |
+| `OnStyleChange` | `()` | Uruchamiany, gdy styl mapy zostanie załadowany lub zmieniony. |
 
 Poniższy kod pokazuje, jak dodać `OnClick` `OnFeatureClick` zdarzenia, i `OnCameraMove` do mapy.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 map.events.add((OnClick) (lat, lon) -> {
@@ -51,11 +60,33 @@ map.events.add((OnCameraMove) () -> {
 });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.events.add(OnClick { lat: Double, lon: Double -> 
+    //Map clicked.
+})
+
+map.events.add(OnFeatureClick { features: List<Feature?>? -> 
+    //Feature clicked.
+})
+
+map.events.add(OnCameraMove {
+    //Map camera moved.
+})
+```
+
+::: zone-end
+
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [nawigowania](how-to-use-android-map-control-library.md#navigating-the-map) po zasobie, jak korzystać z zdarzeń mapy i wyzwalacza.
 
 ## <a name="scope-feature-events-to-layer"></a>Zakresy zdarzeń funkcji do warstwy
 
-Podczas dodawania `OnFeatureClick` zdarzeń lub `OnLongFeatureClick` do mapy, identyfikator warstwy można przesłać jako drugi parametr. Po przekazaniu identyfikatora warstwy zdarzenie będzie wyzwalane tylko wtedy, gdy zdarzenie wystąpi w tej warstwie. Zdarzenia należące do zakresu warstw są obsługiwane przez warstwę symboli, bąbelków, linii i wielokątów.
+Podczas dodawania `OnFeatureClick` zdarzeń lub `OnLongFeatureClick` do mapy, wystąpienie warstwy lub identyfikator warstwy można przesłać jako drugi parametr. Gdy przejdziesz do warstwy, zdarzenie będzie wyzwalane tylko wtedy, gdy zdarzenie wystąpi w tej warstwie. Zdarzenia objęte zakresem warstw są obsługiwane przez warstwę symboli, bąbelków, linii i wielokątów.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source.
@@ -72,13 +103,48 @@ map.layers.add(layer);
 //Add a feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnFeatureClick) (features) -> {
     //One or more features clicked.
-}, layer.getId());
+}, layer);
 
 //Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
 map.events.add((OnLongFeatureClick) (features) -> {
     //One or more features long clicked.
-}, layer.getId());
+}, layer);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source.
+val source = DataSource()
+map.sources.add(source)
+
+//Add data to the data source.
+source.add(Point.fromLngLat(0, 0))
+
+//Create a layer and add it to the map.
+val layer = BubbleLayer(source)
+map.layers.add(layer)
+
+//Add a feature click event to the map and pass the layer ID to limit the event to the specified layer.
+map.events.add(
+    OnFeatureClick { features: List<Feature?>? -> 
+        //One or more features clicked.
+    },
+    layer
+)
+
+//Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
+map.events.add(
+    OnLongFeatureClick { features: List<Feature?>? -> 
+         //One or more features long clicked.
+    },
+    layer
+)
+```
+
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

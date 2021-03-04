@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/22/2020
-ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.date: 03/03/2021
+ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807652"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049376"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -73,7 +73,7 @@ Wykonaj poniższe kroki, aby połączyć istniejące konta Data Factory z Data C
 
 Gdy użytkownik kontrolą rejestruje Data Factory, do którego mają dostęp, w zapleczu wystąpią następujące zdarzenia:
 
-1. **Data Factory MSI** zostanie dodany do roli RBAC kontrolą: **kontrolą Curator danych**.
+1. **Data Factory tożsamość zarządzana** zostanie dodana do roli RBAC kontrolą: **kontrolą Curator danych**.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Zrzut ekranu przedstawiający Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
      
@@ -88,76 +88,91 @@ Aby usunąć połączenie usługi Fabryka danych, wykonaj następujące czynnoś
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Zrzut ekranu przedstawiający sposób wybierania fabryk danych w celu usunięcia połączenia." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Konfigurowanie własnego środowiska IR do zbierania elementów zależnych od Premium SQL
+## <a name="configure-a-self-hosted-integration-runtime-to-collect-lineage"></a>Konfigurowanie samohostowanego Integration Runtime do zbierania elementów zależnych
 
-Elementy zależne dla działania kopiowania Data Factory są dostępne dla lokalnych baz danych SQL. Jeśli używasz własnego środowiska Integration Runtime do przenoszenia danych przy użyciu Azure Data Factory i chcesz przechwycić elementy zależne w usłudze Azure kontrolą, upewnij się, że wersja to 4.8.7418.1 lub nowsza. Aby uzyskać więcej informacji na temat samodzielnego środowiska Integration Runtime, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](../data-factory/create-self-hosted-integration-runtime.md).
+Elementy zależne dla działania kopiowania Data Factory są dostępne dla lokalnych magazynów danych, takich jak bazy danych SQL. Jeśli używasz własnego środowiska Integration Runtime do przenoszenia danych przy użyciu Azure Data Factory i chcesz przechwycić elementy zależne w usłudze Azure kontrolą, upewnij się, że wersja to 5,0 lub nowsza. Aby uzyskać więcej informacji na temat samodzielnego środowiska Integration Runtime, zobacz [Tworzenie i Konfigurowanie własnego środowiska Integration Runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <a name="supported-azure-data-factory-activities"></a>Obsługiwane Azure Data Factory działania
 
 Usługa Azure kontrolą przechwytuje środowisko uruchomieniowe z następujących Azure Data Factory działań:
 
-- Kopiowanie danych
-- Przepływ danych
-- Wykonaj pakiet SSIS
+- [Kopiowanie danych](../data-factory/copy-activity-overview.md)
+- [Przepływ danych](../data-factory/concepts-data-flow-overview.md)
+- [Wykonaj pakiet SSIS](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
 > Usługa Azure kontrolą odrzuca składową, jeśli źródło lub miejsce docelowe używa nieobsługiwanego systemu magazynu danych.
 
 Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów danych obsługiwanych przez Data Factory, zgodnie z opisem w poniższych sekcjach.
 
-### <a name="data-factory-copy-data-support"></a>Obsługa Kopiowanie danych Data Factory
+### <a name="data-factory-copy-activity-support"></a>Obsługa działania kopiowania Data Factory
 
-| System magazynowania danych | Obsługiwane jako źródło | 
+| Magazyn danych | Obsługiwane | 
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Tak | 
-| ADLS Gen2 | Tak | 
-| Obiekt bob Azure | Tak |
-| Azure Cosmos DB (interfejs API SQL) | Tak | 
-| Azure Cosmos DB (interfejs API Mongo) | Tak |
+| Azure Blob Storage | Tak |
 | Azure Cognitive Search | Tak | 
-| Azure Data Explorer | Tak | 
+| Azure Cosmos DB (interfejs API SQL) \* | Tak | 
+| Interfejs API Azure Cosmos DB dla MongoDB \* | Tak |
+| Eksplorator danych platformy Azure \* | Tak | 
+| Azure Data Lake Storage Gen1 | Tak | 
+| Azure Data Lake Storage Gen2 | Tak | 
 | Baza danych platformy Azure dla programu Maria \* | Tak | 
-| Usługa Azure Database for MYSQL \* | Tak | 
+| Azure Database for MySQL \* | Tak | 
 | Azure Database for PostgreSQL \* | Tak |
 | Azure File Storage | Tak | 
-| Azure Table Storage | Tak |
 | Azure SQL Database \* | Tak | 
-| Usługa Azure SQL MI \* | Tak | 
-| Azure Synapse Analytics (dawniej SQL DW) \* | Tak | 
-| SQL Server Premium  \* | Tak | 
+| Wystąpienie zarządzane Azure SQL \* | Tak | 
+| Analiza usługi Azure Synapse \* | Tak | 
+| Table Storage platformy Azure \* | Tak |
+| SQL Server \* | Tak | 
 | Amazon S3 | Tak | 
-| Teradata | Tak | 
-| Łącznik tabeli SAP | Tak |
-| SAP ECC | Tak | 
-| Hive | Tak | 
+| Ładowana \* | Tak | 
+| SAP ECC \* | Tak |
+| Tabela SAP \* | Tak |
+| Teradata \* | Tak |
+
+*\* Usługa Azure kontrolą obecnie nie obsługuje zapytania ani procedury składowanej dla elementu powiązanego lub skanowania. Elementy powiązane są ograniczone tylko do źródeł tabel i widoków.*
 
 > [!Note]
 > Funkcja współdziałania ma pewne narzuty wydajności w Data Factory działania kopiowania. W przypadku użytkowników, którzy konfigurują połączenia usługi Data Factory w programie kontrolą, mogą wystąpić pewne zadania kopiowania trwające dłużej. Przede wszystkim wpływanie nie ma znaczenia na znikomą. Skontaktuj się z pomocą techniczną, aby uzyskać porównanie czasu, jeśli zadania kopiowania trwają znacznie dłużej niż zwykle.
 
+#### <a name="known-limitations-on-copy-activity-lineage"></a>Znane ograniczenia w odniesieniu do działania kopiowania
+
+Obecnie użycie następujących funkcji działania kopiowania nie jest jeszcze obsługiwane:
+
+- Skopiuj dane do Azure Data Lake Storage Gen1 przy użyciu formatu binarnego.
+- Kopiowanie danych do usługi Azure Synapse Analytics przy użyciu instrukcji Base lub COPY.
+- Ustawienie kompresji dla plików binarnych, rozdzielanych tekstem, programu Excel, JSON i XML.
+- Opcje partycji źródłowej dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, usługi Azure Synapse Analytics, SQL Server i tabeli SAP.
+- Kopiuj dane do ujścia opartego na plikach z ustawieniem Maksymalna liczba wierszy na plik.
+- Dodaj dodatkowe kolumny podczas kopiowania.
+
 ### <a name="data-factory-data-flow-support"></a>Obsługa przepływu danych Data Factory
 
-| System magazynowania danych | Obsługiwane |
+| Magazyn danych | Obsługiwane |
 | ------------------- | ------------------- | 
-| ADLS Gen1 | Tak |
-| ADLS Gen2 | Tak |
-| Obiekt bob Azure | Tak |
+| Azure Blob Storage | Tak |
+| Azure Data Lake Storage Gen1 | Tak |
+| Azure Data Lake Storage Gen2 | Tak |
 | Azure SQL Database \* | Tak |
-| Azure Synapse Analytics (dawniej SQL DW) \* | Tak |
+| Analiza usługi Azure Synapse \* | Tak |
+
+*\* Usługa Azure kontrolą obecnie nie obsługuje zapytania ani procedury składowanej dla elementu powiązanego lub skanowania. Elementy powiązane są ograniczone tylko do źródeł tabel i widoków.*
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory wykonywania obsługi pakietów SSIS
 
-| System magazynowania danych | Obsługiwane |
+| Magazyn danych | Obsługiwane |
 | ------------------- | ------------------- |
-| Obiekt bob Azure | Tak |
-| ADLS Gen1 | Tak |
-| ADLS Gen2 | Tak |
-| Azure SQL Database \* | Tak |
-| Usługa Azure SQL MI \*| Tak |
-| Azure Synapse Analytics (dawniej SQL DW) \* | Tak |
-| SQL Server Premium \* | Tak |
+| Azure Blob Storage | Tak |
+| Azure Data Lake Storage Gen1 | Tak |
+| Azure Data Lake Storage Gen2 | Tak |
 | Azure File Storage | Tak |
+| Azure SQL Database \* | Tak |
+| Wystąpienie zarządzane Azure SQL \*| Tak |
+| Analiza usługi Azure Synapse \* | Tak |
+| SQL Server \* | Tak |
 
-*\* W przypadku scenariuszy SQL (platformy Azure i lokalnych) usługa Azure kontrolą nie obsługuje procedur składowanych ani skryptów dla elementów zależnych ani skanowanych. Elementy powiązane są ograniczone tylko do źródeł tabel i widoków.*
+*\* Usługa Azure kontrolą obecnie nie obsługuje zapytania ani procedury składowanej dla elementu powiązanego lub skanowania. Elementy powiązane są ograniczone tylko do źródeł tabel i widoków.*
 
 > [!Note]
 > Usługa Azure Data Lake Storage Gen2 jest teraz ogólnie dostępna. Zalecamy, aby zacząć z niej korzystać już dziś. Aby uzyskać więcej informacji, zobacz [stronę produktu](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
@@ -172,7 +187,7 @@ Dostępne są następujące dodatkowe sposoby znajdowania informacji w widoku el
 
 - Na karcie **elementy** zależne Umieść kursor na kształtach, aby wyświetlić dodatkowe informacje o elemencie zawartości w etykietce narzędzia.
 - Wybierz węzeł lub krawędź, aby wyświetlić typ zasobu, którego należy lub aby przełączyć zasoby.
-- Kolumny zestawu danych są wyświetlane po lewej **stronie karty elementy** powiązane. Aby uzyskać więcej informacji na temat elementów autonomicznych na poziomie kolumny, zobacz temat elementy [autonomiczne na poziomie kolumny](catalog-lineage-user-guide.md#column-level-lineage).
+- Kolumny zestawu danych są wyświetlane po lewej **stronie karty elementy** powiązane. Aby uzyskać więcej informacji na temat elementów autonomicznych na poziomie kolumny, zobacz [kolumna zestawu danych](catalog-lineage-user-guide.md#dataset-column-lineage).
 
 ### <a name="data-lineage-for-11-operations"></a>Odchodzenie danych dla operacji 1:1
 

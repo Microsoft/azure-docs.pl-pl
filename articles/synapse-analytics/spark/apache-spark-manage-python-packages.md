@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695975"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098778"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami języka Python dla Apache Spark w usłudze Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Istnieją dwa podstawowe sposoby instalowania biblioteki w klastrze:
 > [!IMPORTANT]
 > - Jeśli instalowany pakiet jest duży lub zajmuje dużo czasu, ma to wpływ na czas uruchamiania wystąpienia platformy Spark.
 > - Zmiana wersji PySpark, Python, Scala/Java, .NET lub Spark nie jest obsługiwana.
-> - Instalowanie pakietów z PyPI nie jest obsługiwane w obszarach roboczych z obsługą programu DEP.
+> - Instalowanie pakietów z zewnętrznych repozytoriów, takich jak PyPI, Conda-podrabianie, lub domyślnych kanałów Conda nie jest obsługiwane w obszarze roboczym obsługującym program DEP.
 
 ### <a name="install-python-packages"></a>Zainstaluj pakiety języka Python
 Pakiety języka Python można instalować z repozytoriów, takich jak PyPI i Conda-Forge, dostarczając plik specyfikacji środowiska. 
@@ -140,9 +140,6 @@ Aby dodać pakiety obszaru roboczego:
 
 ![Zrzut ekranu, który wyróżnia pakiety obszaru roboczego.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Wyświetl pakiety obszaru roboczego")
 
-> [!IMPORTANT]
-> Instalowanie pakietów obszaru roboczego nie jest jeszcze obsługiwane w obszarach roboczych chronionych przez usługi Data eksfiltracji.
-
 ### <a name="storage-account"></a>Konto magazynu
 W puli Apache Spark można zainstalować pakiety kółka utworzone niestandardowo przez przekazanie wszystkich plików koła do konta Azure Data Lake Storage (Gen2), które jest połączone z obszarem roboczym Synapse. 
 
@@ -160,8 +157,8 @@ Może być konieczne dodanie ```python``` folderu w ```libraries``` folderze, je
 >[!WARNING]
 > Podczas udostępniania niestandardowych plików kół użytkownicy nie mogą podawać plików kółka zarówno na koncie magazynu, jak i w interfejsie biblioteki obszaru roboczego. Jeśli są podane oba te elementy, zostaną zainstalowane tylko pliki kółka określone na liście pakiety obszaru roboczego. 
 
-## <a name="session-scoped-libraries-preview"></a>Biblioteki o zakresie sesji (wersja zapoznawcza)
-Oprócz bibliotek na poziomie puli można także określić biblioteki o zakresie sesji na początku sesji notesu.  Biblioteki o zakresie sesji umożliwiają Określanie niestandardowych środowisk Python i używanie ich w ramach sesji notesu. 
+## <a name="session-scoped-packages-preview"></a>Pakiety z zakresem sesji (wersja zapoznawcza)
+Oprócz pakietów poziomu puli można także określić biblioteki o zakresie sesji na początku sesji notesu.  Biblioteki o zakresie sesji umożliwiają Określanie niestandardowych środowisk Python i używanie ich w ramach sesji notesu. 
 
 W przypadku korzystania z bibliotek o zakresie sesji należy pamiętać o następujących kwestiach:
    - W przypadku instalowania bibliotek z zakresem sesji tylko bieżący Notes ma dostęp do określonych bibliotek. 
@@ -187,3 +184,4 @@ W niektórych przypadkach w celu wyświetlenia wersji pakietu z Conda może być
 ## <a name="next-steps"></a>Następne kroki
 - Wyświetlanie bibliotek domyślnych: [Obsługa wersji Apache Spark](apache-spark-version-support.md)
 - Rozwiązywanie problemów z błędami instalacji biblioteki: [Rozwiązywanie problemów z bibliotekami](apache-spark-troubleshoot-library-errors.md)
+- Tworzenie prywatnego kanału Conda przy użyciu konta Azure Data Lake Storage: [Conda Private Channels](./spark/../apache-spark-custom-conda-channel.md)

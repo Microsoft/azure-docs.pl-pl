@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695966"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098710"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie pakietami Scala i Java dla Apache Spark w usłudze Azure Synapse Analytics
 
@@ -37,13 +37,10 @@ Pakiety obszaru roboczego mogą być niestandardowymi lub prywatnymi plikami jar
 
 Aby dodać pakiety obszaru roboczego:
 1. Przejdź do karty **Zarządzanie**  >  **pakietami obszarów roboczych** .
-2. Przekaż pliki kółka przy użyciu selektora plików.
-3. Po przekazaniu plików do obszaru roboczego usługi Azure Synapse można dodać te pliki kół do danej puli Apache Spark.
+2. Przekaż pliki jar przy użyciu selektora plików.
+3. Po przekazaniu plików do obszaru roboczego usługi Azure Synapse można dodać te pliki jar do danej puli Apache Spark.
 
 ![Zrzut ekranu, który wyróżnia pakiety obszaru roboczego.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Wyświetl pakiety obszaru roboczego")
-
-> [!IMPORTANT]
-> Instalowanie pakietów obszaru roboczego nie jest jeszcze obsługiwane w obszarach roboczych chronionych przez usługi Data eksfiltracji.
 
 ## <a name="pool-libraries"></a>Biblioteki puli
 Po zidentyfikowaniu pakietów Scala i Java, które mają być używane dla aplikacji platformy Spark, można je zainstalować w puli platformy Spark. Biblioteki na poziomie puli są dostępne dla wszystkich notesów i zadań uruchomionych w tej puli.

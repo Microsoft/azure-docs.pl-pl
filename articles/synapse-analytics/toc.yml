@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Przełączanie do dedykowanej puli SQL (dawniej SQL DW)
+- name: Przełącz do dedykowanej puli SQL (dawniej SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Omówienie
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Przewodniki Szybki start
       items:
-        - name: Tworzenie obszaru roboczego za pomocą witryny Azure Portal
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Tworzenie obszaru roboczego za pomocą interfejsu wiersza polecenia platformy Azure
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Tworzenie obszaru roboczego za pomocą programu Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Wdrażanie za pomocą szablonu
-          href: quickstart-deployment-template-workspaces.md
+        - name: Tworzenie obszaru roboczego
+          items:
+            - name: Azure Portal
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Szablon ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Podłączanie obszaru roboczego usługi Power BI
           href: quickstart-power-bi.md
@@ -586,6 +588,8 @@
               href: ./spark/apache-spark-manage-scala-packages.md
             - name: Rozwiązywanie problemów z błędami instalacji pakietu języka Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Utwórz kanał prywatny Conda
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Korzystanie z notesów i narzędzi IDE
           items:
             - name: Zarządzanie notesami

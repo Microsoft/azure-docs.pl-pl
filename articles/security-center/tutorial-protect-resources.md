@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 89d04588d07407be5dbd7ddbafd6543ed461462e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: cc88561f8882b1712648a261d1f0208a18bab26d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945723"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095480"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Samouczek: Ochrona zasobów przy użyciu usługi Azure Security Center
 Usługa Security Center ogranicza narażenia na zagrożenia poprzez zastosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań. Dostęp do maszyn wirtualnych just-in-Time (JIT) zmniejsza narażenie na ataki przez umożliwienie trwałego dostępu do maszyn wirtualnych. Zamiast tego możesz zapewnić kontrolowany, monitorowany dostęp do maszyn wirtualnych tylko w razie potrzeby. Adaptacyjne kontrole aplikacji pomagają zabezpieczać maszyny wirtualne przed złośliwym oprogramowaniem poprzez kontrolowanie aplikacji, które mogą być uruchamiane na maszynach wirtualnych. Security Center wykorzystuje Uczenie maszynowe do analizowania procesów uruchomionych na maszynie wirtualnej i pomaga stosować reguły zezwalania na korzystanie z tej analizy.
@@ -31,7 +31,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 > * Konfigurowanie zasad kontroli aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć włączoną usługę Azure Defender. Możesz bezpłatnie wypróbować usługę Azure Defender. Aby uzyskać więcej informacji, zobacz [Wypróbuj usługę Azure Defender](security-center-pricing.md).
+Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć włączoną usługę Azure Defender. Dostępna jest bezpłatna wersja próbna. Aby przeprowadzić uaktualnienie, zobacz [Włączanie usługi Azure Defender](enable-azure-defender.md).
 
 ## <a name="manage-vm-access"></a>Zarządzanie dostępem do maszyny wirtualnej
 Dostęp typu „ just in time” do maszyny wirtualnej może być używany do blokowania ruchu przychodzącego do maszyn wirtualnych platformy Azure w celu zmniejszenia narażenia na ataki przy zapewnieniu łatwego dostępu do maszyn wirtualnych na potrzeby łączenia się z nimi w razie potrzeby.

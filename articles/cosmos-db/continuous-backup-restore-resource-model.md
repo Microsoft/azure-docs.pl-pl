@@ -4,15 +4,15 @@ description: W tym artykule przedstawiono model zasobów dla funkcji przywracani
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369972"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097231"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Model zasobów dla funkcji przywracania do momentu Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -128,7 +128,7 @@ Ten zasób zawiera wystąpienie konta bazy danych, które można przywrócić. K
 | restorableLocations: creationTime | Godzina w formacie UTC utworzenia konta regionalnego.|
 | restorableLocations: deletionTime | Czas (UTC), po usunięciu konta regionalnego. Ta wartość jest pusta, jeśli konto regionalne jest aktywne.|
 
-Aby uzyskać listę wszystkich kont dostępnych, zobacz artykuł [dostępnych Database accounts-list](restorable-database-accounts-list.md) lub [dostępnych accounts Database-list by location](restorable-database-accounts-list-by-location.md) .
+Aby uzyskać listę wszystkich kont dostępnych, zobacz artykuł [dostępnych Database accounts-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) lub [dostępnych accounts Database-list by location](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) .
 
 ### <a name="restorable-sql-database"></a>Baza danych SQL dostępnych
 
@@ -142,7 +142,7 @@ Każdy zasób zawiera informacje o zdarzeniu mutacji, takie jak tworzenie i usuw
 | operationType | Typ operacji dla tego zdarzenia bazy danych. Oto możliwe wartości:<br/><ul><li>Tworzenie: zdarzenie tworzenia bazy danych</li><li>Usuń: zdarzenie usunięcia bazy danych</li><li>Zastąp: zdarzenie modyfikacji bazy danych</li><li>SystemOperation: zdarzenie modyfikacji bazy danych wyzwolone przez system. To zdarzenie nie jest inicjowane przez użytkownika</li></ul> |
 | database |Właściwości bazy danych SQL w czasie zdarzenia|
 
-Aby uzyskać listę wszystkich mutacji bazy danych, zobacz artykuł [dostępnych SQL Databases-list](restorable-sql-databases-list.md) .
+Aby uzyskać listę wszystkich mutacji bazy danych, zobacz artykuł [dostępnych SQL Databases-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) .
 
 ### <a name="restorable-sql-container"></a>Dostępnych kontener SQL
 
@@ -156,7 +156,7 @@ Każdy zasób zawiera informacje o zdarzeniu mutacji, takie jak tworzenie i usuw
 | operationType | Typ operacji dla tego zdarzenia kontenera. Oto możliwe wartości: <br/><ul><li>Tworzenie: zdarzenie tworzenia kontenera</li><li>Usuń: zdarzenie usunięcia kontenera</li><li>Zastąp: zdarzenie modyfikacji kontenera</li><li>SystemOperation: zdarzenie modyfikacji kontenera wyzwolone przez system. To zdarzenie nie jest inicjowane przez użytkownika</li></ul> |
 | kontener | Właściwości kontenera SQL w momencie zdarzenia.|
 
-Aby uzyskać listę wszystkich mutacji kontenerów w ramach tej samej bazy danych, zobacz [dostępnych SQL Containers-list —](restorable-sql-containers-list.md) artykuł.
+Aby uzyskać listę wszystkich mutacji kontenerów w ramach tej samej bazy danych, zobacz [dostępnych SQL Containers-list —](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) artykuł.
 
 ### <a name="restorable-sql-resources"></a>Dostępnych zasoby SQL
 
@@ -167,7 +167,7 @@ Każdy zasób reprezentuje pojedynczą bazę danych i wszystkie kontenery w tej 
 | Bazy  | Nazwa bazy danych SQL.
 | CollectionName   | Lista kontenerów SQL w tej bazie danych.|
 
-Aby uzyskać listę danych SQL i pola kombi kontenera istniejących na koncie dla danego znacznika czasu i lokalizacji, zobacz artykuł [dostępnych SQL Resources-list](restorable-sql-resources-list.md) .
+Aby uzyskać listę danych SQL i pola kombi kontenera istniejących na koncie dla danego znacznika czasu i lokalizacji, zobacz artykuł [dostępnych SQL Resources-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) .
 
 ### <a name="restorable-mongodb-database"></a>Baza danych dostępnych MongoDB
 
@@ -180,7 +180,7 @@ Każdy zasób zawiera informacje o zdarzeniu mutacji, takie jak tworzenie i usuw
 | ownerResourceId   | Identyfikator zasobu bazy danych MongoDB. |
 | operationType |   Typ operacji dla tego zdarzenia bazy danych. Oto możliwe wartości:<br/><ul><li> Tworzenie: zdarzenie tworzenia bazy danych</li><li> Usuń: zdarzenie usunięcia bazy danych</li><li> Zastąp: zdarzenie modyfikacji bazy danych</li><li> SystemOperation: zdarzenie modyfikacji bazy danych wyzwolone przez system. To zdarzenie nie jest inicjowane przez użytkownika </li></ul> |
 
-Aby uzyskać listę wszystkich mutacji bazy danych, zobacz artykuł [dostępnych MongoDB Databases-list](restorable-mongodb-databases-list.md) .
+Aby uzyskać listę wszystkich mutacji bazy danych, zobacz artykuł [dostępnych MongoDB Databases-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) .
 
 ### <a name="restorable-mongodb-collection"></a>Dostępnych MongoDB, kolekcja
 
@@ -193,7 +193,7 @@ Każdy zasób zawiera informacje o zdarzeniu mutacji, takie jak tworzenie i usuw
 | ownerResourceId   | Identyfikator zasobu kolekcji MongoDB. |
 | operationType |Typ operacji dla tego zdarzenia zbierania danych. Oto możliwe wartości:<br/><ul><li>Utwórz: zdarzenie tworzenia kolekcji</li><li>Usuń: zdarzenie usunięcia kolekcji</li><li>Zastąp: zdarzenie modyfikacji kolekcji</li><li>SystemOperation: zdarzenie modyfikacji kolekcji wyzwolone przez system. To zdarzenie nie jest inicjowane przez użytkownika</li></ul> |
 
-Aby uzyskać listę wszystkich mutacji kontenerów w ramach tej samej bazy danych, zobacz artykuł [dostępnych MongoDB Collections-list](restorable-mongodb-collections-list.md) .
+Aby uzyskać listę wszystkich mutacji kontenerów w ramach tej samej bazy danych, zobacz artykuł [dostępnych MongoDB Collections-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) .
 
 ### <a name="restorable-mongodb-resources"></a>Zasoby dostępnych MongoDB
 
@@ -204,7 +204,7 @@ Każdy zasób reprezentuje pojedynczą bazę danych i wszystkie kolekcje w tej b
 | Bazy  |Nazwa bazy danych MongoDB. |
 | CollectionName | Lista kolekcji MongoDB w tej bazie danych. |
 
-Aby uzyskać listę wszystkich MongoDB baz danych i kolekcji, które istnieją na koncie pod daną sygnaturą czasową i lokalizację, zobacz artykuł [dostępnych MongoDB Resources-list](restorable-mongodb-resources-list.md) .
+Aby uzyskać listę wszystkich MongoDB baz danych i kolekcji, które istnieją na koncie pod daną sygnaturą czasową i lokalizację, zobacz artykuł [dostępnych MongoDB Resources-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) .
 
 ## <a name="next-steps"></a>Następne kroki
 

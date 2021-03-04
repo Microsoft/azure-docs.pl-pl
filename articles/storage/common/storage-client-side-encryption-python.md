@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008938"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043749"
 ---
 # <a name="client-side-encryption-with-python"></a>Szyfrowanie po stronie klienta przy użyciu języka Python
 
@@ -54,7 +54,7 @@ Odszyfrowywanie za pomocą techniki Envelope działa w następujący sposób:
 Biblioteka klienta magazynu używa [algorytmu AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) w celu szyfrowania danych użytkownika. W przypadku trybu [szyfrowania bloku blokowego (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) z algorytmem AES. Każda usługa działa nieco inaczej, więc omawiamy każdą z nich w tym miejscu.
 
 ### <a name="blobs"></a>Obiekty blob
-Biblioteka klienta obsługuje obecnie szyfrowanie tylko całych obiektów BLOB. Szyfrowanie jest obsługiwane, gdy użytkownicy korzystają z metod **Create** _. W przypadku plików do pobrania obsługiwane są zarówno pobieranie w całości, jak i zakres, a ponadto dostępne są przetwarzanie równoległe przekazywania i pobierania.
+Biblioteka klienta obsługuje obecnie szyfrowanie tylko całych obiektów BLOB. Szyfrowanie jest obsługiwane, gdy użytkownicy korzystają z metod **Create***. W przypadku plików do pobrania obsługiwane są zarówno pobieranie w całości, jak i zakres, a ponadto dostępne są przetwarzanie równoległe przekazywania i pobierania.
 
 Podczas szyfrowania Biblioteka klienta generuje losowy wektor inicjacji (IV) z 16 bajtów wraz z losowym kluczem szyfrowania zawartości (CEK) wynoszącym 32 bajtów i przeprowadź szyfrowanie koperty danych obiektów BLOB przy użyciu tych informacji. Opakowany CEK i niektóre dodatkowe metadane szyfrowania są następnie przechowywane jako metadane obiektów BLOB wraz z zaszyfrowanego obiektu BLOB w usłudze.
 
@@ -63,9 +63,9 @@ Podczas szyfrowania Biblioteka klienta generuje losowy wektor inicjacji (IV) z 1
 > 
 > 
 
-Pobieranie zaszyfrowanego obiektu BLOB polega na pobieraniu zawartości całego obiektu BLOB przy użyciu metod _*Get* *_ wygodnie. Opakowany CEK jest rozpakowany i używany razem z IV (przechowywane jako metadane obiektu BLOB w tym przypadku) w celu zwrócenia odszyfrowanych danych do użytkowników.
+Pobieranie zaszyfrowanego obiektu BLOB polega na pobieraniu zawartości całego obiektu BLOB przy użyciu metod **Get*** wygodnych. Opakowany CEK jest rozpakowany i używany razem z IV (przechowywane jako metadane obiektu BLOB w tym przypadku) w celu zwrócenia odszyfrowanych danych do użytkowników.
 
-Pobieranie dowolnego zakresu (metody _*Get* *_ z parametrami zakresu przekazane) w zaszyfrowanym obiekcie blob obejmuje dostosowanie zakresu zapewnianego przez użytkowników w celu uzyskania niewielkiej ilości dodatkowych danych, których można użyć do pomyślnego odszyfrowania żądanego zakresu.
+Pobieranie dowolnego zakresu (metody **Get*** z parametrami zakresu przekazane) w zaszyfrowanym obiekcie blob obejmuje dostosowanie zakresu zapewnianego przez użytkowników w celu uzyskania niewielkiej ilości dodatkowych danych, których można użyć do pomyślnego odszyfrowania żądanego zakresu.
 
 Blokowe obiekty blob i stronicowe obiekty blob mogą być szyfrowane/odszyfrowywane przy użyciu tego schematu. Obecnie nie jest obsługiwane szyfrowanie dołączanych obiektów BLOB.
 
@@ -114,7 +114,7 @@ Należy pamiętać, że jednostki są szyfrowane w miarę ich wstawiania do part
 > [!IMPORTANT]
 > Należy pamiętać o tych ważnych kwestiach podczas korzystania z szyfrowania po stronie klienta:
 > 
-> _ Podczas odczytywania lub zapisywania do zaszyfrowanego obiektu BLOB Użyj pełnych poleceń przekazywania obiektów blob oraz poleceń pobierania zakresu/całego obiektu BLOB. Unikaj zapisywania do zaszyfrowanego obiektu BLOB przy użyciu operacji protokołu, takich jak Put Block, Put Block list, Write Pages lub Clear Pages; w przeciwnym razie może dojść do uszkodzenia zaszyfrowanego obiektu BLOB i uniemożliwić jego odczytanie.
+> * Podczas odczytywania lub zapisywania do zaszyfrowanego obiektu BLOB używaj pełnych poleceń przekazywania obiektów blob oraz poleceń pobierania zakresu/całego obiektu BLOB. Unikaj zapisywania do zaszyfrowanego obiektu BLOB przy użyciu operacji protokołu, takich jak Put Block, Put Block list, Write Pages lub Clear Pages; w przeciwnym razie może dojść do uszkodzenia zaszyfrowanego obiektu BLOB i uniemożliwić jego odczytanie.
 > * W przypadku tabel istnieje podobne ograniczenie. Należy zachować ostrożność, aby nie aktualizować zaszyfrowanych właściwości bez aktualizowania metadanych szyfrowania.
 > * Jeśli ustawisz metadane dla zaszyfrowanego obiektu BLOB, możesz zastąpić metadane związane z szyfrowaniem wymagane do odszyfrowania, ponieważ metadane ustawień nie są addytywne. Dotyczy to również migawek; należy unikać określania metadanych podczas tworzenia migawki zaszyfrowanego obiektu BLOB. Jeśli metadane muszą być ustawione, należy najpierw wywołać metodę **get_blob_metadata** , aby pobrać bieżące metadane szyfrowania i uniknąć jednoczesnego zapisu podczas ustawiania metadanych.
 > * Włącz flagę **require_encryption** w obiekcie usługi dla użytkowników, którzy powinni korzystać tylko z zaszyfrowanych danych. Aby uzyskać więcej informacji, zobacz poniżej.
@@ -150,6 +150,12 @@ Użytkownicy mogą opcjonalnie włączyć tryb operacji, w której wszystkie ope
 ### <a name="blob-service-encryption"></a>Szyfrowanie Blob service
 Ustaw pola zasad szyfrowania w obiekcie blockblobservice. Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
 
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
@@ -171,9 +177,16 @@ my_block_blob_service.create_blob_from_stream(
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Szyfrowanie usługa kolejki
 Ustaw pola zasad szyfrowania w obiekcie QueueService. Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
+
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -195,11 +208,18 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### <a name="table-service-encryption"></a>Szyfrowanie Table service
 Oprócz tworzenia zasad szyfrowania i ustawiania ich dla opcji żądania należy określić **encryption_resolver_function** w **tableservice** lub ustawić atrybut szyfrowania w EntityProperty.
 
 ### <a name="using-the-resolver"></a>Korzystanie z programu rozpoznawania nazw
+
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -233,13 +253,21 @@ my_table_service.insert_entity(table_name, entity)
 my_table_service.get_entity(
     table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### <a name="using-attributes"></a>Używanie atrybutów
 Jak wspomniano powyżej, właściwość może być oznaczona do szyfrowania przez zapisanie jej w obiekcie EntityProperty i ustawienie pola Szyfruj.
 
+# <a name="python-v12"></a>[V12 Python](#tab/python)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Szyfrowanie i wydajność
 Należy pamiętać, że szyfrowanie danych magazynu skutkuje dodatkowym obciążeniem wydajności. Należy wygenerować klucz zawartości i IV, zawartość musi być szyfrowana, a dodatkowe metadane muszą być sformatowane i przekazane. To obciążenie będzie się różnić w zależności od ilości szyfrowanych danych. Zalecamy, aby klienci zawsze testować swoje aplikacje pod kątem wydajności podczas opracowywania.

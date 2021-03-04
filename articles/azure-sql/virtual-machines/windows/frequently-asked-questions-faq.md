@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b58119ccc1551d12dfc9b09f76f6980618ba6221
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 91f93faded7c18a1bc24f17053231f9011080c57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556305"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036252"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -89,11 +89,17 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jak mogę zainstalować moją licencjonowaną kopię programu SQL Server na maszynie wirtualnej platformy Azure?**
 
-   Istnieją trzy sposoby, aby to zrobić. Jeśli jesteś klientem z Umowa Enterprise (EA), możesz udostępnić jeden z [obrazów maszyn wirtualnych, które obsługują licencje](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), które są również znane jako BYOL. Jeśli masz program [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), możesz włączyć [korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) na istniejącym obrazie z opcją płatność zgodnie z rzeczywistym użyciem (PAYG). Możesz także skopiować nośniki instalacyjne programu SQL Server na maszynę wirtualną z systemem Windows Server, a następnie zainstalować program SQL Server na maszynie wirtualnej. Pamiętaj, aby zarejestrować SQL Server maszynę wirtualną z [rozszerzeniem](sql-agent-extension-manually-register-single-vm.md) dla funkcji takich jak Zarządzanie portalem, automatyczne tworzenie kopii zapasowych i automatyczne stosowanie poprawek. 
+   Istnieją trzy sposoby, aby to zrobić. Jeśli jesteś klientem z Enterprise Agreement (EA), możesz udostępnić jeden z [obrazów maszyn wirtualnych, które obsługują licencje](sql-server-on-azure-vm-iaas-what-is-overview.md#BYOL), które są również znane jako BYOL. Jeśli masz program [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), możesz włączyć [korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) na istniejącym obrazie z opcją płatność zgodnie z rzeczywistym użyciem (PAYG). Możesz także skopiować nośniki instalacyjne programu SQL Server na maszynę wirtualną z systemem Windows Server, a następnie zainstalować program SQL Server na maszynie wirtualnej. Pamiętaj, aby zarejestrować SQL Server maszynę wirtualną z [rozszerzeniem](sql-agent-extension-manually-register-single-vm.md) dla funkcji takich jak Zarządzanie portalem, automatyczne tworzenie kopii zapasowych i automatyczne stosowanie poprawek. 
+
+
+1. **Czy klient potrzebuje SQL Server licencji dostępu klienta (CAL), aby połączyć się z obrazem SQL Server z opcją płatność zgodnie z rzeczywistym użyciem działającym na platformie Azure Virtual Machines?**
+
+   Nie. Klienci potrzebują licencji CAL, gdy korzystają z opcji "Przenieś własną licencję" i przenoszą swoją maszynę wirtualną SQL Server serwera SA/CAL na maszyny wirtualne platformy Azure. 
 
 1. **Czy mogę zmienić maszynę wirtualną tak, aby używać mojej licencji programu SQL Server, jeśli została ona utworzona z jednego z obrazów z galerii w modelu płatności zgodnie z rzeczywistym użyciem?**
 
    Tak. Możesz łatwo przełączyć obraz galerii płatność zgodnie z rzeczywistym użyciem, aby przenieść własną licencję (BYOL), włączając [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). Obecnie ta funkcja jest dostępna tylko dla klientów korzystających z chmury publicznej i Azure Government.
+
 
 1. **Czy przełączanie modeli licencjonowania wymaga jakiegokolwiek przestoju w pracy programu SQL Server?**
 
@@ -132,10 +138,10 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Które subskrypcje obsługują korzyść odzyskiwania po awarii?**
 
-   Kompleksowe programy oferujące w ramach stałych korzyści prawa subskrypcyjne równoważne z programem Software Assurance obsługują korzyść odzyskiwania po awarii. Obejmuje to, ale nie jest ograniczony do, wartość Open Value (OV), Open Value Subscription (OVS), Umowa Enterprise (EA), Umowa Enterprise Subscription (EAS) i serwer i rejestracja w chmurze (SCE). Aby uzyskać więcej informacji, zapoznaj się z tematami dotyczącymi [produktów](https://www.microsoft.com/licensing/product-licensing/products) i skontaktuj się z kontaktami licencjonowania lub menedżerem kont. 
+   Kompleksowe programy oferujące w ramach stałych korzyści prawa subskrypcyjne równoważne z programem Software Assurance obsługują korzyść odzyskiwania po awarii. Obejmuje to, ale nie jest ograniczony do, wartość Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS) i serwer i rejestracja w chmurze (SCE). Aby uzyskać więcej informacji, zapoznaj się z tematami dotyczącymi [produktów](https://www.microsoft.com/licensing/product-licensing/products) i skontaktuj się z kontaktami licencjonowania lub menedżerem kont. 
 
    
- ## <a name="extension"></a>Rozszerzenie
+ ## <a name="extension"></a>Wewnętrzny
 
 1. **Czy program zarejestruje moją maszynę wirtualną przy użyciu nowego rozszerzenia agenta IaaS SQL, aby uzyskać dodatkowe koszty?**
 
@@ -145,11 +151,11 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
  
    Tak, pod warunkiem, że maszyna wirtualna SQL Server została wdrożona w chmurze publicznej przy użyciu modelu Menedżer zasobów, a nie modelu klasycznego. Wszyscy inni klienci mogą zarejestrować się w nowym rozszerzeniu programu SQL IaaS Agent. Jednak tylko klienci z korzyścią z pakietu [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) mogą korzystać z własnej licencji, aktywując [korzyść użycia hybrydowego platformy Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) na maszynie wirtualnej SQL Server. 
 
-1. **Co się stanie z zasobem rozszerzenia ( _Microsoft. SqlVirtualMachine_ ), jeśli zasób maszyny wirtualnej zostanie przeniesiony lub porzucony?** 
+1. **Co się stanie z zasobem rozszerzenia (_Microsoft. SqlVirtualMachine_), jeśli zasób maszyny wirtualnej zostanie przeniesiony lub porzucony?** 
 
    Gdy zasób Microsoft. COMPUTE/VirtualMachine zostanie usunięty lub przeniesiony, skojarzony z nim zasób Microsoft. SqlVirtualMachine zostanie powiadomiony o asynchronicznym replikacji operacji.
 
-1. **Co się stanie z maszyną wirtualną, jeśli zasób rozszerzenia ( _Microsoft. SqlVirtualMachine_ ) zostanie porzucony?**
+1. **Co się stanie z maszyną wirtualną, jeśli zasób rozszerzenia (_Microsoft. SqlVirtualMachine_) zostanie porzucony?**
 
     Nie ma to wpływu na zasób Microsoft. COMPUTE/VirtualMachine, gdy zostanie usunięty zasób Microsoft. SqlVirtualMachine. Zmiany licencjonowania zostaną jednak domyślnie przywrócone do oryginalnego źródła obrazu. 
 
@@ -239,9 +245,98 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
    
     Tak. Lokalna usługa DTC jest obsługiwana w przypadku SQL Server 2016 z dodatkiem SP2 i nowszych. Jednak aplikacje muszą być testowane w przypadku używania zawsze włączonych grup dostępności, ponieważ transakcje w trakcie pracy w trybie failover będą kończyć się niepowodzeniem i muszą zostać ponowione. Klastrowane usługi DTC są dostępne począwszy od systemu Windows Server 2019. 
 
-## <a name="resources"></a>Resources
+## <a name="sql-server-iaas-agent-extension"></a>Rozszerzenie agenta IaaS w programie SQL Server
 
-**Maszyny wirtualne z systemem Windows** :
+1. **Czy należy zarejestrować moją SQL Serverą maszynę wirtualną z poziomu obrazu SQL Server w witrynie Azure Marketplace?**
+
+   Nie. Firma Microsoft automatycznie rejestruje maszyny wirtualne obsługiwane przez obrazy SQL Server w portalu Azure Marketplace. Rejestracja przy użyciu rozszerzenia jest wymagana tylko wtedy, gdy maszyna wirtualna *nie* została zainicjowana z obrazów SQL Server w portalu Azure Marketplace i SQL Server została zainstalowana samoobsługowo.
+
+1. **Czy rozszerzenie usługi SQL IaaS Agent jest dostępne dla wszystkich klientów?** 
+
+   Tak. Klienci powinni rejestrować SQL Server maszyny wirtualne przy użyciu rozszerzenia, jeśli nie korzystają z obrazu SQL Server z witryny Azure Marketplace, a zamiast tego są samoinstalujące się SQL Server lub mają swój niestandardowy dysk VHD. Maszyny wirtualne należące do wszystkich typów subskrypcji (Direct, Enterprise Agreement i dostawca rozwiązań w chmurze) mogą być rejestrowane przy użyciu rozszerzenia programu SQL IaaS Agent.
+
+1. **Jaki jest domyślny tryb zarządzania podczas rejestrowania w rozszerzeniu programu SQL IaaS Agent?**
+
+   Domyślny tryb zarządzania podczas rejestrowania w rozszerzeniu programu SQL IaaS Agent jest *lekki*. Jeśli właściwość Zarządzanie SQL Server nie jest ustawiona podczas rejestrowania z rozszerzeniem, tryb zostanie ustawiony jako uproszczony, a usługa SQL Server nie zostanie uruchomiona ponownie. Zaleca się, aby najpierw zarejestrować się w rozszerzeniu programu SQL IaaS Agent w trybie uproszczonym, a następnie przeprowadzić uaktualnienie do pełnej wersji w oknie obsługi. Analogicznie, domyślne zarządzanie jest również lekkie w przypadku korzystania z [funkcji automatycznej rejestracji](sql-agent-extension-automatic-registration-all-vms.md).
+
+1. **Jakie są wymagania wstępne, które należy zarejestrować w rozszerzeniu programu SQL IaaS Agent?**
+
+   Nie ma wymagań wstępnych do zarejestrowania się w rozszerzeniu programu SQL IaaS Agent innym niż SQL Server zainstalowane na maszynie wirtualnej. Należy pamiętać, że jeśli rozszerzenie programu SQL IaaS Agent jest zainstalowane w trybie pełnym, usługa SQL Server zostanie uruchomiona ponownie, Dlatego zalecane jest wykonanie okna obsługi.
+
+1. **Czy zostanie zarejestrowana przy użyciu rozszerzenia agenta SQL IaaS, Zainstaluj agenta na mojej maszynie wirtualnej?**
+
+   Tak, Rejestracja przy użyciu rozszerzenia agenta SQL IaaS w trybie pełnego zarządzania powoduje zainstalowanie agenta na maszynie wirtualnej. Zarejestrowanie w trybie uproszczonym lub brak agenta nie jest dozwolone. 
+
+   Rejestracja przy użyciu rozszerzenia agenta SQL IaaS w trybie uproszczonym powoduje jedynie skopiowanie *plików binarnych* rozszerzenia agenta SQL IaaS do maszyny wirtualnej, a agent nie jest instalowany. Te pliki binarne są następnie używane do instalowania agenta, gdy tryb zarządzania zostanie uaktualniony do wersji pełnej.
+
+
+1. **Czy program zostanie zarejestrowany przy użyciu SQL Server ponownego uruchomienia rozszerzenia agenta SQL na mojej maszynie wirtualnej?**
+
+   Jest to zależne od trybu określonego podczas rejestracji. W przypadku określenia trybu uproszczonego lub noagent usługa SQL Server nie zostanie uruchomiona ponownie. Jednak określenie trybu zarządzania jako pełny spowoduje ponowne uruchomienie usługi SQL Server. Funkcja automatycznego rejestrowania rejestruje maszyny wirtualne SQL Server w trybie uproszczonym, chyba że wersja systemu Windows Server to 2008, w takim przypadku SQL Server maszyna wirtualna zostanie zarejestrowana w trybie noagent. 
+
+1. **Jaka jest różnica między trybami zarządzania Lightweight i noagent podczas rejestrowania się w rozszerzeniu programu SQL IaaS Agent?** 
+
+   Tryb zarządzania bez agenta jest jedynym dostępnym trybem zarządzania dla SQL Server 2008 i SQL Server 2008 R2 w systemie Windows Server 2008. W przypadku wszystkich nowszych wersji systemu Windows Server dwa dostępne tryby zarządzania są lekkie i pełne. 
+
+   Tryb noagent wymaga, aby właściwości SQL Server wersji i wydania zostały ustawione przez klienta. Tryb uproszczony wysyła zapytanie do maszyny wirtualnej w celu znalezienia wersji i wydania wystąpienia SQL Server.
+
+1. **Czy można zarejestrować się przy użyciu rozszerzenia SQL IaaS Agent bez określania typu licencji SQL Server?**
+
+   Nie. Typ licencji SQL Server nie jest właściwością opcjonalną podczas rejestrowania się w rozszerzeniu programu SQL IaaS Agent. Musisz ustawić typ licencji SQL Server na płatność zgodnie z rzeczywistym użyciem lub Korzyść użycia hybrydowego platformy Azure podczas rejestrowania się w rozszerzeniu SQL IaaS Agent we wszystkich trybach zarządzania (noagent, Lightweight i Full). Jeśli masz dowolną z bezpłatnych wersji SQL Server zainstalowanych, takich jak deweloper lub wersja ewaluacyjna, musisz zarejestrować się, korzystając z licencjonowania z opcją płatność zgodnie z rzeczywistym użyciem. Korzyść użycia hybrydowego platformy Azure jest dostępna tylko dla płatnych wersji SQL Server, takich jak wersje Enterprise i Standard.
+
+1. **Czy mogę uaktualnić rozszerzenie SQL Server IaaS z trybu noagent do trybu pełnego?**
+
+   Nie. Uaktualnianie trybu zarządzania do wersji pełnej lub lekkiej nie jest dostępne dla trybu noagent. Jest to ograniczenie techniczne systemu Windows Server 2008. Musisz najpierw uaktualnić system operacyjny do wersji Windows Server 2008 R2 lub nowszej, a następnie można przeprowadzić uaktualnienie do trybu pełnego zarządzania. 
+
+1. **Czy można uaktualnić rozszerzenie SQL Server IaaS z trybu uproszczonego do trybu pełnego?**
+
+   Tak. Uaktualnianie trybu zarządzania z lekkich do pełnych jest obsługiwane za pośrednictwem Azure PowerShell lub Azure Portal. Spowoduje to wyzwolenie ponownego uruchomienia usługi SQL Server.
+
+1. **Czy można obniżyć SQL Server rozszerzenie IaaS z trybu pełnego do noagent lub Lightweight Management Mode?**
+
+   Nie. Obniżenie poziomu trybu zarządzania rozszerzeniami SQL Server IaaS nie jest obsługiwane. Trybu zarządzania nie można zmienić z trybu pełnego na Lightweight lub noagent i nie można go zmienić z trybu uproszczonego na tryb noagent. 
+
+   Aby zmienić tryb zarządzania z pełnego zarządzania, należy [wyrejestrować](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) SQL Server maszynę wirtualną z rozszerzenia programu SQL IaaS Agent przez usunięcie _zasobu_ maszyny wirtualnej SQL i ponowne zarejestrowanie SQL Server maszynie wirtualnej z rozszerzeniem agenta SQL IaaS ponownie w innym trybie zarządzania.
+
+1. **Czy można zarejestrować się przy użyciu rozszerzenia SQL IaaS Agent w Azure Portal?**
+
+   Nie. Rejestracja przy użyciu rozszerzenia agenta SQL IaaS nie jest dostępna w Azure Portal. Rejestrowanie przy użyciu rozszerzenia agenta SQL IaaS jest obsługiwane tylko w interfejsie wiersza polecenia platformy Azure lub w Azure PowerShell. 
+
+1. **Czy można zarejestrować maszynę wirtualną za pomocą rozszerzenia programu SQL IaaS Agent przed zainstalowaniem SQL Server?**
+
+   Nie. Maszyna wirtualna musi mieć co najmniej jedno wystąpienie SQL Server (aparat bazy danych), aby można było pomyślnie zarejestrować się w rozszerzeniu agenta SQL IaaS. Jeśli na maszynie wirtualnej nie ma SQL Server wystąpienia, nowy zasób Microsoft. SqlVirtualMachine będzie w stanie niepowodzenia.
+
+1. **Czy można zarejestrować maszynę wirtualną za pomocą rozszerzenia programu SQL IaaS Agent, jeśli istnieje wiele wystąpień SQL Server?**
+
+   Tak, pod warunkiem, że na maszynie wirtualnej jest domyślne wystąpienie. Rozszerzenie agenta SQL IaaS zarejestruje tylko jedno wystąpienie SQL Server (aparatu bazy danych). Rozszerzenie programu SQL IaaS Agent zarejestruje domyślne wystąpienie SQL Server w przypadku wielu wystąpień.
+
+1. **Czy można zarejestrować SQL Server wystąpienie klastra trybu failover z rozszerzeniem agenta SQL IaaS?**
+
+   Tak. SQL Server wystąpienia klastra trybu failover na maszynie wirtualnej platformy Azure można zarejestrować przy użyciu rozszerzenia agenta SQL IaaS w trybie uproszczonym. Niemniej jednak SQL Server wystąpienia klastra trybu failover nie można uaktualnić do trybu pełnego zarządzania.
+
+1. **Czy można zarejestrować moją maszynę wirtualną przy użyciu rozszerzenia agenta SQL IaaS, jeśli jest skonfigurowana zawsze włączona Grupa dostępności?**
+
+   Tak. Nie ma żadnych ograniczeń dotyczących rejestrowania wystąpienia SQL Server na maszynie wirtualnej platformy Azure przy użyciu rozszerzenia agenta SQL IaaS w przypadku uczestnictwa w konfiguracji grupy dostępności zawsze włączone.
+
+1. **Jaki jest koszt rejestrowania w rozszerzeniu SQL IaaS agent lub z uaktualnieniem do trybu pełnej możliwości zarządzania?**
+
+   Brak. Nie istnieje opłata skojarzona z rejestracją przy użyciu rozszerzenia agenta SQL IaaS lub z użyciem jednego z trzech trybów zarządzania. Zarządzanie maszyną wirtualną SQL Server przy użyciu rozszerzenia jest całkowicie bezpłatne. 
+
+1. **Jaki jest wpływ na wydajność korzystania z różnych trybów zarządzania?**
+
+   Nie ma to wpływu na użycie trybu *noagent* i *uproszczonego* zarządzania. W przypadku korzystania z trybu *pełnego* zarządzania z dwóch usług, które są zainstalowane w systemie operacyjnym, ma minimalny wpływ. Mogą one być monitorowane za pośrednictwem Menedżera zadań i widoczne w wbudowanej konsoli usług systemu Windows. 
+
+   Nazwy następujących usług:
+   - `SqlIaaSExtensionQuery` (Nazwa wyświetlana `Microsoft SQL Server IaaS Query Service` )
+   - `SQLIaaSExtension` (Nazwa wyświetlana `Microsoft SQL Server IaaS Agent` )
+
+1. **Jak mogę usunąć rozszerzenie?**
+
+   Usuń rozszerzenie, [wyrejestrując](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) maszynę wirtualną SQL Server z rozszerzenia programu SQL IaaS Agent. 
+
+## <a name="resources"></a>Zasoby
+
+**Maszyny wirtualne z systemem Windows**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](create-sql-vm-portal.md)
@@ -250,7 +345,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 * [Najlepsze rozwiązania w zakresie wydajności SQL Server na platformie Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Maszyny wirtualne z systemem Linux** :
+**Maszyny wirtualne z systemem Linux**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-vm-create-portal-quickstart.md)

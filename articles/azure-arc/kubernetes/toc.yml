@@ -10,6 +10,8 @@
   items:
     - name: Wdrażanie konfiguracji przy użyciu metodyki GitOps
       href: tutorial-use-gitops-connected-cluster.md
+    - name: Implementowanie ciągłej integracji/ciągłego wdrażania za pomocą GitOps
+      href: tutorial-gitops-ci-cd.md
 - name: Przewodniki Szybki start
   items:
     - name: Łączenie klastra z usługą Azure Arc
@@ -20,6 +22,8 @@
       href: conceptual-agent-architecture.md
     - name: Konfiguracje i GitOps
       href: conceptual-configurations.md
+    - name: Przepływ pracy ciągłej integracji/ciągłego wdrażania przy użyciu GitOps
+      href: conceptual-gitops-ci-cd.md
     - name: Często zadawane pytania
       href: faq.md
 - name: Przewodniki z instrukcjami

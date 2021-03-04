@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578916"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035431"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
 > [!IMPORTANT]
 > Pozyskiwanie danych przy użyciu wtyczki wyjściowej logstash jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Korzystając z nowej wtyczki danych wyjściowych dla **aparatu zbierania danych logstash**, możesz teraz wysyłać dowolny typ dziennika za pośrednictwem usługi logstash bezpośrednio do obszaru roboczego log Analytics na platformie Azure. Dzienniki zostaną wysłane do tabeli niestandardowej, która zostanie zdefiniowana przy użyciu wtyczki wyjściowej.
+Za pomocą wtyczki danych wyjściowych usługi Azure wskaźnikowej dla **aparatu zbierania danych logstash** możesz wysyłać dowolny typ dziennika za pośrednictwem usługi logstash bezpośrednio do obszaru roboczego log Analytics na platformie Azure. Dzienniki zostaną wysłane do tabeli niestandardowej, która zostanie zdefiniowana przy użyciu wtyczki wyjściowej.
 
 Aby dowiedzieć się więcej o pracy z aparatem zbierania danych logstash, zobacz [wprowadzenie do logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -76,8 +76,10 @@ Skorzystaj z informacji w strukturze logstash dokumentu [pliku konfiguracji](htt
 | `plugin_flush_interval` | liczba | Pole opcjonalne. Ustaw, aby określić maksymalny interwał (w sekundach) między transmisjami komunikatów do Log Analytics. Wartość domyślna to 5. |
     | `amount_resizing` | boolean | TRUE lub FALSE. Włącza lub wyłącza mechanizm skalowania automatycznego, który dostosowuje rozmiar buforu komunikatów zgodnie z odebraną ilością danych dziennika. |
 | `max_items` | liczba | Pole opcjonalne. Stosuje się tylko wtedy `amount_resizing` , gdy ustawiono wartość "false". Użyj, aby ustawić limit rozmiaru buforu wiadomości (w rekordach). Wartość domyślna to 2000.  |
+| `azure_resource_id` | ciąg | Pole opcjonalne. Określa identyfikator zasobu platformy Azure, w którym znajdują się dane. <br>Wartość identyfikatora zasobu jest szczególnie przydatna, jeśli używasz funkcji [RBAC z kontekstem zasobów](resource-context-rbac.md) w celu zapewnienia dostępu tylko do określonych danych. |
+| | | |
 
-\* Identyfikator obszaru roboczego i klucz podstawowy można znaleźć w obszarze zasób obszaru roboczego, w obszarze **Zarządzanie agentami**.
+* Identyfikator obszaru roboczego i klucz podstawowy można znaleźć w obszarze zasób obszaru roboczego, w obszarze **Zarządzanie agentami**.
 
 #### <a name="sample-configurations"></a>Konfiguracje przykładowe
 

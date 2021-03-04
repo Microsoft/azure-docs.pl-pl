@@ -5,15 +5,15 @@ description: Informacje na temat instalowania i uwierzytelniania programu Defend
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/3/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4125fc3c2f03104eeca108a73d83f2fad44bebc1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703052"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051756"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>Instalowanie usługi Defender for IoT Micro Agent (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera wyjaśnienie sposobu instalowania i uwierzytelniania progra
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed zainstalowaniem modułu Defender for IoT należy utworzyć tożsamość modułu w IoT Hub. Aby uzyskać więcej informacji na temat tworzenia tożsamości modułu, zobacz [Tworzenie sznurka modułu azureiotsecurity](quickstart-create-security-twin.md)
+Przed zainstalowaniem modułu Defender for IoT należy utworzyć tożsamość modułu w IoT Hub. Aby uzyskać więcej informacji na temat tworzenia tożsamości modułu, zobacz [Tworzenie sznurka modułu usługi Defender IoT Micro Agent (wersja zapoznawcza)](quickstart-create-micro-agent-module-twin.md).
 
 ## <a name="install-the-package"></a>Zainstaluj pakiet
 

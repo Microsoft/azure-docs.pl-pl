@@ -1,5 +1,5 @@
 ---
-title: Dołączanie do usługi Defender dla rozwiązania IoT na podstawie agenta
+title: Dołączanie usługi Defender for IoT do rozwiązania opartego na agencie
 description: Dowiedz się, jak dołączyć i włączyć usługę Defender for IoT Security na platformie Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 62ea7b95609f9e1f896852da5c10244d1bd16ce1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809137"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049943"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>Dołączanie do usługi Defender dla rozwiązania IoT na podstawie agenta
+# <a name="onboard-defender-for-iot-to-an-agent-based-solution"></a>Dołączanie usługi Defender for IoT do rozwiązania opartego na agencie
 
 W tym artykule wyjaśniono, jak włączyć usługę Defender for IoT na istniejącym IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
 
@@ -35,7 +35,7 @@ Możesz zarządzać bezpieczeństwem IoT za pomocą IoT Hub w usłudze Defender 
 > [!NOTE]
 > Usługa Defender for IoT obecnie obsługuje tylko centra usługi IoT w warstwie Standardowa.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>Dołączanie do usługi Defender for IoT w IoT Hub
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Dołączanie usługi Defender for IoT do IoT Hub
 
 W przypadku wszystkich nowych centrów IoT usługa Defender for IoT jest domyślnie ustawiona na wartość **włączone** . Podczas procesu tworzenia IoT Hub można sprawdzić, czy usługa Defender for IoT jest przełączana **do usługi** .
 
@@ -55,14 +55,23 @@ Aby sprawdzić, czy przełącznik jest ustawiony **na:**
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Dołączanie usługi Defender for IoT do istniejącej IoT Hub
 
-Aby uruchomić usługę, możesz monitorować zarządzanie tożsamościami urządzeń, urządzenia do chmury oraz wzorce komunikacji z chmurą. 
+Usługę Defender for IoT można dołączyć do istniejącej IoT Hub, w której można monitorować wzorce komunikacji urządzenia, urządzenia w chmurze i chmury do urządzeń.
+
+Aby dołączyć do istniejącej IoT Hub usługę Defender for IoT:
 
 1. Przejdź do IoT Hub. 
 
-1. Wybierz menu **Przegląd zabezpieczeń**   . 
+1. Wybierz IoT Hub do dołączenia.
 
-1. Kliknij pozycję Zabezpiecz swoje rozwiązanie IoT i wypełnij formularz dołączania. 
+1. Wybierz dowolną opcję w sekcji **zabezpieczenia** .
 
+1. Kliknij pozycję **Zabezpiecz swoje rozwiązanie IoT**   i wypełnij formularz dołączania. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Wybierz przycisk Zabezpiecz swoje rozwiązanie IoT, aby zabezpieczyć swoje rozwiązanie.":::
+
+Przycisk **Zabezpiecz Twoje rozwiązanie IoT** będzie wyświetlany tylko wtedy, gdy IoT Hub nie została jeszcze dołączona lub jeśli podczas dołączania po lewej stronie usługa Defender for IoT została **wyłączona**.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="Jeśli przełącznik został ustawiony jako wyłączony podczas dołączania.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

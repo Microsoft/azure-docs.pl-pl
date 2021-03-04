@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 78c5d2d03ebca45bcf1602b35453914d033db5c8
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041692"
+ms.locfileid: "102098251"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Skonfiguruj platformę Azure Percept DK i Wdróż swój pierwszy model AI
 
@@ -25,7 +25,7 @@ W przypadku wystąpienia jakichkolwiek problemów występujących w tej Szybki s
 - Azure Percept DK.
 - Komputer hosta z systemem Windows, Linux lub OS X z funkcją Wi-Fi i przeglądarką sieci Web.
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Konto platformy Azure musi mieć rolę "właściciel" lub "Współautor" w subskrypcji. Dowiedz się więcej na temat definicji ról platformy Azure
+- Konto platformy Azure musi mieć rolę "właściciel" lub "Współautor" w subskrypcji. Dowiedz się więcej na temat [definicji ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 

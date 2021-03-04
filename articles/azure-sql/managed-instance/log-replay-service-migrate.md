@@ -4,17 +4,17 @@ description: Dowiedz się, jak migrować bazy danych z SQL Server do wystąpieni
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: ''
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: bc0dc72c7547c8f74aec53b7153fc5384c6b634b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690791"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096840"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>Migrowanie baz danych z SQL Server do wystąpienia zarządzanego SQL przy użyciu usługi powtarzania dzienników (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ LRS można uruchomić w programie Autouzupełnianie lub w trybie ciągłym. Po u
 
 Po zatrzymaniu usługi LRS automatycznie przy użyciu funkcji Autouzupełnianie lub ręcznie w uruchomienie produkcyjne, proces przywracania nie może zostać wznowiony dla bazy danych, która została przełączona w tryb online w wystąpieniu zarządzanym SQL. Aby przywrócić dodatkowe pliki kopii zapasowej po zakończeniu migracji za pomocą funkcji Autouzupełnianie lub ręcznie w uruchomienie produkcyjne, należy usunąć bazę danych, a cały łańcuch kopii zapasowych musi zostać przywrócony od zera przez ponowne uruchomienie LRS.
 
-![Powtórz kroki aranżacji usługi w dzienniku dla wystąpienia zarządzanego SQL](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Powtórz kroki aranżacji usługi w dzienniku dla wystąpienia zarządzanego SQL" border="false":::
     
 | Operacja | Szczegóły |
 | :----------------------------- | :------------------------- |
@@ -193,18 +193,30 @@ WITH COMPRESSION, CHECKSUM
 Usługa Azure Blob Storage jest używana jako magazyn pośredniczący dla plików kopii zapasowych między SQL Server i wystąpieniem zarządzanym SQL. Token uwierzytelniania SAS z uprawnieniami list i tylko do odczytu musi zostać wygenerowany do użycia przez usługę LRS. Umożliwi to usłudze LRS dostęp do usługi Azure Blob Storage i używanie plików kopii zapasowej do przywracania ich w wystąpieniu zarządzanym SQL. Wykonaj następujące kroki, aby wygenerować uwierzytelnianie SAS dla LRS użycia:
 
 1. Dostęp do Eksplorator usługi Storage z Azure Portal
+
 2. Rozwijanie kontenerów obiektów BLOB
-3. Kliknij prawym przyciskiem myszy kontener obiektów blob, a następnie wybierz pozycję Pobierz rejestrowanie sygnatury dostępu współdzielonego  ![ usługi Wygeneruj token uwierzytelniania SAS](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+3. Kliknij prawym przyciskiem myszy kontener obiektów blob i wybierz pozycję Pobierz sygnaturę dostępu współdzielonego.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Usługa powtarzania dzienników — uzyskiwanie sygnatury dostępu współdzielonego":::
+
 4. Wybierz przedział czasu wygaśnięcia tokenu. Upewnij się, że token jest prawidłowy dla czasu trwania migracji.
+
 5. Wybierz strefę czasową dla tokenu — UTC lub czasu lokalnego
-    - Strefa czasowa tokenu i wystąpienie zarządzane SQL mogą niezgodność. Upewnij się, że token sygnatury dostępu współdzielonego ma odpowiedni czas na uwzględnienie stref czasowych. Jeśli to możliwe, ustaw strefę czasową na wcześniejszą i późniejszą godzinę planowanego okna migracji.
+
+   - Strefa czasowa tokenu i wystąpienie zarządzane SQL mogą niezgodność. Upewnij się, że token sygnatury dostępu współdzielonego ma odpowiedni czas na uwzględnienie stref czasowych. Jeśli to możliwe, ustaw strefę czasową na wcześniejszą i późniejszą godzinę planowanego okna migracji.
+
 6. Wybierz tylko uprawnienia do odczytu i listy
-    - Nie trzeba wybierać innych uprawnień lub w przeciwnym razie nie będzie można uruchomić LRS. To wymaganie dotyczące zabezpieczeń jest zaprojektowane.
-7. Kliknij kolejno pozycje Utwórz  ![ Dziennik przycisku Odtwórz usługę Wygeneruj token uwierzytelniania SAS](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-Uwierzytelnianie SAS zostanie wygenerowane z określonym wcześniej okresem ważności. Wymagana jest wersja identyfikatora URI wygenerowanego tokenu — jak pokazano na poniższym zrzucie ekranu.
+   - Nie trzeba wybierać innych uprawnień lub w przeciwnym razie nie będzie można uruchomić LRS. To wymaganie dotyczące zabezpieczeń jest zaprojektowane.
 
-![Przykład identyfikatora URI uwierzytelniania SAS wygenerowanego przez usługę powtórzenia dziennika](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+7. Kliknij przycisk Utwórz
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Usługa powtarzania dzienników — generowanie tokenu uwierzytelniania SAS":::
+
+   Uwierzytelnianie SAS zostanie wygenerowane z określonym wcześniej okresem ważności. Wymagana jest wersja identyfikatora URI wygenerowanego tokenu — jak pokazano na poniższym zrzucie ekranu.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Usługa powtarzania dzienników — kopiowanie sygnatury dostępu współdzielonego identyfikatora URI":::
 
 ### <a name="copy-parameters-from-sas-token-generated"></a>Wygenerowane parametry kopiowania z tokenu SAS
 
@@ -212,7 +224,7 @@ Aby można było prawidłowo używać tokenu SAS do rozpoczęcia LRS, musimy zro
 - StorageContainerUri i 
 - StorageContainerSasToken, oddzielona od znaku zapytania (?), jak pokazano na poniższej ilustracji.
 
-    ![Przykład identyfikatora URI uwierzytelniania SAS wygenerowanego przez usługę powtórzenia dziennika](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Przykład identyfikatora URI uwierzytelniania SAS wygenerowanego przez usługę powtórzenia dziennika" border="false":::
 
 - Pierwsza część rozpoczynająca się od "https://" do momentu, gdy znak zapytania (?) jest używany dla parametru StorageContainerURI, który jest podawany jako dane wejściowe do LRS. Daje to LRS informacje o folderze, w którym są przechowywane pliki kopii zapasowej bazy danych.
 - Druga część, rozpoczynająca się od znaku zapytania (?), w przykładzie "Sp =" i cały sposób aż do końca ciągu jest parametrem StorageContainerSasToken. Jest to rzeczywisty podpisany token uwierzytelniania, ważny przez określony czas. Ta część nie musi rozpoczynać się od "Sp =", jak pokazano, i że może się różnić w przypadku.
@@ -221,11 +233,11 @@ Kopiuj parametry w następujący sposób:
 
 1. Skopiuj pierwszą część tokenu rozpoczynającą się od https://, aż do znaku zapytania (?) i użyjesz go jako parametru StorageContainerUri w programie PowerShell lub interfejsie wiersza polecenia do uruchamiania LRS, jak pokazano na poniższym zrzucie ekranu.
 
-    ![Kopiuj ponownie parametr StorageContainerUri usługi log Copy](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Kopiuj ponownie parametr StorageContainerUri usługi log Copy":::
 
 2. Skopiuj drugą część tokenu rozpoczynającą się od znaku zapytania (?), aż do końca ciągu, i użyj go jako parametru StorageContainerSasToken w programie PowerShell lub interfejsie wiersza polecenia do uruchomienia LRS, jak pokazano na poniższym zrzucie ekranu.
 
-    ![Kopiuj ponownie parametr StorageContainerSasToken usługi log Copy](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Kopiuj ponownie parametr StorageContainerSasToken usługi log Copy":::
 
 > [!IMPORTANT]
 > - Uprawnienia do tokenu SAS dla usługi Azure Blob Storage muszą być tylko do odczytu i listy. Jeśli dla tokenu uwierzytelniania SYGNATURy dostępu współdzielonego są przyznane inne uprawnienia, uruchomienie usługi LRS zakończy się niepowodzeniem. Te wymagania dotyczące zabezpieczeń zostały zaprojektowane.

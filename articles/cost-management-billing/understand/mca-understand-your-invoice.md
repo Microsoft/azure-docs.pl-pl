@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690497"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050447"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Terminy na fakturze za umowę klienta firmy Microsoft
 
 Ten artykuł dotyczy konta rozliczeniowego platformy Azure związanego z umową klienta firmy Microsoft. [Sprawdź, czy masz dostęp do Umowy klienta firmy Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Faktura zawiera podsumowanie opłat i instrukcje dotyczące płatności. Można ją pobrać w formacie PDF (Portable Document Format) z witryny [Azure Portal](https://portal.azure.com/) lub otrzymać w wiadomości e-mail. Aby uzyskać więcej informacji, zobacz [Wyświetlanie i pobieranie faktury platformy Microsoft Azure](download-azure-invoice.md).
+
+Obejrzyj swoją zawartość wideo z [faktury umów dla klientów firmy Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) , aby dowiedzieć się więcej na temat faktury i jak analizować opłaty.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Okres rozliczeniowy
 
@@ -41,7 +45,7 @@ W poniższych sekcjach wymieniono i opisano ważne terminy występujące na fakt
 | Sprzedano dla |Adres podmiotu prawnego, wyświetlany we właściwościach konta rozliczeniowego|
 | Rachunek dla |Adres do rozliczeń w profilu rozliczeniowym, do którego jest wysyłana faktura, wyświetlany we właściwościach tego profilu|
 | Profil rozliczeniowy |Nazwa profilu rozliczeniowego, do którego jest wysyłana faktura |
-| Numer zamówienia numer |Opcjonalny numer zamówienia zakupu przypisany do Ciebie na potrzeby śledzenia |
+| Numer zamówienia liczba |Opcjonalny numer zamówienia zakupu przypisany do Ciebie na potrzeby śledzenia |
 | Numer faktury |Unikatowy, wygenerowany przez firmę Microsoft numer faktury używany na potrzeby śledzenia |
 | Data faktury |Data wygenerowania faktury. Zazwyczaj jest to od 5 do 12 dni po zakończeniu okresu rozliczeniowego. Datę faktury można sprawdzić we właściwościach profilu rozliczeniowego.|
 | Warunki płatności |Sposób płatności rachunku od firmy Microsoft. Zapis *Do 30 dni* oznacza, że płatność powinna nastąpić w ciągu 30 dni od daty faktury. |
@@ -94,7 +98,7 @@ W dolnej części faktury znajdują się instrukcje dotyczące płatności. Rach
 
 Jeśli rachunek obejmuje usługi innych firm, u dołu faktury są widoczne nazwa i adres każdego wydawcy.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do Umowy klienta firmy Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.

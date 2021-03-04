@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 27064ecfce0114f7d80e464e2a51928a24919856
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f43d2979ad9770c63504d46666dffd78f761a73
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653409"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097112"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie i uzyskiwanie tokenu dostępu w przypadku SPA, przy użyciu przepływu kodu uwierzytelniania
 
@@ -26,6 +26,8 @@ W tym przewodniku szybki start pobrano i uruchomimy przykład kodu, który demon
 Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
 Ten przewodnik Szybki Start używa MSAL kątowy v2 z przepływem kodu autoryzacji. W przypadku podobnego przewodnika Szybki Start, który używa MSAL skośnie 1. x z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych JavaScript](./quickstart-v2-angular.md).
+
+Ta funkcja [!INCLUDE [active-directory-develop-preview](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

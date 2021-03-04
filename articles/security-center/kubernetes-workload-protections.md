@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546265"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095599"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -51,7 +51,7 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
 
 Aby skonfigurować zalecenia, zainstaluj  **dodatek Azure Policy dla Kubernetes**. 
 
-- Ten dodatek można wdrożyć ponownie, jak wyjaśniono w temacie [Włączanie obsługi autoaprowizacji rozszerzeń](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
+- Ten dodatek można wdrożyć ponownie, jak wyjaśniono w temacie [Włączanie obsługi autoaprowizacji agenta log Analytics i rozszerzeń](security-center-enable-data-collection.md#auto-provision-mma). Gdy funkcja autoaprowizacji dla dodatku jest ustawiona na wartość "on", rozszerzenie jest domyślnie włączone we wszystkich istniejących i przyszłych klastrach (które spełniają wymagania instalacji dodatku).
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Instalowanie dodatku zasad dla Kubernetes za pomocą narzędzia automatycznej aprowizacji Security Center":::
 

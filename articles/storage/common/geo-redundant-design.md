@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480687"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035105"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej
 
@@ -148,6 +148,12 @@ Istnieją trzy główne opcje monitorowania częstotliwości ponawiania prób w 
 
 * Dodaj procedurę obsługi dla [**ponawiania**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) zdarzenia dla obiektu [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) przekazanego do żądań magazynu — jest to metoda wyświetlana w tym artykule i używana w towarzyszącej próbce. Te zdarzenia są wyzwalane za każdym razem, gdy klient ponawia próbę żądania, umożliwiając śledzenie, jak często klient napotyka błędy powtarzające się w podstawowym punkcie końcowym.
 
+    # <a name="net-v12"></a>[V12 .NET](#tab/current)
+
+    Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[V11 .NET](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Istnieją trzy główne opcje monitorowania częstotliwości ponawiania prób w 
             ...
     };
     ```
+    ---
 
 * W metodzie [**szacowania**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) w niestandardowych zasadach ponawiania można uruchomić kod niestandardowy za każdym razem, gdy zostanie ponowiona ponowna próba. Oprócz rejestrowania w przypadku ponowienia próby, pozwala to również na modyfikowanie zachowania ponowienia próby.
+
+    # <a name="net-v12"></a>[V12 .NET](#tab/current)
+
+    Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[V11 .NET](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Istnieją trzy główne opcje monitorowania częstotliwości ponawiania prób w 
         return info;
     }
     ```
+    ---
 
 * Trzecia metoda polega na zaimplementowaniu niestandardowego składnika monitorowania w aplikacji, który stale wysyła polecenie ping do podstawowego punktu końcowego magazynu przy użyciu fikcyjnych żądań odczytu (takich jak odczytywanie małego obiektu BLOB) w celu określenia jego kondycji. Spowoduje to zajęcie niektórych zasobów, ale nie znaczną ilością. Po wykryciu problemu, który osiągnie wartość progową, można wykonać operację przełączania do **SecondaryOnly** i trybu tylko do odczytu.
 
@@ -218,6 +232,13 @@ Aby dowiedzieć się, jak sprawdzić czas ostatniej synchronizacji, zobacz [Spra
 Ważne jest, aby sprawdzić, czy aplikacja działa zgodnie z oczekiwaniami, gdy napotka błędy powtarzające się. Na przykład należy sprawdzić, czy aplikacja przełączy się na pomocniczą i w trybie tylko do odczytu, gdy wykryje problem, a następnie przełącza się z powrotem po ponownym udostępnieniu regionu podstawowego. Aby to zrobić, musisz mieć możliwość symulowania błędów z możliwością ponowienia i kontroli częstotliwości ich występowania.
 
 Możesz użyć [programu Fiddler](https://www.telerik.com/fiddler) , aby przechwycić i zmodyfikować odpowiedzi HTTP w skrypcie. Ten skrypt może identyfikować odpowiedzi pochodzące z podstawowego punktu końcowego i zmieniać Kod stanu HTTP na taki, który Biblioteka klienta magazynu rozpoznaje jako błąd powtarzający operację. Ten fragment kodu przedstawia prosty przykład skryptu programu Fiddler, który przechwytuje odpowiedzi na żądania odczytu do tabeli **employeeData** w celu zwrócenia stanu 502:
+
+
+# <a name="java-v12"></a>[V12 Java](#tab/current)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[V11 Java](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
