@@ -4,12 +4,12 @@ description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure ap
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652007"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045296"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
@@ -88,6 +88,9 @@ Jeśli chcesz wyłączyć standardowy moduł śledzenia zależności, usuń odwo
 W przypadku stron sieci Web zestaw SDK Application Insights JavaScript automatycznie zbiera wywołania AJAX jako zależności.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Zaawansowane śledzenie SQL, aby uzyskać pełne zapytanie SQL
+
+> [!NOTE]
+> Azure Functions wymaga oddzielnych ustawień do włączenia kolekcji tekstu SQL, zobacz [konfigurowanie monitorowania dla Azure Functions](../../azure-functions/configure-monitoring.md) , aby dowiedzieć się więcej.
 
 W przypadku wywołań SQL nazwa serwera i bazy danych są zawsze zbierane i przechowywane jako nazwa zebranych elementów `DependencyTelemetry` . Istnieje dodatkowe pole o nazwie "Data", które może zawierać pełny tekst zapytania SQL.
 

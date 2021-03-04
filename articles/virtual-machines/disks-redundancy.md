@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cafbff86a55ad0bed7da17fcef1aea2b0a53d1b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680206"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043647"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Opcje nadmiarowości dla dysków zarządzanych
 
@@ -34,7 +34,7 @@ Jeśli przepływ pracy nie obsługuje synchronicznych zapisów na poziomie aplik
 
 Magazyn strefowo nadmiarowy (ZRS) replikuje dysk zarządzany platformy Azure synchronicznie w trzech strefach dostępności platformy Azure w wybranym regionie. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależnym zasilaniem, chłodzeniem i siecią. 
 
-Dyski ZRS umożliwiają odzyskiwanie z błędów w strefach dostępności. W przypadku przełączenia całej strefy dysk ZRS może zostać dołączony do maszyny wirtualnej w innej strefie. Dysków ZRS można także używać w połączeniu z dyskami udostępnionymi, aby zapewnić lepszą dostępność aplikacji klastrowanych lub rozproszonych, takich jak SQL FCI, SAP ASCS/SCS lub GFS2. Udostępniony dysk ZRS można dołączyć do podstawowych i dodatkowych maszyn wirtualnych w różnych strefach, aby korzystać z obu ZRS i [strefy dostępności](../availability-zones/az-overview.md). Jeśli Twoja strefa podstawowa ulegnie awarii, możesz szybko przejść w tryb failover na pomocniczą maszynę wirtualną, używając [trwałej rezerwacji interfejsu SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
+Dyski ZRS umożliwiają odzyskiwanie z błędów w strefach dostępności. W przypadku przełączenia całej strefy dysk ZRS może zostać dołączony do maszyny wirtualnej w innej strefie. Dysków ZRS można także używać jako dysku udostępnionego, aby zapewnić lepszą dostępność aplikacji klastrowanych lub rozproszonych, takich jak SQL FCI, SAP ASCS/SCS lub GFS2. Udostępniony dysk ZRS można dołączyć do podstawowych i dodatkowych maszyn wirtualnych w różnych strefach, aby korzystać z obu ZRS i [strefy dostępności](../availability-zones/az-overview.md). Jeśli Twoja strefa podstawowa ulegnie awarii, możesz szybko przejść w tryb failover na pomocniczą maszynę wirtualną, używając [trwałej rezerwacji interfejsu SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
 
 ### <a name="limitations"></a>Ograniczenia
 
@@ -56,7 +56,7 @@ Z wyjątkiem opóźnień zapisu dyski używające ZRS są identyczne z dyskami p
 
 ### <a name="create-zrs-managed-disks"></a>Tworzenie dysków zarządzanych ZRS
 
-Do `2020-12-01` utworzenia dysku ZRS należy użyć interfejsu API z szablonem Azure Resource Manager.
+Użyj `2020-12-01` interfejsu API z szablonem Azure Resource Manager, aby utworzyć dysk ZRS.
 
 #### <a name="create-a-vm-with-zrs-disks"></a>Tworzenie maszyny wirtualnej przy użyciu dysków ZRS
 
@@ -120,3 +120,7 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 -osDiskType "StandardSSD_LRS" `
 -dataDiskType "Premium_ZRS" `
 ```
+
+## <a name="next-steps"></a>Następne kroki
+
+- Użyj tych przykładowych [szablonów Azure Resource Manager, aby utworzyć maszynę wirtualną z dyskami ZRS](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).

@@ -6,17 +6,17 @@ author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78baaa3f794bed870b40fb3975f6b80ff37e90f0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817510"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043732"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault przy użyciu języka Java dla Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ Odszyfrowywanie za pomocą techniki Envelope działa w następujący sposób:
 Biblioteka klienta magazynu używa [algorytmu AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) w celu szyfrowania danych użytkownika. W przypadku trybu [szyfrowania bloku blokowego (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) z algorytmem AES. Każda usługa działa nieco inaczej, więc omawiamy każdą z nich w tym miejscu.
 
 ### <a name="blobs"></a>Obiekty blob
-Biblioteka klienta obsługuje obecnie szyfrowanie tylko całych obiektów BLOB. Szyfrowanie jest obsługiwane, gdy użytkownicy korzystają z metody **upload*** lub metody **openOutputStream** . W przypadku plików do pobrania obsługiwane są zarówno pobieranie kompletne, jak i zakres.  
+Biblioteka klienta obsługuje obecnie szyfrowanie tylko całych obiektów BLOB. Szyfrowanie jest obsługiwane, gdy użytkownicy korzystają z metod **upload** _ lub _ *openOutputStream**. W przypadku plików do pobrania obsługiwane są zarówno pobieranie kompletne, jak i zakres.  
 
 Podczas szyfrowania Biblioteka klienta generuje losowy wektor inicjacji (IV) z 16 bajtów wraz z losowym kluczem szyfrowania zawartości (CEK) wynoszącym 32 bajtów i przeprowadź szyfrowanie koperty danych obiektów BLOB przy użyciu tych informacji. Opakowany CEK i niektóre dodatkowe metadane szyfrowania są następnie przechowywane jako metadane obiektów BLOB wraz z zaszyfrowanego obiektu BLOB w usłudze.
 
@@ -59,7 +59,7 @@ Podczas szyfrowania Biblioteka klienta generuje losowy wektor inicjacji (IV) z 1
 
 Pobieranie zaszyfrowanego obiektu BLOB polega na pobieraniu zawartości całego obiektu BLOB przy użyciu metod **pobierania** / **openInputStream** . Opakowany CEK jest rozpakowany i używany razem z IV (przechowywane jako metadane obiektu BLOB w tym przypadku) w celu zwrócenia odszyfrowanych danych do użytkowników.
 
-Pobieranie dowolnego zakresu (metody**downloadRange** ) w zaszyfrowanym obiekcie blob obejmuje dostosowanie zakresu zapewnianego przez użytkowników w celu uzyskania niewielkiej ilości dodatkowych danych, których można użyć do pomyślnego odszyfrowania żądanego zakresu.  
+Pobieranie dowolnego zakresu (metody **downloadRange** ) w zaszyfrowanym obiekcie blob obejmuje dostosowanie zakresu zapewnianego przez użytkowników w celu uzyskania niewielkiej ilości dodatkowych danych, których można użyć do pomyślnego odszyfrowania żądanego zakresu.  
 
 Wszystkie typy obiektów BLOB (blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob) mogą być szyfrowane/odszyfrowywane przy użyciu tego schematu.
 
@@ -103,7 +103,7 @@ W operacjach wsadowych ta sama KEK będzie używana we wszystkich wierszach tej 
 > 
 > Aby wykonać operacje zapytania, należy określić program rozpoznawania kluczy, który może rozpoznać wszystkie klucze w zestawie wyników. Jeśli nie można rozpoznać jednostki zawartej w wyniku zapytania jako dostawcy, Biblioteka klienta zgłosi błąd. Dla każdego zapytania, które wykonuje projekcje po stronie serwera, Biblioteka klienta doda specjalne właściwości metadanych szyfrowania (_ClientEncryptionMetadata1 i _ClientEncryptionMetadata2) domyślnie do wybranych kolumn.
 
-## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
+## <a name="azure-key-vault"></a>Azure Key Vault
 Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą Azure Key Vault użytkownicy mogą szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych). Pliki i hasła PFX) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md).
 
 Biblioteka klienta magazynu używa biblioteki podstawowej Key Vault, aby zapewnić wspólną platformę na platformie Azure do zarządzania kluczami. Użytkownicy mogą również skorzystać z dodatkowej korzyści wynikającej z używania biblioteki rozszerzeń Key Vault. Biblioteka rozszerzeń zapewnia użyteczną funkcjonalność dla prostych i bezproblemowych i niezawodnych dostawców kluczy symetrycznych i RSA oraz z agregacją i buforowaniem.
@@ -154,6 +154,12 @@ Na przykład użyj **CloudBlobClient. getDefaultRequestOptions (). setRequireEnc
 ### <a name="blob-service-encryption"></a>Szyfrowanie Blob service
 Utwórz obiekt **BlobEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions**). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
 
+# <a name="java-v12"></a>[V12 Java](#tab/java)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
+
 ```java
 // Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
@@ -172,9 +178,16 @@ blob.upload(stream, size, null, options, null);
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 blob.download(outputStream, null, options, null);
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Szyfrowanie usługa kolejki
 Utwórz obiekt **QueueEncryptionPolicy** i ustaw go w opcjach żądania (na interfejsie API lub na poziomie klienta przy użyciu **DefaultRequestOptions**). Wszystkie inne elementy będą obsługiwane przez bibliotekę kliencką wewnętrznie.
+
+# <a name="java-v12"></a>[V12 Java](#tab/java)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -192,11 +205,18 @@ queue.addMessage(message, 0, 0, options, null);
 // Retrieve message
 CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
+---
 
 ### <a name="table-service-encryption"></a>Szyfrowanie Table service
-Oprócz tworzenia zasad szyfrowania i ustawiania ich dla opcji żądania należy określić wartość **EncryptionResolver** w **TableRequestOptions**lub ustawić atrybut [Encryption] dla metody pobierającej i ustawiającej jednostki.
+Oprócz tworzenia zasad szyfrowania i ustawiania ich dla opcji żądania należy określić wartość **EncryptionResolver** w **TableRequestOptions** lub ustawić atrybut [Encryption] dla metody pobierającej i ustawiającej jednostki.
 
 ### <a name="using-the-resolver"></a>Korzystanie z programu rozpoznawania nazw
+
+# <a name="java-v12"></a>[V12 Java](#tab/java)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -228,9 +248,16 @@ retrieveOptions.setEncryptionPolicy(policy);
 TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
 TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
+---
 
 ### <a name="using-attributes"></a>Używanie atrybutów
 Jak wspomniano powyżej, jeśli jednostka implementuje klasy tableentity, wówczas właściwości getter i setter mogą być dekoracyjne przy użyciu atrybutu [Szyfruj] zamiast określać **EncryptionResolver**.
+
+# <a name="java-v12"></a>[V12 Java](#tab/java)
+
+Obecnie pracujemy nad utworzeniem fragmentów kodu odzwierciedlających wersję 12. x bibliotek klienckich usługi Azure Storage. Aby uzyskać więcej informacji, zobacz temat [ogłaszanie bibliotek klienckich usługi Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 private string encryptedProperty1;
@@ -245,6 +272,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
     this.encryptedProperty1 = encryptedProperty1;
 }
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Szyfrowanie i wydajność
 

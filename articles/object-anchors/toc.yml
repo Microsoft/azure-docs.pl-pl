@@ -14,7 +14,7 @@
   expanded: true
   items:
     - name: Tworzenie modelu
-      href: quickstarts/get-started-model-ingestion.md
+      href: quickstarts/get-started-model-conversion.md
     - name: Tworzenie aplikacji aparatu Unity
       expanded: true
       items:

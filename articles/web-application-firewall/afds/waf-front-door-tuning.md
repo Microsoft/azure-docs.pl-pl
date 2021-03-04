@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8752886bc5304de420083212d29ccd3e1cb14084
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488242"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043698"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Dostrajanie zapory aplikacji sieci Web (WAF) dla drzwi platformy Azure
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 Jeśli spróbujesz ponowić żądanie, WAF blokuje ruch, który zawiera *1 = 1* ciąg w dowolnym parametrze lub polu. Jest to ciąg często skojarzony z atakiem iniekcji SQL. Możesz przejrzeć dzienniki i sprawdzić sygnaturę czasową żądania oraz reguły, które zostały zablokowane/dopasowane.
  
-W poniższym przykładzie eksplorujemy `FrontdoorWebApplicationFirewallLog` Dziennik wygenerowany ze względu na zgodność z regułą.
+W poniższym przykładzie eksplorujemy `FrontdoorWebApplicationFirewallLog` Dziennik wygenerowany ze względu na zgodność z regułą. Następujące zapytanie Log Analytics może służyć do znajdowania żądań zablokowanych w ciągu ostatnich 24 godzin:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-W polu "requestUri" można zobaczyć, że żądanie zostało wykonane w sposób specjalny `/api/Feedbacks/` . Dodatkowo znajdziesz Identyfikator reguły `942110` w polu "RuleName". Wiedząc, że identyfikator reguły, możesz przejść do [OWASPego zestawu reguł zapory ModSecurity Core](https://github.com/coreruleset/coreruleset) [, aby przejrzeć](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) jego kod i zrozumieć dokładnie, co ta reguła pasuje. 
+W tym `requestUri` polu można zobaczyć, że żądanie zostało wykonane w specjalny sposób `/api/Feedbacks/` . Dodatkowo znajdziesz Identyfikator reguły `942110` w `ruleName` polu. Wiedząc, że identyfikator reguły, możesz przejść do [OWASPego zestawu reguł zapory ModSecurity Core](https://github.com/coreruleset/coreruleset) [, aby przejrzeć](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) jego kod i zrozumieć dokładnie, co ta reguła pasuje. 
  
 Następnie sprawdzając `action` pole, że ta reguła jest ustawiona do blokowania żądań po dopasowaniu, a my potwierdzamy, że żądanie zostało zablokowane przez WAF, ponieważ `policyMode` jest ustawione na `prevention` . 
  
@@ -181,7 +189,7 @@ W poniższym przykładzie została utworzona reguła niestandardowa o dwóch war
 
 Korzystanie z reguły niestandardowej pozwala być najbardziej szczegółowym warunkiem dostrajania reguł WAF i w celu poradzenia z fałszywie dodatnimi. W tym przypadku firma Microsoft nie podejmuje działania wyłącznie na podstawie `comment` wartości treści żądania, która może istnieć w wielu witrynach lub aplikacjach objętych tymi samymi zasadami WAFymi. Dzięki dołączeniu innego warunku do dopasowania do określonego identyfikatora URI żądania `/api/Feedbacks/` upewnij się, że ta reguła niestandardowa dotyczy tego jawnego przypadku użycia, który zbadane. Gwarantuje to, że w przypadku przeprowadzenia tego samego ataku w odniesieniu do różnych warunków nadal będzie on sprawdzany i uniemożliwiany przez aparat WAF.
 
-![Log](../media/waf-front-door-tuning/custom-rule.png)
+![Dziennik](../media/waf-front-door-tuning/custom-rule.png)
 
 Podczas eksplorowania dziennika można zobaczyć, że `ruleName_s` pole zawiera nazwę nadaną dla utworzonej reguły niestandardowej: `redirectcomment` . W `action_s` polu można zobaczyć, że wykonano akcję *przekierowania* dla tego zdarzenia. W `details_matches_s` polu można zobaczyć szczegóły obu warunków.
 
@@ -196,6 +204,9 @@ Jednak wyłączenie reguły jest ustawieniem globalnym, które ma zastosowanie d
 Jeśli chcesz użyć Azure PowerShell, aby wyłączyć regułę zarządzaną, zobacz [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) dokumentację obiektu. Jeśli chcesz użyć interfejsu wiersza polecenia platformy Azure, zapoznaj się z [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) dokumentacją.
 
 ![Reguły WAF](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> Dobrym pomysłem jest udokumentowanie wszelkich zmian wprowadzonych w zasadach WAF. Dołącz przykładowe żądania do zilustrowania fałszywego wykrywania pozytywnego i jasno Wyjaśnij, dlaczego dodano regułę niestandardową, wyłączono regułę lub zestaw reguł lub dodaliśmy wyjątek. Ta dokumentacja może być przydatna w przypadku ponownego projektowania aplikacji w przyszłości i sprawdzenia, czy zmiany są nadal ważne. Może również pomóc w ewentualnym inspekcji lub zawieszeniu, dlaczego zasady WAF zostały ponownie skonfigurowane przy użyciu ustawień domyślnych.
 
 ## <a name="finding-request-fields"></a>Znajdowanie pól żądania
 

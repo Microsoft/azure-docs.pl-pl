@@ -4,19 +4,19 @@ description: Używanie urządzenia Azure IoT Edge jako przezroczystej bramy, kt�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370431"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046027"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
 
@@ -26,10 +26,9 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące konfigurowania urządze
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
->Aktualne
+>W IoT Edge w wersji 1,1 i starszej urządzenie IoT Edge nie może być niższe niż IoT Edge Gateway.
 >
-> * Urządzenia z włączoną krawędzią nie mogą łączyć się z bramami IoT Edge.
-> * Urządzenia podrzędne nie mogą używać przekazywania plików.
+>Urządzenia podrzędne nie mogą używać przekazywania plików.
 
 ::: moniker-end
 
@@ -37,9 +36,7 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące konfigurowania urządze
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->Aktualne
->
-> * Urządzenia podrzędne nie mogą używać przekazywania plików.
+>Urządzenia podrzędne nie mogą używać przekazywania plików.
 
 ::: moniker-end
 
@@ -51,7 +48,17 @@ Należy wykonać trzy ogólne kroki, aby skonfigurować pomyślne, przezroczyste
 
 Aby urządzenie działało jako brama, musi bezpiecznie połączyć się z jego urządzeniami podrzędnymi. Azure IoT Edge umożliwia konfigurowanie bezpiecznych połączeń między urządzeniami przy użyciu infrastruktury kluczy publicznych (PKI). W takim przypadku zezwalamy urządzeniu podrzędnemu na łączenie się z urządzeniem IoT Edge działającym jako niejawna brama. Aby zachować uzasadnione zabezpieczenia, urządzenie podrzędne powinno potwierdzić tożsamość urządzenia bramy. To sprawdzenie tożsamości uniemożliwia urządzeniom łączenie się z potencjalnie złośliwymi bramami.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Urządzenie podrzędne może być dowolną aplikacją lub platformą, która ma tożsamość utworzoną za pomocą usługi [Azure IoT Hub](../iot-hub/index.yml) w chmurze. Te aplikacje często używają [zestawu SDK urządzeń Azure IoT](../iot-hub/iot-hub-devguide-sdks.md). Urządzenie podrzędne może nawet być aplikacją działającą na samym urządzeniu bramy IoT Edge. Jednak urządzenie IoT Edge nie może być niższe niż Brama IoT Edge.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Urządzenie podrzędne może być dowolną aplikacją lub platformą, która ma tożsamość utworzoną za pomocą usługi [Azure IoT Hub](../iot-hub/index.yml) w chmurze. Te aplikacje często używają [zestawu SDK urządzeń Azure IoT](../iot-hub/iot-hub-devguide-sdks.md). Urządzenie podrzędne może nawet być aplikacją działającą na samym urządzeniu bramy IoT Edge.
+:::moniker-end
+<!-- end 1.2 -->
 
 Można utworzyć dowolną infrastrukturę certyfikatów, która umożliwia zaufanie wymagane dla topologii bramy urządzeń. W tym artykule przyjęto założenie, że ta sama konfiguracja certyfikatu zostanie użyta do włączenia [zabezpieczeń urzędu certyfikacji x. 509](../iot-hub/iot-hub-x509ca-overview.md) w IoT Hub, co obejmuje certyfikat certyfikatu x. 509 skojarzony z określonym Centrum IoT Hub (główny urząd certyfikacji usługi IoT Hub), szereg certyfikatów podpisanych za pomocą tego urzędu certyfikacji oraz Urząd certyfikacji dla IoT Edge urządzenia.
 
@@ -64,7 +71,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia certyfikatów i instal
 
 Urządzenie z systemem Linux lub Windows z zainstalowanym IoT Edge.
 
-Jeśli urządzenie nie jest gotowe, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w [sekcji Wdróż pierwszy moduł IoT Edge na wirtualnym urządzeniu z systemem Linux](quickstart-linux.md) , aby utworzyć IoT Hub, utworzyć maszynę wirtualną i skonfigurować środowisko uruchomieniowe IoT Edge. 
+Jeśli urządzenie nie jest gotowe, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w [sekcji Wdróż pierwszy moduł IoT Edge na wirtualnym urządzeniu z systemem Linux](quickstart-linux.md) , aby utworzyć IoT Hub, utworzyć maszynę wirtualną i skonfigurować środowisko uruchomieniowe IoT Edge.
 
 ## <a name="set-up-the-device-ca-certificate"></a>Konfigurowanie certyfikatu urzędu certyfikacji urządzenia
 
@@ -72,7 +79,7 @@ Wszystkie bramy IoT Edge muszą mieć zainstalowany certyfikat urzędu certyfika
 
 ![Konfiguracja certyfikatu bramy](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-Certyfikat głównego urzędu certyfikacji i certyfikat urzędu certyfikacji urządzenia (z kluczem prywatnym) muszą być obecne na urządzeniu bramy IoT Edge i skonfigurowane w pliku IoT Edge config. YAML. Należy pamiętać, że w tym przypadku *certyfikat głównego urzędu certyfikacji* oznacza urząd certyfikatu znajdujący się najwyżej w tym scenariuszu IoT Edge. Certyfikat urzędu certyfikacji urządzenia bramy i certyfikaty urządzeń podrzędnych muszą być rzutowane do tego samego certyfikatu głównego urzędu certyfikacji.
+Certyfikat głównego urzędu certyfikacji i certyfikat urzędu certyfikacji urządzenia (z kluczem prywatnym) muszą być obecne na urządzeniu bramy IoT Edge i skonfigurowane w pliku konfiguracji IoT Edge. Należy pamiętać, że w tym przypadku *certyfikat głównego urzędu certyfikacji* oznacza urząd certyfikatu znajdujący się najwyżej w tym scenariuszu IoT Edge. Certyfikat urzędu certyfikacji urządzenia bramy i certyfikaty urządzeń podrzędnych muszą być rzutowane do tego samego certyfikatu głównego urzędu certyfikacji.
 
 >[!TIP]
 >Proces instalowania certyfikatu głównego urzędu certyfikacji i certyfikatu urzędu certyfikacji na urządzeniu IoT Edge jest również bardziej szczegółowy w temacie [Zarządzanie certyfikatami na urządzeniu IoT Edge](how-to-manage-device-certificates.md).
@@ -85,7 +92,7 @@ Przygotuj następujące pliki:
 
 W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu własnego urzędu certyfikacji. W przypadku scenariuszy deweloperskich i testowych można użyć certyfikatów demonstracyjnych.
 
-1. W przypadku korzystania z certyfikatów demonstracyjnych należy skorzystać z instrukcji przedstawionych w temacie [Tworzenie certyfikatów demonstracyjnych do testowania IoT Edge funkcji urządzenia](how-to-create-test-certificates.md) , aby utworzyć pliki. Na tej stronie należy wykonać następujące czynności:
+Jeśli nie masz własnego urzędu certyfikacji i chcesz korzystać z certyfikatów demonstracyjnych, postępuj zgodnie z instrukcjami w temacie [Tworzenie certyfikatów demonstracyjnych, aby testować IoT Edge funkcje urządzenia](how-to-create-test-certificates.md) , aby utworzyć pliki. Na tej stronie należy wykonać następujące czynności:
 
    1. Aby rozpocząć, skonfiguruj skrypty do generowania certyfikatów na urządzeniu.
    2. Utwórz certyfikat głównego urzędu certyfikacji. Na końcu tych instrukcji będziesz mieć plik certyfikatu głównego urzędu certyfikacji:
@@ -94,24 +101,55 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` lub
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Jeśli certyfikaty zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge.
+Jeśli certyfikaty zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge i przejdź do kolejnego kroku.
 
-3. Na urządzeniu IoT Edge Otwórz plik konfiguracji demona zabezpieczeń.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+1. Na urządzeniu IoT Edge Otwórz plik konfiguracji demona zabezpieczeń.
+
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. Znajdź sekcję **Ustawienia certyfikatu** w pliku. Usuń znaczniki komentarza z czterech wierszy zaczynających się od **certyfikatów:** i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
+1. Znajdź sekcję **Ustawienia certyfikatu** w pliku. Usuń znaczniki komentarza z czterech wierszy zaczynających się od **certyfikatów:** i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
    * **device_ca_cert**: certyfikat urzędu certyfikacji urządzenia
    * **device_ca_pk**: klucz prywatny urzędu certyfikacji urządzenia
    * **trusted_ca_certs**: certyfikat głównego urzędu certyfikacji
 
    Upewnij się, że nie ma żadnych spacji poprzedzających w wierszu **Certificates (certyfikaty** ) i że pozostałe wiersze są wcięte o dwie spacje.
 
-5. Zapisz i zamknij plik.
+1. Zapisz i zamknij plik.
 
-6. Uruchom ponownie IoT Edge.
+1. Uruchom ponownie IoT Edge.
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Na urządzeniu IoT Edge Otwórz plik konfiguracji: `/etc/aziot/config.toml`
+
+   >[!TIP]
+   >Jeśli plik konfiguracji nie istnieje jeszcze na urządzeniu, użyj `/etc/aziot/config.toml.edge.template` jako szablonu, aby go utworzyć.
+
+1. Znajdź `trust_bundle_cert` parametr. Usuń komentarz z tego wiersza i podaj identyfikator URI pliku w pliku certyfikatu głównego urzędu certyfikacji na urządzeniu.
+
+1. Znajdź `[edge_ca]` sekcję pliku. Usuń znaczniki komentarza z trzech wierszy w tej sekcji i podaj identyfikatory URI plików dla certyfikatu i plików kluczy jako wartości dla następujących właściwości:
+   * **CERT**: certyfikat urzędu certyfikacji urządzenia
+   * **PK**: klucz prywatny urzędu certyfikacji urządzenia
+
+1. Zapisz i zamknij plik.
+
+1. Uruchom ponownie IoT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Wdrażanie edgeHub i komunikatów routingu
 

@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d82f1cac6e437663fa0b1c3e21c65036f3c1d4eb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927706"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046044"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia usługi IoT Edge
 
@@ -32,7 +32,7 @@ Wykonaj następujące kroki, aby utworzyć certyfikaty demonstracyjne na potrzeb
 1. [Skonfiguruj skrypty](#set-up-scripts) na potrzeby generowania certyfikatów na urządzeniu.
 2. [Utwórz certyfikat głównego urzędu certyfikacji](#create-root-ca-certificate) , za pomocą którego chcesz podpisać wszystkie inne certyfikaty w danym scenariuszu.
 3. Wygeneruj certyfikaty, które są potrzebne dla scenariusza, który chcesz przetestować:
-   * [Utwórz IoT Edge Certyfikaty tożsamości urządzeń](#create-iot-edge-device-identity-certificates) dla automatycznej aprowizacji z IoT Hub Device Provisioning Service.
+   * [Utwórz Certyfikaty tożsamości urządzeń IoT Edge](#create-iot-edge-device-identity-certificates) na potrzeby aprowizacji urządzeń przy użyciu uwierzytelniania certyfikatu X. 509 ręcznie lub przy użyciu IoT Hub Device Provisioning Service.
    * [Utwórz IoT Edge certyfikaty urzędu certyfikacji](#create-iot-edge-device-ca-certificates) dla urządzeń IoT Edge w scenariuszach bramy.
    * [Tworzenie certyfikatów urządzeń podrzędnych](#create-downstream-device-certificates) na potrzeby uwierzytelniania urządzeń podrzędnych w scenariuszu bramy.
 
@@ -163,7 +163,7 @@ Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sek
    New-CACertsCertChain rsa
    ```
 
-   To polecenie skryptu tworzy kilka plików certyfikatów i kluczy, ale gdy artykuły poproszą o **certyfikat głównego urzędu certyfikacji** , należy użyć następującego pliku:
+   To polecenie skryptu tworzy kilka plików certyfikatów i kluczy, ale gdy artykuły poproszą o **certyfikat głównego urzędu certyfikacji**, należy użyć następującego pliku:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,15 +177,15 @@ Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sek
    ./certGen.sh create_root_and_intermediate
    ```
 
-   To polecenie skryptu tworzy kilka plików certyfikatów i kluczy, ale gdy artykuły poproszą o **certyfikat głównego urzędu certyfikacji** , należy użyć następującego pliku:
+   To polecenie skryptu tworzy kilka plików certyfikatów i kluczy, ale gdy artykuły poproszą o **certyfikat głównego urzędu certyfikacji**, należy użyć następującego pliku:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Tworzenie certyfikatów tożsamości urządzeń IoT Edge
 
-Certyfikaty tożsamości urządzeń służą do aprowizacji IoT Edge urządzeń za pomocą usługi Azure IoT Hub Device Provisioning Service (DPS).
+Certyfikaty tożsamości urządzeń służą do aprowizacji IoT Edge urządzeń, jeśli zdecydujesz się użyć uwierzytelniania certyfikatu X. 509. Te certyfikaty działają niezależnie od tego, czy jest używana ręczna obsługa administracyjna, czy Automatyczna obsługa administracyjna za pomocą usługi Azure IoT Hub Device Provisioning Service (DPS).
 
-Certyfikaty tożsamości urządzeń przejdź do sekcji **Inicjowanie obsługi** pliku config. YAML na urządzeniu IoT Edge.
+Certyfikaty tożsamości urządzeń przejdź do sekcji **Inicjowanie obsługi** pliku konfiguracyjnego na urządzeniu IoT Edge.
 
 Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sekcji [Konfigurowanie skryptów](#set-up-scripts) i [Tworzenie certyfikatu głównego urzędu certyfikacji](#create-root-ca-certificate) .
 
@@ -223,11 +223,19 @@ Skrypt tworzy kilka plików certyfikatów i kluczy, w tym trzy, które będą u�
 
 ## <a name="create-iot-edge-device-ca-certificates"></a>Tworzenie certyfikatów urzędu certyfikacji urządzenia IoT Edge
 
-Każde urządzenie IoT Edge do produkcji wymaga certyfikatu urzędu certyfikacji urządzenia, do którego odwołuje się plik config. YAML.
+Każde urządzenie IoT Edge przechodzące do środowiska produkcyjnego wymaga certyfikatu urzędu certyfikacji urządzenia, do którego odwołuje się plik konfiguracyjny.
 Certyfikat urzędu certyfikacji urządzenia jest odpowiedzialny za tworzenie certyfikatów dla modułów uruchomionych na urządzeniu.
 Jest to również konieczne w scenariuszach związanych z bramą, ponieważ certyfikat urzędu certyfikacji urządzenia określa, jak urządzenie IoT Edge weryfikuje swoją tożsamość na urządzeniach podrzędnych.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Certyfikaty urzędu certyfikacji urządzenia przejdź do sekcji **certyfikat** pliku config. YAML na urządzeniu IoT Edge.
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Certyfikaty urzędu certyfikacji urządzenia przejdź do sekcji **graniczny urząd certyfikacji** pliku config. toml na urządzeniu IoT Edge.
+:::moniker-end
 
 Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sekcji [Konfigurowanie skryptów](#set-up-scripts) i [Tworzenie certyfikatu głównego urzędu certyfikacji](#create-root-ca-certificate) .
 
@@ -241,12 +249,12 @@ Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sek
    New-CACertsEdgeDevice "<CA cert name>"
    ```
 
-   To polecenie umożliwia utworzenie kilku certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
+   To polecenie umożliwia utworzenie kilku certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane do urządzenia IoT Edge, do którego odwołuje się plik konfiguracyjny:
 
    * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
-Nazwa przeniesiona do polecenia **New-CACertsEdgeDevice** nie powinna być taka sama jak parametr nazwy hosta w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
+Nazwa przeniesiona do polecenia **New-CACertsEdgeDevice** nie powinna być taka sama jak parametr nazwy hosta w pliku konfiguracyjnym lub identyfikator urządzenia w IoT Hub.
 
 ### <a name="linux"></a>Linux
 
@@ -258,12 +266,12 @@ Nazwa przeniesiona do polecenia **New-CACertsEdgeDevice** nie powinna być taka 
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
-   To polecenie skryptu tworzy kilka certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
+   To polecenie skryptu tworzy kilka certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane do urządzenia IoT Edge, do którego odwołuje się plik konfiguracyjny:
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Nazwa przenoszona do polecenia **create_edge_device_ca_certificate** nie powinna być taka sama jak parametr nazwy hosta w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
+Nazwa przenoszona do polecenia **create_edge_device_ca_certificate** nie powinna być taka sama jak parametr nazwy hosta w pliku konfiguracyjnym lub identyfikator urządzenia w IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Tworzenie certyfikatów urządzeń podrzędnych
 
@@ -289,7 +297,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -319,7 +327,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

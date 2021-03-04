@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 1a276915f8132f2941bfb4425011c2d34454093b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693887"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043715"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -73,7 +73,7 @@ Preferowaną metodą jest użycie grafu zasobów platformy Azure do wykonywania 
 | order by resourceGroup desc, name desc 
 ```
 
-Wykonywanie zapytań dotyczących zasobów przy użyciu [usługi Azure Resource Graph](../governance/resource-graph/overview) to wygodny i wydajny sposób wykonywania zapytań dotyczących zasobów platformy Azure i minimalizowania wywołań interfejsu API do dostawcy zasobów. Wykres zasobów platformy Azure to ostatecznie spójna pamięć podręczna, w której nowe lub zaktualizowane zasoby mogą nie być odzwierciedlone przez maksymalnie 60 sekund. Oto co możesz zrobić:
+Wykonywanie zapytań dotyczących zasobów przy użyciu [usługi Azure Resource Graph](../governance/resource-graph/overview.md) to wygodny i wydajny sposób wykonywania zapytań dotyczących zasobów platformy Azure i minimalizowania wywołań interfejsu API do dostawcy zasobów. Wykres zasobów platformy Azure to ostatecznie spójna pamięć podręczna, w której nowe lub zaktualizowane zasoby mogą nie być odzwierciedlone przez maksymalnie 60 sekund. Oto co możesz zrobić:
 - Wyświetlanie listy maszyn wirtualnych w grupie zasobów lub subskrypcji.
 - Użyj opcji rozwiń, aby pobrać widok wystąpienia (przypisanie domeny błędów, Stany i stan aprowizacji) dla wszystkich maszyn wirtualnych w ramach subskrypcji.
 - Użyj interfejsu API Get VM i poleceń, aby uzyskać model i widok wystąpienia dla jednego wystąpienia.

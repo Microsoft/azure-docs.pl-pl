@@ -3,15 +3,14 @@ title: Azure Monitor widoku projektanta na skoroszyty — podsumowanie konwersji
 description: Uprawnienia wymagane do uzyskiwania dostępu do skoroszytów podczas przechodzenia z widoków w Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c5b3096c4eb8cf71ff1d13476fa09cc65ef413a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613112"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043394"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Wyświetl podsumowanie konwersji i dostęp do programu Designer
 [Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. W tym artykule szczegółowo opisano sposób tworzenia podsumowania przeglądu i uprawnień wymaganych do uzyskiwania dostępu do skoroszytów.

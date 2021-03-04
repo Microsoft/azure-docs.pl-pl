@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: e80465cf8d43918e6ed6da8ebb3b96f3f197e887
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679964"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044191"
 ---
 # <a name="clustering-point-data"></a>Dane punktu klastrowania
 
@@ -26,17 +26,17 @@ Podczas wizualizacji wielu punktów danych na mapie punkty danych mogą się nak
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Włączanie klastrowania w źródle danych
 
-Włącz klastrowanie w `DataSource` klasie, ustawiając dla `cluster` opcji wartość true. Ustaw `ClusterRadius` , aby wybierają punkty w pobliżu i łączą je z klastrem. Wartość `ClusterRadius` jest w pikselach. Użyj `clusterMaxZoom` , aby określić poziom powiększenia, dla którego ma zostać wyłączona logika klastrowania. Oto przykład sposobu włączania klastrowania w źródle danych.
+Włącz klastrowanie w `DataSource` klasie, ustawiając dla `cluster` opcji wartość true. Ustaw `clusterRadius` , aby wybrać punkty w pobliżu i połączyć je z klastrem. Wartość `clusterRadius` jest w pikselach. Użyj `clusterMaxZoom` , aby określić poziom powiększenia, dla którego ma zostać wyłączona logika klastrowania. Oto przykład sposobu włączania klastrowania w źródle danych.
 
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
     //Tell the data source to cluster point data.
     cluster: true,
-
+    
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
-
+    
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15
@@ -46,7 +46,7 @@ var datasource = new atlas.source.DataSource(null, {
 > [!TIP]
 > Jeśli dwa punkty danych są blisko siebie, możliwe, że klaster nigdy nie ulegnie przerwie, niezależnie od tego, jak zamyka się użytkownik. Aby rozwiązać ten potrzeba, można ustawić `clusterMaxZoom` opcję wyłączania logiki klastrowania i po prostu wyświetlić wszystko.
 
-Oto dodatkowe metody `DataSource` zapewniane przez klasę dla klastrowania:
+`DataSource`Klasa zawiera również następujące metody związane z klastrem.
 
 | Metoda | Typ zwracany | Opis |
 |--------|-------------|-------------|

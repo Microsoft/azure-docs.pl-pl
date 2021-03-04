@@ -3,12 +3,12 @@ title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na 
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
 ms.date: 02/23/2021
-ms.openlocfilehash: b3afdffa127c23a3be3d247f12acc31604370ef6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8871e678ba43aa69eb49c02e386bfb47c6871de7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738450"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044985"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 
@@ -94,7 +94,7 @@ Aby zalogować się do programu vCenter i NSX Manager, musisz mieć adresy URL d
 
 Przejdź do chmury prywatnej rozwiązania Azure VMware, w obszarze **Zarządzanie** wybierz pozycję **tożsamość**. w tym miejscu znajdziesz potrzebne informacje.
 
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Zrzut ekranu przedstawiający poświadczenia programu vCenter i NSX-T oraz adresy URL klienta sieci Web." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Zrzut ekranu przedstawiający poświadczenia programu vCenter i NSX-T oraz adresy URL klienta sieci Web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

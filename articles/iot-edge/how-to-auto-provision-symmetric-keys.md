@@ -5,25 +5,25 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 4/3/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bfb61a5434089fffab9d8ceb9c7b0fbca528cac5
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 73d1d873df58c672e9db6b9e4e17ed58e1a6397e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430615"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046197"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu zaświadczania klucza symetrycznego
 
 Urządzenia Azure IoT Edge mogą być obsługiwane przy użyciu [usługi Device Provisioning](../iot-dps/index.yml) , podobnie jak dla urządzeń, które nie są włączone. Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](../iot-dps/about-iot-dps.md#provisioning-process) .
 
-W tym artykule opisano sposób tworzenia rejestracji indywidualnej usługi Device Provisioning przy użyciu zaświadczania klucza symetrycznego na urządzeniu IoT Edge, wykonując następujące czynności:
+W tym artykule opisano sposób tworzenia rejestracji indywidualnej lub grupowej usługi Device Provisioning przy użyciu zaświadczania klucza symetrycznego na urządzeniu IoT Edge, wykonując następujące czynności:
 
 * Utwórz wystąpienie IoT Hub Device Provisioning Service (DPS).
-* Utwórz rejestrację indywidualną dla urządzenia.
+* Utwórz rejestrację dla urządzenia.
 * Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz się z IoT Hub.
 
 Zaświadczenie klucza symetrycznego to proste podejście do uwierzytelniania urządzenia za pomocą wystąpienia usługi Device Provisioning. Ta metoda zaświadczania reprezentuje środowisko "Hello World" dla deweloperów, którzy są nowym sposobem aprowizacji urządzeń lub nie mają rygorystycznych wymagań dotyczących zabezpieczeń. Zaświadczenie urządzenia przy użyciu [modułu TPM](../iot-dps/concepts-tpm-attestation.md) lub [certyfikatu X. 509](../iot-dps/concepts-x509-attestation.md) jest bezpieczniejsze i powinno być używane do bardziej rygorystycznych wymagań w zakresie bezpieczeństwa.
@@ -72,8 +72,8 @@ Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan
 
    1. Wybierz **wartość true** , aby zadeklarować, że rejestracja dotyczy urządzenia IoT Edge. W przypadku rejestracji grupy wszystkie urządzenia muszą być IoT Edge urządzeń lub żadna z nich nie może być.
 
-   > [!TIP]
-   > W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
+      > [!TIP]
+      > W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
 
    1. Zaakceptuj wartość domyślną z zasad alokacji usługi Device Provisioning, aby określić **sposób przypisywania urządzeń do centrów** lub wybrać inną wartość specyficzną dla tej rejestracji.
 
@@ -169,10 +169,12 @@ Przygotuj następujące informacje:
 * **Klucz podstawowy** skopiowany z rejestracji usługi DPS
 
 > [!TIP]
-> W przypadku rejestracji grup wymagany jest [klucz pochodny](#derive-a-device-key) każdego urządzenia, a nie klucz rejestracji usługi DPS.
+> W przypadku rejestracji grup należy dysponować [kluczem pochodnym](#derive-a-device-key) każdego urządzenia, a nie kluczem podstawowym rejestracji usługi DPS.
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
 
    ```bash
@@ -197,15 +199,66 @@ Przygotuj następujące informacje:
    #  dynamic_reprovisioning: false
    ```
 
-   Opcjonalnie możesz użyć `always_reprovision_on_startup` linii lub, `dynamic_reprovisioning` Aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia. Jeśli urządzenie jest ustawione na ponowne Inicjowanie obsługi administracyjnej, będzie zawsze próbowało najpierw zainicjować obsługę administracyjną przy użyciu punktu dystrybucji, a następnie wrócić do tworzenia kopii zapasowej, jeśli to się nie powiedzie. Jeśli urządzenie jest ustawione na dynamiczną ponowną obsługę administracyjną, IoT Edge zostanie ponownie uruchomione i Zainicjuj obsługę administracyjną w przypadku wykrycia zdarzenia ponownego aprowizacji. Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
-
 1. Zaktualizuj wartości `scope_id` , `registration_id` i `symmetric_key` wraz z informacjami o usłudze DPS i urządzeniu.
+
+1. Opcjonalnie możesz użyć `always_reprovision_on_startup` linii lub, `dynamic_reprovisioning` Aby skonfigurować zachowanie ponownego inicjowania obsługi administracyjnej urządzenia. Jeśli urządzenie jest ustawione na ponowne Inicjowanie obsługi administracyjnej, będzie zawsze próbowało najpierw zainicjować obsługę administracyjną przy użyciu punktu dystrybucji, a następnie wrócić do tworzenia kopii zapasowej, jeśli to się nie powiedzie. Jeśli urządzenie jest ustawione na dynamiczną ponowną obsługę administracyjną, IoT Edge zostanie ponownie uruchomione i Zainicjuj obsługę administracyjną w przypadku wykrycia zdarzenia ponownego aprowizacji. Aby uzyskać więcej informacji, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](../iot-dps/concepts-device-reprovision.md).
 
 1. Uruchom ponownie środowisko uruchomieniowe IoT Edge, aby wyszukać wszystkie zmiany konfiguracji wprowadzone na urządzeniu.
 
    ```bash
    sudo systemctl restart iotedge
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Utwórz plik konfiguracji dla urządzenia na podstawie pliku szablonu, który jest dostarczany jako część instalacji IoT Edge.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
+1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Znajdź sekcję **aprowizacji** pliku. Usuń znaczniki komentarza z wierszy dla aprowizacji usługi DPS przy użyciu klucza symetrycznego i upewnij się, że wszystkie inne wiersze aprowizacji są oznaczone jako komentarze.
+
+   ```toml
+   # DPS provisioning with symmetric key
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "symmetric_key"
+   registration_id = "<REGISTRATION_ID>"
+
+   symmetric_key = "<PRIMARY_KEY OR DERIVED_KEY>"
+   ```
+
+1. Zaktualizuj wartości `id_scope` , `registration_id` i `symmetric_key` wraz z informacjami o usłudze DPS i urządzeniu.
+
+   Parametr klucza symetrycznego może przyjmować wartość klucza wbudowanego, identyfikatora URI pliku lub identyfikatora URI PKCS # 11. Usuń komentarz tylko z jednej linii symetrycznej, w oparciu o używany format.
+
+   Jeśli używasz dowolnego identyfikatora URI PKCS # 11, Znajdź sekcję **PKCS # 11** w pliku konfiguracji i podaj informacje o konfiguracji PKCS # 11.
+
+1. Zapisz i zamknij plik config. toml.
+
+1. Zastosuj zmiany konfiguracji wprowadzone w IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="windows-device"></a>Urządzenie z systemem Windows
 
@@ -228,6 +281,9 @@ Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przej
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Sprawdź stan usługi IoT Edge.
 
 ```cmd/sh
@@ -245,6 +301,31 @@ Wyświetl listę uruchomionych modułów.
 ```cmd/sh
 iotedge list
 ```
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Sprawdź stan usługi IoT Edge.
+
+```cmd/sh
+sudo iotedge system status
+```
+
+Sprawdzanie dzienników usług.
+
+```cmd/sh
+sudo iotedge system logs
+```
+
+Wyświetl listę uruchomionych modułów.
+
+```cmd/sh
+sudo iotedge list
+```
+
+:::moniker-end
 
 ### <a name="windows-device"></a>Urządzenie z systemem Windows
 

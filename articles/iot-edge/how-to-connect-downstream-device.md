@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 35bb17a5cdfcc6aff4a513a594a08283ab1f1305
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 44fe128658b90d2327f17f22b2a33aaa1d4da1fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437035"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046129"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge
 
@@ -214,7 +214,7 @@ Dane wyjściowe tego polecenia mogą być długie, w tym informacje o wszystkich
 
 Jeśli urządzenie liścia ma sporadyczne połączenie z urządzeniem bramy, spróbuj wykonać poniższe czynności, aby rozwiązać ten problem.
 
-1. Czy nazwa hosta bramy w parametrach połączenia jest taka sama jak wartość nazwy hosta w pliku IoT Edge config. YAML na urządzeniu bramy?
+1. Czy nazwa hosta bramy w parametrach połączenia jest taka sama jak wartość nazwy hosta w pliku konfiguracji IoT Edge na urządzeniu bramy?
 2. Czy nazwa hosta bramy jest rozpoznawana jako adres IP? Sporadyczne połączenia można rozwiązać przy użyciu systemu DNS lub przez dodanie wpisu do pliku hosta na urządzeniu liścia.
 3. Czy w zaporze są otwarte porty komunikacyjne? Komunikacja oparta na używanym protokole (MQTTS: 8883/AMQPS: 5671/HTTPS: Port 433) musi być możliwa między urządzeniem podrzędnym i przezroczystą IoT Edge.
 

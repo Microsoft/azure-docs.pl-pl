@@ -4,19 +4,19 @@ description: Skorzystaj z tego artykułu, aby rozwiązać typowe problemy wystę
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382212"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045976"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Typowe problemy z usługą Azure IoT Edge i ich rozwiązania
 
@@ -216,6 +216,9 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 Gdy ten błąd jest wyświetlany, można go rozwiązać przez skonfigurowanie nazwy DNS maszyny wirtualnej, a następnie ustawienie nazwy DNS jako nazwy hosta w poleceniu instalacji.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. W Azure Portal przejdź do strony Przegląd swojej maszyny wirtualnej.
 2. Wybierz pozycję **Konfiguruj** w obszarze Nazwa DNS. Jeśli maszyna wirtualna ma już skonfigurowaną nazwę DNS, nie trzeba konfigurować nowej.
 
@@ -236,6 +239,39 @@ Gdy ten błąd jest wyświetlany, można go rozwiązać przez skonfigurowanie na
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
       ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. W Azure Portal przejdź do strony Przegląd swojej maszyny wirtualnej.
+
+2. Wybierz pozycję **Konfiguruj** w obszarze Nazwa DNS. Jeśli maszyna wirtualna ma już skonfigurowaną nazwę DNS, nie trzeba konfigurować nowej.
+
+   ![Skonfiguruj nazwę DNS maszyny wirtualnej](./media/troubleshoot/configure-dns.png)
+
+3. Podaj wartość w obszarze **etykieta nazwy DNS** i wybierz pozycję **Zapisz**.
+
+4. Skopiuj nową nazwę DNS, która powinna mieć format **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+
+5. Na urządzeniu IoT Edge Otwórz plik konfiguracji.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+6. Zastąp wartość `hostname` nazwą DNS.
+
+7. Zapisz i zamknij plik, a następnie Zastosuj zmiany do IoT Edge.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Nie można pobrać dzienników demona IoT Edge w systemie Windows
 
@@ -343,7 +379,7 @@ Demon IoT Edge jest aktywny z prawidłowym plikiem konfiguracji, ale nie może u
 
 **Główna przyczyna:**
 
-IoT Edge urządzeń za bramą Pobierz obrazy modułów z nadrzędnego urządzenia IoT Edge określonego w `parent_hostname` polu pliku config. YAML. `Could not perform HTTP request`Błąd oznacza, że urządzenie podrzędne nie może nawiązać połączenia z urządzeniem nadrzędnym za pośrednictwem protokołu HTTP.
+IoT Edge urządzeń za bramą Pobierz obrazy modułów z nadrzędnego urządzenia IoT Edge określonego w `parent_hostname` polu pliku konfiguracyjnego. `Could not perform HTTP request`Błąd oznacza, że urządzenie podrzędne nie może nawiązać połączenia z urządzeniem nadrzędnym za pośrednictwem protokołu HTTP.
 
 **Rozwiązanie:**
 

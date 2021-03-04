@@ -5,13 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.subservice: alerts
-ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca43315258ea6439b08682898612137f7de1d61b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701165"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045636"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. 
@@ -176,7 +175,7 @@ Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Director
 2. Włącz grupy akcji, aby korzystać z aplikacji usługi Azure AD.
 
     > [!NOTE]
-    > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](../../active-directory/roles/permissions-reference.md#available-roles) .
+    > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](../../active-directory/roles/permissions-reference.md#all-roles) .
     
     - Zmodyfikuj wywołanie Connect-AzureAD skryptu programu PowerShell, aby użyć identyfikatora dzierżawy usługi Azure AD.
     - Zmodyfikuj zmienną $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD.

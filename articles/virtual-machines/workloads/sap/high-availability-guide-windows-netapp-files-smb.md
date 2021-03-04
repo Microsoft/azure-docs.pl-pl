@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 02/18/2021
 ms.author: radeltch
-ms.openlocfilehash: e8d58a74f9ce8489465934398014dd4af3309a9e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669836"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045840"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP
 
@@ -82,6 +82,9 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 * [Instalacja wystąpienia programu (A) SCS w klastrze trybu failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Tworzenie woluminu SMB dla usługi Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]
+
+> [!IMPORTANT]
+> Uwaga: należy pamiętać, że instalacja systemu SAP z SWPM na udziale SMB, hostowana na woluminie SMB [Azure NetApp Files][anf-azure-doc] , może zakończyć się niepowodzeniem z powodu błędu instalacji, na przykład "warningPerm nie jest zdefiniowana". Aby uniknąć tego błędu, użytkownik, pod którym jest wykonywane SWPM kontekstu, wymaga podwyższonego poziomu uprawnień "Administrator domeny" podczas instalacji systemu SAP.  
 
 ## <a name="overview"></a>Omówienie
 

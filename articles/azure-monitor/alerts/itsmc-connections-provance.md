@@ -1,17 +1,16 @@
 ---
 title: Połącz Provance z łącznik zarządzania usługami IT
 description: Ten artykuł zawiera informacje na temat sposobu Provance z łącznik zarządzania usługami IT (ITSMC) w Azure Monitor, aby centralnie monitorować elementy robocze narzędzia ITSM i zarządzać nimi.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 38aff6bf0851e97558fb8870a08f33bb0bcb0392
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 542b127823a73058f319e6a39c001bd563f042ae
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618010"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045381"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Połącz Provance z łącznik zarządzania usługami IT
 
