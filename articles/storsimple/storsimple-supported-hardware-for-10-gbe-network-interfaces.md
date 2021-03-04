@@ -75,10 +75,10 @@ W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellan
 
 | S. Nie. | Szybkość | Model | Opis | Marka |
 | --- | --- | --- | --- | --- |
-| 1. |10 GbE |CAB-SFP-SFP-1M |pasywny kabel miedzy SFP + 10 Gb/s 1m |Arista |
-| 2. |10 GbE |CAB-SFP-SFP-2M |pasywny kabel miedzy SFP + 10 Gb/s 2m |Arista |
-| 3. |10 GbE |CAB-SFP-SFP-3M |pasywny kabel miedzy SFP + 10 Gb/s 3m |Arista |
-| 4. |10 GbE |CAB-SFP-SFP-5M |pasywny kabel miedzy SFP + 10 Gb/s 5m |Arista |
+| 1. |10 GbE |CAB-SFP-SFP-1M |Pasywny kabel miedziany SFP + 10 Gb/s 1m |Arista |
+| 2. |10 GbE |CAB-SFP-SFP-2M |Pasywny kabel miedziany SFP + 10 Gb/s 2m |Arista |
+| 3. |10 GbE |CAB-SFP-SFP-3M |Pasywny kabel miedziany SFP + 10 Gb/s 3m |Arista |
+| 4. |10 GbE |CAB-SFP-SFP-5M |Pasywny kabel miedziany SFP + 10 Gb/s 5m |Arista |
 | 5. |10 GbE |Cisco SFP — H10GBCU1M |Kabel Cisco SFP + |Cisco |
 | 6. |10 GbE |Cisco SFP — H10GBCU3M |Kabel Cisco SFP + |Cisco |
 | 7. |10 GbE |Cisco SFP — H10GBCU5M |Kabel Cisco SFP + |Cisco |
@@ -90,9 +90,9 @@ W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellan
 | 13. |10 GbE |487655 — B21 HP BLc |Kabel SFP + 3m 10GbE miedź |FIRM |
 | 14. |10 GbE |487658 — B21 HP BLc |Kabel SFP + 7m 10GbE miedź |FIRM |
 | 15. |10 GbE |537963 — B21 HP BLc |Kabel SFP + 5m 10GbE miedź |FIRM |
-| 16. |10 GbE |AP784A HP |3m C-seria pasywna miedź SFP + |FIRM |
-| 17. |10 GbE |AP785A HP |5m C-seria pasywna miedź SFP + |FIRM |
-| 18. |10 GbE |AP818A HP |1M B-seria aktywne miedza SFP + |FIRM |
+| 16. |10 GbE |AP784A HP |3m C-seria pasywny kabel miedziany SFP + |FIRM |
+| 17. |10 GbE |AP785A HP |5m C-seria pasywny kabel miedziany SFP + |FIRM |
+| 18. |10 GbE |AP818A HP |1M B-seria aktywny kabel miedziany SFP + |FIRM |
 | 19. |10 GbE |AP819A HP |3m B — aktywne łącze miedziane SFP + |FIRM |
 | 20. |10 GbE |J9150A HP |X132 10G SFP + LC SR-odbiornik |FIRM |
 | 21. |10 GbE |J9151A HP |X132 10G SFP + LC LR urządzenia nadawczego |FIRM |
