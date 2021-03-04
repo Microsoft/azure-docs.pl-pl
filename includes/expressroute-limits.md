@@ -39,10 +39,10 @@ ms.locfileid: "98147440"
 | 2 Gb/s |10 |60 |
 | 5 Gb/s |10 |75 |
 | 10 Gb/s |10 |100 |
-| 40 GB/s * |10 |100 |
-| 100 GB/s * |10 |100 |
+| 40 Gb/s * |10 |100 |
+| 100 Gb/s * |10 |100 |
 
-**100 GB/s ExpressRoute tylko bezpośrednie*
+**100 Gb/s ExpressRoute tylko bezpośrednie*
 
 > [!NOTE]
-> Liczba połączeń Global Reach jest ograniczona względem limitu połączeń sieci wirtualnej na obwód ExpressRoute. Na przykład obwód w warstwie Premium 10 GB/s zezwoli na 5 Global Reach połączeń i 95 połączeń z bramami usługi ExpressRoute lub 95 Global Reach połączenia i 5 połączeń z bramami ExpressRoute lub inną kombinację do limitu 100 połączeń dla obwodu.
+> Liczba połączeń Global Reach jest ograniczona względem limitu połączeń sieci wirtualnej na obwód ExpressRoute. Na przykład obwód w warstwie Premium 10 Gb/s zezwoli na 5 Global Reach połączeń i 95 połączeń z bramami usługi ExpressRoute lub 95 Global Reach połączenia i 5 połączeń z bramami ExpressRoute lub inną kombinację do limitu 100 połączeń dla obwodu.

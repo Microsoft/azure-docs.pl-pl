@@ -75,10 +75,10 @@ W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellan
 
 | S. Nie. | Szybkość | Model | Opis | Marka |
 | --- | --- | --- | --- | --- |
-| 1. |10 GbE |CAB-SFP-SFP-1M |pasywny kabel miedzy SFP + 10 GB/s 1M |Arista |
-| 2. |10 GbE |CAB-SFP-SFP-2 MLN |pasywny kabel miedzy SFP + 10 GB/s 2 mln |Arista |
-| 3. |10 GbE |CAB-SFP-SFP-3M |pasywny kabel miedzy SFP + 10 GB/s 3m |Arista |
-| 4. |10 GbE |CAB-SFP-SFP-5 M |pasywny kabel miedzy SFP + 10 GB/s 5 m |Arista |
+| 1. |10 GbE |CAB-SFP-SFP-1M |pasywny kabel miedzy SFP + 10 Gb/s 1M |Arista |
+| 2. |10 GbE |CAB-SFP-SFP-2 MLN |pasywny kabel miedzy SFP + 10 Gb/s 2 mln |Arista |
+| 3. |10 GbE |CAB-SFP-SFP-3M |pasywny kabel miedzy SFP + 10 Gb/s 3m |Arista |
+| 4. |10 GbE |CAB-SFP-SFP-5 M |pasywny kabel miedzy SFP + 10 Gb/s 5 m |Arista |
 | 5. |10 GbE |Cisco SFP — H10GBCU1M |Kabel Cisco SFP + |Cisco |
 | 6. |10 GbE |Cisco SFP — H10GBCU3M |Kabel Cisco SFP + |Cisco |
 | 7. |10 GbE |Cisco SFP — H10GBCU5M |Kabel Cisco SFP + |Cisco |
@@ -102,14 +102,14 @@ W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellan
 | 6,25. |10 GbE |JD096B HP |X240 10G SFP + SFP + 1.2 m kabel DAC |FIRM |
 | 25. |10 GbE |JD097B HP |Kabel X240 10G SFP + SFP + 3m tata |FIRM |
 | 27. |10 GbE |MAM1Q00A — QSA Mellanox |QSFP do SFP + adapter |Technologie Mellanox |
-| 28. |10 GbE |MC2309124-006 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10Gb/s 24AWG 7 m |Technologie Mellanox |
-| dnia. |10 GbE |MC2309124 — 007 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10Gb/s 24AWG 7 m |Technologie Mellanox |
-| 0,30. |10 GbE |MC2309130 — 003 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10Gb/s 30awg 3m |Technologie Mellanox |
-| niż. |10 GbE |MC2309130 — 00A Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10Gb/s 30awg 0,5 m |Technologie Mellanox |
-| 32. |10 GbE |MC3309124 — 005 Mt |Pasywny kabel miedziany 1x SFP + 10Gb/s 24AWG 5 m |Technologie Mellanox |
-| 33. |10 GbE |MC3309124 — 007 Mt |Pasywny kabel miedziany 1x SFP + 10Gb/s 24AWG 7 m |Technologie Mellanox |
-| 34. |10 GbE |MC3309130 — 003 Mt |Pasywny kabel miedziany 1x SFP + 10Gb/s 30awg 3m |Technologie Mellanox |
-| 35. |10 GbE |MC3309130 — 00A Mt |Pasywny kabel miedziany 1x SFP + 10Gb/s 30awg 0,5 m |Technologie Mellanox |
+| 28. |10 GbE |MC2309124-006 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10 Gb/s 24AWG 7 m |Technologie Mellanox |
+| dnia. |10 GbE |MC2309124 — 007 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10 Gb/s 24AWG 7 m |Technologie Mellanox |
+| 0,30. |10 GbE |MC2309130 — 003 Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10 Gb/s 30awg 3m |Technologie Mellanox |
+| niż. |10 GbE |MC2309130 — 00A Mt |Pasywny kabel miedziany 1x SFP + do QSFP 10 Gb/s 30awg 0,5 m |Technologie Mellanox |
+| 32. |10 GbE |MC3309124 — 005 Mt |Pasywny kabel miedziany 1x SFP + 10 Gb/s 24AWG 5 m |Technologie Mellanox |
+| 33. |10 GbE |MC3309124 — 007 Mt |Pasywny kabel miedziany 1x SFP + 10 Gb/s 24AWG 7 m |Technologie Mellanox |
+| 34. |10 GbE |MC3309130 — 003 Mt |Pasywny kabel miedziany 1x SFP + 10 Gb/s 30awg 3m |Technologie Mellanox |
+| 35. |10 GbE |MC3309130 — 00A Mt |Pasywny kabel miedziany 1x SFP + 10 Gb/s 30awg 0,5 m |Technologie Mellanox |
 
 ### <a name="switches-supported-by-mellanox"></a>Przełączniki obsługiwane przez Mellanox
 Poniższa tabela zawiera listę przełączników obsługiwanych przez Mellanox. Nie zostały one przetestowane przez firmę Microsoft, ale mogą pracować z urządzeniem StorSimple.

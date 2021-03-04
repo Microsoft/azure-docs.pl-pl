@@ -74,7 +74,7 @@ Usługa ExpressRoute ma nieustannie rosnący ekosystem dostawców połączeń i 
 Firma Microsoft obsługuje izolowane środowiska w chmurze dla określonych regionów geopolitycznych i segmentów klientów. Lista krajowych chmur i dostawców znajduje się w artykule [Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute](expressroute-locations.md).
 
 ### <a name="expressroute-direct"></a>Usługa ExpressRoute Direct
-Usługa ExpressRoute Direct daje klientom możliwość łączenia się bezpośrednio z globalną siecią firmy Microsoft w lokalizacjach komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Funkcja ExpressRoute Direct zapewnia dwie połączenia z 100 GB/s, które obsługują łączność aktywną/aktywną w dużej skali.
+Usługa ExpressRoute Direct daje klientom możliwość łączenia się bezpośrednio z globalną siecią firmy Microsoft w lokalizacjach komunikacji równorzędnej strategicznie rozmieszczonych na całym świecie. Funkcja ExpressRoute Direct zapewnia dwie połączenia z 100 Gb/s, które obsługują łączność aktywną/aktywną w dużej skali.
 
 Najważniejsze funkcje dostarczane przez program ExpressRoute Direct obejmują, ale nie są ograniczone do:
 

@@ -16,7 +16,7 @@ ms.locfileid: "92202160"
 ---
 # <a name="about-expressroute-direct"></a>Informacje o usłudze ExpressRoute Direct
 
-Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft w przypadku lokalizacji komunikacji równorzędnej strategicznie dystrybuowanej na całym świecie. Funkcja ExpressRoute Direct oferuje dwie połączenia o szybkości 100 GB/s lub 10 GB/s, które obsługują łączność aktywną/aktywną w dużej skali.
+Funkcja ExpressRoute Direct umożliwia bezpośrednie nawiązywanie połączenia z siecią globalną firmy Microsoft w przypadku lokalizacji komunikacji równorzędnej strategicznie dystrybuowanej na całym świecie. Funkcja ExpressRoute Direct oferuje dwie połączenia o szybkości 100 Gb/s lub 10 Gb/s, które obsługują łączność aktywną/aktywną w dużej skali.
 
 Najważniejsze funkcje dostarczane przez program ExpressRoute Direct obejmują, ale nie są ograniczone do:
 
@@ -37,9 +37,9 @@ Przed użyciem usługi ExpressRoute Direct należy najpierw zarejestrować swoj�
 
 | **ExpressRoute przy użyciu dostawcy usług** | **Usługa ExpressRoute Direct** | 
 | --- | --- |
-| Wykorzystuje dostawców usług w celu umożliwienia szybkiego dołączania i łączności do istniejącej infrastruktury | Wymaga infrastruktury 100 GB/s/10 GB/s i pełnego zarządzania wszystkimi warstwami
+| Wykorzystuje dostawców usług w celu umożliwienia szybkiego dołączania i łączności do istniejącej infrastruktury | Wymaga infrastruktury 100 Gb/s/10 Gb/s i pełnego zarządzania wszystkimi warstwami
 | Integruje się z setkami dostawców, w tym Ethernet i MPLS | Bezpośrednia/dedykowana pojemność dla branż objętych regulacją i ogromne pozyskiwanie danych |
-| Usługi SKU obwodów z 50 MB/s do 10 GB/s | Klient może wybrać kombinację następujących jednostek SKU obwodu na 100 GB/s ExpressRoute bezpośrednio: <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> Klient może wybrać kombinację następujących jednostek SKU obwodu na 10 GB/s ExpressRoute bezpośrednio:<ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
+| Usługi SKU obwodów z 50 MB/s do 10 Gb/s | Klient może wybrać kombinację następujących jednostek SKU obwodu na 100 Gb/s ExpressRoute bezpośrednio: <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> Klient może wybrać kombinację następujących jednostek SKU obwodu na 10 Gb/s ExpressRoute bezpośrednio:<ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
 | Optymalizacja pod kątem pojedynczej dzierżawy | Optymalizacja pod kątem pojedynczej dzierżawy z wieloma jednostkami biznesowymi i wieloma środowiskami roboczymi
 
 ## <a name="expressroute-direct-circuits"></a>Obwody bezpośrednie ExpressRoute
@@ -52,11 +52,11 @@ Funkcje w większości scenariuszy są równoważne z obwodami używanymi przez 
 
 ## <a name="circuit-skus"></a>Jednostki SKU obwodu
 
-Usługa ExpressRoute Direct obsługuje ogromne scenariusze pozyskiwania danych w usłudze Azure Storage i innych usługach Big Data. Obwody usługi ExpressRoute na 100 GB/s ExpressRoute bezpośrednio obsługują także **40 GB/s** i 100 jednostki SKU obwodów **GB** /s. Fizyczne pary portów to **100 lub 10 GB/s** i mogą mieć wiele obwodów wirtualnych. Rozmiary obwodu:
+Usługa ExpressRoute Direct obsługuje ogromne scenariusze pozyskiwania danych w usłudze Azure Storage i innych usługach Big Data. Obwody usługi ExpressRoute na 100 Gb/s ExpressRoute bezpośrednio obsługują także **40 Gb/s** i 100 jednostki SKU obwodów **GB** /s. Fizyczne pary portów to **100 lub 10 Gb/s** i mogą mieć wiele obwodów wirtualnych. Rozmiary obwodu:
 
-| **100 GB/s ExpressRoute Direct** | **10 GB/s ExpressRoute Direct** | 
+| **100 Gb/s ExpressRoute Direct** | **10 Gb/s ExpressRoute Direct** | 
 | --- | --- |
-| **Zasubskrybowana przepustowość**: 200 GB/s | **Zasubskrybowana przepustowość**: 20 GB/s |
+| **Zasubskrybowana przepustowość**: 200 Gb/s | **Zasubskrybowana przepustowość**: 20 Gb/s |
 | <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> | <ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
 
 ## <a name="technical-requirements"></a>Wymagania techniczne

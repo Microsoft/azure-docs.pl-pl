@@ -57,7 +57,7 @@ Przed rozpoczęciem upewnij się, że:
 1. Należy zapewnić następujące kable w celu podłączenia urządzenia Data Box do komputera hosta.
     - Co najmniej jeden kabel miedziany SFP+ Twinax 10 GbE lub kable światłowodowe SFP+ (do użytku z interfejsami sieciowymi DATA 1 i DATA 2). Urządzenie Data Box jest wyposażone w karty Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T z interfejsem sieciowym PCI Express 3.0, więc kable, które są zgodne z tym interfejsem, powinny działać. Na przykład do testowania wewnętrznego użyto kabla CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych kabli i przełączników firmy Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Jeden kabel sieciowy RJ-45 CAT 6 (do użytku z interfejsem sieciowym MGMT)
-    - Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 GB/s lub 1 GB/s)
+    - Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 Gb/s lub 1 Gb/s)
 
 ## <a name="cable-your-device"></a>Podłączanie kabli do urządzenia
 
@@ -93,7 +93,7 @@ Po odebraniu urządzenia należy podłączyć do niego kable i połączyć się 
     - (Dołączony) Przewód zasilający z uziemieniem przeznaczony do prądu co najmniej 10 A, ze złączem typu IEC60320 C-13 po jednej stronie, umożliwiającym podłączenie do urządzenia.
     - Jeden kabel sieciowy RJ-45 CAT 6 (do użytku z interfejsem sieciowym MGMT)
     - Dwa kable miedziane SFP+ Twinax 10 GbE (do użytku z interfejsami sieciowymi DATA 1 i DATA 2 o przepustowości 10 Gb/s)
-    - Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 GB/s lub 1 GB/s)
+    - Jeden kabel sieciowy RJ-45 CAT 6A lub RJ-45 CAT 6 (do użytku z interfejsem sieciowym DATA 3 skonfigurowanym odpowiednio dla przepływności 10 Gb/s lub 1 Gb/s)
 
 3. Wyjmij urządzenie i umieść je na płaskiej powierzchni. 
     
