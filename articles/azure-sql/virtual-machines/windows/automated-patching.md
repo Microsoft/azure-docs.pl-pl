@@ -113,7 +113,7 @@ Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceG
 ```
 
 > [!IMPORTANT]
-> Jeśli rozszerzenie nie zostało jeszcze zainstalowane, zainstalowanie go spowoduje ponowne  uruchomienie SQL Server.
+> Jeśli rozszerzenie nie zostało jeszcze zainstalowane, zainstalowanie go spowoduje ponowne uruchomienie SQL Server.
 
 Na podstawie tego przykładu w poniższej tabeli opisano praktyczny wpływ na docelową maszynę wirtualną platformy Azure:
 
