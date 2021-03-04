@@ -10,12 +10,12 @@ ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: e04b9b98db26b3b9a024a60c6f82820fe20fcbf1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693105"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032198"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Usługa Azure ARC z włączoną funkcją wysokiej dostępności wystąpienia zarządzanego
 
@@ -31,7 +31,7 @@ Ta sekcja umożliwia zweryfikowanie wbudowanej wysokiej dostępności udostępni
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Klaster Kubernetes musi mieć [udostępniony Magazyn zdalny](https://docs.microsoft.com/en-us/azure/azure-arc/data/storage-configuration#factors-to-consider-when-choosing-your-storage-configuration) 
+- Klaster Kubernetes musi mieć [udostępniony Magazyn zdalny](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 
 - Wystąpienie zarządzane z funkcją Azure ARC, które zostało wdrożone z jedną repliką (domyślnie)
 
 1. Wyświetlanie zasobników. 

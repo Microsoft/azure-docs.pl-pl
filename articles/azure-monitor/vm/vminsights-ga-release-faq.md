@@ -1,17 +1,16 @@
 ---
 title: Informacje o usłudze VM Insights (GA) — często zadawane pytania | Microsoft Docs
 description: Usługa VM Insights to rozwiązanie na platformie Azure, które łączy monitorowanie kondycji i wydajności systemu operacyjnego maszyny wirtualnej platformy Azure, a także automatycznie odnajduje składniki aplikacji i zależności z innymi zasobami oraz mapuje komunikację między nimi. W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące wersji GA.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710757"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031881"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Usługi VM Insights są ogólnie dostępne (GA) często zadawanych pytań
 Ta ogólna dostępność często zadawanych pytań dotyczy zmian wprowadzonych w kwartale 2019 i Q1 2020 w miarę przygotowywania do ogólnego użytku.
@@ -20,15 +19,15 @@ Ta ogólna dostępność często zadawanych pytań dotyczy zmian wprowadzonych w
 W styczniu 2020 opublikowano nową wersję usługi VM Insights z wyprzedzeniem. Klienci, którzy włączą usługi VM Insights, otrzymają teraz wersję GA, ale istniejący klienci korzystający z wersji usługi VM Insights z 4 kwartale 2019 i wcześniejszym będą monitowani o uaktualnienie. Te często zadawane pytania oferują wskazówki dotyczące przeprowadzania uaktualnienia w odpowiedniej skali, jeśli masz duże wdrożenia w wielu obszarach roboczych.
 
 
-W przypadku tego uaktualnienia Azure Monitor dla maszyn wirtualnych dane dotyczące wydajności są przechowywane w tej samej tabeli *InsightsMetrics* co [kontener Insights](../containers/container-insights-overview.md), co ułatwia wykonywanie zapytań dotyczących dwóch zestawów danych. Ponadto można przechowywać bardziej zróżnicowane zestawy danych, które nie mogły być przechowywane w tabeli, która została wcześniej użyta. 
+W przypadku tego uaktualnienia dane wydajności usługi VM Insights są przechowywane w tej samej tabeli *InsightsMetrics* , co w przypadku usługi [Container Insights](../containers/container-insights-overview.md), co ułatwia wykonywanie zapytań dotyczących dwóch zestawów danych. Ponadto można przechowywać bardziej zróżnicowane zestawy danych, które nie mogły być przechowywane w tabeli, która została wcześniej użyta. 
 
 Nasze widoki wydajności używają teraz danych przechowywanych w tabeli *InsightsMetrics* .  Jeśli jeszcze nie uaktualniono do korzystania z najnowszego rozwiązania VMInsights w obszarze roboczym, na wykresach nie będą już wyświetlane informacje.  Możesz przeprowadzić uaktualnienie **z naszej strony wprowadzenie,** zgodnie z poniższym opisem.
 
 
 ## <a name="what-is-changing"></a>Co się zmieni?
-Opublikowano nowe rozwiązanie o nazwie VMInsights, które zawiera dodatkowe możliwości zbierania danych oraz nową lokalizację do przechowywania tych danych w obszarze roboczym Log Analytics. 
+Opublikowano nowe rozwiązanie o nazwie VMInsights, które zawiera więcej możliwości zbierania danych oraz nową lokalizację do przechowywania tych danych w obszarze roboczym Log Analytics. 
 
-W przeszłości włączono rozwiązanie ServiceMap w obszarze roboczym i skonfigurujesz liczniki wydajności w obszarze roboczym Log Analytics, aby wysłać dane do tabeli *wydajności* . To nowe rozwiązanie wysyła dane do tabeli o nazwie *InsightsMetrics* , która jest również używana przez usługi Container Insights. Ten schemat tabeli umożliwia przechowywanie dodatkowych metryk i zestawów danych usług, które nie są zgodne z formatem tabeli *wydajności* .
+W przeszłości włączono rozwiązanie ServiceMap w obszarze roboczym i skonfigurujesz liczniki wydajności w obszarze roboczym Log Analytics, aby wysłać dane do tabeli *wydajności* . To nowe rozwiązanie wysyła dane do tabeli o nazwie *InsightsMetrics* , która jest również używana przez usługi Container Insights. Ten schemat tabeli pozwala nam przechowywać więcej metryk i zestawów danych usług, które nie są zgodne z formatem tabeli *wydajności* .
 
 Zaktualizowaliśmy wykresy wydajnościowe, aby użyć przechowywanych danych w tabeli *InsightsMetrics* . Możesz przeprowadzić uaktualnienie, aby użyć tabeli *InsightsMetrics* **na naszej stronie wprowadzenie,** zgodnie z poniższym opisem.
 
@@ -58,7 +57,7 @@ Jeśli utworzono [alerty dziennika](../alerts/alerts-unified-log.md) , które wy
 
 Będziemy aktualizować te często zadawane pytania i naszą dokumentację, aby uwzględnić przykładowe reguły alertów wyszukiwania w dzienniku dla zbieranych danych.
 
-## <a name="how-will-this-affect-my-bill"></a>Jak wpłynie to na mój rachunek?
+## <a name="how-will-this-change-affect-my-bill"></a>Jak ta zmiana wpłynie na mój rachunek?
 
 Opłaty są naliczane w oparciu o dane pozyskane i zachowane w obszarze roboczym Log Analytics.
 
@@ -90,7 +89,7 @@ Nie, te dwa rozwiązania współdzielą zestawy danych mapy, które są przechow
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>Funkcja kondycji jest w ograniczonej publicznej wersji zapoznawczej
 
-Otrzymamy wiele doskonałych opinii od klientów dotyczących zestawu funkcji kondycji maszyn wirtualnych. Istnieje wiele interesów tej funkcji i ekscytację nad jej potencjałem do obsługi przepływów pracy monitorowania. Planujemy wprowadzić serię zmian w celu dodania funkcji i rozwiązania otrzymanej opinii. 
+Otrzymamy wiele doskonałych opinii od klientów dotyczących zestawu funkcji kondycji maszyn wirtualnych. Asignificant interesuje tę funkcję i ekscytację nad jej potencjalną obsługą przepływów pracy monitorowania. Planujemy wprowadzić serię zmian w celu dodania funkcji i rozwiązania otrzymanej opinii. 
 
 Aby zminimalizować wpływ tych zmian na nowych klientów, przeniesionomy tę funkcję do **ograniczonej publicznej wersji zapoznawczej**. Ta aktualizacja miała miejsce w październiku 2019.
 

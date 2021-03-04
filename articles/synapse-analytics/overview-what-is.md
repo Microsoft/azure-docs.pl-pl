@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 37768b994d4b61ee728e04352f027a6f5a478341
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917097"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031620"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Co to jest usługa Azure Synapse Analytics?
 
@@ -64,13 +64,13 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 * Szczegółowa kontrola dostępu do danych i kodu
 * Pojedynczy pulpit nawigacyjny do monitorowania zasobów, użycia i użytkowników w ramach programu SQL i platformy Spark
 
-### <a name="synapse-studio"></a>Synapse Studio
+### <a name="unified-experience"></a>Ujednolicone środowisko
 
-**Synapse Studio** to natywne środowisko sieci Web, które wiąże wszystko ze sobą w przypadku inżynierów danych, dzięki czemu można w jednej lokalizacji wykonać każde zadanie potrzebne do utworzenia kompletnego rozwiązania.
+**Synapse Studio** to środowisko użytkownika, które wiąże wszystko ze sobą w przypadku inżynierów danych. Umożliwia im to każde zadanie potrzebne do utworzenia kompletnego rozwiązania do analizy.
 
-* Tworzenie kompleksowego rozwiązania do analizy w jednym miejscu: pozyskiwanie, eksplorowanie, przygotowywanie, organizowanie, wizualizowanie
-* Wiodąca w branży wydajność inżynierów danych pisząc kod SQL lub Spark: Tworzenie, debugowanie i Optymalizacja wydajności
-* Integracja z procesami ciągłej integracji/ciągłego wdrażania
+* Kluczowe dane engingeer zadania w jednym miejscu: pozyskiwanie, eksplorowanie, przygotowywanie, organizowanie, wizualizowanie
+* Wiodąca w branży produktywność pisania kodu SQL lub Spark: Tworzenie, debugowanie i Optymalizacja wydajności
+* Integracja z procesem ciągłej integracji/ciągłego wdrażania
 
 ## <a name="engage-with-the-synapse-engineering-team"></a>Zaangażuj się z zespołem inżynierów Synapse
 

@@ -1,17 +1,16 @@
 ---
 title: Przykłady szablonów Menedżer zasobów dla ustawień diagnostycznych
 description: Przykładowe szablony Azure Resource Manager do zastosowania Azure Monitor ustawień diagnostycznych do zasobu platformy Azure.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec44c54a00c8532ed082b6e5f9e9cb9ce84f64b5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731446"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033031"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla ustawień diagnostycznych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia ustawień diagnostycznych dla zasobu platformy Azure. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.

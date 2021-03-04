@@ -2,19 +2,19 @@
 title: Raporty w usłudze Container Insights
 description: Opisuje raporty dostępne do analizowania danych zebranych przez usługi Container Insights.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704280"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032803"
 ---
 # <a name="reports-in-container-insights"></a>Raporty w usłudze Container Insights
 Raporty w usłudze Container Insights są zalecane jako gotowe do użycia [skoroszyty platformy Azure](../visualize/workbooks-overview.md). W tym artykule opisano różne raporty, które są dostępne, oraz sposób uzyskiwania do nich dostępu.
 
 ## <a name="viewing-reports"></a>Wyświetlanie raportów
-Z menu **Azure monitor** w Azure Portal wybierz pozycję **Containers (kontenery**). Wybierz pozycję szczegółowe **informacje** w sekcji **monitorowanie** , wybierz konkretny klaster, a następnie wybierz stronę **raporty (wersja zapoznawcza)** . 
+Z menu **Azure monitor** w Azure Portal wybierz pozycję **Containers (kontenery**). Wybierz pozycję szczegółowe **informacje** w sekcji **monitorowanie** , wybierz konkretny klaster, a następnie wybierz stronę **raporty** . 
 
 [![Strona raporty](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 768d2011ae3f2826b42befa8f0d40f0e56b993fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691488"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032691"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Parametr strojenia modelu z Azure Machine Learning
 
@@ -332,7 +332,7 @@ hd_config = HyperDriveConfig(run_config=script_run_config,
                              max_concurrent_runs=4)
 ```
 
-`HyperDriveConfig`Ustawia parametry przesłane do `ScriptRunConfig script_run_config` . `script_run_config`, Z kolei, przekazuje parametry do skryptu szkoleniowego. Powyższy fragment kodu jest pobierany z przykładowego [uczenia się notesu, dostrajania parametrów i wdrażania przy użyciu PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). W tym przykładzie `learning_rate` `momentum` Parametry i zostaną dostrojone. Wczesne zatrzymanie przebiegów zostanie określone przez `BanditPolicy` , która zatrzymuje przebieg, którego Podstawowa metryka znajduje się poza `slack_factor` (zobacz [odwołanie do klasy BanditPolicy](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py)). 
+`HyperDriveConfig`Ustawia parametry przesłane do `ScriptRunConfig script_run_config` . `script_run_config`, Z kolei, przekazuje parametry do skryptu szkoleniowego. Powyższy fragment kodu jest pobierany z przykładowego [uczenia się notesu, dostrajania parametrów i wdrażania przy użyciu PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). W tym przykładzie `learning_rate` `momentum` Parametry i zostaną dostrojone. Wczesne zatrzymanie przebiegów zostanie określone przez `BanditPolicy` , która zatrzymuje przebieg, którego Podstawowa metryka znajduje się poza `slack_factor` (zobacz [odwołanie do klasy BanditPolicy](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy)). 
 
 Poniższy kod z przykładu pokazuje, w jaki sposób wartości są odbierane, analizowane i przenoszone do funkcji skryptu szkoleniowego `fine_tune_model` :
 

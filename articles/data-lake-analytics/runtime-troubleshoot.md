@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241611"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030617"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Dowiedz się, jak rozwiązywać błędy środowiska uruchomieniowego U-SQL ze względu na zmiany w czasie wykonywania
 
@@ -55,7 +55,7 @@ Istnieją dwie możliwe problemy z wersją środowiska uruchomieniowego, które 
 
 ## <a name="known-issues"></a>Znane problemy
 
-* Odwoływanie się do Newtonsoft.Jsw wersji pliku 12.0.3 lub nowszej w skrypcie USQL spowoduje wystąpienie następującego błędu kompilacji:
+1. Odwoływanie się do Newtonsoft.Jsw wersji pliku 12.0.3 lub nowszej w skrypcie USQL spowoduje wystąpienie następującego błędu kompilacji:
 
     *"Niestety; zadania uruchomione na koncie Data Lake Analytics prawdopodobnie będą działać wolniej lub niepowodzenie. Nieoczekiwany problem uniemożliwia automatyczne przywrócenie tej funkcji na koncie Azure Data Lake Analytics. Azure Data Lake inżynierów skontaktowali się z Tobą w celu zbadania ".*  
 
@@ -65,9 +65,13 @@ Istnieją dwie możliwe problemy z wersją środowiska uruchomieniowego, które 
     `...`
 
     **Rozwiązanie**: Użyj Newtonsoft.Jsw pliku 12.0.2 lub niższym.
+2. Klienci mogą zobaczyć pliki tymczasowe i foldery w ich sklepie. Są one tworzone w ramach normalnego wykonywania zadania, ale są zwykle usuwane przed ich wyświetleniem przez klientów. W pewnych okolicznościach, które są rzadkie i losowe, mogą pozostawać widoczne przez pewien czas. Są one ostatecznie usuwane i nigdy nie są zliczane jako część magazynu użytkowników ani nie generują żadnych opłat. W zależności od logiki zadań klientów mogą powodować problemy. Na przykład, jeśli zadanie wylicza wszystkie pliki w folderze, a następnie porównuje listy plików, może się nie powieść z powodu braku nieoczekiwanych plików tymczasowych. Podobnie, jeśli zadanie podrzędne wylicza wszystkie pliki z danego folderu do dalszej obróbki, może także wyliczyć pliki tymczasowe.  
+
+    **Rozwiązanie**: poprawka jest identyfikowana w środowisku uruchomieniowym, w którym pliki tymczasowe będą przechowywane w folderze tymczasowym na poziomie konta niż bieżący folder wyjściowy. Pliki tymczasowe będą zapisywane w nowym folderze tymczasowym i zostaną usunięte po zakończeniu wykonywania zadania.  
+    Ponieważ ta poprawka obsługuje dane klienta, niezwykle ważne jest, aby ta poprawka była dobrze sprawdzona w wersji MSFT przed jej wydaniem. Oczekuje się, że ta poprawka jest dostępna jako środowisko uruchomieniowe beta w połowie roku 2021 i jako domyślne środowisko uruchomieniowe w drugiej połowie roku 2021. 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Zarządzanie Azure Data Lake Analytics przy użyciu Azure Portal](data-lake-analytics-manage-use-portal.md)

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 37496b9358ec72c79f8d26e32a92485f001e0e9d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365008"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031671"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej Redis Enterprise (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ Usługa Azure cache for Redis "warstwy przedsiębiorstwa zapewniają w pełni zi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie masz, Utwórz [konto](https://azure.microsoft.com/). Aby uzyskać więcej informacji, zobacz [wymagania dotyczące warstwy przedsiębiorstwa](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie masz, Utwórz [konto](https://azure.microsoft.com/). Aby uzyskać więcej informacji, zobacz [zagadnienia specjalne dotyczące warstw przedsiębiorstwa](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 1. Aby utworzyć pamięć podręczną, zaloguj się do Azure Portal przy użyciu linku w zaproszeniu do wersji zapoznawczej i wybierz pozycję **Utwórz zasób**.
@@ -41,7 +41,7 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Warstwy przedsiębiorstwa są dostępne w ograniczonych regionach świadczenia usługi Azure w wersji zapoznawczej. |
    | **Typ pamięci podręcznej** | Lista rozwijana i wybierz warstwę *Enterprise* lub *Enterprise Flash* i rozmiar. |  Warstwa określa rozmiar, wydajność i funkcje, które są dostępne dla pamięci podręcznej. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Podstawowe informacje o warstwie korporacyjnej":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Karta podstawy warstwy przedsiębiorstwa":::
 
    > [!NOTE] 
    > Pamiętaj, aby zaznaczyć pole wyboru "warunki" przed kontynuowaniem.
@@ -57,17 +57,13 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
    
    Można zachować ustawienia domyślne lub zmienić je odpowiednio do potrzeb. Włączenie opcji **Zezwalaj na dostęp tylko za pośrednictwem protokołu TLS** wymaga użycia protokołu TLS w celu uzyskania dostępu do nowej pamięci podręcznej z poziomu aplikacji.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Warstwa przedsiębiorstwa — zaawansowane":::
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Karta Zaawansowane warstwy przedsiębiorstwa":::
 
-   > [!NOTE] 
-   > Moduły Redis nie są jeszcze obsługiwane w warstwie programu Enterprise Flash. Jeśli planujesz użycie modułu Redis, pamiętaj o wybraniu pamięci podręcznej warstwy przedsiębiorstwa.
-   >
-   
 1. Wybierz pozycję **Dalej: Tagi** i Pomiń.
 
 1. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Podsumowanie warstwy przedsiębiorstwa":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Recenzja warstwy korporacyjnej + Utwórz kartę":::
 
 1. Przejrzyj ustawienia i kliknij przycisk **Utwórz**.
    

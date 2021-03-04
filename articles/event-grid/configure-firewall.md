@@ -2,13 +2,13 @@
 title: Konfigurowanie zapory IP dla tematów Azure Event Grid lub domen
 description: W tym artykule opisano sposób konfigurowania ustawień zapory dla Event Grid tematów lub domen.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/02/2021
+ms.openlocfilehash: 178b9d84ea8b2e0f764f7584526db8dbcf5284f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324165"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031841"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Konfigurowanie zapory IP dla tematów Azure Event Grid lub domen 
 Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony). Aby uzyskać więcej informacji na temat funkcji zabezpieczeń sieci obsługiwanych przez Event Grid, zobacz [zabezpieczenia sieci dla Event Grid](network-security.md).
@@ -34,19 +34,6 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory dla 
 ## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 W tej sekcji pokazano, jak za pomocą poleceń interfejsu wiersza polecenia platformy Azure utworzyć tematy z regułami adresów IP dla ruchu przychodzącego. Kroki przedstawione w tej sekcji dotyczą tematów. Możesz użyć podobnych kroków, aby utworzyć reguły protokołu IP dla ruchu przychodzącego dla **domen**. 
 
-
-### <a name="prerequisites"></a>Wymagania wstępne
-Zaktualizuj rozszerzenie Azure Event Grid dla interfejsu wiersza polecenia, uruchamiając następujące polecenie: 
-
-```azurecli-interactive
-az extension update -n eventgrid
-```
-
-Jeśli rozszerzenie nie jest zainstalowane, uruchom następujące polecenie, aby je zainstalować: 
-
-```azurecli-interactive
-az extension add -n eventgrid
-```
 
 ### <a name="enable-or-disable-public-network-access"></a>Włącz lub wyłącz dostęp do sieci publicznej
 Domyślnie dostęp do sieci publicznej jest włączony dla tematów i domen. Możesz również włączyć ją jawnie lub wyłączyć. Ruch można ograniczyć przez skonfigurowanie reguł zapory adresów IP dla ruchu przychodzącego. 

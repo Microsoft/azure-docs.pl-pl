@@ -1,17 +1,16 @@
 ---
 title: Grupy komputerów w zapytaniach dziennika Azure Monitor | Microsoft Docs
 description: Grupy komputerów w Azure Monitor umożliwiają określanie zakresu zapytań dziennika do określonego zestawu komputerów.  W tym artykule opisano różne metody, których można użyć do tworzenia grup komputerów i ich użycia w zapytaniu dziennika.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734132"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031093"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupy komputerów w zapytaniach dziennika Azure Monitor
 Grupy komputerów w Azure Monitor umożliwiają określanie zakresu [zapytań dziennika](./log-query-overview.md) do określonego zestawu komputerów.  Każda grupa jest wypełniana komputerami przy użyciu kwerendy zdefiniowanej lub przez zaimportowanie grup z różnych źródeł.  Gdy grupa zostanie uwzględniona w zapytaniu dziennika, wyniki są ograniczone do rekordów, które pasują do komputerów w grupie.

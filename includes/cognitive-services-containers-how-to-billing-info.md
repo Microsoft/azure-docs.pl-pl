@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996480"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032939"
 ---
 Zapytania do kontenera są rozliczane w warstwie cenowej zasobu platformy Azure, który jest używany przez `ApiKey` .
 
@@ -17,7 +17,7 @@ Kontenery usługi Azure Cognitive Services nie są licencjonowane do uruchamiani
 
 ### <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
 
-Kontener wymaga wartości argumentu rozliczenia do uruchomienia. Te wartości umożliwiają kontenerowi nawiązanie połączenia z punktem końcowym rozliczeń. Kontener zgłasza użycie co 10 do 15 minut. Jeśli kontener nie łączy się z platformą Azure w dozwolonym przedziale czasu, kontener nadal działa, ale nie obsługuje zapytań do momentu przywrócenia punktu końcowego rozliczania. Próbuje nawiązać połączenie 10 razy w tym samym przedziale czasu wynoszącym od 10 do 15 minut. Jeśli nie można nawiązać połączenia z punktem końcowym rozliczeń w 10 próbach, kontener przestanie obsługiwać żądania.
+Kontener wymaga wartości argumentu rozliczenia do uruchomienia. Te wartości umożliwiają kontenerowi nawiązanie połączenia z punktem końcowym rozliczeń. Kontener zgłasza użycie co 10 do 15 minut. Jeśli kontener nie łączy się z platformą Azure w dozwolonym przedziale czasu, kontener nadal działa, ale nie obsługuje zapytań do momentu przywrócenia punktu końcowego rozliczania. Próbuje nawiązać połączenie 10 razy w tym samym przedziale czasu wynoszącym od 10 do 15 minut. Jeśli nie można nawiązać połączenia z punktem końcowym rozliczeń w 10 próbach, kontener przestanie obsługiwać żądania. Zapoznaj się z [kontenerem Cognitive Services — często zadawane pytania](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work) dotyczące przykładu informacji wysyłanych do firmy Microsoft w celu rozliczenia.
 
 ### <a name="billing-arguments"></a>Argumenty rozliczeń
 

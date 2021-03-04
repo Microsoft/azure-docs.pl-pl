@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka Java, a następnie opu
 ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 38ed05d8bf9f7714b9cd58449f565cf94cb481e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748569"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031722"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure przy użyciu Visual Studio Code
 
@@ -140,7 +140,7 @@ Twoje pierwsze wdrożenie kodu obejmuje utworzenie zasobu funkcji w ramach subsk
 
     + **Wybierz subskrypcję**: wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
 
-    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `- Create new Function App`.
+    + **Wybierz aplikację funkcji na platformie Azure**: Wybierz plik `Create new Function App`.
 
     + **Wprowadź globalnie unikatową nazwę aplikacji funkcji**: wpisz nazwę, która jest unikatowa w obrębie platformy Azure w ścieżce URL. Wpisana nazwa jest weryfikowana, aby zapewnić globalną unikatowość.
 

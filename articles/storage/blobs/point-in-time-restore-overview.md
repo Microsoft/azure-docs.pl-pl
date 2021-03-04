@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980522"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031637"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
 Przywracanie do punktu w czasie zapewnia ochronę przed przypadkowym usunięciem lub uszkodzeniem przez umożliwienie przywrócenia blokowych danych obiektów BLOB do wcześniejszego stanu. Przywracanie do punktu w czasie jest przydatne w scenariuszach, w których użytkownik lub aplikacja przypadkowo usuwa dane lub w przypadku, gdy błąd aplikacji uszkadza dane. Przywracanie do określonego momentu umożliwia również scenariuszom testowania, które wymagają przywrócenia zestawu danych do znanego stanu przed uruchomieniem dalszych testów.
 
-Przywracanie do punktu w czasie jest obsługiwane tylko dla kont magazynu ogólnego przeznaczenia w wersji 2. Tylko dane w warstwach dostępu gorąca i chłodna mogą być przywracane z przywróceniem do punktu w czasie.
+Przywracanie do punktu w czasie jest obsługiwane w przypadku kont magazynu ogólnego przeznaczenia w wersji 2 tylko w warstwie wydajności standardowa. Tylko dane w warstwach dostępu gorąca i chłodna mogą być przywracane z przywróceniem do punktu w czasie.
 
 Aby dowiedzieć się, jak włączyć przywracanie do punktu w czasie dla konta magazynu, zobacz [wykonywanie przywracania do punktu w czasie na danych blokowych obiektów BLOB](point-in-time-restore-manage.md).
 

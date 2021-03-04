@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: bb132baf3e93242c1b228f0ac7f0cfb7f41e1164
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680373"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032521"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Zarządzanie usługą Wyszukiwanie poznawcze platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ W ramach usługi Tworzenie zawartości i zarządzanie nią odbywa się za [Searc
 
 Przykłady w tym artykule są interaktywne i wymagają podniesionych uprawnień. Należy zainstalować interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Teraz możesz uruchomić interfejs wiersza polecenia platformy Azure za pomocą `az` polecenia z poziomu wiersza poleceń systemu Windows, programu PowerShell lub [Azure Cloud Shell](../cloud-shell/overview). Program PowerShell oferuje pewne funkcje uzupełniania po naciśnięciu klawisza Tab niedostępne w wierszu polecenia systemu Windows. 
+Teraz możesz uruchomić interfejs wiersza polecenia platformy Azure za pomocą `az` polecenia z poziomu wiersza poleceń systemu Windows, programu PowerShell lub [Azure Cloud Shell](../cloud-shell/overview.md). Program PowerShell oferuje pewne funkcje uzupełniania po naciśnięciu klawisza Tab niedostępne w wierszu polecenia systemu Windows. 
 
 ### <a name="check-the-azure-cli-version"></a>Sprawdź wersję interfejsu wiersza polecenia platformy Azure
 
@@ -152,7 +152,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 
 ## <a name="create-or-delete-a-service"></a>Tworzenie lub usuwanie usługi
 
-Aby [utworzyć nową usługę wyszukiwania](search-create-service-portal), użyj polecenia [**AZ Search Service Create**](/cli/azure/search/service#az_search_service_show) .
+Aby [utworzyć nową usługę wyszukiwania](search-create-service-portal.md), użyj polecenia [**AZ Search Service Create**](/cli/azure/search/service#az_search_service_show) .
 
 ```azurecli-interactive
 az search service create \

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/02/2021
+ms.date: 03/01/2021
 ms.author: yashar
-ms.openlocfilehash: 6b04caec380a481569de4a33ea0159fd641c000f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673959"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030712"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Elastyczność rozmiaru maszyny wirtualnej w usłudze Reserved VM Instances
 
@@ -48,7 +48,13 @@ Poniższy wolumin CSV ma elastyczne grupy o rozmiarze wystąpienia, ArmSkuName i
 
 [Współczynniki elastyczności rozmiaru wystąpienia](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-Zachowamy adres URL pliku i schemat, aby można było programowo wykorzystać ten plik. Dane będą również dostępne za pomocą interfejsu API wkrótce.
+Platforma Azure utrzymuje zaktualizowany link i schemat, aby można było użyć pliku programowo.
+
+## <a name="view-vm-size-recommendations"></a>Wyświetlanie zaleceń dotyczących rozmiaru maszyny wirtualnej
+
+Na platformie Azure są wyświetlane zalecenia dotyczące rozmiaru maszyny wirtualnej w środowisku zakupu. Aby wyświetlić najmniejsze zalecenia dotyczące rozmiaru, wybierz pozycję **Grupuj według najmniejszego rozmiaru**.
+
+:::image type="content" source="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" alt-text="Zrzut ekranu przedstawiający zalecane ilości." lightbox="./media/reserved-vm-instance-size-flexibility/select-product-recommended-quantity.png" :::
 
 ## <a name="next-steps"></a>Następne kroki
 

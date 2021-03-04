@@ -150,6 +150,8 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
+        - name: Apple (wersja zapoznawcza)
+          href: identity-provider-apple-id.md
         - name: Azure AD (pojedyncza dzierżawa)
           href: identity-provider-azure-ad-single-tenant.md
         - name: Azure AD (wiele dzierżaw)
@@ -217,11 +219,11 @@
           href: configure-tokens.md
     - name: Definiowanie atrybutów niestandardowych
       href: user-flow-custom-attributes.md
-    - name: Ochrona tożsamości i dostęp warunkowy
+    - name: Uwierzytelnianie oparte na ryzyku
       items:
-        - name: Konfigurowanie ochrony tożsamości i dostępu warunkowego
-          href: conditional-access-identity-protection-setup.md
-        - name: Dodawanie dostępu warunkowego
+        - name: Zbadaj ryzyko związane z usługą Identity Protection
+          href: identity-protection-investigate-risk.md
+        - name: Konfigurowanie dostępu warunkowego
           href: conditional-access-user-flow.md
     - name: Konfigurowanie kontroli wieku
       href: basic-age-gating.md
@@ -327,9 +329,6 @@
                       href: aad-sspr-technical-profile.md
                     - name: Przekształcanie oświadczeń
                       href: claims-transformation-technical-profile.md
-                    - name: Dostęp warunkowy
-                      href: conditional-access-technical-profile.md
-                      displayName: ca
                     - name: Wskazówka tokenu identyfikatora
                       href: id-token-hint.md
                     - name: Wystawca tokenu JWT

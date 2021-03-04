@@ -3,12 +3,12 @@ title: Planowanie wdrożenia serwerów z obsługą usługi Azure Arc na skalę
 description: Dowiedz się, jak włączyć wiele maszyn na serwerach z obsługą usługi Azure ARC, aby uprościć konfigurację najważniejszych funkcji zabezpieczeń, zarządzania i monitorowania na platformie Azure.
 ms.date: 02/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd02e7c0b4d65efde13fbc428a15d60adab174d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693095"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032232"
 ---
 # <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planowanie wdrożenia serwerów z obsługą usługi Azure Arc na skalę
 
@@ -71,7 +71,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez przygotowanie wdrożenia
 
 |Zadanie |Szczegóły |Czas trwania |
 |-----|-------|---------|
-| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykładowe zasoby dołączania w skali:<br><br> * [Podstawowy skrypt wdrażania w skali](servers/onboard-service-principal.md)<br><br> * [Dołączanie w skali VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)<br><br> * [Dołączanie do VMware vSphere maszyn wirtualnych z systemem Linux w skali](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)<br><br> * [AWSe wystąpienia EC2 w skali przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)<br><br> * [Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (tylko system Windows)| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
+| Pobierz wstępnie zdefiniowany skrypt instalacyjny | Zapoznaj się z wstępnie zdefiniowanym skryptem instalacji i dostosuj go, aby zapewnić obsługę zautomatyzowanych wymagań dotyczących wdrażania w ramach wdrażania agenta połączonego maszyny.<br><br> Przykładowe zasoby dołączania w skali:<br><br> <ul><li> [Podstawowy skrypt wdrażania w skali](onboard-service-principal.md)</ul></li> <ul><li>[Dołączanie w skali VMware vSphere maszyn wirtualnych z systemem Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Dołączanie do VMware vSphere maszyn wirtualnych z systemem Linux w skali](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[AWSe wystąpienia EC2 w skali przy użyciu rozwiązania ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Wdrażanie w skali przy użyciu komunikacji zdalnej programu PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (tylko system Windows)</ul></li>| Co najmniej jeden dzień, w zależności od wymagań, procesów organizacyjnych (na przykład zmiany i Release Management) i używanej metody automatyzacji. |
 | [Tworzenie jednostki usługi](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Utwórz nazwę główną usługi, aby połączyć maszyny w sposób nieinteraktywny przy użyciu Azure PowerShell lub z portalu.| Jedna godzina |
 | Wdróż agenta połączonej maszyny na serwerze docelowym i na maszynach docelowych |Użyj narzędzia Automation, aby wdrożyć skrypty na serwerach i połączyć je z platformą Azure.| Co najmniej jeden dzień w zależności od planu wydania i po wdrożeniu etapowym. |
 
@@ -83,7 +83,7 @@ Faza 3 widzi administratorów lub inżynierów systemów, którzy umożliwiają 
 |-----|-------|---------|
 |Tworzenie alertu Resource Health |Jeśli serwer zatrzyma wysyłanie pulsu do platformy Azure przez dłużej niż 15 minut, może to oznaczać, że jest w trybie offline, połączenie sieciowe zostało zablokowane lub Agent nie jest uruchomiony. Utwórz plan na potrzeby reakcji i zbadaj te incydenty i Użyj [alertów Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) , aby otrzymywać powiadomienia o ich rozpoczęciu.<br><br> Określ następujące podczas konfigurowania alertu:<br> **Typ zasobu**  =  **Serwery z obsługą usługi Azure Arc**<br> **Bieżący stan zasobu**  =  **Niedostępne**<br> **Poprzedni stan zasobu**  =  **Dostępne** | Jedna godzina |
 |Tworzenie alertu Azure Advisor | Aby uzyskać najlepsze środowisko i najnowsze poprawki dotyczące zabezpieczeń i błędów, zalecamy utrzymywanie Aktualności agenta serwerów z włączonym usługą Azure Arc. Nieaktualne agenci zostaną zidentyfikowani za pomocą [alertu Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Określ następujące podczas konfigurowania alertu:<br> **Typ zalecenia**  =  **Uaktualnianie do najnowszej wersji agenta połączonej maszyny platformy Azure** | Jedna godzina |
-|[Przypisywanie zasad platformy Azure](../../governance/policy/assign-policy-portal.md) do zakresu subskrypcji lub grupy zasobów |Przypisz zasady **włączania Azure monitor dla maszyn wirtualnych** i inne, które spełniają Twoje potrzeby do zakresu subskrypcji lub grupy zasobów, aby upewnić się, że wszystkie serwery z obsługą łuku są automatycznie skonfigurowane do monitorowania z Azure monitor dla maszyn wirtualnych.| Różnie |
+|[Przypisywanie zasad platformy Azure](../../governance/policy/assign-policy-portal.md) do zakresu subskrypcji lub grupy zasobów |Przypisz zasady **włączania Azure monitor dla maszyn wirtualnych** [](../../azure-monitor/vm/vminsights-enable-policy.md) (i inne, które spełniają Twoje potrzeby) do zakresu subskrypcji lub grupy zasobów. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów dla Azure Monitor dla maszyn wirtualnych w środowisku.| Różnie |
 |[Włącz Update Management dla serwerów z włączonym łukiem](../../automation/update-management/enable-from-automation-account.md) |Skonfiguruj Update Management w Azure Automation, aby zarządzać aktualizacjami systemu operacyjnego dla maszyn wirtualnych z systemami Windows i Linux zarejestrowanych przy użyciu serwerów z włączonym łukiem. | 15 minut |
 
 ## <a name="next-steps"></a>Następne kroki

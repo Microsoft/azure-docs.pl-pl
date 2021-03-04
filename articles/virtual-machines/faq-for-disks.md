@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d516bcb224f7a7b5943214f28cffb7da3ea0871f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499326"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031603"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -241,7 +241,7 @@ Nie, przekazywania można używać tylko podczas tworzenia nowego pustego dysku 
 
 **Jak mogę przekazać do dysku zarządzanego?**
 
-Utwórz dysk zarządzany [z właściwością creationData o wartości](/rest/api/compute/disks/createorupdate#diskcreateoption) " [creationData](/rest/api/compute/disks/createorupdate#creationdata) upload", a następnie możesz przekazać do niej dane.
+Utwórz dysk zarządzany [z właściwością creationData o wartości](/rest/api/compute/disks/createorupdate#diskcreateoption) " [](/rest/api/compute/disks/createorupdate#creationdata) upload", a następnie możesz przekazać do niej dane.
 
 **Czy mogę dołączyć dysk do maszyny wirtualnej, gdy jest ona w stanie przekazywania?**
 
@@ -382,11 +382,9 @@ Na dyskach w warstwie Premium lub standard nie ma Minusem do użycia opcji TRIM 
 
 **Jakie regiony obsługują możliwości tworzenia pojemności dla odpowiedniego rozmiaru dysku SSD w warstwie Premium?**
 
-Możliwość tworzenia serii jest obecnie obsługiwana we wszystkich regionach w chmurze publicznej platformy Azure, dzięki czemu wkrótce będzie dostępna obsługa dla suwerennych chmur. 
+Korzystanie z opartych na fakturach jest obecnie obsługiwane we wszystkich regionach w chmurze publicznej platformy Azure, suwerenne chmury nie są obecnie obsługiwane.
 
-**Które regiony są 4/8/16 GiB rozmiary dysków zarządzanych (P1/P2/P3, E1/E2/E3) obsługiwane w?**
-
-Te nowe rozmiary dysków są obecnie obsługiwane we wszystkich regionach w chmurze publicznej platformy Azure z obsługą dla suwerennych chmur wkrótce. 
+Szeregowanie na żądanie jest dostępne tylko w regionie zachodnie stany USA.
 
 **Czy rozmiary dysków P1/P2/P3 są obsługiwane dla dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
@@ -423,7 +421,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 

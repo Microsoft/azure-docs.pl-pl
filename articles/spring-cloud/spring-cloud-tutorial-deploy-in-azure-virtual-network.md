@@ -4,15 +4,15 @@ description: Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej (wstrz
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880605"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031807"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Wdróż chmurę wiosenną platformy Azure w sieci wirtualnej
 
@@ -50,7 +50,7 @@ Sieć wirtualna, w której jest wdrażane wystąpienie chmury Azure wiosennej, m
     * Jeden dla aplikacji mikrousług rozruchu sprężynowego.
     * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem chmury Azure wiosennej. Użyj nowej podsieci dla każdego wdrożonego wystąpienia usługi. Każda podsieć może zawierać tylko jedno wystąpienie usługi.
 * **Przestrzeń adresowa**: bloki CIDR są blokowane do */28* dla podsieci środowiska uruchomieniowego usługi i podsieci aplikacji mikrousług rozruchowych.
-* **Tabela tras**: podsieci nie mogą mieć skojarzonej istniejącej tabeli tras.
+* **Tabela tras**: domyślnie podsieci nie potrzebują istniejących tabel tras. Możesz [przenieść własną tabelę tras](#bring-your-own-route-table).
 
 Poniższe procedury opisują konfigurację sieci wirtualnej, aby zawierała wystąpienie chmury wiosennej platformy Azure.
 
@@ -180,11 +180,31 @@ W przypadku podsieci pięć adresów IP jest zarezerwowanych przez platformę Az
 
 Dla podsieci środowiska uruchomieniowego usługi minimalny rozmiar to/28. Ten rozmiar nie ma wpływu na liczbę wystąpień aplikacji.
 
+## <a name="bring-your-own-route-table"></a>Przenoszenie własnej tabeli tras
+
+Chmura sprężynowa platformy Azure obsługuje używanie istniejących podsieci i tabel tras.
+
+Jeśli podsieci niestandardowe nie zawierają tabel tras, Chmura sprężynowa platformy Azure tworzy je dla każdej podsieci i dodaje do nich reguły w całym cyklu życia wystąpienia. Jeśli podsieci niestandardowe zawierają tabele tras, Chmura sprężynowa platformy Azure potwierdzi istniejące tabele tras podczas operacji wystąpienia i dodaje odpowiednio/aktualizuje i/lub reguły dla operacji.
+
+> [!Warning] 
+> Reguły niestandardowe można dodawać do tabel tras niestandardowych i aktualizować. Reguły są jednak dodawane przez chmurę z platformą Azure i nie mogą być aktualizowane ani usuwane. Reguły, takie jak 0.0.0.0/0, muszą zawsze istnieć w danej tabeli tras i mapowane na obiekt docelowy bramy internetowej, np. urządzenie WUS lub inną bramę ruchu wychodzącego. Należy zachować ostrożność podczas aktualizowania reguł, gdy są modyfikowane tylko reguły niestandardowe.
+
+
+### <a name="route-table-requirements"></a>Wymagania tabeli tras
+
+Tabele tras, do których jest skojarzona niestandardowa Sieć wirtualna, muszą spełniać następujące wymagania:
+
+* Tabele tras platformy Azure można kojarzyć z siecią wirtualną tylko podczas tworzenia nowego wystąpienia usługi w chmurze Azure wiosną. Nie można zmienić innej tabeli tras po utworzeniu chmury Azure wiosennej.
+* Zarówno podsieć aplikacji mikrousług, jak i podsieć środowiska uruchomieniowego usługi muszą być skojarzone z różnymi tabelami tras lub żadnymi z nich.
+* Przed utworzeniem wystąpienia należy przypisać uprawnienia. Upewnij się, że przyznano uprawnienia *właściciela chmury Azure wiosny* do tabel tras.
+* Nie można zaktualizować skojarzonego zasobu tabeli tras po utworzeniu klastra. Nie można zaktualizować zasobu tabeli tras, reguły niestandardowe można modyfikować w tabeli tras.
+* Nie można ponownie użyć tabeli tras z wieloma wystąpieniami ze względu na potencjalne reguły routingu powodujące konflikt.
+
 ## <a name="next-steps"></a>Następne kroki
 
 [Wdrażanie aplikacji w chmurze Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

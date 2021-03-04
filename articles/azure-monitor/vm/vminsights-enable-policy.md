@@ -1,17 +1,16 @@
 ---
 title: Włącz szczegółowe informacje o maszynie wirtualnej za pomocą Azure Policy
 description: Opisuje sposób włączania usługi VM Insights dla wielu maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure Policy.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707544"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031960"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Włącz szczegółowe informacje o maszynie wirtualnej za pomocą Azure Policy
 W tym artykule wyjaśniono, jak włączyć usługę VM Insights dla maszyn wirtualnych platformy Azure lub hybrydowej maszyny wirtualnej połączonej z usługą Azure ARC (wersja zapoznawcza) przy użyciu Azure Policy. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów na potrzeby usługi VM Insights w środowisku platformy Azure i automatyczne włączenie monitorowania maszyn wirtualnych w miarę tworzenia każdej maszyny wirtualnej. Szczegółowe informacje o maszynie wirtualnej udostępniają funkcję, która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Użyj tej funkcji zamiast bezpośrednio pracować z Azure Policy.
@@ -19,7 +18,7 @@ W tym artykule wyjaśniono, jak włączyć usługę VM Insights dla maszyn wirtu
 Jeśli nie znasz Azure Policy, zapoznaj się z krótkim wprowadzeniem do [wdrażania Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> Aby używać Azure Policy z zestawami skalowania maszyn wirtualnych platformy Azure lub korzystać z Azure Policy bezpośrednio do włączania maszyn wirtualnych platformy Azure, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
+> Aby używać Azure Policy z zestawami skalowania maszyn wirtualnych platformy Azure lub korzystać z Azure Policy bezpośrednio do włączania maszyn wirtualnych platformy Azure, zobacz [wdrażanie Azure monitor na dużą skalę przy użyciu Azure Policy](../deploy-scale.md#vm-insights).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - [Utwórz i skonfiguruj obszar roboczy log Analytics](./vminsights-configure-workspace.md).

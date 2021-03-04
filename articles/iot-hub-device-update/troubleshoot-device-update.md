@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6329e93bb5e628d68afbb2700ce0b9e3a2a711ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679496"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030634"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Aktualizacja urządzenia dla IoT Hub Przewodnik rozwiązywania problemów
 
@@ -46,7 +46,7 @@ _Odświeżanie stanu zgodności urządzenia może potrwać do 5 minut. Zaczekaj,
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>P: stan wdrożenia urządzenia wyświetla niezgodność, co należy zrobić?
 _Właściwości producenta i modelu urządzenia wskazanego mogły zostać zmienione po podłączeniu urządzenia do IoT Hub, co spowoduje, że urządzenie zostanie uznane za niezgodne z aktualizacją zawartości bieżącego wdrożenia._
 
-_Sprawdź [interfejs adu Core](./device-update-plug-and-play) , aby zobaczyć, co producent i model wysyła urządzenie do usługi aktualizacji urządzeń, i upewnij się, że jest on zgodny z producentem i modelem określonym w [manifeście importu](./import-concepts.md) wdrożonej zawartości aktualizacji. Te właściwości dla danego urządzenia można zmienić przy użyciu [pliku konfiguracji aktualizacji urządzenia](./device-update-cofiguration-file.md)._
+_Sprawdź [interfejs adu Core](./device-update-plug-and-play.md) , aby zobaczyć, co producent i model wysyła urządzenie do usługi aktualizacji urządzeń, i upewnij się, że jest on zgodny z producentem i modelem określonym w [manifeście importu](./import-concepts.md) wdrożonej zawartości aktualizacji. Te właściwości dla danego urządzenia można zmienić przy użyciu [pliku konfiguracji aktualizacji urządzenia](./device-update-configuration-file.md)._
 
 ### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>P: widzę, że moje wdrożenie znajduje się w fazie "aktywny", ale żadne z moich urządzeń nie jest "w toku" z aktualizacją. Co mam zrobić?
 _Upewnij się, że data rozpoczęcia wdrożenia nie jest ustawiona w przyszłości. Podczas tworzenia nowego wdrożenia Data rozpoczęcia wdrożenia jest domyślnie przyrastana do następnego dnia jako zabezpieczenie, chyba że zostanie on jawnie zmieniony. Możesz poczekać na nadejście daty rozpoczęcia wdrożenia lub anulować bieżące wdrożenie i utworzyć nowe wdrożenie z wymaganą datą rozpoczęcia._

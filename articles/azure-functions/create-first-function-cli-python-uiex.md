@@ -7,12 +7,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 76ec99e5f892438aaa637b15bb7382843d90f334
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748785"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031654"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure z poziomu wiersza polecenia
 
@@ -62,7 +62,7 @@ Sprawdź wymagania wstępne, które zależą od tego, czy używasz interfejsu wi
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy Azure Functions Core Tools są w wersji 3. x.
++ W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy <abbr title="Zestaw narzędzi wiersza polecenia do pracy z Azure Functions na komputerze lokalnym.">Azure Functions Core Tools</abbr> są w wersji 3. x.
 
 + Uruchom `(Get-Module -ListAvailable Az).Version` i sprawdź wersję 5,0 lub nowszą. 
 
@@ -292,7 +292,7 @@ Aby można było wdrożyć kod funkcji na platformie Azure, należy utworzyć <a
 
     ---
 
-    Zamień na `<STORAGE_NAME>` nazwę, która jest odpowiednia dla Ciebie i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych przez wszystkich klientów platformy Azure globalnie. Można na przykład użyć kombinacji nazwy prywatnej lub firmowej, nazwy aplikacji i identyfikatora numerycznego, jak w contosobizappstorage20">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
+    Zamień na `<STORAGE_NAME>` nazwę, która jest odpowiednia dla Ciebie i <abbr title="Nazwa musi być unikatowa dla wszystkich kont magazynu używanych przez wszystkich klientów platformy Azure globalnie. Można na przykład użyć kombinacji nazwy prywatnej lub firmowej, nazwy aplikacji i identyfikatora numerycznego, jak w contosobizappstorage20.">unikatowa w usłudze Azure Storage</abbr>. Nazwy muszą zawierać od 3 do 24 znaków cyfry i małe litery. `Standard_LRS` Określa konto ogólnego przeznaczenia, które jest [obsługiwane przez funkcje](storage-considerations.md#storage-account-requirements).
     
     W tym przewodniku szybki start konto magazynu odnosi się tylko do kilku centów (USD).
 

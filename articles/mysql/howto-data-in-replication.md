@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d5a013fc4e4ef931579da4fa13f400d5f4fcff0d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709550"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030753"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -102,7 +102,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    Jeśli zmienna [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) jest zwracana z wartością "on", rejestrowanie binarne jest włączone na serwerze.
    
-   Jeśli `log_bin` jest zwracana z wartością "off", 
+    Jeśli `log_bin` jest zwracany z wartością "off" i serwer źródłowy działa lokalnie lub na maszynach wirtualnych, na których można uzyskać dostęp do pliku konfiguracji (My. cnf), można wykonać poniższe kroki:
    1. Zlokalizuj plik konfiguracji MySQL (My. cnf) na serwerze źródłowym. Na przykład:/etc/my.cnf
    2. Otwórz plik konfiguracji, aby go edytować i zlokalizować w nim sekcję **MySQL** .
    3.  W sekcji MySQL Dodaj następujący wiersz

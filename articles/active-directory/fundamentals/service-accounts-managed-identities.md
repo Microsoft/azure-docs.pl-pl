@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ba630d5e2f8e3e581f394af2ee687a971d3a7a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693163"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032373"
 ---
 # <a name="securing-managed-identities"></a>Zabezpieczanie tożsamości zarządzanych
 
@@ -100,7 +100,7 @@ Możesz uzyskać listę wszystkich zarządzanych tożsamości w dzierżawie przy
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Można filtrować te żądania. Aby uzyskać więcej informacji, zobacz dokumentację wykresu dla [Get serviceprincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
+Można filtrować te żądania. Aby uzyskać więcej informacji, zobacz dokumentację wykresu dla [Get serviceprincipal](/graph/api/serviceprincipal-get?view=).
 
 ## <a name="assess-the-security-of-managed-identities"></a>Ocenianie zabezpieczeń tożsamości zarządzanych 
 
@@ -140,7 +140,7 @@ Jeśli używasz nazwy głównej usługi lub konta użytkownika usługi Azure AD,
 
 [Zarządzanie kontami usług platformy Azure](service-accounts-governing-azure.md)
 
-[Wprowadzenie do kont usług lokalnych](service-accounts-on-poremises.md)
+[Wprowadzenie do kont usług lokalnych](service-accounts-on-premises.md)
 
  
 

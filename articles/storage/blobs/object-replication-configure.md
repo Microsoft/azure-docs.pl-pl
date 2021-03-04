@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 226601eadf922a9d834ab84520fd1edf964348fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762933"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031705"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB
 
@@ -238,10 +238,10 @@ Pamiętaj, że musisz mieć przypisaną rolę **Współautora** Azure Resource M
 
 Poniższa tabela zawiera podsumowanie wartości, które mają być używane dla identyfikatora zasad i identyfikatorów reguł w pliku JSON w każdym scenariuszu.
 
-| Podczas tworzenia pliku JSON dla tego konta... | Ustaw identyfikator zasad i identyfikatory reguł na tę wartość... |
-|-|-|
-| Konto docelowe | Wartość *Domyślna* wartości ciągu. Usługa Azure Storage utworzy identyfikator zasad i identyfikatory reguł. |
-| Konto źródłowe | Wartości identyfikatora zasad i identyfikatorów reguł zwracanych podczas pobierania zasad zdefiniowanych na koncie docelowym jako plik JSON. |
+| Podczas tworzenia pliku JSON dla tego konta... | Ustaw identyfikator zasad na tę wartość | Ustaw identyfikator reguły na tę wartość |
+|-|-|-|
+| Konto docelowe | Wartość *Domyślna* wartości ciągu. Usługa Azure Storage utworzy wartość identyfikatora zasad. | Pusty ciąg. Usługa Azure Storage utworzy wartości identyfikatora reguły. |
+| Konto źródłowe | Wartość identyfikatora zasad zwracanego podczas pobierania zasad zdefiniowanych na koncie docelowym jako plik JSON. | Wartości identyfikatorów reguł zwracanych podczas pobierania zasad zdefiniowanych na koncie docelowym jako plik JSON. |
 
 Poniższy przykład definiuje zasady replikacji na koncie docelowym z pojedynczą regułą zgodną z prefiksem *b* i ustawia minimalny czas tworzenia dla obiektów blob, które mają być replikowane. Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
 
@@ -253,7 +253,7 @@ Poniższy przykład definiuje zasady replikacji na koncie docelowym z pojedyncz�
     "destinationAccount": "<dest-account>",
     "rules": [
       {
-        "ruleId": "default",
+        "ruleId": "",
         "sourceContainer": "<source-container>",
         "destinationContainer": "<destination-container>",
         "filters": {
@@ -272,7 +272,7 @@ Poniższy przykład definiuje zasady replikacji na koncie docelowym z pojedyncz�
 
 Aby skonfigurować replikację obiektów na koncie docelowym przy użyciu pliku JSON w Azure Portal, wykonaj następujące kroki:
 
-1. Utwórz lokalny plik JSON, który definiuje zasady replikacji na koncie docelowym. W polu **policyId** Ustaw **wartość domyślne** , aby usługa Azure Storage definiowała identyfikator zasad.
+1. Utwórz lokalny plik JSON, który definiuje zasady replikacji na koncie docelowym. W polu **policyId** Ustaw *wartość domyślne* , aby usługa Azure Storage definiowała identyfikator zasad.
 
     Prostym sposobem utworzenia pliku JSON, który definiuje zasady replikacji, jest utworzenie testowej zasady replikacji między dwoma kontami magazynu w Azure Portal. Następnie można pobrać reguły replikacji i zmodyfikować plik JSON zgodnie z wymaganiami.
 

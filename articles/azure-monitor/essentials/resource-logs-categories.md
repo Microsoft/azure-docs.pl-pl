@@ -1,15 +1,14 @@
 ---
 title: Azure Monitor obsługiwane usługi i kategorie dzienników zasobów
 description: Informacje dotyczące Azure Monitor zrozumieć obsługiwane usługi i schemat zdarzeń dla dzienników zasobów platformy Azure.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 01/29/2021
-ms.openlocfilehash: 39ff78cd97682096fb284e137868c246dfdd7f14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616490"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033150"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorie obsługiwane w przypadku dzienników zasobów platformy Azure
 

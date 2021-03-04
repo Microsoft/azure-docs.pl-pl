@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 40afa1d743b8d074fa46dde46163f6479ebf87c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589071"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032572"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -36,12 +36,17 @@ Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych
 
 - Korzystając z **ocen maszyn wirtualnych platformy Azure** , można ocenić lokalne [maszyny wirtualne programu VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na maszyny wirtualne platformy Azure. [Więcej informacji](concepts-assessment-calculation.md)
 
+- Użyj typu oceny **Azure SQL** , jeśli chcesz ocenić SQL Server lokalny ze środowiska VMware w celu migracji do Azure SQL Database lub wystąpienia zarządzanego Azure SQL. [Więcej informacji](concepts-assessment-calculation.md)
+
+    > [!Note]
+    > Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) w portalu.
+
 - Korzystając z funkcji oceny **rozwiązań VMware firmy Azure (Automatyczna synchronizacja)** , możesz ocenić swoje lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md) przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Grupy wspólnej można używać z maszynami VMware tylko do uruchamiania obu typów ocen. Jeśli używasz ocen usługi AVS w usłudze Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy maszyn VMware.
  
 
-## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Dlaczego brakuje danych dotyczących wydajności dla niektórych/wszystkich maszyn wirtualnych w moim raporcie oceny?
+## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Dlaczego brakuje danych dotyczących wydajności dla niektórych/wszystkich serwerów w raporcie na maszynie wirtualnej platformy Azure i/lub w ramach oceny automatycznej synchronizacji?
 
 W przypadku oceny „Na podstawie wydajności” eksport raportu oceny zawiera ciąg „PercentageOfCoresUtilizedMissing” lub „PercentageOfMemoryUtilizedMissing”, gdy urządzenie usługi Azure Migrate nie może zebrać danych wydajności lokalnych maszyn wirtualnych. Sprawdź następujące kwestie:
 
@@ -50,24 +55,111 @@ W przypadku oceny „Na podstawie wydajności” eksport raportu oceny zawiera c
 
 - Jeśli brakuje wszystkich liczników wydajności, upewnij się, że połączenia wychodzące na portach 443 (HTTPS) są dozwolone.
 
-Uwaga — Jeśli brakuje któregokolwiek z liczników wydajności, narzędzie Azure Migrate: Server Assessment powraca do przydzielonych rdzeni/pamięci w środowisku lokalnym i odpowiednio zaleca rozmiar maszyny wirtualnej.
+    > [!Note]
+    > Jeśli brakuje któregokolwiek z liczników wydajności, Azure Migrate: Ocena serwera powraca do przyznanych rdzeni/pamięci lokalnie i zaleca odpowiednio rozmiar maszyny wirtualnej.
+
+
+## <a name="why-is-performance-data-missing-for-someall-sql-instancesdatabases-in-my-azure-sql-assessment"></a>Dlaczego brakuje danych dotyczących wydajności dla niektórych/wszystkich wystąpień lub baz danych SQL w ramach oceny usługi Azure SQL?
+
+Aby zapewnić zbieranie danych dotyczących wydajności, należy sprawdzić:
+
+- Jeśli serwery SQL są włączone na czas trwania tworzenia oceny
+- Jeśli stan połączenia agenta programu SQL Server w Azure Migrate to "Connected" i sprawdź ostatni puls 
+- Jeśli Azure Migrate stan połączenia dla wszystkich wystąpień SQL ma wartość "Połączono" w bloku odnalezionego wystąpienia programu SQL
+- Jeśli brakuje wszystkich liczników wydajności, upewnij się, że połączenia wychodzące na portach 443 (HTTPS) są dozwolone
+
+Jeśli brakuje któregokolwiek z liczników wydajności, usługa Azure SQL Assessment zaleca najmniejszą konfigurację usługi Azure SQL dla tego wystąpienia/bazy danych.
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Dlaczego ocena ufności mojej oceny jest niska?
 
 Ocena ufności dla ocen „Na podstawie wydajności” jest obliczana w oparciu o wartość procentową [dostępnych punktów danych](./concepts-assessment-calculation.md#ratings) potrzebnych do obliczenia oceny. Poniżej przedstawiono przyczyny, z powodu których ocena ufności może być niska:
 
-- Nie profilujesz swojego środowiska przez czas trwania, dla którego tworzysz ocenę. Jeśli na przykład tworzysz ocenę z czasem trwania wydajności ustawionym na jeden tydzień, musisz poczekać co najmniej tydzień po uruchomieniu odnajdywania, aby zebrać wszystkie punkty danych. Jeśli nie możesz czekać na upłynięcie czasu trwania, zmień czas trwania wydajności na krótszy okres i oblicz ponownie ocenę.
+- Nie profilujesz swojego środowiska przez czas trwania, dla którego tworzysz ocenę. Jeśli na przykład tworzysz ocenę z czasem trwania wydajności ustawionym na jeden tydzień, musisz poczekać co najmniej tydzień po uruchomieniu odnajdywania, aby zebrać wszystkie punkty danych. Jeśli nie można czekać na czas trwania, należy zmienić czas trwania wydajności na mniejszy okres i **ponownie obliczyć** ocenę.
  
-- Ocena serwera nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich maszyn wirtualnych w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że: 
-    - Maszyny wirtualne są zasilane na czas trwania oceny
+- Ocena nie jest w stanie zebrać danych wydajności dla niektórych lub wszystkich serwerów w okresie oceny. W celu uzyskania oceny o wysokiej pewności upewnij się, że: 
+    - Serwery są zasilane na czas trwania oceny
     - Połączenia wychodzące na portach 443 są dozwolone
-    - Dla pamięci dynamicznej maszyn wirtualnych funkcji Hyper-V jest włączona 
+    - W przypadku pamięci dynamicznej na serwerach funkcji Hyper-V jest włączona 
+    - Stan połączenia agentów w Azure Migrate to "Połączono" i sprawdź ostatni puls
+    - W przypadku usługi Azure SQL Assessment Azure Migrate stan połączenia dla wszystkich wystąpień SQL ma wartość "Połączono" w bloku odnalezionego wystąpienia programu SQL
 
-    Użyj opcji „Oblicz ponownie”, aby uwzględnić najnowsze zmiany w ocenie ufności.
+    **Oblicz ponownie** ocenę, aby odzwierciedlić najnowsze zmiany w klasyfikacji zaufania.
 
-- Kilka maszyn wirtualnych zostało utworzonych po uruchomieniu odnajdywania w narzędziu Server Assessment. Jeśli na przykład tworzysz ocenę dla historii wydajności za ostatni miesiąc, ale kilka maszyn wirtualnych zostało utworzonych w środowisku tylko tydzień temu. W tym przypadku dane wydajności dla nowych maszyn wirtualnych nie będą dostępne przez cały czas trwania i ocena ufności będzie niska.
+- W przypadku maszyn wirtualnych platformy Azure i ocen dotyczących automatycznej wersji programu po rozpoczęciu odnajdywania zostały utworzone kilka serwerów. Na przykład jeśli tworzysz ocenę dla historii wydajności dla ostatniego miesiąca, ale kilka serwerów zostało utworzonych w środowisku tylko tydzień temu. W takim przypadku dane wydajności dla nowych serwerów nie będą dostępne przez cały czas, a Ocena zaufania byłaby niska. [Dowiedz się więcej](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
-[Dowiedz się więcej](./concepts-assessment-calculation.md#confidence-ratings-performance-based) o ocenie ufności.
+- W przypadku ocen usługi Azure SQL utworzono kilka wystąpień SQL lub baz danych po rozpoczęciu odnajdywania. Na przykład jeśli tworzysz ocenę dla historii wydajności dla ostatniego miesiąca, ale kilka wystąpień SQL lub baz danych zostało utworzonych w środowisku tylko tydzień temu. W takim przypadku dane wydajności dla nowych serwerów nie będą dostępne przez cały czas, a Ocena zaufania byłaby niska. [Dowiedz się więcej](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Chcę wypróbować nową funkcję oceny usługi Azure SQL w Azure Migrate
+Aby wypróbować tę funkcję, użyj [tego linku](https://go.microsoft.com/fwlink/?linkid=2155668L) , aby utworzyć projekt w regionie **Australia Wschodnia** .
+- Aby rozpocząć, zapoznaj się z samouczkami [odnajdywania](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) i [oceny](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql) .
+- Należy pamiętać, że odnajdywanie i Ocena wystąpień SQL Server i baz danych działających w środowisku programu VMware jest obecnie dostępna w wersji zapoznawczej.
+
+## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Nie widzę niektórych serwerów podczas tworzenia oceny usługi Azure SQL
+
+- Ocenę usługi Azure SQL można wykonać tylko na serwerach, na których wykryto wystąpienia SQL. Jeśli nie widzisz serwerów i wystąpień programu SQL, które chcesz ocenić, poczekaj chwilę na ukończenie odnajdywania, a następnie utwórz ocenę. 
+- Jeśli nie widzisz wcześniej utworzonej grupy podczas tworzenia oceny, Usuń wszystkie serwery inne niż VMware lub dowolny serwer bez wystąpienia SQL z grupy.
+- Jeśli korzystasz z funkcji oceny usługi Azure SQL w Azure Migrate po raz pierwszy, zaleca się utworzenie nowej grupy serwerów.
+
+## <a name="i-want-to-understand-how-was-the-readiness-for-my-instance-computed"></a>Chcę zrozumieć, jak była przewidziana gotowość mojego wystąpienia?
+Gotowość wystąpień programu SQL została obliczona po sprawdzeniu zgodności funkcji z dodanym typem wdrożenia usługi Azure SQL (Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL). [Dowiedz się więcej](./concepts-azure-sql-assessment-calculation.md#calculate-readiness)
+
+## <a name="why-is-the-readiness-for-all-my-sql-instances-marked-as-unknown"></a>Dlaczego gotowość wszystkich wystąpień programu SQL oznaczono jako nieznana?
+Jeśli odnajdywanie zostało uruchomione niedawno i nadal trwa, może zostać wyświetlona gotowość dla niektórych lub wszystkich wystąpień SQL jako nieznane. Zalecamy poczekanie przez jakiś czas na przeprofilowanie środowiska przez urządzenie, a następnie ponowne obliczenie oceny.
+Funkcja odnajdywania SQL jest przeprowadzana co 24 godziny. może być konieczne odczekanie na dzień, aż najnowsze zmiany konfiguracji zostaną odzwierciedlone. 
+
+## <a name="why-is-the-readiness-for-some-of-my-sql-instances-marked-as-unknown"></a>Dlaczego gotowość dla niektórych wystąpień SQL jest oznaczona jako nieznana?
+Może się tak zdarzyć, jeśli: 
+- Odnajdywanie jest nadal w toku. Zalecamy poczekanie przez jakiś czas na przeprofilowanie środowiska przez urządzenie, a następnie ponowne obliczenie oceny.
+- Istnieją problemy z odnajdywaniem, które należy naprawić w bloku błędy i powiadomienia.
+
+Funkcja odnajdywania SQL jest przeprowadzana co 24 godziny. może być konieczne odczekanie na dzień, aż najnowsze zmiany konfiguracji zostaną odzwierciedlone.
+
+## <a name="my-assessment-is-in-outdated-state"></a>Moja ocena jest w stanie nieaktualnym
+
+### <a name="azure-vmavs-assessment"></a>Ocena maszyn wirtualnych/automatycznej wersji platformy Azure
+Jeśli istnieją lokalne zmiany w maszynach wirtualnych, które znajdują się w grupie, która została oceniona, ocena jest oznaczona jako nieaktualna. Ocenę można oznaczyć jako "nieaktualne" z powodu co najmniej jednej zmiany w poniższych właściwościach:
+- Liczba rdzeni procesora
+- Przydzieloną pamięć
+- Typ rozruchu lub oprogramowanie układowe
+- Nazwa, wersja i architektura systemu operacyjnego
+- Liczba dysków
+- Liczba kart sieciowych
+- Zmiana rozmiaru dysku (przydzielono GB)
+- Aktualizacja właściwości karty sieciowej. Przykład: zmiany adresów MAC, Dodawanie adresów IP itp.
+
+**Oblicz ponownie** ocenę, aby odzwierciedlić najnowsze zmiany w ocenie.
+
+### <a name="azure-sql-assessment"></a>Ocena usługi Azure SQL
+Jeśli istnieją zmiany w lokalnych wystąpieniach SQL i bazach danych, które znajdują się w grupie, która została oceniona, ocena jest oznaczona jako **nieaktualna**:
+- Wystąpienie SQL zostało dodane lub usunięte z serwera
+- Baza danych SQL została dodana lub usunięta z wystąpienia programu SQL Server
+- Łączny rozmiar bazy danych w wystąpieniu serwera SQL został zmieniony o ponad 20%
+- Zmień liczbę rdzeni procesora i/lub przydzieloną pamięć
+
+**Oblicz ponownie** ocenę, aby odzwierciedlić najnowsze zmiany w ocenie.
+
+## <a name="why-was-i-recommended-a-particular-target-deployment-type"></a>Dlaczego został zalecany określony docelowy typ wdrożenia?
+Azure Migrate zaleca określony typ wdrożenia usługi Azure SQL, który jest zgodny z wystąpieniem serwera SQL. Migrowanie do zalecanego elementu docelowego firmy Microsoft zmniejsza ogólny nakład pracy związany z migracją. Ta konfiguracja usługi Azure SQL (SKU) została zalecana po uwzględnieniu charakterystyki wydajności wystąpienia programu SQL i baz danych, którymi zarządza. Jeśli kwalifikują się wiele konfiguracji usługi Azure SQL, zalecamy korzystanie z nich, co jest najbardziej opłacalne. [Dowiedz się więcej](./concepts-azure-sql-assessment-calculation.md#calculate-sizing)
+
+## <a name="what-deployment-target-should-i-choose-if-my-sql-instance-is-ready-for-azure-sql-db-and-azure-sql-mi"></a>Jakiego celu wdrożenia należy wybrać, jeśli moje wystąpienie SQL jest gotowe do używania w usłudze Azure SQL DB i Azure SQL MI? 
+Jeśli wystąpienie jest gotowe zarówno do usługi Azure SQL DB, jak i Azure SQL, zalecamy docelowy typ wdrożenia, dla którego jest niższy szacowany koszt konfiguracji usługi Azure SQL.
+
+## <a name="why-is-my-instance-marked-as-potentially-ready-for-azure-vm-in-my-azure-sql-assessment"></a>Dlaczego moje wystąpienie jest oznaczone jako potencjalnie gotowe dla maszyny wirtualnej platformy Azure w ramach oceny usługi Azure SQL?
+Może się tak zdarzyć, gdy docelowy typ wdrożenia wybrany we właściwościach oceny jest **zalecany** i wystąpienie programu SQL Server nie jest gotowe do Azure SQL Database i wystąpienia zarządzanego Azure SQL. Aby określić, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure, zaleca się utworzenie oceny migracji platformy Azure z typem oceny jako **maszyny wirtualnej platformy** Azure.
+Zaleca się utworzenie oceny w Azure Migrate z typem oceny jako **maszyną wirtualną platformy Azure** w celu ustalenia, czy serwer, na którym uruchomiono wystąpienie, jest gotowy do migracji na maszynę wirtualną platformy Azure:
+- Oceny maszyn wirtualnych platformy Azure w Azure Migrate są obecnie zniesione i przenoszone i nie uwzględniają określonych metryk wydajności związanych z uruchamianiem wystąpień SQL i baz danych na maszynie wirtualnej platformy Azure. 
+- Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je migrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed [przeprowadzeniem migracji zapoznaj się z zaleceniami](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dotyczącymi wydajności SQL Server w usłudze Azure Virtual Machines.
+
+## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>Nie widzę niektórych baz danych w mojej ocenie, mimo że wystąpienie jest częścią oceny
+
+Ocena usługi Azure SQL obejmuje tylko bazy danych znajdujące się w stanie online. W przypadku, gdy baza danych znajduje się w innym stanie, ocena jest ignorowana pod kątem gotowości, wielkości i obliczeń kosztów dla takich baz danych. Jeśli chcesz ocenić te bazy danych, Zmień stan bazy danych i ponownie Oblicz ocenę w pewnym czasie.
+
+## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Chcę porównać koszty uruchamiania wystąpień programu SQL na maszynie wirtualnej platformy Azure a Azure SQL Database/wystąpienia zarządzanego Azure SQL
+
+Można utworzyć ocenę przy użyciu typu **maszyny wirtualnej platformy Azure** w tej samej grupie, która została użyta w ramach oceny **usługi Azure SQL** . Następnie można porównać te dwa raporty obok siebie. Mimo że oceny maszyn wirtualnych platformy Azure w Azure Migrate są obecnie przyłączone i przenoszone i nie będzie uwzględniać określonych metryk wydajności dotyczących uruchamiania wystąpień SQL i baz danych na maszynie wirtualnej platformy Azure. Po uruchomieniu oceny maszyny wirtualnej platformy Azure na serwerze zalecany rozmiar i szacunkowy koszt będą dotyczyć wszystkich wystąpień uruchomionych na serwerze i można je migrować na maszynę wirtualną platformy Azure przy użyciu narzędzia do migracji serwera. Przed [przeprowadzeniem migracji zapoznaj się z zaleceniami](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) dotyczącymi wydajności SQL Server w usłudze Azure Virtual Machines.
+
+## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Koszt magazynu w ramach oceny usługi Azure SQL jest równy zero
+W przypadku wystąpienia zarządzanego usługi Azure SQL nie dodaliśmy kosztu magazynu dla pierwszego magazynu 32 GB/wystąpienia/miesiąca, a dodatkowy koszt magazynu jest dodawany do magazynu w przyrostach 32 GB. [Więcej informacji](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Nie widzę niektórych grup podczas tworzenia rozwiązania Azure VMware (Automatyczna synchronizacja)
 

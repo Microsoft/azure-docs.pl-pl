@@ -1,17 +1,16 @@
 ---
 title: Włączanie usługi VM Insights przy użyciu programu PowerShell
 description: Zawiera opis sposobu włączania usługi VM Insights dla maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych przy użyciu Azure PowerShell.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b51a49abda76a4d1433336cf73dc9a0dd6e40787
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717081"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031880"
 ---
 # <a name="enable-vm-insights-using-powershell"></a>Włączanie usługi VM Insights przy użyciu programu PowerShell
 W tym artykule opisano sposób włączania usługi VM Insights na maszynach wirtualnych platformy Azure przy użyciu programu PowerShell. Ta procedura może być używana w następujących kwestiach:

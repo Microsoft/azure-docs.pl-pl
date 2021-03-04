@@ -4,15 +4,14 @@ description: Użyj Azure Monitor, aby wykonywać zapytania obejmujące wiele pro
 author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 8bc47eb2a6a22224f4df186136da2c184979ea24
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1857f0e39cd5d9ddc616eed1db18cd58b98721a4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618493"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031127"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Zapytanie dotyczące wielu zasobów Eksplorator danych platformy Azure przy użyciu Azure Monitor
 Azure Monitor obsługuje zapytania międzyusługowe między usługą Azure Eksplorator danych, [Application Insights](../app/app-insights-overview.md)i [log Analytics](../logs/data-platform-logs.md). Następnie można wykonać zapytanie dotyczące klastra usługi Azure Eksplorator danych przy użyciu narzędzi Log Analytics/Application Insights i odwołać się do niego w kwerendzie międzyusługowej. W tym artykule pokazano, jak utworzyć zapytanie międzyusługowe.

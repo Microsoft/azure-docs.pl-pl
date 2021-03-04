@@ -1,17 +1,17 @@
 ---
 title: Jak zaimportować nową aktualizację | Microsoft Docs
 description: Przewodnik How-To dotyczący importowania nowej aktualizacji do IoT Hub aktualizacji urządzenia IoT Hub.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663290"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030736"
 ---
 # <a name="import-new-update"></a>Importuj nową aktualizację
 Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia dla IoT Hub.
@@ -53,7 +53,7 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    Aby uzyskać krótkie informacje, poniżej przedstawiono kilka przykładowych wartości dla powyższych parametrów. Pełną dokumentację można znaleźć w sekcji Schemat manifestu pełnego importu poniżej.
+    Aby uzyskać krótkie informacje, poniżej przedstawiono kilka przykładowych wartości dla powyższych parametrów. Możesz również wyświetlić kompletny [Schemat manifestu importowania](import-schema.md) , aby uzyskać więcej szczegółów.
 
     | Parametr | Opis |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
     | installedCriteria | <ul><li>Określ wartość SWVersion dla `microsoft/swupdate:1` typu aktualizacji</li><li>Określ zalecaną wartość dla `microsoft/apt:1` typu aktualizacji.
     | updateFilePath | Ścieżka do plików aktualizacji na komputerze
 
-    Schemat manifestu pełnego importu
-
-    | Nazwa | Typ | Opis | Ograniczenia |
-    | --------- | --------- | --------- | --------- |
-    | UpdateId | `UpdateId` Stream | Aktualizowanie tożsamości. |
-    | Typ aktualizacji | ciąg | Typ aktualizacji: <ul><li>Określ `microsoft/apt:1` , kiedy ma być wykonywana Aktualizacja oparta na pakiecie przy użyciu agenta odwołań.</li><li>Określ `microsoft/swupdate:1` podczas przeprowadzania aktualizacji opartej na obrazie przy użyciu agenta odwołań.</li><li>Określ, kiedy ma być `microsoft/simulator:1` używany przykładowy symulator agentów.</li><li>Określ typ niestandardowy w przypadku tworzenia niestandardowego agenta.</li></ul> | <ul><li>Formatowanie `{provider}/{type}:{typeVersion}`</li><li>Łącznie z 32 znaków</li></ul> |
-    | InstalledCriteria | ciąg | Ciąg interpretowany przez agenta w celu ustalenia, czy aktualizacja została zastosowana pomyślnie:  <ul><li>Określ **wartość** SWVersion dla typu aktualizacji `microsoft/swupdate:1` .</li><li>Określ `{name}-{version}` dla typu aktualizacji `microsoft/apt:1` , która nazwa i wersja są uzyskiwane z pliku apt.</li><li>Określ skrót pliku aktualizacji dla typu aktualizacji `microsoft/simulator:1` .</li><li>Określ niestandardowy ciąg w przypadku tworzenia niestandardowego agenta.</li></ul> | Maksymalnie 64 znaków |
-    | Zgodność | Tablica `CompatibilityInfo` obiektów | Informacje o zgodności urządzenia zgodne z tą aktualizacją. | Maksymalnie 10 elementów |
-    | CreatedDateTime | Data/godzina | Data i godzina utworzenia aktualizacji. | Rozdzielany format daty i godziny ISO 8601, w formacie UTC |
-    | ManifestVersion | ciąg | Importuj wersję schematu manifestu. Określ `2.0` , która będzie zgodna z `urn:azureiot:AzureDeviceUpdateCore:1` interfejsem i `urn:azureiot:AzureDeviceUpdateCore:4` interfejsem.</li></ul> | Musi być `2.0` |
-    | Pliki | Tablica `File` obiektów | Aktualizowanie plików ładunku | Maksymalnie 5 plików |
-
-Uwaga: wszystkie pola są wymagane.
 
 ## <a name="review-generated-import-manifest"></a>Przejrzyj wygenerowany manifest importu
 
