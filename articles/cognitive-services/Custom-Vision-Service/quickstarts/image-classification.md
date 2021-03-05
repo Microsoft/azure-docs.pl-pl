@@ -1,22 +1,22 @@
 ---
 title: 'Szybki Start: Klasyfikacja obrazu przy użyciu biblioteki klienta Custom Vision lub interfejsu API REST'
 titleSuffix: Azure Cognitive Services
-description: 'Szybki Start: Tworzenie projektu klasyfikacji obrazów, dodawanie tagów, przekazywanie obrazów, uczenie projektu i Tworzenie prognoz przy użyciu biblioteki klienta Custom Vision lub interfejsu API REST z zazwinięciem'
+description: 'Szybki Start: Tworzenie projektu klasyfikacji obrazu, dodawanie tagów, przekazywanie obrazów, uczenie projektu i Tworzenie prognoz przy użyciu biblioteki klienta Custom Vision lub interfejsu API REST'
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/25/2020
+ms.date: 02/25/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Niestandardowa wizja, rozpoznawanie obrazów, aplikacja do rozpoznawania obrazów, analiza obrazu, oprogramowanie do rozpoznawania obrazów
 zone_pivot_groups: programming-languages-set-cusvis
-ms.openlocfilehash: 30ed0afe258b0952a7ff312e48c24027d1fc4b93
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e99d15a48946706585879e9a1eaaf24bb2edfdef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813738"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184309"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library-or-rest-api"></a>Szybki Start: Tworzenie projektu klasyfikacji obrazów przy użyciu biblioteki klienta Custom Vision lub interfejsu API REST
 

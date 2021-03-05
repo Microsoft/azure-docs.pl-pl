@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375310"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183390"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Korzystanie z narzędzia wiersza polecenia Redis z usługą Azure cache for Redis
 
@@ -27,7 +27,7 @@ Jeśli chcesz uruchomić narzędzie wiersza polecenia na innej platformie, Pobie
 
 Informacje potrzebne do uzyskania dostępu do pamięci podręcznej można zebrać przy użyciu trzech metod:
 
-1. Interfejs wiersza polecenia platformy Azure korzystający z polecenia [AZ Redis list-Keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+1. Interfejs wiersza polecenia platformy Azure korzystający z polecenia [AZ Redis list-Keys](/cli/azure/redis#az-redis-list-keys)
 2. Azure PowerShell przy użyciu polecenia [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Za pomocą witryny Azure Portal.
 

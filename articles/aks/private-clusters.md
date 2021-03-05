@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: d3b53c860c150b5b67d38cf5d11db9f070ffb81d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392803"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181231"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -134,8 +134,8 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 * W przypadku konserwacji na płaszczyźnie kontroli [AKS IP](./limit-egress-traffic.md) może ulec zmianie. W takim przypadku należy zaktualizować rekord A wskazujący prywatny adres IP serwera interfejsu API na niestandardowym serwerze DNS i ponownie uruchomić wszystkie niestandardowe zasobniki lub wdrożenia przy użyciu hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations

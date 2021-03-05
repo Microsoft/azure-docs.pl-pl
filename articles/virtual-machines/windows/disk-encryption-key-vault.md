@@ -8,14 +8,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1fcd639eb55f61c215742d0eec7821e282010a2
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 01d4a11e14aee144d83fe50961744ebb15d1c82f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807518"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181537"
 ---
-# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption-on-a-windows-vm"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption na maszynie wirtualnej z systemem Windows
 
 Azure Disk Encryption używa Azure Key Vault do kontrolowania kluczy szyfrowania dysków i wpisów tajnych oraz zarządzania nimi.  Aby uzyskać więcej informacji na temat magazynów kluczy, zobacz Wprowadzenie do [Azure Key Vault](../../key-vault/general/overview.md) i [Zabezpieczanie magazynu kluczy](../../key-vault/general/secure-your-key-vault.md). 
 

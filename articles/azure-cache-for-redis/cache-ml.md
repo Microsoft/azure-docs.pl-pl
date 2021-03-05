@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734236"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183628"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Wdróż model uczenia maszynowego w celu Azure Functions z użyciem usługi Azure cache for Redis 
 
@@ -26,7 +26,7 @@ Usługa Azure cache for Redis jest niezwykle wydajna i skalowalna — w przypadk
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/).
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](../machine-learning/how-to-manage-workspace.md) .
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Model uczenia maszynowego zarejestrowany w Twoim obszarze roboczym. Jeśli nie masz modelu, Skorzystaj z [samouczka klasyfikacji obrazów: uczenie modelu](../machine-learning/tutorial-train-models-with-aml.md) do uczenia i zarejestrowania go.
 
 > [!IMPORTANT]

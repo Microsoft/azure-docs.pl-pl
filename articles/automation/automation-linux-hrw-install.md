@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/18/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708921"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182336"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -48,7 +48,7 @@ Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące 
 * Red Hat Enterprise Linux Server 5, 6, 7 i 8
 * Debian GNU/Linux 6, 7 i 8
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS i 18,04 LTS
-* SUSE Linux Enterprise Server 12 i 15
+* SUSE Linux Enterprise Server 12 i 15 (SUSE nie wyprowadził wersji o numerze 13 lub 14)
 
 > [!IMPORTANT]
 > Przed włączeniem funkcji Update Management, która zależy od roli hybrydowego procesu roboczego elementu Runbook systemu, należy upewnić się, że dystrybucje są obsługiwane w [tym miejscu](update-management/overview.md#supported-operating-systems).
@@ -66,7 +66,7 @@ Minimalne wymagania dotyczące systemu Linux i hybrydowego procesu roboczego ele
 |Glibc |Biblioteka GNU C| 2.5-12 |
 |Openssl| Biblioteki OpenSSL | 1,0 (obsługiwane są protokoły TLS 1,1 i TLS 1,2)|
 |Narzędzie Curl | zazwinięcie klienta sieci Web | 7.15.5|
-|Python — ctypes | Wymagany jest język Python 2. x |
+|Python — ctypes | Wymagany jest język Python 2. x lub Python 3. x |
 |PAM | Podłączane moduły uwierzytelniania (PAM)|
 | **Opcjonalny pakiet** | **Opis** | **Wersja minimalna**|
 | Program PowerShell Core | Aby można było uruchomić elementy Runbook programu PowerShell, należy zainstalować program PowerShell Core. Zobacz temat [Instalowanie programu PowerShell Core w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux) , aby dowiedzieć się, jak go zainstalować. | 6.0.0 |
@@ -90,13 +90,16 @@ Hybrydowe procesy robocze elementu Runbook systemu Linux obsługują ograniczon�
 
 |Typ elementu Runbook | Obsługiwane |
 |-------------|-----------|
-|Python 2 |Tak |
-|PowerShell |Tak<sup>1</sup> |
+|Python 3 (wersja zapoznawcza)|Tak, wymagane tylko dla tych dystrybucje: SUSE LES 15, RHEL 8 i CentOS 8|
+|Python 2 |Tak, w przypadku wszystkich dystrybucji, które nie wymagają języka Python 3<sup>1</sup> |
+|PowerShell |Tak<sup>2</sup> |
 |Przepływ pracy programu PowerShell |Nie |
 |Element graficzny |Nie |
 |Graficzny przepływ pracy programu PowerShell |Nie |
 
-<sup>1</sup> Elementy Runbook programu PowerShell wymagają zainstalowania programu PowerShell Core na komputerze z systemem Linux. Zobacz temat [Instalowanie programu PowerShell Core w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux) , aby dowiedzieć się, jak go zainstalować.
+<sup>1</sup> Zobacz [obsługiwane systemy operacyjne Linux](#supported-linux-operating-systems).
+
+<sup>2</sup> Elementy Runbook programu PowerShell wymagają zainstalowania programu PowerShell Core na komputerze z systemem Linux. Zobacz temat [Instalowanie programu PowerShell Core w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux) , aby dowiedzieć się, jak go zainstalować.
 
 ### <a name="network-configuration"></a>Konfiguracja sieci
 

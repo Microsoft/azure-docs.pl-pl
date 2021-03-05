@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: dc1e54106e2f31c7390d784cba6f92cf775e963c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572697"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181452"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -42,6 +42,7 @@ Następujące uprawnienia są używane przez tożsamość klastra AKS, która je
 
 | Uprawnienie | Przyczyna |
 |---|---|
+| Microsoft. ContainerService/managedClusters/*  <br/> | Wymagane do tworzenia użytkowników i obsługi klastra
 | Microsoft. Network/loadBalancers/Delete <br/> Microsoft. Network/loadBalancers/odczyt <br/> Microsoft. Network/loadBalancers/Write | Wymagane w celu skonfigurowania modułu równoważenia obciążenia dla usługi równoważenia. |
 | Microsoft. Network/adresów publicipaddress/Delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Wymagane do znajdowania i konfigurowania publicznych adresów IP dla usługi równoważenia obciążenia. |
 | Microsoft.Network/publicIPAddresses/join/action | Wymagane do skonfigurowania publicznych adresów IP dla usługi równoważenia obciążenia. |

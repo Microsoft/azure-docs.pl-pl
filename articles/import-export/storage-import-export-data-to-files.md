@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 44473efbfb1c07c628c939fd05805ed92e691736
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: b62c3c4be4fdffd9f509b86d248cd028518ae89a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651867"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181945"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Use Azure Import/Export service to import data to Azure Files (Używanie usługi Azure Import/Export do importowania danych do usługi Azure Files)
 
@@ -40,18 +40,17 @@ Przed utworzeniem zadania importowania w celu transferu danych do Azure Files na
         - [Utwórz konto DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
-
 ## <a name="step-1-prepare-the-drives"></a>Krok 1. Przygotowanie dysków
 
 Ten krok powoduje wygenerowanie pliku dziennika. W pliku dziennika są przechowywane podstawowe informacje, takie jak numer seryjny dysku, klucz szyfrowania i szczegóły konta magazynu.
 
-Wykonaj poniższe kroki, aby przygotować dyski.
+Wykonaj poniższe czynności, aby przygotować dyski.
 
 1. Podłącz nasze stacje dysków do systemu Windows za pomocą łączników SATA.
 2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie należy używać mountpoints.
 3. Zmodyfikuj plik *dataset.csv* w folderze głównym, w którym znajduje się narzędzie. W zależności od tego, czy chcesz zaimportować plik, czy folder, należy dodać wpisy w pliku *dataset.csv* podobnie jak w poniższych przykładach.
 
-   - **Aby zaimportować plik**: w poniższym przykładzie dane do skopiowania znajdują się na dysku F:. Plik *MyFile1.txt*  jest kopiowany do katalogu głównego *MyAzureFileshare1*. Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
+   - **Aby zaimportować plik**: w poniższym przykładzie dane do skopiowania są na dysku F:. Plik *MyFile1.txt*  jest kopiowany do katalogu głównego *MyAzureFileshare1*. Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -117,7 +116,7 @@ Aby uzyskać dodatkowe przykłady, przejdź do [przykładów dla plików dzienni
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
+Wykonaj poniższe czynności, aby utworzyć zadanie importowania w Azure Portal.
 1. Zaloguj się do https://portal.azure.com/ .
 2. Wyszukaj **zadania importowania/eksportowania**.
 
@@ -129,39 +128,50 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
 4. Na stronie **Podstawy**:
 
-    - Wybierz pozycję **Importuj na platformie Azure**.
-    - Wprowadź opisową nazwę zadania importu. Ta nazwa służy do śledzenia zadań w trakcie ich wykonywania i po ich zakończeniu.
-        -  Ta nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia.
-        -  Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.
-    - Wybierz subskrypcję.
-    - Wybierz grupę zasobów.
+   1. Wybierz subskrypcję.
+   1. Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** i Utwórz nową.
+   1. Wprowadź opisową nazwę zadania importu. Użyj nazwy, aby śledzić postęp zadań.
+       * Nazwa może zawierać tylko małe litery, cyfry i łączniki.
+       * Nazwa musi rozpoczynać się od litery i nie może zawierać spacji.
+   1. Wybierz pozycję **Importuj na platformie Azure**.
 
-        ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+    ![Tworzenie zadania importowania — krok 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
-3. W **szczegółach zadania**:
+   Wybierz pozycję **Dalej: Szczegóły zadania >** , aby wykonać operację.
 
-    - Przekaż pliki dziennika utworzone w poprzednim [kroku 1: przygotowanie dysków](#step-1-prepare-the-drives).
-    - Wybierz konto magazynu, do którego zostaną zaimportowane dane.
-    - Lokalizacja Dropoff jest automatycznie wypełniana na podstawie regionu wybranego konta magazynu.
+5. W **szczegółach zadania**:
 
-       ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+   1. Przekaż pliki dziennika utworzone w poprzednim [kroku 1: przygotowanie dysków](#step-1-prepare-the-drives).
+   1. Wybierz docelowy region świadczenia usługi Azure dla zamówienia.
+   1. Wybierz konto magazynu do zaimportowania.
 
-4. W oknie **Informacje o wysyłce zwrotu**:
+      Lokalizacja Dropoff jest automatycznie wypełniana na podstawie regionu wybranego konta magazynu.
 
-    - Z listy rozwijanej wybierz pozycję przewoźnik. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com`  z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
-    - Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta, aby po zakończeniu zadania importowania dostarczać dyski z powrotem do użytkownika.
-    - Podaj pełną i poprawną nazwę kontaktu, numer telefonu, adres e-mail, ulica, miasto, kod pocztowy, Województwo i kraj/region.
+   1. Jeśli nie chcesz zapisywać pełnego dziennika, usuń zaznaczenie pola wyboru **Zapisz pełny dziennik w kontenerze obiektów BLOB "waimportexport"** .
+
+
+   ![Tworzenie zadania importowania — krok 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+
+   Wybierz pozycję **Dalej: wysyłka >** aby wykonać operację.
+
+4. **Wysyłka**:
+
+    1. Z listy rozwijanej wybierz pozycję przewoźnik. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com`  z informacjami o przewoźniku, którego zamierzasz używać.
+    1. Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta, aby po zakończeniu zadania importowania dostarczać dyski z powrotem do użytkownika.
+    1. Podaj pełną i poprawną nazwę kontaktu, numer telefonu, adres e-mail, ulica, miasto, kod pocztowy, Województwo i kraj/region.
 
         > [!TIP]
         > Zamiast określania adresu e-mail dla pojedynczego użytkownika, podaj adres e-mail grupy. Dzięki temu będziesz otrzymywać powiadomienia nawet w przypadku opuszczenia przez administratora.
 
-       ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+    ![Tworzenie zadania importowania — krok 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
+   Wybierz pozycję **Recenzja + Utwórz** , aby rozpocząć.
 
-5. **Podsumowanie**:
+5. W podsumowaniu zamówienia:
 
-    - Podaj adres wysyłkowy centrum danych platformy Azure na potrzeby wysyłania dysków z powrotem do platformy Azure. Upewnij się, że nazwa zadania i pełny adres są wymienione na etykiecie wysyłkowej.
-    - Kliknij przycisk **OK** , aby zakończyć tworzenie zadania importu.
+   1. Przejrzyj **warunki**, a następnie wybierz pozycję "potwierdzam, że wszystkie podane informacje są poprawne i akceptuję warunki i postanowienia". Następnie zostanie wykonana Walidacja.
+   1. Przejrzyj informacje o zadaniu podane w podsumowaniu. Zanotuj nazwę zadania i adres wysyłkowy centrum danych platformy Azure, aby dostarczać dyski z powrotem do platformy Azure. Te informacje są używane później na etykiecie wysyłkowej.
+   1. Wybierz przycisk **Utwórz**.
 
         ![Tworzenie zadania importowania — krok 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
@@ -357,7 +367,7 @@ Install-Module -Name Az.ImportExport
 
 Aby **dodać więcej dysków**, Utwórz nowy plik driveset i uruchom polecenie w następujący sposób.
 
-W przypadku kolejnych sesji kopiowania na różne stacje dysków, które nie są określone w pliku *InitialDriveset. csv* , określ nowy plik driveset *. csv* i podaj go jako wartość parametru `AdditionalDriveSet` . Użyj tej **samej nazwy pliku dziennika** i podaj **nowy identyfikator sesji**. Format pliku CSV AdditionalDriveset jest taki sam jak format InitialDriveSet.
+W przypadku kolejnych sesji kopiowania na dyskach innych niż określone w pliku *InitialDriveset. csv* należy określić nowy plik driveset *. csv* i podać go jako wartość parametru `AdditionalDriveSet` . Użyj tej **samej nazwy pliku dziennika** i podaj **nowy identyfikator sesji**. Format pliku CSV AdditionalDriveset jest taki sam jak format InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

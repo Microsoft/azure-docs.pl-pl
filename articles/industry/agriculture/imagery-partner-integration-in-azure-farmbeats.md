@@ -4,14 +4,14 @@ description: W tym artykule opisano integrację z partnerem obrazów.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1bc723892e29ccc24a7612cfbe50d4b274cdacdf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675935"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183798"
 ---
 # <a name="imagery-partner-integration"></a>Integracja z partnerami obsługującymi obrazy
 
@@ -89,7 +89,7 @@ access_token = token_response.get('access_token')
 
 Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats Datahub.
 
-**Nagłówki** | **Opis i przykład**
+**Nagłówek** | **Opis i przykład**
 --- | ---
 Content-Type  | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
 Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
@@ -138,10 +138,10 @@ Gdy partner ma poświadczenia, aby nawiązać połączenie z usługą FarmBeats 
 
 1.  Utwórz nowy typ rozszerzony dla następujących pól, zgodnie z typem obrazów do załadowania:
 
-    - **Źródło sceny** : na przykład drone_partner_name
-    - **Typ sceny** : na przykład drona
-    - **Typ pliku sceny** : na przykład indeks CHLOROPHYLL
-    - **Typ zawartości pliku sceny** : na przykład Image/TIFF
+    - **Źródło sceny**: na przykład drone_partner_name
+    - **Typ sceny**: na przykład drona
+    - **Typ pliku sceny**: na przykład indeks CHLOROPHYLL
+    - **Typ zawartości pliku sceny**: na przykład Image/TIFF
 
 2.  Wywołaj interfejs API/Farms, aby uzyskać listę Farm z systemu Azure FarmBeats.
 3.  Zapewnij klientowi możliwość wyboru pojedynczej farmy z listy Farm.

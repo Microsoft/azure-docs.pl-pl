@@ -58,7 +58,7 @@
     - name: Interfejs API REST
       href: /rest/api/advisor/
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/advisor?view=azure-cli-latest
+      href: /cli/azure/advisor
     - name: PowerShell
       href: /powershell/module/az.advisor/?view=azps-1.2.0
 - name: Zasoby

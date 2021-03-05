@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: ac93d835b8dbdd5a12d031825dcb879160df5e95
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575350"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183084"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Informacje o zasobach dotyczące danych w usłudze Azure kontrolą
 
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie źródłami danych w usłu
 W usłudze Azure kontrolą można rejestrować i skanować typy źródłowe. Po zakończeniu skanowania można wyświetlić dystrybucję zasobów w usłudze Insights, która informuje o stanie danych według klasyfikacji i zestawów zasobów. Informuje także o ewentualnej zmianie rozmiaru danych.
 
 > [!NOTE]
-> Po przeskanowaniu typów źródłowych podawanie informacji o zasobach do godziny w celu odzwierciedlenia nowych zasobów.
+> Po przeskanowaniu typów źródłowych Przekaż informacje o zasobach o 3-8 godziny w celu odzwierciedlenia nowych zasobów. Opóźnienie może być spowodowane dużym ruchem w regionie wdrożenia lub rozmiarem obciążenia. Aby uzyskać więcej informacji, skontaktuj się z zespołem pomocy technicznej dotyczącej pola.
 
 1. Przejdź do zasobu usługi Azure kontrolą w Azure Portal.
 
@@ -94,7 +94,7 @@ Kolejne kilka grafów w usłudze Asset Insights pokazują dystrybucję typów ź
 
 1. Wybierz ścieżkę, aby wyświetlić listę zasobów.
 
-Drugi wykres w typach źródłowych opartych na plikach to **_pliki, które nie są skojarzone z zestawem zasobów_**. Jeśli spodziewasz się, że wszystkie pliki powinny być rzutowane na zestaw zasobów, ten wykres może pomóc w zrozumieniu, które zasoby nie zostały rzutowane. Brakujące elementy zawartości mogą być oznaczeniem nieprawidłowego wzorca pliku w folderze. Wykonaj te same czynności jak w przypadku innych wykresów, aby wyświetlić więcej szczegółów na temat plików.
+Drugi wykres w typach źródłowych opartych na plikach to ***pliki, które nie są skojarzone z zestawem zasobów***. Jeśli spodziewasz się, że wszystkie pliki powinny być rzutowane na zestaw zasobów, ten wykres może pomóc w zrozumieniu, które zasoby nie zostały rzutowane. Brakujące elementy zawartości mogą być oznaczeniem nieprawidłowego wzorca pliku w folderze. Wykonaj te same czynności jak w przypadku innych wykresów, aby wyświetlić więcej szczegółów na temat plików.
 
    :::image type="content" source="./media/asset-insights/file-based-assets.png" alt-text="Wyświetlanie zasobów na podstawie plików":::  
 

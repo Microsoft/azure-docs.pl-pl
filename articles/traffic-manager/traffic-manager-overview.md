@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182166"
 ---
 # <a name="what-is-traffic-manager"></a>Co to jest Traffic Manager?
 Azure Traffic Manager to moduł równoważenia obciążenia opartego na systemie DNS. Ta usługa umożliwia dystrybucję ruchu do publicznych aplikacji w regionach platformy Azure. Traffic Manager udostępnia również publiczne punkty końcowe o wysokiej dostępności i szybkiej odpowiedzi.
@@ -24,8 +24,12 @@ Azure Traffic Manager to moduł równoważenia obciążenia opartego na systemie
 Traffic Manager używa systemu DNS do kierowania żądań klientów do odpowiedniego punktu końcowego usługi na podstawie metody routingu ruchu. Menedżer ruchu udostępnia również monitorowanie kondycji dla każdego punktu końcowego. Punktem końcowym może być dowolna usługa internetowa hostowana w ramach platformy Azure lub poza nią. Usługa Traffic Manager udostępnia szereg [metod routingu ruchu](traffic-manager-routing-methods.md) oraz [opcji monitorowania punktów końcowych](traffic-manager-monitoring.md), które zaspokoją potrzeby różnych aplikacji i modeli automatycznej pracy w trybie failover. Usługa Traffic Manager jest odporna na awarie, w tym awarię całego regionu platformy Azure.
 
 >[!NOTE]
-> Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. Jeśli chcesz zakończyć protokół zabezpieczeń TLS (Transport Layer Security) („odciążanie protokołu SSL”) lub przetwarzanie poszczególnych żądań dotyczących protokołu HTTP/HTTPS na poziomie warstwy aplikacji, zapoznaj się z tematem dotyczącym usługi [Application Gateway](../application-gateway/overview.md). Jeśli chcesz równoważyć obciążenie w poszczególnych regionach, zapoznaj się z tematem dotyczącym usługi [Load Balancer](../load-balancer/load-balancer-overview.md). Scenariusze kompleksowe mogą w razie potrzeby korzystać z zalet łączenia tych rozwiązań.
->
+> Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. 
+> * Jeśli chcesz zrównoważyć obciążenie między serwerami w regionie w warstwie aplikacji, zapoznaj się z tematem [Application Gateway](../application-gateway/overview.md).
+> * Jeśli chcesz zoptymalizować globalne Routing ruchu w sieci Web i zoptymalizować wydajność i niezawodność najwyższej warstwy dla użytkowników końcowych dzięki szybkiemu globalnemu przejściu w tryb failover, zobacz [drzwi z przodu](../frontdoor/front-door-overview.md).
+> * Aby przeprowadzić Równoważenie obciążenia warstwy sieciowej, zapoznaj się z tematem [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Kompleksowe scenariusze mogą skorzystać z łączenia tych rozwiązań w razie potrzeby.
 > Aby zapoznać się z porównaniem opcji równoważenia obciążenia platformy Azure, zobacz [Omówienie opcji równoważenia obciążenia na platformie Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Traffic Manager oferuje następujące funkcje:

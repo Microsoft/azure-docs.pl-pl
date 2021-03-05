@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start pokazano, jak używać Azure Portal 
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106481"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184019"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal
 
@@ -69,7 +69,7 @@ Po kilku minutach stan alokacji zmieni się na **stabilny**, a węzły zostaną 
 
 ## <a name="create-a-job"></a>Tworzenie zadania
 
-Teraz, gdy masz już pulę, utwórz zadanie, które zostanie w niej uruchomione. Zadanie usługi Batch to logiczna grupa zawierająca co najmniej jedno zadanie podrzędne. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Początkowo zadanie nie zawiera zadań podrzędnych.
+Teraz, gdy masz już pulę, utwórz zadanie, które zostanie w niej uruchomione. Zadanie wsadowe to logiczna grupa co najmniej jednego zadania. Zadanie uwzględnia wspólne ustawienia zadań podrzędnych, takie jak priorytet i pula, w której zadania podrzędne mają być uruchamiane. Początkowo zadanie nie zawiera zadań podrzędnych.
 
 1. W widoku konta wsadowego wybierz kolejno pozycje **zadania**  >  **Dodaj**.
 

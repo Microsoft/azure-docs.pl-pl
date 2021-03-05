@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327087"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183934"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie
 
@@ -44,7 +44,7 @@ Klucze chronione przez oprogramowanie|/keys|Obsługiwane|Nieobsługiwane
 **Inne typy obiektów**||
 Wpisy tajne|/secrets|Obsługiwane|Nieobsługiwane
 Certyfikaty|/certificates|Obsługiwane|Nieobsługiwane
-Klucze kont magazynu|/storageaccount|Obsługiwane|Nieobsługiwane
+Klucze kont magazynu|/Storage|Obsługiwane|Nieobsługiwane
 |||
 - **Klucze kryptograficzne**: obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z kluczy chronionych przez moduł HSM i chronionych przez moduł zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
 - Wpisy **tajne**: zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).

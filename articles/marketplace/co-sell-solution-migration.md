@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
-ms.openlocfilehash: 445810d5873bb935ded180a969e4612542bde5ed
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/04/2021
+ms.openlocfilehash: 92702f38b6143c5dac2111c57fadeba7d9142992
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120185"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181061"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migracja rozwiązań do sprzedaży ze OCP GTM do komercyjnej witryny Marketplace
 
@@ -136,7 +136,7 @@ Szczegółowe instrukcje dotyczące informacji, które należy podać przed opub
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="Karty Ustawienia oferty przegląd w centrum partnerskim.":::
 
-3. Niektóre szczegóły dotyczące sprzedawcy firmy Microsoft zostały skopiowane za pośrednictwem rozwiązania OCP GTM. Uzupełnij pozostałe wymagane informacje na karcie **współsprzedaż z firmą Microsoft** , aby zaoferować swoją ofertę gotowość do sprzedaży. Po zakończeniu wybierz pozycję **Przejrzyj i Opublikuj**. Aby uzyskać więcej informacji, zobacz [Jak przesłać materiały towarzyszące w centrum partnerskim](marketplace-co-sell.md).
+3. Niektóre szczegóły dotyczące sprzedawcy firmy Microsoft zostały skopiowane za pośrednictwem rozwiązania OCP GTM. Uzupełnij pozostałe wymagane informacje na karcie **współsprzedaż z firmą Microsoft** , aby zaoferować swoją ofertę gotowość do sprzedaży. Po zakończeniu wybierz pozycję **Przejrzyj i Opublikuj**. Aby uzyskać więcej informacji, zobacz [Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace](commercial-marketplace-co-sell.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="Karta oferta do sprzedaży w centrum partnerskim.":::
 
@@ -154,5 +154,5 @@ Szczegółowe instrukcje dotyczące informacji, które należy podać przed opub
 ## <a name="next-steps"></a>Następne kroki
 
 - [Odsprzedaż za pośrednictwem partnerów CSP](cloud-solution-providers.md)
-- [Jak przesłać materiały towarzyszące w centrum partnerskim](marketplace-co-sell.md)
+- [Konfigurowanie współsprzedaży dla komercyjnej oferty portalu Marketplace](commercial-marketplace-co-sell.md)
 - Wyświetlanie tych [często zadawanych pytań](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

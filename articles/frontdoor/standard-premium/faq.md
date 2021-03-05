@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a42601b696f292e9d2a9da90070fea3662acae87
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6f6d71dec9726f009ab9a56e0a49ba21f5d218fd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099906"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181027"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Często zadawane pytania dotyczące platformy Azure — warstwa standardowa/Premium (wersja zapoznawcza)
 
@@ -85,7 +85,11 @@ Tak. Z tego względu drzwi frontonu platformy Azure obsługują hosta, ścieżki
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Jak mogę zablokować dostęp do mojego zaplecza tylko do drzwi platformy Azure z przodu?
 
-Aby zablokować aplikację tak, aby akceptowała tylko ruch z określonych czołowych drzwi, musisz skonfigurować listy ACL adresów IP dla zaplecza. Następnie Ogranicz ruch zaplecza do określonej wartości nagłówka "X-Azure-FDID" wysyłanego przez tylne drzwi. Poniższe kroki są szczegółowo opisane poniżej:
+Najlepszym sposobem na zablokowanie aplikacji w celu akceptowania ruchu tylko z określonego wystąpienia drzwi przednich jest opublikowanie aplikacji za pośrednictwem prywatnego punktu końcowego. Ruch sieciowy między poszczególnymi drzwiami i aplikacją przechodzi przez sieć wirtualną oraz prywatny link do sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
+
+Dowiedz się więcej o [pochodzeniu do zabezpieczania dla drzwi z tyłu za pomocą linku prywatnego](concept-private-link.md).  
+
+Alternatywny sposób na zablokowanie aplikacji w celu akceptowania ruchu tylko z określonych czołowych drzwi, należy skonfigurować listy ACL adresów IP dla zaplecza. Następnie Ogranicz ruch zaplecza do określonej wartości nagłówka "X-Azure-FDID" wysyłanego przez tylne drzwi. Poniższe kroki są szczegółowo opisane poniżej:
 
 * Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza platformy Azure i usług infrastruktury platformy Azure. Zapoznaj się ze szczegółami dotyczącymi adresu IP dotyczącymi ACLing zaplecza:
  

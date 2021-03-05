@@ -4,13 +4,13 @@ description: Opisuje sposób konfigurowania reguł i zarządzania alertami w pro
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: a04f973cbfa3a68016065f50e9e2ff4f7566da94
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168549"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182931"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Konfigurowanie reguł i zarządzanie alertami
 
@@ -28,16 +28,16 @@ Usługa Azure FarmBeats umożliwia tworzenie reguł opartych na logice biznesowe
 
     ![Zrzut ekranu, który podświetla sekcję warunki.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
-5. W obszarze **warunki**wprowadź wartości dla **miary**, **operatora** i **wartości**.
+5. W obszarze **warunki** wprowadź wartości dla **miary**, **operatora** i **wartości**.
 6. W menu rozwijanym **pomiar** wpisz nazwę miary.
 7. Wybierz pozycję **+ Dodaj warunek** , aby dodać więcej warunków do reguły.
 8. Wybierz **poziom ważności**.
-9. W obszarze **Akcja**przejdź do przycisku przełączania z **włączoną obsługą poczty** e-mail, aby włączyć alerty e-mail.
+9. W obszarze **Akcja** przejdź do przycisku przełączania z **włączoną obsługą poczty** e-mail, aby włączyć alerty e-mail.
 
     ![Zrzut ekranu pokazujący opcję z włączoną obsługą poczty E-mail.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
 10. Wprowadź **adresy e-mail** , na które chcesz wysłać Alert e-mail, wraz z **tematem wiadomości e-mail** i **dodatkowymi notatkami**.  
-11. Aby włączyć lub wyłączyć regułę, w obszarze **stan reguły**przejdź do opcji **włączony** przełącznik.
+11. Aby włączyć lub wyłączyć regułę, w obszarze **stan reguły** przejdź do opcji **włączony** przełącznik.
     Można wyświetlić liczbę urządzeń, na które wpłynie reguła.
 12. Wybierz pozycję **Zastosuj** , aby utworzyć regułę.
 
@@ -69,7 +69,7 @@ Aby edytować regułę, wykonaj następujące kroki:
 
     ![Zrzut ekranu przedstawiający ekran Edytowanie reguły.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
-4. Zmień **nazwę reguły**i **Opis reguły** , a następnie wybierz farmę z menu rozwijanego **Wybieranie farmy** .
+4. Zmień **nazwę reguły** i **Opis reguły** , a następnie wybierz farmę z menu rozwijanego **Wybieranie farmy** .
 5. Wpisz nazwę farmy, aby wybrać farmę i **warunki** pojawiają się w tym samym oknie.  
 6. W obszarze **warunki**, Edycja **miary**, **operator** i **wartość**.
 7. W menu rozwijanym **pomiar** wpisz nazwę miary.
@@ -78,9 +78,9 @@ Aby edytować regułę, wykonaj następujące kroki:
     ![Zrzut ekranu, który podświetla przycisk Dodaj warunek.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
 9.  Wybierz **poziom ważności**.  
-10. W obszarze **Akcja**przejdź do przycisku przełączania z **włączoną obsługą poczty** e-mail, aby włączyć alerty e-mail.
+10. W obszarze **Akcja** przejdź do przycisku przełączania z **włączoną obsługą poczty** e-mail, aby włączyć alerty e-mail.
 11. Edytuj **adresy e-mail** , na które chcesz wysłać Alert e-mail, a także **temat wiadomości E-mail** i **dodatkowe uwagi**.  
-12. Aby włączyć lub wyłączyć regułę, w obszarze **stan reguły**przejdź do opcji **włączony** przełącznik.
+12. Aby włączyć lub wyłączyć regułę, w obszarze **stan reguły** przejdź do opcji **włączony** przełącznik.
 Można wyświetlić liczbę urządzeń, na które wpłynie ta reguła.
 13. Wybierz pozycję **Zastosuj** , aby edytować regułę.
 

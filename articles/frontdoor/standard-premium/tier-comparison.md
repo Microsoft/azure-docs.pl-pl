@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 0f5ecef1716a503b7d27d0f5cdde15a4560c0e61
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1753f2bb649e73d7a5fe6c1cc32361a418ea7f63
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100249"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181809"
 ---
 # <a name="overview-of-azure-front-door-standardpremium-sku-preview"></a>Omówienie jednostki SKU usługi Azure Front-Standard/Premium (wersja zapoznawcza)
 
@@ -59,10 +59,10 @@ Z przodu platformy Azure oferowane są 3 różne jednostki SKU, [platformy Azure
 | Regenerowanie adresów URL | Tak | Tak |
 | Aparat reguł | Tak | Tak |
 | Źródło prywatne (łącze prywatne) | Nie | Tak |
-| Zapora aplikacji internetowej | Nie | Tak |
+| Zapora aplikacji internetowej | Tylko reguły niestandardowe | Tak |
 | Ochrona bot | Nie | Tak |
 | Ulepszone metryki i Diagnostyka | Tak | Tak |
-| Raporty dotyczące ruchu | Tak | Tak |
+| Raport o ruchu | Tak | Tak |
 | Raport o zabezpieczeniach | Nie | Tak | 
 
 ## <a name="next-steps"></a>Następne kroki

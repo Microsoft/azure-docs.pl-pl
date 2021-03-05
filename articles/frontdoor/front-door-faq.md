@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 06ad8bf169e2b4b44f4f6a8ec5155aa6722a038c
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: ba859a0ad8edacfa2e51486b150f94b3dea37a16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124061"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182897"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -86,6 +86,8 @@ Tak. Z tego względu drzwi frontonu platformy Azure obsługują przekierowania h
 Trasy dla drzwi przednich nie są uporządkowane, a określona trasa jest wybierana na podstawie najlepszego dopasowania. Dowiedz się więcej o tym [, w jaki sposób przód jest zgodny z żądaniami do reguły routingu](front-door-route-matching.md).
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Jak mogę zablokować dostęp do mojego zaplecza tylko do drzwi platformy Azure z przodu?
+
+> [! Uwaga] Nowa jednostka SKU front drzwi Premium zapewnia bardziej zalecany sposób blokowania aplikacji za pośrednictwem prywatnego punktu końcowego. [Dowiedz się więcej o prywatnym punkcie końcowym](./standard-premium/concept-private-link.md)
 
 Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z określonych czołowych drzwi, należy skonfigurować listy ACL adresów IP dla zaplecza, a następnie ograniczyć ruch w zapleczu do określonej wartości nagłówka "X-Azure-FDID" wysyłanego przez zewnętrzne drzwi. Poniższe kroki są szczegółowo opisane poniżej:
 

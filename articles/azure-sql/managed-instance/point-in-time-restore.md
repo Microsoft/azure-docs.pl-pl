@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0a56cfc147d4fb5cbdccf13363ad28bc602d8216
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525402"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182761"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -110,7 +110,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Restore-AzSqlInstanceDatabase](/p
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Jeśli nie masz jeszcze zainstalowanego interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli nie masz jeszcze zainstalowanego interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 Aby przywrócić bazę danych przy użyciu interfejsu wiersza polecenia platformy Azure, określ wartości parametrów w następującym poleceniu. Następnie uruchom polecenie:
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Szczegółowe wyjaśnienie dostępnych parametrów można znaleźć w [dokumentacji interfejsu wiersza polecenia w celu przywrócenia bazy danych w wystąpieniu zarządzanym SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Szczegółowe wyjaśnienie dostępnych parametrów można znaleźć w [dokumentacji interfejsu wiersza polecenia w celu przywrócenia bazy danych w wystąpieniu zarządzanym SQL](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ---
 

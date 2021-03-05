@@ -2,14 +2,14 @@
 title: Przegląd przetwarzania transakcji w Azure Service Bus
 description: Ten artykuł zawiera omówienie przetwarzania transakcji i funkcji wysyłania za pośrednictwem programu w Azure Service Bus.
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684795"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183747"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Przegląd Service Bus przetwarzania transakcji
 
@@ -43,9 +43,11 @@ Aby włączyć transakcyjną przekazują danych z kolejki lub tematu do procesor
 
 Moc tej możliwości transakcyjnej stanie się widoczna, gdy kolejka transferu lub sama sama sekcja jest źródłem komunikatów wejściowych nadawcy. Innymi słowy, Service Bus może przetransferować komunikat do kolejki docelowej lub tematu "za pośrednictwem kolejki transferu lub tematu, podczas gdy wykonywana jest pełna (lub odłożyć lub utracona) operacja w komunikacie wejściowym — wszystko w jednej operacji niepodzielnej. 
 
+Jeśli musisz otrzymywać od subskrypcji tematu, a następnie wysyłać do kolejki lub tematu w tej samej transakcji, jednostka transferu musi być tematem. W tym scenariuszu należy uruchomić zakres transakcji w temacie, odebrać z subskrypcji z w zakresie transakcji i wysłać za pośrednictwem tematu transferu do kolejki lub lokalizacji docelowej. 
+
 ### <a name="see-it-in-code"></a>Zobacz go w kodzie
 
-Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Przykład:
+Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Na przykład:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

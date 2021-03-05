@@ -1,23 +1,18 @@
 ---
 title: Archiwum nowości w programie Azure Security Center
 description: Opis nowości i zmian w Azure Security Center z sześciu miesięcy temu i wcześniejszych.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/02/2020
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: f24785336642570ae3f21d96462317890526a4c9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578950"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182580"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,6 +23,225 @@ Ta strona zawiera informacje na temat:
 - Nowe funkcje
 - Poprawki błędów
 - Funkcje uznane za przestarzałe
+
+
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+Aktualizacje we wrześniu obejmują:
+- [Security Center Pobiera nowy wygląd!](#security-center-gets-a-new-look)
+- [Wydano usługę Azure Defender](#azure-defender-released)
+- [Usługa Azure Defender dla Key Vault jest ogólnie dostępna](#azure-defender-for-key-vault-is-generally-available)
+- [Usługa Azure Defender do ochrony magazynu dla plików i ADLS Gen2 jest ogólnie dostępna](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
+- [Narzędzia spisu zasobów są teraz ogólnie dostępne](#asset-inventory-tools-are-now-generally-available)
+- [Wyłączenie konkretnej luki w zabezpieczeniach w poszukiwaniu skanów rejestrów kontenerów i maszyn wirtualnych](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
+- [Wykluczanie zasobu z rekomendacji](#exempt-a-resource-from-a-recommendation)
+- [Łączniki AWS i GCP w Security Center zapewniają środowisko z obsługą chmury](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [Pakiet rekomendacji ochrony obciążeń Kubernetes](#kubernetes-workload-protection-recommendation-bundle)
+- [Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Zapobiegaj błędom konfiguracji zabezpieczeń, wymuszając zalecenia podczas tworzenia nowych zasobów](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
+- [Ulepszone zalecenia dotyczące sieciowej grupy zabezpieczeń](#network-security-group-recommendations-improved)
+- [Przestarzałe zalecenie dotyczące wersji zapoznawczej AKS "pod kątem zasad zabezpieczeń należy zdefiniować w usługach Kubernetes Services"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Ulepszona wiadomość e-mail z powiadomieniem Azure Security Center](#email-notifications-from-azure-security-center-improved)
+- [Wynik zabezpieczony nie obejmuje zaleceń dotyczących wersji zapoznawczej](#secure-score-doesnt-include-preview-recommendations)
+- [Zalecenia zawierają teraz wskaźnik ważności i interwał Aktualności](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+
+### <a name="security-center-gets-a-new-look"></a>Security Center Pobiera nowy wygląd!
+
+Opublikowano odświeżony interfejs użytkownika dla stron portalu Security Center. Nowe strony zawierają nową stronę przeglądu i pulpity nawigacyjne do zabezpieczania oceny, spisu zasobów i usługi Azure Defender.
+
+Przeprojektowana Strona przeglądu zawiera teraz kafelek umożliwiające dostęp do usług pulpitu nawigacyjnego bezpiecznego oceny, spisu zasobów i usługi Azure Defender. Zawiera również kafelek łączący pulpit nawigacyjny zgodności z przepisami.
+
+Dowiedz się więcej o [stronie Przegląd](overview-page.md).
+
+
+### <a name="azure-defender-released"></a>Wydano usługę Azure Defender
+
+**Usługa Azure Defender** to platforma ochrony obciążeń w chmurze (CWPP) zintegrowana w ramach Security Center na potrzeby zaawansowanej, inteligentnej, chronionej platformy Azure i obciążeń hybrydowych. Zastępuje Security Center opcję warstwy cenowej standardowa. 
+
+Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure Security Center następujące plany usługi Defender są dostępne jednocześnie i zapewniają kompleksowe zabezpieczenia dla warstw obliczeniowych, danych i usług w środowisku:
+
+- [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
+- [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
+- [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
+- [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
+- [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)
+
+Każdy z tych planów został opisany osobno w dokumentacji Security Center.
+
+Dzięki dedykowanemu pulpitowi nawigacyjnemu usługa Azure Defender udostępnia alerty zabezpieczeń i zaawansowaną ochronę przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji sieci Web, sieci i innych.
+
+[Dowiedz się więcej o usłudze Azure Defender](azure-defender.md)
+
+### <a name="azure-defender-for-key-vault-is-generally-available"></a>Usługa Azure Defender dla Key Vault jest ogólnie dostępna
+
+Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła. 
+
+**Usługa Azure Defender dla Key Vault** zapewnia platformę Azure — natywną, zaawansowaną ochronę przed zagrożeniami dla Azure Key Vault, zapewniając dodatkową warstwę analizy zabezpieczeń. Dzięki rozszerzeniu usługa Azure Defender dla Key Vault chroni wiele zasobów zależnych od kont Key Vault.
+
+Plan opcjonalny jest teraz rozpowszechny. Ta funkcja była dostępna w wersji zapoznawczej jako "Zaawansowana ochrona przed zagrożeniami dla Azure Key Vault".
+
+Ponadto strony Key Vault w Azure Portal zawierają teraz dedykowaną stronę **zabezpieczeń** dla **Security Center** zaleceń i alertów.
+
+Dowiedz się więcej w [usłudze Azure Defender dla Key Vault](defender-for-key-vault-introduction.md).
+
+
+### <a name="azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available"></a>Usługa Azure Defender do ochrony magazynu dla plików i ADLS Gen2 jest ogólnie dostępna 
+
+**Usługa Azure Defender for Storage** wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
+
+Obsługa [Azure Files](../storage/files/storage-files-introduction.md) i [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) jest teraz ogólnie dostępna.
+
+Od 1 października 2020 rozpocznie się naliczanie opłat za ochronę zasobów przy użyciu tych usług.
+
+Dowiedz się więcej w [usłudze Azure Defender dla magazynu](defender-for-storage-introduction.md).
+
+
+### <a name="asset-inventory-tools-are-now-generally-available"></a>Narzędzia spisu zasobów są teraz ogólnie dostępne
+
+Strona spisu zasobów Azure Security Center udostępnia pojedynczą stronę do wyświetlania stan zabezpieczeń zasobów, z którymi nawiązano połączenie Security Center.
+
+Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach.
+
+Jeśli którykolwiek z zasobów ma zaległe zalecenia, zostaną one wyświetlone w spisie.
+
+Dowiedz się więcej w temacie [Eksplorowanie zasobów i zarządzanie nimi przy użyciu spisu](asset-inventory.md)zasobów.
+
+
+
+### <a name="disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines"></a>Wyłączenie konkretnej luki w zabezpieczeniach w poszukiwaniu skanów rejestrów kontenerów i maszyn wirtualnych
+
+Usługa Azure Defender zawiera skanery luk w zabezpieczeniach do skanowania obrazów w Azure Container Registry i maszynach wirtualnych.
+
+Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować ją, możesz ją wyłączyć. Wyłączone wyniki nie wpływają na swój Bezpieczny wynik ani nie generują niechcianych szumów.
+
+Gdy wyszukiwanie jest zgodne z kryteriami zdefiniowanymi w regułach wyłączania, nie będą wyświetlane na liście wyników.
+
+Ta opcja jest dostępna na stronie Szczegóły zaleceń dla:
+
+- **Luki w zabezpieczeniach Azure Container Registry obrazów należy skorygować**
+- **Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**
+
+Dowiedz się więcej w temacie [wyłączanie określonych wyników dla obrazów kontenerów](defender-for-container-registries-usage.md#disable-specific-findings-preview) i [wyłączanie określonych wyników dla maszyn wirtualnych](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview).
+
+
+### <a name="exempt-a-resource-from-a-recommendation"></a>Wykluczanie zasobu z rekomendacji
+
+Czasami zasób będzie wyświetlany jako w złej kondycji w odniesieniu do konkretnego zalecenia (i w związku z tym obniżenie bezpiecznego wyniku), nawet jeśli nie będzie to możliwe. Być może został skorygowany przez proces, który nie jest śledzony przez Security Center. Lub być może Twoja organizacja zdecydowała się zaakceptować ryzyko związane z tym konkretnym zasobem. 
+
+W takich przypadkach można utworzyć regułę wykluczania i upewnić się, że zasób nie znajduje się na liście zasobów w złej kondycji w przyszłości. Te reguły mogą zawierać udokumentowane uzasadnienia, jak opisano poniżej.
+
+Dowiedz się więcej na temat [wykluczania zasobu z rekomendacji i bezpiecznego oceny](exempt-resource.md).
+
+
+### <a name="aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience"></a>Łączniki AWS i GCP w Security Center zapewniają środowisko z obsługą chmury
+
+W przypadku obciążeń w chmurze zwykle obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą być takie same.
+
+Azure Security Center teraz chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
+
+Dołączanie kont AWS i GCP do Security Center integruje się z usługą AWS Security Hub, GCP Security Command i Azure Security Center. 
+
+Więcej informacji znajduje się w temacie [Łączenie kont AWS w celu Azure Security Center](quickstart-onboard-aws.md) i [łączenia kont GCP z Azure Security Center](quickstart-onboard-gcp.md).
+
+
+### <a name="kubernetes-workload-protection-recommendation-bundle"></a>Pakiet rekomendacji ochrony obciążeń Kubernetes
+
+Aby zapewnić, że obciążenia Kubernetes są zabezpieczone domyślnie, Security Center dodaje zalecenia dotyczące ograniczania poziomu Kubernetes, w tym opcje wymuszania z Kubernetes Admission Control.
+
+Po zainstalowaniu dodatku Azure Policy dla Kubernetes w klastrze AKS, każde żądanie do serwera interfejsu API Kubernetes zostanie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań przed utrwaleniem w klastrze. Następnie można skonfigurować w celu wymuszenia najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń.
+
+Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
+
+Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+
+
+### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego
+
+Używaj eksportu ciągłego do przesyłania strumieniowego alertów i zaleceń w czasie rzeczywistym do usługi Azure Event Hubs, Log Analytics obszarów roboczych lub Azure Monitor. Z tego miejsca możesz zintegrować te dane z rozwiązań Siem (np. na platformie Azure, Power BI, na platformie Azure Eksplorator danych i nie tylko.
+
+Narzędzia do oceny luk w zabezpieczeniach Security Center zwracają informacje o zasobach jako zalecenia z możliwością działania w ramach zalecenia "nadrzędny", takie jak "luki w zabezpieczeniach w maszynach wirtualnych, należy skorygować". 
+
+W przypadku wybrania opcji zalecenia dotyczące zabezpieczeń można eksportować za pomocą eksportu ciągłego, a także włączyć opcję **Uwzględnij wnioski dotyczące zabezpieczeń** .
+
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń" :::
+
+Powiązane strony:
+
+- [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla usługi Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
+- [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla Azure Container Registry obrazów](defender-for-container-registries-usage.md)
+- [Eksport ciągły](continuous-export.md)
+
+### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Zapobiegaj błędom konfiguracji zabezpieczeń, wymuszając zalecenia podczas tworzenia nowych zasobów
+
+Błędy konfiguracji zabezpieczeń są główną przyczyną zdarzeń zabezpieczeń. Security Center teraz ma możliwość *zapobiegania* błędom konfiguracji nowych zasobów w odniesieniu do określonych zaleceń. 
+
+Ta funkcja może pomóc w zabezpieczeniu obciążeń i stabilizacji bezpiecznego wyniku.
+
+Wymuszanie bezpiecznej konfiguracji w oparciu o określone zalecenie jest oferowane w dwóch trybach:
+
+- Przy użyciu efektu **odmowy** Azure Policy można zatrzymać tworzenie zasobów w złej kondycji
+
+- Przy użyciu opcji **Wymuszaj** można korzystać z **DeployIfNotExist** i automatycznego korygowania niezgodnych zasobów podczas tworzenia
+ 
+Jest to dostępne dla wybranych zaleceń dotyczących zabezpieczeń i można je znaleźć w górnej części strony Szczegóły zasobu.
+
+Dowiedz się więcej w temacie [zapobieganie błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md).
+
+###  <a name="network-security-group-recommendations-improved"></a>Ulepszone zalecenia dotyczące sieciowej grupy zabezpieczeń
+
+Udoskonalono następujące zalecenia dotyczące zabezpieczeń dotyczące sieciowych grup zabezpieczeń, aby zmniejszyć liczbę wystąpień fałszywie dodatnich.
+
+- Wszystkie porty sieciowe powinny być ograniczone do sieciowej grupy zabezpieczeń skojarzonych z maszyną wirtualną
+- Porty zarządzania powinny być zamknięte na maszynach wirtualnych
+- Maszyny wirtualne dostępne z Internetu powinny być chronione za pomocą sieciowych grup zabezpieczeń
+- Podsieci powinny być skojarzone z sieciową grupą zabezpieczeń
+
+
+### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Przestarzałe zalecenie dotyczące wersji zapoznawczej AKS "pod kątem zasad zabezpieczeń należy zdefiniować w usługach Kubernetes Services"
+
+Zalecenia dotyczące wersji zapoznawczej muszą być zdefiniowane w usługach Kubernetes Services są przestarzałe zgodnie z opisem w dokumentacji [usługi Azure Kubernetes](../aks/use-pod-security-policies.md) .
+
+Funkcja zasad zabezpieczeń (wersja zapoznawcza) jest ustawiana jako przestarzała i nie będzie już dostępna po 15 października 2020 Azure Policy AKS.
+
+Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
+
+
+### <a name="email-notifications-from-azure-security-center-improved"></a>Ulepszona wiadomość e-mail z powiadomieniem Azure Security Center
+
+Ulepszono następujące obszary wiadomości e-mail dotyczące alertów zabezpieczeń: 
+
+- Dodano możliwość wysyłania powiadomień e-mail o alertach dotyczących wszystkich poziomów ważności
+- Dodano możliwość powiadamiania użytkowników z różnymi rolami platformy Azure w ramach subskrypcji
+- Aktywnie Powiadamiamy właścicieli subskrypcji domyślnie o alertach o wysokiej ważności (które mają wysokie prawdopodobieństwo naruszenia oryginalnego oprogramowania)
+- Usunięto pole numeru telefonu ze strony konfiguracji powiadomień e-mail
+
+Dowiedz się więcej w temacie [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md).
+
+
+### <a name="secure-score-doesnt-include-preview-recommendations"></a>Wynik zabezpieczony nie obejmuje zaleceń dotyczących wersji zapoznawczej 
+
+Security Center stale ocenia zasoby, subskrypcje i organizację pod kątem problemów z zabezpieczeniami. Następnie agreguje wszystkie wyniki w postaci pojedynczego wyniku, dzięki czemu można szybko powiedzieć, że aktualna sytuacja zabezpieczeń: wyższy wynik, tym niższy poziom ryzyka.
+
+Po odnalezieniu nowych zagrożeń nowe porady dotyczące zabezpieczeń są udostępniane w Security Center przez nowe zalecenia. Aby zapobiec niezależnym zmianom i poznawać okres prolongaty, w którym można poznać nowe zalecenia, zanim wpłyną one na Twoje wyniki, zalecenia oflagowane jako **Podgląd** nie są już uwzględniane w obliczeniach bezpiecznego wyniku. Powinny być nadal korygowane wszędzie tam, gdzie jest to możliwe, więc po zakończeniu okresu korzystania z wersji zapoznawczej będą one wchodzić w skład Twojego wyniku.
+
+Ponadto zalecenia dotyczące **wersji zapoznawczej** nie renderują zasobu w złej kondycji.
+
+Przykład zalecenia dotyczącego wersji zapoznawczej:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
+
+[Dowiedz się więcej na temat bezpiecznego oceny](secure-score-security-controls.md).
+
+
+### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>Zalecenia zawierają teraz wskaźnik ważności i interwał Aktualności
+
+Strona szczegóły dotyczące rekomendacji zawiera teraz wskaźnik czasu świeżości (jeśli dotyczy) oraz jasne wyświetlanie ważności zalecenia.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Strona rekomendacja przedstawiająca aktualność i ważność":::
 
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
@@ -259,6 +473,7 @@ Dowiedz się więcej o [zasadach wbudowanych](./policy-reference.md).
 ## <a name="june-2020"></a>Czerwiec 2020 r.
 
 Aktualizacje w czerwcu obejmują:
+
 - [Interfejs API usługi Secure Score (wersja zapoznawcza)](#secure-score-api-preview)
 - [Zaawansowane zabezpieczenia danych dla maszyn SQL (Azure, innych chmur i lokalnych) (wersja zapoznawcza)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
 - [Dwa nowe zalecenia dotyczące wdrażania agenta Log Analytics na maszynach usługi Azure ARC (wersja zapoznawcza)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)

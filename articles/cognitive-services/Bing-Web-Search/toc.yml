@@ -68,7 +68,7 @@
     - name: Interfejs API wyszukiwania w Internecie Bing v5
       href: /rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Zestawy SDK

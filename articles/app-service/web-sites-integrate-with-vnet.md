@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 4666f03e529c568177ff56a2db84e226bc906132
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963591"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182914"
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z siecią wirtualną platformy Azure
 
 W tym artykule opisano funkcję integracji sieci wirtualnej Azure App Service i sposób konfigurowania jej przy użyciu aplikacji w programie [Azure App Service](./overview.md). Korzystając z [usługi azure Virtual Network][VNETOverview] (sieci wirtualnych), możesz umieścić wiele zasobów platformy Azure w sieci bez obsługi Internetu. Funkcja integracji sieci wirtualnej umożliwia aplikacjom dostęp do zasobów w sieci wirtualnej lub przez sieć wirtualną. Integracja z siecią wirtualną nie umożliwia prywatnym dostępu do Twoich aplikacji.
 
@@ -163,7 +163,7 @@ Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej 
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Obsługa interfejsu wiersza polecenia jest dostępna dla integracji regionalnej sieci wirtualnej. Aby uzyskać dostęp do poniższych poleceń, [Zainstaluj interfejs wiersza polecenia platformy Azure][installCLI].
 
@@ -243,5 +243,5 @@ W przypadku integracji sieci wirtualnej wymagane przez bramę można zintegrowa�
 [creategateway]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [setp2saddresses]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
-[installCLI]: /cli/azure/install-azure-cli?view=azure-cli-latest%2f
+[installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md

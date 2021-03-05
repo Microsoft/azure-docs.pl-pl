@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d8e6c4b2addf9745b2ddabe8f6fdad9d82dce59f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503954"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183815"
 ---
 # <a name="use-purview-studio"></a>Korzystanie z narzędzia Purview Studio
 
@@ -38,7 +38,7 @@ Strona **główna** jest stroną początkową dla klienta usługi Azure kontrol�
 
 Poniższa lista zawiera podsumowanie najważniejszych funkcji **strony głównej**. Każda liczba na liście odpowiada wyróżnionej liczbie na poprzednim zrzucie ekranu.
 
-1. Przyjazna nazwa katalogu. Nazwę katalogu można skonfigurować w **centrum zarządzania** > **Informacje o koncie*.
+1. Przyjazna nazwa katalogu. Nazwę katalogu można skonfigurować w   >  **informacjach o koncie** centrum zarządzania.
 
 2. Analiza wykazu pokazuje liczbę:
     - Użytkownicy, grupy i aplikacje

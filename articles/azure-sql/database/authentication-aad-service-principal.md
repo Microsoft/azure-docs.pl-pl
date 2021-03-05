@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 02/11/2021
-ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15cc935457f76fb1d2fe4e8d699db831ebacc357
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380597"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181758"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory jednostki usługi przy użyciu usługi Azure SQL
 
@@ -72,7 +72,7 @@ Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Syna
     - Aby sprawdzić, czy tożsamość serwera jest przypisana do serwera, uruchom polecenie Get-AzSqlServer.
 
     > [!NOTE]
-    > Tożsamość serwera można przypisać również przy użyciu poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [AZ SQL Server Create](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) i [AZ SQL Server Update](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
+    > Tożsamość serwera można przypisać również przy użyciu poleceń interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz [AZ SQL Server Create](/cli/azure/sql/server#az-sql-server-create) i [AZ SQL Server Update](/cli/azure/sql/server#az-sql-server-update).
 
 2. Przyznaj [**czytelnikom katalogu**](../../active-directory/roles/permissions-reference.md#directory-readers) usługi Azure AD uprawnienia do tożsamości serwera utworzonej lub przypisanej do serwera.
     - Aby udzielić tego uprawnienia, postępuj zgodnie z opisem używanym dla wystąpienia zarządzanego SQL, które jest dostępne w następującym artykule: [Inicjowanie obsługi administracyjnej usługi Azure AD (wystąpienie zarządzane SQL)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
@@ -94,7 +94,7 @@ Aby umożliwić tworzenie obiektów usługi Azure AD w SQL Database i Azure Syna
       - W przypadku powyższego błędu postępuj zgodnie z instrukcjami, aby [przypisać tożsamość do serwera logicznego usługi Azure SQL Server](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) i [przypisać uprawnienia do czytnika katalogów do tożsamości serwera logicznego SQL](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > Komunikaty o błędach wskazane powyżej zostaną zmienione przed funkcją GA, aby jasno określić brakujący wymóg instalacji dla obsługi aplikacji usługi Azure AD.
-- Ustawianie aplikacji usługi Azure AD jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL jest obsługiwane tylko za pomocą polecenia interfejsu wiersza poleceń i polecenia programu PowerShell z poleceniem [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) lub nowszym. Aby uzyskać więcej informacji, zobacz [AZ SQL mi AD-admin Create](/cli/azure/sql/mi/ad-admin?view=azure-cli-latest&preserve-view=true#az-sql-mi-ad-admin-create) i [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) . 
+- Ustawianie aplikacji usługi Azure AD jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL jest obsługiwane tylko za pomocą polecenia interfejsu wiersza poleceń i polecenia programu PowerShell z poleceniem [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) lub nowszym. Aby uzyskać więcej informacji, zobacz [AZ SQL mi AD-admin Create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) i [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) . 
     - Jeśli chcesz użyć Azure Portal dla wystąpienia zarządzanego SQL do ustawienia administratora usługi Azure AD, możliwe jest obejście tego problemu, aby utworzyć grupę usługi Azure AD. Następnie Dodaj nazwę główną usługi (aplikację usługi Azure AD) do tej grupy, a następnie ustaw tę grupę jako administratora usługi Azure AD dla wystąpienia zarządzanego SQL.
     - Ustawienie nazwy głównej usługi (aplikacji usługi Azure AD) jako administratora usługi Azure AD dla SQL Database i usługi Azure Synapse jest obsługiwane za pomocą poleceń Azure Portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)i [interfejsu wiersza](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) polecenia.
 - Korzystanie z aplikacji usługi Azure AD z inną dzierżawą usługi Azure AD kończy się niepowodzeniem podczas uzyskiwania dostępu do SQL Database lub wystąpienia zarządzanego SQL utworzonego w innej dzierżawie. Nazwa główna usługi przypisana do tej aplikacji musi należeć do tej samej dzierżawy co serwer logiczny SQL lub wystąpienie zarządzane.

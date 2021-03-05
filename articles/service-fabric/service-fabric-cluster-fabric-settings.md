@@ -3,12 +3,12 @@ title: Zmień ustawienia klastra Service Fabric platformy Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej oraz zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919786"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183407"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej dla klastra Service Fabric, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pomocą [Azure Portal](https://portal.azure.com) lub szablonu Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia przez aktualizację *ClusterConfig.jsw* pliku i przeprowadzanie uaktualnienia konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [uaktualnianie konfiguracji klastra autonomicznego](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -130,7 +130,7 @@ Poniżej znajduje się lista ustawień sieci szkieletowej, które można dostoso
 |EnableTelemetry |Bool, wartość domyślna to true | Dynamiczny |Spowoduje to włączenie lub wyłączenie telemetrii. |
 |FailuresOnlyHttpTelemetry | Bool, wartość domyślna to false | Dynamiczny | Jeśli funkcja przechwytywania telemetrii HTTP jest włączona; Przechwyć tylko Nieudane żądania. Jest to pomocne w zmniejszeniu liczby zdarzeń wygenerowanych na potrzeby telemetrii. |
 |HttpTelemetryCapturePercentage | int, wartość domyślna to 50 | Dynamiczny | Jeśli funkcja przechwytywania telemetrii HTTP jest włączona; Przechwyć tylko losową wartość procentową żądań. Jest to pomocne w zmniejszeniu liczby zdarzeń wygenerowanych na potrzeby telemetrii. |
-|MaxDiskQuotaInMB |Int, wartość domyślna to 65536 | Dynamiczny |Przydział dysku w MB dla plików dziennika Windows Fabric. |
+|MaxDiskQuotaInMB |Int, wartość domyślna to 65536 | Dynamiczny |Przydział dysku w MB dla plików dziennika sieci szkieletowej systemów Windows i Linux. |
 |ProducerInstances |Ciąg | Dynamiczny |Lista wystąpień producentów DCA. |
 
 ## <a name="dnsservice"></a>DnsService

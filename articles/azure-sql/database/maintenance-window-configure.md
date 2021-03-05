@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/04/2021
-ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101243"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183203"
 ---
 # <a name="configure-maintenance-window-preview"></a>Konfiguruj okno obsługi (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,7 +178,7 @@ Podczas ustawiania okna obsługi każdy region ma własne opcje okna obsługi od
 
 ### <a name="discover-sql-database-and-elastic-pool-maintenance-windows"></a>Odnajdź okna obsługi SQL Database i elastycznych pul
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) . W przypadku baz danych i pul elastycznych ustaw wartość `maintenanceScope` `SQLDB` .
+Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . W przypadku baz danych i pul elastycznych ustaw wartość `maintenanceScope` `SQLDB` .
 
    ```azurecli
    location="eastus2"
@@ -188,7 +188,7 @@ Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomo
 
 ### <a name="discover-sql-managed-instance-maintenance-windows"></a>Odnajdź okna obsługi wystąpienia zarządzanego SQL
 
-Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) . Dla wystąpień zarządzanych ustaw wartość `maintenanceScope` `SQLManagedInstance` .
+Poniższy przykład zwraca dostępne okna obsługi dla regionu *eastus2* za pomocą polecenia [AZ Maintenance Public-Configuration list](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) . Dla wystąpień zarządzanych ustaw wartość `maintenanceScope` `SQLManagedInstance` .
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

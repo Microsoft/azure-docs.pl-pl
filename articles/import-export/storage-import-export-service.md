@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706731"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181860"
 ---
 # <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
 
@@ -79,7 +79,7 @@ Na wysokim poziomie zadanie importu obejmuje następujące kroki:
 >
 > W przypadku danych o wydaniach (poza krajem/regionem centrum danych) należy udostępnić międzynarodowe konto operatora.
 
- ![Rysunek 1. Importowanie przepływu zadań](./media/storage-import-export-service/importjob.png)
+ ![Rysunek 1. Importowanie przepływu zadań](./media/storage-import-export-service/import-job.png)
 
 Aby uzyskać instrukcje krok po kroku dotyczące importowania danych, przejdź do:
 
@@ -108,7 +108,7 @@ Na wysokim poziomie zadanie eksportu obejmuje następujące kroki:
 >
 > W przypadku danych o wydaniach (poza krajem/regionem centrum danych) należy udostępnić międzynarodowe konto operatora.
   
- ![Rysunek 2. eksportowanie przepływu zadań](./media/storage-import-export-service/exportjob.png)
+ ![Rysunek 2. eksportowanie przepływu zadań](./media/storage-import-export-service/export-job.png)
 
 Aby uzyskać instrukcje krok po kroku dotyczące eksportowania danych, przejdź do obszaru [Eksportowanie danych z obiektów blob platformy Azure](storage-import-export-data-from-blobs.md).
 

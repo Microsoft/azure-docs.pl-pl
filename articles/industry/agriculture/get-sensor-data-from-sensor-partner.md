@@ -4,13 +4,13 @@ description: W tym artykule opisano, jak uzyskać dane czujnika z partnerów.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168532"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182778"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Pobierz dane czujnika z partnerów czujników
 
@@ -80,7 +80,7 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
 
     ```
 
-8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
+8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze   >  strony **Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive
 
@@ -92,7 +92,7 @@ Wykonaj poniższe kroki, aby wygenerować powyższe informacje:
 > 1. Nazwa punktu końcowego interfejsu API Datahub musi występować małymi literami.
 > 2. Jeśli kopiujesz adres URL nazwy witryny sieci Web farmbeats dla punktu końcowego interfejsu API Datahub, upewnij się, że nie ma końcowego ukośnika (/).
 
-9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
+9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta** i **parametrów połączenia centrum EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrowanie danych urządzenia przy użyciu wygenerowanych poświadczeń
 

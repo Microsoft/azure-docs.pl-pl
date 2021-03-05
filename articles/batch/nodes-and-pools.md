@@ -3,12 +3,12 @@ title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741778"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183662"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -74,6 +74,9 @@ Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 [Agent węzła usługi Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. Istnieją różne implementacje agenta węzła, nazywane jednostkami SKU dla różnych systemów operacyjnych. Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch). Możesz opcjonalnie dołączyć co najmniej jeden pusty dysk danych do puli maszyn wirtualnych utworzonej z obrazów witryny Marketplace lub uwzględnić dyski danych w niestandardowych obrazach używanych do tworzenia maszyn wirtualnych. W przypadku dołączania dysków z danymi należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
 
 ### <a name="cloud-services-configuration"></a>Konfiguracja Cloud Services
+
+> [!WARNING]
+> Pule konfiguracji usługi w chmurze są przestarzałe. Zamiast tego użyj pul konfiguracji maszyny wirtualnej.
 
 **Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia tylko węzły obliczeniowe systemu Windows.
 

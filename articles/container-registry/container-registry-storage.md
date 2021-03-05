@@ -2,34 +2,34 @@
 title: Magazyn obrazów kontenerów
 description: Szczegółowe informacje na temat sposobu przechowywania obrazów kontenera i innych artefaktów w Azure Container Registry, w tym zabezpieczeń, nadmiarowości i pojemności.
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4bdffd111273e00b796e45f4e09bfac9ba6713e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036014"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183271"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Magazyn obrazów kontenerów w Azure Container Registry
 
-Każda usługa Azure Container Registry w warstwach [podstawowa, standardowa i Premium](container-registry-skus.md) nie oferuje zaawansowanych funkcji usługi Azure Storage, takich jak szyfrowanie — w wersji zaszyfrowanej w celu zapewnienia bezpieczeństwa danych obrazu i nadmiarowości geograficznej na potrzeby ochrony danych obrazów. W poniższych sekcjach opisano funkcje i limity magazynu obrazów w Azure Container Registry (ACR).
+Każda usługa Azure Container Registry w warstwach [podstawowa, standardowa i Premium](container-registry-skus.md) oferuje zaawansowane funkcje usługi Azure Storage, w tym szyfrowanie w spoczynku. W poniższych sekcjach opisano funkcje i limity magazynu obrazów w Azure Container Registry (ACR).
 
 ## <a name="encryption-at-rest"></a>Szyfrowanie na poziomie spoczynku
 
 Wszystkie obrazy kontenerów i inne artefakty w rejestrze są szyfrowane w stanie spoczynku. Platforma Azure automatycznie szyfruje obraz przed jego zapisaniem i odszyfrowuje go na bieżąco, gdy użytkownik lub jego aplikacje i usługi pobierają obraz. Opcjonalnie Zastosuj dodatkową warstwę szyfrowania z [kluczem zarządzanym przez klienta](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Magazyn geograficznie nadmiarowy
+## <a name="regional-storage"></a>Magazyn regionalny
 
-W przypadku rejestrów kontenerów wdrożonych w większości regionów platforma Azure korzysta ze schematu magazynu geograficznie nadmiarowego, aby pomóc w ochronie przed utratą obrazów kontenerów i innych artefaktów. Azure Container Registry automatycznie replikuje obrazy kontenerów do wielu wielograficznie odległych centrów danych, zapobiegając ich utracie w przypadku wystąpienia awarii magazynu regionalnego.
+Azure Container Registry przechowuje dane w regionie, w którym jest tworzony rejestr, aby pomóc klientom spełnić wymagania dotyczące miejsca zamieszkania i zgodności danych.
 
-> [!IMPORTANT]
-> * Jeśli wystąpi awaria magazynu regionalnego, dane rejestru można odzyskać tylko przez skontaktowanie się z pomocą techniczną platformy Azure. 
-> * Ze względu na wymagania dotyczące danych miejsca zamieszkania w regionie Brazylia Południowa i Azja Południowo-Wschodnia Azure Container Registry dane w tych regionach są przechowywane [tylko w lokalnych lokalizacjach geograficznych](https://azure.microsoft.com/global-infrastructure/geographies/). W przypadku Azja Południowo-Wschodnia wszystkie dane są przechowywane w Singapurze. W regionie Brazylia Południowa wszystkie dane są przechowywane w Brazylii. Gdy region zostanie utracony ze względu na znaczną awarię, firma Microsoft nie będzie mogła odzyskać danych Azure Container Registry.
+Aby pomóc w ochronie przed awarią centrum danych, niektóre regiony oferują [nadmiarowość strefy](zone-redundancy.md), w której dane są replikowane w wielu centrach w określonym regionie.
+
+Klienci, którzy chcą mieć swoje dane przechowywane w wielu regionach w celu uzyskania lepszej wydajności w różnych lokalizacje geograficzneach lub którzy chcą mieć odporność na awarie regionalne, powinny włączyć [replikację geograficzną](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replikacja geograficzna
 
-W przypadku scenariuszy wymagających jeszcze większej liczby gwarancji o wysokiej dostępności Rozważ użycie funkcji [replikacji geograficznej](container-registry-geo-replication.md) w rejestrach w warstwie Premium. Replikacja geograficzna pomaga chronić przed utratą dostępu do rejestru w przypadku *całkowitego* błędu regionalnego, a nie tylko awarii magazynu. Replikacja geograficzna zapewnia również inne korzyści, takie jak magazyn obrazów w sieci, w celu szybszego wypychania i ściągania w rozproszonych scenariuszach programistycznych lub wdrożeniowych.
+W przypadku scenariuszy wymagających zapewnienia wysokiej dostępności należy rozważyć użycie funkcji [replikacji geograficznej](container-registry-geo-replication.md) w rejestrach w warstwie Premium. Replikacja geograficzna pomaga chronić przed utratą dostępu do rejestru w przypadku awarii regionalnej. Replikacja geograficzna zapewnia również inne korzyści, takie jak magazyn obrazów w sieci, w celu szybszego wypychania i ściągania w rozproszonych scenariuszach programistycznych lub wdrożeniowych.
 
 ## <a name="zone-redundancy"></a>Nadmiarowość stref
 

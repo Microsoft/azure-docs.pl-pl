@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 756bf1cd7a7e9435130a3ad2d3b530b7f2e5b1b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613057"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183883"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Tworzenie połączeń Active Directory i zarządzanie nimi dla Azure NetApp Files
 
@@ -183,7 +183,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
+        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
     * **Podpisywanie LDAP**   
         Zaznacz to pole wyboru, aby włączyć podpisywanie LDAP. Ta funkcja Włącza bezpieczne wyszukiwania LDAP między usługą Azure NetApp Files i [Active Directory Domain Services kontrolerami domeny](/windows/win32/ad/active-directory-domain-services)określony przez użytkownika. Aby uzyskać więcej informacji, zobacz [ADV190023 | Wskazówki firmy Microsoft dotyczące włączania powiązań kanału LDAP i podpisywania LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
@@ -205,7 +205,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
+        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
      * **Użytkownicy zasad tworzenia kopii zapasowych**  
         Można uwzględnić dodatkowe konta, które wymagają podwyższonego poziomu uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmienić uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Na przykład można określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w Azure NetApp Files.  
@@ -227,7 +227,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
+        Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](/cli/azure/feature) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
     * Poświadczenia, w tym **Nazwa użytkownika** i **hasło**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387619"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183645"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integracja danych w usłudze Azure Synapse Analytics a Azure Data Factory
 
@@ -24,7 +24,7 @@ W usłudze Azure Synapse Analytics funkcje integracji danych, takie jak potoki S
 
 Sprawdź w poniższej tabeli dostępność funkcji:
 
-| Kategoria                 | Cechy    |  Azure Data Factory  | Azure Synapse Analytics |
+| Kategoria                 | Cecha    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
 | **Integration Runtime**  | Korzystanie z Integration Runtime SSIS i SSIS | ✓ | ✗ |
 |                          | Obsługa Integration Runtime między regionami (przepływy danych) | ✓ | ✗ |
@@ -36,6 +36,7 @@ Sprawdź w poniższej tabeli dostępność funkcji:
 | **Integracja repozytorium GIT** | Integracja z usługą GIT | ✓ | ✓ |
 | **Monitorowanie**           | Monitorowanie zadań platformy Spark dla przepływu danych | ✗ | ✓<br><small>*Korzystanie z pul Synapse Spark* |
 |                          | Integracja z usługą Azure Monitor | ✓ | ✗ |
+| **Pochodzenie** | Obsługuje publikowanie danych z potoku w programie kontrolą  | ✓ | ✗ |  
 
 > [!Note]
 > **Czas wygaśnięcia** jest ustawieniem Azure Integration Runtime, które umożliwia klastrowi Spark *przeprowadzenie pracy* przez pewien czas po wykonaniu przepływu danych.

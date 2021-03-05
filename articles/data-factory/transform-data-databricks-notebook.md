@@ -6,12 +6,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374001"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183492"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Przekształcanie danych przez uruchamianie notesu datakostks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -114,10 +114,10 @@ W niektórych przypadkach może być konieczne przekazanie z powrotem określony
 
 1. W Twoim notesie można wywołać metodę [. Notes. Exit ("ReturnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) i odpowiadający jej "ReturnValue" zostaną zwrócone do fabryki danych.
 
-2. Możesz użyć danych wyjściowych w usłudze Data Factory przy użyciu wyrażeń takich jak `'@activity('databricks notebook activity name').output.runOutput'` .
+2. Możesz użyć danych wyjściowych w usłudze Data Factory przy użyciu wyrażeń takich jak `@{activity('databricks notebook activity name').output.runOutput}` . 
 
    > [!IMPORTANT]
-   > W przypadku przekazywania obiektu JSON można pobrać wartości poprzez dołączenie nazw właściwości. Przykład: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > W przypadku przekazywania obiektu JSON można pobrać wartości poprzez dołączenie nazw właściwości. Przykład: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Jak przekazać bibliotekę w kostkach
 

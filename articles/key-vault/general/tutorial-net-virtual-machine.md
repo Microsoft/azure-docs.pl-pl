@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e69e5d9b94a47bf7db21ef3732a4ddcba7c2cf5c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289381"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181554"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w programie .NET
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Dla systemów Windows, Mac i Linux:
-  * [Narzędzia](https://git-scm.com/downloads)
+  * [Usługa Git](https://git-scm.com/downloads)
   * [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/3.1).
   * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -70,7 +70,7 @@ Utwórz maszynę wirtualną z systemem Windows lub Linux przy użyciu jednej z n
 | Windows | Linux |
 |--|--|
 | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md) | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/linux/quick-create-cli.md) |  
-| [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
+| [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [Program PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Przypisywanie tożsamości do maszyny wirtualnej
@@ -140,6 +140,7 @@ Otwórz plik *program.cs* i Dodaj następujące pakiety:
 
 ```csharp
 using System;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```

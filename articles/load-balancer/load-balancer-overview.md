@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 14e6990579f61b28c091f18b45a06d1ddcc00e89
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 51ceb72d53f78264edcadd2255e20c8fbdac2cae
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097537"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181214"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -42,8 +42,8 @@ Aby uzyskać więcej informacji na temat poszczególnych składników usługi r�
 >[!NOTE]
 > Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. 
 > * Jeśli chcesz korzystać z globalnego routingu opartego na systemie DNS i **nie** ma wymagań dotyczących zakończenia protokołu Transport Layer Security (TLS) ("odciążanie protokołu SSL"), żądania dla protokołu HTTP/HTTPS lub przetwarzania warstwy aplikacji, zapoznaj się z [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * Jeśli chcesz zrównoważyć obciążenie między serwerami w regionie w warstwie aplikacji, przejrzyj [Application Gateway](../application-gateway/overview.md)
-> * Jeśli chcesz zoptymalizować globalne Routing ruchu w sieci Web i zoptymalizować wydajność i niezawodność najwyższej warstwy dla użytkowników końcowych dzięki szybkiemu globalnemu przejściu w tryb failover, zobacz [tylne drzwi](../frontdoor/front-door-overview.md)
+> * Jeśli chcesz zrównoważyć obciążenie między serwerami w regionie w warstwie aplikacji, zapoznaj się z tematem [Application Gateway](../application-gateway/overview.md).
+> * Jeśli chcesz zoptymalizować globalne Routing ruchu w sieci Web i zoptymalizować wydajność i niezawodność najwyższej warstwy dla użytkowników końcowych dzięki szybkiemu globalnemu przejściu w tryb failover, zobacz [drzwi z przodu](../frontdoor/front-door-overview.md).
 > 
 > Kompleksowe scenariusze mogą skorzystać z łączenia tych rozwiązań w razie potrzeby.
 > Aby zapoznać się z porównaniem opcji równoważenia obciążenia platformy Azure, zobacz [Omówienie opcji równoważenia obciążenia na platformie Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).

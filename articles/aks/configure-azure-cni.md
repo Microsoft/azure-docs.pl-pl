@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4286b3ea8f41ac5c4c494039c5d45c2332c72226
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c0cc1c8da6fddfad6d3f70c88860ddcdd35a11a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742096"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182421"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service (AKS)
 
@@ -223,7 +223,7 @@ Wartości w poszczególnych węzłach w przypadku korzystania z usługi Azure CN
 |CNI|Metoda wdrażania|Domyślne|Konfigurowalne podczas wdrażania|
 |--|--| :--: |--|
 |Tradycyjny CNI platformy Azure|Interfejs wiersza polecenia platformy Azure|30|Tak (do 250)|
-|Usługa Azure CNI z dynamiczną alokacją adresów IP|Interfejs wiersza polecenia platformy Azure|110|Tak (do 250)|
+|Usługa Azure CNI z dynamiczną alokacją adresów IP|Interfejs wiersza polecenia platformy Azure|250|Tak (do 250)|
 
 Wszystkie inne wskazówki związane z konfigurowaniem maksymalnej liczby węzłów na stronie pozostają takie same.
 
@@ -346,7 +346,7 @@ Dowiedz się więcej o sieci w AKS w następujących artykułach:
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md
@@ -355,11 +355,11 @@ Dowiedz się więcej o sieci w AKS w następujących artykułach:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
-[az-extension-update]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
-[az-feature-register]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
-[az-feature-list]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
-[az-provider-register]: https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models

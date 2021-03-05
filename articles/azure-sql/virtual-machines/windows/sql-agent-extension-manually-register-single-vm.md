@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964528"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181435"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Zarejestruj SQL Server maszynę wirtualną przy użyciu rozszerzenia programu SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -304,7 +304,7 @@ Aby wyrejestrować SQL Server maszynę wirtualną z rozszerzenia przy użyciu Az
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby wyrejestrować SQL Server maszynę wirtualną z rozszerzenia przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Spowoduje to usunięcie SQL Server *zasobów* maszyn wirtualnych, ale nie spowoduje usunięcia maszyny wirtualnej. 
+Aby wyrejestrować SQL Server maszynę wirtualną z rozszerzenia przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ SQL VM Delete](/cli/azure/sql/vm#az-sql-vm-delete) . Spowoduje to usunięcie SQL Server *zasobów* maszyn wirtualnych, ale nie spowoduje usunięcia maszyny wirtualnej. 
 
 
 ```azurecli-interactive

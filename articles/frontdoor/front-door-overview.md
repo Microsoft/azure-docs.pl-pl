@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e9d719a29bc9a4b3e0428913e5bc1a91bec16623
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282264"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183169"
 ---
 # <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
 
@@ -32,7 +32,7 @@ Drzwiczki z przodu działają w warstwie 7 (warstwie HTTP/HTTPS) przy użyciu pr
 >[!NOTE]
 > Platforma Azure udostępnia zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia dla Twoich scenariuszy. 
 > * Jeśli chcesz korzystać z globalnego routingu opartego na systemie DNS i **nie** ma wymagań dotyczących zakończenia protokołu Transport Layer Security (TLS) ("odciążanie protokołu SSL"), żądania dla protokołu HTTP/HTTPS lub przetwarzania warstwy aplikacji, zapoznaj się z [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * Jeśli chcesz zrównoważyć obciążenie między serwerami w regionie w warstwie aplikacji, przejrzyj [Application Gateway](../application-gateway/overview.md)
+> * Jeśli chcesz zrównoważyć obciążenie między serwerami w regionie w warstwie aplikacji, zapoznaj się z tematem [Application Gateway](../application-gateway/overview.md).
 > * Aby przeprowadzić Równoważenie obciążenia warstwy sieciowej, zapoznaj się z tematem [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Kompleksowe scenariusze mogą skorzystać z łączenia tych rozwiązań w razie potrzeby.
@@ -70,7 +70,7 @@ Najważniejsze funkcje dołączone do czołowych drzwi:
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Front Door](https://azure.microsoft.com/pricing/details/frontdoor/). Zobacz umowę [SLA dla drzwi platformy Azure](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
 
-## <a name="whats-new"></a>Co nowego?
+## <a name="whats-new"></a>Co nowego
 
 Zasubskrybuj źródło danych RSS i Wyświetl najnowsze aktualizacje funkcji Front-drzwiczk platformy Azure na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
 

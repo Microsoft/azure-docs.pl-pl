@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875250"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181520"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagowanie na zdarzenia usługi Blob Storage
 
@@ -29,7 +29,7 @@ Jeśli chcesz wypróbować zdarzenia magazynu obiektów blob, zapoznaj się z do
 
 |Jeśli chcesz użyć tego narzędzia:    |Zobacz ten artykuł: |
 |--|-|
-|Witryna Azure Portal    |[Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Portal    |[Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal](../../event-grid/blob-event-quickstart-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego w sieci Web przy użyciu programu PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Interfejs wiersza polecenia platformy Azure    |[Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure](./storage-blob-event-quickstart.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
@@ -98,7 +98,7 @@ Aplikacje, które obsługują zdarzenia magazynu obiektów blob, powinny spełni
 > * Podobnie Sprawdź, czy typ zdarzenia jest przygotowana do przetworzenia i nie zakładaj, że wszystkie zdarzenia, które otrzymujesz, są oczekiwanymi typami.
 > * Ponieważ komunikaty mogą trafiać po pewnym opóźnieniu, Użyj pól ETag, aby zrozumieć, czy informacje o obiektach są nadal aktualne. Aby dowiedzieć się, jak używać pola ETag, zobacz [Zarządzanie współbieżnością w magazynie obiektów BLOB](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * Ponieważ komunikaty mogą się pojawiać poza kolejnością, Użyj pól programu Sequencer do zrozumienia kolejności zdarzeń dla każdego określonego obiektu. Pole Sequencer jest wartością ciągu reprezentującą logiczną sekwencję zdarzeń dla każdej konkretnej nazwy obiektu BLOB. Można użyć standardowego porównania ciągów, aby zrozumieć względną sekwencję dwóch zdarzeń dla tej samej nazwy obiektu BLOB.
-> * Zdarzenia magazynu gwarantują co najmniej jednokrotne dostarczanie do subskrybentów, co gwarantuje, że wszystkie komunikaty są zwracane. Jednak ze względu na ponowną próbę lub dostępność subskrypcji mogą czasami wystąpić zduplikowane komunikaty. Aby dowiedzieć się więcej na temat dostarczania komunikatów i ponawiania prób, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../../event-grid/delivery-and-retry.md).
+> * Zdarzenia magazynu gwarantują co najmniej jednokrotne dostarczanie do subskrybentów, co gwarantuje, że wszystkie komunikaty są zwracane. Jednak ze względu na ponowną próbę między węzłami zaplecza a usługami lub dostępnością subskrypcji mogą wystąpić duplikaty komunikatów. Aby dowiedzieć się więcej na temat dostarczania komunikatów i ponawiania prób, zobacz [Event Grid dostarczania komunikatów i ponów próbę](../../event-grid/delivery-and-retry.md).
 > * Użyj pola blobtype, aby zrozumieć, jaki typ operacji jest dozwolony dla obiektu BLOB, a także typy bibliotek klientów, które powinny być używane w celu uzyskania dostępu do obiektu BLOB. Prawidłowe wartości to `BlockBlob` lub `PageBlob` . 
 > * Użyj pola adresu URL z `CloudBlockBlob` `CloudAppendBlob` konstruktorami i, aby uzyskać dostęp do obiektu BLOB.
 > * Ignoruj pola, które nie są zrozumiałe. Ta metoda pomaga w zachowaniu odporności na nowe funkcje, które mogą zostać dodane w przyszłości.

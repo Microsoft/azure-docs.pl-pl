@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 1a3f2ae4829c7f4ae41d31e2a2fc35d79adf3d4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 772602a11878276da3b81b84e7f4016997375077
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596706"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183067"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurowanie wizualizacji zależności
 
@@ -22,14 +22,14 @@ W tym artykule opisano sposób konfigurowania analizy zależności opartej na ag
 - Zapoznaj się z wymaganiami dotyczącymi obsługi i wdrażania analiz zależności opartych na agentach:
     - [Maszyny wirtualne VMware](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Serwery fizyczne](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Maszyny wirtualne funkcji Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [Maszyny wirtualne funkcji Hyper-V](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Upewnij się, że:
     - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](./create-manage-projects.md) je teraz.
     - Sprawdź, czy [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
     - Skonfiguruj [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera. Skonfiguruj urządzenie dla:
-        - [Oprogramowanie VMware](how-to-set-up-appliance-vmware.md) Maszyn.
-        - [Funkcja Hyper-V](how-to-set-up-appliance-hyper-v.md) Maszyn.
-        - [Serwery fizyczne](how-to-set-up-appliance-physical.md).
+        - [Oprogramowanie VMware](how-to-set-up-appliance-vmware.md) Maszyn
+        - [Funkcja Hyper-V](how-to-set-up-appliance-hyper-v.md) Maszyn
+        - [Serwery fizyczne](how-to-set-up-appliance-physical.md)
 - Aby użyć wizualizacji zależności, należy skojarzyć [obszar roboczy log Analytics](../azure-monitor/logs/manage-access.md) z projektem Azure Migrate:
     - Obszar roboczy można dołączyć dopiero po skonfigurowaniu urządzenia Azure Migrate i odnalezieniu maszyn w projekcie Azure Migrate.
     - Upewnij się, że masz obszar roboczy w subskrypcji zawierającej projekt Azure Migrate.

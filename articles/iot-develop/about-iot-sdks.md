@@ -6,12 +6,12 @@ ms.author: elhorton
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 4d9546c8a912176117e42f2a6bbef3058331383b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e85cc9cdbb14c419e4bddb5ee659aa657b49a8c1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702678"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183543"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Omówienie zestawów SDK urządzeń usługi Azure IoT
 
@@ -60,7 +60,7 @@ Opcje umożliwiające rozpoczęcie pracy zależą od rodzaju posiadanego urządz
 Te zestawy SDK są wyspecjalizowane do uruchamiania na urządzeniach z ograniczoną ilością zasobów obliczeniowych lub pamięci. Aby dowiedzieć się więcej o typowych typach urządzeń, zobacz [Omówienie typów urządzeń usługi Azure IoT](concepts-iot-device-types.md).
 
 #### <a name="embedded-c-sdk"></a>Osadzony zestaw SDK języka C
-* [Repozytorium GitHub](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0/sdk/docs/iot)
+* [Repozytorium GitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)
 * [Samples](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
 * [Dokumentacja referencyjna](https://azure.github.io/azure-sdk-for-c/)
 * [Jak skompilować osadzony zestaw SDK języka C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
@@ -68,7 +68,7 @@ Te zestawy SDK są wyspecjalizowane do uruchamiania na urządzeniach z ograniczo
 
 #### <a name="azure-rtos-middleware"></a>Oprogramowanie pośredniczące platformy Azure RTO
 
-* [Repozytorium GitHub](https://github.com/azure-rtos/threadx)
+* [Repozytorium GitHub](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)
 * [Wprowadzenie prowadnice](https://github.com/azure-rtos/getting-started) i [więcej przykładów](https://github.com/azure-rtos/samples)
 * [Dokumentacja referencyjna](/azure/rtos/threadx/)
 
