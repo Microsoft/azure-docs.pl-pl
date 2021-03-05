@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6ed9b316fceeb30a775e2e0d90e7bbb0a07278cd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072228"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180501"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -116,7 +116,7 @@ W przypadku zautomatyzowanych eksperymentów usługi Machine Learning cechowania
 
 W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automatycznie skalowane lub znormalizowane w celu zapewnienia prawidłowego wykonywania algorytmów. Podczas uczenia modelu jedna z następujących technik skalowania lub normalizacji zostanie zastosowana do każdego modelu. Dowiedz się, w jaki sposób usługa AutoML pomaga [zapobiegać nadmiernemu dopasowywaniu i niezrównoważonym danych](concept-manage-ml-pitfalls.md) w modelach.
 
-|&nbsp; & &nbsp; Normalizacja skalowania| Opis |
+|Skalowanie &nbsp; & &nbsp; przetwarzania| Opis |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Ujednolicenie funkcji przez usunięcie średniej i skalowania do wariancji jednostek  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Przekształca funkcje, przeskalowane każdą funkcję według minimalnej i maksymalnej wartości tej kolumny  |
@@ -172,7 +172,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. 
 
-| Cechy                                                    | Zdalne | Lokalne | 
+| Cecha                                                    | Zdalne | Lokalne | 
 |------------------------------------------------------------|--------|-------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | 
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       |
@@ -275,7 +275,7 @@ Samouczki to kompleksowe przykładowe scenariusze AutoML.
 
  + **W przypadku środowiska z niską lub brakiem kodu** zapoznaj się z [samouczkiem: Tworzenie zautomatyzowanych modeli klasyfikacji ml przy użyciu programu Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Przykład: 
+Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Na przykład 
 
 + Konfigurowanie ustawień automatycznych eksperymentów szkoleniowych
     + W programie Azure Machine Learning Studio [wykonaj te kroki](how-to-use-automated-ml-for-ml-models.md). 

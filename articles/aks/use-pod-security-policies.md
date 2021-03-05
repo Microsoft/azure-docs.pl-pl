@@ -4,21 +4,26 @@ description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą P
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371230"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180313"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), została ustawiona na przestarzałe i nie będzie już dostępna po 30 czerwca 2021** na korzyść [Azure Policy dla AKS](use-pod-security-on-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
+> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), została ustawiona na przestarzałe i nie będzie już dostępna po 30 czerwca 2021** na korzyść [Azure Policy dla AKS](use-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
 >
 > Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
 >
-> Zdecydowanie zaleca się rozpoczęcie testowania scenariuszy z Azure Policy dla AKS, które oferują wbudowane zasady zabezpieczające i wbudowane inicjatywy, które są mapowane na zasady zabezpieczeń na poziomie. Kliknij tutaj, aby dowiedzieć się więcej na temat [migracji do Azure Policy z poziomu zasad zabezpieczeń (wersja zapoznawcza)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+> Zdecydowanie zaleca się rozpoczęcie testowania scenariuszy z Azure Policy dla AKS, które oferują wbudowane zasady zabezpieczające i wbudowane inicjatywy, które są mapowane na zasady zabezpieczeń na poziomie. Aby przeprowadzić migrację z zasad zabezpieczeń na komputerze, należy wykonać następujące działania w klastrze.
+> 
+> 1. [Wyłącz zasady zabezpieczeń pod](#clean-up-resources) względem klastra
+> 1. Włączanie [dodatku Azure Policy][kubernetes-policy-reference]
+> 1. Włącz odpowiednie zasady platformy Azure z [dostępnych zasad wbudowanych][policy-samples]
+> 1. Przejrzyj [zmiany zachowania między zasadami zabezpieczeń a Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zaplanować. Nie można uruchomić z nich zasobników, które żądają niedozwolonych zasobów w klastrze AKS. Ten dostęp można zdefiniować przy użyciu zasad zabezpieczeń pod. W tym artykule pokazano, jak za pomocą zasad zabezpieczeń w programie ograniczyć wdrażanie zasobników w AKS.
 
@@ -77,6 +82,26 @@ Po włączeniu zasad zabezpieczeń w klastrze AKS są stosowane pewne zasady dom
 * Włącz funkcję zasad zabezpieczeń pod
 
 Aby pokazać, jak zasady domyślne ograniczają wdrożenia, w tym artykule należy najpierw włączyć funkcję zasad zabezpieczeń na stronie, a następnie utworzyć zasadę niestandardową.
+
+### <a name="behavior-changes-between-pod-security-policy-and-azure-policy"></a>Zmiany zachowań między zasadami zabezpieczeń a Azure Policy
+
+Poniżej znajduje się podsumowanie zachowania zmian między zasadami zabezpieczeń a Azure Policy.
+
+|Scenariusz| Zasady zabezpieczeń pod | Azure Policy |
+|---|---|---|
+|Instalacja|Włącz funkcję zasad zabezpieczeń pod |Włącz dodatek Azure Policy
+|Wdrażanie zasad| Wdróż zasób zasad zabezpieczeń| Przypisz zasady platformy Azure do zakresu subskrypcji lub grupy zasobów. Dodatek Azure Policy jest wymagany dla aplikacji zasobów Kubernetes.
+| Zasady domyślne | Po włączeniu zasad zabezpieczeń na platformie AKS są stosowane domyślne zasady uprzywilejowane i nieograniczone. | Nie są stosowane żadne zasady domyślne, włączając dodatek Azure Policy. Należy jawnie włączyć zasady w Azure Policy.
+| Kto może tworzyć i przypisywać zasady | Administrator klastra tworzy zasób pod kątem zasad zabezpieczeń | Użytkownicy muszą mieć minimalną rolę uprawnień "właściciel" lub "Współautor zasad zasobów" w grupie zasobów klastra AKS. -Za pomocą interfejsu API użytkownicy mogą przypisywać zasady w zakresie zasobów klastra AKS. Użytkownik powinien mieć co najmniej uprawnienia "właściciel" lub "Współautor zasad zasobów" w zasobie klastra AKS. -W Azure Portal zasady można przypisywać na poziomie grupy zarządzania/subskrypcji/grupy zasobów.
+| Autoryzowanie zasad| Konta użytkowników i usług wymagają jawnych uprawnień do używania zasad zabezpieczeń usługi. | Do autoryzacji zasad nie jest wymagane żadne dodatkowe przypisanie. Po przypisaniu zasad na platformie Azure wszyscy użytkownicy klastrów mogą korzystać z tych zasad.
+| Zastosowanie zasad | Użytkownik administracyjny pomija wymuszanie zasad zabezpieczeń pod. | Wszyscy użytkownicy (administrator & nie administrator) widzą te same zasady. Nie ma żadnej specjalnej wielkości liter na podstawie użytkowników. Aplikacje zasad mogą być wykluczone na poziomie przestrzeni nazw.
+| Zakres zasad | Zasady zabezpieczeń pod nie są obszarami nazw | Szablony ograniczeń używane przez Azure Policy nie są obszarami nazw.
+| Akcja odmowy/inspekcji/mutacji | Zasady zabezpieczeń pod obsługują tylko akcje Odmów. Mutację można wykonać przy użyciu wartości domyślnych podczas tworzenia żądań. Walidacja może odbywać się w trakcie żądania aktualizacji.| Azure Policy obsługuje obie akcje inspekcji & odmowy. Mutacja nie jest jeszcze obsługiwana, ale została zaplanowana.
+| Zgodność z zasadami zabezpieczeń | Nie ma wglądu w zgodność z jednostkami, które istniały przed włączeniem zasad zabezpieczeń pod. Brak zgodnych zasobników utworzonych po włączeniu zasad zabezpieczeń na poziomie. | Niezgodne zasobniki, które istniały przed zastosowaniem zasad platformy Azure, byłyby widoczne w przypadku naruszeń zasad. Niezgodne zasobniki utworzone po włączeniu zasad platformy Azure są odrzucane, jeśli zasady są ustawione z efektem Odmów.
+| Jak wyświetlić zasady w klastrze | `kubectl get psp` | `kubectl get constrainttemplate` -Wszystkie zasady są zwracane.
+| Zasady zabezpieczeń na poziomie Standard — uprzywilejowane | Zasób zasad zabezpieczeń uprzywilejowanych jest tworzony domyślnie podczas włączania funkcji. | Tryb uprzywilejowany oznacza brak ograniczeń, w związku z czym nie ma żadnego przypisania Azure Policy.
+| [Zasady zabezpieczeń w warstwie Standardowa — linia bazowa/domyślna](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | Użytkownik instaluje zasób bazowy zasad zabezpieczeń. | Azure Policy zawiera [wbudowaną inicjatywę bazową](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) , która jest mapowana na zasady zabezpieczeń według planu bazowego.
+| [W warstwie Standardowa zasad zabezpieczeń — z ograniczeniami](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | Użytkownik instaluje zasób z ograniczoną zasadą zabezpieczeń. | Azure Policy zawiera [wbudowaną ograniczoną inicjatywę](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) , która jest mapowana na zasady zabezpieczeń ograniczone pod.
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Włączanie zasad zabezpieczeń pod względem klastra AKS
 
@@ -453,3 +478,4 @@ Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice

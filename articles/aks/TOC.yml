@@ -262,8 +262,8 @@
           href: control-kubeconfig-access.md
         - name: Zabezpieczanie ruchu związanego z zasobnikiem za pomocą zasad sieciowych
           href: use-network-policies.md
-        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy
-          href: use-pod-security-on-azure-policy.md
+        - name: Korzystanie z usługi Azure Policy
+          href: use-azure-policy.md
         - name: Używanie zasad zabezpieczeń zasobnika (wersja zapoznawcza)
           href: use-pod-security-policies.md
         - name: Definiowanie zakresów autoryzowanych adresów IP dla serwera interfejsu API

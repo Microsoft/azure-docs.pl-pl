@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1bcd0ea253db01d626ef1887ef0983d30ca794b9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 93fd682f252ac3f85c642633484a9c4eb6c2fb4b
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209981"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180857"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Konfigurowanie ograniczeń dostępu Azure App Service
 
@@ -95,7 +95,7 @@ Punktów końcowych usługi nie można używać do ograniczania dostępu do apli
 Za pomocą punktów końcowych usługi można skonfigurować aplikację przy użyciu bram aplikacji lub innych urządzeń zapory aplikacji sieci Web (WAF). Możesz również skonfigurować wielowarstwowe aplikacje z bezpiecznymi zapleczami. Aby uzyskać więcej informacji, zobacz [funkcje sieciowe i App Service](networking-features.md) i [Application Gateway integrację z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> - Punkty końcowe usługi nie są obecnie obsługiwane w przypadku aplikacji sieci Web, które używają wirtualnego adresu IP (VIP) protokołu IP SSL (SSL).
+> - Punkty końcowe usługi nie są obecnie obsługiwane w przypadku aplikacji sieci Web, które używają wirtualnego adresu IP (VIP) protokołu IP Secure Sockets Layer (SSL).
 >
 #### <a name="set-a-service-tag-based-rule-preview"></a>Ustawianie reguły opartej na tagach usługi (wersja zapoznawcza)
 
@@ -166,7 +166,7 @@ Ruch z usług frontonu platformy Azure do aplikacji pochodzi z dobrze znanego ze
 
 Ograniczenia dostępu można dodać programowo, wykonując jedną z następujących czynności: 
 
-* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Na przykład:
+* Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/access-restriction). Na przykład:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \

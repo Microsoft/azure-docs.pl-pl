@@ -4,13 +4,13 @@ description: W tym artykule opisano sposób zarządzania użytkownikami w usłud
 author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: v-umha
-ms.openlocfilehash: e2769e97dde7f0b99bd29da9c6eb65954bc84dd2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: v-ummehabiba
+ms.openlocfilehash: de9a11cac9856417422bd72579cbca44233ab422
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677546"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179905"
 ---
 # <a name="manage-users"></a>Zarządzanie użytkownikami
 
@@ -30,21 +30,21 @@ Usługa Azure FarmBeats używa usługi Azure AD do uwierzytelniania, kontroli do
 
 Usługa Azure FarmBeats obsługuje dwa typy ról użytkownika:
 
- - **Administrator** : pełny dostęp do interfejsów API usługi Azure FarmBeats Datahub. Użytkownicy w tej roli mogą wysyłać zapytania do wszystkich obiektów usługi Azure FarmBeats Datahub i wykonywać wszystkie operacje z akceleratora FarmBeats.
- - **Tylko do odczytu** : dostęp tylko do odczytu do interfejsów API FarmBeats Datahub. Użytkownicy mogą wyświetlać interfejsy API Datahub, pulpity nawigacyjne akceleratora i mapy. Użytkownicy z dostępem tylko do odczytu nie mogą wykonywać operacji, takich jak generowanie map, kojarzenie urządzeń lub tworzenie Farm.
+ - **Administrator**: pełny dostęp do interfejsów API usługi Azure FarmBeats Datahub. Użytkownicy w tej roli mogą wysyłać zapytania do wszystkich obiektów usługi Azure FarmBeats Datahub i wykonywać wszystkie operacje z akceleratora FarmBeats.
+ - **Tylko do odczytu**: dostęp tylko do odczytu do interfejsów API FarmBeats Datahub. Użytkownicy mogą wyświetlać interfejsy API Datahub, pulpity nawigacyjne akceleratora i mapy. Użytkownicy z dostępem tylko do odczytu nie mogą wykonywać operacji, takich jak generowanie map, kojarzenie urządzeń lub tworzenie Farm.
 
 ## <a name="add-users-to-azure-farmbeats"></a>Dodawanie użytkowników do usługi Azure FarmBeats
 
 Aby dodać użytkowników do usługi Azure FarmBeats:
 
 1. Zaloguj się do akceleratora, a następnie wybierz ikonę **Ustawienia** .
-2. Wybierz **Access Control** .
+2. Wybierz **Access Control**.
 
     ![Okienko ustawień farmy](./media/create-farms-in-azure-farmbeats/settings-users-1.png)
 
 3. Wprowadź identyfikator poczty e-mail użytkownika, do którego chcesz udzielić dostępu.
-4. Wybierz żądaną rolę, **administratora** lub **tylko do odczytu** .
-5. Wybierz pozycję **Dodaj rolę** .
+4. Wybierz żądaną rolę, **administratora** lub **tylko do odczytu**.
+5. Wybierz pozycję **Dodaj rolę**.
 
 Dodany użytkownik może teraz uzyskiwać dostęp do usługi Azure FarmBeats (zarówno Datahub, jak i Akcelerator).
 
@@ -53,8 +53,8 @@ Dodany użytkownik może teraz uzyskiwać dostęp do usługi Azure FarmBeats (za
 Aby usunąć użytkowników z systemu Azure FarmBeats:
 
 1. Zaloguj się do akceleratora, a następnie wybierz ikonę **Ustawienia** .
-2. Wybierz **Access Control** .
-3. Wybierz pozycję **Usuń** .
+2. Wybierz **Access Control**.
+3. Wybierz pozycję **Usuń**.
 
    Użytkownik zostanie usunięty z systemu. Zostanie wyświetlony następujący komunikat potwierdzający:
 
@@ -67,18 +67,18 @@ Aby usunąć użytkowników z systemu Azure FarmBeats:
 
 Postępuj zgodnie z instrukcjami, aby dodać użytkowników do usługi Azure AD:
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W prawym górnym rogu wybierz swoje konto, a następnie przejdź do dzierżawy usługi Azure AD, która jest skojarzona z FarmBeats.
-3. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy** .
+3. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**.
 
     Zostanie wyświetlona lista użytkowników usługi Azure AD.
 
-4. Aby dodać użytkownika do katalogu, wybierz pozycję **nowy użytkownik** . Aby dodać użytkownika zewnętrznego, wybierz pozycję **nowy użytkownik-Gość** .
+4. Aby dodać użytkownika do katalogu, wybierz pozycję **nowy użytkownik**. Aby dodać użytkownika zewnętrznego, wybierz pozycję **nowy użytkownik-Gość**.
 
     ![Okienko "Wszyscy użytkownicy"](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Wybierz nazwę nowego użytkownika, a następnie wypełnij pola wymagane dla tego użytkownika.
-6. Wybierz pozycję **Utwórz** .
+6. Wybierz przycisk **Utwórz**.
 
 Aby uzyskać informacje na temat zarządzania użytkownikami usługi Azure AD, zobacz [Dodawanie lub usuwanie użytkowników w usłudze Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 

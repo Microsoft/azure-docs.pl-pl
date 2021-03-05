@@ -43,10 +43,6 @@
           href: tutorial-sql-server-to-managed-instance.md
         - name: do wystąpienia zarządzanego Azure SQL (online)
           href: tutorial-sql-server-managed-instance-online.md
-    - name: Migracja z usług pulpitu zdalnego programu SQL Server
-      items:
-        - name: do usługi Azure SQL Database lub wystąpienia zarządzanego SQL
-          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: Migracja z bazy danych MySQL
       items:
         - name: do usługi Azure Database for MySQL
@@ -137,8 +133,6 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Znane problemy z migracją
           items:
-            - name: Baza danych SQL
-              href: known-issues-azure-sql-online.md
             - name: Wystąpienie zarządzane SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
             - name: Azure DB dla MySQL

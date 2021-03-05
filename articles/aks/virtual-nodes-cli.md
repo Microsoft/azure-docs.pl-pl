@@ -6,23 +6,24 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348478"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180942"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Tworzenie i Konfigurowanie klastra usługi Azure Kubernetes Services (AKS) w celu używania węzłów wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć i skonfigurować zasoby sieci wirtualnej i klaster AKS, a następnie włączyć węzły wirtualne.
 
-> [!NOTE]
-> [Ten artykuł](virtual-nodes.md) zawiera omówienie dostępności i ograniczeń w regionie przy użyciu węzłów wirtualnych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci (Azure CNI). Domyślnie klastry AKS są tworzone przy użyciu sieci *podstawowej* (korzystającą wtyczki kubenet). W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
+
+> [!IMPORTANT]
+> Przed użyciem węzłów wirtualnych z AKS należy przejrzeć [ograniczenia dotyczące AKS węzłów wirtualnych][virtual-nodes-aks] i [ograniczeń sieci wirtualnych ACI][virtual-nodes-networking-aci]. Ograniczenia te mają wpływ na lokalizację, konfigurację sieci oraz inne szczegóły konfiguracji klastra AKS i węzły wirtualne.
 
 Jeśli nie korzystasz wcześniej z ACI, zarejestruj dostawcę usług w ramach subskrypcji. Stan rejestracji dostawcy ACI można sprawdzić za pomocą polecenia [AZ Provider list][az-provider-list] , jak pokazano w następującym przykładzie:
 
@@ -30,7 +31,7 @@ Jeśli nie korzystasz wcześniej z ACI, zarejestruj dostawcę usług w ramach su
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-Dostawca *Microsoft. ContainerInstance* powinien raportować jako *zarejestrowane* , jak pokazano w następujących przykładowych danych wyjściowych:
+Dostawca *Microsoft. ContainerInstance* powinien raportować jako *zarejestrowane*, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -38,7 +39,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-Jeśli dostawca jest wyświetlany jako *NotRegistered* , zarejestruj dostawcę przy użyciu polecenia [AZ Provider Register][az-provider-register] , jak pokazano w następującym przykładzie:
+Jeśli dostawca jest wyświetlany jako *NotRegistered*, zarejestruj dostawcę przy użyciu polecenia [AZ Provider Register][az-provider-register] , jak pokazano w następującym przykładzie:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -48,7 +49,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
 
-Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj** , aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.49 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -62,7 +63,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create][az-network-vnet-create] . Poniższy przykład tworzy nazwę sieci wirtualnej *myVnet* z prefiksem adresu *10.0.0.0/8* i podsiecią o nazwie *myAKSSubnet*. Prefiks adresu tej podsieci domyślnie *10.240.0.0/16* :
+Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create][az-network-vnet-create] . Poniższy przykład tworzy nazwę sieci wirtualnej *myVnet* z prefiksem adresu *10.0.0.0/8* i podsiecią o nazwie *myAKSSubnet*. Prefiks adresu tej podsieci domyślnie *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -175,7 +176,7 @@ Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-Następujące przykładowe dane wyjściowe pokazują utworzony węzeł maszyny wirtualnej, a następnie węzeł wirtualny dla systemu Linux, *Virtual-Node-ACI-Linux* :
+Następujące przykładowe dane wyjściowe pokazują utworzony węzeł maszyny wirtualnej, a następnie węzeł wirtualny dla systemu Linux, *Virtual-Node-ACI-Linux*:
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -352,3 +353,5 @@ Węzły wirtualne są często jednym składnikiem rozwiązania do skalowania w A
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[virtual-nodes-aks]: virtual-nodes.md
+[virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

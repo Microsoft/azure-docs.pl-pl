@@ -4,12 +4,12 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252644"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180024"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -41,7 +41,7 @@ Aby uwierzytelnić się w usłudze Azure AD, użyj tego punktu końcowego wraz z
 >
 > Punkt końcowy specyficzny dla dzierżawy jest opcjonalny w przypadku uwierzytelniania przy użyciu uwierzytelniania zintegrowanego, ale zalecane. Można jednak również użyć wspólnego punktu końcowego usługi Azure AD. Wspólny punkt końcowy zawiera interfejs zbierania poświadczeń ogólnych, gdy nie podano określonej dzierżawy. Wspólny punkt końcowy to `https://login.microsoftonline.com/common` .
 
-Aby uzyskać więcej informacji na temat punktów końcowych usługi Azure AD, zobacz [uwierzytelnianie a autoryzacja](). /active-directory/develop/authentication-vs-authorization.md).
+Aby uzyskać więcej informacji na temat punktów końcowych usługi Azure AD, zobacz [uwierzytelnianie a autoryzacja](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Punkt końcowy zasobu partii
 

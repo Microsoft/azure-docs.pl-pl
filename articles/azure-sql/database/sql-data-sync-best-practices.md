@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791447"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180245"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync) 
 
@@ -41,9 +41,9 @@ Omówienie usługi SQL Data Sync zawiera temat [Sync data across multiple cloud 
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Konta bazy danych z najmniej wymaganymi uprawnieniami
 
--   **Dla konfiguracji synchronizacji** . Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ User-Defined.
+-   **Dla konfiguracji synchronizacji**. Utwórz/Zmień tabelę; ALTER DATABASE; Utwórz procedurę; Wybierz/Zmień schemat; Utwórz typ User-Defined.
 
--   **Dla trwającej synchronizacji** . Wybierz/Wstaw/Aktualizuj/Usuń w tabelach wybranych do synchronizowania oraz w metadanych synchronizacji i tabelach śledzenia; Uprawnienie EXECUTE w procedurach składowanych utworzonych przez usługę; Uprawnienie EXECUTE dla typów tabel zdefiniowanych przez użytkownika.
+-   **Dla trwającej synchronizacji**. Wybierz/Wstaw/Aktualizuj/Usuń w tabelach wybranych do synchronizowania oraz w metadanych synchronizacji i tabelach śledzenia; Uprawnienie EXECUTE w procedurach składowanych utworzonych przez usługę; Uprawnienie EXECUTE dla typów tabel zdefiniowanych przez użytkownika.
 
 -   **W celu anulowania** aprowizacji. Modyfikuj w tabelach część synchronizacji; Zaznacz/Usuń w tabelach metadanych synchronizacji; Kontrola nad tabelami śledzenia synchronizacji, procedurami składowanymi i typami zdefiniowanymi przez użytkownika.
 
@@ -51,6 +51,10 @@ Azure SQL Database obsługuje tylko jeden zestaw poświadczeń. Aby wykonać te 
 
 -   Zmień poświadczenia dla różnych faz (na przykład *credentials1* na potrzeby instalacji i *credentials2* na bieżąco).  
 -   Zmień uprawnienia poświadczeń (oznacza to, że po skonfigurowaniu synchronizacji należy zmienić uprawnienia.
+
+### <a name="auditing"></a>Inspekcja
+
+Zaleca się włączenie inspekcji na poziomie baz danych w grupach synchronizacji. 
 
 ## <a name="setup"></a>Konfigurowanie
 
@@ -168,7 +172,7 @@ Regularnie Monitoruj grupę synchronizacji i kondycję bazy danych za pomocą po
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Unikaj nieaktualnych baz danych i grup synchronizacji
 
-Grupa synchronizacji lub baza danych w grupie synchronizacji mogą stać się nieaktualne. Gdy stan grupy synchronizacji jest **nieaktualny** , przestaje działać. Jeśli stan bazy **danych jest nieaktualny,** dane mogą zostać utracone. Najlepszym rozwiązaniem jest uniknięcie tego scenariusza zamiast próby odzyskania z niego.
+Grupa synchronizacji lub baza danych w grupie synchronizacji mogą stać się nieaktualne. Gdy stan grupy synchronizacji jest **nieaktualny**, przestaje działać. Jeśli stan bazy **danych jest nieaktualny,** dane mogą zostać utracone. Najlepszym rozwiązaniem jest uniknięcie tego scenariusza zamiast próby odzyskania z niego.
 
 #### <a name="avoid-out-of-date-databases"></a>Unikaj nieaktualnych baz danych
 
