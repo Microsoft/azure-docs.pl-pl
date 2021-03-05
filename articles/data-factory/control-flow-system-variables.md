@@ -7,14 +7,15 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 3da450ce1130b693fa346b4a6f4b42f6a0fd60a3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174210"
+ms.locfileid: "102201230"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano zmienne systemowe obsługiwane przez Azure Data Factory. Te zmienne można używać w wyrażeniach podczas definiowania jednostek Data Factory.
@@ -68,4 +69,5 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje o tym, jak te zmienne są używane w wyrażeniach, zobacz [Language Expression & Functions](control-flow-expression-language-functions.md).
+* Aby uzyskać informacje o tym, jak te zmienne są używane w wyrażeniach, zobacz [Language Expression & Functions](control-flow-expression-language-functions.md).
+* Aby użyć zmiennych systemowych zakresu wyzwalacza w potoku, zobacz [metadane wyzwalacza odwołania w potoku](how-to-use-trigger-parameterization.md)

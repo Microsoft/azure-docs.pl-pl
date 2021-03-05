@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742385"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200142"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Podstawa zabezpieczeń Azure dla Menedżera zapory platformy Azure
 
@@ -338,7 +338,7 @@ Zastosuj Tagi do zasobów platformy Azure, grup zasobów i subskrypcji, aby logi
 
 **Wskazówki**: Usuń zasoby Menedżera zapory platformy Azure, gdy nie są już potrzebne, aby zminimalizować obszar ataków. Użytkownicy mogą zarządzać swoimi zasobami Menedżera zapory platformy Azure za pośrednictwem interfejsów API Azure Portal, CLI lub REST.
 
-- [Interfejs wiersza polecenia zasad zapory platformy Azure](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Interfejs wiersza polecenia zasad zapory platformy Azure](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Interfejs wiersza polecenia sieci platformy Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -557,7 +557,7 @@ Ponadto oznacz zasoby przy użyciu tagów i utwórz system nazewnictwa, aby zide
 
 - [Dokumentacja szablonu zasad zapory platformy Azure](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Interfejs wiersza polecenia zasad zapory platformy Azure](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Interfejs wiersza polecenia zasad zapory platformy Azure](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Ilustracja implementacji guardrails w strefie docelowej skali przedsiębiorstwa](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

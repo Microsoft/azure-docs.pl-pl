@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797615"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201893"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -437,7 +437,7 @@ Wykonaj następujące kroki, korzystając z interfejsu wiersza polecenia platfor
    |query| Ciąg zapytania JMESPath. Aby uzyskać więcej informacji, zobacz [JMESPath](http://jmespath.org/). | --zapytanie <string>|
    |tryb pełny| Uwzględnij pełne rejestrowanie. | --verbose |
 
-2. W wierszu polecenia wyboru lub terminalu uruchom polecenie [AZ Data Box Job Create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) , aby utworzyć zamówienie Azure Data Box.
+2. W wierszu polecenia wyboru lub terminalu uruchom polecenie [AZ Data Box Job Create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) , aby utworzyć zamówienie Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +605,7 @@ Firma Microsoft następnie przygotowuje i wysyła urządzenie za pośrednictwem 
 
 ### <a name="track-a-single-order"></a>Śledzenie pojedynczej kolejności
 
-Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
+Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data Box, uruchom polecenie [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show) . Polecenie wyświetla informacje na temat zamówienia, takie jak, ale nie ograniczone do: nazwa, Grupa zasobów, informacje o śledzeniu, Identyfikator subskrypcji, informacje kontaktowe, typ wysyłki i jednostka SKU urządzenia.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +646,7 @@ Aby uzyskać informacje o śledzeniu jednej istniejącej kolejności Azure Data 
 
 ### <a name="list-all-orders"></a>Wyświetl listę wszystkich zamówień
 
-Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie, [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) Aby wyświetlić wszystkie Azure Data Box zamówienia. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
+Jeśli masz uporządkowaną wiele urządzeń, możesz uruchomić polecenie, [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) Aby wyświetlić wszystkie Azure Data Box zamówienia. Polecenie wyświetla listę wszystkich zamówień należących do określonej grupy zasobów. Są również wyświetlane w danych wyjściowych: Nazwa zamówienia, stan wysyłki, region platformy Azure, typ dostawy, stan zamówienia. Anulowane zamówienia są również zawarte na liście.
 Polecenie wyświetla również sygnatury czasowe poszczególnych zamówień.
 
 ```azurecli
@@ -765,7 +765,7 @@ Aby usunąć anulowaną kolejność, przejdź do **omówienia** i wybierz pozycj
 
 ### <a name="cancel-an-order"></a>Anulowanie zamówienia
 
-Aby anulować kolejność Azure Data Box, uruchom polecenie [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . Musisz określić przyczynę anulowania zamówienia.
+Aby anulować kolejność Azure Data Box, uruchom polecenie [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel) . Musisz określić przyczynę anulowania zamówienia.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -802,7 +802,7 @@ Aby anulować kolejność Azure Data Box, uruchom polecenie [`az databox job can
 
 ### <a name="delete-an-order"></a>Usuwanie zamówienia
 
-Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie, [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) Aby usunąć zamówienie.
+Jeśli Azure Data Box zamówienie zostało anulowane, możesz uruchomić polecenie, [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) Aby usunąć zamówienie.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

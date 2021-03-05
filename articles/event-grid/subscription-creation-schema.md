@@ -3,12 +3,12 @@ title: Schemat subskrypcji Azure Event Grid
 description: W tym artykule opisano właściwości subskrybowania zdarzenia z Azure Event Grid. Event Grid schemat subskrypcji.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119076"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199955"
 ---
 # <a name="event-grid-subscription-schema"></a>Schemat subskrypcji Event Grid
 
@@ -25,29 +25,30 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 Nazwa subskrypcji zdarzeń musi mieć 3-64 znaków i może zawierać tylko znaki a-z, A-Z, 0-9 i "-". W tym artykule opisano właściwości i schemat treści żądania.
- 
+ 
 ## <a name="event-subscription-properties"></a>Właściwości subskrypcji zdarzeń
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | destination | object | Obiekt definiujący punkt końcowy. |
 | filter | object | Opcjonalne pole do filtrowania typów zdarzeń. |
 
 ### <a name="destination-object"></a>obiekt docelowy
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | punkt końcowy | ciąg | Typ punktu końcowego dla subskrypcji (element webhook/HTTP, Event Hub lub queue). | 
 | endpointUrl | ciąg | Docelowy adres URL dla zdarzeń w tej subskrypcji zdarzeń. | 
 
 ### <a name="filter-object"></a>Obiekt Filter
 
-| Właściwość | Type | Opis |
+| Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Dopasuj, gdy typ zdarzenia w komunikacie zdarzenia to dokładne dopasowanie do jednej z tych nazw typów zdarzeń. Zgłasza błąd, gdy nazwa zdarzenia nie jest zgodna z zarejestrowanymi nazwami typów zdarzeń dla źródła zdarzenia. Domyślnie pasuje do wszystkich typów zdarzeń. |
 | subjectBeginsWith | ciąg | Filtr dopasowania prefiksu do pola podmiot w komunikacie zdarzenia. Domyślny lub pusty ciąg pasuje do wszystkich. | 
 | subjectEndsWith | ciąg | Filtr dopasowania sufiksu do pola podmiot w komunikacie zdarzenia. Domyślny lub pusty ciąg pasuje do wszystkich. |
 | isSubjectCaseSensitive | ciąg | Steruje dopasowaniem wielkości liter dla filtrów. |
+| enableAdvancedFilteringOnArrays | boolean | Włącza używanie tablic do kluczy w filtrowaniu zaawansowanym. Aby uzyskać więcej informacji, zobacz [filtrowanie zaawansowane](event-filtering.md#advanced-filtering). |
 
 
 ## <a name="example-subscription-schema"></a>Przykładowy schemat subskrypcji

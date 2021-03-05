@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673856"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201604"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurowanie punktów końcowych sieci usługi Azure File Sync
 Azure Files i Azure File Sync zapewniają dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -125,7 +125,7 @@ Address: 192.168.0.5
 
 ---
 
-### <a name="create-the-storage-sync-private-endpoint"></a>Tworzenie prywatnego punktu końcowego synchronizacji magazynu
+### <a name="create-the-storage-sync-service-private-endpoint"></a>Tworzenie prywatnego punktu końcowego usługi synchronizacji magazynu
 > [!Important]  
 > Aby można było używać prywatnych punktów końcowych w zasobie usługi synchronizacji magazynu, należy użyć agenta Azure File Sync w wersji 10,1 lub nowszej. Wersje agenta wcześniejsze niż 10,1 nie obsługują prywatnych punktów końcowych w usłudze synchronizacji magazynu. Wszystkie wcześniejsze wersje agenta obsługują prywatne punkty końcowe w ramach zasobu konta magazynu.
 
@@ -597,19 +597,44 @@ Aby wyłączyć dostęp do publicznego punktu końcowego usługi synchronizacji 
 $storageSyncServiceResourceGroupName = "<storage-sync-service-resource-group>"
 $storageSyncServiceName = "<storage-sync-service>"
 
-$storageSyncService = Get-AzResource `
-        -ResourceGroupName $storageSyncServiceResourceGroupName `
-        -ResourceName $storageSyncServiceName `
-        -ResourceType "Microsoft.StorageSync/storageSyncServices"
-
-$storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
+Set-AzStorageSyncService `
+    -ResourceGroupName $storageSyncServiceResourceGroupName `
+    -Name $storageSyncServiceName `
+    -IncomingTrafficPolicy AllowVirtualNetworksOnly
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 Interfejs wiersza polecenia platformy Azure nie obsługuje ustawiania `incomingTrafficPolicy` właściwości w usłudze synchronizacji magazynu. Wybierz kartę Azure PowerShell, aby uzyskać instrukcje dotyczące sposobu wyłączania publicznego punktu końcowego usługi synchronizacji magazynu.
 
 ---
+
+## <a name="azure-policy"></a>Azure Policy
+Azure Policy pomaga wymuszać standardy organizacji i oceniać zgodność z tymi standardami na dużą skalę. Azure Files i Azure File Sync uwidaczniają kilka przydatnych zasad sieciowych inspekcji i korygowania, które ułatwiają monitorowanie i automatyzowanie wdrożenia.
+
+Zasady przeprowadzają inspekcję środowiska i ostrzega użytkownika, jeśli konta magazynu lub usługi synchronizacji magazynu są rozbieżne ze zdefiniowanego zachowania. Na przykład jeśli publiczny punkt końcowy jest włączony, gdy zasady zostały ustawione tak, aby publiczne punkty końcowe były wyłączone. Zasady Modyfikuj/Wdróż dotyczą dalszych czynności i aktywnie modyfikują zasób (na przykład usługę synchronizacji magazynu) lub wdrażają zasoby (takie jak prywatne punkty końcowe), aby dostosować je do zasad.
+
+Następujące wstępnie zdefiniowane zasady są dostępne dla Azure Files i Azure File Sync:
+
+| Akcja | Usługa | Warunek | Nazwa zasady |
+|-|-|-|-|
+| Inspekcja | Azure Files | Publiczny punkt końcowy konta magazynu jest włączony. Aby uzyskać więcej informacji, zobacz temat [wyłączanie dostępu do publicznego punktu końcowego konta magazynu](#disable-access-to-the-storage-account-public-endpoint) . | Konta magazynu powinny ograniczać dostęp do sieci |
+| Inspekcja | Azure File Sync | Publiczny punkt końcowy usługi synchronizacji magazynu jest włączony. Aby uzyskać więcej informacji, zobacz temat [wyłączanie dostępu do publicznego punktu końcowego usługi synchronizacji magazynu](#disable-access-to-the-storage-sync-service-public-endpoint) . | Dostęp do sieci publicznej powinien być wyłączony dla Azure File Sync |
+| Inspekcja | Azure Files | Konto magazynu wymaga co najmniej jednego prywatnego punktu końcowego. Aby uzyskać więcej informacji [, zobacz Tworzenie prywatnego punktu końcowego konta magazynu](#create-the-storage-account-private-endpoint) . | Konto magazynu powinno korzystać z prywatnego połączenia z linkiem |
+| Inspekcja | Azure File Sync | Usługa synchronizacji magazynu wymaga co najmniej jednego prywatnego punktu końcowego. Aby uzyskać więcej informacji [, zobacz Tworzenie prywatnego punktu końcowego usługi synchronizacji magazynu](#create-the-storage-sync-service-private-endpoint) . | Azure File Sync powinien korzystać z prywatnego linku |
+| Modyfikowanie | Azure File Sync | Wyłącz publiczny punkt końcowy usługi synchronizacji magazynu. | Modyfikuj — Skonfiguruj Azure File Sync, aby wyłączyć dostęp do sieci publicznej |
+| Wdróż | Azure File Sync | Wdróż prywatny punkt końcowy dla usługi synchronizacji magazynu. | Konfigurowanie Azure File Sync z prywatnymi punktami końcowymi |
+| Wdróż | Azure File Sync | Wdróż rekord A w strefie DNS privatelink.afs.azure.net. | Konfigurowanie Azure File Sync do używania prywatnych stref DNS |
+
+### <a name="set-up-a-private-endpoint-deployment-policy"></a>Konfigurowanie zasad wdrażania prywatnego punktu końcowego
+Aby skonfigurować zasady wdrażania prywatnego punktu końcowego, przejdź do [Azure Portal](https://portal.azure.com/)i Wyszukaj **zasady**. Centrum Azure Policy powinno być górnym wynikiem. Przejdź do obszaru **Tworzenie**  >  **definicji** w spisie treści Centrum zasad. Okienko **definicje** wyników zawiera wstępnie zdefiniowane zasady dla wszystkich usług platformy Azure. Aby znaleźć określone zasady, wybierz kategorię **Magazyn** w filtrze kategorii lub Wyszukaj pozycję **Skonfiguruj Azure File Sync z prywatnymi punktami końcowymi**. Wybierz pozycję **...** i **Przypisz** , aby utworzyć nowe zasady z definicji.
+
+W bloku **podstawy** kreatora **przypisywania zasad** można ustawić zakres, zasób lub listę wykluczeń grup zasobów oraz nadać zasadom przyjazną nazwę ułatwiającą ich odróżnienie. Nie musisz modyfikować tych zasad, aby działały, ale możesz wprowadzić modyfikacje. Wybierz pozycję **dalej** , aby przejść do strony **parametrów** . 
+
+W bloku **Parametry** wybierz pozycję **...** obok listy rozwijanej **privateEndpointSubnetId** , aby wybrać sieć wirtualną i podsieć, w której należy wdrożyć prywatne punkty końcowe zasobów usługi synchronizacji magazynu. Kreator może potrwać kilka sekund, aby załadować dostępne sieci wirtualne w ramach subskrypcji. Wybierz odpowiednią sieć wirtualną/podsieć dla danego środowiska, a następnie kliknij przycisk **Wybierz**. Wybierz pozycję **dalej** , aby przejść do bloku **korygowania** .
+
+Aby można było wdrożyć prywatny punkt końcowy, gdy zostanie zidentyfikowana usługa synchronizacji magazynu bez prywatnego punktu końcowego, należy wybrać **zadanie Utwórz korygowanie** na stronie **korygowania** . Na koniec wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć przypisanie zasad i **utworzyć** je.
+
+Utworzone przypisanie zasad zostanie wykonane okresowo i może nie zostać uruchomione natychmiast po utworzeniu.
 
 ## <a name="see-also"></a>Zobacz też
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

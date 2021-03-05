@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: tyao
-ms.openlocfilehash: 885582481e3783bdd4fbad40a24499f42a40ce24
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 885b4d132208ab6f8b470d147438e26a5fd4bab7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193451"
+ms.locfileid: "102201672"
 ---
 # <a name="connect-azure-front-door-premium-to-a-storage-account-origin-with-private-link"></a>Połącz z platformą Azure Front-The-Premium w pochodzeniu konta magazynu z prywatnym linkiem
 
@@ -23,7 +23,7 @@ Ten artykuł przeprowadzi Cię przez proces konfigurowania jednostki SKU systemu
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="enable-private-link-to-a-storage-account-in-azure-front-door-premium"></a>Włączanie prywatnego linku do konta magazynu w warstwie Premium platformy Azure
+## <a name="enable-private-link-to-a-storage-account"></a>Włączanie prywatnego linku do konta magazynu
  
 W tej sekcji utworzysz mapowanie usługi link prywatny do prywatnego punktu końcowego utworzonego w sieci prywatnej drzwi frontonu platformy Azure. 
 
@@ -47,7 +47,7 @@ W tej sekcji utworzysz mapowanie usługi link prywatny do prywatnego punktu koń
 
 1. Następnie wybierz pozycję **Dodaj** , aby zapisać konfigurację.
 
-## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-the-storage-account"></a>Zatwierdzanie połączenia z prywatnym punktem końcowym z usługą Azure z konta magazynu
+## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>Zatwierdź połączenie prywatnego punktu końcowego z konta magazynu
 
 1. Przejdź do konta magazynu, dla którego skonfigurowano link prywatny w ostatniej sekcji. W obszarze **Ustawienia** wybierz pozycję **Sieć** .
 

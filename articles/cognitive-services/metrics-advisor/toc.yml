@@ -40,7 +40,7 @@
     - name: Interfejs API usługi Metrics Advisor
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Dokumentacja interfejsu wiersza polecenia platformy Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Dokumentacja programu PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Zasoby

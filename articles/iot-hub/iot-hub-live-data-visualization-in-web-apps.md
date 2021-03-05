@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588798"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200034"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -153,7 +153,7 @@ W konsoli programu znajdują się również dane wyjściowe, które pokazują ko
 
 [Web Apps funkcja Azure App Service](../app-service/overview.md) udostępnia platformę jako usługę (PaaS) do hostowania aplikacji sieci Web. Aplikacje sieci Web hostowane w Azure App Service mogą korzystać z zaawansowanych funkcji platformy Azure, takich jak dodatkowe zabezpieczenia, równoważenie obciążenia i skalowalność, a także rozwiązań DevOps platformy Azure i partnerów, takich jak ciągłe wdrażanie, zarządzanie pakietami i tak dalej. Azure App Service obsługuje aplikacje sieci Web opracowane w wielu popularnych językach i wdrożone w infrastrukturze systemu Windows lub Linux.
 
-W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i wdrożyć kod przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Można znaleźć szczegółowe informacje o poleceniach użytych w dokumentacji [AZ webapp](/cli/azure/webapp?view=azure-cli-latest) . Przed rozpoczęciem upewnij się, że wykonano kroki umożliwiające [dodanie grupy zasobów do usługi IoT Hub](#add-a-consumer-group-to-your-iot-hub), [pobranie parametrów połączenia z usługą dla Centrum IoT](#get-a-service-connection-string-for-your-iot-hub)oraz [pobranie aplikacji internetowej z witryny GitHub](#download-the-web-app-from-github).
+W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i wdrożyć kod przy użyciu poleceń interfejsu wiersza polecenia platformy Azure. Można znaleźć szczegółowe informacje o poleceniach użytych w dokumentacji [AZ webapp](/cli/azure/webapp) . Przed rozpoczęciem upewnij się, że wykonano kroki umożliwiające [dodanie grupy zasobów do usługi IoT Hub](#add-a-consumer-group-to-your-iot-hub), [pobranie parametrów połączenia z usługą dla Centrum IoT](#get-a-service-connection-string-for-your-iot-hub)oraz [pobranie aplikacji internetowej z witryny GitHub](#download-the-web-app-from-github).
 
 1. [Plan App Service](../app-service/overview-hosting-plans.md) definiuje zestaw zasobów obliczeniowych dla aplikacji hostowanej w App Service do uruchomienia. W tym samouczku użyjemy warstwy Developer/bezpłatna do hostowania aplikacji sieci Web. W przypadku warstwy Bezpłatna aplikacja sieci Web jest uruchamiana na udostępnionych zasobach systemu Windows przy użyciu innych aplikacji App Service, w tym aplikacji innych klientów. Platforma Azure oferuje również App Service plany wdrażania aplikacji sieci Web w ramach zasobów obliczeniowych systemu Linux. Możesz pominąć ten krok, jeśli masz już plan App Service, którego chcesz użyć.
 

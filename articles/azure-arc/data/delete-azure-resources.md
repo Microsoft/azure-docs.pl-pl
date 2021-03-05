@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364375"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202046"
 ---
 # <a name="delete-resources-from-azure"></a>Usuwanie zasobów z platformy Azure
 
@@ -64,10 +64,10 @@ W interfejsie wiersza polecenia platformy Azure można usunąć konkretne zasoby
 Aby usunąć zasoby wystąpienia zarządzanego SQL z platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, Zastąp wartości symboli zastępczych w poleceniu poniżej i uruchom je.
 
 ```azurecli
-az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
+az resource delete --name <sql instance name> --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name sql1 --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group rg1
+#az resource delete --name sql1 --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group rg1
 ```
 
 ### <a name="delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli"></a>Usuwanie zasobów grupy serwerów PostgreSQL ze skalowaniem przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -75,10 +75,10 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 Aby usunąć zasób grupy serwerów PostgreSQL ze skalowaniem z platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, Zastąp wartości symboli zastępczych w poleceniu poniżej i uruchom go.
 
 ```azurecli
-az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
+az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureArcData/postgresInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name pg1 --resource-type Microsoft.AzureData/postgresInstances --resource-group rg1
+#az resource delete --name pg1 --resource-type Microsoft.AzureArcData/postgresInstances --resource-group rg1
 ```
 
 ### <a name="delete-azure-arc-data-controller-resources-using-the-azure-cli"></a>Usuwanie zasobów usługi Azure Arc Data Controller przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -89,10 +89,10 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 Aby usunąć kontroler danych usługi Azure ARC z platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, Zastąp wartości symboli zastępczych w poleceniu poniżej i uruchom go.
 
 ```azurecli
-az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
+az resource delete --name <data controller name> --resource-type Microsoft.AzureArcData/dataControllers --resource-group <resource group name>
 
 #Example
-#az resource delete --name dc1 --resource-type Microsoft.AzureData/dataControllers --resource-group rg1
+#az resource delete --name dc1 --resource-type Microsoft.AzureArcData/dataControllers --resource-group rg1
 ```
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Usuwanie grupy zasobów przy użyciu interfejsu wiersza polecenia platformy Azure

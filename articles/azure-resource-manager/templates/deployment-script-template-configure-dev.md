@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: f731236b235883f019c74ef0b32f5066ca5b7514
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179371"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200941"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Konfigurowanie środowiska deweloperskiego na potrzeby skryptów wdrażania w szablonach ARM
 
@@ -357,7 +357,7 @@ Wartość domyślna dla ścieżki instalacji to `/mnt/azscripts/azscriptinput` .
 Domyślny obraz kontenera określony w szablonie to **MCR.Microsoft.com/Azure-CLI:2.9.1**. Zapoznaj się z listą [obsługiwanych wersji interfejsu wiersza polecenia platformy Azure](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
 > [!IMPORTANT]
-> Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). W przypadku korzystania z nieobsługiwanej wersji komunikat o błędzie zawiera listę obsługiwanych wersji.
+> Skrypt wdrażania używa dostępnych obrazów interfejsu wiersza polecenia firmy Microsoft Container Registry (MCR). Zaświadczanie obrazu interfejsu wiersza polecenia dla skryptu wdrożenia trwa około miesiąca. Nie używaj wersji interfejsu wiersza polecenia, które zostały wydane w ciągu 30 dni. Aby znaleźć daty wydania dla obrazów, zobacz informacje o [wersji interfejsu wiersza polecenia platformy Azure](/cli/azure/release-notes-azure-cli). W przypadku korzystania z nieobsługiwanej wersji komunikat o błędzie zawiera listę obsługiwanych wersji.
 
 Szablon zawiesza wystąpienie kontenera po 1 800 sekundach. Użytkownik ma 30 minut, zanim wystąpienie kontenera przejdzie do stanu terminalu, a sesja zakończy się.
 

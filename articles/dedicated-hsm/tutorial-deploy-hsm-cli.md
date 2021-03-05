@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 1ca8bc5c82540b0dc02959d26b452554ef294368
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852238"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200533"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Samouczek: wdrażanie sprzętowych modułów zabezpieczeń w istniejącej sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -38,7 +38,7 @@ Ten samouczek koncentruje się na dwóch modułach HSM i wymaganej bramie usług
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal. Wszystkie interakcje z usługą będą miały miejsce za pośrednictwem wiersza polecenia lub programu PowerShell. W tym samouczku będzie używany interfejs wiersza polecenia w usłudze Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem interfejsu wiersza polecenia platformy Azure, wykonaj instrukcje wprowadzające znajdujące się w sekcji dotyczącej [rozpoczynania pracy z interfejsem wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
+Dedykowany moduł HSM platformy Azure nie jest obecnie dostępny w witrynie Azure Portal. Wszystkie interakcje z usługą będą miały miejsce za pośrednictwem wiersza polecenia lub programu PowerShell. W tym samouczku będzie używany interfejs wiersza polecenia w usłudze Azure Cloud Shell. Jeśli jesteś nowym użytkownikiem interfejsu wiersza polecenia platformy Azure, wykonaj instrukcje wprowadzające znajdujące się w sekcji dotyczącej [rozpoczynania pracy z interfejsem wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/get-started-with-azure-cli).
 
 Założenia:
 

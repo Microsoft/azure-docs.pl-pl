@@ -8,12 +8,12 @@ ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 990a0ee73bd91ccb748c948b5fcf0e6124d84a03
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573041"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201434"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -64,7 +64,7 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
     >[!NOTE]
     >Obecnie istnieje **znany problem** w usłudze Cloud Shell, który wpływa na następujące grupy poleceń: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Aby rozwiązać ten problem, uruchom polecenie `az login` w usłudze Cloud Shell przed uruchomieniem danego polecenia lub użyj [lokalnego interfejsu wiersza polecenia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) zamiast usługi Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Aby rozwiązać ten problem, uruchom polecenie `az login` w usłudze Cloud Shell przed uruchomieniem danego polecenia lub użyj [lokalnego interfejsu wiersza polecenia](/cli/azure/install-azure-cli) zamiast usługi Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"

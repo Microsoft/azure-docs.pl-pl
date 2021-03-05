@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5a2540aeb36cfcb2048ec994bbb486badc8a68d1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358813"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201774"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze rozwiązania dotyczące konfiguracji klastra (SQL Server w usłudze Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Poniższa tabela zawiera listę opcji kworum dostępnych w kolejności zalecanej
 
 ||[Monitor dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Monitor w chmurze](/windows-server/failover-clustering/deploy-cloud-witness)  |[Monitor udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Obsługiwane systemy operacyjne**| Wszystko |Windows Server 2016 +| Wszystko|
+|**Obsługiwany system operacyjny**| Wszystko |Windows Server 2016 +| Wszystko|
 
 
 ### <a name="disk-witness"></a>Monitor dysku
@@ -76,9 +76,7 @@ Aby rozpocząć, zobacz [Configure a Cloud monitor](/windows-server/failover-clu
 
 ### <a name="file-share-witness"></a>Monitor udziału plików
 
-Monitor udziału plików to udział plików SMB, który jest zazwyczaj konfigurowany na serwerze plików z systemem Windows Server. Przechowuje informacje o klastrach w pliku monitora. log, ale nie przechowuje kopii bazy danych klastra. Na platformie Azure można skonfigurować [udział plików platformy Azure](../../../storage/files/storage-how-to-create-file-share.md) do użycia jako monitor udostępniania plików lub użyć udziału plików na oddzielnej maszynie wirtualnej.
-
-Jeśli zamierzasz korzystać z udziału plików platformy Azure, możesz go zainstalować przy użyciu tego samego procesu, który jest używany do [instalowania udziału plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Monitor udziału plików to udział plików SMB, który jest zazwyczaj konfigurowany na serwerze plików z systemem Windows Server. Przechowuje informacje o klastrach w pliku monitora. log, ale nie przechowuje kopii bazy danych klastra. Na platformie Azure można skonfigurować udział plików na oddzielnej maszynie wirtualnej.
 
 Aby rozpocząć, zobacz [Konfigurowanie monitora udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 

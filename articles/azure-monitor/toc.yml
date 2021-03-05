@@ -1078,7 +1078,7 @@
           href: insights/container-insights-reports.md
         - name: Wyświetlanie danych na żywo
           items:
-            - name: Dane na żywo (wersja zapoznawcza) — omówienie
+            - name: Dane na żywo — Omówienie
               href: containers/container-insights-livedata-overview.md
             - name: Konfigurowanie
               href: containers/container-insights-livedata-setup.md

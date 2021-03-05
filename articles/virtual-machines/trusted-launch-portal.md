@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fca11ce1cfa09fb680c2b288e40fa5f51337bdb8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124656"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200788"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Wdróż maszynę wirtualną z włączonym zaufanym uruchamianiem (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Utwórz maszynę wirtualną z włączonym zaufanym uruchamianiem.
 1. Na stronie **maszyny wirtualne** wybierz pozycję **Dodaj**, a następnie wybierz pozycję **maszyna wirtualna**.
 1. W obszarze **szczegóły projektu** upewnij się, że wybrano poprawną subskrypcję.
 1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wpisz nazwę grupy zasobów lub wybierz istniejącą grupę zasobów z listy rozwijanej.
-1. W obszarze **szczegóły wystąpienia** wpisz nazwę maszyny wirtualnej i wybierz region obsługujący zaufane uruchomienie.
+1. W obszarze **szczegóły wystąpienia** wpisz nazwę maszyny wirtualnej i wybierz region obsługujący [Zaufane uruchomienie](trusted-launch.md#public-preview-limitations).
 1. W obszarze **obraz** wybierz [obraz, który obsługuje zaufane uruchomienie](trusted-launch.md#public-preview-limitations). Możesz zobaczyć tylko wersję generacji 1 obrazu, która jest nieporozumiena, przejdź do następnego kroku.
 1. Przejdź do karty **Zaawansowane** , wybierając ją w górnej części strony.
 1. Przewiń w dół do sekcji **generacja maszyny wirtualnej** , a następnie wybierz pozycję **Gen 2**.
@@ -140,7 +140,7 @@ Aby uzyskać zalecenia dotyczące vTPM i bezpiecznego rozruchu dla zaufanych mas
 
 W niektórych przypadkach może być konieczne zarejestrowanie się w celu bezpiecznego rozruchu UEFI.  Na przykład może być konieczne przechodzenie przez [sposób podpisywania elementów w celu bezpiecznego rozruchu](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) dla Ubuntu. W takich przypadkach należy wprowadzić klucze rejestracji narzędzi MOK dla maszyny wirtualnej. Aby to zrobić, należy użyć konsoli szeregowej platformy Azure w celu uzyskania dostępu do narzędzia MOK.
 
-1. Włącz usługę Azure serial Console dla systemu Linux.
+1. Włącz usługę Azure serial Console dla systemu Linux. Aby uzyskać więcej informacji, zobacz [konsola szeregowa dla systemu Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 1. Wyszukaj **maszyny wirtualne** i wybierz maszynę wirtualną z listy.
 1. W menu po lewej stronie w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **konsola szeregowa**. Po prawej stronie zostanie otwarta strona z konsolą szeregową.

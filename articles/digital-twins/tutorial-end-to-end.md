@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d46a20079919f052ed343c9702ba02ce7f109b5c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "102036178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201264"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -408,9 +408,9 @@ Po ukończeniu tego samouczka możesz wybrać zasoby, które chcesz usunąć, w 
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które zostało skonfigurowane w tym artykule, ale wyczyść niektóre lub wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [AZ DT](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI w oknie [Azure Cloud Shell](https://shell.azure.com) , aby usunąć elementy, które chcesz usunąć.
+* **Jeśli chcesz kontynuować korzystanie z wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które zostało skonfigurowane w tym artykule, ale wyczyść niektóre lub wszystkie modele, bliźniaczych reprezentacji i relacje**, możesz użyć polecenia [AZ DT](/cli/azure/ext/azure-iot/dt) CLI w oknie [Azure Cloud Shell](https://shell.azure.com) , aby usunąć elementy, które chcesz usunąć.
 
-    Ta opcja nie spowoduje usunięcia żadnych innych zasobów platformy Azure utworzonych w tym samouczku (IoT Hub, Azure Functions aplikacji itp.). Można je usunąć pojedynczo za pomocą [poleceń DT](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) odpowiednich dla każdego typu zasobu.
+    Ta opcja nie spowoduje usunięcia żadnych innych zasobów platformy Azure utworzonych w tym samouczku (IoT Hub, Azure Functions aplikacji itp.). Można je usunąć pojedynczo za pomocą [poleceń DT](/cli/azure/reference-index) odpowiednich dla każdego typu zasobu.
 
 Możesz również usunąć folder projektu z komputera lokalnego.
 

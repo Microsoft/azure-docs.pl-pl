@@ -3,12 +3,12 @@ title: Tworzenie maszyn wirtualnych w programie DevTest Labs i zarządzanie nimi
 description: Dowiedz się, jak używać Azure DevTest Labs do tworzenia maszyn wirtualnych i zarządzania nimi za pomocą interfejsu wiersza polecenia platformy Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 57510a722ab6a34b9d498e74a140d6f350c8fc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ee6bf607fe1b66cece0e7ddb25a2da2830258b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482840"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201468"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą DevTest Labs przy użyciu interfejsu wiersza polecenia platformy Azure
 Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia, uruchamiania, łączenia, aktualizowania i czyszczenia maszyny deweloperskiej w laboratorium. 
@@ -147,10 +147,10 @@ Następujące przykładowe polecenie zatrzyma maszynę wirtualną.
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-Usuń maszynę wirtualną.
+Usuwanie maszyny wirtualnej.
 ```azurecli
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z następującą zawartością: [Dokumentacja interfejsu wiersza polecenia platformy Azure dla Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 
+Zapoznaj się z następującą zawartością: [Dokumentacja interfejsu wiersza polecenia platformy Azure dla Azure DevTest Labs](/cli/azure/lab). 

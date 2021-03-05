@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279214"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201060"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Samouczek: szybka skalowanie i ochrona aplikacji sieci Web przy użyciu platformy Azure z przodu i zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -36,7 +36,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
+- Instrukcje podane w tym samouczku korzystają z interfejsu wiersza polecenia platformy Azure. [Obejrzyj ten przewodnik](/cli/azure/get-started-with-azure-cli) , aby rozpocząć pracę z interfejsem wiersza polecenia platformy Azure.
 
   > [!TIP] 
   > Łatwa i szybka metoda rozpoczynania pracy w interfejsie wiersza polecenia platformy Azure to [bash w Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -48,7 +48,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
    ```
 
 > [!NOTE] 
-> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
+> Aby uzyskać więcej informacji na temat poleceń używanych w tym samouczku, zobacz [Dokumentacja interfejsu wiersza polecenia platformy Azure dla drzwi zewnętrznych](/cli/azure/ext/front-door).
 
 ## <a name="create-an-azure-front-door-resource"></a>Tworzenie zasobu frontonu platformy Azure
 
@@ -144,7 +144,7 @@ Zalecamy upewnienie się, że tylko krawędzie z przodu platformy Azure mogą ko
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
+Gdy zasoby używane w tym samouczku nie są już potrzebne, użyj polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) , aby usunąć grupę zasobów, drzwiczki z przodu i zasady WAF:
 
 ```azurecli-interactive
   az group delete \

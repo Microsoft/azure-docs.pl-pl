@@ -3,12 +3,12 @@ title: Aktualizuj grupę kontenerów
 description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kontenerów Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb31eeda83532c408a303e879439006bcd7d4e45
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82928724"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200652"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
 
@@ -42,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Zaktualizuj grupę kontenerów za pomocą nowej etykiety nazwy DNS, *aplikacji*i ustaw pozostałe właściwości z użytymi wcześniej wartościami:
+Zaktualizuj grupę kontenerów za pomocą nowej etykiety nazwy DNS, *aplikacji* i ustaw pozostałe właściwości z użytymi wcześniej wartościami:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -89,6 +89,6 @@ Wspomniano kilka razy w tym artykule **Grupa kontenerów**. Każdy kontener w Az
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-create]: /cli/azure/container#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-container-export]: /cli/azure/container#az-container-export

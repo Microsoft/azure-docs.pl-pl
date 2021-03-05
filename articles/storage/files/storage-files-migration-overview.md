@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 4a874e6f1e026a1888b9039799be71c95f040ac6
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628921"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202352"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -34,8 +34,8 @@ Klucz w każdej migracji ma na celu przechwycenie całej odpowiedniej wierności
 
 Poniżej przedstawiono dwa podstawowe składniki pliku:
 
-- **Strumień danych** : strumień danych pliku przechowuje zawartość pliku.
-- **Metadane pliku** : w metadanych pliku znajdują się następujące składniki:
+- **Strumień danych**: strumień danych pliku przechowuje zawartość pliku.
+- **Metadane pliku**: w metadanych pliku znajdują się następujące składniki:
    * Atrybuty plików, takie jak tylko do odczytu
    * Uprawnienia do plików, które mogą być określane jako *uprawnienia systemu plików NTFS* lub *listy ACL plików i folderów*
    * Sygnatury czasowe, w szczególności tworzenie i ostatnio modyfikowane sygnatury czasowe
@@ -111,7 +111,7 @@ Istnieje kilka narzędzi do kopiowania plików dostępnych w firmie Microsoft i 
 
     Przy pierwszym uruchomieniu narzędzia są kopiowane zbiorczo dane. Ten początkowy przebieg może być ostatnim czasem. Często trwa dłużej niż chcesz, aby dane były przełączane do trybu offline w ramach procesów firmy.
 
-    Przez dublowanie źródła do obiektu docelowego (podobnie jak w przypadku **ROBOCOPY/MIR** ), można uruchomić narzędzie ponownie w tym samym źródle i miejscu docelowym. Przebieg działa znacznie szybciej, ponieważ wymaga przetransportowania tylko zmian źródłowych, które wystąpiły po poprzednim uruchomieniu. Oddziałanie narzędzia kopiowania w ten sposób może znacznie skrócić czas przestoju.
+    Przez dublowanie źródła do obiektu docelowego (podobnie jak w przypadku **ROBOCOPY/MIR**), można uruchomić narzędzie ponownie w tym samym źródle i miejscu docelowym. Przebieg działa znacznie szybciej, ponieważ wymaga przetransportowania tylko zmian źródłowych, które wystąpiły po poprzednim uruchomieniu. Oddziałanie narzędzia kopiowania w ten sposób może znacznie skrócić czas przestoju.
 
 Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydatność dla udziałów plików platformy Azure:
 
@@ -153,4 +153,4 @@ Poniżej przedstawiono więcej informacji o Azure Files technologiach wymieniony
 
 * [Omówienie udziału plików platformy Azure](storage-files-introduction.md)
 * [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-* [Azure File Sync: Obsługa warstw w chmurze](storage-sync-cloud-tiering.md)
+* [Azure File Sync: Obsługa warstw w chmurze](storage-sync-cloud-tiering-overview.md)

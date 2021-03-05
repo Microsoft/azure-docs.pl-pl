@@ -3,21 +3,25 @@ title: Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu interf
 description: Skonfiguruj wymagania dotyczące usługi Azure VM Image Builder, w tym uprawnienia i uprawnienia za pomocą interfejsu wiersza polecenia platformy Azure
 author: cynthn
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: f9b60af2c9fe16f834ce3098266c03afe2b99667
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695434"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201485"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Usługa Azure Image Builder wymaga konfiguracji uprawnień i uprawnień przed rozpoczęciem tworzenia obrazu. W poniższych sekcjach szczegółowo opisano, jak skonfigurować możliwe scenariusze przy użyciu interfejsu wiersza polecenia platformy Azure.
+Gdy zarejestrujesz się w usłudze (AIB), spowoduje to przyznanie usługi AIB uprawnienia do tworzenia i usuwania tymczasowej grupy zasobów (IT_ *) oraz do dodawania do niej zasobów, które są wymagane dla kompilacji obrazu. Jest to realizowane przez główną nazwę usługi AIB (SPN), która jest dostępna w Twojej subskrypcji podczas pomyślnej rejestracji.
+
+Aby umożliwić programowi Azure VM Image Builder dystrybuowanie obrazów do obrazów zarządzanych lub do galerii obrazów udostępnionych, należy utworzyć tożsamość przypisaną przez użytkownika platformy Azure, która ma uprawnienia do odczytu i zapisu obrazów. Jeśli uzyskujesz dostęp do usługi Azure Storage, będzie to wymagało uprawnień do odczytywania kontenerów prywatnych i publicznych.
+
+Przed utworzeniem obrazu należy skonfigurować uprawnienia i uprawnienia. W poniższych sekcjach szczegółowo opisano, jak skonfigurować możliwe scenariusze przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 > [!IMPORTANT]
 > Usługa Azure Image Builder jest obecnie dostępna w publicznej wersji zapoznawczej.

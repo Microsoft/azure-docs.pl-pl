@@ -168,7 +168,7 @@
             - name: Zestaw SDK dla języka Python
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
     - name: Interfejs wiersza polecenia usługi Digital Twins
-      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
+      href: /cli/azure/ext/azure-iot/dt
 - name: Zasoby
   items:
     - name: Limity usługi Digital Twins

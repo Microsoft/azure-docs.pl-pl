@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 2c89eb19025212490d29c97a061da52e779ecf42
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 47bced3c3c4f01212af6919d51adc5dfc2e6e1b5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704401"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102200073"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Obsługa Active FTP w zaporze platformy Azure
 
@@ -29,7 +29,7 @@ Aby wdrożyć przy użyciu Azure PowerShell, użyj `AllowActiveFTP` parametru. A
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby przeprowadzić wdrożenie przy użyciu interfejsu wiersza polecenia platformy Azure, użyj `--allow-active-ftp` parametru. Aby uzyskać więcej informacji, zobacz [AZ Network firewall Create](/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
+Aby przeprowadzić wdrożenie przy użyciu interfejsu wiersza polecenia platformy Azure, użyj `--allow-active-ftp` parametru. Aby uzyskać więcej informacji, zobacz [AZ Network firewall Create](/cli/azure/ext/azure-firewall/network/firewall#ext_azure_firewall_az_network_firewall_create-optional-parameters). 
 
 ## <a name="azure-resource-manager-arm-template"></a>Szablon usługi Azure Resource Manager (ARM)
 

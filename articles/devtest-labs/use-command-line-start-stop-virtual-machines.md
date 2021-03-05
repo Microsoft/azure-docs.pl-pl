@@ -3,12 +3,12 @@ title: Korzystanie z narzędzi wiersza polecenia do uruchamiania i zatrzymywania
 description: Dowiedz się, jak uruchamiać i zatrzymywać maszyny wirtualne w Azure DevTest Labs przy użyciu narzędzi wiersza polecenia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476420"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102201196"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Uruchamianie i zatrzymywanie Azure DevTest Labs maszyn wirtualnych przy użyciu narzędzi wiersza polecenia
 W tym artykule pokazano, jak używać Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do uruchamiania lub zatrzymywania maszyn wirtualnych w laboratorium w Azure DevTest Labs. Aby zautomatyzować te operacje, można utworzyć skrypty środowiska PowerShell/interfejsu wiersza polecenia. 
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-[Interfejs wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) jest innym sposobem automatyzacji uruchamiania i zatrzymywania maszyn wirtualnych z DevTest Labs. Interfejs wiersza polecenia platformy Azure można [zainstalować](/cli/azure/install-azure-cli?view=azure-cli-latest) w różnych systemach operacyjnych. Poniższy skrypt zawiera polecenia służące do uruchamiania i zatrzymywania maszyny wirtualnej w laboratorium. 
+[Interfejs wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) jest innym sposobem automatyzacji uruchamiania i zatrzymywania maszyn wirtualnych z DevTest Labs. Interfejs wiersza polecenia platformy Azure można [zainstalować](/cli/azure/install-azure-cli) w różnych systemach operacyjnych. Poniższy skrypt zawiera polecenia służące do uruchamiania i zatrzymywania maszyny wirtualnej w laboratorium. 
 
 ```azurecli
 # Sign in to Azure
