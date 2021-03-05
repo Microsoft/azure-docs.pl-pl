@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591532"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215582"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -22,12 +22,8 @@ Każde bezpieczne żądanie do konta usługi Azure Storage musi być autoryzowan
 
 Jeśli nie zezwolisz na autoryzację klucza współużytkowanego dla konta magazynu, usługa Azure Storage odrzuci wszystkie kolejne żądania do tego konta, które są autoryzowane przy użyciu kluczy dostępu do konta. Tylko zabezpieczone żądania, które są autoryzowane z usługą Azure AD, będą się kończyć powodzeniem. Aby uzyskać więcej informacji o korzystaniu z usługi Azure AD, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> Usługa Azure Storage obsługuje autoryzację usługi Azure AD tylko w przypadku żądań do obiektów blob i queue storage. Jeśli użytkownik nie zezwala na autoryzację za pomocą klucza współdzielonego dla konta magazynu, żądania do Azure Files lub magazynu tabel, które używają autoryzacji klucza wspólnego, zakończą się niepowodzeniem. Ponieważ Azure Portal zawsze używa autoryzacji klucza współużytkowanego w celu uzyskania dostępu do danych pliku i tabeli, jeśli nie zezwalasz na autoryzację przy użyciu klucza współdzielonego dla konta magazynu, nie będzie można uzyskać dostępu do danych plików ani tabel w Azure Portal.
->
-> Firma Microsoft zaleca Migrowanie wszelkich Azure Files lub danych magazynu tabel do oddzielnego konta magazynu przed uniemożliwieniem dostępu do konta za pośrednictwem klucza współużytkowanego lub niestosowanie tego ustawienia do kont magazynu, które obsługują obciążenia Azure Files lub magazynu tabel.
->
-> Nie zezwalanie na dostęp do klucza współużytkowanego dla konta magazynu nie ma wpływu na połączenia SMB z Azure Files.
+> [!IMPORTANT]
+> Niezezwalanie na autoryzację klucza udostępnionego jest obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
 
 W tym artykule opisano sposób wykrywania żądań wysyłanych za pomocą autoryzacji klucza wspólnego oraz sposobu korygowania autoryzacji klucza współużytkowanego dla konta magazynu. Aby dowiedzieć się, jak zarejestrować się w wersji zapoznawczej, zobacz [Informacje o wersji zapoznawczej](#about-the-preview).
 
@@ -133,11 +129,23 @@ Aby nie zezwalać na autoryzację klucza współużytkowanego dla konta magazynu
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Zrzut ekranu przedstawiający sposób niezezwalania na dostęp do klucza udostępnionego dla konta":::
 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Aby nie zezwalać na autoryzację klucza współużytkowanego dla konta magazynu za pomocą programu PowerShell, zainstaluj [moduł programu PowerShell AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage)w wersji 3.4.0 lub nowszej. Następnie skonfiguruj Właściwość **AllowSharedKeyAccess** dla nowego lub istniejącego konta magazynu.
+
+Poniższy przykład pokazuje, jak nie zezwalać na dostęp za pomocą klucza współużytkowanego dla istniejącego konta magazynu za pomocą programu PowerShell. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby uniemożliwić autoryzację klucza współużytkowanego dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.9.1 lub nowszej. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Następnie skonfiguruj Właściwość **allowSharedKeyAccess** dla nowego lub istniejącego konta magazynu.
 
-Poniższy przykład pokazuje, jak ustawić właściwość **allowSharedKeyAccess** przy użyciu interfejsu wiersza polecenia platformy Azure. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
+Poniższy przykład pokazuje, jak nie zezwalać na dostęp za pomocą klucza współużytkowanego dla istniejącego konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -236,12 +244,17 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Azure IoT Hub | Obsługiwane. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługa sieci wirtualnych](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem usługi Azure RBAC. Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Przechodzenie Azure Files i obciążenie magazynu tabel
+
+Usługa Azure Storage obsługuje autoryzację usługi Azure AD tylko w przypadku żądań do obiektów blob i queue storage. Jeśli użytkownik nie zezwala na autoryzację za pomocą klucza współdzielonego dla konta magazynu, żądania do Azure Files lub magazynu tabel, które używają autoryzacji klucza wspólnego, zakończą się niepowodzeniem. Ponieważ Azure Portal zawsze używa autoryzacji klucza współużytkowanego w celu uzyskania dostępu do danych pliku i tabeli, jeśli nie zezwalasz na autoryzację przy użyciu klucza współdzielonego dla konta magazynu, nie będzie można uzyskać dostępu do danych plików ani tabel w Azure Portal.
+
+Firma Microsoft zaleca Migrowanie wszelkich Azure Files lub danych magazynu tabel do oddzielnego konta magazynu przed uniemożliwieniem dostępu do konta za pośrednictwem klucza współużytkowanego lub niestosowanie tego ustawienia do kont magazynu, które obsługują obciążenia Azure Files lub magazynu tabel.
+
+Nie zezwalanie na dostęp do klucza współużytkowanego dla konta magazynu nie ma wpływu na połączenia SMB z Azure Files.
+
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
 Wersja zapoznawcza dotycząca niedozwolonej autoryzacji klucza współużytkowanego jest dostępna w chmurze publicznej platformy Azure. Jest on obsługiwany w przypadku kont magazynu, które używają tylko modelu wdrażania Azure Resource Manager. Aby uzyskać informacje o tym, które konta magazynu korzystają z modelu wdrażania Azure Resource Manager, zobacz [typy kont magazynu](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Ta wersja zapoznawcza jest przeznaczona wyłącznie do użytku nieprodukcyjnego.
 
 Wersja zapoznawcza zawiera ograniczenia opisane w poniższych sekcjach.
 

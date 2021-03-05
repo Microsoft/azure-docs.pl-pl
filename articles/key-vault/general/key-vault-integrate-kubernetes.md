@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: fd40ad41bda50d93943a514cd9cc3aeeab4ac948
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198884"
+ms.locfileid: "102216500"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -37,7 +37,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 * Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows).
 
-W tym samouczku założono, że uruchomiono usługę Azure Kubernetes w węzłach systemu Linux.
+W tym samouczku przyjęto założenie, że uruchomiono usługę Azure Kubernetes w węzłach systemu Linux.
 
 ## <a name="use-managed-identities"></a>Używanie tożsamości zarządzanych
 
@@ -107,7 +107,7 @@ Aby utworzyć własny magazyn kluczy i ustawić wpisy tajne, postępuj zgodnie z
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Utwórz własny obiekt SecretProviderClass
 
-Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami specyficznymi dla dostawcy dla sterownika CSI magazynu Secret, [Użyj tego szablonu](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). Ten obiekt zapewni dostęp tożsamości do magazynu kluczy.
+Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami specyficznymi dla dostawcy dla sterownika CSI magazynu Secret, [Użyj tego szablonu](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). Ten obiekt zapewni dostęp tożsamości do magazynu kluczy.
 
 W przykładowym pliku SecretProviderClass YAML wprowadź brakujące parametry. Wymagane są następujące parametry:
 

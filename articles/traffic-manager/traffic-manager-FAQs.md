@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095021"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215463"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
 
@@ -306,7 +306,7 @@ Cennik Widok ruchu jest określany na podstawie liczby punktów danych użytych 
 
 Korzystanie z punktów końcowych z wielu subskrypcji nie jest możliwe za pomocą usługi Azure Web Apps. Usługa Azure Web Apps wymaga, aby dowolna nazwa domeny niestandardowej użyta z Web Apps była używana tylko w ramach jednej subskrypcji. Nie można używać Web Apps z wielu subskrypcji o tej samej nazwie domeny.
 
-W przypadku innych typów punktów końcowych można użyć Traffic Manager z punktami końcowymi z więcej niż jednej subskrypcji. W Menedżer zasobów punkty końcowe z dowolnych subskrypcji można dodać do Traffic Manager, o ile osoba konfigurująca profil Traffic Manager ma dostęp do odczytu do punktu końcowego. Uprawnienia te można przyznawać przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Punkty końcowe z innych subskrypcji można dodawać przy użyciu [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+W przypadku innych typów punktów końcowych można użyć Traffic Manager z punktami końcowymi z więcej niż jednej subskrypcji. W Menedżer zasobów punkty końcowe z dowolnych subskrypcji można dodać do Traffic Manager, o ile osoba konfigurująca profil Traffic Manager ma dostęp do odczytu do punktu końcowego. Uprawnienia te można przyznawać przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Punkty końcowe z innych subskrypcji można dodawać przy użyciu [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Czy można użyć Traffic Manager z gniazdami "przemieszczania" usługi w chmurze?
 

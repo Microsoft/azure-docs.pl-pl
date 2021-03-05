@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762775"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215548"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Używanie usługi Azure Blob Storage do konwersji modelu
 
@@ -28,7 +28,7 @@ Usługa [konwersji modeli](model-conversion.md) wymaga dostępu do usługi Azure
 Tworzenie konta magazynu i kontenerów obiektów BLOB można wykonać przy użyciu jednego z następujących narzędzi:
 
 - [Witryna Azure Portal](https://portal.azure.com)
-- [AZ Command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [AZ Command line](/cli/azure/install-azure-cli)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 - Zestawy SDK (C#, Python...)
 
@@ -52,7 +52,7 @@ Identyfikator URI sygnatury dostępu współdzielonego można wygenerować przy 
 
 - AZ PowerShell module
   - Zobacz [przykładowe skrypty programu PowerShell](../../samples/powershell-example-scripts.md)
-- [AZ Command line](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [AZ Command line](/cli/azure/install-azure-cli)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
   - Kliknij prawym przyciskiem myszy kontener "Uzyskaj sygnaturę dostępu współdzielonego" (odczyt, dostęp do listy dla kontenera danych wejściowych, dostęp do zapisu dla kontenera wyjściowego)
 - Zestawy SDK (C#, Python...)

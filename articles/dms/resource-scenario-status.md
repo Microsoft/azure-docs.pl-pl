@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 719dcecf3091e03fbcbe6a82d4c618f54243c4e1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183985"
+ms.locfileid: "102215344"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stan scenariuszy migracji obsługiwanych przez Azure Database Migration Service
 
@@ -83,9 +83,12 @@ W poniższej tabeli przedstawiono Azure Database Migration Service obsługi migr
 | **Azure DB dla PostgreSQL — pojedynczy serwer** | PostgreSQL | ✔ | Ogólna dostępność |
 |   | Azure DB dla PostgreSQL — pojedynczy serwer | ✔ | Ogólna dostępność |
 |   | PostgreSQL RDS | ✔ | Ogólna dostępność |
-|   | Oracle | ✔ | Publiczna wersja zapoznawcza |
+|   | Oracle | ✔ | Publiczna wersja zapoznawcza (do wycofania od 1 maja 2021) |
 | **Azure DB for PostgreSQL — Citus)** | PostgreSQL | ✔ | Ogólna dostępność |
 |   | PostgreSQL RDS | ✔ | Ogólna dostępność |
+
+> [!IMPORTANT]
+> Scenariusz migracji "Oracle to Azure Database for PostgreSQL" (obecnie w wersji zapoznawczej) nie będzie już dostępny po 1 maja 2021. Będziemy nadal zapewniać pomoc techniczną za pośrednictwem alternatywnych narzędzi (takich jak Ora2pg) i zapewniać najlepsze środowisko migracji dla programu Oracle do PostgreSQL migracji. Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi migracji, zobacz [Podręcznik migracji z programu Oracle do Azure Database for PostgreSQL] ( https://aka.ms/OracletoPGguide) .
 
 
 ## <a name="next-steps"></a>Następne kroki

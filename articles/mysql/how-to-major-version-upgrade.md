@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 471ccd6176bd8821ce7e40fde6d961bd9bcf7f0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 13cf315291cdf788951e352e430976851b30ce0c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702151"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216721"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Uaktualnienie wersji głównej w Azure Database for MySQL pojedynczym serwerze
 
@@ -59,7 +59,7 @@ Wykonaj następujące kroki, aby przeprowadzić uaktualnienie wersji głównej s
  
    To uaktualnienie wymaga wersji 2.16.0 lub nowszej interfejsu wiersza polecenia platformy Azure. W przypadku korzystania z Azure Cloud Shell Najnowsza wersja jest już zainstalowana. Uruchom polecenie az version, aby znaleźć zainstalowane wersje i biblioteki zależne. Aby uaktualnić do najnowszej wersji, uruchom polecenie az upgrade.
 
-2. Po zalogowaniu Uruchom polecenie [AZ MySQL Server upgrade](/cli/azure/mysql/server?preserve-view=true&view=azure-cli-latest#az_mysql_server_upgrade) :
+2. Po zalogowaniu Uruchom polecenie [AZ MySQL Server upgrade](/cli/azure/mysql/server#az_mysql_server_upgrade) :
 
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"

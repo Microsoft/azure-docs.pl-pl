@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 96640e55d1ad71bc0e448976b2c9f1fa85b2ab62
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696277"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216602"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,7 +50,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu Java SDK](./create-sql-api-java.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
@@ -109,7 +109,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Naprawiono usterkę w programie Global Endpoint Manager, aby wymusić odświeżanie.
 * Stała usterka dla upserts z warunkiem wstępnym w trybie bezpośrednim.
 
-### <a name="211"></a><a name="2.1.1"></a>pkt
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * Naprawiono usterkę w pamięci podręcznej adresów bramy.
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
@@ -294,7 +294,7 @@ Firma Microsoft udostępni powiadomienie co najmniej **12 miesięcy** przed wyco
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
 | [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
-| [pkt](#2.1.1) |13 grudnia 2018 |--- |
+| [2.1.1](#2.1.1) |13 grudnia 2018 |--- |
 | [2.1.0](#2.1.0) |20 listopada 2018 |--- |
 | [2.0.0](#2.0.0) |Września 21, 2018 |--- |
 | [1.16.4](#1.16.4) |Września 10, 2018 |30 maja 2020 |

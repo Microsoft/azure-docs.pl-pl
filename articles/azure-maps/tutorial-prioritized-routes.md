@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625002"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215497"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
 
@@ -117,7 +117,7 @@ Poniższe kroki pokazują, jak utworzyć i wyświetlić formant mapy na stronie 
     });
     ```
 
-    W `ready` obsłudze zdarzeń mapy ustawienie przepływu ruchu na mapie jest ustawione na `relative` , czyli szybkość drogi względem swobodnego przepływu. Aby uzyskać więcej opcji ruchu, zobacz [TrafficOptions Interface (interfejs](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest)).
+    W `ready` obsłudze zdarzeń mapy ustawienie przepływu ruchu na mapie jest ustawione na `relative` , czyli szybkość drogi względem swobodnego przepływu. Aby uzyskać więcej opcji ruchu, zobacz [TrafficOptions Interface (interfejs](/javascript/api/azure-maps-control/atlas.trafficoptions)).
 
 2. Zapisz plik **MapTruckRoute.html** i odśwież stronę w przeglądarce. Jeśli powiększesz dowolne miasto, np. Los Angeles, zobaczysz, że ulice są wyświetlane z bieżącymi danymi przepływu ruchu.
 
@@ -193,7 +193,7 @@ W tym samouczku na mapie zostaną obliczone i wyrenderowane dwie trasy. Pierwsza
 
     Ten kod tworzy dwa [obiekty punktu GEOJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktów początkowych i końcowych, które następnie są dodawane do źródła danych.
 
-    Ostatni blok kodu ustawia widok kamery przy użyciu szerokości geograficznej i długości geograficznej punktu początkowego i końcowego. Punkt początkowy i końcowy zostały dodane do źródła danych. Pole ograniczenia dla punktu początkowego i końcowego jest obliczane przy użyciu funkcji `atlas.data.BoundingBox.fromData`. To ograniczenie służy do ustawiania widoku kamery mapy na całej trasie przy użyciu `map.setCamera` funkcji. Dodano uzupełnienie, aby skompensować wymiary pikseli ikon symboli. Aby uzyskać więcej informacji na temat właściwości setcamera kontrolki mapy, zobacz [setcamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) .
+    Ostatni blok kodu ustawia widok kamery przy użyciu szerokości geograficznej i długości geograficznej punktu początkowego i końcowego. Punkt początkowy i końcowy zostały dodane do źródła danych. Pole ograniczenia dla punktu początkowego i końcowego jest obliczane przy użyciu funkcji `atlas.data.BoundingBox.fromData`. To ograniczenie służy do ustawiania widoku kamery mapy na całej trasie przy użyciu `map.setCamera` funkcji. Dodano uzupełnienie, aby skompensować wymiary pikseli ikon symboli. Aby uzyskać więcej informacji na temat właściwości setcamera kontrolki mapy, zobacz [setcamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
 
 3. Zapisz **TruckRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 

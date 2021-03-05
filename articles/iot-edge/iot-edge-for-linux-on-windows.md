@@ -10,18 +10,20 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ebe0ac1151f3a1f43072f2832e2f433182ccc82d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 9d6bb9da67f66f46e5c72d5d64b8b6c111c98e08
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215361"
 ---
-# <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Co to jest Azure IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
+# <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>Co to jest usługa Azure IoT Edge dla systemu Linux w systemie Windows (wersja zapoznawcza)
 
 Azure IoT Edge dla systemu Linux w systemie Windows umożliwia uruchamianie kontenerów zwirtualizowanych z systemem Linux obok aplikacji systemu Windows w ramach wdrożeń usługi Windows IoT. Firmy korzystające z usługi Windows IoT w celu zarządzania urządzeniami brzegowymi mogą teraz korzystać z rozwiązań analitycznych natywnych w chmurze utworzonych w systemie Linux.
 
 IoT Edge dla systemu Linux w systemie Windows działa, uruchamiając maszynę wirtualną z systemem Linux na urządzeniu z systemem Windows. Maszyna wirtualna z systemem Linux jest wstępnie zainstalowana z IoT Edge środowiska uruchomieniowego. Wszystkie moduły IoT Edge wdrożone na urządzeniu w ramach maszyny wirtualnej. Tymczasem aplikacje systemu Windows uruchomione na urządzeniu hosta Windows mogą komunikować się z modułami uruchomionymi na maszynie wirtualnej z systemem Linux.
+
+Zacznij [korzystać](how-to-install-iot-edge-on-windows.md) z wersji zapoznawczej dzisiaj.
 
 >[!NOTE]
 >Rozważ przeprowadzenie naszej [ankiety produktu](https://aka.ms/AzEFLOW-Registration) , aby pomóc nam w ulepszaniu Azure IoT Edge dla systemu Linux w systemie Windows w oparciu o IoT Edgee i cele. Możesz również użyć tej ankiety, aby zarejestrować się w przyszłości Azure IoT Edge dla systemu Linux w usłudze anonse w systemie Windows.

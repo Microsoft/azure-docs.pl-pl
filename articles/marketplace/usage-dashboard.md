@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934391"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215735"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Użycie w analizie komercyjnej platformy handlowej
 
@@ -154,9 +154,9 @@ _**Tabela 1: słownik terminów dotyczących danych**_
 | NormalizedUsage | Znormalizowane użycie | Łączna liczba znormalizowanych jednostek użycia zużywanych przez element zawartości wdrożonych przez klienta.<br>Znormalizowane godziny użycia są definiowane jako godziny użycia znormalizowane w celu uwzględnienia liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godz. użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" wykorzystują 1/6 (lub 0,1666) jako mnożnik [liczba rdzeni maszyn wirtualnych]. |
 | MeteredUsage | Użycie zmierzone | Łączna liczba jednostek użycia zużywanych przez liczniki, które są skonfigurowane z ofertą wdrożoną przez klienta. |
 | RawUsage | Niesformatowane użycie | Łączna liczba nieużywanych jednostek użycia, które zostały wdrożone przez klienta.<br>Surowe godziny użycia są definiowane jako czas działania maszyn wirtualnych w warunkach użytkowania. |
-| Szacowana opłata rozszerzona (DW) | Szacowana rozszerzona opłata w walucie klienta | Oznacza opłaty związane z użyciem. Kolumna jest iloczynem wartości cena (DW) i ilość użycia. |
-| Szacowana opłata rozszerzona (komputer) | Szacowana opłata rozszerzona w walucie wypłaty | Oznacza opłaty związane z użyciem. Kolumna jest produktem szacowanej ceny (komputera) i ilości użycia. |
-||||
+| Szacowana opłata rozszerzona (DW) | Szacowana rozszerzona opłata w walucie klienta | Oznacza opłaty związane z użyciem. Kolumna jest iloczynem ceny (DW) i pierwotnego użycia. |
+| Szacowana opłata rozszerzona (komputer) | Szacowana opłata rozszerzona w walucie wypłaty | Oznacza opłaty związane z użyciem. Kolumna jest produktem szacowanej ceny (komputera) i nieprzetworzonym użyciem. |
+|
 
 ### <a name="usage-page-filters"></a>Filtry stron użycia
 

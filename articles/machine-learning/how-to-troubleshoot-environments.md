@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 5b2f62e8e04bddadc7068eb75405bcf1568f5713
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da3e5bd9efcdd7d82dd3d3937918c4a64f69edbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657302"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215650"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Rozwiązywanie problemów z kompilacjami obrazu środowiska
 
@@ -25,7 +25,7 @@ Dowiedz się, jak rozwiązywać problemy z kompilacjami obrazów środowiska Doc
 
 * Subskrypcja platformy Azure. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 * [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Aby debugować lokalnie, musisz mieć działającą instalację platformy Docker w systemie lokalnym.
 

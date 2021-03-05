@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 21fdd85c2b2a73ed5fd0bf65c5d745ac0cc97c9c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: de1183c1364fcb7e5483559899c2939df15d26b6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200550"
+ms.locfileid: "102215786"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Programowe tworzenie subskrypcji platformy Azure dla umowy Microsoft Partner Agreement przy użyciu najnowszych interfejsów API
 
@@ -76,11 +76,37 @@ Użyj właściwości `displayName`, aby określić konto rozliczeniowe, dla któ
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
-### [Azure CLI](#tab/azure-cli-getBillingAccounts-MPA)
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-getBillingAccounts-MPA)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```azurecli
+> az billing account list
+```
+Otrzymasz listę wszystkich kont rozliczeniowych, do których masz dostęp. 
+
+```json
+[
+  {
+    "accountStatus": "Active",
+    "accountType": "Partner",
+    "agreementType": "MicrosoftPartnerAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": null,
+    "enrollmentDetails": null,
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "soldTo": null,
+    "type": "Microsoft.Billing/billingAccounts"
+  }
+]
+```
+
+Użyj właściwości displayName, aby zidentyfikować konto rozliczeniowe, dla którego chcesz utworzyć subskrypcje. Upewnij się, że parametr agreementType tego konta to MicrosoftPartnerAgreement. Skopiuj nazwę konta. Na przykład, aby utworzyć subskrypcję dla konta rozliczenia firmy Contoso, skopiuj 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-XX-XX. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
 
 ---
 
@@ -133,11 +159,40 @@ Użyj właściwości `displayName`, aby określić klienta, dla którego chcesz 
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
-### [Azure CLI](#tab/azure-cli-getCustomers)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-getCustomers)
+
+```json
+> az billing customer list --account-name 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```
+
+Odpowiedź interfejsu API będzie zawierała listę klientów z planami platformy Azure na koncie rozliczeniowym. Dla tych klientów można utworzyć subskrypcje.
+
+```json
+[
+  {
+    "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+    "billingProfileId": "providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "displayName": "Fabrikam toys",
+    "id": "providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "resellers": null,
+    "type": "Microsoft.Billing/billingAccounts/customers"
+  },
+  {
+    "billingProfileDisplayName": "Contoso toys Billing Profile",
+    "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "displayName": "Contoso toys",
+    "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "d49c364c-f866-4cc2-a284-d89f369b7951",
+    "resellers": null,
+    "type": "Microsoft.Billing/billingAccounts/customers"
+  }
+]
+
+```
+
+Użyj właściwości `displayName`, aby określić klienta, dla którego chcesz utworzyć subskrypcje. Skopiuj wartość `id` klienta. Przykładowo aby utworzyć subskrypcję dla konta `Fabrikam toys`, skopiuj wartość `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Wklej tę wartość w dogodnym miejscu, aby można było z niej skorzystać w kolejnych krokach.
 
 ---
 
@@ -147,9 +202,9 @@ Ta sekcja jest opcjonalna tylko dla dostawców pośrednich.
 
 Jeśli jesteś dostawcą pośrednim w modelu dwuwarstwowym dostawców usług w chmurze, możesz określić odsprzedawcę podczas tworzenia subskrypcji dla klientów.
 
-Wykonaj następujące żądanie z wartością elementu `id` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```), aby uzyskać listę wszystkich odsprzedawców dostępnych dla klienta.
-
 ### <a name="rest"></a>[REST](#tab/rest-getIndirectResellers)
+
+Wykonaj następujące żądanie z wartością elementu `id` skopiowaną w drugim kroku (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```), aby uzyskać listę wszystkich odsprzedawców dostępnych dla klienta.
 
 ```json
 GET "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx?$expand=resellers&api-version=2020-05-01"
@@ -185,11 +240,41 @@ Użyj właściwości `description`, aby określić odsprzedawcę, który będzie
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
-### [Azure CLI](#tab/azure-cli-getIndirectResellers)
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli-getIndirectResellers)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+Wykonaj poniższe żądanie, używając `name` skopiowanego z pierwszego kroku ( ```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx``` ) i klienta `name` skopiowanego z poprzedniego kroku ( ```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ).
+
+```azurecli-interactive
+ > az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+Odpowiedź interfejsu API będzie zawierała listę odsprzedawców dla klienta:
+
+```json
+{
+  "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+  "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/YL4M-xxxx-xxx-xxx",
+  "displayName": "Fabrikam toys",
+  "enabledAzurePlans": [
+    {
+      "skuDescription": "Microsoft Azure Plan",
+      "skuId": "0001"
+    }
+  ],
+  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "resellers": [
+    {
+      "description": "Wingtip",
+      "resellerId": "3xxxxx"
+    }
+  ],
+  "type": "Microsoft.Billing/billingAccounts/customers"
+}
+
+```
+
+Użyj właściwości `description`, aby określić odsprzedawcę, który będzie skojarzony z subskrypcją. Skopiuj wartość `resellerId` odsprzedawcy. Przykładowo aby skojarzyć odsprzedawcę `Wingtip`, skopiuj wartość `3xxxxx`. Wklej tę wartość w dogodnym miejscu, aby można było jej użyć w następnym kroku.
 
 ---
 

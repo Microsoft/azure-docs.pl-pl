@@ -3,12 +3,12 @@ title: Konfigurowanie Azure Active Directory na potrzeby uwierzytelniania klient
 description: Dowiedz się, jak skonfigurować Azure Active Directory (Azure AD) do uwierzytelniania klientów Service Fabric klastrów.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258774"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215973"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurowanie Azure Active Directory na potrzeby uwierzytelniania klientów
 
@@ -104,7 +104,7 @@ Podczas próby zalogowania się do usługi Azure AD w Service Fabric Explorer st
 Aplikacja klastra (sieci Web) reprezentująca Service Fabric Explorer próbuje uwierzytelnić się w usłudze Azure AD, a w ramach żądania zawiera adres URL zwrotu przekierowania. Ale adres URL nie jest wyświetlany na liście **adresów URL odpowiedzi** aplikacji usługi Azure AD.
 
 #### <a name="solution"></a>Rozwiązanie
-Na stronie Rejestracja aplikacji usługi Azure AD dla klastra wybierz pozycję **uwierzytelnianie**i w sekcji **identyfikatory URI przekierowania** Dodaj adres URL Service Fabric Explorer do listy. Zapisz zmiany.
+Na stronie Rejestracja aplikacji usługi Azure AD dla klastra wybierz pozycję **uwierzytelnianie** i w sekcji **identyfikatory URI przekierowania** Dodaj adres URL Service Fabric Explorer do listy. Zapisz zmiany.
 
 ![Adres URL odpowiedzi aplikacji sieci Web][web-application-reply-url]
 
@@ -138,7 +138,7 @@ Po skonfigurowaniu Azure Active Directory aplikacji i ustawianiu ról dla użytk
 
 
 <!-- Links -->
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 476a88e41382842d91859d319a571784bd6e9b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748198"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216534"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -27,6 +27,8 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Mapowanie domeny z symbolami wieloznacznymi przy użyciu rekordu CNAME.
 > * Przekieruj domyślny adres URL do katalogu niestandardowego.
 
+<hr/> 
+
 ## <a name="1-prepare-your-environment"></a>1. Przygotuj środowisko
 
 * [Utwórz aplikację usługi App Service](./index.yml) lub użyj aplikacji utworzonej w innym samouczku.
@@ -34,18 +36,20 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
     <details>
         <summary>Co muszę edytować rekordy DNS?</summary>
-        Wymaga dostępu do rejestru DNS dostawcy domeny, takiego jak GoDaddy. Aby na przykład dodać wpisy DNS dla contoso.com i www.contoso.com, musisz mieć możliwość skonfigurowania ustawień DNS dla domeny katalogu głównego contoso.com.
+        Wymaga dostępu do rejestru DNS dostawcy domeny, takiego jak GoDaddy. Aby na przykład dodać wpisy DNS dla domen <code>contoso.com</code> i <code>www.contoso.com</code>, musisz mieć możliwość skonfigurowania ustawień DNS dla domeny katalogu głównego <code>contoso.com</code>.
     </details>
+
+<hr/> 
 
 ## <a name="2-prepare-the-app"></a>2. Przygotuj aplikację
 
 Aby zmapować niestandardową nazwę DNS na aplikację, aplikacja <abbr title="Określa lokalizację, rozmiar i funkcje farmy serwerów sieci Web, która hostuje aplikację.">Plan usługi App Service</abbr> musi być płatną warstwą (nie <abbr title="Warstwa Azure App Service, w której aplikacja jest uruchamiana na tych samych maszynach wirtualnych co inne aplikacje, w tym w aplikacjach innych klientów. Ta warstwa jest przeznaczona do programowania i testowania.">**Bezpłatnie (F1)**</abbr>). Aby uzyskać więcej informacji, zobacz [Omówienie planu Azure App Service](overview-hosting-plans.md).
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+#### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu konta platformy Azure.
 
-### <a name="select-the-app-in-the-azure-portal"></a>Wybierz aplikację w Azure Portal
+#### <a name="select-the-app-in-the-azure-portal"></a>Wybierz aplikację w Azure Portal
 
 1. Wyszukaj i wybierz **App Services**.
 
@@ -59,7 +63,7 @@ Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu kont
 
 <a name="checkpricing" aria-hidden="true"></a>
 
-### <a name="check-the-pricing-tier"></a>Sprawdzanie warstwy cenowej
+#### <a name="check-the-pricing-tier"></a>Sprawdzanie warstwy cenowej
 
 1. W lewym okienku strony aplikacji przewiń do sekcji **Ustawienia** i wybierz pozycję **Skaluj w górę (plan App Service)**.
 
@@ -73,7 +77,7 @@ Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu kont
 
 <a name="scaleup" aria-hidden="true"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę planu usługi App Service
+#### <a name="scale-up-the-app-service-plan"></a>Skalowanie w górę planu usługi App Service
 
 1. Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną warstwę z kategorii **Produkcja**). Aby uzyskać dodatkowe opcje, wybierz opcję **Zobacz dodatkowe opcje**.
 
@@ -84,6 +88,8 @@ Otwórz [Azure Portal](https://portal.azure.com)i zaloguj się przy użyciu kont
    Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalowania.
 
    ![Zrzut ekranu pokazujący potwierdzenie operacji skalowania.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
+
+<hr/> 
 
 <a name="cname" aria-hidden="true"></a>
 
@@ -98,14 +104,16 @@ Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własnoś�
 
     <details>
         <summary>Dlaczego potrzebuję tego?</summary>
-        Dodawanie identyfikatorów weryfikacji domeny do domeny niestandardowej może uniemożliwić zawieszonego wpisów DNS i pomaga uniknąć przejęcia domen podrzędnych. W przypadku domen niestandardowych, które zostały wcześniej skonfigurowane bez tego identyfikatora weryfikacyjnego, należy chronić je przed tym samym ryzykiem przez dodanie identyfikatora weryfikacji do rekordu DNS. Aby uzyskać więcej informacji o tym typowym zagrożeniu o wysokiej ważności, zobacz [przejęcie domeny](../security/fundamentals/subdomain-takeover.md)podrzędnej.
+        Dodawanie identyfikatorów weryfikacji domeny do domeny niestandardowej może uniemożliwić zawieszonego wpisów DNS i pomaga uniknąć przejęcia domen podrzędnych. W przypadku domen niestandardowych, które zostały wcześniej skonfigurowane bez tego identyfikatora weryfikacyjnego, należy chronić je przed tym samym ryzykiem przez dodanie identyfikatora weryfikacji do rekordu DNS. Aby uzyskać więcej informacji o tym typowym zagrożeniu o wysokiej ważności, zobacz <a href="/azure/security/fundamentals/subdomain-takeover">przejęcie domeny</a>podrzędnej.
     </details>
     
 <a name="info"></a>
 
-3. * * (Tylko rekord) * * Aby zmapować <abbr title="Rekord adresu w systemie DNS mapuje nazwę hosta na adres IP.">Rekord A</abbr>wymagany jest zewnętrzny adres IP aplikacji. Na stronie **domeny niestandardowe** skopiuj wartość **adres IP**.
+3. **(Tylko rekord A)** Aby zmapować <abbr title="Rekord adresu w systemie DNS mapuje nazwę hosta na adres IP.">Rekord A</abbr>wymagany jest zewnętrzny adres IP aplikacji. Na stronie **domeny niestandardowe** skopiuj wartość **adres IP**.
 
    ![Zrzut ekranu pokazujący nawigację w portalu do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+<hr/> 
 
 ## <a name="4-create-the-dns-records"></a>4. Utwórz rekordy DNS
 
@@ -148,52 +156,71 @@ Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własnoś�
 
 W przypadku domeny podrzędnej podobnej `www` `www.contoso.com` do programu Utwórz dwa rekordy zgodnie z poniższą tabelą:
 
-    | Typ rekordu | Host | Wartość | Komentarze |
-    | - | - | - |
-    | CNAME | `<subdomain>` (na przykład `www` ) | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
-    | TXT | `asuid.<subdomain>` (na przykład `asuid.www` ) | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
-    
-    ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+| Typ rekordu | Host | Wartość | Komentarze |
+| - | - | - |
+| CNAME | `<subdomain>` (na przykład `www` ) | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
+| TXT | `asuid.<subdomain>` (na przykład `asuid.www` ) | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
+
+![Zrzut ekranu pokazujący nawigację w portalu do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
     
 # <a name="a"></a>[A](#tab/a)
 
 Dla domeny katalogu głównego `contoso.com` , na przykład, Utwórz dwa rekordy zgodnie z poniższą tabelą:
 
-    | Typ rekordu | Host | Wartość | Komentarze |
-    | - | - | - |
-    | A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#3-get-a-domain-verification-id) | Samo mapowanie domeny ( `@` zazwyczaj reprezentuje domenę główną). |
-    | TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. W przypadku domeny głównej Użyj `asuid` . |
-    
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
+| Typ rekordu | Host | Wartość | Komentarze |
+| - | - | - |
+| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#3-get-a-domain-verification-id) | Samo mapowanie domeny ( `@` zazwyczaj reprezentuje domenę główną). |
+| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. W przypadku domeny głównej Użyj `asuid` . |
 
-    <details>
-    <summary>What if I want to map a subdomain with an A record?</summary>
-    To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+![Zrzut ekranu przedstawiający stronę rekordów DNS.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-    | Typ rekordu | Host | Wartość |
-    | - | - | - |
-    | A | `<subdomain>` (na przykład `www` ) | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) |
-    | TXT | `asuid.<subdomain>` (na przykład `asuid.www` ) | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) |
-    </details>
-    
+<details>
+<summary>Co zrobić, jeśli chcę zmapować poddomenę na rekord A?</summary>
+Aby zmapować poddomenę podobną do `www.contoso.com` rekordu a zamiast zalecanego rekordu CNAME, rekord rekordu i txt powinien wyglądać podobnie do poniższej tabeli:
+
+<div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Tabela 3</caption>
+<thead>
+<tr>
+<th>Typ rekordu</th>
+<th>Host</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>&lt;subdomain&gt;</code> (na przykład <code>www</code> )</td>
+<td>Adres IP z sekcji <a href="#info" data-linktype="self-bookmark">Kopiowanie adresu IP aplikacji</a></td>
+</tr>
+<tr>
+<td>TXT</td>
+<td><code>asuid.&lt;subdomain&gt;</code> (na przykład <code>asuid.www</code> )</td>
+<td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">Wcześniej identyfikator weryfikacyjny</a></td>
+</tr>
+</tbody>
+</table></div>
+</details>
+
 # <a name="wildcard-cname"></a>[Symbol wieloznaczny (CNAME)](#tab/wildcard)
 
 W przypadku symboli wieloznacznych, takich jak `*` w programie `*.contoso.com` , Utwórz dwa rekordy zgodnie z poniższą tabelą:
 
-    | Typ rekordu | Host | Wartość | Komentarze |
-    | - | - | - |
-    | CNAME | `*` | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
-    | TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
-    
-    ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
-    
----
+| Typ rekordu | Host | Wartość | Komentarze |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | Mapowanie domeny. |
+| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#3-get-a-domain-verification-id) | App Service uzyskuje dostęp do `asuid` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
 
-    <details>
-        <summary>My changes are erased after I leave the page.</summary>
-        For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
-    </details>
+![Zrzut ekranu pokazujący nawigację do aplikacji platformy Azure.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
     
+-----
+
+<details>
+<summary>Moje zmiany są wymazywane po opuszczeniu strony.</summary>
+<p>W przypadku niektórych dostawców, np. GoDaddy, zmiany rekordów DNS nie zaczynają obowiązywać, dopóki nie wybierzesz oddzielnego linku <strong>Zapisz zmiany</strong>.</p>
+</details>
+
+<hr/>
+
 ## <a name="5-enable-the-mapping-in-your-app"></a>5. Włącz mapowanie w aplikacji
 
 1. W lewym okienku strony aplikacji w Azure Portal wybierz pozycję **domeny niestandardowe**.
@@ -273,8 +300,10 @@ W przypadku symboli wieloznacznych, takich jak `*` w programie `*.contoso.com` ,
         Etykieta ostrzeżenia dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem TLS/SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie, w zależności od przeglądarki. Aby dodać powiązanie TLS, zobacz temat <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service</a>.
     </details>
 
----
-    
+-----
+
+<hr/> 
+
 ## <a name="6-test-in-a-browser"></a>6. Testowanie w przeglądarce
 
 Przejdź do wcześniej skonfigurowanych nazw DNS.
@@ -290,9 +319,13 @@ Przejdź do wcześniej skonfigurowanych nazw DNS.
 </ul>
 </details>
 
+<hr/> 
+
 ## <a name="migrate-an-active-domain"></a>Migrowanie aktywnej domeny
 
 Aby przeprowadzić migrację aktywnej witryny oraz jej nazwy domeny DNS do usługi App Service bez przestojów, zobacz [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md) (Migrowanie aktywnej nazwy DNS do usługi Azure App Service).
+
+<hr/> 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
@@ -313,11 +346,13 @@ Chociaż jest to typowy scenariusz, nie wiąże się to z niestandardowym mapowa
 
 1. Po zakończeniu operacji Sprawdź, przechodząc do ścieżki głównej swojej aplikacji w przeglądarce (na przykład `http://contoso.com` lub `http://<app-name>.azurewebsites.net` ).
 
+<hr/> 
+
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 
 Zarządzanie domenami niestandardowymi za pomocą skryptów można zautomatyzować za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/).
 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+#### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Następujące polecenie dodaje skonfigurowaną niestandardową nazwę DNS do aplikacji usługi App Service.
 
@@ -330,7 +365,7 @@ az webapp config hostname add \
 
 Aby uzyskać więcej informacji, zobacz [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md) (Mapowanie domeny niestandardowej na aplikację internetową).
 
-### <a name="azure-powershell"></a>Azure PowerShell
+#### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -344,6 +379,8 @@ Set-AzWebApp `
 ```
 
 Aby uzyskać więcej informacji, zobacz [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md) (Przypisywanie domeny niestandardowej do aplikacji internetowej).
+
+<hr/> 
 
 ## <a name="next-steps"></a>Następne kroki
 
