@@ -5,13 +5,13 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.date: 08/31/2020
-ms.openlocfilehash: fb9439bc37fcecf1cb5299a09916ebe21c5bc1cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/04/2021
+ms.openlocfilehash: 06d04eb8679b4484f330b69a8cffb263d353bdcd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393823"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197871"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametry globalne w Azure Data Factory
 
@@ -21,7 +21,7 @@ Parametry globalne są stałymi w fabryce danych, które mogą być używane prz
 
 ## <a name="creating-global-parameters"></a>Tworzenie parametrów globalnych
 
-Aby utworzyć parametr globalny, przejdź do karty *parametry globalne* w sekcji *Zarządzanie* . Wybierz pozycję **Nowy** , aby otworzyć stronę tworzenie.
+Aby utworzyć parametr globalny, przejdź do karty *parametry globalne* w sekcji **Zarządzanie** . Wybierz pozycję **Nowy** , aby otworzyć stronę tworzenie.
 
 ![Zrzut ekranu, który podświetla nowy przycisk, który wybierzesz, aby utworzyć parametry globalne.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -46,7 +46,10 @@ Istnieją dwa sposoby integrowania parametrów globalnych w rozwiązaniu ciągł
 * Uwzględnij parametry globalne w szablonie ARM
 * Wdrażanie parametrów globalnych za pośrednictwem skryptu programu PowerShell
 
-W przypadku większości przypadków użycia zaleca się uwzględnienie parametrów globalnych w szablonie ARM. Ta integracja zostanie zintegrowana z rozwiązaniem przedstawionym w [dokumencie Ci/CD](continuous-integration-deployment.md). Parametry globalne zostaną dodane jako parametr szablonu ARM domyślnie, ponieważ często zmieniają się ze środowiska na środowisko. Dołączanie parametrów globalnych do szablonu ARM można włączyć z poziomu centrum zarządzania.
+W przypadku większości przypadków użycia zaleca się uwzględnienie parametrów globalnych w szablonie ARM. Ta integracja zostanie zintegrowana z rozwiązaniem przedstawionym w [dokumencie Ci/CD](continuous-integration-deployment.md). Parametry globalne zostaną dodane jako parametr szablonu ARM domyślnie, ponieważ często zmieniają się ze środowiska na środowisko. Dołączanie parametrów globalnych do szablonu ARM można włączyć z centrum **zarządzania** .
+
+> [!NOTE]
+> Konfiguracja **dołączania do szablonu usługi ARM** jest dostępna tylko w trybie git. Obecnie jest ona wyłączona w trybie "tryb na żywo" lub "Data Factory".
 
 ![Uwzględnij w szablonie ARM](media/author-global-parameters/include-arm-template.png)
 

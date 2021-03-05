@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5d26d36c9f4ecb4aa0c7114b1ebef066e104f175
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278117"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198867"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Samouczek: Konfigurowanie aparatu reguł
 
 W tym samouczku pokazano, jak utworzyć konfigurację aparatu reguł i pierwszą regułę zarówno w Azure Portal, jak i w interfejsie wiersza polecenia. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Skonfiguruj aparat reguł przy użyciu portalu.
 > - Konfigurowanie aparatu reguł przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -51,14 +51,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Po utworzeniu co najmniej jednej reguły naciśnij pozycję **Zapisz**. Ta akcja powoduje utworzenie konfiguracji aparatu reguł.
 
-1. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do **Front Door designer**  >  **reguły tras**projektanta drzwi. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji **Route details**  >  **Konfiguracja aparatu reguły**szczegółów trasy, a następnie wybierz konfigurację, którą chcesz skojarzyć.
+1. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do   >  **reguły tras** projektanta drzwi. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji   >  **Konfiguracja aparatu reguły** szczegółów trasy, a następnie wybierz konfigurację, którą chcesz skojarzyć.
 
     ![Konfigurowanie do reguły routingu](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Konfigurowanie aparatu reguł w interfejsie wiersza polecenia platformy Azure
 
-1. Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Dodaj rozszerzenie "Front-drzwiczks":-AZ Extension Add--Name-drzwi. Następnie zaloguj się i przejdź do subskrypcji AZ Account Set--Subscription <name_or_Id>.
+1. Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Dodaj rozszerzenie "Front-drzwiczks":-AZ Extension Add--Name-drzwi. Następnie zaloguj się i przejdź do subskrypcji AZ Account Set--Subscription <name_or_Id>.
 
 1. Zacznij od utworzenia aparatu reguł — ten przykład pokazuje jedną regułę z jedną akcją opartą na nagłówkach i jeden warunek dopasowywania. 
 
@@ -96,7 +96,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Aby uzyskać więcej informacji, należy zapoznać się z pełną listą poleceń aparatu AFD [rules.](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest)   
+Aby uzyskać więcej informacji, należy zapoznać się z pełną listą poleceń aparatu AFD [rules.](/cli/azure/ext/front-door/network/front-door/rules-engine)   
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -108,11 +108,11 @@ W poprzednich krokach zostały skonfigurowane i skojarzone z konfiguracją apara
 
 1. Usuń zaznaczenie wszystkich reguł routingu, do których jest skojarzona ta konfiguracja aparatu reguły, a następnie kliknij przycisk Zapisz.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Kojarzenie reguł routingu":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Skojarzenie reguły routingu":::
 
 1. Teraz można usunąć konfigurację aparatu reguł z drzwi z przodu.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Kojarzenie reguł routingu":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Usuń konfigurację aparatu reguł":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c7ca826eaf7d72cb35985b154458f149ef4a0e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649322"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199632"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Realizacja zaproszenia do współpracy B2B w usłudze Azure Active Directory
 
@@ -35,6 +34,7 @@ Użytkownicy-Goście mogą teraz zalogować się do aplikacji firmowych z wielom
 ![Logowanie wspólnego punktu końcowego](media/redemption-experience/common-endpoint-flow-small.png)
 
 Użytkownik zostanie następnie przekierowany do dzierżawcy punktu końcowego, gdzie może zalogować się przy użyciu adresu e-mail lub wybrać skonfigurowany dostawcę tożsamości.
+
 ## <a name="redemption-through-a-direct-link"></a>Umorzenie za pośrednictwem bezpośredniego linku
 
 Jako alternatywę dla wiadomości e-mail z zaproszeniem lub wspólnego adresu URL aplikacji można udzielić gościa bezpośredniego linku do aplikacji lub portalu. Najpierw musisz dodać użytkownika-gościa do katalogu za pośrednictwem [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) lub [PowerShell](./b2b-quickstart-invite-powershell.md). Następnie możesz użyć dowolnie [dostosowywalnych metod wdrażania aplikacji dla użytkowników](../manage-apps/end-user-experiences.md), w tym bezpośrednich linków logowania. Gdy gość korzysta ze bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie przeprowadzany po raz pierwszy.
@@ -73,7 +73,7 @@ Gdy użytkownik kliknie link **Zaakceptuj zaproszenie** w [wiadomości e-mail z 
 
 3. Jeśli administrator włączył usługę [Google Federation](./google-federation.md), usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest gmail.com lub googlemail.com i przekierowuje użytkownika do usługi Google.
 
-4. Proces wykupu sprawdza, czy użytkownik ma istniejące konto Microsoft osobiste [(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
+4. Proces wykupu sprawdza, czy użytkownik ma istniejące konto Microsoft osobiste [(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) dla wykupu just-in-Time (JIT), ale nie na potrzeby tworzenia linków do wiadomości e-mail z zaproszeniem. Jeśli użytkownik ma już istniejący element MSA, zaloguje się przy użyciu istniejącego konta MSA.
 
 5. Po zidentyfikowaniu **katalogu macierzystego** użytkownika użytkownik jest wysyłany do odpowiedniego dostawcy tożsamości w celu zalogowania się.  
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 951c52cdba191aa291061259e1c15b9190513770
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092724"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199904"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -56,7 +56,7 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
+3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
 
     ```azurecli-interactive
         az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
@@ -73,7 +73,7 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
     >[!NOTE]
     >Obecnie istnieje **znany problem** w usłudze Cloud Shell, który wpływa na następujące grupy poleceń: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Aby rozwiązać ten problem, uruchom polecenie `az login` w usłudze Cloud Shell przed uruchomieniem danego polecenia lub użyj [lokalnego interfejsu wiersza polecenia](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) zamiast usługi Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Aby rozwiązać ten problem, uruchom polecenie `az login` w usłudze Cloud Shell przed uruchomieniem danego polecenia lub użyj [lokalnego interfejsu wiersza polecenia](/cli/azure/install-azure-cli) zamiast usługi Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli-interactive
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -117,7 +117,7 @@ Aby utworzyć drugie centrum zdarzeń, możesz użyć poniższych instrukcji int
     ```azurecli-interactive
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
+3. Utwórz [regułę autoryzacji](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania. Określ nazwę reguły.
 
     ```azurecli-interactive
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
@@ -173,7 +173,7 @@ Następnie skonfigurujesz wystąpienie Time Series Insights do odbierania danych
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Rozpocznij wysyłanie danych IoT do usługi Azure Digital bliźniaczych reprezentacji
 
-Aby rozpocząć wysyłanie danych do Time Series Insights, należy rozpocząć aktualizowanie właściwości cyfrowego przędzy w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu zmiany wartości danych. Użyj polecenia [AZ DT bliźniaczy Update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext-azure-iot-az-dt-twin-update) .
+Aby rozpocząć wysyłanie danych do Time Series Insights, należy rozpocząć aktualizowanie właściwości cyfrowego przędzy w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu zmiany wartości danych. Użyj polecenia [AZ DT bliźniaczy Update](/cli/azure/ext/azure-iot/dt/twin#ext-azure-iot-az-dt-twin-update) .
 
 Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) w celu ułatwienia instalacji środowiska, możesz zacząć wysyłać symulowane dane IoT, uruchamiając projekt *DeviceSimulator* z przykładu. Instrukcje znajdują się w sekcji [*Konfigurowanie i uruchamianie symulacji*](tutorial-end-to-end.md#configure-and-run-the-simulation) w samouczku.
 

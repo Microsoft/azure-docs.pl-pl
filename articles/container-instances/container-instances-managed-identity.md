@@ -3,12 +3,12 @@ title: Włącz zarządzaną tożsamość w grupie kontenerów
 description: Dowiedz się, jak włączyć zarządzaną tożsamość w Azure Container Instances, która może być uwierzytelniana za pomocą innych usług platformy Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 67ef17b77a9db92e539dd860a3083760fe1160db
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558950"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198323"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Jak używać tożsamości zarządzanych z usługą Azure Container Instances
 
@@ -53,13 +53,13 @@ Aby można było korzystać z tożsamości zarządzanej, tożsamość musi mieć
 
 W przykładach w tym artykule używana jest tożsamość zarządzana w Azure Container Instances, aby uzyskać dostęp do wpisu tajnego magazynu kluczy platformy Azure. 
 
-Najpierw utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus* za pomocą następującego polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create):
+Najpierw utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus* za pomocą następującego polecenia [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Użyj polecenia [AZ Key magazynu Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) , aby utworzyć magazyn kluczy. Pamiętaj, aby określić unikatową nazwę magazynu kluczy. 
+Użyj polecenia [AZ Key magazynu Create](/cli/azure/keyvault#az-keyvault-create) , aby utworzyć magazyn kluczy. Pamiętaj, aby określić unikatową nazwę magazynu kluczy. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -68,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Zapisz przykładowy klucz tajny w magazynie kluczy za pomocą polecenia AZ Key Key [Secret Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) :
+Zapisz przykładowy klucz tajny w magazynie kluczy za pomocą polecenia AZ Key Key [Secret Set](/cli/azure/keyvault/secret#az-keyvault-secret-set) :
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -83,7 +83,7 @@ Aby uzyskać dostęp do magazynu kluczy przy użyciu tożsamości zarządzanej p
 
 ### <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Najpierw utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) . Możesz użyć tej samej grupy zasobów, która została użyta do utworzenia magazynu kluczy lub użyć innego.
+Najpierw utwórz tożsamość w subskrypcji za pomocą polecenia [AZ Identity Create](/cli/azure/identity#az-identity-create) . Możesz użyć tej samej grupy zasobów, która została użyta do utworzenia magazynu kluczy lub użyć innego.
 
 ```azurecli-interactive
 az identity create \
@@ -91,7 +91,7 @@ az identity create \
   --name myACIId
 ```
 
-Aby użyć tożsamości w poniższych krokach, użyj polecenia [AZ Identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) do przechowywania identyfikatora jednostki usługi tożsamości i identyfikatora zasobu w zmiennych.
+Aby użyć tożsamości w poniższych krokach, użyj polecenia [AZ Identity show](/cli/azure/identity#az-identity-show) do przechowywania identyfikatora jednostki usługi tożsamości i identyfikatora zasobu w zmiennych.
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
@@ -109,7 +109,7 @@ resourceID=$(az identity show \
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Udzielanie tożsamości przypisanej użytkownikowi dostępu do magazynu kluczy
 
-Uruchom następujące polecenie [AZ KeyBinding Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości przypisanej przez użytkownika uzyskanie wpisów tajnych z magazynu kluczy:
+Uruchom następujące polecenie [AZ KeyBinding Set-Policy](/cli/azure/keyvault) , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości przypisanej przez użytkownika uzyskanie wpisów tajnych z magazynu kluczy:
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -121,7 +121,7 @@ Uruchom następujące polecenie [AZ KeyBinding Set-Policy](/cli/azure/keyvault?v
 
 ### <a name="enable-user-assigned-identity-on-a-container-group"></a>Włączanie tożsamości przypisanej przez użytkownika w grupie kontenerów
 
-Uruchom następujące polecenie [AZ Container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) , aby utworzyć wystąpienie kontenera na podstawie obrazu firmy Microsoft `azure-cli` . Ten przykład zawiera grupę z pojedynczym kontenerem, która może być używana interaktywnie do uruchamiania interfejsu wiersza polecenia platformy Azure w celu uzyskania dostępu do innych usług platformy Azure. W tej sekcji używany jest tylko podstawowy system operacyjny. Przykład użycia interfejsu wiersza polecenia platformy Azure w kontenerze znajduje się w temacie [Włączanie tożsamości przypisanej do systemu w grupie kontenerów](#enable-system-assigned-identity-on-a-container-group). 
+Uruchom następujące polecenie [AZ Container Create](/cli/azure/container#az-container-create) , aby utworzyć wystąpienie kontenera na podstawie obrazu firmy Microsoft `azure-cli` . Ten przykład zawiera grupę z pojedynczym kontenerem, która może być używana interaktywnie do uruchamiania interfejsu wiersza polecenia platformy Azure w celu uzyskania dostępu do innych usług platformy Azure. W tej sekcji używany jest tylko podstawowy system operacyjny. Przykład użycia interfejsu wiersza polecenia platformy Azure w kontenerze znajduje się w temacie [Włączanie tożsamości przypisanej do systemu w grupie kontenerów](#enable-system-assigned-identity-on-a-container-group). 
 
 `--assign-identity`Parametr przekazuje do grupy zarządzaną tożsamość przypisaną przez użytkownika. Długotrwałe polecenie utrzymuje uruchomiony kontener. W tym przykładzie użyto tej samej grupy zasobów, która została użyta do utworzenia magazynu kluczy, ale można określić inny.
 
@@ -134,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-W ciągu kilku sekund powinna pojawić się odpowiedź z interfejsu wiersza polecenia platformy Azure, wskazująca ukończenie wdrażania. Sprawdź swój stan za pomocą polecenia [AZ Container show](/cli/azure/container?view=azure-cli-latest#az-container-show) .
+W ciągu kilku sekund powinna pojawić się odpowiedź z interfejsu wiersza polecenia platformy Azure, wskazująca ukończenie wdrażania. Sprawdź swój stan za pomocą polecenia [AZ Container show](/cli/azure/container#az-container-show) .
 
 ```azurecli-interactive
 az container show \
@@ -206,7 +206,7 @@ Odpowiedź wygląda podobnie do poniższego, pokazując wpis tajny. W kodzie mo�
 
 ### <a name="enable-system-assigned-identity-on-a-container-group"></a>Włączanie tożsamości przypisanej do systemu w grupie kontenerów
 
-Uruchom następujące polecenie [AZ Container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) , aby utworzyć wystąpienie kontenera na podstawie obrazu firmy Microsoft `azure-cli` . Ten przykład zawiera grupę z pojedynczym kontenerem, która może być używana interaktywnie do uruchamiania interfejsu wiersza polecenia platformy Azure w celu uzyskania dostępu do innych usług platformy Azure. 
+Uruchom następujące polecenie [AZ Container Create](/cli/azure/container#az-container-create) , aby utworzyć wystąpienie kontenera na podstawie obrazu firmy Microsoft `azure-cli` . Ten przykład zawiera grupę z pojedynczym kontenerem, która może być używana interaktywnie do uruchamiania interfejsu wiersza polecenia platformy Azure w celu uzyskania dostępu do innych usług platformy Azure. 
 
 `--assign-identity`Parametr bez dodatkowych wartości włącza do grupy tożsamość zarządzaną przez system. Tożsamość jest objęta zakresem grupy zasobów grupy kontenerów. Długotrwałe polecenie utrzymuje uruchomiony kontener. W tym przykładzie użyto tej samej grupy zasobów, która została użyta do utworzenia magazynu kluczy, który znajduje się w zakresie tożsamości.
 
@@ -255,7 +255,7 @@ spID=$(az container show \
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Przyznaj grupie kontenerów dostęp do magazynu kluczy
 
-Uruchom następujące polecenie [AZ KeyBinding Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości zarządzanej przez system otrzymywanie wpisów tajnych z magazynu kluczy:
+Uruchom następujące polecenie [AZ KeyBinding Set-Policy](/cli/azure/keyvault) , aby ustawić zasady dostępu w magazynie kluczy. Poniższy przykład umożliwia tożsamości zarządzanej przez system otrzymywanie wpisów tajnych z magazynu kluczy:
 
 ```azurecli-interactive
  az keyvault set-policy \

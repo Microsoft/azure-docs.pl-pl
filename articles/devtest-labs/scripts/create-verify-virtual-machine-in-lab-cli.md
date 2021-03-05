@@ -4,12 +4,12 @@ description: Ten skrypt interfejsu wiersza polecenia platformy Azure umożliwia 
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: b64b6fa13bd0d320707dc279cb554d5c23f1d80d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7625f62d7897d61903f864b216ccf9aa13648ea
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136171"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198425"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Tworzenie maszyny wirtualnej i weryfikowanie jej dostępności w laboratorium za pomocą interfejsu wiersza polecenia platformy Azure w usłudze Azure DevTest Labs
 
@@ -38,8 +38,8 @@ W tym skrypcie użyto następujących poleceń:
 | Polecenie | Uwagi |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [az lab vm create](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | Tworzy maszynę wirtualną w laboratorium. |
-| [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | Wyświetla stan maszyny wirtualnej w laboratorium. |
+| [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create) | Tworzy maszynę wirtualną w laboratorium. |
+| [az lab vm show](/cli/azure/lab/vm#az-lab-vm-show) | Wyświetla stan maszyny wirtualnej w laboratorium. |
 
 ## <a name="next-steps"></a>Następne kroki
 

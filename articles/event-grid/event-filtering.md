@@ -2,13 +2,13 @@
 title: Filtrowanie zdarzeń dla Azure Event Grid
 description: Opisuje sposób filtrowania zdarzeń podczas tworzenia subskrypcji Azure Event Grid.
 ms.topic: conceptual
-ms.date: 02/26/2021
-ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721960"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197779"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji Event Grid
 
@@ -58,13 +58,27 @@ Aby filtrować według wartości w polach danych i określić operator porównan
 * wartości — wartość lub wartości, które mają zostać porównane z kluczem.
 
 ## <a name="key"></a>Klucz
-Klucz to pole w danych zdarzenia, które są używane do filtrowania. Może to być liczba, wartość logiczna, ciąg lub tablica. Dla zdarzeń w **schemacie Event Grid** należy użyć następujących wartości dla klucza: `ID` ,,, `Topic` , `Subject` `EventType` `DataVersion` lub danych zdarzenia (na przykład `data.key1` ).
+Klucz to pole w danych zdarzenia, które są używane do filtrowania. Może to być jeden z następujących typów:
+
+- Liczba
+- Boolean (wartość logiczna)
+- String (ciąg)
+- Macierzy. Należy ustawić `enableAdvancedFilteringOnArrays` Właściwość na wartość true, aby użyć tej funkcji. Obecnie Azure Portal nie obsługuje włączania tej funkcji. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+Dla zdarzeń w **schemacie Event Grid** należy użyć następujących wartości dla klucza: `ID` ,,, `Topic` , `Subject` `EventType` `DataVersion` lub danych zdarzenia (na przykład `data.key1` ).
 
 Dla zdarzeń w **schemacie zdarzenia w chmurze** Użyj następujących wartości dla klucza: `eventid` ,, `source` , `eventtype` `eventtypeversion` lub danych zdarzenia (na przykład `data.key1` ).
 
-W przypadku **niestandardowego schematu wprowadzania** Użyj pól danych zdarzenia (takich jak `data.key1` ).
-
-Aby uzyskać dostęp do pól w sekcji danych, użyj `.` notacji (kropka). Na przykład `data.sitename` , `data.appEventTypeDetail.action` Aby uzyskać dostęp do `sitename` lub `action` dla następującego przykładowego zdarzenia.
+W przypadku **niestandardowego schematu wprowadzania** Użyj pól danych zdarzenia (takich jak `data.key1` ). Aby uzyskać dostęp do pól w sekcji danych, użyj `.` notacji (kropka). Na przykład `data.sitename` , `data.appEventTypeDetail.action` Aby uzyskać dostęp do `sitename` lub `action` dla następującego przykładowego zdarzenia.
 
 ```json
     "data": {
@@ -80,10 +94,8 @@ Aby uzyskać dostęp do pól w sekcji danych, użyj `.` notacji (kropka). Na prz
     },
 ```
 
-
 ## <a name="values"></a>Wartości
 Możliwe wartości to: Number, String, Boolean lub Array.
-
 
 ## <a name="operators"></a>Operatory
 

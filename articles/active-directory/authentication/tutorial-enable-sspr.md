@@ -10,16 +10,16 @@ ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 924ff6091e7eb6633d36f75fd6d53745139454d7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741069"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198493"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
-Azure Active Directory (usługa Azure AD) funkcja samoobsługowego resetowania haseł (SSPR) umożliwia użytkownikom zmianę lub Resetowanie hasła bez konieczności korzystania z administratora ani skontaktuj się z pomocą techniczną. Jeśli konto użytkownika jest zablokowane lub zapomni swoje hasło, może wykonać monit o odblokowanie siebie i zawracanie do pracy. Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu ani w aplikacji.
+Azure Active Directory (usługa Azure AD) funkcja samoobsługowego resetowania haseł (SSPR) umożliwia użytkownikom zmianę lub Resetowanie hasła bez konieczności korzystania z administratora ani skontaktuj się z pomocą techniczną. Jeśli konto użytkownika jest zablokowane lub zapomni swoje hasło, może wykonać monit o odblokowanie siebie i zawracanie do pracy. Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu ani w aplikacji. Oto film wideo dotyczący [konfigurowania i włączania samoobsługowego resetowania haseł w dzierżawie](https://www.youtube.com/watch?v=rA8TvhNcCvQ) (**zalecane**). Mamy również film wideo dla administratorów IT, który [rozwiązuje sześć najczęstszych komunikatów o błędach użytkowników końcowych za pomocą SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I).
 
 > [!IMPORTANT]
 > W tym samouczku pokazano, jak włączyć funkcję samoobsługowego resetowania hasła. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony https://aka.ms/sspr .

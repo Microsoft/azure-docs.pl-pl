@@ -7,21 +7,23 @@ ms.service: virtual-machines-linux
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0fecf9f16cd1069b140e61a019a43510b59e76e8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695179"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199172"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Instalowanie i Konfigurowanie xrdp w celu używania Pulpit zdalny z maszyną wirtualną z systemem Linux
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Instalowanie i Konfigurowanie xrdp w celu używania Pulpit zdalny z Ubuntu
 
-Maszyny wirtualne z systemem Linux na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia Secure Shell (SSH). W przypadku nowych do systemu Linux lub w celu szybkiego rozwiązywania problemów korzystanie z pulpitu zdalnego może być prostsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu ([pulpit Xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://xrdp.org)) dla maszyny wirtualnej z systemem Linux przy użyciu modelu wdrażania Menedżer zasobów.
+Maszyny wirtualne z systemem Linux na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia Secure Shell (SSH). W przypadku nowych do systemu Linux lub w celu szybkiego rozwiązywania problemów korzystanie z pulpitu zdalnego może być prostsze. W tym artykule szczegółowo opisano sposób instalowania i konfigurowania środowiska pulpitu ([pulpit Xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://xrdp.org)) dla maszyny wirtualnej z systemem Linux i Ubuntu.
 
+Artykuł został WRITEN i przetestowany przy użyciu maszyny wirtualnej Ubuntu 18,04. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Ten artykuł wymaga istniejącej maszyny wirtualnej Ubuntu 18,04 LTS na platformie Azure. Jeśli musisz utworzyć maszynę wirtualną, użyj jednej z następujących metod:
 
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)

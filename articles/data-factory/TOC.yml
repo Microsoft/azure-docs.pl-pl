@@ -26,8 +26,6 @@
     - name: Tworzenie fabryki danych — szablon usługi ARM
       displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Zabezpieczenia — włączanie szyfrowania kluczy zarządzanego przez klienta
-      href: enable-customer-managed-key.md
     - name: Tworzenie przepływu danych
       href: data-flow-create.md
 - name: Samouczki
@@ -173,10 +171,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration Runtime
       href: concepts-integration-runtime.md
-    - name: Zabezpieczenia
-      items:
-        - name: Punkt odniesienia zabezpieczeń
-          href: security-baseline.md
     - name: Przepływy danych
       items:
         - name: Przekształcanie danych przy użyciu przepływów danych mapowania
@@ -474,63 +468,63 @@
           href: control-flow-azure-function-activity.md
         - name: Działanie niestandardowe
           href: transform-data-using-dotnet-custom-activity.md
-        - name: Działanie pliku Jar usługi Databricks
+        - name: Aktywność jar
           href: transform-data-databricks-jar.md
-        - name: Działanie notesu usługi Databricks
+        - name: Aktywność notesu datakostki
           href: transform-data-databricks-notebook.md
-        - name: Działanie języka Python w usłudze Databricks
+        - name: Aktywność języka Python dla elementów datakostek
           href: transform-data-databricks-python.md
-        - name: Działanie polecenia usługi Data Explorer
+        - name: Działanie polecenia Eksplorator danych
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
-        - name: Działanie języka U-SQL w usłudze Data Lake
+        - name: Data Lake działanie U-SQL
           href: transform-data-using-data-lake-analytics.md
-        - name: Działania technologii Hive w usłudze HDInsight
+        - name: Działanie programu Hive w usłudze HDInsight
           href: transform-data-using-hadoop-hive.md
-        - name: Działania technologii MapReduce w usłudze HDInsight
+        - name: Działanie MapReduce usługi HDInsight
           href: transform-data-using-hadoop-map-reduce.md
-        - name: Działania technologii Pig w usłudze HDInsight
+        - name: Działanie dotyczące usługi HDInsight świni
           href: transform-data-using-hadoop-pig.md
-        - name: Działania platformy Spark w usłudze HDInsight
+        - name: Działanie usługi HDInsight Spark
           href: transform-data-using-spark.md
-        - name: Działania przesyłania strumieniowego usługi HDInsight
+        - name: Działanie przesyłania strumieniowego HDInsight
           href: transform-data-using-hadoop-streaming.md
-        - name: Działanie wykonywania potoku usługi Machine Learning
+        - name: Działanie wykonywania potoku Machine Learning
           href: transform-data-machine-learning-service.md
-        - name: Działanie wykonywania wsadowego w usłudze Machine Learning Studio (wersja klasyczna)
+        - name: Działanie wykonywania wsadowego w Machine Learning Studio (klasycznej)
           href: transform-data-using-machine-learning.md
-        - name: Działanie aktualizacji zasobów w usłudze Machine Learning Studio (wersja klasyczna)
+        - name: Działanie aktualizacji zasobów Machine Learning Studio (klasycznej)
           href: update-machine-learning-models.md
-        - name: Działania procedur składowanych
+        - name: Działanie procedury składowanej
           href: transform-data-using-stored-procedure.md
         - name: Usługi połączone usługi Compute
           href: compute-linked-services.md
     - name: Przepływ sterowania
       items:
-        - name: Działanie dołączania zmiennej
+        - name: Dołącz działanie zmiennej
           href: control-flow-append-variable-activity.md
         - name: Działanie wykonywania potoku
           href: control-flow-execute-pipeline-activity.md
-        - name: Filtruj aktywność
+        - name: Działanie filtrowania
           href: control-flow-filter-activity.md
         - name: Dla każdego działania
           href: control-flow-for-each-activity.md
         - name: Działanie pobierania metadanych
           href: control-flow-get-metadata-activity.md
-        - name: Działanie If Condition
+        - name: Działanie if Condition
           href: control-flow-if-condition-activity.md
-        - name: Działanie wyszukiwania
+        - name: Działanie Lookup
           href: control-flow-lookup-activity.md
         - name: Działanie ustawiania zmiennej
           href: control-flow-set-variable-activity.md
-        - name: Działanie przełączania
+        - name: Przełącz działanie
           href: control-flow-switch-activity.md
-        - name: Działanie Until
+        - name: Do działania do
           href: control-flow-until-activity.md
-        - name: Działanie weryfikacji
+        - name: Działanie walidacji
           href: control-flow-validation-activity.md
-        - name: Działanie Wait
+        - name: Działanie oczekiwania
           href: control-flow-wait-activity.md
-        - name: Działanie internetowe
+        - name: Aktywność sieci Web
           href: control-flow-web-activity.md
         - name: Działanie elementu webhook
           href: control-flow-webhook-activity.md
@@ -598,7 +592,7 @@
           href: data-movement-security-considerations.md
         - name: Strategie dostępu do danych
           href: data-access-strategies.md
-        - name: Adresy IP usługi Azure Integration Runtime
+        - name: Adresy IP środowiska Azure Integration Runtime
           href: azure-integration-runtime-ip-addresses.md
         - name: Przechowywanie poświadczeń w usłudze Azure Key Vault
           href: store-credentials-in-key-vault.md
@@ -608,12 +602,14 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Tożsamość zarządzana dla usługi Data Factory
           href: data-factory-service-identity.md
-        - name: Szyfrowanie klucza zarządzanego przez klienta
+        - name: Szyfrowanie fabryki danych przy użyciu klucza zarządzanego przez klienta
           href: enable-customer-managed-key.md
-        - name: Zarządzana sieć wirtualna
+        - name: Zarządzana Sieć wirtualna
           href: managed-virtual-network-private-endpoint.md
-        - name: Usługa Azure Private Link dla usługi Data Factory
+        - name: Prywatny link do usługi Azure Data Factory
           href: data-factory-private-link.md
+        - name: Punkt odniesienia zabezpieczeń platformy Azure
+          href: security-baseline.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Monitorowanie wizualne

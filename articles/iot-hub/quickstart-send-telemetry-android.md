@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: dd622f0d55be000e2318c53f200bebf49c373724
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e1e44f5aa4250d63c2addafd2661b09bae2b38e3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624324"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199921"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Szybki start: przesyłanie danych telemetrycznych usługi IoT z urządzenia z systemem Android
 
@@ -100,7 +100,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Odczytywanie danych telemetrycznych z centrum
 
-W tej sekcji, używając usługi Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true), będziesz monitorować komunikaty urządzenia wysyłane przez urządzenie z systemem Android.
+W tej sekcji, używając usługi Azure Cloud Shell z [rozszerzeniem IoT](/cli/azure/ext/azure-iot/iot), będziesz monitorować komunikaty urządzenia wysyłane przez urządzenie z systemem Android.
 
 1. Używając usługi Azure Cloud Shell, uruchom następujące polecenie, aby nawiązać połączenie i odczytać komunikaty z centrum IoT:
 

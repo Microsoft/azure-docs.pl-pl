@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 581c25b384bf6e2865a21f083ba12eef2e5e8bcd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cc9793bfc0ca6cc0afbede241534453209685d94
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733791"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198935"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -35,7 +35,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. AutonomousSystems | [Systemy autonomiczne](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft. Automatyczna synchronizacja | [Rozwiązanie Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft. usługi azureactivedirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft. AzureArcData | Rejestr usług danych z włączonym usługą Azure Arc |
+| Microsoft. AzureArcData | Usługi danych z obsługą usługi Azure Arc |
 | Microsoft. AzureData | Rejestr SQL Server |
 | Microsoft. AzureStack | Procesor |
 | Microsoft. AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -129,7 +129,7 @@ Dostawcy zasobów, którzy są oznaczeni jako **zarejestrowany** , są domyślni
 | Microsoft. Migrowanie | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Wirtualna sieć WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. notesy | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Magazyn obiektów |

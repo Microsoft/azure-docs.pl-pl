@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 14ced0c66b42b6f18c946d0c75091be1af5598f5
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548872"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197796"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -20,13 +20,13 @@ Ten przewodnik zawiera informacje o typowych problemach, które mogą wystąpić
 
 Jeśli wystąpi problem podczas korzystania z Azure Dev Spaces, Utwórz [problem w repozytorium Azure dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby bardziej efektywnie rozwiązywać problemy, może to pomóc w tworzeniu bardziej szczegółowych dzienników do przeglądu.
 
 Dla programu Visual Studio ustaw wartość `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` zmiennej środowiskowej na 1. Aby zmienna środowiskowa zaczęła obowiązywać, należy ponownie uruchomić program Visual Studio. Po włączeniu szczegółowe dzienniki są zapisywane w `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` katalogu.
 
-W interfejsie wiersza polecenia można wyprowadzić więcej informacji podczas wykonywania poleceń przy użyciu `--verbose` przełącznika. Więcej szczegółowych dzienników można także przeglądać w temacie `%TEMP%\Azure Dev Spaces` . Na komputerze Mac katalog *tymczasowy* można znaleźć, uruchamiając `echo $TMPDIR` z okna terminalu. Na komputerze z systemem Linux katalog *temp* jest zwykle `/tmp` . Ponadto sprawdź, czy rejestrowanie jest włączone w [pliku konfiguracji interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+W interfejsie wiersza polecenia można wyprowadzić więcej informacji podczas wykonywania poleceń przy użyciu `--verbose` przełącznika. Więcej szczegółowych dzienników można także przeglądać w temacie `%TEMP%\Azure Dev Spaces` . Na komputerze Mac katalog *tymczasowy* można znaleźć, uruchamiając `echo $TMPDIR` z okna terminalu. Na komputerze z systemem Linux katalog *temp* jest zwykle `/tmp` . Ponadto sprawdź, czy rejestrowanie jest włączone w [pliku konfiguracji interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-configuration#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces sprawdza się również najlepiej podczas debugowania pojedynczego wystąpienia lub pod. `azds.yaml`Plik zawiera ustawienie *replicaCount*, które wskazuje liczbę Kubernetes uruchomionych dla usługi. Jeśli zmienisz *replicaCount* w celu skonfigurowania aplikacji tak, aby uruchamiała wiele zasobników dla danej usługi, debuger dołącza do pierwszego pod, gdy zostanie wyświetlony alfabetycznie. Debuger dołącza się do innego, pod, kiedy pierwotne odzyskanie, prawdopodobnie wystąpiło nieoczekiwane zachowanie.
 
@@ -91,7 +91,7 @@ azure-cli                         2.0.60 *
 
 Mimo tego, że podczas uruchamiania programu `az aks use-dev-spaces` z wersją interfejsu wiersza polecenia platformy Azure przed 2.0.63m zostanie wyświetlony komunikat o błędzie, instalacja zakończy się pomyślnie. Można nadal używać `azds` bez żadnych problemów.
 
-Aby rozwiązać ten problem, zaktualizuj instalację [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) do 2.0.63 lub nowszego. Ta aktualizacja rozwiązuje komunikat o błędzie, który pojawia się podczas uruchamiania `az aks use-dev-spaces` . Alternatywnie można nadal używać bieżącej wersji interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia Azure Dev Spaces.
+Aby rozwiązać ten problem, zaktualizuj instalację [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) do 2.0.63 lub nowszego. Ta aktualizacja rozwiązuje komunikat o błędzie, który pojawia się podczas uruchamiania `az aks use-dev-spaces` . Alternatywnie można nadal używać bieżącej wersji interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia Azure Dev Spaces.
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Błąd "nie można nawiązać połączenia z polecenia-apiserver"
 
@@ -515,7 +515,7 @@ Aby zaktualizować rolę platformy Azure użytkownika dla kontrolera:
     * W obszarze *rola* wybierz opcję *współautor* lub *właściciel*.
     * W obszarze *Przypisywanie dostępu do* wybierz pozycję *użytkownik, Grupa lub nazwa główna usługi Azure AD*.
     * Dla *opcji wybierz* Wyszukaj użytkownika, którym chcesz nadać uprawnienia.
-1. Kliknij przycisk *Zapisz*.
+1. Kliknij pozycję *Zapisz*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Rozpoznawanie nazw DNS nie powiodło się dla publicznego adresu URL skojarzonego z usługą Spaces
 

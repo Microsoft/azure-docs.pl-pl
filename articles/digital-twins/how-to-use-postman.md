@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715704"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199666"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Jak wysyłać żądania do interfejsów API Digital bliźniaczych reprezentacji na platformie Azure przy użyciu programu Poster
 
@@ -21,7 +21,7 @@ ms.locfileid: "101715704"
 
 W tym artykule opisano sposób konfigurowania [klienta REST programu post](https://www.getpostman.com/) w celu współdziałania z interfejsami API Digital bliźniaczych reprezentacji platformy Azure, wykonując następujące czynności:
 
-1. Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) , aby uzyskać token okaziciela, który będzie używany do podejmowania żądań interfejsu API w programie Poster.
+1. Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , aby uzyskać token okaziciela, który będzie używany do podejmowania żądań interfejsu API w programie Poster.
 1. Skonfiguruj kolekcję ogłoszeń i Skonfiguruj klienta REST programu post, aby używał tokenu okaziciela do uwierzytelniania.
 1. Za pomocą skonfigurowanego wpisu można utworzyć i wysłać żądanie do interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 
@@ -41,9 +41,9 @@ Następnie Pobierz wersję Desktop klienta programu Poster. Przejdź do [*www.ge
 
 Teraz, po skonfigurowaniu programu Poster i wystąpienia usługi Azure Digital bliźniaczych reprezentacji, należy uzyskać token okaziciela, który może być używany przez program do autoryzacji w przypadku interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 
-Istnieje kilka możliwych sposobów uzyskania tego tokenu. W tym artykule jest używany [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) do logowania się do konta platformy Azure i uzyskiwania tokenu w taki sposób.
+Istnieje kilka możliwych sposobów uzyskania tego tokenu. W tym artykule jest używany [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) do logowania się do konta platformy Azure i uzyskiwania tokenu w taki sposób.
 
-Jeśli masz [lokalnie zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure, możesz uruchomić wiersz poleceń na komputerze, aby uruchomić następujące polecenia.
+Jeśli masz [lokalnie zainstalowany](/cli/azure/install-azure-cli)interfejs wiersza polecenia platformy Azure, możesz uruchomić wiersz poleceń na komputerze, aby uruchomić następujące polecenia.
 W przeciwnym razie możesz otworzyć okno [Azure Cloud Shell](https://shell.azure.com) w przeglądarce i uruchomić polecenia w tym miejscu.
 
 1. Najpierw upewnij się, że logujesz się do platformy Azure przy użyciu odpowiednich poświadczeń, uruchamiając następujące polecenie:
@@ -52,7 +52,7 @@ W przeciwnym razie możesz otworzyć okno [Azure Cloud Shell](https://shell.azur
     az login
     ```
 
-1. Następnie użyj polecenia [AZ Account Get-Access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) , aby uzyskać token okaziciela z dostępem do usługi Azure Digital bliźniaczych reprezentacji.
+1. Następnie użyj polecenia [AZ Account Get-Access-token](/cli/azure/account#az_account_get_access_token) , aby uzyskać token okaziciela z dostępem do usługi Azure Digital bliźniaczych reprezentacji.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

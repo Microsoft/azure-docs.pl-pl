@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać problemy z agentem Java dla Azure M
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737061"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199615"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Przewodnik rozwiązywania problemów: Azure Monitor Application Insights dla języka Java
 
@@ -45,7 +45,7 @@ Rejestrowanie jest przechwytywane tylko wtedy, gdy najpierw spełni skonfigurowa
 
 Najlepszym sposobem, aby sprawdzić, czy określone oświadczenie rejestrowania spełnia warunki skonfigurowanej progu rejestrowania, ma potwierdzić, że jest on wyświetlany w normalnym dzienniku aplikacji (np. pliku lub konsoli).
 
-Należy również zauważyć, że jeśli do rejestratora zostanie przekazana wyjątek, komunikat dziennika (i wyjątek) zostanie wyświetlony w Azure Portal w `exceptions` tabeli zamiast `traces` tabeli.
+Należy również zauważyć, że jeśli obiekt wyjątku jest przekazana do rejestratora, komunikat dziennika (i szczegóły obiektu wyjątku) będzie wyświetlany w Azure Portal w `exceptions` tabeli zamiast `traces` tabeli.
 
 Aby uzyskać więcej informacji, zobacz [konfigurację rejestrowania z autozbieraniem](./java-standalone-config.md#auto-collected-logging) .
 

@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Dowiedz się, jak uruchamiać Azure Dev Spaces w istniejącym klastrze przy użyciu kontenerów systemu Windows
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, kontenery systemu Windows
-ms.openlocfilehash: a9aa24ae70afe062246e1b295cdc7e0724639596
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 682af37b79083fb360a17f87624f69239c03549d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606763"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198187"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Korzystanie z kontenerów systemu Windows przy użyciu Azure Dev Spaces
 
@@ -179,6 +179,6 @@ Dowiedz się więcej o tym, jak działa Azure Dev Spaces.
 [helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

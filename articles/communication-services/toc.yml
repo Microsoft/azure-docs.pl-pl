@@ -38,6 +38,8 @@
       items:
         - name: Dodawanie połączenia głosowego do aplikacji
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: Dodawanie wideo wywoływanie do aplikacji (JavaScript)
+          href: quickstarts/voice-video-calling/get-started-with-video-calling.md
         - name: Używanie biblioteki klienta połączeń
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Dołączanie aplikacji do obsługi połączeń głosowych do spotkania w usłudze Teams

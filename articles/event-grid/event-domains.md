@@ -3,12 +3,12 @@ title: Domeny zdarzeń w Azure Event Grid
 description: W tym artykule opisano, jak używać domen zdarzeń do zarządzania przepływem zdarzeń niestandardowych do różnych organizacji, klientów i aplikacji branżowych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328831"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198680"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informacje o domenach zdarzeń związanych z zarządzaniem Event Grid tematy
 
@@ -25,15 +25,8 @@ Domena zdarzeń jest narzędziem do zarządzania dla dużej liczby tematów Even
 
 Domeny zdarzeń udostępniają te same architektury, które są używane przez usługi platformy Azure (np. magazyn i IoT Hub) do publikowania ich zdarzeń. Umożliwiają one publikowanie zdarzeń w tysiącach tematów. Domeny zapewniają również kontrolę autoryzacji i uwierzytelniania dla każdego tematu, aby można było podzielić dzierżawy.
 
-### <a name="example-use-case"></a>Przykładowy przypadek użycia
-
-Domeny zdarzeń można łatwo wyjaśnić przy użyciu przykładu. Załóżmy, że uruchomiono maszyny do budowy firmy Contoso, w której są wytwarzane ciągniki, urządzenia przeszukiwanie stosów oraz inne duże maszyny. W ramach działania firmy użytkownik wysyła informacje w czasie rzeczywistym do klientów dotyczących konserwacji sprzętu, kondycji systemów i aktualizacji umów. Wszystkie te informacje znajdują się w różnych punktach końcowych, w tym aplikacji, punktach końcowych klienta i w innej infrastrukturze, którą skonfigurowali klienci.
-
-Domeny zdarzeń umożliwiają modelowanie maszyn konstrukcyjnych contoso jako pojedynczej jednostki zdarzeń. Każdy z klientów jest reprezentowany jako temat w ramach domeny. Uwierzytelnianie i autoryzacja są obsługiwane za pomocą Azure Active Directory. Każdy z klientów może subskrybować swój temat i uzyskać do nich swoje zdarzenia. Dostęp zarządzany przez domenę zdarzeń zapewnia dostęp tylko do ich tematu.
-
-Zapewnia również pojedynczy punkt końcowy, w którym można opublikować wszystkie zdarzenia klienta w usłudze. Event Grid zajmie się zapewnieniem, że każdy temat wie o zdarzeniach objętych zakresem jego dzierżawy.
-
-![Przykład konstruowania contoso](./media/event-domains/contoso-construction-example.png)
+## <a name="example-use-case"></a>Przykładowy przypadek użycia
+[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 
@@ -107,6 +100,8 @@ Jeśli te limity nie są odpowiednie dla Ciebie, skontaktuj się z zespołem pro
 Domeny zdarzeń używają tych samych [cen operacji](https://azure.microsoft.com/pricing/details/event-grid/) , które są używane przez wszystkie inne funkcje w Event Grid.
 
 Operacje działają tak samo w domenach zdarzeń, jak w tematach niestandardowych. Każdy ruch przychodzący zdarzenia do domeny zdarzeń jest operacją, a każda próba dostarczenia zdarzenia jest operacją.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

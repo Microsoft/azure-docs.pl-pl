@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95994500"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199190"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -83,18 +83,22 @@ Ten parametr umożliwia określenie identyfikatora, który zostanie skojarzony z
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-Tego parametru należy użyć, jeśli nagrania nieprzetworzone lub zewnętrzne zawierają hałas w tle. Parametr ten służy do konfigurowania procesu indeksowania. Można określić następujące wartości:
+Użyj tego parametru, aby zdefiniować pakiet AI, który ma zostać zastosowany do pliku dźwiękowego lub wideo. Parametr ten służy do konfigurowania procesu indeksowania. Można określić następujące wartości:
 
-- `AudioOnly` — indeksowanie i wyodrębnianie szczegółowych informacji przy użyciu tylko części audio (z ignorowaniem części wideo)
-- `VideoOnly` — Indeksuj i Wyodrębnij szczegółowe informacje tylko przy użyciu wideo (ignorowanie audio)
-- `Default` — indeksowanie i wyodrębnianie szczegółowych informacji przy użyciu części zarówno audio, jak i wideo
-- `DefaultWithNoiseReduction` — indeksowanie i wyodrębnianie szczegółowych informacji przy użyciu zarówno audio, jak i wideo przy zastosowaniu algorytmów redukcji szumów w strumieniu audio
+- `AudioOnly` — Indeksuj i Wyodrębnij szczegółowe informacje przy użyciu tylko audio (ignorowanie wideo).
+- `VideoOnly` — Indeksuj i Wyodrębnij szczegółowe informacje tylko przy użyciu wideo (ignorowanie audio).
+- `Default` — Indeksuj i Wyodrębnij szczegółowe informacje przy użyciu audio i wideo.
+- `DefaultWithNoiseReduction` — Indeksowanie i wyodrębnianie szczegółowych informacji z dźwięku i wideo przy zastosowaniu algorytmów redukcji szumów w strumieniu audio.
+
+    `DefaultWithNoiseReduction`Wartość jest teraz mapowana na domyślne ustawienie wstępne (przestarzałe).
+- `BasicAudio` -Indeksuj i Wyodrębnij szczegółowe dane przy użyciu tylko audio (ignorowanie wideo), w tym tylko podstawowe funkcje audio (transkrypcja, tłumaczenie, formatowanie i napisy danych wyjściowych).
+ - `AdvancedAudio` -Indeksuj i Wyodrębnij szczegółowe informacje przy użyciu tylko audio (ignorowanie wideo), w tym zaawansowane funkcje audio (wykrywanie zdarzeń audio) Oprócz standardowej analizy dźwięku.
 
 > [!NOTE]
 > Video Indexer obejmuje dwie ścieżki audio. Jeśli plik zawiera więcej ścieżek audio, będą one traktowane jako jedna ścieżka.<br/>
 Aby zindeksować ścieżki oddzielnie, należy wyodrębnić odpowiedni plik audio i indeksować go jako `AudioOnly` .
 
-Cena zależy od wybranej opcji indeksowania.  
+Cena zależy od wybranej opcji indeksowania. Aby uzyskać więcej informacji, zobacz [Cennik usługi Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### <a name="priority"></a>priority
 
@@ -135,7 +139,7 @@ Po skopiowaniu tego kodu na platformę programistyczną należy podać dwa param
 
     * Przejdź do strony https://api-portal.videoindexer.ai/
     * Zaloguj się
-    * Przejdź do **produktu**  ->  **Authorization**  ->  **subskrypcja autoryzacji** autoryzacji
+    * Przejdź do **produktu**  ->    ->  **subskrypcja autoryzacji** autoryzacji
     * Kopiuj **klucz podstawowy**
 * Adres URL wideo — adres URL pliku wideo/audio, który ma być indeksowany. Ten adres URL musi wskazywać plik multimedialny (strony HTML nie są obsługiwane). Plik może być chroniony przez token dostępu podany w ramach identyfikatora URI, a punkt końcowy obsługujący plik musi być zabezpieczony za pomocą protokołu TLS 1.2 lub nowszej wersji. Adres URL musi być zakodowany.
 

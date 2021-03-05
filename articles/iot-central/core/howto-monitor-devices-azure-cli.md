@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122964"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199310"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92122964"
 
 Użyj rozszerzenia usługi IoT dla interfejsu wiersza polecenia platformy Azure, aby wyświetlić komunikaty wysyłane przez urządzenia do IoT Central i obserwować zmiany w bliźniaczych urządzeniach. Za pomocą tego narzędzia można debugować i obserwować łączność urządzeń oraz diagnozować problemy dotyczące komunikatów urządzeń, które nie docierają do chmury lub urządzeń, które nie odpowiadają na zmiany bliźniaczy.
 
-[Aby uzyskać więcej informacji, przejdź do dokumentacji rozszerzeń interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Aby uzyskać więcej informacji, przejdź do dokumentacji rozszerzeń interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/azure-iot/iot/central)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +62,7 @@ az login
 ```
 
 ### <a name="get-the-application-id-of-your-iot-central-app"></a>Pobieranie identyfikatora aplikacji aplikacji IoT Central
-W obszarze **ustawienia administrowania/aplikacji**Skopiuj **Identyfikator aplikacji**. Ta wartość jest używana w dalszych krokach.
+W obszarze **ustawienia administrowania/aplikacji** Skopiuj **Identyfikator aplikacji**. Ta wartość jest używana w dalszych krokach.
 
 ### <a name="monitor-messages"></a>Monitorowanie komunikatów
 Monitoruj komunikaty wysyłane do aplikacji IoT Central z urządzeń. Dane wyjściowe obejmują wszystkie nagłówki i adnotacje.

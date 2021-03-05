@@ -2,38 +2,32 @@
 title: Tworzenie sieci wirtualnej — Szybki start — Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: W tym przewodniku szybki start utworzysz sieć wirtualną przy użyciu Azure Portal. Dzięki sieci wirtualnej zasoby platformy Azure komunikują się ze sobą i z Internetem.
-services: virtual-network
-documentationcenter: virtual-network
 author: KumudD
-tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 93e459df96d444e71f4b6a15668f80e9d77db5fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b27f050d3d37daab05e8c5125d6b75a6bb4dea50
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077893"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199037"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu programu PowerShell
 
-Dzięki sieci wirtualnej zasoby platformy Azure, takie jak maszyny wirtualne (VM), mogą komunikować się prywatnie ze sobą i z Internetem. W tym przewodniku Szybki start dowiesz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, wdrożysz w niej dwie maszyny wirtualne. Następnie nawiążesz połączenie z jedną z maszyn wirtualnych z Internetu i rozpoczniesz prywatną komunikację przez sieć wirtualną.
+Dzięki sieci wirtualnej zasoby platformy Azure, takie jak maszyny wirtualne (VM), mogą komunikować się prywatnie ze sobą i z Internetem. 
+
+W tym przewodniku Szybki start dowiesz się, jak utworzyć sieć wirtualną. Po utworzeniu sieci wirtualnej, wdrożysz w niej dwie maszyny wirtualne. Następnie nawiążesz połączenie z jedną z maszyn wirtualnych z Internetu i rozpoczniesz prywatną komunikację przez sieć wirtualną.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure PowerShell zainstalowane lokalnie lub Azure Cloud Shell
 
-Jeśli zamiast tego postanowisz zainstalować program PowerShell i używać go lokalnie, ten przewodnik Szybki start wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Aby dowiedzieć się, jaka wersja została zainstalowana, uruchom polecenie `Get-Module -ListAvailable Az`. Aby uzyskać informacje na temat instalacji i uaktualniania, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps).
-
-Ponadto, jeśli używasz programu PowerShell lokalnie, musisz uruchomić polecenie `Connect-AzAccount`. To polecenie tworzy połączenie z platformą Azure.
+Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten artykuł wymaga modułu Azure PowerShell w wersji 5.4.1 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Tworzenie grupy zasobów i sieci wirtualnej
 
@@ -41,33 +35,41 @@ Aby skonfigurować grupę zasobów i sieć wirtualną, należy wykonać kilka cz
 
 ### <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów, która będzie hostowała tę sieć wirtualną. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Ten przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*:
+Przed utworzeniem sieci wirtualnej należy utworzyć grupę zasobów, która będzie hostowała tę sieć wirtualną. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Ten przykład tworzy grupę zasobów o nazwie **CreateVNetQS-RG** w lokalizacji **Wschodnie** :
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
+$rg = @{
+    Name = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+}
+New-AzResourceGroup @rg
 ```
 
 ### <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). W tym przykładzie opisano tworzenie domyślnej sieci wirtualnej o nazwie *myVirtualNetwork* w lokalizacji *EastUS*:
+Utwórz sieć wirtualną przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Ten przykład tworzy domyślną sieć wirtualną o nazwie **myVNet** w lokalizacji **Wschodnie** :
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName myResourceGroup `
-  -Location EastUS `
-  -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/16
+$vnet = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    AddressPrefix = '10.0.0.0/16'    
+}
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 ### <a name="add-a-subnet"></a>Dodawanie podsieci
 
-Zasoby platformy Azure są wdrażane w podsieci sieci wirtualnej, dlatego należy utworzyć podsieć. Utwórz konfigurację podsieci o nazwie *domyślna* za pomocą polecenia [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+Zasoby platformy Azure są wdrażane w podsieci sieci wirtualnej, dlatego należy utworzyć podsieć. Utwórz konfigurację podsieci o nazwie **domyślna** za pomocą polecenia [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name default `
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subnet = @{
+    Name = 'default'
+    VirtualNetwork = $virtualNetwork
+    AddressPrefix = '10.0.0.0/24'
+}
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 ```
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Kojarzenie podsieci z siecią wirtualną
@@ -87,13 +89,14 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne.
 Utwórz pierwszą maszynę wirtualną za pomocą polecenia [New-AzVM](/powershell/module/az.compute/new-azvm). Po uruchomieniu następnego polecenia zostanie wyświetlony monit o poświadczenia. Wprowadź nazwę użytkownika i hasło dla maszyny wirtualnej:
 
 ```azurepowershell-interactive
-New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Location "East US" `
-    -VirtualNetworkName "myVirtualNetwork" `
-    -SubnetName "default" `
-    -Name "myVm1" `
-    -AsJob
+$vm1 = @{
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    Name = 'myVM1'
+    VirtualNetworkName = 'myVNet'
+    SubnetName = 'default'
+}
+New-AzVM @vm1 -AsJob
 ```
 
 Opcja `-AsJob` tworzy maszynę wirtualną w tle. Możesz przejść do następnego kroku.
@@ -111,11 +114,14 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Utwórz drugą maszynę wirtualną za pomocą następującego polecenia:
 
 ```azurepowershell-interactive
-New-AzVm `
-  -ResourceGroupName "myResourceGroup" `
-  -VirtualNetworkName "myVirtualNetwork" `
-  -SubnetName "default" `
-  -Name "myVm2"
+$vm2 = @{
+    ResourceGroupName = 'CreateVNetQS-rg'
+    Location = 'EastUS'
+    Name = 'myVM2'
+    VirtualNetworkName = 'myVNet'
+    SubnetName = 'default'
+}
+New-AzVM @vm2
 ```
 
 Trzeba będzie utworzyć innego użytkownika i hasło. Utworzenie maszyny wirtualnej na platformie Azure trwa kilka minut.
@@ -125,13 +131,16 @@ Trzeba będzie utworzyć innego użytkownika i hasło. Utworzenie maszyny wirtua
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 
-Użyj polecenia [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress), aby uzyskać publiczny adres IP maszyny wirtualnej. W poniższym przykładzie zwracany jest publiczny adres IP maszyny wirtualnej o nazwie *myVm1*:
+Aby uzyskać publiczny adres IP maszyny wirtualnej, użyj polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
+
+W poniższym przykładzie zwracany jest publiczny adres IP maszyny wirtualnej o nazwie **myVm1**:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name myVm1 `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
+$ip = @{
+    Name = 'myVM1'
+    ResourceGroupName = 'CreateVNetQS-rg'
+}
+Get-AzPublicIpAddress @ip | select IpAddress
 ```
 
 Otwórz wiersz polecenia na komputerze lokalnym. Uruchom polecenie `mstsc`. Zastąp ciąg `<publicIpAddress>` publicznym adresem IP zwróconym w ostatnim kroku:
@@ -155,7 +164,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="communicate-between-vms"></a>Nawiązywanie komunikacji między maszynami wirtualnymi
 
-1. Na pulpicie zdalnym maszyny *myVm1* otwórz program PowerShell.
+1. Na pulpicie zdalnym maszyny **myVm1** otwórz program PowerShell.
 
 1. Wprowadź `ping myVm2`.
 
@@ -176,7 +185,7 @@ mstsc /v:<publicIpAddress>
 
     Polecenie ping kończy się niepowodzeniem, ponieważ używa protokołu ICMP (Internet Control Message Protocol). Domyślnie protokół ICMP jest blokowany przez zaporę Windows.
 
-1. Aby umożliwić wykonanie polecenia ping na maszynie *myVm2* w celu komunikacji z maszyną *myVm1* w późniejszym kroku, wprowadź następujące polecenie:
+1. Aby umożliwić wykonanie polecenia ping na maszynie **myVm2** w celu komunikacji z maszyną **myVm1** w późniejszym kroku, wprowadź następujące polecenie:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +193,11 @@ mstsc /v:<publicIpAddress>
 
     To polecenie zezwala przechodzenie przez zaporę Windows ruchu przychodzącego przy użyciu protokołu ICMP.
 
-1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną *myVm1*.
+1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną **myVm1**.
 
-1. Powtórz kroki opisane w sekcji [Nawiązywanie połączenia z maszyną wirtualną z Internetu](#connect-to-a-vm-from-the-internet). Tym razem połączysz się z maszyną wirtualną *myVm2*.
+1. Powtórz kroki opisane w sekcji [Nawiązywanie połączenia z maszyną wirtualną z Internetu](#connect-to-a-vm-from-the-internet). Tym razem połączysz się z maszyną wirtualną **myVm2**.
 
-1. W wierszu polecenia na maszynie wirtualnej *myVm2* wprowadź polecenie `ping myvm1`.
+1. W wierszu polecenia na maszynie wirtualnej **myVm2** wprowadź polecenie `ping myvm1`.
 
     Zostanie wyświetlony komunikat podobny do następującego:
 
@@ -207,21 +216,27 @@ mstsc /v:<publicIpAddress>
         Minimum = 0ms, Maximum = 2ms, Average = 0ms
     ```
 
-    Z maszyny wirtualnej *myVm1* zostanie odebrana odpowiedź, ponieważ w poprzednim kroku umożliwiono przekazywanie ruchu protokołu ICMP przez zaporę systemu Windows na maszynie wirtualnej *myVm1*.
+    Z maszyny wirtualnej **myVm1** zostanie odebrana odpowiedź, ponieważ w poprzednim kroku umożliwiono przekazywanie ruchu protokołu ICMP przez zaporę systemu Windows na maszynie wirtualnej **myVm1**.
 
-1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną *myVm2*.
+1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną **myVm2**.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu korzystania z sieci wirtualnej i maszyn wirtualnych użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup), aby usunąć grupę zasobów i wszystkie zasoby, które zawiera:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name 'CreateVNetQS-rg' -Force
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono domyślną sieć wirtualną i dwie maszyny wirtualne. Z Internetu nawiązano połączenie z jedną z maszyn wirtualnych, a następnie rozpoczęto prywatną komunikację między tymi dwiema maszynami wirtualnymi.
-Azure umożliwia nieograniczoną komunikację prywatną między maszynami wirtualnymi. Azure domyślnie zezwala tylko na połączenia przychodzące pulpitu zdalnego z maszynami wirtualnymi Windows z Internetu. Przejdź do następnego artykułu, aby dowiedzieć się więcej o konfigurowaniu różnych typów komunikacji sieciowej maszyny wirtualnej:
+W tym przewodniku Szybki start przyjęto następujące założenia: 
+
+* Utworzono domyślną sieć wirtualną i dwie maszyny wirtualne. 
+* Z Internetu nawiązano połączenie z jedną z maszyn wirtualnych, a następnie rozpoczęto prywatną komunikację między tymi dwiema maszynami wirtualnymi.
+
+Prywatna komunikacja między maszynami wirtualnymi nie jest ograniczona w sieci wirtualnej. 
+
+Przejdź do następnego artykułu, aby dowiedzieć się więcej o konfigurowaniu różnych typów komunikacji sieciowej maszyny wirtualnej:
 > [!div class="nextstepaction"]
 > [Filtrowanie ruchu sieciowego](tutorial-filter-network-traffic.md)

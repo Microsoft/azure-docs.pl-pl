@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 728014c53ab019f25bdc9b097c8b493411833aaa
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095684"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198850"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -160,7 +160,7 @@ Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawią
 
   Więcej informacji o sposobach generowania tokenów SAS znajduje się w sekcji Device of [Using IoT Hub tokeny zabezpieczające](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Podczas testowania można także użyć wieloplatformowych [narzędzi Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub rozszerzenia interfejsu wiersza polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) , aby szybko wygenerować token sygnatury dostępu współdzielonego, który można skopiować i wkleić do własnego kodu.
+  Podczas testowania można także użyć wieloplatformowych [narzędzi Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub rozszerzenia interfejsu wiersza polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) , aby szybko wygenerować token sygnatury dostępu współdzielonego, który można skopiować i wkleić do własnego kodu.
 
 ### <a name="for-azure-iot-tools"></a>Dla narzędzi Azure IoT Tools
 

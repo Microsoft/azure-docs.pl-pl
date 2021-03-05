@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b3ba007f03b3aa4883d9455dc43b2bc19676da59
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 43a568149ccf85579b4f8190974fff872d6e09ea
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803973"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199649"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
@@ -51,13 +51,13 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu rozszerzenia interfejsu wiersza polecenia usługi Azure IoT
 
-[Rozszerzenie interfejsu wiersza polecenia usługi Azure IoT](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) pozwala sprawdzić, czy implementacja urządzenia jest zgodna z modelem przed przesłaniem urządzenia do certyfikacji za pomocą portalu certyfikowanego urządzenia platformy Azure.
+[Rozszerzenie interfejsu wiersza polecenia usługi Azure IoT](/cli/azure/ext/azure-iot/iot/product) pozwala sprawdzić, czy implementacja urządzenia jest zgodna z modelem przed przesłaniem urządzenia do certyfikacji za pomocą portalu certyfikowanego urządzenia platformy Azure.
 
 Poniższe kroki pokazują, jak przygotować się do testów certyfikacji i uruchomić je za pomocą interfejsu wiersza polecenia:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Instalowanie rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure
 
-Zobacz instrukcje instalacji, aby skonfigurować [interfejs wiersza polecenia platformy Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest) w Twoim środowisku.
+Zobacz instrukcje instalacji, aby skonfigurować [interfejs wiersza polecenia platformy Azure](/cli/azure) w Twoim środowisku.
 
 Aby zainstalować rozszerzenie Azure IoT, uruchom następujące polecenie:
 
@@ -65,7 +65,7 @@ Aby zainstalować rozszerzenie Azure IoT, uruchom następujące polecenie:
 az extension add --name azure-iot
 ```
 
-Aby dowiedzieć się więcej, zobacz [interfejs wiersza polecenia platformy Azure dla usługi Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
+Aby dowiedzieć się więcej, zobacz [interfejs wiersza polecenia platformy Azure dla usługi Azure IoT](/cli/azure/azure-cli-reference-for-iot).
 
 ### <a name="create-a-new-product-test"></a>Utwórz nowy test produktu
 
@@ -79,7 +79,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Jeśli używasz interfejsu wiersza polecenia, musisz [zalogować](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) się do swojej subskrypcji.
+> Jeśli używasz interfejsu wiersza polecenia, musisz [zalogować](/cli/azure/authenticate-azure-cli) się do swojej subskrypcji.
 
 Dane wyjściowe JSON z polecenia zawierają `primaryKey` , `registrationId` i `scopeID` do użycia podczas łączenia urządzenia.
 

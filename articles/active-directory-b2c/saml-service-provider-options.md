@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b9a491b639cd1b960ffe3b7164a0940770792148
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107524"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198476"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opcje rejestrowania aplikacji SAML w Azure AD B2C
 
@@ -60,6 +60,54 @@ Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw eleme
     <Protocol Name="SAML2"/>
     <Metadata>
       <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+### <a name="encryption-method"></a>Metoda szyfrowania
+
+Aby skonfigurować metodę szyfrowania używaną do szyfrowania danych potwierdzenia SAML, ustaw `DataEncryptionMethod` klucz metadanych w ramach jednostki uzależnionej. Możliwe wartości to `Aes256` (domyślne), `Aes192` , `Sha512` lub `Aes128` . Metadane sterują wartością `<EncryptedData>` elementu w odpowiedzi SAML.
+
+Aby skonfigurować metodę szyfrowania używaną do szyfrowania kopii klucza, która była używana do szyfrowania danych potwierdzenia SAML, należy ustawić `KeyEncryptionMethod` klucz metadanych w ramach jednostki uzależnionej. Możliwe wartości to `Rsa15` (domyślne) — algorytm szyfrowania RSA (Public Key Cryptography standard) (PKCS) w wersji 1,5 oraz `RsaOaep` optymalny OAEP.  Metadane sterują wartością  `<EncryptedKey>` elementu w odpowiedzi SAML.
+
+Poniższy przykład przedstawia `EncryptedAssertion` sekcję potwierdzenia SAML. Metoda szyfrowanych danych to `Aes128` , a metoda szyfrowania klucza to `Rsa15` .
+
+```xml
+<saml:EncryptedAssertion>
+  <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" Type="http://www.w3.org/2001/04/xmlenc#Element">
+    <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+    <dsig:KeyInfo>
+      <xenc:EncryptedKey>
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+        <xenc:CipherData>
+          <xenc:CipherValue>...</xenc:CipherValue>
+        </xenc:CipherData>
+      </xenc:EncryptedKey>
+    </dsig:KeyInfo>
+    <xenc:CipherData>
+      <xenc:CipherValue>...</xenc:CipherValue>
+    </xenc:CipherData>
+  </xenc:EncryptedData>
+</saml:EncryptedAssertion>
+```
+
+Można zmienić format zaszyfrowanych zatwierdzeń. Aby skonfigurować format szyfrowania, należy ustawić `UseDetachedKeys` klucz metadanych w ramach jednostki uzależnionej. Możliwe wartości: `true` , lub `false` (wartość domyślna). Gdy wartość jest ustawiona na `true` , odłączone klucze Dodaj zaszyfrowane potwierdzenie jako element podrzędny zamiast `EncrytedAssertion` `EncryptedData` .
+
+Skonfiguruj metodę i format szyfrowania, korzystając z kluczy metadanych w [profilu technicznym jednostki uzależnionej](relyingparty.md#technicalprofile):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="DataEncryptionMethod">Aes128</Item>
+      <Item Key="KeyEncryptionMethod">Rsa15</Item>
+      <Item Key="UseDetachedKeys">false</Item>
     </Metadata>
    ..
   </TechnicalProfile>
@@ -114,7 +162,7 @@ Oferujemy kompletne przykładowe zasady, których można użyć do testowania z 
 
 Można skonfigurować algorytm podpisu używany do podpisywania potwierdzenia SAML. Możliwe wartości to `Sha256` , `Sha384` , `Sha512` , lub `Sha1` . Upewnij się, że profil techniczny i aplikacja używają tego samego algorytmu podpisu. Używaj tylko algorytmu obsługiwanego przez certyfikat.
 
-Skonfiguruj algorytm podpisu przy użyciu `XmlSignatureAlgorithm` klucza metadanych w węźle metadanych RelyingParty.
+Skonfiguruj algorytm podpisu przy użyciu `XmlSignatureAlgorithm` klucza metadanych w elemencie metadanych jednostki uzależnionej.
 
 ```xml
 <RelyingParty>
@@ -132,7 +180,7 @@ Skonfiguruj algorytm podpisu przy użyciu `XmlSignatureAlgorithm` klucza metadan
 
 ## <a name="saml-response-lifetime"></a>Okres istnienia odpowiedzi SAML
 
-Można skonfigurować czas, przez który odpowiedź SAML jest prawidłowa. Ustaw okres istnienia przy użyciu `TokenLifeTimeInSeconds` elementu metadanych w profilu technicznym wystawcy tokenów SAML. Ta wartość to liczba sekund, które mogą upłynąć od `NotBefore` sygnatury czasowej obliczonej w czasie wystawiania tokenu. Czas wybrany dla tego czasu to bieżący czas. Domyślny okres istnienia to 300 sekund (5 minut).
+Można skonfigurować czas, przez który odpowiedź SAML jest prawidłowa. Ustaw okres istnienia przy użyciu `TokenLifeTimeInSeconds` elementu metadanych w profilu technicznym wystawcy tokenów SAML. Ta wartość to liczba sekund, które mogą upłynąć od `NotBefore` sygnatury czasowej obliczonej w czasie wystawiania tokenu. Domyślny okres istnienia to 300 sekund (5 minut).
 
 ```xml
 <ClaimsProvider>
@@ -170,6 +218,26 @@ Na przykład, gdy wartość `TokenNotBeforeSkewInSeconds` jest równa `120` seku
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <Item Key="TokenNotBeforeSkewInSeconds">120</Item>
+      </Metadata>
+      ...
+    </TechnicalProfile>
+```
+
+## <a name="remove-milliseconds-from-date-and-time"></a>Usuń milisekundy od daty i godziny
+
+Można określić, czy milisekundy zostaną usunięte z wartości daty/godziny w odpowiedzi SAML (dotyczy to m.in. IssueInstant, NotBefore, NotOnOrAfter i AuthnInstant). Aby usunąć milisekundy, ustaw `RemoveMillisecondsFromDateTime
+` klucz metadanych w ramach jednostki uzależnionej. Możliwe wartości: `false` (ustawienie domyślne) lub `true` .
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+      <Metadata>
+        <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
       ...
     </TechnicalProfile>

@@ -91,7 +91,7 @@
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu wiersza polecenia
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Dokumentacja programu PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Interfejs API analizy tekstu
