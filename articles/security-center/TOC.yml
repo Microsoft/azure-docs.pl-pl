@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
           href: custom-security-policies.md
-    - name: Ochrona maszyn przy użyciu usługi Azure Defender dla serwerów
+    - name: Ochrona maszyn przy użyciu usługi Defender dla serwerów
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: Omówienie usługi Azure Defender dla serwerów
@@ -146,7 +146,7 @@
         - name: Definiowanie list bezpiecznych aplikacji dla maszyn
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
-        - name: Śledzenie zmian w plikach i rejestrach przy użyciu monitorowania integralności plików
+        - name: Śledzenie zmian w plikach i rejestrach
           items:
             - name: Omówienie monitorowania integralności plików
               displayName: 'fim, change'
@@ -154,8 +154,8 @@
             - name: Porównaj linie bazowe przy użyciu funkcji monitorowania integralności plików
               displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
-        - name: Ulepszanie zabezpieczeń sieci stan przy użyciu adaptacyjnej funkcjonalności sieci
-          displayName: anh
+        - name: Ulepszanie stan zabezpieczeń sieci
+          displayName: 'anh, adaptive network hardening'
           href: security-center-adaptive-network-hardening.md
         - name: Wzmacnianie zabezpieczeń hostów platformy Docker
           displayName: containers
@@ -209,7 +209,7 @@
         - name: Omówienie usługi Azure Defender dla Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
-        - name: Reagowanie na alerty usługi Azure Defender dla usługi Key Vault
+        - name: Obsługa alertów Key Vault
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
     - name: Monitorowanie operacji zarządzania zasobami
@@ -217,7 +217,7 @@
         - name: Omówienie usługi Azure Defender dla Menedżer zasobów
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
-        - name: Reagowanie na alerty usługi Azure Defender dla usługi Resource Manager
+        - name: Obsługa alertów Menedżer zasobów
           displayName: arm
           href: defender-for-resource-manager-usage.md
     - name: Monitoruj zapytania DNS z zasobów platformy Azure

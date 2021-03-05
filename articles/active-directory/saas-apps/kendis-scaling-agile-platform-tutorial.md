@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a7e02955d7784feb57d7e9ccc7e337b6a939380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651556"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Kendis — integracja z usługą Azure AD
 
@@ -123,13 +123,21 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-kendis-azure-ad-integration-sso"></a>Konfigurowanie Kendis-Azure rejestracji jednokrotnej integracji z usługą AD
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy Kendis-Azure AD Integration jako administrator.
+1. Aby zautomatyzować konfigurację w ramach integracji usługi Kendis z usługą Azure AD, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-1. Przejdź do **ustawień > konfiguracjami protokołu SAML**.
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Konfiguracja Kendis — integracja z usługą Azure AD** spowoduje przekierowanie do aplikacji Kendis-Azure AD Integration. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi Kendis — integracja z usługą Azure AD. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-5.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować integrację usługi Kendis — Azure AD, w innym oknie przeglądarki sieci Web Zaloguj się do witryny firmy Kendis — integracja z usługą Azure AD jako administrator.
+
+4. Przejdź do **ustawień > konfiguracjami protokołu SAML**.
 
     ![ustawienia konfiguracji protokołu SAML](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. Kliknij przycisk **Edytuj** w dolnej części strony i wykonaj następujące czynności.
+5. Kliknij przycisk **Edytuj** w dolnej części strony i wykonaj następujące czynności.
 
     ![Konfiguracje SAML](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 

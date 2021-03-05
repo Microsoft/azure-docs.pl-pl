@@ -23,12 +23,10 @@
           href: access-api-howto.md
         - name: Konfigurowanie usługi Azure Cloud Shell
           href: ../../cloud-shell/overview.md
-        - name: Programowanie z użyciem architektury REST
+        - name: Łączenie się z usługą Media Services
           items:
-            - name: Łączenie z narzędziem Postman
+            - name: Nawiązywanie połączenia z usługą REST i programem Poster
               href: media-rest-apis-with-postman.md
-        - name: Programowanie z użyciem zestawów SDK
-          items:
             - name: Nawiązywanie połączeń przy użyciu języka Java
               href: configure-connect-java-howto.md
             - name: Łączenie z platformą .NET
@@ -51,6 +49,8 @@
       items:
         - name: Tworzenie konta za pomocą usługi ARM
           href: quickstart-arm-template-account.md
+    - name: Podstawowe kodowanie języka Python — Szybki Start
+      href: quickstart-basic-encoding-python.md
 - name: Samouczki
   items:
     - name: .NET
