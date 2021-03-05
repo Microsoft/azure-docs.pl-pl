@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174295"
 ---
 # <a name="call-flow-topologies"></a>Topologie przepływu wywołań
 W tym artykule opisano topologie przepływu wywołań usług Azure Communication Services. To świetny artykuł, który można sprawdzić, jeśli jesteś klientem korporacyjnym integrującym usługi komunikacyjne w sieci, którą zarządzasz. Aby uzyskać wprowadzenie do przepływów wywołań usług komunikacyjnych, odwiedź [dokumentację koncepcyjną przepływów wywołań](./call-flows.md).
@@ -152,7 +152,7 @@ Sygnalizowanie sieci VPN do sieci klienta korzysta z przepływu 2 *. Sygnalizowa
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>Użytkownik sieci VPN do użytkownika wewnętrznego (nośnik bezpośredni)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Jeden do jednego przepływu wywołań z siecią VPN z nośnikiem bezpośrednim":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Jeden do jednego przepływu wywołań (użytkownik wewnętrzny) z siecią VPN z nośnikiem bezpośrednim":::
 
 *Rysunek 6 — użytkownik wewnętrzny (nośnik bezpośredni)*
 
@@ -162,7 +162,7 @@ Ta transmisja multimedialna jest dwukierunkowa. Kierunek przepływu 2 dla zdalne
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>Użytkownik zewnętrzny (nośnik bezpośredni)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Jeden do jednego przepływu wywołań z siecią VPN z nośnikiem bezpośrednim":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Jeden do jednego przepływu wywołań (użytkownik zewnętrzny) z siecią VPN z nośnikiem bezpośrednim":::
 
 *Rysunek 7 — użytkownik zewnętrzny (nośnik bezpośredni)*
 

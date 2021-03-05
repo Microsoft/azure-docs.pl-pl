@@ -4,13 +4,13 @@ description: W tym artykule opisano sposób rozwiązywania problemów z usługą
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: dd0ed78c56e4d656a2ecee6395d831ed093e85b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.author: v-ummehabiba
+ms.openlocfilehash: c45b6196b82682b37e253a33eed3940b68b4d61e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001613"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172988"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Rozwiązywanie problemów z projektem Azure FarmBeats
 

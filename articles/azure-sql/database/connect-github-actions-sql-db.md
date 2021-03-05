@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 335879af93834665985fe2c14ce3cbd827387920
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606984"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172143"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Używanie akcji usługi GitHub do nawiązywania połączenia z usługą Azure SQL Database
 
-Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/free-pro-team@latest/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +41,7 @@ Plik ma dwie sekcje:
 
 ## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
 
-Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../../active-directory/develop/app-objects-and-service-principals.md) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
+Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) można utworzyć jednostkę [usługi](../../active-directory/develop/app-objects-and-service-principals.md) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
 Zastąp symbole zastępcze `server-name` nazwą programu SQL Server hostowanego na platformie Azure. Zastąp wartość `subscription-id` i `resource-group` identyfikatorem subskrypcji i grupą zasobów połączoną z serwerem SQL.  
 
@@ -84,7 +84,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -187,7 +187,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
  
    :::image type="content" source="media/quickstart-sql-github-actions/github-actions-run-sql.png" alt-text="Dziennik uruchamiania akcji usługi GitHub":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy usługa Azure SQL Database i repozytorium nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 

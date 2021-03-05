@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120746"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174669"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ Element **warunki wstępne** zawiera następujący element:
 
 #### <a name="precondition"></a>Warunek wstępny
 
+Kroki aranżacji można warunkowo wykonać w oparciu o warunki wstępne zdefiniowane w kroku aranżacji. Istnieją dwa typy warunków wstępnych:
+ 
+- **Oświadczenia istnieją** — określa, czy akcje mają być wykonywane, jeśli określone oświadczenia istnieją w bieżącym zbiorze oświadczeń użytkownika.
+- Wartość jest **równa** -określa, czy akcje mają być wykonywane, jeśli istnieje określone zastrzeżenie, a jego wartości są równe określonej wartości. Sprawdzanie wykonuje rozróżnienie porządkowe wielkości liter. Podczas sprawdzania typu "Boolean", użyj `True` lub `False` .
+
 Element **Conditional** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | `Type` | Tak | Typ sprawdzenia lub zapytania, które ma zostać wykonane dla tego warunku wstępnego. Wartość może być **ClaimsExist**, która określa, że akcje należy wykonać, jeśli określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika lub **ClaimEquals**, które określa, że akcje należy wykonać, jeśli istnieje określone oświadczenie, a jego wartość jest równa określonej wartości. |
-| `ExecuteActionsIf` | Tak | Użyj testu "prawda" lub "fałsz", aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
+| `ExecuteActionsIf` | Tak | Użyj `true` testu lub, `false` Aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
 
 Elementy **warunku wstępnego** zawierają następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Wartość | 1: n | ClaimTypeReferenceId do zapytania. Inny element wartości zawiera wartość, która ma zostać sprawdzona.</li></ul>|
+| Wartość | 1:2 | Identyfikator typu żądania. Oświadczenie jest już zdefiniowane w sekcji schematu oświadczeń w pliku zasad lub nadrzędnym pliku zasad. Gdy warunek wstępny jest typu `ClaimEquals` , drugi `Value` element zawiera wartość, która ma zostać sprawdzona. |
 | Akcja | 1:1 | Akcja, która powinna zostać wykonana, jeśli w kroku aranżacji jest spełniony warunek wstępny. Jeśli wartość `Action` jest ustawiona na `SkipThisOrchestrationStep` , skojarzenie `OrchestrationStep` nie powinno być wykonywane. |
 
 #### <a name="preconditions-examples"></a>Przykłady warunków wstępnych
@@ -189,7 +194,7 @@ Warunki wstępne mogą sprawdzić wiele warunków wstępnych. Poniższy przykła
 </OrchestrationStep>
 ```
 
-## <a name="identity-provider-selection"></a>Wybór dostawcy tożsamości
+## <a name="claims-provider-selection"></a>Wybór dostawcy oświadczeń
 
 Wybór dostawcy tożsamości umożliwia użytkownikom wybranie akcji z listy opcji. Wybór dostawcy tożsamości składa się z pary dwóch kroków aranżacji: 
 
@@ -215,7 +220,7 @@ Element **ClaimsProviderSelection** zawiera następujące atrybuty:
 | TargetClaimsExchangeId | Nie | Identyfikator wymiany oświadczeń, który jest wykonywany w następnym kroku aranżacji wybranego dostawcy oświadczeń. Ten atrybut lub atrybut ValidationClaimsExchangeId musi być określony, ale nie oba. |
 | ValidationClaimsExchangeId | Nie | Identyfikator wymiany oświadczeń, który jest wykonywany w bieżącym kroku aranżacji w celu zweryfikowania wyboru dostawcy oświadczeń. Ten atrybut lub atrybut TargetClaimsExchangeId musi być określony, ale nie oba. |
 
-### <a name="claimsproviderselection-example"></a>Przykład ClaimsProviderSelection
+### <a name="claims-provider-selection-example"></a>Przykład wyboru dostawcy oświadczeń
 
 W poniższym kroku aranżacji użytkownik może zalogować się przy użyciu konta w serwisie Facebook, LinkedIn, Twitter, Google lub konto lokalne. Jeśli użytkownik wybierze jednego z dostawców tożsamości społecznościowych, zostanie wykonany drugi krok aranżacji z wybranym określonym w atrybucie wymianą `TargetClaimsExchangeId` . Drugi krok aranżacji przekierowuje użytkownika do dostawcy tożsamości społecznościowej w celu ukończenia procesu logowania. Jeśli użytkownik zdecyduje się na zalogowanie się przy użyciu konta lokalnego, Azure AD B2C pozostaje na tym samym kroku aranżacji (na tej samej stronie rejestracji lub na stronie logowania) i pomija drugi krok aranżacji.
 

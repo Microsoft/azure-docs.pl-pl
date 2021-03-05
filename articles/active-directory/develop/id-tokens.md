@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755915"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175392"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
@@ -55,7 +55,7 @@ Wyświetl Ten przykładowy token v 2.0 w [JWT.MS](https://jwt.ms/#id_token=eyJ0e
 |-----|--------|-------------|
 |`typ` | Ciąg — zawsze "JWT" | Wskazuje, że token jest tokenem JWT.|
 |`alg` | Ciąg | Wskazuje algorytm, który został użyty do podpisania tokenu. Przykład: "RS256" |
-|`kid` | Ciąg | Odcisk palca klucza publicznego służącego do podpisywania tego tokenu. Emitowane w wersji 1.0 i 2.0 `id_tokens` . |
+|`kid` | Ciąg | Odcisk palca klucza publicznego używany do weryfikacji tego tokenu. Emitowane w wersji 1.0 i 2.0 `id_tokens` . |
 |`x5t` | Ciąg | Taka sama (w użyciu i wartość) jako `kid` . Jest to jednak starsze zgłoszenie wyemitowane tylko w wersji 1.0 w `id_tokens` celu zapewnienia zgodności. |
 
 ### <a name="payload-claims"></a>Oświadczenia ładunku

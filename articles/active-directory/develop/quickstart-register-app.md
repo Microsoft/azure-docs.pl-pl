@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647442"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175434"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -40,7 +40,8 @@ Wykonaj następujące kroki, aby utworzyć rejestrację aplikacji:
 1. Jeśli masz dostęp do wielu dzierżawców, w górnym menu Użyj filtru **katalogów i subskrypcji** , :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: Aby wybrać dzierżawcę, w którym chcesz zarejestrować aplikację.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
-1. Wprowadź **nazwę** aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć tę nazwę. Później można ją zmienić.
+1. Wprowadź **nazwę** wyświetlaną aplikacji. Użytkownicy Twojej aplikacji mogą zobaczyć nazwę wyświetlaną, gdy używają aplikacji, na przykład podczas logowania.
+    Możesz zmienić nazwę wyświetlaną w dowolnym momencie, a wiele rejestracji aplikacji może współużytkować tę samą nazwę. Identyfikator aplikacji (klienta) automatycznie wygenerowany przez rejestrację aplikacji, a nie jej nazwa wyświetlana, jednoznacznie identyfikuje aplikację na platformie tożsamości.
 1. Określ, kto może korzystać z aplikacji, czasami nazywanych *odbiorcami logowania*.
 
     | Obsługiwane typy kont | Opis |

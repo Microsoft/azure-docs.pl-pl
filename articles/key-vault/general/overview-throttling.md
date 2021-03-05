@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7bdc3ac517df6b73fba7231cfe0fdc9855803782
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289680"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175757"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Wskazówki dotyczące ograniczania usługi Azure Key Vault
 
@@ -24,7 +24,7 @@ Limity ograniczania są różne w zależności od scenariusza. Na przykład jeś
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Jak Key Vault obsługiwać limity?
 
-Limity usługi w Key Vault uniemożliwiają niewłaściwe użycie zasobów i zapewniają jakość usługi dla wszystkich klientów Key Vault. W przypadku przekroczenia progu usługi Key Vault ogranicza wszelkie dalsze żądania od tego klienta przez pewien czas, zwraca kod stanu HTTP 429 (zbyt wiele żądań) i żądanie kończy się niepowodzeniem. Żądania zakończone niepowodzeniem, które zwracają liczbę 429 do limitów dławienia śledzonych przez Key Vault. 
+Limity usługi w Key Vault uniemożliwiają niewłaściwe użycie zasobów i zapewniają jakość usługi dla wszystkich klientów Key Vault. W przypadku przekroczenia progu usługi Key Vault ogranicza wszelkie dalsze żądania od tego klienta przez pewien czas, zwraca kod stanu HTTP 429 (zbyt wiele żądań) i żądanie kończy się niepowodzeniem. Żądania zakończone niepowodzeniem, które zwracają 429 nie są wliczane do limitów ograniczania wydajności śledzonych przez Key Vault. 
 
 Key Vault pierwotnie zaprojektowano, aby służyć do przechowywania i pobierania wpisów tajnych w czasie wdrażania.  Świat został rozwijający, a Key Vault jest używany w czasie wykonywania w celu przechowywania i pobierania wpisów tajnych, a często aplikacje i usługi chcą używać Key Vault, takich jak baza danych.  Bieżące limity nie obsługują stawek o dużej przepływności.
 
@@ -47,8 +47,8 @@ Jeśli okaże się, że powyższy kod nadal nie spełnia Twoich potrzeb, Wypełn
 
 W przypadku zatwierdzenia dodatkowej pojemności należy zwrócić uwagę na następujące kwestie w wyniku wzrostu pojemności:
 1. Zmiany modelu spójności danych. Gdy magazyn jest dozwolony na liście z dodatkową przepływność, usługa Key Vault gwarancja spójności danych usług (niezbędna do spełnienia wyższego RPS pliku woluminu, ponieważ nie można zatrzymać podstawowej usługi magazynu platformy Azure).  W Nutshell:
-  1. **Bez zezwolenia na listę** : usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, znak.
-  1. **Z opcją Zezwalaj na listę** : usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, znak.
+  1. **Bez zezwolenia na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, znak.
+  1. **Z opcją Zezwalaj na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, znak.
 1. Kod klienta musi przestrzegać zasad wycofywania dla 429 ponownych prób. Kod klienta wywołujący usługę Key Vault nie może natychmiast ponowić próby Key Vault żądań, gdy odbierze kod odpowiedzi 429.  Wskazówki dotyczące ograniczania przepustowości Azure Key Vault opublikowane w tym miejscu zalecają zastosowanie wykładniczej wycofywania podczas otrzymywania kodu odpowiedzi HTTP 429.
 
 Jeśli masz prawidłowy przypadek biznesowy dla wyższych limitów ograniczania przepustowości, skontaktuj się z nami.
@@ -96,6 +96,6 @@ W przypadku błędu HTTP o kodzie 429 Rozpocznij ograniczanie klienta przy użyc
 
 W tym momencie nie należy otrzymywać kodów odpowiedzi HTTP 429.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby uzyskać bardziej szczegółowe ukierunkowanie ograniczania przepływności na Microsoft Cloud, zobacz [Ograniczanie poziomu wzorca](/azure/architecture/patterns/throttling).

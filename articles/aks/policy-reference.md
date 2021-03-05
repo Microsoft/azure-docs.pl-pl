@@ -4,12 +4,12 @@ description: Wyświetla listę wbudowanych definicji zasad Azure Policy usługi 
 ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 749ceb1c6388607bb854548278522092c39881e5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: d7e25069c373592168e5482f79567b29665251b0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096042"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175264"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Azure Policy wbudowane definicje usługi Azure Kubernetes Service
 
@@ -17,11 +17,17 @@ Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowa
 
 Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
-## <a name="microsoftcontainerservice"></a>Microsoft. ContainerService
+## <a name="initiatives"></a>Inicjatywy
+
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../includes/policy/reference/bycat/policysets-kubernetes.md)]
+
+## <a name="policy-definitions"></a>Definicje zasad
+
+### <a name="microsoftcontainerservice"></a>Microsoft. ContainerService
 
 [!INCLUDE [azure-policy-reference-rp-aks-containerservice](../../includes/policy/reference/byrp/microsoft.containerservice.md)]
 
-## <a name="aks-engine"></a>Aparat usługi AKS
+### <a name="aks-engine"></a>Aparat usługi AKS
 
 [!INCLUDE [azure-policy-reference-rp-aks-aksengine](../../includes/policy/reference/byrp/aks-engine.md)]
 

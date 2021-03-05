@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 02/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ca000e105f70f1a4940e7fc9a0292061e94b5ea
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648649"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174533"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -386,8 +386,8 @@ Można użyć następujących atrybutów urządzeń.
  ----- | ----- | ----------------
  accountEnabled | PRAWDA FAŁSZ | (Device. accountEnabled-EQ true)
  displayName | dowolna wartość ciągu |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | dowolna wartość ciągu | (Device. deviceOSType-EQ "iPad") — lub (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-zawiera "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
- deviceOSVersion | dowolna wartość ciągu | (Device. deviceOSVersion-EQ "9,1")
+ deviceOSType | dowolna wartość ciągu | (Device. deviceOSType-EQ "iPad") — lub (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-zawiera "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")<br>(Device. deviceOSType-EQ "Windows")
+ deviceOSVersion | dowolna wartość ciągu | (Device. deviceOSVersion-EQ "9,1")<br>(Device. deviceOSVersion-EQ "10.0.17763.0")
  deviceCategory | prawidłowa nazwa kategorii urządzeń | (Device. deviceCategory-EQ "BYOD")
  deviceManufacturer | dowolna wartość ciągu | (Device. deviceManufacturer-EQ "Samsung")
  deviceModel | dowolna wartość ciągu | (Device. deviceModel-EQ "iPad Air")

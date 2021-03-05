@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 82c11b913d38695c8738de88f3ce69b198ee099e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fe6fa5c9b05afd5479818fe9bb25e471665cb867
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691879"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171470"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Uruchamianie notesów Jupyter w obszarze roboczym
 
@@ -185,6 +185,89 @@ Wskaźnik obok menu rozwijanego **jądra** pokazuje jego stan.
 ## <a name="find-compute-details"></a>Znajdź szczegóły obliczeń
 
 Znajdź szczegółowe informacje o wystąpieniach obliczeniowych na stronie **obliczenia** w programie [Studio](https://ml.azure.com).
+
+## <a name="useful-keyboard-shortcuts"></a>Przydatne skróty klawiaturowe
+Podobnie jak w przypadku notesów Jupyter, notesy Azure Machine Learning Studio zawierają modalny interfejs użytkownika. Klawiatura wykonuje różne czynności w zależności od trybu, w którym znajduje się komórka notesu. Azure Machine Learning Studio notesy obsługują następujące dwa tryby dla danej komórki kodu: Tryb poleceń i tryb edycji.
+
+### <a name="command-mode-shortcuts"></a>Skróty trybu polecenia
+
+Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, naciskając `ESC` lub używając myszy, aby zaznaczyć poza obszarem edytora komórki.  Lewa krawędź aktywnej komórki to niebieska i pełna, a jej przycisk **Run** jest niebieski.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Komórka Notes w trybie poleceń ":::
+
+| Skrót                      | Opis                          |
+| ----------------------------- | ------------------------------------|
+| Enter                         | Przechodzenie do trybu edycji             |        
+| Shift + Enter                 | Uruchom komórkę, wybierz poniżej         |     
+| Control/Command + Enter       | Uruchom komórkę                            |
+| Alt + Enter                   | Uruchom komórkę, Wstaw komórkę kodu poniżej    |
+| Control/Command + Alt + Enter | Uruchom komórkę, Wstaw komórkę z promocji poniżej|
+| Alt + R                       | Uruchom wszystko      |                       
+| Y                             | Konwertuj komórkę na kod    |                         
+| M                             | Konwertuj komórkę na płatną  |                       
+| W górę/K                          | Zaznacz komórkę powyżej    |               
+| W dół/J                        | Wybierz komórkę poniżej    |               
+| A                             | Wstaw komórkę kodu powyżej  |            
+| B                             | Wstaw komórkę kodu poniżej   |           
+| Control/Command + Shift + A   | Wstaw powyższą komórkę z promocji    |      
+| Control/Command + Shift + B   | Wstaw komórkę z promocji poniżej   |       
+| X                             | Wytnij wybraną komórkę    |               
+| C                             | Kopiuj wybraną komórkę   |               
+| Shift + V                     | Wklej wybraną komórkę powyżej           |
+| V                             | Wklej wybraną komórkę poniżej    |       
+| D D                           | Usuń wybraną komórkę|                
+| O                             | Przełącz dane wyjściowe         |              
+| Shift + O                     | Przełącz przewijanie danych wyjściowych   |          
+| i                           | Jądro przerwania |                   
+| 0 0                           | Uruchom ponownie jądro |                     
+| SHIFT + SPACJA                 | Przewiń w górę  |                         
+| Miejsce                         | Przewiń w dół|
+| Tab                           | Zmień fokus na następny skoncentrowany element (gdy karta jest wyłączona)|
+| Control/Command + S           | Zapisz Notes |                      
+| 1                             | Zmień na H1|                       
+| 2                             | Zmień na H2|                        
+| 3                             | Zmień na H3|                        
+| 4                             | Zmień na H4 |                       
+| 5                             | Zmień na h |                       
+| 6                             | Zmień na H6 — |                       
+
+### <a name="edit-mode-shortcuts"></a>Edytuj skróty trybu
+
+Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, możesz wpisać ją w komórce. Przejdź do trybu edycji, naciskając `Enter` lub używając myszy, aby wybrać obszar edytora komórki. Lewa krawędź aktywnej komórki jest zielona i zakreskowana, a jej przycisk **uruchamiania** jest zielony. Zobaczysz również monit kursora w komórce w trybie edycji.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Komórka notesu w trybie edycji":::
+
+Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigować i uruchamiać kod w notesach Azure Machine Learning w trybie edycji.
+
+| Skrót                      | Opis|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Escape                        | Przejdź do trybu polecenia|  
+| Kontrolka/polecenie + spacja       | Aktywuj technologię IntelliSense |
+| Shift + Enter                 | Uruchom komórkę, wybierz poniżej |                         
+| Control/Command + Enter       | Uruchom komórkę  |                                      
+| Alt + Enter                   | Uruchom komórkę, Wstaw komórkę kodu poniżej  |              
+| Control/Command + Alt + Enter | Uruchom komórkę, Wstaw komórkę z promocji poniżej  |          
+| Alt + R                       | Uruchom wszystkie komórki     |                              
+| W górę                            | Przenieś kursor w górę lub w poprzedniej komórce    |             
+| W dół                          | Przenieś kursor w dół lub w następnej komórce |                  
+| Control/Command + S           | Zapisz Notes   |                                
+| Kontrolka/polecenie + Strzałka w górę          | Przejdź do początku komórki   |                             
+| Control/Command + Strzałka w dół        | Przejdź do końca komórki |                                 
+| Tab                           | Uzupełnianie kodu lub wcięcie (jeśli Zalewka karty jest włączona) |
+| Control/Command + M           | Włącz/Wyłącz pułapkę kart  |                       
+| Control/Command +]           | Wyświetlane |                                         
+| Control/Command + [           | Zmniejsz wcięcie  |                                        
+| Control/Command + A           | Zaznacz wszystko|                                      
+| Control/Command + Z           | Cofnij |                                           
+| Control/Command + Shift + Z   | Ponów |                                           
+| Control/Command + Y           | Ponów |                                           
+| Kontrolka/polecenie + Strona główna        | Przejdź do początku komórki|                                
+| Kontrolka/polecenie + koniec         | Przejdź do końca komórki   |                               
+| Kontrolka/polecenie + w lewo        | Przejdź o jedno słowo w lewo |                               
+| Kontrolka/polecenie + w prawo       | Przejdź o jedno słowo w prawo |                              
+| Control/Command + Backspace   | Usuń słowo przed |                             
+| Control/Command + Delete      | Usuń słowo po |                              
+| Control/Command +/           | Przełącz komentarz w komórce
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

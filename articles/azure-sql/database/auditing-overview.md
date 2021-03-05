@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c587705041b8fb3d37e02142fa10ae5a1d73f9f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046452"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173851"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -284,8 +284,8 @@ Rozszerzone zasady z klauzulą WHERE obsługują dodatkowe filtrowanie:
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-- [Zarządzanie zasadami inspekcji serwera](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
-- [Zarządzanie zasadami inspekcji bazy danych](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+- [Zarządzanie zasadami inspekcji serwera](/cli/azure/sql/server/audit-policy)
+- [Zarządzanie zasadami inspekcji bazy danych](/cli/azure/sql/db/audit-policy)
 
 ### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 

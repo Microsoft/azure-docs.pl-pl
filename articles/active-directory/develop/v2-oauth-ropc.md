@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bf469b79fa532978e904a54f32c80280706ee7cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752651"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174584"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Poświadczenia hasła właściciela zasobu Microsoft Identity platform i OAuth 2,0
 
@@ -34,6 +34,7 @@ Platforma tożsamości firmy Microsoft obsługuje [przyznanie poświadczeń has�
 > * Konta, które nie mają haseł, nie mogą się zalogować za poorednictwem ROPC. W tym scenariuszu zalecamy użycie w zamian innego przepływu dla aplikacji.
 > * Jeśli użytkownicy muszą korzystać z [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md) do logowania się do aplikacji, zostaną one zablokowane.
 > * ROPC nie jest obsługiwane w scenariuszach [federacji tożsamości hybrydowej](../hybrid/whatis-fed.md) (na przykład usługi Azure AD i AD FS używane do uwierzytelniania kont lokalnych). Jeśli użytkownicy są przekierowani do lokalnych dostawców tożsamości, usługa Azure AD nie będzie w stanie testować nazwy użytkownika i hasła względem tego dostawcy tożsamości. [Uwierzytelnianie przekazywane](../hybrid/how-to-connect-pta.md) jest jednak obsługiwane w przypadku ROPC.
+> * Wyjątkiem scenariusza federacji tożsamości hybrydowej są następujące: zasady odnajdywania obszaru macierzystego z AllowCloudPasswordValidationą ustawioną na wartość TRUE spowodują włączenie przepływu ROPC dla użytkowników federacyjnych, gdy lokalne hasło zostanie zsynchronizowane z chmurą. Aby uzyskać więcej informacji, zobacz [Włączanie bezpośredniego uwierzytelniania ROPC użytkowników federacyjnych dla starszych aplikacji](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -110,6 +111,6 @@ Jeśli użytkownik nie podał prawidłowej nazwy użytkownika lub hasła lub kli
 | `invalid_grant` | Uwierzytelnianie nie powiodło się | Poświadczenia były nieprawidłowe lub klient nie ma zgody na żądane zakresy. Jeśli zakresy nie zostaną przyznane, `consent_required` zostanie zwrócony błąd. W takim przypadku klient powinien wysłać użytkownika do interakcyjnego monitu przy użyciu widoku WebView lub przeglądarki. |
 | `invalid_request` | Żądanie zostało nieprawidłowo skonstruowane | Typ grantu nie jest obsługiwany w `/common` przypadku `/consumers` kontekstów uwierzytelniania lub.  Użyj `/organizations` zamiast tego identyfikatora dzierżawy. |
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Więcej tutaj
 
 Przykład użycia ROPC można znaleźć w przykładowym kodzie [aplikacji konsoli .NET Core](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) w witrynie GitHub.

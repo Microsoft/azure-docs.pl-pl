@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661208"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174839"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definiowanie atrybutów niestandardowych w Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "98661208"
 
 W artykule [Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych](configure-user-input.md) dowiesz się, jak używać wbudowanych [atrybutów profilu użytkownika](user-profile-attributes.md). W tym artykule opisano włączenie atrybutu niestandardowego w katalogu Azure Active Directory B2C (Azure AD B2C). Później można użyć nowego atrybutu jako niestandardowego żądania w [przepływach użytkownika](user-flow-overview.md) lub [niestandardowych zasadach](custom-policy-get-started.md) .
 
-Katalog Azure AD B2C zawiera [Wbudowany zestaw atrybutów](user-profile-attributes.md). Jednak często trzeba utworzyć własne atrybuty do zarządzania określonym scenariuszem, na przykład:
+Katalog usługi Azure AD B2C zawiera [wbudowany zestaw atrybutów](user-profile-attributes.md). Jednak często trzeba utworzyć własne atrybuty do zarządzania określonym scenariuszem, na przykład:
 
 * Aplikacja dołączona do klienta musi zachować atrybut **LoyaltyId** .
 * Dostawca tożsamości ma unikatowy identyfikator użytkownika ( **uniqueUserGUID**), który musi zostać utrwalony.
@@ -83,7 +83,7 @@ Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet 
 
 ## <a name="using-custom-attribute-with-ms-graph-api"></a>Używanie atrybutu niestandardowego z usługą MS interfejs API programu Graph
 
-Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` . Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Przykład:
+Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji, w `extension_ApplicationClientID_attributename` której `ApplicationClientID` jest **Identyfikator aplikacji (klienta)** `b2c-extensions-app` . Należy zauważyć, że **Identyfikator aplikacji (klienta)** , która jest reprezentowana w nazwie atrybutu rozszerzenia, nie zawiera łączników. Na przykład:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -97,22 +97,27 @@ Aby włączyć atrybuty niestandardowe w zasadach, podaj **Identyfikator aplikac
 
 1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Znajdź element ClaimsProviders. Dodaj nowy ClaimsProvider do elementu ClaimsProviders.
-1. Zamień `ApplicationObjectId` na identyfikator obiektu, który został wcześniej zarejestrowany. Następnie zastąp ciąg `ClientId` identyfikatorem aplikacji, który został wcześniej zarejestrowany w poniższym fragmencie kodu.
+1. Wstaw wcześniej zarejestrowany **Identyfikator aplikacji** między elementami otwierającymi `<Item Key="ClientId">` i zamykającymi `</Item>` .
+1. Wstaw wcześniej zarejestrowany identyfikator obiektu **aplikacji** między otwierającym `<Item Key="ApplicationObjectId">` i zamykającym elementem `</Item>` .
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## <a name="upload-your-custom-policy"></a>Przekazywanie zasad niestandardowych

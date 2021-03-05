@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Az
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: e991f7313bae5aa67478043b4f9306dbc274e1e7
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3ace7f1c93ab3918f460d245a863db43d98f1db5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659992"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176097"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -37,17 +37,17 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 |----------------------------|-----------|----------|
 | Płaszczyzna sterowania | niewidoczne | Używane przez składniki płaszczyzny kontroli AKS do zarządzania zasobami klastra, w tym moduły równoważenia obciążenia i zarządzane adresy IP AKS, oraz operacje automatycznego skalowania klastra | Rola współautora dla grupy zasobów węzła | Obsługiwane
 | Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | NA (dla Kubernetes v 1.15 +) | Nie jest obecnie obsługiwana.
-| Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | Azure — zasady (strażnik) | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | Azure — zasady | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | Calico | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
-| Dodatek | Pulpit nawigacyjny | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | NA | Nie
+| Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | NA | Nie
+| Dodatek | Azure — zasady (strażnik) | Żadna tożsamość nie jest wymagana | NA | Nie
+| Dodatek | Azure — zasady | Żadna tożsamość nie jest wymagana | NA | Nie
+| Dodatek | Calico | Żadna tożsamość nie jest wymagana | NA | Nie
+| Dodatek | Pulpit nawigacyjny | Żadna tożsamość nie jest wymagana | NA | Nie
 | Dodatek | HTTPApplicationRouting | Zarządza wymaganymi zasobami sieciowymi | Rola czytnika dla grupy zasobów węzła, rola współautora dla strefy DNS | Nie
 | Dodatek | Brama aplikacji przychodzącej | Zarządza wymaganymi zasobami sieciowymi| Rola współautora dla grupy zasobów węzła | Nie
 | Dodatek | omsagent | Służy do wysyłania metryk AKS do Azure Monitor | Rola wydawcy metryk monitorowania | Nie
 | Dodatek | Virtual-Node (ACIConnector) | Zarządza wymaganymi zasobami sieci dla Azure Container Instances (ACI) | Rola współautora dla grupy zasobów węzła | Nie
-| Projekt OSS | AAD — pod — tożsamość | Umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze za pomocą usługi Azure Active Directory (AAD) | Nie dotyczy | Procedura przyznawania uprawnień w https://github.com/Azure/aad-pod-identity#role-assignment .
+| Projekt OSS | AAD — pod — tożsamość | Umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze za pomocą usługi Azure Active Directory (AAD) | NA | Procedura przyznawania uprawnień w https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Tworzenie klastra AKS z tożsamościami zarządzanymi
 
@@ -205,5 +205,5 @@ Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera inf
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true
+[az-identity-create]: /cli/azure/identity#az-identity-create
+[az-identity-list]: /cli/azure/identity#az-identity-list

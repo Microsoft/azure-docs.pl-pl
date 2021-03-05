@@ -69,7 +69,7 @@
     - name: Dokumentacja programu Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Dokumentacja interfejsu wiersza polecenia platformy Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Zestawy SDK
       items:
         - name: .NET

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: d6c8e96c325cfa6422ceb4efc55ef0c5cc149ae3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ef6afff30da48b79b42e5fb4b3c72c3500f22dd1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055897"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172307"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Jak utworzyć Azure Automation konto Uruchom jako
 
@@ -76,7 +76,7 @@ Skrypt programu PowerShell zawiera obsługę kilku konfiguracji.
 
 2. Uruchom program PowerShell z podwyższonym poziomem uprawnień użytkownika i przejdź do folderu, który zawiera skrypt.
 
-3. Uruchom jedno z następujących poleceń, aby utworzyć konto Uruchom jako i/lub klasyczne, zgodnie z wymaganiami.
+3. Uruchom jedno z następujących poleceń, aby utworzyć konto Uruchom jako i/lub klasyczne, na podstawie Twoich wymagań.
 
     * Utwórz konto Uruchom jako przy użyciu certyfikatu z podpisem własnym.
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 3bcbe846d102b0ef821394246e10d2af4d48cacf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8f1cea6e9bc833c6d441c39c401f60d872cd9099
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032623"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174941"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Platforma Azure nie usuwa automatycznie danych pośrednich, które są zapisywane z `OutputFileDatasetConfig` . Aby uniknąć opłat za magazyn w przypadku dużych ilości niepotrzebnych danych, należy:
 
 * Programowe usuwanie danych pośrednich na końcu uruchomienia potoku, gdy nie jest już potrzebne
-* Używanie usługi BLOB Storage z krótkoterminowymi zasadami magazynowania dla danych pośrednich (zobacz [Optymalizacja kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](../storage/blobs/storage-lifecycle-management-concepts.md)) 
+* Używanie usługi BLOB Storage z krótkoterminowymi zasadami magazynowania dla danych pośrednich (zobacz [Optymalizacja kosztów dzięki automatyzowaniu warstw dostępu BLOB Storage platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
 * Regularnie Przeglądaj i usuwaj dane, które nie są już potrzebne
 
 Aby uzyskać więcej informacji, zobacz [Planowanie i zarządzanie kosztami Azure Machine Learning](concept-plan-manage-cost.md).

@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób pozyskiwania historycznych danych te
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e4182f3718422be3a0aa99c980d33026df4ce9af
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656788"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173753"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
 
@@ -19,7 +19,7 @@ W tym artykule opisano sposób pozyskiwania historycznych danych czujników do u
 
 Pozyskiwanie danych historycznych z zasobów Internet rzeczy (IoT), takich jak urządzenia i czujniki, jest typowym scenariuszem w FarmBeats. Tworzysz metadane dla urządzeń i czujników, a następnie pozyskasz dane historyczne do FarmBeats w postaci kanonicznej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i zebrano dane historyczne z urządzeń IoT. Należy również włączyć dostęp partnera, jak wspomniano w poniższych krokach.
 
@@ -33,7 +33,7 @@ Musisz włączyć integrację partnera z wystąpieniem usługi Azure FarmBeats. 
 - Klucz tajny klienta
 - Parametry połączenia EventHub
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
 > [!NOTE]
 > Musisz być administratorem, aby wykonać następujące czynności.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994846"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175094"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
 
@@ -127,7 +127,7 @@ Tworzy na podstawie podanego parametru wejściowego wyrażenie typu String.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | ciąg | Ciąg, który ma zostać ustawiony. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions). |
+| InputParameter | wartość | ciąg | Ciąg, który ma zostać ustawiony. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions). |
 | Oświadczenie outputclaim | createdClaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń, z wartością określoną w parametrze wejściowym. |
 
 Użyj tej transformacji oświadczeń, aby ustawić wartość typu oświadczenia ciągu.
@@ -149,6 +149,42 @@ Użyj tej transformacji oświadczeń, aby ustawić wartość typu oświadczenia 
     - **wartość**: warunki użytkowania usługi contoso...
 - Oświadczenia wyjściowe:
     - **createdClaim**: oświadczenia o organizacjach OT zawiera "warunki korzystania z usługi firmy Contoso..." wartościami.
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Kopiuj wartość żądania do innego, jeśli wartość żądania wejściowego pasuje do predykatu wyniku żądania. 
+
+| Element | TransformationClaimType | Typ danych | Uwagi |
+| ---- | ----------------------- | --------- | ----- |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | ciąg | Typ zgłoszenia, który ma zostać skopiowany. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Typ oświadczenia, który jest generowany po wywołaniu tej transformacji oświadczeń. Wartość żądania wejściowego jest sprawdzana względem tego predykatu. |
+
+Poniższy przykład kopiuje wartość "signInName" do żądania denumerowania, tylko jeśli signInName jest numerem telefonu. Aby zapoznać się z kompletnym przykładem, zobacz sekcję [numer telefonu lub logowanie do poczty e-mail](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) .
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Przykład 1
+
+- Oświadczenia wejściowe:
+    - **oświadczenie inputclaim**: bob@contoso.com
+- Oświadczenia wyjściowe:
+    - **oświadczenie outputclaim**: nie można zmienić pierwotnej wartości dla zgłoszenia wyjściowego.
+
+### <a name="example-2"></a>Przykład 2
+
+- Oświadczenia wejściowe:
+    - **oświadczenie inputclaim**: + 11234567890
+- Oświadczenia wyjściowe:
+    - **oświadczenie outputclaim**: + 11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -300,7 +336,7 @@ Sformatuj wierzytelność zgodnie z podanym ciągiem formatu. Ta transformacja u
 | InputParameter | StringFormat — | ciąg | Format ciągu, łącznie z {0}  parametrem. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions).  |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
-Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym parametrem {0} . Poniższy przykład tworzy element **userPrincipalName**. Wszystkie profile techniczne dostawcy tożsamości społecznościowej, takie jak `Facebook-OAUTH` wywołanie **CreateUserPrincipalName** elementu **userPrincipalName**.
+Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym parametrem {0} . Poniższy przykład tworzy element **userPrincipalName**. Wszystkie profile techniczne dostawcy tożsamości społecznościowej, takie jak `Facebook-OAUTH` wywołanie  elementu .
 
 ```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">

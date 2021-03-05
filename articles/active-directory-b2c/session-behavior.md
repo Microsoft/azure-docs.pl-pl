@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120627"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175111"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w usłudze Azure Active Directory B2C
 
@@ -194,7 +194,7 @@ Aby dodać pole wyboru KMSI do strony rejestracji i logowania, ustaw `setting.en
 
 ### <a name="configure-a-relying-party-file"></a>Konfigurowanie pliku jednostki uzależnionej
 
-Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
+Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika. Parametr keepAliveInDays umożliwia skonfigurowanie sposobu, w jaki długi plik cookie dotyczący rejestrowania (KMSI) powinien być trwały. Jeśli na przykład ustawisz wartość 30, plik cookie sesji KMSI będzie trwały przez 30 dni. Zakres dla wartości wynosi od 1 do 90 dni.
 
 1. Otwórz niestandardowy plik zasad. Na przykład *SignUpOrSignin.xml*.
 1. Jeśli jeszcze nie istnieje, Dodaj `<UserJourneyBehaviors>` węzeł podrzędny do `<RelyingParty>` węzła. Musi ona znajdować się bezpośrednio po `<DefaultUserJourney ReferenceId="User journey Id" />` , na przykład: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />` .

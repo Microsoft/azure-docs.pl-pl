@@ -704,6 +704,8 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Tworzenie zależności wyzwalacza okna wirowania
           href: tumbling-window-trigger-dependency.md
+        - name: Odwołuje się do metadanych wyzwalacza w potoku
+          href: how-to-use-trigger-parameterization.md
     - name: Wykaz danych i ład
       items:
         - name: Łączenie usługi Data Factory z usługą Azure Purview

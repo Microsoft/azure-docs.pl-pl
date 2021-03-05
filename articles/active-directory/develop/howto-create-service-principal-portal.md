@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 5dd960dde72b879515bd948c4731ead135bef4b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035054"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175550"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -84,6 +84,9 @@ Przejdźmy bezpośrednio do tworzenia tożsamości. Jeśli napotkasz problem, sp
    ![Wpisz nazwę aplikacji](./media/howto-create-service-principal-portal/create-app.png)
 
 Utworzono aplikację usługi Azure AD i nazwę główną usługi.
+
+> [!NOTE]
+> Można zarejestrować wiele aplikacji o tej samej nazwie w usłudze Azure AD, ale aplikacje muszą mieć różne identyfikatory aplikacji (klienta).
 
 ## <a name="assign-a-role-to-the-application"></a>Przypisywanie roli do aplikacji
 

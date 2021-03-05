@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: fd93635e7087d6f4a3590ec7bcb25482dc8382da
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256545"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174731"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Aby użyć bezpiecznego protokołu LDAP, ruch sieciowy jest szyfrowany przy uży
 * Klucz **prywatny** jest stosowany do domeny zarządzanej.
     * Ten klucz prywatny jest używany do *odszyfrowywania* bezpiecznego ruchu LDAP. Klucz prywatny powinien być stosowany tylko do domeny zarządzanej i nie jest rozpowszechniany na komputerach klienckich.
     * Certyfikat zawierający klucz prywatny używa *.* Format pliku PFX.
-    * Algorytm szyfrowania dla certyfikatu musi być *TripleDES-SHA1*.
+    * Podczas eksportowania certyfikatu należy określić algorytm szyfrowania *TripleDES-SHA1* . Ma to zastosowanie tylko do pliku PFX i nie ma wpływu na algorytm używany przez sam certyfikat. Należy pamiętać, że opcja *TripleDES-SHA1* jest dostępna tylko od systemu Windows Server 2016.
 * Na komputerach klienckich jest stosowany klucz **publiczny** .
     * Ten klucz publiczny jest używany do *szyfrowania* bezpiecznego ruchu LDAP. Klucz publiczny może być dystrybuowany do komputerów klienckich.
     * Certyfikaty bez klucza prywatnego korzystają z programu *.* Format pliku CER.
@@ -151,6 +151,11 @@ Aby można było użyć certyfikatu cyfrowego utworzonego w poprzednim kroku z d
 1. Ponieważ ten certyfikat jest używany do odszyfrowywania danych, należy dokładnie kontrolować dostęp. Hasło może służyć do ochrony korzystania z certyfikatu. Bez poprawnego hasła nie można zastosować certyfikatu do usługi.
 
     Na stronie **zabezpieczenia** wybierz opcję **hasła** , aby chronić *.* Plik certyfikatu PFX. Algorytm szyfrowania musi być *TripleDES-SHA1*. Wprowadź i Potwierdź hasło, a następnie wybierz pozycję **dalej**. To hasło jest używane w następnej sekcji w celu włączenia bezpiecznego protokołu LDAP dla domeny zarządzanej.
+
+    W przypadku eksportowania za pomocą [polecenia cmdlet Export-Pfxcertificate programu PowerShell](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)należy przekazać flagę *-CryptoAlgorithmOption* przy użyciu TripleDES_SHA1.
+
+    ![Zrzut ekranu przedstawiający sposób szyfrowania hasła](./media/tutorial-configure-ldaps/encrypt.png)
+
 1. Na stronie **Eksport pliku** Określ nazwę pliku i lokalizację, w której chcesz wyeksportować certyfikat, taki jak *C:\Users\accountname\azure-AD-DS.pfx*. Zanotuj hasło i lokalizację *. Plik PFX* , ponieważ te informacje będą wymagane w następnych krokach.
 1. Na stronie Przegląd wybierz pozycję **Zakończ** , aby wyeksportować certyfikat do programu *.* Plik certyfikatu PFX. W przypadku pomyślnego wyeksportowania certyfikatu zostanie wyświetlone okno dialogowe potwierdzenia.
 1. Pozostaw otwarty program MMC do użycia w poniższej sekcji.

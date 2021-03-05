@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519494"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175672"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
@@ -115,9 +115,9 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 
 | Kategoria | Wartość |
 | ------------- | ------------- |
-| Obsługiwane wersje | 1.2.0 (Ubuntu 16,04), 1.4.0 (Ubuntu 18,04, Windows 2019) |
+| Obsługiwane wersje | 1.2.0 (Ubuntu 16,04), 1.7.1 (Ubuntu 18,04, Windows 2019) |
 | Obsługiwane wersje DSVM      | Windows Server 2019<br>Ubuntu 18.04<br> Ubuntu 16.04 |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Zainstalowane w języku [Python 3,5](dsvm-tools-languages.md#python-linux-edition). Przykładowe notesy Jupyter są dołączone, a przykłady znajdują się w/dsvm/Samples/pytorch. |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | Zainstalowane w języku [Python 3,7](dsvm-tools-languages.md#python-linux-edition) py37_pytorch środowisku Conda. Przykładowe notesy Jupyter są dołączone, a przykłady znajdują się w/dsvm/Samples/pytorch. |
 | Jak uruchomić go      | Terminal: Aktywuj poprawne środowisko, a następnie uruchom Język Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Połącz, a następnie otwórz katalog PyTorch dla przykładów.  |
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)

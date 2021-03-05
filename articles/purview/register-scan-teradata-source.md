@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 0885870497ef3488d78fe899c96ee2a82a5b84fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696188"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175078"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Zarejestruj i Skanuj źródło programu Teradata (wersja zapoznawcza)
 
@@ -94,13 +94,13 @@ Aby utworzyć i uruchomić nowe skanowanie, wykonaj następujące czynności:
 
 6.  **Schemat**: Lista podzestawu schematów do zaimportowania wyrażona jako lista rozdzielonych średnikami. np. Schema1; schema2. Wszystkie schematy użytkownika są importowane, jeśli lista jest pusta. Wszystkie schematy systemowe (na przykład sysadmin) i obiekty są domyślnie ignorowane. Gdy lista jest pusta, wszystkie dostępne schematy są importowane.
 
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+    Dozwolone wzorce nazw schematu przy użyciu składni wyrażeń, takich jak wyrażenia SQL, obejmują użycie%, np .%; B % C%; Wykres
+    - Zacznij od lub    
+    - kończy się na B lub    
+    - zawiera C lub    
+    - równe D
 
-        Usage of NOT and special characters are not acceptable
+    Użycie znaków NOT i Special nie jest akceptowalne
 
 7.  **Lokalizacja sterownika**: Określ ścieżkę do lokalizacji sterownika JDBC na maszynie wirtualnej, w której działa środowisko Integration Runtime. Powinna to być ścieżka do prawidłowej lokalizacji folderu JAR.
 

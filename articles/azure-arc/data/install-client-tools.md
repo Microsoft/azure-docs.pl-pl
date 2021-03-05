@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ecf0f54913f980d879b562eb4aa8063acf6c4772
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6f42f712ecca77c00020304b63f5a1b0dbd77ad0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320251"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172324"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Instalowanie narzędzi klienta na potrzeby wdrażania usług danych z obsługą usługi Azure Arc i zarządzania nimi
 
@@ -36,7 +36,7 @@ W poniższej tabeli wymieniono typowe narzędzia wymagane do tworzenia usług da
 | [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] rozszerzenie Azure Data Studio | Tak | Rozszerzenie dla Azure Data Studio, które zostanie zainstalowane, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Jeśli jeszcze go nie masz.| Zainstaluj z galerii rozszerzeń w Azure Data Studio.|
 | Rozszerzenie Azure ARC dla Azure Data Studio | Tak | Rozszerzenie dla Azure Data Studio, które udostępnia środowisko zarządzania dla usług danych z obsługą usługi Azure Arc. Istnieje zależność od [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] rozszerzenia Azure Data Studio. | Zainstaluj z galerii rozszerzeń w Azure Data Studio.|
 | Rozszerzenie PostgreSQL w Azure Data Studio | Nie | Rozszerzenie PostgreSQL dla Azure Data Studio, które oferuje funkcje zarządzania dla PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Zainstaluj z galerii rozszerzeń w Azure Data Studio.|
-| Interfejs wiersza polecenia platformy Azure (az)<sup>1</sup> | Tak | Nowoczesny interfejs wiersza polecenia do zarządzania usługami platformy Azure. Używany z wdrożeniami AKS oraz do przekazywania danych dotyczących spisu i rozliczeń usługi Data Services usługi Azure Arc na platformę Azure. ([Więcej informacji](/cli/azure/?view=azure-cli-latest&preserve-view=true)). | [Instalacja](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
+| Interfejs wiersza polecenia platformy Azure (az)<sup>1</sup> | Tak | Nowoczesny interfejs wiersza polecenia do zarządzania usługami platformy Azure. Używany z wdrożeniami AKS oraz do przekazywania danych dotyczących spisu i rozliczeń usługi Data Services usługi Azure Arc na platformę Azure. ([Więcej informacji](/cli/azure/)). | [Instalacja](/cli/azure/install-azure-cli) |
 | Interfejs wiersza polecenia Kubernetes (polecenia kubectl)<sup>2</sup> | Tak | Narzędzie wiersza polecenia do zarządzania klastrem Kubernetes ([więcej informacji](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [System Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| System [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |
 | zwinięcie <sup>3</sup> | Wymagane w przypadku niektórych przykładowych skryptów. | Narzędzie wiersza polecenia do transferowania danych za pomocą adresów URL. | [System Windows](https://curl.haxx.se/windows/) \| Linux: Instalowanie pakietu zwinięcie |
 | OC | Wymagane w przypadku wdrożeń Red Hat OpenShift i Azure RedHat OpenShift. |`oc` jest interfejsem wiersza polecenia Open Shift (CLI). | [Instalowanie interfejsu wiersza polecenia](https://docs.openshift.com/container-platform/4.4/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli)

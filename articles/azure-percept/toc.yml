@@ -90,7 +90,9 @@
           href: vision-solution-troubleshooting.md
         - name: Rozwiązywanie problemów z usługą Azure Percept audio
           href: troubleshoot-audio-accessory-speech-module.md
-- name: Odwołanie
+        - name: Znane problemy
+          href: known-issues.md
+- name: Dokumentacja
   items:
     - name: Arkusze danych urządzenia Azure Percept
       items:

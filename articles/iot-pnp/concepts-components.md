@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eef8179567d83e3727c3ab949eef2706ce2a9b16
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330006"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175808"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Składniki technologii IoT Plug and Play w modelach
 
@@ -64,7 +64,7 @@ Poniższy zrzut ekranu przedstawia sposób wyświetlania modelu w narzędziu Azu
 
 Identyfikator modelu jest przechowywany we właściwości przędzy urządzenia, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Składnik domyślny w programie Azure IoT Explorer":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Identyfikator modelu we właściwości cyfrowej przędzy":::
 
 Model DTDL bez składników to przydatne uproszczenie dla urządzeń lub IoT Edge modułu z pojedynczym zestawem danych telemetrycznych, właściwościami i poleceniami. Model, który nie używa składników, ułatwia Migrowanie istniejącego urządzenia lub modułu jako urządzenia Plug and Play IoT lub modułu — tworzysz model DTDL, który opisuje rzeczywiste urządzenie lub moduł bez konieczności definiowania składników.
 

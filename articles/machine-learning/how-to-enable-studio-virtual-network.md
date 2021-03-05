@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559543"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171551"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -38,7 +38,6 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 > [!IMPORTANT]
 > Jeśli obszar roboczy znajduje się w __chmurze suwerennej__, takiej jak Azure Government lub Azure Chiny 21Vianet, zintegrowane notesy _nie_ obsługują używania magazynu znajdującego się w sieci wirtualnej. Zamiast tego można użyć notesów Jupyter z wystąpienia obliczeniowego. Aby uzyskać więcej informacji, zobacz sekcję [dostęp do danych w notesie wystąpienia obliczeniowego](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,7 +106,6 @@ W poniższej tabeli opisano, dlaczego należy włączyć uwierzytelnianie tożsa
 >
 > Aby rozwiązać ten problem, Usuń konto Filestore z sieci wirtualnej, a następnie dodaj je z powrotem do sieci wirtualnej.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Przyznaj dostęp do __czytnika__ tożsamości zarządzanego obszaru roboczego do prywatnego linku do magazynu
 
 Jeśli konto usługi Azure Storage korzysta z prywatnego punktu końcowego, należy przyznać zarządzanemu przez obszar roboczym **dostęp do** prywatnego linku. Aby uzyskać więcej informacji, zobacz wbudowana rola [czytnika](../role-based-access-control/built-in-roles.md#reader) . 
@@ -162,7 +160,7 @@ Należy również [włączyć uwierzytelnianie tożsamości zarządzanej](#confi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł jest opcjonalną częścią serii sieci wirtualnych z czterema częścią. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+Ten artykuł jest częścią piątą serii sieci wirtualnych z pięcioma częściami. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
 
 * [Część 1: Omówienie usługi Virtual Network](how-to-network-security-overview.md)
 * [Część 2: Zabezpieczanie zasobów obszaru roboczego](how-to-secure-workspace-vnet.md)

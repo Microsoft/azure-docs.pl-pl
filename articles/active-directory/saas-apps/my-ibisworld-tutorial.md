@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: c83a1050035fc40912d0242a9c5fe2498b299ebd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 56aa7c41934506c7de0c8d5cebe84eb5a6bc2164
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517960"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174618"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z moją IBISWorld
 
@@ -83,26 +83,26 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
-
-    W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://my.ibisworld.com/account/login`
+   * Aby skonfigurować aplikację w trybie inicjalizacji **SP** , zażądaj adresu URL od IBISWorld, a następnie wprowadź adres URL w polu tekstowym **adres URL logowania** .
+   
+   * Aby skonfigurować aplikację w trybie inicjowania **dostawcy tożsamości** , w polu tekstowym **stan przekaźnika** wprowadź adres URL `RPID=http://fedlogin.ibisworld.com` . Pozostaw puste pole tekstowe **adres URL logowania** .
 
 1. Kliknij pozycję **Zapisz**.
 
 1. Aplikacja IBISWorld oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image (obraz)](common/default-attributes.png)
+   ![image (obraz)](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja IBISWorld oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
     
-    | Nazwa | Atrybut źródłowy|
-    | --------------- | --------- |
-    | działu, | user.department |
-    | language | User. preferredLanguage |
-    | phone | user.telephonenumber |
-    | tytuł | user.jobtitle |
-    | userid | user.employeeid |
-    | country | User. Country |
+   | Nazwa | Atrybut źródłowy|
+   | --------------- | --------- |
+   | działu, | user.department |
+   | language | User. preferredLanguage |
+   | phone | user.telephonenumber |
+   | tytuł | user.jobtitle |
+   | userid | user.employeeid |
+   | country | User. Country |
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -151,7 +151,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka my IBISWorld w panelu dostępu należy automatycznie zalogować się do IBISWorld, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

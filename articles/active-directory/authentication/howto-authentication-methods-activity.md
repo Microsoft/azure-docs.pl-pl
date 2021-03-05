@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693183"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175315"
 ---
 # <a name="authentication-methods-activity"></a>Działanie metod uwierzytelniania 
 
@@ -26,10 +26,17 @@ Pulpit nawigacyjny nowe działania metod uwierzytelniania umożliwia administrat
 
 ## <a name="permissions-and-licenses"></a>Uprawnienia i licencje
 
-Następujące role mogą uzyskać dostęp do użycia i szczegółowych informacji:
+Wbudowane i niestandardowe role z następującymi uprawnieniami mogą uzyskać dostęp do bloku działania metody uwierzytelniania i interfejsów API:
+
+- Microsoft. Directory/auditLogs/allProperties/odczyt
+- Microsoft. Directory/signInReports/allProperties/odczyt
+
+Następujące role mają wymagane uprawnienia:
 
 - Czytelnik raportów
 - Czytelnik zabezpieczeń
+- Czytelnik globalny
+- Operator zabezpieczeń
 - Administrator zabezpieczeń
 - Administrator globalny
 
@@ -122,11 +129,12 @@ Raport szczegóły rejestracji zawiera następujące informacje dla każdego uż
 - Stan (powodzenie, niepowodzenie)
 - Przyczyna niepowodzenia (wyjaśnienie)
 
-  ![Zrzut ekranu przedstawiający stronę użycia](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Zrzut ekranu zdarzeń rejestracji i resetowania](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Ograniczenia
 
-Rejestracje dostępu tymczasowego (TAP) nie są odzwierciedlone na karcie Rejestracja raportu, ponieważ są tylko prawidłowe przez krótki czas.
+- Dane w raporcie nie są aktualizowane w czasie rzeczywistym i mogą odzwierciedlać opóźnienia do kilku godzin.
+- Rejestracje dostępu tymczasowego nie są odzwierciedlone na karcie Rejestracja raportu, ponieważ są one prawidłowe tylko przez krótki czas.
 
 ## <a name="next-steps"></a>Następne kroki
 

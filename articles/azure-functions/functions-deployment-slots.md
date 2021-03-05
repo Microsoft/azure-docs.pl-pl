@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 87d7d4676c604ca7219b7580eb3ce585282a7f11
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327244"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172413"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions miejsc wdrożenia
 
@@ -127,7 +127,7 @@ Wszystkie gniazda są skalowane do tej samej liczby procesów roboczych co miejs
 
 ## <a name="add-a-slot"></a>Dodawanie miejsca
 
-Możesz dodać gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) lub portalu. Poniższe kroki pokazują, jak utworzyć nowe miejsce w portalu:
+Możesz dodać gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create) lub portalu. Poniższe kroki pokazują, jak utworzyć nowe miejsce w portalu:
 
 1. Przejdź do aplikacji funkcji.
 
@@ -141,7 +141,7 @@ Możesz dodać gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azu
 
 ## <a name="swap-slots"></a>Zastępowanie miejsc
 
-Możesz zamienić gniazda za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) lub portalu. W poniższych krokach przedstawiono sposób wymiany gniazd w portalu:
+Możesz zamienić gniazda za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap) lub portalu. W poniższych krokach przedstawiono sposób wymiany gniazd w portalu:
 
 1. Przejdź do aplikacji funkcji.
 1. Wybierz pozycję miejsca **wdrożenia**, a następnie wybierz pozycję **Zamień**.
@@ -160,7 +160,7 @@ Jeśli Zamiana powoduje błąd lub po prostu chcesz "cofnąć" zamianę, możesz
 
 ## <a name="remove-a-slot"></a>Usuń gniazdo
 
-Możesz usunąć gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) lub portalu. W poniższych krokach pokazano, jak usunąć miejsce w portalu:
+Możesz usunąć gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete) lub portalu. W poniższych krokach pokazano, jak usunąć miejsce w portalu:
 
 1. Przejdź do **miejsc wdrożenia** w aplikacji funkcji, a następnie wybierz nazwę gniazda.
 
@@ -180,13 +180,13 @@ Możesz usunąć gniazdo za pośrednictwem [interfejsu wiersza polecenia](/cli/a
 
 ## <a name="automate-slot-management"></a>Automatyzowanie zarządzania gniazdami
 
-Korzystając z [interfejsu wiersza polecenia platformy Azure](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), można zautomatyzować następujące działania w gnieździe:
+Korzystając z [interfejsu wiersza polecenia platformy Azure](/cli/azure/functionapp/deployment/slot), można zautomatyzować następujące działania w gnieździe:
 
-- [Create](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [delete](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [wymiany](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [Zamień na siebie](/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [Create](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-create)
+- [delete](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-delete)
+- [list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list)
+- [wymiany](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-swap)
+- [Zamień na siebie](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Zmień plan App Service
 

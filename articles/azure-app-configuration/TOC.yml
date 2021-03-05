@@ -139,7 +139,7 @@
     - name: Konfigurowanie
       items:
         - name: Interfejs wiersza polecenia platformy Azure
-          href: /cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig
         - name: Dostawca platformy .NET Core
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: Konstruktor platformy .NET Framework

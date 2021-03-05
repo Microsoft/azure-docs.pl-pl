@@ -11,12 +11,12 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039dd8b6fa0769b6798630e666bfbf6de48ccf14
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7e5eb77a27a7c74ad9738a0e1784066a6a859e43
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649244"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175372"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Obsługa uwierzytelniania bezhaseł przez przeglądarkę FIDO2
 
@@ -26,12 +26,14 @@ Azure Active Directory zezwala na używanie [kluczy zabezpieczeń FIDO2](./conce
 
 W tej tabeli przedstawiono obsługę uwierzytelniania Azure Active Directory (Azure AD) i kont Microsoft (MSA). Konta Microsoft są tworzone przez konsumentów dla usług takich jak Xbox, Skype lub Outlook.com. Obsługiwane typy urządzeń obejmują **porty USB**, komunikacja zbliżeniowa (**NFC**) i niewielka energia Bluetooth (**beli**).
 
-|  | Chrome |  |  | Edge |  |  | Firefox |  |  |
+| System operacyjny | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | Funkcja NFC | BELI | USB | Funkcja NFC | BELI | USB | Funkcja NFC | BELI |
 | **Windows**  | ![Program Chrome obsługuje połączenia USB w systemie Windows dla kont usługi AAD.][y] | ![Program Chrome obsługuje funkcję NFC w systemie Windows dla kont usługi AAD.][y] | ![Program Chrome obsługuje usługi w systemie Windows dla kont usługi AAD.][y] | ![Program Edge obsługuje połączenia USB w systemie Windows dla kont usługi AAD.][y] | ![Program Edge obsługuje funkcję NFC w systemie Windows dla kont usługi AAD.][y] | ![Program Edge obsługuje usługi w systemie Windows dla kont usługi AAD.][y] | ![Firefox obsługuje konta usługi AAD w systemie Windows.][y] | ![Program Firefox obsługuje usługi NFC w systemie Windows dla kont usługi AAD.][y] | ![Firefox obsługuje usługi w systemie Windows dla kont usługi AAD.][y] |
 | **macOS**  | ![Program Chrome obsługuje połączenia USB w systemie macOS dla kont usługi AAD.][y] | ![Program Chrome nie obsługuje funkcji NFC w systemie macOS dla kont usługi AAD.][n] | ![Program Chrome nie obsługuje macOS dla kont usługi AAD.][n] | ![Program Edge obsługuje połączenia USB w systemie macOS dla kont usługi AAD.][y] | ![Usługa Edge nie obsługuje funkcji NFC w systemie macOS dla kont usługi AAD.][n] | ![Usługa Edge nie obsługuje macOS na kontach usługi AAD.][n] | ![Program Firefox nie obsługuje portów USB w systemie macOS dla kont usługi AAD.][n] | ![Program Firefox nie obsługuje funkcji NFC w systemie macOS dla kont usługi AAD.][n] | ![Program Firefox nie obsługuje macOS na kontach usługi AAD.][n] |
 | **Linux**  | ![Program Chrome obsługuje połączenia USB w systemie Linux dla kont usługi AAD.][y] | ![Program Chrome nie obsługuje funkcji NFC w systemie Linux dla kont usługi AAD.][n] | ![Program Chrome nie obsługuje usługi beli w systemie Linux dla kont usługi AAD.][n] | ![Usługa Edge nie obsługuje portów USB w systemie Linux dla kont usługi AAD.][n] | ![Usługa Edge nie obsługuje funkcji NFC w systemie Linux dla kont usługi AAD.][n] | ![Usługa Edge nie obsługuje usługi beli w systemie Linux dla kont usługi AAD.][n] | ![Program Firefox nie obsługuje portów USB w systemie Linux dla kont usługi AAD.][n] | ![Program Firefox nie obsługuje funkcji NFC w systemie Linux dla kont usługi AAD.][n] | ![Program Firefox nie obsługuje usługi beli w systemie Linux dla kont usługi AAD.][n] |
+
+
 
 ## <a name="unsupported-browsers"></a>Nieobsługiwane przeglądarki
 

@@ -4,13 +4,13 @@ description: Opisuje sposób generowania mapę cieplną wilgotności gleby na pl
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165557"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173787"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generuj mapę cieplną wilgoci
 
@@ -22,7 +22,7 @@ W tym artykule opisano proces generowania mapę cieplną wilgoci w farmie przy u
 - [Przypisywanie czujników do Farm](#get-soil-moisture-sensor-data-from-partner)
 - [Generuj mapę cieplną wilgoci](#generate-soil-moisture-heatmap)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Uwaga:  
 
@@ -68,7 +68,7 @@ Ten krok polega na utworzeniu zadania lub długotrwałej operacji, która spowod
 4.  Z menu rozwijanego wybierz pozycję **wilgotność gleby**.
 5.  W oknie **wilgotność gleby** wybierz **ten tydzień**.
 6.  W polu **pomiar czujnika** **wilgotności gleby** wprowadź miarę, która ma być używana dla mapy.
-    Aby znaleźć miarę czujnika, w obszarze **czujniki**wybierz czujnik wilgoci gleby. We **właściwościach czujnika**Użyj wartości **nazwa miary** .
+    Aby znaleźć miarę czujnika, w obszarze **czujniki** wybierz czujnik wilgoci gleby. We **właściwościach czujnika** Użyj wartości **nazwa miary** .
 
     ![Zrzut ekranu przedstawiający ekran wilgotności gleby.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
@@ -84,7 +84,7 @@ Ten krok polega na utworzeniu zadania lub długotrwałej operacji, która spowod
 Wykonaj następujące kroki:
 
 1. Na stronie **zadania** Sprawdź **stan zadania** dla zadania utworzonego w ostatniej procedurze.
-2. Po **pomyślnym**wyświetleniu stanu zadania wybierz pozycję **mapy** w menu.
+2. Po **pomyślnym** wyświetleniu stanu zadania wybierz pozycję **mapy** w menu.
 3. Wyszukaj mapę według dnia, w której został utworzony, w formacie <gleba moisture_MyFarm_YYYY-MM-DD>.
 4. Wybierz mapę w kolumnie **Nazwa** , okno podręczne wyświetla podgląd wybranej mapy.
 5. Kliknij pozycję **Pobierz**. Mapa zostanie pobrana i zapisana do folderu lokalnego komputera.
@@ -93,4 +93,4 @@ Wykonaj następujące kroki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po pomyślnym wygenerowaniu wilgoci glebowej mapę cieplną, Dowiedz się, jak [wygenerować umieszczanie czujnika](generate-maps-in-azure-farmbeats.md#sensor-placement-map) i uzyskać [historyczne dane telemetryczne](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
+Teraz, po pomyślnym wygenerowaniu wilgoci glebowej mapę cieplną, Dowiedz się, jak [wygenerować umieszczanie czujnika](generate-maps-in-azure-farmbeats.md#sensor-placement-map) i uzyskać [historyczne dane telemetryczne](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
