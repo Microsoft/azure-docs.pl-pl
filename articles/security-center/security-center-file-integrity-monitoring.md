@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 07a36bb9b9e3baea2136c23208d268c2c196e70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b858903b87dc6c4cc1f7c40338c09bf5b8204b3d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099458"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176539"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -31,7 +31,7 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 |Stan wydania:|Ogólna dostępność (GA)|
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .|
 |Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
-|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) National/suwerenne (US gov, Chiny gov, inne gov)<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking/overview.md).|
+|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) National/suwerenne (US gov, Chiny gov, inne gov)<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>![Tak, jak ](./media/icons/yes-icon.png) urządzenia z obsługą [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/overview) .<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Co to jest FIM w Security Center?

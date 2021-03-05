@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 78d2f3b399e26ca0c6036fd74fa1fba49d1f21f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042780"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172744"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Przeglądanie żądań ściągnięcia w środowiskach przedprodukcyjnych w usłudze Azure Static Web Apps (wersja zapoznawcza)
 
@@ -109,7 +109,7 @@ Przygotowane wersje aplikacji są obecnie dostępne publicznie przez ich adresy 
 > [!WARNING]
 > Należy zachować ostrożność przy publikowaniu poufnej zawartości do przemieszczonych wersji, ponieważ dostęp do środowisk przedprodukcyjnych nie jest ograniczony.
 
-Liczba środowisk przedprodukcyjnych dostępnych dla każdej aplikacji wdrożonej za pomocą Web Apps statycznej zależy od używanej warstwy jednostki SKU. Na przykład w przypadku warstwy Bezpłatna można korzystać z 1 środowiska przedprodukcyjnego oprócz środowiska produkcyjnego.
+Liczba środowisk przedprodukcyjnych dostępnych dla każdej aplikacji wdrożonej za pomocą Web Apps statycznej zależy od używanej warstwy jednostki SKU. Na przykład w przypadku warstwy Bezpłatna można korzystać z 3 środowisk przedprodukcyjnych poza środowiskiem produkcyjnym.
 
 ## <a name="next-steps"></a>Następne kroki
 

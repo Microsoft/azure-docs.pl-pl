@@ -11,17 +11,16 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029536"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176216"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
 Ten artykuł zawiera informacje na temat zabezpieczania obszaru roboczego Azure Machine Learning i skojarzonych z nim zasobów w sieci wirtualnej.
-
 
 Ten artykuł jest drugą częścią serii składającej się z pięciu części, która przeprowadzi Cię przez proces zabezpieczania przepływów pracy Azure Machine Learning. Zdecydowanie zalecamy zapoznanie się z [częścią poniżej: Omówienie sieci wirtualnej](how-to-network-security-overview.md) , aby zrozumieć ogólną architekturę. 
 
@@ -34,7 +33,7 @@ W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboc
 > - Obszar roboczy usługi Azure Machine Learning
 > - Konta usługi Azure Storage
 > - Azure Machine Learning magazyny i zestawy danych
-> - W usłudze Azure Key Vault
+> - Azure Key Vault
 > - Azure Container Registry
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -296,7 +295,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł jest częścią jednej z czterech części serii sieci wirtualnych. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+Ten artykuł jest drugą częścią serii sieci wirtualnych z pięcioma częściami. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
 
 * [Część 1: Omówienie usługi Virtual Network](how-to-network-security-overview.md)
 * [Część 3: Zabezpieczanie środowiska szkoleniowego](how-to-secure-training-vnet.md)

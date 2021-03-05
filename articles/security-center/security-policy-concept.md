@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
-ms.openlocfilehash: a5aae4013067ba37334e3e85a9e7ef882efd1dd2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/04/2021
+ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107935"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176437"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>Co to są zasady zabezpieczeń, inicjatywy i zalecenia?
 
@@ -25,6 +25,7 @@ Definicja zasad platformy Azure utworzona w Azure Policy jest regułą dotycząc
 
 Aby zaimplementować te definicje zasad (wbudowane lub niestandardowe), należy je przypisać. Dowolną z tych zasad można przypisać za pośrednictwem witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
+W Azure Policy istnieją różne typy zasad. Security Center korzysta głównie z zasad "Audit", które sprawdzają określone warunki i konfiguracje, a następnie raportują zgodność. Istnieją również zasady "Wymuś", których można użyć do zastosowania bezpiecznych ustawień.
 
 ## <a name="what-is-a-security-initiative"></a>Co to jest inicjatywa zabezpieczeń?
 
@@ -38,7 +39,7 @@ Domyślna inicjatywa automatycznie przypisana do każdej subskrypcji w Azure Sec
 
 Security Center oferuje następujące opcje pracy z inicjatywami i zasadami zabezpieczeń:
 
-- **Wyświetlanie i edytowanie wbudowanej inicjatywy domyślnej** — po włączeniu Security Center inicjatywa "Azure Security test" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji. Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](./policy-reference.md) , aby poznać dostępne opcje.
+- **Wyświetlanie i edytowanie wbudowanej inicjatywy domyślnej** — po włączeniu Security Center inicjatywa "Azure Security test" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji. Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu, edytując parametry zasad. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](./policy-reference.md) , aby poznać dostępne opcje.
 
 - **Dodaj własne inicjatywy niestandardowe** — Jeśli chcesz dostosować inicjatywy dotyczące zabezpieczeń stosowane do subskrypcji, możesz to zrobić w ramach Security Center. Następnie otrzymasz zalecenia, jeśli maszyny nie będą zgodne z tworzonymi zasadami. Aby uzyskać instrukcje dotyczące tworzenia i przypisywania zasad niestandardowych, zobacz [Korzystanie z niestandardowych inicjatyw i zasad zabezpieczeń](custom-security-policies.md).
 
@@ -46,9 +47,9 @@ Security Center oferuje następujące opcje pracy z inicjatywami i zasadami zabe
 
 ## <a name="what-is-a-security-recommendation"></a>Co to jest zalecenie dotyczące zabezpieczeń?
 
-Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach. Zalecenie jest wynikiem oceny zasobów związanych z odpowiednimi zasadami i identyfikowania zasobów, które nie spełniają określonych wymagań.
+Korzystając z zasad, Security Center okresowo analizuje stan zgodności zasobów, aby identyfikować potencjalne nieodpowiednie konfiguracje i słabe zabezpieczenia. Następnie zawiera zalecenia dotyczące sposobu rozwiązania tych problemów. Zalecenia są wynikiem oceny zasobów względem odpowiednich zasad i identyfikowania zasobów, które nie spełniają określonych wymagań.
 
-Azure Security Center wykonuje zalecenia dotyczące zabezpieczeń w oparciu o wybrane inicjatywy. 
+Security Center wykonuje zalecenia dotyczące zabezpieczeń w oparciu o wybrane inicjatywy. Gdy zasady z inicjatywy zostaną porównane z zasobami i znajdują się w niezgodnym zakresie, jest to zalecenie w Security Center.
 
 Zalecenia to akcje podejmowane w celu zapewnienia bezpieczeństwa i ograniczania funkcjonalności zasobów. Każde zalecenie zawiera następujące informacje:
 

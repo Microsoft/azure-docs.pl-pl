@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030889"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176658"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Często zadawane pytania dotyczące czasu potrzebnego do uzyskania danych dziennika stają się dostępne po ich zebraniu. W tym artykule wyjaśniono różne czynniki wpływające na to opóźnienie.
 
 ## <a name="typical-latency"></a>Typowe opóźnienia
-Opóźnienie dotyczy czasu, w którym dane są tworzone w monitorowanym systemie, oraz czasu, który jest dostępny do analizy w Azure Monitor. Typowy czas oczekiwania na pozyskiwanie danych dziennika wynosi od 2 do 5 minut. Określone opóźnienie dla konkretnych danych będzie się różnić w zależności od różnych czynników opisanych poniżej.
+Opóźnienie dotyczy czasu, w którym dane są tworzone w monitorowanym systemie, oraz czasu, który jest dostępny do analizy w Azure Monitor. Typowy czas oczekiwania na pozyskiwanie danych dziennika wynosi od 20 sekund do 3 minut. Jednak określone opóźnienie dla konkretnych danych będzie się różnić w zależności od różnych czynników opisanych poniżej.
 
 
 ## <a name="factors-affecting-latency"></a>Czynniki wpływające na opóźnienie
 Łączny czas pozyskiwania dla określonego zestawu danych można podzielić na następujące obszary wysokiego poziomu. 
 
-- Czas agenta — czas na odnalezienie zdarzenia, zebranie go, a następnie wysłanie go do Azure Monitor punktu pozyskiwania jako rekordu dziennika. W większości przypadków ten proces jest obsługiwany przez agenta.
+- Czas agenta — czas na odnalezienie zdarzenia, zebranie go, a następnie wysłanie go do Azure Monitor dziennika punktu pozyskiwania jako rekordu dziennika. W większości przypadków ten proces jest obsługiwany przez agenta. Dodatkowe opóźnienia mogą być wprowadzane przez sieć.
 - Czas potoku — czas przetwarzania rekordu dziennika przez potok pozyskiwania. Obejmuje to analizowanie właściwości zdarzenia i potencjalnie Dodawanie informacji obliczeniowych.
 - Czas indeksowania — czas poświęcony na pozyskiwanie rekordu dziennika do Azure Monitor magazynu danych Big Data.
 
@@ -36,16 +36,17 @@ Agenci i rozwiązania do zarządzania wykorzystują różne strategie do zbieran
 - Active Directory rozwiązanie replikacji wykonuje swoją ocenę co pięć dni, podczas gdy rozwiązanie Active Directory Assessment wykonuje cotygodniową ocenę infrastruktury Active Directory. Agent będzie zbierać te dzienniki tylko wtedy, gdy ocena zostanie zakończona.
 
 ### <a name="agent-upload-frequency"></a>Częstotliwość przekazywania agenta
-Aby zapewnić, że Agent Log Analytics jest lekki, Agent buforuje dzienniki i okresowo przekazuje je do Azure Monitor. Częstotliwość przekazywania różni się od 30 sekund do 2 minut w zależności od typu danych. Większość danych jest przekazywanych w ciągu 1 minuty. Warunki dotyczące sieci mogą mieć negatywny wpływ na opóźnienie tych danych w celu osiągnięcia Azure Monitor punktu pozyskiwania.
+Aby zapewnić, że Agent Log Analytics jest lekki, Agent buforuje dzienniki i okresowo przekazuje je do Azure Monitor. Częstotliwość przekazywania różni się od 30 sekund do 2 minut w zależności od typu danych. Większość danych jest przekazywanych w ciągu 1 minuty. 
+
+### <a name="network"></a>Sieć
+Warunki dotyczące sieci mogą negatywnie wpłynąć na opóźnienie tych danych w celu uzyskania dostępu do punktu pozyskiwania dzienników Azure Monitor.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Dzienniki aktywności platformy Azure, dzienniki zasobów i metryki
-Dane platformy Azure są dodawane do Log Analytics punktu pozyskiwania na potrzeby przetwarzania:
+Dane platformy Azure są dostępne po dodaniu dodatkowego czasu, który jest dostępny w punkcie pozyskiwania dzienników Azure Monitor na potrzeby przetwarzania:
 
-- Dane z dzienników zasobów trwają 2-15 minut, w zależności od usługi platformy Azure. Zobacz [poniższe zapytanie](#checking-ingestion-time) , aby sprawdzić to opóźnienie w danym środowisku
-- Metryki platformy Azure mogą być wysyłane do punktu pozyskiwania Log Analytics w ciągu 3 minut.
-- Dane dziennika aktywności będą wysyłane o około 10-15 minut do punktu pozyskiwania Log Analytics.
-
-Po udostępnieniu w punkcie pozyskiwania danych do wykonywania zapytań zajmują się dodatkowe 2-5 minut.
+- Dzienniki zasobów zwykle dodają 30-90 sekund, w zależności od usługi platformy Azure. Niektóre usługi platformy Azure (w Azure SQL Database i Azure Virtual Network) obecnie zgłaszają dzienniki w 5-minutowych interwałach. Trwa wykonywanie pracy w celu dalszej poprawy. Zobacz [poniższe zapytanie](#checking-ingestion-time) , aby sprawdzić to opóźnienie w danym środowisku
+- Metryki platformy Azure mogą zostać wyeksportowane do punktu pozyskiwania dzienników Azure Monitor.
+- W przypadku użycia starszej integracji dane dziennika aktywności mogą potrwać 10-15 minut. Zaleca się używanie ustawień diagnostycznych na poziomie subskrypcji do pozyskiwania dzienników aktywności do dzienników Azure Monitor, co wiąże się z dodatkowym opóźnieniem wynoszącym około 30 sekund.
 
 ### <a name="management-solutions-collection"></a>Kolekcja rozwiązań do zarządzania
 Niektóre rozwiązania nie zbierają danych od agenta i mogą korzystać z metody kolekcji, która wprowadza dodatkowe opóźnienia. Niektóre rozwiązania zbierają dane w regularnych odstępach czasu bez próby zbierania danych w czasie niemal rzeczywistym. Określone przykłady obejmują następujące elementy:
@@ -56,6 +57,9 @@ Niektóre rozwiązania nie zbierają danych od agenta i mogą korzystać z metod
 Zapoznaj się z dokumentacją każdego rozwiązania, aby określić jego częstotliwość zbierania danych.
 
 ### <a name="pipeline-process-time"></a>Potok — czas procesu
+
+Po udostępnieniu w punkcie pozyskiwania danych do wykonywania zapytań trwa dodatkowe 30-60 sekund.
+
 Po pobraniu rekordów dziennika do potoku Azure Monitor (zgodnie z definicją we właściwości [_TimeReceived](./log-standard-columns.md#_timereceived) ) są one zapisywane w magazynie tymczasowym w celu zapewnienia izolacji dzierżawy i upewnienia się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują algorytmy cięższe w celu agregowania danych i uzyskiwania szczegółowych informacji, jak dane przesyłane strumieniowo. Na przykład monitorowanie wydajności sieci agreguje dane przychodzące przez 3-minutowy interwały, co skutecznie dodaje 3 minuty opóźnienia. Innym procesem, który dodaje opóźnienie, jest proces obsługujący dzienniki niestandardowe. W niektórych przypadkach ten proces może dodawać kilka minut opóźnienia do dzienników zbieranych z plików przez agenta.
 
 ### <a name="new-custom-data-types-provisioning"></a>Nowe niestandardowe typy danych — Inicjowanie obsługi

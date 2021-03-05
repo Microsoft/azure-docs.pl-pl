@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/22/2021
+ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702559"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177287"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -210,13 +210,17 @@ W [Azure Portal](https://portal.azure.com)Dodaj co najmniej jedną zasadę autor
 
    * Aby dodać inny typ typu, wybierz pozycję **Dodaj zgłoszenie standardowe**, wybierz typ, a następnie określ wartość żądania.
 
-   * Aby dodać własne zgłoszenie, wybierz pozycję **Dodaj niestandardową** pozycję i określ wartość niestandardowego żądania.
+   * Aby dodać własne zastrzeżenie, wybierz pozycję **Dodaj niestandardową**. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji](../active-directory/develop/active-directory-optional-claims.md). Twoje niestandardowe zgłoszenie jest następnie przechowywane jako część identyfikatora JWT; na przykład `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . 
 
 1. Aby dodać kolejne zasady autoryzacji, wybierz pozycję **Dodaj zasady**. Powtórz poprzednie kroki, aby skonfigurować zasady.
 
 1. Po zakończeniu wybierz pozycję **Zapisz**.
 
 1. Aby dołączyć `Authorization` Nagłówek z tokenu dostępu w danych wyjściowych wyzwalacza opartego na żądaniach, zobacz [Dołącz nagłówek "Autoryzacja" w danych wyjściowych wyzwalacza żądania](#include-auth-header).
+
+
+Właściwości przepływu pracy, takie jak zasady, nie są wyświetlane w widoku kodu aplikacji logiki w Azure Portal. Aby programowo uzyskać dostęp do zasad, wywołaj następujący interfejs API za pomocą Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Upewnij się, że zastąpisz wartości zastępcze dla identyfikatora subskrypcji platformy Azure, nazwy grupy zasobów i nazwy przepływu pracy.
+
 
 <a name="define-authorization-policy-template"></a>
 

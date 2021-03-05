@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727961"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175876"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Rozwiązywanie problemów z dyskami CD, DevOps i usługą GitHub w usłudze ADF 
 
@@ -168,7 +168,7 @@ Ulepszono proces ciągłej integracji/ciągłego wdrażania. Funkcja **automatyc
 
 #### <a name="issue"></a>Problem
 
-Nie można wdrożyć, ponieważ trafił Azure Resource Manager limit 4 MB rozmiaru szablonu. Musisz wdrożyć rozwiązanie po przekroczeniu limitu. 
+Nie można wdrożyć, ponieważ Azure Resource Manager osiągnięto limit liczby 4 MB rozmiaru szablonu. Musisz wdrożyć rozwiązanie po przekroczeniu limitu. 
 
 #### <a name="cause"></a>Przyczyna
 
@@ -190,7 +190,7 @@ Nie skonfigurowano uwierzytelniania OAuth dla usługi ADF. Twój adres URL jest 
 
 ##### <a name="resolution"></a>Rozwiązanie
 
-Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klientów, ponieważ usługa ADF najpierw podejmie próbę https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... i zakończy się niepowodzeniem. Następnie zostanie podjęta próba https://hostname/api/v3/orgs/ <vaorg> / <repo> i zakończy się pomyślnie. 
+Najpierw przyznano dostęp OAuth do ADF. Następnie należy użyć poprawnego adresu URL, aby nawiązać połączenie z usługą GIT Enterprise. Konfiguracja musi być ustawiona na organizacji klienta. Na przykład, ADF najpierw podejmie próbę *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ....* i zakończy się niepowodzeniem. Następnie zostanie podjęta próba *https://hostname/api/v3/orgs/ <org> / <repo> ...* i powodzenie. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Odzyskaj z usuniętej fabryki danych
 
@@ -203,7 +203,8 @@ Możliwe jest odzyskanie Data Factory tylko wtedy, gdy klient ma skonfigurowaną
 
 W przypadku braku kontroli źródła nie jest możliwe odzyskanie usuniętej Data Factory z zaplecza, ponieważ po odebraniu przez usługę usuniętego polecenia wystąpienie zostanie usunięte i nie będzie przechowywane żadne kopie zapasowe.
 
-#### <a name="resoloution"></a>Resoloution
+#### <a name="resolution"></a>Rozwiązanie
+
 Aby odzyskać usunięte Data Factory z kontrolą źródła, należy wykonać poniższe czynności:
 
  * Utwórz nowy Azure Data Factory.

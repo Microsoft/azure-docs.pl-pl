@@ -5,25 +5,36 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8333745b802f41b5a1b3dc07663870299800e3f6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706426"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176151"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Wyświetlanie stanu zadań importu/eksportu platformy Azure
 
 Ten artykuł zawiera informacje dotyczące sposobu wyświetlania stanu dysku i zadania na potrzeby zadań importu/eksportu platformy Azure. Usługa Azure Import/Export służy do bezpiecznego transferu dużych ilości danych do obiektów blob platformy Azure i Azure Files. Usługa jest również używana do eksportowania danych z usługi Azure Blob Storage.  
 
 ## <a name="view-job-and-drive-status"></a>Wyświetlanie stanu zadania i dysku
-Można śledzić stan zadań importu lub eksportu z Azure Portal, wybierając kartę **Importuj/Eksportuj** . Na stronie zostanie wyświetlona lista zadań.
+Stan zadań importowania lub eksportowania można śledzić na karcie **Importowanie/Eksportowanie** w Azure Portal.
+1. Zaloguj się do https://portal.azure.com/ .
+2. Wyszukaj **zadania importowania/eksportowania**.
 
-![Wyświetl stan zadania](./media/storage-import-export-service/jobstate.png)
+    ![Wyszukiwanie w zadaniach importu/eksportu](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. Na stronie zostanie wyświetlona lista zadań importowania/eksportowania.
+
+    ![Wyświetl stan zadania](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Wybierz i kliknij zadanie, aby wyświetlić szczegóły zadania.
+
+   ![Wyświetl szczegółowy stan zadania](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## <a name="view-job-status"></a>Wyświetlanie stanu zadania
 
 Zostanie wyświetlony jeden z następujących stanów zadań w zależności od miejsca, w którym znajduje się dysk.
@@ -56,13 +67,13 @@ W poniższej tabeli opisano każdy stan, w którym można przechodzić poszczeg�
 
 Ten obraz z Azure Portal zawiera stan dysku przykładowego zadania:
 
-![Wyświetl stan dysku](./media/storage-import-export-service/drivestate.png)
+![Wyświetl stan dysku](./media/storage-import-export-view-drive-status/drive-state.png)
 
 W poniższej tabeli opisano Stany awarii stacji i akcje podejmowane dla każdego stanu.
 
 | Stan dysku | Zdarzenie | Rozwiązanie/następny krok |
 |:--- |:--- |:--- |
-| NeverReceived | Dysk oznaczony jako **NeverReceived** (ponieważ nie został odebrany jako część wysyłki zadania) dociera do innej wysyłki. | Zespół operacyjny przenosi dysk do **odbierania**. |
+| Nigdy nie odebrano | Dysk oznaczony jako **NeverReceived** (ponieważ nie został odebrany jako część wysyłki zadania) dociera do innej wysyłki. | Zespół operacyjny przenosi dysk do **odbierania**. |
 | Nie dotyczy | Dysk, który nie jest częścią żadnego zadania, dociera do centrum danych jako część innego zadania. | Dysk jest oznaczony jako dodatkowy dysk. Jest on zwracany po zakończeniu zadania skojarzonego z oryginalnym pakietem. |
 
 ## <a name="time-to-process-job"></a>Czas przetwarzania zadania

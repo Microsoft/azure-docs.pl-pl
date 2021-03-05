@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677618"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176624"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
@@ -34,7 +34,7 @@ Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnion
 
 * Obszar roboczy analizy usługi Azure Synapse. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego usługi Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md).
 * Bezserwerowa Pula Apache Spark.
-* Konto magazynu ADLS Gen2. Musisz być **właścicielem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
+* Konto magazynu ADLS Gen2. Musisz być **współautorem danych obiektów blob magazynu** ADLS Gen2 systemie plików, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 * Jeśli nie chcesz używać magazynu domyślnego obszaru roboczego, Połącz wymagane konto magazynu ADLS Gen2 w programie Synapse Studio. 
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Tworzenie definicji zadania Apache Spark dla PySpark (Python)
@@ -162,7 +162,7 @@ W tej sekcji utworzysz definicję zadania Apache Spark dla platformy .NET Spark 
 
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Prześlij definicję zadania Apache Spark jako zadanie wsadowe
 
-Po utworzeniu definicji zadania Apache Spark można przesłać ją do puli Apache Spark. Upewnij się, że jesteś **właścicielem danych obiektów blob magazynu** ADLS Gen2 systemie plików, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
+Po utworzeniu definicji zadania Apache Spark można przesłać ją do puli Apache Spark. Upewnij się, że jesteś **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scenariusz 1. przesyłanie Apache Spark definicji zadania
  1. Otwórz okno definicji zadania platformy Apache Spark, wybierając je.

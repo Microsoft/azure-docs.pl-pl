@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090602"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176862"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -184,7 +184,7 @@ Wykonaj następujące czynności:
 
    >[!NOTE]
    >Członkowie w grupie są automatycznie włączeni do wdrożenia etapowego. Grupy zagnieżdżone i dynamiczne nie są obsługiwane w przypadku wdrażania etapowego.
-   >Podczas dodawania nowej grupy Użytkownicy w grupie (do 200 użytkowników dla nowej grupy) zostaną zaktualizowani, aby używać immidiatly uwierzytelniania zarządzanego. Edytowanie grupy (Dodawanie lub usuwanie użytkowników) może zająć do 24 godzin.
+   >Podczas dodawania nowej grupy Użytkownicy w grupie (do 200 użytkowników dla nowej grupy) zostaną zaktualizowani w celu natychmiastowego używania uwierzytelniania zarządzanego. Edytowanie grupy (Dodawanie lub usuwanie użytkowników) może zająć do 24 godzin.
    >Bezproblemowe logowanie jednokrotne ma zastosowanie tylko wtedy, gdy użytkownicy znajdują się w grupie bezproblemowej rejestracji jednokrotnej, a także w grupie PTA lub PHS.
 
 ## <a name="auditing"></a>Inspekcja

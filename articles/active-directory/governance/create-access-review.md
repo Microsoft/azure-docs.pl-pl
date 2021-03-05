@@ -2,7 +2,7 @@
 title: Tworzenie przeglądu dostępu do grup & aplikacji — Azure AD
 description: Dowiedz się, jak utworzyć przegląd dostępu dla członków grupy lub dostępu do aplikacji w Azure Active Directory przeglądy dostępu.
 services: active-directory
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
-ms.author: barclayn
+ms.date: 3/3/2021
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12eb95a7840bdbb902701fc644eee30ffe9900f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7143c3f9786d41c32ae954ab219197a9cfaa1050
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778593"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176879"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu do grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -80,7 +80,7 @@ Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](access-r
     - **Właściciele grupy** (dostępne tylko podczas przeprowadzania przeglądu w zespole lub grupie)
     - **Wybrani użytkownicy lub grupy**
     - **Użytkownicy przeglądają własny dostęp**
-    - **Przeglądania Menedżerowie użytkowników.**
+    - **Menedżerowie użytkowników.**
     W przypadku wybrania opcji **menedżerowie użytkowników** lub **grup**  można także określić recenzenta powrotu. Recenzenci powrotu są proszeni o przeprowadzenie przeglądu, gdy użytkownik nie ma Menedżera określonego w katalogu lub grupa nie ma właściciela.
 
     ![nowy przegląd dostępu](./media/create-access-review/new-access-review.png)

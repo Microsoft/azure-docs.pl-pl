@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100716"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176641"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -68,9 +68,9 @@ Poniżej znajduje się ogólny diagram składników i korzyści z ochrony rejest
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>Często zadawane pytania dotyczące skanowania obrazu Azure Container Registry
 
 ### <a name="how-does-security-center-scan-an-image"></a>Jak Security Center skanować obraz?
-Obraz zostanie pobrany z rejestru. Następnie uruchamia się w izolowanej piaskownicy za pomocą skanera Qualys, który wyodrębnia listę znanych luk w zabezpieczeniach.
+Security Center pobiera obraz z rejestru i uruchamia go w izolowanej piaskownicy przy użyciu skanera Qualys. Skaner wyodrębnia listę znanych luk w zabezpieczeniach.
 
-Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobrej kondycji, Security Center oznacza go jako taki. Security Center generuje zalecenia dotyczące zabezpieczeń tylko dla obrazów, które mają problemy, które mają zostać rozwiązane. Powiadamiając tylko w przypadku problemów, Security Center zmniejsza możliwości niechcianych alertów informacyjnych.
+Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobrej kondycji, Security Center oznacza go jako taki. Security Center generuje zalecenia dotyczące zabezpieczeń tylko dla obrazów, które mają problemy, które mają zostać rozwiązane. Powiadamiając tylko o problemach, Security Center zmniejsza możliwości niechcianych alertów informacyjnych.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Czy mogę uzyskać wyniki skanowania za pośrednictwem interfejsu API REST?
 Tak. Wyniki są dostępne w [interfejsie API REST ocen podrzędnych](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
@@ -78,7 +78,7 @@ Tak. Wyniki są dostępne w [interfejsie API REST ocen podrzędnych](/rest/api/s
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
 Listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów można znaleźć w temacie [Availability (dostępność](#availability)).
 
-W przypadku łączenia nieobsługiwanych rejestrów z subskrypcją platformy Azure nie będą one przeszukiwane i nie będą naliczane opłaty.
+W przypadku łączenia nieobsługiwanych rejestrów z subskrypcją platformy Azure usługa Azure Defender nie będzie ich przeskanować i nie będzie obciążana za nie opłatami.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Czy mogę dostosować wyniki ze skanera luk w zabezpieczeniach?
 Tak. Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować ją, możesz ją wyłączyć. Wyłączone wyniki nie wpływają na swój Bezpieczny wynik ani nie generują niechcianych szumów.

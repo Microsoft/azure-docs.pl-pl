@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101379"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176726"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Moduł równoważenia obciążenia między regionami (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje międzyreg
 
 * Ruch przychodzący pochodzący z wielu regionów.
 * [Błyskawiczne globalne przejście w tryb failover](#regional-redundancy) do następnego optymalnego wdrożenia regionalnego.
-* Rozkład obciążenia między regionami w najbliższym regionie platformy Azure z [niezwykle opóźnieniem](#ultra-low-latency).
+* Rozkład obciążenia między regionami i najbliższym regionem świadczenia usługi Azure z [bardzo małym opóźnieniem](#ultra-low-latency).
 * Możliwość [skalowania w górę i w dół](#ability-to-scale-updown-behind-a-single-endpoint) za pojedynczym punktem końcowym.
 * [Statyczny adres IP](#static-ip)
 * [Zachowywanie adresu IP klienta](#client-ip-preservation)

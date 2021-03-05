@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746664"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176794"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -84,7 +84,7 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 - Zezwolenie Gościom na Zapraszanie innych Gości do katalogu oznacza, że zaproszenia gościa mogą wystąpić poza zarządzaniem prawami. Zalecamy ustawienie **Gości** w taki sposób, aby **nie** zezwalać na prawidłowe wykonywanie zaproszeń.
 - W przypadku korzystania z listy dozwolonych aplikacji B2B musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć za pomocą usługi zarządzania prawami, zostaną dodane do listy. Alternatywnie, jeśli używasz listy Odmów B2B, musisz upewnić się, że wszystkie domeny, z którymi chcesz się połączyć, nie zostaną dodane do listy.
 - Jeśli utworzysz zasady zarządzania uprawnieniami dla **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy użytkownicy zewnętrzni), a użytkownik nie należy do połączonej organizacji w katalogu, połączona organizacja zostanie automatycznie utworzona dla nich po zażądaniu pakietu. Pierwszeństwo mają wszystkie ustawienia listy dozwolonych lub zablokowanych B2B. W związku z tym Pamiętaj o uwzględnieniu domen, które mają zostać uwzględnione w tych zasadach, na liście dozwolonych, jeśli są używane, i wykluczyć je z listy Odmów, jeśli używasz listy Odmów.
-- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail (wersja zapoznawcza)](../external-identities/one-time-passcode.md).
+- Jeśli chcesz utworzyć zasady zarządzania uprawnieniami, które obejmują **wszystkich użytkowników** (wszystkie połączone organizacje + wszyscy wszyscy użytkownicy zewnętrzni), musisz najpierw włączyć uwierzytelnianie za pośrednictwem poczty e-mail jednorazowo dla katalogu. Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dostępu za pośrednictwem poczty e-mail](../external-identities/one-time-passcode.md).
 - Aby uzyskać więcej informacji na temat zewnętrznych ustawień współpracy B2B usługi Azure AD, zobacz [Włączanie współpracy zewnętrznej B2B i zarządzanie osobami, które mogą zapraszać Gości](../external-identities/delegate-invitations.md).
 
     ![Ustawienia współpracy zewnętrznej usługi Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)

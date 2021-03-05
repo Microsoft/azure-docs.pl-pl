@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 54dae3341910bf863de7e2a2cef832ae670ca09a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097571"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177168"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Arkusz danych wizji usługi Azure Percept
 
@@ -26,7 +26,7 @@ Wymienione poniżej specyfikacje dotyczą urządzenia z obsługą platformy Azur
 |Obsługiwane oprogramowanie i usługi |[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [Środowisko uruchomieniowe ONNX](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Aktualizacja urządzenia platformy Azure |
 |Przyspieszenie AI                 |Procesor Intel Movidius wyposażono X (MA2085) Visioning Unit (VPU) z technologią Intel Camera z integracją, 0,7 |
 |Czujniki i wskaźniki wizualizacji   |Czujnik aparatu Sony IMX219 z soczewką 6P<br>Rozwiązanie: 8MP o 30FPS, Distance: 50cm — nieskończoność<br>FoV: 120 stopni przekątnych, kolor: szeroki zakres dynamiczny, stała ostra krocząca|
-|Obsługa aparatu                  |RGB (obecnie) i IR (w przyszłości) <br> 2 aparaty mogą być uruchamiane jednocześnie |
+|Obsługa aparatu                  |RGB <br> 2 aparaty mogą być uruchamiane jednocześnie |
 |Crypto-Controller zabezpieczeń      |ST-Micro STM32L462CE      |
 |Składnik obsługi wersji/identyfikatora       |PAMIĘĆ 64 KB |
 |Pamięć                          |LPDDR4 2 GB     |

@@ -16,12 +16,12 @@ ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e31b9ce115ebe0723a9d082aaddd8056e486ed27
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008244"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176981"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Dokończ przegląd dostępu grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -59,7 +59,7 @@ Postęp można śledzić, ponieważ recenzenci ukończyją swoje przeglądy.
     ![Przeglądanie dostępu gościa w grupach Microsoft 365](./media/complete-access-review/all-company-group-results.png)
 
 
-    Jeśli przeglądasz przegląd dostępu, który przegląda dostęp gościa w grupach Microsoft 365 (wersja zapoznawcza), w bloku przegląd zostanie wyświetlona lista wszystkich grup w przeglądzie. 
+    Jeśli przeglądasz przegląd dostępu, który przegląda dostęp gościa w grupach Microsoft 365, w bloku przegląd zostanie wyświetlona lista wszystkich grup w przeglądzie. 
    
     ![Przeglądanie dostępu gościa w grupach Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
 

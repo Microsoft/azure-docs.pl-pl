@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123092"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176420"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. 
@@ -61,10 +61,14 @@ Często podczas przeprowadzania interaktywnej analizy danych lub uczenia maszyno
 
 Pakiety z zakresem sesji umożliwiają użytkownikom Definiowanie zależności pakietu na początku sesji. W przypadku instalowania pakietu z zakresem sesji tylko bieżąca sesja ma dostęp do określonych pakietów. W efekcie te pakiety z zakresem sesji nie wpłyną na inne sesje ani zadania korzystające z tej samej puli Apache Spark. Ponadto te biblioteki są instalowane w oparciu o podstawowe środowisko uruchomieniowe i pakiety poziomów puli. 
 
+Te pakiety są automatycznie dodawane do środowiska języka Python. Pakiety nie mogą być wymienione w pliku *requirements.txt* .
+
+Należy zauważyć, że ta metoda obecnie suports tylko `*.whl` pliki. Nie dodawaj żadnych `*.tar.gz` plików do kontenera.
+
 Aby dowiedzieć się więcej na temat zarządzania pakietami z zakresem sesji, odwiedź następujące przewodniki:
 
 - [Pakiety sesji języka Python (wersja zapoznawcza):](./apache-spark-manage-python-packages.md) Na początku sesji Podaj *środowisko Conda. yml* , aby zainstalować dodatkowe pakiety Python ze popularnych repozytoriów. 
-- [Pakiety sesji Scala/Java: ](./apache-spark-manage-scala-packages.md) Na początku sesji Podaj listę plików jar do zainstalowania przy użyciu programu ```%%configure``` .
+- [Pakiety sesji Scala/Java: ](./apache-spark-manage-scala-packages.md) Na początku sesji Podaj listę plików jar do zainstalowania przy użyciu programu `%%configure` .
 
 ## <a name="next-steps"></a>Następne kroki
 - Wyświetlanie bibliotek domyślnych: [Obsługa wersji Apache Spark](apache-spark-version-support.md)

@@ -1,5 +1,5 @@
 ---
-title: Wizualizacja danych w czasie rzeczywistym danych FRM Azure IoT Hub — Power BI
+title: Wizualizacja danych w czasie rzeczywistym danych z platformy Azure IoT Hub — Power BI
 description: Użyj Power BI, aby wizualizować dane temperatury i wilgotności zbierane z czujnika i wysyłane do usługi Azure IoT Hub.
 author: robinsh
 keywords: Wizualizacja danych w czasie rzeczywistym, Wizualizacja danych na żywo, Wizualizacja danych czujników
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 82caf13618fe8483ab8d3a622c6c0d51ab05a206
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146773"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177338"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu platformy Azure IoT Hub przy użyciu Power BI
 
@@ -64,7 +64,7 @@ Zacznijmy od utworzenia zadania Stream Analytics. Po utworzeniu zadania należy 
 
    ![Tworzenie zadania Stream Analytics na platformie Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -134,7 +134,7 @@ Zacznijmy od utworzenia zadania Stream Analytics. Po utworzeniu zadania należy 
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-W zadaniu Stream Analytics wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Rozpocznij**  >  **teraz**  >  **Start**. Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
+W zadaniu Stream Analytics wybierz pozycję **Przegląd**, a następnie wybierz pozycję **Rozpocznij**  >  **teraz**  >  . Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
 
 ![Uruchamianie zadania Stream Analytics na platformie Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
 

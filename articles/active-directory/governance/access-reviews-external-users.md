@@ -3,7 +3,7 @@ title: Użyj Azure AD Identity Governance, aby przejrzeć i usunąć użytkownik
 description: Korzystanie z przeglądów dostępu w celu zwiększenia dostępu do usuwania od członków organizacji partnerskich
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677318"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176964"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Użyj usługi Azure Active Directory (Azure AD) Zarządzanie tożsamościami, aby przejrzeć i usunąć użytkowników zewnętrznych, którzy nie mają już dostępu do zasobów
 
@@ -65,14 +65,15 @@ Użytkownicy, którzy nie mają już dostępu do żadnych zasobów w dzierżawie
 
 Po zakończeniu przeglądu na stronie **wyniki** zostanie wyświetlony przegląd odpowiedzi podawanej przez każdą tożsamość zewnętrzną. Możesz zdecydować się na automatyczne stosowanie wyników i uniemożliwić przeglądy dostępu. Alternatywnie możesz przeszukać podaną odpowiedź i zdecydować, czy chcesz usunąć dostęp użytkownika, czy też wykonać dodatkowe informacje przed podjęciem decyzji. Jeśli niektórzy użytkownicy nadal mają dostęp do zasobów, które nie zostały jeszcze przejrzane, możesz użyć przeglądu w ramach odnajdywania i wzbogacić swój kolejny przegląd i cykl zaświadczania.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Wyłączanie i usuwanie tożsamości zewnętrznych przy użyciu przeglądów dostępu do usługi Azure AD (wersja zapoznawcza)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Wyłączanie i usuwanie tożsamości zewnętrznych przy użyciu przeglądów dostępu do usługi Azure AD
 
-Oprócz opcji usuwania niechcianych tożsamości zewnętrznych z zasobów, takich jak grupy lub aplikacje, przeglądy dostępu do usługi Azure AD mogą blokować tożsamości zewnętrzne przed zalogowaniem się do dzierżawy i usuwać tożsamości zewnętrzne z dzierżawy po 30 dniach. Po wybraniu opcji **Zablokuj użytkownikowi możliwość logowania przez 30 dni, a następnie usuń użytkownika z dzierżawy** , przegląd pozostanie w stanie "stosowanie" przez 30 dni. W tym okresie ustawienia, wyniki, recenzenci lub dzienniki inspekcji w ramach bieżącego przeglądu nie będą widoczne ani konfigurowalne. 
+Oprócz opcji usuwania niechcianych tożsamości zewnętrznych z zasobów, takich jak grupy lub aplikacje, przeglądy dostępu do usługi Azure AD mogą blokować tożsamości zewnętrzne przed zalogowaniem się do dzierżawy i usuwać tożsamości zewnętrzne z dzierżawy po 30 dniach. Po wybraniu opcji **Zablokuj użytkownikowi możliwość logowania przez 30 dni, a następnie usuń użytkownika z dzierżawy**, przegląd pozostanie w stanie "stosowanie" przez 30 dni. W tym okresie ustawienia, wyniki, recenzenci lub dzienniki inspekcji w ramach bieżącego przeglądu nie będą widoczne ani konfigurowalne. 
 
 ![Po zakończeniu ustawień](media/access-reviews-external-users/upon-completion-settings.png)
 
-Podczas tworzenia nowego przeglądu dostępu w sekcji "po zakończeniu ustawień" dla **akcji do zastosowania w przypadku odrzuconych użytkowników** można zdefiniować **opcję Zablokuj użytkownikom możliwość logowania przez 30 dni, a następnie usunąć użytkownika z dzierżawy** .
-To ustawienie, które jest obecnie dostępne w wersji zapoznawczej, pozwala identyfikować, blokować i usuwać tożsamości zewnętrzne z dzierżawy usługi Azure AD. Tożsamości zewnętrzne, które są przeglądane i odrzucane przez recenzenta, zostaną zablokowane i usunięte niezależnie od dostępu do zasobów lub członkostwa w grupie. To ustawienie jest najlepiej używane jako ostatni krok po sprawdzeniu, że użytkownicy zewnętrzni nie przeniesieją już dostępu do zasobów i mogą bezpiecznie zostać usunięci z dzierżawy lub jeśli chcesz, aby upewnić się, że zostały usunięte, niezależnie od ich stałego dostępu. Funkcja "Wyłącz i Usuń" blokuje najpierw użytkownika zewnętrznego, ale nie ma możliwości logowania się do dzierżawy i uzyskiwania dostępu do zasobów. Nie można odwołać dostępu do zasobów na tym etapie, a jeśli chcesz ponownie utworzyć wystąpienie użytkownika zewnętrznego, możliwość zalogowania się może zostać ponownie skonfigurowana. W przypadku braku dalszych działań zablokowana tożsamość zewnętrzna zostanie usunięta z katalogu po upływie 30 dni, usuwając konto oraz dostęp do niego.
+Podczas tworzenia nowego przeglądu dostępu w sekcji "po zakończeniu ustawień" dla **akcji do zastosowania w przypadku odrzuconych użytkowników** można zdefiniować **opcję Zablokuj użytkownikom możliwość logowania przez 30 dni, a następnie usunąć użytkownika z dzierżawy**.
+
+To ustawienie pozwala identyfikować, blokować i usuwać tożsamości zewnętrzne z dzierżawy usługi Azure AD. Tożsamości zewnętrzne, które są przeglądane i odrzucane przez recenzenta, zostaną zablokowane i usunięte niezależnie od dostępu do zasobów lub członkostwa w grupie. To ustawienie jest najlepiej używane jako ostatni krok po sprawdzeniu, że użytkownicy zewnętrzni nie przeniesieją już dostępu do zasobów i mogą bezpiecznie zostać usunięci z dzierżawy lub jeśli chcesz, aby upewnić się, że zostały usunięte, niezależnie od ich stałego dostępu. Funkcja "Wyłącz i Usuń" blokuje najpierw użytkownika zewnętrznego, ale nie ma możliwości logowania się do dzierżawy i uzyskiwania dostępu do zasobów. Nie można odwołać dostępu do zasobów na tym etapie, a jeśli chcesz ponownie utworzyć wystąpienie użytkownika zewnętrznego, możliwość zalogowania się może zostać ponownie skonfigurowana. W przypadku braku dalszych działań zablokowana tożsamość zewnętrzna zostanie usunięta z katalogu po upływie 30 dni, usuwając konto oraz dostęp do niego.
 
 ## <a name="next-steps"></a>Następne kroki
 

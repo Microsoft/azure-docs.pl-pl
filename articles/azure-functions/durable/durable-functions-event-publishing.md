@@ -3,12 +3,12 @@ title: Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
 description: Dowiedz się, jak skonfigurować automatyczne publikowanie Azure Event Grid dla Durable Functions.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081750"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175961"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publikowania do Azure Event Grid (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ Poniżej przedstawiono kilka scenariuszy, w których ta funkcja jest przydatna:
 
 * Zainstaluj [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) w projekcie Durable Functions.
 * Zainstaluj [emulator usługi Azure Storage](../../storage/common/storage-use-emulator.md) (tylko system Windows) lub Użyj istniejącego konta usługi Azure Storage.
-* Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) lub korzystanie z [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/) lub korzystanie z [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Tworzenie niestandardowego tematu Event Grid
 
@@ -132,11 +132,11 @@ Korzystając z Azure Portal, Utwórz kolejną aplikację funkcji, aby nasłuchiw
 
 1. Wyszukaj **Event Grid**, a następnie wybierz szablon **wyzwalacza Azure Event Grid** . 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Wybierz szablon wyzwalacza Event Grid w Azure Portal." border="true":::
 
 1. Nazwij nowy wyzwalacz, a następnie wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nazwij wyzwalacz Event Grid w Azure Portal." border="true":::
 
 
     Zostanie utworzona funkcja o następującym kodzie:
@@ -172,11 +172,11 @@ Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. 
 
 1. W nowej funkcji wybierz pozycję **integracja** , a następnie wybierz pozycję **Event Grid wyzwalacz (eventGridEvent)**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Wybierz łącze wyzwalacz Event Grid." border="true":::
 
 1. Wybierz pozycję **utwórz Event Grid opis**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Utwórz subskrypcję Event Grid." border="true":::
 
 1. Nazwij swoją subskrypcję zdarzenia i wybierz typ tematu **tematy Event Grid** . 
 
@@ -184,7 +184,7 @@ Teraz możesz dodać subskrypcję Event Grid dla utworzonego tematu Event Grid. 
 
 1. Wybierz przycisk **Utwórz**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Dodaj funkcję w Azure Portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Tworzy subskrypcję usługi Event Grid." border="true":::
 
 Teraz możesz przystąpić do odbierania zdarzeń cyklu życia.
 

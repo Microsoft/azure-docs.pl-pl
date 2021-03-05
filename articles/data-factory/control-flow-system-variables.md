@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3da450ce1130b693fa346b4a6f4b42f6a0fd60a3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385289"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174210"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,6 +20,7 @@ ms.locfileid: "100385289"
 W tym artykule opisano zmienne systemowe obsługiwane przez Azure Data Factory. Te zmienne można używać w wyrażeniach podczas definiowania jednostek Data Factory.
 
 ## <a name="pipeline-scope"></a>Zakres potoku
+
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON potoku.
 
 | Nazwa zmiennej | Opis |
@@ -36,6 +37,7 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON p
 >Zmienne systemowe daty/godziny powiązane z wyzwalaczem (w obu zakresach potoków i wyzwalaczy) zwracają daty UTC w formacie ISO 8601, na przykład `2017-06-01T22:20:00.4061448Z` .
 
 ## <a name="schedule-trigger-scope"></a>Zakres wyzwalania harmonogramu
+
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nazwa zmiennej | Opis |
@@ -44,6 +46,7 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 | @trigger(). startTime |Godzina, o której uruchamiany **jest wyzwalacz,** aby wywołać uruchomienie potoku. Może się nieco różnić od zaplanowanego czasu wyzwalacza. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Zakres wyzwalacza okna wirowania
+
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nazwa zmiennej | Opis |
@@ -53,7 +56,8 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 | @trigger().scheduledTime |Godzina, o której wyzwalacz został zaplanowany do wywołania uruchomienia potoku. |
 | @trigger(). startTime |Godzina, o której uruchamiany **jest wyzwalacz,** aby wywołać uruchomienie potoku. Może się nieco różnić od zaplanowanego czasu wyzwalacza. |
 
-## <a name="event-based-trigger-scope"></a>Zakres wyzwalaczy oparty na zdarzeniach
+## <a name="storage-event-trigger-scope"></a>Zakres wyzwalacza zdarzeń magazynu
+
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza dla wyzwalaczy typu [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Nazwa zmiennej | Opis |
@@ -63,4 +67,5 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 | @trigger(). startTime |Godzina uruchomienia wyzwalacza w celu wywołania uruchomienia potoku. |
 
 ## <a name="next-steps"></a>Następne kroki
+
 Aby uzyskać informacje o tym, jak te zmienne są używane w wyrażeniach, zobacz [Language Expression & Functions](control-flow-expression-language-functions.md).

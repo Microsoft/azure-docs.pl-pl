@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 04699890af2cfe835ecca6ee983808d7d8d002c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913487"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174193"
 ---
 # <a name="specify-a-face-detection-model"></a>Określanie modelu wykrywania twarzy
 
@@ -43,6 +43,7 @@ W przypadku korzystania z interfejsu API [wykrywanie kroju] i można przypisać 
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 Adres URL żądania dla interfejsu API REST [wykrywania czołowego] będzie wyglądać następująco:
 
@@ -52,7 +53,7 @@ W przypadku korzystania z biblioteki klienta można przypisać wartość `detect
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Dodaj miarę do osoby z określonym modelem
@@ -62,17 +63,17 @@ Usługa kroju może wyodrębnić dane z obrazu i skojarzyć je z obiektem **osob
 Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do niego **osobę** . Następnie dodaje do tej **osoby** nową miarę przy użyciu `detection_02` modelu. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
+Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do niego **osobę** . Następnie dodaje do tej **osoby** nową miarę przy użyciu `detection_03` modelu. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
 
 > [!NOTE]
 > Nie musisz używać tego samego modelu wykrywania dla wszystkich twarzy w obiekcie **osoby** i nie musisz używać tego samego modelu wykrywania podczas wykrywania nowych twarzy do porównania z obiektem **osoby** (na przykład w interfejsie API rozpoznawania [twarzy] ).
@@ -82,13 +83,13 @@ Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do nie
 Możesz również określić model wykrywania, gdy dodasz miarę do istniejącego obiektu **FaceList** . Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-Ten kod tworzy **FaceList** o nazwie `My face collection` i dodaje do niej miarę z `detection_02` modelem. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
+Ten kod tworzy **FaceList** o nazwie `My face collection` i dodaje do niej miarę z `detection_03` modelem. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
 
 > [!NOTE]
 > Nie musisz używać tego samego modelu wykrywania dla wszystkich twarzy w obiekcie **FaceList** i nie musisz używać tego samego modelu wykrywania podczas wykrywania nowych twarzy do porównania z obiektem **FaceList** .
@@ -97,14 +98,14 @@ Ten kod tworzy **FaceList** o nazwie `My face collection` i dodaje do niej miar�
 
 Różne modele wykrywania kroju są zoptymalizowane pod kątem różnych zadań. Zapoznaj się z poniższą tabelą, aby zapoznać się z omówieniem różnic.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Wybór domyślny dla wszystkich operacji wykrywania elementu czołowego. | Wydane w maju 2019 i dostępne opcjonalnie we wszystkich operacjach wykrywania czołowych.
-|Nie zoptymalizowany pod kątem małych, bocznych i rozmytych twarzy.  | Ulepszona dokładność dla małych, bocznych i rozmytych twarzy. |
-|Zwraca atrybuty kroju (ułożenie głowy, wiek, rozpoznawania emocji itd.), jeśli są one określone w wywołaniu wykrywania. |  Nie zwraca atrybutów kroju.     |
-|Zwraca punkty orientacyjne, jeśli są one określone w wywołaniu wykrywania.   | Nie zwraca punktów orientacyjnych.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Wybór domyślny dla wszystkich operacji wykrywania elementu czołowego. | Wydane w maju 2019 i dostępne opcjonalnie we wszystkich operacjach wykrywania czołowych. |  Wydane w lutym 2021 i dostępne opcjonalnie we wszystkich operacjach wykrywania czołowych.
+|Nie zoptymalizowany pod kątem małych, bocznych i rozmytych twarzy.  | Ulepszona dokładność dla małych, bocznych i rozmytych twarzy. | Lepsza ulepszona dokładność, w tym na mniejszych powierzchniach (64x64 pikseli) i obróconych orientacji twarzy.
+|Zwraca atrybuty głównej podstawowej (ułożenia, wiek, rozpoznawania emocji itd.), jeśli są określone w wywołaniu wykrywania. |  Nie zwraca atrybutów kroju.     | Zwraca atrybuty "faceMask" i "noseAndMouthCovered", jeśli są one określone w wywołaniu wykrywania.
+|Zwraca punkty orientacyjne, jeśli są one określone w wywołaniu wykrywania.   | Nie zwraca punktów orientacyjnych.  | Nie zwraca punktów orientacyjnych.
 
-Najlepszym sposobem porównania wydajności `detection_01` `detection_02` modeli i jest użycie ich w przykładowym zestawie danych. Zalecamy wywoływanie interfejsu API [wykrywania twarzy] na różnych obrazach, w szczególności obrazów wielu powierzchni lub twarzy, które trudno zobaczyć, przy użyciu poszczególnych modeli wykrywania. Zwróć uwagę na liczbę twarzy zwracanych przez poszczególne modele.
+Najlepszym sposobem porównania wydajności modeli wykrywania jest użycie ich w przykładowym zestawie danych. Zalecamy wywoływanie interfejsu API [wykrywania twarzy] na różnych obrazach, w szczególności obrazów wielu powierzchni lub twarzy, które trudno zobaczyć, przy użyciu poszczególnych modeli wykrywania. Zwróć uwagę na liczbę twarzy zwracanych przez poszczególne modele.
 
 ## <a name="next-steps"></a>Następne kroki
 

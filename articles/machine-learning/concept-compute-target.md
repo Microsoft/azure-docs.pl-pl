@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: bd83ccc4f834d6b52e1c2db15000eb695be85f30
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791176"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177202"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są docelowe obiekty obliczeniowe w usłudze Azure Machine Learning?
 
@@ -101,15 +101,21 @@ Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej na temat obsłu
 | **Obsługiwana seria maszyn wirtualnych**  | **Ograniczenia** |
 |------------|------------|
 | D | Brak. |
+| DDSv4 | Brak. |
 | Dv2 | Brak. |  
 | Dv3 | Brak.|
 | DSv2 | Brak. | 
 | DSv3 | Brak.|
+| EAv4 | Brak. |
+| EV3 | Brak. |
 | FSv2 | Brak. | 
+| H | Brak. |
+| HB | Wymaga zatwierdzenia. |
 | HBv2 | Wymaga zatwierdzenia. |  
 | MAGAZYNU HCS | Wymaga zatwierdzenia. |  
 | M | Wymaga zatwierdzenia. |
-| NC | Brak. |    
+| NC | Brak. |  
+| Promocja kontrolera sieci | Brak. |
 | NCsv2 | Wymaga zatwierdzenia. |
 | NCsv3 | Wymaga zatwierdzenia. |  
 | NDs | Wymaga zatwierdzenia. |

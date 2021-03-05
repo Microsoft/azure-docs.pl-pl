@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039924"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175009"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -175,7 +175,7 @@ Aby uzyskać więcej informacji na temat wymaganych nazw domen i adresów IP, zo
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł jest częścią jednej z czterech części serii sieci wirtualnych. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+Ten artykuł jest częścią jednej z pięciu serii sieci wirtualnych. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
 
 * [Część 2: Omówienie usługi Virtual Network](how-to-secure-workspace-vnet.md)
 * [Część 3: Zabezpieczanie środowiska szkoleniowego](how-to-secure-training-vnet.md)

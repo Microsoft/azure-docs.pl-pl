@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b16a2fc9f107a8420fb7d05667807a869fa3e00a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791651"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172761"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Możliwości wielomodelowe Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji, zobacz [jak korzystać z danych JSON](database/
 
 Modele dokumentów mogą być używane zamiast modeli relacyjnych w niektórych scenariuszach:
 
-- Wysoka normalizacja schematu nie przynosi znaczących korzyści, ponieważ uzyskuje się dostęp do wszystkich pól jednocześnie, lub nigdy nie aktualizuje się znormalizowanych części obiektów. Jednak znormalizowany model zwiększa złożoność zapytań ze względu na dużą liczbę tabel, które należy dołączyć, aby uzyskać dane.
+- Wysoka normalizacja schematu nie ma znaczących korzyści, ponieważ uzyskuje się dostęp do wszystkich pól jednocześnie, lub nigdy nie aktualizuje się znormalizowanych części obiektów. Jednak znormalizowany model zwiększa złożoność zapytań ze względu na dużą liczbę tabel, które należy dołączyć, aby uzyskać dane.
 - Pracujesz z aplikacjami, które natywnie wykorzystują Dokumenty JSON, są komunikacyjne lub modele danych i nie chcesz wprowadzać dodatkowych warstw, które przekształcają dane relacyjne na format JSON i odwrotnie.
 - Należy uprościć model danych przez cofnięcie normalizacji tabel podrzędnych lub wzorców wartości obiektów jednostek.
 - Należy załadować lub wyeksportować dane przechowywane w formacie JSON bez dodatkowego narzędzia, które analizuje dane.
@@ -124,7 +124,7 @@ Aparat bazy danych SQL Server zapewnia zaawansowaną platformę do tworzenia roz
 
 Modele dokumentów mogą być używane zamiast modeli relacyjnych w niektórych scenariuszach:
 
-- Wysoka normalizacja schematu nie przynosi znaczących korzyści, ponieważ uzyskuje się dostęp do wszystkich pól jednocześnie, lub nigdy nie aktualizuje się znormalizowanych części obiektów. Jednak znormalizowany model zwiększa złożoność zapytań ze względu na dużą liczbę tabel, które należy dołączyć, aby uzyskać dane.
+- Wysoka normalizacja schematu nie ma znaczących korzyści, ponieważ uzyskuje się dostęp do wszystkich pól jednocześnie, lub nigdy nie aktualizuje się znormalizowanych części obiektów. Jednak znormalizowany model zwiększa złożoność zapytań ze względu na dużą liczbę tabel, które należy dołączyć, aby uzyskać dane.
 - Pracujesz z aplikacjami, które natywnie wykorzystują dokumenty XML, są komunikacyjne lub modele danych i nie chcesz wprowadzać dodatkowych warstw, które przekształcają dane relacyjne na XML i odwrotnie.
 - Należy uprościć model danych przez cofnięcie normalizacji tabel podrzędnych lub wzorców wartości obiektów jednostek.
 - Należy załadować lub wyeksportować dane przechowywane w formacie XML bez dodatkowego narzędzia, które analizuje dane.

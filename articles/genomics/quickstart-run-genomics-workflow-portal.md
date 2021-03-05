@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cefb0105a0a95d26aadea2a98fc4d3cec68ccc03
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6daec7658c6db6c18bd198b9aff0b8993f27ac22
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787355"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177251"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Szybki start: Uruchamianie przepływu za pośrednictwem usługi Microsoft Genomics
 
@@ -144,4 +144,4 @@ Po zakończeniu przepływu pracy można wyświetlić pliki wyjściowe na koncie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz również zapoznać się z tym samouczkiem, korzystając z naszego [przykładu Azure Notebooks](https://aka.ms/genomicsnotebook) , pobierając plik "Genomika samouczka. ipynb" i korzystając z czytnika notesu, takiego jak [Jupyter](https://notebooks.azure.com) , aby otworzyć plik i uruchomić go.
+W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386854"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174975"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny RESTful w zasadach niestandardowych Azure Active Directory B2C
 
@@ -225,6 +225,9 @@ Jeśli typ uwierzytelniania jest ustawiony na `ApiKeyHeader` , element **Cryptog
 | --------- | -------- | ----------- |
 | Nazwa nagłówka HTTP, na przykład `x-functions-key` , lub `x-api-key` . | Tak | Klucz, który jest używany do uwierzytelniania. |
 
+> [!NOTE]
+> W tej chwili Azure AD B2C obsługuje tylko jeden nagłówek HTTP na potrzeby uwierzytelniania. Jeśli wywołanie RESTful wymaga wielu nagłówków, takich jak identyfikator klienta i klucz tajny klienta, należy w jakiś sposób zażądać proxy żądania.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -290,4 +293,3 @@ Zobacz następujące artykuły, aby zapoznać się z przykładami dotyczącymi k
 - [Wskazówki: integruje wymianę oświadczeń interfejsu API REST w trakcie Azure AD B2C użytkownika podczas sprawdzania poprawności danych wejściowych użytkownika](custom-policy-rest-api-claims-validation.md)
 - [Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Zabezpieczanie usług interfejsu API REST](secure-rest-api.md)
-

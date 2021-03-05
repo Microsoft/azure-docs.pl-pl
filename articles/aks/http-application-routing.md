@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25fc021a48e8936f242df35f7485fc59a93bba13
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125873"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172804"
 ---
 # <a name="http-application-routing"></a>Routing aplikacji protokołu HTTP
 
@@ -27,7 +27,7 @@ Gdy dodatek jest włączony, tworzy strefę DNS w Twojej subskrypcji. Aby uzyska
 Dodatek wdraża dwa składniki: kontroler transferu danych przychodzących [Kubernetes][ingress] i [zewnętrzny kontroler DNS][external-dns] .
 
 - **Kontroler** ruchu przychodzącego: kontroler transferu danych przychodzących jest dostępny dla Internetu za pomocą usługi Kubernetes typu modułu równoważenia obciążenia. Kontroler transferu danych przychodzących służy do obserwowania i implementowania [zasobów Kubernetes][ingress-resource], które tworzą trasy do punktów końcowych aplikacji.
-- **Kontroler zewnętrzny DNS** : czujki dla zasobów przychodzących Kubernetes i tworzy rekordy A systemu DNS w strefie DNS specyficznej dla klastra.
+- **Kontroler zewnętrzny DNS**: czujki dla zasobów przychodzących Kubernetes i tworzy rekordy A systemu DNS w strefie DNS specyficznej dla klastra.
 
 ## <a name="deploy-http-routing-cli"></a>Wdrażanie routingu HTTP: interfejs wiersza polecenia
 
@@ -78,7 +78,7 @@ Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już za
 az aks install-cli
 ```
 
-Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][]. Poniższy przykład pobiera poświadczenia dla klastra AKS o nazwie *MyAKSCluster* w liście *zasobów* :
+Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][]. Poniższy przykład pobiera poświadczenia dla klastra AKS o nazwie *MyAKSCluster* w liście *zasobów*:
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -280,8 +280,8 @@ ingress "aks-helloworld" deleted
 Aby uzyskać informacje na temat sposobu instalowania kontrolera transferu danych zabezpieczonych przy użyciu protokołu HTTPS w programie AKS, zobacz https transferal in [Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli

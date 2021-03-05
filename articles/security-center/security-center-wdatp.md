@@ -1,23 +1,18 @@
 ---
 title: Korzystanie z licencji usługi Microsoft Defender dla punktu końcowego zawartej w programie Azure Security Center
 description: Dowiedz się więcej o usłudze Microsoft Defender dla punktów końcowych i wdrażaj ją z poziomu Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: a659ea897f013e504668789a7d5671420ff70a9f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099084"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176471"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Ochrona punktów końcowych za pomocą zintegrowanego rozwiązania EDR Security Center: Microsoft Defender for Endpoint
 
@@ -43,10 +38,10 @@ Microsoft Defender for Endpoint to całościowe, dostarczone w chmurze rozwiąza
 | Stan wydania:                  | Ogólnie dostępna (GA)                                                                                                                                                                                                                                                                                      |
 | Wpisaną                        | Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Obsługiwane platformy:            |  • Maszyny platformy Azure z systemem Windows<br> • Komputery z systemem Windows w usłudze Azure Arc|
-| Obsługiwane wersje systemu Windows:  |   • **Ogólna dostępność (ga) —** wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1<br> • Wykrywanie **wersji zapoznawczej** w systemie windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)i [Windows 10 Enterprise — wiele sesji](../virtual-desktop/windows-10-multisession-faq.md) (dawniej Enterprise for Virtual Desktops (EVD)<br>Monitorowanie punktu końcowego serwera przy użyciu tych integracji zostało wyłączone dla klientów z pakietem Office 365 w zatoce|
+| Obsługiwane wersje systemu Windows:  |  • **Ogólna dostępność (ga) —** wykrywanie w systemach Windows Server 2016, 2012 R2 i 2008 R2 SP1<br> • Wykrywanie **wersji zapoznawczej** w systemie windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)i [Windows 10 Enterprise — wiele sesji](../virtual-desktop/windows-10-multisession-faq.md) (dawniej Enterprise for Virtual Desktops (EVD)<br>Monitorowanie punktu końcowego serwera przy użyciu tych integracji zostało wyłączone dla klientów z pakietem Office 365 w zatoce|
 | Nieobsługiwane systemy operacyjne:  |  • System Windows 10 (inny niż EVD lub WVD)<br> • System Linux|
 | Wymagane role i uprawnienia: | Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji** lub **współautor subskrypcji**|
-| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w ramach usługi w chmurze w globalnych chmurach platformy Azure                                                        |
+| Połączeń                         | ![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Funkcje usługi Microsoft Defender dla punktów końcowych w Security Center

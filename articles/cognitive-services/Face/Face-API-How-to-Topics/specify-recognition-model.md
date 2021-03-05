@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea6b567d7b48e504d9b79dad568da7170ada5326
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58e910a721bea95e74a004ae306f1bbc3ade62f2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706830"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174159"
 ---
 # <a name="specify-a-face-recognition-model"></a>Określanie modelu rozpoznawania twarzy
 
@@ -24,11 +24,11 @@ W tym przewodniku pokazano, jak określić model rozpoznawania kroju na potrzeby
 
 Usługa twarzy używa modeli uczenia maszynowego do wykonywania operacji na ludzkich twarzy na obrazach. Kontynuujemy ulepszanie dokładności naszych modeli w oparciu o opinie klientów i postępy w badaniach, a firma Microsoft zapewnia te udoskonalenia jako aktualizacje modelu. Deweloperzy mogą określić, która wersja modelu rozpoznawania kroju ma być używana; mogą wybrać model, który najlepiej pasuje do swojego przypadku użycia.
 
-Usługa Azure Front Service ma dostępne trzy modele rozpoznawania. Modele _recognition_01_ (opublikowane 2017) i _recognition_02_ (opublikowane 2019) są stale obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami dla klientów korzystających z FaceLists lub **osób**, które utworzyły te modele. **FaceList** lub **osoba** musi zawsze używać modelu rozpoznawania, który został utworzony za pomocą, a nowe twarze zostaną skojarzone z tym modelem po dodaniu. Tego nie można zmienić po utworzeniu, a klienci będą musieli używać odpowiedniego modelu rozpoznawania z odpowiednimi **FaceListami** lub **osobami**.
+Usługa Azure Front Service ma dostępne cztery modele rozpoznawania. Modele _recognition_01_ (opublikowane 2017), _recognition_02_ (opublikowane 2019) i _recognition_03_ (opublikowane 2020) są stale obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami dla klientów korzystających z FaceLists lub **osób**, które utworzyły te modele. **FaceList** lub **osoba** musi zawsze używać modelu rozpoznawania, który został utworzony za pomocą, a nowe twarze zostaną skojarzone z tym modelem po dodaniu. Tego nie można zmienić po utworzeniu, a klienci będą musieli używać odpowiedniego modelu rozpoznawania z odpowiednimi **FaceListami** lub **osobami**.
 
 Możesz przechodzić do nowszych modeli rozpoznawania we własnym wygodie. należy jednak utworzyć nowe FaceLists i grup osób wynosi z wybranym modelem rozpoznawania.
 
-Model _recognition_03_ (opublikowany 2020) jest najdokładniejszym modelem, który jest obecnie dostępny. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. _Recognition_03_ zapewni lepszą dokładność zarówno porównania podobieństwa, jak i porównania dopasowania przez osoby. Należy zauważyć, że każdy model działa niezależnie od innych, a próg ufności ustawiony dla jednego modelu nie jest przeznaczony do porównania między innymi modelami rozpoznawania.
+Model _recognition_04_ (opublikowany 2021) jest najdokładniejszym modelem, który jest obecnie dostępny. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. _Recognition_04_ zapewni lepszą dokładność zarówno porównania podobieństwa, jak i porównania dopasowania przez osoby. _Recognition_04_ usprawnia rozpoznawanie zarejestrowanego użytkownika w zakresie okładek (masek chirurgicznych, masek N95, masek tkaniny). Teraz można tworzyć bezpieczne i bezproblemowe środowiska użytkownika, które korzystają z najnowszego _detection_03_ modelu, aby wykryć, czy zarejestrowany użytkownik jest w tej samej okładce, a następnie rozpoznać, kto ma najnowszy _recognition_04_ model. Należy zauważyć, że każdy model działa niezależnie od innych, a próg ufności ustawiony dla jednego modelu nie jest przeznaczony do porównania między innymi modelami rozpoznawania.
 
 Przeczytaj, aby dowiedzieć się, jak określić wybrany model w różnych operacjach tworzenia kroju, unikając konfliktów modelu. Jeśli jesteś użytkownikiem zaawansowanym i chcesz określić, czy chcesz przełączyć się do najnowszego modelu, przejdź do sekcji [Oceń różne modele](#evaluate-different-models) , aby obliczyć nowy model i porównać wyniki przy użyciu bieżącego zestawu danych.
 
@@ -51,6 +51,7 @@ W przypadku korzystania z interfejsu API [wykrywania kroju] i przypisania wersji
 * recognition_01
 * recognition_02
 * recognition_03
+* recognition_04
 
 
 Opcjonalnie można określić parametr _returnRecognitionModel_ (domyślnie **false**), aby wskazać, czy _recognitionModel_ powinien być zwracany w odpowiedzi. Dlatego adres URL żądania dla interfejsu API REST [wykrywania czołowego] będzie wyglądać następująco:
@@ -91,10 +92,10 @@ Możesz również określić model rozpoznawania dla wyszukiwania podobieństwa.
 Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 ```
 
-Ten kod tworzy listę czołową o nazwie `My face collection` przy użyciu modelu _recognition_03_ do wyodrębniania funkcji. Po przeszukiwaniu tej listy twarzy pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_03_ . Jak w poprzedniej sekcji, model musi być spójny.
+Ten kod tworzy listę czołową o nazwie `My face collection` przy użyciu modelu _recognition_04_ do wyodrębniania funkcji. Po przeszukiwaniu tej listy twarzy pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_04_ . Jak w poprzedniej sekcji, model musi być spójny.
 
 Nie wprowadzono zmian w funkcji [Front-Find podobnego] interfejsu API; należy określić wersję modelu tylko do wykrywania.
 
@@ -105,10 +106,10 @@ Interfejs API [weryfikacji twarzy] sprawdza, czy dwie twarze należą do tej sam
 ## <a name="evaluate-different-models"></a>Oceń różne modele
 
 Jeśli chcesz porównać wyniki różnych modeli rozpoznawania na własnych danych, musisz wykonać następujące działania:
-1. Utwórz odpowiednio trzy grup osób wynosi przy użyciu _recognition_01_, _recognition_02_ i _recognition_03_ .
-1. Użyj danych obrazu w celu wykrycia twarzy i zarejestrowania ich w **osobnych** w tych trzech **osobach**. 
+1. Utwórz cztery grup osób wynosi z użyciem odpowiednio _recognition_01_, _recognition_02_, _recognition_03_ i _recognition_04_ .
+1. Użyj danych obrazu do wykrycia twarzy i zarejestrowania ich w **osobnych** w tych czterech **osobach**. 
 1. Uczenie grup osób wynosi przy użyciu interfejsu API uczenia użytkowników.
-1. Testuj ze stroną i zidentyfikuj wszystkie trzy **osoby** i Porównaj wyniki.
+1. Przetestuj z funkcją Front-Zidentyfikuj na wszystkich czterech **osobach** i Porównaj wyniki.
 
 
 Jeśli zwykle określono próg ufności (wartość z zakresu od zero do 1, która określa, jak pewność, że model musi być identyfikowany jako), może być konieczne użycie różnych progów dla różnych modeli. Próg dla jednego modelu nie powinien być współużytkowany z innym i nie musi dawać takich samych wyników.

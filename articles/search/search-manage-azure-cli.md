@@ -1,5 +1,5 @@
 ---
-title: Skrypty interfejsu wiersza polecenia platformy Azure używające polecenia AZ Search module
+title: Skrypty interfejsu wiersza polecenia platformy Azure korzystające z modułu AZ Search
 titleSuffix: Azure Cognitive Search
 description: Utwórz i skonfiguruj usługę Wyszukiwanie poznawcze platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Można skalować usługę w górę lub w dół, zarządzać administratorami i interfejsami API-Keys oraz wysyłać zapytania o informacje o systemie.
 manager: luisca
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032521"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176760"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Zarządzanie usługą Wyszukiwanie poznawcze platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
@@ -41,48 +41,7 @@ Czasami pytania są zadawane o zadaniach, których *nie* ma na powyższej liści
 
 W ramach usługi Tworzenie zawartości i zarządzanie nią odbywa się za [Search Service pomocą interfejsu API REST](/rest/api/searchservice/) lub [zestawu .NET SDK](/dotnet/api/overview/azure/search.documents-readme). Chociaż nie ma żadnych dedykowanych poleceń programu PowerShell dla zawartości, możesz pisać skrypty, które wywołują interfejsy API REST lub .NET, aby tworzyć i ładować indeksy.
 
-<a name="check-versions-and-load"></a>
-
-## <a name="check-versions-and-upgrade"></a>Sprawdź wersje i Uaktualnij
-
-Przykłady w tym artykule są interaktywne i wymagają podniesionych uprawnień. Należy zainstalować interfejs wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Teraz możesz uruchomić interfejs wiersza polecenia platformy Azure za pomocą `az` polecenia z poziomu wiersza poleceń systemu Windows, programu PowerShell lub [Azure Cloud Shell](../cloud-shell/overview.md). Program PowerShell oferuje pewne funkcje uzupełniania po naciśnięciu klawisza Tab niedostępne w wierszu polecenia systemu Windows. 
-
-### <a name="check-the-azure-cli-version"></a>Sprawdź wersję interfejsu wiersza polecenia platformy Azure
-
-Jeśli nie masz pewności, czy jest zainstalowany interfejs wiersza polecenia platformy Azure, uruchom następujące polecenie w ramach kroku weryfikacji. 
-
-```azurecli-interactive
-az --version
-```
-Jeśli to polecenie nie działa, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , aby zainstalować interfejs wiersza polecenia platformy Azure.
-
-Jeśli masz wersję 2.11.0 lub nowszą, możesz uruchomić polecenie, `az upgrade` Aby zaktualizować interfejs wiersza polecenia do najnowszej wersji.
-
-```azurecli-interactive
-az upgrade
-```
-
-### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Nawiązywanie połączenia z platformą Azure za pomocą tokenu logowania w przeglądarce
-
-Aby nawiązać połączenie z subskrypcją w interfejsie wiersza polecenia platformy Azure, można użyć poświadczeń logowania portalu. Alternatywnie można [uwierzytelnić się w sposób nieinteraktywny za pomocą nazwy głównej usługi](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
-
-```azurecli-interactive
-az login
-```
-
-Jeśli przechowujesz wiele subskrypcji platformy Azure, ustaw subskrypcję platformy Azure. Aby wyświetlić listę bieżących subskrypcji, Uruchom to polecenie.
-
-```azurecli-interactive
-az account list --output table
-```
-
-Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przykładzie nazwa subskrypcji to `ContosoSubscription` .
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -262,7 +221,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint
