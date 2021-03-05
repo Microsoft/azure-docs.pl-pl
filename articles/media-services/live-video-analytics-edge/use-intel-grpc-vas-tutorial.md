@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 62787bfb586f2847d984499cf966708749184ee1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096347"
+ms.locfileid: "102124418"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Samouczek: analizowanie wideo na żywo przy użyciu rozwiązania Intel OpenVINO™ DL — rozszerzenie AI 
 
@@ -327,7 +327,8 @@ Aby użyć innego modelu, należy zmienić szablon wdrożenia. Aby przełączać
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Skopiuj szablon i Zapisz go pod nową nazwą dla każdego możliwego potoku. W ten sposób można przełączać się między modelami, tworząc nowe wdrożenie na podstawie jednego z tych szablonów.
+> [!TIP]
+> Skopiuj szablon i Zapisz go pod nową nazwą dla każdego możliwego potoku. W ten sposób można przełączać się między modelami, tworząc nowe wdrożenie na podstawie jednego z tych szablonów.
 
 Po zmianie zmiennych można ponownie wdrożyć szablon na urządzeniu. Możesz teraz powtórzyć powyższe kroki, aby ponownie uruchomić przykładowy program z nowym potokiem. Wyniki wnioskowania będą podobne (w schemacie), ale wyświetlają więcej lub mniej informacji w zależności od wybranego modelu potoku.
 

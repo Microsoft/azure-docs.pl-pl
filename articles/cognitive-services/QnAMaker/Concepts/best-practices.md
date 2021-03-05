@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733435"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123313"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
 
@@ -43,7 +43,7 @@ Użytkownik może wprowadzać pytania z stylem konwersacji tekstowej `How do I a
 
 Najlepszym odpowiedziami są proste odpowiedzi, ale nie są one zbyt proste. Nie należy używać odpowiedzi, takich jak `yes` i `no` . Jeśli odpowiedź powinna łączyć się z innymi źródłami lub zapewniać bogate środowisko z nośnikami i łączami, należy użyć [tagowania metadanych](../how-to/edit-knowledge-base.md#add-metadata) do rozróżnienia między odpowiedziami, a następnie [przesłać zapytanie](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) ze znacznikiem metadanych we `strictFilters` właściwości, aby uzyskać poprawną wersję odpowiedzi.
 
-|Odpowiedź|Follup|
+|Odpowiedź|Monity monitujące|
 |--|--|
 |Wyłącz komputer przenośny przy użyciu przycisku energia na klawiaturze.|* Kombinację klawiszy do uśpienia, wyłączenia i ponownego uruchomienia.<br>* Jak wypróbować twardy laptop powierzchniowy<br>* Jak zmienić system BIOS dla komputera przenośnego<br>* Różnice między uśpieniem, wyłączaniem i ponownym uruchomieniem|
 |Usługa klienta jest dostępna za pośrednictwem telefonu, Skype'a i wiadomości SMS przez 24 godziny dziennie.|* Informacje kontaktowe dotyczące sprzedaży.<br> * Lokalizacje biur i sklepów oraz godziny dla osób odwiedzających.<br> * Akcesoria dla komputera przenośnego.|

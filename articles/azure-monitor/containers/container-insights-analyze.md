@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą usługi Container Insights | Microsof
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą usługi Container Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711352"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124316"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorowanie wydajności klastra Kubernetes za pomocą usługi Container Insights
 
@@ -20,7 +20,7 @@ Aby uzyskać informacje na temat sposobu włączania usługi Container Insights,
 
 Azure Monitor zawiera widok z obsługą wielu klastrów, który pokazuje stan kondycji wszystkich monitorowanych klastrów Kubernetes z systemem Linux i Windows Server 2019 wdrożonych w grupach zasobów w Twoich subskrypcjach. Pokazuje ona klastry odnalezione we wszystkich środowiskach, które nie są monitorowane przez rozwiązanie. Możesz natychmiast zrozumieć kondycję klastra, a w tym miejscu możesz przejść do szczegółów na stronie wydajność węzła i kontrolera lub przejść do sekcji wykresy wydajności dla klastra. W przypadku klastrów AKS, które zostały odnalezione i zidentyfikowane jako niemonitorowane, można je włączyć w dowolnym momencie.
 
-Główne różnice w monitorowaniu klastra systemu Windows Server z usługą Container Insights w porównaniu z klastrem z systemem Linux [zostały opisane w](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) artykule Omówienie.
+Główne różnice w monitorowaniu klastra systemu Windows Server z usługą Container Insights w porównaniu z klastrem z systemem Linux [zostały opisane w](container-insights-overview.md#what-does-container-insights-provide) artykule Omówienie.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

@@ -3,12 +3,12 @@ title: Zmienne w szablonach
 description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager (szablon ARM) i pliku Bicep.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700341"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123381"
 ---
 # <a name="variables-in-arm-templates"></a>Zmienne w szablonach ARM
 
@@ -20,7 +20,7 @@ Menedżer zasobów rozpoznaje zmienne przed rozpoczęciem operacji wdrażania. W
 
 ## <a name="define-variable"></a>Zdefiniuj zmienną
 
-Podczas definiowania zmiennej nie jest określany [Typ danych](template-syntax.md#data-types) dla zmiennej. Zamiast tego podaj wartość lub wyrażenie szablonu. Typ zmiennej jest wywnioskowany na podstawie rozwiązanej wartości. Poniższy przykład ustawia zmienną na ciąg.
+Podczas definiowania zmiennej nie jest określany [Typ danych](data-types.md) dla zmiennej. Zamiast tego podaj wartość lub wyrażenie szablonu. Typ zmiennej jest wywnioskowany na podstawie rozwiązanej wartości. Poniższy przykład ustawia zmienną na ciąg.
 
 # <a name="json"></a>[JSON](#tab/json)
 

@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 76d3bdc8a6eb133daa2d241bdf4c3b73271f0173
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 38826451bbb8ec9303f61db53544cfe8ca2fcd41
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100206"
+ms.locfileid: "102123092"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. 
@@ -38,6 +38,7 @@ Podczas tworzenia niestandardowych aplikacji lub modeli zespół może opracowyw
 W programie Synapse pakiety obszaru roboczego mogą być plikami niestandardowymi lub prywatnymi lub jar. Te pakiety można przekazać do obszaru roboczego, a następnie przypisać je do określonej puli platformy Spark. Po przypisaniu te pakiety obszaru roboczego są automatycznie instalowane na wszystkich sesjach puli platformy Spark.
 
 Aby dowiedzieć się więcej na temat zarządzania bibliotekami obszarów roboczych, odwiedź następujące przewodniki:
+
 - [Pakiety obszarów roboczych języka Python (wersja zapoznawcza): ](./apache-spark-manage-python-packages.md#install-wheel-files) Przekaż pliki kółka języka Python jako pakiet obszaru roboczego, a następnie Dodaj te pakiety do określonych bezserwerowych pul Apache Spark.
 - [Pakiety robocze Scala/Java (wersja zapoznawcza): ](./apache-spark-manage-scala-packages.md#workspace-packages) Przekaż pliki jar Scala i Java jako pakiet obszaru roboczego, a następnie Dodaj te pakiety do określonych bezserwerowych pul Apache Spark.
 
@@ -61,6 +62,7 @@ Często podczas przeprowadzania interaktywnej analizy danych lub uczenia maszyno
 Pakiety z zakresem sesji umożliwiają użytkownikom Definiowanie zależności pakietu na początku sesji. W przypadku instalowania pakietu z zakresem sesji tylko bieżąca sesja ma dostęp do określonych pakietów. W efekcie te pakiety z zakresem sesji nie wpłyną na inne sesje ani zadania korzystające z tej samej puli Apache Spark. Ponadto te biblioteki są instalowane w oparciu o podstawowe środowisko uruchomieniowe i pakiety poziomów puli. 
 
 Aby dowiedzieć się więcej na temat zarządzania pakietami z zakresem sesji, odwiedź następujące przewodniki:
+
 - [Pakiety sesji języka Python (wersja zapoznawcza):](./apache-spark-manage-python-packages.md) Na początku sesji Podaj *środowisko Conda. yml* , aby zainstalować dodatkowe pakiety Python ze popularnych repozytoriów. 
 - [Pakiety sesji Scala/Java: ](./apache-spark-manage-scala-packages.md) Na początku sesji Podaj listę plików jar do zainstalowania przy użyciu programu ```%%configure``` .
 

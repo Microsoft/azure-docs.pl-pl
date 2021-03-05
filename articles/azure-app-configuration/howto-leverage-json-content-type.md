@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565776"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122157"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Wykorzystanie typu zawartości do przechowywania wartości klucza JSON w konfiguracji aplikacji
 
@@ -25,9 +25,9 @@ Dane są przechowywane w konfiguracji aplikacji jako wartości klucza, gdzie war
 ## <a name="overview"></a>Omówienie
 
 W obszarze Konfiguracja aplikacji można użyć typu nośnika JSON jako typu zawartości klucza, aby skorzystać z korzyści, takich jak:
-- **Prostsze zarządzanie danymi** : zarządzanie kluczowymi wartościami, takimi jak tablice, stanie się znacznie łatwiejsze w Azure Portal.
-- **Ulepszony eksport danych** : typy pierwotne, tablice i obiekty JSON zostaną zachowane podczas eksportowania danych.
-- **Natywna obsługa dostawcy konfiguracji aplikacji** : klucz-wartości z zawartością JSON — typ będzie działał prawidłowo, gdy są używane przez biblioteki dostawcy konfiguracji aplikacji w aplikacjach.
+- **Prostsze zarządzanie danymi**: zarządzanie kluczowymi wartościami, takimi jak tablice, stanie się znacznie łatwiejsze w Azure Portal.
+- **Ulepszony eksport danych**: typy pierwotne, tablice i obiekty JSON zostaną zachowane podczas eksportowania danych.
+- **Natywna obsługa dostawcy konfiguracji aplikacji**: klucz-wartości z zawartością JSON — typ będzie działał prawidłowo, gdy są używane przez biblioteki dostawcy konfiguracji aplikacji w aplikacjach.
 
 #### <a name="valid-json-content-type"></a>Prawidłowy typ zawartości JSON
 
@@ -47,7 +47,7 @@ Oto przykłady prawidłowych wartości JSON:
 - "John Doe"
 - 723
 - fałsz
-- wartość null
+- null
 - "2020-01-01T12:34:56.789 Z"
 - [1, 2, 3, 4]
 - {"ObjectSetting": {"cel": {"default": true, "Level": "informacje"}}}
@@ -87,7 +87,7 @@ Przejdź do magazynu konfiguracji aplikacji, a następnie wybierz pozycję **Eks
 | Ustawienia: BackgroundColor | Znacznika | application/json |
 | Ustawienia: FontSize | 24 | application/json |
 | Ustawienia: UseDefaultRouting | fałsz | application/json |
-| Ustawienia: BlockedUsers | wartość null | application/json |
+| Ustawienia: BlockedUsers | null | application/json |
 | Ustawienia: ReleaseDate | "2020-08-04T12:34:56.789 Z" | application/json |
 | Ustawienia: RolloutPercentage | [25, 50, 75100] | application/json |
 | Ustawienia: rejestrowanie | {"Test": {"Level": "debug"}, "prod": {"Level": "Warning"}} | application/json |
@@ -175,12 +175,28 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 ## <a name="consuming-json-key-values-in-applications"></a>Zużywanie wartości klucza JSON w aplikacjach
 
-Najprostszym sposobem korzystania z wartości klucza JSON w aplikacji jest użycie bibliotek dostawcy konfiguracji aplikacji. W przypadku bibliotek dostawców nie trzeba implementować specjalnej obsługi wartości klucza JSON w aplikacji. Są one zawsze deserializowane dla aplikacji w taki sam sposób, jak inne biblioteki dostawcy konfiguracji JSON. 
+Najprostszym sposobem korzystania z wartości klucza JSON w aplikacji jest użycie bibliotek dostawcy konfiguracji aplikacji. W przypadku bibliotek dostawców nie trzeba implementować specjalnej obsługi wartości klucza JSON w aplikacji. Zostaną one przeanalizowane i przekonwertowane, aby odpowiadały konfiguracji natywnej aplikacji.
+
+Na przykład, jeśli w konfiguracji aplikacji jest następująca kluczowa wartość:
+
+| Klucz | Wartość | Typ zawartości |
+|---|---|---|
+| Ustawienia | {"FontSize": 24, "UseDefaultRouting": false} | application/json |
+
+Konfiguracja aplikacji .NET będzie miała następujące kluczowe wartości:
+
+| Klucz | Wartość |
+|---|---|
+| Ustawienia: FontSize | 24 |
+| Ustawienia: UseDefaultRouting | fałsz |
+
+Dostęp do nowych kluczy można uzyskać bezpośrednio lub można [powiązać wartości konfiguracji z wystąpieniami obiektów .NET](/aspnet/core/fundamentals/configuration/#bind-hierarchical-configuration-data-using-the-options-pattern).
+
 
 > [!Important]
 > Natywna obsługa wartości klucza JSON jest dostępna w dostawcy konfiguracji platformy .NET w wersji 4.0.0 (lub nowszej). Aby uzyskać więcej informacji, zobacz sekcję [*następne kroki*](#next-steps) .
 
-Jeśli używasz zestawu SDK lub interfejsu API REST do odczytywania wartości kluczy z konfiguracji aplikacji, na podstawie typu zawartości, aplikacja jest odpowiedzialna za deserializacja wartości klucza JSON przy użyciu dowolnej standardowej deserializacji JSON.
+Jeśli używasz zestawu SDK lub interfejsu API REST do odczytywania wartości kluczy z konfiguracji aplikacji, na podstawie typu zawartości, aplikacja jest odpowiedzialna za analizowanie wartości klucza JSON i wartości.
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

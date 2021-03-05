@@ -147,6 +147,8 @@
       items:
         - name: Samodzielne diagnozowanie i rozwiązywanie problemów
           href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Samodiagnozowanie działające w sieci wirtualnej
+          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
         - name: Przewodnik rozwiązywania problemów
           href: spring-cloud-troubleshoot.md
     - name: Migracja

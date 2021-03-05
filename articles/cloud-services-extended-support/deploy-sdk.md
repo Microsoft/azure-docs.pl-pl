@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie usługi w chmurze (obsługa rozszerzona) — zestaw SDK
-description: Wdrażanie usługi w chmurze (obsługa rozszerzona) przy użyciu zestawu Azure SDK
+title: Wdrażanie Cloud Services (obsługa rozszerzona) — zestaw SDK
+description: Wdrażanie Cloud Services (obsługa rozszerzona) przy użyciu zestawu Azure SDK
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,25 +8,25 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf8d2696732c2947ce86b9509720898fd63c1e16
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887377"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123041"
 ---
-# <a name="deploy-a-cloud-services-extended-support-using-sdk"></a>Wdrażanie Cloud Services (obsługa rozszerzona) przy użyciu zestawu SDK
+# <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Wdrażanie Cloud Services (obsługa rozszerzona) przy użyciu zestawu Azure SDK
 
-W tym artykule pokazano, jak za pomocą [zestawu Azure SDK](https://azure.microsoft.com/downloads/) wdrożyć Cloud Services (rozszerzoną obsługę), która ma wiele ról (webrole i rola procesu roboczego) oraz rozszerzenie pulpitu zdalnego. 
+W tym artykule pokazano, jak za pomocą [zestawu Azure SDK](https://azure.microsoft.com/downloads/) wdrożyć wystąpienie Cloud Services (obsługa rozszerzona), które ma wiele ról (rola sieci Web i rola proces roboczy) oraz rozszerzenie pulpitu zdalnego. Cloud Services (obsługa rozszerzona) to model wdrażania platformy Azure Cloud Services oparty na Azure Resource Manager.
 
 > [!IMPORTANT]
-> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cloud Services (obsługa rozszerzona) jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wdrażania Cloud Services (obsługa rozszerzona) i Utwórz skojarzone zasoby.
 
-## <a name="deploy-a-cloud-services-extended-support"></a>Wdrażanie Cloud Services (obsługa rozszerzona)
+## <a name="deploy-cloud-services-extended-support"></a>Wdróż Cloud Services (obsługa rozszerzona)
 1. Zainstaluj [pakiet NuGet zestawu Azure COMPUTE SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) i zainicjuj klienta przy użyciu standardowego mechanizmu uwierzytelniania.
 
     ```csharp
@@ -73,7 +73,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-3. Utwórz konto magazynu i kontener, które będą używane do przechowywania plików pakietu usługi w chmurze (. cspkg) i pliku konfiguracji usługi (. cscfg). Zainstaluj [pakiet NuGet usługi Azure Storage](https://www.nuget.org/packages/Azure.Storage.Common/). Ten krok jest opcjonalny w przypadku korzystania z istniejącego konta magazynu. Nazwa konta magazynu musi być unikatowa.
+3. Utwórz konto magazynu i kontener, w którym będzie przechowywany plik pakietu usługi (. cspkg) i pliki konfiguracji usługi (. cscfg). Zainstaluj [pakiet NuGet usługi Azure Storage](https://www.nuget.org/packages/Azure.Storage.Common/). Ten krok jest opcjonalny, jeśli korzystasz z istniejącego konta magazynu. Nazwa konta magazynu musi być unikatowa.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -109,7 +109,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-4. Przekaż plik pakietu usługi w chmurze (. cspkg) do konta magazynu. Adres URL pakietu może być identyfikatorem URI sygnatury dostępu współdzielonego (SAS) na dowolnym koncie magazynu.
+4. Przekaż plik pakietu usługi (. cspkg) do konta magazynu. Adres URL pakietu może być identyfikatorem URI sygnatury dostępu współdzielonego (SAS) na dowolnym koncie magazynu.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -122,7 +122,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-5. Przekaż konfigurację usługi w chmurze (cscfg) do konta magazynu. Konfigurację usługi można określić jako ciąg XML lub format adresu URL.
+5. Przekaż plik konfiguracji usługi (. cscfg) do konta magazynu. Określ konfigurację usługi jako ciąg XML lub format adresu URL.
 
     ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
@@ -135,7 +135,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-6. Utwórz sieć wirtualną i podsieć. Zainstaluj [pakiet NuGet sieci platformy Azure](https://www.nuget.org/packages/Azure.ResourceManager.Network/). Ten krok jest opcjonalny w przypadku korzystania z istniejącej sieci i podsieci.
+6. Utwórz sieć wirtualną i podsieć. Zainstaluj [pakiet NuGet sieci platformy Azure](https://www.nuget.org/packages/Azure.ResourceManager.Network/). Ten krok jest opcjonalny, jeśli używasz istniejącej sieci i podsieci.
 
     ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -156,7 +156,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako Zastrzeżony adres IP w pliku konfiguracji usługi.
+7. Utwórz publiczny adres IP i (opcjonalnie) ustaw właściwość etykieta DNS publicznego adresu IP. Jeśli używasz statycznego adresu IP, musi on być przywoływany jako zastrzeżony adres IP w pliku konfiguracji usługi.
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +171,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem usługi równoważenia obciążenia utworzoną przez platformę.
+8. Utwórz obiekt profilu sieciowego i skojarz publiczny adres IP z frontonem modułu równoważenia obciążenia utworzonego na platformie.
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
@@ -206,32 +206,32 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
     
     ```
 
-9. Tworzenie usługi Key Vault. Ten Key Vault będzie używany do przechowywania certyfikatów skojarzonych z rolami usługi w chmurze (obsługa rozszerzona). Key Vault musi znajdować się w tym samym regionie i w ramach subskrypcji co usługa w chmurze i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
+9. Utwórz magazyn kluczy. Ten magazyn kluczy będzie używany do przechowywania certyfikatów skojarzonych z rolami Cloud Services (obsługa rozszerzona). Magazyn kluczy musi znajdować się w tym samym regionie i subskrypcji co wystąpienie Cloud Services (obsługa rozszerzona) i mieć unikatową nazwę. Aby uzyskać więcej informacji, zobacz [Korzystanie z certyfikatów przy użyciu usługi Azure Cloud Services (obsługa rozszerzona)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
     ```
 
-10. Zaktualizuj zasady dostępu Key Vault i przyznaj uprawnienia certyfikatów do konta użytkownika.
+10. Zaktualizuj zasady dostępu magazynu kluczy i przyznaj uprawnienia certyfikatów do konta użytkownika.
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg'      -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
     ```
 
-    Alternatywnie możesz ustawić zasady dostępu za pomocą identyfikatora ObjectId (który można uzyskać, uruchamiając polecenie Get-AzADUser).
+    Alternatywnie możesz ustawić zasady dostępu za pośrednictwem identyfikatora obiektu (który można uzyskać, uruchamiając `Get-AzADUser` ).
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -     ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates          create,get,list,delete
     ```
 
-11. W tym przykładzie dodamy certyfikat z podpisem własnym do Key Vault. Odcisk palca certyfikatu musi zostać dodany w pliku konfiguracji usługi w chmurze (cscfg) do wdrożenia w rolach usługi w chmurze.
+11. W tym przykładzie dodamy certyfikat z podpisem własnym do magazynu kluczy. Odcisk palca certyfikatu musi zostać dodany w pliku konfiguracji usługi (. cscfg) do wdrożenia w ramach ról Cloud Services (obsługa rozszerzona).
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -       SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -      CertificatePolicy $Policy
     ```
 
-12. Utwórz obiekt profilu systemu operacyjnego. Profil systemu operacyjnego określa certyfikaty, które są skojarzone z rolami usługi w chmurze. Będzie to ten sam certyfikat, który został utworzony w poprzednim kroku.
+12. Utwórz obiekt profilu systemu operacyjnego. Profil systemu operacyjnego określa certyfikaty, które są skojarzone z rolami Cloud Services (obsługa rozszerzona). W tym przypadku jest to ten sam certyfikat, który został utworzony w poprzednim kroku.
 
     ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -247,7 +247,9 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
            };
     ```
 
-13. Utwórz obiekt profilu roli. Profil roli definiuje specyficzne dla roli jednostki SKU właściwości, takie jak nazwa, pojemność i warstwa. W tym przykładzie zdefiniowano dwie role: frontendRole i backendRole. Informacje o profilu roli powinny być zgodne z konfiguracją roli zdefiniowaną w pliku Configuration (cscfg) i plikiem definicji usługi (csdef).
+13. Utwórz obiekt profilu roli. Profil roli definiuje właściwości specyficzne dla roli dla jednostki SKU, takie jak nazwa, pojemność i warstwa. 
+
+    W tym przykładzie definiujemy dwie role: ContosoFrontend i ContosoBackend. Informacje o profilu roli powinny być zgodne z konfiguracją roli zdefiniowaną w pliku konfiguracji usługi (. cscfg) i pliku definicji usługi (. csdef).
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -281,7 +283,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
                     }
     ```
 
-14. Obowiązkowe Utwórz obiekt profilu rozszerzenia, który ma zostać dodany do usługi w chmurze. W tym przykładzie dodamy rozszerzenie RDP.
+14. Obowiązkowe Utwórz obiekt profilu rozszerzenia, który ma zostać dodany do wystąpienia Cloud Services (obsługa rozszerzona). W tym przykładzie dodamy rozszerzenie RDP.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -313,7 +315,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
         };
     ```
 
-15. Utwórz wdrożenie usługi w chmurze.
+15. Utwórz wdrożenie wystąpienia Cloud Services (obsługa rozszerzona).
 
     ```csharp
     CloudService cloudService = new CloudService
@@ -322,7 +324,7 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
                 {
                     RoleProfile = cloudServiceRoleProfile
                     Configuration = < Add Cscfg xml content here>,
-                    // ConfigurationUrl = <Add you configuration URL here>,
+                    // ConfigurationUrl = <Add your configuration URL here>,
                     PackageUrl = <Add cspkg SAS url here>,
                     ExtensionProfile = cloudServiceExtensionProfile,
                     OsProfile= cloudServiceOsProfile,
@@ -337,5 +339,5 @@ Zapoznaj się z [wymaganiami wstępnymi](deploy-prerequisite.md) dotyczącymi wd
 
 ## <a name="next-steps"></a>Następne kroki
 - Zapoznaj się z [często zadawanymi pytaniami](faq.md) dotyczącymi Cloud Services (obsługa rozszerzona).
-- Wdróż usługę w chmurze (obsługę rozszerzoną) przy użyciu [Azure Portal](deploy-portal.md), [programu PowerShell](deploy-powershell.md), [szablonu](deploy-template.md) lub [programu Visual Studio](deploy-visual-studio.md).
-- Odwiedź [repozytorium przykładów Cloud Services (obsługa rozszerzona)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Wdróż Cloud Services (obsługa rozszerzona), korzystając z [Azure Portal](deploy-portal.md), [programu PowerShell](deploy-powershell.md), [szablonu](deploy-template.md)lub [programu Visual Studio](deploy-visual-studio.md).
+- Odwiedź [repozytorium przykładów dla Cloud Services (obsługa rozszerzona)](https://github.com/Azure-Samples/cloud-services-extended-support)

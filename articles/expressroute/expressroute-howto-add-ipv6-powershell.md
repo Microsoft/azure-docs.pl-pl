@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c0d153ff8125a6ef16a69aec72a27dd4b234eab5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100053"
+ms.locfileid: "102123058"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Dodawanie obsługi protokołu IPv6 do prywatnej komunikacji równorzędnej przy użyciu Azure PowerShell (wersja zapoznawcza)
 
@@ -165,7 +165,7 @@ Wykonaj poniższe czynności, jeśli planujesz nawiązać połączenie z nowym z
 
 2. [Utwórz podsieć bramy o podwójnym stosie](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
 
-3. [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ.
+3. [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ (należy zauważyć, że jest to dostępne tylko dla obwodów korzystających z usługi ExpressRoute Direct).
 
 4. [Połącz sieć wirtualną z obwodem ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
 
@@ -176,6 +176,8 @@ Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w reg
 * Połączenia z wdrożeniami w regionach innych niż AZ
 * Global Reach połączenia między obwodymi usługi ExpressRoute
 * Korzystanie z ExpressRoute z wirtualną siecią WAN
+* FastPath z obwodami bezpośrednimi innymi niż ExpressRoute
+* Współistnienie z VPN Gateway
 
 ## <a name="next-steps"></a>Następne kroki
 

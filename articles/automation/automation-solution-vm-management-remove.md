@@ -3,14 +3,14 @@ title: Usuwanie Azure Automation Start/Stop VMs during off-hours — Omówienie
 description: W tym artykule opisano sposób usuwania funkcji Start/Stop VMs during off-hours i rozłączania konta usługi Automation z obszaru roboczego Log Analytics.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723847"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122089"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Usuń Start/Stop VMs during off-hours z konta usługi Automation
 
@@ -24,21 +24,7 @@ Usunięcie tej funkcji powoduje jedynie usunięcie skojarzonych elementów Runbo
 
 ## <a name="delete-the-dedicated-resource-group"></a>Usuń dedykowaną grupę zasobów
 
-1. Zaloguj się do platformy Azure pod adresem [https://portal.azure.com](https://portal.azure.com) .
-
-2. Przejdź do konta usługi Automation, a następnie wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
-
-3. Wybierz pozycję **Przejdź do obszaru roboczego**.
-
-4. W obszarze **Ogólne** kliknij pozycję **rozwiązania** .
-
-5. Na stronie rozwiązania wybierz pozycję **Start-Stop-VM [obszar roboczy]**.
-
-6. Na stronie **VMManagementSolution [obszar roboczy]** wybierz pozycję **Usuń** z menu.
-
-    ![Usuwanie funkcji zarządzania maszyną wirtualną](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-7. Aby usunąć grupę zasobów utworzoną tylko pod kątem obsługi Start/Stop VMs during off-hours, wykonaj kroki opisane w artykule [Azure Resource Manager grup zasobów i usuwania zasobów](../azure-resource-manager/management/delete-resource-group.md) .
+Aby usunąć grupę zasobów, wykonaj kroki opisane w artykule [Azure Resource Manager grupy zasobów i usunięcie zasobu](../azure-resource-manager/management/delete-resource-group.md) .
 
 ## <a name="delete-the-automation-account"></a>Usuwanie konta usługi Automation
 

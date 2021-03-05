@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733021"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123279"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń usługi Azure IoT Edge z aplikacją usługi Azure IoT Central
 
@@ -87,6 +87,20 @@ IoT Central używa [szablonów urządzeń](concepts-device-templates.md) do defi
 * Polecenia, na które urządzenie reaguje, tak aby IoT Central mógł wyświetlić interfejs użytkownika dla operatora, który zostanie użyty do wywołania poleceń.
 
 Urządzenie IoT Edge może wysyłać dane telemetryczne, synchronizować wartości właściwości i odpowiadać na polecenia w taki sam sposób jak w przypadku urządzenia standardowego. W związku z tym urządzenie IoT Edge musi mieć szablon urządzenia w programie IoT Central.
+
+### <a name="iot-edge-device-templates"></a>Szablony urządzeń IoT Edge
+
+Szablony urządzeń IoT Central używają modeli do opisywania możliwości urządzeń. Na poniższym diagramie przedstawiono strukturę modelu dla IoT Edge urządzenia:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Struktura modelu dla IoT Edge urządzenia połączonego z IoT Central" border="false":::
+
+IoT Central modeluje urządzenie IoT Edge w następujący sposób:
+
+* Każdy szablon urządzenia IoT Edge ma model możliwości.
+* Dla każdego modułu niestandardowego wymienionego w manifeście wdrożenia jest generowany model możliwości modułu.
+* Między każdym modelem możliwości modułu a modelem urządzenia zostaje ustanowiona relacja.
+* Model możliwości modułu implementuje co najmniej jeden interfejs modułu.
+* Każdy interfejs modułu zawiera dane telemetryczne, właściwości i polecenia.
 
 ### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>IoT Edge manifestów wdrożenia i szablony urządzeń IoT Central
 

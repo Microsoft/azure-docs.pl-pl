@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5df7088551e7e7f616077342b762baca179f8640
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095141"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123364"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -56,10 +56,10 @@ Następujące scenariusze nie są obecnie obsługiwane:
 
 ## <a name="known-issues"></a>Znane problemy
 
-- **Włączenie wdrażania etapowego dla funkcji logowania użytkownika zarządzanego** nie obsługuje przypisywania przez grupę.
 - *Tylko licencjonowani klienci usługi Azure AD P2*: Nie przypisuj grupy jako aktywnej do roli za pomocą usługi Azure AD i PRIVILEGED Identity Management (PIM). W przeciwnym razie nie przypisuj roli do grupy możliwej do przypisania, gdy zostanie ona utworzona, *i* przypiszesz rolę do grupy przy użyciu usługi PIM później. Dzięki temu użytkownicy nie mogą zobaczyć aktywnych przypisań ról w programie PIM, jak również uniemożliwić usunięcie tego przypisania programu PIM. W tym scenariuszu nie ma żadnych zmian w kwalifikujących się przypisaniach. Jeśli podjęto próbę wykonania tego przypisania, może wystąpić nieoczekiwane zachowanie, takie jak:
   - Godzina zakończenia przypisywania roli może być błędnie wyświetlana.
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
+- **Włączenie wdrażania etapowego dla funkcji logowania użytkownika zarządzanego** nie obsługuje przypisywania przez grupę.
 - *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  
 - Użyj nowego [Centrum administracyjnego programu Exchange](https://admin.exchange.microsoft.com/) do przypisywania ról za pośrednictwem członkostwa w grupie. Stare centrum administracyjne programu Exchange nie obsługuje jeszcze tej funkcji. Polecenia cmdlet programu Exchange PowerShell będą działały zgodnie z oczekiwaniami.
 - Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.

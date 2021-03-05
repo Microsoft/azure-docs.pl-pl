@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować zasady kontroli dostępu do adres�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4e01375388f12b828d9adcb1e2ed8851061a0bf
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560733"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122718"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Dane przechowywane na koncie usługi Azure Cosmos DB można zabezpieczyć za pom
 
 Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony konto Azure Cosmos DB i wybierz opcję **Zapora i sieci wirtualne** w menu nawigacji. Zmień wartość **Zezwalaj na dostęp z** wartości na **wybrane sieci**, a następnie wybierz pozycję **Zapisz**.
 
-:::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
+![Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal](./media/how-to-configure-firewall/azure-portal-firewall.png)
 
 Po włączeniu kontroli dostępu do adresów IP Azure Portal zapewnia możliwość określania adresów IP, zakresów adresów IP i przełączników. Przełączniki umożliwiają dostęp do innych usług platformy Azure i Azure Portal. Poniższe sekcje zawierają szczegółowe informacje dotyczące tych przełączników.
 
@@ -48,7 +48,7 @@ Po włączeniu kontroli dostępu do adresów IP Azure Portal zapewnia możliwoś
 
 Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla Azure Portal do właściwości **ipRangeFilter** , aby zachować dostęp. Adresy IP portalu to:
 
-|Region|Adres IP|
+|Region (Region)|Adres IP|
 |------|----------|
 |Niemcy|51.4.229.218|
 |Chiny|139.217.8.252|
@@ -57,13 +57,13 @@ Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla
 
 Żądania dostępu do Azure Portal można włączyć, wybierając opcję **Zezwalaj na dostęp z Azure Portal** , jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania dostępu Azure Portal":::
+![Zrzut ekranu przedstawiający sposób włączania dostępu Azure Portal](./media/how-to-configure-firewall/enable-azure-portal.png)
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Zezwalaj na żądania z globalnych centrów danych platformy Azure lub innych źródeł na platformie Azure
 
 W przypadku uzyskania dostępu do konta Azure Cosmos DB z usług, które nie zapewniają statycznego adresu IP (na przykład Azure Stream Analytics i Azure Functions), można nadal korzystać z zapory IP w celu ograniczenia dostępu. Możesz włączyć dostęp z innych źródeł w ramach platformy Azure, wybierając opcję **Akceptuj połączenia z poziomu centrów danych platformy Azure** , jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Zrzut ekranu przedstawiający sposób akceptowania połączeń z centrów danych platformy Azure":::
+![Zrzut ekranu przedstawiający sposób akceptowania połączeń z centrów danych platformy Azure](./media/how-to-configure-firewall/enable-azure-services.png)
 
 Po włączeniu tej opcji adres IP `0.0.0.0` zostanie dodany do listy dozwolonych adresów IP. `0.0.0.0`Adres IP ogranicza żądania do konta Azure Cosmos DB z zakresu adresów IP centrum danych platformy Azure. To ustawienie nie zezwala na dostęp do konta usługi Azure Cosmos DB z jakiegokolwiek innego adresu IP.
 
@@ -103,6 +103,12 @@ Po dodaniu wystąpień maszyn wirtualnych do grupy automatycznie otrzymuje ona d
 ### <a name="requests-from-the-internet"></a>Żądania z Internetu
 
 W przypadku uzyskiwania dostępu do konta Azure Cosmos DB z komputera w Internecie należy dodać adres IP lub zakres adresów IP komputera do listy dozwolonych adresów IP dla Twojego konta.
+
+### <a name="add-outbound-rules-to-the-firewall"></a>Dodawanie reguł ruchu wychodzącego do zapory
+
+Aby uzyskać dostęp do bieżącej listy zakresów wychodzących adresów IP w celu dodania ich do ustawień zapory, zobacz [pobieranie zakresów adresów IP platformy Azure i znaczników usług](https://www.microsoft.com/download/details.aspx?id=56519).
+
+Aby zautomatyzować listę, zobacz [Korzystanie z interfejsu API odnajdywania tagów usług (publiczna wersja zapoznawcza)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurowanie zapory IP przy użyciu szablonu Menedżer zasobów
 

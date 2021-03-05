@@ -187,8 +187,6 @@
               href: deploy-ci-cd-custom-container.md
             - name: Wdrażanie z lokalnego wdrożenia narzędzia Git
               href: deploy-local-git.md
-            - name: Akcja usługi GitHub
-              href: deploy-github-actions.md
             - name: Akcja usługi GitHub dla kontenerów
               href: deploy-container-github-action.md
             - name: Wdrażanie za pomocą szablonu

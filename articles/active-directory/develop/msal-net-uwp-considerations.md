@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 8a8aab447007eb574a7a4bc532d8177bd0d8b345
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063454"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122480"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Zagadnienia dotyczące korzystania z platforma uniwersalna systemu Windows z MSAL.NET
 Deweloperzy aplikacji korzystających z platforma uniwersalna systemu Windows (platformy UWP) z MSAL.NET powinni wziąć pod uwagę Koncepcje opisane w tym artykule.
 
 ## <a name="the-usecorporatenetwork-property"></a>Właściwość UseCorporateNetwork
-Na platformie środowisko wykonawcze systemu Windows (WinRT) `PublicClientApplication` ma właściwość Boolean `UseCorporateNetwork` . Ta właściwość umożliwia aplikacjom Windows 8.1 i aplikacjom platformy UWP korzystanie z zintegrowanego uwierzytelniania systemu Windows (IWA), jeśli użytkownik jest zalogowany na koncie z dzierżawcą Azure Active Directory federacyjnego (Azure AD). Użytkownicy zalogowani do systemu operacyjnego mogą również korzystać z logowania jednokrotnego (SSO). Po ustawieniu `UseCorporateNetwork` właściwości MSAL.NET korzysta z brokera uwierzytelniania w sieci Web (WAB).
+Na platformie środowisko wykonawcze systemu Windows (WinRT) `PublicClientApplication` ma właściwość Boolean `UseCorporateNetwork` . Ta właściwość umożliwia aplikacjom systemu Windows 10 i aplikacjom platformy UWP korzystanie z zintegrowanego uwierzytelniania systemu Windows (IWA), jeśli użytkownik jest zalogowany do konta, które ma dzierżawę usługi federacyjnej Azure Active Directory (Azure AD). Użytkownicy zalogowani do systemu operacyjnego mogą również korzystać z logowania jednokrotnego (SSO). Po ustawieniu `UseCorporateNetwork` właściwości MSAL.NET korzysta z brokera uwierzytelniania w sieci Web (WAB).
 
 > [!IMPORTANT]
 > Ustawienie `UseCorporateNetwork` właściwości na true zakłada, że deweloper aplikacji WŁĄCZYŁ IWA w aplikacji. Aby włączyć IWA:

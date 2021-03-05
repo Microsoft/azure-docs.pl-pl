@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686025"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122378"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,10 @@ Dostęp do serwera interfejsu API można kontrolować za pomocą Kubernetes kont
 
 ## <a name="node-security"></a>Zabezpieczenia węzła
 
-AKS węzły są maszynami wirtualnymi platformy Azure, którymi zarządzasz. Węzły systemu Linux uruchamiają zoptymalizowaną dystrybucję Ubuntu przy użyciu środowiska uruchomieniowego kontenera Moby. W węzłach systemu Windows Server działa zoptymalizowana wersja systemu Windows Server 2019, a także należy używać środowiska uruchomieniowego kontenera Moby. Po utworzeniu lub skalowaniu klastra AKS węzły są automatycznie wdrażane z najnowszymi aktualizacjami i konfiguracjami zabezpieczeń systemu operacyjnego.
+AKS węzły są maszynami wirtualnymi platformy Azure, którymi zarządzasz. Węzły systemu Linux uruchamiają zoptymalizowaną dystrybucję Ubuntu przy użyciu `containerd` środowiska uruchomieniowego kontenera lub Moby. W węzłach systemu Windows Server działa zoptymalizowane wydanie systemu Windows Server 2019, a także używany jest program `containerd` lub środowisko uruchomieniowe kontenera Moby. Po utworzeniu lub skalowaniu klastra AKS węzły są automatycznie wdrażane z najnowszymi aktualizacjami i konfiguracjami zabezpieczeń systemu operacyjnego.
+
+> [!NOTE]
+> Klastry AKS korzystające z pul węzłów Kubernetes w wersji 1,19 i większe użycie `containerd` jako środowiska uruchomieniowego kontenera. Klastry AKS korzystające z funkcji Kubernetes starszych niż v 1.19 dla pul węzłów używają [Moby](https://mobyproject.org/) (nadrzędnego Docker) jako środowiska uruchomieniowego kontenera.
 
 Platforma Azure automatycznie stosuje poprawki zabezpieczeń systemu operacyjnego w węzłach z systemem Linux w porze nocnej. Jeśli aktualizacja zabezpieczeń systemu operacyjnego Linux wymaga ponownego uruchomienia hosta, ponowne uruchomienie nie jest wykonywane automatycznie. Można ręcznie ponownie uruchomić węzły systemu Linux lub często używanym podejściem jest użycie [Kured][kured], demona ponownego uruchomienia typu open source dla Kubernetes. Kured działa jako [elementu daemonset][aks-daemonsets] i monitoruje każdy węzeł pod kątem obecności pliku wskazujący, że wymagany jest ponowny rozruch. Ponowne uruchomienia są zarządzane przez klaster przy użyciu tego samego [procesu Cordon i opróżniania](#cordon-and-drain) co uaktualnienie klastra.
 

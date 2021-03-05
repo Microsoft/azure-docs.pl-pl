@@ -50,6 +50,8 @@
     - name: Zarządzanie zasobami platformy Azure
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Izolacja sieci dla zasobów platformy Azure
+      href: How-To/network-isolation.md
     - name: Zarządzanie dostępem do zasobów QnA Maker
       href: How-To/manage-qna-maker-app.md
     - name: Zarządzanie bazą wiedzy

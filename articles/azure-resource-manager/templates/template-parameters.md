@@ -3,12 +3,12 @@ title: Parametry w szablonach
 description: Opisuje sposób definiowania parametrów w pliku szablonu Azure Resource Manager (szablon ARM) i Bicep.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: b23417766524204e490450568bb80b8c49e2d328
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a8608e4733960d7f5ba7e5f548c47f16a2b244bb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043936"
+ms.locfileid: "102123398"
 ---
 # <a name="parameters-in-arm-templates"></a>Parametry w szablonach ARM
 
@@ -16,7 +16,7 @@ W tym artykule opisano sposób definiowania i używania parametrów w szablonie 
 
 Menedżer zasobów rozwiązuje wartości parametrów przed rozpoczęciem operacji wdrażania. W każdym przypadku, gdy parametr jest używany w szablonie, Menedżer zasobów zastępuje go rozpoznaną wartością.
 
-Każdy parametr musi być ustawiony na jeden z [typów danych](template-syntax.md#data-types).
+Każdy parametr musi być ustawiony na jeden z [typów danych](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

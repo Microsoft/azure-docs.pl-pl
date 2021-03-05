@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: c305ee78abac7e175dc086666dfd1e2926f8da2b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097826"
+ms.locfileid: "102124163"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Dodawanie obsługi protokołu IPv6 dla prywatnej komunikacji równorzędnej przy użyciu Azure Portal (wersja zapoznawcza)
 
@@ -88,7 +88,7 @@ Wykonaj poniższe czynności, jeśli planujesz nawiązać połączenie z nowym z
 
 2. [Utwórz podsieć bramy o podwójnym stosie](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ.
+3. [Utwórz bramę sieci wirtualnej](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) za pomocą jednostki SKU nadmiarowej strefy (ErGw1AZ, ErGw2AZ, ErGw3AZ). Jeśli planujesz używać FastPath, użyj ErGw3AZ (należy zauważyć, że jest to dostępne tylko dla obwodów korzystających z usługi ExpressRoute Direct).
 
 4. [Połącz sieć wirtualną z obwodem ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
@@ -99,6 +99,8 @@ Gdy obsługa protokołu IPv6 jest dostępna dla połączeń z wdrożeniami w reg
 * Połączenia z wdrożeniami w regionach innych niż AZ
 * Global Reach połączenia między obwodymi usługi ExpressRoute
 * Korzystanie z ExpressRoute z wirtualną siecią WAN
+* FastPath z obwodami bezpośrednimi innymi niż ExpressRoute
+* Współistnienie z VPN Gateway
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904293"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122871"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Jak automatycznie diagnozować i rozwiązywać problemy w chmurze Azure wiosennej
 
 **Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
-Diagnostyka chmurowa platformy Azure to interaktywny interfejs ułatwiający Rozwiązywanie problemów z aplikacją. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów Diagnostyka chmurowa platformy Azure wskazuje, co jest nieprawidłowe, i prowadzi użytkownika do informacji ułatwiających rozwiązywanie problemów i rozwiązywanie problemu.
+Diagnostyka chmurowa platformy Azure to interaktywny interfejs do rozwiązywania problemów z aplikacją bez konfiguracji. Diagnostyka chmurowa platformy Azure służy do identyfikowania problemów i prowadzi do informacji ułatwiających rozwiązywanie problemów i ich rozwiązywanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka niezbędne są następujące elementy:
@@ -28,9 +28,9 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Przejdź do strony Diagnostyka
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do strony **omówienia** chmury Azure wiosennej.
-3. Otwórz okno **diagnozowanie i rozwiązywanie problemów** z menu po lewej stronie strony.
+3. Wybierz opcję **Diagnozuj i rozwiąż problemy** w lewym okienku nawigacji.
 
  ![Diagnozuj, okno dialogowe rozwiązywania](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 
@@ -39,7 +39,7 @@ Aby znaleźć problem, można wyszukać, wpisując słowo kluczowe lub klikając
 
  ![Problemy z wyszukiwaniem](media/spring-cloud-diagnose/search-detectors.png)
 
-W przypadku wybrania opcji **Konfiguracja kondycji serwera**konfiguracji, **stanu kondycji serwera konfiguracji**lub **historii aktualizacji serwera konfiguracji** zostaną wyświetlone różne wyniki.
+W przypadku wybrania opcji **Konfiguracja kondycji serwera** konfiguracji, **stanu kondycji serwera konfiguracji** lub **historii aktualizacji serwera konfiguracji** zostaną wyświetlone różne wyniki.
 
 ![Opcje problemów](media/spring-cloud-diagnose/detectors-options.png)
 

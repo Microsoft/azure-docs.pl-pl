@@ -9,18 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 69313b48b505bd0b53df6f15f636e2903f41ebfd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661107"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124010"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
 W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby uzyskać pełną zawartość referencyjną SDK, odwiedź stronę referencyjną [**głównego zestawu sdk Azure Machine Learning dla języka Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 __Kanał informacyjny RSS__: otrzymuj powiadomienie, gdy ta strona zostanie zaktualizowana przez skopiowanie i wklejenie następującego adresu URL w czytniku kanałów informacyjnych: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-28"></a>2021-02-28
+### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Środowisko Azure Machine Learning Studio notesy (Aktualizacja z lutego)
++ **Nowe funkcje**
+  + [Terminal macierzysty (ga)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Użytkownicy będą mieli teraz dostęp do zintegrowanego terminalu, a także do operacji Git za pośrednictwem zintegrowanego terminalu.
+  + [Fragmenty notesu (wersja zapoznawcza)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Najpopularniejsze fragmenty kodu usługi Azure ML są teraz dostępne na wyręką. Przejdź do panelu fragmenty kodu, dostępnego za pośrednictwem paska narzędzi lub Aktywuj menu fragmenty w kodzie za pomocą klawiszy CTRL + SPACJA.  
+  + [Skróty klawiaturowe](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Pełna zgodność ze skrótami klawiaturowymi dostępnymi w Jupyter. 
+  + Wskaż parametry komórki. Pokazuje, że użytkownicy z komórką w notesie są komórką parametrów i mogą uruchamiać sparametryzowane notesy za pośrednictwem [Papermill](https://github.com/nteract/papermill) na wystąpieniu obliczeniowym.
+  + Terminal i Menedżer sesji jądra: użytkownicy będą mogli zarządzać wszystkimi jądrami i sesjami terminali uruchomionymi w ramach obliczeń.
+  + Przycisk udostępniania. Użytkownicy mogą teraz udostępniać dowolny plik w Eksploratorze plików notesu, klikając go prawym przyciskiem myszy i korzystając z przycisku Udostępnij.
+
+
++ **Poprawki i ulepszenia błędów**
+  + Ulepszone czasy ładowania stron
+  + Większa wydajność 
+  + Ulepszona szybkość i niezawodność jądra
+  + Dodano wirujące koło, aby pokazać postęp dla wszystkich bieżących [operacji wystąpienia obliczeniowego](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators).
+  + Kliknij prawym przyciskiem myszy w Eksploratorze plików. Kliknięcie prawym przyciskiem myszy dowolnego pliku spowoduje teraz otwarcie operacji na plikach. 
 
 ## <a name="2021-02-16"></a>2021-02-16
 

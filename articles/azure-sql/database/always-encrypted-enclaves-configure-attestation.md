@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fb42a0428f0439053375027481d38977b068e356
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555665"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122582"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Konfigurowanie zaświadczania platformy Azure dla serwera logicznego usługi Azure SQL
 
@@ -66,10 +66,14 @@ authorizationrules
 
 Powyższe zasady sprawdzają:
 
-- Enklawy wewnątrz Azure SQL Database nie obsługuje debugowania (co zmniejsza poziom ochrony zapewniany przez enklawy).
-- Identyfikator produktu biblioteki wewnątrz enklawy jest IDENTYFIKATORem produktu przypisanym do Always Encrypted za pomocą bezpiecznego enclaves (4639).
-- Identyfikator wersji (SVN) biblioteki jest większy niż 0.
+- Enklawy wewnątrz Azure SQL Database nie obsługuje debugowania. 
+  > Enclaves można załadować z wyłączonym lub włączonym debugowaniem. Obsługa debugowania została zaprojektowana tak, aby umożliwić deweloperom Rozwiązywanie problemów z kodem uruchomionym w enklawy. W systemie produkcyjnym debugowanie może umożliwić administratorowi badanie zawartości enklawy, co zmniejsza poziom ochrony zapewniany przez enklawy. Zalecane zasady uniemożliwiają debugowanie, aby upewnić się, że jeśli złośliwy administrator podejmie próbę włączenia obsługi debugowania przez przejęcie maszyny enklawy, zaświadczanie zakończy się niepowodzeniem. 
+- Identyfikator produktu enklawy jest zgodny z IDENTYFIKATORem produktu przypisanym do Always Encrypted za pomocą bezpiecznego enclaves.
+  > Każdy enklawy ma unikatowy identyfikator produktu, który odróżnia enklawy od innych enclaves. Identyfikator produktu przypisany do Always Encrypted enklawy to 4639. 
+- Numer wersji zabezpieczeń (SVN) biblioteki jest większy niż 0.
+  > System SVN umożliwia firmie Microsoft reagowanie na potencjalne usterki dotyczące zabezpieczeń zidentyfikowane w kodzie enklawy. Jeśli problem z zabezpieczeniami został rozkryty i rozwiązany, firma Microsoft wdroży nową wersję enklawy z nowym (kolejnym) systemem SVN. Powyższe zalecane zasady zostaną zaktualizowane w celu odzwierciedlenia nowego SVN. Aktualizując zasady zgodnie z zalecanymi zasadami, można upewnić się, że jeśli złośliwy administrator próbuje załadować starsze i niezabezpieczone enklawy, zaświadczanie zakończy się niepowodzeniem.
 - Biblioteka w enklawy została podpisana przy użyciu klucza podpisywania firmy Microsoft (wartość żądania x-MS-SGX-mrsigner jest skrótem klucza podpisywania).
+  > Jednym z głównych celów zaświadczania jest przekonanie klientów, że plik binarny działający w enklawy to plik binarny, który powinien zostać uruchomiony. Zasady zaświadczania zapewniają dwa mechanizmy do tego celu. Jednym z nich jest **mrenclave** , który jest skrótem pliku binarnego, który ma być uruchamiany w enklawy. Problem z **mrenclave** polega na tym, że skrót binarny zmienia się nawet przy użyciu prostych zmian w kodzie, co sprawia, że jest to trudne w przypadku kodu działającego w enklawy. W związku z tym zaleca się użycie **mrsigner**, który jest skrótem klucza, który jest używany do podpisywania danych binarnych enklawy. Gdy firma Microsoft Revs enklawy, **mrsigner** pozostaje taka sama, o ile klucz podpisywania nie zostanie zmieniony. W ten sposób będzie możliwe wdrożenie zaktualizowanych plików binarnych bez przerywania aplikacji klientów. 
 
 > [!IMPORTANT]
 > Dostawca zaświadczania zostanie utworzony przy użyciu domyślnych zasad dla Intel SGX enclaves, który nie sprawdza poprawności kodu działającego wewnątrz enklawy. Firma Microsoft zdecydowanie zaleca ustawienie powyższych zalecanych zasad i nieużywanie zasad domyślnych dla Always Encrypted z bezpiecznym enclaves.

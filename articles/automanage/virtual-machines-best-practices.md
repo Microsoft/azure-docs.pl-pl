@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 1bcf9009a039a10017d53ca6fe9e78acec1efd55
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5cdc0080c0d8b06bd0b7e19566b54b4f105648e5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581228"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122106"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Usługa Azure automanage dla najlepszych rozwiązań dotyczących maszyn wirtualnych
 
@@ -38,7 +38,7 @@ W przypadku wszystkich tych usług będziemy automatycznie dołączać, automaty
 |Obszar roboczy usługi Log Analytics    |Azure Monitor przechowuje dane dzienników w obszarze roboczym Log Analytics, który jest zasobem platformy Azure i kontenerem, w którym zbierane są dane, agregowane i obsługiwane jako granica administracyjna. Dowiedz się [więcej](../azure-monitor/logs/design-logs-deployment.md).    |Najlepsze praktyki dotyczące maszyn wirtualnych platformy Azure — produkcja, najlepsze rozwiązania dotyczące maszyn wirtualnych platformy Azure — tworzenie i testowanie    |Nie    |
 
 
-<sup>1</sup> profile konfiguracji są dostępne podczas włączania autozarządzania. Dowiedz się [więcej](automanage-virtual-machines.md#configuration-profiles). Możesz również dostosować ustawienia domyślne profilu konfiguracji i ustawić własne preferencje w ramach ograniczeń najlepszych rozwiązań.
+<sup>1</sup> profile konfiguracji są dostępne podczas włączania autozarządzania. Dowiedz się [więcej](automanage-virtual-machines.md). Możesz również dostosować ustawienia domyślne profilu konfiguracji i ustawić własne preferencje w ramach ograniczeń najlepszych rozwiązań.
 
 
 ## <a name="next-steps"></a>Następne kroki
