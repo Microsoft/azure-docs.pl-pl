@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560858"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204188"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
@@ -29,7 +29,7 @@ Zacznij wdrożyć maszynę wirtualną DCsv2-Series za pośrednictwem komercyjnej
 
 ### <a name="current-available-sizes-and-regions"></a>Bieżące dostępne rozmiary i regiony
 
-Aby wyświetlić listę wszystkich ogólnie dostępnych poufnych rozmiarów maszyn wirtualnych w dostępnych regionach i strefach dostępności, uruchom następujące polecenie w [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Aby wyświetlić listę wszystkich ogólnie dostępnych poufnych rozmiarów maszyn wirtualnych w dostępnych regionach i strefach dostępności, uruchom następujące polecenie w [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `

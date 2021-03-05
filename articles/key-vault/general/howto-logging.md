@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 9ec1e59a5599ca2e95578eacc1484932956ebf16
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108742"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204018"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Jak włączyć rejestrowanie Key Vault
 
@@ -34,7 +34,7 @@ Te polecenia przewodnika są formatowane dla [Cloud Shell](https://shell.azure.c
 
 Pierwszy krok konfigurowania rejestrowania kluczy nawiązuje połączenie z subskrypcją zawierającą magazyn kluczy. Jest to szczególnie ważne, jeśli masz wiele subskrypcji skojarzonych z Twoim kontem.
 
-Za pomocą interfejsu wiersza polecenia platformy Azure można wyświetlić wszystkie subskrypcje za pomocą poleceń [AZ Account List](/cli/azure/account?view=azure-cli-latest#az_account_list) , a następnie połączyć się z jednym przy użyciu [AZ Account Set](/cli/azure/account?view=azure-cli-latest#az_account_set):
+Za pomocą interfejsu wiersza polecenia platformy Azure można wyświetlić wszystkie subskrypcje za pomocą poleceń [AZ Account List](/cli/azure/account#az_account_list) , a następnie połączyć się z jednym przy użyciu [AZ Account Set](/cli/azure/account#az_account_set):
 
 ```azurecli-interactive
 az account list
@@ -58,7 +58,7 @@ Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która 
 
 Należy również podać nazwę konta magazynu. Nazwy kont magazynu muszą mieć unikatową długość od 3 do 24 znaków i używać tylko cyfr i małych liter.  Na koniec utworzymy konto magazynu dla jednostki SKU "Standard_LRS".
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage account Create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) .
+Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage account Create](/cli/azure/storage/account#az_storage_account_create) .
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -84,9 +84,9 @@ Identyfikator "ID" konta magazynu będzie miał format "/subscriptions/<IDENTYFI
 
 ## <a name="obtain-your-key-vault-resource-id"></a>Uzyskaj identyfikator zasobu magazynu kluczy
 
-W [interfejsie wiersza polecenia szybki start](quick-create-cli.md) i programie [PowerShell](quick-create-powershell.md)utworzono klucz z unikatową nazwą.  Użyj tej nazwy ponownie w poniższych krokach.  Jeśli nie możesz zapamiętać nazwy magazynu kluczy, możesz użyć polecenia cmdlet [AZ Key magazyn list](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_list) lub Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) , aby je wyświetlić.
+W [interfejsie wiersza polecenia szybki start](quick-create-cli.md) i programie [PowerShell](quick-create-powershell.md)utworzono klucz z unikatową nazwą.  Użyj tej nazwy ponownie w poniższych krokach.  Jeśli nie możesz zapamiętać nazwy magazynu kluczy, możesz użyć polecenia cmdlet [AZ Key magazyn list](/cli/azure/keyvault#az_keyvault_list) lub Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault?view=azps-4.7.0) , aby je wyświetlić.
 
-Użyj nazwy magazynu kluczy, aby znaleźć identyfikator zasobu.  Korzystając z interfejsu wiersza polecenia platformy Azure, użyj [AZ kluczy show](/cli/azure/keyvault?view=azure-cli-latest#az_keyvault_show) polecenie.
+Użyj nazwy magazynu kluczy, aby znaleźć identyfikator zasobu.  Korzystając z interfejsu wiersza polecenia platformy Azure, użyj [AZ kluczy show](/cli/azure/keyvault#az_keyvault_show) polecenie.
 
 ```azurecli-interactive
 az keyvault show --name "<your-unique-keyvault-name>"
@@ -102,7 +102,7 @@ Identyfikator zasobu dla magazynu kluczy będzie miał format "/subscriptions/<I
 
 ## <a name="enable-logging-using-azure-powershell"></a>Włącz rejestrowanie przy użyciu Azure PowerShell
 
-Aby włączyć rejestrowanie Key Vault, użyjemy interfejsu wiersza polecenia platformy Azure [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest) lub polecenia cmdlet [Set-AZDIAGNOSTICSETTING](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) wraz z identyfikatorem konta magazynu i identyfikatorem zasobu magazynu kluczy.
+Aby włączyć rejestrowanie Key Vault, użyjemy interfejsu wiersza polecenia platformy Azure [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings) lub polecenia cmdlet [Set-AZDIAGNOSTICSETTING](/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-4.7.0) wraz z identyfikatorem konta magazynu i identyfikatorem zasobu magazynu kluczy.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
@@ -116,7 +116,7 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 Opcjonalnie możesz ustawić zasady przechowywania dla dzienników, aby starsze dzienniki były automatycznie usuwane po upływie określonego czasu. Można na przykład ustawić zasady przechowywania, które automatycznie usuwają dzienniki starsze niż 90 dni.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_update) command. 
+<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings update 
@@ -143,7 +143,7 @@ Co to jest rejestrowane:
 
 Dzienniki Key Vault są przechowywane w kontenerze "Insights-Logs-auditevent" na podanym koncie magazynu. Aby wyświetlić dzienniki, należy pobrać obiekty blob.
 
-Najpierw utwórz listę wszystkich obiektów BLOB w kontenerze.  Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage BLOB list](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_list) .
+Najpierw utwórz listę wszystkich obiektów BLOB w kontenerze.  Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage BLOB list](/cli/azure/storage/blob#az_storage_blob_list) .
 
 ```azurecli-interactive
 az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
@@ -159,7 +159,7 @@ Jak widać na podstawie danych wyjściowych polecenia cmdlet platformy Azure lub
 
 Ponieważ do zbierania dzienników dla wielu zasobów można użyć tego samego konta magazynu, pełny identyfikator zasobu w nazwie obiektu BLOB jest przydatny do uzyskiwania dostępu do obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob.
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage BLOB Download](/cli/azure/storage/blob?view=azure-cli-latest#az_storage_blob_download) , przekaż je do nazw obiektów blob i ścieżkę do pliku, w którym chcesz zapisać wyniki.
+Korzystając z interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage BLOB Download](/cli/azure/storage/blob#az_storage_blob_download) , przekaż je do nazw obiektów blob i ścieżkę do pliku, w którym chcesz zapisać wyniki.
 
 ```azurecli-interactive
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"

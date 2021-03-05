@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545687"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203151"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 
 | Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
 | --- | --- | --- |
-| W &nbsp; usłudze Azure &nbsp; Digital &nbsp; bliźniaczych reprezentacji ma to wpływ na następujące grupy poleceń:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Jest to wynik znanego problemu w Cloud Shell: [*pobieranie tokenu z Cloud Shell sporadycznie kończy się niepowodzeniem z powodu błędu 400 klienta: Nieprawidłowe żądanie*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Powoduje to problem z tokenami uwierzytelniania wystąpienia usługi Azure Digital bliźniaczych reprezentacji oraz domyślnym uwierzytelnianiem opartym na [tożsamościach zarządzanych](../active-directory/managed-identities-azure-resources/overview.md) przez Cloud Shell. <br><br>Nie ma to wpływu na polecenia usługi Azure Digital bliźniaczych reprezentacji z `az dt` `az dt endpoint` grup poleceń lub, ponieważ używają one innego typu tokenu uwierzytelniania (opartego na Azure Resource Manager), który nie ma problemu z uwierzytelnianiem tożsamości zarządzanej Cloud Shell. | Jednym ze sposobów na rozwiązanie tego problemu jest ponowne uruchomienie `az login` polecenia w Cloud Shell i wykonanie kolejnych kroków logowania. Spowoduje to przełączenie sesji uwierzytelniania tożsamości zarządzanej, co pozwala uniknąć problemu z elementem głównym. Następnie powinno być możliwe ponowne uruchomienie polecenia.<br><br>Alternatywnie możesz otworzyć okienko Cloud Shell w Azure Portal i zakończyć pracę Cloud Shell z tego miejsca.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Obraz ikony Cloud Shell na pasku ikon Azure Portal" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia. |
+| W &nbsp; usłudze Azure &nbsp; Digital &nbsp; bliźniaczych reprezentacji ma to wpływ na następujące grupy poleceń:<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | Jest to wynik znanego problemu w Cloud Shell: [*pobieranie tokenu z Cloud Shell sporadycznie kończy się niepowodzeniem z powodu błędu 400 klienta: Nieprawidłowe żądanie*](https://github.com/Azure/azure-cli/issues/11749).<br><br>Powoduje to problem z tokenami uwierzytelniania wystąpienia usługi Azure Digital bliźniaczych reprezentacji oraz domyślnym uwierzytelnianiem opartym na [tożsamościach zarządzanych](../active-directory/managed-identities-azure-resources/overview.md) przez Cloud Shell. <br><br>Nie ma to wpływu na polecenia usługi Azure Digital bliźniaczych reprezentacji z `az dt` `az dt endpoint` grup poleceń lub, ponieważ używają one innego typu tokenu uwierzytelniania (opartego na Azure Resource Manager), który nie ma problemu z uwierzytelnianiem tożsamości zarządzanej Cloud Shell. | Jednym ze sposobów na rozwiązanie tego problemu jest ponowne uruchomienie `az login` polecenia w Cloud Shell i wykonanie kolejnych kroków logowania. Spowoduje to przełączenie sesji uwierzytelniania tożsamości zarządzanej, co pozwala uniknąć problemu z elementem głównym. Następnie powinno być możliwe ponowne uruchomienie polecenia.<br><br>Alternatywnie możesz otworzyć okienko Cloud Shell w Azure Portal i zakończyć pracę Cloud Shell z tego miejsca.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Obraz ikony Cloud Shell na pasku ikon Azure Portal" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia. |
 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Brak przypisania roli po skonfigurowaniu skryptu

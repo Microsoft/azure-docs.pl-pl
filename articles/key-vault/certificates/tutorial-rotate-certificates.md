@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844492"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204052"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Samouczek: Konfigurowanie autorotacji certyfikatów w Key Vault
 
-Za pomocą Azure Key Vault można łatwo udostępniać i wdrażać certyfikaty cyfrowe oraz zarządzać nimi. Certyfikaty mogą być certyfikatami publicznymi i prywatnymi SSL (SSL) podpisywanymi przez urząd certyfikacji (CA) lub certyfikat z podpisem własnym. Key Vault mogą również żądać certyfikatów i odnawiać je poprzez partnerstwo z urzędami certyfikacji, zapewniając niezawodne rozwiązanie do zarządzania cyklem życia certyfikatów. W tym samouczku zostaną zaktualizowane okresy ważności certyfikatu, częstotliwość przestawiania i atrybuty urzędu certyfikacji.
+Za pomocą Azure Key Vault można łatwo udostępniać i wdrażać certyfikaty cyfrowe oraz zarządzać nimi. Certyfikaty mogą być certyfikatami publicznymi i prywatnymi Secure Sockets Layer (SSL) podpisywanymi przez urząd certyfikacji (CA) lub certyfikat z podpisem własnym. Key Vault mogą również żądać certyfikatów i odnawiać je poprzez partnerstwo z urzędami certyfikacji, zapewniając niezawodne rozwiązanie do zarządzania cyklem życia certyfikatów. W tym samouczku zostaną zaktualizowane okresy ważności certyfikatu, częstotliwość przestawiania i atrybuty urzędu certyfikacji.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Aby dowiedzieć się więcej na temat parametrów, zobacz [AZ webmagazyn Certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+Aby dowiedzieć się więcej na temat parametrów, zobacz [AZ webmagazyn Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

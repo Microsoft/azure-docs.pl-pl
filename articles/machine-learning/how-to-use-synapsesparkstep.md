@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f52686f991e3d14a8cde82c602b182874305f27d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102184104"
+ms.locfileid: "102203695"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Jak używać Apache Spark (obsługiwane przez usługę Azure Synapse Analytics) w potoku uczenia maszynowego (wersja zapoznawcza)
 
@@ -90,8 +90,6 @@ Pierwszym krokiem jest skonfigurowanie `SynapseCompute` . `linked_service`Argume
 Po utworzeniu konfiguracji można utworzyć Uczenie maszynowe, `ComputeTarget` przekazując w `Workspace` , `ComputeTargetAttachConfiguration` i nazwę, za pomocą której chcesz odwołać się do obliczeń w obszarze roboczym Machine Learning. Wywołanie `ComputeTarget.attach()` jest asynchroniczne, więc przykładowe bloki do momentu zakończenia wywołania.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Utwórz `SynapseSparkStep` , który używa połączonej puli Apache Spark
-
-Przykładowe [zadanie Spark notesu w puli platformy Apache Spark](https://github.com/azure/machinelearningnotebooks) definiuje prosty potok uczenia maszynowego. Najpierw Notes definiuje krok przygotowania danych, który jest obsługiwany przez `synapse_compute` zdefiniowane w poprzednim kroku. Następnie Notes definiuje krok szkoleniowy, który jest obsługiwany przez obiekt docelowy obliczeń lepiej dostosowany do szkoleń. W przykładowym notesie jest stosowana baza danych do przeżycia Titanic w celu zademonstrowania danych wejściowych i wyjściowych. w rzeczywistości nie czyści danych ani nie tworzą modelu predykcyjnego. Ze względu na to, że w tym przykładzie nie ma rzeczywistych szkoleń, krok szkoleniowy używa niedrogiego, opartego na PROCESORAch zasobów obliczeniowych.
 
 Dane są przesyłane do potoku uczenia maszynowego za pomocą `DatasetConsumptionConfig` obiektów, które mogą przechowywać dane tabelaryczne lub zestawy plików. Dane często pochodzą z plików w magazynie obiektów BLOB w magazynie danych obszaru roboczego. Poniższy kod przedstawia typowy kod służący do tworzenia danych wejściowych dla potoku uczenia maszynowego:
 
@@ -228,7 +226,7 @@ W razie potrzeby w powyższym kodzie zostanie utworzony nowy zasób obliczeniowy
 
 Po zdefiniowaniu wszystkich kroków można utworzyć i uruchomić potok. 
 
-```
+```python
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[step_1, step_2])

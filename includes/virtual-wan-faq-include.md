@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d275f2f4cad83c8f378c471e5a3fa1313d6c0e7d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: a66eff14490add8269082e4e54f077d1d9db7e02
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624877"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102205974"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -302,3 +302,8 @@ Nie. Wirtualna sieć WAN nie przechowuje żadnych danych klienta.
 ### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Czy istnieją dostawcy usług zarządzanych, którzy mogą zarządzać wirtualną siecią WAN dla użytkowników jako usługę?
 
 Tak. Aby uzyskać listę rozwiązań dostawcy usług zarządzanych (MSP) włączonych za pośrednictwem portalu Azure Marketplace, zobacz [oferty portalu Azure Marketplace według partnerów usługi Azure Networking msp](../articles/networking/networking-partners-msp.md#msp).
+
+### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Jak routing koncentratora sieci WAN różni się od serwera tras platformy Azure w sieci wirtualnej?
+
+Serwer tras platformy Azure oferuje usługę komunikacji równorzędnej Border Gateway Protocol (BGP), która może być używana przez urządzenie WUS (sieciowe urządzenie wirtualne) do uczenia tras z serwera tras w sieci wirtualnej centrum możesz. Routing przy użyciu wirtualnej sieci WAN zapewnia wiele możliwości, w tym Routing tranzytowy z sieci wirtualnej, routing niestandardowy, skojarzenie niestandardowej trasy i propagację oraz w pełni siatkowe usługi z obsługą usługi ExpressRoute, sieci VPN dla lokacji, użytkowników zdalnych/dużych skalowania P2S VPN i Secure Hub (Zapora platformy Azure). Po ustanowieniu komunikacji równorzędnej Border Gateway Protocol (BGP) między urządzenie WUS i serwerem routera platformy Azure można anonsować adresy IP od urządzenie WUS do sieci wirtualnej. W przypadku wszystkich zaawansowanych możliwości routingu, takich jak routing tranzytowy, routing niestandardowy itp., można użyć routingu wirtualnego sieci WAN.
+

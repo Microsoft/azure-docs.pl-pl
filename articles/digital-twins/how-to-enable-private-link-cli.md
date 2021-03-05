@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbaa83b38482203655f7de98cd5bbfec3ef7a870
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417858"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202947"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Włącz prywatny dostęp za pomocą linku prywatnego (wersja zapoznawcza): interfejs wiersza polecenia platformy Azure
 
@@ -41,7 +41,7 @@ Korzystając z [interfejsu wiersza polecenia platformy Azure](/cli/azure/what-is
 
 ### <a name="add-a-private-endpoint-to-an-existing-instance"></a>Dodaj prywatny punkt końcowy do istniejącego wystąpienia
 
-Aby utworzyć prywatny punkt końcowy i połączyć go z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, użyj polecenia [**AZ Network Private-Endpoint Create**](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create) . Zidentyfikuj wystąpienie usługi Azure Digital bliźniaczych reprezentacji przy użyciu jego w pełni kwalifikowanego identyfikatora w `--private-connection-resource-id` parametrze.
+Aby utworzyć prywatny punkt końcowy i połączyć go z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, użyj polecenia [**AZ Network Private-Endpoint Create**](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) . Zidentyfikuj wystąpienie usługi Azure Digital bliźniaczych reprezentacji przy użyciu jego w pełni kwalifikowanego identyfikatora w `--private-connection-resource-id` parametrze.
 
 Oto przykład, który używa polecenia, aby utworzyć prywatny punkt końcowy z tylko wymaganymi parametrami.
 
@@ -49,25 +49,25 @@ Oto przykład, który używa polecenia, aby utworzyć prywatny punkt końcowy z 
 az network private-endpoint create --connection-name {private_link_service_connection} -n {name_for_private_endpoint} -g {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
 ```
 
-Aby uzyskać pełną listę wymaganych i opcjonalnych parametrów, a także więcej przykładów tworzenia prywatnych punktów końcowych, zobacz [ **AZ Network Private-Endpoint Create** Reference dokumentacja](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create).
+Aby uzyskać pełną listę wymaganych i opcjonalnych parametrów, a także więcej przykładów tworzenia prywatnych punktów końcowych, zobacz [ **AZ Network Private-Endpoint Create** Reference dokumentacja](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
 
 ### <a name="manage-private-endpoint-connections-on-the-instance"></a>Zarządzanie połączeniami prywatnego punktu końcowego na tym wystąpieniu
 
-Po utworzeniu prywatnego punktu końcowego dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji można użyć poleceń [**AZ DT Network Private-Endpoint Connection**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection?view=azure-cli-latest&preserve-view=true) , aby kontynuować zarządzanie **połączeniami** prywatnego punktu końcowego w odniesieniu do wystąpienia. Operacje obejmują:
+Po utworzeniu prywatnego punktu końcowego dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji można użyć poleceń [**AZ DT Network Private-Endpoint Connection**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection) , aby kontynuować zarządzanie **połączeniami** prywatnego punktu końcowego w odniesieniu do wystąpienia. Operacje obejmują:
 * Pokaż połączenie prywatnego punktu końcowego
 * Ustawianie stanu połączenia prywatnego — punkt końcowy
 * Usuwanie połączenia prywatnego — punkt końcowy
 * Wyświetl listę wszystkich połączeń prywatnych punktów końcowych dla wystąpienia
 
-Więcej informacji i przykładów można znaleźć w dokumentacji usługi [ **AZ DT Network Private-Endpoint** Reference](/cli/azure/ext/azure-iot/dt/network/private-endpoint?view=azure-cli-latest&preserve-view=true).
+Więcej informacji i przykładów można znaleźć w dokumentacji usługi [ **AZ DT Network Private-Endpoint** Reference](/cli/azure/ext/azure-iot/dt/network/private-endpoint).
 
 ### <a name="manage-other-private-link-information-on-an-azure-digital-twins-instance"></a>Zarządzanie innymi informacjami o linku prywatnym w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji
 
-Dodatkowe informacje o stanie łącza prywatnego wystąpienia można uzyskać za pomocą polecenia [**AZ DT Network Private-link**](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true) . Operacje obejmują:
+Dodatkowe informacje o stanie łącza prywatnego wystąpienia można uzyskać za pomocą polecenia [**AZ DT Network Private-link**](/cli/azure/ext/azure-iot/dt/network/private-link) . Operacje obejmują:
 * Wyświetlanie listy prywatnych linków skojarzonych z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji
 * Pokaż prywatne łącze skojarzone z wystąpieniem
 
-Więcej informacji i przykładów można znaleźć w dokumentacji usługi [ **AZ DT Network Private-link** Reference](/cli/azure/ext/azure-iot/dt/network/private-link?view=azure-cli-latest&preserve-view=true).
+Więcej informacji i przykładów można znaleźć w dokumentacji usługi [ **AZ DT Network Private-link** Reference](/cli/azure/ext/azure-iot/dt/network/private-link).
 
 ## <a name="disable--enable-public-network-access-flags"></a>Wyłącz/Włącz flagi dostępu do sieci publicznej
 
@@ -79,7 +79,7 @@ W tym artykule pokazano, jak zaktualizować wartość flagi sieci przy użyciu [
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
-W interfejsie wiersza polecenia platformy Azure można wyłączyć lub włączyć dostęp do sieci publicznej, dodając `--public-network-access` do niego parametr `az dt create` . Chociaż to polecenie może również służyć do tworzenia nowego wystąpienia, można użyć go do edycji właściwości istniejącego wystąpienia, podając nazwę wystąpienia, które już istnieje. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) lub [Ogólne instrukcje dotyczące konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+W interfejsie wiersza polecenia platformy Azure można wyłączyć lub włączyć dostęp do sieci publicznej, dodając `--public-network-access` do niego parametr `az dt create` . Chociaż to polecenie może również służyć do tworzenia nowego wystąpienia, można użyć go do edycji właściwości istniejącego wystąpienia, podając nazwę wystąpienia, które już istnieje. (Aby uzyskać więcej informacji na temat tego polecenia, zobacz jego [dokumentację referencyjną](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) lub [Ogólne instrukcje dotyczące konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Aby **wyłączyć** dostęp do sieci publicznej dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji, użyj `--public-network-access` parametru w następujący sposób:
 

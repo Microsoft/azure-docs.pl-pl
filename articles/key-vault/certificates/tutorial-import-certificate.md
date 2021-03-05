@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 626d7f161d23e6105eea0ca160cd2c9be0ed0ea0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b7b15c1c4952f6e0a606b1ed46f1588c536b4ae2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935941"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204086"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w Azure Key Vault
 
@@ -78,7 +78,7 @@ Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub
     - **Nazwa certyfikatu**: ExampleCertificate.
     - **Przekaż plik certyfikatu**: Wybierz plik certyfikatu z dysku
     - **Hasło** : w przypadku przekazywania pliku certyfikatu chronionego hasłem Podaj tutaj hasło. W przeciwnym razie pozostaw to pole puste. Po pomyślnym zaimportowaniu pliku certyfikatu Magazyn kluczy usunie to hasło.
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -104,9 +104,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Dowiedz się więcej o [parametrach](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Dowiedz się więcej o [parametrach](/cli/azure/keyvault/certificate#az-keyvault-certificate-import).
 
-Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](/cli/azure/keyvault/certificate#az-keyvault-certificate-show)
 
 
 ```azurecli

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: cd4bba1bacbdb21a6bff4fcc5d3c1f3b2166ec35
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039987"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202913"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Podręcznik użytkownika usługi Azure kontrolą Data Catalog
 
@@ -49,6 +49,8 @@ Systemy danych, takie jak Azure ML i Power BI, są objęte usługą Azure kontro
 | Power BI | [Zestawy danych, dataflows, raporty & pulpitów nawigacyjnych](register-scan-power-bi-tenant.md)
 
 ## <a name="get-started-with-lineage"></a>Wprowadzenie do programu powiązanego
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
 
 Elementy powiązane w kontrolą zawierają zestawy danych i procesy. Zestawy danych są również nazywane węzłami, podczas gdy procesy mogą również określać krawędzie:
 

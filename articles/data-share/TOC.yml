@@ -77,7 +77,7 @@
     - name: Interfejs API REST
       href: /rest/api/datashare
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+      href: /cli/azure/azure-cli-reference-for-data-share
 - name: Zasoby
   items:
     - name: Pytania i odpowiedzi Microsoft — strona pytania

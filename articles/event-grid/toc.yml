@@ -212,6 +212,10 @@
           href: diagnostic-logs.md
         - name: Metryki
           href: metrics.md
+    - name: Przypadki zastosowań
+      items:
+        - name: Przypadki użycia dla domen
+          href: event-domains-use-cases.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie i wyświetlanie alertów tematów dotyczących systemu oraz zarządzanie nimi

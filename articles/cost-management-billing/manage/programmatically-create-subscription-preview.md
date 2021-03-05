@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: bc761d0bf4001fb1e3fb757b9be9e1e19689913d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844339"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202998"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Programowe tworzenie subskrypcji platformy Azure za pomocą interfejsów API w wersji zapoznawczej
 
@@ -198,7 +198,7 @@ Aby wyświetlić pełną listę parametrów, zobacz [New-AzSubscription](/powers
 
 Najpierw zainstaluj to rozszerzenie w wersji zapoznawczej, uruchamiając polecenie `az extension add --name subscription`.
 
-Uruchom następujące polecenie [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true), zastępując wartość `<enrollmentAccountObjectId>` wartością `name` skopiowaną w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Aby określić właścicieli, zobacz [jak uzyskać identyfikatory obiektów użytkowników](grant-access-to-create-subscription.md#userObjectId).
+Uruchom następujące polecenie [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create), zastępując wartość `<enrollmentAccountObjectId>` wartością `name` skopiowaną w pierwszym kroku (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Aby określić właścicieli, zobacz [jak uzyskać identyfikatory obiektów użytkowników](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
@@ -213,7 +213,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `owner-upn`    | Nie       | Ciąg | Adres e-mail dowolnego użytkownika, który ma zostać dodany jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`.|
 | `owner-spn` | Nie       | Ciąg | Identyfikator aplikacji dowolnej jednostki usługi, która ma zostać dodana jako właściciel RBAC platformy Azure subskrypcji po jej utworzeniu. Można użyć tego parametru zamiast parametru `owner-object-id`. Jeśli chcesz użyć tego parametru, jednostka usługi musi mieć [dostęp do odczytu tego katalogu](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole&preserve-view=true).|
 
-Aby wyświetlić pełną listę parametrów, zobacz [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create&preserve-view=true).
+Aby wyświetlić pełną listę parametrów, zobacz [az account create](/cli/azure/ext/subscription/account#-ext-subscription-az-account-create).
 
 ---
 

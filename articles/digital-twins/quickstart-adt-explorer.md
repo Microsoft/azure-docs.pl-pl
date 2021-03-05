@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: cb501dd8e548ea2f6ce8b63fbffb1c4b2403c9a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8c6e584a4bdb1953d7ceac4e3d612b329738f646
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035963"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203984"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji przy użyciu programu Azure Digital bliźniaczych reprezentacji Explorer
 
@@ -57,13 +57,13 @@ Pozostała część tej sekcji przeprowadzi Cię przez te kroki.
 
 Aplikacja Digital bliźniaczych reprezentacji Explorer korzysta z usługi [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (części `Azure.Identity` biblioteki) do uwierzytelniania użytkowników za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji, gdy zostanie on uruchomiony na komputerze lokalnym. Aby uzyskać więcej informacji na temat różnych sposobów uwierzytelniania aplikacji klienckiej za pomocą usługi Azure Digital bliźniaczych reprezentacji, zobacz [pisanie kodu uwierzytelniania aplikacji](how-to-authenticate-client.md).
 
-W przypadku tego typu uwierzytelniania program Azure Digital bliźniaczych reprezentacji Explorer będzie szukać poświadczeń w środowisku lokalnym, takich jak logowanie do platformy Azure w lokalnym [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) lub w programie Visual Studio lub Visual Studio Code. Z tego powodu należy *zalogować się lokalnie na platformie Azure* za pomocą jednego z tych mechanizmów, aby skonfigurować poświadczenia dla aplikacji Digital bliźniaczych reprezentacji Explorer.
+W przypadku tego typu uwierzytelniania program Azure Digital bliźniaczych reprezentacji Explorer będzie szukać poświadczeń w środowisku lokalnym, takich jak logowanie do platformy Azure w lokalnym [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub w programie Visual Studio lub Visual Studio Code. Z tego powodu należy *zalogować się lokalnie na platformie Azure* za pomocą jednego z tych mechanizmów, aby skonfigurować poświadczenia dla aplikacji Digital bliźniaczych reprezentacji Explorer.
 
 Jeśli użytkownik jest już zalogowany do platformy Azure za pomocą jednego z tych sposobów, można przejść do [następnej sekcji](#run-and-configure-azure-digital-twins-explorer).
 
 W przeciwnym razie możesz zainstalować lokalny interfejs wiersza polecenia platformy Azure, wykonując następujące czynności:
 
-1. Wykonaj czynności opisane w [tym linku instalacji](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) , aby zakończyć instalację zgodną z systemem operacyjnym.
+1. Wykonaj czynności opisane w [tym linku instalacji](/cli/azure/install-azure-cli) , aby zakończyć instalację zgodną z systemem operacyjnym.
 1. Otwórz okno konsoli na komputerze.
 1. Uruchom `az login` polecenie i postępuj zgodnie z monitami o uwierzytelnienie, aby zalogować się do konta platformy Azure.
 1. Możliwy ostatni krok: Jeśli używasz wielu subskrypcji platformy Azure w ramach tego konta, ustaw kontekst uwierzytelniania na subskrypcję platformy Azure zawierającą wystąpienie usługi Azure Digital bliźniaczych reprezentacji, uruchamiając polecenie `az account set --subscription "<your-subscription-name-or-ID>"` (nazwa lub wartość identyfikatora subskrypcji będzie działać).

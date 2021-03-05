@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73dc2520fbe970123a52133cb00909fea190610a
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882267"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202675"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
@@ -45,7 +45,7 @@ Jak wspomniano w [artykule Omówienie migracji](storage-files-migration-overview
 * Utwórz system Windows Server 2019 — co najmniej 2012R2 maszyny wirtualnej lub serwera fizycznego. Obsługiwany jest również klaster trybu failover systemu Windows Server.
 * Udostępnianie lub Dodawanie bezpośredniego dołączonego magazynu (DAS w porównaniu z serwerem NAS, co nie jest obsługiwane).
 
-    Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na urządzeniu NAS, jeśli używana jest funkcja obsługi [warstw w chmurze](storage-sync-cloud-tiering.md) w usłudze Azure File Sync.
+    Ilość dostępnego miejsca w magazynie może być mniejsza niż obecnie używane na urządzeniu NAS, jeśli używana jest funkcja obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) w usłudze Azure File Sync.
     Jednak podczas kopiowania plików z większej ilości miejsca do usługi NAS do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać czynności w partiach:
 
     1. Przenoszenie zestawu plików, który pasuje do dysku
@@ -105,7 +105,7 @@ Uruchom pierwszą kopię lokalną w folderze docelowym systemu Windows Server:
 
 Następujące polecenie RoboCopy skopiuje pliki z magazynu NAS do folderu docelowego systemu Windows Server. System Windows Server zsynchronizuje go z udziałami plików platformy Azure. 
 
-W przypadku zainicjowania obsługi mniejszej ilości miejsca w systemie Windows Server niż pliki na urządzeniu NAS, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest pełny, obsługa [warstw w chmurze](storage-sync-cloud-tiering.md) zostanie rozpoczęta i pliki warstw, które zostały już pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z urządzenia NAS. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby zobaczyć, co zostało zsynchronizowane, i zwolnić miejsce na dysku, aby uzyskać dostęp do 99% wolnego miejsca na woluminie.
+W przypadku zainicjowania obsługi mniejszej ilości miejsca w systemie Windows Server niż pliki na urządzeniu NAS, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest pełny, obsługa [warstw w chmurze](storage-sync-cloud-tiering-overview.md) zostanie rozpoczęta i pliki warstw, które zostały już pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z urządzenia NAS. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby zobaczyć, co zostało zsynchronizowane, i zwolnić miejsce na dysku, aby uzyskać dostęp do 99% wolnego miejsca na woluminie.
 Jest możliwe, że RoboCopy przenosi pliki szybciej niż można zsynchronizować lokalnie z chmurą i warstwą, w rezultacie kończy się miejsce na dysku lokalnym. RoboCopy zakończy się niepowodzeniem. Zalecane jest, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia to. Na przykład nie uruchamiaj zadań RoboCopy dla wszystkich udziałów w tym samym czasie lub przenosi tylko udziały pasujące do bieżącej ilości wolnego miejsca w systemie Windows Server, aby wymienić kilka.
 
 ```console
@@ -208,13 +208,13 @@ Zakończono Migrowanie udziału/grupy udziałów do wspólnego katalogu główne
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkie** grupy synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do bardziej dopasowanej do wykorzystania pamięci podręcznej, wypowiedz 20%. 
+> Po przeniesieniu wszystkich danych z serwera NAS do systemu Windows Server i zakończeniu migracji: Wróć do ***wszystkich***  grup synchronizacji w Azure Portal i Dostosuj wartość procentową ilości wolnego miejsca na woluminie w chmurze do wartości lepiej dopasowanej do wykorzystania pamięci podręcznej, powiedz 20%. 
 
 Zasady wolnego miejsca na woluminie w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania 99% wolnego miejsca na dysku, dzięki czemu lokalna pamięć podręczna nie będzie działała zgodnie z oczekiwaniami. O ile nie jest to cel, aby można było korzystać tylko z przestrzeni nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne i zachowuje resztę miejsca do magazynowania w innym scenariuszu.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia RoboCopy w przypadku, gdy w systemie Windows Server po stronie serwera nie powiedzie się polecenie _. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Celem jest osiągnięcie ilości wolnego miejsca na 99% w woluminie.
+Najbardziej prawdopodobną przyczyną problemu może być uruchomienie polecenia *Robocopy po stronie* serwera systemu Windows. Obsługa warstw w chmurze jest przeprowadzana co godzinę, aby wypróbować zawartość z lokalnego dysku systemu Windows Server, który został zsynchronizowany. Celem jest osiągnięcie ilości wolnego miejsca na 99% w woluminie.
 
 Zezwalaj na postęp synchronizacji i warstwowanie w chmurze Zwolnij miejsce na dysku. Można obserwować, że w Eksploratorze plików systemu Windows Server.
 

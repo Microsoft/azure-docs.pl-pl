@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 469fdbced4601c6ffb4b6aa35e8f943bcb5dde1b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965786"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203627"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Jak zarządzać Strefy DNS w Azure DNS za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -37,7 +37,7 @@ W tym przewodniku zawarto specjalne strefy DNS. Aby uzyskać informacje na temat
 
 ## <a name="set-up-azure-cli-for-azure-dns"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure dla usługi Azure DNS
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi elementami:
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem konfiguracji sprawdź, czy dysponujesz następującymi eleme
 
 ### <a name="sign-in-to-your-azure-account"></a>Zaloguj się do swojego konta platformy Azure
 
-Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz [Logowanie do platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Otwórz okno konsoli i uwierzytelnij się przy użyciu swoich poświadczeń. Aby uzyskać więcej informacji, zobacz [Logowanie do platformy Azure z poziomu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 ```
 az login
@@ -85,7 +85,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
-Wszystkie poleceń interfejsu wiersza polecenia platformy Azure odnoszące się do Azure DNS zaczynają się od `az network dns` . Pomoc jest dostępna dla każdego polecenia przy użyciu `--help` opcji (krótka wersja `-h` ).  Przykład:
+Wszystkie poleceń interfejsu wiersza polecenia platformy Azure odnoszące się do Azure DNS zaczynają się od `az network dns` . Pomoc jest dostępna dla każdego polecenia przy użyciu `--help` opcji (krótka wersja `-h` ).  Na przykład:
 
 ```azurecli
 az network dns --help

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041505"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203899"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -88,7 +88,7 @@ Następnie skonfiguruj funkcje do komunikacji z wystąpieniem usługi Azure Sign
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, w którym są wyświetlane strony klucze dla wystąpienia sygnalizującego. Ikona &quot;Kopiuj do schowka&quot; obok podstawowych parametrów połączenia jest wyróżniona." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Na koniec Dodaj **Parametry połączenia** z usługą Azure Signal do ustawień aplikacji funkcji, korzystając z następującego polecenia platformy Azure. Ponadto Zastąp symbole zastępcze nazwą swojej grupy zasobów i usługi App Service/ [App.](how-to-integrate-azure-signalr.md#prerequisites) Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure:
+1. Na koniec Dodaj **Parametry połączenia** z usługą Azure Signal do ustawień aplikacji funkcji, korzystając z następującego polecenia platformy Azure. Ponadto Zastąp symbole zastępcze nazwą swojej grupy zasobów i usługi App Service/ [App.](how-to-integrate-azure-signalr.md#prerequisites) Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli)interfejs wiersza polecenia platformy Azure:
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -189,7 +189,7 @@ Spowoduje to otwarcie okna przeglądarki z uruchomioną przykładową aplikacją
 
 Jeśli zasoby utworzone w tym artykule nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
-Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Usunięcie grupy zasobów spowoduje również usunięcie...
+Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) . Usunięcie grupy zasobów spowoduje również usunięcie...
 * wystąpienie usługi Azure Digital bliźniaczych reprezentacji (z kompleksowego samouczka)
 * Rejestracja Centrum IoT Hub i urządzenia Hub (od końca do końca)
 * temat dotyczący siatki zdarzeń i skojarzonych subskrypcji

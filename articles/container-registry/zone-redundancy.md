@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat włączania nadmiarowości stref w Az
 ms.topic: article
 ms.date: 02/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a190ea68f41196fb11c20259b9953f516d6f5370
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738110"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203865"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Włącz nadmiarowość stref w Azure Container Registry na potrzeby odporności i wysokiej dostępności
 
@@ -48,7 +48,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Utwórz rejestr obsługujący strefę
 
-Uruchom polecenie [AZ ACR Create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) , aby utworzyć strefowo nadmiarowy rejestr w warstwie usługi Premium. Wybierz region, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry. W poniższym przykładzie jest włączona nadmiarowość strefy w regionie *wschodnim* . Zobacz `az acr create` Pomoc polecenia, aby uzyskać więcej opcji rejestru.
+Uruchom polecenie [AZ ACR Create](/cli/azure/acr#az_acr_create) , aby utworzyć strefowo nadmiarowy rejestr w warstwie usługi Premium. Wybierz region, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry. W poniższym przykładzie jest włączona nadmiarowość strefy w regionie *wschodnim* . Zobacz `az acr create` Pomoc polecenia, aby uzyskać więcej opcji rejestru.
 
 ```azurecli
 az acr create \
@@ -70,7 +70,7 @@ W danych wyjściowych polecenia Zanotuj `zoneRedundancy` Właściwość rejestru
 
 ### <a name="create-zone-redundant-replication"></a>Utwórz strefowo nadmiarową replikację
 
-Uruchom polecenie [AZ ACR Replication Create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) , aby utworzyć strefowo nadmiarową replikę rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, na przykład *westus2*. 
+Uruchom polecenie [AZ ACR Replication Create](/cli/azure/acr/replication#az_acr_replication_create) , aby utworzyć strefowo nadmiarową replikę rejestru w regionie, który [obsługuje strefy dostępności](../availability-zones/az-region.md) dla Azure Container Registry, na przykład *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -220,7 +220,7 @@ Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pl
   }
 ```
 
-Uruchom następujące polecenie [AZ Deployment Group Create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
+Uruchom następujące polecenie [AZ Deployment Group Create](/cli/azure/group/deployment#az_group_deployment_create) , aby utworzyć rejestr przy użyciu poprzedniego pliku szablonu. Gdzie to wskazane, podaj:
 
 * Unikatowa nazwa rejestru lub wdrożenie szablonu bez parametrów i spowoduje utworzenie unikatowej nazwy
 * Lokalizacja repliki obsługującej strefy dostępności, na przykład *westus2*

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e9b45c72e5fb4cbd9e548727faf8946e3e5ba8f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8fe8c07866b23e5d990b71bfc9cd556c338634d3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102125089"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203372"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
 
@@ -57,6 +57,8 @@ Możesz dodać adresy IP do dozwolonych usługi App Service, aby ograniczyć dos
    1. Pobierz [zakresy adresów IP dla wszystkich tagów usługi](https://www.microsoft.com/download/details.aspx?id=56519).
    2. Wybierz adresy IP elementu "CognitiveServicesManagement".
    3. Przejdź do sekcji Sieć zasobu App Service i kliknij opcję "Konfiguruj ograniczenie dostępu", aby dodać adresy IP do dozwolonych.
+
+    ![wyjątki portów przychodzących](../media/inbound-ports.png)
 
 Mamy również zautomatyzowany skrypt do wykonania tych samych App Service. [Skrypt programu PowerShell można znaleźć w celu skonfigurowania usługi dozwolonych](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) w witrynie GitHub. Musisz wprowadzić identyfikator subskrypcji, grupę zasobów i rzeczywistą App Serviceową nazwę jako parametry skryptu. Uruchomienie skryptu spowoduje automatyczne dodanie adresów IP do App Service dozwolonych.
 

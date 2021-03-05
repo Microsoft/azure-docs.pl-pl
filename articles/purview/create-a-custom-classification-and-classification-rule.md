@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
-ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d1a0873552ac9043d8f584f38ecd41c5e8543489
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988378"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202761"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Klasyfikacje niestandardowe w usłudze Azure kontrolą 
 
@@ -91,24 +91,50 @@ Aby utworzyć niestandardową regułę klasyfikacji:
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Dodaj nową regułę klasyfikacji" border="true":::
 
-5. Zostanie otwarte okno dialogowe **Nowa reguła klasyfikacji** . Wprowadź informacje o konfiguracji nowej reguły.
+5. Zostanie otwarte okno dialogowe **Nowa reguła klasyfikacji** . Wypełnij pola i zdecyduj, czy chcesz utworzyć **regułę wyrażenia regularnego** , czy **regułę słownika**.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="Utwórz nową regułę klasyfikacji" border="true":::
+    |Pole     |Opis  |
+    |---------|---------|
+    |Nazwa   |    Wymagane. Maksymalna liczba znaków to 100.    |
+    |Opis      |Opcjonalny. Maksymalna liczba znaków to 256.    |
+    |Nazwa klasyfikacji    | Wymagane. Wybierz nazwę klasyfikacji z listy rozwijanej, aby poinformować skaner o jej zastosowaniu po znalezieniu dopasowania.        |
+    |Stan   |  Wymagane. Opcje są włączone lub wyłączone. Domyślnie włączone.    |
 
-|Pole     |Opis  |
-|---------|---------|
-|Nazwa   |    Wymagane. Maksymalna liczba znaków to 100.    |
-|Opis      |Opcjonalny. Maksymalna liczba znaków to 256.    |
-|Nazwa klasyfikacji    | Wymagane. Wybierz nazwę klasyfikacji z listy rozwijanej, aby poinformować skaner o jej zastosowaniu po znalezieniu dopasowania.        |
-|Stan   |  Wymagane. Opcje są włączone lub wyłączone. Domyślnie włączone.    |
-|Wzorzec danych    |Opcjonalny. Wyrażenie regularne reprezentujące dane przechowywane w polu dane. Limit jest bardzo duży. W poprzednim przykładzie wzorzec danych testuje dla identyfikatora pracownika, który jest dosłownie wyraz `Employee{GUID}` .  |
-|Wzorzec kolumny    |Opcjonalny. Wyrażenie regularne, które reprezentuje nazwy kolumn, które mają być zgodne. Limit jest bardzo duży.          |
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-classification-rule.png" alt-text="Utwórz nową regułę klasyfikacji" border="true":::
 
-W obszarze **wzorzec danych** dostępne są dwie opcje:
+### <a name="creating-a-regular-expression-rule"></a>Tworzenie reguły wyrażenia regularnego
 
-- **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Sugerowana wartość to 8. Tę wartość można ręcznie dopasować do zakresu od 2 do 32. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
+1. W przypadku tworzenia reguły wyrażenia regularnego zobaczysz następujący ekran. Opcjonalnie można przekazać plik, który będzie używany do **generowania sugerowanych wzorców wyrażeń regularnych** dla reguły.
 
-- **Minimalny próg dopasowania**: można użyć tego ustawienia, aby ustawić minimalny procent wartości danych w kolumnie, która musi zostać znaleziona przez skaner dla klasyfikacji, która ma zostać zastosowana. Sugerowana wartość to 60%. Należy zachować ostrożność przy użyciu tego ustawienia. W przypadku obniżenia poziomu poniżej 60% możesz wprowadzić klasyfikacje fałszywie dodatnie w katalogu. Jeśli określisz wiele wzorców danych, to ustawienie jest wyłączone, a wartość zostanie ustalona na 60%.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Utwórz nową regułę wyrażenia regularnego" border="true":::
+
+1. Jeśli zdecydujesz się na wygenerowanie sugerowanego wzorca wyrażenia regularnego, po przesłaniu pliku wybierz jeden z sugerowanych wzorców i kliknij przycisk **Dodaj do wzorców** , aby użyć sugerowanych wzorców danych i kolumn. Można dostosować sugerowane wzorce lub można również wpisać własne wzorce bez przekazywania pliku.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generuj sugerowane wyrażenie regularne" border="true":::
+
+    |Pole     |Opis  |
+    |---------|---------|
+    |Wzorzec danych    |Opcjonalny. Wyrażenie regularne reprezentujące dane przechowywane w polu dane. Limit jest bardzo duży. W poprzednim przykładzie wzorzec danych testuje dla identyfikatora pracownika, który jest dosłownie wyraz `Employee{GUID}` .  |
+    |Wzorzec kolumny    |Opcjonalny. Wyrażenie regularne, które reprezentuje nazwy kolumn, które mają być zgodne. Limit jest bardzo duży.          |
+
+1. W obszarze **wzorzec danych** istnieją dwa progi, które można ustawić:
+
+    - **Próg DISTINCT dopasowania**: całkowita liczba unikatowych wartości danych, które należy znaleźć w kolumnie przed uruchomieniem przez skaner wzorca danych. Sugerowana wartość to 8. Tę wartość można ręcznie dopasować do zakresu od 2 do 32. System wymaga tej wartości, aby upewnić się, że kolumna zawiera wystarczającą ilość danych dla skanera, aby precyzyjnie sklasyfikować go. Na przykład kolumna zawierająca wiele wierszy zawierających wartość 1 nie zostanie sklasyfikowana. Kolumny zawierające jeden wiersz z wartością i resztą wierszy mają wartości null, które również nie są klasyfikowane. Jeśli określisz wiele wzorców, ta wartość ma zastosowanie do każdego z nich.
+
+    - **Minimalny próg dopasowania**: można użyć tego ustawienia, aby ustawić minimalną wartość procentową dopasowań wartości danych w kolumnie, która musi zostać znaleziona przez skaner dla klasyfikacji, która ma zostać zastosowana. Sugerowana wartość to 60%. Należy zachować ostrożność przy użyciu tego ustawienia. W przypadku obniżenia poziomu poniżej 60% możesz wprowadzić klasyfikacje fałszywie dodatnie w katalogu. Jeśli określisz wiele wzorców danych, to ustawienie jest wyłączone, a wartość zostanie ustalona na 60%.
+
+1. Teraz możesz zweryfikować swoją regułę i **utworzyć** ją.
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Sprawdź regułę przed utworzeniem" border="true":::
+
+### <a name="creating-a-dictionary-rule"></a>Tworzenie reguły słownika
+
+1.  W przypadku tworzenia reguły słownika zobaczysz następujący ekran. Przekaż plik, który zawiera wszystkie możliwe wartości dla tworzonej klasyfikacji w jednej kolumnie.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Utwórz regułę słownika" border="true":::
+
+1.  Po wygenerowaniu słownika można dostosować progi DISTINCT i minimalne dopasowanie oraz przesłać regułę.
+
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Utwórz regułę słownika" border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 

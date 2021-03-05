@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 502776e85eaafa46fb2b5ce45ca3bd937e303566
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a512151dce336de42da78232ca30845dae754db3
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366322"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202726"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -637,6 +637,6 @@ Migracja została ukończona.
 ## <a name="next-steps"></a>Następne kroki
 
 * Poznaj [Azure File Sync: aka.MS/AFS](./storage-sync-files-planning.md).
-* Zapoznaj się z elastycznością zasad obsługi [warstw w chmurze](storage-sync-cloud-tiering.md) .
+* Zapoznaj się z elastycznością zasad obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) .
 * [Włącz Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) w udziałach plików platformy Azure w celu planowania migawek i definiowania harmonogramów przechowywania kopii zapasowych.
 * Jeśli widzisz w Azure Portal, że niektóre pliki nie są synchronizowane, zapoznaj się z [przewodnikiem rozwiązywania problemów](storage-sync-files-troubleshoot.md) , aby rozwiązać te problemy.

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: eedb3dfeafbd378cfff7afb04fcc2b9aa6e791d6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e9cbb7daf61397064bd79f30d851d96fdf63f5a0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680353"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203236"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Wyszukiwanie semantyczne na platformie Azure Wyszukiwanie poznawcze
 
@@ -27,7 +27,7 @@ Podstawowa technologia wykorzystuje inwestycje z Bing i Microsoft Research i jes
 
 Funkcje publicznej wersji zapoznawczej obejmują:
 
-+ Algorytm klasyfikacji semantycznej, który pobiera odpowiednie dokumenty na podstawie kontekstu lub semantyki znaczenia warunków zapytania wyszukiwania
++ Semantyczny model klasyfikacji, który ocenia wyniki na podstawie kontekstu lub semantyki znaczenia warunków zapytania wyszukiwania
 + Napisy semantyczne, które podkreślają odpowiednie fragmenty
 + Semantyka odpowiedzi na zapytanie, sformułowane także od wyników
 + Sprawdź pisownię, która koryguje literówki przed przekazaniem terminów zapytania do aparatu wyszukiwania
@@ -44,7 +44,9 @@ Do tworzenia napisów i odpowiedzi są stosowane modele reprezentacji języka. W
 
 ## <a name="availability-and-pricing"></a>Dostępność i Cennik
 
-Klasyfikacja semantyczna jest dostępna poprzez [rejestrację](https://aka.ms/SemanticSearchPreviewSignup)rejestracji, w usługach wyszukiwania utworzonych w warstwie Standardowa (S1, S2, S3), które znajdują się w jednym z następujących regionów: Północne stany USA, zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA 2, Europa Północna, Europa Zachodnia. Korekta pisowni jest dostępna w tych samych regionach, ale nie ma ograniczeń warstwy. Jeśli masz istniejącą usługę, która spełnia kryteria warstwy i regionu, wymagane jest tylko rejestrowanie się.
+Klasyfikacja semantyczna jest dostępna poprzez [rejestrację](https://aka.ms/SemanticSearchPreviewSignup)rejestracji, w usługach wyszukiwania utworzonych w warstwie Standardowa (S1, S2, S3), które znajdują się w jednym z następujących regionów: Północne stany USA, zachodnie stany USA, zachodnie stany USA 2, Wschodnie stany USA 2, Europa Północna, Europa Zachodnia. Istniejąca usługa wyszukiwania o temperaturze S1 lub nowszej w określonych regionach jest zgodna z podglądem (nie ma potrzeby tworzenia nowej usługi).
+
+Korekta pisowni jest dostępna w tych samych regionach, ale nie ma ograniczeń warstwy i nie wymaga wymagania dotyczącego rejestracji. 
 
 Od 2 marca do 1 kwietnia, korekta pisowni i Klasyfikacja semantyczna są oferowane bezpłatnie. Po 1 kwietnia opłaty za korzystanie z tej funkcji będą naliczane. Oczekiwany koszt wynosi około USD $500 miesięcznie dla zapytań 250 000. Szczegółowe informacje o kosztach można znaleźć na [stronie cennika wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/) , a następnie [oszacować koszty i zarządzać nimi](search-sku-manage-costs.md).
 

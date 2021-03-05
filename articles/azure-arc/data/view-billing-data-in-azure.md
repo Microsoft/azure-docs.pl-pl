@@ -9,17 +9,17 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7ef1cd43d2efbc5ab92cc2b4cba4d237805d8921
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687536"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202658"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Przekaż dane dotyczące rozliczeń na platformę Azure i Wyświetl je w Azure Portal
 
 > [!IMPORTANT] 
->  W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc. Mimo że system rozliczeń działa jak najlepiej zakończyć licznik rozliczeń jest ustawiony na $0.  Jeśli wykonasz ten scenariusz, zobaczysz wpisy w rozliczeniach dla usługi o nazwie **hybrydowe usługi danych** i dla zasobów typu o nazwie **Microsoft. AzureData/ `<resource type>`**. Będziesz mieć możliwość wyświetlenia rekordu dla każdej usługi danych — utworzonego przez Ciebie łuku platformy Azure, ale każdy rekord zostanie rozliczony dla $0.
+>  W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc. Mimo że system rozliczeń działa jak najlepiej zakończyć licznik rozliczeń jest ustawiony na $0.  Jeśli wykonasz ten scenariusz, zobaczysz wpisy w rozliczeniach dla usługi o nazwie **hybrydowe usługi danych** i dla zasobów typu o nazwie **Microsoft. AzureArcData/ `<resource type>`**. Będziesz mieć możliwość wyświetlenia rekordu dla każdej usługi danych — utworzonego przez Ciebie łuku platformy Azure, ale każdy rekord zostanie rozliczony dla $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -119,7 +119,7 @@ Wykonaj następujące kroki, aby wyświetlić dane dotyczące rozliczeń w Azure
 1. Upewnij się, że Twój zakres jest ustawiony na subskrypcję, w której zostały utworzone zasoby usługi danych.
 1. Wybierz pozycję **Koszt według zasobów** na liście rozwijanej obok selektora zakresu w górnej części widoku.
 1. Upewnij się, że filtr daty jest ustawiony na **ten miesiąc** , lub inny zakres czasu, który ma sens w przypadku tworzenia zasobów usługi danych.
-1. Kliknij przycisk **Dodaj filtr** , aby dodać filtr według **typu zasobu** ,  =  `microsoft.azuredata/<data service type>` Jeśli chcesz odfiltrować tylko jeden typ usługi danych z włączonym łukem Azure.
+1. Kliknij przycisk **Dodaj filtr** , aby dodać filtr według **typu zasobu** ,  =  `Microsoft.AzureArcData/<data service type>` Jeśli chcesz odfiltrować tylko jeden typ usługi danych z włączonym łukem Azure.
 1. Zostanie wyświetlona lista wszystkich zasobów, które zostały utworzone i przekazane do platformy Azure. Ponieważ licznik rozliczeń to $0, zobaczysz, że koszt jest zawsze $0.
 
 ## <a name="download-billing-data"></a>Pobierz dane rozliczeń
@@ -159,5 +159,5 @@ Można sprawdzić poprawność plików danych rozliczeń w Azure Portal.
 7. Przejdź do szczegółów wygenerowanych folderów i plików, a następnie kliknij jeden z wygenerowanych plików CSV.
 8. Kliknij przycisk **Pobierz** , który zapisze plik w lokalnym folderze pobierania.
 9. Otwórz plik, używając przeglądarki plików CSV, takiej jak program Excel.
-10. Przefiltruj wyniki, aby wyświetlić tylko wiersze z **typem zasobu**  =  `Microsoft.AzureData/<data service resource type` .
+10. Przefiltruj wyniki, aby wyświetlić tylko wiersze z **typem zasobu**  =  `Microsoft.AzureArcData/<data service resource type` .
 11. Zostanie wyświetlona liczba godzin użycia wystąpienia w bieżącym 24-godzinnym okresie w kolumnie UsageQuantity.

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 441632ea33195ff8bcb6da5f4fb2298c337a6c97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 265d14d7cca05ff510e747c8d3a3b071e44a0a68
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043159"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202403"
 ---
 W tym kroku oceniasz, ile jest potrzebnych udziałów plików platformy Azure. Pojedyncze wystąpienie serwera systemu Windows (lub klaster) może synchronizować do 30 udziałów plików platformy Azure.
 
-Być może masz więcej folderów na woluminach, które są obecnie udostępniane lokalnie jako udziały SMB dla użytkowników i aplikacji. Najprostszym sposobem na zdjęcie tego scenariusza jest Envision udziału lokalnego, który mapuje 1:1 do udziału plików platformy Azure. Jeśli masz małą ilość poniżej 30 dla pojedynczego wystąpienia systemu Windows Server, zalecamy mapowanie 1:1.
+Być może masz więcej folderów na woluminach, które są obecnie udostępniane lokalnie jako udziały SMB dla użytkowników i aplikacji. Najprostszym sposobem na zdjęcie tego scenariusza jest Envision udziału lokalnego, który mapuje 1:1 do udziału plików platformy Azure. Jeśli masz małą ilość poniżej 30 dla pojedynczego wystąpienia systemu Windows Server, zalecane jest mapowanie 1:1.
 
 Jeśli masz więcej udziałów niż 30, często nie trzeba mapować lokalnego udziału 1:1 do udziału plików platformy Azure. Należy wziąć pod uwagę następujące opcje.
 
@@ -26,11 +26,11 @@ Na przykład jeśli Dział kadr (kadr) ma łącznie 15 udziałów, można rozwa�
 
 #### <a name="volume-sync"></a>Synchronizacja woluminu
 
-Azure File Sync obsługuje synchronizowanie katalogu głównego woluminu z udziałem plików platformy Azure. W przypadku synchronizacji folderu głównego wszystkie podfoldery i pliki będą przechodzić do tego samego udziału plików platformy Azure.
+Azure File Sync obsługuje synchronizowanie katalogu głównego woluminu z udziałem plików platformy Azure. W przypadku synchronizacji katalogu głównego woluminów wszystkie podfoldery i pliki będą przechodzić do tego samego udziału plików platformy Azure.
 
 Synchronizowanie katalogu głównego woluminu nie zawsze jest najlepszą odpowiedzią. Synchronizacja wielu lokalizacji ma zalety. Na przykład takie rozwiązanie pomaga zachować liczbę elementów mniejszą dla zakresu synchronizacji. Podczas testowania udziałów plików platformy Azure i Azure File Sync z 100 000 000 elementami (plikami i folderami) na udział najlepszym rozwiązaniem jest próba zachowania numeru poniżej 20 000 000 lub 30 000 000 w jednym udziale. Konfigurowanie Azure File Sync o mniejszej liczbie elementów nie jest przydatne w przypadku synchronizacji plików. Mniejsza liczba elementów korzysta również z następujących scenariuszy:
 
-* Początkowe skanowanie zawartości w chmurze przed rozpoczęciem jej uruchamiania na serwerze z włączonym Azure File Sync może zakończyć się szybciej.
+* Początkowe skanowanie zawartości w chmurze może zakończyć się szybciej, co z kolei zmniejsza czas oczekiwania na pojawienie się przestrzeni nazw na serwerze z włączonym Azure File Sync.
 * Przywracanie po stronie chmury z migawki udziału plików platformy Azure będzie szybsze.
 * Odzyskiwanie awaryjne serwera lokalnego może znacznie przyspieszyć.
 * Zmiany wprowadzone bezpośrednio w udziale plików platformy Azure (synchronizację zewnętrzną) mogą być wykrywane i synchronizowane szybciej.
@@ -47,24 +47,22 @@ Aby podjąć decyzję o liczbie potrzebnych udziałów plików platformy Azure, 
 * Serwer z zainstalowanym agentem Azure File Sync może być zsynchronizowany z maksymalnie 30 udziałami plików platformy Azure.
 * Udział plików platformy Azure jest wdrażany w ramach konta magazynu. Powoduje to, że konto magazynu jest celem skalowania dla numerów wydajności, takich jak operacje we/wy i przepływność.
 
-  Udziały plików platformy Azure w warstwie Standardowa (niepremium) mogą teoretycznie zamierzać maksymalną wydajność, jaką może dostarczyć konto magazynu. Jeśli planujesz dołączenie Azure File Sync do tych udziałów plików, zgrupowanie kilku udziałów plików platformy Azure na to samo konto magazynu nie spowoduje problemu. Przejrzyj cele wydajności udziału plików platformy Azure, aby uzyskać dokładniejszy wgląd w odpowiednie metryki, które należy wziąć pod uwagę.
+  Jeden standardowy udział plików platformy Azure może teoretycznie zaszeregować maksymalną wydajność, jaką może dostarczyć konto magazynu. Umieszczenie wielu udziałów na jednym koncie magazynu oznacza, że tworzysz udostępnioną pulę operacji we/wy na sekundę dla tych udziałów. Jeśli planujesz dołączenie Azure File Sync do tych udziałów plików, zgrupowanie kilku udziałów plików platformy Azure na to samo konto magazynu nie spowoduje problemu. Przejrzyj cele wydajności udziału plików platformy Azure, aby uzyskać dokładniejszy wgląd w odpowiednie metryki, które należy wziąć pod uwagę. Te ograniczenia nie dotyczą usługi Premium Storage, w której wydajność jest jawnie obsługiwana i gwarantowana dla każdego udziału.
 
-  Jeśli planujesz podnoszenie poziomu aplikacji na platformę Azure, która będzie korzystać z natywnego udziału plików platformy Azure, konieczne może być zwiększenie wydajności udziału plików platformy Azure. Jeśli tego rodzaju użycie jest możliwe, nawet w przyszłości, mapowanie udziału plików platformy Azure na jego własne konto magazynu jest najlepszym rozwiązaniem.
-* W jednym regionie platformy Azure obowiązuje limit 250 kont magazynu na subskrypcję.
+  Jeśli planujesz podnoszenie poziomu aplikacji na platformę Azure, która będzie korzystać z natywnego udziału plików platformy Azure, konieczne może być zwiększenie wydajności udziału plików platformy Azure. Jeśli tego rodzaju użycie jest możliwe, nawet w przyszłości, najlepiej utworzyć pojedynczy standardowy udział plików platformy Azure na własnym koncie magazynu.
+* Istnieje limit 250 kont magazynu na subskrypcję na region platformy Azure.
 
 > [!TIP]
 > Z tych informacji często zdarza się, aby zgrupować wiele folderów najwyższego poziomu na woluminach do wspólnego, nowego katalogu głównego. Następnie zsynchronizujesz ten nowy katalog główny i wszystkie foldery, które zostały pogrupowane, do pojedynczego udziału plików platformy Azure. Ta technika pozwala zachować limit 30 synchronizacji udziałów plików platformy Azure na serwer.
 >
-> Takie grupowanie w ramach wspólnego elementu głównego nie ma wpływu na dostęp do danych. Listy ACL pozostają w stanie takim, w jakim się znajdują. Wystarczy dostosować wszystkie ścieżki udziałów (na przykład udziały SMB lub NFS), które mogą znajdować się w folderach na serwerze, które zostały teraz zmienione do wspólnego katalogu głównego. Nic nie zmienia.
+> Takie grupowanie w ramach wspólnego elementu głównego nie ma wpływu na dostęp do danych. Listy ACL pozostają w stanie takim, w jakim się znajdują. Wystarczy dostosować wszystkie ścieżki udziałów (na przykład udziały SMB lub NFS), które mogą znajdować się w lokalnych folderach serwerowych, które zostały teraz zmienione do wspólnego katalogu głównego. Nic nie zmienia.
 
 > [!IMPORTANT]
-> Najważniejszym wektorem skali dla Azure File Sync jest liczba elementów (plików i folderów), które muszą być synchronizowane.
+> Najważniejszym wektorem skali dla Azure File Sync jest liczba elementów (plików i folderów), które muszą być synchronizowane. Przejrzyj [tarcze skalowania Azure File Sync](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) , aby uzyskać więcej szczegółów.
 
-Azure File Sync obsługuje synchronizowanie maksymalnie 100 000 000 elementów z pojedynczym udziałem plików platformy Azure. Ten limit można przekroczyć i pokazuje tylko, co zespół Azure File Sync sprawdza w regularnych odstępach czasu.
+Najlepszym rozwiązaniem jest utrzymywanie liczby elementów na niski zakres synchronizacji. Jest to istotny czynnik, który należy wziąć pod uwagę w mapowaniu folderów do udziałów plików platformy Azure. Azure File Sync jest testowany z 100 000 000 elementów (pliki i foldery) na udział. Często jednak najlepiej jest zachować liczbę elementów poniżej 20 000 000 lub 30 000 000 w jednym udziale. Podziel przestrzeń nazw na wiele udziałów, jeśli zaczniesz przekroczyć te liczby. Można nadal grupować wiele udziałów lokalnych w ten sam udział plików platformy Azure, jeśli pozostanie mniej niż te liczby. To rozwiązanie zapewni Ci miejsce na rozwój.
 
-Najlepszym rozwiązaniem jest utrzymywanie liczby elementów na niski zakres synchronizacji. Jest to istotny czynnik, który należy wziąć pod uwagę w mapowaniu folderów do udziałów plików platformy Azure. Podczas testowania udziałów plików platformy Azure i Azure File Sync z 100 000 000 elementami (plikami i folderami) na udział najlepszym rozwiązaniem jest próba zachowania numeru poniżej 20 000 000 lub 30 000 000 w jednym udziale. Podziel przestrzeń nazw na wiele udziałów, jeśli zaczniesz przekroczyć te liczby. Można nadal grupować wiele udziałów lokalnych w ten sam udział plików platformy Azure, jeśli pozostanie mniej niż te liczby. To rozwiązanie zapewni Ci miejsce na rozwój.
-
-W danej sytuacji istnieje możliwość, że zestaw folderów można logicznie synchronizować z tym samym udziałem plików platformy Azure (przy użyciu nowego, wspólnego podejścia do folderu głównego wymienionego wcześniej). Jednak nadal warto ponownie zgrupować foldery, aby były synchronizowane z dwoma, a nie jednym udziałem plików platformy Azure. Tego podejścia można użyć, aby zachować liczbę plików i folderów na udziale plików, które są zrównoważone na serwerze.
+W danej sytuacji istnieje możliwość, że zestaw folderów można logicznie synchronizować z tym samym udziałem plików platformy Azure (przy użyciu nowego, wspólnego podejścia do folderu głównego wymienionego wcześniej). Jednak nadal warto ponownie zgrupować foldery, aby były synchronizowane z dwoma, a nie jednym udziałem plików platformy Azure. Tego podejścia można użyć, aby zachować liczbę plików i folderów na udziale plików, które są zrównoważone na serwerze. Można również podzielić udziały lokalne i synchronizować je na więcej serwerów lokalnych, co umożliwia synchronizację z 30 większym udziałem plików platformy Azure na dodatkowy serwer.
 
 #### <a name="create-a-mapping-table"></a>Tworzenie tabeli mapowania
 

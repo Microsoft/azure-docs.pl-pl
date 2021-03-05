@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f95585237bbee743083b855dd78cc850c4daffe8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879986"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202692"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z systemu Linux do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
@@ -39,7 +39,7 @@ Jeśli nie korzystasz z programu Samba na serwerze z systemem Linux i nie chcesz
 * Utwórz wystąpienie systemu Windows Server 2019 jako maszynę wirtualną lub serwer fizyczny. System Windows Server 2012 R2 jest minimalnym wymaganiem. Jest również obsługiwany klaster trybu failover z systemem Windows Server.
 * Inicjowanie obsługi administracyjnej lub Dodawanie bezpośredniego dołączonego magazynu (DAS). Magazyn dołączony do sieci (NAS) nie jest obsługiwany.
 
-  Ilość dostępnego miejsca do magazynowania może być mniejsza niż obecnie używane na serwerze z systemem Linux Samba, jeśli używasz funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering.md) Azure File Sync. Jednak w przypadku kopiowania plików z większej ilości wolnego miejsca serwera z systemem Linux do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać następujące czynności:
+  Ilość dostępnego miejsca do magazynowania może być mniejsza niż obecnie używane na serwerze z systemem Linux Samba, jeśli używasz funkcji obsługi [warstw w chmurze](storage-sync-cloud-tiering-overview.md) Azure File Sync. Jednak w przypadku kopiowania plików z większej ilości wolnego miejsca serwera z systemem Linux do mniejszego woluminu systemu Windows Server w późniejszej fazie należy wykonać następujące czynności:
 
   1. Przenieś zestaw plików, który mieści się na dysku.
   2. Zezwalaj na synchronizację plików i obsługę warstw w chmurze.
@@ -98,7 +98,7 @@ Uruchom pierwszą kopię lokalną w folderze docelowym systemu Windows Server:
 
 Następujące polecenie Robocopy skopiuje pliki z magazynu serwera z systemem Linux Samba do folderu docelowego systemu Windows Server. System Windows Server zsynchronizuje go z udziałami plików platformy Azure. 
 
-W przypadku obsługi mniejszej ilości miejsca w magazynie w wystąpieniu systemu Windows Server, gdy pliki zostaną wdrożone na serwerze z systemem Linux Samba, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest zapełniony, obsługa [warstw w chmurze](storage-sync-cloud-tiering.md) zostanie uruchomiona i pliki warstw, które zostały pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z serwera z systemem Linux Samba. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby sprawdzić, co zostało zsynchronizowane i zwolnić miejsce na dysku w celu osiągnięcia zasad o 99% wolnego miejsca na woluminie.
+W przypadku obsługi mniejszej ilości miejsca w magazynie w wystąpieniu systemu Windows Server, gdy pliki zostaną wdrożone na serwerze z systemem Linux Samba, skonfigurowano obsługę warstw w chmurze. W miarę jak wolumin lokalnego systemu Windows Server jest zapełniony, obsługa [warstw w chmurze](storage-sync-cloud-tiering-overview.md) zostanie uruchomiona i pliki warstw, które zostały pomyślnie zsynchronizowane. Obsługa warstw w chmurze spowoduje wygenerowanie wystarczającej ilości miejsca, aby kontynuować kopiowanie z serwera z systemem Linux Samba. Obsługa warstw w chmurze jest sprawdzana raz na godzinę, aby sprawdzić, co zostało zsynchronizowane i zwolnić miejsce na dysku w celu osiągnięcia zasad o 99% wolnego miejsca na woluminie.
 
 Możliwe jest, że Robocopy przenosi pliki szybciej, niż można zsynchronizować lokalnie z chmurą i warstwą, co powoduje brak miejsca na dysku lokalnym. Robocopy zakończy się niepowodzeniem. Firma Microsoft zaleca, aby wykonać czynności wykonywane przez udziały w sekwencji, która uniemożliwia problem. Rozważmy na przykład nieuruchamianie zadań Robocopy dla wszystkich udziałów w tym samym czasie. Lub Rozważ przeniesienie udziałów pasujących do bieżącej ilości wolnego miejsca w wystąpieniu systemu Windows Server. Jeśli zadanie Robocopy zakończy się niepowodzeniem, zawsze można uruchomić polecenie tak długo, jak w przypadku korzystania z następującej opcji dublowania/przeczyszczania:
 

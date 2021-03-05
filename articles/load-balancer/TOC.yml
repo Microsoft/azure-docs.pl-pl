@@ -39,6 +39,8 @@
           href: tutorial-cross-region-portal.md
         - name: Tworzenie międzyregionowego modułu równoważenia obciążenia — PowerShell
           href: tutorial-cross-region-powershell.md
+        - name: Tworzenie międzyregionowego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
+          href: tutorial-cross-region-cli.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure

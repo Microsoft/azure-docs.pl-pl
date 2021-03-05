@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737617"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202641"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -119,26 +119,38 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="sizeondisk-versus-size"></a>
   **Dlaczego rozmiar właściwości *dysku* dla pliku jest zgodny z właściwością *size* po użyciu Azure File Sync?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  Zobacz artykuł [Omówienie obsługi warstw w chmurze Azure File Sync](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **Jak mogę sprawdzić, czy plik został warstwowy?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  Zobacz [, jak zarządzać plikami warstwowymi Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Plik, którego chcę użyć, został warstwowy. Jak można przywołać plik na dysk, aby użyć go lokalnie?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-recall-file).
+  Zobacz [, jak zarządzać plikami warstwowymi Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Jak mogę wymusić przeprowadzenie warstwowego pliku lub katalogu?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-force-tiering).
+  Zobacz [, jak zarządzać plikami warstwowymi Azure File Sync](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Jak jest interpretowane *wolne miejsce na woluminie* , gdy mam wiele punktów końcowych serwera na woluminie?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  Zobacz [wybieranie Azure File Sync zasad obsługi warstw w chmurze](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Mam wyłączone warstwy chmury, dlaczego istnieją pliki warstwowe w lokalizacji punktu końcowego serwera?**  
-  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-tiering-disabled).
+    Istnieją dwa powody, dla których w lokalizacji punktu końcowego serwera mogą znajdować się pliki warstwowe:
+
+    - W przypadku dodawania nowego punktu końcowego serwera do istniejącej grupy synchronizacji, jeśli wybierzesz opcję przywoływanie przestrzeni nazw lub opcji odwołaj tylko przestrzeń nazw dla początkowego trybu pobierania, pliki będą wyświetlane jako warstwowe, dopóki nie zostaną pobrane lokalnie. Aby tego uniknąć, zaznacz opcję Unikaj plików warstwowych w trybie pobierania początkowego. Aby ręcznie odwołać pliki, użyj polecenia cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) .
+
+    - Jeśli Obsługa warstw w chmurze została włączona w punkcie końcowym serwera, a następnie wyłączona, pliki pozostaną warstwą do momentu uzyskania do nich dostępu.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Dlaczego moje pliki warstwowe nie pokazują miniatur lub podglądów w Eksploratorze Windows?**  
+    W przypadku plików warstwowych miniatury i podglądy nie będą widoczne w punkcie końcowym serwera. To zachowanie jest oczekiwane, ponieważ funkcja pamięci podręcznej miniatur w systemie Windows celowo pomija odczytywanie plików z atrybutem offline. Po włączeniu obsługi warstw w chmurze odczytywanie za pomocą plików warstwowych spowodowałoby ich pobranie (są one wywoływane).
+
+    To zachowanie nie jest specyficzne dla Azure File Sync, Eksplorator Windows wyświetla "szary X" dla wszystkich plików, które mają ustawiony atrybut offline. Podczas uzyskiwania dostępu do plików za pośrednictwem protokołu SMB zobaczysz ikonę X. Szczegółowe wyjaśnienie tego zachowania można znaleźć w [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    Pytania dotyczące zarządzania plikami warstwowymi można znaleźć w temacie [jak zarządzać plikami warstwowymi](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Które pliki lub foldery są automatycznie wykluczane przez Azure File Sync?**  
@@ -274,7 +286,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     2.  Otwórz konsolę "Active Directory domeny i relacje zaufania"
     3.  Kliknij prawym przyciskiem myszy domenę, do której chcesz uzyskać dostęp do udziału plików, a następnie kliknij kartę "relacje zaufania" i wybierz domenę lasu B z zaufania wychodzącego. Jeśli nie skonfigurowano zaufania między tymi dwoma lasami, należy najpierw skonfigurować zaufanie
     4.  Kliknij pozycję "właściwości..." następnie "Nazwa routingu sufiksów"
-    5.  Sprawdź, czy surffix "*. file.core.windows.net" jest wyświetlany. Jeśli nie, kliknij przycisk "Odśwież"
+    5.  Sprawdź, czy sufiks "*. file.core.windows.net" jest wyświetlany. Jeśli nie, kliknij przycisk "Odśwież"
     6.  Wybierz pozycję "*. file.core.windows.net", a następnie kliknij pozycję "Włącz" i "Zastosuj"
 
 * <a id=""></a>

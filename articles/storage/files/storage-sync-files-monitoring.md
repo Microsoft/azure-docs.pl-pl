@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576768"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202505"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -111,7 +111,7 @@ Aby wyświetlić kondycję **punktu końcowego serwera** w portalu, przejdź do 
 
 - **Działanie** **kondycji punktu końcowego serwera** w portalu jest oparte na zdarzeniach synchronizacji, które są rejestrowane w dzienniku zdarzeń telemetrii na serwerze (identyfikator 9102 i 9302). Jeśli sesja synchronizacji kończy się niepowodzeniem z powodu błędu przejściowego, takiego jak błąd anulowany, punkt końcowy serwera będzie nadal wyświetlany jako w **dobrej kondycji** w portalu, dopóki bieżąca sesja synchronizacji jest w toku (pliki są stosowane). Identyfikator zdarzenia 9302 jest zdarzeniem postępu synchronizacji, a identyfikator zdarzenia 9102 jest rejestrowany po zakończeniu sesji synchronizacji.  Aby uzyskać więcej informacji, zobacz [kondycja synchronizacji](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) i [postęp synchronizacji](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Jeśli kondycja punktu końcowego serwera pokazuje **błąd** lub **nie działa**, zobacz dokumentację dotyczącą [rozwiązywania problemów](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) , aby uzyskać wskazówki.
 - Liczba **synchronizowanych plików** w portalu jest oparta na identyfikatorze zdarzenia 9121, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze. To zdarzenie jest rejestrowane dla każdego błędu poszczególnych elementów po zakończeniu sesji synchronizacji. Aby rozwiązać błędy poszczególnych elementów, zobacz [Jak mogę sprawdzić, czy istnieją określone pliki lub foldery, które nie są synchronizowane?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
-- Aby wyświetlić **wydajność obsługi warstw w chmurze** w portalu, przejdź do **właściwości punktu końcowego serwera** i przejdź do sekcji Obsługa **warstw chmury** . Dane dotyczące wydajności warstw chmury są oparte na zdarzeniu o IDENTYFIKATORze 9071, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze. Aby dowiedzieć się więcej, zobacz [Omówienie obsługi warstw w chmurze](./storage-sync-cloud-tiering.md).
+- Aby wyświetlić **wydajność obsługi warstw w chmurze** w portalu, przejdź do **właściwości punktu końcowego serwera** i przejdź do sekcji Obsługa **warstw chmury** . Dane dotyczące wydajności warstw chmury są oparte na zdarzeniu o IDENTYFIKATORze 9071, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze. Aby dowiedzieć się więcej, zobacz [monitorowanie warstw chmury](./storage-sync-monitor-cloud-tiering.md).
 - Aby wyświetlić **pliki niewarstwowe** i **Błędy odwołania** w portalu, przejdź do **właściwości punktu końcowego serwera** i przejdź do sekcji Obsługa **warstw w chmurze** . **Pliki bez warstw** opierają się na identyfikatorze zdarzenia 9003, który jest rejestrowany w dzienniku zdarzeń telemetrii na serwerze, a **Błędy odwoływania** są oparte na identyfikatorze zdarzenia 9006. Aby zbadać pliki, których nie można przystąpić do warstwy lub odwołania, zobacz [Jak rozwiązywać problemy z niepowodzeniem](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) i [sposobami rozwiązywania problemów z plikami, które nie zostały wywołane](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Wykresy metryk

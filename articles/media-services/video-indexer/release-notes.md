@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715160"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203729"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,12 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="march-2021"></a>Marzec 2021
+
+Analiza dźwięku jest teraz dostępna w dodatkowych nowych pakietach funkcji audio w innym punkcie cenowym. Nowe podstawowe ustawienia wstępne analizy **audio** zapewniają opcję niskiego kosztu, aby wyodrębnić transkrypcję i napisy danych wyjściowych. Podstawowe ustawienie wstępne **audio** spowoduje utworzenie dwóch oddzielnych mierników na rachunku, w tym wierszy transkrypcji i oddzielnego wiersza do formatowania napisów i napisów. Aby uzyskać więcej informacji na temat cen, zobacz stronę z [cennikiem Media Services](https://azure.microsoft.com/pricing/details/media-services/) .
+
+Nowo dodany pakiet jest dostępny podczas indeksowania lub ponownego indeksowania pliku przez wybranie **opcji Zaawansowane**  ->  **podstawowe** ustawienie wstępne audio (w polu listy rozwijanej **wideo i indeksowania audio** ).
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
