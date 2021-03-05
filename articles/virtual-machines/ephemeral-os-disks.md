@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9c13a914a002f63f3c0d5bd988b0d76b951586dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684563"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124690"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
 
@@ -244,6 +244,11 @@ Odp.: dyski tymczasowe nie obsługują:
 - Azure Backup
 - Azure Site Recovery  
 - Wymiana dysków systemu operacyjnego 
+
+> [!NOTE]
+> 
+> Dysk tymczasowych nie będzie dostępny za poorednictwem portalu. Podczas uzyskiwania dostępu do dysku tymczasowych może zostać wyświetlony komunikat o błędzie "nie znaleziono zasobu" lub "404".
+> 
  
 ## <a name="next-steps"></a>Następne kroki
 Za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/vm#az-vm-create)można utworzyć maszynę wirtualną z dyskiem systemu operacyjnego.

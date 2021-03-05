@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 3b4d66525ec52ef2382dfbe97bc09278e35b31fb
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704422"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124673"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurowanie DPDK na maszynie wirtualnej z systemem Linux
 
@@ -58,7 +58,7 @@ Wszystkie regiony platformy Azure obsługują usługę DPDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Na maszynie wirtualnej z systemem Linux musi być włączona szybsza sieć. Maszyna wirtualna powinna mieć co najmniej dwa interfejsy sieciowe z jednym interfejsem do zarządzania. Dowiedz się, jak [utworzyć maszynę wirtualną z systemem Linux z włączoną obsługą przyspieszonej sieci](create-vm-accelerated-networking-cli.md).
+Na maszynie wirtualnej z systemem Linux musi być włączona szybsza sieć. Maszyna wirtualna powinna mieć co najmniej dwa interfejsy sieciowe z jednym interfejsem do zarządzania. Nie zaleca się włączania przyspieszonej sieci w interfejsie zarządzania. Dowiedz się, jak [utworzyć maszynę wirtualną z systemem Linux z włączoną obsługą przyspieszonej sieci](create-vm-accelerated-networking-cli.md).
 
 ## <a name="install-dpdk-dependencies"></a>Instalowanie zależności DPDK
 
@@ -251,7 +251,7 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
 
 Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Opcje EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Polecenia Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
