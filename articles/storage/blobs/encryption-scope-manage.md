@@ -4,23 +4,28 @@ description: Dowiedz się, jak utworzyć zakres szyfrowania w celu wyodrębnieni
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017410"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209595"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)
 
 Zakresy szyfrowania (wersja zapoznawcza) umożliwiają zarządzanie szyfrowaniem na poziomie pojedynczego obiektu BLOB lub kontenera. Zakres szyfrowania izoluje dane obiektów blob w bezpiecznej enklawie na koncie magazynu. Zakresy szyfrowania można używać do tworzenia bezpiecznych granic między danymi znajdującymi się na tym samym koncie magazynu, ale należą do różnych klientów. Aby uzyskać więcej informacji na temat zakresów szyfrowania, zobacz [zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)](encryption-scope-overview.md).
 
 W tym artykule pokazano, jak utworzyć zakres szyfrowania. Przedstawiono w nim również sposób określania zakresu szyfrowania podczas tworzenia obiektu BLOB lub kontenera.
+
+> [!IMPORTANT]
+> Zakresy szyfrowania są obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+>
+> Aby uniknąć nieoczekiwanych kosztów, należy wyłączyć wszelkie zakresy szyfrowania, które nie są obecnie potrzebne.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 

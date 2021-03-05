@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26a9e931c42822218e7935f50c1f222ac33c34f2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015382"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210103"
 ---
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -21,7 +21,7 @@ ms.locfileid: "96015382"
 
 Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) Azure CLI, polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell lub z [Azure Portal](https://portal.azure.com).
+Utwórz grupę zasobów za pomocą polecenia [AZ Group Create](/cli/azure/group#az-group-create) Azure CLI, polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell lub z [Azure Portal](https://portal.azure.com).
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Jeśli masz już Magazyn kluczy, możesz pominąć, aby [ustawić zaawansowane zasady dostępu magazynu kluczy](#set-key-vault-advanced-access-policies).*
 
-Utwórz magazyn kluczy za pomocą polecenia [AZ Key magazyn Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) Azure CLI, polecenia [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) programu Azure PowerShell, [Azure Portal](https://portal.azure.com)lub [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Utwórz magazyn kluczy za pomocą polecenia [AZ Key magazyn Create](/cli/azure/keyvault#az-keyvault-create) Azure CLI, polecenia [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) programu Azure PowerShell, [Azure Portal](https://portal.azure.com)lub [szablonu Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
 > Magazyn kluczy i maszyny wirtualne muszą znajdować się w tej samej subskrypcji. Ponadto, aby zapewnić, że wpisy tajne szyfrowania nie przekraczają granic regionalnych, Azure Disk Encryption wymaga, aby Key Vault i maszyny wirtualne znajdowały się w tym samym regionie. Utwórz i użyj Key Vault, który znajduje się w tej samej subskrypcji i regionie co maszyny wirtualne do zaszyfrowania. 
@@ -129,7 +129,7 @@ Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć s
 
 Jeśli chcesz użyć klucza szyfrowania klucza (KEK) w celu uzyskania dodatkowej warstwy zabezpieczeń dla kluczy szyfrowania, Dodaj KEK do magazynu kluczy. W przypadku określenia klucza szyfrowania klucza Azure Disk Encryption używa tego klucza do zawijania wpisów tajnych szyfrowania przed zapisem w Key Vault.
 
-Nowy KEK można wygenerować przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key magazynu create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) Azure PowerShell, polecenie cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) lub [Azure Portal](https://portal.azure.com/). Musisz wygenerować typ klucza RSA; Azure Disk Encryption nie obsługuje jeszcze kluczy krzywej eliptycznej.
+Nowy KEK można wygenerować przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key magazynu create](/cli/azure/keyvault/key#az-keyvault-key-create) Azure PowerShell, polecenie cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) lub [Azure Portal](https://portal.azure.com/). Musisz wygenerować typ klucza RSA; Azure Disk Encryption nie obsługuje jeszcze kluczy krzywej eliptycznej.
 
 Zamiast tego możesz zaimportować KEK z lokalnego modułu HSM zarządzania kluczami. Aby uzyskać więcej informacji, zobacz [dokumentację Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
@@ -145,15 +145,15 @@ Azure Disk Encryption nie obsługuje określania numerów portów jako części 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Użyj interfejsu wiersza polecenia platformy Azure [AZ Key magazynu Create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) , aby wygenerować nowy KEK i zapisać go w magazynie kluczy.
+Użyj interfejsu wiersza polecenia platformy Azure [AZ Key magazynu Create](/cli/azure/keyvault/key#az-keyvault-key-create) , aby wygenerować nowy KEK i zapisać go w magazynie kluczy.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
-Zamiast tego możesz zaimportować klucz prywatny przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key magazynu klucz import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) :
+Zamiast tego możesz zaimportować klucz prywatny przy użyciu interfejsu wiersza polecenia platformy Azure [AZ Key magazynu klucz import](/cli/azure/keyvault/key#az-keyvault-key-import) :
 
-W obu przypadkach należy podać nazwę KEK w interfejsie wiersza polecenia platformy Azure [AZ VM Encryption Enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) --Key-Encryption-Key. 
+W obu przypadkach należy podać nazwę KEK w interfejsie wiersza polecenia platformy Azure [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encryption-enable) --Key-Encryption-Key. 
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>" --key-encryption-key "myKEK"
@@ -167,7 +167,7 @@ Użyj polecenia cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/a
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
 ```
 
-Zamiast tego możesz zaimportować klucz prywatny przy użyciu polecenia Azure PowerShell [AZ Key magazynu klucz import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) .
+Zamiast tego możesz zaimportować klucz prywatny przy użyciu polecenia Azure PowerShell [AZ Key magazynu klucz import](/cli/azure/keyvault/key#az-keyvault-key-import) .
 
 W obu przypadkach należy podać identyfikator magazynu kluczy KEK oraz adres URL KEK do parametrów Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId i-KeyEncryptionKeyUrl. Należy pamiętać, że w tym przykładzie założono, że używasz tego samego magazynu kluczy zarówno dla klucza szyfrowania dysku, jak i dla KEK.
 

@@ -215,7 +215,7 @@
     - name: Wskazówki dotyczące określania rozmiarów maszyn wirtualnych
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+      href: /cli/azure/ext/desktopvirtualization/
     - name: Przykładowe scenariusze dla platformy Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
     - name: Odnajdowanie poczty e-mail

@@ -3,12 +3,12 @@ title: Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do je
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia niestandardowej roli Azure Resource Manager i przypisywania jej do jednostki usługi na potrzeby analizy filmów wideo na żywo na IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425730"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210448"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do nazwy głównej usługi
 
@@ -49,7 +49,7 @@ Jeśli nie masz konta usługi multimediów, wykonaj następujące kroki, aby go 
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Utwórz [grupę zasobów](/cli/azure/group?view=azure-cli-latest#az-group-create) i [konto magazynu](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Utwórz [grupę zasobów](/cli/azure/group#az-group-create) i [konto magazynu](/cli/azure/storage/account#az-storage-account-create).
 1. Teraz Utwórz konto usługi Azure Media Service przy użyciu następującego szablonu polecenia w Cloud Shell:
 
     ```
@@ -85,8 +85,8 @@ To polecenie generuje odpowiedź w następujący sposób:
 ```
 1. Dane wyjściowe dla jednostki usługi z uwierzytelnianiem przy użyciu hasła zawierają klucz hasła, który w tym przypadku jest parametrem "AadSecret". 
 
-    Upewnij się, że skopiujesz tę wartość — nie można jej pobrać. Jeśli zapomnisz hasła, [Zresetuj poświadczenia nazwy głównej usługi](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. Identyfikator appId i klucz dzierżawy są wyświetlane odpowiednio w danych wyjściowych jako "AadClientId" i "AadTenantId". Są one używane w uwierzytelnianiu nazwy głównej usługi. Zapisz ich wartości, ale można je pobrać w dowolnym momencie za pomocą [AZ AD Sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Upewnij się, że skopiujesz tę wartość — nie można jej pobrać. Jeśli zapomnisz hasła, [Zresetuj poświadczenia nazwy głównej usługi](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+1. Identyfikator appId i klucz dzierżawy są wyświetlane odpowiednio w danych wyjściowych jako "AadClientId" i "AadTenantId". Są one używane w uwierzytelnianiu nazwy głównej usługi. Zapisz ich wartości, ale można je pobrać w dowolnym momencie za pomocą [AZ AD Sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Utwórz niestandardową definicję roli  
 
@@ -171,7 +171,7 @@ Powyższe polecenie spowoduje wydrukowanie identyfikatora obiektu nazwy główne
 “objectId” : “<yourObjectId>”,
 ```
 
-Użyj [polecenia AZ role przypisanie Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) , aby połączyć rolę niestandardową z jednostką usługi:
+Użyj [polecenia AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby połączyć rolę niestandardową z jednostką usługi:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    

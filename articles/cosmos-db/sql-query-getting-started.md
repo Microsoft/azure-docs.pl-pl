@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 9e6777a082dcda76c7c7df6bd1b55611cf5cdf84
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: dfa6b8eaa5f4ce8b2ebfb24a280e048ed3b19dda
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493163"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211519"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,8 +24,8 @@ W Azure Cosmos DB kontach interfejsu API SQL istnieją dwa sposoby odczytywania 
 Poniżej przedstawiono kilka przykładów **odczytu punktów** przy użyciu każdego zestawu SDK:
 
 - [Zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
-- [Zestaw SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Zestaw SDK dla platformy Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
+- [Zestaw SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Zestaw SDK dla platformy Node.js](/javascript/api/@azure/cosmos/item#read-requestoptions-)
 - [Zestaw SDK dla języka Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 **Zapytania SQL** — możesz wykonywać zapytania dotyczące danych, pisząc zapytania przy użyciu STRUCTURED Query Language (SQL) jako języka zapytań JSON. Zapytania zawsze mają koszt co najmniej 2,3 jednostek żądań i, ogólnie rzecz biorąc, będzie miało większe i więcej zmiennych opóźnień niż odczyty punktów. Zapytania mogą zwracać wiele elementów.

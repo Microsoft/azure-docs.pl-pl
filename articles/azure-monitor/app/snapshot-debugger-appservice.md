@@ -6,18 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728998"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211621"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Włącz Snapshot Debugger dla aplikacji .NET w programie Azure App Service
 
 Snapshot Debugger obecnie obsługuje aplikacje ASP.NET i ASP.NET Core, które działają w Azure App Service planach usług systemu Windows.
 
-Zalecamy uruchomienie aplikacji w warstwie Podstawowa usługi lub wyższej w przypadku korzystania z debugera migawek.
+W przypadku korzystania z debugera migawek zalecamy uruchomienie aplikacji w warstwie Podstawowa usługi lub wyższej.
+
 W przypadku większości aplikacji warstwy Bezpłatna i współdzielona nie mają wystarczającej ilości pamięci lub miejsca na dysku do zapisania migawek.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Włącz Snapshot Debugger
@@ -52,6 +53,16 @@ Po wdrożeniu aplikacji postępuj zgodnie z poniższymi instrukcjami, aby włąc
 4. Snapshot Debugger jest teraz włączona przy użyciu ustawienia aplikacji App Services.
 
     ![Ustawienie aplikacji dla Snapshot Debugger][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Włącz Snapshot Debugger dla innych chmur
+
+Obecnie jedynymi regionami, które wymagają modyfikacji punktów końcowych, są [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) i [Chiny platformy Azure](https://docs.microsoft.com/azure/china/resources-developer-guide) za pomocą parametrów połączenia Application Insights.
+
+|Właściwość parametrów połączenia    | Chmura dla instytucji rządowych USA | Chmura Chińska |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Aby uzyskać więcej informacji na temat innych zastąpień połączeń, zobacz [dokumentację Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Wyłącz Snapshot Debugger
 

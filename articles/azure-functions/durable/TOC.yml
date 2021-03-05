@@ -92,7 +92,7 @@
     - name: Interfejs API .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
     - name: Interfejs API Node.js
-      href: /javascript/api/durable-functions/?view=azure-node-latest
+      href: /javascript/api/durable-functions/
     - name: Interfejs API języka Python
       href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
 - name: Przewodniki z instrukcjami

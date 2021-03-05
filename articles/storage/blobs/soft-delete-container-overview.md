@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390185"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211145"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -27,8 +27,8 @@ Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie
 - Przechowywanie wersji obiektów BLOB w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 - Usuwanie nietrwałego obiektu BLOB w celu przywrócenia usuniętego obiektu BLOB lub wersji. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> Nie można cofnąć usunięcia konta magazynu. Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu, ale tylko w odniesieniu do usuwania kontenerów na tym koncie. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów Azure Resource Manager, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> Usuwanie nietrwałe kontenera jest obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
 
 ## <a name="how-container-soft-delete-works"></a>Jak działa usuwanie nietrwałe kontenera
 
@@ -46,14 +46,14 @@ Po upływie okresu przechowywania kontener zostanie trwale usunięty z usługi A
 
 Wyłączenie usuwania nietrwałego kontenera nie powoduje trwałego usunięcia kontenerów, które zostały wcześniej usunięte. Wszystkie nietrwałe kontenery usunięte zostaną trwale usunięte po upływie okresu przechowywania, który obowiązywał w momencie usunięcia kontenera.
 
+> [!IMPORTANT]
+> Usuwanie nietrwałe kontenera nie chroni przed usunięciem konta magazynu, ale tylko w odniesieniu do usuwania kontenerów na tym koncie. Aby chronić konto magazynu przed usunięciem, należy skonfigurować blokadę zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów Azure Resource Manager, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
 Usuwanie nietrwałe kontenera jest dostępne w wersji zapoznawczej we wszystkich regionach świadczenia usługi Azure.
 
-> [!IMPORTANT]
-> Wersja zapoznawcza usuwania nietrwałego kontenera jest przeznaczona wyłącznie do użytku nieprodukcyjnego. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
-
-W wersji 2019-12-12 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest usuwanie nietrwałe kontenera.
+Wersja 2019-12-12 lub nowsza interfejsu API REST usługi Azure Storage obsługuje usuwanie nietrwałe kontenera.
 
 ### <a name="storage-account-support"></a>Obsługa kont magazynu
 

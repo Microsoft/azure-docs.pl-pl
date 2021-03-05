@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4df340fa80ac4b9c4ff2a5e560580e09e01237e1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5a71a6bce6d0e1a41201e0d7395110a6ac64db8c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745922"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209751"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choosing the right number of fault domains for virtual machine scale set (Wybieranie odpowiedniej liczby domen błędów dla zestawu skalowania maszyn wirtualnych)
 Zestawy skalowania maszyn wirtualnych są tworzone z pięcioma domenami błędów domyślnie w regionach platformy Azure bez stref. W przypadku regionów obsługujących wdrożenie strefowe zestawów skalowania maszyn wirtualnych i wybrania tej opcji wartość domyślna liczby domen błędów wynosi 1 dla każdej z tych stref. Demon = 1 w tym przypadku oznacza, że wystąpienia maszyn wirtualnych należące do zestawu skalowania będą rozłożone w wielu stojakach na podstawie najlepszego wysiłku.
@@ -25,7 +25,7 @@ Można również rozważyć wyrównanie liczby domen błędów zestawu skalowani
 Właściwość można ustawić na wartość `properties.platformFaultDomainCount` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). Zapoznaj się z dokumentacją interfejsu API REST [tutaj](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Parametr można ustawić na wartość `--platform-fault-domain-count` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). W [tym miejscu](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure.
+Parametr można ustawić na wartość `--platform-fault-domain-count` 1, 2 lub 3 (Domyślnie wartość 3, jeśli nie zostanie określona). W [tym miejscu](/cli/azure/vmss#az-vmss-create)zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
 az vmss create \

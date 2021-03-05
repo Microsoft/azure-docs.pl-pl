@@ -9,21 +9,21 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000725"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211808"
 ---
 # <a name="managed-hsm-logging"></a>Rejestrowanie zarządzanego modułu HSM 
 
 Po utworzeniu co najmniej jednego zarządzanego sprzętowych modułów zabezpieczeń prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do HSMss oraz tego, kto. Można to zrobić przez włączenie rejestrowania, które zapisuje informacje na koncie usługi Azure Storage, które podano. Nowy kontener o nazwie **Insights-Logs-auditevent** jest tworzony automatycznie dla określonego konta magazynu. Tego samego konta magazynu można używać do zbierania dzienników dla wielu zarządzanych sprzętowych modułów zabezpieczeń.
 
-Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po operacji zarządzanego modułu HSM. W większości przypadków czas będzie krótszy.  To Ty zarządzasz dziennikami na swoim koncie magazynu:
+Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po operacji zarządzanego modułu HSM. W większości przypadków czas będzie krótszy.  Zarządzanie dziennikami na Twoim koncie magazynu zależy od Ciebie:
 
-* Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
-* Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
+* Aby zabezpieczyć dzienniki poprzez ograniczenie dostępu do nich, użyj standardowych metod kontroli dostępu platformy Azure.
+* Usuń dzienniki, których już nie chcesz przechowywać na koncie magazynu.
 
 Skorzystaj z tego samouczka, aby rozpocząć pracę z zarządzanym rejestrowaniem modułu HSM. Utworzysz konto magazynu, włączysz rejestrowanie i interpretujesz zebrane informacje dziennika.  
 
@@ -48,7 +48,7 @@ Pierwszym krokiem podczas konfigurowania rejestrowania kluczy jest wskazanie int
 az login
 ```
 
-Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 Być może trzeba będzie określić subskrypcję, która została użyta do utworzenia zarządzanego modułu HSM. Wprowadź następujące polecenie, aby wyświetlić subskrypcje dla konta:
 
@@ -65,7 +65,7 @@ Aby włączyć rejestrowanie dla zarządzanego modułu HSM, użyj polecenia **AZ
 
 Dane wyjściowe potwierdzają, że rejestrowanie jest teraz włączone dla zarządzanego modułu HSM i zapisuje informacje na koncie magazynu.
 
-Opcjonalnie możesz ustawić zasady przechowywania dla dzienników, tak aby starsze dzienniki były automatycznie usuwane. Na przykład ustaw zasady przechowywania przez ustawienie flagi **-retentionenable** na **$true**i ustaw parametr **-RetentionInDays** na **90** , aby dzienniki starsze niż 90 dni zostały automatycznie usunięte.
+Opcjonalnie możesz ustawić zasady przechowywania dla dzienników, tak aby starsze dzienniki były automatycznie usuwane. Na przykład ustaw zasady przechowywania przez ustawienie flagi **-retentionenable** na **$true** i ustaw parametr **-RetentionInDays** na **90** , aby dzienniki starsze niż 90 dni zostały automatycznie usunięte.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource

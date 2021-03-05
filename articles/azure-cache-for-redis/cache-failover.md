@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093089"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210737"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Tryb failover i stosowanie poprawek dla usługi Azure cache for Redis
 
@@ -72,6 +72,10 @@ Większość bibliotek klienta próbuje ponownie nawiązać połączenie z pami�
 Ponieważ nie można całkowicie uniknąć przełączenia w tryb failover, należy napisać aplikacje klienckie pod kątem odporności na przerwy połączeń i Nieudane żądania. Mimo że większość bibliotek klienta automatycznie ponownie nawiązuje połączenie z punktem końcowym pamięci podręcznej, kilka z nich próbuje ponowić Nieudane żądania. W zależności od scenariusza aplikacji może być przydatne użycie logiki ponawiania z wycofywania.
 
 Aby przetestować odporność aplikacji klienta, należy [przeprowadzić ponowny rozruch](cache-administration.md#reboot) jako wyzwalacz ręczny dla przerw w połączeniach. Ponadto zaleca się [zaplanowanie aktualizacji](cache-administration.md#schedule-updates) w pamięci podręcznej. Poinformuj usługę zarządzania, aby stosowała poprawki środowiska uruchomieniowego Redis podczas określonych tygodniowych okien. Te okna są zwykle okresów, gdy ruch aplikacji klienckich jest niski, aby uniknąć potencjalnych zdarzeń.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Czy mogę otrzymywać powiadomienia z wyprzedzeniem o planowanej konserwacji?
+
+Usługa Azure cache for Redis teraz publikuje powiadomienia w kanale publikowania/subskrybowania o nazwie [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) około 30 sekund przed planowanymi aktualizacjami. Są to powiadomienia w czasie wykonywania i są one przeznaczone specjalnie dla aplikacji, które mogą używać wyłączników do obejścia pamięci podręcznej lub poleceń bufora, na przykład podczas planowanych aktualizacji. Nie jest mechanizmem, który może powiadamiać o dniach lub godzinach z wyprzedzeniem.
 
 ### <a name="client-network-configuration-changes"></a>Sieć klienta — zmiany konfiguracji
 

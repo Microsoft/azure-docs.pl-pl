@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9654711a1399c2708ce8c9150b79eefa73387c03
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: c253c6bf81305b9b336525c20980cf9599463648
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635030"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209870"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift
 
@@ -43,7 +43,7 @@ az --version
 
 Pierwszy wiersz danych wyjściowych będzie miał wersję interfejsu wiersza polecenia, na przykład `azure-cli (2.0.65)` .
 
-Poniżej znajdują się instrukcje dotyczące [instalowania interfejsu wiersza polecenia platformy Azure,](/cli/azure/install-azure-cli?view=azure-cli-latest) Jeśli wymagana jest nowa instalacja lub uaktualnienie.
+Poniżej znajdują się instrukcje dotyczące [instalowania interfejsu wiersza polecenia platformy Azure,](/cli/azure/install-azure-cli) Jeśli wymagana jest nowa instalacja lub uaktualnienie.
 
 Alternatywnie można użyć [Azure Cloud Shell](../cloud-shell/overview.md). Gdy korzystasz z Azure Cloud Shell, pamiętaj, aby wybrać środowisko **bash** , jeśli planujesz postępować zgodnie z serią samouczków [Tworzenie klastra Red Hat OpenShift dla platformy Azure](tutorial-create-cluster.md) .
 

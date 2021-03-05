@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033799"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209683"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Powiązania wyjściowe usługi Azure Table Storage dla Azure Functions
 
@@ -386,7 +386,7 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `Table` atrybutu.
 
@@ -418,7 +418,7 @@ Alternatywnie można użyć `CloudTable` parametru metody do zapisu w tabeli prz
 
 # <a name="java"></a>[Java](#tab/java)
 
-Istnieją dwie opcje wyprowadzania wiersza magazynu tabel z funkcji przy użyciu adnotacji [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) :
+Istnieją dwie opcje wyprowadzania wiersza magazynu tabel z funkcji przy użyciu adnotacji [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) :
 
 - **Wartość zwracana**: przez zastosowanie adnotacji do samej funkcji, wartość zwracana funkcji jest utrwalana jako wiersz magazynu tabeli.
 
@@ -444,7 +444,7 @@ Istnieją dwie opcje wyprowadzania komunikatu wiersza magazynu tabel z funkcji:
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Dokumentacja |
+| Wiązanie | Odwołanie |
 |---|---|
 | Tabela | [Kody błędów tabeli](/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka | [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

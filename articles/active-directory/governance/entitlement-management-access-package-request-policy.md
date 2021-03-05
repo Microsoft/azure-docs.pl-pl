@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a1aa737b1f671c08d51d780fa98db50f2869a1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449972"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211655"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ustawienia żądania zmiany dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -93,7 +93,7 @@ Wykonaj te kroki, jeśli chcesz zezwolić użytkownikom w katalogu na żądanie 
 
     Użytkownicy-Goście odwołują się do użytkowników zewnętrznych, którzy zostali zaproszeni do katalogu za pomocą [usługi Azure AD B2B](../external-identities/what-is-b2b.md). Aby uzyskać więcej informacji o różnicach między użytkownikami należącymi do członków i użytkownikami-Gośćmi, zobacz [co to są domyślne uprawnienia użytkownika w Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
-1. W przypadku wybrania **określonych użytkowników i grup**kliknij pozycję **Dodaj użytkowników i grupy**.
+1. W przypadku wybrania **określonych użytkowników i grup** kliknij pozycję **Dodaj użytkowników i grupy**.
 
 1. W okienku wybierz użytkowników i grupy wybierz użytkowników i grupy, które chcesz dodać.
 
@@ -130,7 +130,7 @@ Wykonaj następujące kroki, aby zezwolić użytkownikom, którzy nie należą d
 
     Połączona organizacja to zewnętrzny katalog usługi Azure AD lub domena, z którą istnieje relacja.
 
-1. W przypadku wybrania opcji **określone połączone organizacje**kliknij pozycję **Dodaj katalogi** , aby wybrać z listy połączonych organizacji, które zostały wcześniej dodane przez administratora.
+1. W przypadku wybrania opcji **określone połączone organizacje** kliknij pozycję **Dodaj katalogi** , aby wybrać z listy połączonych organizacji, które zostały wcześniej dodane przez administratora.
 
 1. Wpisz nazwę lub nazwę domeny, aby wyszukać połączoną wcześniej organizację.
 
@@ -192,13 +192,11 @@ Aby zmienić ustawienia żądań i zatwierdzeń dla pakietu dostępu, należy ot
 
     Zawsze możesz włączyć ją w przyszłości po zakończeniu tworzenia pakietu dostępu.
 
-    W przypadku wybrania opcji **Brak (tylko przypisania bezpośrednie do administratorów)** i skonfigurowania opcji Włącz na **nie**Administratorzy nie mogą bezpośrednio przypisywać tego pakietu dostępu.
+    W przypadku wybrania opcji **Brak (tylko przypisania bezpośrednie do administratorów)** i skonfigurowania opcji Włącz na **nie** Administratorzy nie mogą bezpośrednio przypisywać tego pakietu dostępu.
 
     ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Kliknij przycisk **Dalej**.
-
-1. Jeśli chcesz wymagać od osoby żądającej dodatkowych informacji podczas żądania dostępu do pakietu dostępu, wykonaj czynności opisane w sekcji []() Aby skonfigurować informacje o żądającym (wersja zapoznawcza).
 
 1. Skonfiguruj ustawienia cyklu życia.
 

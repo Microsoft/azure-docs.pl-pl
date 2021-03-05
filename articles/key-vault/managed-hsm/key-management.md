@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8d0cbd35b53bc8460ac8a19e5197d1f560657263
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521037"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212046"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Zarządzanie zarządzanym modułem HSM przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować następującymi el
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia, możesz wpisać:
 
@@ -42,7 +42,7 @@ Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia
 az login
 ```
 
-Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 > [!NOTE]
 > Wszystkie poniższe polecenia pokazują dwie metody użycia. Jeden z nich przy użyciu parametrów **--HSM-Name** i **--name** (dla nazwy klucza) i innego parametru **--ID** , w którym można określić cały adres URL, włącznie z nazwą klucza, jeśli jest to konieczne. Druga metoda jest przydatna, gdy obiekt wywołujący (użytkownik lub aplikacja) nie ma dostępu do odczytu na płaszczyźnie kontroli i ma ograniczony dostęp do płaszczyzny danych.

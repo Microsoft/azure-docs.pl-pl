@@ -156,15 +156,15 @@
             - name: Zestaw SDK dla platformy .NET (C#)
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: Zestaw SDK Java
-              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement
         - name: Płaszczyzna danych
           items:
             - name: Zestaw SDK dla platformy .NET (C#)
               href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
             - name: Zestaw SDK Java
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/client
             - name: Zestaw SDK dla języka JavaScript
-              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/
             - name: Zestaw SDK dla języka Python
               href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
     - name: Interfejs wiersza polecenia usługi Digital Twins

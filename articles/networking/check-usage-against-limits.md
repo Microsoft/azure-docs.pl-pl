@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 31eeb31fb78a4e9552e64121e0e85b5fd8d9b773
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233359"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210652"
 ---
 # <a name="check-resource-usage-against-limits"></a>Porównywanie użycia zasobów z limitami
 
@@ -73,7 +73,7 @@ Network Watchers                   1     1
 
 W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.32 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić polecenie `az login` , aby zalogować się do platformy Azure.
 
-Wyświetlanie użycia względem limitów za pomocą [AZ Network list-Usages](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). Poniższy przykład pobiera użycie zasobów w lokalizacji Wschodnie stany USA:
+Wyświetlanie użycia względem limitów za pomocą [AZ Network list-Usages](/cli/azure/network#az-network-list-usages). Poniższy przykład pobiera użycie zasobów w lokalizacji Wschodnie stany USA:
 
 ```azurecli-interactive
 az network list-usages \

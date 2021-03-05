@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376058"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212114"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importuj klucze chronione przez moduł HSM do zarządzanego modułu HSM (BYOK)
 
@@ -56,7 +56,7 @@ Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia
 az login
 ```
 
-Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="supported-hsms"></a>Obsługiwane sprzętowych modułów zabezpieczeń
 
@@ -105,7 +105,7 @@ KEK musi być:
 > [!NOTE]
 > KEK musi mieć element "Import" jako jedyną dozwoloną operację klucza. "Import" wykluczają się wzajemnie poza wszystkimi innymi kluczowymi operacjami.
 
-Za pomocą polecenia [AZ Key magazynu Utwórz](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) polecenie, aby utworzyć element KEK, który ma kluczowe operacje ustawione na `import` . Zapisz identyfikator klucza ( `kid` ), który jest zwracany przez następujące polecenie. (Wartość zostanie użyta `kid` w [kroku 3](#step-3-generate-and-prepare-your-key-for-transfer)).
+Za pomocą polecenia [AZ Key magazynu Utwórz](/cli/azure/keyvault/key#az-keyvault-key-create) polecenie, aby utworzyć element KEK, który ma kluczowe operacje ustawione na `import` . Zapisz identyfikator klucza ( `kid` ), który jest zwracany przez następujące polecenie. (Wartość zostanie użyta `kid` w [kroku 3](#step-3-generate-and-prepare-your-key-for-transfer)).
 
 ```azurecli-interactive
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
@@ -115,7 +115,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Krok 2. Pobieranie klucza publicznego KEK
 
-Użyj [AZ Key magazynu klucza Download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) , aby pobrać klucz publiczny KEK do pliku PEM. Zaimportowany klucz docelowy jest szyfrowany przy użyciu klucza publicznego KEK.
+Użyj [AZ Key magazynu klucza Download](/cli/azure/keyvault/key#az-keyvault-key-download) , aby pobrać klucz publiczny KEK do pliku PEM. Zaimportowany klucz docelowy jest szyfrowany przy użyciu klucza publicznego KEK.
 
 ```azurecli-interactive
 az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -137,7 +137,7 @@ Prześlij plik BYOK na podłączonym komputerze.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Krok 4. przeniesienie klucza do zarządzanego modułu HSM
 
-Aby ukończyć Importowanie klucza, Przenieś pakiet transferu kluczy (plik BYOK) z odłączonego komputera na komputer połączony z Internetem. Aby przekazać plik BYOK do zarządzanego modułu HSM, użyj polecenia [AZ Key import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) .
+Aby ukończyć Importowanie klucza, Przenieś pakiet transferu kluczy (plik BYOK) z odłączonego komputera na komputer połączony z Internetem. Aby przekazać plik BYOK do zarządzanego modułu HSM, użyj polecenia [AZ Key import](/cli/azure/keyvault/key#az-keyvault-key-import) .
 
 ```azurecli-interactive
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok

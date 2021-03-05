@@ -50,6 +50,8 @@
     - name: Zarządzanie zasobami platformy Azure
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Konfigurowanie zasobów QnA Maker
+      href: How-To/configure-QnA-Maker-resources.md
     - name: Izolacja sieci dla zasobów platformy Azure
       href: How-To/network-isolation.md
     - name: Zarządzanie dostępem do zasobów QnA Maker
@@ -140,7 +142,7 @@
         - name: JavaScript
           items:
             - name: Dokumentacja referencyjna
-              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
+              href: /javascript/api/%40azure/cognitiveservices-qnamaker/index
             - name: Narzędzie NPM — tworzenie
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: Narzędzie NPM — środowisko uruchomieniowe zapytań

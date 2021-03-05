@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: acd2ae54d81fb508d5f8c02262cf8c2f0f071fb5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b8697e64eac69af8b8552f01fb6a03da0488a7cc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016798"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210102"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption
 
@@ -36,7 +36,7 @@ Kroki opisane w tym artykule można wykonać przy użyciu [interfejsu wiersza po
 
 ### <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 
-Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell należy najpierw nawiązać połączenie z subskrypcją platformy Azure. Można to zrobić, [logując się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [logując się za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub podając poświadczenia do Azure Portal po wyświetleniu monitu.
+Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell należy najpierw nawiązać połączenie z subskrypcją platformy Azure. Można to zrobić, [logując się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli), [logując się za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub podając poświadczenia do Azure Portal po wyświetleniu monitu.
 
 ```azurecli-interactive
 az login

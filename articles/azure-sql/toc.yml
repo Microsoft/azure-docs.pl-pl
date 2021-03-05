@@ -1230,6 +1230,8 @@
               href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
             - name: Konfigurowanie odbiornika grupy dostępności dla programu SQL Server na maszynach wirtualnych RHEL na platformie Azure
               href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+            - name: Zawsze włączona Grupa dostępności z DH2i DxEnterprise
+              href: virtual-machines/linux/dh2i-high-availability-tutorial.md
         - name: Zasoby
           items:
             - name: Często zadawane pytania

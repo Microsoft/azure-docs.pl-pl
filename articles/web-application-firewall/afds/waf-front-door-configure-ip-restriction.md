@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746766"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211672"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurowanie reguły ograniczeń adresów IP za pomocą zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
 
@@ -95,7 +95,7 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 
 ### <a name="create-a-waf-policy"></a>Tworzenie zasad WAF
 
-Utwórz zasady WAF przy użyciu polecenia [AZ Network Front-drzwiczke WAF-Policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) . W poniższym przykładzie Zastąp nazwę zasad *IPAllowPolicyExampleCLI* unikatową nazwą zasad.
+Utwórz zasady WAF przy użyciu polecenia [AZ Network Front-drzwiczke WAF-Policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) . W poniższym przykładzie Zastąp nazwę zasad *IPAllowPolicyExampleCLI* unikatową nazwą zasad.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Dodaj niestandardową regułę kontroli dostępu IP
 
-Użyj polecenia [AZ Network Front-WAF-Policy Custom-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) , aby dodać niestandardową regułę kontroli dostępu IP dla właśnie utworzonych zasad WAF.
+Użyj polecenia [AZ Network Front-WAF-Policy Custom-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) , aby dodać niestandardową regułę kontroli dostępu IP dla właśnie utworzonych zasad WAF.
 
 W następujących przykładach:
 -  Zastąp *IPAllowPolicyExampleCLI* własnymi utworzonymi wcześniej zasadami.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Znajdź identyfikator zasad WAF 
-Znajdź identyfikator zasad WAF przy użyciu polecenia [AZ Network Front-drzwiczke WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Zastąp *IPAllowPolicyExampleCLI* w poniższym przykładzie z unikatowymi zasadami, które zostały utworzone wcześniej.
+Znajdź identyfikator zasad WAF przy użyciu polecenia [AZ Network Front-drzwiczke WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) . Zastąp *IPAllowPolicyExampleCLI* w poniższym przykładzie z unikatowymi zasadami, które zostały utworzone wcześniej.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Znajdź identyfikator zasad WAF przy użyciu polecenia [AZ Network Front-drzwicz
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Łączenie zasad WAF z hostem frontonu na platformie Azure
 
-Ustaw identyfikator *WebApplicationFirewallPolicyLink* drzwi frontonu platformy Azure na identyfikator zasad, używając polecenia [AZ Network Front-drzwiczk Update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) . Zastąp *IPAllowPolicyExampleCLI* własnymi utworzonymi wcześniej zasadami.
+Ustaw identyfikator *WebApplicationFirewallPolicyLink* drzwi frontonu platformy Azure na identyfikator zasad, używając polecenia [AZ Network Front-drzwiczk Update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) . Zastąp *IPAllowPolicyExampleCLI* własnymi utworzonymi wcześniej zasadami.
 
    ```azurecli
    az network front-door update \

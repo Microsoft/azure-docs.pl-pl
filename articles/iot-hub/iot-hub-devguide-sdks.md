@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 173e6e125387ba7d2755d9fff9387af0be21fffc
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095237"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211757"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Omówienie i używanie zestawów SDK usługi Azure IoT Hub
 
@@ -78,14 +78,14 @@ Zestaw SDK urządzeń IoT Hub platformy Azure dla języka Java:
 * Dodaj do projektu [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-java)
 * [Dokumentacja interfejsu API](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Dokumentacja modułu](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable&preserve-view=true)
+* [Dokumentacja modułu](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
 Zestaw SDK urządzeń IoT Hub platformy Azure dla Node.js:
 
 * Zainstaluj z [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-node)
 * [Dokumentacja interfejsu API](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
-* [Dokumentacja modułu](/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest&preserve-view=true)
+* [Dokumentacja modułu](/javascript/api/azure-iot-device/moduleclient)
 
 Zestaw SDK urządzeń IoT Hub platformy Azure dla języka Python:
 
@@ -165,12 +165,12 @@ Zestawy SDK urządzeń i usług platformy Azure dla języka Java:
 
 * Dodaj do projektu [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)
-* [Dokumentacja interfejsu API](/java/api/com.microsoft.azure.sdk.iot.provisioning.device?view=azure-java-stable&preserve-view=true)
+* [Dokumentacja interfejsu API](/java/api/com.microsoft.azure.sdk.iot.provisioning.device)
 
 Zestawy SDK urządzeń i usług platformy Azure dla Node.js:
 
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)
-* [Dokumentacja interfejsu API](/javascript/api/overview/azure/iothubdeviceprovisioning?view=azure-node-latest&preserve-view=true)
+* [Dokumentacja interfejsu API](/javascript/api/overview/azure/iothubdeviceprovisioning)
 * Pobierz [zestaw SDK urządzeń](https://badge.fury.io/js/azure-iot-provisioning-device) i [zestaw SDK usługi](https://badge.fury.io/js/azure-iot-provisioning-service) z npm
 
 Zestawy SDK urządzeń i usług dla platformy Azure dla języka Python:

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 54e99c645b93bfcb3aee4e81cef3b2b5d6589d95
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093432"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211468"
 ---
 # <a name="creating-filters-with-cli"></a>Tworzenie filtrów za pomocą interfejsu wiersza polecenia
 
@@ -29,7 +29,7 @@ W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na ż
 
 Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](/cli/azure/ams/account-filter?view=azure-cli-latest) i [filtry zasobów](/cli/azure/ams/asset-filter?view=azure-cli-latest).
+W tym temacie pokazano, jak skonfigurować filtr dla zasobu wideo na żądanie i użyć interfejsu wiersza polecenia dla Media Services v3, aby utworzyć [filtry konta](/cli/azure/ams/account-filter) i [filtry zasobów](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -80,7 +80,7 @@ W poniższym przykładzie zdefiniowano warunki wyboru śledzenia, które są dod
 
 ## <a name="create-account-filters"></a>Tworzenie filtrów konta
 
-Następujące polecenie [AZ AMS Account-Filter](/cli/azure/ams/account-filter?view=azure-cli-latest) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie.
+Następujące polecenie [AZ AMS Account-Filter](/cli/azure/ams/account-filter) tworzy filtr konta ze [zdefiniowanymi wcześniej](#define-a-filter)opcjami Śledź śledzenie.
 
 Polecenie pozwala przekazać opcjonalny `--tracks` parametr zawierający kod JSON reprezentujący wybrane opcje śledzenia.  Użyj @ {File}, aby załadować plik JSON z pliku. Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, określ pełną ścieżkę pliku:
 
@@ -92,7 +92,7 @@ Zobacz też [przykłady JSON dla filtrów](/rest/api/media/accountfilters/create
 
 ## <a name="create-asset-filters"></a>Tworzenie filtrów zasobów
 
-Poniższy polecenie [AZ AMS Asset-Filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) tworzy filtr zasobów z [zdefiniowanymi wcześniej](#define-a-filter)opcjami filtru śledzenia. 
+Poniższy polecenie [AZ AMS Asset-Filter](/cli/azure/ams/asset-filter) tworzy filtr zasobów z [zdefiniowanymi wcześniej](#define-a-filter)opcjami filtru śledzenia. 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -132,4 +132,4 @@ W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
 ## <a name="see-also"></a>Zobacz też
 
-[Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)
+[Interfejs wiersza polecenia platformy Azure](/cli/azure/ams)
