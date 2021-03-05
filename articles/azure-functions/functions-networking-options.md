@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729236"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215157"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -87,7 +87,7 @@ Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej](
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Ograniczanie konta magazynu do sieci wirtualnej 
 
-Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel.  Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego.  Ta funkcja jest obecnie dostępna tylko dla wszystkich jednostek SKU obsługiwanych przez sieć VNET, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieć wirtualna ma dostęp tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
+Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storage ogólnego przeznaczenia lub połączyć się z nim, które obsługuje magazyn obiektów blob, kolejek i tabel. Możesz zamienić to konto magazynu na takie, które jest zabezpieczone za pomocą punktów końcowych usługi lub prywatnego punktu końcowego. Ta funkcja aktualnie działa dla wszystkich obsługiwanych jednostek SKU sieci wirtualnej, które obejmują warstwy Standardowa i Premium, z wyjątkiem sygnatur elastycznych, w których sieci wirtualne są dostępne tylko dla jednostki SKU w warstwie Premium. Aby skonfigurować funkcję z kontem magazynu ograniczonym do sieci prywatnej:
 
 1. Utwórz funkcję z kontem magazynu, które nie ma włączonych punktów końcowych usługi.
 1. Skonfiguruj funkcję do łączenia się z siecią wirtualną.
@@ -96,7 +96,7 @@ Podczas tworzenia aplikacji funkcji należy utworzyć konto usługi Azure Storag
 1. Włącz punkty końcowe usługi lub prywatny punkt końcowy dla konta magazynu.  
     * W przypadku korzystania z połączeń prywatnych punktów końcowych konto magazynu będzie wymagało prywatnego punktu końcowego dla `file` `blob` zasobów i.  W przypadku korzystania z pewnych funkcji, takich jak Durable Functions, będzie również konieczne `queue` i `table` dostępne za pośrednictwem połączenia prywatnego punktu końcowego.
     * W przypadku korzystania z punktów końcowych usługi należy włączyć podsieć dedykowaną aplikacjom funkcji dla kont magazynu.
-1. Obowiązkowe Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
+1. Skopiuj zawartość pliku i obiektu BLOB z konta magazynu aplikacji funkcji na zabezpieczone konto magazynu i udział plików.
 1. Skopiuj parametry połączenia dla tego konta magazynu.
 1. Zaktualizuj **Ustawienia aplikacji** w obszarze **Konfiguracja** dla aplikacji funkcji w następujący sposób:
     - `AzureWebJobsStorage` do parametrów połączenia dla zabezpieczonego konta magazynu.

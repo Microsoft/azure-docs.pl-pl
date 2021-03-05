@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 57daf9170a7f97c6c141532dafe759cde9d1c77b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7a857b887b53ccb2288507742ca52d72d90ff548
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519068"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214358"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z języka Java w ramach wdrożenia platformy Azure
 W poniższym przykładzie pokazano, jak za pomocą SendGrid wysyłać wiadomości e-mail ze strony sieci Web hostowanej na platformie Azure. Aplikacja wynikowa wyświetli monit o podanie wartości poczty e-mail, jak pokazano na poniższym zrzucie ekranu.
@@ -40,7 +40,7 @@ Aby użyć kodu w tym temacie, należy wykonać następujące czynności:
 
 Musisz również mieć własną nazwę użytkownika SendGrid i hasło, aby móc wysyłać wiadomości e-mail. Aby rozpocząć pracę z usługą SendGrid, zobacz [jak wysyłać wiadomości e-mail przy użyciu usługi SendGrid w języku Java](store-sendgrid-java-how-to-send-email.md).
 
-Ponadto znajomość informacji na temat [tworzenia Hello World aplikacji dla platformy Azure w ramach Przezaćmienia](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app?view=azure-java-stable)lub z innymi technikami do hostowania aplikacji Java na platformie Azure, jeśli nie używasz programu zaćmienie, jest zdecydowanie zalecane.
+Ponadto znajomość informacji na temat [tworzenia Hello World aplikacji dla platformy Azure w ramach Przezaćmienia](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)lub z innymi technikami do hostowania aplikacji Java na platformie Azure, jeśli nie używasz programu zaćmienie, jest zdecydowanie zalecane.
 
 ## <a name="create-a-web-form-for-sending-email"></a>Utwórz formularz sieci Web na potrzeby wysyłania wiadomości e-mail
 Poniższy kod pokazuje, jak utworzyć formularz sieci Web, aby pobrać dane użytkownika na potrzeby wysyłania wiadomości e-mail. Do celów tej zawartości plik JSP ma nazwę **emailform.jsp**.

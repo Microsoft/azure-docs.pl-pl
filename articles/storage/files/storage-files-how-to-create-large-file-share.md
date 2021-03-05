@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 118c08c8ede369eecd86fe8e6db24473b67ff306
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629227"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214443"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Włączanie i tworzenie dużych udziałów plików
 
@@ -22,7 +22,7 @@ Po włączeniu dużych udziałów plików na koncie magazynu udziały plików mo
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 - Jeśli zamierzasz użyć modułu Azure PowerShell, [Zainstaluj najnowszą wersję](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Ograniczenia
@@ -56,16 +56,16 @@ Włączenie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
    |Rodzaj konta     |StorageV2 (ogólnego przeznaczenia wersja 2)         |
    |Warstwa dostępu     |Gorąca         |
 
-1. Wybierz pozycję **Zaawansowane** , a następnie wybierz przycisk opcji **włączone** po prawej stronie **dużych udziałów plików**.
-1. Wybierz pozycję **Przejrzyj i utwórz** , aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz pozycję **Zaawansowane**, a następnie wybierz przycisk opcji **włączone** po prawej stronie **dużych udziałów plików**.
+1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
     ![Zrzut ekranu z przyciskiem opcji "Enabled" na nowym koncie magazynu w Azure Portal](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Najpierw [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , aby umożliwić obsługę dużych udziałów plików.
+Najpierw [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , aby umożliwić obsługę dużych udziałów plików.
 
 Aby utworzyć konto magazynu z włączonymi dużymi udziałami plików, użyj następującego polecenia. Zastąp `<yourStorageAccountName>` , `<yourResourceGroup>` i `<yourDesiredRegion>` wraz z informacjami.
 
@@ -94,7 +94,7 @@ Możesz również włączyć duże udziały plików na istniejących kontach. Je
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i przejdź do konta magazynu, w którym chcesz włączyć duże udziały plików.
 1. Otwórz konto magazynu i wybierz pozycję **Konfiguracja**.
-1. Wybierz pozycję **włączone** w przypadku **dużych udziałów plików** , a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **włączone** w przypadku **dużych udziałów plików**, a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Odśwież**.
 
 ![Wybieranie przycisku opcji włączone na istniejącym koncie magazynu w Azure Portal](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)
@@ -133,7 +133,7 @@ Tworzenie dużego udziału plików jest niemal identyczne z tworzeniem standardo
 
 1. Na koncie magazynu wybierz pozycję **udziały plików**.
 1. Wybierz pozycję **+ udział plików**.
-1. Wprowadź nazwę udziału plików. Możesz również ustawić żądany rozmiar przydziału, do 100 TiB. Następnie wybierz przycisk **Utwórz**. 
+1. Wprowadź nazwę udziału plików. Możesz również ustawić żądany rozmiar przydziału, do 100 TiB. Następnie wybierz pozycję **Utwórz**. 
 
 ![Interfejs użytkownika Azure Portal przedstawiający pola Nazwa i limit przydziału](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

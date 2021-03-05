@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: f8ceacf88968d884de666b764c1037db9e63450f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986026"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214919"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 * Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Te scenariusze są następujące:
 

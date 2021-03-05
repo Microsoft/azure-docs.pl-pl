@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dc23dec8a8d59a7762e93cdfaa2a39d824506e7b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2ff669d0ff3bde791de9bc7773e13d880762f898
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382127"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214426"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Jak utworzyć udział NFS
 Udziały plików platformy Azure to w pełni zarządzane udziały plików w chmurze. W tym artykule opisano tworzenie udziału plików, który używa protokołu NFS. Aby uzyskać więcej informacji na temat obu protokołów, zobacz [Protokoły udziałów plików platformy Azure](storage-files-compare-protocols.md).
@@ -31,7 +31,7 @@ Udziały plików platformy Azure to w pełni zarządzane udziały plików w chmu
     - [Skonfiguruj sieć VPN typu lokacja-lokacja do użycia z Azure Files](storage-files-configure-s2s-vpn.md).
     - Skonfiguruj [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 
 ## <a name="register-the-nfs-41-protocol"></a>Rejestrowanie protokołu NFS 4,1
 Jeśli używasz modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, zarejestruj swoją funkcję przy użyciu następujących poleceń:

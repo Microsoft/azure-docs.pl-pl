@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: dddecb3dba6d707e16241731a25df3b3749be103
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825418"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214987"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
 
 
 Wdrożenie modelu usługi Azure Machine Learning jako usługi internetowej powoduje utworzenie punktu końcowego interfejsu API REST. Można wysłać dane do tego punktu końcowego i otrzymać prognozę zwróconą przez model. W tym dokumencie dowiesz się, jak tworzyć klientów dla usługi sieci Web przy użyciu języków C#, go, Java i Python.
@@ -77,7 +77,7 @@ Istnieje kilka sposobów na pobranie tych informacji dla wdrożonych usług siec
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Jeśli znasz nazwę wdrożonej usługi, użyj polecenia [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+Jeśli znasz nazwę wdrożonej usługi, użyj polecenia [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) :
 
 ```azurecli
 az ml service show -n <service-name>
@@ -101,7 +101,7 @@ W poniższej tabeli pokazano, jak wyglądają następujące identyfikatory URI:
 
 ### <a name="secured-web-service"></a>Zabezpieczona usługa sieci Web
 
-Jeśli wdrożona usługa sieci Web została zabezpieczona przy użyciu certyfikatu TLS/SSL, możesz użyć [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) , aby nawiązać połączenie z usługą przy użyciu identyfikatora URI tworzenia oceny lub struktury Swagger. Protokół HTTPS pomaga w zabezpieczeniu komunikacji między klientem a usługą sieci Web przez szyfrowanie komunikacji między nimi. Szyfrowanie używa [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Protokół TLS jest czasami nazywany *SSL* (SSL), który był POPRZEDNIKIEM protokołu TLS.
+Jeśli wdrożona usługa sieci Web została zabezpieczona przy użyciu certyfikatu TLS/SSL, możesz użyć [protokołu HTTPS](https://en.wikipedia.org/wiki/HTTPS) , aby nawiązać połączenie z usługą przy użyciu identyfikatora URI tworzenia oceny lub struktury Swagger. Protokół HTTPS pomaga w zabezpieczeniu komunikacji między klientem a usługą sieci Web przez szyfrowanie komunikacji między nimi. Szyfrowanie używa [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Protokół TLS jest czasami nazywany *Secure Sockets Layer* (SSL), który był POPRZEDNIKIEM protokołu TLS.
 
 > [!IMPORTANT]
 > Usługi sieci Web wdrożone przez Azure Machine Learning obsługują tylko protokół TLS w wersji 1,2. Podczas tworzenia aplikacji klienckiej upewnij się, że jest ona obsługiwana w tej wersji.
@@ -677,7 +677,7 @@ Power BI obsługuje użycie usług sieci Web Azure Machine Learning do wzbogacan
 
 Aby wygenerować usługę sieci Web obsługiwaną do użycia w Power BI, schemat musi obsługiwać format wymagany przez Power BI. [Dowiedz się, jak utworzyć schemat obsługiwany przez Power BI](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Po wdrożeniu usługi internetowej może być ona używana przez przepływy danych usługi Power BI. [Dowiedz się, jak korzystać z usługi sieci web Azure Machine Learning z Power BI](/power-bi/service-machine-learning-integration).
+Po wdrożeniu usługi internetowej może być ona używana przez przepływy danych usługi Power BI. [Dowiedz się, jak korzystać z usługi internetowej Azure Machine Learning za pomocą usługi Power BI](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Następne kroki
 
