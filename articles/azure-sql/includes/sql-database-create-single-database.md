@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682389"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178080"
 ---
 W tym kroku utworzysz [logiczny serwer SQL](../database/logical-servers.md) i [pojedynczą bazę danych](../database/single-database-overview.md) , która korzysta z przykładowych danych AdventureWorksLT. Bazę danych można utworzyć za pomocą menu Azure Portal i ekranów, a także za pomocą interfejsu wiersza polecenia platformy Azure lub skryptu programu PowerShell w Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ Poprzedni kod używa tych poleceń interfejsu wiersza polecenia platformy Azure:
 
 | Polecenie | Opis |
 |---|---|
-| [AZ Account Set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. |
+| [AZ Account Set](/cli/azure/account#az-account-set) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. |
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Tworzy serwer, który hostuje bazy danych i pule elastyczne. |
 | [AZ SQL Server firewall-Rule Create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Tworzy regułę zapory na poziomie serwera. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Tworzy bazę danych. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Tworzy bazę danych. |
 
 Aby uzyskać więcej Azure SQL Database przykładów interfejsu wiersza polecenia platformy Azure, zobacz [przykłady interfejsu wiersza polecenia platformy Azure](../database/az-cli-script-samples-content-guide.md).
 

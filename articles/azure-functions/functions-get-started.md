@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: cshoe
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: e969cc4bee9f09f4279d137abb33b75ca0672ffc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 77d370b895c777278d3136c7d2c511e7f9e23b36
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364719"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179259"
 ---
 # <a name="getting-started-with-azure-functions"></a>Wprowadzenie do usługi Azure Functions
 
@@ -46,7 +46,7 @@ Aby rozpocząć, Skorzystaj z następujących zasobów.
 ::: zone pivot="programming-language-javascript"
 | Akcja | Zasoby |
 | --- | --- |
-| **Tworzenie pierwszej funkcji** | Przy użyciu jednego z następujących narzędzi:<br><br><li>[Visual Studio Code](./create-first-function-vs-code-node.md)<li>[Node.js terminalu/wiersza polecenia](./create-first-function-cli-java.md) |
+| **Tworzenie pierwszej funkcji** | Przy użyciu jednego z następujących narzędzi:<br><br><li>[Visual Studio Code](./create-first-function-vs-code-node.md)<li>[Node.js terminalu/wiersza polecenia](./create-first-function-cli-node.md) |
 | **Zobacz uruchomioną funkcję** | <li>[Przeglądarka przykładów platformy Azure](/samples/browse/?expanded=azure&languages=javascript%2ctypescript&products=azure-functions)<li>[Biblioteka społeczności platformy Azure](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=JavaScript%2CTypeScript) |
 | **Eksploruj Interaktywny samouczek** | <li>[Wybór najlepszej technologii bezserwerowej platformy Azure dla scenariusza biznesowego](/learn/modules/serverless-fundamentals/)<li>[Dobrze zaprojektowane środowisko — wydajność](/learn/modules/azure-well-architected-performance-efficiency/)<li>[Tworzenie bezserwerowych interfejsów API przy użyciu usługi Azure Functions](/learn/modules/build-api-azure-functions/)<li>[Tworzenie logiki bezserwerowej za pomocą usługi Azure Functions](/learn/modules/create-serverless-logic-with-azure-functions/)<li>[Refaktoryzacja interfejsów API Node.js i Express do bezserwerowych interfejsów API za pomocą usługi Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/) <br><br>Zobacz Microsoft Learn, aby zapoznać się z [pełną listą interaktywnych samouczków](/learn/browse/?expanded=azure&products=azure-functions).|
 | **Przeglądanie najlepszych rozwiązań** |<li>[Wydajność i niezawodność](./functions-best-practices.md)<li>[Zarządzanie połączeniami](./manage-connections.md)<li>[Obsługa błędów i ponawianie prób funkcji](./functions-bindings-error-pages.md?tabs=javascript)<li>[Bezpieczeństwo](./security-concepts.md)|

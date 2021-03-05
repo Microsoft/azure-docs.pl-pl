@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654799"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178120"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
 Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizować wydajność i ekonomiczne użycie wystąpienia usługi Azure cache for Redis.
@@ -51,7 +51,7 @@ Istnieje kilka rzeczy związanych z użyciem pamięci w wystąpieniu serwera Red
 ## <a name="client-library-specific-guidance"></a>Wskazówki dotyczące biblioteki klienta
  * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java — którego klienta należy użyć?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Sałata (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Sałata (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -73,6 +73,8 @@ Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użyc
  * Maszyna wirtualna klienta użyta do testowania powinna znajdować się **w tym samym regionie** co wystąpienie pamięci podręcznej Redis.
  * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
  * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
+ * **Przetestuj w warunkach pracy awaryjnej** w pamięci podręcznej. Ważne jest, aby upewnić się, że nie Przetestuj wydajności pamięci podręcznej tylko w warunkach stałego stanu. Przetestuj także w warunkach pracy awaryjnej i zmierz obciążenie procesora CPU/serwera w pamięci podręcznej w tym czasie. Tryb failover można zainicjować przez [ponowne uruchomienie węzła podstawowego](cache-administration.md#reboot). Dzięki temu będzie można zobaczyć, jak działa aplikacja w zakresie przepływności i opóźnień w warunkach pracy awaryjnej (dzieje się podczas aktualizacji i może wystąpić w przypadku nieplanowanego zdarzenia). Najlepiej, gdy don't't chcesz zobaczyć szczyt obciążenia procesora CPU/serwera do ponad 80% nawet podczas pracy w trybie failover, co może mieć wpływ na wydajność.
+ * Warstwa **Premium P2 i nowsze** są hostowane na maszynach wirtualnych z co najmniej 4 rdzeniami. Jest to przydatne do dystrybuowania obciążeń szyfrowania i odszyfrowywania TLS między wieloma rdzeniami, aby uzyskać ogólne użycie procesora CPU.  [Zobacz tutaj, aby uzyskać szczegółowe informacje dotyczące rozmiarów maszyn wirtualnych i rdzeni](cache-planning-faq.md#azure-cache-for-redis-performance)
  * Jeśli korzystasz z systemu Windows, **Włącz opcję wirtualnego skalowania** na komputerze klienckim.  [Zobacz tutaj, aby uzyskać szczegółowe informacje](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Przykładowy skrypt programu PowerShell:
      >PowerShell-ExecutionPolicy unstricted Enable-NetAdapterRSS-Name (Get-ServiceAdapter). Nazwij 
 

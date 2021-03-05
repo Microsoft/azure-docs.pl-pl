@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aeabd74117f99c7cac9bde0eda02b9627caf0804
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385612"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177791"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działanie ForEach w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -483,6 +483,7 @@ Poniżej przedstawiono niektóre ograniczenia działania ForEach i sugerowane ob
 |---|---|
 | Nie można zagnieżdżać pętli ForEach wewnątrz innej pętli ForEach (lub pętli "until"). | Zaprojektuj potok dwupoziomowy, w którym zewnętrzny potok z zewnętrzną pętlą ForEach powtarza się za pośrednictwem wewnętrznego potoku z zagnieżdżoną pętlą. |
 | Działanie ForEach ma maksymalnie `batchCount` 50 do przetwarzania równoległego i maksymalnie 100 000 elementów. | Zaprojektuj potok dwupoziomowy, w którym zewnętrzny potok z działaniem ForEach iteruje za pośrednictwem wewnętrznego potoku. |
+| Nie można użyć metody setvariable wewnątrz działania ForEach, które jest uruchomione równolegle, ponieważ zmienne są globalne dla całego potoku, nie są objęte zakresem ForEach ani innym działaniem. | Rozważ użycie instrukcji in instrukcji in lub use Execute w elemencie ForEach (zmienna/parametr obsłużony w potoku podrzędnego).|
 | | |
 
 ## <a name="next-steps"></a>Następne kroki

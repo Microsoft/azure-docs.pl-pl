@@ -8,14 +8,15 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f10dac4e70a1edb05f2f2c02c48b9ae16c4f6823
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387584"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177831"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok według harmonogramu
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ten artykuł zawiera informacje na temat wyzwalacza harmonogramu oraz czynności służących do tworzenia, uruchamiania i monitorowania wyzwalacza harmonogramu. W przypadku innych typów wyzwalaczy zapoznaj się z tematem [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md).
@@ -25,6 +26,7 @@ Podczas tworzenia wyzwalacza harmonogramu należy określić harmonogram (datę 
 W poniższych sekcjach przedstawiono procedurę tworzenia wyzwalacza harmonogramu na różne sposoby. 
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
+
 Można utworzyć **wyzwalacz harmonogramu** , aby zaplanować okresowe uruchamianie potoku (co godzinę, codziennie itd.). 
 
 > [!NOTE]
@@ -89,7 +91,7 @@ W tej sekcji przedstawiono sposób użycia Azure PowerShell do tworzenia, urucha
     > [!IMPORTANT]
     > Przed zapisaniem pliku JSON ustaw wartość parametru **StartTime** na bieżący czas UTC. Ustaw wartość elementu **Endtime** na godzinę wcześniejszą od bieżącego czasu UTC.
 
-    ```json   
+    ```json
     {
         "properties": {
             "name": "MyTrigger",
@@ -167,9 +169,8 @@ W tej sekcji przedstawiono sposób użycia Azure PowerShell do tworzenia, urucha
 
     Aby monitorować uruchomienia wyzwalacza i uruchomienia potoków w Azure Portal, zobacz [monitorowanie uruchomień potoków](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
-
 ## <a name="net-sdk"></a>Zestaw SDK .NET
+
 W tej sekcji pokazano, jak utworzyć, uruchomić i monitorować wyzwalacz przy użyciu zestawu .NET SDK. Aby zobaczyć ten przykład pracy, najpierw przejdź do [przewodnika Szybki Start: Tworzenie fabryki danych przy użyciu zestawu .NET SDK](quickstart-create-data-factory-dot-net.md). Następnie Dodaj następujący kod do metody Main, która tworzy i uruchamia wyzwalacz harmonogramu, który jest uruchamiany co 15 minut. Wyzwalacz jest skojarzony z potokiem o nazwie **Adfv2QuickStartPipeline** , który tworzysz w ramach przewodnika Szybki Start.
 
 Aby utworzyć i uruchomić wyzwalacz harmonogramu, który jest uruchamiany co 15 minut, Dodaj następujący kod do metody Main:
@@ -258,8 +259,8 @@ Aby monitorować uruchomienie wyzwalacza, Dodaj następujący kod przed ostatni�
 
 Aby monitorować uruchomienia wyzwalacza i uruchomienia potoków w Azure Portal, zobacz [monitorowanie uruchomień potoków](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
 ## <a name="python-sdk"></a>Zestaw SDK dla języka Python
+
 W tej sekcji pokazano, jak używać zestawu SDK języka Python do tworzenia, uruchamiania i monitorowania wyzwalacza. Aby zobaczyć ten przykład pracy, najpierw przejdź do [przewodnika Szybki Start: Tworzenie fabryki danych przy użyciu zestawu SDK języka Python](quickstart-create-data-factory-python.md). Następnie Dodaj następujący blok kodu po bloku kod "Monitoruj uruchomienie potoku" w skrypcie języka Python. Ten kod tworzy wyzwalacz harmonogramu, który jest uruchamiany co 15 minut między określonymi godzinami rozpoczęcia i zakończenia. Zaktualizuj zmienną **start_time** do bieżącego czasu UTC, a zmienna **end_time** na godzinę wcześniejszą od bieżącego czasu UTC.
 
 ```python
@@ -280,9 +281,11 @@ W tej sekcji pokazano, jak używać zestawu SDK języka Python do tworzenia, uru
 Aby monitorować uruchomienia wyzwalacza i uruchomienia potoków w Azure Portal, zobacz [monitorowanie uruchomień potoków](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
+
 Aby utworzyć wyzwalacz, można użyć szablonu Azure Resource Manager. Aby uzyskać instrukcje krok po kroku, zobacz [Tworzenie fabryki danych Azure przy użyciu szablonu Menedżer zasobów](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Przekaż czas rozpoczęcia wyzwalacza do potoku
+
 Azure Data Factory wersja 1 obsługuje odczytywanie lub zapisywanie danych partycjonowanych przy użyciu zmiennych systemowych: **parametru slicestart**, **SliceEnd**, **WindowStart** i **WindowEnd**. W bieżącej wersji Azure Data Factory można osiągnąć takie zachowanie przy użyciu parametru potoku. Czas rozpoczęcia i zaplanowany czas dla wyzwalacza są ustawiane jako wartość parametru potoku. W poniższym przykładzie zaplanowany czas dla wyzwalacza jest przenoszona jako wartość do parametru **scheduledRunTime** potoku:
 
 ```json
@@ -292,6 +295,7 @@ Azure Data Factory wersja 1 obsługuje odczytywanie lub zapisywanie danych party
 ```
 
 ## <a name="json-schema"></a>Schemat JSON
+
 Poniższa definicja JSON pokazuje, jak utworzyć wyzwalacz harmonogramu z harmonogramem i cyklem:
 
 ```json
@@ -343,6 +347,7 @@ Poniższa definicja JSON pokazuje, jak utworzyć wyzwalacz harmonogramu z harmon
 
 
 ### <a name="schema-overview"></a>Omówienie schematu
+
 Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnoszących się do powtarzania i planowania wyzwalacza:
 
 | Właściwość JSON | Opis |
@@ -405,6 +410,7 @@ Czas pierwszego wykonania jest identyczny, nawet jeśli właściwość **startTi
 Gdy z kolei w harmonogramie wyzwalacza nie ustawiono godzin lub minut, wartością domyślną będą godziny lub minuty pierwszego wykonania.
 
 ### <a name="schedule-property"></a>Wartość schedule
+
 Użycie harmonogramu może ograniczyć liczbę wykonań wyzwalacza. Jeśli na przykład uruchomienie wyzwalacza z częstotliwością miesięczną zaplanowano na 31. dzień, wyzwalacz będzie uruchamiany tylko w miesiącach, której mają 31 dni.
 
 Harmonogram może także zwiększyć liczbę wykonań wyzwalacza. Na przykład wyzwalacz z częstotliwością miesięczną, którego uruchomienie zaplanowano na 1. i 2. dzień miesiąca, będzie uruchamiany 1. i 2. dnia miesiąca, a nie raz na miesiąc.
@@ -412,7 +418,6 @@ Harmonogram może także zwiększyć liczbę wykonań wyzwalacza. Na przykład w
 W przypadku określenia wielu elementów właściwości **schedule** ocena następuje od największego do najmniejszego elementu. Ocena jest wykonywana w następującej kolejności: numer tygodnia, dzień miesiąca, dzień tygodnia, godzina i minuta.
 
 W poniższej tabeli opisano szczegółowo elementy właściwości **schedule**:
-
 
 | Element JSON | Opis | Prawidłowe wartości |
 |:--- |:--- |:--- |
@@ -422,8 +427,8 @@ W poniższej tabeli opisano szczegółowo elementy właściwości **schedule**:
 | **monthlyOccurrences** | Dni miesiąca, w których uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. | <ul><li>Tablica obiektów **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }` .</li><li>Atrybut **day** jest dniem tygodnia, w którym uruchamiany jest wyzwalacz. Na przykład właściwość **monthlyOccurrences** o wartości **day** wynoszącej `{Sunday}` oznacza każdą niedzielę miesiąca. Atrybut **day** jest wymagany.</li><li>Atrybut **occurence** jest wystąpieniem określonej wartości **day** w miesiącu. Na przykład właściwość **monthlyOccurrences** o wartościach **day** i **occurence** wynoszących `{Sunday, -1}` oznacza ostatnią niedzielę miesiąca. Atrybut **occurence** jest opcjonalny.</li></ul> |
 | **monthDays** | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica wartości</li></ul> |
 
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Przykłady harmonogramów cyklu wyzwalaczy
+
 Ta sekcja zawiera przykłady harmonogramów cyklu i koncentruje się na obiekcie właściwości **schedule** oraz jego elementach.
 
 W przykładach założono, ze wartość właściwości **interval** wynosi 1 oraz że wartość właściwości **frequency** jest prawidłowa i zgodna z definicją harmonogramu. Na przykład nie można mieć wartości **częstotliwości** "Day" i ma także modyfikację "monthDays" w obiekcie **Schedule** . Tego typu ograniczenia są wymienione w tabeli w poprzedniej sekcji.
@@ -457,6 +462,7 @@ W przykładach założono, ze wartość właściwości **interval** wynosi 1 ora
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Uruchamiany co 15 minut w ostatni piątek miesiąca. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Uruchamiany o godz. 5:15, 5:45, 17:15 i 17:45 w trzecią środę każdego miesiąca. |
 
-
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md#trigger-execution).
+
+- Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md#trigger-execution).
+- Dowiedz się, jak odwoływać się do metadanych wyzwalacza w potoku, zobacz [metadane wyzwalacza odwołań w uruchomieniach potoków](how-to-use-trigger-parameterization.md)

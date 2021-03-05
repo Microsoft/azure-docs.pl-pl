@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981310"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178664"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -34,7 +34,6 @@ W tym artykule dowiesz się, jak zabezpieczyć następujące zasoby inferencing 
 > - Prywatny klaster AKS
 > - Klaster AKS z linkiem prywatnym
 > - Azure Container Instances (ACI)
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,7 +57,6 @@ Aby można było użyć klastra AKS w sieci wirtualnej, należy spełnić nastę
 > [!div class="checklist"]
 > * Postępuj zgodnie z wymaganiami wstępnymi w temacie [Konfigurowanie zaawansowanej sieci w usłudze Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 > * Wystąpienie AKS i Sieć wirtualna muszą znajdować się w tym samym regionie. W przypadku zabezpieczenia kont usługi Azure Storage używanych przez obszar roboczy w sieci wirtualnej, muszą one znajdować się w tej samej sieci wirtualnej co wystąpienie AKS.
-
 
 Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące czynności:
 
@@ -274,7 +272,7 @@ Jeśli nie chcesz używać domyślnych reguł ruchu wychodzącego i chcesz ogran
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten artykuł jest trzecią częścią serii sieci wirtualnych z czterema częściami. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+Ten artykuł jest czwartą częścią serii sieci wirtualnych z pięcioma częściami. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
 
 * [Część 1: Omówienie usługi Virtual Network](how-to-network-security-overview.md)
 * [Część 2: Zabezpieczanie zasobów obszaru roboczego](how-to-secure-workspace-vnet.md)

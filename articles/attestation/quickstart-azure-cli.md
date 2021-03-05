@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4fc799c1c6dcaaa3ed4bc41c93bd6b786f51591c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ae283785b4d4dc80c6b9b6c3997aaf82c9ff0f2f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429249"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178715"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
-Rozpocznij pracę z [zaświadczeniem platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
+Rozpocznij pracę z [zaświadczeniem platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/attestation/attestation).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,13 +69,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Poniżej przedstawiono polecenia, których można użyć do utworzenia dostawcy zaświadczania i zarządzania nim:
 
-1. Uruchom polecenie [AZ zaświadcz Create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) , aby utworzyć dostawcę zaświadczania bez wymagania dotyczącego podpisywania zasad:
+1. Uruchom polecenie [AZ zaświadcz Create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) , aby utworzyć dostawcę zaświadczania bez wymagania dotyczącego podpisywania zasad:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Uruchom polecenie [AZ zaświadczania show](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_show) , aby pobrać właściwości dostawcy zaświadczania, takie jak status i AttestURI:
+1. Uruchom polecenie [AZ zaświadczania show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) , aby pobrać właściwości dostawcy zaświadczania, takie jak status i AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -95,7 +95,7 @@ Poniżej przedstawiono polecenia, których można użyć do utworzenia dostawcy 
    TagsTable:
    ```
 
-Dostawcę zaświadczania można usunąć za pomocą polecenia [AZ zaświadczanie Delete](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_delete) :
+Dostawcę zaświadczania można usunąć za pomocą polecenia [AZ zaświadczanie Delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) :
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -105,7 +105,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Użyj poleceń opisanych tutaj, aby zapewnić zarządzanie zasadami dla dostawcy zaświadczania, jednego typu zaświadczania w danym momencie.
 
-Polecenie [AZ zaświadczania zasad Pokaż](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_show) zwraca bieżące zasady dla określonego tee:
+Polecenie [AZ zaświadczania zasad Pokaż](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_show) zwraca bieżące zasady dla określonego tee:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -120,7 +120,7 @@ Obsługiwane są następujące typy TEE:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Użyj polecenia [AZ zaświadczania zasad Set](/cli/azure/ext/attestation/attestation/policy?view=azure-cli-latest#ext_attestation_az_attestation_policy_set) , aby ustawić nowe zasady dla określonego typu zaświadczania.
+Użyj polecenia [AZ zaświadczania zasad Set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) , aby ustawić nowe zasady dla określonego typu zaświadczania.
 
 Aby ustawić zasady w formacie tekstowym dla danego rodzaju zaświadczania przy użyciu ścieżki pliku:
 

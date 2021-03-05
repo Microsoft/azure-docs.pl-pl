@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d8fd44a1e4c1ddfd78b2afa3280bb05c8fde91e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350147"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179055"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code
 
 Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę języków, fragmenty zasobów i Autouzupełnianie zasobów. Te narzędzia ułatwiają tworzenie i weryfikowanie szablonów Azure Resource Manager (szablony ARM). W tym przewodniku szybki start użyjesz rozszerzenia, aby utworzyć szablon ARM od podstaw. Podczas wykonywania tych czynności są dostępne funkcje rozszerzeń, takie jak fragmenty szablonów ARM, Walidacja, uzupełnianie i obsługa plików parametrów.
 
-Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
+Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 

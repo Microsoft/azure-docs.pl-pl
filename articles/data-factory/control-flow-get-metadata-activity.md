@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 151f4352ce7c845050c899792fd7285c97f844bc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049988"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178545"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Działanie pobierania metadanych w Azure Data Factory
 
@@ -83,8 +83,14 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 | Kolumn | Liczba kolumn w pliku lub tabeli relacyjnej. |
 | istniejący| Czy istnieje plik, folder lub tabela. Jeśli `exists` jest określony na liście Pobieranie metadanych pola, działanie nie powiedzie się, nawet jeśli plik, folder lub tabela nie istnieją. Zamiast tego, `exists: false` jest zwracany w danych wyjściowych. |
 
->[!TIP]
->Aby sprawdzić, czy istnieje plik, folder lub tabela, należy określić `exists` na liście pól Pobieranie metadanych. Następnie można sprawdzić `exists: true/false` wynik w danych wyjściowych działania. Jeśli `exists` nie zostanie określony na liście pól, działanie Pobierz metadane zakończy się niepowodzeniem, jeśli nie zostanie znaleziony obiekt.
+> [!TIP]
+> Aby sprawdzić, czy istnieje plik, folder lub tabela, należy określić `exists` na liście pól Pobieranie metadanych. Następnie można sprawdzić `exists: true/false` wynik w danych wyjściowych działania. Jeśli `exists` nie zostanie określony na liście pól, działanie Pobierz metadane zakończy się niepowodzeniem, jeśli nie zostanie znaleziony obiekt.
+
+> [!NOTE]
+> W przypadku pobierania metadanych z magazynów plików i konfigurowania `modifiedDatetimeStart` lub `modifiedDatetimeEnd` , `childItems` w danych wyjściowych znajdują się tylko pliki w określonej ścieżce, które mają czas ostatniej modyfikacji w określonym zakresie. Elementy w podfolderach nie są uwzględniane.
+
+> [!NOTE]
+> Dla listy pól **struktury** , aby zapewnić rzeczywistą strukturę danych z rozdzielanymi formatami tekstu i programu Excel, należy włączyć `First Row as Header` Właściwość, która jest obsługiwana tylko dla tych źródeł danych.
 
 ## <a name="syntax"></a>Składnia
 

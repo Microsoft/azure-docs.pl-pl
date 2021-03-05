@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810736"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179667"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Samouczek: aktualizowanie magazynu przy użyciu witryny Azure Portal oraz tematów/subskrypcji
 
@@ -97,7 +97,7 @@ Aby uruchomić kod, wykonaj następujące czynności:
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Usuń przestrzeń nazw i kolejkę, jeśli nie są już potrzebne. W tym celu wybierz te zasoby w portalu i kliknij przycisk **Usuń**.
+Gdy nie jest już potrzebne, Usuń przestrzeń nazw i temat. W tym celu wybierz te zasoby w portalu i kliknij przycisk **Usuń**.
 
 ## <a name="understand-the-sample-code"></a>Omówienie przykładowego kodu
 

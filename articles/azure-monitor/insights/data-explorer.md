@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582344"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179140"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor dla Eksplorator danych platformy Azure (wersja zapoznawcza)
 
@@ -103,10 +103,10 @@ Karta **kluczowe metryki** przedstawia ujednolicony widok niektórych metryk kla
 
 Karta **użycie** pozwala użytkownikom na głębokie szczegółowe do wydajności poleceń i zapytań w klastrze. Na tej stronie można:
  
- - Sprawdź, którzy użytkownicy i aplikacje wysyłają najwięcej zapytań lub zużywają najwięcej procesora CPU i pamięci (aby zrozumieć, którzy użytkownicy przesyłają największe zapytania do procesu).
- - Zidentyfikuj najważniejszych użytkowników i aplikacje, wykonując nieudane zapytania.
- - Zidentyfikuj ostatnie zmiany w liczbie zapytań w porównaniu do historycznej średniej dziennej (w ciągu ostatnich 16 dni) przez użytkownika i aplikację.
- - Identyfikuj trendy i szczyty w liczbie zapytań, pamięci i użycia procesora CPU przez użytkownika, aplikację i typ polecenia.
+ - Zobacz, które grupy obciążeń, użytkownicy i aplikacje wysyłają najwięcej zapytań lub zużywają najwięcej procesora CPU i pamięci (dzięki czemu można zrozumieć, które obciążenia przesyłają największe zapytania do procesu).
+ - Zidentyfikuj najważniejsze grupy obciążeń, użytkowników i aplikacje, wykonując nieudane zapytania.
+ - Zidentyfikuj ostatnie zmiany w liczbie zapytań w porównaniu do historycznej średniej dziennej (w ciągu ostatnich 16 dni) według grupy obciążeń, użytkownika i aplikacji.
+ - Identyfikuj trendy i szczyty w liczbie zapytań, pamięci i użycia procesora CPU przez grupę obciążeń, użytkownika, aplikację i typ polecenia.
 
 [![Zrzut ekranu przedstawiający widok operacji z wykresami pierścieniowymi najpopularniejszych aplikacji według liczby poleceń i zapytań, najważniejszych podmiotów głównych według liczby poleceń i zapytań oraz najważniejszych poleceń według typów poleceń](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

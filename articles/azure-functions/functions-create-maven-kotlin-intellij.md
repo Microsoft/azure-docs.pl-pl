@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 0207e4af9f845343866714ec207ca306cb327b36
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: f02643ee28d76d4f90206a1aa2879b4672da2a38
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035176"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179463"
 ---
 # <a name="create-your-first-kotlin-function-in-azure-using-intellij"></a>Tworzenie pierwszej funkcji Kotlin na platformie Azure przy użyciu usługi IntelliJ
 
@@ -81,7 +81,7 @@ Maven tworzy pliki projektu w nowym folderze o tej samej nazwie, co wartość _A
 
 ## <a name="deploy-the-project-to-azure"></a>Wdrażanie projektu na platformie Azure
 
-1. Aby można było wdrożyć projekt w aplikacji funkcji na platformie Azure, musisz [zalogować się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Aby można było wdrożyć projekt w aplikacji funkcji na platformie Azure, musisz [zalogować się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 
    ``` azurecli
    az login

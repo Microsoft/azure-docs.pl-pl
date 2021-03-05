@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750886"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178366"
 ---
 ## <a name="disk-level-bursting"></a>Szeregowanie na poziomie dysku
 
@@ -63,15 +63,14 @@ Aby uzyskać szczegółowe informacje na temat cen i użyć [kalkulatora cen pla
 
 Korzystanie z obciążeń opartych na kredytach jest dostępne na dyskach P20 i mniejszych we wszystkich regionach w chmurach publicznych, rządowych i chińskich platformy Azure. Domyślnie funkcja przenoszenia dysków jest włączona we wszystkich nowych i istniejących wdrożeniach obsługiwanych rozmiarów dysków. W przypadku korzystania z rozliczeń na poziomie maszyny wirtualnej odbywa się tylko rozliczanie na podstawie kredytu.
 
-### <a name="virtual-machine-level-bursting"></a>Szeregowanie na poziomie maszyny wirtualnej
-Obsługa serii na poziomie maszyny wirtualnej jest włączona we wszystkich regionach w chmurze publicznej w przypadku następujących obsługiwanych rozmiarów: 
-- [Seria Lsv2](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>Szeregowanie na poziomie maszyny wirtualnej
 
-W regionie zachodnie stany USA dostępne są również maszyny wirtualne o następujących rozmiarach:
+Funkcja wielowymiarowego na poziomie maszyny wirtualnej używa modelu opartego na kredycie na potrzeby rozliczania, jest domyślnie włączona dla wszystkich maszyn wirtualnych, które je obsługują.
+
+Funkcja wielowymiarowego na poziomie maszyny wirtualnej jest włączona we wszystkich regionach w chmurze publicznej platformy Azure pod kątem obsługiwanych rozmiarów: 
+- [Seria Lsv2](../articles/virtual-machines/lsv2-series.md)
 - [Serie Dv3 i Dsv3](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Serie Ev3 i Esv3](../articles/virtual-machines/ev3-esv3-series.md)
-
-Domyślnie w przypadku maszyn wirtualnych, które go obsługują, funkcja przenoszenia jest włączona.
 
 ## <a name="bursting-flow"></a>Przepływ na rozerwanie
 

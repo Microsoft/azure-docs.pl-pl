@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727799"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177792"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Tworzenie wyzwalacza uruchamiającego potok w odpowiedzi na zdarzenie magazynu
 
@@ -26,7 +26,6 @@ W przypadku 10-minutowego wprowadzenia i pokazania tej funkcji Obejrzyj następu
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > Integracja opisana w tym artykule zależy od [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Upewnij się, że subskrypcja została zarejestrowana przy użyciu dostawcy zasobów Event Grid. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów i ich typy](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Musisz mieć możliwość wykonania akcji *Microsoft. EventGrid/eventSubscriptions/**. Ta akcja jest częścią wbudowanej roli współautor EventGrid EventSubscription.
 
@@ -34,11 +33,11 @@ W przypadku 10-minutowego wprowadzenia i pokazania tej funkcji Obejrzyj następu
 
 W tej sekcji pokazano, jak utworzyć wyzwalacz zdarzeń magazynu w Azure Data Factory interfejsie użytkownika.
 
-1. Przejdź do **kanwy tworzenia**
+1. Przejdź do karty **Edycja** , która jest wyświetlana z symbolem ołówka. 
 
-1. W lewym dolnym rogu kliknij przycisk **wyzwalacze**
+1. Wybierz pozycję **wyzwalacz** w menu, a następnie wybierz pozycję **Nowy/Edytuj**. 
 
-1. Kliknij pozycję **+ Nowy** , aby otworzyć stronę Utwórz wyzwalacz nawigacyjny
+1. Na stronie **Dodawanie wyzwalaczy** wybierz pozycję **Wybierz wyzwalacz...**, a następnie wybierz pozycję **+ Nowy**. 
 
 1. Wybierz typ wyzwalacza **zdarzenie magazynu**
 
@@ -107,4 +106,5 @@ Ta sekcja zawiera przykłady ustawień wyzwalacza zdarzeń magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Dowiedz się, jak odwoływać się do metadanych wyzwalacza w potoku, zobacz [metadane wyzwalacza odwołań w uruchomieniach potoków](how-to-use-trigger-parameterization.md)

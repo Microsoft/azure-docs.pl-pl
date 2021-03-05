@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e7beae6c1398525faa267e2cec6d9fb7134b6297
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 538d414ce606b944fcea7adbb1c817386e13090e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703595"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178579"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Tworzenie statycznej aplikacji internetowej w języku HTML na platformie Azure
 
@@ -67,7 +67,7 @@ Wykonanie polecenia może potrwać kilka minut.
 <ul>
 <li>Utwórz domyślną grupę zasobów.</li>
 <li>Utwórz domyślny plan App Service.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Utwórz aplikację App Service</a> o podanej nazwie.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Utwórz aplikację App Service</a> o podanej nazwie.</li>
 <li><a href="/azure/app-service/deploy-zip">Spakuj pliki</a> wdrożenia z bieżącego katalogu roboczego do aplikacji.</li>
 <li>W trakcie działania są dostępne komunikaty dotyczące tworzenia zasobów, rejestrowania i wdrażania pliku ZIP.</li>
 </ul>

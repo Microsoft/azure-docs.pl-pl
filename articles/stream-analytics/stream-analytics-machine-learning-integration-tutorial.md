@@ -1,18 +1,18 @@
 ---
 title: Integracja Azure Stream Analytics z Azure Machine Learning Studio (wersja klasyczna)
 description: W tym artykule opisano sposób szybkiego skonfigurowania prostego zadania Azure Stream Analytics, które integruje Azure Machine Learning Studio (klasyczne) przy użyciu funkcji zdefiniowanej przez użytkownika.
-author: krishna0815
-ms.author: krishmam
 ms.service: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7d74887b4b4e205645a45fa7e07768a1af73940
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 89b1b91270d1fe30ffcb5ae0caa5f319aa616683
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015304"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178528"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Analiza tonacji z użyciem Azure Stream Analytics i Azure Machine Learning Studio (wersja klasyczna)
 
@@ -56,7 +56,7 @@ W tym kroku przekażesz plik CSV do kontenera magazynu.
 
    ![Podaj szczegóły konta magazynu](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Wybierz pozycję **Recenzja + Utwórz**. Następnie wybierz pozycję **Utwórz** , aby wdrożyć konto magazynu.
+3. Wybierz pozycję **Przejrzyj i utwórz**. Następnie wybierz pozycję **Utwórz** , aby wdrożyć konto magazynu.
 
 4. Po zakończeniu wdrażania przejdź do konta magazynu. W obszarze **Blob service** wybierz pozycję **Kontenery**. Następnie wybierz pozycję **+ kontener** , aby utworzyć nowy kontener.
 

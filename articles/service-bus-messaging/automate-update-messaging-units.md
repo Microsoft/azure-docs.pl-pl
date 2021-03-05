@@ -2,13 +2,13 @@
 title: Azure Service Bus — automatycznie Aktualizuj jednostki obsługi komunikatów
 description: W tym artykule pokazano, jak za pomocą automatycznie aktualizować jednostki obsługi komunikatów Service Bus przestrzeni nazw.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720600"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177959"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Automatycznie Aktualizuj jednostki obsługi komunikatów Azure Service Bus przestrzeni nazw 
 Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości zasobów, aby obsłużyć obciążenie aplikacji. Pozwala to na dodawanie zasobów w celu zwiększenia obciążenia, a także oszczędność pieniędzy dzięki usunięciu zasobów znajdujących się w stanie bezczynności. Zobacz [Omówienie automatycznego skalowania w Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) , aby dowiedzieć się więcej na temat funkcji automatycznego skalowania Azure monitor. 
@@ -136,8 +136,14 @@ W poprzedniej sekcji pokazano, jak dodać warunek domyślny dla ustawienia skalo
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="skalowanie do określonych jednostek obsługi komunikatów — powtarzanie określonych dni":::
 
-> [!IMPORTANT]
-> Aby dowiedzieć się więcej o tym, jak działają ustawienia skalowania automatycznego, szczególnie w jaki sposób wybiera profil lub warunek i szacuje wiele reguł, zobacz [Omówienie ustawień skalowania automatycznego](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    Aby dowiedzieć się więcej o tym, jak działają ustawienia skalowania automatycznego, szczególnie w jaki sposób wybiera profil lub warunek i szacuje wiele reguł, zobacz [Omówienie ustawień skalowania automatycznego](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - Metryki przeglądane w celu podejmowania decyzji dotyczących skalowania automatycznego mogą być 5-10 min. W przypadku korzystania z obciążeń obciążeniowych zalecamy skrócenie czasu trwania skalowania w górę i dłuższy czas trwania skalowania w dół (> 10 minut), aby zapewnić wystarczającą liczbę jednostek obsługi komunikatów do przetwarzania obciążeń. 
+    > 
+    > - Jeśli widzisz niepowodzenia z powodu braku pojemności (Brak dostępnych jednostek obsługi komunikatów), zgłoś nam bilet pomocy technicznej.  
+
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o jednostkach obsługi komunikatów, zobacz [Obsługa komunikatów w warstwie Premium](service-bus-premium-messaging.md)
