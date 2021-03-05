@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648802"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212913"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metody uwierzytelniania w aplikacji Azure Active Directory Microsoft Authenticator
 
 Aplikacja Microsoft Authenticator zapewnia dodatkowy poziom zabezpieczeń konta służbowego lub szkolnego usługi Azure AD lub konto Microsoft i jest dostępny dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Za pomocą aplikacji Microsoft Authenticator użytkownicy mogą uwierzytelniać się w sposób niezależny od hasła podczas logowania lub jako dodatkowa opcja weryfikacji podczas samoobsługowego resetowania hasła (SSPR) lub zdarzeń Multi-Factor Authentication usługi Azure AD.
 
-Użytkownicy mogą otrzymać powiadomienie za pomocą aplikacji mobilnej do zatwierdzenia lub odmowy lub użyć aplikacji Authenticator do wygenerowania kodu weryfikacyjnego OATH, który można wprowadzić w interfejsie logowania. Jeśli włączysz powiadomienie i kod weryfikacyjny, użytkownicy rejestrujący aplikację uwierzytelniania mogą użyć dowolnej metody do zweryfikowania swojej tożsamości.
+Użytkownicy mogą otrzymać powiadomienie za pomocą aplikacji mobilnej do zatwierdzenia lub odmowy lub użyć aplikacji Authenticator do wygenerowania kodu weryfikacyjnego OAUTH, który można wprowadzić w interfejsie logowania. Jeśli włączysz powiadomienie i kod weryfikacyjny, użytkownicy rejestrujący aplikację uwierzytelniania mogą użyć dowolnej metody do zweryfikowania swojej tożsamości.
 
 Aby używać aplikacji Authenticator przy użyciu monitu logowania zamiast kombinacji nazwy użytkownika i hasła, zobacz [Włączanie logowania bez hasła przy użyciu aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 

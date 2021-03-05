@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 7e0d93d3fd179d672b49967c575bbfb9c0fc5de0
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495291"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213695"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Używanie modeli Plug and Play IoT w rozwiązaniu IoT
 
@@ -40,10 +40,10 @@ Rozwiązanie może uzyskać identyfikator modelu urządzenia Plug and Play IoT, 
 
 ### <a name="get-device-twin-api"></a>Pobierz interfejs API z urządzeniami bliźniaczymi
 
-Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
+Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
 
 > [!TIP]
-> W przypadku modułów i modułów IoT Edge Użyj [ModuleClient. getsplot](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
+> W przypadku modułów i modułów IoT Edge Użyj [ModuleClient. getsplot](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin).
 
 W poniższym fragmencie kodu odpowiedzi z urządzeń z sznurem `modelId` zawiera identyfikator modelu urządzenia Plug and Play IoT:
 

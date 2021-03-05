@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180279"
+ms.locfileid: "102214239"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -31,10 +31,12 @@ Gdy skończysz, będziesz mieć platformę Azure <abbr title="Logiczny kontener 
 
 <details>
 <summary>Masz już program Visual Studio 2019?</summary>
-  Jeśli zainstalowano już program Visual Studio 2019:
+Jeśli zainstalowano już program Visual Studio 2019:
 
-  - **Zainstaluj najnowsze aktualizacje** programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**. Najnowsze aktualizacje zawierają zestaw SDK programu .NET 5,0.
-  - **Dodaj obciążenie** , wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
+<ul>
+<li><strong>Zainstaluj najnowsze aktualizacje</strong> programu Visual Studio, wybierając pozycję <strong>Pomoc</strong> &gt; <strong>Sprawdź dostępność aktualizacji</strong>. Najnowsze aktualizacje zawierają zestaw SDK programu .NET 5,0.</li>
+<li><strong>Dodaj obciążenie</strong> , wybierając kolejno pozycje <strong>Narzędzia</strong> &gt; <strong>Pobierz narzędzia i funkcje</strong>.</li>
+</ul>
 </details>
 
 <hr/> 
@@ -314,19 +316,19 @@ http://<app_name>.azurewebsites.net
 
 1. **Uruchom** `az webapp up` Aby ponownie wdrożyć:
 
-```azurecli
-az webapp up --os-type linux
-```
-
-<details>
-<summary>Co <code>az webapp up</code> to jest ten czas?</summary>
-Przy pierwszym uruchomieniu polecenia Zapisano nazwę aplikacji, grupę zasobów i plan App Service w pliku <i>. Azure/config</i> z katalogu głównego projektu. Po ponownym uruchomieniu programu z poziomu katalogu głównego projektu są używane wartości zapisane w <i>. Azure/config</i>, wykryje, że zasoby App Service już istnieją, a następnie ponownie wykonuje wdrożenie zip.
-</details>
-
+    ```azurecli
+    az webapp up --os-type linux
+    ```
+    
+    <details>
+    <summary>Co <code>az webapp up</code> to jest ten czas?</summary>
+    Przy pierwszym uruchomieniu polecenia Zapisano nazwę aplikacji, grupę zasobów i plan App Service w pliku <i>. Azure/config</i> z katalogu głównego projektu. Po ponownym uruchomieniu programu z poziomu katalogu głównego projektu są używane wartości zapisane w <i>. Azure/config</i>, wykryje, że zasoby App Service już istnieją, a następnie ponownie wykonuje wdrożenie zip.
+    </details>
+    
 1. Po zakończeniu wdrażania **kliknij przycisk Odśwież** w otwartym wcześniej oknie przeglądarki.
 
-![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
-
+    ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+    
 [Masz problemy? Daj nam znać.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 <hr/> 
@@ -341,8 +343,8 @@ Przy pierwszym uruchomieniu polecenia Zapisano nazwę aplikacji, grupę zasobów
 
 1. Na stronie Przegląd można wykonać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Menu po lewej stronie zawiera różne strony służące do konfigurowania aplikacji. 
 
-![Strona usługi App Service w witrynie Azure Portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
-
+    ![Strona usługi App Service w witrynie Azure Portal](media/quickstart-dotnetcore/portal-app-overview-up.png)
+    
 <hr/> 
 
 ## <a name="9-clean-up-resources"></a>9. Czyszczenie zasobów

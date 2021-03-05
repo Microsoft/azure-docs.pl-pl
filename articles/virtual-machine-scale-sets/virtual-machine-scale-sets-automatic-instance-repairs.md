@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ae508754775d4eb622d8e91ef58eb0d6e1c45692
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 080666c9857c1a3dc509ca980bc85b1dc11b5975
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889018"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214290"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatyczne naprawy wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -125,7 +125,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 }
 ```
 
-### <a name="azure-powershell"></a>Program Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Funkcję automatycznej naprawy wystąpienia można włączyć podczas tworzenia nowego zestawu skalowania za pomocą polecenia cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) . Ten przykładowy skrypt przeprowadzi Cię przez proces tworzenia zestawu skalowania i skojarzonych zasobów przy użyciu pliku konfiguracji: [Utwórz kompletny zestaw skalowania maszyn wirtualnych](./scripts/powershell-sample-create-complete-scale-set.md). Można skonfigurować zasady automatycznego naprawiania wystąpienia, dodając parametry *EnableAutomaticRepair* i *AutomaticRepairGracePeriod* do obiektu konfiguracji w celu utworzenia zestawu skalowania. Poniższy przykład włącza funkcję z okresem prolongaty wynoszącym 30 minut.
 
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniższy przykład włącza zasady naprawy automatycznej podczas tworzenia nowego zestawu skalowania za pomocą polecenia *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty automatycznej naprawy ustawiony na 30 minut.
+Poniższy przykład włącza zasady naprawy automatycznej podczas tworzenia nowego zestawu skalowania za pomocą polecenia *[AZ VMSS Create](/cli/azure/vmss#az-vmss-create)*. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty automatycznej naprawy ustawiony na 30 minut.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -195,7 +195,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 }
 ```
 
-### <a name="azure-powershell"></a>Program Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Użyj polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) , aby zmodyfikować konfigurację funkcji automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania. Poniższy przykład aktualizuje okres prolongaty do 40 minut.
 
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania przy użyciu polecenia *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania przy użyciu polecenia *[AZ VMSS Update](/cli/azure/vmss#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -259,7 +259,7 @@ Użyj interfejsu API *setOrchestrationServiceState* z interfejsem API w wersji 2
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure 
 
-Użyj polecenia cmdlet [Get-instance-View](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) , aby wyświetlić *stan ServiceState* dla automatycznych napraw wystąpień. 
+Użyj polecenia cmdlet [Get-instance-View](/cli/azure/vmss#az-vmss-get-instance-view) , aby wyświetlić *stan ServiceState* dla automatycznych napraw wystąpień. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -267,7 +267,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Użyj polecenia cmdlet [Set-Orchestration-Service-State](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) , aby zaktualizować *stan ServiceState* dla automatycznych napraw wystąpień. Gdy zestaw skalowania zostanie uwzględniony w funkcji automatycznej naprawy, możesz użyć tego polecenia cmdlet, aby zawiesić lub wznowić automatyczne naprawy dla zestawu skalowania. 
+Użyj polecenia cmdlet [Set-Orchestration-Service-State](/cli/azure/vmss#az-vmss-set-orchestration-service-state) , aby zaktualizować *stan ServiceState* dla automatycznych napraw wystąpień. Gdy zestaw skalowania zostanie uwzględniony w funkcji automatycznej naprawy, możesz użyć tego polecenia cmdlet, aby zawiesić lub wznowić automatyczne naprawy dla zestawu skalowania. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -276,7 +276,7 @@ az vmss set-orchestration-service-state \
     --name MyScaleSet \
     --resource-group MyResourceGroup
 ```
-### <a name="azure-powershell"></a>Program Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) z parametrem *InstanceView* , aby wyświetlić *stan ServiceState* dla automatycznych napraw wystąpień.
 

@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 566a7a978a08bf7e37b6c4ab8b0609222b34e549
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724527"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212760"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Kodowanie i przesyłanie strumieniowe plików wideo za pomocą Node.JS
 
@@ -128,15 +128,15 @@ az group delete --name amsResourceGroup
 
 ## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Więcej dokumentacji dla deweloperów Node.js na platformie Azure
 
-- [Platforma Azure dla & języka JavaScript Node.js deweloperów](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Platforma Azure dla & języka JavaScript Node.js deweloperów](/azure/developer/javascript/)
 - [Media Services kodu źródłowego w @azure/azure-sdk-for-js repozytorium centrum git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Dokumentacja pakietu platformy Azure dla deweloperów Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Dokumentacja pakietu platformy Azure dla deweloperów Node.js](/javascript/api/overview/azure/)
 
 ## <a name="see-also"></a>Zobacz też
 
 - [Kody błędów zadań](/rest/api/media/jobs/get#joberrorcode).
 - [npm Zainstaluj @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Platforma Azure dla & języka JavaScript Node.js deweloperów](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Platforma Azure dla & języka JavaScript Node.js deweloperów](/azure/developer/javascript/)
 - [Media Services kodu źródłowego w @azure/azure-sdk-for-js repozytorium](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Następne kroki

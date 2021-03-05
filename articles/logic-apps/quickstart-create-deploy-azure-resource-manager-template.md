@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8cee79efd9be53ddb9d450f643c04f21ae5e7fca
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739341"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214001"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Szybki Start: Tworzenie i wdrażanie przepływu pracy aplikacji logiki przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ ms.locfileid: "92739341"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -42,14 +42,14 @@ Aby znaleźć więcej szablonów szybkiego startu dla Azure Logic Apps, zapoznaj
 
 <a name="deploy-template"></a>
 
-## <a name="deploy-the-template"></a>Wdrażanie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 Postępuj zgodnie z opcją, która ma zostać użyta do wdrożenia szablonu szybkiego startu:
 
 | Opcja | Opis |
 |--------|-------------|
 | [Witryna Azure Portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | Jeśli środowisko platformy Azure spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, te kroki ułatwiają logowanie się bezpośrednio do platformy Azure i otwieranie szablonu szybkiego startu w Azure Portal. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure Portal](../azure-resource-manager/templates/deploy-portal.md). |
-| [Interfejs wiersza polecenia platformy Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Interfejs wiersza polecenia platformy Azure (Azure CLI) to zestaw poleceń umożliwiających tworzenie zasobów platformy Azure i zarządzanie nimi. Aby uruchomić te polecenia, wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby sprawdzić wersję interfejsu wiersza polecenia, wpisz `az --version` . Więcej informacji można znaleźć w następujących tematach: <p><p>- [Co to jest interfejs wiersza polecenia platformy Azure](/cli/azure/what-is-azure-cli?view=azure-cli-latest) <br>- [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) |
+| [Interfejs wiersza polecenia platformy Azure](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | Interfejs wiersza polecenia platformy Azure (Azure CLI) to zestaw poleceń umożliwiających tworzenie zasobów platformy Azure i zarządzanie nimi. Aby uruchomić te polecenia, wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2,6 lub nowszej. Aby sprawdzić wersję interfejsu wiersza polecenia, wpisz `az --version` . Więcej informacji można znaleźć w następujących tematach: <p><p>- [Co to jest interfejs wiersza polecenia platformy Azure](/cli/azure/what-is-azure-cli) <br>- [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Program Azure PowerShell udostępnia zestaw poleceń cmdlet, które pozwalają zarządzać zasobami platformy Azure przy użyciu modelu usługi Azure Resource Manager. Więcej informacji można znaleźć w następujących tematach: <p><p>- [Przegląd Azure PowerShell](/powershell/azure/azurerm/overview) <br>- [Wprowadzenie Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az) <br>- [Wprowadzenie do Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [Interfejs API REST usługi Azure Resource Management](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Platforma Azure udostępnia interfejsy API REST (Representational State Transfer), które są punktami końcowymi usługi, które obsługują operacje HTTP (metody) używane do tworzenia, pobierania, aktualizowania lub usuwania dostępu do zasobów usługi. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem API REST platformy Azure](/rest/api/azure/). |
 |||
@@ -67,9 +67,9 @@ Postępuj zgodnie z opcją, która ma zostać użyta do wdrożenia szablonu szyb
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | **Subskrypcja** | <*Azure — nazwa subskrypcji*> | Nazwa subskrypcji platformy Azure do użycia |
-   | **Grupa zasobów** | <*Azure-Resource-Group-Name*> | Nazwa nowej lub istniejącej grupy zasobów platformy Azure. Ten przykład używa `Check-Azure-Status-RG` . |
-   | **Region** | <*Platforma Azure — region*> | Region centrum danych platformy Azure do korzystania z aplikacji logiki. Ten przykład używa `West US` . |
-   | **Nazwa aplikacji logiki** | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. Ten przykład używa `Check-Azure-Status-LA` . |
+   | **Grupa zasobów** | <*Azure-Resource-Group-Name*> | Nazwa nowej lub istniejącej grupy zasobów platformy Azure. W tym przykładzie użyto wartości `Check-Azure-Status-RG`. |
+   | **Region** | <*Platforma Azure — region*> | Region centrum danych platformy Azure do korzystania z aplikacji logiki. W tym przykładzie użyto wartości `West US`. |
+   | **Nazwa aplikacji logiki** | <*Logic-App-Name*> | Nazwa, która ma być używana w aplikacji logiki. W tym przykładzie użyto wartości `Check-Azure-Status-LA`. |
    | **Identyfikator URI testu** | <*Identyfikator URI testu*> | Identyfikator URI usługi do wywołania na podstawie określonego harmonogramu. Ten przykład używa `https://status.azure.com/en-us/status/` , który jest stroną stanu platformy Azure. |
    | **Lokalizacja** |  <*Azure-region-wszystkie zasoby*> | Region świadczenia usługi Azure, który ma być używany dla wszystkich zasobów, jeśli jest różny od wartości domyślnej. W tym przykładzie jest użyta wartość domyślna, `[resourceGroup().location]` która jest lokalizacją grupy zasobów. |
    ||||
@@ -78,7 +78,7 @@ Postępuj zgodnie z opcją, która ma zostać użyta do wdrożenia szablonu szyb
 
    ![Podaj informacje o szablonie szybkiego startu](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz** .
+1. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**.
 
 1. Wykonaj kroki opisane w sekcji [Przegląd wdrożonych zasobów](#review-deployed-resources).
 
@@ -100,7 +100,7 @@ Więcej informacji można znaleźć w następujących tematach:
 * [Interfejs wiersza polecenia platformy Azure: AZ Deployment Group](/cli/azure/deployment/group)
 * [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)
 
-#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name to use for generating resource names"
@@ -132,7 +132,7 @@ Więcej informacji można znaleźć w następujących tematach:
    | Wartość | Opis |
    |-------|-------------|
    | `subscriptionId`| Identyfikator GUID subskrypcji platformy Azure, której chcesz użyć |
-   | `resourceGroupName` | Nazwa grupy zasobów platformy Azure do utworzenia. Ten przykład używa `Check-Azure-Status-RG` . |
+   | `resourceGroupName` | Nazwa grupy zasobów platformy Azure do utworzenia. W tym przykładzie użyto wartości `Check-Azure-Status-RG`. |
    |||
 
    Na przykład:
@@ -155,8 +155,8 @@ Więcej informacji można znaleźć w następujących tematach:
    | Wartość | Opis |
    |-------|-------------|
    | `subscriptionId`| Identyfikator GUID subskrypcji platformy Azure, której chcesz użyć |
-   | `resourceGroupName` | Nazwa grupy zasobów platformy Azure, która ma zostać użyta. Ten przykład używa `Check-Azure-Status-RG` . |
-   | `deploymentName` | Nazwa do użycia we wdrożeniu. Ten przykład używa `Check-Azure-Status-LA` . |
+   | `resourceGroupName` | Nazwa grupy zasobów platformy Azure, która ma zostać użyta. W tym przykładzie użyto wartości `Check-Azure-Status-RG`. |
+   | `deploymentName` | Nazwa do użycia we wdrożeniu. W tym przykładzie użyto wartości `Check-Azure-Status-LA`. |
    |||
 
    Na przykład:
@@ -188,7 +188,7 @@ Więcej informacji można znaleźć w następujących tematach:
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | `location`| <*Platforma Azure — region*> | Region świadczenia usługi Azure, który ma zostać użyty do wdrożenia. Ten przykład używa `West US` . |
+   | `location`| <*Platforma Azure — region*> | Region świadczenia usługi Azure, który ma zostać użyty do wdrożenia. W tym przykładzie użyto wartości `West US`. |
    | `templateLink` : `uri` | <*Szybki Start — szablon — adres URL*> | Lokalizacja adresu URL szablonu szybkiego startu do użycia na potrzeby wdrożenia: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
    | `parametersLink` : `uri` | <*Szybki Start — szablon-parametr-File-URL*> | Lokalizacja adresu URL dla pliku parametru szablonu szybkiego startu, który ma zostać użyty do wdrożenia: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>Aby uzyskać więcej informacji na temat pliku parametrów Menedżer zasobów, zobacz następujące tematy: <p><p>- [Utwórz plik parametrów Menedżer zasobów](../azure-resource-manager/templates/parameter-files.md) <br>- [Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | `mode` | <*Tryb wdrożenia*> | Uruchom aktualizację przyrostową lub pełną aktualizację. W tym przykładzie `Incremental` zostanie użyta wartość domyślna. Aby uzyskać więcej informacji, zobacz [Azure Resource Manager trybami wdrożenia](../azure-resource-manager/templates/deployment-modes.md). |
@@ -234,7 +234,7 @@ Aby wyświetlić aplikację logiki, można użyć Azure Portal, uruchomić skryp
 
 1. Gdy zostanie otwarty projektant aplikacji logiki, przejrzyj aplikację logiki utworzoną przez szablon szybkiego startu.
 
-1. Aby przetestować aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom** .
+1. Aby przetestować aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom**.
 
 ### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
@@ -245,9 +245,9 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Logic Workflow show](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
+Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Logic Workflow show](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show).
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $logicAppName = Read-Host -Prompt "Enter your logic app name"
@@ -266,8 +266,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | Wartość | Opis |
 |-------|-------------|
 | `subscriptionId`| Identyfikator GUID subskrypcji platformy Azure, w której został wdrożony szablon szybkiego startu. |
-| `resourceGroupName` | Nazwa grupy zasobów platformy Azure, w której wdrożono szablon szybkiego startu. Ten przykład używa `Check-Azure-Status-RG` . |
-| `workflowName` | Nazwa wdrożonej aplikacji logiki. Ten przykład używa `Check-Azure-Status-LA` . |
+| `resourceGroupName` | Nazwa grupy zasobów platformy Azure, w której wdrożono szablon szybkiego startu. W tym przykładzie użyto wartości `Check-Azure-Status-RG`. |
+| `workflowName` | Nazwa wdrożonej aplikacji logiki. W tym przykładzie użyto wartości `Check-Azure-Status-LA`. |
 |||
 
 Na przykład:
@@ -288,7 +288,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i sa
 
 1. W Azure Portal Znajdź i wybierz grupę zasobów, którą chcesz usunąć, która jest `Check-Azure-Status-RG` w tym przykładzie.
 
-1. W menu Grupa zasobów wybierz pozycję **Przegląd** , jeśli nie została jeszcze wybrana. Na stronie Przegląd wybierz pozycję **Usuń grupę zasobów** .
+1. W menu Grupa zasobów wybierz pozycję **Przegląd** , jeśli nie została jeszcze wybrana. Na stronie Przegląd wybierz pozycję **Usuń grupę zasobów**.
 
 1. Aby potwierdzić, wprowadź nazwę grupy zasobów.
 
@@ -303,9 +303,9 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure: AZ Group Delete](/cli/azure/group#az-group-delete).
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -324,7 +324,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 | Wartość | Opis |
 |-------|-------------|
 | `subscriptionId`| Identyfikator GUID subskrypcji platformy Azure, w której został wdrożony szablon szybkiego startu. |
-| `resourceGroupName` | Nazwa grupy zasobów platformy Azure, w której wdrożono szablon szybkiego startu. Ten przykład używa `Check-Azure-Status-RG` . |
+| `resourceGroupName` | Nazwa grupy zasobów platformy Azure, w której wdrożono szablon szybkiego startu. W tym przykładzie użyto wartości `Check-Azure-Status-RG`. |
 |||
 
 Na przykład:

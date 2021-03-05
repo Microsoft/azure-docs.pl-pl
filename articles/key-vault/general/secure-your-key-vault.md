@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534706"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212471"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -36,7 +36,7 @@ Podmiot zabezpieczeń to obiekt, który reprezentuje użytkownika, grupę, usłu
 
 * Podmiot zabezpieczeń **grupy** identyfikuje zestaw użytkowników utworzonych w Azure Active Directory. Wszystkie role lub uprawnienia przypisane do grupy są udzielane wszystkim użytkownikom należącym do grupy.
 
-* Nazwa **główna usługi** jest typem podmiotu zabezpieczeń, który tożsamościuje aplikację lub usługę, czyli fragment kodu, a nie użytkownika lub grupy. Identyfikator obiektu jednostki usługi jest znany jako jego **Identyfikator klienta** i działa jak jego nazwa użytkownika. **Klucz tajny klienta** lub **certyfikat** jednostki usługi jest traktowany jak jego hasło. Wiele usług platformy Azure obsługuje przypisywanie [tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md) za pomocą zautomatyzowanego zarządzania **identyfikatorem klienta** i **certyfikatem**. Tożsamość zarządzana to najbezpieczniejsza i zalecana opcja uwierzytelniania na platformie Azure.
+* Nazwa **główna usługi** jest typem podmiotu zabezpieczeń, który identyfikuje aplikację lub usługę, czyli fragment kodu, a nie użytkownika lub grupy. Identyfikator obiektu jednostki usługi jest znany jako jego **Identyfikator klienta** i działa jak jego nazwa użytkownika. **Klucz tajny klienta** lub **certyfikat** jednostki usługi jest traktowany jak jego hasło. Wiele usług platformy Azure obsługuje przypisywanie [tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md) za pomocą zautomatyzowanego zarządzania **identyfikatorem klienta** i **certyfikatem**. Tożsamość zarządzana to najbezpieczniejsza i zalecana opcja uwierzytelniania na platformie Azure.
 
 Aby uzyskać więcej informacji na temat uwierzytelniania do Key Vault, zobacz [uwierzytelnianie do Azure Key Vault](authentication.md)
 

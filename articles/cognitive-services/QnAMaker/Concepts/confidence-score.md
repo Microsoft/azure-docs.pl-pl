@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 489592fcbc779685728b120f18e5e923ee34d655
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346379"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214052"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>Wynik pewności odpowiedzi
 Gdy zapytanie użytkownika jest dopasowane do bazy wiedzy, QnA Maker zwraca odpowiednie odpowiedzi wraz z oceną ufności. Ten wynik wskazuje, że odpowiedź jest odpowiednim dopasowaniem dla danego zapytania użytkownika.
@@ -53,7 +53,7 @@ Podczas wybierania progu należy wziąć pod uwagę równowagę między dokładn
 - Jeśli **pokrycie** (lub odwołanie) jest ważniejsze i chcesz odpowiedzieć na tyle, na ile to możliwe, nawet jeśli istnieje tylko część relacji z pytaniem użytkownika, Obniż wartość progu. Oznacza to, że może wystąpić więcej przypadków, w których odpowiedź nie odpowiada rzeczywistej kwerendzie użytkownika, ale podaje nieco inną odpowiedź. *Na przykład:* w przypadku progu **30** można udzielić odpowiedzi na zapytania, takie jak "gdzie mogę edytować moją KB?".
 
 > [!NOTE]
-> Nowsze wersje QnA Maker obejmują ulepszenia logiki oceniania i mogą wpływać na wartość progową. Za każdym razem, gdy aktualizujesz usługę, pamiętaj o przetestowaniu i dostosowaniu progu, jeśli jest to konieczne. W [tym miejscu](https://www.qnamaker.ai/UserSettings)możesz sprawdzić wersję usługi QNA, a także zapoznać się z artykułem jak uzyskać najnowsze aktualizacje w [tym miejscu](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+> Nowsze wersje QnA Maker obejmują ulepszenia logiki oceniania i mogą wpływać na wartość progową. Za każdym razem, gdy aktualizujesz usługę, pamiętaj o przetestowaniu i dostosowaniu progu, jeśli jest to konieczne. W [tym miejscu](https://www.qnamaker.ai/UserSettings)możesz sprawdzić wersję usługi QNA, a także zapoznać się z artykułem jak uzyskać najnowsze aktualizacje w [tym miejscu](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 ## <a name="set-threshold"></a>Ustaw próg
 

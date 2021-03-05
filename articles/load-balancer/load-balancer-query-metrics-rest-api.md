@@ -10,12 +10,12 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: fbf21ba359ae7914acd2d812ec9e12f9f3ee557a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 391be596d890e05e6a8fdaf35d2cade371e468d6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511947"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213187"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Uzyskiwanie metryk użycia Load Balancer przy użyciu interfejsu API REST
 
@@ -44,7 +44,7 @@ Wymagane są następujące nagłówki:
 
 | Nazwa | Opis |
 | :--- | :---------- |
-| subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | Nazwa grupy zasobów zawierającej zasób. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
 | loadBalancerName | Nazwa Azure Load Balancer. |
 | nazwy metryk | Rozdzielana przecinkami lista prawidłowych  [metryk Load Balancer](./load-balancer-standard-diagnostics.md). |

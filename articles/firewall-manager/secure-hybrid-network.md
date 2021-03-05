@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 03/03/2021
 ms.author: victorh
-ms.openlocfilehash: 5d662efc927235711c4dd5e8a424d8775279c30b
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f631100003a4ea6e191a5bdc13a11eb9aa327268
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048049"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212550"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie sieci wirtualnej centrum przy użyciu Menedżera zapory platformy Azure
 
@@ -30,7 +30,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Sieć hybrydowa](media/tutorial-hybrid-portal/hybrid-network-firewall.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad zapory
@@ -79,22 +79,24 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 1. Wybierz swoją subskrypcję, a w obszarze Grupa zasobów wybierz pozycję **Utwórz nową** i Utwórz grupę zasobów o nazwie **PD-hybrydowy-test**.
 2. W polu Nazwa zasad wpisz **pol-Net01**.
 3. W obszarze region wybierz pozycję **Wschodnie stany USA**.
-4. Wybierz pozycję **Dalej: reguły**.
-5. Wybierz pozycję **Dodaj kolekcję reguł**.
-6. W obszarze **Nazwa** wpisz **RCNet01**.
-7. W obszarze **Typ kolekcji reguł** wybierz pozycję **Sieć**.
-8. Dla **priorytetu** wpisz **100**.
-9. W polu **Akcja** wybierz opcję **Zezwalaj**.
-10. W obszarze **reguły**, w polu **Nazwa** wpisz **AllowWeb**.
-11. W przypadku **adresów źródłowych** wpisz **192.168.1.0/24**.
-12. W polu **Protokół** wybierz **TCP**.
-13. W przypadku **portów docelowych** wpisz **80**.
-14. W obszarze **Typ docelowy** wybierz pozycję **adres IP**.
-15. Dla **lokalizacji docelowej** wpisz **10.6.0.0/16**.
-16. W następnym wierszu reguły wprowadź następujące informacje:
+1. Wybierz pozycję **Dalej: ustawienia DNS**.
+1. Wybierz **Następny: Inspekcja TLS (wersja zapoznawcza)**
+1. Wybierz pozycję **Dalej: reguły**.
+1. Wybierz pozycję **Dodaj kolekcję reguł**.
+1. W obszarze **Nazwa** wpisz **RCNet01**.
+1. W obszarze **Typ kolekcji reguł** wybierz pozycję **Sieć**.
+1. Dla **priorytetu** wpisz **100**.
+1. W polu **Akcja** wybierz opcję **Zezwalaj**.
+1. W obszarze **reguły**, w polu **Nazwa** wpisz **AllowWeb**.
+1. W obszarze **Źródło** wpisz **192.168.1.0/24**.
+1. W polu **Protokół** wybierz **TCP**.
+1. W przypadku **portów docelowych** wpisz **80**.
+1. W obszarze **Typ docelowy** wybierz pozycję **adres IP**.
+1. Dla **lokalizacji docelowej** wpisz **10.6.0.0/16**.
+1. W następnym wierszu reguły wprowadź następujące informacje:
  
     Name: wpisz **AllowRDP**<br>
-    Źródłowy adres IP: wpisz **192.168.1.0/24**.<br>
+    Źródło: wpisz **192.168.1.0/24**.<br>
     Protokół, wybierz **TCP**<br>
     Porty docelowe, typ **3389**<br>
     Typ docelowy, wybierz pozycję **adres IP**<br>
@@ -110,61 +112,67 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.
-4. W obszarze **Nazwa wpisz nazwę** **koncentratora sieci wirtualnej**.
-5. W **polu przestrzeń adresowa** wpisz **10.5.0.0/16**.
-6. W polu **Subskrypcja** wybierz subskrypcję.
-7. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
-8. W obszarze **Lokalizacja** wybierz pozycję **Wschodnie stany USA**.
-9. W obszarze **Podsieci** w polu **Nazwa** wpisz wartość **AzureFirewallSubnet**. Zapora będzie znajdować się w tej podsieci, a nazwą podsieci **musi** być AzureFirewallSubnet.
-10. W obszarze **zakres adresów** wpisz **10.5.0.0/26**. 
-11. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+2. Wyszukaj **sieć wirtualną** , a następnie wybierz pozycję **Sieć wirtualna**.
+1. Wybierz przycisk **Utwórz**.
+1. W polu **Subskrypcja** wybierz subskrypcję.
+1. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
+1. W obszarze **Nazwa wpisz nazwę** **koncentratora sieci wirtualnej**.
+1. W **obszarze region** wybierz pozycję **Wschodnie stany USA**.
+1. Wybierz pozycję **Dalej: adresy IP**.
+
+1. W **polu przestrzeń adresowa IPv4** wpisz **10.5.0.0/16**.
+1. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
+1.  Zmień **nazwę podsieci** na **AzureFirewallSubnet**. Zapora jest w tej podsieci, a nazwa podsieci **musi** być AzureFirewallSubnet.
+1. W obszarze **zakres adresów podsieci** wpisz **10.5.0.0/26**. 
+1. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-the-spoke-virtual-network"></a>Tworzenie sieci wirtualnej będącej szprychą
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.
-4. W obszarze **Nazwa** wpisz **VNET-szprych**.
-5. W **polu przestrzeń adresowa** wpisz **10.6.0.0/16**.
-6. W polu **Subskrypcja** wybierz subskrypcję.
-7. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
-8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-9. W obszarze **Podsieć** w polu **Nazwa** wpisz **SN-Workload**.
-10. W obszarze **zakres adresów** wpisz **10.6.0.0/24**.
-11. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+2. Wyszukaj **sieć wirtualną** , a następnie wybierz pozycję **Sieć wirtualna**.
+1. Wybierz przycisk **Utwórz**.
+1. W polu **Subskrypcja** wybierz subskrypcję.
+1. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
+1. W obszarze **Nazwa** wpisz **VNET-szprych**.
+1. W **obszarze region** wybierz pozycję **Wschodnie stany USA**.
+1. Wybierz pozycję **Dalej: adresy IP**.
+
+1. W **polu przestrzeń adresowa IPv4** wpisz **10.6.0.0/16**.
+1. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
+1. Zmień **nazwę podsieci** na **SN-obciążenie**.
+1. W obszarze **zakres adresów podsieci** wpisz **10.6.0.0/24**. 
+1. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
+
 
 ## <a name="create-the-on-premises-virtual-network"></a>Tworzenie lokalnej sieci wirtualnej
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W obszarze **Sieć** wybierz pozycję **Sieć wirtualna**.
-4. W obszarze **Nazwa** wpisz **VNET-lokalnego**.
-5. W polu **Przestrzeń adresowa** wpisz wartość **192.168.0.0/16**.
-6. W polu **Subskrypcja** wybierz subskrypcję.
-7. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
-8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-9. W obszarze **podsieć** w polu **Nazwa** wpisz **SN-Corp**.
-10. W polu **Zakres adresów** wpisz wartość **192.168.1.0/24**.
-11. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
+2. Wyszukaj **sieć wirtualną** , a następnie wybierz pozycję **Sieć wirtualna**.
+1. Wybierz przycisk **Utwórz**.
+1. W polu **Subskrypcja** wybierz subskrypcję.
+1. W obszarze **Grupa zasobów** wybierz opcję **PD-hybrydowy-test**.
+1. W obszarze **Nazwa** wpisz **VNET-lokalnego**.
+1. W **obszarze region** wybierz pozycję **Wschodnie stany USA**.
+1. Wybierz pozycję **Dalej: adresy IP**.
 
-Po wdrożeniu sieci wirtualnej należy utworzyć drugą podsieć dla bramy.
+1. W **polu przestrzeń adresowa IPv4** wpisz **192.168.0.0/16**.
+1. W obszarze **Nazwa podsieci** wybierz pozycję **domyślne**.
+1. Zmień **nazwę podsieci** na **SN-Corp**.
+1. W obszarze **zakres adresów podsieci** wpisz **192.168.1.0/24**. 
+1. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Zapisz**.
+2. Wybierz pozycję **Dodaj podsieć**.
+3. W obszarze **Nazwa podsieci** wpisz **GatewaySubnet**.
+4. Dla typu **zakresu adresów podsieci** **192.168.2.0/24**.
+5. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
-1. Na stronie **Sieć wirtualna — lokalnego** wybierz pozycję **podsieci**.
-2. Wybierz pozycję **+ podsieć**.
-3. W obszarze **Nazwa** wpisz **GatewaySubnet**.
-4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
-5. Wybierz pozycję **OK**.
 
-### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Jest to publiczny adres IP używany przez bramę lokalną.
-
-1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W polu tekstowym Wyszukaj wpisz **publiczny adres IP** , a następnie naciśnij klawisz **Enter**.
-3. Wybierz pozycję **publiczny adres IP** , a następnie wybierz pozycję **Utwórz**.
-4. W polu Nazwa wpisz **VNET-lokalnego-GW-PIP**.
-5. W polu Grupa zasobów wpisz polecenie **PD-hybrydowy-test**.
-6. W obszarze **Lokalizacja** wybierz pozycję Wybierz **Wschodnie stany USA**.
-7. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurowanie i wdrażanie zapory
 
@@ -174,11 +182,11 @@ Przekonwertuj sieć wirtualną **koncentratora** sieci wirtualnej na *centralną
 
 1. Na pasku wyszukiwania Azure Portal wpisz **Menedżer zapory** i naciśnij klawisz **Enter**.
 3. Na stronie Menedżer zapory platformy Azure w obszarze **Dodawanie zabezpieczeń do sieci wirtualnych** wybierz opcję **Wyświetl sieci wirtualne centrów**.
-4. Wybierz pozycję **Konwertuj sieci wirtualne**.
-5. Wybierz pozycję **Sieć wirtualna-koncentrator** , a następnie wybierz pozycję **Dalej: Zapora platformy Azure**.
-6. Dla **zasad zapory** wybierz pozycję **pol-Net01**.
-7. Wybierz pozycję **dalej "Przejrzyj i Potwierdź**
-8. Przejrzyj szczegóły, a następnie wybierz pozycję **Potwierdź**.
+1. W obszarze **sieci wirtualne** zaznacz pole wyboru dla **koncentratora sieć** wirtualna.
+1. Wybierz pozycję **Zarządzaj zabezpieczeniami**, a następnie wybierz pozycję **Wdróż zaporę za pomocą zasad zapory**.
+1. Na stronie **Konwertuj sieci wirtualne** w obszarze **zasady zapory** zaznacz pole wyboru **pol-Net01**.
+1. Wybierz pozycję **Dalej: Przejrzyj i Potwierdź**
+1. Przejrzyj szczegóły, a następnie wybierz pozycję **Potwierdź**.
 
 
    Wdrożenie może potrwać kilka minut.
@@ -219,7 +227,7 @@ Teraz utwórz bramę sieci VPN dla lokalnej sieci wirtualnej. Konfiguracje poł�
 7. W obszarze **Typ sieci VPN** wybierz pozycję **oparta na trasach**.
 8. W obszarze **jednostka SKU** wybierz pozycję **podstawowa**.
 9. W obszarze **Sieć wirtualna** wybierz pozycję **VNET-lokalnego**.
-10. W polu **publiczny adres IP** wybierz pozycję **Użyj istniejącej*, a następnie wybierz pozycję **Sieć wirtualna-lokalnego-GW-PIP** .
+10. W polu **publiczny adres IP** wybierz pozycję **Utwórz nowy**, a następnie wpisz **VNET-lokalnego-GW-PIP** jako nazwę.
 11. Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Recenzja + Utwórz**.
 12. Przejrzyj konfigurację, a następnie wybierz pozycję **Utwórz**.
 
@@ -227,16 +235,16 @@ Teraz utwórz bramę sieci VPN dla lokalnej sieci wirtualnej. Konfiguracje poł�
 
 Teraz można tworzyć połączenia sieci VPN między centrami centralnymi i lokalnymi.
 
-W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej sieci wirtualnej. W przykładach zastosowano odwołania do klucza współużytkowanego. Możesz wybrać własne wartości dla klucza współużytkowanego. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Tworzenie połączenia może nieco potrwać.
+W tym kroku utworzysz połączenie z sieci wirtualnej koncentratora do lokalnej sieci wirtualnej. W przykładach zastosowano odwołania do klucza współużytkowanego. Możesz wybrać własne wartości dla klucza współużytkowanego. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Utworzenie połączenia zajmuje trochę czasu.
 
 1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz bramę bramy **GW-Hub** .
 2. Wybierz pozycję **połączenia** w lewej kolumnie.
 3. Wybierz pozycję **Dodaj**.
-4. Nazwa połączenia wpisz **Hub-to-lokalnego**.
+4. W polu Nazwa połączenia wpisz **Hub-to-lokalnego**.
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej** wybierz pozycję **GW-lokalnego**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz pozycję **OK**.
+8. Wybierz przycisk **OK**.
 
 Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentratora. Ten krok jest podobny do poprzedniego, jednak w tym przypadku tworzysz połączenie z sieci VNet-Onprem do sieci VNet-hub. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
@@ -247,7 +255,7 @@ Utwórz połączenie z lokalnej sieci wirtualnej do sieci wirtualnej koncentrato
 5. Wybierz pozycję **Sieć wirtualna-sieć wirtualna** dla **typu połączenia**.
 6. W przypadku **drugiej bramy sieci wirtualnej** wybierz pozycję **GW-Hub**.
 7. Dla **klucza współużytkowanego (PSK)** wpisz **AzureA1b2C3**.
-8. Wybierz pozycję **OK**.
+8. Wybierz przycisk **OK**.
 
 
 #### <a name="verify-the-connection"></a>Weryfikowanie połączenia
@@ -263,21 +271,31 @@ Teraz nawiąż komunikację równorzędną pomiędzy siecią wirtualną koncentr
 1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz sieć wirtualną **koncentratora** sieci wirtualnej.
 2. W lewej kolumnie Wybierz pozycję **Komunikacja równorzędna**.
 3. Wybierz pozycję **Dodaj**.
-4. W obszarze **Nazwa** wpisz **HubtoSpoke**.
-5. Dla **sieci wirtualnej** wybierz opcję Sieć wirtualna **-szprycha**
-6. Aby uzyskać nazwę komunikacji równorzędnej z VNetSpoke do koncentratora sieci wirtualnej, wpisz **SpoketoHub**.
-7. Wybierz pozycję **Zezwalaj na tranzyt bramy**.
-8. Wybierz pozycję **OK**.
+4. W **tej sieci wirtualnej**:
+ 
+   
+   |Nazwa ustawienia  |Wartość  |
+   |---------|---------|
+   |Nazwa łącza komunikacji równorzędnej| HubtoSpoke|
+   |Ruch do zdalnej sieci wirtualnej|   Zezwalaj (wartość domyślna)      |
+   |Ruch przekierowany z zdalnej sieci wirtualnej    |   Zezwalaj (wartość domyślna)      |
+   |Brama sieci wirtualnej lub serwer tras    |  Użyj bramy tej sieci wirtualnej       |
+    
+5. W obszarze **zdalna Sieć wirtualna**:
 
-### <a name="configure-additional-settings-for-the-spoketohub-peering"></a>Konfigurowanie dodatkowych ustawień komunikacji równorzędnej SpoketoHub
+   |Nazwa ustawienia  |Wartość  |
+   |---------|---------|
+   |Nazwa łącza komunikacji równorzędnej | SpoketoHub|
+   |Model wdrażania sieci wirtualnej| Resource Manager|
+   |Subskrypcja|\<your subscription\>|
+   |Sieć wirtualna| VNet-Spoke
+   |Ruch do zdalnej sieci wirtualnej     |   Zezwalaj (wartość domyślna)      |
+   |Ruch przekierowany z zdalnej sieci wirtualnej    |   Zezwalaj (wartość domyślna)      |
+   |Brama sieci wirtualnej     |  Korzystanie z bramy zdalnej sieci wirtualnej       |
 
-Należy włączyć **ruch przekierowany dalej** w komunikacji równorzędnej SpoketoHub.
+5. Wybierz pozycję **Dodaj**.
 
-1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz **sieć wirtualną sieci wirtualnej.**
-2. W lewej kolumnie Wybierz pozycję **Komunikacja równorzędna**.
-3. Wybierz komunikację równorzędną **SpoketoHub** .
-4. W obszarze **Zezwalaj na ruch przesłany z sieci wirtualnej do sieci wirtualnej — szprych** wybierz pozycję **włączone**.
-5. Wybierz pozycję **Zapisz**.
+   :::image type="content" source="media/secure-hybrid-network/firewall-peering.png" alt-text="Komunikacja równorzędna sieci wirtualnych":::
 
 ## <a name="create-the-routes"></a>Tworzenie tras
 
@@ -289,19 +307,20 @@ Następnie należy utworzyć kilka tras:
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-4. Wybierz pozycję **Utwórz**.
-5. W polu Nazwa wpisz **UDR-Hub-szprych**.
-6. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
-8. W obszarze **Lokalizacja** wybierz pozycję **(US) Wschodnie stany USA)**.
-9. Wybierz pozycję **Utwórz**.
-10. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
-11. W lewej kolumnie Wybierz pozycję **trasy** .
-12. Wybierz pozycję **Dodaj**.
-13. Dla nazwy trasy wpisz **ToSpoke**.
-14. Dla prefiksu adresu wpisz **10.6.0.0/16**.
-15. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
-16. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-17. Wybierz pozycję **OK**.
+4. Wybierz przycisk **Utwórz**.
+1. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
+1. W **obszarze region** wybierz pozycję **Wschodnie stany USA**.
+1. W polu Nazwa wpisz **UDR-Hub-szprych**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz przycisk **Utwórz**.
+1. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
+1. W lewej kolumnie Wybierz pozycję **trasy** .
+1. Wybierz pozycję **Dodaj**.
+1. Dla nazwy trasy wpisz **ToSpoke**.
+1. Dla prefiksu adresu wpisz **10.6.0.0/16**.
+1. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
+1. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
+1. Wybierz przycisk **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -309,27 +328,28 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna** wybierz pozycję Virtual **-Hub**.
 5. W obszarze **podsieć** wybierz pozycję **GatewaySubnet**.
-6. Wybierz pozycję **OK**.
+6. Wybierz przycisk **OK**.
 
 Teraz Utwórz trasę domyślną z podsieci szprych.
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-5. Wybierz pozycję **Utwórz**.
-6. W polu Nazwa wpisz **UDR-DG**.
+5. Wybierz przycisk **Utwórz**.
 7. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
-8. W obszarze **Lokalizacja** wybierz pozycję **(US) Wschodnie stany USA)**.
-4. W przypadku **propagacji trasy bramy sieci wirtualnej** wybierz pozycję **wyłączone**.
+8. W **obszarze region** wybierz pozycję **Wschodnie stany USA**.
+1. W polu Nazwa wpisz **UDR-DG**.
+4. W przypadku **propagacji tras bramy** wybierz pozycję **nie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
-2. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
-3. W lewej kolumnie Wybierz pozycję **trasy** .
-4. Wybierz pozycję **Dodaj**.
-5. Dla nazwy trasy wpisz **ToHub**.
-6. Dla prefiksu adresu wpisz **0.0.0.0/0**.
-7. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
-8. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
-9. Wybierz pozycję **OK**.
+1. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
+1. W lewej kolumnie Wybierz pozycję **trasy** .
+1. Wybierz pozycję **Dodaj**.
+1. Dla nazwy trasy wpisz **ToHub**.
+1. Dla prefiksu adresu wpisz **0.0.0.0/0**.
+1. W polu Typ następnego przeskoku wybierz pozycję **urządzenie wirtualne**.
+1. W polu adres następnego przeskoku wpisz zanotowany wcześniej prywatny adres IP zapory.
+1. Wybierz przycisk **OK**.
 
 Teraz Skojarz trasę z podsiecią.
 
@@ -337,7 +357,7 @@ Teraz Skojarz trasę z podsiecią.
 2. Wybierz pozycję **Skojarz**.
 4. W obszarze **Sieć wirtualna** wybierz pozycję **VNET-szprychy**.
 5. W obszarze **podsieć** wybierz pozycję **SN-obciążenie**.
-6. Wybierz pozycję **OK**.
+6. Wybierz przycisk **OK**.
 
 ## <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -350,20 +370,19 @@ Tworzenie maszyny wirtualnej w sieci wirtualnej szprych, uruchamianie usług IIS
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **popularne** wybierz pozycję **Windows Server 2016 Datacenter**.
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
-    - **Grupa zasobów** — wybierz opcję **PD-hybrydowy-test**.
-    - **Nazwa maszyny wirtualnej**: *VM-szprych-01*.
-    - **Region**  -  *(Stany Zjednoczone) — Wschodnie stany USA)*.
-    - **Nazwa użytkownika**: *azureuser*.
+    - **Grupa zasobów** — wybierz opcję **PD-hybrydowa — test**
+    - **Nazwa maszyny wirtualnej**: *VM-szprych-01*
+    - **Region**  -  *(US) Wschodnie stany USA*
+    - **Nazwa użytkownika**: wpisz nazwę użytkownika
     - **Hasło**: wpisz hasło
 
 4. Wybierz pozycję **Dalej: Dyski**.
 5. Zaakceptuj wartości domyślne i wybierz pozycję **Dalej: sieć**.
 6. Wybierz pozycję Sieć wirtualna **-szprycha** dla sieci wirtualnej, a podsieć jest **obciążeniem SN**.
-7. W obszarze **publiczny adres IP** wybierz pozycję **Brak**.
 8. W przypadku **publicznych portów ruchu przychodzącego** wybierz opcję **Zezwalaj na wybrane porty**, a następnie wybierz pozycję **http (80)** i **protokół RDP (3389).**
-9. Wybierz pozycję **Dalej: Zarządzanie**.
-10. W obszarze **Diagnostyka rozruchu** wybierz pozycję **wyłączone**.
-11. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Dalej: Zarządzanie**.
+1. W obszarze **Diagnostyka rozruchu** wybierz pozycję **Wyłącz**.
+1. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
 
 ### <a name="install-iis"></a>Instalowanie usług IIS
 
@@ -389,18 +408,18 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **popularne** wybierz pozycję **Windows Server 2016 Datacenter**.
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
-    - **Grupa zasobów** — wybierz pozycję istniejące, a następnie wybierz pozycję **PD-hybrydowy-test**.
-    - **Nazwa**  -  maszyny wirtualnej *Maszyna wirtualna — lokalnego*.
-    - **Region**  -  *(Stany Zjednoczone) — Wschodnie stany USA)*.
-    - **Nazwa użytkownika**: *azureuser*.
-    - **Hasło**: wpisz hasło.
+    - **Grupa zasobów** — wybierz pozycję istniejące, a następnie wybierz pozycję **PD-hybrydowy-test**
+    - **Nazwa**  -  maszyny wirtualnej *Maszyna wirtualna — lokalnego*
+    - **Region**  -  *(US) Wschodnie stany USA*
+    - **Nazwa użytkownika**: wpisz nazwę użytkownika
+    - **Hasło**: wpisz hasło
 
 4. Wybierz pozycję **Dalej: Dyski**.
 5. Zaakceptuj wartości domyślne i wybierz pozycję **Dalej: sieć**.
 6. Wybierz pozycję Sieć wirtualna **-lokalnego** dla sieci wirtualnej i sprawdź, czy podsieć jest **SN-Corp**.
 7. W przypadku **publicznych portów ruchu przychodzącego** wybierz opcję **Zezwalaj na wybrane porty**, a następnie wybierz pozycję **RDP (3389).**
 8. Wybierz pozycję **Dalej: Zarządzanie**.
-9. W obszarze **Diagnostyka rozruchu** wybierz pozycję **wyłączone**.
+9. W obszarze **Diagnostyka rozruchu** wybierz pozycję **Wyłącz**.
 10. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="test-the-firewall"></a>Testowanie zapory
@@ -427,17 +446,17 @@ Teraz sprawdzono, że reguły zapory działają:
 
 Następnie zmień ustawienie akcji kolekcji reguł sieci zapory na **Odmów**, aby sprawdzić, czy reguły zapory działają zgodnie z oczekiwaniami.
 
-1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz zasady zapory **pol-Net01**.
-2. W obszarze **Ustawienia** wybierz pozycję **reguły**.
-3. W obszarze **reguły sieciowe** wybierz pozycję Kolekcja reguł **RCNet01** , wybierz wielokropek (...), a następnie wybierz pozycję **Edytuj**.
-4. Dla **akcji kolekcji reguł** wybierz pozycję **Odmów**.
-5. Wybierz pozycję **Zapisz**.
+1. Otwórz grupę zasobów **PD-hybrydowy-test** i wybierz zasady zapory **pol-Net01** .
+2. W obszarze **Ustawienia** wybierz pozycję **kolekcje reguł**.
+1. Wybierz kolekcję reguł **RCNet01** .
+1. Dla **akcji kolekcji reguł** wybierz pozycję **Odmów**.
+1. Wybierz pozycję **Zapisz**.
 
-Zamknij wszystkie istniejące Pulpity zdalne i przeglądarki na **maszynie wirtualnej-lokalnego** przed przetestowaniem zmienionych reguł. Po zakończeniu aktualizacji kolekcji reguł ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem.
+Zamknij wszystkie istniejące Pulpity zdalne i przeglądarki na **maszynie wirtualnej-lokalnego** przed przetestowaniem zmienionych reguł. Po zakończeniu aktualizacji kolekcji reguł ponownie uruchom testy. Ta godzina powinna się nie powieść.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
+Zasoby zapory można zachować do dalszej analizy, a jeśli nie są już potrzebne, Usuń grupę zasobów **PD-hybrydowy-test** , aby usunąć wszystkie zasoby związane z zaporą.
 
 ## <a name="next-steps"></a>Następne kroki
 

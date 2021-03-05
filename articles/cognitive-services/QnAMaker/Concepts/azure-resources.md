@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f5a248b8701c71b2dcf0415c6656b9b565535232
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096539"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214171"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -126,7 +126,7 @@ QnA Maker zarządzany to bezpłatna usługa, a przepływność jest obecnie ogra
 |[Uaktualnij](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service jednostki SKU i sprawdzanie warstwy Wyszukiwanie poznawcze i [Tworzenie replik wyszukiwanie poznawcze](../../../search/search-capacity-planning.md)|Baza wiedzy musi obtworzyć więcej żądań z aplikacji klienckiej, takich jak rozmowa bot.|
 |[Uaktualnij](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Usługa Wyszukiwanie poznawcze platformy Azure|Planowane jest posiadanie wielu baz wiedzy.|
 
-Pobierz najnowsze aktualizacje środowiska uruchomieniowego, [aktualizując App Service w Azure Portal](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Pobierz najnowsze aktualizacje środowiska uruchomieniowego, [aktualizując App Service w Azure Portal](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 # <a name="qna-maker-managed-preview-release"></a>[Zarządzane QnA Maker (wersja zapoznawcza)](#tab/v2)
 
@@ -307,7 +307,7 @@ Pierwsza baza wiedzy utworzona w zasobie QnA Maker służy do określenia _jedne
 
 Jeśli utworzysz usługę QnA i jej zależności (takie jak wyszukiwanie) w portalu, zostanie utworzona usługa wyszukiwania i zostanie ona połączona z usługą QnA Maker. Po utworzeniu tych zasobów można zaktualizować ustawienie App Service tak, aby korzystało już z istniejącej usługi wyszukiwania, i usunąć właśnie utworzoną.
 
-Dowiedz się, [jak skonfigurować](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QNA Maker, aby używać innego zasobu usługi poznawczej niż ten, który został utworzony w ramach procesu tworzenia zasobu QNA Maker.
+Dowiedz się, [jak skonfigurować](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QNA Maker, aby używać innego zasobu usługi poznawczej niż ten, który został utworzony w ramach procesu tworzenia zasobu QNA Maker.
 
 ### <a name="app-service-and-app-service-plan"></a>Usługa App Service i plan usługi App Service
 

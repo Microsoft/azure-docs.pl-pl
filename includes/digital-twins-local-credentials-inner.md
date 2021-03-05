@@ -5,15 +5,15 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3cb053f9673532ac19e2098678ec341f2f676486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb148551db798207a52bd7aef629da79dd3341e1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011262"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212822"
 ---
-W programie `DefaultAzureCredential` próba wyszukiwania poświadczeń w środowisku lokalnym, takich jak logowanie do platformy Azure w lokalnym [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) lub w programie Visual Studio lub Visual Studio Code. Z tego powodu należy *zalogować się lokalnie na platformie Azure* za pomocą jednego z tych mechanizmów, aby skonfigurować poświadczenia dla przykładu.
+W programie `DefaultAzureCredential` próba wyszukiwania poświadczeń w środowisku lokalnym, takich jak logowanie do platformy Azure w lokalnym [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub w programie Visual Studio lub Visual Studio Code. Z tego powodu należy *zalogować się lokalnie na platformie Azure* za pomocą jednego z tych mechanizmów, aby skonfigurować poświadczenia dla przykładu.
 
 Jeśli używasz programu Visual Studio lub Visual Studio Code do uruchomienia przykładu kodu, upewnij się, że zalogowano się do tego edytora z tymi samymi poświadczeniami platformy Azure, które mają być używane w celu uzyskania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-W przeciwnym razie możesz [zainstalować lokalny interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), uruchomić wiersz poleceń na maszynie, a następnie uruchomić `az login` polecenie, aby zalogować się do konta platformy Azure. Po zalogowaniu się po uruchomieniu przykładowego kodu należy zalogować się automatycznie.
+W przeciwnym razie możesz [zainstalować lokalny interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), uruchomić wiersz poleceń na maszynie, a następnie uruchomić `az login` polecenie, aby zalogować się do konta platformy Azure. Po zalogowaniu się po uruchomieniu przykładowego kodu należy zalogować się automatycznie.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908282"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212947"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Uruchamianie, zatrzymywanie i usuwanie aplikacji w chmurze platformy Azure
 
@@ -27,12 +27,12 @@ Po wdrożeniu aplikacji można uruchomić, zatrzymać i usunąć ją za pomocą 
 1. Przejdź do wystąpienia usługi w chmurze ze sprężyną platformy Azure w Azure Portal.
 1. Wybierz kartę **pulpit nawigacyjny aplikacji** .
 1. Wybierz aplikację, której stan chcesz zmienić.
-1. Na stronie **Przegląd** dla tej aplikacji wybierz pozycję **Uruchom/Zatrzymaj**, **Uruchom ponownie**lub **Usuń**.
+1. Na stronie **Przegląd** dla tej aplikacji wybierz pozycję **Uruchom/Zatrzymaj**, **Uruchom ponownie** lub **Usuń**.
 
 ## <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!NOTE]
-> Możesz użyć parametrów opcjonalnych i skonfigurować wartości domyślne przy użyciu interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej o interfejsie wiersza polecenia platformy Azure, odczytując [dokumentację referencyjną](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest&preserve-view=true).  
+> Możesz użyć parametrów opcjonalnych i skonfigurować wartości domyślne przy użyciu interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej o interfejsie wiersza polecenia platformy Azure, odczytując [dokumentację referencyjną](/cli/azure/ext/spring-cloud/spring-cloud).  
 
 Najpierw zainstaluj rozszerzenie Cloud wiosny Azure dla interfejsu wiersza polecenia platformy Azure w następujący sposób:
 

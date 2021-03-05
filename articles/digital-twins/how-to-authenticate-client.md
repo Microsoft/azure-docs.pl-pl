@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6a0676418e951b84c9b973bd93c2750e410392d1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556137"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212823"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
@@ -33,8 +33,8 @@ Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienck
 `Azure.Identity` jest biblioteką klienta udostępniającą kilka metod uzyskiwania poświadczeń, których można użyć w celu uzyskania tokenu okaziciela i uwierzytelnienia w zestawie SDK. Mimo że ten artykuł zawiera przykłady w języku C#, można wyświetlić `Azure.Identity` w kilku językach, w tym...
 
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
-* [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
-* [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
+* [Java](/java/api/overview/azure/identity-readme)
+* [JavaScript](/javascript/api/overview/azure/identity-readme)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Trzy popularne metody uzyskiwania poświadczeń w programie `Azure.Identity` to:

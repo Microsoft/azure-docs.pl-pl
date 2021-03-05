@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d9fb9e0221ad6a5749899c89bbd9dc5631e7a91c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831756"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213270"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie Key Vault zarządzanego modułu HSM przy użyciu szablonu Azure Resource Manager
 
@@ -35,7 +35,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować następującymi el
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia, możesz wpisać:
 
@@ -43,7 +43,7 @@ Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia
 az login
 ```
 
-Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-manage-hsm"></a>Tworzenie modułu HSM zarządzania
 
@@ -55,13 +55,13 @@ Zasób platformy Azure zdefiniowany w szablonie:
 
 Więcej przykładów szablonów Azure Key Vault można znaleźć [tutaj](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-Szablon wymaga identyfikatora obiektu skojarzonego z Twoim kontem. Aby go znaleźć, użyj interfejsu wiersza polecenia platformy Azure [AZ AD User show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) , przekazując swój adres e-mail do `--id` parametru. Dane wyjściowe można ograniczyć do identyfikatora obiektu tylko przy użyciu `--query` parametru.
+Szablon wymaga identyfikatora obiektu skojarzonego z Twoim kontem. Aby go znaleźć, użyj interfejsu wiersza polecenia platformy Azure [AZ AD User show](/cli/azure/ad/user#az_ad_user_show) , przekazując swój adres e-mail do `--id` parametru. Dane wyjściowe można ograniczyć do identyfikatora obiektu tylko przy użyciu `--query` parametru.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-Może być również potrzebny identyfikator dzierżawy. Aby go znaleźć, użyj interfejsu wiersza polecenia platformy Azure [AZ AD User show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) . Dane wyjściowe można ograniczyć do identyfikatora dzierżawy tylko przy użyciu `--query` parametru.
+Może być również potrzebny identyfikator dzierżawy. Aby go znaleźć, użyj interfejsu wiersza polecenia platformy Azure [AZ AD User show](/cli/azure/account#az_account_show) . Dane wyjściowe można ograniczyć do identyfikatora dzierżawy tylko przy użyciu `--query` parametru.
 
  ```azurecli-interactive
  az account show --query "tenantId"
