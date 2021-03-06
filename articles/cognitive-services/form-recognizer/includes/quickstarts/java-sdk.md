@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 02/12/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: b801838a4db4d95d5d492d50d6b67cf474d95963
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: f7774fb44a01ebd34127ac48fe6b50b5afdd621c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101102873"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244529"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -253,7 +253,7 @@ Aby analizować faktury z adresu URL, użyj `beginRecognizeInvoicesFromUrl` meto
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
-> Możesz również analizować faktury lokalne. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable&preserve-view=true) , takie jak **beginRecognizeInvoices**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować faktury lokalne. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeInvoices**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej faktury w dokumencie. Poniższy kod przetwarza fakturę pod danym identyfikatorem URI i drukuje główne pola i wartości w konsoli.
 
@@ -385,7 +385,7 @@ Aby przeanalizować potwierdzenia z identyfikatora URI, należy użyć metody **
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable&preserve-view=true) , takie jak **beginRecognizeReceipts**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować obrazy paragonów lokalnych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeReceipts**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 Zwracana wartość jest kolekcją obiektów **RecognizedReceipt** : jeden dla każdej strony w przesłanym dokumencie. Następny blok kodu iteruje przez potwierdzenia i drukuje szczegółowe informacje w konsoli programu.
 
@@ -423,7 +423,7 @@ Aby analizować karty biznesowe na podstawie adresu URL, użyj `beginRecognizeBu
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
 > [!TIP]
-> Możesz również analizować obrazy lokalnych kart służbowych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable&preserve-view=true) , takie jak **beginRecognizeBusinessCards**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
+> Możesz również analizować obrazy lokalnych kart służbowych. Zobacz metody [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) , takie jak **beginRecognizeBusinessCards**. Lub zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) , aby poznać scenariusze dotyczące obrazów lokalnych.
 
 Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej karty w dokumencie. Poniższy kod przetwarza kartę biznesową pod podanym identyfikatorem URI i drukuje główne pola i wartości w konsoli.
 

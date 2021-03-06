@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: ab17b12913630774c4fe6d99a4830080de02e541
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712598"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244790"
 ---
 W poniższych sekcjach opisano Konfigurowanie terminalu i tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby skonfigurować Terminal, na którym są uruchomione polecenie interfejsu wiersza polecenia platformy Azure, można użyć Azure Cloud Shell opartej na przeglądarce lub lokalnego terminalu.
 * Aby użyć Cloud Shell, przejdź do następnej sekcji: [uruchom Cloud Shell](#launch-the-cloud-shell). 
@@ -41,7 +41,7 @@ Aby uruchomić Cloud Shell:
 W przypadku wybrania opcji używania terminalu lokalnego zamiast Cloud Shell należy wykonać tę sekcję.  
 
 1. Otwórz Terminal lokalny.
-1. Uruchom polecenie [AZ login](/cli/azure/reference-index?preserve-view=true&view=azure-cli-latest#az_login) :
+1. Uruchom polecenie [AZ login](/cli/azure/reference-index#az_login) :
 
    ```azurecli
    az login
@@ -65,7 +65,7 @@ W tej sekcji instalujesz rozszerzenie IoT Microsoft Azure dla interfejsu wiersza
 > [!IMPORTANT]
 > Polecenia terminalu w pozostałej części tego przewodnika Szybki Start działają tak samo w Cloud Shell lub na terminalu lokalnym. Aby uruchomić polecenie, wybierz opcję **Kopiuj** , aby skopiować blok kodu w tym przewodniku Szybki Start. Następnie wklej go do powłoki interfejsu wiersza polecenia i uruchom go.
 
-Uruchom polecenie [AZ Extension Add](/cli/azure/extension?preserve-view=true&view=azure-cli-latest#az-extension-add) . 
+Uruchom polecenie [AZ Extension Add](/cli/azure/extension#az-extension-add) . 
 
    ```azurecli
    az extension add --name azure-iot
@@ -77,7 +77,7 @@ W tej sekcji utworzysz Centrum IoT i grupę zasobów przy użyciu interfejsu wie
 
 Aby utworzyć Centrum IoT i grupę zasobów:
 
-1. Uruchom polecenie [AZ Group Create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create) , aby utworzyć grupę zasobów. Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* . 
+1. Uruchom polecenie [AZ Group Create](/cli/azure/group#az-group-create) , aby utworzyć grupę zasobów. Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* . 
     >[!NOTE]
     > Opcjonalnie można ustawić alternatywną lokalizację. Aby wyświetlić dostępne lokalizacje, uruchom polecenie `az account list-locations` . W tym samouczku używa się *wschodniego* , jak pokazano w przykładowym poleceniu. 
 
@@ -85,7 +85,7 @@ Aby utworzyć Centrum IoT i grupę zasobów:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Uruchom polecenie [AZ IoT Hub Create](/cli/azure/iot/hub?preserve-view=true&view=azure-cli-latest#az-iot-hub-create) , aby utworzyć Centrum IoT Hub. Utworzenie centrum IoT Hub może potrwać kilka minut. 
+1. Uruchom polecenie [AZ IoT Hub Create](/cli/azure/iot/hub#az-iot-hub-create) , aby utworzyć Centrum IoT Hub. Utworzenie centrum IoT Hub może potrwać kilka minut. 
 
     *YourIotHubName*. Zastąp ten symbol zastępczy i otaczające nawiasy klamrowe w poniższym poleceniu przy użyciu nazwy wybranej dla Centrum IoT. Nazwa Centrum IoT musi być globalnie unikatowa na platformie Azure. Użyj nazwy Centrum IoT w pozostałej części tego przewodnika Szybki Start wszędzie tam, gdzie zobaczysz symbol zastępczy.
 
@@ -97,7 +97,7 @@ Aby utworzyć Centrum IoT i grupę zasobów:
 W tej sekcji utworzysz symulowane urządzenie IoT połączone z Centrum IoT Hub. 
 
 Aby utworzyć symulowane urządzenie:
-1. Uruchom polecenie [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity?preserve-view=true&view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) w POWŁOCE interfejsu wiersza polecenia. Spowoduje to utworzenie symulowanej tożsamości urządzenia. 
+1. Uruchom polecenie [AZ IoT Hub Device-Identity Create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) w POWŁOCE interfejsu wiersza polecenia. Spowoduje to utworzenie symulowanej tożsamości urządzenia. 
 
     *YourIotHubName*. zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub. 
 
@@ -107,7 +107,7 @@ Aby utworzyć symulowane urządzenie:
     az iot hub device-identity create --device-id myDevice --hub-name {YourIoTHubName} 
     ```
 
-1.  Uruchom polecenie [AZ IoT Hub Device-Identity Connection-String show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string?preserve-view=true&view=azure-cli-latest#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) . 
+1.  Uruchom polecenie [AZ IoT Hub Device-Identity Connection-String show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) . 
 
     ```azurecli
     az iot hub device-identity connection-string show --device-id myDevice --hub-name {YourIoTHubName}

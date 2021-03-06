@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f02fa49b62a2e3d617617a20518810209d3879b7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 089ad704a466590a9649107fef245a88d6a4d6e3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027971"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102245019"
 ---
 Następująca konfiguracja została użyta w poniższych krokach:
 
@@ -41,4 +41,4 @@ Użyj następującego polecenia, aby zainstalować interfejs wiersza polecenia p
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Dodatkowe instrukcje dotyczące instalowania interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Dodatkowe instrukcje dotyczące instalowania interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-apt)

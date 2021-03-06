@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: cb8e6934125630590a337ed7bf7f4c81b2b73bb3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c4f3c47e3ac6e1e701b673574bb664237c1a9af
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915520"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244943"
 ---
 Rozpocznij pracę z usługami Azure Communications Services przy użyciu biblioteki klienta programu SMS dla usług komunikacyjnych, aby wysyłać wiadomości SMS.
 
@@ -28,7 +28,7 @@ W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kil
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) w wersji 8 lub nowszej.
+- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/) w wersji 8 lub nowszej.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Zasób i parametry połączenia aktywnego usługi komunikacyjnej. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
 - Numer telefonu z włączoną funkcją SMS. [Pobierz numer telefonu](../get-phone-number.md).
@@ -136,7 +136,7 @@ SmsClient client = new SmsClientBuilder()
     .buildClient();
 ```
 
-Klienta można zainicjować przy użyciu dowolnego niestandardowego klienta HTTP, który implementuje `com.azure.core.http.HttpClient` interfejs. Powyższy kod ilustruje użycie klienta HTTP z sieciami [Azure Core](/java/api/overview/azure/core-http-netty-readme?preserve-view=true&view=azure-java-stable) , który jest dostarczany przez program `azure-core` .
+Klienta można zainicjować przy użyciu dowolnego niestandardowego klienta HTTP, który implementuje `com.azure.core.http.HttpClient` interfejs. Powyższy kod ilustruje użycie klienta HTTP z sieciami [Azure Core](/java/api/overview/azure/core-http-netty-readme) , który jest dostarczany przez program `azure-core` .
 
 Możesz również podać całe parametry połączenia przy użyciu funkcji connectionString () zamiast podawania punktu końcowego i klucza dostępu. 
 ```java

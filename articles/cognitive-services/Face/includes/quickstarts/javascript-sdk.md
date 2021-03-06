@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 16797a5bdb5ef5f2b5660a33e1788b8824f1ad8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b4a63f76cbcd9e98295f5edcf7ff2d06979e6556
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722577"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244633"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Przewodnik Szybki Start: Tworzenie biblioteki klienckiej dla języka JavaScript
 
@@ -27,7 +27,7 @@ Użyj biblioteki klienta programu Front dla języka JavaScript, aby:
 * [Tworzenie grupy osób](#create-a-person-group)
 * [Identyfikowanie kroju](#identify-a-face)
 
-[Dokumentacja](/javascript/api/@azure/cognitiveservices-face/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face)  |  [Przykłady](/samples/browse/?products=azure&term=face&languages=javascript)
+[Dokumentacja](/javascript/api/@azure/cognitiveservices-face/)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-face)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-face)  |  [Przykłady](/samples/browse/?products=azure&term=face&languages=javascript)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -92,12 +92,12 @@ Następujące klasy i interfejsy obsługują niektóre z najważniejszych funkcj
 
 |Nazwa|Opis|
 |---|---|
-|[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient?view=azure-node-latest) | Ta klasa reprezentuje autoryzację do korzystania z usługi twarz i jest potrzebna dla wszystkich funkcji funkcjonalnych. Tworzysz wystąpienie z informacjami o subskrypcji i używasz ich do tworzenia wystąpień innych klas. |
-|[Rozpoznawanie twarzy](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest)|Ta klasa obsługuje podstawowe zadania wykrywania i rozpoznawania, które można wykonywać przy użyciu twarzy ludzkich. |
-|[DetectedFace](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/detectedface?view=azure-node-latest)|Ta klasa reprezentuje wszystkie dane, które zostały wykryte z pojedynczej części obrazu. Można go użyć do pobierania szczegółowych informacji o kroju.|
-|[FaceList](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/facelist?view=azure-node-latest)|Ta klasa zarządza opartymi na chmurze konstrukcjami **FaceList** , w których jest przechowywany asortyment zestawu twarzy. |
-|[PersonGroupPerson](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest)| Ta klasa zarządza konstrukcjami **osób** , które są przechowywane w chmurze, które przechowują zestaw twarzy należących do jednej osoby.|
-|[PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest)| Ta klasa **zarządza konstrukcjami** , które są przechowywane w chmurze, przechowujących zestaw obiektów **osób** . |
+|[FaceClient](/javascript/api/@azure/cognitiveservices-face/faceclient) | Ta klasa reprezentuje autoryzację do korzystania z usługi twarz i jest potrzebna dla wszystkich funkcji funkcjonalnych. Tworzysz wystąpienie z informacjami o subskrypcji i używasz ich do tworzenia wystąpień innych klas. |
+|[Rozpoznawanie twarzy](/javascript/api/@azure/cognitiveservices-face/face)|Ta klasa obsługuje podstawowe zadania wykrywania i rozpoznawania, które można wykonywać przy użyciu twarzy ludzkich. |
+|[DetectedFace](/javascript/api/@azure/cognitiveservices-face/detectedface)|Ta klasa reprezentuje wszystkie dane, które zostały wykryte z pojedynczej części obrazu. Można go użyć do pobierania szczegółowych informacji o kroju.|
+|[FaceList](/javascript/api/@azure/cognitiveservices-face/facelist)|Ta klasa zarządza opartymi na chmurze konstrukcjami **FaceList** , w których jest przechowywany asortyment zestawu twarzy. |
+|[PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson)| Ta klasa zarządza konstrukcjami **osób** , które są przechowywane w chmurze, które przechowują zestaw twarzy należących do jednej osoby.|
+|[PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)| Ta klasa **zarządza konstrukcjami** , które są przechowywane w chmurze, przechowujących zestaw obiektów **osób** . |
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -114,7 +114,7 @@ Poniższe fragmenty kodu przedstawiają sposób wykonywania następujących zada
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest)** z kluczem i użyj go w punkcie końcowym, aby utworzyć obiekt **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient?view=azure-node-latest)** .
+Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials)** z kluczem i użyj go w punkcie końcowym, aby utworzyć obiekt **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient)** .
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
@@ -134,14 +134,14 @@ Użyj następującej funkcji, aby poczekać na zakończenie szkolenia przez osob
 
 ### <a name="get-detected-face-objects"></a>Pobieranie wykrytych obiektów czołowych
 
-Utwórz nową metodę wykrywania twarzy. `DetectFaceExtract`Metoda przetwarza trzy obrazy pod podanym adresem URL i tworzy listę obiektów **[DetectedFace](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/detectedface?view=azure-node-latest)** w pamięci programu. Lista wartości **[FaceAttributeType](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceattributetype?view=azure-node-latest)** określa funkcje do wyodrębnienia. 
+Utwórz nową metodę wykrywania twarzy. `DetectFaceExtract`Metoda przetwarza trzy obrazy pod podanym adresem URL i tworzy listę obiektów **[DetectedFace](/javascript/api/@azure/cognitiveservices-face/detectedface)** w pamięci programu. Lista wartości **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** określa funkcje do wyodrębnienia. 
 
-`DetectFaceExtract`Metoda następnie analizuje i drukuje dane atrybutów dla każdej wykrytej cechy. Każdy atrybut musi być określony osobno w wywołaniu oryginalnego interfejsu API wykrywania kroju (na liście **[FaceAttributeType](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceattributetype?view=azure-node-latest)** ). Poniższy kod przetwarza każdy atrybut, ale prawdopodobnie trzeba będzie tylko użyć jednego lub kilku.
+`DetectFaceExtract`Metoda następnie analizuje i drukuje dane atrybutów dla każdej wykrytej cechy. Każdy atrybut musi być określony osobno w wywołaniu oryginalnego interfejsu API wykrywania kroju (na liście **[FaceAttributeType](/javascript/api/@azure/cognitiveservices-face/faceattributetype)** ). Poniższy kod przetwarza każdy atrybut, ale prawdopodobnie trzeba będzie tylko użyć jednego lub kilku.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="detect":::
 
 > [!TIP]
-> Możesz również wykrywać twarze w obrazie lokalnym. Zobacz metody [,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest) takie jak [DetectWithStreamAsync](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
+> Możesz również wykrywać twarze w obrazie lokalnym. Zobacz metody [,](/javascript/api/@azure/cognitiveservices-face/face) takie jak [DetectWithStreamAsync](/javascript/api/@azure/cognitiveservices-face/face#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
 
 ## <a name="find-similar-faces"></a>Wyszukiwanie podobnych twarzy
 
@@ -161,11 +161,11 @@ Poniższa metoda wykrywa twarze w zestawie obrazów docelowych i w jednym obrazi
 
 ## <a name="identify-a-face"></a>Identyfikowanie kroju
 
-Operacja [identyfikowania](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/face?view=azure-node-latest#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z [osobą](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest), która jest bazą danych różnych obiektów [osób](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/person?view=azure-node-latest) , których funkcje twarzy są znane. Aby wykonać operację identyfikowania, należy najpierw utworzyć i przeszkolić [osobę](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest).
+Operacja [identyfikowania](/javascript/api/@azure/cognitiveservices-face/face#identify_string____FaceIdentifyOptionalParams__ServiceCallback_IdentifyResult____) pobiera obraz osoby (lub wielu osób) i szuka tożsamości każdej twarzy na obrazie (wyszukiwanie rozpoznawania twarzy). Porównuje każdą wykrytą twarzą z [osobą](/javascript/api/@azure/cognitiveservices-face/persongroup), która jest bazą danych różnych obiektów [osób](/javascript/api/@azure/cognitiveservices-face/person) , których funkcje twarzy są znane. Aby wykonać operację identyfikowania, należy najpierw utworzyć i przeszkolić [osobę](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 ### <a name="add-faces-to-person-group"></a>Dodawanie twarzy do grupy osób
 
-Utwórz następującą funkcję, aby dodać twarzy do tej [osoby](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest).
+Utwórz następującą funkcję, aby dodać twarzy do tej [osoby](/javascript/api/@azure/cognitiveservices-face/persongroup).
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="add_faces":::
 
@@ -178,7 +178,7 @@ Utwórz następującą funkcję pomocnika, aby poczekać na zakończenie szkolen
 ### <a name="create-a-person-group"></a>Tworzenie grupy osób
 
 Następujący kod:
-- Tworzy [odbiorcę](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup?view=azure-node-latest)
+- Tworzy [odbiorcę](/javascript/api/@azure/cognitiveservices-face/persongroup)
 - Dodaje twarze do grupy osób przez wywołanie `AddFacesToPersonGroup` , która została wcześniej zdefiniowana.
 - Pociąga za siebie grupę osób.
 - Identyfikuje powierzchnie w grupie osób.
@@ -188,7 +188,7 @@ Ta grupa **osób** i skojarzone z nią obiekty **osób** są teraz gotowe do uż
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
 
 > [!TIP]
-> Można również utworzyć **odbiorcę** z obrazów lokalnych. Zobacz metody [PersonGroupPerson](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest) , takie jak [AddFaceFromStream](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroupperson?view=azure-node-latest#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
+> Można również utworzyć **odbiorcę** z obrazów lokalnych. Zobacz metody [PersonGroupPerson](/javascript/api/@azure/cognitiveservices-face/persongroupperson) , takie jak [AddFaceFromStream](/javascript/api/@azure/cognitiveservices-face/persongroupperson#addFaceFromStream_string__string__msRest_HttpRequestBody__Models_PersonGroupPersonAddFaceFromStreamOptionalParams_).
 
 ## <a name="main"></a>Główną
 
