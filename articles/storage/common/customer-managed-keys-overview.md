@@ -5,17 +5,17 @@ description: Możesz użyć własnego klucza szyfrowania do ochrony danych na ko
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/15/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 92a83e03d486d0bf9344fbdcf705703ea788528c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179035"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218574"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
@@ -25,7 +25,10 @@ Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vau
 
 Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../../key-vault/general/overview.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Szyfrowanie z kluczami zarządzanymi przez klienta przechowywanych w Azure Key Vault zarządzanym module HSM jest obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+>
 > Azure Key Vault i Azure Key Vault zarządzanym modułem HSM obsługują te same interfejsy API i interfejsów zarządzania na potrzeby konfiguracji.
 
 ## <a name="about-customer-managed-keys"></a>Informacje o kluczach zarządzanych przez klienta

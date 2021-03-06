@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 22e4d0998cde14d4461141a53f05cbc19d1ab671
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878973"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218557"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 
@@ -35,7 +35,7 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.3 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Polecenia cmdlet usuwania nietrwałego są dostępne w wersji 2.1.3 i nowszej [modułu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="getting-started-with-cli"></a>Wprowadzenie do interfejsu wiersza polecenia
 

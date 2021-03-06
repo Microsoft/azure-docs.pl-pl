@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5a3fcc10f318f2a8065550a48eb2bfb4bbdd4915
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445323"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218404"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Bezpieczny dostęp do zarządzanego sprzętowych modułów zabezpieczeń
 
@@ -40,7 +40,7 @@ Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia
 az login
 ```
 
-Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Aby uzyskać więcej informacji na temat opcji logowania za pośrednictwem interfejsu wiersza polecenia, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="example"></a>Przykład
 
@@ -48,9 +48,9 @@ W tym przykładzie tworzymy aplikację, która używa klucza RSA 2 048-bitowego 
 
 Zidentyfikowano następujące role, które zarządzają, wdrażają i przeprowadźą inspekcję aplikacji:
 
-- **Zespół ds. zabezpieczeń** : personel działu IT z biura firmy CSO (Dyrektor ds. zabezpieczeń) lub podobnych współautorów. Zespół ds. zabezpieczeń jest odpowiedzialny za odpowiednie przechowywanie kluczy. Klucze RSA lub klucze we do podpisywania oraz klucze RSA lub AES na potrzeby szyfrowania danych.
-- **Deweloperzy i operatorzy** : pracownicy, którzy opracowują aplikację i wdrażają ją na platformie Azure. Członkowie tego zespołu nie są częścią personelu zabezpieczeń. Nie powinny mieć dostępu do poufnych danych, takich jak klucze RSA. Tylko wdrażana aplikacja powinna mieć dostęp do danych poufnych.
-- **Audytorzy** : Ta rola jest dla współautorów, którzy nie są członkami rozwoju ani ogólnego personelu IT. Zapoznają się z użyciem i konserwacją certyfikatów, kluczy i wpisów tajnych w celu zapewnienia zgodności ze standardami zabezpieczeń.
+- **Zespół ds. zabezpieczeń**: personel działu IT z biura firmy CSO (Dyrektor ds. zabezpieczeń) lub podobnych współautorów. Zespół ds. zabezpieczeń jest odpowiedzialny za odpowiednie przechowywanie kluczy. Klucze RSA lub klucze we do podpisywania oraz klucze RSA lub AES na potrzeby szyfrowania danych.
+- **Deweloperzy i operatorzy**: pracownicy, którzy opracowują aplikację i wdrażają ją na platformie Azure. Członkowie tego zespołu nie są częścią personelu zabezpieczeń. Nie powinny mieć dostępu do poufnych danych, takich jak klucze RSA. Tylko wdrażana aplikacja powinna mieć dostęp do danych poufnych.
+- **Audytorzy**: Ta rola jest dla współautorów, którzy nie są członkami rozwoju ani ogólnego personelu IT. Zapoznają się z użyciem i konserwacją certyfikatów, kluczy i wpisów tajnych w celu zapewnienia zgodności ze standardami zabezpieczeń.
 
 Istnieje inna rola, która jest poza zakresem naszej aplikacji: Administrator subskrypcji (lub grupy zasobów). Administrator subskrypcji konfiguruje uprawnienia dostępu początkowego do zespołu ds. zabezpieczeń. Przyznają one dostęp do zespołu ds. zabezpieczeń przy użyciu grupy zasobów, która zawiera zasoby wymagane przez aplikację.
 

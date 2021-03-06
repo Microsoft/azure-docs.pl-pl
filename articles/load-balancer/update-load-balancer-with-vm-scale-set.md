@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721314"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218727"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Aktualizowanie lub usuwanie modułu równoważenia obciążenia używanego przez zestawy skalowania maszyn wirtualnych
 
@@ -30,7 +30,7 @@ Podczas pracy z zestawami skalowania maszyn wirtualnych i wystąpieniem Azure Lo
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Konfigurowanie modułu równoważenia obciążenia do skalowania zestawów skalowania maszyn wirtualnych
 
-Upewnij się, że wystąpienie Azure Load Balancer ma skonfigurowaną [pulę NAT dla ruchu przychodzącego](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) i że zestaw skalowania maszyn wirtualnych jest umieszczony w puli zaplecza modułu równoważenia obciążenia. Load Balancer automatycznie utworzy nowe reguły NAT dla ruchu przychodzącego w puli NAT dla ruchu przychodzącego, gdy nowe wystąpienia maszyn wirtualnych zostaną dodane do zestawu skalowania maszyn wirtualnych.
+Upewnij się, że wystąpienie Azure Load Balancer ma skonfigurowaną [pulę NAT dla ruchu przychodzącego](/cli/azure/network/lb/inbound-nat-pool) i że zestaw skalowania maszyn wirtualnych jest umieszczony w puli zaplecza modułu równoważenia obciążenia. Load Balancer automatycznie utworzy nowe reguły NAT dla ruchu przychodzącego w puli NAT dla ruchu przychodzącego, gdy nowe wystąpienia maszyn wirtualnych zostaną dodane do zestawu skalowania maszyn wirtualnych.
 
 Aby sprawdzić, czy pula NAT dla ruchu przychodzącego jest prawidłowo skonfigurowana:
 
@@ -44,7 +44,7 @@ Nie można dodać pojedynczych reguł NAT dla ruchu przychodzącego. Można jedn
 
 Aby dodać cały zestaw reguł NAT ruchu przychodzącego dla zestawów skalowania maszyn wirtualnych, należy najpierw utworzyć pulę NAT dla ruchu przychodzącego w module równoważenia obciążenia. Następnie odwołują się do puli NAT dla ruchu przychodzącego z profilu sieciowego zestawu skalowania maszyn wirtualnych. Pokazano pełny przykład przy użyciu interfejsu wiersza polecenia.
 
-Nowa pula NAT dla ruchu przychodzącego nie powinna mieć nakładających się zakresów portów frontonu z istniejącymi przychodzącymi pulami NAT. Aby wyświetlić istniejące pule NAT dla ruchu przychodzącego, które są skonfigurowane, użyj tego [polecenia CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+Nowa pula NAT dla ruchu przychodzącego nie powinna mieć nakładających się zakresów portów frontonu z istniejącymi przychodzącymi pulami NAT. Aby wyświetlić istniejące pule NAT dla ruchu przychodzącego, które są skonfigurowane, użyj tego [polecenia CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 

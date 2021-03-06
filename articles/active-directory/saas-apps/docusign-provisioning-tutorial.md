@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349909"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218523"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign na potrzeby automatycznego aprowizacji użytkowników
 
@@ -97,10 +97,10 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 * Inicjowanie obsługi administracyjnej roli lub profilu uprawnień dla użytkownika w Docusign można wykonać przy użyciu wyrażenia w mapowaniu atrybutów przy użyciu funkcji [Switch](../app-provisioning/functions-for-customizing-application-data.md#switch) i [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment) . Na przykład poniższe wyrażenie spowoduje udostępnienie identyfikatora "8032066", gdy użytkownik ma przypisaną rolę "Administrator DS" w usłudze Azure AD. Jeśli użytkownik nie ma przypisanej roli po stronie usługi Azure AD, nie będzie mógł zainicjować żadnego profilu uprawnień. Identyfikator można pobrać z [portalu](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)Docusign.
 
-Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "Administrator DS.")
+Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "Administrator DS.", "8032066")
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

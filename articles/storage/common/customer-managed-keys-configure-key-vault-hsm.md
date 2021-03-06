@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2f57e801720c6b546a58b216422629d192e8d2e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843319"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218642"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta, przechowywanych w Azure Key Vault zarządzanym module HSM (wersja zapoznawcza)
 
@@ -24,7 +24,10 @@ Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczy
 
 W tym artykule pokazano, jak skonfigurować szyfrowanie za pomocą kluczy zarządzanych przez klienta przechowywanych w zarządzanym module HSM przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak skonfigurować szyfrowanie za pomocą kluczy zarządzanych przez klienta przechowywanych w magazynie kluczy, zobacz [Konfigurowanie szyfrowania z kluczami zarządzanymi przez klienta, które są przechowywane w Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+>
+> Szyfrowanie z kluczami zarządzanymi przez klienta przechowywanych w Azure Key Vault zarządzanym module HSM jest obecnie w **wersji zapoznawczej**. Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+>
 > Azure Key Vault i Azure Key Vault zarządzanym modułem HSM obsługują te same interfejsy API i interfejsów zarządzania na potrzeby konfiguracji.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Przypisywanie tożsamości do konta magazynu

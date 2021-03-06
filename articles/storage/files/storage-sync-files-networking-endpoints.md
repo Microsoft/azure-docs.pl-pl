@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201604"
+ms.locfileid: "102218608"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Konfigurowanie punktów końcowych sieci usługi Azure File Sync
 Azure Files i Azure File Sync zapewniają dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -34,7 +34,7 @@ W tym artykule przyjęto założenie, że:
 
 Dodatkowo:
 - Jeśli zamierzasz używać Azure PowerShell, [Zainstaluj najnowszą wersję](/powershell/azure/install-az-ps).
-- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Tworzenie prywatnych punktów końcowych
 Podczas tworzenia prywatnego punktu końcowego dla zasobu platformy Azure wdrożone są następujące zasoby:

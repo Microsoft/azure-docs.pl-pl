@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cae2bcb1a3302814a426fa0cb2dfb36ba1b013fa
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147658"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218370"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Język zapytań usługi IoT Hub dla urządzeń i bliźniaczych reprezentacji modułów, zadań i routingu komunikatów
 
@@ -160,7 +160,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Zapytania bliźniaczye modułu
 
-Wykonywanie zapytań dotyczących modułu bliźniaczych reprezentacji jest podobne do wykonywania zapytań dotyczących urządzeń bliźniaczych reprezentacji, ale przy użyciu innej kolekcji/przestrzeni nazw; zamiast z **urządzeń**należy wysyłać zapytania z **urządzeń. moduły**:
+Wykonywanie zapytań dotyczących modułu bliźniaczych reprezentacji jest podobne do wykonywania zapytań dotyczących urządzeń bliźniaczych reprezentacji, ale przy użyciu innej kolekcji/przestrzeni nazw; zamiast z **urządzeń** należy wysyłać zapytania z **urządzeń. moduły**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -234,7 +234,7 @@ Obiekt zapytania uwidacznia wiele **kolejnych** wartości, w zależności od opc
 ### <a name="limitations"></a>Ograniczenia
 
 > [!IMPORTANT]
-> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Obecnie porównania są obsługiwane tylko w typach pierwotnych (bez obiektów), na przykład `... WHERE properties.desired.config = properties.reported.config` jest obsługiwane tylko wtedy, gdy te właściwości mają wartości pierwotne.
 
@@ -316,7 +316,7 @@ Obecnie zapytania w usłudze **Devices.Jobs** nie obsługują:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Podstawy zapytania IoT Hub
 
-Każde zapytanie IoT Hub składa się z klauzul SELECT i FROM z opcjonalnymi klauzulami WHERE i GROUP BY. Każde zapytanie jest uruchamiane w kolekcji dokumentów JSON, na przykład bliźniaczych reprezentacji urządzeń. Klauzula FROM wskazuje kolekcję dokumentów, w której ma zostać wykonana iteracja (**urządzenia**, **urządzenia. moduły**lub **Devices.Jobs**). Następnie zostanie zastosowany filtr w klauzuli WHERE. W przypadku agregacji wyniki tego kroku są pogrupowane jak określono w klauzuli GROUP BY. Dla każdej grupy generowany jest wiersz określony w klauzuli SELECT.
+Każde zapytanie IoT Hub składa się z klauzul SELECT i FROM z opcjonalnymi klauzulami WHERE i GROUP BY. Każde zapytanie jest uruchamiane w kolekcji dokumentów JSON, na przykład bliźniaczych reprezentacji urządzeń. Klauzula FROM wskazuje kolekcję dokumentów, w której ma zostać wykonana iteracja (**urządzenia**, **urządzenia. moduły** lub **Devices.Jobs**). Następnie zostanie zastosowany filtr w klauzuli WHERE. W przypadku agregacji wyniki tego kroku są pogrupowane jak określono w klauzuli GROUP BY. Dla każdej grupy generowany jest wiersz określony w klauzuli SELECT.
 
 ```sql
 SELECT <select_list>
@@ -451,7 +451,7 @@ Obsługiwane są następujące operatory:
 | Family | Operatory |
 | --- | --- |
 | Arytmetyczny |+, -, *, /, % |
-| Logiczny |AND, OR, NOT |
+| Wartości logiczne |AND, OR, NOT |
 | Porównanie |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funkcje

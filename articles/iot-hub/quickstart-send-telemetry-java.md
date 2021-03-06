@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ms.date: 01/27/2021
-ms.openlocfilehash: c0f1272bf195c6d5ef2dfe88cc6541f731fa51c8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: df6673f6e8e448b0208ee53c17cf86f55d6d9f8f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928563"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219169"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Szybki Start: wysyłanie danych telemetrycznych do usługi Azure IoT Hub i odczytywanie ich za pomocą aplikacji Java
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start wysyłasz dane telemetryczne do usługi Azure IoT
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)w obszarze **Obsługa długoterminowa** wybierz pozycję **Java 8**.
+* Java SE Development Kit 8. W programie [Java długoterminowa obsługa platformy Azure i Azure Stack](/java/azure/jdk/)w obszarze **Obsługa długoterminowa** wybierz pozycję **Java 8**.
 
     Możesz sprawdzić bieżącą wersję języka Java na komputerze deweloperskim przy użyciu następującego polecenia:
 

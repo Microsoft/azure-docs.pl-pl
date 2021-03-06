@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 714fb92e8757fed6e11a09528b60cda3e945175e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696867"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218897"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -58,7 +58,7 @@ Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfiguro
 
 W tym przykładzie uruchomiono narzędzia interfejsu wiersza polecenia platformy Azure w oknie poleceń programu PowerShell. Aby zwiększyć czytelność i ponowne użycie, należy użyć funkcji obsługi skryptów programu PowerShell, a nie poleceń cmdlet Azure PowerShell.
 
-1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , wykonując czynności opisane w połączonym artykule i zaloguj się na koncie platformy Azure.
+1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , wykonując czynności opisane w połączonym artykule i zaloguj się na koncie platformy Azure.
 
 2. Skonfiguruj zmienne programu PowerShell do użycia z poleceniami interfejsu CLI platformy Azure:
 

@@ -25,7 +25,7 @@
     - name: Internet Analyzer — rozwiązywanie problemów
       href: troubleshoot.md
     - name: Internet Analyzer — dokumentacja interfejsu wiersza polecenia
-      href: /cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
+      href: /cli/azure/ext/internet-analyzer/internet-analyzer
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog

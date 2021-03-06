@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a79b0b5b5f21d1c75fec6b062f1ca91cfe9dd1f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838674"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219203"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Jak administrować usługą Azure cache for Redis
 W tym temacie opisano sposób wykonywania zadań administracyjnych, takich jak [Ponowne uruchamianie](#reboot) i [Planowanie aktualizacji](#schedule-updates) pamięci podręcznej platformy Azure dla wystąpień Redis.
@@ -57,6 +57,8 @@ Tak, po ponownym uruchomieniu pamięci podręcznej wszystkie połączenia klient
 > 
 > 
 
+
+
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Czy po ponownym uruchomieniu utracisz dane z mojej pamięci podręcznej?
 W przypadku ponownego uruchomienia zarówno węzła **głównego** , jak i **repliki** , wszystkie dane w pamięci podręcznej (lub w tym fragmentu, jeśli używasz pamięci podręcznej Premium z włączoną obsługą klastrowania) mogą zostać utracone, ale nie jest to gwarantowane. Jeśli skonfigurowano [trwałość danych](cache-how-to-premium-persistence.md), najnowsza kopia zapasowa zostanie przywrócona, gdy pamięć podręczna wróci do trybu online, ale wszystkie zapisy pamięci podręcznej, które wystąpiły po wykonaniu kopii zapasowej, zostaną utracone.
 
@@ -69,8 +71,9 @@ Tak, aby uzyskać instrukcje dotyczące programu PowerShell, zobacz [Aby ponowni
 Blok **harmonogram aktualizacji** umożliwia wyznaczenie okna obsługi dla wystąpienia pamięci podręcznej. Okno obsługi umożliwia kontrolowanie dni i godzin tygodnia, w których można aktualizować maszyny wirtualne obsługujące pamięć podręczną. Usługa Azure cache for Redis będzie najlepszym wysiłkiem do rozpoczęcia i zakończenia aktualizowania oprogramowania serwera Redis w określonym przedziale czasu, który określisz.
 
 > [!NOTE] 
-> Okno obsługi ma zastosowanie tylko do aktualizacji serwera Redis, a nie do aktualizacji lub aktualizacji platformy Azure dla systemu operacyjnego maszyn wirtualnych, które obsługują pamięć podręczną.
+> Okno obsługi dotyczy aktualizacji serwera Redis i aktualizacji systemu operacyjnego maszyn wirtualnych obsługujących pamięć podręczną. Okno obsługi nie ma zastosowania do aktualizacji systemu operacyjnego hosta na hostach, na których znajdują się maszyny wirtualne pamięci podręcznej lub inne składniki sieci platformy Azure. W rzadkich przypadkach, w których pamięci podręczne są hostowane w starszych modelach (można określić, czy pamięć podręczna znajduje się w starszym modelu, jeśli nazwa DNS pamięci podręcznej jest rozpoznawana jako sufiks "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" lub "cloudapi.de"), okno obsługi nie ma zastosowania do aktualizacji systemu operacyjnego gościa.
 >
+
 
 ![Aktualizacje harmonogramu](./media/cache-administration/redis-schedule-updates.png)
 

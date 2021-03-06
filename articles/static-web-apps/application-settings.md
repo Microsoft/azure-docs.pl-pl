@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 00502c97e3fc06972c27cedf565d77b52f558795
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-js
+ms.openlocfilehash: 2886cb6433c4f8a65eb0661eded0ddd08248e137
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844816"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102219186"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurowanie ustawień aplikacji dla usługi Azure static Web Apps Preview
 
@@ -34,7 +34,7 @@ Ustawienia aplikacji są również czasami określane jako zmienne środowiskowe
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Statyczna aplikacja Web Apps platformy Azure
-- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
 ## <a name="types-of-application-settings"></a>Typy ustawień aplikacji
 
@@ -90,7 +90,7 @@ Zwykle przekazywanie ustawień jest wykonywane rzadko i nie jest wymagane w przy
 
 Ustawienia aplikacji można skonfigurować za pomocą Azure Portal lub przy użyciu interfejsu wiersza polecenia platformy Azure.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Azure Portal udostępnia interfejs do tworzenia, aktualizowania i usuwania ustawień aplikacji.
 
@@ -110,7 +110,7 @@ Azure Portal udostępnia interfejs do tworzenia, aktualizowania i usuwania ustaw
 
 1. Kliknij przycisk **OK**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 

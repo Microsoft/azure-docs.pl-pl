@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585207"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218795"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -27,7 +27,7 @@ Korzystając z funkcji diagnostyki chmury wiosennej platformy Azure, można anal
 Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 > [!TIP]
-> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/spring-cloud/spring-cloud/app#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Dzienniki
 

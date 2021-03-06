@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: cb034c42ceee870ed7be72eb5ff7d29c42b72f36
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2b264da06cf5088da07ec91cfa40c4babfde4c38
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183594"
+ms.locfileid: "102219067"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -171,7 +171,7 @@ Można to zrobić na dwa sposoby:
 
     * Pobierz [zakresy adresów IP i Tagi usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519) , a następnie wyszukaj plik dla `BatchNodeManagement.<region>` i `AzureMachineLearning.<region>` , gdzie `<region>` jest Twoim regionem świadczenia usługi Azure.
 
-    * Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) , aby pobrać te informacje. Poniższy przykład pobiera informacje o adresie IP i filtruje informacje dla regionu Wschodnie stany USA 2 (podstawowy) i regionu środkowe stany USA (pomocniczy):
+    * Użyj [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , aby pobrać te informacje. Poniższy przykład pobiera informacje o adresie IP i filtruje informacje dla regionu Wschodnie stany USA 2 (podstawowy) i regionu środkowe stany USA (pomocniczy):
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"

@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 07c4628a17d2c76e8e4608c9c6d059a81a9c378f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182863"
+ms.locfileid: "102218489"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie wielu puli węzłów dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nimi
 
@@ -130,9 +130,11 @@ Obciążenie może wymagać dzielenia węzłów klastra na oddzielne pule na pot
 #### <a name="limitations"></a>Ograniczenia
 
 * Wszystkie podsieci przypisane do nodepools muszą należeć do tej samej sieci wirtualnej.
-* Aby zapewnić krytyczne funkcje, takie jak rozpoznawanie nazw DNS za pośrednictwem coreDNS, konieczne jest uzyskanie dostępu do wszystkich węzłów w klastrze.
-* Przypisanie unikatowej podsieci na pulę węzłów jest ograniczone do usługi Azure CNI w trakcie okresu zapoznawczego.
-* Korzystanie z zasad sieciowych z unikatową pulą podsieci na węzeł nie jest obsługiwane w ramach wersji zapoznawczej.
+* Systemowe moduły muszą mieć dostęp do wszystkich węzłów/zasobników w klastrze, aby zapewnić krytyczne funkcje, takie jak rozpoznawanie nazw DNS i tunelowanie polecenia kubectl dzienników/serwer proxy przekazywania/portów.
+* W przypadku rozwinięcia sieci wirtualnej po utworzeniu klastra należy zaktualizować klaster (wykonać dowolną zarządzaną operację clster, ale operacje puli węzłów nie są zliczane) przed dodaniem podsieci spoza oryginalnego CIDR. AKS wykryje błąd w puli agentów, mimo że została pierwotnie przeprowadzona. Jeśli nie wiesz, jak uzgodnić plik klastra z pomocą techniczną. 
+* Zasady sieci Calico nie są obsługiwane. 
+* Zasady sieci platformy Azure nie są obsługiwane.
+* Polecenia — serwer proxy oczekuje pojedynczego ciągłego CIDR i używa go dla trzech optmizations. Zobacz ten [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) i--Cluster-CIDR [tutaj](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) , aby uzyskać szczegółowe informacje. Na platformie Azure CNI podsieć puli pierwszych węzłów zostanie przyznany do polecenia-proxy. 
 
 Aby utworzyć pulę węzłów z dedykowaną podsiecią, należy przekazać identyfikator zasobu podsieci jako dodatkowy parametr podczas tworzenia puli węzłów.
 

@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3d2e01b645c1661d4b44520193b9c4557cbc1ea0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218846"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
@@ -36,7 +36,7 @@ Triton to struktura, która jest *zoptymalizowana pod kątem wnioskowania*. Zape
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 * Znajomość [sposobu i miejsca wdrożenia modelu](how-to-deploy-and-where.md) z Azure Machine Learning.
-* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/?view=azure-ml-py) **lub** [interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) i [rozszerzenie uczenia maszynowego](reference-azure-machine-learning-cli.md).
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/?view=azure-ml-py) **lub** [interfejs wiersza polecenia platformy Azure](/cli/azure/) i [rozszerzenie uczenia maszynowego](reference-azure-machine-learning-cli.md).
 * Działająca instalacja platformy Docker na potrzeby testowania lokalnego. Aby uzyskać informacje na temat instalowania i weryfikowania platformy Docker, zobacz [Orientacja i konfiguracja](https://docs.docker.com/get-started/) w dokumentacji platformy Docker.
 
 ## <a name="architectural-overview"></a>Omówienie architektury
@@ -331,7 +331,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Po zakończeniu wdrożenia zostanie wyświetlony identyfikator URI oceniania. W przypadku tego wdrożenia lokalnego będzie to możliwe `http://localhost:6789/score` . W przypadku wdrożenia w chmurze można użyć polecenia [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI, aby uzyskać identyfikator URI oceniania.
+Po zakończeniu wdrożenia zostanie wyświetlony identyfikator URI oceniania. W przypadku tego wdrożenia lokalnego będzie to możliwe `http://localhost:6789/score` . W przypadku wdrożenia w chmurze można użyć polecenia [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI, aby uzyskać identyfikator URI oceniania.
 
 Aby uzyskać informacje na temat sposobu tworzenia klienta wysyłającego żądania wnioskowania do identyfikatora URI oceniania, zobacz temat [Korzystanie z modelu wdrożonego jako usługa sieci Web](how-to-consume-web-service.md).
 
