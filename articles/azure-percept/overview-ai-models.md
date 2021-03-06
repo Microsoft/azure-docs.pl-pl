@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8a9ed564012e8b530436152d931f5a5f6470ff98
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098370"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218166"
 ---
 # <a name="azure-percept-ai-models"></a>Modele AI usługi Azure Percept
 
@@ -29,9 +29,9 @@ Usługa Azure Percept Studio zawiera przykładowe modele dla następujących apl
 
 W przypadku modeli wstępnie przeszkolonych nie jest wymagane tworzenie kodu ani zbieranie danych szkoleniowych. Po prostu Wdróż żądany model na platformie Azure Percept DK z portalu i Otwórz strumień wideo Devkit, aby zobaczyć model inferencing w działaniu. Dostęp do telemetrii inferencing modelu można także uzyskać za pomocą narzędzia [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) .
 
-## <a name="pre-built-solutions"></a>Wstępnie utworzone rozwiązania
+## <a name="reference-solutions"></a>Rozwiązania referencyjne
 
-Dostępne jest również [wstępnie skompilowane rozwiązanie do wykrywania dla użytkowników](https://github.com/george-moore/Santa-Cruz-AI-App) . Wstępnie skompilowane rozwiązanie to aplikacja AI Open Source, która zapewnia programom opartym na krawędziach zliczanie danych przez zdefiniowane przez użytkownika zdarzenia wejścia/wyjścia strefy. Dane wyjściowe wideo i AI z lokalnego urządzenia brzegowego są egressed do [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)przy użyciu interfejsu użytkownika działającego jako witryna sieci Web platformy Azure. Inferencing AI jest dostarczany przez model AI open source do wykrywania osób.
+Dostępne są również [rozwiązania do zliczania użytkowników](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) . To rozwiązanie referencyjne jest aplikacją AI Open Source, która zapewnia programom opartym na krawędziach zliczanie z użyciem zdarzeń wejścia/wyjścia strefy zdefiniowanej przez użytkownika. Dane wyjściowe wideo i AI z lokalnego urządzenia brzegowego są egressed do [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/)przy użyciu interfejsu użytkownika działającego jako witryna sieci Web platformy Azure. Inferencing AI jest dostarczany przez model AI open source do wykrywania osób.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Wstępnie skompilowane rozwiązanie do analizy przestrzennej.":::
 

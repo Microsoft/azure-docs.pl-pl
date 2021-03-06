@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 5337372b5e996798a5000e1c32ea8e372aa63ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f96549c73c231db63360891dd0705b649097c80
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591776"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218102"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorowanie Blob Storage platformy Azure
 
@@ -128,7 +128,7 @@ W przypadku wybrania przesyłania strumieniowego dzienników do centrum zdarzeń
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Wyślij dzienniki do usługi Azure Log Analytics
 
-1. Zaznacz pole wyboru **Wyślij do log Analytics** wybierz obszar roboczy usługi log Analytics, a następnie kliknij przycisk **Zapisz** .
+1. Zaznacz pole wyboru **Wyślij do log Analytics** , wybierz obszar roboczy usługi log Analytics, a następnie kliknij przycisk **Zapisz** .
 
    > [!div class="mx-imgBorder"]   
    > ![Analiza dzienników strony ustawień diagnostycznych](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)

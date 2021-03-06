@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731956"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217418"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek
 Jeśli włączono Application Insights Snapshot Debugger dla aplikacji, ale nie widzisz migawek dla wyjątków, możesz użyć tych instrukcji do rozwiązywania problemów.
 
 Może istnieć wiele różnych powodów, dla których nie są generowane migawki. Możesz rozpocząć od uruchomienia kontroli kondycji migawek, aby zidentyfikować niektóre z możliwych częstych przyczyn.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Upewnij się, że używasz odpowiedniego punktu końcowego Snapshot Debugger
+
+Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) i [Chiny platformy Azure](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+W przypadku App Service i aplikacji korzystających z zestawu SDK Application Insights należy zaktualizować parametry połączenia przy użyciu obsługiwanych zastąpień dla Snapshot Debugger zgodnie z definicją poniżej:
+
+|Właściwość parametrów połączenia    | Chmura dla instytucji rządowych USA | Chmura Chińska |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Aby uzyskać więcej informacji na temat innych zastąpień połączeń, zobacz [dokumentację Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+W przypadku aplikacja funkcji należy zaktualizować `host.json` przy użyciu obsługiwanych zastąpień poniżej:
+
+|Właściwość    | Chmura dla instytucji rządowych USA | Chmura Chińska |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Poniżej znajduje się przykład `host.json` zaktualizowanego punktu końcowego agenta chmury dla instytucji rządowych Stanów Zjednoczonych:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Korzystanie z kontroli kondycji migawek
 Kilka typowych problemów powoduje, że migawka Open Debug nie jest wyświetlana. Na przykład przy użyciu przestarzałego Snapshot Collector, osiągnięcie dziennego limitu przekazywania; lub prawdopodobnie migawka nie zajmuje dużo czasu. Użyj sprawdzania kondycji migawek, aby rozwiązać typowe problemy.

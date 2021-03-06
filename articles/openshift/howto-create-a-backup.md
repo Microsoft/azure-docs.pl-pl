@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 42ad24e4421b75a3942879bcac8f99b3c8b8138a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: bbfe280ed0b1b562e0f50b23a09ea159750c4a79
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180959"
+ms.locfileid: "102217095"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Tworzenie kopii zapasowej aplikacji klastra usługi Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ W tym artykule opisano przygotowanie środowiska do utworzenia kopii zapasowej a
 > * Skonfiguruj wymagania wstępne i Zainstaluj niezbędne narzędzia
 > * Tworzenie kopii zapasowej aplikacji usługi Azure Red Hat OpenShift 4
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Zanim rozpoczniesz
 

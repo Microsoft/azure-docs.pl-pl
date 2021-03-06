@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 42174ce094242a6e7412deea0bf1f0eed0f3b6ea
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 5dac16e5cc1e88d833bf6d3c2660570fcf8b8e9e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013179"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216959"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnozowanie problemu z routingiem sieciowym maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
 
@@ -73,7 +73,7 @@ az network watcher configure \
 
 ### <a name="use-next-hop"></a>Korzystanie z funkcji Następny przeskok
 
-Na platformie Azure są automatycznie tworzone trasy do domyślnych miejsc docelowych. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy. Czasami użycie tras niestandardowych może spowodować niepowodzenie komunikacji. Aby przetestować Routing z maszyny wirtualnej, użyj [AZ Network obserwator show-Next-przeskok](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop) , aby określić następny przeskok routingu, gdy ruch jest przeznaczony dla określonego adresu.
+Na platformie Azure są automatycznie tworzone trasy do domyślnych miejsc docelowych. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy. Czasami użycie tras niestandardowych może spowodować niepowodzenie komunikacji. Aby przetestować Routing z maszyny wirtualnej, użyj [AZ Network obserwator show-Next-przeskok](/cli/azure/network/watcher#az-network-watcher-show-next-hop) , aby określić następny przeskok routingu, gdy ruch jest przeznaczony dla określonego adresu.
 
 Przetestuj komunikację wychodzącą z maszyny wirtualnej do jednego z adresów IP domeny www.bing.com:
 

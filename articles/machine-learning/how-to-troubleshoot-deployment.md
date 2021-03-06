@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 3839dd27d4ae380b268694a93e5910b323411847
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1a7116f0edbed8270a3345bc924bf50872615b04
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657285"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217163"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Rozwiązywanie problemów z wdrożeniem modelu zdalnego 
 
@@ -33,7 +33,7 @@ Dowiedz się, jak rozwiązywać problemy i rozwiązywać te typowe błędy, któ
 
 * **Subskrypcja platformy Azure**. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 * [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Kroki wdrażania modeli uczenia maszynowego w programie Docker

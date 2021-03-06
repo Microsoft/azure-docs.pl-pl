@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 7f101097945e5f345bae351ef5ca2a23a3e14be6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8408cdada40bd3595f9bf7cf2c6a2de90040ec0b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091162"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217265"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK dla interfejsu API SQL: informacje o wersji i zasoby
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,10 +37,10 @@ ms.locfileid: "93091162"
 > * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
-|Zasób  |Łącze  |
+|Zasób  |Link  |
 |---------|---------|
 |Pobierz zestaw SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|Dokumentacja interfejsu API  |  [Dokumentacja referencyjna języka JavaScript SDK](/javascript/api/%40azure/cosmos/?preserve-view=true&view=azure-node-latest)
+|Dokumentacja interfejsu API  |  [Dokumentacja referencyjna języka JavaScript SDK](/javascript/api/%40azure/cosmos/)
 |Instrukcje dotyczące instalacji zestawu SDK  |  [Instrukcje instalacji](https://github.com/Azure/azure-sdk-for-js)
 |Współtworzenie zestawu SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Samples | [ Przykłady koduNode.js](sql-api-nodejs-samples.md)
@@ -237,7 +237,7 @@ Nie zawsze są to najbardziej widoczne zmiany, ale pomagają naszym zespołowi w
 * Usuwanie usterki w sygnaturze typu executeNext ()
 * Poprawki pisowni
 
-### <a name="211"></a><a name="2.1.1"></a>pkt
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * Restrukturyzacja kompilacji. Zezwala na ściąganie wersji zestawu SDK w czasie kompilacji.
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
@@ -428,7 +428,7 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 | [2.1.4](#2.1.4) |15 marca 2019 |--- |
 | [2.1.3](#2.1.3) |8 marca 2019 |--- |
 | [2.1.2](#2.1.2) |28 stycznia 2019 |--- |
-| [pkt](#2.1.1) |5 grudnia 2018 |--- |
+| [2.1.1](#2.1.1) |5 grudnia 2018 |--- |
 | [2.1.0](#2.1.0) |4 grudnia 2018 r. |--- |
 | [2.0.5](#2.0.5) |7 listopada 2018 |--- |
 | [2.0.4](#2.0.4) |30 października 2018 |--- |

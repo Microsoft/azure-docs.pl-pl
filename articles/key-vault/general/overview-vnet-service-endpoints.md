@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 42d388aed618a5a92212152166573719c9e973c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f615ed44594379c79f179a467888652c597e286
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371026"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217180"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault
 
@@ -43,7 +43,6 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskiwać dostęp d
 | --- | --- |
 |Usługa wdrażania Virtual Machines platformy Azure|[Wdróż certyfikaty na maszynach wirtualnych z poziomu Key Vault zarządzanych przez klienta](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Usługa wdrażania szablonów Azure Resource Manager|[Przekazywanie bezpiecznych wartości podczas wdrażania](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Jednostka SKU platformy Azure Application Gateway v2|[Zakończenie szyfrowania TLS z certyfikatami usługi Key Vault](../../application-gateway/key-vault-certs.md)|
 |Azure Disk Encryption usługi szyfrowania woluminów|Zezwalaj na dostęp do klucza funkcji BitLocker (maszyna wirtualna z systemem Windows) lub hasła DM (maszyna wirtualna z systemem Linux) oraz klucz szyfrowania klucza podczas wdrażania maszyn wirtualnych. Umożliwia to [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Zezwalaj na wykonywanie kopii zapasowych i przywracanie odpowiednich kluczy i wpisów tajnych podczas tworzenia kopii zapasowej w usłudze Azure Virtual Machines przy użyciu [Azure Backup](../../backup/backup-overview.md).|
 |Usługa Exchange Online & SharePoint Online|Zezwalaj na dostęp do klucza klienta dla usługi Azure szyfrowanie usługi Storage przy użyciu [klucza klienta](/microsoft-365/compliance/customer-key-overview).|

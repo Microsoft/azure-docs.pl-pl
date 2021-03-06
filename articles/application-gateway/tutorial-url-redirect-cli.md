@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 36ba593a1d8cd2e50293eaf77dc9ec864245df4c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: aa247d868e19831b3e6f1c3f68e605fb209a0664
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566592"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218319"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Samouczek: tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą interfejsu wiersza polecenia platformy Azure
 
 Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](./overview.md) możesz skonfigurować [reguły routingu oparte na ścieżkach URL](tutorial-url-route-cli.md). Podczas pracy z tym samouczkiem utworzysz pule zaplecza z użyciem [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/overview.md). Następnie utworzysz reguły routingu na podstawie adresów URL, aby zapewnić przekierowywanie ruchu internetowego do odpowiedniej puli zaplecza.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie sieci
@@ -137,7 +137,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Dodawanie odbiorników
 
-Dodaj odbiorniki zaplecza o nazwach *backendListener* i *redirectedListener* , które są wymagane do kierowania ruchu, używając polecenia [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
+Dodaj odbiorniki zaplecza o nazwach *backendListener* i *redirectedListener*, które są wymagane do kierowania ruchu, używając polecenia [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
 
 
 ```azurecli-interactive
@@ -234,9 +234,11 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1* , *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
+W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech utworzonych pul zaplecza. Utworzone zestawy skalowania będą miały nazwy *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się serwer NGINX.
 
-```azurecli-interactive
+Zastąp \<azure-user> \<password> wartości i nazwą użytkownika i wybranym przez siebie hasłem.
+
+```azurecli
 for i in `seq 1 3`; do
   if [ $i -eq 1 ]
   then
@@ -255,8 +257,8 @@ for i in `seq 1 3`; do
     --name myvmss$i \
     --resource-group myResourceGroupAG \
     --image UbuntuLTS \
-    --admin-username azureuser \
-    --admin-password Azure123456! \
+    --admin-username <azure-user> \
+    --admin-password <password> \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \

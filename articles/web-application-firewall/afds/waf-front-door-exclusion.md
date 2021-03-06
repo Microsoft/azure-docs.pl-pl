@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1b94a3d8675461779fa9d543bf0153b165ab4fb4
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563464"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217588"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Zapora aplikacji sieci Web (WAF) z listami wykluczeń usługi front-drzwi 
 
-Czasami zapora aplikacji sieci Web (WAF) może blokować żądanie, które ma być dozwolone dla aplikacji. Na przykład Active Directory wstawia tokeny, które są używane do uwierzytelniania. Te tokeny mogą zawierać znaki specjalne, które mogą wyzwolić wynik fałszywie dodatni z reguł WAF. Listy wykluczeń WAF umożliwiają pominięcie niektórych atrybutów żądania z oceny WAF.  Listę wykluczeń można skonfigurować przy użyciu  [programu PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), interfejsu [wiersza polecenia platformy Azure lub usługi](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add) [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal. W poniższym przykładzie przedstawiono konfigurację Azure Portal. 
+Czasami zapora aplikacji sieci Web (WAF) może blokować żądanie, które ma być dozwolone dla aplikacji. Na przykład Active Directory wstawia tokeny, które są używane do uwierzytelniania. Te tokeny mogą zawierać znaki specjalne, które mogą wyzwolić wynik fałszywie dodatni z reguł WAF. Listy wykluczeń WAF umożliwiają pominięcie niektórych atrybutów żądania z oceny WAF.  Listę wykluczeń można skonfigurować przy użyciu  [programu PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), interfejsu [wiersza polecenia platformy Azure lub usługi](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add) [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)lub Azure Portal. W poniższym przykładzie przedstawiono konfigurację Azure Portal. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Konfigurowanie list wykluczeń przy użyciu Azure Portal
 **Zarządzanie wykluczeniami** jest dostępne z portalu WAF w ramach **zarządzanych reguł**
 
@@ -36,11 +36,11 @@ Następujące atrybuty można dodać do listy wykluczeń według nazwy. Wartośc
 
 Można określić dokładny nagłówek żądania, treść, plik cookie lub dopasowanie atrybutu ciągu zapytania.  Alternatywnie możesz określić częściowe dopasowania. Następujące operatory są obsługiwanymi kryteriami dopasowania:
 
-- **Equals** : Ten operator jest używany do dokładnego dopasowania. Na przykład, aby wybrać nagłówek o nazwie **bearerToken** , użyj operatora Equals z selektorem ustawionym jako **bearerToken**.
-- **Rozpoczyna się od** : Ten operator dopasowuje wszystkie pola, które zaczynają się od określonej wartości selektora.
-- **Kończy się na** : Ten operator dopasowuje wszystkie pola żądań, które kończą się określoną wartością selektora.
-- **Zawiera** : Ten operator dopasowuje wszystkie pola żądania, które zawierają określoną wartość selektora.
-- **Równa się any** : Ten operator dopasowuje wszystkie pola żądania. * jest wartością selektora.
+- **Equals**: Ten operator jest używany do dokładnego dopasowania. Na przykład, aby wybrać nagłówek o nazwie **bearerToken**, użyj operatora Equals z selektorem ustawionym jako **bearerToken**.
+- **Rozpoczyna się od**: Ten operator dopasowuje wszystkie pola, które zaczynają się od określonej wartości selektora.
+- **Kończy się na**: Ten operator dopasowuje wszystkie pola żądań, które kończą się określoną wartością selektora.
+- **Zawiera**: Ten operator dopasowuje wszystkie pola żądania, które zawierają określoną wartość selektora.
+- **Równa się any**: Ten operator dopasowuje wszystkie pola żądania. * jest wartością selektora.
 
 Nazwy nagłówków i plików cookie nie uwzględniają wielkości liter.
 
@@ -58,7 +58,7 @@ Jeśli wartość nagłówka, wartość cookie, wartość argumentu post lub wart
 Obecnie obsługujemy wykluczenia z reguł dla powyższych matchVariableNames w swoich dziennikach WAF. W przypadku innych matchVariableNames należy wyłączyć reguły, które dają fałszywie dodatnie lub utworzyć regułę niestandardową, która jawnie zezwala na te żądania. W szczególności, gdy matchVariableName ma wartość CookieName, headerName, PostParamName lub QueryParamName, oznacza to, że sama nazwa wyzwala regułę. Wyłączenie reguły nie ma w tej chwili żadnego wsparcia dla tych matchVariableNames.
 
 
-Jeśli wykluczasz argumenty post treści żądania o nazwie *foo* , żadna reguła nie powinna wyświetlać POSTPARAMVALUE: foo jako matchVariableName w dziennikach WAF. Jednak nadal może zostać wyświetlona reguła z matchVariableName InitialBodyContents, która pasuje do wartości parametru post FOO, ponieważ wartości parametru post są częścią InitialBodyContents.
+Jeśli wykluczasz argumenty post treści żądania o nazwie *foo*, żadna reguła nie powinna wyświetlać POSTPARAMVALUE: foo jako matchVariableName w dziennikach WAF. Jednak nadal może zostać wyświetlona reguła z matchVariableName InitialBodyContents, która pasuje do wartości parametru post FOO, ponieważ wartości parametru post są częścią InitialBodyContents.
 
 Listy wykluczeń można stosować do wszystkich reguł w ramach zarządzanego zestawu reguł, do reguł dla określonej grupy reguł lub do jednej reguły, jak pokazano w poprzednim przykładzie.
 

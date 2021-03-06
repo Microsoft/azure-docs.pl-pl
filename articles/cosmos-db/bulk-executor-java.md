@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d0ccaf15df62b566b5a52ee7a4031ba7e270a4ae
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092538"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218115"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Co
 
 * Możesz bezpłatnie [wypróbować Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można też użyć [emulatora Azure Cosmos DB](./local-emulator.md) z `https://localhost:8081` punktem końcowym. Klucz podstawowy został podany w sekcji [Uwierzytelnianie żądań](local-emulator.md#authenticate-requests).  
 
-* [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
+* [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/)  
   - W systemie Ubuntu uruchom polecenie `apt-get install default-jdk`, aby zainstalować zestaw JDK.  
 
   - Upewnij się, że zmienna środowiskowa JAVA_HOME wskazuje folder, w którym zainstalowano zestaw JDK.

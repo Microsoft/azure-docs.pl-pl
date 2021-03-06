@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2c4fbefc1bb801ab4a9387054ac91e5fca14ec18
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a481e7ef37e36578b7f71a7afe70dcad737de89
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185601"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217469"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia, konfigurowania, wdrażan
 
 ![Aplikacja ze sprężyną rozruchową przechowująca dane w Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych Cosmos DB
@@ -34,7 +34,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview) zainstalowany na własnym komputerze. 
-* [Narzędzia](https://git-scm.com/)
+* [Usługa Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
@@ -310,7 +310,7 @@ az group delete --name <your-azure-group-name>
 ## <a name="next-steps"></a>Następne kroki
 
 [Platforma Azure dla deweloperów](/java/azure/) 
- języka Java [Sprężynowe rozruchowe](https://spring.io/projects/spring-boot), [sprężynowe dane dla Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](../cosmos-db/introduction.md) i [App Service Linux](overview.md).
+ języka Java [Sprężynowe rozruchowe](https://spring.io/projects/spring-boot), [sprężynowe dane dla Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), [Azure Cosmos DB](../cosmos-db/introduction.md) i [App Service Linux](overview.md).
 
 Dowiedz się więcej na temat uruchamiania aplikacji w języku Java w usłudze App Service dla systemu Linux w przewodniku dla deweloperów.
 

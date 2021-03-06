@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717761"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218013"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilowanie aplikacji Azure App Service na żywo za pomocą Application Insights
 
@@ -56,11 +56,11 @@ Oto ustawienia, które są konieczne do włączenia profilera:
 
 Można ustawić te wartości przy użyciu [szablonów Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/appsettings).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Ręczne włączanie profilera dla innych chmur
+## <a name="enable-profiler-for-other-clouds"></a>Włącz Profiler dla innych chmur
 
-Jeśli chcesz włączyć Profiler dla innych chmur, możesz użyć poniższych ustawień aplikacji.
+Obecnie jedyne regiony, które wymagają modyfikacji punktów końcowych, to [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) i [Chiny platformy Azure](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Ustawienia aplikacji    | Wartości dla instytucji rządowych USA| Chmura Chińska |   
+|Ustawienia aplikacji    | Chmura dla instytucji rządowych USA | Chmura Chińska |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |

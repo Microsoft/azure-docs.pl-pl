@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 763b9e05adc07c02265dbb511c073b42df44ea95
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5ae1850add94d83278b0fe1905dfa6e53c71fc8e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146861"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217894"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Java)
 
@@ -51,7 +51,7 @@ Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe Java:
 
 * Kompletna wersja robocza [wysyłania danych telemetrycznych z urządzenia do](quickstart-send-telemetry-java.md) przewodnika Szybki Start usługi IoT Hub lub [Konfiguracja routingu komunikatów za pomocą IoT Hub](tutorial-routing.md) .
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Upewnij się, że wybrano opcję **Java 8** w obszarze **Obsługa długoterminowa** , aby pobrać pliki do pobrania dla programu JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/). Upewnij się, że wybrano opcję **Java 8** w obszarze **Obsługa długoterminowa** , aby pobrać pliki do pobrania dla programu JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
