@@ -9,16 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: db946dcc0fc8571f7b6aa191909155baccf7d1a2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878582"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428647"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Instalowanie magazynu obiektów BLOB przy użyciu protokołu NFS (Network File System) 3,0 (wersja zapoznawcza)
 
-Kontener w usłudze BLOB Storage można zainstalować z maszyny wirtualnej platformy Azure lub systemu Windows lub Linux, która jest uruchamiana lokalnie przy użyciu protokołu NFS 3,0. Ten artykuł zawiera wskazówki krok po kroku. Aby dowiedzieć się więcej o obsłudze protokołu NFS 3,0 w usłudze BLOB Storage, zobacz temat [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md).
+Kontener w usłudze BLOB Storage można zainstalować z maszyny wirtualnej platformy Azure opartej na systemie Linux lub systemu Linux działającego lokalnie przy użyciu protokołu NFS 3,0. Ten artykuł zawiera wskazówki krok po kroku. Aby dowiedzieć się więcej o obsłudze protokołu NFS 3,0 w usłudze BLOB Storage, zobacz temat [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md).
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Krok 1. rejestrowanie funkcji protokołu NFS 3,0 w ramach subskrypcji
 
@@ -97,7 +97,7 @@ Możesz zaakceptować wartości domyślne dla wszystkich innych ustawień.
 
 Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub zestawów SDK:
 
-|Narzędzia|Zestawy SDK|
+|narzędzia|Zestawy SDK|
 |---|---|
 |[Witryna Azure Portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|[Java](data-lake-storage-directory-file-acl-java.md)|
@@ -107,9 +107,7 @@ Utwórz kontener na koncie magazynu przy użyciu dowolnego z tych narzędzi lub 
 
 ## <a name="step-7-mount-the-container"></a>Krok 7. Instalowanie kontenera
 
-Utwórz katalog w systemie Windows lub Linux, a następnie zainstaluj kontener na koncie magazynu.
-
-### <a name="linux"></a>[Linux](#tab/linux)
+Utwórz katalog w systemie Linux, a następnie zainstaluj kontener na koncie magazynu.
 
 1. W systemie Linux Utwórz katalog.
 
@@ -127,32 +125,6 @@ Utwórz katalog w systemie Windows lub Linux, a następnie zainstaluj kontener n
 
    - Zastąp `<container-name>` symbol zastępczy nazwą kontenera.
 
-
-### <a name="windows"></a>[Windows](#tab/windows)
-
-1. Otwórz okno dialogowe **funkcje systemu Windows** , a następnie włącz opcję **Klient dla systemu plików NFS** . 
-
-   ![Funkcja klienta dla systemu plików NFS](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Otwórz okno **wiersza polecenia** (cmd.exe). Następnie zainstaluj kontener za pomocą polecenia [Mount](/windows-server/administration/windows-commands/mount) .
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Zastąp `<storage-account-name>` symbol zastępczy, który pojawia się w tym poleceniu nazwą konta magazynu.  
-
-   - Zastąp `<container-name>` symbol zastępczy nazwą kontenera.
-
-3. Jeśli potrzebujesz uprawnień do zapisu, może zajść potrzeba zmiany domyślnego identyfikatora UID i GID, którego system Windows używa do nawiązywania połączenia z udziałem. Aby to zrobić, uruchom następujące polecenia programu PowerShell jako administrator:
-
-   ```
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
-   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
-   ```
-   
-   - Po wprowadzeniu tej zmiany należy ponownie uruchomić usługę klienta NFS lub uruchomić ponownie serwer.
-
 ---
 
 ## <a name="resolve-common-issues"></a>Rozwiązywanie typowych problemów
@@ -162,6 +134,6 @@ Utwórz katalog w systemie Windows lub Linux, a następnie zainstaluj kontener n
 |`Access denied by server while mounting`|Upewnij się, że klient działa w ramach obsługiwanej podsieci. Zobacz [obsługiwane lokalizacje sieciowe](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Upewnij się, że instalowany kontener został utworzony po sprawdzeniu, że funkcja została zarejestrowana. Zobacz [krok 2. Sprawdzanie, czy funkcja jest zarejestrowana](#step-2-verify-that-the-feature-is-registered). Upewnij się również, że wpisz polecenie instalacji i jest ono parametrami bezpośrednio w terminalu. Jeśli skopiujesz i wkleisz dowolny fragment tego polecenia do terminalu z innej aplikacji, ukryte znaki we wklejonej informacji mogą spowodować pojawienie się tego błędu.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)](network-file-system-protocol-support.md)

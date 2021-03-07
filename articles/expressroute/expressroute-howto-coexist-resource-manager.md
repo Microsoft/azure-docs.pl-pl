@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/11/2019
+ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: b20bb4df7524c179766a2b2f7f090fccbddd7f37
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: df88bd9a1d4901b348fbec47ea9e2946542a08e3
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122616"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440092"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Konfigurowanie współistniejących połączeń usługi ExpressRoute i lokacja-lokacja przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
@@ -36,17 +36,18 @@ Ten artykuł zawiera instrukcje konfiguracji obu scenariuszy. Ten artykuł ma za
 >
 
 ## <a name="limits-and-limitations"></a>Limity i ograniczenia
-* **Routing tranzytowy nie jest obsługiwany.** Nie można skierować połączenia (przez platformę Azure) między lokalną siecią połączoną za pośrednictwem sieci VPN typu lokacja-lokacja i lokalną siecią połączoną za pośrednictwem usługi ExpressRoute.
-* **Podstawowa brama jednostki SKU nie jest obsługiwana.** Należy użyć innej niż podstawowa bramy jednostki SKU zarówno dla [bramy usługi ExpressRoute](expressroute-about-virtual-network-gateways.md), jak i [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Obsługiwana jest tylko brama sieci VPN oparta na trasach.** Należy użyć [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)opartej na trasach. Można również użyć bramy sieci VPN opartej na trasach z połączeniem sieci VPN skonfigurowanym dla selektorów ruchu opartego na zasadach, zgodnie z opisem w temacie [łączenie z wieloma urządzeniami sieci VPN opartymi na zasadach](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
-* **Dla bramy sieci VPN należy skonfigurować trasę statyczną.** Jeśli sieć lokalna jest połączona z usługą ExpressRoute oraz siecią VPN typu lokacja-lokacja, aby skierować połączenie sieci VPN typu lokacja-lokacja do publicznego Internetu, trzeba mieć skonfigurowaną trasę statyczną w sieci lokalnej.
-* **Jeśli nie zostanie określony, VPN Gateway domyślnie przyjmuje numer ASN 65515.** Usługa Azure VPN Gateway obsługuje protokół routingu BGP. Możesz określić ASN (numer AS) dla sieci wirtualnej, dodając przełącznik-ASN. Jeśli ten parametr nie zostanie określony, wartością domyślną jest 65515. Dla konfiguracji można użyć dowolnego numeru ASN, ale w przypadku wybrania czegoś innego niż 65515 należy zresetować bramę, aby ustawienie zaczęło obowiązywać.
+* **Numer ASN usługi Azure VPN Gateway musi być ustawiony na 65515.** Usługa Azure VPN Gateway obsługuje protokół routingu BGP. Aby ExpressRoute i sieć VPN platformy Azure współpracowały ze sobą, należy zachować wartość domyślną numeru systemu autonomicznego bramy sieci VPN platformy Azure, 65515. Jeśli wcześniej wybrano numer ASN inny niż 65515 i zmienisz ustawienie na 65515, należy zresetować bramę sieci VPN, aby ustawienie zaczęło obowiązywać.
 * **Podsieć bramy musi mieć wartość/27 lub być krótszym prefiksem**(na przykład/26,/25) lub podczas dodawania bramy sieci wirtualnej ExpressRoute zostanie wyświetlony komunikat o błędzie.
 * **Współistnienie w sieci wirtualnej o podwójnym stosie nie jest obsługiwane.** Jeśli używasz obsługi protokołu ExpressRoute IPv6 i bramy ExpressRoute z podwójnym stosem, współistnienie z VPN Gateway nie będzie możliwe.
 
 ## <a name="configuration-designs"></a>Projekty konfiguracji
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja jako ścieżki pracy awaryjnej dla usługi ExpressRoute
 Połączenie sieci VPN typu lokacja-lokacja można skonfigurować do przechowywania kopii zapasowych dla usługi ExpressRoute. To połączenie dotyczy tylko sieci wirtualnych połączonych ze ścieżką prywatnej sieci równorzędnej Azure. Nie ma rozwiązania dotyczącego prac w trybie failover i opartego na sieci VPN dla usług dostępnych przez sesje komunikacji równorzędnej firmy Microsoft na platformie Azure. Obwód usługi ExpressRoute jest zawsze połączeniem podstawowym. Dane przepływają przez ścieżkę sieci VPN typu lokacja-lokacja tylko w przypadku awarii obwodu usługi ExpressRoute. Aby uniknąć routingu asymetrycznego, konfiguracja sieci lokalnej powinna również preferować obwód usługi ExpressRoute, zamiast połączenia sieci VPN typu lokacja-lokacja. Możesz preferować ścieżkę ExpressRoute, ustawiając wyższy poziom preferencji lokalnych w przypadku tras odbieranych z usługi ExpressRoute. 
+
+>[!NOTE]
+> Jeśli masz ExpressRoute komunikację równorzędną firmy Microsoft, możesz otrzymać publiczny adres IP bramy sieci VPN platformy Azure dla połączenia usługi ExpressRoute. Aby skonfigurować połączenie sieci VPN typu lokacja-lokacja jako kopię zapasową, należy skonfigurować sieć lokalną w taki sposób, aby połączenie sieci VPN było kierowane do Internetu.
+>
 
 > [!NOTE]
 > Obwód usługi ExpressRoute jest preferowany w porównaniu z siecią VPN typu lokacja-lokacja, jeśli obydwie trasy są takie same, a na platformie Azure dopasowanie najdłuższego prefiksu będzie używane do wybierania trasy do miejsca docelowego pakietu.
@@ -261,6 +262,9 @@ Możesz wykonać poniższe kroki, aby dodać konfigurację typu punkt-lokacja do
    $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
    ```
+
+## <a name="to-enable-transit-routing-between-expressroute-and-azure-vpn"></a>Aby włączyć routing tranzytowy między ExpressRoute i siecią VPN platformy Azure
+Jeśli chcesz włączyć łączność między jedną z sieci lokalnej, która jest połączona z usługą ExpressRoute i inną siecią lokalną, która jest połączona z połączeniem sieci VPN typu lokacja-lokacja, musisz skonfigurować [serwer usługi Azure Route](../route-server/expressroute-vpn-support.md).
 
 Więcej informacji na temat sieci VPN typu punkt-lokacja znajduje się w artykule [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) (Konfigurowanie połączenia typu punkt-lokacja).
 

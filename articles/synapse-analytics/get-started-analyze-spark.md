@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 7410fcbc890780281763a91f33525562e9de1853
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6b3c1ac2ea3625a768e16a3465230a5386c98ddc
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182489"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423717"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
@@ -38,7 +38,7 @@ W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analiz
     display(df.limit(10))
     ```
 1. W notesie w menu **Dołącz do** wybierz **Spark1** pulę platformy Spark bezserwerową utworzoną wcześniej.
-1. Wybierz pozycję **Uruchom** w komórce
+1. Wybierz pozycję **Uruchom** w komórce. Synapse rozpocznie nową sesję platformy Spark, aby uruchomić tę komórkę w razie potrzeby. Jeśli jest wymagana Nowa sesja platformy Spark, intially to zajmie około dwóch sekund. 
 1. Jeśli chcesz tylko zobaczyć schemat ramki danych, uruchom komórkę o następującym kodzie:
     ```
 

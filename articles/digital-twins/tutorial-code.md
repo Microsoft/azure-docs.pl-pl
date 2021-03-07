@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: bd3ba88650161bd11a24697b4ff8575d307120e9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576265"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424465"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
-W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji Service przy użyciu [zestawu Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
+W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji Service przy użyciu [zestawu Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu
@@ -57,7 +57,7 @@ Spowoduje to utworzenie kilku plików znajdujących się w katalogu, w tym jeden
 
 Pozostaw otwarte okno polecenia, ponieważ będziesz nadal korzystać z niego w całym samouczku.
 
-Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Pierwszy to pakiet [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), a drugi zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
+Następnie **Dodaj dwie zależności do projektu** , które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Pierwszy to pakiet [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client), a drugi zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ee0587063c0fac67068869c58471ada58354fab7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806680"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437676"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Tworzenie niestandardowych obrazów maszyn wirtualnych dla urządzenia z Azure Stack EDGE Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Aby wdrażać maszyny wirtualne na urządzeniu Azure Stack EDGE Pro, musisz mieć możliwość tworzenia niestandardowych obrazów maszyn wirtualnych, których można użyć do tworzenia maszyn wirtualnych. W tym artykule opisano kroki wymagane do utworzenia niestandardowych obrazów maszyn wirtualnych z systemem Linux lub Windows, których można użyć do wdrożenia maszyn wirtualnych na urządzeniu Azure Stack Edge.
 

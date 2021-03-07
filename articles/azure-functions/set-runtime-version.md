@@ -3,18 +3,18 @@ title: Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 description: Azure Functions obsługuje wiele wersji środowiska uruchomieniowego. Dowiedz się, jak określić wersję środowiska uruchomieniowego aplikacji funkcji hostowanej na platformie Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 46bf7849888033b2bbb7e9b9669ee3eae4de10e9
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e9aa5546b5f07b724fe22bc1e20a2e97feb2aec2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916528"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435566"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak docelowa Azure Functions wersje środowiska uruchomieniowego
 
-Aplikacja funkcji jest uruchamiana w określonej wersji środowiska uruchomieniowego Azure Functions. Istnieją trzy wersje główne: [1. x, 2. x i 3. x](functions-versions.md). Domyślnie aplikacje funkcji są tworzone w wersji 3. x środowiska uruchomieniowego. W tym artykule wyjaśniono, jak skonfigurować aplikację funkcji na platformie Azure do uruchamiania w wybranej wersji. Informacje o sposobie konfigurowania lokalnego środowiska projektowego dla określonej wersji znajdują się w temacie [kod i test Azure Functions lokalnie](functions-run-local.md).
+Aplikacja funkcji jest uruchamiana w określonej wersji środowiska uruchomieniowego Azure Functions. Istnieją trzy wersje główne: [3. x, 2. x i 1. x](functions-versions.md). Domyślnie aplikacje funkcji są tworzone w wersji 3. x środowiska uruchomieniowego. W tym artykule wyjaśniono, jak skonfigurować aplikację funkcji na platformie Azure do uruchamiania w wybranej wersji. Informacje o sposobie konfigurowania lokalnego środowiska projektowego dla określonej wersji znajdują się w temacie [kod i test Azure Functions lokalnie](functions-run-local.md).
 
-Sposób ręcznego określania określonej wersji zależy od tego, czy korzystasz z systemu Windows, czy Linux.
+Sposób ręcznego określania konkretnej wersji zależy od tego, czy korzystasz z systemu Windows, czy Linux.
 
 ## <a name="automatic-and-manual-version-updates"></a>Aktualizacje automatyczne i ręczne
 
@@ -22,7 +22,7 @@ _Ta sekcja nie ma zastosowania w przypadku uruchamiania aplikacji funkcji [w sys
 
 Azure Functions umożliwia określanie konkretnej wersji środowiska uruchomieniowego w systemie Windows przy użyciu `FUNCTIONS_EXTENSION_VERSION` Ustawienia aplikacji w aplikacji funkcji. Aplikacja funkcji jest przechowywana w określonej wersji głównej, dopóki użytkownik nie zdecyduje się na przejście do nowej wersji. Jeśli określisz tylko wersję główną, aplikacja funkcji zostanie automatycznie zaktualizowana do nowej wersji pomocniczej środowiska uruchomieniowego, gdy staną się dostępne. Nowe wersje pomocnicze nie powinny wprowadzać drobnych zmian. 
 
-W przypadku określenia wersji pomocniczej (na przykład "2.0.12345") aplikacja funkcji jest przypięta do tej konkretnej wersji, dopóki nie zostanie ona jawnie zmieniona. Starsze wersje pomocnicze są regularnie usuwane ze środowiska produkcyjnego. Po takim wystąpieniu aplikacja funkcji jest uruchamiana w najnowszej wersji, a nie w wersji ustawionej w programie `FUNCTIONS_EXTENSION_VERSION` . W związku z tym należy szybko rozwiązać wszelkie problemy z aplikacją funkcji wymagającą określonej wersji pomocniczej, aby można było użyć wersji głównej. Usuwanie wersji pomocniczej są ogłaszane w [anonsach App Service](https://github.com/Azure/app-service-announcements/issues).
+W przypadku określenia wersji pomocniczej (na przykład "2.0.12345") aplikacja funkcji jest przypięta do tej konkretnej wersji, dopóki nie zostanie ona jawnie zmieniona. Starsze wersje pomocnicze są regularnie usuwane ze środowiska produkcyjnego. Jeśli wersja pomocnicza zostanie usunięta, aplikacja funkcji wraca do uruchamiania w najnowszej wersji, a nie w wersji ustawionej w programie `FUNCTIONS_EXTENSION_VERSION` . W związku z tym należy szybko rozwiązać wszelkie problemy z aplikacją funkcji wymagającą określonej wersji pomocniczej. Następnie można wrócić do wersji głównej. Usuwanie wersji pomocniczej są ogłaszane w [anonsach App Service](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
 > Jeśli przywrócisz do określonej wersji głównej Azure Functions, a następnie spróbujesz opublikować ją na platformie Azure przy użyciu programu Visual Studio, zostanie wyświetlone okno dialogowe z monitem o aktualizację do najnowszej wersji lub anulowanie publikacji. Aby tego uniknąć, należy dodać `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` Właściwość w `.csproj` pliku.
@@ -39,14 +39,17 @@ W poniższej tabeli przedstawiono `FUNCTIONS_EXTENSION_VERSION` wartości dla ka
 
 Zmiana wersji środowiska uruchomieniowego powoduje ponowne uruchomienie aplikacji funkcji.
 
+>[!NOTE]
+>Aplikacje funkcji .NET przypięte, aby `~2.0` zrezygnować z automatycznego uaktualniania do programu .NET Core 3,1. Aby dowiedzieć się więcej, zobacz temat [funkcje w wersji 2. x](functions-dotnet-class-library.md#functions-v2x-considerations).  
+
 ## <a name="view-and-update-the-current-runtime-version"></a>Wyświetl i zaktualizuj bieżącą wersję środowiska uruchomieniowego
 
 _Ta sekcja nie ma zastosowania w przypadku uruchamiania aplikacji funkcji [w systemie Linux](#manual-version-updates-on-linux)._
 
-Możesz zmienić wersję środowiska uruchomieniowego używaną przez aplikację funkcji. Ze względu na potencjalną zmianę można zmienić wersję środowiska uruchomieniowego przed utworzeniem jakichkolwiek funkcji w aplikacji funkcji. 
+Możesz zmienić wersję środowiska uruchomieniowego używaną przez aplikację funkcji. Ze względu na potencjalną zmianę można zmienić wersję środowiska uruchomieniowego dopiero przed utworzeniem jakichkolwiek funkcji w aplikacji funkcji. 
 
 > [!IMPORTANT]
-> Mimo że wersja środowiska uruchomieniowego jest określana na podstawie `FUNCTIONS_EXTENSION_VERSION` Ustawienia, należy wprowadzić tę zmianę w Azure Portal, a nie przez zmianę ustawienia bezpośrednio. Dzieje się tak, ponieważ Portal sprawdza poprawność zmian i wprowadza inne powiązane zmiany stosownie do potrzeb.
+> Mimo że wersja środowiska uruchomieniowego jest określana na podstawie `FUNCTIONS_EXTENSION_VERSION` Ustawienia, należy wprowadzić tę zmianę tylko w Azure Portal, a nie przez zmianę ustawienia bezpośrednio. Dzieje się tak, ponieważ Portal sprawdza poprawność zmian i wprowadza inne powiązane zmiany stosownie do potrzeb.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -103,7 +106,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 
 Zamień `<FUNCTION_APP>` na nazwę aplikacji funkcji. Zastąp także `<RESOURCE_GROUP>` nazwą grupy zasobów dla aplikacji funkcji. Ponadto Zastąp `<VERSION>` wartość określoną wersją lub `~3` , `~2` lub `~1` .
 
-Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](/cli/azure/reference-index#az-login) , aby się zalogować.
+Wybierz opcję **Wypróbuj** w poprzednim przykładzie kodu, aby uruchomić polecenie w [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również uruchomić [interfejs wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby wykonać to polecenie. W przypadku uruchamiania lokalnego należy najpierw uruchomić polecenie [AZ login](/cli/azure/reference-index#az-login) , aby się zalogować.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -135,38 +138,24 @@ W przypadku **usługi App Service/elastycznych aplikacji Premium** — ustaw war
 
 W przypadku **aplikacji do użycia** dla systemu Linux — ustaw wartość `LinuxFxVersion` `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10` .
 
+# <a name="portal"></a>[Portal](#tab/portal)
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli-linux)
+Wyświetlanie i modyfikowanie ustawień konfiguracji witryny dla aplikacji funkcji nie jest obsługiwane w Azure Portal. Zamiast tego użyj interfejsu wiersza polecenia platformy Azure.
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azurecli)
 
 Można wyświetlać i konfigurować `LinuxFxVersion` za pomocą interfejsu wiersza polecenia platformy Azure.  
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, Wyświetl bieżącą wersję środowiska uruchomieniowego, używając [AZ functionapp config show](/cli/azure/functionapp/config) .
+Aby wyświetlić bieżącą wersję środowiska uruchomieniowego, użyj polecenia [AZ functionapp config show](/cli/azure/functionapp/config) .
 
 ```azurecli-interactive
 az functionapp config show --name <function_app> \
---resource-group <my_resource_group>
+--resource-group <my_resource_group> --query 'linuxFxVersion' -o tsv
 ```
 
-W tym kodzie Zamień na `<function_app>` nazwę aplikacji funkcji. Zastąp także `<my_resource_group>` nazwą grupy zasobów dla aplikacji funkcji. 
+W tym kodzie Zamień na `<function_app>` nazwę aplikacji funkcji. Zastąp także `<my_resource_group>` nazwą grupy zasobów dla aplikacji funkcji. Bieżąca wartość `linuxFxVersion` jest zwracana.
 
-Zobaczysz `linuxFxVersion` Poniższy wynik, który został obcięty do przejrzystości:
-
-```output
-{
-  ...
-
-  "kind": null,
-  "limits": null,
-  "linuxFxVersion": <LINUX_FX_VERSION>,
-  "loadBalancing": "LeastRequests",
-  "localMySqlEnabled": false,
-  "location": "West US",
-  "logsDirectorySizeLimit": 35,
-   ...
-}
-```
-
-Możesz zaktualizować `linuxFxVersion` Ustawienia w aplikacji funkcji za pomocą polecenia [AZ functionapp config Set](/cli/azure/functionapp/config) .
+Aby zaktualizować `linuxFxVersion` Ustawienia w aplikacji funkcji, użyj polecenia [AZ functionapp config Set](/cli/azure/functionapp/config) .
 
 ```azurecli-interactive
 az functionapp config set --name <FUNCTION_APP> \
@@ -174,17 +163,20 @@ az functionapp config set --name <FUNCTION_APP> \
 --linux-fx-version <LINUX_FX_VERSION>
 ```
 
-Zamień `<FUNCTION_APP>` na nazwę aplikacji funkcji. Zastąp także `<RESOURCE_GROUP>` nazwą grupy zasobów dla aplikacji funkcji. Należy również zastąpić `<LINUX_FX_VERSION>` wartościami opisanymi powyżej.
+Zamień `<FUNCTION_APP>` na nazwę aplikacji funkcji. Zastąp także `<RESOURCE_GROUP>` nazwą grupy zasobów dla aplikacji funkcji. Należy również zastąpić `<LINUX_FX_VERSION>` wartością określonego obrazu zgodnie z powyższym opisem.
 
 Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](/cli/azure/reference-index#az-login) , aby się zalogować.
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Podobnie aplikacja funkcji jest uruchamiana ponownie po wprowadzeniu zmian w konfiguracji lokacji.
-
-> [!NOTE]
-> Zwróć uwagę, że ustawienie `LinuxFxVersion` na adres URL obrazu bezpośrednio dla aplikacji do użycia spowoduje wyróżnienie ich od symboli zastępczych i innych optymalizacji zimnego startu.
+Nie można teraz ustawić Azure PowerShell w `linuxFxVersion` tym momencie. Zamiast tego użyj interfejsu wiersza polecenia platformy Azure.
 
 ---
+
+Aplikacja funkcji zostanie ponownie uruchomiona po wprowadzeniu zmian w konfiguracji lokacji.
+
+> [!NOTE]
+> W przypadku aplikacji uruchamianych w ramach planu zużycia ustawienie `LinuxFxVersion` do określonego obrazu może zwiększyć czas zimnego uruchomienia. Jest to spowodowane tym, że przypinanie do określonego obrazu uniemożliwia korzystanie z niektórych optymalizacji zimnego uruchamiania w funkcjach. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -307,7 +307,7 @@
         - name: 2101 — bieżąca
           href: azure-stack-edge-gpu-2101-release-notes.md
         - name: 2010
-          href: azure-stack-edge-gpu-2009-release-notes.md
+          href: azure-stack-edge-gpu-2010-release-notes.md
         - name: 2008
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Wspólna dokumentacja
@@ -317,7 +317,7 @@
         - name: Interfejs API REST
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 - name: Azure Stack Edge Pro — FPGA
   items:
     - name: Omówienie
@@ -410,7 +410,7 @@
         - name: Interfejs API REST
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 - name: Zabezpieczenia
   items:
     - name: Punkt odniesienia zabezpieczeń

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050940"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433322"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
 Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres dwuosiowy jest wykonany z pojedynczej bliźniaczych reprezentacji cyfrowej połączonej za pośrednictwem **relacji**. 
 
-Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
 
@@ -97,7 +97,7 @@ Możesz użyć pobranych relacji, aby przejść do innych bliźniaczych reprezen
 Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, aby znaleźć wszystkie **przychodzące** relacje z danym przędzą. Jest to często przydatne w przypadku nawigacji odwrotnej lub podczas usuwania sznurka.
 
 >[!NOTE]
-> `IncomingRelationship` wywołania nie zwracają pełnej treści relacji. Aby uzyskać więcej informacji na temat `IncomingRelationship` klasy, zapoznaj się z [dokumentacją referencyjną](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
+> `IncomingRelationship` wywołania nie zwracają pełnej treści relacji. Aby uzyskać więcej informacji na temat `IncomingRelationship` klasy, zapoznaj się z [dokumentacją referencyjną](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
 
 Przykładowy kod w poprzedniej sekcji koncentruje się na znajdowaniu relacji wychodzących od sznurka. Poniższy przykład ma strukturę podobną, ale zamiast tego znajduje *przychodzące* relacje z przędzą. Ten przykład używa również wywołania zestawu SDK (wyróżnione) wewnątrz metody niestandardowej, która może pojawić się w kontekście większego programu.
 
@@ -157,7 +157,7 @@ Fragment kodu używa [*Room.json*](https://github.com/Azure-Samples/digital-twin
 Przed uruchomieniem przykładu należy wykonać następujące czynności:
 1. Pobierz pliki modelu, umieść je w projekcie i Zastąp `<path-to>` symbole zastępcze w poniższym kodzie, aby poinformować program, gdzie go znaleźć.
 2. Zastąp symbol zastępczy `<your-instance-hostname>` nazwą hosta usługi Azure Digital bliźniaczych reprezentacji.
-3. Dodaj dwie zależności do projektu, które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Pierwszy to pakiet [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), a drugi zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
+3. Dodaj dwie zależności do projektu, które będą konieczne do pracy z usługą Azure Digital bliźniaczych reprezentacji. Pierwszy to pakiet [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client), a drugi zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651585"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427015"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub AE dla automatycznej aprowizacji użytkowników
 
@@ -32,6 +32,7 @@ W tym samouczku opisano kroki, które należy wykonać w witrynie GitHub AE i Az
 > * Tworzenie użytkowników w serwisie GitHub AE
 > * Usuwanie użytkowników w usłudze GitHub AE, gdy nie wymagają już dostępu
 > * Utrzymywanie synchronizacji atrybutów użytkownika między usługą Azure AD i GitHub AE
+> * Udostępnianie grup i członkostw w grupach w witrynie GitHub AE
 > * Logowanie jednokrotne do usługi [GITHUB AE](./github-ae-tutorial.md) (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -59,7 +60,7 @@ Dodaj aplikację GitHub AE z galerii aplikacji usługi Azure AD, aby rozpocząć
 
 Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika i/lub grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i/lub grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany w oparciu o atrybuty użytkownika i/lub grupy, możesz użyć filtru określania zakresu, jak opisano [tutaj](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Podczas przypisywania użytkowników do usługi GitHub AE należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md), aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do usługi GitHub AE należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md), aby dodać więcej ról. 
 
 * Zacznij od mniejszej skali. Przetestuj przy użyciu małego zestawu użytkowników i/lub grup przed przekazaniem do każdego z nich. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i/lub grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników i/lub grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 

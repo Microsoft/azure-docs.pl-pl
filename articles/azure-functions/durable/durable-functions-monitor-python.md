@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029190"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434767"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Scenariusz monitorowania w programie Durable Functions — przykład monitorowania problemu w usłudze GitHub
 
 Wzorzec monitora odnosi się do elastycznego procesu cyklicznego w przepływie pracy — na przykład sondowania do momentu spełnienia określonych warunków. W tym artykule opisano przykład, który używa Durable Functions do wdrożenia monitorowania.
 
-[! UWZGLĘDNIj trwałe funkcje — wymagania wstępne]
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* [Wykonaj artykuł z przewodnika Szybki Start](quickstart-python-vscode.md)
+* [Klonowanie lub pobieranie projektu przykładów z usługi GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
@@ -29,7 +33,7 @@ Ten przykład monitoruje liczbę problemów w repozytorium GitHub i ostrzega uż
 * Monitory są skalowalne. Ponieważ każdy monitor jest wystąpieniem aranżacji, można utworzyć wiele monitorów bez konieczności tworzenia nowych funkcji lub definiowania dalszych kodów.
 * Monitory można łatwo zintegrować z większymi przepływami pracy. Monitor może być jedną sekcją bardziej złożonej funkcji aranżacji lub [aranżacją podrzędną](durable-functions-sub-orchestrations.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="configuring-twilio-integration"></a>Konfigurowanie integracji Twilio
 
@@ -45,7 +49,6 @@ W tym artykule wyjaśniono następujące funkcje w przykładowej aplikacji:
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor funkcja programu Orchestrator
 
-# <a name="python"></a>[Python](#tab/python)
 
 Funkcja **E3_Monitor** używa standardowego *function.jsna* potrzeby funkcji programu Orchestrator.
 
@@ -55,7 +58,6 @@ Oto kod implementujący funkcję:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Ta funkcja programu Orchestrator wykonuje następujące akcje:
 
@@ -73,7 +75,6 @@ Jednocześnie można uruchamiać wiele wystąpień programu Orchestrator, wywoł
 
 Podobnie jak w przypadku innych próbek, funkcje działania pomocnika są regularnymi funkcjami, które używają `activityTrigger` powiązania wyzwalacza. Funkcja **E3_TooManyOpenIssues** pobiera listę obecnie otwartych problemów w repozytorium i określa, czy jest "zbyt wiele" z nich: więcej niż 3 zgodnie z naszym przykładem.
 
-# <a name="python"></a>[Python](#tab/python)
 
 *function.json* został zdefiniowany w następujący sposób:
 
@@ -83,13 +84,11 @@ A oto implementacja.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>Funkcja działania E3_SendAlert
 
 Funkcja **E3_SendAlert** używa powiązania Twilio do wysyłania wiadomości SMS z powiadomieniem użytkownika końcowego o istnieniu co najmniej 3 otwartych problemów oczekujących na rozwiązanie.
 
-# <a name="python"></a>[Python](#tab/python)
 
 *function.json* jest prosty:
 
@@ -99,7 +98,6 @@ A Oto kod, który wysyła wiadomość SMS:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 

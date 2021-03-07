@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: e690a761efcd16428f9da8fe53e5dd8d26e9ff79
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 98a151c9f740c3ab2f1471f98c7fab83cc848a28
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181290"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438408"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
 
@@ -40,6 +40,9 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 > [!NOTE]
 > Nie zalecamy używania środowiska produkcyjnego do testowania czynności opisanych w tym samouczku.
+
+> [!NOTE]
+> Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
 
 Aby przetestować czynności opisane w tym samouczku, należy postępować zgodnie z następującymi zaleceniami:
 
@@ -108,7 +111,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |userName|Ciąg|
    |displayName|Ciąg|
    |aktywne|Wartość logiczna|
-   |tytuł|Boolean|
+   |tytuł|Wartość logiczna|
    |emails[type eq "work"].value|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
@@ -132,8 +135,8 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
    |urn:scim:schemas:extension:enterprise:1.0.costCenter|Ciąg|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|Ciąg|
    |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|Ciąg|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0.is_frontline|Boolean|
-   |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Integer|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0.is_frontline|Wartość logiczna|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Liczba całkowita|
 
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

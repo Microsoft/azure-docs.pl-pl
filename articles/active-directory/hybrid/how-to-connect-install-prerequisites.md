@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644807"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426794"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 W tym artykule opisano wymagania wstępne i wymagania sprzętowe dotyczące programu Azure Active Directory (Azure AD) Connect.
@@ -102,6 +102,7 @@ Zaleca się, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszyć obszar a
 
 ### <a name="connectivity"></a>Łączność
 * Serwer Azure AD Connect wymaga rozpoznawania nazw DNS dla intranetu i Internetu. Serwer DNS musi być w stanie rozpoznawać nazwy zarówno w lokalnym Active Directory, jak i w punktach końcowych usługi Azure AD.
+* Azure AD Connect wymaga łączności sieciowej ze wszystkimi skonfigurowanymi domenami
 * Jeśli masz zapory w intranecie i musisz otworzyć porty między serwerami Azure AD Connect i kontrolerami domeny, zobacz [Azure AD Connect portów](reference-connect-ports.md) , aby uzyskać więcej informacji.
 * Jeśli Twój serwer proxy lub Zapora ogranicza dostęp do adresów URL, należy otworzyć adresy URL opisane w [adresach URL pakietu Office 365 i w zakresach adresów IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) . Zobacz też [Safelist adresy url Azure Portal na zaporze lub serwerze proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Jeśli używasz chmury firmy Microsoft w Niemczech lub Microsoft Azure Government w chmurze, zobacz [zagadnienia dotyczące wystąpień usługi synchronizacji Azure AD Connect](reference-connect-instances.md) dla adresów URL.

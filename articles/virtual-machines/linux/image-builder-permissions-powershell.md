@@ -3,21 +3,25 @@ title: Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu progra
 description: Konfigurowanie wymagań dotyczących usługi Azure VM Image Builder, w tym uprawnień i uprawnień przy użyciu programu PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695400"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440211"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Konfigurowanie uprawnień usługi Azure Image Builder przy użyciu programu PowerShell
 
-Usługa Azure Image Builder wymaga konfiguracji uprawnień i uprawnień przed rozpoczęciem tworzenia obrazu. W poniższych sekcjach szczegółowo opisano sposób konfigurowania możliwych scenariuszy przy użyciu programu PowerShell.
+Gdy zarejestrujesz się w usłudze (AIB), spowoduje to przyznanie usługi AIB uprawnienia do tworzenia i usuwania tymczasowej grupy zasobów (IT_ *) oraz do dodawania do niej zasobów, które są wymagane dla kompilacji obrazu. Jest to realizowane przez główną nazwę usługi AIB (SPN), która jest dostępna w Twojej subskrypcji podczas pomyślnej rejestracji.
+
+Aby umożliwić programowi Azure VM Image Builder dystrybuowanie obrazów do obrazów zarządzanych lub do galerii obrazów udostępnionych, należy utworzyć tożsamość przypisaną przez użytkownika platformy Azure, która ma uprawnienia do odczytu i zapisu obrazów. Jeśli uzyskujesz dostęp do usługi Azure Storage, będzie to wymagało uprawnień do odczytywania kontenerów prywatnych i publicznych.
+
+Przed utworzeniem obrazu należy skonfigurować uprawnienia i uprawnienia. W poniższych sekcjach szczegółowo opisano sposób konfigurowania możliwych scenariuszy przy użyciu programu PowerShell.
 
 > [!IMPORTANT]
 > Usługa Azure Image Builder jest obecnie dostępna w publicznej wersji zapoznawczej.

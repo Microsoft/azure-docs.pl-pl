@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601824"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434522"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -39,7 +39,7 @@ Funkcja **rozpoznawania mowy (SR), lista fraz, zamierzenia, tłumaczenia i konte
   - JavaScript (przeglądarce i NodeJS)
   - Python
   - Swift
-  - Obiektowy C  
+  - Objective-C  
   - Go (tylko SR)
 
 ### <a name="text-to-speech"></a>Zamiana tekstu na mowę
@@ -53,18 +53,19 @@ Funkcja **zamiany tekstu na mowę (TTS)** jest dostępna na następujących plat
   - Java (JRE i Android)
   - Python
   - Swift
-  - Obiektowy C
+  - Objective-C
   - Interfejs API REST usługi TTS może być używany w każdej innej sytuacji.
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
-[Asystentzy głosu](voice-assistants.md) korzystający z zestawu Speech SDK umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla swoich aplikacji i środowisk. Usługa asystenta głosowego zapewnia szybką i niezawodną interakcję między urządzeniem i asystentem. Implementacja używa kanału mowy linii Direct line bot Framework lub zintegrowanej usługi poleceń niestandardowych do ukończenia zadania. Ponadto Asystenci głosu mogą używać niestandardowych głosów utworzonych w [niestandardowym portalu głosu](https://aka.ms/customvoice) , aby dodać unikatowe środowisko danych wyjściowych.
+[Asystenci głosu](voice-assistants.md) korzystający z zestawu Speech SDK umożliwiają tworzenie naturalnych, przypominających konwersacje interfejsów dla aplikacji i środowisk. Zestaw Speech SDK zapewnia szybką i niezawodną interakcję, która zawiera dane dotyczące zamiany mowy na tekst, zamiany tekstu na mowę i konwersacji przy użyciu jednego połączenia. Twoja implementacja może korzystać z kanału mowy linii Direct line lub zintegrowanej usługi poleceń niestandardowych do ukończenia zadania. Ponadto Asystenci głosu mogą używać niestandardowych głosów utworzonych w [niestandardowym portalu głosu](https://aka.ms/customvoice) , aby dodać unikatowe środowisko danych wyjściowych.
 
-**Asystenci głosu** są dostępni na następujących platformach:
+Obsługa **asystenta głosowego** jest dostępna na następujących platformach:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Go
 
 #### <a name="keyword-spotting"></a>Wykrywania trendów słowa kluczowego
 
@@ -113,7 +114,7 @@ Zestaw mowy SDK może być używany do scenariuszy centrum połączeń jego prze
 
 ### <a name="codec-compressed-audio-input"></a>Koder-dekoder skompresowanego sygnału audio
 
-Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów <span class="docon docon-navigate-external x-hidden-focus"></span> danych wejściowych kompresji dźwiękowej </a>.
+Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów danych wejściowych kompresji dźwiękowej </a>.
 
 **Skompresowane dane wejściowe audio kodera-dekoder** są dostępne na następujących platformach:
 

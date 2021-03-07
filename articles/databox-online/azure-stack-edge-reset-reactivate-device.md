@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2020
+ms.date: 03/03/2020
 ms.author: alkohli
-ms.openlocfilehash: 4026bac9818b14c33c05d99caff4052adad196c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 95fbe5dc4a934fee10c558f640bc24f261203a33
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746900"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102443539"
 ---
 # <a name="reset-and-reactivate-your-azure-stack-edge-pro-device"></a>Zresetuj i ponownie Aktywuj urządzenie Azure Stack EDGE Pro
 
@@ -32,7 +32,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="reset-data-from-the-device"></a>Resetowanie danych z urządzenia
 
-Aby wyczyścić dane z dysków danych urządzenia, należy zresetować urządzenie. 
+Aby wyczyścić dane z dysków danych urządzenia, należy zresetować urządzenie.
 
 Przed zresetowaniem Utwórz kopię danych lokalnych na urządzeniu, jeśli jest to konieczne. Dane z urządzenia można skopiować do kontenera usługi Azure Storage.
 
@@ -41,7 +41,7 @@ Przed zresetowaniem Utwórz kopię danych lokalnych na urządzeniu, jeśli jest 
 
 Możesz zresetować urządzenie w lokalnym interfejsie użytkownika sieci Web lub w programie PowerShell. Aby uzyskać instrukcje dotyczące programu PowerShell, zobacz [Resetowanie urządzenia](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-[! INCLUDE] [Resetowanie danych z urządzenia](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 ## <a name="reactivate-device"></a>Aktywuj ponownie urządzenie
 
@@ -49,11 +49,11 @@ Po zresetowaniu urządzenia należy ponownie aktywować urządzenie jako nowy za
 
 Aby ponownie uaktywnić istniejące urządzenie, wykonaj następujące kroki:
 
-1. Utwórz nowe zamówienie dla istniejącego urządzenia, wykonując kroki opisane w temacie [Tworzenie nowego zasobu](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). Na karcie **adres wysyłkowy** wybierz pozycję **mam już urządzenie**.
+1. Utwórz nowe zamówienie dla istniejącego urządzenia, wykonując kroki opisane w temacie [Tworzenie nowego zasobu](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). Na karcie **adres wysyłkowy** wybierz pozycję **mam już urządzenie**.
 
    ![Nie określaj nowego urządzenia w adresie wysyłkowym](./media/azure-stack-edge-reset-reactivate-device/create-resource-with-no-new-device.png)
 
-1. [Pobierz klucz aktywacji](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
+1. [Pobierz klucz aktywacji](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#get-the-activation-key).
 
 1. [Nawiąż połączenie z urządzeniem](azure-stack-edge-gpu-deploy-connect.md).
 
@@ -63,7 +63,7 @@ Aby ponownie uaktywnić istniejące urządzenie, wykonaj następujące kroki:
 
 1. [Konfiguruj certyfikaty](azure-stack-edge-gpu-deploy-configure-certificates.md).
 
-1. [Aktywuj urządzenie](databox-online/azure-stack-edge-gpu-deploy-activate.md).
+1. [Aktywuj urządzenie](azure-stack-edge-gpu-deploy-activate.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

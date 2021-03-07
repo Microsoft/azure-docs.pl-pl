@@ -1,6 +1,6 @@
 ---
 title: Obsługa systemu plików NFS 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza) | Microsoft Docs
-description: Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemami Windows i Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub z komputera działającego lokalnie.
+description: Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa umożliwia klientom z systemem Linux zainstalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub komputera działającego lokalnie.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718503"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428443"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Obsługa protokołu sieciowego systemu plików (NFS) 3,0 w usłudze Azure Blob Storage (wersja zapoznawcza)
 
-Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa zapewnia zgodność systemu plików z systemem Linux w skali i cenach magazynu obiektów oraz umożliwia klientom systemu Windows lub Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnego komputera. 
+Magazyn obiektów BLOB obsługuje teraz Protokół 3,0 systemu plików NFS. Ta obsługa zapewnia zgodność systemu plików z systemem Linux w skali i cenach magazynu obiektów oraz umożliwia klientom systemu Linux Instalowanie kontenera w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub lokalnie. 
 
 > [!NOTE]
 > Obsługa protokołu NFS 3,0 w usłudze Azure Blob Storage jest w publicznej wersji zapoznawczej. Obsługuje ona konta magazynu GPV2 z wydajnością warstwy Standardowa w następujących regionach: Australia Wschodnia, Korea Środkowa i Południowo-środkowe stany USA. Wersja zapoznawcza obsługuje również blokowy obiekt BLOB z warstwą wydajności Premium we wszystkich regionach publicznych.
@@ -46,7 +46,7 @@ Gdy aplikacja wysyła żądanie przy użyciu protokołu NFS 3,0, to żądanie je
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Ogólny przepływ pracy: Instalowanie kontenera konta magazynu
 
-Klienci z systemem Windows lub Linux mogą instalować kontener w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub na komputerze lokalnym. Aby zainstalować kontener konta magazynu, należy wykonać te czynności.
+Klienci z systemem Linux mogą instalować kontener w usłudze BLOB Storage z maszyny wirtualnej platformy Azure lub na komputerze lokalnym. Aby zainstalować kontener konta magazynu, należy wykonać te czynności.
 
 1. Zarejestruj funkcję protokołu NFS 3,0 w ramach subskrypcji.
 

@@ -1,25 +1,25 @@
 ---
-title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze
-description: Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 02/09/2021
+title: Szczegóły zgodności z przepisami dla usług CIS Microsoft Azure testy porównawcze 1.1.0
+description: Szczegółowe informacje na temat usług CIS Microsoft Azure testów porównawczych 1.1.0 zgodności z przepisami. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 02976da72027f9e5c5396148cd15e361aaf20ab0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 8ad263a4199bb0de88421254d5b537cb5b80732d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099782"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437352"
 ---
-# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usług CIS Microsoft Azure stwierdzenia zgodności z przepisami testowymi
+# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Szczegółowe informacje na temat usługi CIS Microsoft Azure testy porównawcze 1.1.0 zgodności z przepisami
 
-W poniższym artykule szczegółowo opisano sposób, w jaki Azure Policy wbudowana definicja zgodności z przepisami, mapuje się do **domen zgodności** i **kontrolek** w ramach testu porównawczego wykrytych Microsoft Azure.
-Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artykuł dotyczący [testów usług CIS Microsoft Azure](https://www.cisecurity.org/benchmark/azure/). Aby zrozumieć _własność_, zobacz [Azure Policy definicję zasad](../concepts/definition-structure.md#type) i [współdzieloną odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
+W poniższym artykule szczegółowo opisano sposób, w jaki Azure Policy wbudowana definicja zgodności z przepisami, mapuje się do **domen zgodności** i **kontrolek** w usłudze CIS Microsoft Azure testów porównawczych 1.1.0.
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artykuł dotyczący usługi [CIS Microsoft Azure 1.1.0](https://www.cisecurity.org/benchmark/azure/). Aby zrozumieć _własność_, zobacz [Azure Policy definicję zasad](../concepts/definition-structure.md#type) i [współdzieloną odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
 
-Następujące mapowania znajdują się w formantach **testu porównawczego** w ramach usług CIS Microsoft Azure. Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
+Poniższe mapowania są do **1.1.0Ch testów porównawczych w programie Microsoft Azure CIS** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
 Następnie Znajdź i wybierz pozycję **CIS Microsoft Azure fundacje testów porównawczych 1.1.0** zgodności z przepisami.
 
-Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu porównawczego usługi CIS Microsoft Azure](../../blueprints/samples/cis-azure-1-1-0.md).
+Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu 1.1.0 planów testów porównawczych usługi Microsoft Azure CIS](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../overview.md) .
@@ -191,7 +191,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Powiadomienie e-mail dla właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności powinno być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |Aby zapewnić, że właściciele subskrypcji będą powiadamiani o wystąpieniu potencjalnego naruszenia zabezpieczeń w ramach subskrypcji, należy ustawić powiadomienia e-mail dla właścicieli subskrypcji w celu uzyskania alertów o wysokiej ważności w Security Center. |AuditIfNotExists, wyłączone |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
+|[Powiadomienie e-mail dla właściciela subskrypcji w celu uzyskania alertów o wysokiej ważności powinno być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |Aby zapewnić, że właściciele subskrypcji będą powiadamiani o wystąpieniu potencjalnego naruszenia zabezpieczeń w ramach subskrypcji, należy ustawić powiadomienia e-mail dla właścicieli subskrypcji w celu uzyskania alertów o wysokiej ważności w Security Center. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
 
 ## <a name="storage-accounts"></a>Konta magazynu
 
@@ -391,6 +391,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[Należy włączyć dzienniki zasobów w Azure Key Vault zarządzanym module HSM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Aby odtworzyć ślady aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia zabezpieczeń lub naruszenia bezpieczeństwa sieci, można przeprowadzić inspekcję przez włączenie dzienników zasobów na zarządzanych sprzętowych modułów zabezpieczeń. Postępuj zgodnie z instrukcjami znajdującymi się tutaj: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging) . |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
 |[Należy włączyć dzienniki zasobów w Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Inspekcja włączenia dzienników zasobów. Pozwala to na ponowne utworzenie końcowych działań do użycia w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub w przypadku naruszenia bezpieczeństwa sieci |AuditIfNotExists, wyłączone |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Upewnij się, że alert dziennika aktywności istnieje dla tworzenia przypisania zasad
@@ -565,6 +566,7 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[Azure Key Vault zarządzanym modułem HSM powinna być włączona ochrona przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |Złośliwe usuwanie Azure Key Vault zarządzanego modułu HSM może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może potencjalnie usunąć i przeczyścić Azure Key Vault zarządzanym modułem HSM. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnego testera, wymuszając obowiązkowy okres przechowywania dla nietrwałego usunięcia Azure Key Vault zarządzanego modułu HSM. Nikt w organizacji lub firma Microsoft będzie w stanie przeczyścić Azure Key Vault zarządzany moduł HSM w okresie przechowywania nietrwałego usuwania. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
 |[W magazynach kluczy powinna być włączona ochrona przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Złośliwe usunięcie magazynu kluczy może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może potencjalnie usuwać i czyścić magazyny kluczy. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnym testerem, wymuszając obowiązkowy okres przechowywania dla nieusuniętych magazynów kluczy. Nikt nie jest w Twojej organizacji, a firma Microsoft będzie mogła przeczyścić Twoje magazyny kluczy w okresie przechowywania nietrwałego. |Inspekcja, Odmów, wyłączone |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Włączanie kontroli dostępu opartej na rolach (RBAC) w ramach usług Azure Kubernetes Services
@@ -621,9 +623,9 @@ Ta inicjatywa wbudowana jest wdrażana jako część [przykładowego planu poró
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Tożsamość zarządzana powinna być używana w aplikacji interfejsu API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
-|[Tożsamość zarządzana powinna być używana w aplikacja funkcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
-|[Tożsamość zarządzana powinna być używana w aplikacji sieci Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b9ad585-36bc-4615-b300-fd4435808332) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_WebApp_Audit.json) |
+|[Tożsamość zarządzana powinna być używana w aplikacji interfejsu API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
+|[Tożsamość zarządzana powinna być używana w aplikacja funkcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
+|[Tożsamość zarządzana powinna być używana w aplikacji sieci Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b9ad585-36bc-4615-b300-fd4435808332) |Korzystanie z tożsamości zarządzanej na potrzeby ulepszonego zabezpieczeń uwierzytelniania |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_WebApp_Audit.json) |
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>Upewnij się, że "wersja języka PHP" jest najnowsza, jeśli zostanie użyta do uruchomienia aplikacji sieci Web
 

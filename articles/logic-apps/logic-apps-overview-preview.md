@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715211"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442744"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Przegląd: Podgląd Azure Logic Apps
 
@@ -118,9 +118,13 @@ Ta tabela określa zachowanie podrzędnego przepływu pracy w zależności od te
 
 Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych możliwości, na przykład:
 
-* Twórz aplikacje logiki i ich przepływy pracy za pomocą programu [390 i łączników](/connectors/connector-reference/connector-reference-logicapps-connectors) w przypadku aplikacji typu "oprogramowanie jako usługa" (SaaS) i "platforma jako usługa" (PaaS) oraz łączników dla systemów lokalnych.
+* Twórz aplikacje logiki i ich przepływy pracy za pośrednictwem [ponad 400 łączników](/connectors/connector-reference/connector-reference-logicapps-connectors) dla aplikacji typu "oprogramowanie jako usługa" (SaaS) i platformy jako usługi (PaaS) oraz łączników dla systemów lokalnych.
 
-  * Niektóre zarządzane łączniki, takie jak Azure Service Bus, Azure Event Hubs i SQL Server działają podobnie jak wbudowane wyzwalacze i akcje, które są natywne dla środowiska uruchomieniowego programu Azure Logic Apps Preview, na przykład wyzwalacz żądania i akcja HTTP. Aby uzyskać więcej informacji, zobacz [Azure Logic Apps korzystania z rozszerzalności łączników wbudowanych w dowolne miejsce](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Niektóre zarządzane łączniki, takie jak Azure Service Bus, Azure Event Hubs, SQL Server i MQ, działają podobnie jak wbudowane wyzwalacze i akcje, które są natywne dla środowiska uruchomieniowego Azure Logic Apps Preview, na przykład wyzwalacz żądania i akcja HTTP.
+
+  * Tworzenie własnych wbudowanych łączników dla dowolnej usługi, której potrzebujesz, za pomocą [struktury rozszerzalności wersji zapoznawczej](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Podobnie jak w przypadku wbudowanych łączników, takich jak Azure Service Bus i SQL Server, ale w przeciwieństwie do [łączników niestandardowych](../connectors/apis-list.md#custom-apis-and-connectors) , które nie są obecnie obsługiwane w wersji zapoznawczej, te łączniki zapewniają wyższą przepływność, małe opóźnienia, łączność lokalną i działają natywnie w tym samym procesie co środowisko uruchomieniowe w wersji zapoznawczej.
+
+    Możliwość tworzenia jest obecnie dostępna tylko w Visual Studio Code, ale nie jest domyślnie włączona. Aby utworzyć te łączniki, [Przełącz projekt z zestawu rozszerzeń (Node.js) na oparty na pakiecie NuGet (.NET)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Aby uzyskać więcej informacji, zobacz [Azure Logic Apps korzystania z rozszerzalności łączników wbudowanych w dowolne miejsce](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * Za pomocą akcji B2B dla operacji związanych z operacjami i operacjami XML nie można używać konta integracji. Aby móc korzystać z tych akcji, musisz mieć mapy płynne, mapy XML lub schematy XML, które można przekazać przez odpowiednie akcje w Azure Portal lub dodać do folderu **artefakty** projektu Visual Studio Code za pomocą odpowiednich **map** i folderów **schematów** .
 
@@ -148,7 +152,7 @@ Wersja zapoznawcza Azure Logic Apps obejmuje wiele bieżących i dodatkowych mo�
 * Wygeneruj ponownie klucze dostępu dla połączeń zarządzanych używanych przez poszczególne przepływy pracy w ramach zasobu **aplikacji logiki (wersja zapoznawcza)** . W przypadku tego zadania [wykonaj te same kroki dla zasobu **Logic Apps** , ale na poziomie pojedynczego przepływu pracy, a](logic-apps-securing-a-logic-app.md#regenerate-access-keys)nie na poziomie zasobów aplikacji logiki.
 
 * Dodaj gałęzie równoległe w nowym projektancie, wykonując te same czynności co Projektant niebędący podglądem w wersji zapoznawczej.
- 
+
 Aby uzyskać więcej informacji, zobacz sekcję [zmiany, ograniczone, niedostępne i nieobsługiwane](#limited-unavailable-unsupported) oraz [Logic Apps publicznej wersji zapoznawczej w](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)serwisie GitHub.
 
 <a name="pricing-model"></a>
@@ -193,8 +197,6 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
 
     * [ *Wyzwalacze* lokalnych bram danych](../connectors/apis-list.md#on-premises-connectors) są niedostępne, ale akcje bramy *są* dostępne.
 
-    * [Łączniki niestandardowe](../connectors/apis-list.md#custom-apis-and-connectors) są niedostępne.
-
     * Wbudowana Akcja [Azure Functions — wybierz funkcję platformy](logic-apps-azure-functions.md) Azure, która jest teraz **operacją usługi Azure Functions — wywołaj funkcję platformy Azure**. Ta akcja działa obecnie tylko w przypadku funkcji, które są tworzone na podstawie szablonu **wyzwalacza http** .
 
       W Azure Portal można wybrać funkcję wyzwalacza HTTP, do której masz dostęp przez utworzenie połączenia za pośrednictwem środowiska użytkownika. Jeśli sprawdzisz definicję JSON akcji funkcji w widoku kodu lub **workflow.jsw** pliku, Akcja odwołuje się do funkcji przy użyciu `connectionName` odwołania. Ta wersja dzieli informacje o funkcji jako połączenie, które można znaleźć w **connections.jsprojektu na** pliku, który jest dostępny po utworzeniu połączenia.
@@ -217,6 +219,8 @@ W Azure Logic Apps wersji zapoznawczej te funkcje zostały zmienione lub są obe
     * Niektóre [wbudowane wyzwalacze i akcje B2B dla kont integracji](../connectors/apis-list.md#integration-account-connectors) są niedostępne, na przykład w przypadku prostych operacji kodowania i dekodowania **plików** .
 
     * Wbudowana Akcja [Azure Logic Apps — wybierz przepływ pracy aplikacji logiki](logic-apps-http-endpoint.md) to teraz **operacje przepływu pracy — Wywołaj przepływ pracy w tej aplikacji przepływu pracy**.
+
+* [Łączniki niestandardowe](../connectors/apis-list.md#custom-apis-and-connectors) nie są obecnie obsługiwane na potrzeby wersji zapoznawczej.
 
 * **Dostępność planu hostingu**: niezależnie od tego, czy tworzony jest nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** w Azure Portal lub Deploy from Visual Studio Code, można użyć planu hostingu Premium lub App Service na platformie Azure. Plany hostingu zużycia są niedostępne i nie są obsługiwane w przypadku wdrażania tego typu zasobu. Program można wdrożyć z Visual Studio Code do kontenera platformy Docker, ale nie do [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

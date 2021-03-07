@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094866"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424142"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Access control in Azure Data Lake Storage Gen1 (Kontrola dostępu w usłudze Azure Data Lake Storage Gen1)
 
@@ -286,7 +286,11 @@ W witrynie Azure Portal przejdź do pozycji **Azure Active Directory — > aplik
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Czy Data Lake Storage Gen1 obsługuje dziedziczenie list ACL?
 
-Nie, ale domyślne listy kontroli dostępu mogą być używane do ustawienia list ACL dla podrzędnych plików i folderów, które zostały nowo utworzone w folderze nadrzędnym.  
+Nie, ale domyślne listy kontroli dostępu mogą być używane do ustawienia list ACL dla podrzędnych plików i folderów, które zostały nowo utworzone w folderze nadrzędnym.
+
+### <a name="what-are-the-limits-for-acl-entries-on-files-and-folders"></a>Jakie są limity wpisów listy ACL dla plików i folderów?
+
+32 list ACL można ustawić dla każdego pliku i dla katalogu. Dostęp i domyślne listy ACL mają własne limity wpisów listy kontroli dostępu 32. Jeśli to możliwe, użyj grup zabezpieczeń dla przypisań listy ACL. Korzystanie z grup zmniejsza maksymalną liczbę wpisów listy ACL na plik lub katalog.
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Gdzie można dowiedzieć się więcej na temat modelu kontroli dostępu POSIX?
 
@@ -299,6 +303,6 @@ Nie, ale domyślne listy kontroli dostępu mogą być używane do ustawienia lis
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)

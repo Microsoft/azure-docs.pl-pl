@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7e8525dbebb42e1f387ee8f0c192efd5e64c9453
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209818"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426044"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorowanie obszaru roboczego Synapse
 
@@ -30,7 +30,7 @@ Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można
 
 ## <a name="integration"></a>Integracja
 
-1. Przejdź do narzędzia **Integration > potoku**. W tym widoku można zobaczyć za każdym razem, gdy potok został uruchomiony w obszarze roboczym. 
+1. Przejdź do programu **Integration > potoku uruchomienia**. W tym widoku można zobaczyć za każdym razem, gdy potok został uruchomiony w obszarze roboczym. 
 1. Znajdź potok uruchomiony w poprzednim kroku i kliknij jego **nazwę potoku** , aby wyświetlić szczegóły.
 1. Kliknij przycisk **pasek nawigacyjny** w górnej części programu Synapse Studio, kliknij pozycję **wszystkie uruchomienia potoków** , aby powrócić do poprzedniego widoku.
 
@@ -45,8 +45,7 @@ Otwórz Synapse Studio i przejdź do centrum **monitora** . W tym miejscu można
 1. Przejdź do **działań > żądania SQL**.
 1. W tym widoku można zobaczyć żądania SQL.
 1. Wybierz **pulę** do monitorowania z poziomu filtru **puli** . Teraz można zobaczyć wszystkie żądania SQL uruchomione lub uruchomione w obszarze roboczym w tej puli.
-1. Znajdź określone żądanie SQL i umieść wskaźnik myszy na tym elemencie. Po umieszczeniu wskaźnika myszy zostanie wyświetlona ikona skryptu SQL.
-1. Kliknij ikonę skryptu SQL, aby wyświetlić pełny tekst żądania SQL.
+1. Znajdź określone żądanie SQL i kliknij link **więcej** , aby wyświetlić pełny tekst żądania SQL.
 
     > [!NOTE] 
     > Żądania SQL przesłane za pośrednictwem programu Synapse Studio w ramach dedykowanej puli SQL z włączonym obszarem roboczym (dawniej SQL DW) można wyświetlić w centrum monitora. W przypadku wszystkich innych działań monitorowania można przejść do Azure Portal dedykowanej puli SQL (dawniej programu SQL DW).

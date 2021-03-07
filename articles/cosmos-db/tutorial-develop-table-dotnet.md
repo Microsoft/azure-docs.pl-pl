@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a890185fcd69967fd2a035c27e1cf92798f04
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c641e24a498a6263d6a7c2325eed099b75a82caa
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548158"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426437"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB oraz usługą Azure Table Storage przy użyciu zestawu SDK platformy .NET
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -121,7 +121,7 @@ Ten kod definiuje klasę jednostki używającą imienia klienta jako klucza wier
 
 ## <a name="insert-or-merge-an-entity"></a>Wstawianie lub scalanie jednostki
 
-Poniższy przykład kodu tworzy obiekt Entity i dodaje go do tabeli. Metoda InsertOrMerge w klasie [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) służy do wstawiania lub scalania jednostki. Metoda [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) jest wywoływana, aby wykonać operację. 
+Poniższy przykład kodu tworzy obiekt Entity i dodaje go do tabeli. Metoda InsertOrMerge w klasie [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) służy do wstawiania lub scalania jednostki. Metoda [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync) jest wywoływana, aby wykonać operację. 
 
 Kliknij prawym przyciskiem myszy projekt **CosmosTableSamples**. Wybierz pozycję **Dodaj**, **nowy element** i dodaj klasę o nazwie **SamplesUtils.cs**. Ta klasa przechowuje wszystkie kody wymagane do wykonywania operacji CRUD na jednostkach. 
 
