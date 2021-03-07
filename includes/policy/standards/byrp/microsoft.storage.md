@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bdfa47c5453981856b4a9074cbabcc61314e0be5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 966ea68c3e3c5f102ea9c57dfe9bca05388821c6
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106226"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443368"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 
@@ -43,7 +43,7 @@ Aby sprawdzić, jak dostępne Azure Policy wbudowane dla wszystkich usług platf
 |Ochrona danych |4.4 |Szyfruj wszystkie poufne informacje podczas przesyłania |[Należy włączyć bezpieczny transfer na konta magazynu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 |Zarządzanie magazynem i zasobami |6,9 |Używaj tylko zatwierdzonych usług platformy Azure |[Konta magazynu należy migrować do nowych zasobów Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37e0d2fe-28a5-43d6-a273-67d37d1f5606) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Classic_AuditForClassicStorages_Audit.json) |
 
-## <a name="cis-microsoft-azure-foundations-benchmark"></a>CIS Microsoft Azure Foundations Benchmark
+## <a name="cis-microsoft-azure-foundations-benchmark-110"></a>CIS Microsoft Azure Foundations Benchmark 1.1.0
 
 Aby zapoznać się ze sposobem, w jaki dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodność z przepisami — CIS Microsoft Azure fundacje testów porównawczych 1.1.0](../../../../articles/governance/policy/samples/cis-azure-1-1-0.md).
 Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artykuł dotyczący [testów usług CIS Microsoft Azure](https://www.cisecurity.org/benchmark/azure/).
@@ -56,6 +56,22 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artyk
 |Konta magazynu |3,8 |Upewnij się, że w obszarze "zaufane usługi firmy Microsoft" włączono dostęp do konta magazynu |[Konta magazynu powinny zezwalać na dostęp z zaufanych usług firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
 |Rejestrowanie i monitorowanie |5.1.5 |Upewnij się, że kontener magazynu przechowujący dzienniki aktywności nie jest publicznie dostępny |[Publiczny dostęp do konta magazynu powinien być niedozwolony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 |Rejestrowanie i monitorowanie |5.1.6 |Upewnij się, że konto magazynu zawierające kontener z dziennikami aktywności jest zaszyfrowane za pomocą BYOK (Użyj własnego klucza) |[Konto magazynu zawierające kontener z dziennikami aktywności musi być zaszyfrowane za pomocą BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+
+## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>1.3.0 testów usługi CIS Microsoft Azure
+
+Aby zapoznać się ze sposobem, w jaki dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodność z przepisami — CIS Microsoft Azure fundacje testów porównawczych 1.3.0](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md).
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artykuł dotyczący [testów usług CIS Microsoft Azure](https://www.cisecurity.org/benchmark/azure/).
+
+|Domena |Identyfikator kontrolki |Tytuł formantu |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>GitHub</sub>  |
+|---|---|---|---|---|
+|Konta magazynu |3,1 |Upewnij się, że element "Secure transfer Required" ma ustawioną wartość "Enabled" |[Należy włączyć bezpieczny transfer na konta magazynu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|Konta magazynu |3,5 |Upewnij się, że element "publiczny poziom dostępu" jest ustawiony jako prywatny dla kontenerów obiektów BLOB |[Publiczny dostęp do konta magazynu powinien być niedozwolony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|Konta magazynu |3,6 |Upewnij się, że domyślna reguła dostępu do sieci dla kont magazynu jest ustawiona na Odmów |[Konta magazynu powinny ograniczać dostęp do sieci](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
+|Konta magazynu |3,6 |Upewnij się, że domyślna reguła dostępu do sieci dla kont magazynu jest ustawiona na Odmów |[Konta magazynu powinny ograniczać dostęp do sieci przy użyciu reguł sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2a1a9cdf-e04d-429a-8416-3bfb72a1b26f) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountOnlyVnetRulesEnabled_Audit.json) |
+|Konta magazynu |3.7 |Upewnij się, że w obszarze "zaufane usługi firmy Microsoft" włączono dostęp do konta magazynu |[Konta magazynu powinny zezwalać na dostęp z zaufanych usług firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
+|Konta magazynu |3.9 |Upewnij się, że magazyn dla danych o kluczowym znaczeniu jest szyfrowany przy użyciu klucza zarządzanego przez klienta |[Konta magazynu powinny używać klucza zarządzanego przez klienta do szyfrowania](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
+|Rejestrowanie i monitorowanie |ppkt |Upewnij się, że kontener magazynu przechowujący dzienniki aktywności nie jest publicznie dostępny |[Publiczny dostęp do konta magazynu powinien być niedozwolony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |[2.0.1 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
+|Rejestrowanie i monitorowanie |5.1.4 |Upewnij się, że konto magazynu zawierające kontener z dziennikami aktywności jest zaszyfrowane za pomocą BYOK (Użyj własnego klucza) |[Konto magazynu zawierające kontener z dziennikami aktywności musi być zaszyfrowane za pomocą BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 
 ## <a name="cmmc-level-3"></a>Poziom 3 CMMC
 
@@ -123,10 +139,10 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [ISO 
 |Bezpieczeństwo komunikacji |13.1.1 |Funkcje kontrolne sieci |[Konta magazynu powinny ograniczać dostęp do sieci](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 |Bezpieczeństwo komunikacji |13.2.1 |Zasady i procedury dotyczące transferu informacji |[Należy włączyć bezpieczny transfer na konta magazynu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-## <a name="new-zealand-ism"></a>Nowa Zelandia ISM
+## <a name="new-zealand-ism-restricted"></a>W Nowej Zelandii ISM z ograniczeniami
 
-Aby dowiedzieć się, jak dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodności z przepisami — Nowa Zelandia — Podręcznik bezpieczeństwa informacji](../../../../articles/governance/policy/samples/new-zealand-ism.md).
-Aby uzyskać więcej informacji o tym standardzie zgodności, zobacz Podręcznik dotyczący [zabezpieczeń informacji Nowej Zelandii](https://www.nzism.gcsb.govt.nz/).
+Aby sprawdzić, jak dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodność z przepisami — Nowa Zelandia ISM z ograniczeniami](../../../../articles/governance/policy/samples/new-zealand-ism.md).
+Więcej informacji o tym standardzie zgodności znajduje się w temacie z [ograniczeniami do Nowej Zelandii ISM](https://www.nzism.gcsb.govt.nz/).
 
 |Domena |Identyfikator kontrolki |Tytuł formantu |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>GitHub</sub>  |
 |---|---|---|---|---|

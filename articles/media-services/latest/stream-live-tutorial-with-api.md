@@ -28,18 +28,18 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 Do ukończenia tego samouczka są niezbędne następujące elementy:
 
 - Zainstalowanie narzędzia Visual Studio Code lub Visual Studio.
-- [Utwórz konto Media Services](./create-account-howto.md).<br/>Pamiętaj, aby zapamiętać wartości używane dla nazwy grupy zasobów i nazwy konta Media Services.
-- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API.
+- [Utwórz konto Media Services](./create-account-howto.md).<br/>Upewnij się, że kopiujesz szczegóły dostępu do interfejsu API w formacie JSON lub przechowuj wartości, które są konieczne, aby połączyć się z kontem Media Services w formacie ENV użytym w tym przykładzie.
+- Postępuj zgodnie z instrukcjami zawartymi w temacie [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Uzyskiwanie dostępu do interfejsu API usług Azure Media Services za pomocą interfejsu wiersza polecenia platformy Azure) i zapisz poświadczenia. Musisz użyć ich do uzyskania dostępu do interfejsu API w tym przykładzie lub wprowadzić je do formatu pliku ENV. 
 - Aparat lub urządzenie (na przykład laptop), które jest używane do emisji zdarzenia.
-- Lokalny koder na żywo, który konwertuje sygnały z aparatu do strumieni wysyłanych do Media Services na żywo usługi przesyłania strumieniowego, zobacz [zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md). Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.  
-- Na potrzeby tego przykładu zaleca się rozpoczęcie od kodera programowego, takiego jak oprogramowanie OBS Studio Live Streaming, aby rozpocząć pracę. 
+- Lokalny koder programowy, który koduje strumień aparatu i wysyła go do Media Services usługi przesyłania strumieniowego na żywo przy użyciu protokołu RTMP, znajduje się [w temacie zalecane lokalne kodery na żywo](recommended-on-premises-live-encoders.md). Strumień musi być w formacie **RTMP** lub **Smooth Streaming**.  
+- Na potrzeby tego przykładu zaleca się rozpoczęcie od kodera programowego, takiego jak bezpłatne [otwarte oprogramowanie emisyjne obs Studio](https://obsproject.com/download) , aby ułatwić rozpoczęcie pracy. 
 
 > [!TIP]
 > Przed kontynuowaniem przejrzyj sekcję [Transmisja strumieniowa na żywo przy użyciu usługi Media Services v3](live-streaming-overview.md). 
 
 ## <a name="download-and-configure-the-sample"></a>Pobieranie i konfigurowanie przykładu
 
-Sklonuj repozytorium GitHub zawierające przykład przesyłania strumieniowego platformy .NET na swoją maszynę za pomocą następującego polecenia:  
+Sklonuj następujące repozytorium centrum git zawierające przykład platformy .NET przesyłania strumieniowego na żywo do maszyny przy użyciu następującego polecenia:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
@@ -48,6 +48,9 @@ Sklonuj repozytorium GitHub zawierające przykład przesyłania strumieniowego p
 Przykład transmisji strumieniowej na żywo znajduje się w folderze [Live](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Live).
 
 Otwórz [appsettings.js](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/appsettings.json) w pobranym projekcie. Zastąp wartości poświadczeniami uzyskanymi w celu [uzyskania dostępu do interfejsów API](./access-api-howto.md).
+
+Należy pamiętać, że można również użyć formatu pliku ENV w katalogu głównym projektu, aby ustawić zmienne środowiskowe tylko raz dla wszystkich projektów w repozytorium przykładów platformy .NET. Wystarczy skopiować przykładowy plik. env, podać informacje uzyskane na stronie dostępu do interfejsu API Media Services Azure Portal lub z poziomu interfejsu wiersza polecenia platformy Azure.  Zmień nazwę pliku Sample. env na "ENV", aby używać go we wszystkich projektach.
+Plik. gitignore jest już skonfigurowany tak, aby uniknąć publikowania zawartości tego pliku w repozytorium z rozwidleniem. 
 
 > [!IMPORTANT]
 > Ten przykład używa unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub wygaśniesz aplikację bez jej uruchamiania, będziesz mieć wiele wydarzeń na żywo na koncie. <br/>Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona** stawka.
@@ -58,27 +61,24 @@ Ta sekcja bada funkcje zdefiniowane w pliku [program.cs](https://github.com/Azur
 
 Przykład tworzy unikatowy sufiks dla każdego zasobu, co sprawia, że nie występują kolizje nazw, jeśli przykład zostanie uruchomiony wielokrotnie bez czyszczenia.
 
-> [!IMPORTANT]
-> Ten przykład używa unikatowego sufiksu dla każdego zasobu. Jeśli anulujesz debugowanie lub wygaśniesz aplikację bez jej uruchamiania, będziesz mieć wiele wydarzeń na żywo na koncie. <br/>
-> Pamiętaj, aby zatrzymać uruchomione wydarzenia na żywo. W przeciwnym razie zostanie **naliczona** stawka.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Rozpoczynanie korzystania z interfejsów API usługi Media Services przy użyciu zestawu .NET SDK
 
-Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platformie .NET, należy utworzyć obiekt **AzureMediaServicesClient**. Aby utworzyć obiekt, należy podać poświadczenia wymagane do nawiązania połączenia z platformą Azure przez klienta przy użyciu usługi Azure AD. W kodzie sklonowanym na początku tego artykułu funkcja **GetCredentialsAsync** tworzy obiekt ServiceClientCredentials na podstawie poświadczeń podanych w lokalnym pliku konfiguracji. 
+Aby rozpocząć korzystanie z interfejsów API usługi Media Services na platformie .NET, należy utworzyć obiekt **AzureMediaServicesClient**. Aby utworzyć obiekt, należy podać poświadczenia wymagane do nawiązania połączenia z platformą Azure przez klienta przy użyciu usługi Azure AD. W kodzie sklonowanym na początku artykułu funkcja **GetCredentialsAsync** tworzy obiekt serviceclientcredentials na podstawie poświadczeń podanych w lokalnym pliku konfiguracji (appsettings.json) lub za pośrednictwem pliku zmiennych środowiskowych ENV znajdującego się w katalogu głównym repozytorium.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-a-live-event"></a>Utwórz wydarzenie na żywo
 
-W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat dostępnych typów zdarzeń na żywo, zobacz [typy zdarzeń na żywo](live-events-outputs-concept.md#live-event-types). 
+W tej sekcji przedstawiono sposób tworzenia **przekazywanego** typu wydarzenia na żywo (o wartości parametru LiveEventEncodingType ustawionej na None). Aby uzyskać więcej informacji na temat innych dostępnych typów wydarzeń na żywo, zobacz [typy zdarzeń na żywo](live-events-outputs-concept.md#live-event-types). Poza przekazywaniem można używać na żywo zdarzenia Live Encoding dla kodowania w chmurze 720 lub 1080P z adaptacyjną szybkością transmisji bitów. 
  
 Niektóre elementy, które można określić podczas tworzenia zdarzenia na żywo są następujące:
 
-* Media Services lokalizacji.
-* Protokół transmisji strumieniowej wydarzenia na żywo (obecnie obsługiwane są protokoły RTMP i Smooth Streaming).<br/>Nie można zmienić opcji protokołu, gdy działa zdarzenie na żywo lub skojarzone z nim wyjście na żywo. Jeśli potrzebujesz różnych protokołów, Utwórz oddzielne wydarzenie na żywo dla każdego protokołu przesyłania strumieniowego.  
+* Protokół pozyskiwania dla zdarzenia na żywo (obecnie są obsługiwane protokoły RTMP i Smooth Streaming).<br/>Nie można zmienić opcji protokołu, gdy działa zdarzenie na żywo lub skojarzone z nim wyjście na żywo. Jeśli potrzebujesz różnych protokołów, Utwórz oddzielne wydarzenie na żywo dla każdego protokołu przesyłania strumieniowego.  
 * Ograniczenia dotyczące adresów IP w pozyskiwaniu i podglądzie. Można zdefiniować adresy IP, które mogą pozyskiwać pliki wideo w tym wydarzeniu na żywo. Jako dozwolone adresy IP można podać pojedynczy adres IP (na przykład „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (na przykład „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w notacji z kropką dziesiętną (na przykład, „10.0.0.1(255.255.252.0)”).<br/>Jeśli nie określono adresów IP i nie ma definicji reguły, adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.<br/>Adresy IP muszą znajdować się w jednym z następujących formatów: adres IpV4 z czterema numerami lub zakresem adresów CIDR.
 * Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. <br/>Jeśli automatyczne uruchamianie zostanie ustawione na wartość true, wydarzenie na żywo rozpocznie się po utworzeniu. Oznacza to, że rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
-* Aby adres URL pozyskiwania był predykcyjny, ustaw tryb "znaczącym". Aby uzyskać szczegółowe informacje, zobacz [adresy URL](live-events-outputs-concept.md#live-event-ingest-urls)pozyskiwania zdarzeń na żywo.
+Dostępne są również tryby gotowości, które umożliwiają uruchomienie zdarzenia na żywo w stanie "przydzielony" niższy koszt, co przyspiesza przejście do stanu "uruchomiona". Jest to przydatne w przypadku sytuacji, takich jak hotpools, które umożliwiają szybkie przekazywanie kanałów do usługi Streams.
+* Aby adres URL pozyskiwania był predykcyjny i łatwiejszy w obsłudze w ramach sprzętowego kodera na żywo, ustaw właściwość "useStaticHostname" na wartość true. Aby uzyskać szczegółowe informacje, zobacz [adresy URL](live-events-outputs-concept.md#live-event-ingest-urls)pozyskiwania zdarzeń na żywo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -101,15 +101,27 @@ Użyj funkcji previewEndpoint do podglądu i sprawdź, czy dane wejściowe z kod
 
 Po przesłaniu strumienia do wydarzenia na żywo można rozpocząć wydarzenie przesyłania strumieniowego poprzez utworzenie zasobu, danych wyjściowych na żywo i lokalizatora przesyłania strumieniowego. Spowoduje to archiwizację strumienia i udostępni go użytkownikom za pośrednictwem punktu końcowego przesyłania strumieniowego.
 
+Podczas uczenia tych koncepcji najlepiej traktować obiekt "Asset" jako taśmę, którą można wstawić do nagrywarki wideo w starym dniu. "Wyjście na żywo" jest maszyną rejestratora taśm. "Wydarzenie na żywo" to tylko sygnał wideo z tyłu maszyny.
+
+Najpierw tworzymy sygnał, tworząc "wydarzenie na żywo".  Sygnał nie jest przepływa do momentu rozpoczęcia tego zdarzenia na żywo i połączenia kodera z danymi wejściowymi.
+
+Taśmę można utworzyć w dowolnym momencie. Jest to tylko pusty "zasób", który można odstawić do obiektu danych wyjściowych na żywo, rejestratora taśm w tym trybie analogowym.
+
+Rejestrator taśm można utworzyć w dowolnym momencie. Oznacza to, że można utworzyć dane wyjściowe na żywo przed rozpoczęciem przepływu sygnałów lub po. Jeśli chcesz przyspieszyć pracę, czasami warto ją utworzyć przed rozpoczęciem przepływu sygnałów.
+
+Aby zatrzymać Rejestrator taśm, należy wywołać polecenie Delete w LiveOutput. Nie spowoduje to usunięcia zawartości na taśmie "zasób".  Element zawartości jest zawsze przechowywany z archiwalną zawartością wideo, dopóki nie zostanie jawnie wywołana wartość usunięcia w samym elemencie zawartości.
+
+W następnej sekcji opisano tworzenie zasobu ("Taśma") i na żywo ("Rejestrator taśm").
+
 #### <a name="create-an-asset"></a>Tworzenie zasobu
 
-Utwórz zasób przeznaczony do użycia przez dane wyjściowe na żywo.
+Utwórz zasób przeznaczony do użycia przez dane wyjściowe na żywo. W analogiczny sposób będzie to nasza taśma, na której rejestrujemy sygnał wideo na żywo. Osoby przeglądające będą mogły wyświetlać zawartość na żywo lub na żądanie z tej taśmy wirtualnej.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateAsset)]
 
 #### <a name="create-a-live-output"></a>Tworzenie danych wyjściowych na żywo
 
-Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane podczas usuwania. Po usunięciu danych wyjściowych na żywo nie jest usuwany podstawowy element zawartości i zawartość w elemencie zawartości.
+Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane podczas usuwania. Jest to "Rejestrator taśm" dla zdarzenia. Po usunięciu danych wyjściowych na żywo nie jest usuwany bazowy zasób ani zawartość elementu zawartości. Należy je traktować jako wysunięcie taśmy. Element zawartości z nagraniem będzie miał wartość niedawniej tak długo, jak chcesz, a gdy zostanie wysunięty (oznacza to, że po usunięciu danych wyjściowych na żywo) będzie on natychmiast dostępny do wyświetlania na żądanie. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveOutput)]
 
@@ -118,7 +130,7 @@ Dane wyjściowe na żywo są uruchamiane w momencie utworzenia i zatrzymywane po
 > [!NOTE]
 > Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
 
-Podczas publikowania zasobu danych wyjściowych na żywo przy użyciu lokalizatora przesyłania strumieniowego wydarzenie na żywo (aż do długości okna DVR) będzie cały czas widoczne aż do momentu wygaśnięcia lokalizatora przesyłania strumieniowego lub jego usunięcia, zależnie od tego, co nastąpi wcześniej.
+Po opublikowaniu elementu zawartości przy użyciu lokalizatora przesyłania strumieniowego, zdarzenie na żywo (do okna DVR) będzie nadal widoczne do momentu wygaśnięcia lub usunięcia lokalizatora przesyłania strumieniowego, w zależności od tego, co nastąpi wcześniej. Jest to sposób, aby wirtualne nagrywanie na taśmie było dostępne dla odbiorców wyświetlanych na żywo i na żądanie. Ten sam adres URL może służyć do oglądania zdarzenia na żywo, DVR z okna lub zasobu na żądanie po zakończeniu nagrywania (po usunięciu danych wyjściowych na żywo).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateStreamingLocator)]
 

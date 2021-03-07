@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 28940272d39a08d790fe2cd913df808b02e7f426
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679622"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441894"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architektura usługi Azure Synapse SQL 
 
@@ -49,7 +49,7 @@ Dzięki rozdzieleniu magazynu i obliczeń użycie usługi Synapse SQL one może 
 
 Synapse SQL wykorzystuje usługę Azure Storage, aby zapewnić bezpieczeństwo danych użytkownika. Ponieważ dane są przechowywane i zarządzane przez usługę Azure Storage, istnieje oddzielna opłata za użycie magazynu. 
 
-Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików w usłudze Data Lake w sposób tylko do odczytu, natomiast Pula SQL umożliwia również pozyskiwanie danych. W przypadku pozyskiwania danych w dedykowanej puli SQL dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Podczas definiowania tabeli możesz wybrać wzorzec dzielenia na fragmenty używany do dystrybucji danych. Te wzorce fragmentowania są obsługiwane:
+Bezserwerowa Pula SQL umożliwia wykonywanie zapytań dotyczących plików usługi Data Lake, natomiast dedykowana Pula SQL umożliwia wykonywanie zapytań i pozyskiwania danych z plików usługi Data Lake. W przypadku pozyskiwania danych w dedykowanej puli SQL dane są podzielonej na fragmenty do **dystrybucji** w celu zoptymalizowania wydajności systemu. Podczas definiowania tabeli możesz wybrać wzorzec dzielenia na fragmenty używany do dystrybucji danych. Te wzorce fragmentowania są obsługiwane:
 
 * Skrót
 * Działanie okrężne
@@ -107,7 +107,7 @@ W tabeli dystrybuowanej przy użyciu działania okrężnego dane są dystrybuowa
 ## <a name="replicated-tables"></a>Zreplikowane tabele
 Tabela replikowana zapewnia najszybsze wykonywanie zapytań w przypadku niewielkich tabel.
 
-Replikowana pamięć podręczna zawiera pełną kopię tabeli w każdym węźle obliczeniowym. Dlatego replikowanie tabeli eliminuje konieczność przesyłania danych między węzłami obliczeniowymi przed operacją sprzężenia lub agregacji. Replikacja sprawdza się najlepiej w przypadku małych tabel. Dodatkowy magazyn jest wymagany i występuje dodatkowe obciążenie związane z zapisywaniem danych, co sprawia, że duże tabele nie są praktyczne. 
+Replikowana pamięć podręczna zawiera pełną kopię tabeli w każdym węźle obliczeniowym. W związku z tym replikowanie tabeli eliminuje konieczność transferu danych między węzłami obliczeniowymi przed przypisaniem lub agregacją. Replikacja sprawdza się najlepiej w przypadku małych tabel. Dodatkowy magazyn jest wymagany i występuje dodatkowe obciążenie związane z zapisywaniem danych, co sprawia, że duże tabele nie są praktyczne. 
 
 Na poniższym diagramie przedstawiono zreplikowane tabele, które są buforowane przy pierwszej dystrybucji w każdym węźle obliczeniowym. 
 
@@ -115,4 +115,4 @@ Na poniższym diagramie przedstawiono zreplikowane tabele, które są buforowane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już wersję Synapse SQL, Dowiedz się, jak szybko [utworzyć dedykowaną pulę SQL](../quickstart-create-sql-pool-portal.md) i [załadować dane przykładowe](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-Load-Sample-Databases.MD). Lub zaczynasz [korzystać z puli SQL bezserwerowej](../quickstart-sql-on-demand.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md) może pomóc Ci zaznajomić się z nową terminologią. 
+Teraz, gdy znasz już wersję Synapse SQL, Dowiedz się, jak szybko [utworzyć dedykowaną pulę SQL](../quickstart-create-sql-pool-portal.md) i [załadować dane przykładowe](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-Load-Sample-Databases.MD). Lub zacznij [korzystać z puli SQL bezserwerowej](../quickstart-sql-on-demand.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md) może pomóc Ci zaznajomić się z nową terminologią. 

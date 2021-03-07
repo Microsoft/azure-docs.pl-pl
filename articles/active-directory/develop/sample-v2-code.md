@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b839df7abe6552506456ed6d0485405f43ea4639
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: d61ddee1ac510b6d3528a2221a52fd266a2dd5ad
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198357"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436502"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -61,13 +61,24 @@ W poniższych przykładach przedstawiono aplikacje sieci Web, które logują uż
 | ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Samouczek dotyczący ASP.NET Core logowania użytkowników](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w [Microsoft Graph fazie ASP.NET Core aplikacji sieci Web](https://aka.ms/aspnetcore-webapp-call-msgraph)</p>Zaawansowany przykład [uzyskiwania dostępu do pamięci podręcznej zalogowanego użytkownika z aplikacji w tle, interfejsów API i usług](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
 | ![Ten obraz pokazuje logo platformy ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [AD FS migracji aplikacji usługi Azure AD element PlayBook dla deweloperów](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) , aby dowiedzieć się, jak bezpiecznie i bezpiecznie migrować aplikacje zintegrowane z Active Directory Federation Services (AD FS) do Azure Active Directory (Azure AD) | |
 | ![Ten obraz pokazuje logo platformy ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET — szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-z ograniczeniami-Scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[MSGraph — szkolenia — aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |[Samouczek dotyczący rozdziału "Java serwletu Web App" — rozdział 1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication)| [Samouczek dotyczący rozdziału "Java serwletu Web App" — rozdział 2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) |
-| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |[Samouczek Java serwletu — rozdział 1,1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Zaloguj się przy użyciu usługi AAD| |
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |[Samouczek Java serwletu — rozdział 1,2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Zaloguj się przy użyciu B2C |
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  | | [Samouczek Java serwletu — rozdział 2,1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Zaloguj się przy użyciu usługi AAD i Wywołaj Graf|
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |[Samouczek Java serwletu — rozdział 3,1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Zaloguj się przy użyciu usługi AAD i Kontroluj dostęp z rolą role| |
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  | | [Samouczek Java serwletu — rozdział 3,2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Logowanie za pomocą usługi AAD i kontrola dostępu przy użyciu roszczeń grup|
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | |[Samouczek Java serwletu — rozdział 4,1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Wdróż do Azure App Service|
+| ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  | | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  | [MS-Identity-B2C-Java-serwletu-webapp-Authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
 | ![Ten obraz zawiera logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js (węzeł MSAL) | [Samouczek dotyczący logowania aplikacji sieci Web dla użytkowników](https://github.com/Azure-Samples/ms-identity-node) | |
-| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [MS-Identity-Python-webapp-Authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
-| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | Samouczek dotyczący logowania [aplikacji sieci Web](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) dla użytkowników w języku Python                   | Samouczek języka Python — Użytkownicy i wywołania [aplikacji sieci Web](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) |
-| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Aplikacja internetowa](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) ze znakiem w języku Python — użytkownicy z B2C                    |  |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Samouczek dotyczący kolby Python — rozdział 1,1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Zaloguj się przy użyciu usługi AAD  |  |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Samouczek dotyczący kolby Python — rozdział 1,2](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Zaloguj się przy użyciu B2C                    |  |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | | [Samouczek dotyczący kolby Python — rozdział 2,1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Zaloguj się przy użyciu usługi AAD i Wywołaj Graf |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | |[Samouczek dotyczący kolby Python — rozdział 3,1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Wdróż do Azure App Service  |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Samouczek Python Django — rozdział 1,1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md)   Zaloguj się przy użyciu usługi AAD  | |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [Samouczek Python Django — rozdział 1,2](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Zaloguj się przy użyciu B2C                    |  |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | | [Samouczek Python Django — rozdział 2,1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md)  Zaloguj się przy użyciu usługi AAD i Wywołaj Graf|
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | | [Samouczek Python Django — rozdział 3,1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Wdróż do Azure App Service                    |
+| ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | | [Aplikacja internetowa w języku Python Flask](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Ten obraz pokazuje logo języka Ruby](media/sample-v2-code/logo_ruby.png) |                   | [MSGraph — szkolenia — rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 | ![Ten obraz pokazuje logo Blazor](media/sample-v2-code/logo-blazor.png)</p>Serwer Blazor | [Samouczek dotyczący logowania aplikacji serwera Blazor](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Wywołania aplikacji serwera Blazor Microsoft Graph](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Samouczek Chapterwise: [Blazor aplikacji serwerowej do logowania użytkowników i wywoływania interfejsów API za pomocą Azure Active Directory](https://github.com/Azure-Samples/ms-identity-blazor-server) |
 

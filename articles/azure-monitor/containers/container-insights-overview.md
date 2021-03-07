@@ -3,12 +3,12 @@ title: Omówienie usługi Container Insights | Microsoft Docs
 description: W tym artykule opisano usługi Container Insights monitorujące rozwiązanie AKS Container Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723388"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441520"
 ---
 # <a name="container-insights-overview"></a>Omówienie usługi Container Insights
 
@@ -58,7 +58,7 @@ Główne różnice w monitorowaniu klastra z systemem Windows Server w porównan
 
 Zapoznaj się z poniższym wideo, dostarczając szczegółowe poziomu pośredniego, aby uzyskać informacje na temat monitorowania klastra AKS za pomocą usługi Container Insights.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Jak mogę uzyskać dostęp do tej funkcji?
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219541"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426165"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizowanie danych za pomocą dedykowanych pul SQL
 
@@ -77,11 +77,12 @@ Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą dedyko
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Eksplorowanie danych z NYC taksówki w dedykowanej puli SQL
 
 1. W programie Synapse Studio przejdź do centrum **danych** .
+1. Powinna zostać wyświetlona baza danych o nazwie **SQLPOOL1**. Jeśli nie widzisz go, kliknij przycisk **Odśwież**.
 1. Przejdź do   >  **tabel** SQLPOOL1. 
-1. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabelę podróży** i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
-1. Poczekaj, aż zostanie utworzony i uruchomiony nowy skrypt SQL.
-1. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie **SQLPOOL1**.
-1. Zastąp tekst skryptu SQL tym kodem i uruchom go.
+3. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabelę podróży** i wybierz pozycję **Nowy skrypt SQL**  >  **Wybierz pierwsze 100 wierszy**.
+4. Poczekaj, aż zostanie utworzony i uruchomiony nowy skrypt SQL.
+5. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie **SQLPOOL1**.
+6. Zastąp tekst skryptu SQL tym kodem i uruchom go.
 
     ```sql
     SELECT PassengerCount,

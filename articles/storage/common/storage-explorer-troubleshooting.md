@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875740"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439463"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -58,14 +58,22 @@ Jeśli nie masz roli przyznającej uprawnienia do warstwy zarządzania, Eksplora
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Co zrobić, jeśli nie mogę uzyskać wymaganych uprawnień do warstwy zarządzania z mojego administratora?
 
-Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możesz dołączyć do tych zasobów przy użyciu poświadczeń platformy Azure.
+Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob, ADLS Gen2 kontenerów lub katalogów lub kolejek, możesz dołączyć do tych zasobów przy użyciu poświadczeń platformy Azure.
 
 1. Otwórz okno dialogowe Połącz.
-2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD)". Wybierz opcję Dalej.
-3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Wybierz opcję Dalej.
-4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Wybierz pozycję Dalej, a następnie połącz.
+1. Wybierz typ zasobu, z którym chcesz nawiązać połączenie.
+1. Wybierz pozycję **Zaloguj się przy użyciu Azure Active Directory (Azure AD)**. Wybierz opcję **Dalej**.
+1. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Wybierz opcję **Dalej**.
+1. Wprowadź adres URL zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Wybierz pozycję **dalej** , a następnie **Połącz**.
 
-W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Jako obejście możesz zażądać adresu URL sygnatury dostępu współdzielonego, a następnie dołączyć do zasobu, wykonując następujące czynności:
+
+1. Otwórz okno dialogowe Połącz.
+1. Wybierz typ zasobu, z którym chcesz nawiązać połączenie.
+1. Wybierz pozycję **sygnatura dostępu współdzielonego (SAS)**. Wybierz opcję **Dalej**.
+1. Wprowadź otrzymany adres URL sygnatury dostępu współdzielonego i wprowadź unikatową nazwę wyświetlaną dla połączenia. Wybierz pozycję **dalej** , a następnie **Połącz**.
+ 
+Aby uzyskać więcej informacji na temat dołączania do zasobów, zobacz [dołączanie do pojedynczego zasobu](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 

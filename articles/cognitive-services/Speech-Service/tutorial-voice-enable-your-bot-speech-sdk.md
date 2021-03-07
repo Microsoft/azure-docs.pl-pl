@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee7116efe931d101a1505bc2d9d866d8ea5b92a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943436"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426267"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Samouczek: Voice — Włączanie bot przy użyciu zestawu Speech SDK
 
@@ -69,7 +69,7 @@ Oto co należy zrobić, aby ukończyć ten samouczek:
 
 Aplikacja kliencka utworzona w tym samouczku korzysta z kilku usług platformy Azure. Aby skrócić czas błądzenia odpowiedzi z bot, upewnij się, że te usługi znajdują się w tym samym regionie świadczenia usługi Azure. W tej sekcji utworzysz grupę zasobów w regionie **zachodnie stany USA** . Ta grupa zasobów zostanie użyta podczas tworzenia poszczególnych zasobów dla platformy bot Framework, kanału mowy w trybie Direct i usługi mowy.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Tworzenie grupy zasobów <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Tworzenie grupy zasobów </a>
 1. Zostanie wyświetlony monit o podanie pewnych informacji:
    * Ustaw **subskrypcję** na **bezpłatną wersję próbną** (możesz także użyć istniejącej subskrypcji).
    * Wprowadź nazwę **grupy zasobów**. Zalecamy **SpeechEchoBotTutorial-zasobów**.
@@ -95,7 +95,7 @@ Teraz, gdy masz grupę zasobów w obsługiwanym regionie, następnym krokiem jes
 
 Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć zasób mowy:
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Tworzenie zasobu usługi mowy <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Tworzenie zasobu usługi mowy </a>
 4. Zostanie wyświetlony monit o podanie pewnych informacji:
    * Nadaj **nazwę** zasobowi. Zalecamy **SpeechEchoBotTutorial-mowę**
    * W przypadku **subskrypcji** upewnij się, że wybrano **bezpłatną wersję próbną** .
@@ -115,7 +115,7 @@ W tym momencie Sprawdź, czy grupa zasobów (**SpeechEchoBotTutorial-Resource** 
 
 Następnym krokiem jest utworzenie planu App Service. Plan usługi App Service definiuje zestaw zasobów obliczeniowych dla aplikacji internetowej używanych podczas jej uruchamiania.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Utwórz plan Azure App Service <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Utwórz plan Azure App Service </a>
 4. Zostanie wyświetlony monit o podanie pewnych informacji:
    * Ustaw **subskrypcję** na **bezpłatną wersję próbną** (możesz także użyć istniejącej subskrypcji).
    * W obszarze **Grupa zasobów** wybierz pozycję **SpeechEchoBotTutorial-Resources**.
@@ -236,7 +236,7 @@ Musisz wprowadzić małą zmianę konfiguracji, aby bot mógł komunikować się
 
 Teraz, po utworzeniu Azure App Service do hostowania bot, następnym krokiem jest utworzenie **rejestracji kanałów bot**. Tworzenie rejestracji kanału jest wymaganiem wstępnym rejestrowania bot za pomocą kanałów bot Framework, w tym bezpośredniego kanału mowy. Jeśli chcesz dowiedzieć się więcej o tym, jak botów używać kanałów, zobacz [Connect a bot to Channels](/azure/bot-service/bot-service-manage-channels).
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Tworzenie rejestracji kanałów usługi Azure bot <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Tworzenie rejestracji kanałów usługi Azure bot </a>
 2. Zostanie wyświetlony monit o podanie pewnych informacji:
    * W przypadku **uchwytu bot** wprowadź wartość **SpeechEchoBotTutorial-BotRegistration-# # # #** i Zamień **####** ją na wybraną liczbę. Należy zauważyć, że uchwyt bot musi być globalnie unikatowy. Jeśli wprowadzisz uchwyt bot, ale otrzymasz komunikat o błędzie, _żądany identyfikator bot nie jest dostępny_, wybierz inną liczbę. W poniższych przykładach użyto 8726
    * W obszarze **subskrypcja** wybierz opcję **bezpłatna wersja próbna**.
@@ -472,7 +472,7 @@ Jeśli nie chcesz nadal korzystać z funkcji echo-bot wdrożonej w tym samouczku
 > [!div class="nextstepaction"]
 > [Tworzenie własnej aplikacji klienckiej przy użyciu zestawu Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Wdrażanie w [regionie świadczenia usługi Azure w sąsiedztwie,](https://azure.microsoft.com/global-infrastructure/locations/) aby zobaczyć bot poprawy czasu odpowiedzi
 * Wdrażanie w [regionie świadczenia usługi Azure, który obsługuje neuronowychy TTS o wysokiej jakości](./regions.md#standard-and-neural-voices)

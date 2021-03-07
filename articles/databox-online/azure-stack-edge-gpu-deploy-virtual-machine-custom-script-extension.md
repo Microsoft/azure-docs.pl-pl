@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804856"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438016"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Wdróż niestandardowe rozszerzenie skryptu na maszynach wirtualnych działających na urządzeniu z systemem Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Rozszerzenie skryptu niestandardowego pobiera i uruchamia skrypty lub polecenia na maszynach wirtualnych uruchomionych na urządzeniach Azure Stack EDGE Pro. W tym artykule opisano sposób instalowania i uruchamiania niestandardowego rozszerzenia skryptu przy użyciu szablonu Azure Resource Manager. 
 

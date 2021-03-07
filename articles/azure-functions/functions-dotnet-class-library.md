@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać języka C# do tworzenia i publikowania k
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041199"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428416"
 ---
 # <a name="develop-c-functions-using-azure-functions"></a>Opracowywanie funkcji języka C# przy użyciu Azure Functions
 
@@ -23,24 +23,40 @@ Ten artykuł stanowi wprowadzenie do tworzenia Azure Functions przy użyciu jęz
 Jako deweloper języka C# może być również interesujący jeden z następujących artykułów:
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem/przykłady |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Korzystanie z programu Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Korzystanie z narzędzia Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Korzystanie z narzędzi wiersza polecenia](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opcje hostingu](functions-scale.md)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li><li>[Opracowywanie zawartości w programie Visual Studio](functions-develop-vs.md)</li><li>[Wstrzykiwanie zależności](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Przykłady w języku C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions obsługuje języki programowania skryptów C# i C#. Jeśli szukasz wskazówek dotyczących [używania języka C# w Azure Portal](functions-create-function-app-portal.md), zobacz [informacje dotyczące deweloperów skryptów C# (CSX)](functions-reference-csharp.md).
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 
-Wersje środowiska uruchomieniowego Functions działają z określonymi wersjami platformy .NET. W poniższej tabeli przedstawiono najwyższy poziom .NET Core i .NET Framework i .NET Core, których można używać z określoną wersją funkcji w projekcie. 
+Wersje środowiska uruchomieniowego Functions działają z określonymi wersjami platformy .NET. Aby dowiedzieć się więcej o wersjach funkcji, zobacz [Azure Functions wersje środowiska uruchomieniowego — Omówienie](functions-versions.md)
+
+W poniższej tabeli przedstawiono najwyższy poziom programu .NET Core lub .NET Framework, który może być używany z określoną wersją funkcji. 
 
 | Wersja środowiska uruchomieniowego funkcji | Maksymalna wersja platformy .NET |
 | ---- | ---- |
-| Funkcje 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
-| Functions w wersji 2.x | .NET Core 2.2 |
+| Funkcje 3. x | .NET Core 3.1<br/>.NET 5,0<sup>1</sup> |
+| Functions w wersji 2.x | .NET Core 2,2<sup>2</sup> |
 | Functions w wersji 1.x |  .NET Framework 4.7 |
 
-<sup>*</sup> Musi działać [poza procesem](dotnet-isolated-process-guide.md).
+<sup>1</sup> musi działać [poza procesem](dotnet-isolated-process-guide.md).  
+<sup>2</sup> Aby uzyskać szczegółowe informacje, zobacz temat [funkcje w wersji 2. x](#functions-v2x-considerations).   
 
-Aby dowiedzieć się więcej, zobacz [Omówienie wersji środowiska uruchomieniowego Azure Functions](functions-versions.md)
+Aby uzyskać najnowsze informacje dotyczące wydań Azure Functions, w tym usuwania konkretnych starszych wersji, należy monitorować [Azure App Service anonsów](https://github.com/Azure/app-service-announcements/issues).
+
+### <a name="functions-v2x-considerations"></a>Uwagi dotyczące funkcji w wersji 2. x
+
+Aplikacje funkcji przeznaczone dla najnowszej wersji 2. x ( `~2` ) są automatycznie uaktualniane do uruchamiania na platformie .NET Core 3,1. Ze względu na istotne zmiany między wersjami programu .NET Core, nie wszystkie aplikacje opracowane i skompilowane pod kątem platformy .NET Core 2,2 można bezpiecznie uaktualnić do programu .NET Core 3,1. Możesz zrezygnować z tego uaktualnienia, przypinając aplikację funkcji do programu `~2.0` . Funkcje również wykrywają niezgodne interfejsy API i mogą przypiąć aplikację do programu, `~2.0` Aby zapobiec niepoprawnym wykonywaniu na platformie .NET Core 3,1. 
+
+>[!NOTE]
+>Jeśli aplikacja funkcji jest przypięta do programu `~2.0` i zmienisz jej wersję docelową na `~2` , aplikacja funkcji może zostać przerwana. W przypadku wdrażania przy użyciu szablonów usługi ARM Sprawdź wersję w szablonach. W takim przypadku należy zmienić wersję z powrotem na docelową `~2.0` i rozwiązać problemy ze zgodnością. 
+
+Aplikacje funkcji, które są przeznaczone `~2.0` do uruchamiania w programie .NET Core 2,2. Ta wersja programu .NET Core nie otrzymuje już zabezpieczeń i innych aktualizacji konserwacyjnych. Aby dowiedzieć się więcej, zobacz [Tę stronę anonsu](https://github.com/Azure/app-service-announcements/issues/266). 
+
+Należy się upewnić, że funkcje są zgodne z platformą .NET Core 3,1 najszybciej, jak to możliwe. Po rozwiązaniu tych problemów należy zmienić wersję z powrotem na `~2` lub uaktualnić do programu `~3` . Aby dowiedzieć się więcej o wersjach docelowych środowiska uruchomieniowego funkcji, zobacz [How to target Azure Functions Runtime](set-runtime-version.md).
+
+W przypadku uruchamiania w systemie Linux w ramach planu Premium lub dedykowanego (App Service) można przypiąć swoją wersję zamiast tego do określonego obrazu, ustawiając `linuxFxVersion` Ustawienia konfiguracji lokacji `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` , aby dowiedzieć się, jak ustawić `linuxFxVersion` , zobacz [ręczne aktualizacje wersji w systemie Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## <a name="functions-class-library-project"></a>Projekt biblioteki klas funkcji
 
@@ -90,7 +106,7 @@ Atrybut wyzwalacza określa typ wyzwalacza i wiąże dane wejściowe z parametre
 
 ## <a name="method-signature-parameters"></a>Parametry sygnatury metody
 
-Sygnatura metody może zawierać parametry inne niż używane z atrybutem wyzwalacza. Poniżej przedstawiono niektóre dodatkowe parametry, które można uwzględnić:
+Sygnatura metody może zawierać parametry inne niż używane z atrybutem wyzwalacza. Poniżej przedstawiono niektóre inne parametry, które można uwzględnić:
 
 * [Powiązania wejściowe i wyjściowe](functions-triggers-bindings.md) oznaczone jako takie przez dekorowania nazwy je z atrybutami.  
 * `ILogger`Parametr lub `TraceWriter` ([wersja 1. x-Only](functions-versions.md#creating-1x-apps)) do [rejestrowania](#logging).
@@ -147,7 +163,7 @@ public static class BindingExpressionsExample
 
 Proces kompilacji tworzy *function.js* w pliku w folderze funkcji w folderze Build. Jak wspomniano wcześniej, ten plik nie jest przeznaczony do edycji bezpośrednio. Nie można zmienić konfiguracji powiązań ani wyłączyć funkcji, edytując ten plik. 
 
-Celem tego pliku jest udostępnienie informacji kontrolerowi skalowania do użycia w celu [skalowania w ramach planu zużycia](event-driven-scaling.md). Z tego powodu plik zawiera tylko informacje wyzwalacza, a nie dane wejściowe i wyjściowe.
+Celem tego pliku jest udostępnienie informacji kontrolerowi skalowania do użycia w celu [skalowania w ramach planu zużycia](event-driven-scaling.md). Z tego powodu plik zawiera tylko informacje o wyzwalaczu, a nie powiązania wejściowe/wyjściowe.
 
 Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, która informuje środowisko uruchomieniowe, aby używało atrybutów .NET dla powiązań, a nie *function.jsw* konfiguracji. Oto przykład:
 
@@ -172,7 +188,7 @@ Wygenerowany *function.jsw* pliku zawiera `configurationSource` Właściwość, 
 
 *function.jspodczas* generowania plików jest wykonywane przez pakiet NuGet [ \. funkcje Microsoft .NET \. SDK \.](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-Ten sam pakiet jest używany zarówno w wersji 1. x, jak i 2. x środowiska uruchomieniowego usługi Functions. Platforma docelowa to odróżnia projekt 1. x z projektu 2. x. Poniżej przedstawiono odpowiednie części plików *. csproj* , które pokazują różne platformy docelowe i ten sam `Sdk` pakiet:
+Ten sam pakiet jest używany zarówno w wersji 1. x, jak i 2. x środowiska uruchomieniowego usługi Functions. Platforma docelowa to odróżnia projekt 1. x z projektu 2. x. Poniżej przedstawiono odpowiednie części plików *. csproj* , które pokazują różne platformy docelowe z tym samym `Sdk` pakietem:
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
@@ -625,7 +641,7 @@ public static class IBinderExample
 
 [Obiekt blobattribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) definiuje powiązanie danych wejściowych lub wyjściowych [magazynu obiektów BLOB](functions-bindings-storage-blob.md) , a parametr [TextWriter](/dotnet/api/system.io.textwriter) jest obsługiwanym typem powiązania.
 
-### <a name="multiple-attribute-example"></a>Przykład wielu atrybutów
+### <a name="multiple-attributes-example"></a>Przykład wielu atrybutów
 
 W poprzednim przykładzie jest pobierane ustawienie aplikacji dla głównych parametrów połączenia konta magazynu aplikacji funkcji (co to jest `AzureWebJobsStorage` ). Możesz określić niestandardowe ustawienie aplikacji do użycia dla konta magazynu, dodając [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazując tablicę atrybutów do `BindAsync<T>()` . Użyj `Binder` parametru, a nie `IBinder` .  Na przykład:
 

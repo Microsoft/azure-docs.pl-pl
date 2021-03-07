@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787455"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437608"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Włącz usługę Azure Arc w klastrze Kubernetes na urządzeniu z systemem Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano sposób włączania usługi Azure Arc w istniejącym klastrze Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro. 
 
@@ -86,7 +88,7 @@ Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . A
 
 1. Aby utworzyć jednostkę usługi, użyj następującego polecenia za pośrednictwem `az cli` .
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     Aby uzyskać informacje dotyczące sposobu logowania się do programu `az cli` , [Uruchom Cloud Shell w Azure Portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
@@ -228,4 +230,4 @@ Aby usunąć usługę Azure Arc Management, wykonaj następujące kroki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak uruchomić wdrożenie usługi Azure ARC, zobacz [wdrażanie aplikacji w języku PHP o niestanowym wykorzystaniu z Redis za pośrednictwem GitOps na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+Aby zrozumieć, jak uruchomić wdrożenie usługi Azure ARC, zobacz [wdrażanie bezstanowej `Guestbook` aplikacji PHP z Redis za pośrednictwem GitOps na urządzeniu z systemem Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

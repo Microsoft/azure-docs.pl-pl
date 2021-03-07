@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661022"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443577"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -78,20 +78,23 @@ Gdy korzystasz z **ScriptRunConfig**, możesz użyć, ```run.wait_for_completion
 
 <a id="queryrunmetrics"></a>
 
-### <a name="logging-run-metrics"></a>Rejestrowanie metryk uruchamiania 
+## <a name="view-run-metrics"></a>Wyświetl metryki uruchamiania
 
-Użyj następujących metod w interfejsie API rejestrowania, aby mieć wpływ na wizualizacje metryk. Zanotuj [limity usługi](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) dla tych zarejestrowanych metryk. 
+## <a name="via-the-sdk"></a>Za pośrednictwem zestawu SDK
+Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics()``` . Zobacz przykład poniżej. 
 
-|Wartość rejestrowana|Przykładowy kod| Formatowanie w portalu|
-|----|----|----|
-|Rejestruj tablicę wartości liczbowych| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Wykres liniowy z pojedynczą zmienną|
-|Rejestruj pojedynczą wartość liczbową o tej samej nazwie metryki wielokrotnie używanej (na przykład w pętli for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Wykres liniowy z pojedynczą zmienną|
-|Rejestruj wiersz z 2 kolumnami numerycznymi wielokrotnie|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Wykres liniowy z dwoma zmiennymi|
-|Tabela dzienników z 2 kolumnami liczbowymi|`run.log_table(name='Sine Wave', value=sines)`|Wykres liniowy z dwoma zmiennymi|
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
 
-## <a name="query-run-metrics"></a>Metryki uruchamiania zapytania
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
 
-Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics()``` . Na przykład można użyć tego przykładu, aby określić najlepszy model, wyszukując model z najniższą wartością błędu kwadratowego (MSE).
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 

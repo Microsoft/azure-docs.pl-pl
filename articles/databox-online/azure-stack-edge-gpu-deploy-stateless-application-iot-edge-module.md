@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eda6eaf69fad6f8600651660ae4ac6223fe8f8c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899524"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438067"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Używanie modułu IoT Edge do uruchamiania aplikacji bezstanowej Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano, jak można użyć modułu IoT Edge do wdrożenia aplikacji bezstanowej na urządzeniu Azure Stack EDGE Pro.
 
@@ -47,7 +49,7 @@ Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urz�
 
     ![Wybierz urządzenie IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 
-1. Wybierz pozycję **Ustaw moduły**. W obszarze **Ustaw moduły na urządzeniu**wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
+1. Wybierz pozycję **Ustaw moduły**. W obszarze **Ustaw moduły na urządzeniu** wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
 
     ![Wybierz moduł IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-module-1.png)
 
@@ -78,11 +80,11 @@ Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urz�
 
         ![Określ informacje o porcie w bloku modułu IoT Edge niestandardowego](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
 
-    4. Wybierz pozycję **Przeglądanie + tworzenie**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
+    4. Wybierz pozycję **Przejrzyj i utwórz**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
 
 ## <a name="verify-module-access"></a>Weryfikuj dostęp do modułu
 
-1. Sprawdź, czy moduł został pomyślnie wdrożony i jest uruchomiony. Na karcie **moduły** musi być **uruchomiony**stan środowiska uruchomieniowego modułu.  
+1. Sprawdź, czy moduł został pomyślnie wdrożony i jest uruchomiony. Na karcie **moduły** musi być **uruchomiony** stan środowiska uruchomieniowego modułu.  
 
     ![Sprawdź, czy stan modułu jest uruchomiony](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
 

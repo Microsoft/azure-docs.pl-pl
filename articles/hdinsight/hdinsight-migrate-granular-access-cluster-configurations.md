@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555815"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425893"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrowanie do szczegółowego dostępu opartego na rolach w przypadku konfiguracji klastrów
 
@@ -111,11 +111,11 @@ Aktualizacja do [wersji 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Ma
 
 Aktualizacja do [wersji 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) lub nowszej zestawu HDInsight SDK dla platformy .NET. Jeśli używasz metody, której dotyczą te zmiany, mogą być wymagane minimalne modyfikacje kodu:
 
-- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true)**nie będą już zwracać poufnych parametrów** , takich jak klucze magazynu (lokacja podstawowa) lub poświadczenia http (brama).
-    - Aby pobrać wszystkie konfiguracje, w tym poufne parametry, użyj [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) przechodzenia do przodu.Należy pamiętać, że użytkownicy z rolą "czytelnik" nie będą mogli korzystać z tej metody. Pozwala to na szczegółową kontrolę nad tym, którzy użytkownicy mogą uzyskać dostęp do poufnych informacji dotyczących klastra. 
-    - Aby pobrać tylko poświadczenia bramy HTTP, użyj [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true) . 
-- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) jest teraz przestarzały i został zastąpiony przez [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true) . 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) i [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) są obecnie przestarzałe. Protokół HTTP jest teraz zawsze włączony, dlatego te metody nie są już potrzebne.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get)**nie będą już zwracać poufnych parametrów** , takich jak klucze magazynu (lokacja podstawowa) lub poświadczenia http (brama).
+    - Aby pobrać wszystkie konfiguracje, w tym poufne parametry, użyj [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list) przechodzenia do przodu.Należy pamiętać, że użytkownicy z rolą "czytelnik" nie będą mogli korzystać z tej metody. Pozwala to na szczegółową kontrolę nad tym, którzy użytkownicy mogą uzyskać dostęp do poufnych informacji dotyczących klastra. 
+    - Aby pobrać tylko poświadczenia bramy HTTP, użyj [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings) . 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update) jest teraz przestarzały i został zastąpiony przez [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings) . 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp) i [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp) są obecnie przestarzałe. Protokół HTTP jest teraz zawsze włączony, dlatego te metody nie są już potrzebne.
 
 ### <a name="sdk-for-python"></a>Zestaw SDK dla środowiska Python
 

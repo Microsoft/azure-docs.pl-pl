@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 06d3ebae80b34d6b3c7f4a23694fd9fba34e4b76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4193e58c28b481297df38bca8f18d2ea766ce886
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733503"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443135"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano typy certyfikatów, które można zainstalować na urządzeniu z systemem Azure Stack brzeg Pro. Artykuł zawiera również szczegóły dotyczące każdego typu certyfikatu wraz z procedurą instalacji i identyfikacji daty wygaśnięcia. 
 

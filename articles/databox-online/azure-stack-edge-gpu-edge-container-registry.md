@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467025"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437540"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Włącz rejestr kontenerów Edge na urządzeniu z systemem Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano sposób włączania rejestru kontenera brzegowego i używania go z klastra Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro. W przykładzie używanym w artykule szczegółowo przedstawiono sposób wypychania obrazu z rejestru źródłowego, w tym przypadku, rejestru kontenerów firmy Microsoft do rejestru na urządzeniu brzegowym Azure Stack, rejestr kontenerów brzegowych.
 

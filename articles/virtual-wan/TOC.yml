@@ -13,6 +13,9 @@
         - name: Routing dowolny-do-dowolnego
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
+        - name: Kierowanie do usług udostępnionych sieci wirtualnych
+          displayName: Resource Manager route to shared services VNets
+          href: quickstart-route-shared-services-vnet-template.md
 - name: Samouczki
   expanded: true
   items:
@@ -60,7 +63,7 @@
           href: scenario-isolate-vnets-custom.md
         - name: Izolowanie sieci wirtualnych i gałęzi
           href: scenario-isolate-virtual-networks-branches.md
-        - name: Sieci wirtualne usług współdzielonych
+        - name: Sieci wirtualnych usług udostępnionych
           href: scenario-shared-services-vnet.md
         - name: Rozsyłanie za pomocą urządzenia WUS
           href: scenario-route-through-nva.md

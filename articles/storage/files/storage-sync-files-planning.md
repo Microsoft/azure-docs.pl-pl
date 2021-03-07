@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202386"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441945"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -242,6 +242,16 @@ Jeśli Obsługa warstw w chmurze jest włączona w punkcie końcowym serwera, pl
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Inne rozwiązania do zarządzania magazynem hierarchicznym (HSM)
 W przypadku Azure File Sync nie należy używać innych rozwiązań modułu HSM.
+
+## <a name="performance-and-scalability"></a>Wydajność i skalowalność
+
+Ponieważ agent Azure File Sync działa na komputerze z systemem Windows Server, który nawiązuje połączenie z udziałami plików platformy Azure, efektywna wydajność synchronizacji zależy od wielu czynników w infrastrukturze: system Windows Server i podstawowa Konfiguracja dysku, przepustowość sieci między serwerem a magazynem platformy Azure, rozmiar pliku, całkowity rozmiar zestawu danych i działanie w zestawie danych. Ponieważ Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na Azure File Sync jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetworzonych na sekundę.
+
+Zmiany wprowadzone w udziale plików platformy Azure przy użyciu Azure Portal lub protokołu SMB nie są natychmiast wykrywane i replikowane, podobnie jak zmiany w punkcie końcowym serwera. Azure Files nie ma jeszcze powiadomień o zmianach ani rejestrowania, dlatego nie ma możliwości automatycznego inicjowania sesji synchronizacji w przypadku zmiany plików. W systemie Windows Server Azure File Sync używa [rejestrowania numerów USN systemu Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) , aby automatycznie inicjować sesję synchronizacji po zmianie plików
+
+Aby wykryć zmiany w udziale plików platformy Azure, Azure File Sync ma zaplanowane zadanie o nazwie zadanie wykrywania zmian. Zadanie wykrywania zmian wylicza każdy plik w udziale plików, a następnie porównuje go z wersją synchronizacji dla tego pliku. Gdy zadanie wykrywania zmian określi, że pliki uległy zmianie, Azure File Sync inicjuje sesję synchronizacji. Zadanie wykrywania zmian jest inicjowane co 24 godziny. Ponieważ zadanie wykrywania zmian działa przez wyliczenie wszystkich plików w udziale plików platformy Azure, wykrywanie zmian trwa dłużej w większych przestrzeniach nazw niż w mniejszych przestrzeniach nazw. W przypadku dużych przestrzeni nazw może upłynąć więcej niż co 24 godziny, aby określić, które pliki uległy zmianie.
+
+Aby uzyskać więcej informacji, zobacz [Azure File Sync metryki wydajności](storage-files-scale-targets.md#azure-file-sync-performance-metrics) i [docelowe skalowanie Azure File Sync](storage-files-scale-targets.md#azure-file-sync-scale-targets)
 
 ## <a name="identity"></a>Tożsamość
 Azure File Sync współpracuje ze standardową tożsamością opartą na usłudze AD bez żadnej specjalnej instalacji poza konfiguracją synchronizacji. W przypadku korzystania z Azure File Sync, ogólna oczekuje, że większość dostępu przechodzi przez serwery buforowania Azure File Sync, a nie za pośrednictwem udziału plików platformy Azure. Ponieważ punkty końcowe serwera znajdują się w systemie Windows Server, a system Windows Server obsługuje listy ACL dla usług AD i Windows przez dłuższy czas, nic nie jest jednak dłużej, ponieważ serwery plików systemu Windows zarejestrowane w usłudze synchronizacji magazynu są przyłączone do domeny. W Azure File Sync będą przechowywane listy ACL plików w udziale plików platformy Azure i zostaną one zreplikowane do wszystkich punktów końcowych serwera.

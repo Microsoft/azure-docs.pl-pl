@@ -3,13 +3,13 @@ title: Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
-ms.openlocfilehash: f0c74c1b3715fd3f5c83c3a9231009e622b87927
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/5/2021
+ms.openlocfilehash: d5f39460ad821265aed2c21d7426aa894f7cc933
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181231"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425111"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -70,19 +70,26 @@ Gdzie `--enable-private-cluster` jest obowiązkową flagą dla klastra prywatneg
 
 Aby skonfigurować strefę Prywatna strefa DNS, można użyć następujących parametrów.
 
-1. Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
-2. "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu.
-3. "Nazwa niestandardowej prywatnej strefy DNS" powinna być w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Wymagany jest identyfikator zasobu tej Prywatna strefa DNS strefy.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` rolą do niestandardowej prywatnej strefy DNS.
+- Wartość domyślna to "system". W przypadku pominięcia argumentu--Private-DNS-strefy AKS utworzy strefę Prywatna strefa DNS w grupie zasobów węzła.
+- "Brak" oznacza, że AKS nie utworzy strefy Prywatna strefa DNS.  Wymaga to przeniesienia własnego serwera DNS i skonfigurowania rozpoznawania nazw DNS dla prywatnej nazwy FQDN.  Jeśli nie skonfigurujesz rozpoznawania nazw DNS, usługa DNS jest rozpoznawana tylko w węzłach agenta i spowoduje problemy z klastrem po wdrożeniu. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" wymaga utworzenia strefy Prywatna strefa DNS w tym formacie dla chmury globalnej platformy Azure: `privatelink.<region>.azmk8s.io` . Do przechodzenia do przodu będzie potrzebny identyfikator zasobu tego Prywatna strefa DNS.  Ponadto potrzebna jest tożsamość lub jednostka usługi przypisana przez użytkownika z co najmniej `private dns zone contributor` rolą.
+- "FQDN-subdomene" można użyć z "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" tylko w celu zapewnienia możliwości poddomeny `privatelink.<region>.azmk8s.io`
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* AKS wersja zapoznawcza 0.4.71 lub nowsza
+* AKS wersja zapoznawcza 0.5.3 lub nowsza
 * Interfejs API w wersji 2020-11-01 lub nowszej
 
 ### <a name="create-a-private-aks-cluster-with-private-dns-zone-preview"></a>Tworzenie prywatnego klastra AKS z strefą Prywatna strefa DNS (wersja zapoznawcza)
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### <a name="create-a-private-aks-cluster-with-a-custom-private-dns-zone-preview"></a>Tworzenie prywatnego klastra AKS za pomocą niestandardowej strefy Prywatna strefa DNS (wersja zapoznawcza)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Opcje łączenia się z klastrem prywatnym
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: e786a323cfb1ebacdf7e6693e3ca4299f10aadb3
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7940ac3a67a0562aa0b7a21690deec30220a48a3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216041"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434716"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
 
@@ -85,7 +85,7 @@ Różnica w obsługiwanych możliwościach między warstwami podstawowa i Standa
 | [Pobierz statystyki usług](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getservicestatistics-msrest-requestoptionsbase-) | Tak | Tak |
 | [Utwórz lub zaktualizuj urządzenie](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatedevice-string--device--servicecallback-device--) | Tak | Tak |
 | [Utwórz lub zaktualizuj moduł](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Tak | Tak |
-| [IoT Hub zapytań](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Tak | Tak |
+| [IoT Hub zapytań](/dotnet/api/microsoft.azure.devices.registrymanager) | Tak | Tak |
 | [Tworzenie identyfikatora URI SAS przekazywania plików](/rest/api/iothub/device/createfileuploadsasuri) | Tak | Tak |
 | [Odbieranie powiadomienia powiązanego z urządzeniem](/rest/api/iothub/device/receivedeviceboundnotification) | Tak | Tak |
 | [Wyślij zdarzenie urządzenia](/rest/api/iothub/device/senddeviceevent) | Tak | Tak |

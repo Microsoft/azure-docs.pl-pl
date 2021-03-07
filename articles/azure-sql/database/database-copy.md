@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 10/30/2020
-ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b112506acead01e8dc2bbe72b0d52f47ada326a7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035142"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440415"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -194,7 +194,7 @@ Monitoruj proces kopiowania, wykonując zapytania dotyczące widoków [sys. data
 > [!IMPORTANT]
 > Jeśli trzeba utworzyć kopię z znacznie mniejszym celem usługi niż źródło, docelowa baza danych może nie mieć wystarczających zasobów do ukończenia procesu tworzenia i może spowodować niepowodzenie operacji kopiowania. W tym scenariuszu Użyj żądania przywracania geograficznego, aby utworzyć kopię na innym serwerze i/lub innym regionie. Aby uzyskać więcej informacji [, zobacz odzyskiwanie Azure SQL Database przy użyciu kopii zapasowych bazy danych](recovery-using-backups.md#geo-restore) .
 
-## <a name="azure-roles-to-manage-database-copy"></a>Role platformy Azure do zarządzania kopią bazy danych
+## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Role i uprawnienia usługi Azure RBAC do zarządzania kopią bazy danych
 
 Aby utworzyć kopię bazy danych, musisz mieć następujące role:
 

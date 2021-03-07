@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1b38a9807e05385a378fa6103710fb6b393c7b1f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635844"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443152"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes kontrolę dostępu opartą na rolach na urządzeniu z procesorem GPU Pro Azure Stack Edge
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Na urządzeniu Azure Stack EDGE Pro podczas konfigurowania roli obliczeniowej tworzony jest klaster Kubernetes. Za pomocą kontroli dostępu opartej na rolach Kubernetes (Kubernetes RBAC) można ograniczyć dostęp do zasobów klastra na urządzeniu.
 
@@ -39,13 +40,13 @@ Urządzenie Azure Stack EDGE Pro zawiera następujące przestrzenie nazw:
 - **Przestrzeń nazw systemu** — w tym obszarze nazw znajdują się zasoby podstawowe, takie jak usługa DNS i serwer proxy, lub pulpit nawigacyjny Kubernetes. Zwykle nie są wdrażane własne aplikacje w tej przestrzeni nazw. Ta przestrzeń nazw służy do debugowania wszelkich problemów z klastrem Kubernetes. 
 
     Na urządzeniu istnieje wiele przestrzeni nazw systemu, a nazwy odpowiadające tym systemowym przestrzeniom nazw są zarezerwowane. Poniżej znajduje się lista zarezerwowanych przestrzeni nazw systemu: 
-    - polecenia — system
+    - kube-system
     - metallb — system
     - DBE — przestrzeń nazw
     - default
     - Kubernetes — pulpit nawigacyjny
     - polecenia — dzierżawa węzła
-    - polecenia — publiczny
+    - kube-public
 
 
     Upewnij się, że nie używasz nazw zarezerwowanych dla tworzonych przestrzeni nazw użytkownika. 
@@ -61,15 +62,15 @@ Urządzenie Azure Stack EDGE Pro zawiera następujące przestrzenie nazw:
 
 W świecie rzeczywistym należy podzielić klaster na wiele przestrzeni nazw. 
 
-- **Wielu użytkowników** : Jeśli masz wielu użytkowników, wówczas wiele obszarów nazw zezwoli tym użytkownikom na wdrożenie ich aplikacji i usług w określonych przestrzeniach nazw w izolacji ze sobą. 
-- **Pojedynczy użytkownik** : nawet jeśli istnieje pojedynczy użytkownik, wiele przestrzeni nazw zezwoli temu użytkownikowi na uruchamianie wielu wersji aplikacji w tym samym klastrze Kubernetes.
+- **Wielu użytkowników**: Jeśli masz wielu użytkowników, wówczas wiele obszarów nazw zezwoli tym użytkownikom na wdrożenie ich aplikacji i usług w określonych przestrzeniach nazw w izolacji ze sobą. 
+- **Pojedynczy użytkownik**: nawet jeśli istnieje pojedynczy użytkownik, wiele przestrzeni nazw zezwoli temu użytkownikowi na uruchamianie wielu wersji aplikacji w tym samym klastrze Kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Role i RoleBindings
 
 Kubernetes ma koncepcje powiązań ról i ról, które umożliwiają Przyznawanie uprawnień użytkownikom lub zasobom na poziomie przestrzeni nazw i na poziomie klastra. 
 
-- **Role** : można zdefiniować uprawnienia dla użytkowników jako **rolę** , a następnie użyć **ról** do udzielenia uprawnień w przestrzeni nazw. 
-- **RoleBindings** : po zdefiniowaniu ról można użyć **RoleBindings** do przypisania ról dla danego obszaru nazw. 
+- **Role**: można zdefiniować uprawnienia dla użytkowników jako **rolę** , a następnie użyć **ról** do udzielenia uprawnień w przestrzeni nazw. 
+- **RoleBindings**: po zdefiniowaniu ról można użyć **RoleBindings** do przypisania ról dla danego obszaru nazw. 
 
 Takie podejście umożliwia logicznie segregowanie pojedynczego klastra Kubernetes, dzięki czemu użytkownicy mogą uzyskiwać dostęp do zasobów aplikacji w ich przypisanej przestrzeni nazw. 
 

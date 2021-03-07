@@ -3,18 +3,18 @@ title: Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB podczas korzystania z zestawu .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 1f7548b355353eb77419f4d1760b40ba02eeddda
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429939"
+ms.locfileid: "102442200"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,12 +93,47 @@ Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez public
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Duże opóźnienie sieci
 Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) w zestawie SDK V2 w wersji 2 lub [Diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
 
-Jeśli nie ma [limitów czasu](troubleshoot-dot-net-sdk-request-timeout.md) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste na różnicy między `ResponseTime` i `RequestStartTime` , np. (>300 milisekund w tym przykładzie):
+Jeśli nie ma żadnych [limitów czasu](troubleshoot-dot-net-sdk-request-timeout.md) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste.
+
+# <a name="v3-sdk"></a>[ZESTAW V3 SDK](#tab/diagnostics-v3)
+
+Diagnostyka może być uzyskana z dowolnego `ResponseMessage` , `ItemResponse` , `FeedResponse` lub `CosmosException` przez `Diagnostics` Właściwość:
+
+```csharp
+ItemResponse<MyItem> response = await container.CreateItemAsync<MyItem>(item);
+Console.WriteLine(response.Diagnostics.ToString());
+```
+
+Interakcje sieciowe w diagnostyce będą na przykład następujące:
+
+```json
+{
+    "name": "Microsoft.Azure.Documents.ServerStoreModel Transport Request",
+    "id": "0e026cca-15d3-4cf6-bb07-48be02e1e82e",
+    "component": "Transport",
+    "start time": "12: 58: 20: 032",
+    "duration in milliseconds": 1638.5957
+}
+```
+
+Gdzie zostanie `duration in milliseconds` wyświetlone opóźnienie.
+
+# <a name="v2-sdk"></a>[ZESTAW V2 SDK](#tab/diagnostics-v2)
+
+Diagnostyka jest dostępna, gdy klient jest skonfigurowany w [trybie bezpośrednim](sql-sdk-connection-modes.md), przez `RequestDiagnosticsString` Właściwość:
+
+```csharp
+ResourceResponse<Document> response = await client.ReadDocumentAsync(documentLink, new RequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+Console.WriteLine(response.RequestDiagnosticsString);
+```
+
+Czas oczekiwania na różnicę między `ResponseTime` i `RequestStartTime` :
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
+--- 
 
 To opóźnienie może mieć wiele przyczyn:
 

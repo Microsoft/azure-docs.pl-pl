@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: cea561140d87333d35d223d062509c29febad5aa
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: c589f270fe623f1e4e4bbde4fd353ba95249d1b5
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520582"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426511"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architektura łączności usług Azure SQL Database i Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,7 +79,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Australia Środkowa    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
 | Australia Środkowa 2   | 20.36.113.0, 20.36.112.6 |
 | Australia Wschodnia       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Australia Południowo-Wschodnia | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
+| Australia Południowo-Wschodnia | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 |
 | Brazylia Południowa         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
@@ -102,15 +102,15 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5 |
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
 | Korea Środkowa        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
-| Korea Południowa          | 52.231.200.86      |
-| Północno-środkowe stany USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Korea Południowa          | 52.231.200.86, 52.231.151.96 |
+| Północno-środkowe stany USA     | 23.96.178.199, 23.98.55.75, 52.162.104.33, 52.162.105.9 |
 | Europa Północna         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
-| Norwegia Wschodnia          | 51.120.96.0        |
+| Norwegia Wschodnia          | 51.120.96.0, 51.120.96.33 |
 | Norwegia Zachodnia          | 51.120.216.0       |
-| Północna Republika Południowej Afryki   | 102.133.152.0, 102.133.120.2       |
+| Północna Republika Południowej Afryki   | 102.133.152.0, 102.133.120.2, 102.133.152.32 |
 | Zachodnia Republika Południowej Afryki    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
-| Azja Południowo-Wschodnia      | 104.43.15.0, 40.78.232.3   |
+| Azja Południowo-Wschodnia      | 104.43.15.0, 40.78.232.3, 13.67.16.193 |
 | Szwajcaria Północna    | 51.107.56.0, 51.107.57.0 |
 | Szwajcaria Zachodnia     | 51.107.152.0, 51.107.153.0 |
 | Środkowy Zjednoczone Emiraty Arabskie          | 20.37.72.64        |
@@ -121,7 +121,9 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | West Europe          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | Zachodnie stany USA              | 104.42.238.205, 13.86.216.196   |
 | Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| Zachodnie stany USA 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
+
 
 ## <a name="next-steps"></a>Następne kroki
 

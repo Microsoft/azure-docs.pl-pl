@@ -8,14 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: alkohli
-ms.openlocfilehash: 064af116112f0b530ac0cc9b5755dcec2cf0bd07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdd44bf81e34b60ee648b71c6dc3bde5a96d3deb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722084"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443016"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Aktywna kolekcja dzienników na urządzeniu z systemem Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Usługa Active log Collection zbiera wskaźniki kondycji systemu na urządzeniu z Azure Stack Edge, aby ułatwić efektywne Rozwiązywanie problemów z urządzeniami. Funkcja aktywnej kolekcji dzienników jest domyślnie włączona. W tym artykule opisano, co jest rejestrowane, jak firma Microsoft obsługuje dane, oraz jak wyłączyć lub włączyć funkcję aktywnej kolekcji dzienników. 
 

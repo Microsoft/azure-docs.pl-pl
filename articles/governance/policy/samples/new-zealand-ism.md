@@ -1,22 +1,22 @@
 ---
-title: Szczegóły zgodności z przepisami dla Nowej Zelandii ISM
-description: Szczegółowe informacje na temat nowej inicjatywy dotyczącej zgodności z przepisami w zakresie ISM. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 02/09/2021
+title: Szczegóły zgodności z przepisami dla Nowej Zelandii ISM z ograniczeniami
+description: Szczegółowe informacje na temat nowej inicjatywy dotyczącej zgodności z przepisami, które są objęte ochroną. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: b2f4cec4f2c9abf6fb896ba9d515db1780115716
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5f346f7755cf252ed15513d8dc0a60a9bc5cce3f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101734"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437250"
 ---
-# <a name="details-of-the-new-zealand-ism-regulatory-compliance-built-in-initiative"></a>Szczegóły nowej inicjatywy dotyczącej zgodności z przepisami w zakresie ISM
+# <a name="details-of-the-new-zealand-ism-restricted-regulatory-compliance-built-in-initiative"></a>Szczegóły nowej inicjatywy dotyczącej zgodności z przepisami w zakresie ISM
 
-W poniższym artykule szczegółowo opisano sposób, w jaki Azure Policy wbudowana definicja zgodności z przepisami, mapuje się do **domen zgodności** i **kontroli** w Nowej Zelandii ISM.
-Aby uzyskać więcej informacji o tym standardzie zgodności, zobacz [Nową Zelandią ISM](https://www.nzism.gcsb.govt.nz/). Aby zrozumieć _własność_, zobacz [Azure Policy definicję zasad](../concepts/definition-structure.md#type) i [współdzieloną odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
+W poniższym artykule szczegółowo opisano sposób, w jaki Azure Policy wbudowana definicja zgodności z przepisami podlega mapowaniu do **domen zgodności** i **kontroli** w Nowej Zelandii z ograniczeniami.
+Więcej informacji o tym standardzie zgodności znajduje się w temacie z [ograniczeniami do Nowej Zelandii ISM](https://www.nzism.gcsb.govt.nz/). Aby zrozumieć _własność_, zobacz [Azure Policy definicję zasad](../concepts/definition-structure.md#type) i [współdzieloną odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
 
-Następujące mapowania znajdują się w nowych kontrolkach w usłudze **Zelandii ISM** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
+Następujące mapowania znajdują się w nowych kontrolkach z **ograniczeniami do ISM** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do konkretnej **domeny zgodności**. Wiele kontrolek jest implementowanych z definicją inicjatywy [Azure Policy](../overview.md) . Aby zapoznać się z pełną definicją inicjatywy, Otwórz pozycję **zasady** w Azure Portal a następnie wybierz stronę **definicje** .
 Następnie Znajdź i wybierz **Nową Zelandią informacje o zabezpieczeniach ręcznej** kontroli zgodności z przepisami.
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ Następnie Znajdź i wybierz **Nową Zelandią informacje o zabezpieczeniach rę
 
 ## <a name="access-control-and-passwords"></a>Access Control i hasła
 
-### <a name="16132-system-user-identitfication"></a>16.1.32 użytkownika systemu Identitfication
+### <a name="16132-system-user-identification"></a>Identyfikacja użytkownika systemu 16.1.32
 
 **ID**: NZISM Security test — **własność** AC-2: klient
 

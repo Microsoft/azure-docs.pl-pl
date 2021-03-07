@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039839"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437165"
 ---
 # <a name="what-is-azure-route-server-preview"></a>Co to jest usługa Azure Route Server (wersja zapoznawcza)? 
 
@@ -37,7 +37,7 @@ Serwer usługi Azure Route upraszcza konfigurację, zarządzanie i wdrażanie ur
 
 * Nie musisz już ręcznie aktualizować [tras zdefiniowanych przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) , gdy urządzenie WUS ogłasza nowe trasy lub Wycofaj stare. 
 
-* Nie trzeba już konfigurować modułu równoważenia obciążenia przed urządzenie WUS na potrzeby odporności lub wydajności. W przypadku komunikacji równorzędnej z wieloma wystąpieniami urządzenie WUS za pomocą usługi Azure Route Server można skonfigurować atrybuty protokołu BGP w urządzenie WUS. Te atrybuty protokołu BGP umożliwią usłudze Azure Route Server, które wystąpienie urządzenie WUS powinno być aktywne lub pasywne. 
+* Można połączyć wiele elementów równorzędnych urządzenie WUS z serwerem tras platformy Azure. Można skonfigurować atrybuty protokołu BGP w urządzenie WUS i, w zależności od projektu (np. aktywny-aktywny dla wydajności lub aktywny-pasywny dla odporności), pozwolić serwerowi usługi Azure Route na sprawdzenie, które wystąpienie urządzenie WUS jest aktywne lub które jest pasywne. 
 
 * Interfejs między urządzenie WUS i serwerem usługi Azure Route jest oparty na standardowym protokole. Tak długo, jak urządzenie WUS obsługuje protokół BGP, można nawiązać połączenie równorzędne z serwerem tras platformy Azure. Aby uzyskać więcej informacji, zobacz [obsługiwane protokoły routingu na serwerze tras](route-server-faq.md#protocol).
 

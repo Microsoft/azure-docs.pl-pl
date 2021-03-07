@@ -12,12 +12,12 @@ metadata:
   title: Dokumentacja usługi Personalizacja
   titleSuffix: Azure Cognitive Services
   description: Usługa Personalizacja platformy Azure to chmurowa usługa interfejsu API, która pozwala wybrać najlepsze środowiska dla użytkowników na podstawie ich zachowania w czasie rzeczywistym.
-  ms.openlocfilehash: f4d263e551360b326fbe849e4cb62347e8125849
-  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-  ms.translationtype: HT
+  ms.openlocfilehash: 51d86faac37ad4131adad395d0fb52a23870e2ea
+  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 11/08/2020
-  ms.locfileid: "94368138"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102433713"
 landingContent:
 - title: Informacje o usłudze Personalizacja
   linkLists:
@@ -68,7 +68,7 @@ landingContent:
     - text: Pakiet NuGet
       url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
     - text: Dokumentacja referencyjna narzędzia NuGet
-      url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&preserve-view=true
   - linkListType: get-started
     links:
     - text: Tworzenie pętli usługi Personalizacja przy użyciu środowiska Node.js

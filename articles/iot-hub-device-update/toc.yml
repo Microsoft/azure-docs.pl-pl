@@ -40,7 +40,9 @@
       href: connected-cache-disconnected-device-update.md
     - name: Konfigurowanie połączonej pamięci podręcznej firmy Microsoft na potrzeby aktualizacji urządzenia dla IoT Hub
       href: connected-cache-configure.md
-    - name: Schemat związany z importowaniem i inne informacje
+    - name: Importowanie aktualizacji urządzeń
+      href: import-concepts.md
+    - name: Schemat związany z importem
       href: import-schema.md
 - name: Przewodniki z instrukcjami
   items:

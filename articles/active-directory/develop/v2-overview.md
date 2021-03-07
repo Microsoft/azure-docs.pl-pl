@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a4ce8242bd3110fee038ac826973e6a134413344
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752579"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426845"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Co to jest platforma tożsamości firmy Microsoft?
 
@@ -38,6 +38,8 @@ Istnieje kilka składników, które tworzą platformę tożsamości firmy Micros
 W przypadku deweloperów platforma tożsamości firmy Microsoft oferuje integrację nowoczesnych innowacji w zakresie tożsamości i przestrzeni zabezpieczeń, takich jak uwierzytelnianie bezhasła, uwierzytelnianie krok po kroku i dostęp warunkowy. Nie musisz wprowadzać takich funkcji samodzielnie: Aplikacje zintegrowane z platformą tożsamości firmy Microsoft w sposób natywny wykorzystują takie innowacje.
 
 Korzystając z platformy tożsamości firmy Microsoft, możesz napisać kod jeden raz i skontaktować się z dowolnym użytkownikiem. Aplikację można skompilować raz i korzystać z niej na wielu platformach lub utworzyć aplikację, która działa jako klient, a także aplikację zasobów (API).
+
+Aby obejrzeć film wideo z omówieniem platformy i demonstracją środowiska uwierzytelniania, zobacz [co to jest platforma tożsamości firmy Microsoft dla deweloperów?](https://youtu.be/uDU1QTSw7Ps).
 
 ## <a name="getting-started"></a>Wprowadzenie
 
