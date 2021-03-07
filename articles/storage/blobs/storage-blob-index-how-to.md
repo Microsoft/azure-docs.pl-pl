@@ -3,25 +3,27 @@ title: Używanie tagów indeksu obiektów BLOB do zarządzania danymi i znajdowa
 description: Zobacz przykłady użycia tagów indeksu obiektów BLOB do kategoryzowania i wykonywania zapytań dotyczących obiektów blob oraz zarządzania nimi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/19/2020
+ms.date: 03/05/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 411815ca2f947c47b8dfb0d2e5d61f8ea18f3545
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 32bb51751430dcd0208849f798d21f2b25e6b82b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95541253"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430874"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Użyj tagów indeksu obiektów BLOB (wersja zapoznawcza), aby zarządzać danymi na platformie Azure Blob Storage i znajdować je
 
 Tagi indeksu obiektów BLOB klasyfikują dane na koncie magazynu przy użyciu atrybutów tagów klucz-wartość. Tagi te są automatycznie indeksowane i uwidaczniane jako wielowymiarowy indeks, który umożliwia łatwe wyszukiwanie danych. W tym artykule pokazano, jak ustawiać, pobierać i znajdować dane przy użyciu tagów indeksu obiektów BLOB.
 
-> [!NOTE]
-> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz [Zarządzanie danymi obiektów blob platformy Azure za pomocą tagów indeksu obiektów BLOB (wersja zapoznawcza) i znajdowanie](storage-manage-find-blobs.md)ich.
+> [!IMPORTANT]
+> Tagi indeksu obiektów BLOB są obecnie w **wersji zapoznawczej** i są dostępne w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Zapoznaj się z [dodatkowymi postanowieniami dotyczącymi](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) wersji zapoznawczych w Microsoft Azure wersjach zapoznawczych, które mają zastosowanie do funkcji platformy Azure w wersjach beta, Preview lub innych, które nie zostały jeszcze ogólnie udostępnione.
+
+Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz [Zarządzanie danymi obiektów blob platformy Azure za pomocą tagów indeksu obiektów BLOB (wersja zapoznawcza) i znajdowanie](storage-manage-find-blobs.md)ich.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

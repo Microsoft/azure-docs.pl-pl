@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 4f615ed44594379c79f179a467888652c597e286
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217180"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431061"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault
 
@@ -27,7 +27,7 @@ Istnieje jeden ważny wyjątek dla tego ograniczenia. Jeśli Użytkownik zezwoli
 Można skonfigurować [zapory Key Vault i sieci wirtualne](network-security.md) , aby odmówić dostępu do ruchu ze wszystkich sieci (łącznie z ruchem internetowym). Można udzielić dostępu do ruchu z określonych sieci wirtualnych platformy Azure i publicznych zakresów adresów IP, co pozwala na tworzenie bezpiecznej granicy sieci dla aplikacji.
 
 > [!NOTE]
-> Key Vault zapory i reguły sieci wirtualnej stosują się tylko do [płaszczyzny danych](secure-your-key-vault.md#data-plane-access-control) Key Vault. Nie mają one wpływ na działania dotyczące płaszczyzny sterowania Key Vault (takie jak tworzenie, usuwanie i modyfikowanie operacji, Ustawianie zasad dostępu, Ustawianie zapór i reguł sieci wirtualnej).
+> Key Vault zapory i reguły sieci wirtualnej stosują się tylko do [płaszczyzny danych](secure-your-key-vault.md#data-plane-access-control) Key Vault. Nie mają one wpływ na działania zapór i reguły sieci wirtualnej, Key Vault w wyniku operacji na płaszczyźnie kontroli (takich jak tworzenie, usuwanie i modyfikowanie operacji, Ustawianie zasad dostępu, Ustawianie zapór i reguł sieci wirtualnej oraz wdrażanie kluczy tajnych lub klucze za pomocą szablonów ARM).
 
 Poniżej przedstawiono kilka przykładów użycia punktów końcowych usługi:
 
