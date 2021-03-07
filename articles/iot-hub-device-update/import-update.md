@@ -6,15 +6,15 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030736"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442948"
 ---
 # <a name="import-new-update"></a>Importuj nową aktualizację
-Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia dla IoT Hub.
+Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia dla IoT Hub. Jeśli jeszcze tego nie zrobiono, pamiętaj o zapoznaniu się z podstawowymi [pojęciami dotyczącymi importu](import-concepts.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -59,9 +59,9 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
     | --------- | ----------- |
     | deviceManufacturer | Producent urządzenia, z którym jest zgodna aktualizacja, na przykład contoso
     | deviceModel | Model urządzenia, z którym jest zgodna aktualizacja, na przykład wyskakujące powiadomienia
-    | updateProvider | Składnik dostawcy aktualizacji tożsamości, na przykład Fabrikam
-    | aktualizacjaname | Część nazwy tożsamości aktualizacji, na przykład ImageUpdate
-    | updateVersion | Aktualizacja wersji, na przykład 2,0
+    | updateProvider | Jednostka, która jest tworzona lub bezpośrednio odpowiedzialna za aktualizację. Często będzie to nazwa firmy.
+    | aktualizacjaname | Identyfikator klasy aktualizacji. Klasa może być dowolna. Często będzie to nazwa urządzenia lub modelu.
+    | updateVersion | Numer wersji odróżniający tę aktualizację od innych, które mają tego samego dostawcę i nazwę. Może być niezgodna z wersją pojedynczego składnika oprogramowania na urządzeniu.
     | Typ aktualizacji | <ul><li>Określ `microsoft/swupdate:1` dla aktualizacji obrazu</li><li>Określ `microsoft/apt:1` dla aktualizacji pakietu</li></ul>
     | installedCriteria | <ul><li>Określ wartość SWVersion dla `microsoft/swupdate:1` typu aktualizacji</li><li>Określ zalecaną wartość dla `microsoft/apt:1` typu aktualizacji.
     | updateFilePath | Ścieżka do plików aktualizacji na komputerze

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 06fb087744ff4ecd96bee7a26e4a796e87866322
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032018"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433679"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,7 +64,7 @@ W przypadku testowania o wysokiej przepływności lub stawek, które są większ
 > [!NOTE] 
 > Duże użycie procesora CPU może spowodować zwiększone opóźnienia i wyjątki limitu czasu żądania.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 <a id="direct-connection"></a>
 
 **Zasady połączenia: Użyj trybu połączenia bezpośredniego**
@@ -172,7 +172,7 @@ Zapytania równoległe zawierają dwa parametry, które można dostosować w cel
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna cofnąć ograniczenie przepustowości dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że poświęcisz minimalny czas oczekiwania między ponownymi próbami. 
 
-Aby uzyskać więcej informacji, zobacz [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Aby uzyskać więcej informacji, zobacz [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Istnieje mechanizm rejestrowania dodatkowych informacji diagnostycznych i rozwiązywania problemów z opóźnieniami, jak pokazano w poniższym przykładzie. Można rejestrować ciąg diagnostyczny dla żądań o wyższym opóźnieniu odczytu. Przechwycony ciąg diagnostyczny pomoże zrozumieć, ile razy otrzymano błąd *429* dla danego żądania.
 

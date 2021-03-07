@@ -32,7 +32,7 @@
       href: device-update-agent-overview.md
     - name: Plik konfiguracji aktualizacji urządzenia
       href: device-update-configuration-file.md
-    - name: Manifest aktualizacji urządzenia
+    - name: Aktualizuj manifest
       href: update-manifest.md
     - name: Jak jest zabezpieczona aktualizacja urządzenia
       href: device-update-security.md

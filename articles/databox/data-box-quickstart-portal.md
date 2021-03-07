@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 03/05/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
-ms.translationtype: HT
+ms.openlocfilehash: 3359152455df2701d897689a1f177bf63051b94b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122793"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440721"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Rozpocznij pracę z usługą Azure Data Box, aby importować dane na platformę Azure
 
@@ -39,7 +39,7 @@ W tym przewodniku opisano sposób wdrażania usługi Azure Data Box na potrzeby 
 Przed rozpoczęciem:
 
 - Sprawdź, czy subskrypcja, której używasz na potrzeby usługi Data Box, to subskrypcja jednego z następujących typów:
-    - Microsoft Enterprise Agreement (EA). Dowiedz się więcej na temat [subskrypcji umowy EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Umowa klienta firmy Microsoft (MCA) dla nowych subskrypcji lub Microsoft Enterprise Agreement (EA) dla istniejących subskrypcji. Przeczytaj więcej [na temat MCA dla nowych subskrypcji](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) i [subskrypcji EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Dowiedz się więcej o [programie Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Dostęp sponsorowany Microsoft Azure. Dowiedz się więcej o [programie dostępu sponsorowanego Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 

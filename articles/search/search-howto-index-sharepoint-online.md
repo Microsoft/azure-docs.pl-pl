@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680213"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441095"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Jak skonfigurować indeksowanie online usługi SharePoint w Wyszukiwanie poznawcze (wersja zapoznawcza)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101680213"
 > Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](search-api-preview.md) zawiera tę funkcję. Obecnie nie ma obsługi portalu lub zestawu SDK.
+
+> [!NOTE]
+> Program SharePoint Online obsługuje szczegółowy model autoryzacji, który określa dostęp dla poszczególnych użytkowników na poziomie dokumentu. Indeksator usługi SharePoint Online nie ściąga tych uprawnień do indeksu wyszukiwania, a Wyszukiwanie poznawcze nie obsługuje autoryzacji na poziomie dokumentu. Gdy dokument jest indeksowany z usługi SharePoint Online w usłudze wyszukiwania, zawartość jest dostępna dla każdego, kto ma dostęp do odczytu do indeksu. Jeśli wymagane są uprawnienia na poziomie dokumentu, należy zbadać filtry zabezpieczeń, aby przyciąć wyniki nieautoryzowanej zawartości. Aby uzyskać więcej informacji, zobacz temat [przycinanie zabezpieczeń przy użyciu tożsamości Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 W tym artykule opisano, jak za pomocą usługi Azure Wyszukiwanie poznawcze indeksować dokumenty (takie jak pliki PDF, dokumenty Microsoft Office i inne popularne formaty) przechowywane w bibliotekach dokumentów usługi SharePoint Online w indeksie Wyszukiwanie poznawcze platformy Azure. Najpierw objaśnia podstawowe informacje na temat konfigurowania i konfigurowania indeksatora. Następnie oferuje dokładniejszą eksplorację zachowań i scenariuszy, które prawdopodobnie napotkasz.
 

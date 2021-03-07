@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737974"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433220"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -220,11 +220,11 @@ Po określeniu ciągu zapytania należy wykonać operację, wykonując wywołani
 
 Interfejs API można wywołać bezpośrednio lub użyć jednego z [zestawów SDK](how-to-use-apis-sdks.md#overview-data-plane-apis) dostępnych dla usługi Azure Digital bliźniaczych reprezentacji.
 
-Poniższy fragment kodu ilustruje wywołanie [zestawu SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) z aplikacji klienckiej:
+Poniższy fragment kodu ilustruje wywołanie [zestawu SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) z aplikacji klienckiej:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-Zapytanie użyte w tym wywołaniu zwraca listę bliźniaczych reprezentacji cyfrowych, które powyższy przykład reprezentuje z obiektami [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) . Zwracany typ danych dla każdego zapytania będzie zależeć od tego, co określono w `SELECT` instrukcji:
+Zapytanie użyte w tym wywołaniu zwraca listę bliźniaczych reprezentacji cyfrowych, które powyższy przykład reprezentuje z obiektami [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) . Zwracany typ danych dla każdego zapytania będzie zależeć od tego, co określono w `SELECT` instrukcji:
 * Zapytania, które zaczynają się od, `SELECT * FROM ...` zwracają listę bliźniaczych reprezentacji cyfrowych (które mogą być serializowane jako `BasicDigitalTwin` obiekty lub inne niestandardowe typy wieloosiowe, które mogły zostać utworzone).
 * Zapytania, które zaczynają się w formacie `SELECT <A>, <B>, <C> FROM ...` , zwróci słownika z kluczami `<A>` , `<B>` i `<C>` .
 * Inne formaty `SELECT` instrukcji można przystąpić, aby zwracały dane niestandardowe. Warto rozważyć utworzenie własnych klas do obsługi bardzo dostosowanych zestawów wyników. 

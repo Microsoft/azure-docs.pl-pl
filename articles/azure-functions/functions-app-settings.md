@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f77efc877f210455be6716f8159ee000241c62f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040349"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425706"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -159,11 +159,11 @@ Określa, czy Edycja w Azure Portal jest włączona. Prawidłowe wartości to "R
 
 ## <a name="functions_extension_version"></a>\_wersja rozszerzenia Functions \_
 
-Wersja środowiska uruchomieniowego funkcji, która ma być używana w tej aplikacji funkcji. Tylda z wersją główną oznacza użycie najnowszej wersji tej wersji głównej (na przykład "~ 2"). Gdy dostępne są nowe wersje dla tej samej wersji głównej, są one automatycznie instalowane w aplikacji funkcji. Aby przypiąć aplikację do określonej wersji, użyj pełnego numeru wersji (na przykład "2.0.12345"). Wartość domyślna to "~ 2". Wartość `~1` przypinania aplikacji do wersji 1. x środowiska uruchomieniowego.
+Wersja środowiska uruchomieniowego funkcji, która hostuje aplikację funkcji. Tylda ( `~` ) z wersją główną oznacza użycie najnowszej wersji tej wersji głównej (na przykład "~ 3"). Gdy dostępne są nowe wersje dla tej samej wersji głównej, są one automatycznie instalowane w aplikacji funkcji. Aby przypiąć aplikację do określonej wersji, użyj pełnego numeru wersji (na przykład "3.0.12345"). Wartość domyślna to "~ 3". Wartość `~1` przypinania aplikacji do wersji 1. x środowiska uruchomieniowego. Aby uzyskać więcej informacji, zobacz [Omówienie wersji środowiska uruchomieniowego Azure Functions](functions-versions.md).
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|\_wersja rozszerzenia Functions \_|~ 2|
+|\_wersja rozszerzenia Functions \_|~ 3|
 
 ## <a name="functions_v2_compatibility_mode"></a>Tryb zgodności funkcji w \_ wersji 2 \_ \_
 

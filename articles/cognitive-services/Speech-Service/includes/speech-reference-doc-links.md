@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bc959bc0960a2de3d84f8d75f285138eacdbe34
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91642002"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434319"
 ---
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
@@ -24,12 +24,12 @@ Usługa mowy oferuje dwa zestawy SDK. Pierwszy zestaw SDK jest podstawowym [zest
 
 Skorzystaj z poniższej listy, aby znaleźć odpowiednie dokumenty referencyjne dotyczące zestawu Speech SDK:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">ZESTAW C# SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">ZESTAW SDK JĘZYKA C++ <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Zestaw Java SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Zestaw SDK dla języka Python<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Zestaw SDK dla języka JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Zestaw SDK języka C <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">ZESTAW C# SDK </a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">ZESTAW SDK JĘZYKA C++ </a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Zestaw Java SDK </a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Zestaw SDK dla języka Python</a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Zestaw SDK dla języka JavaScript</a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Zestaw SDK języka C </a>
 
 > [!TIP]
 > Zestaw SDK usługi mowy jest aktywnie konserwowany i aktualizowany. Aby śledzić zmiany, aktualizacje i dodatki do funkcji zapoznaj się z [informacjami o wersji zestawu Speech SDK](../releasenotes.md).
@@ -45,4 +45,4 @@ Aby uzyskać informacje o różnych interfejsach API REST usługi Speech Service
 - [Interfejs API REST: zamiana mowy na tekst](../rest-speech-to-text.md)
 - [Interfejs API REST: Ocena wymowy](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [Interfejs API REST: zamiana tekstu na mowę](../rest-text-to-speech.md)
-- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">Interfejs API REST: Transkrypcja i dostosowywanie partii <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">Interfejs API REST: Transkrypcja i dostosowywanie partii </a>

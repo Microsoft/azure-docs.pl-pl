@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5890ddb2a4b1599dbcfd1e624c9fbe71a564de7
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799842"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442761"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -35,8 +35,6 @@ Tylko użytkownik administrator usługi Azure AD może tworzyć/włączać użyt
 > Podczas konfigurowania administratora nowy użytkownik zostanie dodany do serwera Azure Database for MySQL z uprawnieniami pełnego administratora.
 
 Tylko jeden administrator usługi Azure AD można utworzyć na serwerze MySQL, a wybór innego z nich spowoduje zastąpienie istniejącego administratora usługi Azure AD skonfigurowanego dla serwera.
-
-W przyszłej wersji Firma Microsoft będzie obsługiwać Określanie grupy usługi Azure AD zamiast pojedynczego użytkownika w celu posiadania wielu administratorów, ale nie jest to obecnie obsługiwane.
 
 Po skonfigurowaniu administratora możesz teraz zalogować się:
 
@@ -205,7 +203,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
 * Perl
   * DBD:: MySQL: obsługiwane
   * NET:: MySQL: nieobsługiwane
-* Przejdź
+* Go
   * go-SQL-Driver: obsługiwane, Dodaj `?tls=true&allowCleartextPasswords=true` do parametrów połączenia
 
 ## <a name="next-steps"></a>Następne kroki

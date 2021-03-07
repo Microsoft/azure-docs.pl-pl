@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7836e791f8515c2df89228c81419738adf27e47f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952203"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438919"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack EDGE Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano sposób tworzenia modułu IoT Edge na potrzeby wdrożenia przy użyciu urządzenia z Azure Stack EDGE Pro. Azure Stack EDGE Pro to rozwiązanie magazynu, które pozwala na przetwarzanie danych i wysyłanie ich przez sieć do platformy Azure.
 
@@ -77,7 +77,7 @@ Usługa Azure Container Registry to rejestr prywatny platformy Docker na platfor
 
       ![Tworzenie rejestru kontenerów](./media/azure-stack-edge-j-series-create-iot-edge-module/create-container-registry-1.png)
  
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Po utworzeniu rejestru kontenerów przejdź do niego i wybierz pozycję **Klucze dostępu**.
 
     ![Pobierz klucze dostępu](./media/azure-stack-edge-j-series-create-iot-edge-module/get-access-keys-1.png)
@@ -126,7 +126,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
 ### <a name="update-the-module-with-custom-code"></a>Aktualizowanie modułu przy użyciu kodu niestandardowego
 
 1. W Eksploratorze VS Code Otwórz **moduł > FileCopyModule > program.cs**.
-2. W górnej części **przestrzeni nazw FileCopyModule**Dodaj następujące instrukcje using dla typów, które są używane później. **Microsoft. Azure. Devices. Client. transport. MQTT** to protokół służący do wysyłania komunikatów do centrum IoT Edge.
+2. W górnej części **przestrzeni nazw FileCopyModule** Dodaj następujące instrukcje using dla typów, które są używane później. **Microsoft. Azure. Devices. Client. transport. MQTT** to protokół służący do wysyłania komunikatów do centrum IoT Edge.
 
     ```
     namespace FileCopyModule
@@ -160,7 +160,7 @@ Utwórz szablon rozwiązania w języku C#, który można dostosować przy użyci
     }
     ```
 
-5. W **metodzie init**kod tworzy i konfiguruje obiekt **ModuleClient** . Ten obiekt umożliwia modułowi łączenie się z lokalnymi Azure IoT Edge środowiska uruchomieniowego przy użyciu protokołu MQTT w celu wysyłania i odbierania komunikatów. Parametry połączenia używane w metodzie Init są dostarczane do modułu za pośrednictwem środowiska uruchomieniowego usługi IoT Edge. Kod rejestruje wywołanie zwrotne operacja FileCopy, aby odbierać komunikaty z Centrum IoT Edge za pośrednictwem punktu końcowego **INPUT1** . Zastąp **metodę init** poniższym kodem.
+5. W **metodzie init** kod tworzy i konfiguruje obiekt **ModuleClient** . Ten obiekt umożliwia modułowi łączenie się z lokalnymi Azure IoT Edge środowiska uruchomieniowego przy użyciu protokołu MQTT w celu wysyłania i odbierania komunikatów. Parametry połączenia używane w metodzie Init są dostarczane do modułu za pośrednictwem środowiska uruchomieniowego usługi IoT Edge. Kod rejestruje wywołanie zwrotne operacja FileCopy, aby odbierać komunikaty z Centrum IoT Edge za pośrednictwem punktu końcowego **INPUT1** . Zastąp **metodę init** poniższym kodem.
 
     ```
     /// <summary>

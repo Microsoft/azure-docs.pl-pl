@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.openlocfilehash: d39ade2536b96bf5e665ecfc01e81232f2fec075
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1d5fba12ce9b1ce8d30c59a08aa36e1222abe3c7
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217945"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433934"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -98,12 +98,12 @@ Po utworzeniu kontenera usługi Azure Cosmos lub bazy danych można zaktualizowa
 
 Można pobrać zainicjowaną przepływność kontenera lub bazy danych w Azure Portal lub przy użyciu zestawów SDK:
 
-* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) w zestawie .NET SDK.
+* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync) w zestawie .NET SDK.
 * [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput) w zestawie Java SDK.
 
 Odpowiedź tych metod zawiera również [minimalną zainicjowaną przepływność](concepts-limits.md#storage-and-database-operations) dla kontenera lub bazy danych:
 
-* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) w zestawie .NET SDK.
+* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput) w zestawie .NET SDK.
 * [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput) w zestawie Java SDK.
 
 Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji konta. Zwykle jest to maksymalna wartość:
@@ -116,7 +116,7 @@ Rzeczywiste minimum RU/s może się różnić w zależności od konfiguracji kon
 
 Zainicjowaną przepływność kontenera lub bazy danych można skalować za pomocą Azure Portal lub przy użyciu zestawów SDK:
 
-* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) w zestawie .NET SDK.
+* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync) w zestawie .NET SDK.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput) w zestawie Java SDK.
 
 W przypadku **obniżenia ilości zainicjowanej przepływności** będzie można wykonać [minimalnie](#current-provisioned-throughput).
@@ -128,7 +128,7 @@ Jeśli **rośnie przepływność**, większość czasu operacja jest chwilowo. I
 
 Możesz programowo sprawdzić postęp skalowania, odczytując [bieżącą przepływność](#current-provisioned-throughput) i korzystając z:
 
-* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) w zestawie .NET SDK.
+* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending) w zestawie .NET SDK.
 * [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending) w zestawie Java SDK.
 
 Za pomocą [metryk Azure monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) można wyświetlić historię zainicjowanej przepływności (ru/s) i magazynu w ramach zasobu.

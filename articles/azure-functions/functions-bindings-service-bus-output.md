@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 12e57361b9e275fc441df27a3a1381989d48751c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ae2be8dbcb4839c7d16b864c484c3360fdcfe324
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788574"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425587"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -387,7 +387,7 @@ Użyj [zestawu SDK Azure Service Bus](../service-bus-messaging/index.yml) , a ni
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Dokumentacja |
+| Wiązanie | Odwołanie |
 |---|---|
 | Service Bus | [Service Bus kody błędów](../service-bus-messaging/service-bus-messaging-exceptions.md) |
 | Service Bus | [Limity Service Bus](../service-bus-messaging/service-bus-quotas.md) |
@@ -429,7 +429,7 @@ Jeśli `isSessionsEnabled` ustawiono `true` opcję, `sessionHandlerOptions` zost
 |---------|---------|---------|
 |prefetchCount|0|Pobiera lub ustawia liczbę komunikatów, które może jednocześnie wysłać odbiorca wiadomości.|
 |maxAutoRenewDuration|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.|
-|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.<br><br>Ustawienie `false` jest obsługiwane tylko w języku C#.<br><br>Jeśli jest ustawiona na `true` , wyzwalacz kończy komunikat automatycznie, jeśli wykonanie funkcji zakończy się pomyślnie i porzuca komunikat w przeciwnym razie.<br><br>Po ustawieniu na `false` , użytkownik jest odpowiedzialny za wywoływanie metod [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) w celu ukończenia, porzucenia lub utraconia wiadomości. Jeśli wyjątek jest zgłaszany (i żadna z `MessageReceiver` metod nie jest wywoływana), blokada pozostaje. Po wygaśnięciu blokady wiadomość zostanie ponownie umieszczona w kolejce z `DeliveryCount` przyrostem, a blokada zostanie automatycznie odnowiona.<br><br>W przypadku funkcji innych niż języka C wyjątki w funkcji powodują wywołania środowiska uruchomieniowego `abandonAsync` w tle. Jeśli żaden wyjątek nie wystąpi, wówczas `completeAsync` jest wywoływana w tle. |
+|Wskazówk|true|Określa, czy wyzwalacz ma automatycznie wywoływać zakończenie po przetworzeniu, czy też kod funkcji zostanie wykonany ręcznie.<br><br>Ustawienie `false` jest obsługiwane tylko w języku C#.<br><br>Jeśli jest ustawiona na `true` , wyzwalacz kończy komunikat automatycznie, jeśli wykonanie funkcji zakończy się pomyślnie i porzuca komunikat w przeciwnym razie.<br><br>Po ustawieniu na `false` , użytkownik jest odpowiedzialny za wywoływanie metod [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) w celu ukończenia, porzucenia lub utraconia wiadomości. Jeśli wyjątek jest zgłaszany (i żadna z `MessageReceiver` metod nie jest wywoływana), blokada pozostaje. Po wygaśnięciu blokady wiadomość zostanie ponownie umieszczona w kolejce z `DeliveryCount` przyrostem, a blokada zostanie automatycznie odnowiona.<br><br>W przypadku funkcji innych niż języka C wyjątki w funkcji powodują wywołania środowiska uruchomieniowego `abandonAsync` w tle. Jeśli żaden wyjątek nie wystąpi, wówczas `completeAsync` jest wywoływana w tle. |
 |maxConcurrentCalls|16|Maksymalna liczba jednoczesnych wywołań wywołania zwrotnego, które pompa komunikatów powinna inicjować na wystąpienie skalowane. Domyślnie środowisko uruchomieniowe funkcji przetwarza wiele komunikatów jednocześnie.|
 |maxConcurrentSessions|2000|Maksymalna liczba sesji, które mogą być obsłużone współbieżnie na wystąpienie skalowane.|
 
