@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3724586ae9773e135905cddd2a9a33a3a6803ce5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: d2d3d04bdb8066db263c608bb1d42acca303a656
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211791"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433832"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -31,7 +31,7 @@ Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli to _**2020-12-0
 Aby używać interfejsów API płaszczyzny kontroli:
 * Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszego folderu Swagger w [repozytorium Swagger płaszczyzny kontroli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Ten folder zawiera również folder przykładów, które pokazują użycie.
 * Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w...
-  - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management)) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
   - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins)) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -55,7 +55,7 @@ Aby używać interfejsów API płaszczyzny danych:
    - Wyświetlanie [dokumentacji dotyczącej interfejsu API](/rest/api/azure-digitaltwins/).
 * Możesz użyć **zestawu SDK platformy .NET (C#)**. Aby użyć zestawu SDK platformy .NET...
    - Możesz wyświetlić i dodać pakiet z programu NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - można wyświetlić [dokumentację referencyjną zestawu SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+   - można wyświetlić [dokumentację referencyjną zestawu SDK](/dotnet/api/overview/azure/digitaltwins/client).
    - Źródło zestawu SDK, w tym folder przykładów, można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [*zestawu SDK platformy .NET (C#)*](#net-c-sdk-data-plane) w tym artykule.
 * Możesz użyć **zestawu SDK języka Java**. Aby użyć zestawu Java SDK...
@@ -82,7 +82,7 @@ Zestaw SDK platformy Azure Digital bliźniaczych reprezentacji .NET (C#) jest cz
 > Aby uzyskać więcej informacji na temat projektowania zestawu SDK, zobacz Ogólne [zasady projektowania dotyczące zestawów SDK platformy Azure](https://azure.github.io/azure-sdk/general_introduction.html) i szczegółowe [wskazówki dotyczące projektowania platformy .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
 Aby użyć zestawu SDK, Dołącz pakiet NuGet **Azure. DigitalTwins. Core** z projektem. Potrzebna będzie również Najnowsza wersja pakietu **Azure. Identity** . W programie Visual Studio można dodać te pakiety przy użyciu Menedżera pakietów NuGet (dostępne za pośrednictwem *narzędzi > menedżerze pakietów nuget > zarządzanie pakietami NuGet dla rozwiązania*). Alternatywnie można użyć narzędzia wiersza polecenia platformy .NET z poleceniami znajdującymi się w poniższych linkach pakietów NuGet, aby dodać je do projektu:
-* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Jest to pakiet dla [zestawu SDK Digital bliźniaczych reprezentacji systemu Azure dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Jest to pakiet dla [zestawu SDK Digital bliźniaczych reprezentacji systemu Azure dla platformy .NET](/dotnet/api/overview/azure/digitaltwins/client). 
 * [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Ta biblioteka zawiera narzędzia, które ułatwiają uwierzytelnianie na platformie Azure.
 
 Aby zapoznać się ze szczegółowym opisem użycia interfejsów API w programie, zobacz [*Samouczek: Code a Client App*](tutorial-code.md). 
@@ -175,15 +175,15 @@ Aktualizacje wywołań bliźniaczych reprezentacji i Relationships używają str
 Poniższa lista zawiera dodatkowe szczegółowe informacje i ogólne wskazówki dotyczące korzystania z interfejsów API i zestawów SDK.
 
 * Możesz użyć narzędzia do testowania HTTP REST, takiego jak Poster, aby nawiązywać bezpośrednie wywołania interfejsów API Digital bliźniaczych reprezentacji platformy Azure. Aby uzyskać więcej informacji o tym procesie, zobacz [*How to: wykonywanie żądań za pomocą programu Poster*](how-to-use-postman.md).
-* Aby użyć zestawu SDK, Utwórz wystąpienie `DigitalTwinsClient` klasy. Konstruktor wymaga poświadczeń, które można uzyskać przy użyciu różnych metod uwierzytelniania w `Azure.Identity` pakiecie. Więcej informacji `Azure.Identity` można znaleźć w dokumentacji dotyczącej [przestrzeni nazw](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
-* Może się to okazać `InteractiveBrowserCredential` przydatne podczas rozpoczynania pracy, ale istnieje kilka innych opcji, w tym poświadczenia [zarządzanej tożsamości](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), które prawdopodobnie będą używane do uwierzytelniania usługi [Azure Functions w](../app-service/overview-managed-identity.md?tabs=dotnet) usłudze Azure Digital bliźniaczych reprezentacji. Więcej informacji `InteractiveBrowserCredential` można znaleźć w [dokumentacji swojej klasy](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet).
+* Aby użyć zestawu SDK, Utwórz wystąpienie `DigitalTwinsClient` klasy. Konstruktor wymaga poświadczeń, które można uzyskać przy użyciu różnych metod uwierzytelniania w `Azure.Identity` pakiecie. Więcej informacji `Azure.Identity` można znaleźć w dokumentacji dotyczącej [przestrzeni nazw](/dotnet/api/azure.identity). 
+* Może się to okazać `InteractiveBrowserCredential` przydatne podczas rozpoczynania pracy, ale istnieje kilka innych opcji, w tym poświadczenia [zarządzanej tożsamości](/dotnet/api/azure.identity.interactivebrowsercredential), które prawdopodobnie będą używane do uwierzytelniania usługi [Azure Functions w](../app-service/overview-managed-identity.md?tabs=dotnet) usłudze Azure Digital bliźniaczych reprezentacji. Więcej informacji `InteractiveBrowserCredential` można znaleźć w [dokumentacji swojej klasy](/dotnet/api/azure.identity.interactivebrowsercredential).
 * Wszystkie wywołania interfejsu API usługi są udostępniane jako funkcje członkowskie w `DigitalTwinsClient` klasie.
 * Wszystkie funkcje usługi istnieją w wersjach synchronicznych i asynchronicznych.
-* Wszystkie funkcje usługi zwracają wyjątek dla dowolnego stanu powrotu 400 lub nowszego. Pamiętaj, aby zawinąć wywołania do `try` sekcji i przechwycić co najmniej `RequestFailedExceptions` . Aby uzyskać więcej informacji na temat tego typu wyjątku, zobacz [tutaj](/dotnet/api/azure.requestfailedexception?preserve-view=true&view=azure-dotnet).
-* Większość metod usługi zwraca `Response<T>` lub ( `Task<Response<T>>` dla wywołań asynchronicznych), gdzie `T` jest klasą obiektu zwrotnego dla wywołania usługi. [`Response`](/dotnet/api/azure.response-1?preserve-view=true&view=azure-dotnet)Klasa hermetyzuje zwracaną usługę i prezentuje wartości zwracane w `Value` polu.  
-* Metody obsługi z wynikami stronicowania zwracają `Pageable<T>` lub `AsyncPageable<T>` jako wyniki. Aby uzyskać więcej informacji na temat `Pageable<T>` klasy, zobacz [tutaj](/dotnet/api/azure.pageable-1?preserve-view=true&view=azure-dotnet). Aby uzyskać więcej informacji `AsyncPageable<T>` , zobacz [tutaj](/dotnet/api/azure.asyncpageable-1?preserve-view=true&view=azure-dotnet).
+* Wszystkie funkcje usługi zwracają wyjątek dla dowolnego stanu powrotu 400 lub nowszego. Pamiętaj, aby zawinąć wywołania do `try` sekcji i przechwycić co najmniej `RequestFailedExceptions` . Aby uzyskać więcej informacji na temat tego typu wyjątku, zobacz [tutaj](/dotnet/api/azure.requestfailedexception).
+* Większość metod usługi zwraca `Response<T>` lub ( `Task<Response<T>>` dla wywołań asynchronicznych), gdzie `T` jest klasą obiektu zwrotnego dla wywołania usługi. [`Response`](/dotnet/api/azure.response-1)Klasa hermetyzuje zwracaną usługę i prezentuje wartości zwracane w `Value` polu.  
+* Metody obsługi z wynikami stronicowania zwracają `Pageable<T>` lub `AsyncPageable<T>` jako wyniki. Aby uzyskać więcej informacji na temat `Pageable<T>` klasy, zobacz [tutaj](/dotnet/api/azure.pageable-1). Aby uzyskać więcej informacji `AsyncPageable<T>` , zobacz [tutaj](/dotnet/api/azure.asyncpageable-1).
 * Można wykonać iterację w wynikach ze strony przy użyciu `await foreach` pętli. Aby uzyskać więcej informacji o tym procesie, zobacz [tutaj](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* Podstawowy zestaw SDK to `Azure.Core` . Zobacz [dokumentację przestrzeni nazw platformy Azure](/dotnet/api/azure?preserve-view=true&view=azure-dotnet) , aby uzyskać informacje na temat infrastruktury i typów zestawu SDK.
+* Podstawowy zestaw SDK to `Azure.Core` . Zobacz [dokumentację przestrzeni nazw platformy Azure](/dotnet/api/azure) , aby uzyskać informacje na temat infrastruktury i typów zestawu SDK.
 
 Metody usługi zwracają obiekty silnie wpisane, wszędzie tam, gdzie to możliwe. Jednak ponieważ usługa Azure Digital bliźniaczych reprezentacji opiera się na modelach niestandardowych skonfigurowanych przez użytkownika w czasie wykonywania (za pośrednictwem modeli DTDL przekazanych do usługi), wiele interfejsów API usługi pobiera i zwraca dane z sznurka w formacie JSON.
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: bd2de052f1913a214ba037b057b72de0e7d8da6e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5628c5df7ff7176896731ff8a24b4b0c990720ca
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362935"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430672"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -238,11 +238,9 @@ Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawien
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 
-Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
+Jeśli zasoby, które zostały utworzone, nie są już potrzebne, usuń je. Niektóre z zasobów wirtualnych sieci WAN muszą zostać usunięte w określonej kolejności z powodu zależności. Usuwanie może potrwać około 30 minut.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

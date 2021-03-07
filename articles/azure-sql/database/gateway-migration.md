@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690536"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430194"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,18 @@ Najbardziej aktualne informacje będą przechowywane w tabeli [adresy IP bramy A
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
+
+## <a name="april-2021"></a>Kwiecień 2021
+Nowe bramy SQL są dodawane do następujących regionów:
+- Norwegia Wschodnia: 51.120.96.33
+- Azja Wschodnia południowy: 13.67.16.193
+- Północna Republika Południowej Afryki: 102.133.152.32
+- Korea Południowa: 52.231.151.96
+- Północna, środkowe: US 52.162.105.9
+- Australia Południowo-Wschodnia: 13.77.49.32 
+
+Te bramy SQL zaczynają akceptować ruch klienta 5 kwietnia 2021.
+
 ## <a name="march-2021"></a>Marzec 2021
 Następujące bramy SQL w wielu regionach są w trakcie dezaktywowania:
 

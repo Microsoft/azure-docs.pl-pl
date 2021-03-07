@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 047b4fdf1c46ae0d9caf3780e0d4d2736f2ef320
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b91b7aca53574791fe6b1b9b3ea436761c2d0b90
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099029"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431804"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -18,6 +18,8 @@ ms.locfileid: "100099029"
 |[Cały ruch internetowy powinien być kierowany przy użyciu wdrożonej zapory platformy Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center zidentyfikował, że niektóre podsieci nie są chronione przez zaporę nowej generacji. Ochrona podsieci przed potencjalnymi zagrożeniami przez ograniczenie dostępu do nich za pomocą zapory platformy Azure lub obsługiwanej zapory nowej generacji |AuditIfNotExists, wyłączone |[3.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[Należy włączyć Standard Azure DDoS Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |Standard DDoS Protection powinien być włączony dla wszystkich sieci wirtualnych z podsiecią, która jest częścią bramy aplikacji z publicznym adresem IP. |AuditIfNotExists, wyłączone |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |[Bramy sieci VPN platformy Azure nie powinny używać jednostki SKU "Basic"](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Te zasady zapewniają, że bramy sieci VPN nie używają jednostki SKU "Basic". |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json) |
+|[Wdróż — Skonfiguruj domeny Azure Event Grid do używania prywatnych stref DNS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd389df0a-e0d7-4607-833c-75a6fdac2c2d) |Użyj prywatnych stref DNS, aby zastąpić rozpoznawanie nazw DNS dla prywatnego punktu końcowego. Dowiedz się więcej o: [https://aka.ms/privatednszone](https://aka.ms/privatednszone) . |deployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Domains_PrivateDNSZone_DeployIfNotExists.json) |
+|[Wdróż — Skonfiguruj Azure Event Grid tematy, aby używać prywatnych stref DNS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbaf19753-7502-405f-8745-370519b20483) |Użyj prywatnych stref DNS, aby zastąpić rozpoznawanie nazw DNS dla prywatnego punktu końcowego. Dowiedz się więcej o: [https://aka.ms/privatednszone](https://aka.ms/privatednszone) . |deployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Topics_PrivateDNSZone_DeployIfNotExists.json) |
 |[Wdróż zasób dziennika przepływu z grupą zabezpieczeń sieci docelowej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0db34a60-64f4-4bf6-bd44-f95c16cf34b9) |Konfiguruje dziennik przepływu dla konkretnej sieciowej grupy zabezpieczeń. Umożliwi to rejestrowanie informacji o ruchu IP przepływających przez grupę zabezpieczeń sieci. Dziennik przepływów pomaga identyfikować nieznane lub niepożądane ruchy, weryfikować izolację sieci i zgodność z regułami dostępu przedsiębiorstwa, analizować przepływy sieci ze złamanych adresów IP i interfejsów sieciowych. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_FlowLog_Deploy.json) |
 |[Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |Te zasady automatycznie wdrażają ustawienia diagnostyczne do sieciowych grup zabezpieczeń. Konto magazynu o nazwie "{storagePrefixParameter} {NSGLocation}" zostanie utworzone automatycznie. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
 |[Wdróż obserwatora sieciowego po utworzeniu sieci wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) |Te zasady tworzą zasób obserwatora sieci w regionach z sieciami wirtualnymi. Należy upewnić się, że istnieje grupa zasobów o nazwie networkWatcherRG, która zostanie użyta do wdrożenia wystąpień obserwatora sieci. |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Deploy.json) |

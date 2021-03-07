@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f853dca12b6a5855dc0603259ab534fa9933cd5b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348640"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432302"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Szybki Start: monitorowanie pierwszej metryki przy użyciu portalu sieci Web
 
@@ -30,7 +30,7 @@ Po zainicjowaniu obsługi administracyjnej wystąpienia klasyfikatora metryk mo�
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-* Gdy masz subskrypcję platformy Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Utwórz zasób klasyfikatora metryk "  target="_blank"> Utwórz zasób klasyfikatora metryk <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby wdrożyć wystąpienie usługi Advisor metryk.  
+* Gdy masz subskrypcję platformy Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Utwórz zasób klasyfikatora metryk "  target="_blank"> Utwórz zasób klasyfikatora metryk </a> w Azure Portal, aby wdrożyć wystąpienie usługi Advisor metryk.  
 
     
 > [!TIP]
@@ -91,7 +91,7 @@ Gdy schemat danych zostanie załadowany i przedstawiony poniżej, wybierz odpowi
 
 |Zaznaczenie  |Opis  |Uwagi  |
 |---------|---------|---------|
-|**Timestamp**     | Sygnatura czasowa punktu danych. W przypadku pominięcia klasyfikator metryk będzie używać sygnatury czasowej, gdy zostanie wprowadzony punkt danych. Dla każdego źródła danych można określić maksymalnie jedną kolumnę jako sygnaturę czasową.        | Opcjonalny. Należy określić z co najwyżej jedną kolumną.       |
+|**Znacznik czasu**     | Sygnatura czasowa punktu danych. W przypadku pominięcia klasyfikator metryk będzie używać sygnatury czasowej, gdy zostanie wprowadzony punkt danych. Dla każdego źródła danych można określić maksymalnie jedną kolumnę jako sygnaturę czasową.        | Opcjonalny. Należy określić z co najwyżej jedną kolumną.       |
 |**Measure**     |  Wartości liczbowe w strumieniowym źródle danych. Dla każdego źródła danych można określić wiele miar, ale do miary należy wybrać co najmniej jedną kolumnę.        | Należy określić z co najmniej jedną kolumną.        |
 |**Wymiar**     | Kategorii wartości. Kombinacja różnych wartości identyfikuje konkretną serię czasową pojedynczego wymiaru, na przykład: Country, language, dzierżawca. Jako wymiary można wybrać opcję Brak lub dowolną liczbę kolumn. Uwaga: Jeśli wybierasz kolumnę niebędącą ciągiem jako wymiar, należy zachować ostrożność z rozłożeniem wymiaru. | Opcjonalny.        |
 |**Ignoruj**     | Ignoruj wybraną kolumnę.        |         |

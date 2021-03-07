@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3395dc3010f7ae3aabadda8105c1765a9c300988
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201264"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424584"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -48,7 +48,7 @@ Aby obejść ten scenariusz, będziesz korzystać ze składników wstępnie pobr
 
 Poniżej przedstawiono składniki zaimplementowane w przykładowej aplikacji *AdtSampleApp* scenariusza:
 * Uwierzytelnianie urządzeń 
-* Przykłady użycia [zestawu SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (znaleziono w *CommandLoop.cs*)
+* Przykłady użycia [zestawu SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) (znaleziono w *CommandLoop.cs*)
 * Interfejs konsoli do wywoływania interfejsu API Digital bliźniaczych reprezentacji platformy Azure
 * *SampleClientApp* — przykładowe rozwiązanie Azure Digital bliźniaczych reprezentacji
 * *SampleFunctionsApp* — aplikacja Azure Functions, która aktualizuje wykres usługi Azure Digital bliźniaczych reprezentacji w wyniku użycia telemetrii z IoT Hub i usługi Azure Digital bliźniaczych reprezentacji

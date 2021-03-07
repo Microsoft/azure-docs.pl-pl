@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d5671626e05145f79c3ad5fc0ecdb5628ac9421
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364583"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427134"
 ---
 # <a name="conditional-access-users-and-groups"></a>Dostęp warunkowy: Użytkownicy i grupy
 
-Zasady dostępu warunkowego muszą zawierać przypisanie użytkownika jako jeden z sygnałów w procesie decyzyjnym. Użytkownicy mogą być dołączeni lub wykluczeni z zasad dostępu warunkowego. Azure Active Directory oblicza wszystkie zasady i gwarantuje, że wszystkie wymagania są spełnione przed udzieleniem dostępu użytkownikowi.
+Zasady dostępu warunkowego muszą zawierać przypisanie użytkownika jako jeden z sygnałów w procesie decyzyjnym. Użytkownicy mogą być dołączeni lub wykluczeni z zasad dostępu warunkowego. Azure Active Directory oblicza wszystkie zasady i gwarantuje, że wszystkie wymagania są spełnione przed udzieleniem dostępu użytkownikowi. Oprócz tego artykułu zawieramy wideo na temat [sposobu dołączania lub wykluczania użytkowników z zasad dostępu warunkowego](https://www.youtube.com/watch?v=5DsW1hB3Jqs) , które przeprowadzą Cię przez proces opisany poniżej. 
 
 ![Użytkownik jako sygnał w decyzji podejmowanych przez dostęp warunkowy](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 

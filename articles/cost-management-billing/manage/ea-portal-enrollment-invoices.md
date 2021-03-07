@@ -3,18 +3,18 @@ title: Faktury za rejestracje w usłudze Azure Enterprise
 description: W tym artykule wyjaśniono, jak zarządzać fakturami za usługę Azure Enterprise i wykonywać związane z nimi działania.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598075"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430817"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -98,29 +98,41 @@ Witryna Azure Enterprise Portal umożliwia ukrycie nieaktywnych rejestracji. Aby
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Zmiana numeru zamówienia zakupu na nadchodzącej fakturze nadwyżkowej
 
-W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer zamówienia zakupu, o ile administrator przedsiębiorstwa nie ustawił tego numeru przed datą wystawienia faktury. Administrator przedsiębiorstwa może zaktualizować numer zamówienia zakupu w ciągu siedmiu dni od otrzymania automatycznej wiadomości e-mail z powiadomieniem o fakturze.
+W witrynie Azure Enterprise Portal automatycznie generowany jest domyślny numer zamówienia zakupu, o ile administrator przedsiębiorstwa nie ustawił tego numeru przed datą wystawienia faktury. Administrator przedsiębiorstwa może zaktualizować numer zamówienia zakupu w ciągu siedmiu dni od otrzymania automatycznej wiadomości e-mail z powiadomieniem o fakturze. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Aby zaktualizować numer zamówienia zakupu usług platformy Azure:
+Aby zapobiec automatycznemu generowaniu numerów PO raz miesiąc, można zablokować numer zamówienia zakupu. Zobacz [Zablokuj numer zamówienia zakupu](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Aktualizowanie numeru zamówienia zakupu usług platformy Azure
 
 1. W witrynie Azure Enterprise Portal wybierz pozycję **Raport** > **Podsumowanie użycia**.
 1. Wybierz pozycję **Edytuj numery zamówień zakupu** w prawym górnym rogu.
 1. Wybierz przycisk radiowy **Usługi platformy Azure**.
 1. Wybierz pozycję **Okres faktury** z menu rozwijanego zakresów dat.
-
    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
 1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Aby zaktualizować numer zamówienia zakupu na platformie Azure Marketplace:
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Aktualizowanie numeru zamówienia zakupu w witrynie Azure Marketplace
 
 1. W witrynie Azure Enterprise Portal wybierz pozycję **Raport** > **Podsumowanie użycia**.
 1. Wybierz pozycję **Edytuj numery zamówień zakupu** w prawym górnym rogu.
 1. Wybierz przycisk radiowy **Marketplace**.
-1. Wybierz pozycję **Okres faktury** z menu rozwijanego zakresów dat.
-
-   Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
+1. Wybierz pozycję **Okres faktury** z menu rozwijanego zakresów dat.  
+    Numer zamówienia zakupu można edytować w ciągu siedmiu dni od otrzymania powiadomienia o fakturze, ale przed jej zapłaceniem.
 1. Podaj nowy numer zamówienia zakupu w polu **Numer zamówienia zakupu**.
 1. Wybierz pozycję **Zapisz**, aby przesłać zmianę.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Zablokuj numer zamówienia w celu zapobieżenia automatycznej aktualizacji w nadchodzących cyklach rozliczeniowych
+
+Po zablokowaniu numeru zakupu pozostaje ona zablokowana dla wszystkich nowych faktur i nie trzeba aktualizować numeru zakupu.
+
+1.  W portalu Azure Enterprise wybierz pozycję **raport**  >  **Podsumowanie użycia**.
+2.  Wybierz pozycję **Edytuj numery zamówień zakupu** w prawym górnym rogu.
+3.  W polu **Numer zamówienia** wpisz nowy numer zamówienia zakupu.
+4.  Wybierz pole **blokady numeru zamówienia** .
+5.  Wybierz pozycję **Zapisz**, aby przesłać zmianę.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Zrzut ekranu przedstawiający pole Wyświetl/Edytuj numery telefonów." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Częstotliwość fakturowania w usłudze Azure Enterprise
 

@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
-ms.openlocfilehash: 93d59e78241dcc94785ca139818d72908c7184a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043919"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432557"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 
 
@@ -418,7 +418,7 @@ Gdy obraz jest odczytywany w całości, wówczas i tylko wtedy, gdy interfejs AP
 
 Obiekt odpowiedzi JSON ma ten sam Graf obiektów co wersja asynchroniczna. Jeśli jesteś użytkownikiem języka JavaScript i potrzebujesz bezpieczeństwa typu, rozważ użycie języka TypeScript do rzutowania odpowiedzi JSON.
 
-Aby zapoznać się z przykładowym przypadkiem użycia, zobacz <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">piaskownicę TypeScript <span class="docon docon-navigate-external x-hidden-focus"></span> tutaj</a> i wybierz pozycję **Uruchom** , aby wizualizować jej łatwość użytkowania.
+Aby zapoznać się z przykładowym przypadkiem użycia, zobacz <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">piaskownicę TypeScript tutaj</a> i wybierz pozycję **Uruchom** , aby wizualizować jej łatwość użytkowania.
 
 ## <a name="stop-the-container"></a>Zatrzymywanie kontenera
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ea412b695c12f3ff7fdfa6250e2a474b618b8032
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050519"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430925"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -73,7 +73,7 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
  
 Aby utworzyć trasę zdarzeń, można użyć interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji [, poleceń interfejsu wiersza polecenia](how-to-manage-routes-apis-cli.md#create-an-event-route)lub [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route).
 
-Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateOrReplaceEventRouteAsync` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
+Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateOrReplaceEventRouteAsync` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539098"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433798"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Tworzenie indeksów wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
@@ -61,7 +61,7 @@ Inne elementy są zwijane do zwięzłości, ale następujące linki mogą zapewn
 
 ## <a name="choose-a-client"></a>Wybierz klienta
 
-Istnieje kilka metod tworzenia indeksu wyszukiwania. Zalecamy używanie Azure Portal lub interfejsów API REST na potrzeby wczesnego tworzenia i testowania koncepcji.
+Istnieje kilka sposobów tworzenia indeksu wyszukiwania. Zalecamy Azure Portal lub zestawy SDK na potrzeby wczesnego opracowywania i testowania koncepcji.
 
 Podczas opracowywania Planuj częste ponowne kompilacje. Ponieważ struktury fizyczne są tworzone w usłudze, [usuwanie i odtwarzanie indeksów](search-howto-reindex.md) jest niezbędne w przypadku większości modyfikacji istniejącej definicji pola. Możesz rozważyć pracę z podzbiorem danych, aby szybciej tworzyć kompilacje.
 
@@ -110,7 +110,7 @@ W przypadku Wyszukiwanie poznawcze zestawy SDK platformy Azure implementują og�
 
 Dokument wyszukiwania jest definiowany przez `fields` kolekcję. Potrzebne będą pola zapytań i kluczy. Prawdopodobnie potrzebne są również pola do obsługi filtrów, aspektów i sortowania. Konieczne może być również posiadanie pól dla danych, które użytkownik nigdy nie widzi, na przykład w przypadku marginesów zysku lub promocji marketingowych, których można użyć do zmodyfikowania rangi wyszukiwania.
 
-Należy wyznaczyć jedno pole typu EDM. String jako klucz dokumentu. Służy do jednoznacznej identyfikacji każdego dokumentu wyszukiwania. Aby wypełnić stronę szczegółów, możesz pobrać dokument według swojego klucza.  
+Należy wyznaczyć jedno pole typu EDM. String jako klucz dokumentu. Służy do jednoznacznej identyfikacji każdego dokumentu wyszukiwania i uwzględnia wielkość liter. Aby wypełnić stronę szczegółów, możesz pobrać dokument według swojego klucza.
 
 Jeśli dane przychodzące mają charakter hierarchiczny, przypisz typ danych [typu złożonego](search-howto-complex-data-types.md) , aby reprezentować zagnieżdżone struktury. Wbudowany zestaw danych przykładowych, Hotele, ilustruje złożone typy przy użyciu adresu (zawiera wiele podpól), które mają relację jeden do jednego z każdym hotelem, oraz złożoną kolekcję pokojów, w której wiele pokojów jest skojarzonych z każdym hotelem. 
 

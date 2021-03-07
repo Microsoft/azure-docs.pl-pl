@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: dac59fb5262cc55acfbabedd304913fc7ac57751
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101748756"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430772"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Szybki Start: Konfigurowanie klastra hybrydowego przy użyciu wystąpienia zarządzanego platformy Azure dla oprogramowania Apache Cassandra (wersja zapoznawcza)
 
@@ -39,20 +39,14 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania klastra hybrydowe
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Dodaj nową podsieć do Virtual Network." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. Teraz zastosujemy specjalne uprawnienia do sieci wirtualnej i podsieci, których wystąpienie zarządzane Cassandra wymaga, przy użyciu interfejsu wiersza polecenia platformy Azure. Najpierw musimy odnaleźć `Resource ID` dla istniejącej sieci wirtualnej. Skopiuj dane wyjściowe z tego polecenia do nowszej wersji `Resource ID` .
+1. Teraz zastosujemy specjalne uprawnienia do sieci wirtualnej i podsieci, których wystąpienie zarządzane Cassandra wymaga, przy użyciu interfejsu wiersza polecenia platformy Azure. Użyj `az role assignment create` polecenia, zastępując `<subscription ID>` ,, `<resource group name>` `<VNet name>` , i `<subnet name>` z odpowiednimi wartościami:
 
    ```azurecli-interactive
-    # discover the vnet id
-    az network vnet show -n <your VNet name> -g <Resource Group Name> --query "id" --output tsv
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
-1. Teraz stosujemy specjalne uprawnienia, przekazując dane wyjściowe poprzedniego polecenia jako parametr zakresu:
-
-   ```azurecli-interactive
-    az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
-   ```
-    > [!NOTE]
-    > `assignee` `role` Powyższe wartości i są odpowiednio stałymi zasadami usługi i identyfikatorami ról. 
+   > [!NOTE]
+   > `assignee`Wartości i `role` w poprzednim poleceniu są odpowiednio stałymi zasadami usługi i identyfikatorami ról.
 
 1. Następnie skonfigurujemy zasoby dla naszego klastra hybrydowego. Ponieważ masz już klaster, nazwa klastra będzie tylko zasobem logicznym, aby zidentyfikować nazwę istniejącego klastra. Upewnij się, że używasz nazwy istniejącego klastra podczas definiowania `clusterName` `clusterNameOverride` zmiennych i w poniższym skrypcie.
 

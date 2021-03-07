@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 57b3d5853f83fc7ee75538d7966f5e20b1a64cd6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359051"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428953"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -137,19 +137,19 @@ Zestaw SDK programu SQL 1.9.0 i nowsze obsługują zapytania równoległe, któr
 - `MaxDegreeOfParallelism` Określa maksymalną liczbę partycji, które mogą być wykonywane równolegle. 
 - `MaxBufferedItemCount` Określa liczbę wstępnie pobranych wyników.
 
-**_Stopień strojenia równoległości_* _
+***Dostrajanie stopnia równoległości***
 
 Równoległe zapytanie działa przez wykonywanie zapytań na wielu partycjach równolegle. Ale dane z pojedynczej partycji są pobierane sekwencyjnie w odniesieniu do zapytania. Ustawienie `MaxDegreeOfParallelism` w [zestawie SDK V2](sql-api-sdk-dotnet.md) na liczbę partycji ma najlepszą szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz ustawić stopień równoległości na wysoki. System wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako stopień równoległości.
 
 Zapytania równoległe dają najwięcej korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest podzielona na partycje, tak aby wszystkie lub większość danych zwróconych przez zapytanie było skoncentrowane na kilku partycjach (jedna partycja jest najgorszą wielkością), te partycje spowodują wąskie gardła wydajności zapytania.
 
-_*_Dostrajanie MaxBufferedItemCount_*_
+***Dostrajanie MaxBufferedItemCount***
     
 Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. To wstępne pobranie ułatwia zwiększenie ogólnego opóźnienia zapytania. `MaxBufferedItemCount`Parametr ogranicza liczbę wstępnie pobranych wyników. Ustaw `MaxBufferedItemCount` na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), aby zezwolić na zapytanie, aby otrzymać maksymalną korzyść z wstępnego pobierania.
 
 Przed pobraniem działa w taki sam sposób, niezależnie od stopnia równoległości, i istnieje pojedynczy bufor dla danych ze wszystkich partycji.  
 
-_ *Implementuj wycofywania w interwałach RetryAfter**
+**Implementowanie wycofywania w interwałach RetryAfter**
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna wykonać wycofywanie z ograniczeniami dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że spędzasz minimalny czas oczekiwania między ponownymi próbami. 
 
@@ -180,7 +180,7 @@ Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosow
 > [!NOTE] 
 > `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
-Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
+Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

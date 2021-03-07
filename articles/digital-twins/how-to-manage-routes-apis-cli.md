@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 40cf83b0ca9e4c794979f2b20ddb73360758abc5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b0e440f9fe0b7ce1591318362ac0419b9aa01baf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198544"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433305"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -20,7 +20,7 @@ ms.locfileid: "102198544"
 
 W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomienia o zdarzeniach](how-to-interpret-event-data.md) do usług podrzędnych lub podłączonych zasobów obliczeniowych. W tym celu należy najpierw skonfigurować **punkty końcowe**, które mogą odbierać zdarzenia. Następnie można utworzyć  [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia generowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
 
-W tym artykule omówiono proces tworzenia punktów końcowych i tras za pomocą [interfejsów API REST](/rest/api/azure-digitaltwins/), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)i [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+W tym artykule omówiono proces tworzenia punktów końcowych i tras za pomocą [interfejsów API REST](/rest/api/azure-digitaltwins/), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client)i [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Alternatywnie można także zarządzać punktami końcowymi i trasami przy użyciu [Azure Portal](https://portal.azure.com). Aby uzyskać wersję tego artykułu, która używa portalu, zobacz [*How to: Manage Endpoints and Routes (Portal)*](how-to-manage-routes-portal.md).
 
@@ -208,7 +208,7 @@ Trasy zdarzeń można tworzyć za pomocą [  interfejsów API płaszczyzny danyc
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Tworzenie tras za pomocą interfejsów API i zestawu C# SDK
 
-Jednym ze sposobów definiowania tras zdarzeń jest współdziałanie z [interfejsami API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis). W przykładach w tej sekcji użyto [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+Jednym ze sposobów definiowania tras zdarzeń jest współdziałanie z [interfejsami API płaszczyzny danych](how-to-use-apis-sdks.md#overview-data-plane-apis). W przykładach w tej sekcji użyto [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client).
 
 `CreateOrReplaceEventRouteAsync` to wywołanie zestawu SDK, które służy do dodawania trasy zdarzenia. Oto przykład użycia:
 

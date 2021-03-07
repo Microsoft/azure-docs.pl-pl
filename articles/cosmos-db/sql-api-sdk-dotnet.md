@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a98cf39fed312f29fbfacdff27508ae568b4f157
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 96818bb4be196ec552f1a9fd1b7a207a83092748
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "93098586"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423837"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK V2 for SQL API: pobieranie i informacje o wersji
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,8 +41,8 @@ ms.locfileid: "93098586"
 | |  |
 |---|---|
 |**Zestaw SDK do pobrania**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
-|**Przykłady**|[Przykłady kodu platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb)|
+|**Samples**|[Przykłady kodu platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu SDK platformy Azure Cosmos DB .NET](sql-api-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|

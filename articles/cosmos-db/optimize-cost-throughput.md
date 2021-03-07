@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86de3e1199b00dff4e03f3b4292f86e6c19ea491
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 0c95fc9e416399b5c8fe032e0d3af0c3b7f9cf6e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296543"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433577"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Jak pokazano w poniższej tabeli, w zależności od wyboru interfejsu API, możn
 
 Dzięki aprowizacji przepływności na różnych poziomach można zoptymalizować koszty na podstawie charakterystyki obciążenia. Jak wspomniano wcześniej, można programowo i w dowolnym momencie zwiększyć lub zmniejszyć zainicjowaną przepływność dla poszczególnych kontenerów lub zbiorowo w zestawie kontenerów. Elastycznie skalowanie przepływności w miarę zmian obciążenia oznacza płatność wyłącznie za skonfigurowane przepływność. Jeśli kontener lub zbiór kontenerów są dystrybuowane w wielu regionach, to przepływność skonfigurowana na kontenerze lub zestaw kontenerów jest gwarantowany do udostępnienia we wszystkich regionach.
 
-## <a name="optimize-with-rate-limiting-your-requests"></a>Optymalizacja z szybkością ograniczania żądań
+## <a name="optimize-with-rate-limiting-your-requests"></a>Optymalizacja w przypadku ograniczania szybkości żądań
 
 W przypadku obciążeń, które nie są zależne od opóźnienia, można zapewnić mniejszą przepływność i pozwolić aplikacji na ograniczenie szybkości obsługi, gdy rzeczywista przepływność przekracza zainicjowaną przepływność. Serwer zapobiegawczo żądanie z żądaniem `RequestRateTooLarge` (kod stanu HTTP 429) i zwraca `x-ms-retry-after-ms` nagłówek wskazujący ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowieniem próby wykonania żądania. 
 
@@ -81,7 +81,7 @@ Natywne zestawy SDK (.NET/.NET Core, Java, Node.js i Python) niejawnie przechwyt
 
 Jeśli masz więcej niż jeden klient, który działa w sposób ciągły nad częstotliwością żądań, domyślna liczba ponownych prób, która jest obecnie ustawiona na 9, może być niewystarczająca. W takich przypadkach klient zgłasza `RequestRateTooLargeException` kod stanu o stanie 429 do aplikacji. Domyślną liczbę ponownych prób można zmienić, ustawiając wartość `RetryOptions` w wystąpieniu ConnectionPolicy. Domyślnie `RequestRateTooLargeException` kod stanu z 429 jest zwracany po upływie skumulowanego czasu oczekiwania 30 sekund, jeśli żądanie będzie nadal działać powyżej stawki żądania. Dzieje się tak nawet wtedy, gdy bieżąca liczba ponownych prób jest mniejsza niż maksymalna liczba ponownych prób, być wartością domyślną 9 lub wartości zdefiniowanej przez użytkownika. 
 
-[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) jest ustawiona na 3, więc w tym przypadku, jeśli operacja żądania jest naliczana proporcjonalnie do przekroczenia zarezerwowanej przepływności dla kontenera, operacja żądania jest ponawiana trzy razy przed przekazaniem wyjątku do aplikacji. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) jest ustawiona na 60, więc w tym przypadku, jeśli łączny czas oczekiwania ponowienia próby (w sekundach) od momentu pierwszego żądania przekracza 60 sekund, zostanie zgłoszony wyjątek.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests) jest ustawiona na 3, więc w tym przypadku, jeśli operacja żądania jest naliczana proporcjonalnie do przekroczenia zarezerwowanej przepływności dla kontenera, operacja żądania jest ponawiana trzy razy przed przekazaniem wyjątku do aplikacji. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) jest ustawiona na 60, więc w tym przypadku, jeśli łączny czas oczekiwania ponowienia próby (w sekundach) od momentu pierwszego żądania przekracza 60 sekund, zostanie zgłoszony wyjątek.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -89,7 +89,7 @@ connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3;
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
-## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Strategia partycjonowania i koszty aprowizowana przepływność
+## <a name="partitioning-strategy-and-provisioned-throughput-costs"></a>Strategia partycjonowania i koszty przepływności aprowizowanej
 
 Dobrą strategią partycjonowania jest optymalizacja kosztów w Azure Cosmos DB. Upewnij się, że nie ma żadnych pochylenia partycji, które są udostępniane przez metryki magazynu. Upewnij się, że nie ma żadnych pochylenia przepływności dla partycji, która jest udostępniona z metrykami przepływności. Upewnij się, że nie ma żadnych pochylenia do określonych kluczy partycji. Klucze dominujące w magazynie są udostępniane za pomocą metryk, ale klucz będzie zależny od wzorca dostępu do aplikacji. Najlepiej jest myśleć o prawidłowym kluczu partycji logicznej. Dobry klucz partycji powinien mieć następującą charakterystykę:
 

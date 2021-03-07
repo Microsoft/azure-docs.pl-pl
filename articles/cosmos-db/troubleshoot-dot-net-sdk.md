@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831250"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429939"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,7 +91,7 @@ Jeśli aplikacja jest wdrażana na [platformie azure Virtual Machines bez public
 * Przypisz [publiczny adres IP do maszyny wirtualnej platformy Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Duże opóźnienie sieci
-Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) w zestawie SDK V2 w wersji 2 lub [Diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
+Duże opóźnienie sieci można zidentyfikować za pomocą [ciągu diagnostycznego](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) w zestawie SDK V2 w wersji 2 lub [Diagnostics](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) w zestawie SDK v3.
 
 Jeśli nie ma [limitów czasu](troubleshoot-dot-net-sdk-request-timeout.md) , a Diagnostyka pokaże pojedyncze żądania, w przypadku których duże opóźnienie jest oczywiste na różnicy między `ResponseTime` i `RequestStartTime` , np. (>300 milisekund w tym przykładzie):
 

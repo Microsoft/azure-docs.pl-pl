@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 22cce2c620d23ab477de5d92bb8c6d4f5ef5a493
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525775"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425128"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnozowanie i rozwiązywanie problemów z nieznalezionymi wyjątkami Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Kombinacja klucza partycji i identyfikatora jest nieprawidłowa.
 Popraw logikę aplikacji powodującą niepoprawną kombinację. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Nieprawidłowy znak w IDENTYFIKATORze elementu
-Element zostanie wstawiony do Azure Cosmos DB z [nieprawidłowym znakiem](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) w identyfikatorze elementu.
+Element zostanie wstawiony do Azure Cosmos DB z [nieprawidłowym znakiem](/dotnet/api/microsoft.azure.documents.resource.id#remarks) w identyfikatorze elementu.
 
 #### <a name="solution"></a>Rozwiązanie:
 Zmień identyfikator na inną wartość, która nie zawiera znaków specjalnych. Jeśli zmiana identyfikatora nie jest opcją, można zakodować w formacie base64 identyfikator do ucieczki znaków specjalnych. Algorytm Base64 może nadal utworzyć nazwę z nieprawidłowym znakiem "/", który musi zostać zastąpiony.
@@ -60,7 +60,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)

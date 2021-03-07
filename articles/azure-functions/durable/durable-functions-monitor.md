@@ -4,18 +4,30 @@ description: Dowiedz się, jak zaimplementować Monitor stanu przy użyciu rozsz
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 8ef32ecfb6f69b71d29578d3b8314f568fd9386a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028424"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431078"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenariusz monitorowania w przykładowym monitorze Durable Functions-Pogoda
 
 Wzorzec monitora odnosi się do elastycznego procesu *cyklicznego* w przepływie pracy — na przykład sondowania do momentu spełnienia określonych warunków. W tym artykule opisano przykład, który używa [Durable Functions](durable-functions-overview.md) do wdrożenia monitorowania.
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+## <a name="prerequisites"></a>Wymagania wstępne
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+* [Wykonaj artykuł z przewodnika Szybki Start](durable-functions-create-first-csharp.md)
+* [Klonowanie lub pobieranie projektu przykładów z usługi GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+* [Wykonaj artykuł z przewodnika Szybki Start](quickstart-js-vscode.md)
+* [Klonowanie lub pobieranie projektu przykładów z usługi GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/javascript)
+
+---
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
@@ -28,7 +40,7 @@ Ten przykład służy do monitorowania bieżących warunków pogodowych lokaliza
 * Monitory są skalowalne. Ponieważ każdy monitor jest wystąpieniem aranżacji, można utworzyć wiele monitorów bez konieczności tworzenia nowych funkcji lub definiowania dalszych kodów.
 * Monitory można łatwo zintegrować z większymi przepływami pracy. Monitor może być jedną sekcją bardziej złożonej funkcji aranżacji lub [aranżacją podrzędną](durable-functions-sub-orchestrations.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="configuring-twilio-integration"></a>Konfigurowanie integracji Twilio
 
@@ -72,9 +84,6 @@ Oto kod implementujący funkcję:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
-
 ---
 
 Ta funkcja programu Orchestrator wykonuje następujące akcje:
@@ -105,9 +114,6 @@ A oto implementacja.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-# <a name="python"></a>[Python](#tab/python)
-Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
-
 ---
 
 ### <a name="e3_sendgoodweatheralert-activity-function"></a>Funkcja działania E3_SendGoodWeatherAlert
@@ -130,9 +136,6 @@ Funkcja **E3_SendGoodWeatherAlert** używa powiązania Twilio do wysyłania wiad
 A Oto kod, który wysyła wiadomość SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
-
-# <a name="python"></a>[Python](#tab/python)
-Mamy inny Samouczek dotyczący wzorca monitorowania w języku Python, zobacz go [tutaj](durable-functions-monitor-python.md).
 
 ---
 

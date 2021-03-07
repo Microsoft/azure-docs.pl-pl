@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-four
 keywords: Zamiana tekstu na mowę
-ms.openlocfilehash: c3f1db836ce028b6881efe0b2fa90e9ac19caac8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7a41c4d9c1074b376da3de556caf63ced0bc84ec
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058237"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428194"
 ---
 # <a name="get-started-with-text-to-speech"></a>Wprowadzenie do zamiany tekstu na mowę
 
@@ -53,6 +53,20 @@ ms.locfileid: "92058237"
 ::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
+
+## <a name="get-position-information"></a>Pobierz informacje o pozycji
+
+Twój projekt może potrzebować wiedzieć, kiedy słowo jest wymawiane przez zamianę mowy na tekst, tak aby mogło wykonać określone czynności na podstawie tego chronometrażu. Jeśli na przykład chcesz wyróżnić słowa jako wymawiane, musisz wiedzieć, co należy zaznaczyć, kiedy ją podświetlić, i na jak długo ją podświetlić.
+
+Można to zrobić za pomocą `WordBoundary` dostępnego w programie zdarzenia `SpeechSynthesizer` . To zdarzenie jest zgłaszane na początku każdego nowego wypowiadanego wyrazu i będzie przesunięte w czasie w strumieniu mówionym, a także przesunięcie tekstu w monicie wejściowym.
+
+* `AudioOffset` raportuje wyjściowy dźwięk, który upłynął czas między rozpoczęciem syntezy a rozpoczęciem następnego wyrazu. Ta wartość jest mierzona w jednostkach setki (SNS) z 10 000 SNS równych 1 milisekund.
+* `WordOffset` raportuje pozycję znaku w ciągu wejściowym (oryginalny tekst lub [SSML](speech-synthesis-markup.md)) bezpośrednio przed wyrazem, który ma zostać wypowiadany.
+
+> [!NOTE]
+> `WordBoundary` zdarzenia są wywoływane, gdy dane wyjściowe audio staną się dostępne, co będzie szybsze niż odtwarzanie na urządzeniu wyjściowym. Odpowiednio synchronizując chronometraż strumienia do "czasu rzeczywistego" musi zostać osiągnięty przez obiekt wywołujący.
+
+Przykłady użycia można znaleźć w przykładach `WordBoundary` [zamiany tekstu na mowę](https://aka.ms/csspeech/samples) w witrynie GitHub.
 
 ## <a name="next-steps"></a>Następne kroki
 

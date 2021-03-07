@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8ed4e550ea441d5d99a3debb6bf37eb7db2a4a20
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4889744347b72603a0f6318f981bc2db4906b835
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180177"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433543"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Łączenie aplikacji funkcji na platformie Azure na potrzeby przetwarzania danych
 
@@ -54,7 +54,7 @@ Po utworzeniu aplikacji funkcji program Visual Studio wygeneruje przykład kodu 
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Napisz funkcję z wyzwalaczem Event Grid
 
-Można napisać funkcję, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+Można napisać funkcję, dodając zestaw SDK do aplikacji funkcji. Aplikacja funkcji współdziała z usługą Azure Digital bliźniaczych reprezentacji przy użyciu [usługi Azure Digital bliźniaczych reprezentacji SDK dla platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). 
 
 Aby można było korzystać z zestawu SDK, należy dołączyć następujące pakiety do projektu. Możesz zainstalować pakiety przy użyciu Menedżera pakietów NuGet programu Visual Studio lub dodać pakiety przy użyciu `dotnet` narzędzia wiersza polecenia.
 

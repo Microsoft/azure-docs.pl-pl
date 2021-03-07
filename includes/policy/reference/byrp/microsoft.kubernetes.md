@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a2bb88901ed82fccb61ef90b922ba98c31c9bfe7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 8acd244a2fada656ac457865fe8efd8659530d0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090478"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432891"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -39,5 +39,6 @@ ms.locfileid: "100090478"
 |[Klastry Kubernetes powinny być dostępne tylko za pośrednictwem protokołu HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Użycie protokołu HTTPS zapewnia uwierzytelnianie i chroni dane przesyłane przed atakami polegającymi na podsłuchu w warstwie sieciowej. Ta funkcja jest obecnie ogólnie dostępna w przypadku usługi Kubernetes Service (AKS) i w wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączoną obsługą Kubernetes. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) |Inspekcja, Odmów, wyłączone |[5.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |
 |[Klastry Kubernetes powinny wyłączyć funkcję automatycznego instalowania poświadczeń interfejsu API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F423dd1ba-798e-40e4-9c4d-b6902674b423) |Wyłącz funkcję automatycznego instalowania poświadczeń interfejsu API, aby zapobiec naruszeniu zasobów na potrzeby uruchamiania poleceń interfejsu API w klastrach Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, przejdź do [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockAutomountToken.json) |
 |[Klastry Kubernetes nie powinny zezwalać na eskalację uprawnień kontenera](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |Ta zasada nie zezwala kontenerom na używanie eskalacji uprawnień w klastrze Kubernetes. Te zasady są ogólnie dostępne dla usługi Kubernetes Service (AKS) oraz wersji zapoznawczej aparatu AKS i usługi Azure ARC z włączonym Kubernetes. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
+|[Klastry Kubernetes nie powinny przyznawać możliwości zabezpieczeń CAP_SYS_ADMIN](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd2e7ea85-6b44-4317-a0be-1b951587f626) |Aby zmniejszyć powierzchnię ataku z kontenerów, Ogranicz możliwości CAP_SYS_ADMIN systemu Linux |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedSysAdminCapability.json) |
 |[Klastry Kubernetes nie powinny korzystać z określonych funkcji zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa27c700f-8a22-44ec-961c-41625264370b) |Zapobiegaj określonym funkcjom zabezpieczeń w klastrach Kubernetes, aby zapobiec nieudzielonym uprawnieniam w zasobie pod. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, odwiedź stronę [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedCapabilities.json) |
 |[Klastry Kubernetes nie powinny używać domyślnej przestrzeni nazw](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9f061a12-e40d-4183-a00e-171812443373) |Zapobiegaj użyciu domyślnej przestrzeni nazw w klastrach Kubernetes, aby chronić przed nieautoryzowanym dostępem dla typów zasobów ConfigMap, pod, Secret, Service i ServiceAccount. Aby uzyskać instrukcje dotyczące korzystania z tych zasad, przejdź do [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |Inspekcja, Odmów, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockDefaultNamespace.json) |

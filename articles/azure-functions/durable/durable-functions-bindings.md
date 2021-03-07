@@ -4,12 +4,12 @@ description: Jak używać wyzwalaczy i powiązań dla rozszerzenia Durable Funct
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fe64945aeb71011e769ba4016ae36cb557f41f33
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013733"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424261"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla Durable Functions (Azure Functions)
 
@@ -19,7 +19,7 @@ Rozszerzenie [Durable Functions](durable-functions-overview.md) wprowadza dwa no
 
 Wyzwalacz aranżacji umożliwia tworzenie [trwałych funkcji programu Orchestrator](durable-functions-types-features-overview.md#orchestrator-functions). Ten wyzwalacz obsługuje uruchamianie nowych wystąpień funkcji programu Orchestrator i wznawianie istniejących wystąpień funkcji programu Orchestrator, które oczekują na zadanie.
 
-W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz aranżacji jest konfigurowany przy użyciu atrybutu platformy .NET [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .
+W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz aranżacji jest konfigurowany przy użyciu atrybutu platformy .NET [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .
 
 W przypadku pisania funkcji programu Orchestrator w językach skryptów (na przykład skryptów JavaScript lub C#) wyzwalacz aranżacji jest definiowany przez następujący obiekt JSON w `bindings` tablicy *function.jsw* pliku:
 
@@ -500,7 +500,7 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od wersji 1.3.0 `durable-functions` pakietu npm.
+> Trwałe jednostki są dostępne w języku JavaScript, począwszy  od wersji 1.3.0 `durable-functions` pakietu npm.
 
 ## <a name="entity-client"></a>Klient jednostki
 
@@ -634,7 +634,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od wersji 1.3.0 `durable-functions` pakietu npm.
+> Trwałe jednostki są dostępne w języku JavaScript, począwszy  od wersji 1.3.0 `durable-functions` pakietu npm.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.jsustawień

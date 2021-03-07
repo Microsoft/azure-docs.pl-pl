@@ -102,7 +102,7 @@
           href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: 'Wyświetlanie, zarządzanie i optymalizowanie po zakupie'
       items:
-        - name: Wyświetlanie rezerwacji i wykorzystania
+        - name: Uprawnienia do wyświetlania i zarządzania
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Wyświetlanie rezerwacji jako dostawca CSP
           href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json

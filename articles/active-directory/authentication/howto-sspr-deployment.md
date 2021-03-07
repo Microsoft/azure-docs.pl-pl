@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173940"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424125"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -78,6 +78,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Activ
 | Filmy wideo| [ZAPEWNIAnie użytkownikom lepszej skalowalności](https://youtu.be/g9RpRnylxS8) 
 | |[Co to jest samoobsługowe resetowanie hasła?](https://youtu.be/hc97Yx5PJiM)|
 | |[Wdrażanie samoobsługowego resetowania hasła](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Jak włączyć i skonfigurować SSPR w usłudze Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Jak skonfigurować Samoobsługowe resetowanie haseł dla użytkowników w usłudze Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Instrukcje [przygotowanie użytkowników do] Register [ich] informacje o zabezpieczeniach dla Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Kursy online|[Zarządzanie tożsamościami w Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Użyj SSPR, aby nadać użytkownikom nowoczesne, chronione środowisko pracy. Zobacz szczególnie "[zarządzanie Azure Active Directory użytkownikami i grupami](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)". |
@@ -149,7 +150,7 @@ Aby utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure A
 
 Następujące ustawienia są wymagane do włączenia SSPR oraz zalecanych wartości.
 
-| Obszar | Ustawienie | Wartość |
+| Warstwowy | Ustawienie | Wartość |
 | --- | --- | --- |
 | **Właściwości SSPR** | Włączono Samoobsługowe resetowanie hasła | **Wybrana** Grupa dla pilotażu/ **wszystko** dla środowiska produkcyjnego |
 | **Metody uwierzytelniania** | Metody uwierzytelniania wymagane do zarejestrowania | Zawsze 1 więcej niż wymagane do zresetowania |

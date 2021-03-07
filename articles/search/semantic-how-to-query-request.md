@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693649"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432948"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
 
@@ -21,6 +21,8 @@ ms.locfileid: "101693649"
 > Typ zapytania semantycznego jest w publicznej wersji zapoznawczej, dostępny za pomocą interfejsu API REST i Azure Portal. Funkcje w wersji zapoznawczej są oferowane w postaci, w której znajdują się [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Podczas początkowego uruchamiania podglądu nie jest naliczana opłata za wyszukiwanie semantyczne. Aby uzyskać więcej informacji, zobacz [dostępność i Cennik](semantic-search-overview.md#availability-and-pricing).
 
 W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania, które korzysta z klasyfikacji semantycznej i tworzy podpisy semantyczne i odpowiedzi.
+
+Zapytania semantyczne najlepiej sprawdzają się w przypadku indeksów wyszukiwania, które są zbudowane z zawartości z dużą ilością tekstu, takich jak pliki PDF lub dokumenty z dużymi fragmentami tekstu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +40,7 @@ W tym artykule dowiesz się, jak sformułować żądanie wyszukiwania, które ko
 
 ## <a name="whats-a-semantic-query"></a>Co to jest zapytanie semantyczne?
 
-W Wyszukiwanie poznawcze zapytanie jest sparametryzowanym żądaniem, które określa przetwarzanie zapytań i kształt odpowiedzi. *Zapytanie semantyczne* dodaje parametry, które wywołują algorytm przeklasyfikowania semantycznego, który może ocenić kontekst i znaczenie pasujących wyników, i podwyższyć poziom dopasowania do góry.
+W Wyszukiwanie poznawcze zapytanie jest sparametryzowanym żądaniem, które określa przetwarzanie zapytań i kształt odpowiedzi. *Zapytanie semantyczne* dodaje parametry, które wywołują semantyczny model klasyfikacji, który może ocenić kontekst i znaczenie pasujących wyników, podwyższyć poziom dopasowania do góry i zwrócić semantykę odpowiedzi i podpisy.
 
 Poniższe żądanie jest reprezentatywne dla podstawowej kwerendy semantycznej (bez odpowiedzi).
 
@@ -48,7 +50,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
     "search": " Where was Alan Turing born?",    
     "queryType": "semantic",  
     "searchFields": "title,url,body",  
-    "queryLanguage": "en-us",  
+    "queryLanguage": "en-us"  
 }
 ```
 
@@ -60,7 +62,7 @@ Tylko górne dopasowania 50 z wyników początkowych mogą być semantycznie kla
 
 Pełną specyfikację interfejsu API REST można znaleźć w [dokumencie wyszukiwania (wersja zapoznawcza)](/rest/api/searchservice/preview-api/search-documents).
 
-Zapytania semantyczne są przeznaczone do pytań zakończonych nieprzerwanie, takich jak "Jakie są najlepsze zakłady dla zapylania" lub "jak narybka jaja". Jeśli chcesz, aby odpowiedź zawierała odpowiedzi, możesz dodać opcjonalny **`answer`** parametr do żądania.
+Zapytania semantyczne zapewniają automatyczne wyróżnianie napisów. Jeśli chcesz, aby odpowiedź zawierała odpowiedzi, możesz dodać opcjonalny **`answer`** parametr do żądania. Ten parametr, a także konstrukcja samego ciągu zapytania, spowoduje wygenerowanie odpowiedzi w odpowiedzi.
 
 Poniższy przykład używa hoteli-Sample-index do tworzenia żądania zapytania semantycznego z odpowiedziami semantycznymi i napisami:
 
@@ -82,37 +84,66 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formułowanie żądania
 
-1. Ustaw wartość **`"queryType"`** "semantyka" i **`"queryLanguage"`** "pl-US". Oba parametry są wymagane.
+W tej sekcji opisano parametry zapytania niezbędne do przeszukiwania semantycznego.
 
-   QueryLanguage musi być zgodna z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. Jeśli queryLanguage ma wartość "en-us", wszystkie analizatory języka muszą być również w języku angielskim ("en. Microsoft" lub "en. Lucene"). Wszystkie analizatory języka niezależny od, takie jak słowo kluczowe lub proste, nie mają konfliktu z wartościami queryLanguage.
+#### <a name="step-1-set-querytype-and-querylanguage"></a>Krok 1. Ustawianie wartości querytype i queryLanguage
 
-   W żądaniu zapytania, jeśli używasz również [korekcji pisowni](speller-how-to-add.md), ustawiana queryLanguage jest stosowana równomiernie z pisownią, odpowiedziami i napisami. Nie istnieje przesłonięcie poszczególnych części. 
+Dodaj następujące parametry do reszty. Oba parametry są wymagane.
 
-   Gdy zawartość w indeksie wyszukiwania może być złożona w wielu językach, dane wejściowe zapytania najprawdopodobniej są w jednym. Aparat wyszukiwania nie sprawdza zgodności queryLanguage, analizatora języka i języka, w którym składa się zawartość, dlatego należy odpowiednio wprowadzić zakres zapytań, aby uniknąć tworzenia nieprawidłowych wyników.
+```json
+"queryType": "semantic",
+"queryLanguage": "en-us",
+```
+
+QueryLanguage musi być zgodna z wszystkimi [analizatorami języka](index-add-language-analyzers.md) przypisanymi do definicji pól w schemacie indeksu. Jeśli queryLanguage ma wartość "en-us", wszystkie analizatory języka muszą być również w języku angielskim ("en. Microsoft" lub "en. Lucene"). Wszystkie analizatory języka niezależny od, takie jak słowo kluczowe lub proste, nie mają konfliktu z wartościami queryLanguage.
+
+W żądaniu zapytania, jeśli używasz również [korekcji pisowni](speller-how-to-add.md), ustawiana queryLanguage jest stosowana równomiernie z pisownią, odpowiedziami i napisami. Nie istnieje przesłonięcie poszczególnych części. 
+
+Gdy zawartość w indeksie wyszukiwania może być złożona w wielu językach, dane wejściowe zapytania najprawdopodobniej są w jednym. Aparat wyszukiwania nie sprawdza zgodności queryLanguage, analizatora języka i języka, w którym składa się zawartość, dlatego należy odpowiednio wprowadzić zakres zapytań, aby uniknąć tworzenia nieprawidłowych wyników.
 
 <a name="searchfields"></a>
 
-1. Ustaw wartość **`"searchFields"`** (opcjonalnie, ale zalecana).
+#### <a name="step-2-set-searchfields"></a>Krok 2. Ustawianie searchFields
 
-   W kwerendzie semantycznej kolejność pól w "searchFields" odzwierciedla priorytet lub względną ważność pola w klasyfikacjach semantycznych. Będą używane tylko pola ciągu najwyższego poziomu (autonomiczne lub w kolekcji). Ponieważ searchFields ma inne zachowania w prostych i pełnych zapytaniach Luce (w przypadku których nie ma domniemanej kolejności priorytetów), wszystkie pola niebędące ciągami i podpolami nie spowodują błędu, ale nie będą również używane w klasyfikacji semantycznej.
+Ten parametr jest opcjonalny, ponieważ nie ma żadnego błędu, jeśli go opuszczasz, ale dostarczenie uporządkowanej listy pól jest zdecydowanie zalecane dla obu napisów i odpowiedzi.
 
-   Określając searchFields, postępuj zgodnie z następującymi wskazówkami:
+Parametr searchFields służy do identyfikowania fragmentów, które mają zostać ocenione pod kątem "podobieństwa semantycznego" do zapytania. W przypadku wersji zapoznawczej nie zaleca się pozostawienia searchFields pustej, ponieważ model wymaga wskazówki co do tego, jakie pola są najważniejsze do przetworzenia.
 
-   + Zwięzłe pola, takie jak Hotelname lub title, powinny poprzedzać pełne pola, takie jak Description.
+Kolejność searchFields jest krytyczna. Jeśli używasz już searchFields w istniejących prostych lub pełnych zapytaniach, upewnij się, że ten parametr jest ponownie odwiedzany podczas przełączania do typu zapytania semantycznego.
 
-   + Jeśli indeks zawiera pole adresu URL, które jest typu tekstowego (na przykład przez człowieka, np `www.domain.com/name-of-the-document-and-other-details` `www.domain.com/?id=23463&param=eis` .), umieść je na liście (najpierw Jeśli nie ma zwięzłego pola title).
+Postępuj zgodnie z poniższymi wskazówkami, aby zapewnić optymalne wyniki po określeniu co najmniej dwóch searchFields:
 
-   + Jeśli określono tylko jedno pole, będzie ono traktowane jako opisowe pole dla semantycznej klasyfikacji dokumentów.  
++ Uwzględnij tylko pola ciągów i pola ciągów najwyższego poziomu w kolekcjach. Jeśli dołączysz pola niebędące ciągami lub pola niższego poziomu w kolekcji, nie ma błędów, ale te pola nie będą używane w klasyfikacji semantycznej.
 
-   + Jeśli nie określono żadnych pól, wszystkie pola z możliwością wyszukiwania będą brane pod uwagę w przypadku semantycznej klasyfikacji dokumentów. Nie jest to jednak zalecane, ponieważ może nie dać optymalnych wyników z indeksu wyszukiwania.
++ Pierwsze pole powinno być zawsze zwięzłe (takie jak tytuł lub nazwa), najlepiej pod 25 słowami.
 
-1. Usuń **`"orderBy"`** klauzule, jeśli istnieją w istniejącym żądaniu. Wynik semantyczny jest używany do porządkowania wyników, a jeśli dołączysz jawną logikę sortowania, zwracany jest błąd HTTP 400.
++ Jeśli indeks zawiera pole adresu URL, które jest typu tekst (przez człowieka, np `www.domain.com/name-of-the-document-and-other-details` ., a nie z fokusem maszynowym, na przykład `www.domain.com/?id=23463&param=eis` ), umieść je na liście (lub jako pierwsze, jeśli nie ma zwięzłego pola tytułu).
 
-1. Opcjonalnie można dodać **`"answers"`** zestaw do "Extract" i określić liczbę odpowiedzi, jeśli potrzebujesz więcej niż 1.
++ Obserwuj te pola według opisowych pól, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu.
 
-1. Opcjonalnie Dostosuj styl podświetlania zastosowany do napisów. Podpisy mają wyróżnione formatowanie dla fragmentów klucza w dokumencie, który podsumowuje odpowiedź. Wartość domyślna to `<em>`. Jeśli chcesz określić typ formatowania (na przykład żółte tło), możesz ustawić highlightPreTag i highlightPostTag.
+Jeśli określone jest tylko jedno pole, Użyj pól opisowych, w których można znaleźć odpowiedzi na zapytania semantyczne, takie jak główna zawartość dokumentu. Wybierz pole, które zapewnia odpowiednią zawartość.
 
-1. Określ wszelkie inne parametry, które mają być używane w żądaniu. Parametry, takie jak [pisownia](speller-how-to-add.md), [wybór](search-query-odata-select.md)i liczba zwiększają jakość żądania i czytelności odpowiedzi.
+#### <a name="step-3-remove-orderby-clauses"></a>Krok 3. Usuwanie klauzul orderBy
+
+Usuń wszystkie klauzule orderBy, jeśli istnieją one w istniejącym żądaniu. Wynik semantyczny jest używany do porządkowania wyników, a jeśli dołączysz jawną logikę sortowania, zwracany jest błąd HTTP 400.
+
+#### <a name="step-4-add-answers"></a>Krok 4. Dodawanie odpowiedzi
+
+Opcjonalnie możesz dodać "odpowiedzi", jeśli chcesz dołączyć dodatkowe przetwarzanie, które zapewnia odpowiedź. Odpowiedzi (i podpisy) są formułowane ze fragmentów znalezionych w polach wymienionych w searchFields. Pamiętaj, aby uwzględnić pola rozbudowane zawartości w programie searchFields, aby uzyskać najlepsze odpowiedzi i podpisy w odpowiedzi.
+
+Istnieją jawne i niejawne warunki generujące odpowiedzi. 
+
++ Jawne warunki obejmują dodanie "odpowiedzi = Extract". Dodatkowo, aby określić liczbę odpowiedzi zwracanych w odpowiedzi ogólnej, należy dodać "Count", po którym następuje liczba: `"answers=extractive|count=3"` .  Wartość domyślna to 1. Wartość maksymalna to pięć.
+
++ Niejawne warunki obejmują konstruowanie ciągu zapytania, który umożliwia przełączenie się do odpowiedzi. Zapytanie złożone z "w jakim hotelu ma zieloną sali", prawdopodobnie jest "odpowiedzią" niż zapytanie złożone z instrukcji takiej jak "Hotel z ozdobną częścią". Zgodnie z oczekiwaniami zapytanie nie może być nieokreślone ani mieć wartości null.
+
+Ważną kwestią jest to, że jeśli zapytanie nie przypomina pytania, przetwarzanie odpowiedzi jest pomijane, nawet jeśli parametr "odpowiedzi" jest ustawiony.
+
+#### <a name="step-5-add-other-parameters"></a>Krok 5. Dodawanie innych parametrów
+
+Ustaw wszystkie inne parametry, które mają być używane w żądaniu. Parametry, takie jak [pisownia](speller-how-to-add.md), [wybór](search-query-odata-select.md)i liczba zwiększają jakość żądania i czytelności odpowiedzi.
+
+Opcjonalnie można dostosować styl podświetlania zastosowany do napisów. Podpisy mają wyróżnione formatowanie dla fragmentów klucza w dokumencie, który podsumowuje odpowiedź. Wartość domyślna to `<em>`. Jeśli chcesz określić typ formatowania (na przykład żółte tło), możesz ustawić highlightPreTag i highlightPostTag.
 
 ### <a name="review-the-response"></a>Przejrzyj odpowiedź
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 98260b909514febf80ea6a1a33b0f9e3d2d1446b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526470"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431894"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -412,111 +412,6 @@ Aby uzyskać ogólne informacje na temat sposobu włączenia wyjaśnień modelu 
 > [!NOTE]
 > Model ForecastTCN nie jest obecnie obsługiwany przez klienta wyjaśnień. Ten model nie zwróci pulpitu nawigacyjnego wyjaśnienie, jeśli jest zwracany jako najlepszy model i nie obsługuje uruchomionych wyjaśnień na żądanie.
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-* **Ostatnie uaktualnienie `AutoML` zależności do nowszych wersji spowoduje przerwanie zgodności**: w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
-  * Nie znaleziono modułu: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
-  * Błędy importowania: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
-  * Błędy atrybutów: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
-  
-  Aby obejść ten problem, wykonaj jedną z następujących czynności, w zależności od `AutoML` wersji szkoleniowej zestawu SDK:
-    * Jeśli `AutoML` wersja szkoleniowa zestawu SDK jest większa niż 1.13.0, potrzebujesz `pandas == 0.25.1` i `scikit-learn==0.22.1` . Jeśli występuje niezgodność wersji, Uaktualnij scikit-Dowiedz się i/lub Pandas, aby uzyskać poprawną wersję, jak pokazano poniżej:
-      
-      ```bash
-         pip install --upgrade pandas==0.25.1
-         pip install --upgrade scikit-learn==0.22.1
-      ```
-      
-    * Jeśli `AutoML` wersja szkoleniowa zestawu SDK jest mniejsza lub równa 1.12.0, potrzebne są `pandas == 0.23.4` i `sckit-learn==0.20.3` . Jeśli występuje niezgodność wersji, scikit obniżanie poziomu i/lub Pandas do prawidłowej wersji, jak pokazano poniżej:
-  
-      ```bash
-        pip install --upgrade pandas==0.23.4
-        pip install --upgrade scikit-learn==0.20.3
-      ```
-
-* **Niepowodzenie wdrożenia**: dla wersji <= 1.18.0 zestawu SDK, podstawowy obraz utworzony na potrzeby wdrożenia może zakończyć się niepowodzeniem z powodu następującego błędu: "ImportError: nie można zaimportować nazwy `cached_property` z `werkzeug` ". 
-
-  Następujące kroki mogą obejść problem:
-  1. Pobierz pakiet modelu
-  2. Rozpakuj pakiet
-  3. Wdrażanie przy użyciu niespakowanych zasobów
-
-* **Ocena prognozy R2 jest zawsze zerowa**: ten problem występuje, jeśli dostarczone dane szkoleniowe mają serię czasową, która zawiera tę samą wartość dla ostatnich `n_cv_splits`  +  `forecasting_horizon` punktów danych. Jeśli ten wzorzec jest oczekiwany w szeregach czasowych, można przełączyć podstawową metrykę na znormalizowany błąd średnika głównego.
- 
-* **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
- 
-   ```python
-   from azureml.core.runconfig import RunConfiguration
-   from azureml.core.conda_dependencies import CondaDependencies
-   run_config = RunConfiguration()
-   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
-  ```
-
-* **Wykresy eksperymentowe**: binarne wykresy klasyfikacji (precyzja-odwoływanie, Roc, krzywa zysku itp.) pokazana w zautomatyzowanych iteracjach eksperymentów z badaniami nie jest prawidłowo renderowana w interfejsie użytkownika od 4/12. Wykresy wykresów są obecnie wyświetlane z wynikami odwrotnymi, gdzie lepsze są modele z niższymi wynikami. Zbadano rozwiązanie.
-
-* W obszarze **datakostki można anulować automatyczne uruchamianie uczenia maszynowego**: w przypadku korzystania z funkcji automatycznego uczenia maszynowego na Azure Databricks, aby anulować uruchomienie i rozpocząć nowe uruchomienie eksperymentu, uruchom ponownie klaster Azure Databricks.
-
-* **Datakosteks >10 iteracji dla automatycznej uczenia maszynowego**: w oknie ustawienia automatycznej uczenia maszynowego, jeśli masz więcej niż 10 iteracji, ustaw wartość `show_output` `False` podczas przesyłania przebiegu.
-
-* **Widżet datakosteks dla zestawu sdk Azure Machine Learning i automatycznej uczenia maszynowego**: widżet zestawu Azure Machine Learning SDK nie jest obsługiwany w notesie datacegły, ponieważ notesy nie mogą analizować widżetów html. Widżet można wyświetlić w portalu przy użyciu tego kodu w języku Python w komórce notesu Azure Databricks:
-
-    ```
-    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
-    ```
-* **Niepowodzenie automl_setup**: 
-    * W systemie Windows uruchom automl_setup z poziomu wiersza polecenia Anaconda. Użyj tego linku, aby [zainstalować Miniconda](https://docs.conda.io/en/latest/miniconda.html).
-    * Upewnij się, że Conda 64-bit jest zainstalowany, a nie 32-bit, uruchamiając `conda info` polecenie. `platform`Powinien być `win-64` dla systemu Windows lub `osx-64` dla komputerów Mac.
-    * Upewnij się, że zainstalowano Conda 4.4.10 lub nowszą. Możesz sprawdzić wersję za pomocą polecenia `conda -V` . Jeśli masz zainstalowaną poprzednią wersję, możesz ją zaktualizować za pomocą polecenia: `conda update conda` .
-    * System `gcc: error trying to exec 'cc1plus'`
-      *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia `sudo apt-get install build-essential` .
-      * Przekaż nową nazwę jako pierwszy parametr do automl_setup, aby utworzyć nowe środowisko Conda. Wyświetlanie istniejących środowisk Conda `conda env list` i usuwanie ich z programu `conda env remove -n <environmentname>` .
-      
-* **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu: `unable to execute 'gcc': No such file or directory`-
-  1. Upewnij się, że porty wychodzące 53 i 80 są włączone. Na maszynie wirtualnej platformy Azure możesz wykonać tę czynność z poziomu Azure Portal, wybierając maszynę wirtualną, a następnie klikając pozycję Sieć.
-  2. Uruchom polecenie: `sudo apt-get update`
-  3. Uruchom polecenie: `sudo apt-get install build-essential --fix-missing`
-  4. Uruchom `automl_setup_linux.sh` ponownie
-
-* **Konfiguracja. ipynb kończy się niepowodzeniem**:
-  * W przypadku lokalnego Conda upewnij się, że automl_setup został pomyślnie uruchomiony.
-  * Upewnij się, że subscription_ida jest poprawna. Znajdź subscription_id w Azure Portal, wybierając pozycję Wszystkie usługi, a następnie pozycję subskrypcje. Znaki "<" i ">" nie powinny być uwzględnione w wartości subscription_id. Na przykład `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ma prawidłowy format.
-  * Upewnij się, że współautor lub właściciel ma dostęp do subskrypcji.
-  * Sprawdź, czy region jest jednym z obsługiwanych regionów:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
-  * Zapewnij dostęp do regionu przy użyciu Azure Portal.
-  
-* **`import AutoMLConfig` Niepowodzenie**: wprowadzono zmiany pakietu w wersji zautomatyzowanej uczenia maszynowego 1.0.76, co wymaga odinstalowania poprzedniej wersji przed zaktualizowaniem do nowej wersji. Jeśli `ImportError: cannot import name AutoMLConfig` napotkasz po uaktualnieniu z wersji zestawu SDK przed v 1.0.76 do v 1.0.76 lub nowszej, usuń błąd, uruchamiając polecenie: `pip uninstall azureml-train automl` , a następnie `pip install azureml-train-auotml` . Skrypt automl_setup. cmd robi to automatycznie. 
-
-* **Workspace.from_config nie powiodło się**: Jeśli wywołania ws = Workspace.from_config () "zakończą się niepowodzeniem —
-  1. Upewnij się, że Notes Configuration. ipynb został uruchomiony pomyślnie.
-  2. Jeśli Notes jest uruchamiany z folderu, który nie znajduje się w folderze, w którym `configuration.ipynb` został uruchomiony, skopiuj folder aml_config a plik config.js, który zawiera do nowego folderu. Workspace.from_config odczytuje config.jsna potrzeby folderu notesu lub jego folderu nadrzędnego.
-  3. Jeśli jest używana nowa subskrypcja, Grupa zasobów, obszar roboczy lub region, pamiętaj, aby `configuration.ipynb` ponownie uruchomić Notes. Zmiana config.jsna bezpośrednio będzie działała tylko wtedy, gdy obszar roboczy już istnieje w grupie zasobów określonej w ramach określonej subskrypcji.
-  4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create` Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
-  
-* **Przykładowy Notes kończy się niepowodzeniem**: w przypadku niepowodzenia przykładowego notesu Wystąpił błąd, że właściwość, metoda lub biblioteka nie istnieje:
-  * Upewnij się, że wybrano poprawne jądro w Jupyter Notebook. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Jądro jest zapisywane jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
-      * W przypadku Azure Notebooks powinna być to Python 3,6. 
-      * W przypadku lokalnych środowisk Conda powinna to być nazwa środowiska Conda określona w automl_setup.
-  * Upewnij się, że Notes dotyczy używanej wersji zestawu SDK. Wersję zestawu SDK można sprawdzić, wykonując `azureml.core.VERSION` w komórce Jupyter Notebook. Możesz pobrać poprzednią wersję przykładowych notesów z usługi GitHub, klikając `Branch` przycisk, wybierając `Tags` kartę, a następnie wybierając wersję.
-
-* **`import numpy` Niepowodzenie w systemie Windows**: niektóre środowiska systemu Windows Zapoznaj się z błędem ładowania numpy z najnowszą wersją języka Python 3.6.8. Jeśli widzisz ten problem, Wypróbuj wersję Python 3.6.7.
-
-* **`import numpy` Niepowodzenie**: Sprawdź wersję TensorFlow w środowisku zautomatyzowanej Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj TensorFlow ze środowiska, jeśli wersja jest >= 1,13. Możesz sprawdzić wersję programu TensorFlow i odinstalować ją w następujący sposób:
-  1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
-  2. Wprowadź `pip freeze` i Wyszukaj `tensorflow` , jeśli znaleziono, wyświetlana wersja powinna być < 1,13
-  3. Jeśli wyświetlana wersja nie jest obsługiwaną wersją, `pip uninstall tensorflow` w powłoce poleceń i wprowadź y w celu potwierdzenia.
-  
- * **Przebieg kończy się `jwt.exceptions.DecodeError` niepowodzeniem z**: dokładny komunikat o błędzie: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
-
-    W przypadku wersji <= 1.17.0 zestawu SDK instalacja może spowodować nieobsługiwaną wersję PyJWT. Sprawdź wersję PyJWT w środowisku zautomatyzowanej Conda ml. Obsługiwane wersje są < 2.0.0. Wersję PyJWT można sprawdzić w następujący sposób:
-    1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
-    2. Wprowadź `pip freeze` i Wyszukaj `PyJWT` , jeśli znaleziono, wyświetlana wersja powinna być < 2.0.0
-
-    Jeśli wyświetlana wersja nie jest obsługiwaną wersją:
-    1. Rozważ uaktualnienie do najnowszej wersji zestawu SDK AutoML: `pip install -U azureml-sdk[automl]` .
-    2. Jeśli to nie jest możliwe, Odinstaluj PyJWT ze środowiska i zainstaluj odpowiednią wersję w następujący sposób:
-        - `pip uninstall PyJWT` w powłoce poleceń i wprowadź `y` potwierdzenie.
-        - Zainstaluj przy użyciu `pip install 'PyJWT<2.0.0'` .
-
 ## <a name="next-steps"></a>Następne kroki
 
 + Dowiedz się więcej o tym [, jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
@@ -524,3 +419,5 @@ Aby uzyskać ogólne informacje na temat sposobu włączenia wyjaśnień modelu 
 + Dowiedz się więcej o tym, [Jak szkolić model regresji z automatycznym uczeniem maszynowym](tutorial-auto-train-models.md) lub [jak korzystać z funkcji automatycznego uczenia maszynowego w ramach zasobu zdalnego](how-to-auto-train-remote.md).
 
 + Dowiedz się, jak uczenie wielu modeli za pomocą AutoML w [akceleratorze rozwiązań wielu modeli](https://aka.ms/many-models).
+
++ [Rozwiązywanie problemów dotyczących zautomatyzowanych eksperymentów ml](how-to-troubleshoot-auto-ml.md). 

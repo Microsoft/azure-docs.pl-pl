@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e046f8cbf6fa0418244f20e9a0c6f75f6da34136
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786880"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434631"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
@@ -38,7 +38,7 @@ W tej chwili polecenia niestandardowe obsługują subskrypcje mowy utworzone w n
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Utwórz zasób usługi Azure Speech w regionie, który obsługuje polecenia niestandardowe.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Listę obsługiwanych regionów znajduje się w powyższej sekcji dotyczącej **dostępności regionów** .
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Utwórz zasób usługi Azure Speech w regionie, który obsługuje polecenia niestandardowe.</a> Listę obsługiwanych regionów znajduje się w powyższej sekcji dotyczącej **dostępności regionów** .
 > * Pobierz przykładowy plik JSON dla przykładowego [pokoju inteligentnego](https://aka.ms/speech/cc-quickstart) .
 > * Pobierz najnowszą wersję [klienta asystenta głosowego systemu Windows](https://aka.ms/speech/va-samples-wvac).
 

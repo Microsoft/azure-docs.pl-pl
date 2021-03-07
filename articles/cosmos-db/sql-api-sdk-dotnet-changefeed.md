@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: ff861b5a58de4f108e49e52e6f09c71d7dd678ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 43ad7a91719430798d93c4883027cb4c58fd3442
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097196"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423886"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora zestawienia zmian platformy .NET: pobieranie i informacje o wersjach
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "93097196"
 |   |   |
 |---|---|
 |**Zestaw SDK do pobrania**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zestawienia zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
+|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zestawienia zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**Wprowadzenie**|[Wprowadzenie do zestawu .NET SDK procesora zestawienia zmian](change-feed.md)|
 |**Bieżąca obsługiwana platforma**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 

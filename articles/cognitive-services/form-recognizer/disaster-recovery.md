@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 0343402d92498bff56250027086cbf2ceb258f0f
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808262"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427168"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -28,7 +28,7 @@ Jeśli Twoja aplikacja lub firma zależy od użycia niestandardowego modelu apar
 
 ##  <a name="prerequisites"></a>Wymagania wstępne
 
-1. Dwie formy rozpoznawania zasobów platformy Azure w różnych regionach świadczenia usługi Azure. Jeśli ich nie masz, przejdź do Azure Portal i <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" Utwórz nowy formularz aparatu rozpoznawania, " target="_blank"> Utwórz nowy zasób aparatu rozpoznawania <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Dwie formy rozpoznawania zasobów platformy Azure w różnych regionach świadczenia usługi Azure. Jeśli ich nie masz, przejdź do Azure Portal i <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" Utwórz nowy formularz aparatu rozpoznawania, " target="_blank"> Utwórz nowy zasób aparatu rozpoznawania </a> .
 1. Klucz subskrypcji, adres URL punktu końcowego i Identyfikator subskrypcji Twojego zasobu aparatu rozpoznawania formularza. Te wartości można znaleźć na karcie **Przegląd** zasobu na Azure Portal.
 
 

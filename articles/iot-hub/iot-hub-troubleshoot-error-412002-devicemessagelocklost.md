@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7d48474d88a60c73f6094d3b9e65017c23404d8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53364009f9b9c041c39728e438c3e24eacfd1665
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144261"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435481"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
@@ -25,7 +25,7 @@ Podczas próby wysłania komunikatu z chmury do urządzenia żądanie kończy si
 
 ## <a name="cause"></a>Przyczyna
 
-Gdy urządzenie odbiera komunikat z chmury do urządzenia z kolejki (na przykład za pomocą [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) ), komunikat jest zablokowany przez IoT Hub dla czasu trwania blokady o długości jednej minuty. Jeśli urządzenie próbuje zakończyć komunikat po upływie limitu czasu blokady, IoT Hub zgłasza ten wyjątek.
+Gdy urządzenie odbiera komunikat z chmury do urządzenia z kolejki (na przykład za pomocą [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync) ), komunikat jest zablokowany przez IoT Hub dla czasu trwania blokady o długości jednej minuty. Jeśli urządzenie próbuje zakończyć komunikat po upływie limitu czasu blokady, IoT Hub zgłasza ten wyjątek.
 
 ## <a name="solution"></a>Rozwiązanie
 

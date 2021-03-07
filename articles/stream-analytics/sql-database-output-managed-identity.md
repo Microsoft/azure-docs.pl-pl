@@ -6,18 +6,32 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 4246ad48624eb0ca53fbe6bb747f02daa32119bf
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555597"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432455"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Korzystanie z tożsamości zarządzanych do uzyskiwania dostępu do Azure SQL Database lub analizy Synapse Azure z poziomu zadania Azure Stream Analytics (wersja zapoznawcza)
 
 Azure Stream Analytics obsługuje [uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla Azure SQL Database i ujścia danych wyjściowych usługi Azure Synapse Analytics. Tożsamości zarządzane eliminują ograniczenia metod uwierzytelniania opartych na użytkownikach, takich jak potrzeba ponownego uwierzytelnienia ze względu na zmiany hasła lub wygaśnięcia tokenów użytkowników, które wystąpiły co 90 dni. Po usunięciu potrzeby ręcznego uwierzytelniania Stream Analytics wdrożenia mogą być w pełni zautomatyzowane.
 
 Zarządzana tożsamość to zarządzana aplikacja zarejestrowana w Azure Active Directory, która reprezentuje daną Stream Analytics zadanie. Aplikacja zarządzana służy do uwierzytelniania w zasobach przeznaczonych do użycia. W tym artykule pokazano, jak włączyć zarządzaną tożsamość dla Azure SQL Database lub danych wyjściowych analizy usługi Azure Synapse dla Stream Analytics zadania za pomocą Azure Portal.
+
+## <a name="overview"></a>Omówienie
+
+W tym artykule przedstawiono kroki niezbędne do połączenia zadania Stream Analytics z Azure SQL Database lub pulą SQL Synapse Analytics przy użyciu trybu uwierzytelniania tożsamości zarządzanej. 
+
+- Najpierw utworzysz tożsamość zarządzaną przypisaną przez system dla zadania Stream Analytics. To jest tożsamość zadania w Azure Active Directory.  
+
+- Dodaj administratora Active Directory do programu SQL Server lub obszaru roboczego Synapse, który umożliwia uwierzytelnianie usługi Azure AD (tożsamość zarządzana) dla tego zasobu.
+
+- Następnie utwórz zawartego użytkownika reprezentujący tożsamość zadania Stream Analytics w bazie danych. Za każdym razem, gdy zadanie Stream Analytics współdziała z usługą SQL DB lub Synapse zasobem bazy danych SQL, jest to tożsamość, do której odwołuje się, aby sprawdzić, jakie są uprawnienia Stream Analytics zadania.
+
+- Udziel uprawnień do zadania Stream Analytics, aby uzyskać dostęp do pul SQL SQL Database lub Synapse.
+
+- Na koniec Dodaj Azure SQL Database/Synapse Analytics jako dane wyjściowe w zadaniu Stream Analytics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -63,25 +77,25 @@ Najpierw utwórz zarządzaną tożsamość dla zadania Azure Stream Analytics.
 
 Po utworzeniu tożsamości zarządzanej wybierz administratora Active Directory.
 
-1. Przejdź do Azure SQL Database lub zasobu analizy usługi Azure Synapse, a następnie wybierz SQL Server, w którym znajduje się baza danych. Nazwę SQL Server obok pozycji *Nazwa serwera* można znaleźć na stronie Przegląd zasobów.
+1. Przejdź do Azure SQL Database lub zasobu puli SQL usługi Azure Synapse Analytics, a następnie wybierz obszar roboczy SQL Server lub Synapse, w którym znajduje się zasób. Łącze do tych informacji można znaleźć na stronie Przegląd zasobów obok *nazwy serwera* lub *obszaru roboczego*.
 
-1. W obszarze **Ustawienia** wybierz pozycję **administrator Active Directory** . Następnie wybierz pozycję **Ustaw administratora**.
+1. W obszarze **Ustawienia** w obszarze roboczym SQL Server i Synapse wybierz **Active Directory** pozycję Administrator lub **administrator Active Directory SQL** . Następnie wybierz pozycję **Ustaw administratora**.
 
    ![Strona administracyjna Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
 
-1. Na stronie Administrator Active Directory Wyszukaj użytkownika lub grupę, aby być administratorem SQL Server i kliknij przycisk **Wybierz**.
+1. Na stronie Administrator Active Directory Wyszukaj użytkownika lub grupę, aby być administratorem SQL Server i kliknij przycisk **Wybierz**. Będzie to użytkownik, który będzie mógł utworzyć **użytkownika zawartej bazy danych** w następnej sekcji.
 
    ![Dodaj administratora Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać użytkowników lub grup, które są wyszarzone, ponieważ nie są one obsługiwane jako administratorzy Azure Active Directory. Zapoznaj się z listą obsługiwanych administratorów w sekcji **Azure Active Directory funkcje i ograniczenia**   dotyczące [używania Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania w usłudze SQL Database lub Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Kontrola dostępu oparta na rolach (Azure RBAC) ma zastosowanie tylko do portalu i nie jest propagowana do SQL Server. Wybrany użytkownik lub grupa jest również użytkownikiem, który będzie mógł utworzyć **użytkownika zawartej bazy danych** w następnej sekcji.
+   Na stronie Administrator Active Directory są wyświetlane wszystkie elementy członkowskie i grupy Active Directory. Nie można wybrać szarych użytkowników lub grup, ponieważ nie są one obsługiwane jako administratorzy Azure Active Directory. Zapoznaj się z listą obsługiwanych administratorów w sekcji **Azure Active Directory funkcje i ograniczenia**   dotyczące [używania Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania w usłudze SQL Database lub Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations).
 
 1. Na stronie **administrator Active Directory** wybierz pozycję **Zapisz** . Proces zmieniania administratora trwa kilka minut.
-
-   Po skonfigurowaniu administratora Azure Active Directory Nowa nazwa administratora (użytkownik lub Grupa) nie może być obecna w wirtualnej podstawowej bazie danych jako użytkownik uwierzytelniania SQL Server. Jeśli jest obecny, konfiguracja administratora Azure Active Directory nie powiedzie się i wycofa jego tworzenie, wskazując, że administrator (nazwa) już istnieje. Ponieważ użytkownik uwierzytelniania SQL Server nie jest częścią Azure Active Directory, wszelkie wysiłki związane z nawiązywaniem połączenia z serwerem za pomocą uwierzytelniania Azure Active Directory nie powiedzie się. 
 
 ## <a name="create-a-contained-database-user"></a>Tworzenie użytkownika zawartej bazy danych
 
 Następnie utworzysz użytkownika zawartej bazy danych w bazie danych Azure SQL lub Azure Synapse, która jest mapowana na tożsamość Azure Active Directory. Użytkownik zawartej bazy danych nie ma nazwy logowania podstawowej bazy danych, ale mapuje ją na tożsamość w katalogu, który jest skojarzony z bazą danych. Tożsamość Azure Active Directory może być pojedynczym kontem użytkownika lub grupą. W takim przypadku należy utworzyć użytkownika zawartej bazy danych dla zadania Stream Analytics. 
+
+Aby uzyskać więcej informacji, zapoznaj się z następującym artykułem dotyczącym usługi Azure AD Integration: [uwierzytelnianie uniwersalne przy użyciu SQL Database i usługi Azure Synapse Analytics (Obsługa programu SSMS)](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 1. Nawiąż połączenie z bazą danych Azure SQL lub Azure Synapse Database przy użyciu SQL Server Management Studio. **Nazwa użytkownika** to Azure Active Directory użytkownika z uprawnieniami **Zmiana dowolnego użytkownika** . Przykładem jest administrator ustawiony na SQL Server. Użyj **Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA. 
 
@@ -97,7 +111,7 @@ Następnie utworzysz użytkownika zawartej bazy danych w bazie danych Azure SQL 
 
    ![Okno nowej reguły zapory](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. Jeśli tak, przejdź do zasobu SQL Server na Azure Portal. W sekcji **zabezpieczenia** Otwórz stronę **zapory i Sieć wirtualna** . 
+   1. W takim przypadku przejdź do zasobu SQL Server/Synapse obszaru roboczego na Azure Portal. W sekcji **zabezpieczenia** Otwórz stronę **zapory i Sieć wirtualna/zapory** . 
    1. Dodaj nową regułę z dowolną nazwą reguły.
    1. Użyj adresu *IP z okna* **Nowa reguła zapory** dla *początkowego adresu IP*.
    1. Użyj adresu *IP w oknie* **Nowa reguła zapory** dla *końcowego adresu IP*. 
@@ -108,8 +122,15 @@ Następnie utworzysz użytkownika zawartej bazy danych w bazie danych Azure SQL 
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
+   
+    Aby sprawdzić, czy pomyślnie dodano użytkownika zawartej bazy danych, uruchom następujące polecenie w programie SSMS w obszarze odnoszące się do bazy danych i sprawdź, czy *ASA_JOB_NAME* znajduje się w kolumnie "nazwa".
 
-1. Aby uzyskać Azure Active Directory firmy Microsoft w celu sprawdzenia, czy zadanie Stream Analytics ma dostęp do SQL Database, musimy udzielić Azure Active Directory uprawnienia do komunikacji z bazą danych. W tym celu przejdź do strony "zapory i Sieć wirtualna" w Azure Portal ponownie i Włącz opcję "Zezwalaj na dostęp do tego serwera usługom i zasobom platformy Azure". 
+   ```sql
+   SELECT * FROM <SQL_DB_NAME>.sys.database_principals 
+   WHERE type_desc = 'EXTERNAL_USER' 
+   ```
+
+1. Aby uzyskać Azure Active Directory firmy Microsoft w celu sprawdzenia, czy zadanie Stream Analytics ma dostęp do SQL Database, musimy udzielić Azure Active Directory uprawnienia do komunikacji z bazą danych. W tym celu przejdź do strony "zapory i Sieć wirtualna"/"zapory w Azure Portal ponownie, a następnie włącz opcję" Zezwalaj na dostęp do tego serwera/obszaru roboczego usług platformy Azure i zasobów ".
 
    ![Zapora i Sieć wirtualna](./media/sql-db-output-managed-identity/allow-access.png)
 
@@ -117,13 +138,13 @@ Następnie utworzysz użytkownika zawartej bazy danych w bazie danych Azure SQL 
 
 #### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
 
-Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **nawiązywania połączenia** z zasobem usługi Azure SQL Database za pośrednictwem tożsamości zarządzanej. Zaleca się przyznanie uprawnień SELECT i INSERT do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w usłudze Azure SQL Database. Uprawnienie **Wstawianie** umożliwia testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure SQL Database.
+Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **nawiązywania połączenia** z zasobem usługi Azure SQL Database za pośrednictwem tożsamości zarządzanej. Zaleca się przyznanie uprawnień **SELECT** i **INSERT** do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w usłudze Azure SQL Database. Uprawnienie **Wstawianie** umożliwia testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure SQL Database.
 
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
-Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **łączenia** się z zasobem usługi Azure Synapse Database za pośrednictwem tożsamości zarządzanej. Zalecamy, aby dodatkowo przyznać uprawnienia do operacji ZBIORCZych SELECT, INSERT i ADMINISTRUJ do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w bazie danych usługi Azure Synapse. Uprawnienia  do **operacji zbiorczych wstawiania i administrowania bazami danych** umożliwiają testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure Synapse Database.
+Po utworzeniu użytkownika zawartej bazy danych i uzyskaniu dostępu do usług platformy Azure w portalu zgodnie z opisem w poprzedniej sekcji zadanie Stream Analytics ma uprawnienia od tożsamości zarządzanej do **łączenia** się z zasobem usługi Azure Synapse Database za pośrednictwem tożsamości zarządzanej. Zalecamy, aby dodatkowo przyznać uprawnienia do **operacji zbiorczych** **SELECT**, **INSERT** i Administruj do zadania Stream Analytics, ponieważ będą one potrzebne później w przepływie pracy Stream Analytics. Uprawnienie **Wybierz** umożliwia przetestowanie połączenia z tabelą w bazie danych usługi Azure Synapse. Uprawnienia  do **operacji zbiorczych wstawiania i administrowania bazami danych** umożliwiają testowanie kompleksowych zapytań Stream Analytics po skonfigurowaniu danych wejściowych i danych wyjściowych usługi Azure Synapse Database.
 
-Aby udzielić uprawnienia do zarządzania OPERACJAmi ZBIORCZymi dla bazy danych, należy udzielić wszystkim uprawnieniam, które są oznaczone jako **kontrolki** w ramach [domyślnych uprawnień bazy danych](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) do zadania Stream Analytics. To uprawnienie jest wymagane, ponieważ zadanie Stream Analytics wykonuje instrukcję COPY, która wymaga [zarządzania operacjami zbiorczymi bazy danych i wstawiania](/sql/t-sql/statements/copy-into-transact-sql).
+Aby udzielić uprawnienia do **zarządzania operacjami zbiorczymi dla bazy danych** , należy udzielić wszystkim uprawnieniam, które są oznaczone jako **kontrolki** w ramach [domyślnych uprawnień bazy danych](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) do zadania Stream Analytics. To uprawnienie jest wymagane, ponieważ zadanie Stream Analytics wykonuje instrukcję **copy** , która wymaga [zarządzania operacjami zbiorczymi bazy danych i wstawiania](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 
@@ -134,18 +155,28 @@ Aby udzielić uprawnienia tylko do określonej tabeli lub obiektu w bazie danych
 #### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/azure-sql)
 
 ```sql
-GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
 ```sql
-GRANT [PERMISSION NAME] OBJECT::TABLE_NAME TO ASA_JOB_NAME;
+GRANT CONNECT, SELECT, INSERT, CONTROL, ADMINISTER DATABASE BULK OPERATIONS OBJECT::TABLE_NAME TO ASA_JOB_NAME;
 ```
 
 ---
 
 Alternatywnie możesz kliknąć prawym przyciskiem myszy bazę danych Azure SQL lub Azure Synapse Database w SQL Server Management Studio i wybrać pozycję **właściwości > uprawnienia**. Z menu uprawnienia można zobaczyć wcześniej dodane zadanie Stream Analytics i można ręcznie udzielić lub odmówić uprawnień.
+
+Aby zapoznać się ze wszystkimi uprawnieniami dodanymi do użytkownika *ASA_JOB_NAME* , uruchom następujące polecenie w programie SSMS w ramach powiązanej bazy danych: 
+
+```sql
+SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+FROM sys.database_principals dbprin 
+LEFT JOIN sys.database_permissions dbperm 
+ON dbperm.grantee_principal_id = dbprin.principal_id 
+WHERE dbprin.name = '<ASA_JOB_NAME>' 
+```
 
 ## <a name="create-an-azure-sql-database-or-azure-synapse-output"></a>Utwórz Azure SQL Database lub dane wyjściowe usługi Azure Synapse
 
@@ -161,6 +192,8 @@ Upewnij się, że utworzono tabelę w SQL Database z odpowiednim schematem wyjś
 
 1. Wypełnij pozostałe właściwości. Aby dowiedzieć się więcej na temat tworzenia SQL Database danych wyjściowych, zobacz [tworzenie SQL Database danych wyjściowych przy użyciu Stream Analytics](sql-database-output.md). Gdy skończysz, wybierz pozycję **Zapisz**.
 
+1. Po kliknięciu przycisku **Zapisz** test połączenia do zasobu powinien zostać wyzwolony automatycznie. Po pomyślnym zakończeniu zadania Stream Analytics zostało pomyślnie skonfigurowane w celu nawiązania połączenia Azure SQL Database lub Synapse SQL Database przy użyciu trybu uwierzytelniania tożsamości zarządzanej. 
+
 #### <a name="azure-synapse-analytics"></a>[Azure Synapse Analytics](#tab/azure-synapse)
 
 Teraz, gdy zarządzana tożsamość i konto magazynu są skonfigurowane, możesz dodać Azure SQL Database lub dane wyjściowe usługi Azure Synapse do zadania Stream Analytics.
@@ -172,6 +205,8 @@ Upewnij się, że utworzono tabelę w bazie danych Azure Synapse z odpowiednim s
 1. Wybierz pozycję **dodaj > Azure Synapse Analytics**. W oknie właściwości danych wyjściowych ujścia danych wyjściowych SQL Database wybierz pozycję **zarządzana tożsamość** z listy rozwijanej tryb uwierzytelniania.
 
 1. Wypełnij pozostałe właściwości. Aby dowiedzieć się więcej na temat tworzenia danych wyjściowych usługi Azure Synapse, zobacz [Azure Synapse Analytics Output from Azure Stream Analytics](azure-synapse-analytics-output.md). Gdy skończysz, wybierz pozycję **Zapisz**.
+
+1. Po kliknięciu przycisku **Zapisz** test połączenia do zasobu powinien zostać wyzwolony automatycznie. Po pomyślnym zakończeniu pracy możesz teraz przystąpić do dalszego korzystania z tożsamości zarządzanej dla zasobu usługi Azure Synapse Analytics przy użyciu Stream Analytics. 
 
 ---
 

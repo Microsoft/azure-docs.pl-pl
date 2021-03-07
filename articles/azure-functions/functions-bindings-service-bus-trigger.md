@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f2a514af99baa2d828df1aee35a0e6339d39e617
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4b95c25400317b2baac694f4ba2b1b1dc1eae098
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788557"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435158"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Wyzwalacz Azure Service Bus dla Azure Functions
 
@@ -346,8 +346,8 @@ Następujące typy parametrów są dostępne dla komunikatu kolejki lub tematu:
 * `string` — Jeśli komunikat ma wartość Text.
 * `byte[]` — Przydatne w przypadku danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera kod JSON, Azure Functions próbuje zdeserializować danych JSON.
-* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true) .
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet&preserve-view=true) — Służy do odbierania i potwierdzania komunikatów z kontenera komunikatów (wymagane, gdy [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) jest ustawiony na `false` ).
+* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) — Służy do odbierania i potwierdzania komunikatów z kontenera komunikatów (wymagane, gdy [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) jest ustawiony na `false` ).
 
 Te typy parametrów są przeznaczone dla Azure Functions wersja 1. x; dla 2. x i wyższych, użyj [`Message`](/dotnet/api/microsoft.azure.servicebus.message) zamiast `BrokeredMessage` .
 
@@ -358,7 +358,7 @@ Następujące typy parametrów są dostępne dla komunikatu kolejki lub tematu:
 * `string` — Jeśli komunikat ma wartość Text.
 * `byte[]` — Przydatne w przypadku danych binarnych.
 * Niestandardowy typ — Jeśli komunikat zawiera kod JSON, Azure Functions próbuje zdeserializować danych JSON.
-* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1&preserve-view=true) .
+* `BrokeredMessage` -Zawiera deserializowany komunikat z metodą [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Te parametry dotyczą Azure Functions wersji 1. x; dla 2. x i wyższych, użyj [`Message`](/dotnet/api/microsoft.azure.servicebus.message) zamiast `BrokeredMessage` .
 
@@ -390,11 +390,11 @@ Obsługa skażonych komunikatów nie może być kontrolowana ani skonfigurowana 
 
 Środowisko uruchomieniowe funkcji odbiera komunikat w [trybie PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Wywołuje `Complete` komunikat, jeśli funkcja zakończy się pomyślnie, lub wywołuje, `Abandon` Jeśli funkcja się nie powiedzie. Jeśli funkcja działa dłużej niż `PeekLock` limit czasu, blokada zostanie automatycznie odnowiona, o ile funkcja jest uruchomiona.
 
-`maxAutoRenewDuration`Można go skonfigurować w *host.jsna*, który jest mapowany na [OnMessageOptions. MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet&preserve-view=true). Maksymalna dozwolona wartość tego ustawienia to 5 minut zgodnie z dokumentacją Service Bus, podczas gdy można zwiększyć limit czasu dla funkcji z wartości domyślnej wynoszącej 5 minut do 10 minut. W przypadku funkcji Service Bus nie chcesz tego robić, ponieważ Przekroczono limit Service Bus odnowienia.
+`maxAutoRenewDuration`Można go skonfigurować w *host.jsna*, który jest mapowany na [OnMessageOptions. MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration). Maksymalna dozwolona wartość tego ustawienia to 5 minut zgodnie z dokumentacją Service Bus, podczas gdy można zwiększyć limit czasu dla funkcji z wartości domyślnej wynoszącej 5 minut do 10 minut. W przypadku funkcji Service Bus nie chcesz tego robić, ponieważ Przekroczono limit Service Bus odnowienia.
 
 ## <a name="message-metadata"></a>Metadane komunikatów
 
-Wyzwalacz Service Bus zawiera kilka [właściwości metadanych](./functions-bindings-expressions-patterns.md#trigger-metadata). Te właściwości mogą służyć jako część wyrażeń powiązań w innych powiązaniach lub jako parametry w kodzie. Te właściwości są członkami klasy [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet&preserve-view=true) .
+Wyzwalacz Service Bus zawiera kilka [właściwości metadanych](./functions-bindings-expressions-patterns.md#trigger-metadata). Te właściwości mogą służyć jako część wyrażeń powiązań w innych powiązaniach lub jako parametry w kodzie. Te właściwości są członkami klasy [Message](/dotnet/api/microsoft.azure.servicebus.message) .
 
 |Właściwość|Typ|Opis|
 |--------|----|-----------|
