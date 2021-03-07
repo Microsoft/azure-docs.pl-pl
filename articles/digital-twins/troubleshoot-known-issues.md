@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d7d97ca1eb590fb96789d439243dd04d6143a960
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 641b44a5e21e6646c07e6e1511e1c4ff01707f79
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203151"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434104"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -37,7 +37,7 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 
 ## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problem z uwierzytelnianiem interakcyjnym przeglądarki na platformie Azure. 1.2.0 tożsamości
 
-**Opis problemu:** Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) . Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException" podczas próby uwierzytelnienia w oknie przeglądarki. Uruchomienie okna przeglądarki może zakończyć się niepowodzeniem lub pojawić się w celu pomyślnego uwierzytelnienia użytkownika, podczas gdy aplikacja kliencka nadal kończy się niepowodzeniem z powodu błędu.
+**Opis problemu:** Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity)** mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential) . Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException" podczas próby uwierzytelnienia w oknie przeglądarki. Uruchomienie okna przeglądarki może zakończyć się niepowodzeniem lub pojawić się w celu pomyślnego uwierzytelnienia użytkownika, podczas gdy aplikacja kliencka nadal kończy się niepowodzeniem z powodu błędu.
 
 | Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Ten artykuł zawiera informacje o znanych problemach związanych z usługą Azur
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problem z domyślnym uwierzytelnianiem poświadczeń platformy Azure na platformie Azure. tożsamość 1.3.0
 
-**Opis problemu:** Podczas pisania kodu uwierzytelniania przy użyciu wersji **1.3.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** niektórzy użytkownicy napotykali problemy z metodą [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) używaną w wielu przykładach w tej dokumentacji Digital bliźniaczych reprezentacji for Azure. Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication nie powiodła się", gdy kod próbuje się uwierzytelnić.
+**Opis problemu:** Podczas pisania kodu uwierzytelniania przy użyciu wersji **1.3.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity)** niektórzy użytkownicy napotykali problemy z metodą [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) używaną w wielu przykładach w tej dokumentacji Digital bliźniaczych reprezentacji for Azure. Jest to odpowiedź na błąd "Azure. Identity. AuthenticationFailedException: SharedTokenCacheCredential Authentication nie powiodła się", gdy kod próbuje się uwierzytelnić.
 
 | Czy ma to wpływ na mnie? | Przyczyna | Rozwiązanie |
 | --- | --- | --- |

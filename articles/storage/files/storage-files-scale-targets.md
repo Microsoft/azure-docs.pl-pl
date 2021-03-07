@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6ef255d78d3dd3ff6fcc5eba7aad522018185299
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518899"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440313"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem protokołów protokołu SMB i systemu plików NFS. W tym artykule omówiono elementy docelowe skalowalności i wydajności dla Azure Files i Azure File Sync.
@@ -126,10 +126,21 @@ Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawio
 | Przepływność pobierania przestrzeni nazw | 400 obiektów na sekundę |
 
 ### <a name="initial-one-time-provisioning"></a>Początkowe Inicjowanie obsługi po raz pierwszy
+
 **Początkowe Wyliczenie zmian w chmurze**: po utworzeniu nowej grupy synchronizacji, początkowym wyliczeniem zmian w chmurze jest pierwszy krok, który zostanie wykonany. W tym procesie system wylicza wszystkie elementy w udziale plików platformy Azure. W trakcie tego procesu nie będzie żadnych działań synchronizacji, co oznacza, że żadne elementy nie zostaną pobrane z punktu końcowego w chmurze do punktu końcowego serwera i żadne elementy nie zostaną przekazane z punktu końcowego serwera do punktu końcowego w chmurze. Działanie synchronizacji zostanie wznowione po zakończeniu początkowego wyliczenia zmian w chmurze.
 Szybkość wydajności to 20 obiektów na sekundę. Klienci mogą oszacować czas trwania wstępnego wyliczania zmian w chmurze, określając liczbę elementów w udziale chmury i korzystając z następującej formuły, aby uzyskać czas w dniach. 
 
    **Czas (w dniach) dla początkowej wyliczenia chmury = (liczba obiektów w punkcie końcowym w chmurze)/(20 * 60 * 60 * 24)**
+
+**Początkowa synchronizacja danych z systemu Windows Server do udziału plików platformy Azure**: wiele wdrożeń Azure File Sync rozpoczyna się od pustego udziału plików platformy Azure, ponieważ wszystkie dane są w systemie Windows Server. W takich przypadkach początkowe Wyliczenie zmian w chmurze jest szybkie i większość czasu będzie poświęcana na synchronizację zmian z systemu Windows Server w udziałach plików platformy Azure. 
+
+Podczas synchronizacji przekazuje dane do udziału plików platformy Azure, nie ma żadnego przestoju na lokalnym serwerze plików, a administratorzy mogą [skonfigurować limity sieciowe](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) w celu ograniczenia przepustowości używanej do przekazywania danych w tle.
+
+Synchronizacja początkowa jest zwykle ograniczona przez początkową szybkość przekazywania 20 plików na sekundę dla każdej grupy synchronizacji. Klienci mogą oszacować czas przekazywania wszystkich danych na platformę Azure, korzystając z następującej formuły, aby uzyskać czas w dniach:  
+
+   **Czas (w dniach) przekazywania plików do grupy synchronizacji = (liczba obiektów w punkcie końcowym w chmurze)/(20 * 60 * 60 * 24)**
+
+Dzielenie danych na wiele punktów końcowych serwera i grup synchronizacji może przyspieszyć to wstępne przekazywanie danych, ponieważ przekazywanie może odbywać się równolegle dla wielu grup synchronizacji z częstotliwością 20 elementów na sekundę. Tak więc dwie grupy synchronizacji byłyby uruchomione ze łączną szybkością 40 elementów na sekundę. Łączny czas do ukończenia to oszacowanie czasu dla grupy synchronizacji z największą liczbą plików do zsynchronizowania
 
 **Przepływność pobierania przestrzeni nazw** Po dodaniu nowego punktu końcowego serwera do istniejącej grupy synchronizacji Agent Azure File Sync nie pobiera żadnej zawartości pliku z punktu końcowego w chmurze. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 

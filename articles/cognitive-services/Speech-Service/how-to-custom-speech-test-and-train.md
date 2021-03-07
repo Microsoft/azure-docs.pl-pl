@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710502"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424499"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -55,7 +55,7 @@ Podczas uczenia nowego modelu Zacznij od [pokrewnego tekstu](#related-text-data-
 Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jako plik. zip. Każdy zestaw danych może zawierać tylko jeden typ danych.
 
 > [!TIP]
-> Aby szybko rozpocząć pracę, rozważ użycie przykładowych danych. Zapoznaj się z tym repozytorium GitHub, aby uzyskać <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">przykładowe dane <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech</a>
+> Aby szybko rozpocząć pracę, rozważ użycie przykładowych danych. Zapoznaj się z tym repozytorium GitHub, aby uzyskać <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">przykładowe dane Custom Speech </a>
 
 > [!NOTE]
 > Nie wszystkie modele podstawowe obsługują szkolenia z dźwiękiem. Jeśli model podstawowy nie obsługuje tego elementu, usługa mowy będzie używać tylko tekstu z transkrypcji i ignorować dźwięk. Zobacz [Obsługa języka](language-support.md#speech-to-text) , aby zapoznać się z listą modeli podstawowych, które obsługują szkolenia z danymi audio. Nawet jeśli model podstawowy obsługuje szkolenia z danymi audio, usługa może korzystać tylko z części audio. Nadal będzie używać wszystkich transkrypcji.
@@ -69,7 +69,7 @@ Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jak
 
 ## <a name="upload-data"></a>Przekazywanie danych
 
-Aby przekazać dane, przejdź do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
+Aby przekazać dane, przejdź do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
 
 ![Zrzut ekranu, który podświetla opcję przekazywania audio z portalu mowy.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Użyj tej tabeli, aby upewnić się, że pliki audio są poprawnie sformatowane 
 > [!TIP]
 > Podczas przekazywania szkoleń i testowania danych rozmiar pliku zip nie może przekroczyć 2 GB. Jeśli potrzebujesz więcej danych do szkolenia, Podziel je na kilka plików zip i przekaż je oddzielnie. Później możesz wybrać opcję uczenia się z *wielu* zestawów danych. Jednak można testować tylko z *jednego* zestawu danych.
 
-Aby sprawdzić właściwości dźwięku lub przekonwertować istniejące audio na odpowiednie formaty, użyj <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Poniżej przedstawiono kilka przykładów działania poszczególnych działań za pomocą wiersza polecenia SoX:
+Aby sprawdzić właściwości dźwięku lub przekonwertować istniejące audio na odpowiednie formaty, użyj <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX </a> . Poniżej przedstawiono kilka przykładów działania poszczególnych działań za pomocą wiersza polecenia SoX:
 
 | Działanie | Opis | SoX — polecenie |
 |----------|-------------|-------------|
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 Transkrypcje są normalizowane pod względem tekstu, aby mogły być przetwarzane przez system. Istnieje jednak kilka ważnych normalizacji, które należy wykonać przed przekazaniem danych do programu Speech Studio. Aby uzyskać odpowiedni język do użycia podczas przygotowywania transkrypcji, zobacz [jak utworzyć transkrypcję z oznaczeniem ludzkim](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
+Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
 
 > [!div class="mx-imgBorder"]
 > ![Wybierz dźwięk z portalu mowy](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ Nazwy produktów lub funkcje, które są unikatowe, powinny zawierać powiązane
 | Zdania (wyrażenia długości) | Popraw dokładność podczas rozpoznawania nazw produktów lub słownika właściwych dla branż w kontekście zdania. |
 | Wymowy | Popraw wymowę nietypowych warunków, akronimów lub innych wyrazów z niezdefiniowanymi wymowiemi. |
 
-Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako pojedynczy plik zip i przekazać je do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako pojedynczy plik zip i przekazać je do programu <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>.
 
 Szkolenie z pokrewnym tekstem zwykle kończy się w ciągu kilku minut.
 

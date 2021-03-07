@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 4e30ac2e6836b40ab0c0c2915eae48266cb4845c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199218"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443888"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Szyfrowanie Azure Data Factory przy użyciu kluczy zarządzanych przez klienta
 
@@ -102,9 +102,9 @@ Aby dowiedzieć się więcej o tożsamości zarządzanej przypisanej przez użyt
 1. Upewnij się, że tożsamość zarządzana przypisana przez użytkownika (UA-MI) ma uprawnienia _pobieranie_, odpakowywanie _klucza_ i _Zawijanie klucza_ do Key Vault
 
 1. Na karcie __Zaawansowane__ zaznacz pole wyboru _Włącz szyfrowanie przy użyciu_ zrzutu ekranu klucza zarządzanego przez klienta 
-   :::image type="content" source="media/enable-customer-managed-key/06-uami-cmk.png" alt-text="na karcie Zaawansowane dla środowiska tworzenia fabryki danych w Azure Portal.":::
+   :::image type="content" source="media/enable-customer-managed-key/06-user-assigned-managed-identity.png" alt-text="na karcie Zaawansowane dla środowiska tworzenia fabryki danych w Azure Portal.":::
 
-1. Podaj adres URL Key Vault
+1. Podaj adres URL klucza zarządzanego przez klienta przechowywanego w Key Vault
 
 1. Wybierz odpowiednią tożsamość zarządzaną przypisaną przez użytkownika do uwierzytelniania za pomocą Key Vault
 

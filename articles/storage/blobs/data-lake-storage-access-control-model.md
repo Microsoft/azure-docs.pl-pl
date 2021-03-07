@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650392"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439293"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Model kontroli dostępu w Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ W poniższej tabeli przedstawiono sposób łączenia ról platformy Azure i wpis
 
 
 > [!NOTE] 
-> Aby wyświetlić zawartość kontenera w Eksplorator usługi Azure Storage, podmioty zabezpieczeń muszą [zalogować się do Eksplorator usługi Storage za pomocą usługi Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad), a (co najmniej) mieć dostęp do odczytu (R--) do folderu głównego ( `\` ) kontenera. Ten poziom uprawnień daje im możliwość wyświetlania zawartości folderu głównego. Jeśli nie chcesz, aby zawartość folderu głównego była widoczna, możesz przypisać im rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) . Dzięki tej roli będzie można wyświetlić listę kontenerów na koncie, ale nie zawartość kontenera. Następnie można udzielić dostępu do określonych katalogów i plików przy użyciu list ACL.   
+> Aby wyświetlić zawartość kontenera w Eksplorator usługi Azure Storage, podmioty zabezpieczeń muszą [zalogować się do Eksplorator usługi Storage za pomocą usługi Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), a (co najmniej) mieć dostęp do odczytu (R--) do folderu głównego ( `\` ) kontenera. Ten poziom uprawnień daje im możliwość wyświetlania zawartości folderu głównego. Jeśli nie chcesz, aby zawartość folderu głównego była widoczna, możesz przypisać im rolę [czytelnik](../../role-based-access-control/built-in-roles.md#reader) . Dzięki tej roli będzie można wyświetlić listę kontenerów na koncie, ale nie zawartość kontenera. Następnie można udzielić dostępu do określonych katalogów i plików przy użyciu list ACL.   
 
 ## <a name="security-groups"></a>Grupy zabezpieczeń
 

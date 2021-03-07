@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99068a68c5d35bc6a501c5860d0bbc9ea3e3f368
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733418"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436985"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Zarządzanie obliczeniami na Azure Stack brzegowej procesora GPU Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule opisano sposób zarządzania obliczeniami za pośrednictwem usługi IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro GPU. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją IoT Edge i lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami sieci obliczeniowej.
 
@@ -37,7 +37,7 @@ Wykonaj następujące kroki w Azure Portal, aby utworzyć wyzwalacz.
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do **IoT Edge**. Przejdź do pozycji **wyzwalacze** i wybierz pozycję **+ Dodaj wyzwalacz** na pasku poleceń.
 
-    ![Wybierz pozycję Dodaj wyzwalacz](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
+    ![Wybierz pozycję Dodaj wyzwalacz](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
 
 2. W bloku **Dodawanie wyzwalacza** Podaj unikatową nazwę wyzwalacza.
     

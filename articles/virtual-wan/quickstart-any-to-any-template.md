@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: bf892a45ee6df2ab29a1b326a663dc41057c7ea6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509824"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431384"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>Szybki Start: Tworzenie konfiguracji dowolnej do wszystkich przy użyciu szablonu ARM
 
@@ -125,13 +125,7 @@ Szablon nie konfiguruje wszystkich ustawień wymaganych dla sieci hybrydowej. Na
 
 Jeśli zasoby, które zostały utworzone, nie są już potrzebne, usuń je. Niektóre z zasobów wirtualnych sieci WAN muszą zostać usunięte w określonej kolejności z powodu zależności. Usuwanie może potrwać około 30 minut.
 
-1. Otwórz utworzoną przez siebie wirtualną sieć WAN.
-1. Wybierz koncentrator wirtualny skojarzony z wirtualną siecią WAN, aby otworzyć stronę centrum.
-1. Kliknij polecenie **Usuń**. Usuń wszystkie jednostki (połączenia, bramy itp.) w centrum. Może to potrwać 30 minut.
-1. W tym momencie możesz usunąć centrum lub usunąć je później po usunięciu grupy zasobów.
-1. Powtórz te czynności dla wszystkich centrów skojarzonych z wirtualną siecią WAN.
-1. Przejdź do grupy zasobów w Azure Portal.
-1. Wybierz pozycję **Usuń grupę zasobów**. Spowoduje to usunięcie wszystkich elementów z grupy zasobów, w tym centrów i wirtualnej sieci WAN.
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

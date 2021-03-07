@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996699"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426828"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Dodawanie lub usuwanie użytkowników przy użyciu Azure Active Directory
 
@@ -54,7 +54,7 @@ Aby dodać nowego użytkownika, wykonaj następujące kroki:
 
 1. Skopiuj automatycznie generowane hasło podane w polu **hasło** . Musisz podać to hasło użytkownikowi, aby zalogować się po raz pierwszy.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Użytkownik zostanie utworzony i dodany do organizacji usługi Azure AD.
 
@@ -74,6 +74,9 @@ Jeśli masz środowisko z zarówno Azure Active Directory (Cloud), jak i Active 
 
 Istniejącego użytkownika można usunąć przy użyciu portalu Azure Active Directory.
 
+>[!Note]
+>Aby usunąć użytkowników w organizacji, musisz mieć przypisaną rolę administratora globalnego lub administratora użytkowników. Administratorzy globalni mogą usunąć wszystkich użytkowników, w tym innych administratorów. Administratorzy użytkowników mogą usunąć wszystkich użytkowników niebędących administratorami, administratorów pomocy technicznej i innych administratorów. Aby uzyskać więcej informacji, zobacz [uprawnienia roli administratora w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+
 Aby usunąć użytkownika, wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora użytkownika w organizacji.
@@ -91,7 +94,7 @@ Użytkownik zostanie usunięty i nie będzie już wyświetlany na stronie **Uży
 Po usunięciu użytkownika wszystkie licencje używane przez użytkownika są udostępniane innym użytkownikom.
 
 >[!Note]
->Aby zaktualizować tożsamość, informacje kontaktowe lub informacje o zadaniu dla użytkowników, których źródłem urzędu jest Active Directory Windows Server, należy użyć Active Directory systemu Windows Server. Po zakończeniu aktualizacji należy poczekać na zakończenie następnego cyklu synchronizacji, zanim zobaczysz zmiany.
+>Aby zaktualizować tożsamość, informacje o kontakcie lub informacje o zadaniu dla użytkowników, których źródłem jest urząd certyfikacji systemu Windows Server Active Directory, należy użyć Active Directory systemu Windows Server. Po zakończeniu aktualizacji należy poczekać na zakończenie następnego cyklu synchronizacji, zanim zobaczysz zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 

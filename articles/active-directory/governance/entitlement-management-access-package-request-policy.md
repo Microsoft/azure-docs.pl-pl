@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4a1aa737b1f671c08d51d780fa98db50f2869a1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211655"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426964"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ustawienia żądania zmiany dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -197,6 +197,8 @@ Aby zmienić ustawienia żądań i zatwierdzeń dla pakietu dostępu, należy ot
     ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
 1. Kliknij przycisk **Dalej**.
+
+1. Aby wymagać od osoby żądającej podania dodatkowych informacji podczas żądania dostępu do pakietu dostępu, należy wykonać czynności opisane w [ustawieniach informacje o zatwierdzeniu i zażądaniu (wersja zapoznawcza) dla pakietu dostępu w usłudze Azure AD uprawnienia](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) do konfigurowania informacji o żądającym (wersja zapoznawcza).
 
 1. Skonfiguruj ustawienia cyklu życia.
 

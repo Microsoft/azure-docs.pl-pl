@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896193"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437761"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem wieloprocesorowym Pro Azure Stack Edge za pośrednictwem programu Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Rozwiązanie Azure Stack EDGE Pro pozwala przetwarzać dane i wysyłać je za pośrednictwem sieci do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla urządzenia z Azure Stack Edge. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
 
@@ -121,7 +123,7 @@ Jeśli na urządzeniu skonfigurowano rolę obliczeniową, można także uzyskać
     - `FullLogCollection`: Ten parametr zapewnia, że pakiet dziennika będzie zawierać wszystkie dzienniki obliczeń. Domyślnie pakiet dziennika zawiera tylko podzestaw dzienników.
 
 
-## <a name="change-kubernetes-pod-and-service-subnets"></a>Zmień Kubernetes pod i podsieci usługi
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Zmienianie zasobników klastra Kubernetes i podsieci usługi
 
 Domyślnie Kubernetes na urządzeniu brzegowym Azure Stack używa podsieci 172.27.0.0/16 i 172.28.0.0/16 dla usług pod i usługi. Jeśli te podsieci są już używane w sieci, możesz uruchomić `Set-HcsKubeClusterNetworkInfo` polecenie cmdlet, aby zmienić te podsieci.
 

@@ -3,12 +3,12 @@ title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8168bf22aceaf5cbdec4b1346801aa62b7aa4ee
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541275"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439837"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 
@@ -40,7 +40,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
 
 1. W okienku **szczegóły zgodności** są wyświetlane informacje z najnowszej wersji ewaluacyjnej zasobu do bieżącego przypisania zasad. W tym przykładzie można znaleźć wartość pola **Microsoft. SQL/Server/version** na _12,0_ , gdy oczekiwano definicji zasad _14,0_. Jeśli zasób nie jest zgodny z wieloma przyczynami, każda z nich jest wymieniona w tym okienku.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności oraz przyczyny braku zgodności, których bieżąca wartość wynosi 12, a wartość docelowa to czternaście." border="false":::
 
    W przypadku definicji zasad **auditIfNotExists** lub **deployIfNotExists** szczegóły obejmują Właściwość **details. Type** i wszelkie opcjonalne właściwości. Aby uzyskać listę, zobacz [Właściwości auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) i [deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ostatni szacowany zasób** jest powiązanym zasobem z sekcji **szczegółów** definicji.
 
@@ -69,7 +69,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności dla ifNotExists, w tym ocenianą liczbę zasobów." border="false":::
 
 > [!NOTE]
 > Aby chronić dane, gdy wartość właściwości jest _tajna_ , bieżąca wartość Wyświetla gwiazdki.
@@ -108,7 +108,7 @@ Poniższa macierz odwzorowuje każdy możliwy _powód_ do [warunku](../concepts/
 
 W przypadku przypisań z [trybem dostawcy zasobów](../concepts/definition-structure.md#resource-manager-modes)wybierz _niezgodny_ zasób, aby otworzyć widok bardziej szczegółowy. Na karcie **zgodność składników** są dodatkowe informacje specyficzne dla trybu dostawcy zasobów dla przypisanych zasad, które pokazują _niezgodny_ **składnik** i **Identyfikator składnika**.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający kartę zgodność składników i szczegóły zgodności dla przypisania trybu dostawcy zasobów." border="false":::
 
 ## <a name="compliance-details-for-guest-configuration"></a>Szczegóły zgodności dla konfiguracji gościa
 
@@ -122,80 +122,15 @@ Zacznij od wykonania tych samych kroków w powyższej sekcji, aby wyświetlić s
 
 W widoku Szczegóły zgodności wybierz pozycję **ostatni szacowany zasób**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Zrzut ekranu przedstawiający wyświetlanie szczegółów zgodności definicji auditIfNotExists." border="false":::
 
 Na stronie **przypisanie gościa** są wyświetlane wszystkie dostępne szczegóły zgodności. Każdy wiersz w widoku reprezentuje ocenę, która została wykonana w ramach maszyny. W kolumnie **Przyczyna** zostanie wyświetlona fraza opisująca, dlaczego przypisanie gościa _nie jest zgodne_. Na przykład w przypadku inspekcji zasad haseł w kolumnie **Przyczyna** zostanie wyświetlony tekst zawierający bieżącą wartość dla każdego ustawienia.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-Możesz również wyświetlić szczegóły zgodności z Azure PowerShell. Najpierw upewnij się, że moduł konfiguracji gościa jest zainstalowany.
-
-```azurepowershell-interactive
-Install-Module Az.GuestConfiguration
-```
-
-Bieżący stan wszystkich przypisań gościa dla maszyny wirtualnej można wyświetlić przy użyciu następującego polecenia:
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
-```
-
-```output
-PolicyDisplayName                                                         ComplianceReasons
------------------                                                         -----------------
-Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
-Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
-```
-
-Aby wyświetlić tylko frazę _przyczyny_ opisującą dlaczego maszyna wirtualna jest _niezgodna_, zwróć tylko Właściwość podrzędną przyczyna.
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
-```
-
-```output
-The following applications are not installed: '<name>'.
-```
-
-Istnieje również możliwość wyprowadzania historii zgodności dla przypisań Gości w zakresie dla komputera. Dane wyjściowe tego polecenia zawierają szczegóły każdego raportu dla maszyny wirtualnej.
-
-> [!NOTE]
-> Dane wyjściowe mogą zwrócić dużą ilość danych. Zaleca się przechowywanie danych wyjściowych w zmiennej.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
-<truncated>
-```
-
-Aby uprościć ten widok, użyj parametru **ShowChanged** . Dane wyjściowe tego polecenia zawierają tylko raporty, które zostały wykonane ze zmianą stanu zgodności.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
-Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
-```
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności przypisania gościa." border="false":::
 
 ## <a name="change-history-preview"></a><a name="change-history"></a>Historia zmian (wersja zapoznawcza)
 
-W ramach nowej **publicznej wersji zapoznawczej**historia zmian jest dostępna dla wszystkich zasobów platformy Azure, które obsługują [usuwanie w trybie pełnym](../../../azure-resource-manager/templates/complete-mode-deletion.md). Historia zmian zawiera szczegółowe informacje o tym, kiedy wykryto zmianę i _różnicą wizualną_ dla każdej zmiany. Wykrywanie zmian jest wyzwalane po dodaniu, usunięciu lub zmianie Azure Resource Manager właściwości.
+W ramach nowej **publicznej wersji zapoznawczej** historia zmian jest dostępna dla wszystkich zasobów platformy Azure, które obsługują [usuwanie w trybie pełnym](../../../azure-resource-manager/templates/complete-mode-deletion.md). Historia zmian zawiera szczegółowe informacje o tym, kiedy wykryto zmianę i _różnicą wizualną_ dla każdej zmiany. Wykrywanie zmian jest wyzwalane po dodaniu, usunięciu lub zmianie Azure Resource Manager właściwości.
 
 1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
@@ -205,11 +140,11 @@ W ramach nowej **publicznej wersji zapoznawczej**historia zmian jest dostępna d
 
 1. Na stronie **zgodność zasobów** wybierz kartę **historia zmian (wersja zapoznawcza)** . Zostanie wyświetlona lista wykrytych zmian (jeśli istnieją).
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Zrzut ekranu karty Historia zmian i wykryto zmiany czasu na stronie Zgodność zasobu." border="false":::
 
 1. Wybierz jedną z wykrytych zmian. _Różnica wizualna_ dla zasobu jest wyświetlana na stronie **historia zmian** .
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Zrzut ekranu przedstawiający link &quot;Wyświetl szczegóły zgodności&quot; na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Zrzut ekranu przedstawiający wizualną różnicę między Stanami i po nim właściwości na stronie historii zmian." border="false":::
 
 _Wizualna różnica_ aides w identyfikacji zmian w zasobie. Wykryte zmiany mogą nie być powiązane z bieżącym stanem zgodności zasobu.
 

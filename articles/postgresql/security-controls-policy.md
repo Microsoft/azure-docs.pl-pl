@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Database for PostgreSQL
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Database for PostgreSQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 2c17f94bc43aaaee3cb500bd0c78dfc86c1bf31a
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 550f4eff5eb73fc71870d9d7c9502447f9d1a2ce
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099675"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439152"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Azure Policy kontroli zgodności z przepisami dla Azure Database for PostgreSQL
 

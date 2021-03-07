@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a9ef3fb009cfb91b20ac7492be193286e2f0410
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965900"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432540"
 ---
 # <a name="call-the-computer-vision-api"></a>Wywoływanie interfejsu API przetwarzania obrazów
 
@@ -38,7 +38,7 @@ Funkcje te oferują następujące opcje:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 * Adres URL obrazu lub ścieżka do przechowywanego lokalnie obrazu
@@ -179,10 +179,10 @@ Oto przykład:
 
 Pole | Typ | Zawartość
 ------|------|------|
-Tags  | `object` | Obiekt najwyższego poziomu dla tablicy tagów.
+Tagi  | `object` | Obiekt najwyższego poziomu dla tablicy tagów.
 tags[].Name | `string`    | Słowo kluczowe ze klasyfikatora tagów.
 tags[].Score    | `number`    | Wynik pewności z zakresu od 0 do 1.
-description     | `object`    | Obiekt najwyższego poziomu opisu.
+description (opis)     | `object`    | Obiekt najwyższego poziomu opisu.
 description.tags[] |    `string`    | Lista tagów.  W przypadku niewystarczającego zaufania do tworzenia podpisów Tagi mogą być jedynymi informacjami dostępnymi dla obiektu wywołującego.
 description.captions[].text    | `string`    | Fraza opisująca obraz.
 description.captions[].confidence    | `number`    | Wynik pewności dla frazy.

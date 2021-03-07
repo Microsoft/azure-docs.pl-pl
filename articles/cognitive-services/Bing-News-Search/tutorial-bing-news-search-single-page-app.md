@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-js
-ms.openlocfilehash: c3d486a32f4a926ed42f3d67a1fa96d3da397beb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cb9e68efd27deb3bf66d3c286c0cd7a128d8bf59
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351218"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430585"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Samouczek: Tworzenie jednostronicowej aplikacji sieci Web
 
 > [!WARNING]
 > Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Enterprise Agreement, w zależności od tego, co nastąpi wcześniej.
 > Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Interfejs API wyszukiwania wiadomości Bing umożliwia wyszukiwanie w Internecie i uzyskiwanie wyników wiadomości odpowiadających zapytaniu wyszukiwania. W tym samouczku skompilujemy jednostronicową aplikację internetową, która wyświetla wyniki wyszukiwania na stronie przy użyciu interfejsu API wyszukiwania wiadomości Bing. Aplikacja zawiera składniki HTML, CSS i JavaScript. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
@@ -51,7 +51,7 @@ Strona samouczka jest całkowicie niezależna. Nie używa żadnych zewnętrznych
 Aby wykonać czynności opisane w samouczku, należy dysponować kluczami subskrypcji dla interfejsu API Wyszukiwanie Bing. Jeśli ich nie masz, musisz je utworzyć:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
 
 ## <a name="app-components"></a>Składniki aplikacji
 Podobnie jak każda inna aplikacja internetowa, aplikacja w tym samouczku zawiera trzy części:
@@ -326,7 +326,7 @@ function renderResults(items) {
     return html.join("\n\n");
 }
 ```
-Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Oto one:
+Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Są to:
 
 |Relacja|Opis|
 |-|-|

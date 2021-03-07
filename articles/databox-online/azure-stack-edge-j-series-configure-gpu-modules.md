@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935564"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439055"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack na urządzeniu brzegowym Pro
 
-Urządzenie Azure Stack EDGE Pro zawiera jedną lub więcej jednostek przetwarzania grafiki (GPU). Procesory GPU są popularnym wyborem w przypadku obliczeń dla AI, ponieważ oferują funkcje przetwarzania równoległego i są szybsze przy renderowaniu obrazu niż centralne jednostki przetwarzania (CPU). Aby uzyskać więcej informacji na temat procesora GPU znajdującego się na urządzeniu Azure Stack brzeg Pro, przejdź do pozycji [Azure Stack EDGE Pro techniczne urządzenia](azure-stack-edge-gpu-technical-specifications-compliance.md)techniczne.
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
+Urządzenie Azure Stack EDGE Pro zawiera jedną lub więcej jednostek przetwarzania grafiki (GPU). Procesory GPU są popularnym wyborem w przypadku obliczeń dla sztucznej inteligencji, ponieważ oferują funkcje przetwarzania równoległego i są szybsze przy renderowaniu obrazu niż centralne jednostki obliczeniowe (CPU). Aby uzyskać więcej informacji na temat procesora GPU znajdującego się na urządzeniu Azure Stack brzeg Pro, przejdź do pozycji [Azure Stack EDGE Pro techniczne urządzenia](azure-stack-edge-gpu-technical-specifications-compliance.md)techniczne.
 
 W tym artykule opisano sposób konfigurowania i uruchamiania modułu na procesorze GPU na urządzeniu Azure Stack EDGE Pro. W tym artykule opisano użycie publicznie dostępnych **cyfr** modułu kontenera przeznaczonych dla procesorów GPU firmy NVIDIA. Tej procedury można użyć do skonfigurowania innych modułów opublikowanych przez NVIDIA dla tych procesorów GPU.
 
@@ -102,7 +104,7 @@ Aby skonfigurować moduł do korzystania z procesora GPU na urządzeniu Azure St
        Aby uzyskać więcej informacji na temat zmiennych środowiskowych, których można użyć z procesorem GPU NVIDIA, przejdź do [środowiska uruchomieniowego kontenera NVIDIA](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
-    > Procesor GPU można zamapować tylko do jednego modułu. Moduł może jednak używać jednego lub bez procesorów GPU.
+    > Procesor GPU można zamapować tylko na jeden moduł. Moduł może jednak używać jednego lub bez procesorów GPU.
 
 12. Wprowadź nazwę modułu. W tym momencie możesz wybrać opcję tworzenia kontenera i zmodyfikować ustawienia sznurka modułu lub jeśli to zrobisz, wybierz pozycję **Dodaj**. 
 
