@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 13598925702aeca4a06135a910e3be540083a2b6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a65619d65e1a3655d3ef8a295749a705e6a79e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211757"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431282"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Omówienie i używanie zestawów SDK usługi Azure IoT Hub
 
@@ -51,8 +51,8 @@ Zestaw SDK urządzeń IoT Hub platformy Azure dla platformy .NET:
 
 * Pobierz z narzędzia [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  Przestrzeń nazw to Microsoft. Azure. Devices. clients, która zawiera IoT Hub klientów urządzeń (DeviceClient, ModuleClient).
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Dokumentacja interfejsu API](/dotnet/api/microsoft.azure.devices?view=azure-dotnet&preserve-view=true)
-* [Dokumentacja modułu](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet&preserve-view=true)
+* [Dokumentacja interfejsu API](/dotnet/api/microsoft.azure.devices)
+* [Dokumentacja modułu](/dotnet/api/microsoft.azure.devices.client.moduleclient)
 
 
 Zestaw SDK urządzeń IoT Hub platformy Azure dla osadzonego języka C (ANSI C-C99):
@@ -153,7 +153,7 @@ Zestawy SDK urządzeń i usług platformy Azure dla języka C#:
 
 * Pobierz z [zestawu SDK urządzeń](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) i [zestawu SDK usługi](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) z narzędzia NuGet.
 * [Kod źródłowy](https://github.com/Azure/azure-iot-sdk-csharp/)
-* [Dokumentacja interfejsu API](/dotnet/api/microsoft.azure.devices.provisioning.client?view=azure-dotnet&preserve-view=true)
+* [Dokumentacja interfejsu API](/dotnet/api/microsoft.azure.devices.provisioning.client)
 
 Zestawy SDK dla urządzeń i usług platformy Azure dla języka C:
 

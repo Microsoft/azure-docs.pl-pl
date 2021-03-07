@@ -4,17 +4,17 @@ description: Dowiedz się, jak zdiagnozować i naprawić wyjątki limitu czasu �
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/06/2020
+ms.date: 03/05/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8d448cf335f328b5ae55579fd30127ef0e37e9d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340502"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440007"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnozowanie i rozwiązywanie problemów z wyjątkami limitu czasu żądania Azure Cosmos DB .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,8 +39,24 @@ Wszystkie operacje asynchroniczne w zestawie SDK mają opcjonalny parametr Cance
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 Poniższa lista zawiera znane przyczyny i rozwiązania dla wyjątków limitu czasu żądania.
 
-### <a name="high-cpu-utilization"></a>Wysokie wykorzystanie procesora CPU
+### <a name="high-cpu-utilization"></a>Wysoki poziom wykorzystania procesora
 Wysokie wykorzystanie procesora CPU jest najpopularniejszym przypadkiem. W celu uzyskania optymalnego opóźnienia użycie procesora CPU powinno wynosić około 40 procent. Użyj 10 sekund jako interwału do monitorowania maksymalnego (nieśredniego) użycia procesora. Większe obciążenia procesora są bardziej typowe w przypadku zapytań między partycjami, w których może istnieć wiele połączeń dla jednego zapytania.
+
+Jeśli błąd zawiera `TransportException` informacje, może on również zawierać `CPU History` :
+
+```
+CPU history: 
+(2020-08-28T00:40:09.1769900Z 0.114), 
+(2020-08-28T00:40:19.1763818Z 1.732), 
+(2020-08-28T00:40:29.1759235Z 0.000), 
+(2020-08-28T00:40:39.1763208Z 0.063), 
+(2020-08-28T00:40:49.1767057Z 0.648), 
+(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU count: 8)
+```
+
+* Jeśli pomiary procesora CPU przekraczają 70%, limit czasu może być spowodowany wyczerpaniem procesora. W takim przypadku rozwiązaniem jest zbadanie źródła dużego użycia procesora CPU i zmniejszenie go lub przeskalowanie maszyny do większego rozmiaru zasobów.
+* Jeśli pomiary procesora CPU nie są wykonywane co 10 sekund (np. przerwy lub czasy pomiaru wskazują na większe odstępy między pomiarami), przyczyną jest przetrzymanie wątku. W takim przypadku rozwiązaniem jest zbadanie źródła przetrzymania wątku (potencjalnie zablokowane wątki) lub przeskalowanie maszyny do większego rozmiaru zasobów.
 
 #### <a name="solution"></a>Rozwiązanie:
 Aplikacja kliencka korzystająca z zestawu SDK powinna być skalowana w górę lub w dół.
