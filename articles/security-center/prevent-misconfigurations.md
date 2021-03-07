@@ -1,19 +1,18 @@
 ---
 title: Jak zapobiec błędom konfiguracji za pomocą Azure Security Center
 description: Dowiedz się, jak używać opcji "Wymuś" i "Odmów" Security Center na stronach szczegółów rekomendacji
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 2607ff3a6c4bb7bf301818925990521572777ab9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379197"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439531"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Zapobieganie błędom konfiguracji za pomocą wymuszania/odmawiania — zalecenia
 

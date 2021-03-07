@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 545b02ee8496c9530b263227d4138441f27f0cf9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374052"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441707"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -345,7 +345,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 |Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
-|logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
+|logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie poziomów dzienników](configure-monitoring.md#configure-log-levels). |
 |console|n/d| Ustawienie rejestrowania [konsoli](#console) . |
 |applicationInsights|n/d| Ustawienie [applicationInsights](#applicationinsights) . |
 

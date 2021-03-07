@@ -1,21 +1,23 @@
 ---
-title: Wdrażanie `PHP Guestbook` aplikacji na łuku z włączonym Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
+title: Wdrażanie `Guestbook` aplikacji PHP na łuku z włączonym Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
 description: Zawiera opis sposobu wdrażania `Guestbook` bezstanowej aplikacji PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f47f795335204ecd0c74463b76583d7dd79f8532
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804878"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436434"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż `Guestbook` bezstanową aplikację PHP z Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym artykule pokazano, jak skompilować i wdrożyć prostą wielowarstwową aplikację sieci Web przy użyciu Kubernetes i Azure Arc. Ten przykład składa się z następujących składników:
 

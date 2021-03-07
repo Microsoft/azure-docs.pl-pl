@@ -154,13 +154,13 @@
         - name: Płaszczyzna sterowania
           items:
             - name: Zestaw SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/management
             - name: Zestaw SDK Java
               href: /java/api/overview/azure/digitaltwins/resourcemanagement
         - name: Płaszczyzna danych
           items:
             - name: Zestaw SDK dla platformy .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/client
             - name: Zestaw SDK Java
               href: /java/api/overview/azure/digitaltwins/client
             - name: Zestaw SDK dla języka JavaScript

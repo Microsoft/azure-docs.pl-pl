@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania prywatnych punktów k
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916990"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425349"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
@@ -26,7 +26,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt koń
 2. Przejdź do karty **Sieć** na stronie tematu. Wybierz pozycję **+ prywatny punkt końcowy** na pasku narzędzi.
 
     ![Dodaj prywatny punkt końcowy](./media/configure-private-endpoints/add-button.png)
-2. Na stronie **podstawowe** wykonaj następujące czynności: 
+2. Na stronie **podstawowe** wykonaj następujące kroki: 
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów platformy Azure** dla prywatnego punktu końcowego. 
     3. Wprowadź **nazwę** punktu końcowego. 

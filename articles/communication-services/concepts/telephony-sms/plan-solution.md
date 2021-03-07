@@ -10,21 +10,31 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 4ba8a6b530f3f3650959eac90bba5b05e3ac0643
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8a811a033a2d6e2229c83899e237f996ccddd7b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215412"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430415"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Typy numerów telefonów w usłudze Azure Communications Services
+
+
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
-> Dostępność numeru telefonu jest obecnie ograniczona do subskrypcji platformy Azure, które mają adres rozliczeniowy w Stany Zjednoczone. Aby uzyskać więcej informacji, zapoznaj się z sekcją [kwalifikowanie subskrypcji](#azure-subscriptions-eligibility) tego dokumentu.
+> Dostępność numeru telefonu jest obecnie ograniczona do płatnych subskrypcji platformy Azure, które mają adres rozliczeniowy w ramach zasobów Stany Zjednoczone i usług komunikacyjnych, które mają lokalizację danych US. Numerów telefonów nie można nabyć na kontach wersji próbnej ani za korzystanie z bezpłatnych kredytów platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z sekcją [kwalifikowanie subskrypcji](#azure-subscriptions-eligibility) tego dokumentu.
+
 
 Usługi Azure Communication Services umożliwiają korzystanie z numerów telefonów w celu wykonywania połączeń głosowych i wysyłania wiadomości SMS przy użyciu sieci telefonicznej (PSTN). W tym dokumencie będziemy przeglądać typy numerów telefonów, opcje konfiguracji i dostępność regionów w celu planowania rozwiązania do obsługi połączeń telefonicznych i SMS przy użyciu usług komunikacyjnych.
+
+## <a name="azure-subscriptions-eligibility"></a>Uprawnienia do subskrypcji platformy Azure
+
+Aby uzyskać numer telefonu, musisz mieć płatną subskrypcję platformy Azure. Numerów telefonów nie można nabyć na kontach próbnych ani za pomocą bezpłatnych kredytów na korzystanie z platformy Azure. 
+
+Dostępność numeru telefonu jest obecnie ograniczona do subskrypcji platformy Azure, które mają adres rozliczeniowy w ramach zasobów Stany Zjednoczone i usług komunikacyjnych, które mają lokalizację danych US.
+
 
 ## <a name="number-types-and-features"></a>Typy i funkcje liczbowe
 Usługi komunikacyjne oferują dwa typy numerów telefonów: **lokalna** i **bezpłatna**. 
@@ -72,11 +82,6 @@ W poniższej tabeli przedstawiono, gdzie można uzyskać różne typy numerów t
 
 * Aby uzyskać więcej informacji o miejscach docelowych wywołań i cenach, zobacz [stronę z cennikiem](../pricing.md).
 
-## <a name="azure-subscriptions-eligibility"></a>Uprawnienia do subskrypcji platformy Azure
-
-Aby uzyskać numer telefonu, musisz mieć płatną subskrypcję platformy Azure. Numerów telefonów nie można nabyć na kontach próbnych ani za pomocą bezpłatnych kredytów na korzystanie z platformy Azure. 
-
-Obecnie dostępność numeru telefonu jest ograniczona do subskrypcji platformy Azure, które mają adres rozliczeniowy w Stany Zjednoczone.
 
 ## <a name="next-steps"></a>Następne kroki
 

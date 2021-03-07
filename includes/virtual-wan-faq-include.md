@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/05/2021
+ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a66eff14490add8269082e4e54f077d1d9db7e02
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102205974"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431548"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -93,7 +93,7 @@ Dostępne są dwie opcje dodawania serwerów DNS dla klientów P2S. Pierwsza met
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>W przypadku sieci VPN użytkownika (punkt-lokacja) — ilu klientów jest obsługiwana?
 
-Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia, a każde wystąpienie obsługuje maksymalnie niektórych użytkowników jako jednostkę skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000 i jednostka skalowania, która obsługuje do 13-18 połączeń.
+Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia. Każde wystąpienie obsługuje określoną liczbę połączeń w miarę zmiany jednostki skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000
 
 Załóżmy na przykład, że użytkownik wybiera 1 jednostkę skalowania. Każda jednostka skalowania będzie oznaczać, że wdrożono bramę Active-Active i każde wystąpienie (w tym przypadku 2) będzie obsługiwało do 500 połączeń. Ponieważ możesz uzyskać 500 połączeń * 2 na bramę, nie oznacza to, że planujesz 1000 zamiast 500 dla tej jednostki skalowania. W przypadku przekroczenia zalecanej liczby połączeń mogą wystąpić problemy z obsługą wystąpień, w których może być wymagana łączność z dodatkowymi 500mi. Należy również zaplanować przestoje w przypadku podjęcia decyzji o skalowaniu w górę lub w dół w jednostce skalowania lub zmianie konfiguracji typu punkt-lokacja w bramie sieci VPN.
 
@@ -125,7 +125,7 @@ Nie. Możesz używać dowolnego urządzenia obsługującego sieć VPN, które sp
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Jak partnerzy wirtualnej sieci WAN automatyzują połączenie z wirtualną siecią WAN platformy Azure?
 
-Zdefiniowane programowo rozwiązania w zakresie łączności zwykle umożliwiają zarządzanie urządzeniami oddziału przy użyciu kontrolera lub centrum aprowizacji urządzeń. Kontroler może zautomatyzować połączenie z wirtualną siecią WAN platformy Azure za pomocą interfejsów API platformy Azure. Automatyzacja obejmuje przekazywanie informacji o gałęzi, pobranie konfiguracji platformy Azure, skonfigurowanie tuneli IPSec do centrów wirtualnych platformy Azure i automatyczne skonfigurowanie połączenia w usłudze Azure Virtual WAN. Jeśli masz setki gałęzi, nawiązywanie połączenia przy użyciu wirtualnych partnerów sieci WAN CPE jest proste, ponieważ środowisko dołączania zajmuje konieczność konfigurowania i konfigurowania łączności z dużą skalą oraz zarządzania nią. Aby uzyskać więcej informacji, zobacz [Automatyzacja wirtualnego partnera sieci WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Zdefiniowane programowo rozwiązania w zakresie łączności zwykle umożliwiają zarządzanie urządzeniami oddziału przy użyciu kontrolera lub centrum aprowizacji urządzeń. Kontroler może zautomatyzować połączenie z wirtualną siecią WAN platformy Azure za pomocą interfejsów API platformy Azure. Automatyzacja obejmuje przekazywanie informacji o gałęzi, pobranie konfiguracji platformy Azure, skonfigurowanie tuneli IPsec do centrów wirtualnych platformy Azure i automatyczne skonfigurowanie połączenia w usłudze Azure Virtual WAN. Jeśli masz setki gałęzi, nawiązywanie połączenia przy użyciu wirtualnych partnerów sieci WAN CPE jest proste, ponieważ środowisko dołączania zajmuje konieczność konfigurowania i konfigurowania łączności z dużą skalą oraz zarządzania nią. Aby uzyskać więcej informacji, zobacz [Automatyzacja wirtualnego partnera sieci WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Co zrobić, jeśli urządzenie, którego używam, nie znajduje się na liście wirtualnych partnerów sieci WAN? Czy nadal mogę używać go do nawiązywania połączenia z wirtualną siecią WAN platformy Azure?
 
@@ -133,7 +133,7 @@ Tak długo, jak urządzenie obsługuje protokół IPsec IKEv1 lub IKEv2. Wirtual
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>W jaki sposób partnerzy, którzy nie są wymienieni na liście partnerów uruchomienia, mogą dołączyć do programu?
 
-Wszystkie wirtualne interfejsy API sieci WAN są otwarte. Aby ocenić wykonalność techniczną, możesz przejść do dokumentacji [Automatyzacja wirtualnego partnera sieci WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) . Idealny partner powinien dysponować urządzeniem, które można aprowizować na potrzeby połączeń IKEv1 lub IKEv2 IPSec. Gdy firma ukończy pracę usługi Automation na urządzeniu CPE na podstawie przedstawionych powyżej wytycznych dotyczących automatyzacji, możesz skontaktować się z Tobą w azurevirtualwan@microsoft.com celu wystawienia [połączenia przez partnerów]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). Jeśli jesteś klientem, który chce, aby określone rozwiązanie firmowe było wyświetlane jako wirtualny partner sieci WAN, skontaktuj się z wirtualną siecią WAN, wysyłając wiadomość e-mail na adres azurevirtualwan@microsoft.com .
+Wszystkie wirtualne interfejsy API sieci WAN są otwarte. Aby ocenić wykonalność techniczną, możesz przejść do dokumentacji [Automatyzacja wirtualnego partnera sieci WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) . Idealny partner powinien dysponować urządzeniem, które można aprowizować na potrzeby połączeń IKEv1 lub IKEv2 IPSec. Gdy firma ukończy pracę usługi Automation na urządzeniu CPE na podstawie przedstawionych powyżej wytycznych dotyczących automatyzacji, możesz skontaktować się z Tobą w azurevirtualwan@microsoft.com celu wystawienia [połączenia przez partnerów]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). Jeśli jesteś klientem, który chce, aby niektóre rozwiązania firmy były wyświetlane jako partnerzy wirtualnego sieci WAN, należy skontaktować się z wirtualną siecią WAN, wysyłając wiadomość e-mail na adres azurevirtualwan@microsoft.com .
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Jak wirtualna sieć WAN obsługuje urządzenia SD-WAN?
 
@@ -149,7 +149,7 @@ Połączenie między gałęzią lub urządzeniem sieci VPN a usługą Azure Virt
 
 ### <a name="what-happens-if-the-on-premises-vpn-device-only-has-1-tunnel-to-an-azure-virtual-wan-vpn-gateway"></a>Co się stanie, jeśli lokalne urządzenie sieci VPN ma tylko 1 tunel do bramy sieci VPN Azure Virtual WAN?
 
-Połączenie wirtualnej sieci WAN platformy Azure składa się z 2 tuneli. Wirtualna Brama sieci VPN w sieci WAN jest wdrażana w koncentratorze wirtualnym w trybie aktywny-aktywny, co oznacza, że istnieją oddzielne tunele z urządzeń lokalnych kończących się na osobnych wystąpieniach. Jest to zalecenie dla wszystkich użytkowników. Jeśli jednak użytkownik zdecyduje się tylko na 1 tunel do jednego z wystąpień bramy sieci VPN wirtualnej sieci WAN, jeśli z jakiegoś powodu (Konserwacja, poprawki itp.) wystąpienie bramy zostało przełączone w tryb offline, tunel zostanie przeniesiony do pomocniczego aktywnego wystąpienia, a użytkownik może napotkać ponowne połączenie. Sesje protokołu BGP nie będą przenoszone między wystąpieniami.
+Połączenie wirtualnej sieci WAN platformy Azure składa się z 2 tuneli. Wirtualna Brama sieci VPN w sieci WAN jest wdrażana w koncentratorze wirtualnym w trybie aktywny-aktywny, co oznacza, że istnieją oddzielne tunele z urządzeń lokalnych kończących się na osobnych wystąpieniach. Jest to zalecenie dla wszystkich użytkowników. Jeśli jednak użytkownik zdecyduje się tylko na 1 tunel do jednego z wystąpień wirtualnej sieci WAN, jeśli z jakiegoś powodu (Konserwacja, poprawki itp.) wystąpienie bramy zostanie przełączone w tryb offline, tunel zostanie przeniesiony do pomocniczego aktywnego wystąpienia, a użytkownik może nawiązać połączenie ponownie. Sesje protokołu BGP nie będą przenoszone między wystąpieniami.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Czy lokalne urządzenie sieci VPN może połączyć się z wieloma centrami?
 
@@ -213,7 +213,7 @@ Całkowita przepustowość sieci VPN koncentratora to 20 GB/s w oparciu o wybran
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Czy mogę użyć translatora adresów sieciowych dla połączeń sieci VPN?
 
-Tak, obsługiwane jest przechodzenie NAT (NAT-T). Wirtualne bramy sieci VPN nie będą wykonywały żadnych funkcji związanych z translatorem adresów sieciowych w wewnętrznych pakietach do/z tuneli IPsec. W tej konfiguracji upewnij się, że urządzenie lokalne inicjuje tunel IPSec.
+Tak, obsługiwane jest przechodzenie NAT (NAT-T). Wirtualne bramy sieci VPN nie będą wykonywały żadnych funkcji związanych z translatorem adresów sieciowych w wewnętrznych pakietach do/z tuneli IPsec. W tej konfiguracji upewnij się, że urządzenie lokalne inicjuje tunel IPsec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Nie widzę ustawienia 20 GB/s dla koncentratora wirtualnego w portalu. Jak mogę skonfigurować?
 
@@ -305,5 +305,4 @@ Tak. Aby uzyskać listę rozwiązań dostawcy usług zarządzanych (MSP) włącz
 
 ### <a name="how-does-virtual-wan-hub-routing-differ-from-azure-route-server-in-a-vnet"></a>Jak routing koncentratora sieci WAN różni się od serwera tras platformy Azure w sieci wirtualnej?
 
-Serwer tras platformy Azure oferuje usługę komunikacji równorzędnej Border Gateway Protocol (BGP), która może być używana przez urządzenie WUS (sieciowe urządzenie wirtualne) do uczenia tras z serwera tras w sieci wirtualnej centrum możesz. Routing przy użyciu wirtualnej sieci WAN zapewnia wiele możliwości, w tym Routing tranzytowy z sieci wirtualnej, routing niestandardowy, skojarzenie niestandardowej trasy i propagację oraz w pełni siatkowe usługi z obsługą usługi ExpressRoute, sieci VPN dla lokacji, użytkowników zdalnych/dużych skalowania P2S VPN i Secure Hub (Zapora platformy Azure). Po ustanowieniu komunikacji równorzędnej Border Gateway Protocol (BGP) między urządzenie WUS i serwerem routera platformy Azure można anonsować adresy IP od urządzenie WUS do sieci wirtualnej. W przypadku wszystkich zaawansowanych możliwości routingu, takich jak routing tranzytowy, routing niestandardowy itp., można użyć routingu wirtualnego sieci WAN.
-
+Serwer tras platformy Azure udostępnia usługę komunikacji równorzędnej Border Gateway Protocol (BGP), która może być używana przez urządzeń WUS (sieciowe urządzenie wirtualne) do uczenia tras z serwera tras w sieci wirtualnej centrum możesz. Routing przy użyciu wirtualnej sieci WAN zapewnia wiele możliwości, takich jak routing między sieciami wirtualnymi, routing niestandardowy, skojarzenie trasy niestandardowej i Propagacja oraz w pełni przeskalowana usługa centrów z obsługą połączeń ExpressRoute, sieci VPN dla lokacji, zdalnego użytkownika/dużej skali P2S sieci VPN i Secure Hub (Zapora platformy Azure). Po ustanowieniu komunikacji równorzędnej BGP między urządzenie WUS i serwerem usługi Azure Route można anonsować adresy IP od urządzenie WUS do sieci wirtualnej. W przypadku wszystkich zaawansowanych możliwości routingu, takich jak routing tranzytowy, routing niestandardowy itp., można użyć routingu wirtualnego sieci WAN.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a8f808cd43f96f26db0de28e8059d02d9488320a
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945763"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434665"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrowanie do narzędzi programistycznych opartych na Azure Resource Manager dla klastrów usługi HDInsight
 
@@ -238,7 +238,7 @@ Ta sekcja zawiera wskaźniki do dodatkowych informacji na temat wykonywania okre
 
 | Jak... Korzystanie z zestawu SDK usługi HDInsight opartego na Menedżer zasobów | Linki |
 | --- | --- |
-| Zestaw SDK usługi Azure HDInsight dla platformy .NET|Zobacz [zestaw SDK usługi Azure HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) |
+| Zestaw SDK usługi Azure HDInsight dla platformy .NET|Zobacz [zestaw SDK usługi Azure HDInsight dla platformy .NET](/dotnet/api/overview/azure/hdinsight) |
 | Interaktywna uwierzytelnianie aplikacji przy użyciu Azure Active Directory z zestawem SDK platformy .NET |Zobacz [uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Fragment kodu w tym artykule używa podejścia do uwierzytelniania interaktywnego. |
 | Uwierzytelnianie aplikacji nieinteraktywnie przy użyciu Azure Active Directory z zestawem SDK .NET |Zobacz [Tworzenie aplikacji nieinterakcyjnych dla usługi HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Prześlij zadanie Apache Hive przy użyciu zestawu .NET SDK |Zobacz [przesyłanie zadań Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |

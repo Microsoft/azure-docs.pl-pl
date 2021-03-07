@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589529"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424669"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -32,6 +32,9 @@ Każdy zasób Application Insights jest dostarczany z metrykami, które są dost
 -   Jeśli nie jest konieczne Zarządzanie rozliczeniami/przydziałami w różny sposób między składnikami programu.
 -   Jeśli nie masz klucza interfejsu API mającego taki sam dostęp do danych ze wszystkich składników programu. I 10 kluczy interfejsu API są wystarczające dla potrzeb wszystkich z nich.
 -   Jeśli chcesz mieć te same ustawienia inteligentnego wykrywania i integracji elementów roboczych we wszystkich rolach.
+
+> [!NOTE]
+> Jeśli chcesz skonsolidować wiele zasobów Application Insights, możesz wskazać istniejące składniki aplikacji do nowego, skonsolidowanego zasobu Application Insights. Dane telemetryczne przechowywane w Starym zasobie nie zostaną przesłane do nowego zasobu, więc Usuń stary zasób tylko wtedy, gdy masz wystarczającą ilość danych telemetrycznych w nowym zasobie, aby zapewnić ciągłość biznesową.
 
 ### <a name="other-things-to-keep-in-mind"></a>Inne kwestie, na które należy pamiętać
 

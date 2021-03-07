@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: pafarley
-ms.openlocfilehash: d0c95312e1794e2f78bbbef217ef5530a993146d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040910"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423900"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Samouczek: masowe wyodrębnianie danych formularza przy użyciu Azure Data Factory
 
@@ -43,10 +43,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/cognitive-services/).
-* Po utworzeniu subskrypcji platformy Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu zasobu wybierz pozycję **Przejdź do zasobu**.
+* Po utworzeniu subskrypcji platformy Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu zasobu wybierz pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do kodu w dalszej części tego przewodnika Szybki Start.
     * Aby wypróbować usługę, możesz skorzystać z warstwy cenowej bezpłatna (F0). Następnie można przeprowadzić uaktualnienie później do warstwy płatnej dla środowiska produkcyjnego.
 * Zestaw składający się z co najmniej pięciu form tego samego typu. W idealnym przypadku ten przepływ pracy jest przeznaczony do obsługi dużych zestawów dokumentów. Zobacz [Tworzenie zestawu danych szkoleniowych](./build-training-data-set.md) dla wskazówek i opcji tworzenia zestawu danych szkoleniowych. W tym samouczku można użyć plików w folderze uczenie [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2128080).
+
 
 ## <a name="project-architecture"></a>Architektura projektu 
 

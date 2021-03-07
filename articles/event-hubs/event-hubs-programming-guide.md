@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 32c3c05b61d2ee8fc79d7c863ddbe84de5fe7e2b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623052"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102432744"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
 W tym artykule omówiono niektóre typowe scenariusze tworzenia kodu przy użyciu usługi Azure Event Hubs. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](./event-hubs-about.md).
@@ -57,7 +57,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przez utworzenie wystąpienia [Event
 
 ## <a name="event-serialization"></a>Serializacja zdarzeń
 
-Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Przykład:
+Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Na przykład:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -73,21 +73,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 > [!NOTE]
 > Jeśli nie znasz już partycji, zapoznaj się z [tym artykułem](event-hubs-features.md#partitions). 
 
-Podczas wysyłania danych zdarzenia można określić wartość, która jest podzielona na dane, aby utworzyć przypisanie partycji. Partycję należy określić przy użyciu właściwości [PartitionSender. PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) . Jednak decyzja o użyciu partycji oznacza wybór między dostępnością i spójnością. 
-
-### <a name="availability-considerations"></a>Zagadnienia dotyczące dostępności
-
-Użycie klucza partycji jest opcjonalne i należy uważnie rozważyć, czy należy go używać. Jeśli nie określisz klucza partycji podczas publikowania zdarzenia, Event Hubs zrównoważy obciążenie między partycjami. W wielu przypadkach użycie klucza partycji jest dobrym rozwiązaniem, jeśli kolejność zdarzeń jest ważna. W przypadku korzystania z klucza partycji te partycje wymagają dostępności w jednym węźle, a przerwy mogą wystąpić w czasie; na przykład po ponownym uruchomieniu i zaprawieniu węzłów obliczeniowych. W związku z tym, jeśli ustawisz identyfikator partycji i ta partycja będzie niedostępna z jakiegoś powodu, próba uzyskania dostępu do danych w tej partycji zakończy się niepowodzeniem. Jeśli wysoka dostępność jest najważniejsza, nie określaj klucza partycji. W takim przypadku zdarzenia są wysyłane do partycji przy użyciu wewnętrznego algorytmu równoważenia obciążenia. W tym scenariuszu wprowadzasz jawny wybór między dostępnością (bez identyfikatora partycji) i spójnością (Przypinanie zdarzeń do identyfikatora partycji).
-
-Inne zagadnienie obsługują opóźnienia w przetwarzaniu zdarzeń. W niektórych przypadkach lepszym rozwiązaniem może być porzucenie danych i ponawianie próby przeprowadzenia przetwarzania, co może potencjalnie spowodować opóźnienia przetwarzania podrzędnego. Na przykład w przypadku grafu giełdowego lepszym rozwiązaniem jest zaczekanie na pełne dane, ale w przypadku rozmowy na żywo lub w scenariuszu korzystającym z technologii VOIP dane są szybko dostępne nawet wtedy, gdy nie są kompletne.
-
-Biorąc pod uwagę te zagadnienia dotyczące dostępności, w tych scenariuszach możesz wybrać jedną z następujących strategii obsługi błędów:
-
-- Zatrzymaj (Zatrzymywanie odczytywania z Event Hubs, dopóki nie zostaną naprawione)
-- Drop (komunikaty nie są ważne, upuść je)
-- Ponów próbę (ponów próbę wykonania komunikatów)
-
-Aby uzyskać więcej informacji i zapoznać się z informacjami o różnicach w zakresie dostępności i spójności, zobacz [dostępność i spójność w Event Hubs](event-hubs-availability-and-consistency.md). 
+Podczas wysyłania danych zdarzenia można określić wartość, która jest podzielona na dane, aby utworzyć przypisanie partycji. Partycję należy określić przy użyciu właściwości [PartitionSender. PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) . Jednak decyzja o użyciu partycji oznacza wybór między dostępnością i spójnością. Aby uzyskać więcej informacji, zobacz [dostępność i spójność](event-hubs-availability-and-consistency.md).
 
 ## <a name="batch-event-send-operations"></a>Operacje wysyłania partii zdarzeń
 
@@ -109,7 +95,7 @@ Aby używać klasy [EventProcessorHost][], można zaimplementować interfejs [IE
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Przykład:
+Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Na przykład:
 
 > [!NOTE]
 > Klasy eventprocessorhost i powiązane klasy są dostępne w pakiecie **Microsoft. Azure. EventHubs. Processor** . Dodaj pakiet do projektu programu Visual Studio, wykonując instrukcje podane w [tym artykule](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) lub wykonując następujące polecenie w oknie [konsola Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .

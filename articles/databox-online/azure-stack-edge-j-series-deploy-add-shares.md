@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1964ddb3ca9ecd2b445850c06c10b313a9bcbae9
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897634"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438817"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów przy użyciu procesora GPU w Azure Stack Edge
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 W tym samouczku opisano, jak dodawać i łączyć się z udziałami na urządzeniu Azure Stack EDGE Pro. Po dodaniu udziałów Azure Stack EDGE Pro może przesyłać dane na platformę Azure.
 
 Wykonanie tej procedury może zająć około 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >

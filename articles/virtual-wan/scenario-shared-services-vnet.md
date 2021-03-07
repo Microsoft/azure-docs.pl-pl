@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461468"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442965"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenariusz: kierowanie do usług udostępnionych sieci wirtualnych
 
@@ -30,9 +30,9 @@ W celu podsumowania wymagań tego scenariusza możemy użyć macierzy łącznoś
 
 | Źródło             | Do:   |*Izolowany sieci wirtualnych*|*Udostępniona Sieć wirtualna*|*Gałęzie*|
 |---|---|---|---|---|
-|**Izolowany sieci wirtualnych**|&#8594;|        | Direct | Direct |
-|**Udostępnione sieci wirtualnych**  |&#8594;| Direct | Direct | Direct |
-|**Gałęzie**      |&#8594;| Direct | Direct | Direct |
+|**Izolowany sieci wirtualnych**| ->|        | Direct | Direct |
+|**Udostępnione sieci wirtualnych**  |->| Direct | Direct | Direct |
+|**Gałęzie**      |->| Direct | Direct | Direct |
 
 Każda z komórek w poprzedniej tabeli zawiera opis, czy wirtualne połączenie sieci WAN ("od", po stronie przepływu, nagłówki wierszy) komunikuje się z miejscem docelowym (po stronie "do" przepływu, nagłówki kolumn w kursywie). W tym scenariuszu nie ma zapór ani sieciowych urządzeń wirtualnych, dlatego komunikacja odbywa się bezpośrednio za pośrednictwem wirtualnej sieci WAN (w związku z tym wyraz "Direct" w tabeli).
 
@@ -57,7 +57,7 @@ W związku z tym jest to ostateczny projekt:
 
 Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="workflow"></a><a name="workflow"></a>Przepływ pracy
+## <a name="workflow"></a><a name="workflow"></a>Utworzonego
 
 Aby skonfigurować scenariusz, należy wziąć pod uwagę następujące czynności:
 
@@ -65,17 +65,17 @@ Aby skonfigurować scenariusz, należy wziąć pod uwagę następujące czynnoś
 2. Utwórz niestandardową tabelę tras. W tym przykładzie odwołujemy się do tabeli tras jako **RT_SHARED**. Aby uzyskać instrukcje dotyczące tworzenia tabeli tras, zobacz [jak skonfigurować Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md). Użyj następujących wartości jako wytycznych:
 
    * **Skojarzenie**
-     * W przypadku **sieci wirtualnych *z wyjątkiem* sieci wirtualnej usług udostępnionych**wybierz sieci wirtualnych do wyodrębnienia. Oznacza to, że wszystkie te sieci wirtualnych (poza siecią wirtualną usług udostępnionych) będą mogły uzyskać dostęp do miejsca docelowego na podstawie tras RT_SHARED tabeli tras.
+     * W przypadku **sieci wirtualnych *z wyjątkiem* sieci wirtualnej usług udostępnionych** wybierz sieci wirtualnych do wyodrębnienia. Oznacza to, że wszystkie te sieci wirtualnych (poza siecią wirtualną usług udostępnionych) będą mogły uzyskać dostęp do miejsca docelowego na podstawie tras RT_SHARED tabeli tras.
 
    * **Propagacja**
       * W przypadku **gałęzi**, Propaguj trasy do tej tabeli tras, oprócz innych tabel tras, które mogły już zostać zaznaczone. Ze względu na ten krok tabela tras RT_SHARED będzie uczyć się tras ze wszystkich połączeń rozgałęzień (VPN/ER/użytkowników sieci VPN).
-      * Dla **sieci wirtualnych**wybierz **sieć wirtualną usługi udostępnione**. Ze względu na ten krok RT_SHARED tabeli tras będzie uczyć się tras z połączenia sieci wirtualnej usług udostępnionych.
+      * Dla **sieci wirtualnych** wybierz **sieć wirtualną usługi udostępnione**. Ze względu na ten krok RT_SHARED tabeli tras będzie uczyć się tras z połączenia sieci wirtualnej usług udostępnionych.
 
 Spowoduje to wyświetlenie konfiguracji routingu na poniższej ilustracji:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Sieć wirtualna usług udostępnionych" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagram sieci wirtualnej usług udostępnionych." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [często zadawane pytania](virtual-wan-faq.md).
+* Aby skonfigurować przy użyciu szablonu ARM, zobacz [Szybki Start: kierowanie do usług udostępnionych sieci wirtualnych przy użyciu szablonu ARM](quickstart-route-shared-services-vnet-template.md).
 * Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).

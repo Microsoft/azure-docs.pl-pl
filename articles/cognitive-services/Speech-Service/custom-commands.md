@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 40736764cf9cec6f652e0147eb25d83f15c5bee2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4ae8a09a554afe232091b68888af17dfa096771
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024946"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102426473"
 ---
 # <a name="what-is-custom-commands"></a>Co to są polecenia niestandardowe?
 
@@ -36,7 +36,7 @@ Dobre kandydaci dla poleceń niestandardowych mają stałe słownictwo ze zdefin
 
 ## <a name="getting-started-with-custom-commands"></a>Wprowadzenie do poleceń niestandardowych
 
-Naszym celem z poleceniami niestandardowymi jest zredukowanie obciążeń, aby poznać różne technologie i skoncentrować się na tworzeniu aplikacji z poleceniami głosowymi. Pierwszy krok dotyczący używania poleceń niestandardowych do <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">tworzenia zasobów <span class="docon docon-navigate-external x-hidden-focus"></span> usługi Azure Speech </a>. Możesz utworzyć swoją aplikację poleceń niestandardowych w programie Speech Studio i opublikować ją, po której aplikacja na urządzeniu może komunikować się z nią przy użyciu zestawu Speech SDK.
+Naszym celem z poleceniami niestandardowymi jest zredukowanie obciążeń, aby poznać różne technologie i skoncentrować się na tworzeniu aplikacji z poleceniami głosowymi. Pierwszy krok dotyczący używania poleceń niestandardowych do <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">tworzenia zasobów usługi Azure Speech </a>. Możesz utworzyć swoją aplikację poleceń niestandardowych w programie Speech Studio i opublikować ją, po której aplikacja na urządzeniu może komunikować się z nią przy użyciu zestawu Speech SDK.
 
 #### <a name="authoring-flow-for-custom-commands"></a>Przepływ tworzenia dla poleceń niestandardowych
    ![Przepływ tworzenia dla poleceń niestandardowych](media/voice-assistants/custom-commands-flow.png "Przepływ tworzenia poleceń niestandardowych")

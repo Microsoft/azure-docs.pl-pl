@@ -1,17 +1,17 @@
 ---
 title: Samouczek dotyczący aktualizacji urządzenia dla platformy Azure IoT Hub przy użyciu agenta referencyjnego symulatora Ubuntu (18,04 x64) | Microsoft Docs
 description: Rozpocznij pracę z aktualizacją urządzenia dla platformy Azure IoT Hub przy użyciu agenta referencyjnego symulatora Ubuntu (18,04 x64).
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8ca9d03fbeadfaaca06dac49acc7a08f0dd0566d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4740bf02c33314dd7c887356f2ef1ed12bea44cf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665337"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443815"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Samouczek dotyczący aktualizacji urządzeń z platformą Azure IoT Hub przy użyciu agenta referencyjnego symulatora Ubuntu (18,04 x64)
 
@@ -163,29 +163,30 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Importuj aktualizację
 
-1. Wybierz opcję Aktualizacje urządzenia w obszarze Automatyczne zarządzanie urządzeniami na pasku nawigacyjnym po lewej stronie.
+1. Utwórz manifest importu, wykonując te [instrukcje](import-update.md).
+2. Wybierz opcję Aktualizacje urządzenia w obszarze Automatyczne zarządzanie urządzeniami na pasku nawigacyjnym po lewej stronie.
 
-2. Wybierz kartę aktualizacje.
+3. Wybierz kartę aktualizacje.
 
-3. Wybierz pozycję "+ Importuj nową aktualizację".
+4. Wybierz pozycję "+ Importuj nową aktualizację".
 
-4. Zaznacz ikonę folderu lub pole tekstowe w obszarze "Wybierz plik manifestu importowania". Zostanie wyświetlone okno dialogowe selektora plików. Wybierz pobrany wcześniej manifest importu. Następnie wybierz ikonę folderu lub pole tekstowe w obszarze "Wybierz jeden lub więcej plików aktualizacji". Zostanie wyświetlone okno dialogowe selektora plików. Wybierz pobrany wcześniej plik aktualizacji manifestu apt.
-   
+5. Zaznacz ikonę folderu lub pole tekstowe w obszarze "Wybierz plik manifestu importowania". Zostanie wyświetlone okno dialogowe selektora plików. Wybierz utworzony powyżej manifest importu.  Następnie wybierz ikonę folderu lub pole tekstowe w obszarze "Wybierz jeden lub więcej plików aktualizacji". Zostanie wyświetlone okno dialogowe selektora plików. Wybierz pobrany wcześniej obraz Ubuntu Update. 
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Zrzut ekranu przedstawiający wybór pliku aktualizacji." lightbox="media/import-update/select-update-files.png":::
 
-5. Zaznacz ikonę folderu lub pole tekstowe w obszarze "Wybieranie kontenera magazynu". Następnie wybierz odpowiednie konto magazynu.
+6. Zaznacz ikonę folderu lub pole tekstowe w obszarze "Wybieranie kontenera magazynu". Następnie wybierz odpowiednie konto magazynu.
 
-6. Jeśli kontener został już utworzony, możesz go użyć ponownie. (W przeciwnym razie wybierz pozycję "+ kontener", aby utworzyć nowy kontener magazynu dla aktualizacji).  Wybierz kontener, którego chcesz użyć, a następnie kliknij przycisk "Wybierz".
+7. Jeśli kontener został już utworzony, możesz go użyć ponownie. (W przeciwnym razie wybierz pozycję "+ kontener", aby utworzyć nowy kontener magazynu dla aktualizacji).  Wybierz kontener, którego chcesz użyć, a następnie kliknij przycisk "Wybierz".
   
   :::image type="content" source="media/import-update/container.png" alt-text="Zrzut ekranu przedstawiający wybór kontenera." lightbox="media/import-update/container.png":::
 
-7. Wybierz pozycję "Prześlij", aby rozpocząć proces importowania.
+8. Wybierz pozycję "Prześlij", aby rozpocząć proces importowania.
 
-8. Rozpocznie się proces importowania, a ekran zostanie zmieniony na sekcję "Historia importowania". Wybierz pozycję "Odśwież", aby wyświetlić postęp do momentu zakończenia procesu importowania. W zależności od rozmiaru aktualizacji może to zakończyć się w ciągu kilku minut, ale może to potrwać dłużej.
+9. Rozpocznie się proces importowania, a ekran zostanie zmieniony na sekcję "Historia importowania". Wybierz pozycję "Odśwież", aby wyświetlić postęp do momentu zakończenia procesu importowania. W zależności od rozmiaru aktualizacji może to zakończyć się w ciągu kilku minut, ale może to potrwać dłużej.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Zrzut ekranu przedstawiający aktualizację sekwencji importu." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. Gdy kolumna stan wskazuje, że importowanie zakończyło się pomyślnie, wybierz nagłówek "gotowe do wdrożenia". Zaimportowana aktualizacja powinna zostać wyświetlona na liście teraz.
+10. Gdy kolumna stan wskazuje, że importowanie zakończyło się pomyślnie, wybierz nagłówek "gotowe do wdrożenia". Zaimportowana aktualizacja powinna zostać wyświetlona na liście teraz.
 
 [Dowiedz się więcej](import-update.md) o importowaniu aktualizacji.
 

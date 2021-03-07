@@ -88,40 +88,40 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Pojęcia dotyczące głosu i wideo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Przepływy połączenia
+          href: concepts/call-flows.md
+        - name: Topologie przepływu wywołań
+          href: concepts/detailed-call-flows.md
     - name: Struktura interfejsu użytkownika
       items:
         - name: Przegląd struktury interfejsu użytkownika
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Możliwości struktury interfejsu użytkownika
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Współdziałanie usługi Teams
-      href: concepts/teams-interop.md
+    - name: Dane i operacje
+      items:
+        - name: Zdarzenia usługi (EventGrid)
+          href: concepts/event-handling.md
+        - name: Rejestrowanie i diagnostyka
+          href: concepts/logging-and-diagnostics.md
+        - name: Metryki
+          href: concepts/metrics.md
+        - name: Rozwiązywanie problemów
+          href: concepts/troubleshooting-info.md
+    - name: Zestawy SDK i interfejsy API REST
+      href: concepts/sdk-options.md
     - name: Architektura klienta i serwera
       href: concepts/client-and-server-architecture.md
-    - name: Przepływy połączenia
-      href: concepts/call-flows.md
-    - name: Topologie przepływu wywołań
-      href: concepts/detailed-call-flows.md
-    - name: Biblioteki klienta i interfejsy API REST
-      href: concepts/sdk-options.md
-    - name: Model cen
-      href: concepts/pricing.md
-    - name: Ochrona prywatności
-      href: concepts/privacy.md
     - name: Model tożsamości
       href: concepts/identity-model.md
     - name: Authentication
       href: concepts/authentication.md
-    - name: Obsługa zdarzeń
-      href: concepts/event-handling.md
-    - name: Powiadomienia
+    - name: Prywatność
+      href: concepts/privacy.md
+    - name: Powiadomienia wypychane
       href: concepts/notifications.md
-    - name: Rejestrowanie i diagnostyka
-      href: concepts/logging-and-diagnostics.md
-    - name: Metryki
-      href: concepts/metrics.md
-    - name: Rozwiązywanie problemów
-      href: concepts/troubleshooting-info.md
+    - name: Współdziałanie usługi Teams
+      href: concepts/teams-interop.md
     - name: Znane problemy
       href: concepts/known-issues.md
 - name: Samples

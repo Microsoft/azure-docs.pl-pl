@@ -1,15 +1,15 @@
 ---
 title: Szczegóły zgodności z przepisami dla HIPAA HITRUST 9,2
 description: Szczegółowe informacje na temat wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 04b0d454a93dfafeffa640d0f2bc198ad84344b6
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: d194c828e5a414fe1383736de8defedcc4d34db0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099119"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437369"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Szczegóły dotyczące wbudowanej inicjatywy zgodności z przepisami HIPAA HITRUST 9,2
 
@@ -672,6 +672,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Inspekcja w programie SQL Server powinna być włączona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |Inspekcja w SQL Server powinna być włączona w celu śledzenia działań bazy danych we wszystkich bazach danych na serwerze i zapisywania ich w dzienniku inspekcji. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
+|[Należy włączyć dzienniki zasobów w Azure Key Vault zarządzanym module HSM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Aby odtworzyć ślady aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia zabezpieczeń lub naruszenia bezpieczeństwa sieci, można przeprowadzić inspekcję przez włączenie dzienników zasobów na zarządzanych sprzętowych modułów zabezpieczeń. Postępuj zgodnie z instrukcjami znajdującymi się tutaj: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging) . |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
 |[Należy włączyć dzienniki zasobów w Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Inspekcja włączenia dzienników zasobów. Pozwala to na ponowne utworzenie końcowych działań do użycia w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub w przypadku naruszenia bezpieczeństwa sieci |AuditIfNotExists, wyłączone |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ## <a name="monitoring-system-use"></a>Monitorowanie użycia systemu
@@ -1535,6 +1536,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu planu HIPAA HITRUST 
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
+|[Azure Key Vault zarządzanym modułem HSM powinna być włączona ochrona przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |Złośliwe usuwanie Azure Key Vault zarządzanego modułu HSM może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może potencjalnie usunąć i przeczyścić Azure Key Vault zarządzanym modułem HSM. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnego testera, wymuszając obowiązkowy okres przechowywania dla nietrwałego usunięcia Azure Key Vault zarządzanego modułu HSM. Nikt w organizacji lub firma Microsoft będzie w stanie przeczyścić Azure Key Vault zarządzany moduł HSM w okresie przechowywania nietrwałego usuwania. |Inspekcja, Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
 |[W magazynach kluczy powinna być włączona ochrona przed czyszczeniem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |Złośliwe usunięcie magazynu kluczy może prowadzić do utraty danych trwałych. Złośliwy Tester w organizacji może potencjalnie usuwać i czyścić magazyny kluczy. Ochrona przed przeczyszczeniem chroni przed atakami z niejawnym testerem, wymuszając obowiązkowy okres przechowywania dla nieusuniętych magazynów kluczy. Nikt nie jest w Twojej organizacji, a firma Microsoft będzie mogła przeczyścić Twoje magazyny kluczy w okresie przechowywania nietrwałego. |Inspekcja, Odmów, wyłączone |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="business-impact-analysis-are-used-to-evaluate-the-consequences-of-disasters-security-failures-loss-of-service-and-service-availability"></a>Analiza wpływu na działalność biznesową służy do analizowania konsekwencji awarii, błędów zabezpieczeń, utraty usługi i dostępności usług.

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 03/03/2021
-ms.openlocfilehash: d36dcfccb6843947991b2548af6dd98b81adb40e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a080a3b536cb6e11a254f15d745334fbf17531e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049512"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439565"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL — elastyczny serwer
 
@@ -90,7 +90,7 @@ Elastyczna usługa serwera jest wyposażona w wbudowaną funkcję monitorowania 
 
 Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer jest dostępny dzisiaj w następujących regionach platformy Azure:
 
-| Region (Region) | Dostępność | Strefa nadmiarowa o wysokiej dostępności | 
+| Region (Region) | Dostępność | Strefa — nadmiarowa HA | 
 | --- | --- | --- |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
 | Europa Północna | :heavy_check_mark: | :heavy_check_mark: |
@@ -102,7 +102,7 @@ Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasi�
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Japonia Wschodnia | :heavy_check_mark: | :heavy_check_mark: | 
 
-Będziemy nadal dodawać nowe regiony. 
+Będziemy nadal dodawać więcej regionów dla elastycznego serwera.
 
 ## <a name="migration"></a>Migracja
 
@@ -110,6 +110,16 @@ Usługa uruchamia wersję społeczności PostgreSQL. Pozwala to na pełną zgodn
 
 - **Zrzuty i przywracanie** — w przypadku migracji w trybie offline, w których użytkownicy mogą zapewnić przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak pg_dump i pg_restore mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje [, zobacz Migrowanie przy użyciu zrzutów i przywracania](../howto-migrate-using-dump-and-restore.md) .
 - **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji do elastycznego serwera z minimalnym przestojem Azure Database Migration Service można korzystać z nich. Zobacz [DMS za pośrednictwem portalu](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) i [DMS za pomocą interfejsu wiersza polecenia](../../dms/tutorial-postgresql-azure-postgresql-online.md). Można przeprowadzić migrację z serwera Azure Database for PostgreSQL-pojedynczego do elastycznego serwera. Aby uzyskać szczegółowe informacje, zobacz ten [artykuł DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) .
+
+## <a name="contacts"></a>Kontakty
+W przypadku pytań lub sugestii, które mogą znajdować się na Azure Database for PostgreSQL elastycznym serwerze, Wyślij wiadomość e-mail do zespołu Azure Database for PostgreSQL ([ @Ask Azure DB dla PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Należy pamiętać, że ten adres e-mail nie jest aliasem pomocy technicznej.
+
+Ponadto, w zależności od potrzeb, należy wziąć pod uwagę następujące punkty kontaktowe:
+
+- Aby skontaktować się z pomocą techniczną platformy Azure, [wyślij zgłoszenie z witryny Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Aby rozwiązać problem z Twoim kontem, wyślij [żądanie obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure Portal.
+- Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+  
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/05/2021
+ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050243"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440993"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -280,6 +280,7 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
    1. Zamień `AzureWebJobsStorage` wartość właściwości na zapisane wcześniej parametry połączenia konta magazynu, na przykład:
 
       Przed:
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +292,7 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
       ```
 
       Po:
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +304,22 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
       ```
 
    1. Gdy wszystko będzie gotowe, upewnij się, że Zapisano zmiany.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>Włącz funkcję tworzenia łączników wbudowanych
+
+Możesz utworzyć własne wbudowane łączniki dla dowolnej usługi, której potrzebujesz, za pomocą [struktury rozszerzalności wersji zapoznawczej](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Podobnie jak wbudowane łączniki, takie jak Azure Service Bus i SQL Server, te łączniki zapewniają wyższą przepływność, małe opóźnienia, łączność lokalną i działają natywnie w tym samym procesie co środowisko uruchomieniowe w wersji zapoznawczej.
+
+Możliwość tworzenia jest obecnie dostępna tylko w Visual Studio Code, ale nie jest domyślnie włączona. Aby utworzyć te łączniki, należy najpierw przekonwertować projekt z opartego na zbiorze rozszerzeń (Node.js) na oparty na pakiecie NuGet (.NET).
+
+1. W okienku Eksploratora, w katalogu głównym projektu, Przenieś wskaźnik myszy nad pusty obszar poniżej wszystkich innych plików i folderów, otwórz menu skrótów i wybierz polecenie **Konwertuj na projekt aplikacji logiki opartej na NuGet**.
+
+   ![Zrzut ekranu przedstawiający okienko Eksploratora z menu skrótów projektu otwartego w pustym obszarze okna projektu.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. Po wyświetleniu monitu potwierdź konwersję projektu.
+
+1. Aby kontynuować, przejrzyj i wykonaj kroki opisane w artykule, [Azure Logic Apps uruchamianie rozszerzalności łączników wbudowanych wszędzie](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -1348,6 +1366,7 @@ Podczas próby uruchomienia sesji debugowania zostanie wyświetlony komunikat o 
 1. W poniższym zadaniu usuń wiersz, `"dependsOn: "generateDebugSymbols"` a także przecinek kończący poprzedni wiersz, na przykład:
 
    Przed:
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1378,7 @@ Podczas próby uruchomienia sesji debugowania zostanie wyświetlony komunikat o 
    ```
 
    Po:
+
    ```json
     {
       "type": "func",

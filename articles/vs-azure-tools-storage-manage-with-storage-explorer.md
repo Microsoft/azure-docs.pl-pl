@@ -8,20 +8,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: be9b2d9a31d4affc9615f5d2f4b2585b7533a0f6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3a8fe3ded6608059cc6ad50901ffe6df5dcf1b08
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545911"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441592"
 ---
 # <a name="get-started-with-storage-explorer"></a>Wprowadzenie do Eksploratora usługi Storage
 
 ## <a name="overview"></a>Omówienie
 
-Eksplorator usługi Microsoft Azure Storage jest autonomiczną aplikacją, która ułatwia obsługę danych w usłudze Azure Storage w systemach Windows, macOS i Linux. W tym artykule przedstawiono kilka sposobów łączenia się z kontami usługi Azure Storage i zarządzania nimi.
+Eksplorator usługi Microsoft Azure Storage jest autonomiczną aplikacją, która ułatwia obsługę danych w usłudze Azure Storage w systemach Windows, macOS i Linux.
 
-![Microsoft Azure Storage Explorer][0]
+W tym artykule przedstawiono kilka sposobów łączenia się z kontami usługi Azure Storage i zarządzania nimi.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer" source="./vs-storage-explorer-overview.png":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +47,7 @@ Następujące wersje macOS obsługują Eksplorator usługi Storage:
 
 Eksplorator usługi Storage jest dostępny w [magazynie Snap](https://snapcraft.io/storage-explorer) dla najbardziej typowych dystrybucji systemu Linux. Zalecamy przeprowadzenie przyciągania do tej instalacji. Przystawka Eksplorator usługi Storage instaluje wszystkie jej zależności i aktualizuje, gdy nowe wersje są publikowane w magazynie Snap.
 
-W przypadku obsługiwanych dystrybucji zapoznaj się ze [stroną instalacja przyciągania](https://snapcraft.io/docs/installing-snapd).
+Obsługiwane dystrybucje znajdują się na [ `snapd` stronie instalacji](https://snapcraft.io/docs/installing-snapd).
 
 Eksplorator usługi Storage wymaga użycia Menedżera haseł. Może być konieczne ręczne nawiązanie połączenia z menedżerem haseł. Możesz połączyć Eksplorator usługi Storage z menedżerem haseł systemu, uruchamiając następujące polecenie:
 
@@ -53,7 +55,7 @@ Eksplorator usługi Storage wymaga użycia Menedżera haseł. Może być koniecz
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Eksplorator usługi Storage jest również dostępny jako pobieranie *tar. gz* . Należy ręcznie zainstalować zależności. Następujące dystrybucje pomocy technicznej systemu Linux — instalacja *tar. gz* :
+Eksplorator usługi Storage jest również dostępny jako pobieranie *tar. gz* . W przypadku używania *. tar. gz* należy ręcznie zainstalować zależności. Następujące dystrybucje pomocy technicznej systemu Linux — instalacja *tar. gz* :
 
 * Ubuntu 20,04 x64
 * Ubuntu 18,04 x64
@@ -71,141 +73,160 @@ Aby pobrać i zainstalować Eksplorator usługi Storage, zobacz [Eksplorator us�
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Łączenie się z usługą lub kontem magazynu
 
-Eksplorator usługi Storage oferuje kilka sposobów nawiązywania połączenia z kontami magazynu. Ogólnie można:
+Eksplorator usługi Storage oferuje kilka sposobów nawiązywania połączenia z zasobami platformy Azure:
 
 * [Zaloguj się do platformy Azure, aby uzyskać dostęp do subskrypcji i ich zasobów](#sign-in-to-azure)
-* [Dołącz określony magazyn lub zasób CosmosDB](#attach-a-specific-resource)
+* [Dołącz do indywidualnego zasobu usługi Azure Storage](#attach-to-an-individual-resource)
+* [Dołącz do zasobu CosmosDB](#connect-to-azure-cosmos-db)
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 > [!NOTE]
-> Aby w pełni uzyskać dostęp do zasobów po zalogowaniu, Eksplorator usługi Storage wymaga zarówno uprawnień do zarządzania (Azure Resource Manager), jak i warstwy danych. Oznacza to, że potrzebne są uprawnienia Azure Active Directory (Azure AD), które zapewniają dostęp do konta magazynu, kontenerów na koncie i danych w kontenerach. Jeśli masz uprawnienia tylko w warstwie danych, rozważ [dodanie zasobu za pomocą usługi Azure AD](#add-a-resource-via-azure-ad). Aby uzyskać więcej informacji na temat Eksplorator usługi Storage wymaganych uprawnień, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
+> Aby w pełni uzyskać dostęp do zasobów po zalogowaniu, Eksplorator usługi Storage wymaga zarówno uprawnień do zarządzania (Azure Resource Manager), jak i warstwy danych. Oznacza to, że potrzebujesz uprawnień Azure Active Directory (Azure AD), aby uzyskać dostęp do konta magazynu, kontenerów na koncie i danych w kontenerach. Jeśli masz uprawnienia tylko w warstwie danych, rozważ wybranie opcji **Zaloguj się przy użyciu Azure Active Directory (Azure AD)** podczas dołączania do zasobu. Aby uzyskać więcej informacji na temat Eksplorator usługi Storage wymaganych uprawnień, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. W Eksplorator usługi Storage wybierz pozycję **Wyświetl**  >  **Zarządzanie kontami** lub wybierz przycisk **Zarządzaj kontami** .
 
-    ![Zarządzaj kontami][1]
+    :::image type="content" alt-text="Zarządzanie kontami" source ="./vs-storage-explorer-manage-accounts.png":::
 
-1. W obszarze **Zarządzanie kontami** zostaną wyświetlone wszystkie konta platformy Azure, do których się zalogowano. Aby połączyć się z innym kontem, wybierz pozycję **Dodaj konto**.
+1. W obszarze **Zarządzanie kontami** zostaną wyświetlone wszystkie konta platformy Azure, do których się zalogowano. Aby połączyć się z innym kontem, wybierz pozycję **Dodaj konto.**...
 
-1. W obszarze **nawiązywanie połączenia z usługą Azure Storage** Wybierz chmurę platformy Azure ze **środowiska platformy Azure** , aby zalogować się do chmury krajowej lub Azure Stack. Po wybraniu środowiska wybierz pozycję **dalej**.
+1. Zostanie otwarte okno dialogowe **łączenie z usługą Azure Storage** . W panelu **Wybierz zasób** wybierz pozycję **subskrypcja**.
 
-    ![Opcja logowania][2]
+    :::image type="content" alt-text="Okno dialogowe łączenia" source="./vs-storage-explorer-connect-dialog.png":::
 
-    Eksplorator usługi Storage otwiera stronę umożliwiającą zalogowanie się. Aby uzyskać więcej informacji, zobacz [łączenie Eksploratora usługi Storage z subskrypcją Azure Stack lub kontem magazynu](/azure-stack/user/azure-stack-storage-connect-se).
+1. W panelu **środowisko platformy Azure** Wybierz środowisko platformy Azure, do którego chcesz się zalogować. Możesz zalogować się do globalnej platformy Azure, chmury krajowej lub wystąpienia Azure Stack. Następnie wybierz przycisk **Dalej**.
 
-1. Po pomyślnym zalogowaniu się przy użyciu konta platformy Azure konto i subskrypcje platformy Azure skojarzone z tym kontem będą wyświetlane w obszarze **Zarządzanie kontem**. Wybierz pozycję **wszystkie subskrypcje** , aby przełączyć wybór między wszystkimi lub żadną z wymienionych subskrypcji platformy Azure. Wybierz subskrypcje platformy Azure, z którymi chcesz pracować, a następnie wybierz przycisk **Zastosuj**.
+    :::image type="content" alt-text="Opcja logowania" source="./vs-storage-explorer-connect-environment.png":::
 
-    ![Wybieranie subskrypcji platformy Azure][3]
+    > [!TIP]
+    > Aby uzyskać więcej informacji na temat Azure Stack, zobacz [łączenie Eksplorator usługi Storage z subskrypcją Azure Stack lub kontem magazynu](/azure-stack/user/azure-stack-storage-connect-se).
 
-    **Eksplorator** wyświetla konta magazynu skojarzone z wybranymi subskrypcjami platformy Azure.
+1. Eksplorator usługi Storage otworzy stronę sieci Web, aby się zalogować.
 
-    ![Wybrane subskrypcje platformy Azure][4]
+1. Po pomyślnym zalogowaniu się przy użyciu konta platformy Azure konto i subskrypcje platformy Azure skojarzone z tym kontem będą wyświetlane w obszarze **Zarządzanie kontem**. Wybierz subskrypcje platformy Azure, z którymi chcesz pracować, a następnie wybierz przycisk **Zastosuj**.
 
-### <a name="attach-a-specific-resource"></a>Dołączanie określonego zasobu
+    :::image type="content" alt-text="Wybieranie subskrypcji platformy Azure" source="./vs-storage-explorer-account-panel.png":::
 
-Istnieje kilka sposobów dołączenia do zasobu w Eksplorator usługi Storage:
+1. **Eksplorator** wyświetla konta magazynu skojarzone z wybranymi subskrypcjami platformy Azure.
 
-* [Dodaj zasób za pośrednictwem usługi Azure AD](#add-a-resource-via-azure-ad). Jeśli masz uprawnienia tylko w warstwie danych, Użyj tej opcji, aby dodać kontener obiektów blob lub Azure Data Lake Storage Gen2 kontener magazynu obiektów BLOB.
-* [Użyj parametrów połączenia](#use-a-connection-string). Użyj tej opcji, jeśli masz parametry połączenia z kontem magazynu. Eksplorator usługi Storage obsługuje zarówno parametry połączenia klucza, jak i [sygnatury dostępu współdzielonego](./storage/common/storage-sas-overview.md) .
-* [Użyj identyfikatora URI sygnatury dostępu współdzielonego](#use-a-shared-access-signature-uri). Jeśli masz [Identyfikator URI sygnatury dostępu współdzielonego](./storage/common/storage-sas-overview.md) do kontenera obiektów blob, udziału plików, kolejki lub tabeli, użyj go do dołączenia do zasobu. Aby uzyskać identyfikator URI sygnatury dostępu współdzielonego, można użyć [Eksplorator usługi Storage](#generate-a-sas-in-storage-explorer) lub [Azure Portal](https://portal.azure.com).
-* [Użyj nazwy i klucza](#use-a-name-and-key). Jeśli znasz jeden z kluczy konta do konta magazynu, możesz użyć tej opcji, aby szybko nawiązać połączenie. Znajdź klucze na stronie konta magazynu, wybierając pozycję **Ustawienia**  >  **klucze dostępu** w [Azure Portal](https://portal.azure.com).
-* [Dołącz do lokalnego emulatora](#attach-to-a-local-emulator). Jeśli używasz jednego z dostępnych emulatorów usługi Azure Storage, Użyj tej opcji, aby łatwo połączyć się z emulatorem.
-* [Połącz się z kontem Azure Cosmos dB przy użyciu parametrów połączenia](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Użyj tej opcji, jeśli masz parametry połączenia z wystąpieniem CosmosDB.
-* [Połącz się z Azure Data Lake Store według identyfikatora URI](#connect-to-azure-data-lake-store-by-uri). Użyj tej opcji, jeśli masz identyfikator URI do Azure Data Lake Store.
+    :::image type="content" alt-text="Wybrane subskrypcje platformy Azure" source="./vs-storage-explorer-subscription-node.png":::
 
-#### <a name="add-a-resource-via-azure-ad"></a>Dodawanie zasobu za pośrednictwem usługi Azure AD
+### <a name="attach-to-an-individual-resource"></a>Dołącz do pojedynczego zasobu
 
-1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
+Eksplorator usługi Storage umożliwia łączenie się z poszczególnymi zasobami, takimi jak kontener Azure Data Lake Storage Gen2, przy użyciu różnych metod uwierzytelniania. Niektóre metody uwierzytelniania są obsługiwane tylko dla określonych typów zasobów.
 
-    ![Opcja Połącz z usługą Azure Storage][9]
+| Typ zasobu    | Azure AD | Nazwa i klucz konta | Sygnatura dostępu współdzielonego  | Publiczne (anonimowe) |
+|------------------|----------|----------------------|--------------------------------|--------------------|
+| Konta magazynu | Tak      | Tak                  | Tak (parametry połączenia lub adres URL) | Nie                 |
+| Kontenery obiektów blob  | Tak      | Nie                   | Tak (adres URL)                      | Tak                |
+| Kontenery Gen2  | Tak      | Nie                   | Tak (adres URL)                      | Tak                |
+| Katalogi Gen2 | Tak      | Nie                   | Tak (adres URL)                      | Tak                |
+| Udziały plików      | Nie       | Nie                   | Tak (adres URL)                      | Nie                 |
+| Kolejki           | Tak      | Nie                   | Tak (adres URL)                      | Nie                 |
+| Tabele           | Nie       | Nie                   | Tak (adres URL)                      | Nie                 |
+ 
+Eksplorator usługi Storage może również nawiązać połączenie z [lokalnym emulatorem magazynu](#local-storage-emulator) przy użyciu skonfigurowanych portów emulatora.
 
-1. Jeśli jeszcze tego nie zrobiono, użyj opcji **Dodaj konto platformy Azure** , aby zalogować się do konta platformy Azure, które ma dostęp do zasobu. Po zalogowaniu Wróć do **usługi Azure Storage**.
+Aby nawiązać połączenie z pojedynczym zasobem, wybierz przycisk **Połącz** na pasku narzędzi po lewej stronie. Następnie postępuj zgodnie z instrukcjami dotyczącymi typu zasobu, z którym chcesz nawiązać połączenie.
 
-1. Wybierz pozycję **Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD)**, a następnie wybierz pozycję **dalej**.
+:::image type="content" alt-text="Opcja Połącz z usługą Azure Storage" source="./vs-storage-explorer-connect-button.png":::
 
-1. Wybierz konto platformy Azure i dzierżawcę. Te wartości muszą mieć dostęp do zasobu magazynu, do którego chcesz dołączyć. Wybierz pozycję **Dalej**.
+Po pomyślnym dodaniu połączenia z kontem magazynu w obszarze **lokalny & dołączone**  >  **konta magazynu** zostanie wyświetlony nowy węzeł drzewa.
 
-1. Wybierz typ zasobu, który chcesz dołączyć. Wprowadź informacje konieczne do nawiązania połączenia. 
+W przypadku innych typów zasobów dodawany jest nowy węzeł w obszarze **lokalne & dołączone**  >  **konta magazynu**  >  **(dołączone kontenery)**. Węzeł zostanie wyświetlony w węźle grupy pasującym do jego typu. Na przykład nowe połączenie z kontenerem Azure Data Lake Storage Gen2 pojawi się w obszarze **kontenery obiektów BLOB**.
 
-   Informacje wprowadzane na tej stronie zależą od typu dodawanego zasobu. Upewnij się, że wybrano poprawny typ zasobu. Po wprowadzeniu wymaganych informacji wybierz pozycję **dalej**.
+Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md).
 
-1. Przejrzyj **Podsumowanie połączenia** , aby upewnić się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
+W poniższych sekcjach opisano różne metody uwierzytelniania, których można użyć do nawiązania połączenia z poszczególnymi zasobami.
 
-Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **Storage Accounts**  >  **(Attached Containers)**  >  **kontenery obiektów BLOB**(dołączone kontenery). Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md).
+#### <a name="azure-ad"></a>Azure AD
 
-#### <a name="use-a-connection-string"></a>Używanie parametrów połączenia
+Eksplorator usługi Storage można używać konta platformy Azure do łączenia się z następującymi typami zasobów:
+* Kontenery obiektów blob
+* Kontenery Azure Data Lake Storage Gen2
+* Katalogi Azure Data Lake Storage Gen2
+* Kolejki
+ 
+Usługa Azure AD jest preferowaną opcją, jeśli masz dostęp do warstwy danych do zasobu, ale nie masz dostępu do warstwy zarządzania.
 
-1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
+1. Zaloguj się do co najmniej jednego konta platformy Azure, wykonując [kroki opisane powyżej](#sign-in-to-azure).
+1. W panelu **Wybieranie zasobów** okna dialogowego **łączenie z usługą Azure Storage** wybierz pozycję **kontener obiektów BLOB**, **kontener ADLS Gen2** lub **Kolejka**.
+1. Wybierz pozycję **Zaloguj się przy użyciu Azure Active Directory (Azure AD)** i wybierz pozycję **dalej**.
+1. Wybierz konto platformy Azure i dzierżawcę. Konto i dzierżawca muszą mieć dostęp do zasobu magazynu, do którego chcesz dołączyć. Wybierz opcję **Dalej**.
+1. Wprowadź nazwę wyświetlaną dla połączenia i adres URL zasobu. Wybierz opcję **Dalej**.
+1. Przejrzyj informacje o połączeniu w panelu **Podsumowanie** . Jeśli informacje o połączeniu są poprawne, wybierz pozycję **Połącz**.
 
-    ![Opcja Połącz z usługą Azure Storage][9]
+#### <a name="account-name-and-key"></a>Nazwa i klucz konta
 
-1. Wybierz pozycję **Użyj parametrów połączenia**, a następnie wybierz przycisk **dalej**.
+Eksplorator usługi Storage może nawiązać połączenie z kontem magazynu przy użyciu nazwy i klucza konta magazynu.
 
-1. Wybierz nazwę wyświetlaną dla połączenia i wprowadź parametry połączenia. Następnie wybierz pozycję **Dalej**.
+Klucze kont można znaleźć w [Azure Portal](https://portal.azure.com). Otwórz stronę konta magazynu i wybierz pozycję **Ustawienia**  >  **klucze dostępu**.
 
-1. Przejrzyj **Podsumowanie połączenia** , aby upewnić się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
+1. W panelu **Wybieranie zasobów** okna dialogowego **łączenie z usługą Azure Storage** wybierz pozycję **konto magazynu**.
+1. Wybierz pozycję **nazwa konta i klucz** , a następnie wybierz pozycję **dalej**.
+1. Wprowadź nazwę wyświetlaną dla połączenia, nazwę konta i jeden z kluczy konta. Wybierz odpowiednie środowisko platformy Azure. Wybierz opcję **Dalej**.
+1. Przejrzyj informacje o połączeniu w panelu **Podsumowanie** . Jeśli informacje o połączeniu są poprawne, wybierz pozycję **Połącz**.
 
-Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**. Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md).
+#### <a name="shared-access-signature-sas-connection-string"></a>Parametry połączenia sygnatury dostępu współdzielonego (SAS)
 
-#### <a name="use-a-shared-access-signature-uri"></a>Używanie identyfikatora URI sygnatury dostępu współdzielonego
+Eksplorator usługi Storage może nawiązać połączenie z kontem magazynu przy użyciu parametrów połączenia z sygnaturą dostępu współdzielonego (SAS). Parametry połączenia sygnatury dostępu współdzielonego wyglądają następująco:
 
-1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
+```text
+SharedAccessSignature=sv=2020-04-08&ss=btqf&srt=sco&st=2021-03-02T00%3A22%3A19Z&se=2020-03-03T00%3A22%3A19Z&sp=rl&sig=fFFpX%2F5tzqmmFFaL0wRffHlhfFFLn6zJuylT6yhOo%2FY%3F;
+BlobEndpoint=https://contoso.blob.core.windows.net/;
+FileEndpoint=https://contoso.file.core.windows.net/;
+QueueEndpoint=https://contoso.queue.core.windows.net/;
+TableEndpoint=https://contoso.table.core.windows.net/;
+```
 
-    ![Opcja Połącz z usługą Azure Storage][9]
+1. W panelu **Wybieranie zasobów** okna dialogowego **łączenie z usługą Azure Storage** wybierz pozycję **konto magazynu**.
+1. Wybierz pozycję **sygnatura dostępu współdzielonego (SAS)** i wybierz przycisk **dalej**.
+1. Wprowadź nazwę wyświetlaną dla połączenia oraz parametry połączenia sygnatury dostępu współdzielonego dla konta magazynu. Wybierz opcję **Dalej**.
+1. Przejrzyj informacje o połączeniu w panelu **Podsumowanie** . Jeśli informacje o połączeniu są poprawne, wybierz pozycję **Połącz**.
 
-1. Wybierz pozycję **Użyj identyfikatora URI sygnatury dostępu współdzielonego (SAS)**, a następnie wybierz przycisk **dalej**.
+#### <a name="shared-access-signature-sas-url"></a>Adres URL sygnatury dostępu współdzielonego (SAS)
 
-1. Wybierz nazwę wyświetlaną dla połączenia i wprowadź swój identyfikator URI sygnatury dostępu współdzielonego. Punkt końcowy usługi dla typu zasobu, który jest dołączany, powinien mieć wartość Autowypełnianie. Jeśli używasz niestandardowego punktu końcowego, możliwe, że może to nie być. Wybierz pozycję **Dalej**.
+Eksplorator usługi Storage mogą łączyć się z następującymi typami zasobów przy użyciu identyfikatora URI sygnatury dostępu współdzielonego:
+* Kontener obiektów blob
+* Kontener Azure Data Lake Storage Gen2 lub katalog
+* Udział plików
+* Kolejka
+* Tabela
 
-1. Przejrzyj **Podsumowanie połączenia** , aby upewnić się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
+Identyfikator URI sygnatury dostępu współdzielonego wygląda następująco:
 
-Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**  >  **(dołączone kontenery)**  >  *węzeł usługi dla typu dołączonego kontenera*. Jeśli nie można dodać połączenia Eksplorator usługi Storage, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md). Zapoznaj się z przewodnikiem rozwiązywania problemów, jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia.
+```text
+https://contoso.blob.core.windows.net/container01?sv=2020-04-08&st=2021-03-02T00%3A30%3A33Z&se=2020-03-03T00%3A30%3A33Z&sr=c&sp=rl&sig=z9VFdWffrV6FXU51T8b8HVfipZPOpYOFLXuQw6wfkFY%3F
+```
 
-#### <a name="use-a-name-and-key"></a>Używanie nazwy i klucza
+1. W panelu **Wybieranie zasobów** okna dialogowego **łączenie z usługą Azure Storage** wybierz zasób, z którym chcesz nawiązać połączenie.
+1. Wybierz pozycję **sygnatura dostępu współdzielonego (SAS)** i wybierz przycisk **dalej**.
+1. Wprowadź nazwę wyświetlaną dla połączenia oraz identyfikator URI sygnatury dostępu współdzielonego dla zasobu. Wybierz opcję **Dalej**.
+1. Przejrzyj informacje o połączeniu w panelu **Podsumowanie** . Jeśli informacje o połączeniu są poprawne, wybierz pozycję **Połącz**.
 
-1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
+#### <a name="local-storage-emulator"></a>Emulator magazynu lokalnego
 
-    ![Opcja Połącz z usługą Azure Storage][9]
-
-1. Wybierz pozycję **Użyj nazwy i klucza konta magazynu**, a następnie wybierz przycisk **dalej**.
-
-1. Wybierz nazwę wyświetlaną dla połączenia.
-
-1. Wprowadź nazwę konta magazynu i jeden z jego kluczy dostępu.
-
-1. Wybierz **domenę magazynu** , która ma zostać użyta, a następnie wybierz pozycję **dalej**.
-
-1. Przejrzyj **Podsumowanie połączenia** , aby upewnić się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
-
-Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Zasób jest wyświetlany w obszarze **lokalne & dołączone**  >  **konta magazynu**. Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md).
-
-#### <a name="attach-to-a-local-emulator"></a>Dołączanie do emulatora lokalnego
-
-Eksplorator usługi Storage obecnie obsługuje dwa oficjalne emulatory magazynu:
+Eksplorator usługi Storage może nawiązać połączenie z emulatorem usługi Azure Storage. Obecnie istnieją dwa obsługiwane emulatory:
 
 * [Emulator usługi Azure Storage](storage/common/storage-use-emulator.md) (tylko system Windows)
 * [Azurite](https://github.com/azure/azurite) (Windows, MacOS lub Linux)
 
-Jeśli emulator nasłuchuje na portach domyślnych, można użyć węzła **emulator-default Ports** , aby uzyskać dostęp do emulatora. Wyszukaj **porty domyślne emulatora** w obszarze **lokalne & dołączone**  >  **konta magazynu**.
+Jeśli emulator nasłuchuje na domyślnych portach, można użyć **lokalnego & dołączonego** do  >    >  **emulatora** kont magazynu, aby uzyskać dostęp do emulatora.
 
-Jeśli chcesz użyć innej nazwy dla połączenia lub jeśli emulator nie jest uruchomiony na portach domyślnych, wykonaj następujące kroki:
+Jeśli chcesz użyć innej nazwy dla połączenia lub jeśli emulator nie jest uruchomiony na portach domyślnych:
 
-1. Uruchom emulator. Wprowadź polecenie, `AzureStorageEmulator.exe status` Aby wyświetlić porty dla każdego typu usługi.
+1. Uruchom emulator.
 
    > [!IMPORTANT]
    > Eksplorator usługi Storage nie uruchamia automatycznie emulatora. Należy ją uruchomić ręcznie.
 
-1. Wybierz symbol **połączenia** , aby otworzyć okno **łączenie z usługą Azure Storage**.
+1. W panelu **Wybieranie zasobów** okna dialogowego **łączenie z usługą Azure Storage** wybierz pozycję **lokalny emulator magazynu**.
+1. Wprowadź nazwę wyświetlaną dla połączenia i numer portu dla każdej emulowanej usługi, która ma być używana. Jeśli nie chcesz używać usługi, pozostaw odpowiedni port pusty. Wybierz opcję **Dalej**.
+1. Przejrzyj informacje o połączeniu w panelu **Podsumowanie** . Jeśli informacje o połączeniu są poprawne, wybierz pozycję **Połącz**.
 
-    ![Opcja Połącz z usługą Azure Storage][9]
+### <a name="connect-to-azure-cosmos-db"></a>Łączenie z usługą Azure Cosmos DB
 
-1. Wybierz opcję **Dołącz do lokalnego emulatora**, a następnie wybierz przycisk **dalej**.
-
-1. Wybierz nazwę wyświetlaną dla połączenia i wprowadź porty, dla których emulator nasłuchuje dla każdego typu usługi. **Dołączanie do lokalnego emulatora** sugeruje domyślne wartości portów dla większości emulatorów. **Port plików** jest pusty, ponieważ żaden z oficjalnych emulatorów aktualnie nie obsługuje usługi Files. Jeśli używany emulator obsługuje pliki, możesz wprowadzić port do użycia. Następnie wybierz pozycję **Dalej**.
-
-1. Przejrzyj **Podsumowanie połączenia** i upewnij się, że wszystkie informacje są poprawne. Jeśli tak jest, wybierz pozycję **Połącz**. W przeciwnym razie wybierz pozycję **Wstecz** , aby powrócić do poprzedniej strony, aby naprawić wszelkie nieprawidłowe informacje.
-
-Po pomyślnym dodaniu połączenia drzewo zasobów przechodzi do węzła, który reprezentuje połączenie. Węzeł powinien pojawić się w obszarze **lokalne & dołączone**  >  **konta magazynu**. Jeśli Eksplorator usługi Storage nie może dodać połączenia lub jeśli nie możesz uzyskać dostępu do danych po pomyślnym dodaniu połączenia, zobacz [Eksplorator usługi Azure Storage Przewodnik rozwiązywania problemów](./storage/common/storage-explorer-troubleshooting.md).
+Eksplorator usługi Storage obsługuje również łączenie z zasobami Azure Cosmos DB.
 
 #### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Nawiązywanie połączenia z kontem Azure Cosmos DB przy użyciu parametrów połączenia
 
@@ -263,8 +284,6 @@ Podczas wprowadzania tekstu w polu wyszukiwania Eksplorator usługi Storage wyś
 
 > [!NOTE]
 > Aby przyspieszyć wyszukiwanie, użyj **zarządzania kontami** , aby usunąć wszystkie subskrypcje, które nie zawierają szukanego elementu. Możesz również kliknąć prawym przyciskiem myszy węzeł i w **tym miejscu** wybrać pozycję Wyszukaj, aby rozpocząć wyszukiwanie od określonego węzła.
->
->
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -272,26 +291,8 @@ Podczas wprowadzania tekstu w polu wyszukiwania Eksplorator usługi Storage wyś
 * [Praca z danymi za pomocą Eksploratora usługi Azure Storage](./cosmos-db/storage-explorer.md)
 * [Zarządzanie zasobami Azure Data Lake Store przy użyciu Eksplorator usługi Storage](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
-[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-azure-environment.png
-[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/account-panel-subscriptions-apply.png
-[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SubscriptionNode.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog.png
-[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/PortalAccessKeys.png
-[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AccessKeys.png
-[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog.png
-[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-AddWithKeySelected.png
-[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-NameAndKeyPage.png
-[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AttachedWithKeyAccount.png
-[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AttachedWithKeyAccount-Detach.png
 [14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-shared-access-signature-for-storage-explorer.png
 [15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/create-shared-access-signature-for-storage-explorer.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-WithConnStringOrSASSelected.png
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-1.png
-[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AttachedWithSASAccount.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ConnectDialog-ConnStringOrSASPage-2.png
-[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ServiceAttachedWithSAS.png
 [21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-cosmos-db-by-connection-string.png
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string-for-cosmos-db.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-search-for-resource.png
