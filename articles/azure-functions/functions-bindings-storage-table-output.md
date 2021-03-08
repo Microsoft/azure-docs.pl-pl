@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 825a336b5ad07f50d96b19036d70c759b907bd07
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209683"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453006"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Powiązania wyjściowe usługi Azure Table Storage dla Azure Functions
 
@@ -438,13 +438,13 @@ Istnieją dwie opcje wyprowadzania komunikatu wiersza magazynu tabel z funkcji:
 
 - **Wartość zwracana**: Ustaw `name` Właściwość w *function.jsna* wartość `$return` . W przypadku tej konfiguracji wartość zwracana przez funkcję jest utrwalana jako wiersz magazynu tabeli.
 
-- Bezwzględnie **: Przekaż** wartość do metody [Set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) parametru zadeklarowanego jako typ [out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
+- Bezwzględnie **: Przekaż** wartość do metody [Set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) parametru zadeklarowanego jako typ [out](/python/api/azure-functions/azure.functions.out) . Wartość przeniesiona do `set` elementu jest utrwalana jako komunikat centrum zdarzeń.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie | Odwołanie |
+| Wiązanie | Dokumentacja |
 |---|---|
 | Tabela | [Kody błędów tabeli](/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka | [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

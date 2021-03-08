@@ -16,8 +16,6 @@
   items:
     - name: Wizualizowanie anomalii jako zadań wsadowych za pomocą usługi Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
-    - name: Wykrywanie anomalii w strumieniu danych wykonywana przy użyciu usługi Azure Databricks
-      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Identyfikowanie anomalii w danych

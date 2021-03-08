@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 0829ef9a6b63866c2527e521ed7edf48a3249392
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044259"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455420"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -51,7 +51,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Użyj adnotacji w języku Python zawartych w pakiecie [Azure. Functions. *](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) , aby powiązać dane wejściowe i wyjściowe z metodami.
+Użyj adnotacji w języku Python zawartych w pakiecie [Azure. Functions. *](/python/api/azure-functions/azure.functions) , aby powiązać dane wejściowe i wyjściowe z metodami.
 
 ## <a name="alternate-entry-point"></a>Alternatywny punkt wejścia
 
@@ -199,7 +199,7 @@ Dane wyjściowe można wyrazić zarówno w wartości zwracanej, jak i wyjściowy
 
 Aby użyć wartości zwracanej funkcji jako wartości powiązania danych wyjściowych, `name` właściwość powiązania powinna być ustawiona na wartość `$return` w `function.json` .
 
-Aby utworzyć wiele wyjść, użyj `set()` metody dostarczonej przez [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) interfejs do przypisania wartości do powiązania. Na przykład następująca funkcja może wypchnąć komunikat do kolejki i zwrócić odpowiedź HTTP.
+Aby utworzyć wiele wyjść, użyj `set()` metody dostarczonej przez [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) interfejs do przypisania wartości do powiązania. Na przykład następująca funkcja może wypchnąć komunikat do kolejki i zwrócić odpowiedź HTTP.
 
 ```json
 {
@@ -306,7 +306,7 @@ Najlepsze rozwiązania dotyczące skalowania i wydajności aplikacji funkcji ję
 
 ## <a name="context"></a>Kontekst
 
-Aby uzyskać kontekst wywołania funkcji podczas wykonywania, należy uwzględnić [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argument w jego podpisie.
+Aby uzyskać kontekst wywołania funkcji podczas wykonywania, należy uwzględnić [`context`](/python/api/azure-functions/azure.functions.context) argument w jego podpisie.
 
 Na przykład:
 
@@ -319,7 +319,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-Klasa [**kontekstu**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) ma następujące atrybuty ciągu:
+Klasa [**kontekstu**](/python/api/azure-functions/azure.functions.context) ma następujące atrybuty ciągu:
 
 `function_directory` Katalog, w którym działa funkcja.
 
@@ -640,7 +640,7 @@ Wszystkie znane problemy i żądania funkcji są śledzone za pomocą listy [pro
 
 Więcej informacji można znaleźć w następujących zasobach:
 
-* [Dokumentacja interfejsu API pakietu Azure Functions](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
+* [Dokumentacja interfejsu API pakietu Azure Functions](/python/api/azure-functions/azure.functions)
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
 * [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md)
 * [Powiązania magazynu obiektów BLOB](functions-bindings-storage-blob.md)
@@ -651,5 +651,5 @@ Więcej informacji można znaleźć w następujących zasobach:
 [Masz problemy? Daj nam znać.](https://aka.ms/python-functions-ref-survey)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse

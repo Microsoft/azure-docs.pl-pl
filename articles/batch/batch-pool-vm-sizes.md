@@ -2,14 +2,14 @@
 title: Wybieranie rozmiarów i obrazów maszyn wirtualnych dla pul
 description: Jak wybrać dostępne rozmiary maszyn wirtualnych i wersje systemu operacyjnego dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576705"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455199"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru i obrazu maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -35,13 +35,11 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | DC | Nieobsługiwane |
 | Dv2, DSv2 | Wszystkie rozmiary |
 | Dv3, Dsv3 | Wszystkie rozmiary |
-| Dav4 | Wszystkie rozmiary |
-| Dasv4 | Wszystkie rozmiary |
+| Dav4, Dasv4 | Wszystkie rozmiary |
 | Ddv4, Ddsv4 |  Wszystkie rozmiary |
 | Dv4, Dsv4 | Nieobsługiwane |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
-| Eav4 | Wszystkie rozmiary |
-| Easv4 | Wszystkie rozmiary |
+| Eav4, Easv4 | Wszystkie rozmiary |
 | Edv4, Edsv4 |  Wszystkie rozmiary |
 | Ev4, Esv4 | Nieobsługiwane |
 | F, FS | Wszystkie rozmiary |
@@ -58,7 +56,7 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie [roz
 | NC | Wszystkie rozmiary |
 | NCv2 | Wszystkie rozmiary |
 | Seria NCV3 | Wszystkie rozmiary |
-| NCasT4_v3 | Brak — nie jest jeszcze dostępna |
+| NCasT4_v3 | Wszystkie rozmiary |
 | ND | Wszystkie rozmiary |
 | NDv2 | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |

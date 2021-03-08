@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d007c104dc53683d49547db582e8de6981ab921f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 11c65498d5a31c2e2ee997bdaf18037b1f0f9060
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093417"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455216"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu SDK platformy Media Services .NET
 
@@ -29,7 +29,7 @@ W przypadku dostarczania zawartości klientom (przesyłania strumieniowego na ż
 
 Aby uzyskać szczegółowy opis tej funkcji i scenariuszy, w których są używane, zobacz [dynamiczne manifesty](filters-dynamic-manifest-overview.md) i [filtry](filters-concept.md).
 
-W tym temacie pokazano, jak za Media Services pomocą zestawu SDK platformy .NET zdefiniować filtr dla zasobu wideo na żądanie i utworzyć [filtry konta](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) i [filtry zasobów](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+W tym temacie pokazano, jak za Media Services pomocą zestawu SDK platformy .NET zdefiniować filtr dla zasobu wideo na żądanie i utworzyć [filtry konta](/dotnet/api/microsoft.azure.management.media.models.accountfilter) i [filtry zasobów](/dotnet/api/microsoft.azure.management.media.models.assetfilter). 
 
 > [!NOTE]
 > Pamiętaj o przejrzeniu [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -43,7 +43,7 @@ W tym temacie pokazano, jak za Media Services pomocą zestawu SDK platformy .NET
 
 ## <a name="define-a-filter"></a>Zdefiniuj filtr  
 
-W programie .NET można skonfigurować opcje śledzenia przy użyciu klas [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) i [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) . 
+W programie .NET można skonfigurować opcje śledzenia przy użyciu klas [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection) i [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition) . 
 
 Poniższy kod definiuje filtr, który zawiera wszystkie ścieżki audio, które są zgodne ze standardem EC-3 i wszystkie ścieżki wideo, które mają szybkość transmisji bitów w zakresie 0-1000000.
 

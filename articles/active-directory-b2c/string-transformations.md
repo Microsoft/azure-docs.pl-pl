@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175094"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452241"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
 
@@ -326,6 +326,77 @@ Poniższy przykład generuje losową wartość całkowitą z zakresu od 0 do 100
     - **oświadczenie outputclaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Sformatuj wiele oświadczeń zgodnie z podanym zlokalizowanym ciągiem formatu. Ta transformacja używa metody języka C# `String.Format` .
+
+
+| Element | TransformationClaimType | Typ danych | Uwagi |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |ciąg | Kolekcja oświadczeń wejściowych, które pełnią funkcję formatu ciągu {0} , {1} , {2} Parameters. |
+| InputParameter | stringFormatId | ciąg |  `StringId` [Zlokalizowany ciąg](localization.md).   |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
+
+> [!NOTE]
+> Maksymalny dozwolony rozmiar formatu ciągu to 4000.
+
+Aby użyć transformacji oświadczeń FormatLocalizedString:
+
+1. Zdefiniuj [ciąg lokalizacji](localization.md)i skojarz go z [profilem niepotwierdzonym przez siebie](self-asserted-technical-profile.md).
+1. `ElementType` `LocalizedString` Element musi być ustawiony na `FormatLocalizedStringTransformationClaimType` .
+1. `StringId`Jest to unikatowy identyfikator zdefiniowany przez użytkownika i jego użycie później w przekształceniu oświadczeń `stringFormatId` .
+1. W polu transformacja oświadczeń Określ listę oświadczeń, które mają być ustawione przy użyciu zlokalizowanego ciągu. Następnie ustaw wartość na dla `stringFormatId` `StringId` elementu zlokalizowanego ciągu. 
+1. W [profilu technicznym z własnym](self-asserted-technical-profile.md)potwierdzeniem lub transformacji danych wejściowych lub wyjściowych [kontrolki wyświetlania](display-controls.md) , Utwórz odwołanie do transformacji oświadczeń.
+
+
+Poniższy przykład generuje komunikat o błędzie, jeśli konto znajduje się już w katalogu. W przykładzie zdefiniowano zlokalizowane ciągi dla języka angielskiego (domyślnego) i hiszpańskiego.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+Transformacja oświadczeń tworzy komunikat odpowiedzi na podstawie zlokalizowanego ciągu. Komunikat zawiera adres e-mail użytkownika osadzony w zlokalizowanym *ResponseMessge_EmailExists* Sting.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Przykład
+
+- Oświadczenia wejściowe:
+    - **oświadczenie inputclaim**: sarah@contoso.com
+- Parametry wejściowe:
+    - **StringFormat —**: ResponseMessge_EmailExists
+- Oświadczenia wyjściowe:
+  - **oświadczenie outputclaim**: adres e-mail " sarah@contoso.com " jest już kontem w tej organizacji. Kliknij przycisk Dalej, aby zalogować się przy użyciu tego konta.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Sformatuj wierzytelność zgodnie z podanym ciągiem formatu. Ta transformacja używa metody języka C# `String.Format` .
@@ -335,6 +406,9 @@ Sformatuj wierzytelność zgodnie z podanym ciągiem formatu. Ta transformacja u
 | Oświadczenie inputclaim | Oświadczenie inputclaim |ciąg |Wartość oświadczenia, która działa jako parametr formatu ciągu {0} . |
 | InputParameter | StringFormat — | ciąg | Format ciągu, łącznie z {0}  parametrem. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions).  |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
+
+> [!NOTE]
+> Maksymalny dozwolony rozmiar formatu ciągu to 4000.
 
 Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym parametrem {0} . Poniższy przykład tworzy element **userPrincipalName**. Wszystkie profile techniczne dostawcy tożsamości społecznościowej, takie jak `Facebook-OAUTH` wywołanie  elementu .
 
@@ -371,6 +445,9 @@ Sformatuj dwa oświadczenia zgodnie z podanym ciągiem formatu. Ta transformacja
 | Oświadczenie inputclaim | Oświadczenie inputclaim | ciąg | Wartość oświadczenia, która działa jako parametr formatu ciągu {1} . |
 | InputParameter | StringFormat — | ciąg | Format ciągu, łącznie z {0} {1} parametrami i. Ten parametr wejściowy obsługuje [wyrażenia transformacji oświadczeń ciągów](string-transformations.md#string-claim-transformations-expressions).   |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
+
+> [!NOTE]
+> Maksymalny dozwolony rozmiar formatu ciągu to 4000.
 
 Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z dwoma parametrami {0} i {1} . Poniższy przykład tworzy **DisplayName** o określonym formacie:
 

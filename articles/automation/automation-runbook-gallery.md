@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: afa782df8666413356fa334bf4e9dcb989b87c2f
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: c38a6236fe3ad9164d11d94e5563a7dddf5b4b32
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441357"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452785"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Używanie elementów runbook i modułów w Galerii programu PowerShell
 
@@ -51,11 +51,11 @@ Poniższa lista zawiera kilka elementów Runbook, które obsługują typowe scen
 1. Wybierz **Źródło: Galeria programu PowerShell**. Zostanie wyświetlona lista dostępnych elementów Runbook, które można przeglądać.
 1. Możesz użyć pola wyszukiwania nad listą, aby zawęzić listę, lub użyć filtrów do zawężenia wyświetlania według wydawcy, pisania i sortowania. Znajdź żądany element galerii i wybierz go, aby wyświetlić jego szczegóły.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Przeglądanie galerii elementów Runbook" lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-sm.png" alt-text="Przeglądanie galerii elementów Runbook." lightbox="media/automation-runbook-gallery/browse-gallery-lg.png":::
 
 1. Aby zaimportować element, kliknij przycisk **Importuj** w bloku szczegóły.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Pokaż szczegóły elementu galerii elementów Runbook" lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-detail-sm.png" alt-text="Pokaż szczegóły elementu galerii elementów Runbook." lightbox="media/automation-runbook-gallery/gallery-item-detail-lg.png":::
 
 1. Opcjonalnie Zmień nazwę elementu Runbook, a następnie kliknij przycisk **OK** , aby zaimportować element Runbook.
 1. Element Runbook jest wyświetlany na karcie **elementy Runbook** dla konta usługi Automation.
@@ -67,11 +67,11 @@ Poniższa lista zawiera kilka elementów Runbook, które obsługują typowe scen
 1. Wybierz **Źródło: GitHub**.
 1. Możesz użyć filtrów znajdujących się nad listą, aby zawęzić wyświetlanie według wydawcy, pisania i sortowania. Znajdź żądany element galerii i wybierz go, aby wyświetlić jego szczegóły.
 
-   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Przeglądanie galerii GitHub" lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/browse-gallery-github-sm.png" alt-text="Przeglądanie galerii GitHub." lightbox="media/automation-runbook-gallery/browse-gallery-github-lg.png":::
 
 1. Aby zaimportować element, kliknij przycisk **Importuj** w bloku szczegóły.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Szczegółowy widok elementu Runbook z galerii GitHub" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-github-sm.png" alt-text="Szczegółowy widok elementu Runbook z galerii GitHub." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-github-lg.png":::
 
 1. Opcjonalnie Zmień nazwę elementu Runbook, a następnie kliknij przycisk **OK** , aby zaimportować element Runbook.
 1. Element Runbook jest wyświetlany na karcie **elementy Runbook** dla konta usługi Automation.
@@ -86,7 +86,7 @@ Firma Microsoft zachęca do dodawania elementów Runbook do Galeria programu Pow
 1. Wybierz pozycję **moduły** w obszarze **udostępnione zasoby** , aby otworzyć listę modułów.
 1. W górnej części strony kliknij pozycję **Przeglądaj Galerię** .
 
-      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Widok galerii modułów" lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
+      :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="Widok galerii modułów." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
 1. Na stronie przeglądanie galerii możesz użyć pola wyszukiwania, aby znaleźć dopasowania w jednym z następujących pól:
 
@@ -99,7 +99,7 @@ Firma Microsoft zachęca do dodawania elementów Runbook do Galeria programu Pow
 
    Podczas przechodzenia do szczegółów konkretnego modułu można wyświetlić więcej informacji. Te informacje obejmują łącze z powrotem do Galeria programu PowerShell, wszystkie wymagane zależności oraz wszystkie polecenia cmdlet lub zasoby DSC, które zawiera moduł.
 
-   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Szczegółowy widok modułu z galerii" lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
+   :::image type="content" source="media/automation-runbook-gallery/gallery-item-details-blade-sm.png" alt-text="Szczegółowy widok modułu z galerii." lightbox="media/automation-runbook-gallery/gallery-item-details-blade-lg.png":::
 
 1. Aby zainstalować moduł bezpośrednio w Azure Automation, kliknij przycisk **Importuj**.
 1. W okienku importowania można zobaczyć nazwę modułu do zaimportowania. Jeśli wszystkie zależności są zainstalowane, przycisk **OK** jest aktywowany. W przypadku braku zależności należy zaimportować te zależności przed zaimportowaniem tego modułu.

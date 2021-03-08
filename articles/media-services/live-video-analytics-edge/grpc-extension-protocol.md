@@ -3,16 +3,16 @@ title: gRPC rozszerzenia protokołu — Azure
 description: W tym artykule dowiesz się, jak za pomocą protokołu rozszerzenia gRPC wysyłać wiadomości między modułem analizy wideo na żywo a rozszerzeniem niestandardowym AI lub CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 7f21ff358b8dd5ac540de8c39c37c52e98977e59
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: f7b5be859702199b07dfa0d6a43a09ca8ff0c42f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401631"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455860"
 ---
 # <a name="grpc-extension-protocol"></a>Protokół rozszerzenia gRPC
 
-Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą [węzła rozszerzenia grafu](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Jeśli używasz procesora rozszerzenia gRPC jako węzła rozszerzenia, komunikacja między modułem analizy wideo na żywo a modułem AI lub CV jest realizowana za pośrednictwem gRPC opartego na wysoce wydajnym protokole strukturalnym.
+Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą [węzła rozszerzenia grafu](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Jeśli używasz procesora rozszerzenia gRPC jako węzła rozszerzenia, komunikacja między modułem analizy wideo na żywo a modułem AI lub CV jest realizowana za pośrednictwem gRPC opartego na wysoce wydajnym protokole strukturalnym.
 
 W tym artykule dowiesz się, jak za pomocą protokołu rozszerzenia gRPC wysyłać wiadomości między modułem analizy wideo na żywo a rozszerzeniem niestandardowym AI lub CV.
 
@@ -25,7 +25,7 @@ Sesja gRPC jest jednym połączeniem z klienta gRPC do serwera gRPC za pośredni
 
 W pojedynczej sesji: klient wysyła do serwera deskryptor strumienia multimediów, a następnie ramki wideo z serwerem jako komunikat [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) za pośrednictwem sesji strumienia gRPC. Serwer sprawdza poprawność deskryptora strumienia, analizuje ramkę wideo i zwraca wyniki wnioskowania jako komunikat protobuf. 
 
-Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustanowionym schematem zdefiniowanym zgodnie z [modelem obiektu schematu metadanych wnioskowania](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
+Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustanowionym schematem zdefiniowanym zgodnie z [modelem obiektu schematu metadanych wnioskowania](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
 
 ![kontrakt rozszerzenia gRPC](./media/grpc-extension-protocol/grpc.png)
 

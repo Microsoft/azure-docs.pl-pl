@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 3dc9b178b9aa22991230f4cc6a9d54b44cf09b4e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098812"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452768"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Odnajdywanie wystąpień SQL Server w istniejącym projekcie 
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób odnajdywania SQL Server wystąpień i baz danych 
 Odnajdywanie wystąpień SQL Server i baz danych działających na maszynach lokalnych pomaga identyfikować i dostosowywać ścieżkę migracji do usługi Azure SQL. Urządzenie Azure Migrate wykonuje to odnajdywanie przy użyciu poświadczeń domeny lub poświadczeń uwierzytelniania SQL Server, które mają dostęp do wystąpień SQL Server i baz danych uruchomionych na serwerach kierowanych. Ten proces odnajdywania jest bezagentem, co oznacza, że nic nie jest zainstalowane na serwerach docelowych.
 
 > [!Note]
-> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) , aby utworzyć projekt w regionie **Australia Wschodnia** . Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) opisane w tym artykule.
+> Odnajdywanie i Ocena SQL Server wystąpień i baz danych działających w środowisku VMware jest teraz w wersji zapoznawczej. Aby wypróbować tę funkcję, użyj [**tego linku**](https://aka.ms/AzureMigrate/SQL) w celu utworzenia projektu w regionie **Australia Wschodnia**. Jeśli masz już projekt w Australii wschodniej i chcesz wypróbować tę funkcję, upewnij się, że zostały spełnione [**wymagania wstępne**](how-to-discover-sql-existing-project.md) opisane w tym artykule.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -44,7 +44,7 @@ Odnajdywanie wystąpień SQL Server i baz danych działających na maszynach lok
     - Sprawdź, czy usługi działające na urządzeniu zostały zaktualizowane do najnowszej wersji. Aby to zrobić, uruchom Menedżera konfiguracji urządzenia z serwera urządzenia i wybierz pozycję Wyświetl usługi urządzenia w panelu Skonfiguruj wymagania wstępne.
         - Urządzenie i jego składniki są automatycznie aktualizowane :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Sprawdź wersję urządzenia":::
     - W panelu zarządzanie poświadczeniami i źródłami odnajdywania w Menedżerze konfiguracji urządzenia Dodaj poświadczenia uwierzytelniania domeny lub SQL Server, które mają dostęp administratora systemu w wystąpieniu SQL Server i bazach danych, które mają zostać odnalezione. 
-    Możesz użyć funkcji automatycznego mapowania poświadczeń urządzenia lub ręcznie zamapować poświadczenia na odpowiedni serwer, jak zostało to wyróżnione w [tym miejscu](https://review.docs.microsoft.com/azure/migrate/tutorial-discover-vmware?branch=release-migrate-sql-scenario#start-continuous-discovery).
+    Możesz użyć funkcji automatycznego mapowania poświadczeń urządzenia lub ręcznie zamapować poświadczenia na odpowiedni serwer, jak zostało to wyróżnione w [tym miejscu](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
         
     Niektóre punkty do uwagi:
     - Upewnij się, że Spis oprogramowania jest już włączony, lub podaj poświadczenia domeny lub niedomenowe, aby włączyć takie samo. Aby odnajdywać wystąpienia SQL Server, należy wykonać Spis oprogramowania.

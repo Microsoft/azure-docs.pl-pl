@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9a0d06a8f8fa8f68f063404f2b483b817eb0563f
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943658"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452105"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN
 
@@ -248,7 +248,7 @@ Protokół BGP umożliwia również włączenie routingu tranzytowego między wi
 
 Aby skonfigurować połączenie sieci VPN korzystające z protokołu BGP, zobacz [jak skonfigurować protokół BGP na bramach sieci VPN platformy Azure za pomocą programu PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 
-Włącz protokół BGP w bramie sieci wirtualnej przez utworzenie dla niego systemu autonomicznego (AS). Bramy podstawowe nie obsługują protokołu BGP. Aby sprawdzić jednostkę SKU bramy, przejdź do sekcji **Przegląd** w bloku **VPN Gateway** w Azure Portal. Jeśli jednostka SKU jest **podstawowa**, należy zmienić jednostkę SKU (zobacz Zmiana [rozmiarów bramy](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)) na **VpnGw1**. 
+Włącz protokół BGP w bramie sieci wirtualnej przez utworzenie dla niego systemu autonomicznego (AS). Bramy podstawowe nie obsługują protokołu BGP. Aby sprawdzić jednostkę SKU bramy, przejdź do sekcji **Przegląd** w bloku **VPN Gateway** w Azure Portal. Jeśli jednostka SKU jest **podstawowa**, należy zmienić jednostkę SKU (zobacz Zmiana [rozmiarów bramy](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway)) na **VpnGw1**. 
 
 Sprawdzenie jednostki SKU spowoduje przestoje od 20 do 30 minut. Gdy tylko brama ma poprawną jednostkę SKU, można dodać liczbę AS przy użyciu polecenia [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) programu PowerShell polecenia cmdlet. Po skonfigurowaniu numeru AS adres IP elementu równorzędnego protokołu BGP dla bramy zostanie udostępniony automatycznie.
 

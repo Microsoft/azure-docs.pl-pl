@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1a0be0b7834632ba79af7dfe6c3a4fa25c0316
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645515"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453259"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrowanie uwierzytelniania aplikacji do Azure Active Directory
 
@@ -234,10 +234,10 @@ W środowisku chmury trzeba mieć rozbudowaną widoczność, kontrolę nad przej
 
 - **Interfejsy API** — dla aplikacji podłączonych do infrastruktury chmurowej można użyć interfejsów API i narzędzi w tych systemach, aby zacząć korzystać ze spisu hostowanych aplikacji. W środowisku platformy Azure:
 
-  - Użyj polecenia cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true), aby uzyskać informacje o usłudze Azure Websites.
+  - Użyj polecenia cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) , aby uzyskać informacje o usłudze Azure Websites.
 
-  - Użyj polecenia cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true), aby uzyskać informacje na temat Web Apps platformy Azure.
-
+  - Użyj polecenia cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) , aby uzyskać informacje na temat Web Apps platformy Azure.
+D
   - Wszystkie aplikacje działające w usługach IIS firmy Microsoft można znaleźć w wierszu polecenia systemu Windows przy użyciu [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
   - Użyj [aplikacji](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) i nazw [głównych usługi](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) , aby uzyskać informacje o aplikacji i wystąpieniu aplikacji w katalogu w usłudze Azure AD.

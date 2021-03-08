@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d6f1746eee101a1dcf030e980c8a6469147a0166
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a82c2cdf7084b31eb6ba861e48ecffb81e6d1363
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362203"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453703"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vault Secret Client Library for .NET (SDK v4)
 
@@ -21,7 +21,7 @@ Rozpocznij pracę z biblioteką klienta Azure Key Vault Secret dla platformy .NE
 
 Key Vault zasoby biblioteki klienta:
 
-[Dokumentacja](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[Dokumentacja](/dotnet/api/azure.security.keyvault.secrets)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 Aby uzyskać więcej informacji na temat Key Vault i wpisów tajnych, zobacz:
 - [Przegląd Key Vault](../general/overview.md)

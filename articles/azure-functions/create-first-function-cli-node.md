@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję języka JavaScript z poziomu w
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b14b7d9f97be12a73ffcb2416a00cd4a51bca5f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c9810b1eb9e5f6bc65843d65f2f2452eac1be703
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937250"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447320"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure z poziomu wiersza polecenia
 
@@ -97,7 +97,7 @@ W razie potrzeby możesz pominąć, aby [uruchomić funkcję lokalnie](#run-the-
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest odpowiedzią. Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. Odpowiedź jest definiowana `res` w *function.jsna* i można uzyskać do niej dostęp za pomocą `context.res` . Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### <a name="functionjson"></a>function.json
 

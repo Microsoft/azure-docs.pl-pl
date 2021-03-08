@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 7be6cf1df15d7afd7cb9447be68ff70ff7b14d03
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522958"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449224"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Przewodnik rozwiązywania problemów z agentem zabezpieczeń (Linux)
 
@@ -28,10 +28,9 @@ Usługa Azure Defender dla programu IoT Agent jest samoczynnie uruchamiana natyc
 
 W tym przewodniku rozwiązywania problemów dowiesz się, jak:
 
-> [!div class="checklist"]
-> * Sprawdź, czy Agent zabezpieczeń jest uruchomiony
-> * Pobieranie błędów agenta zabezpieczeń
-> * Zrozumienie i korygowanie błędów agentów zabezpieczeń
+- Sprawdź, czy Agent zabezpieczeń jest uruchomiony
+- Pobieranie błędów agenta zabezpieczeń
+- Zrozumienie i korygowanie błędów agentów zabezpieczeń
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Sprawdź, czy Agent zabezpieczeń jest uruchomiony
 
@@ -108,4 +107,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z tematem [Omówienie](overview.md) usługi Defender for IoT. więcej informacji [](concept-security-alerts.md) na temat [architektury](architecture.md) usługi Defender for IoT można znaleźć w [usłudze](quickstart-onboard-iot-hub.md) Defender for IoT. Zapoznaj się z tematem [](concept-recommendations.md) informacje o tym, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md) [](resources-frequently-asked-questions.md)
+- Zapoznaj się z [omówieniem](overview.md) usługi Defender for IoT
+- Dowiedz się więcej o [architekturze](architecture.md) usługi Defender for IoT
+- Włączanie [usługi](quickstart-onboard-iot-hub.md) Defender for IoT
+- Przeczytaj [często zadawane pytania](resources-frequently-asked-questions.md) dotyczące usługi Defender for IoT
+- Dowiedz się, jak uzyskać dostęp do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
+- Omówienie [zaleceń](concept-recommendations.md)
+- Informacje o [alertach](concept-security-alerts.md) zabezpieczeń

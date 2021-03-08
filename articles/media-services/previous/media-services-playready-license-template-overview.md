@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cdf5915396fc40c12644552bb24a044279ea32d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6bcf6b439f8e49d194e1c0ea5dc1e996135589cf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019345"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454315"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Omówienie szablonu licencji PlayReady usługi Media Services
 
@@ -68,18 +68,18 @@ Aby uzyskać kompletny przykład, który używa klas platformy .NET do konfiguro
 ## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Media Services klas .NET, które są używane do konfigurowania szablonów licencji
 Następujące klasy są głównymi klasami .NET, które są używane do konfigurowania szablonów licencji programu Media Services PlayReady. Te klasy są mapowane na typy zdefiniowane w [schemacie XML szablonu licencji PlayReady](media-services-playready-license-template-overview.md#schema).
 
-Klasa [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) jest używana do serializacji i deserializacji do i z pliku XML szablonu licencji Media Services.
+Klasa [MediaServicesLicenseTemplateSerializer](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_mediaserviceslicensetemplateserializer) jest używana do serializacji i deserializacji do i z pliku XML szablonu licencji Media Services.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): Ta klasa reprezentuje szablon odpowiedzi wysyłanej do użytkownika. Zawiera pole dla niestandardowego ciągu danych między serwerem licencji a aplikacją (co może być przydatne w przypadku niestandardowej logiki aplikacji). Zawiera również listę co najmniej jednego szablonu licencji.
+[PlayReadyLicenseResponseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicenseresponsetemplate): Ta klasa reprezentuje szablon odpowiedzi wysyłanej do użytkownika. Zawiera pole dla niestandardowego ciągu danych między serwerem licencji a aplikacją (co może być przydatne w przypadku niestandardowej logiki aplikacji). Zawiera również listę co najmniej jednego szablonu licencji.
 
 Jako klasa najwyższego poziomu w hierarchii szablonów, szablon odpowiedzi zawiera listę szablonów licencji. Szablony licencji obejmują (bezpośrednio lub pośrednio) wszystkie inne klasy, które tworzą dane szablonu do serializacji.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): Ta klasa reprezentuje szablon licencji służący do tworzenia licencji PlayReady do zwrócenia użytkownikom. Zawiera dane z klucza zawartości w licencji. Zawiera również wszelkie prawa lub ograniczenia, które musi wymuszać środowisko uruchomieniowe oprogramowania PlayReady DRM, gdy jest używany klucz zawartości.
+[PlayReadyLicenseTemplate](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadylicensetemplate): Ta klasa reprezentuje szablon licencji służący do tworzenia licencji PlayReady do zwrócenia użytkownikom. Zawiera dane z klucza zawartości w licencji. Zawiera również wszelkie prawa lub ograniczenia, które musi wymuszać środowisko uruchomieniowe oprogramowania PlayReady DRM, gdy jest używany klucz zawartości.
 
 ### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright?view=azure-dotnet#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): Ta klasa reprezentuje PlayRight licencji PlayReady. Umożliwia użytkownikowi możliwość odtwarzania zawartości z uwzględnieniem ograniczeń skonfigurowanych w ramach licencji i samego PlayRight (dla zasad specyficznych dla odtwarzania). Większość zasad na PlayRight dotyczy ograniczeń wyjściowych, które kontrolują typy danych wyjściowych, do których można odfiltrować zawartość. Zawiera również wszelkie ograniczenia, które muszą być wprowadzane w przypadku użycia danych wyjściowych. Na przykład jeśli DigitalVideoOnlyContentRestriction jest włączona, środowisko uruchomieniowe DRM zezwala tylko na wyświetlanie wideo przy użyciu danych wyjściowych. (Analogowe wyjście wideo nie pozwala na przekazywanie zawartości).
+[PlayReadyPlayRight](/dotnet/api/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright#microsoft_windowsazure_mediaservices_client_contentkeyauthorization_playreadyplayright): Ta klasa reprezentuje PlayRight licencji PlayReady. Umożliwia użytkownikowi możliwość odtwarzania zawartości z uwzględnieniem ograniczeń skonfigurowanych w ramach licencji i samego PlayRight (dla zasad specyficznych dla odtwarzania). Większość zasad na PlayRight dotyczy ograniczeń wyjściowych, które kontrolują typy danych wyjściowych, do których można odfiltrować zawartość. Zawiera również wszelkie ograniczenia, które muszą być wprowadzane w przypadku użycia danych wyjściowych. Na przykład jeśli DigitalVideoOnlyContentRestriction jest włączona, środowisko uruchomieniowe DRM zezwala tylko na wyświetlanie wideo przy użyciu danych wyjściowych. (Analogowe wyjście wideo nie pozwala na przekazywanie zawartości).
 
 > [!IMPORTANT]
 > Te typy ograniczeń mogą być zaawansowane, ale mogą mieć również wpływ na środowisko użytkownika. Jeśli ochrona danych wyjściowych jest zbyt restrykcyjna, zawartość może być nieodtwarzana na niektórych klientach. Aby uzyskać więcej informacji, zobacz [reguły zgodności oprogramowania PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
@@ -319,5 +319,5 @@ Aby zapoznać się z przykładem poziomów ochrony obsługiwanych przez program 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

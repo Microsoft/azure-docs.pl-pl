@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789351"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449870"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -40,9 +40,9 @@ Sprawdź [szczegóły cennika](https://azure.microsoft.com/pricing/details/expre
 
 Tak, przepustowość obwodu ExpressRoute jest dwukierunkowa. Na przykład jeśli zakupiono obwód ExpressRoute z 200 MB/s, nastąpi zaplanowanie 200 MB/s dla ruchu przychodzącego i 200 MB/s dla ruchu wychodzącego.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Czy jeśli płacisz za obwód usługi ExpressRoute danej przepustowości, czy połączenie sieci VPN, które mam zakupić od usługodawcy sieciowego, musi mieć taką samą szybkość?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Czy jeśli płacisz za obwód usługi ExpressRoute danej przepustowości, czy połączenie prywatne zostało zakupione od usługodawcy sieciowego, musi mieć taką samą szybkość?
 
-Nie. Możesz zakupić połączenie sieci VPN z dowolną szybkością od dostawcy usług. Jednak połączenie z platformą Azure jest ograniczone do zakupionej przepustowości obwodu usługi ExpressRoute.
+Nie. Możesz zakupić prywatne połączenie z dowolną szybkością od usługodawcy. Jednak połączenie z platformą Azure jest ograniczone do zakupionej przepustowości obwodu usługi ExpressRoute.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Czy jeśli płacisz za obwód usługi ExpressRoute o danej przepustowości, czy mogę korzystać z większej przepustowości?
 
@@ -258,9 +258,13 @@ W przypadku anonsowania tras domyślnych Wymuś ruch do usług oferowanych za po
 
 Tak. Maszyny wirtualne wdrożone w sieciach wirtualnych podłączonych do tego samego obwodu ExpressRoute mogą komunikować się ze sobą. Zalecamy skonfigurowanie komunikacji [równorzędnej sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) w celu ułatwienia tej komunikacji.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Czy można używać łączności między lokacjami dla sieci wirtualnych w połączeniu z usługą ExpressRoute?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>Czy można skonfigurować połączenie sieci VPN typu lokacja-lokacja z moją siecią wirtualną w połączeniu z usługą ExpressRoute?
 
 Tak. ExpressRoute może współistnieć z sieciami VPN typu lokacja-lokacja. Zobacz [Konfigurowanie współistniejących połączeń ExpressRoute i lokacja-lokacja](expressroute-howto-coexist-resource-manager.md).
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Jak mogę włączyć routing między moim połączeniem sieci VPN typu lokacja-lokacja a moją ExpressRoute?
+
+Jeśli chcesz włączyć routing między gałęzią połączoną z usługą Expressoute i gałęzią połączoną z połączeniem sieci VPN typu lokacja-lokacja, musisz skonfigurować [serwer usługi Azure Route](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Dlaczego istnieje Publiczny adres IP skojarzony z bramą ExpressRoute w sieci wirtualnej?
 

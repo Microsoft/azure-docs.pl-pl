@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807567"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455505"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -68,41 +68,9 @@ Każde działanie jest oceniane z uwzględnieniem "oceny priorytetu badania", kt
 
 Zapoznaj się z tematem jak działa Analiza zachowań w [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) .
 
-## <a name="entities-in-azure-sentinel"></a>Jednostki w usłudze Azure Sentinel
+## <a name="entity-pages"></a>Strony jednostki
 
-### <a name="entity-identifiers"></a>Identyfikatory jednostek
-
-Gdy alerty są wysyłane do badania wskaźnikowego platformy Azure, obejmują elementy danych identyfikowane przez platformę Azure i klasyfikuje je jako jednostki, takie jak konta użytkowników, hosty, adresy IP i inne. W tej sytuacji ten identyfikator może być wyzwaniem, jeśli alert nie zawiera wystarczających informacji o jednostce.
-
-Na przykład konta użytkowników mogą być identyfikowane w więcej niż jeden sposób: przy użyciu identyfikatora liczbowego (GUID) konta usługi Azure AD lub jego wartości głównej nazwy użytkownika (UPN) lub alternatywnie, przy użyciu kombinacji nazwy użytkownika i nazwy domeny NT. Różne źródła danych mogą identyfikować tego samego użytkownika na różne sposoby. W związku z tym, jeśli jest to możliwe, wskaźnik na platformie Azure będzie scalał te identyfikatory w pojedynczą jednostkę, dzięki czemu może być prawidłowo zidentyfikowany.
-
-Może to być spowodowane tym, że jeden z dostawców zasobów tworzy alert, w którym jednostka nie jest wystarczająco identyfikowana — na przykład nazwę użytkownika bez kontekstu nazwy domeny. W takim przypadku jednostka użytkownika nie może być scalona z innymi wystąpieniami tego samego konta użytkownika, które będą identyfikowane jako osobne jednostki, a te dwie jednostki byłyby osobne, a nie ujednolicone.
-
-Aby zminimalizować ryzyko wystąpienia tego problemu, należy sprawdzić, czy wszyscy dostawcy alertów prawidłowo identyfikują jednostki w wygenerowanej przez nich alertach. Ponadto synchronizowanie jednostek kont użytkowników z Azure Active Directory może utworzyć katalog ujednolicania, który będzie mógł scalać jednostki konta użytkownika.
-
-Następujące typy jednostek są obecnie identyfikowane na platformie Azure — wskaźnik:
-
-- Konto użytkownika (konto)
-- Host
-- Adres IP (IP)
-- Złośliwe oprogramowanie
-- Plik
-- Proces
-- Aplikacja w chmurze (CloudApplication)
-- Nazwa domeny (DNS)
-- Zasób platformy Azure
-- Plik (FileHash)
-- Klucz rejestru
-- Wartość rejestru
-- Grupa zabezpieczeń
-- Adres URL
-- Urządzenie IoT
-- Mailbox
-- Klaster poczty
-- Wiadomość e-mail
-- Przesyłanie poczty
-
-### <a name="entity-pages"></a>Strony jednostki
+Dowiedz się więcej o [jednostkach na platformie Azure](entities-in-azure-sentinel.md) — Zobacz pełną listę [obsługiwanych jednostek i identyfikatorów](entities-reference.md).
 
 W przypadku wystąpienia dowolnej jednostki (obecnie ograniczonej do użytkowników i hostów) w wyszukiwaniu, alercie lub zbadaniu można wybrać jednostkę i przetworzyć ją na **stronie jednostki**, a arkusz danych zapełnił przydatne informacje o tej jednostce. Typy informacji, które można znaleźć na tej stronie, obejmują podstawowe fakty dotyczące jednostki, oś czasu istotnych zdarzeń związanych z tą jednostką i szczegółowe informacje o zachowaniu działania jednostki.
  
@@ -131,20 +99,23 @@ Na osi czasu są uwzględniane następujące typy elementów:
  
 ### <a name="entity-insights"></a>Informacje o jednostce
  
-Usługi Entity Insights to zapytania zdefiniowane przez badaczy zabezpieczeń firmy Microsoft, aby ułatwić analitykom badanie bardziej wydajne i efektywne. Szczegółowe informacje są prezentowane jako część strony jednostki i dostarczają cennych informacji o zabezpieczeniach hostów i użytkowników w postaci danych tabelarycznych i wykresów. Informacje o tym, że nie trzeba przeznaczyć na Log Analytics. Szczegółowe informacje obejmują dane dotyczące logowania, dodawania grup, zdarzeń nietypowych i innych, a także zawierają zaawansowane algorytmy ML do wykrywania nietypowego zachowania. Szczegółowe informacje są oparte na następujących typach danych:
-- Dziennik systemu
-- SecurityEvent
-- Dzienniki inspekcji
-- Dzienniki logowania
-- Aktywność pakietu Office
-- BehaviorAnalytics (UEBA) 
- 
+Usługi Entity Insights to zapytania zdefiniowane przez badaczy zabezpieczeń firmy Microsoft, aby ułatwić analitykom badanie bardziej wydajne i efektywne. Szczegółowe informacje są prezentowane jako część strony jednostki i dostarczają cennych informacji o zabezpieczeniach hostów i użytkowników w postaci danych tabelarycznych i wykresów. Informacje o tym, że nie trzeba przeznaczyć na Log Analytics. Szczegółowe informacje obejmują dane dotyczące logowania, dodawania grup, zdarzeń nietypowych i innych, a także zawierają zaawansowane algorytmy ML do wykrywania nietypowego zachowania. 
+
+Szczegółowe informacje są oparte na następujących źródłach danych:
+- Dziennik systemu (Linux)
+- SecurityEvent (system Windows)
+- AuditLogs (Azure AD)
+- SigninLogs (Azure AD)
+- Office (Office 365)
+- BehaviorAnalytics (Azure — wskaźnik UEBA)
+- Puls (Agent Azure Monitor)
+- CommonSecurityLog (wskaźnik platformy Azure)
+
 ### <a name="how-to-use-entity-pages"></a>Jak używać stron jednostki
 
 Strony jednostki zostały zaprojektowane jako części wielu scenariuszy użycia i można uzyskać do nich dostęp z zarządzania zdarzeniami, wykresu badawczego, zakładek lub bezpośrednio ze strony wyszukiwania jednostek w obszarze **Analiza zachowań jednostek** w menu głównym wskaźnikiem na platformie Azure.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Przypadki użycia stron jednostki":::
-
 
 ## <a name="data-schema"></a>Schemat danych
 

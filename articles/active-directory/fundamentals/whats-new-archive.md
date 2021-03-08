@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e342adee715bfd1f178557268b9f4515572f0e9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a555d2813030daeca1f2abcdc4b7787444bd0614
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177219"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453023"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -348,18 +348,6 @@ W lipcu 2020 dodaliśmy 55 następujące nowe aplikacje w galerii aplikacji z ob
 W tym miejscu możesz również znaleźć dokumentację dotyczącą wszystkich aplikacji https://aka.ms/AppsTutorial
 
 Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, zapoznaj się ze szczegółowymi informacjami w tym miejscu https://aka.ms/AzureADAppRequest
-
----
-
-### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---july-2020"></a>Nowe łączniki aprowizacji w galerii aplikacji usługi Azure AD — lipiec 2020
-
-**Typ:** Nowa funkcja  
-**Kategoria usługi:** Inicjowanie obsługi aplikacji  
-**Możliwości produktu:** integracja innej firmy
-
-Teraz możesz zautomatyzować tworzenie, aktualizowanie i usuwanie kont użytkowników dla nowo zintegrowanej aplikacji w [serwisie LinkedIn](../saas-apps/linkedin-learning-provisioning-tutorial.md).
-
-Aby uzyskać więcej informacji o tym, jak lepiej zabezpieczyć organizację przy użyciu funkcji automatycznego inicjowania obsługi kont użytkowników, zobacz [Automatyzacja aprowizacji użytkowników w aplikacjach SaaS za pomocą usługi Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -938,7 +926,7 @@ Nowy [blok Szczegóły zasad](../conditional-access/troubleshoot-conditional-acc
 
 W kwietniu 2020 dodaliśmy te 31 nowych aplikacji z obsługą Federacji do galerii aplikacji: 
 
-[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT — pakiet zaopatrzenia](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft) [](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [pulpit nawigacyjny Meraki](../saas-apps/meraki-dashboard-tutorial.md), [](../saas-apps/fortes-change-cloud-tutorial.md) [](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) [Microsoft 365 przeprowadzki](https://app.mover.io/login), [współpracownik,](https://speakerengage.com/login.php) [uczciwie](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/) [, AlertMedia,](../saas-apps/alertmedia-tutorial.md) [gr8e](../saas-apps/gr8-people-tutorial.md) [](../saas-apps/nitro-productivity-suite-tutorial.md), [pendo,](../saas-apps/pendo-tutorial.md) [HighGround](../saas-apps/highground-tutorial.md), Timetabling, SynchroNet, Litmus, GroupTalk, Frontify, MongoDB, [](https://recorder.grouptalk.com/) [](../saas-apps/synchronet-click-tutorial.md)TickitLMS, Coco, [](../saas-apps/mongodb-cloud-tutorial.md) [](../saas-apps/harmony-tutorial.md) [](../saas-apps/timetabling-solutions-tutorial.md) [](https://www.made-in-office.com/en/) [](../saas-apps/litmus-tutorial.md) [](../saas-apps/frontify-tutorial.md) [](../saas-apps/tickitlms-learn-tutorial.md)
+[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT — pakiet zaopatrzenia](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft) [](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [pulpit nawigacyjny Meraki](../saas-apps/meraki-dashboard-tutorial.md), [](../saas-apps/fortes-change-cloud-tutorial.md) [](/azure/active-directory/saas-apps/trend-micro-tutorial) [Microsoft 365 przeprowadzki](https://app.mover.io/login), [współpracownik,](https://speakerengage.com/login.php) [uczciwie](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/) [, AlertMedia,](../saas-apps/alertmedia-tutorial.md) [gr8e](../saas-apps/gr8-people-tutorial.md) [](../saas-apps/nitro-productivity-suite-tutorial.md), [pendo,](../saas-apps/pendo-tutorial.md) [HighGround](../saas-apps/highground-tutorial.md), Timetabling, SynchroNet, Litmus, GroupTalk, Frontify, MongoDB, [](https://recorder.grouptalk.com/) [](../saas-apps/synchronet-click-tutorial.md)TickitLMS, Coco, [](../saas-apps/mongodb-cloud-tutorial.md) [](../saas-apps/harmony-tutorial.md) [](../saas-apps/timetabling-solutions-tutorial.md) [](https://www.made-in-office.com/en/) [](../saas-apps/litmus-tutorial.md) [](../saas-apps/frontify-tutorial.md) [](../saas-apps/tickitlms-learn-tutorial.md)
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 

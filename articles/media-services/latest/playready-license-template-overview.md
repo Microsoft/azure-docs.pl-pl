@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0dc015ee1798bb4b9ce632d11f952178156155d6
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 23b0f92a4beca6e1c986993a42cc8ac66e619177
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955191"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455437"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 z szablonem licencji PlayReady
 
@@ -65,7 +65,7 @@ KOD XML jest zgodny ze schematem XML szablonu licencji PlayReady zdefiniowanym w
 
 Media Services zawiera typy, których można użyć do skonfigurowania szablonu licencji PlayReady. 
 
-Poniższy fragment kodu używa Media Services klas .NET do konfigurowania szablonu licencji PlayReady. Klasy są zdefiniowane w przestrzeni nazw [Microsoft. Azure. Management. Media. models](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) . Fragment kodu konfiguruje PlayRight licencji PlayReady. PlayRight umożliwia użytkownikowi odtworzenie zawartości z uwzględnieniem ograniczeń skonfigurowanych w licencji i na samym PlayRight (w przypadku zasad specyficznych dla odtwarzania). Większość zasad na PlayRight dotyczy ograniczeń wyjściowych, które kontrolują typy danych wyjściowych, do których można odfiltrować zawartość. Zawiera również wszelkie ograniczenia, które muszą być wprowadzane w przypadku użycia danych wyjściowych. Na przykład jeśli DigitalVideoOnlyContentRestriction jest włączona, środowisko uruchomieniowe DRM zezwala tylko na wyświetlanie wideo przy użyciu danych wyjściowych. (Analogowe wyjście wideo nie pozwala na przekazywanie zawartości).
+Poniższy fragment kodu używa Media Services klas .NET do konfigurowania szablonu licencji PlayReady. Klasy są zdefiniowane w przestrzeni nazw [Microsoft. Azure. Management. Media. models](/dotnet/api/microsoft.azure.management.media.models) . Fragment kodu konfiguruje PlayRight licencji PlayReady. PlayRight umożliwia użytkownikowi odtworzenie zawartości z uwzględnieniem ograniczeń skonfigurowanych w licencji i na samym PlayRight (w przypadku zasad specyficznych dla odtwarzania). Większość zasad na PlayRight dotyczy ograniczeń wyjściowych, które kontrolują typy danych wyjściowych, do których można odfiltrować zawartość. Zawiera również wszelkie ograniczenia, które muszą być wprowadzane w przypadku użycia danych wyjściowych. Na przykład jeśli DigitalVideoOnlyContentRestriction jest włączona, środowisko uruchomieniowe DRM zezwala tylko na wyświetlanie wideo przy użyciu danych wyjściowych. (Analogowe wyjście wideo nie pozwala na przekazywanie zawartości).
 
 > [!IMPORTANT]
 > Licencja PlayReady ma ograniczenia, które są zaawansowane. Jeśli ochrona danych wyjściowych jest zbyt restrykcyjna, zawartość może być nieodtwarzana na niektórych klientach. Aby uzyskać więcej informacji, zobacz [reguły zgodności oprogramowania PlayReady](https://www.microsoft.com/playready/licensing/compliance/).

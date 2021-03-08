@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d69675d7ab07e4097556d269c97c3ecb66dc2fc6
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: eb97ed6e43f70db4cce6a6f8013c8669a6a62a78
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545838"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448085"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C
 
@@ -76,7 +76,10 @@ Aby włączyć Logowanie użytkowników przy użyciu konta usługi Weibo w Azure
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
 1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
+1. Wybierz przycisk **Uruchom przepływ użytkownika** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **Weibo** , aby zalogować się przy użyciu konta Weibo.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end
 
@@ -205,6 +208,13 @@ Profil techniczny usługi GitHub wymaga dodania do listy ClaimsTransformations p
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
+
+1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz przycisk **Uruchom teraz** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **Weibo** , aby zalogować się przy użyciu konta Weibo.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end

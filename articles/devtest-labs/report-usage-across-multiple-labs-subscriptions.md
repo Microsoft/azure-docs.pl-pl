@@ -3,12 +3,12 @@ title: Azure DevTest Labs użycie w wielu laboratoriach i subskrypcjach
 description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu laboratoriach i subskrypcjach.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1e4d1f0abb5596c7fd9d22740bf052827c2ca666
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789942"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452649"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
 
@@ -25,7 +25,7 @@ W tej sekcji omówiono sposób eksportowania użycia zasobów dla jednego labora
 Przed wyeksportowaniem użycia zasobów DevTest Labs należy skonfigurować konto usługi Azure Storage, aby umożliwić przechowywanie różnych plików zawierających dane użycia. Istnieją dwa typowe sposoby wykonywania eksportu danych:
 
 * [Interfejs API REST usługi DevTest Labs](/rest/api/dtl/labs/exportresourceusage) 
-* Program PowerShell AZ. Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) z akcją `exportResourceUsage` , identyfikatorem zasobu laboratorium i wymaganymi parametrami. 
+* Program PowerShell AZ. Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) z akcją `exportResourceUsage` , identyfikatorem zasobu laboratorium i wymaganymi parametrami. 
 
     Artykuł [Eksportuj lub Usuń dane osobowe](personal-data-delete-export.md) zawiera przykładowy skrypt programu PowerShell ze szczegółowymi informacjami na temat eksportowanych danych. 
 

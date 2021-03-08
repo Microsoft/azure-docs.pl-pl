@@ -4,12 +4,12 @@ description: Często zadawane pytania dotyczące Service Fabric, w tym możliwo�
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292852"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456100"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Często zadawane pytania dotyczące usługi Service Fabric
 
@@ -22,7 +22,7 @@ Istnieje wiele często zadawanych pytań na temat tego, co Service Fabric może 
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Jak mogę wycofać certyfikat mojego Service Fabric klastra?
 
-Wycofanie wszelkich uaktualnień do aplikacji wymaga wykrywania błędów kondycji przed zatwierdzeniem przez Service Fabric kworum klastra zmiany; zatwierdzone zmiany mogą być rzutowane tylko do przodu. W celu odzyskania klastra może być wymagane przeprowadzenie przez specjalistę eskalacji, jeśli wprowadzono niemonitorowaną zmianę certyfikatu.  [Uaktualnienie aplikacji Service Fabric](./service-fabric-application-upgrade.md?branch=master) stosuje [Parametry uaktualnienia aplikacji](./service-fabric-application-upgrade-parameters.md?branch=master)i zapewnia nieprzerwane obietnice uaktualniania.  Zgodnie z naszym zalecanym trybem monitorowania aplikacji, automatyczny postęp przy użyciu domeny aktualizacji jest oparty na testach kondycji, które są przekazywane automatycznie, jeśli aktualizacja usługi domyślnej nie powiedzie się.
+Wycofanie wszelkich uaktualnień do aplikacji wymaga wykrywania błędów kondycji przed zatwierdzeniem przez Service Fabric kworum klastra zmiany; zatwierdzone zmiany mogą być rzutowane tylko do przodu. W celu odzyskania klastra może być wymagane przeprowadzenie przez specjalistę eskalacji, jeśli wprowadzono niemonitorowaną zmianę certyfikatu.  [Uaktualnienie aplikacji Service Fabric](./service-fabric-application-upgrade.md) stosuje [Parametry uaktualnienia aplikacji](./service-fabric-application-upgrade-parameters.md)i zapewnia nieprzerwane obietnice uaktualniania.  Zgodnie z naszym zalecanym trybem monitorowania aplikacji, automatyczny postęp przy użyciu domeny aktualizacji jest oparty na testach kondycji, które są przekazywane automatycznie, jeśli aktualizacja usługi domyślnej nie powiedzie się.
  
 Jeśli klaster nadal wykorzystuje Właściwość klasycznego odcisku palca certyfikatu w szablonie Menedżer zasobów, zaleca się [zmianę klastra z odcisku palca certyfikatu na nazwę pospolitą](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), aby korzystać z nowoczesnych funkcji zarządzania kluczami tajnymi.
 

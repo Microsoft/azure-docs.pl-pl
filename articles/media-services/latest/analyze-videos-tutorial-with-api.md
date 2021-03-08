@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2b6bab016f0b00f0df3ad9fd8f45bbdd2e8564b3
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 4a050d838bae9b394f5f292698781a9a824af0bf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216816"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454128"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 W tym samouczku przedstawiono sposób analizowania wideo za pomocą usługi Azure Media Services. Istnieje wiele scenariuszy, w przypadku których głęboka analiza zarejestrowanego wideo lub dźwięku może być przydatna. Na przykład organizacje mogą zamieniać mowę na tekst w celu przekształcenia nagrań rozmów działu obsługi klienta w katalog z możliwością wyszukiwania, indeksami i pulpitami nawigacyjnymi — aby dzięki jego wykorzystaniu zwiększyć zadowolenie klientów. Następnie mogą uzyskać wgląd w swoją firmę. Te informacje obejmują listę typowych zażaleń, źródeł takich zażaleń i innych przydatnych informacji.
 

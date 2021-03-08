@@ -10,7 +10,7 @@ MS. Service: Media-Services MS. obciążeń: Media ms.tgt_pltfrm: na MS. devlang
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Mimo że w samouczku są używane przykłady [zestawu SDK platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsów API REST](/rest/api/media/liveevents), interfejsu [wiersza polecenia](/cli/azure/ams/live-event)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Mimo że w samouczku są używane przykłady [zestawu SDK platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent) , ogólne kroki są takie same dla [interfejsów API REST](/rest/api/media/liveevents), interfejsu [wiersza polecenia](/cli/azure/ams/live-event)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 Za pomocą Media Services można dostarczyć HTTP Live Streaming (HLS), MPEG-myślnik i Smooth Streaming zaszyfrowanych za pomocą algorytmu AES przy użyciu kluczy szyfrowania 128-bitowych. Media Services zapewnia również usługę dostarczania kluczy, która dostarcza klucze szyfrowania do autoryzowanych użytkowników. Jeśli chcesz, aby Media Services dynamicznie szyfrować wideo, należy skojarzyć klucz szyfrowania z lokalizatorem przesyłania strumieniowego, a także skonfigurować zasady kluczy zawartości. Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu algorytmu AES-128. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy. Aby określić, czy użytkownik został autoryzowany do otrzymywania klucza, usługa ocenia zasady kluczy zawartości, które wybrano dla klucza.
 

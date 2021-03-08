@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010787"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455029"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnozuj opuszczone powiadomienia w usłudze Azure Notification Hubs
 
@@ -147,7 +147,7 @@ W programie Visual Studio możesz łączyć się z platformą Azure za pomocą E
 
 Można wyświetlać wszystkie rejestracje w centrum i zarządzać nimi. Rejestracje mogą być kategoryzowane według platform, natywnych lub szablonów rejestracji, tagów, identyfikatora usługi powiadomień wypychanych, identyfikatora rejestracji i daty wygaśnięcia. Możesz również edytować rejestrację na tej stronie. Jest to szczególnie przydatne w przypadku edytowania tagów.
 
-Kliknij prawym przyciskiem myszy centrum powiadomień w **Eksplorator serwera**i wybierz polecenie **Diagnozuj**. 
+Kliknij prawym przyciskiem myszy centrum powiadomień w **Eksplorator serwera** i wybierz polecenie **Diagnozuj**. 
 
 ![Visual Studio Eksplorator serwera: menu Diagnozuj](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
@@ -174,7 +174,7 @@ Wielu klientów używa [eksploratora Service Bus](https://github.com/paolosalvat
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Aby wysłać testowe powiadomienie do klientów bez konieczności zapełniania i uruchamiania usługi, w obszarze **Pomoc techniczna i rozwiązywanie problemów**wybierz pozycję **wysyłanie testowe**.
+Aby wysłać testowe powiadomienie do klientów bez konieczności zapełniania i uruchamiania usługi, w obszarze **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **wysyłanie testowe**.
 
 ![Testowanie funkcji wysyłania na platformie Azure][7]
 
@@ -261,7 +261,7 @@ W portalu możesz zapoznać się z krótkim omówieniem wszystkich działań w c
 
    ![Azure Portal dziennik aktywności][6]
 
-3. Zacznij od przejrzenia **komunikatów przychodzących**, **operacji rejestracji**i **powiadomień o powodzeniu**. Następnie przejdź do karty na platformę, aby przejrzeć błędy specyficzne dla usługi powiadomień wypychanych.
+3. Zacznij od przejrzenia **komunikatów przychodzących**, **operacji rejestracji** i **powiadomień o powodzeniu**. Następnie przejdź do karty na platformę, aby przejrzeć błędy specyficzne dla usługi powiadomień wypychanych.
 
 4. Jeśli ustawienia uwierzytelniania dla centrum powiadomień są nieprawidłowe, pojawi się komunikat **o błędzie uwierzytelniania PNS** . Dobrym wskaźnikiem jest sprawdzenie poświadczeń usługi powiadomień wypychanych.
 
@@ -297,5 +297,5 @@ Aby uzyskać więcej informacji o dostępie programistycznym, zobacz [dostęp pr
 [View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [Głębokie szczegółowe: Visual Studio 2013 Update 2 RC i Azure SDK 2,3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Ogłaszanie wersji Visual Studio 2013 Update 3 i zestawu Azure SDK 2,4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend
 [Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

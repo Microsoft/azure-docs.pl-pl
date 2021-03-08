@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048186"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453805"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -32,9 +32,26 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
+- [Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Łączniki danych innych firm](#third-party-data-connectors)
 - [UEBA szczegółowych informacji na stronie jednostki](#ueba-insights-in-the-entity-page)
 - [Ulepszone wyszukiwanie zdarzeń](#improved-incident-search)
+
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Skoroszyt cyberbezpieczeństwa (CMMC) z modelem zapadalności
+
+Skoroszyt CMMC na platformie Azure obejmuje mechanizm wyświetlania zapytań dzienników wyrównanych do kontrolek CMMC w portfolio firmy Microsoft, w tym ofert zabezpieczeń firmy Microsoft, pakietu Office 365, zespołów, usługi Intune, pulpitu wirtualnego systemu Windows i wielu innych.
+
+Skoroszyt CMMC umożliwia architektom zabezpieczeń, inżynierom, analitykom operacji zabezpieczeń, menedżerom i specjalistom IT uzyskanie widoczności w zakresie bezpieczeństwa stan obciążeń w chmurze. Istnieją również zalecenia dotyczące wyboru, projektowania, wdrażania i konfigurowania ofert firmy Microsoft do wyrównania z odpowiednimi wymaganiami i praktyką CMMC.
+
+Nawet jeśli nie jest wymagana zgodność z programem CMMC, skoroszyt CMMC jest przydatny podczas tworzenia centrów zabezpieczeń, tworzenia alertów, wizualizacji zagrożeń i zapewnienia świadomości w zakresie obciążeń.
+
+Dostęp do skoroszytu CMMC w obszarze **skoroszyty** wskaźnikowego platformy Azure. Wybierz pozycję **szablon**, a następnie wyszukaj ciąg **CMMC**.
+
+Aby uzyskać więcej informacji, zobacz:
+
+- [Skoroszyt cyberbezpieczeństwa (CMMC) na platformie Azure — wskaźnik zapadalności](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Samouczek: wizualizowanie i monitorowanie danych](tutorial-monitor-your-data.md)
+
 
 ### <a name="third-party-data-connectors"></a>Łączniki danych innych firm
 

@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ebc12982bcc05c2d07f91fbc4d85afc170adf075
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429096"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453397"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć i skonfigurować dostawcę zaświadczania przy użyciu Azure PowerShell. Więcej informacji na temat instalowania i uruchamiania Azure PowerShell można znaleźć w temacie [omówienie Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) .
+Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć i skonfigurować dostawcę zaświadczania przy użyciu Azure PowerShell. Więcej informacji na temat instalowania i uruchamiania Azure PowerShell można znaleźć w temacie [omówienie Azure PowerShell](/powershell/azure/) .
 
 Należy pamiętać, że Galeria programu PowerShell ma przestarzałe wersje Transport Layer Security (TLS) 1,0 i 1,1. Zalecane jest szyfrowanie TLS 1,2 lub nowsza. W związku z tym mogą pojawić się następujące błędy:
 

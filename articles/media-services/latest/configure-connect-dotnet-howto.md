@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844322"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455386"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — .NET
 
@@ -64,7 +64,7 @@ Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa met
 
 ### <a name="create-appsettingsjson"></a>Utwórz appsettings.jsna
 
-1. Przejdź do **General**  >  **pliku tekstowego** ogólnego.
+1. Przejdź do   >  **pliku tekstowego** ogólnego.
 1. Nadaj mu nazwę "appsettings.json".
 1. Ustaw właściwość "Kopiuj do katalogu wyjściowego" pliku JSON na "Kopiuj, jeśli nowszy" (tak, aby aplikacja mogła uzyskać do niej dostęp po opublikowaniu).
 
@@ -247,7 +247,7 @@ namespace ConsoleApp1
 - [Tworzenie filtrów za pomocą usługi Media Services — .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Zaawansowane przykłady wideo na żądanie usługi Azure Functions v2 z usługą Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Dokumentacja platformy .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
+* [Dokumentacja platformy .NET](/dotnet/api/overview/azure/mediaservices/management)
 * Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

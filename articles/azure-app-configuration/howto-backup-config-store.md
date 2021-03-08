@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095510"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454247"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -137,7 +137,7 @@ Aby ułatwić rozpoczęcie tworzenia kopii zapasowych danych, [Przetestowano i o
 
 Jeśli przykładowy kod podany wcześniej nie spełnia wymagań użytkownika, można również utworzyć własną funkcję. Aby można było ukończyć tworzenie kopii zapasowej, funkcja musi mieć możliwość wykonania następujących zadań:
 - Okresowo Odczytuj zawartość kolejki, aby sprawdzić, czy zawiera ona powiadomienia z Event Grid. Szczegóły implementacji można znaleźć w [zestawie SDK kolejki magazynu](../storage/queues/storage-quickstart-queues-dotnet.md) .
-- Jeśli kolejka zawiera [powiadomienia o zdarzeniach z Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), Wyodrębnij wszystkie unikatowe `<key, label>` informacje z komunikatów o zdarzeniach. Kombinacja klucza i etykiety jest unikatowym identyfikatorem dla zmian wartości kluczy w magazynie podstawowym.
+- Jeśli kolejka zawiera [powiadomienia o zdarzeniach z Event Grid](./concept-app-configuration-event.md#event-schema), Wyodrębnij wszystkie unikatowe `<key, label>` informacje z komunikatów o zdarzeniach. Kombinacja klucza i etykiety jest unikatowym identyfikatorem dla zmian wartości kluczy w magazynie podstawowym.
 - Odczytaj wszystkie ustawienia z magazynu głównego. Zaktualizuj tylko te ustawienia w magazynie pomocniczym, które mają odpowiednie zdarzenie w kolejce. Usuń wszystkie ustawienia z magazynu pomocniczego, które znajdowały się w kolejce, ale nie w magazynie podstawowym. [Zestawu SDK aplikacji](https://github.com/Azure/AppConfiguration#sdks) można użyć do programistycznego uzyskiwania dostępu do magazynów konfiguracji.
 - Usuwanie komunikatów z kolejki w przypadku braku wyjątków podczas przetwarzania.
 - Zaimplementuj obsługę błędów zgodnie z potrzebami. Zapoznaj się z poprzednim przykładem kodu, aby zobaczyć typowe wyjątki, które mogą być obsługiwane.

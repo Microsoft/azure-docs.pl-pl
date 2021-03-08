@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 81feb5b95578cedea7bf368aa1e0d6c2e9117077
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955855"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456015"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Wysoka dostępność dzięki Media Services i wideo na żądanie (VOD)
 
@@ -59,23 +59,23 @@ Ten diagram wysokiego poziomu przedstawia architekturę podanej przykładu, aby 
 
 ### <a name="regions"></a>Regiony
 
-* [Utwórz](https://review.docs.microsoft.com/azure/media-services/latest/create-account-cli-how-to) co najmniej dwa konta Azure Media Services. Te dwa konta muszą znajdować się w różnych regionach. Aby uzyskać więcej informacji, zobacz [regiony, w których jest wdrażana usługa Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
-* Przekaż multimedia do tego samego regionu, w którym planujesz przesłać zadanie. Aby uzyskać więcej informacji o sposobie uruchamiania kodowania, zobacz [Tworzenie danych wejściowych zadania z adresu URL https](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-http-how-to) lub [Tworzenie danych wejściowych zadania z pliku lokalnego](https://review.docs.microsoft.com/azure/media-services/latest/job-input-from-local-file-how-to).
-* Jeśli następnie trzeba ponownie przesłać [zadanie](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) do innego regionu, można użyć `JobInputHttp` lub użyć, `Copy-Blob` Aby skopiować dane z kontenera zasobów źródłowych do kontenera zasobów w regionie alternatywnym.
+* [Utwórz](/azure/media-services/latest/create-account-cli-how-to) co najmniej dwa konta Azure Media Services. Te dwa konta muszą znajdować się w różnych regionach. Aby uzyskać więcej informacji, zobacz [regiony, w których jest wdrażana usługa Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
+* Przekaż multimedia do tego samego regionu, w którym planujesz przesłać zadanie. Aby uzyskać więcej informacji o sposobie uruchamiania kodowania, zobacz [Tworzenie danych wejściowych zadania z adresu URL https](/azure/media-services/latest/job-input-from-http-how-to) lub [Tworzenie danych wejściowych zadania z pliku lokalnego](/azure/media-services/latest/job-input-from-local-file-how-to).
+* Jeśli następnie trzeba ponownie przesłać [zadanie](/azure/media-services/latest/transforms-jobs-concept) do innego regionu, można użyć `JobInputHttp` lub użyć, `Copy-Blob` Aby skopiować dane z kontenera zasobów źródłowych do kontenera zasobów w regionie alternatywnym.
 
 ### <a name="monitoring"></a>Monitorowanie
 
 * Subskrybuj `JobStateChange` wiadomości na poszczególnych kontach za pośrednictwem Azure Event Grid.
-    * [Rejestrowanie zdarzeń](https://review.docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events) za pośrednictwem Azure Portal lub interfejsu wiersza polecenia (można go również uzyskać za pomocą zestawu SDK zarządzania Event Grid)
+    * [Rejestrowanie zdarzeń](/azure/media-services/latest/reacting-to-media-services-events) za pośrednictwem Azure Portal lub interfejsu wiersza polecenia (można go również uzyskać za pomocą zestawu SDK zarządzania Event Grid)
     * Użyj [zestawu SDK Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (który natywnie obsługuje zdarzenia Media Services).
     * Możesz również wykorzystać zdarzenia Event Grid za pośrednictwem Azure Functions.
 
     Więcej informacji:
 
-    * Zobacz [przykład analizy audio](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) , który pokazuje, jak monitorować zadanie przy użyciu Azure Event Grid, w tym dodawanie rezerwy w przypadku opóźnienia komunikatów Azure Event Grid z jakiegoś powodu.
-    * Zapoznaj się ze [schematami Azure Event Grid Media Services zdarzeń](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas).
+    * Zobacz [przykład analizy audio](/azure/media-services/latest/transforms-jobs-concept) , który pokazuje, jak monitorować zadanie przy użyciu Azure Event Grid, w tym dodawanie rezerwy w przypadku opóźnienia komunikatów Azure Event Grid z jakiegoś powodu.
+    * Zapoznaj się ze [schematami Azure Event Grid Media Services zdarzeń](/azure/media-services/latest/media-services-event-schemas).
 
-* Podczas tworzenia [zadania](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept):
+* Podczas tworzenia [zadania](/azure/media-services/latest/transforms-jobs-concept):
     * Losowo wybierz konto z listy obecnie używanych kont (Ta lista będzie zazwyczaj zawierać oba konta, ale w przypadku wykrycia problemów może ono zawierać tylko jedno konto). Jeśli lista jest pusta, Zgłoś alert, aby operator mógł zbadać.
     * Utwórz rekord, aby śledzić każde zadanie numerów porządkowych określających oraz używane region/konto.
 * Gdy `JobStateChange` program obsługi otrzyma powiadomienie o osiągnięciu zaplanowanego stanu zadania, należy zarejestrować czas wejścia w stan zaplanowany oraz używany region/konto.

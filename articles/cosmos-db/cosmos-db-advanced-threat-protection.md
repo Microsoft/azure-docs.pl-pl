@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334416"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455599"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB (wersja zapoznawcza)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby dostępu do kont Azure Cosmos DB lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń, nawet bez biegłych zabezpieczeń, i integrowanie ich z centralnymi systemami monitorowania zabezpieczeń.
 
-Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą  [Azure Security Center](https://azure.microsoft.com/services/security-center/)i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń.
+Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie w aktywności. Te alerty zabezpieczeń są zintegrowane z usługą  [Azure Security Center](https://azure.microsoft.com/services/security-center/)i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń.
 
 > [!NOTE]
 >
@@ -34,9 +34,9 @@ W przypadku pełnego badania alertów zabezpieczeń zaleca się włączenie [rej
 
 Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Obecnie można wyzwolić następujące alerty:
 
-- **Dostęp z nietypowych lokalizacji** : ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do konta usługi Azure Cosmos, w którym ktoś nawiązał połączenie z punktem końcowym Azure Cosmos DB z nietypowej lokalizacji geograficznej. W niektórych przypadkach alert wykrywa legalną akcję, co oznacza, że jest to nowa aplikacja lub operacja konserwacji dewelopera. W innych przypadkach alert wykrywa złośliwe działanie od byłego pracownika, ataku zewnętrznego itp.
+- **Dostęp z nietypowych lokalizacji**: ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do konta usługi Azure Cosmos, w którym ktoś nawiązał połączenie z punktem końcowym Azure Cosmos DB z nietypowej lokalizacji geograficznej. W niektórych przypadkach alert wykrywa legalną akcję, co oznacza, że jest to nowa aplikacja lub operacja konserwacji dewelopera. W innych przypadkach alert wykrywa złośliwe działanie od byłego pracownika, ataku zewnętrznego itp.
 
-- **Nietypowa wyodrębnianie danych** : ten alert jest wyzwalany, gdy klient wyodrębnia nietypową ilość danych z konta Azure Cosmos DB. Może to być objaw niektórych eksfiltracji danych, które są wykonywane w celu przetransferowania wszystkich danych przechowywanych na koncie do zewnętrznego magazynu danych.
+- **Nietypowa wyodrębnianie danych**: ten alert jest wyzwalany, gdy klient wyodrębnia nietypową ilość danych z konta Azure Cosmos DB. Może to być objaw niektórych eksfiltracji danych, które są wykonywane w celu przetransferowania wszystkich danych przechowywanych na koncie do zewnętrznego magazynu danych.
 
 
 
@@ -55,7 +55,7 @@ Można skonfigurować zaawansowaną ochronę przed zagrożeniami na kilka sposob
 3. W bloku **zaawansowanej konfiguracji zabezpieczeń** :
 
     * Kliknij opcję **zaawansowanej ochrony przed zagrożeniami** , aby ustawić ją **na wartość włączone**.
-    * Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady usługi Advanced Threat Protection.   
+    * Kliknij przycisk **Zapisz**, aby zapisać nowe lub zaktualizowane zasady usługi Advanced Threat Protection.   
 
 ### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
 
@@ -64,13 +64,13 @@ Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać us
 * [Zaawansowana ochrona przed zagrożeniami — tworzenie](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Zaawansowana ochrona przed zagrożeniami — Pobierz](/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 
-* [Włączanie zaawansowanej ochrony przed zagrożeniami](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Uzyskaj zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
-* [Wyłącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Włączanie zaawansowanej ochrony przed zagrożeniami](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Uzyskaj zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Wyłącz zaawansowaną ochronę przed zagrożeniami](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ### <a name="arm-template"></a>[Szablon usługi ARM](#tab/arm-template)
 

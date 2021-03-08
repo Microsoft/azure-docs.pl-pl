@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ad5bb90a0df68cc6c1c230c234c1f695312da3d8
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014216"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451783"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus dane wyjściowe kolejek z Azure Stream Analytics
 
@@ -69,9 +69,9 @@ Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wy
 
 ## <a name="system-properties"></a>Właściwości systemu
 
-Kolumny zapytania można dołączać jako [Właściwości systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług.
+Kolumny zapytania można dołączać jako [Właściwości systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług.
 
-Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
+Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
 Te właściwości systemu są obsługiwane — `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Wartości ciągu tych kolumn są analizowane jako odpowiadające im typy wartości właściwości systemu, a wszystkie błędy analizy są traktowane jako błędy danych.

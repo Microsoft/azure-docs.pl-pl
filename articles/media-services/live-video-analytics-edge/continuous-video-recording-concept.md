@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie wideo — Azure
 description: Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rejestrowania wideo ze źródła wideo. W tym temacie omówiono, co to jest CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566702"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453754"
 ---
 # <a name="continuous-video-recording"></a>Ciągłe nagrywanie wideo  
 
@@ -19,7 +19,7 @@ ms.locfileid: "89566702"
 
 ## <a name="overview"></a>Omówienie
 
-Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rejestrowania wideo ze źródła wideo. Usługa Analiza filmów wideo na żywo na IoT Edge obsługuje stałe rejestrowanie wideo na podstawie 24x7 z aparatu CCTV za pośrednictwem [grafu multimedialnego](media-graph-concept.md) , który składa się z węzła źródłowego RTSP i węzła ujścia zasobów. Na poniższym diagramie przedstawiono graficzną reprezentację takiego wykresu multimedialnego. Reprezentację w formacie JSON [topologii wykresu](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) takiego wykresu multimedialnego można znaleźć [tutaj](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rejestrowania wideo ze źródła wideo. Usługa Analiza filmów wideo na żywo na IoT Edge obsługuje stałe rejestrowanie wideo na podstawie 24x7 z aparatu CCTV za pośrednictwem [grafu multimedialnego](media-graph-concept.md) , który składa się z węzła źródłowego RTSP i węzła ujścia zasobów. Na poniższym diagramie przedstawiono graficzną reprezentację takiego wykresu multimedialnego. Reprezentację w formacie JSON [topologii wykresu](media-graph-concept.md#media-graph-topologies-and-instances) takiego wykresu multimedialnego można znaleźć [tutaj](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Ciągłe nagrywanie wideo":::

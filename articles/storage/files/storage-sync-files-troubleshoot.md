@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 534f9e76cfca4037634cfca089f1131984456636
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820708"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453278"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -74,8 +74,8 @@ Aby zainstalować moduł AZ lub AzureRM w programie PowerShell 5,1, wykonaj nast
 
 1. Wpisz **PowerShell** w wierszu polecenia z podwyższonym poziomem uprawnień i naciśnij klawisz ENTER.
 2. Zainstaluj najnowszy moduł AZ lub AzureRM, postępując zgodnie z dokumentacją:
-    - [AZ module (wymaga programu .NET 4.7.2)](/powershell/azure/install-az-ps?viewFallbackFrom=azps-1.1.0)
-    - [Moduł AzureRM]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [AZ module (wymaga programu .NET 4.7.2)](/powershell/azure/install-az-ps)
+    - [Moduł AzureRM](https://go.microsoft.com/fwlink/?linkid=856959)
 3. Uruchom ServerRegistration.exe i Ukończ pracę kreatora, aby zarejestrować serwer w usłudze synchronizacji magazynu.
 
 <a id="server-already-registered"></a>**Rejestracja serwera wyświetla następujący komunikat: "ten serwer jest już zarejestrowany"** 

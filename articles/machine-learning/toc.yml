@@ -258,6 +258,8 @@
         - name: Używanie szablonu usługi Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+        - name: Link do obszaru roboczego usługi Azure Synapse Analytics
+          href: how-to-link-synapse-ml-workspaces.md
     - name: Tworzenie zasobów obliczeniowych i zarządzanie nimi
       items:
         - name: Wystąpienie obliczeniowe

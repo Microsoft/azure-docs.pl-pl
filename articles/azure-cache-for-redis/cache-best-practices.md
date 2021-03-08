@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178120"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454740"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
 Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizować wydajność i ekonomiczne użycie wystąpienia usługi Azure cache for Redis.
@@ -74,7 +74,7 @@ Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użyc
  * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
  * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
  * **Przetestuj w warunkach pracy awaryjnej** w pamięci podręcznej. Ważne jest, aby upewnić się, że nie Przetestuj wydajności pamięci podręcznej tylko w warunkach stałego stanu. Przetestuj także w warunkach pracy awaryjnej i zmierz obciążenie procesora CPU/serwera w pamięci podręcznej w tym czasie. Tryb failover można zainicjować przez [ponowne uruchomienie węzła podstawowego](cache-administration.md#reboot). Dzięki temu będzie można zobaczyć, jak działa aplikacja w zakresie przepływności i opóźnień w warunkach pracy awaryjnej (dzieje się podczas aktualizacji i może wystąpić w przypadku nieplanowanego zdarzenia). Najlepiej, gdy don't't chcesz zobaczyć szczyt obciążenia procesora CPU/serwera do ponad 80% nawet podczas pracy w trybie failover, co może mieć wpływ na wydajność.
- * Warstwa **Premium P2 i nowsze** są hostowane na maszynach wirtualnych z co najmniej 4 rdzeniami. Jest to przydatne do dystrybuowania obciążeń szyfrowania i odszyfrowywania TLS między wieloma rdzeniami, aby uzyskać ogólne użycie procesora CPU.  [Zobacz tutaj, aby uzyskać szczegółowe informacje dotyczące rozmiarów maszyn wirtualnych i rdzeni](cache-planning-faq.md#azure-cache-for-redis-performance)
+ * **Niektóre rozmiary pamięci podręcznej** są hostowane na maszynach wirtualnych z co najmniej 4 rdzeniami. Jest to przydatne do dystrybuowania szyfrowania i odszyfrowywania TLS oraz obciążeń połączenia TLS między wieloma rdzeniami, aby uzyskać ogólne użycie procesora na maszynach wirtualnych pamięci podręcznej.  [Zobacz tutaj, aby uzyskać szczegółowe informacje dotyczące rozmiarów maszyn wirtualnych i rdzeni](cache-planning-faq.md#azure-cache-for-redis-performance)
  * Jeśli korzystasz z systemu Windows, **Włącz opcję wirtualnego skalowania** na komputerze klienckim.  [Zobacz tutaj, aby uzyskać szczegółowe informacje](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Przykładowy skrypt programu PowerShell:
      >PowerShell-ExecutionPolicy unstricted Enable-NetAdapterRSS-Name (Get-ServiceAdapter). Nazwij 
 

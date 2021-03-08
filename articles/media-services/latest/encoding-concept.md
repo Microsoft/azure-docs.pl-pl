@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897904"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455284"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
 
@@ -137,7 +137,7 @@ Media Services w pełni obsługuje Dostosowywanie wszystkich wartości w ustawie
 
 ## <a name="preset-schema"></a>Schemat ustawień wstępnych
 
-W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostkami w interfejsie API. Definicję "schemat" tych obiektów można znaleźć w temacie [Open API Specification (lub Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Możesz również wyświetlić wstępnie zdefiniowane definicje (na przykład **StandardEncoderPreset**) w [interfejsie API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [zestawie .NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (lub Media Services innej dokumentacji dotyczącej zestawu SDK w wersji v3).
+W Media Services v3, ustawienia wstępne są jednoznacznie określonymi jednostkami w interfejsie API. Definicję "schemat" tych obiektów można znaleźć w temacie [Open API Specification (lub Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Możesz również wyświetlić wstępnie zdefiniowane definicje (na przykład **StandardEncoderPreset**) w [interfejsie API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [zestawie .NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (lub Media Services innej dokumentacji dotyczącej zestawu SDK w wersji v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Skalowanie kodowania w wersji 3
 
