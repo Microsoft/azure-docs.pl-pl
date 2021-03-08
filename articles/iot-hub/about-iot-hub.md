@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 7e72f628bf328a3b93e81c60aa65b8c2495f7f2b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095265"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454774"
 ---
 # <a name="what-is-azure-iot-hub"></a>Czym jest usługa Azure IoT Hub?
 
@@ -30,7 +30,7 @@ Możliwości usługi IoT Hub ułatwiają tworzenie skalowalnych, kompleksowych r
 
 ## <a name="scale-your-solution"></a>Skalowanie rozwiązania
 
-Usługa IoT Hub może zarządzać milionami równocześnie połączonych urządzeń i obsługiwać miliony zdarzeń na sekundę w celu obsługi obciążeń IoT. Aby uzyskać więcej informacji na temat skalowania IoT Hub, zobacz [IoT Hub skalowanie](iot-hub-scaling.md?branch=release-iotbasic). Aby dowiedzieć się więcej na temat wielu warstw usługi oferowanych przez IoT Hub i jak najlepiej dopasować się do potrzeb skalowalności, zapoznaj się z [cennikiem](https://azure.microsoft.com/pricing/details/iot-hub/).
+Usługa IoT Hub może zarządzać milionami równocześnie połączonych urządzeń i obsługiwać miliony zdarzeń na sekundę w celu obsługi obciążeń IoT. Aby uzyskać więcej informacji na temat skalowania IoT Hub, zobacz [IoT Hub skalowanie](iot-hub-scaling.md). Aby dowiedzieć się więcej na temat wielu warstw usługi oferowanych przez IoT Hub i jak najlepiej dopasować się do potrzeb skalowalności, zapoznaj się z [cennikiem](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Zabezpieczanie komunikacji
 

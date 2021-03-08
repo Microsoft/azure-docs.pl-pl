@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b3ae2986b49cf6854e0d9a6b99aabdfc2dd6b713
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 29ac6976b6248f066f18f0ffcc8e03061ee74f77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436655"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454419"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Użyj Azure Portal do zarządzania harmonogramami przepustowości na Azure Stack brzegowej procesora GPU 
 
@@ -44,7 +44,7 @@ Wykonaj następujące kroki w Azure Portal, aby dodać harmonogram.
 
    1. Podaj **dzień rozpoczęcia**, **dzień zakończenia**, **godzinę rozpoczęcia** i **godzinę zakończenia** harmonogramu.
    2. Zaznacz opcję **wszystkie dni** , jeśli ten harmonogram ma być uruchamiany cały dzień.
-   3. **Przepustowość** to przepustowość w megabitach na sekundę (MB/s) używana przez urządzenie w operacjach związanych z chmurą (zarówno w przypadku przekazywania i pobierania). Podaj liczbę z zakresu od 20 do 2 147 483 647 dla tego pola.
+   3. **Przepustowość** to przepustowość w megabitach na sekundę (MB/s) używana przez urządzenie w operacjach związanych z chmurą (zarówno w przypadku przekazywania i pobierania). Podaj liczbę z zakresu od 64 do 2 147 483 647 dla tego pola.
    4. Wybierz opcję **nieograniczone przepustowość** , jeśli nie chcesz ograniczać przekazywania i pobierania danych.
    5. Wybierz pozycję **Dodaj**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 41f96202bffc0169be9705cd7e67c1eedbecbc05
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635578"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453448"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikowanie i badanie alertów zabezpieczeń oraz odpowiadanie na nie
 Security Center stale analizuje obciążenia chmury hybrydowej dzięki zaawansowanej analizie i analizie zagrożeń, aby otrzymywać alerty o potencjalnie złośliwych działaniach w zasobach w chmurze. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center. Po podniesieniu alertu w celu zbadania i skorygowania potencjalnego problemu z zabezpieczeniami jest wymagana akcja Swift. 
@@ -112,7 +112,7 @@ Jeśli nie planujesz kontynuować pracy lub chcesz wyłączyć jedną z następu
 1. Wybierz odpowiednią subskrypcję.
 1. Aby zmienić wersję, wybierz pozycję **Azure Defender off**.
 1. Aby **wyłączyć automatyczne** Inicjowanie obsługi, Otwórz stronę **zbieranie danych** i ustaw **Automatyczne Inicjowanie obsługi** .
-4. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
 > Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, które już mają agenta. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.

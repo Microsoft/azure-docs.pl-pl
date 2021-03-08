@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f3be34c6488b977a0b03237025ba0f0ab1af7ec
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3b40ad6c8ef7cc9446f0b60e4cda2efd70b8ed32
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102214460"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451578"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 
@@ -50,7 +50,7 @@ Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](h
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Pobierz wybrany zestaw SDK klienta i Skonfiguruj swoje środowisko
 
-- Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-dotnet), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
 - [Interfejs wiersza polecenia](/cli/azure/ams)   platformy Azure Integracja z obsługą obsługi skryptów prostych.
 
 > [!NOTE]

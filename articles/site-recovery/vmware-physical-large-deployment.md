@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047089"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454351"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurowanie odzyskiwania po awarii na dużą skalę dla maszyn wirtualnych VMware/serwerów fizycznych
 
@@ -32,7 +32,7 @@ Niektóre ogólne najlepsze rozwiązania dotyczące odzyskiwania po awarii na du
 
 - **Określenie wymagań docelowych**: oszacowanie wydajności i potrzeb zasobów na platformie Azure przed rozpoczęciem konfigurowania odzyskiwania po awarii.
 - **Zaplanuj składniki Site Recovery**: Ustal, jakie składniki Site Recovery (serwer konfiguracji, serwery przetwarzania) muszą spełniać szacunkową pojemność.
-- **Skonfiguruj co najmniej jeden serwer przetwarzania skalowalny**w poziomie: nie używaj serwera przetwarzania, który jest domyślnie uruchomiony na serwerze konfiguracji. 
+- **Skonfiguruj co najmniej jeden serwer przetwarzania skalowalny** w poziomie: nie używaj serwera przetwarzania, który jest domyślnie uruchomiony na serwerze konfiguracji. 
 - **Uruchom najnowsze aktualizacje**: zespół site Recoverya regularnie zwalnia nowe wersje składników Site Recovery i upewnij się, że korzystasz z najnowszych wersji. Aby to ułatwić, śledź [nowości](site-recovery-whats-new.md) dotyczące aktualizacji oraz [włączaj i instaluj aktualizacje](service-updates-how-to.md) podczas ich wydawania.
 - **Monitoruj proaktywne**: w przypadku odzyskiwania po awarii i uruchamiania, należy aktywnie monitorować stan i kondycję replikowanych maszyn oraz zasobów infrastruktury.
 - **Przechodzenie do odzyskiwania po awarii**: należy regularnie uruchamiać funkcję odzyskiwania po awarii. Nie mają one wpływu na środowisko produkcyjne, ale pomagają zapewnić, że tryb failover na platformie Azure będzie działał zgodnie z oczekiwaniami w razie potrzeby.
@@ -85,7 +85,7 @@ Chcemy upewnić się, że dostępne przydziały w subskrypcji docelowej są wyst
 
 **Zadanie** | **Szczegóły** | **Akcja**
 --- | --- | ---
-**Sprawdź rdzenie** | Jeśli rdzenie w dostępnym limicie przydziału nie są równe ani przekraczają łączną liczbę elementów docelowych w momencie przejścia w tryb failover, tryb failover zakończy się niepowodzeniem. | W przypadku maszyn wirtualnych VMware Sprawdź, czy masz wystarczającą liczbę rdzeni w subskrypcji docelowej, aby spełnić zalecenia dotyczące Planista wdrażania Core.<br/><br/> W przypadku serwerów fizycznych Sprawdź, czy rdzenie platformy Azure są zgodne z ręcznymi oszacowaniami.<br/><br/> Aby sprawdzić przydziały, w Azure Portal > **subskrypcji**kliknij pozycję **użycie i limity przydziału**.<br/><br/> [Dowiedz się więcej](../azure-portal/supportability/resource-manager-core-quotas-request.md) o zwiększaniu przydziałów.
+**Sprawdź rdzenie** | Jeśli rdzenie w dostępnym limicie przydziału nie są równe ani przekraczają łączną liczbę elementów docelowych w momencie przejścia w tryb failover, tryb failover zakończy się niepowodzeniem. | W przypadku maszyn wirtualnych VMware Sprawdź, czy masz wystarczającą liczbę rdzeni w subskrypcji docelowej, aby spełnić zalecenia dotyczące Planista wdrażania Core.<br/><br/> W przypadku serwerów fizycznych Sprawdź, czy rdzenie platformy Azure są zgodne z ręcznymi oszacowaniami.<br/><br/> Aby sprawdzić przydziały, w Azure Portal > **subskrypcji** kliknij pozycję **użycie i limity przydziału**.<br/><br/> [Dowiedz się więcej](../azure-portal/supportability/resource-manager-core-quotas-request.md) o zwiększaniu przydziałów.
 **Sprawdzanie limitów trybu failover** | Liczba nie może trybu failover przekracza limity Site Recovery trybu failover. |  Jeśli przełączenie w tryb failover przekracza limity, możesz dodać subskrypcje i przełączyć się w tryb pracy awaryjnej do wielu subskrypcji lub zwiększyć przydział dla subskrypcji. 
 
 
@@ -214,7 +214,7 @@ Aby uruchomić tryb failover o dużej skali, zalecamy wykonanie następujących 
     - [Dowiedz się więcej](recovery-plan-overview.md) o planach odzyskiwania.
 2. Dodaj Azure Automation skrypty elementu Runbook do planów odzyskiwania, aby zautomatyzować zadania wykonywane ręcznie na platformie Azure. Typowe zadania obejmują Konfigurowanie modułów równoważenia obciążenia, aktualizowanie systemu DNS itd. [Dowiedz się więcej](site-recovery-runbook-automation.md)
 2. Przed przejściem w tryb failover Przygotuj maszyny z systemem Windows tak, aby były one zgodne ze środowiskiem platformy Azure. [Limity trybu failover](#plan-azure-subscriptions-and-quotas) są większe dla maszyn, które są zgodne. [Dowiedz się więcej](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) o elementach Runbook.
-4.  Wyzwól tryb failover za pomocą polecenia cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) środowiska PowerShell wraz z planem odzyskiwania.
+4.  Wyzwól tryb failover za pomocą polecenia cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) środowiska PowerShell wraz z planem odzyskiwania.
 
 
 

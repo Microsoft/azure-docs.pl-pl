@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59c000a816d55d248febb841b695d366cb9979cc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690417"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455233"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Omówienie migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -63,7 +63,7 @@ Niektóre ogólne wytyczne ułatwiające wybranie odpowiedniej warstwy usług i 
 Podczas wdrażania można wybrać zasoby obliczeniowe i magazynowe, a następnie zmienić je po użyciu [Azure Portal](../../database/scale-resources.md) bez ponoszenia przestojów aplikacji. 
 
 > [!IMPORTANT]
-> Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](../../managed-instance/connectivity-architecture-overview.md#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](../../managed-instance/virtual-network-subnet-create-arm-template.md)   i [konfigurowania istniejących](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   sieci. 
+> Wszelkie niezgodności w [wymaganiach dotyczących sieci wirtualnej wystąpienia zarządzanego](../../managed-instance/connectivity-architecture-overview.md#network-requirements) mogą uniemożliwić tworzenie nowych wystąpień lub korzystanie z istniejących. Dowiedz się więcej na temat [tworzenia nowych](../../managed-instance/virtual-network-subnet-create-arm-template.md)   i [konfigurowania istniejących](../../managed-instance/vnet-existing-add-subnet.md)   sieci. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternatywa maszyny wirtualnej SQL Server
 

@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/14/2021
-ms.openlocfilehash: e72e312e932e71d4dac8532983c2c96ba105ba3b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439480"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454368"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center bezpłatna usługa vs Azure Defender
 Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni. Po upływie 30 dni, jeśli chcesz kontynuować korzystanie z usługi, automatycznie zaczniemy naliczać opłaty za użycie.
@@ -38,20 +38,16 @@ Security Center jest oferowane w dwóch trybach:
 
 ## <a name="faq---pricing-and-billing"></a>Często zadawane pytania — Cennik i rozliczenia 
 
-- [Azure Security Center bezpłatna usługa vs Azure Defender](#azure-security-center-free-vs-azure-defender-enabled)
-  - [Jakie korzyści wiążą się z włączeniem usługi Azure Defender?](#what-are-the-benefits-of-enabling-azure-defender)
-  - [Często zadawane pytania — Cennik i rozliczenia](#faq---pricing-and-billing)
-    - [Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
-    - [Jakie są plany oferowane przez Security Center?](#what-are-the-plans-offered-by-security-center)
-    - [Jak mogę włączyć usługę Azure Defender dla mojej subskrypcji?](#how-do-i-enable-azure-defender-for-my-subscription)
-    - [Czy mogę włączyć usługę Azure Defender dla podzbioru serwerów w mojej subskrypcji?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
-    - [Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
-    - [Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
-    - [Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
-    - [Jeśli Agent Log Analytics jest raportowany do wielu obszarów roboczych, czy zostanie naliczona dwa razy?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
-    - [Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
-    - [Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
-  - [Następne kroki](#next-steps)
+- [Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Jakie są plany oferowane przez Security Center?](#what-are-the-plans-offered-by-security-center)
+- [Jak mogę włączyć usługę Azure Defender dla mojej subskrypcji?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Czy mogę włączyć usługę Azure Defender dla podzbioru serwerów w mojej subskrypcji?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Jeśli mam już licencję usługi Microsoft Defender for Endpoint dla punktu końcowego, możesz uzyskać rabat za usługę Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Moja subskrypcja ma włączoną usługę Azure Defender dla serwerów, czy płacisz za niedziałającymi serwerami?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Czy zostaną naliczone opłaty za maszyny, na których nie zainstalowano agenta Log Analytics?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Jeśli Agent Log Analytics jest raportowany do wielu obszarów roboczych, czy zostanie naliczona dwa razy?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Jeśli Agent Log Analytics jest zgłaszany do wielu obszarów roboczych, to 500 MB wolnego miejsca do pozyskiwania danych?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [Czy 500 w przypadku całego obszaru roboczego lub w odniesieniu do maszyny?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Jak mogę śledzić, kto w organizacji włączył zmiany w usłudze Azure Defender w Security Center?
 Subskrypcje platformy Azure mogą mieć wielu administratorów z uprawnieniami do zmiany ustawień cen. Aby dowiedzieć się, który użytkownik wprowadził zmianę, użyj dziennika aktywności platformy Azure.

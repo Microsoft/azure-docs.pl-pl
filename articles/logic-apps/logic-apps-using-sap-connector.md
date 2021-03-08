@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426454"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454230"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -30,7 +30,7 @@ W tym artykule wyjaśniono, w jaki sposób można uzyskać dostęp do zasobów S
 
     * Jeśli używasz aplikacji logiki na platformie Azure z wieloma dzierżawcami, zobacz [wymagania wstępne dotyczące wielu dzierżawców](#multi-tenant-azure-prerequisites).
 
-    * Jeśli używasz aplikacji logiki w[ środowisku usługi integracji na poziomie Premium (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), zobacz [wymagania wstępne ISE](#ise-prerequisites).
+    * Jeśli używasz aplikacji logiki w [środowisku usługi integracji na poziomie Premium (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), zobacz [wymagania wstępne ISE](#ise-prerequisites).
 
 * [Serwer aplikacji SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) lub [serwer komunikatów SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) , do którego chcesz uzyskać dostęp z Logic Apps. Aby uzyskać informacje o serwerach SAP i akcjach SAP, których można używać z łącznikiem, zobacz [zgodność SAP](#sap-compatibility).
 
@@ -633,6 +633,14 @@ Aby wysłać IDocs z oprogramowania SAP do aplikacji logiki, wymagana jest nast�
     * Dla **obiektu docelowego RFC** wprowadź nazwę.
     
     * Na karcie **Ustawienia techniczne** w **polu Typ aktywacji** wybierz pozycję **zarejestrowany serwer programu**. Wprowadź wartość w obszarze **Identyfikator programu**. W oprogramowaniu SAP wyzwalacz aplikacji logiki zostanie zarejestrowany przy użyciu tego identyfikatora.
+
+    > [!IMPORTANT]
+    > W **identyfikatorze programu** SAP rozróżniana jest wielkość liter. Upewnij się, że podczas konfigurowania aplikacji logiki i serwera SAP dla **identyfikatora programu** ciągle używany jest ten sam format wielkości liter. W przeciwnym razie podczas próby wysłania IDoc do SAP mogą pojawić się następujące błędy monitora tRFC (T-Code SM58):
+    >
+    > * **Nie znaleziono funkcji IDOC_INBOUND_ASYNCHRONOUS**
+    > * **Klient ABAP RFC (typ partnera) nie jest obsługiwany**
+    >
+    > Aby uzyskać więcej informacji na temat oprogramowania SAP, zobacz następujące uwagi (wymagane jest zalogowanie) <https://launchpad.support.sap.com/#/notes/2399329> i <https://launchpad.support.sap.com/#/notes/353597> .
     
     * Na karcie **Unicode** w **polu Typ komunikacji z systemem docelowym** wybierz opcję **Unicode**.
 
@@ -745,6 +753,14 @@ Można skonfigurować SAP, aby [wysyłał IDocs w pakietach](https://help.sap.co
 Oto przykład, który pokazuje, jak wyodrębnić poszczególne IDocs z pakietu przy użyciu [ `xpath()` funkcji](./workflow-definition-language-functions-reference.md#xpath):
 
 1. Przed rozpoczęciem potrzebna jest aplikacja logiki z wyzwalaczem SAP. Jeśli nie masz jeszcze tej aplikacji logiki, wykonaj kroki opisane w tym temacie, aby [skonfigurować aplikację logiki z wyzwalaczem SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > W **identyfikatorze programu** SAP rozróżniana jest wielkość liter. Upewnij się, że podczas konfigurowania aplikacji logiki i serwera SAP dla **identyfikatora programu** ciągle używany jest ten sam format wielkości liter. W przeciwnym razie podczas próby wysłania IDoc do SAP mogą pojawić się następujące błędy monitora tRFC (T-Code SM58):
+    >
+    > * **Nie znaleziono funkcji IDOC_INBOUND_ASYNCHRONOUS**
+    > * **Klient ABAP RFC (typ partnera) nie jest obsługiwany**
+    >
+    > Aby uzyskać więcej informacji na temat oprogramowania SAP, zobacz następujące uwagi (wymagane jest zalogowanie) <https://launchpad.support.sap.com/#/notes/2399329> i <https://launchpad.support.sap.com/#/notes/353597> .
 
    Na przykład:
 
@@ -1313,11 +1329,18 @@ Jeśli wystąpi problem ze zduplikowanymi IDocs wysyłanymi do SAP z aplikacji l
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
-Poniżej przedstawiono obecnie znane problemy i ograniczenia dotyczące zarządzanego łącznika SAP (ISE):
+Poniżej przedstawiono obecnie znane problemy i ograniczenia dotyczące zarządzanego łącznika SAP (ISE): 
 
-* Wyzwalacz SAP nie obsługuje klastrów bramy danych. W niektórych przypadkach pracy awaryjnej węzeł bramy danych, który komunikuje się z systemem SAP, może różnić się od aktywnego węzła, co powoduje nieoczekiwane zachowanie. W przypadku scenariuszy wysyłania obsługiwane są klastry usługi Data Gateway.
+* Ogólnie rzecz biorąc wyzwalacz SAP nie obsługuje klastrów bramy danych. W niektórych przypadkach pracy awaryjnej węzeł bramy danych, który komunikuje się z systemem SAP, może różnić się od aktywnego węzła, co powoduje nieoczekiwane zachowanie.
+
+  * W przypadku scenariuszy wysyłania obsługiwane są klastry usługi Data Gateway w trybie pracy awaryjnej. 
+
+  * Klastry usługi Data Gateway w trybie równoważenia obciążenia nie są obsługiwane przez akcje stanowych SAP. Te akcje obejmują **Tworzenie sesji stanowej**, **ZATWIERDZAnie transakcji interfejsu** BAPI, **wycofywanie transakcji interfejsu BAPI**, **zamykanie sesji stanowej** i wszystkie akcje określające wartość **identyfikatora sesji** . Komunikacja stanowa musi pozostać w tym samym węźle klastra bramy danych. 
+
+  * W przypadku akcji stanowych SAP Użyj bramy Data Gateway w trybie innym niż klaster lub w klastrze, który jest skonfigurowany tylko do pracy w trybie failover.
 
 * Łącznik SAP nie obsługuje obecnie ciągów routera SAP. Lokalna Brama danych musi znajdować się w tej samej sieci LAN co system SAP, który chcesz połączyć.
+
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

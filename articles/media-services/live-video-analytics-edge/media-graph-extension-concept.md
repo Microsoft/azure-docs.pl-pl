@@ -3,12 +3,12 @@ title: Co to jest rozszerzenie Media Graph — Azure
 description: Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą węzła rozszerzenia grafu.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6735148bf453cfe0afb58d51451dea65f06705d6
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 66656690e4e53508253091134a67adeb899b3dbf
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401121"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455843"
 ---
 # <a name="media-graph-extension"></a>Rozszerzenie grafu multimedialnego
 
@@ -19,11 +19,11 @@ Usługa Analiza filmów wideo na żywo obsługuje dwa rodzaje procesorów rozsze
 * [Procesor rozszerzeń HTTP](media-graph-concept.md#http-extension-processor)
 * [Procesor rozszerzenia gRPC](media-graph-concept.md#grpc-extension-processor)
 
-Węzeł rozszerzenia wykresu oczekuje, że wtyczka rozszerzenia analitycznego zwróci wyniki w formacie JSON. Najlepiej, gdy wyniki powinny być zgodne z [modelem obiektu schematu metadanych wnioskowania](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
+Węzeł rozszerzenia wykresu oczekuje, że wtyczka rozszerzenia analitycznego zwróci wyniki w formacie JSON. Najlepiej, gdy wyniki powinny być zgodne z [modelem obiektu schematu metadanych wnioskowania](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
 
 ## <a name="http-extension-processor"></a>Procesor rozszerzeń HTTP
 
-Procesor rozszerzeń HTTP umożliwia scenariusze rozszerzalności przy użyciu [protokołu HTTP](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update), w którym wydajność i/lub optymalne wykorzystanie zasobów nie jest podstawowym problemem. Możesz uwidocznić własne AI na grafie multimediów za pośrednictwem punktu końcowego REST protokołu HTTP. 
+Procesor rozszerzeń HTTP umożliwia scenariusze rozszerzalności przy użyciu [protokołu HTTP](/azure/media-services/live-video-analytics-edge/http-extension-protocol), w którym wydajność i/lub optymalne wykorzystanie zasobów nie jest podstawowym problemem. Możesz uwidocznić własne AI na grafie multimediów za pośrednictwem punktu końcowego REST protokołu HTTP. 
 
 Użyj węzła procesora rozszerzenia HTTP, gdy:
 
@@ -33,7 +33,7 @@ Użyj węzła procesora rozszerzenia HTTP, gdy:
 
 ## <a name="grpc-extension-processor"></a>Procesor rozszerzenia gRPC
 
-Procesor rozszerzeń gRPC umożliwia obsługę scenariuszy rozszerzalności przy użyciu opartego na gRPC [protokołu](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update)o wysokiej dostępności. Jest to idealne rozwiązanie w scenariuszach, w których wydajność i/lub optymalne wykorzystanie zasobów jest priorytetem. Procesor rozszerzeń gRPC umożliwia pełne korzystanie z definicji danych strukturalnych. gRPC oferuje wysoką wydajność transferu zawartości przy użyciu:
+Procesor rozszerzeń gRPC umożliwia obsługę scenariuszy rozszerzalności przy użyciu opartego na gRPC [protokołu](/azure/media-services/live-video-analytics-edge/grpc-extension-protocol)o wysokiej dostępności. Jest to idealne rozwiązanie w scenariuszach, w których wydajność i/lub optymalne wykorzystanie zasobów jest priorytetem. Procesor rozszerzeń gRPC umożliwia pełne korzystanie z definicji danych strukturalnych. gRPC oferuje wysoką wydajność transferu zawartości przy użyciu:
 
 * [pamięć udostępniona w usłudze Box](https://en.wikipedia.org/wiki/Shared_memory) lub 
 * bezpośrednie osadzanie zawartości w treści gRPC komunikatów. 
@@ -57,7 +57,7 @@ Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu:
 
 ## <a name="samples"></a>Samples
 
-Możesz zacząć korzystać z jednego z naszych przewodników Szybki Start, które ilustrują analizę wideo na żywo za pomocą wstępnie skompilowanej usługi rozszerzeń przy niskich wskaźnikach z [procesorem rozszerzeń http](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) lub z dużą szybkością klatek z [procesorem rozszerzenia gRPC](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)
+Możesz zacząć korzystać z jednego z naszych przewodników Szybki Start, które ilustrują analizę wideo na żywo za pomocą wstępnie skompilowanej usługi rozszerzeń przy niskich wskaźnikach z [procesorem rozszerzeń http](/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?pivots=programming-language-csharp) lub z dużą szybkością klatek z [procesorem rozszerzenia gRPC](/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp)
 
 Użytkownicy zaawansowani mogą wyewidencjonować niektóre przykłady [notesu Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące **rozszerzeń programu Media Graph** :
 

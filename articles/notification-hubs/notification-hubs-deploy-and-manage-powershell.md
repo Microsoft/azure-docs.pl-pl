@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4534584144f54618d7f3dd39cf5e40bc0464fb21
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87030304"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454989"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Wdrażanie centrów powiadomień i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -76,7 +76,7 @@ catch [System.Exception]
 
 ## <a name="create-the-namespacemanager-class"></a>Utwórz `NamespaceManager` klasę
 
-Aby zainicjować obsługę administracyjną Notification Hubs, Utwórz wystąpienie klasy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) z zestawu SDK.
+Aby zainicjować obsługę administracyjną Notification Hubs, Utwórz wystąpienie klasy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) z zestawu SDK.
 
 Za pomocą polecenia cmdlet [Get-AzureSBAuthorizationRule] dołączonego do Azure PowerShell można pobrać regułę autoryzacji używaną w celu podania parametrów połączenia. Odwołanie do `NamespaceManager` wystąpienia jest przechowywane w `$NamespaceManager` zmiennej. `$NamespaceManager` służy do aprowizacji centrum powiadomień.
 
@@ -160,7 +160,7 @@ Niektóre gotowe skrypty są również dostępne do pobrania:
 [Oferty elementu członkowskiego]: https://azure.microsoft.com/pricing/member-offers/
 [Bezpłatna wersja próbna]: https://azure.microsoft.com/pricing/free-trial/
 [Zainstaluj i skonfiguruj Azure PowerShell]: /powershell/azure/
-[Interfejs API platformy .NET dla Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Interfejs API platformy .NET dla Notification Hubs]: /dotnet/api/overview/azure/notification-hubs
 [Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
 [New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
 [Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure.service/get-azuresbauthorizationrule

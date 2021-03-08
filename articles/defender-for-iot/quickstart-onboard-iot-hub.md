@@ -1,6 +1,6 @@
 ---
-title: Dołączanie usługi Defender for IoT do rozwiązania opartego na agencie
-description: Dowiedz się, jak dołączyć i włączyć usługę Defender for IoT Security na platformie Azure IoT Hub.
+title: 'Szybki Start: dołączanie usługi Defender for IoT do rozwiązania opartego na agencie'
+description: W tym przewodniku szybki start dowiesz się, jak dołączyć i włączyć usługę Defender for IoT Security na platformie Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 62ea7b95609f9e1f896852da5c10244d1bd16ce1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049943"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449683"
 ---
-# <a name="onboard-defender-for-iot-to-an-agent-based-solution"></a>Dołączanie usługi Defender for IoT do rozwiązania opartego na agencie
+# <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Szybki Start: dołączanie usługi Defender for IoT do rozwiązania opartego na agencie
 
 W tym artykule wyjaśniono, jak włączyć usługę Defender for IoT na istniejącym IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md) , aby rozpocząć pracę.
 
@@ -34,6 +34,10 @@ Możesz zarządzać bezpieczeństwem IoT za pomocą IoT Hub w usłudze Defender 
 
 > [!NOTE]
 > Usługa Defender for IoT obecnie obsługuje tylko centra usługi IoT w warstwie Standardowa.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Brak
 
 ## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Dołączanie usługi Defender for IoT do IoT Hub
 

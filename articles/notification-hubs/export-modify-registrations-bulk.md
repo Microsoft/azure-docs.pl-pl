@@ -14,12 +14,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0771864229c8a3918da076de48fb6e033d2cf5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73c19b72c75d9638213f3c813a708a272cbe2a1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018182"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452343"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Zbiorcze eksportowanie i importowanie rejestracji Notification Hubs platformy Azure
 
@@ -127,7 +127,7 @@ Oprócz wejściowych i wyjściowych adresów URL, ten przykład tworzy `Notifica
 - `ImportUpdateRegistrations`
 - `ImportDeleteRegistrations`
 
-Po zakończeniu wywołania zadanie jest kontynuowane przez centrum powiadomień, a jego stan można sprawdzić za pomocą wywołania do [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync?view=azure-dotnet).
+Po zakończeniu wywołania zadanie jest kontynuowane przez centrum powiadomień, a jego stan można sprawdzić za pomocą wywołania do [GetNotificationHubJobAsync](/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.getnotificationhubjobasync).
 
 Po zakończeniu zadania można sprawdzić wyniki, przeglądając następujące pliki w katalogu wyjściowym:
 

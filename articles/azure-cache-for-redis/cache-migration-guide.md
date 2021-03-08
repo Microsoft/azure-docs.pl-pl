@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d63cafb32dc1db0a901ed3e6004446b450db10c7
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537630"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451527"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrowanie do usługi Azure Cache for Redis
 W tym artykule opisano szereg metod migracji istniejącej pamięci podręcznej Redis działającej lokalnie lub w innej usłudze w chmurze do usługi Azure cache dla Redis.
@@ -64,12 +64,12 @@ Ogólna procedura implementowania tej opcji to:
 2. Zapisz migawkę istniejącej pamięci podręcznej Redis. Można [skonfigurować Redis, aby okresowo zapisywać migawki](https://redis.io/topics/persistence) , lub uruchomić proces ręcznie przy użyciu poleceń [Zapisz](https://redis.io/commands/save) lub [BGSAVE](https://redis.io/commands/bgsave) . Plik RDB ma domyślnie nazwę "dump. RDB" i zostanie umieszczony w ścieżce określonej w pliku konfiguracji *Redis. conf* .
 
     > [!NOTE]
-    > W przypadku migrowania danych w usłudze Azure cache for Redis zapoznaj się [z tymi instrukcjami, jak wyeksportować plik RDB](cache-how-to-import-export-data.md) lub użyć [polecenia cmdlet eksportu programu PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) .
+    > W przypadku migrowania danych w usłudze Azure cache for Redis zapoznaj się [z tymi instrukcjami, jak wyeksportować plik RDB](cache-how-to-import-export-data.md) lub użyć [polecenia cmdlet eksportu programu PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache) .
     >
 
 3. Skopiuj plik RDB do konta usługi Azure Storage w regionie, w którym znajduje się nowa pamięć podręczna. Dla tego zadania można użyć AzCopy.
 
-4. Zaimportuj plik RDB do nowej pamięci podręcznej za pomocą tych [instrukcji importu](cache-how-to-import-export-data.md) lub [polecenia cmdlet Import programu PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Zaimportuj plik RDB do nowej pamięci podręcznej za pomocą tych [instrukcji importu](cache-how-to-import-export-data.md) lub [polecenia cmdlet Import programu PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache).
 
 5. Zaktualizuj aplikację tak, aby korzystała z nowego wystąpienia pamięci podręcznej.
 
@@ -115,4 +115,4 @@ Ogólna procedura implementowania tej opcji to:
 Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
 * [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)
-* [Importowanie danych](cache-how-to-import-export-data.md#import)
+* [Importuj dane](cache-how-to-import-export-data.md#import)

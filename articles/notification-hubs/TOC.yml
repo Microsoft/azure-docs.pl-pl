@@ -120,7 +120,7 @@
     - name: Tworzenie centrum powiadomień przy użyciu zestawów SDK
       items:
         - name: Tworzenie centrum powiadomień — platforma .NET
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+          href: /dotnet/api/overview/azure/notification-hubs
         - name: Tworzenie centrum powiadomień — platforma Node.js
           href: notification-hubs-nodejs-push-notification-tutorial.md
         - name: Tworzenie centrum powiadomień — platforma Java

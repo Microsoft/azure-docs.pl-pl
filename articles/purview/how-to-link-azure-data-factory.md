@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049376"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449615"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Jak połączyć Azure Data Factory i usługę Azure kontrolą
 
@@ -123,12 +123,12 @@ Integracja między Data Factory i kontrolą obsługuje tylko podzestaw systemów
 | Azure SQL Database \* | Tak | 
 | Wystąpienie zarządzane Azure SQL \* | Tak | 
 | Analiza usługi Azure Synapse \* | Tak | 
-| Table Storage platformy Azure \* | Tak |
-| SQL Server \* | Tak | 
+| Azure Table Storage | Tak |
 | Amazon S3 | Tak | 
 | Ładowana \* | Tak | 
 | SAP ECC \* | Tak |
-| Tabela SAP \* | Tak |
+| Tabela SAP | Tak |
+| SQL Server \* | Tak | 
 | Teradata \* | Tak |
 
 *\* Usługa Azure kontrolą obecnie nie obsługuje zapytania ani procedury składowanej dla elementu powiązanego lub skanowania. Elementy powiązane są ograniczone tylko do źródeł tabel i widoków.*
@@ -144,6 +144,7 @@ Obecnie użycie następujących funkcji działania kopiowania nie jest jeszcze o
 - Kopiowanie danych do usługi Azure Synapse Analytics przy użyciu instrukcji Base lub COPY.
 - Ustawienie kompresji dla plików binarnych, rozdzielanych tekstem, programu Excel, JSON i XML.
 - Opcje partycji źródłowej dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, usługi Azure Synapse Analytics, SQL Server i tabeli SAP.
+- Opcja odnajdywania partycji źródłowej dla magazynów opartych na plikach.
 - Kopiuj dane do ujścia opartego na plikach z ustawieniem Maksymalna liczba wierszy na plik.
 - Dodaj dodatkowe kolumny podczas kopiowania.
 

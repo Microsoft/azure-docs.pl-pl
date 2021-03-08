@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/24/2021
 ms.author: alexeyo
-ms.openlocfilehash: f5566276f4555e2480434e385bf2129f5b8cdd24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f6c7ec3f66d0ab9186645654adf3c062c241e5d0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699984"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449853"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -30,7 +30,9 @@ W tabelach poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowy
 
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
 |--|--|--|
-| **Limit liczby żądań współbieżnych (modele podstawowe i niestandardowe)** | 1 | 20 (wartość domyślna) |
+| **Limit liczby żądań współbieżnych — model podstawowy** | 1 | 100 (wartość domyślna) |
+| Wraz | Nr<sup>2</sup> | Tak<sup>2</sup> |
+| **Limit współbieżnych żądań — model niestandardowy** | 1 | 20 (wartość domyślna) |
 | Wraz | Nr<sup>2</sup> | Tak<sup>2</sup> |
 
 #### <a name="batch-transcription"></a>Transkrypcja partii

@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Konfigurowanie i włączanie modułu zabezpieczeń dla usługi Azure RTO'
-description: Dowiedz się, jak dołączyć i włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub platformie Azure.
+description: W tym przewodniku szybki start dowiesz się, jak dołączyć i włączyć moduł zabezpieczeń dla usługi Azure RTO na IoT Hub platformie Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: e8e9eae576c330f17cd33d027152d463fe19a82b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123897"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447303"
 ---
 # <a name="quickstart-security-module-for-azure-rtos"></a>Szybki Start: moduł zabezpieczeń dla usługi Azure RTO 
 

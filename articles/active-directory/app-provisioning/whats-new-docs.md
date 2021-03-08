@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory aprowizacji aplikacji
 description: Nowa i zaktualizowana dokumentacja dotycząca aprowizacji Azure Active Directory aplikacji.
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256005"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453686"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory aprowizacji aplikacji: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej udostępniania aplikacji Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze aprowizacji, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Luty 2021 r.
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Jak Azure Active Directory aprowizacji integruje się z dniem roboczym](workday-integration-reference.md)
+- [Samouczek — Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md)
+- [Co to jest zautomatyzowana obsługa użytkowników aplikacji SaaS w usłudze Azure AD?](user-provisioning.md)
+- [Samouczek: opracowywanie przykładowego punktu końcowego Standard scim](use-scim-to-build-users-and-groups-endpoints.md)
+- [Samouczek: opracowywanie i planowanie aprowizacji dla punktu końcowego Standard scim](use-scim-to-provision-users-and-groups.md)
+- [Jak działa aprowizacja](how-provisioning-works.md)
 
 ## <a name="january-2021"></a>Styczeń 2021 r.
 

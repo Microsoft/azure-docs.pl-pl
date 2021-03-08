@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cb5e99558d6bf1a5baa21d05d45415855c61cb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7714b090399b0b184e2e216ff6da7b10f2bf4386
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101746697"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452275"
 ---
 # <a name="webjobs-run-background-tasks-in-azure-app-service"></a>Zadania WebJob uruchamiają zadania w tle w Azure App Service
 
@@ -60,4 +60,4 @@ Obsługiwane są następujące typy plików:
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się [, jak utworzyć zadanie WebJob](./webjobs-create-ieux.md)
-* Wyświetl historię dziennika zadań WebJob] (./WebJobs-Create-ieux-View-log.MD)
+* Wyświetl historię dzienników [zadań WebJob](./webjobs-create-ieux-view-log.md)

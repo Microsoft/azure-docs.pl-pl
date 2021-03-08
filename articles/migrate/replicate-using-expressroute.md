@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098846"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448832"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replikowanie danych przez ExpressRoute z Azure Migrate: Migracja serwera
 
@@ -57,7 +57,7 @@ Użytkownik platformy Azure tworzący prywatny punkt końcowy powinien mieć nas
 |Dołącz prywatny punkt końcowy do sieci wirtualnej/podsieci.<br/>Jest to wymagane w sieci wirtualnej, w której zostanie utworzony prywatny punkt końcowy.| Microsoft. Network/virtualNetworks/Subnet/Join/Action Microsoft. Network/virtualNetworks/Join/Action
 |Połącz prywatny punkt końcowy z kontem magazynu. <br/>| Microsoft. Microsoft. Storage/storageAccounts/privateEndpointConnectionApproval/Action <br/> Microsoft. Microsoft. Storage/storageAccounts/privateEndpointConnections/Read
 |Utwórz interfejs sieciowy i dołącz go do sieciowej grupy zabezpieczeń. | Microsoft. Network/networkInterfaces/odczyt <br/> Microsoft. Network/networkInterfaces/podsieci/zapis <br/> Microsoft. Network/networkInterfaces/podsieci/odczyt<br/> Microsoft. Network/networkSecurityGroups/Join/Action (opcjonalnie)
-Tworzenie prywatnych stref DNS i zarządzanie nimi.| Rola współautora strefy Prywatna strefa DNS <br/> _Oraz_ <br/> Microsoft. Network/privateDnsZones/A/* <br/>  Microsoft. Network/privateDnsZones/Write Microsoft. Network/privateDnsZones/Read <br/> Microsoft. Network/privateEndpoints/privateDnsZoneGroups/Write <br/> Microsoft. Network/privateEndpoints/privateDnsZoneGroups/odczyt <br/> Microsoft. Network/privateDnsZones/virtualNetworkLinks/Write <br/>  Microsoft. Network/privateDnsZones/virtualNetworkLinks/odczyt <br/> Microsoft. Network/virtualNetworks/Join/Action 
+Tworzenie prywatnych stref DNS i zarządzanie nimi.| Rola współautora strefy Prywatna strefa DNS <br/> _Lub_ <br/> Microsoft. Network/privateDnsZones/A/* <br/>  Microsoft. Network/privateDnsZones/Write Microsoft. Network/privateDnsZones/Read <br/> Microsoft. Network/privateEndpoints/privateDnsZoneGroups/Write <br/> Microsoft. Network/privateEndpoints/privateDnsZoneGroups/odczyt <br/> Microsoft. Network/privateDnsZones/virtualNetworkLinks/Write <br/>  Microsoft. Network/privateDnsZones/virtualNetworkLinks/odczyt <br/> Microsoft. Network/virtualNetworks/Join/Action 
 
 ### <a name="2-identify-the-cache-storage-account"></a>2. Zidentyfikuj konto magazynu pamięci podręcznej 
  
@@ -72,6 +72,7 @@ Aby utworzyć i zlokalizować konto magazynu:
 ![Widok grupy zasobów](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > Jeśli masz więcej niż jedno konto magazynu z prefiksem **"LSA"** w grupie zasobów, możesz sprawdzić konto magazynu, przechodząc do menu Ustawienia replikacji i konfiguracja docelowa dla dowolnej z replikowanych maszyn wirtualnych w projekcie. <br/> 
 > ![Przegląd ustawień replikacji](./media/replicate-using-expressroute/storage-account.png)
 
@@ -125,8 +126,9 @@ Jeśli nie wybrano opcji integracji z prywatną strefą DNS w momencie tworzenia
 
     ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.  Na stronie **strefy prywatna strefa DNS** wybierz przycisk **+ Dodaj** , aby rozpocząć tworzenie nowej strefy.  
-    b.  Na stronie **Tworzenie prywatnego strefy DNS** wprowadź wymagane szczegóły. Wprowadź nazwę prywatnej strefy DNS jako _privatelink_. blob.Core.Windows.NET. c. Przejdź do karty **Recenzja + tworzenie** , aby przejrzeć i utworzyć strefę DNS.
+    a. Na stronie **strefy prywatna strefa DNS** wybierz przycisk **+ Dodaj** , aby rozpocząć tworzenie nowej strefy.  
+    b. Na stronie **Tworzenie prywatnego strefy DNS** wprowadź wymagane szczegóły. Wprowadź nazwę prywatnej strefy DNS jako _privatelink_. blob.Core.Windows.NET.  
+    c. Przejdź do karty **Recenzja + tworzenie** , aby przejrzeć i utworzyć strefę DNS.   
 
 2. Połącz prywatną strefę DNS z siecią wirtualną.  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787268"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452377"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linia bazowa zabezpieczeń Azure dla Azure Stack Edge
 
@@ -308,7 +308,7 @@ Należy pamiętać, że do uzyskania wglądu w obciążenia i usługi mogą być
 
 **Wskazówki**: można wprowadzić własne aplikacje do uruchamiania na wszystkich lokalnie utworzonych maszynach wirtualnych. Użyj skryptów programu PowerShell do tworzenia lokalnych maszyn wirtualnych obliczeniowych na urządzeniu brzegowym stosu. Zdecydowanie zalecamy, aby można było uruchamiać tylko zaufane aplikacje na lokalnych maszynach wirtualnych. 
 
-- [Jak kontrolować wykonywanie skryptu programu PowerShell w środowisku systemu Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [Jak kontrolować wykonywanie skryptu programu PowerShell w środowisku systemu Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Monitorowanie usługi Azure Security Center**: Nie dotyczy
 

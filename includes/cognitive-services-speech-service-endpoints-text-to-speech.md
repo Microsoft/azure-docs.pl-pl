@@ -4,42 +4,56 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 6b16dea3c4f9241133b91b092c90c9056da57de0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515064"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455700"
 ---
 ### <a name="standard-and-neural-voices"></a>Głosy standardowe i neuronowych
 
-Użyj tej tabeli, aby określić dostępność standardowych i neuronowych głosów według regionu/punktu końcowego:
+Użyj tej tabeli, aby określić **dostępność standardowych głosów** według regionu/punktu końcowego:
 
-| Region (Region) | Punkt końcowy | Głosy neuronowych | Głosy standardowe |
-|--------|----------|-----------------|---------------|
-| Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Francja Środkowa | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Japonia Wschodnia | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Japonia Zachodnia | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Korea Środkowa | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Północno-środkowe stany USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Europa Północna | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
-| Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Nie | Tak |
-| Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Tak | Tak |
+| Region (Region) | Punkt końcowy |
+|--------|----------|
+| Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Brazylia Południowa | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Azja Wschodnia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Wschodnie stany USA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Francja Środkowa | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Japonia Wschodnia | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Japonia Zachodnia | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Korea Środkowa | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Północno-środkowe stany USA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Europa Północna | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Zachodnie stany USA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [Głosy w wersji zapoznawczej](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) są dostępne tylko w tych 3 regionach: Wschodnie stany USA, Europa Zachodnia i Azja Południowo-Wschodnia.
+
+Użyj tej tabeli, aby określić **dostępność odgłosów neuronowych** według regionu/punktu końcowego:
+
+| Region (Region) | Punkt końcowy |
+|--------|----------|
+| Australia Wschodnia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
+| Kanada Środkowa | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Indie Środkowe | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Południowe Zjednoczone Królestwo | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Zachodnie stany USA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### <a name="custom-voices"></a>Głosy niestandardowe
 

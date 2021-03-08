@@ -3,12 +3,12 @@ title: Użyj Azure Lab Services dla hackathon
 description: W tym artykule opisano, jak używać Azure Lab Services do tworzenia laboratoriów, których można użyć do uruchamiania imprezy rozpoczynają.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a0917ede4502dcbb59d1a30b7985b06c06975599
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d4648def48557d70547ef7d41d6c3e516671849e
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602584"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452734"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Użyj Azure Lab Services dla następnej hackathon
 Azure Lab Services zaprojektowano jako uproszczone i łatwe w użyciu, dzięki czemu możesz szybko uruchomić nowe laboratorium maszyn wirtualnych dla hackathon.  Użyj poniższej listy kontrolnej, aby upewnić się, że hackathon jest tak płynnie, jak to możliwe. Ta lista kontrolna powinna zostać wykonana przez dział IT lub wykładowców odpowiedzialnych za tworzenie i zarządzanie laboratorium hackathon. 
@@ -83,7 +83,7 @@ W tej sekcji opisano kroki, które należy wykonać, aby zakończyć dzień Twoj
     - Poświadczenia, które powinny być używane do nawiązywania połączenia z maszyną. Ten krok ma zastosowanie tylko wtedy, gdy laboratorium używa obrazu z systemem Windows i skonfigurowano wszystkie maszyny wirtualne do używania tego samego hasła.
     - Instrukcje dotyczące sposobu, w jaki uczestnicy SSH and\or RDP z maszynami.
 
-        Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [wysyłania zaproszeń do użytkowników](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) i [łączenia się z maszynami wirtualnymi z systemem Linux](how-to-use-remote-desktop-linux-student.md?branch=master). 
+        Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [wysyłania zaproszeń do użytkowników](how-to-configure-student-usage.md#send-invitations-to-users) i [łączenia się z maszynami wirtualnymi z systemem Linux](how-to-use-remote-desktop-linux-student.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 Rozpocznij od utworzenia konta laboratorium w laboratoriach, wykonując instrukcje zawarte w artykule: [Samouczek: Konfigurowanie konta laboratorium przy użyciu Azure Lab Services](tutorial-setup-lab-account.md).

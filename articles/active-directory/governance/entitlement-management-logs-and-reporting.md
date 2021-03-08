@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577870"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453040"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiwizuj dzienniki i raporty dotyczące zarządzania prawami usługi Azure AD w Azure Monitor
 
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Możesz ponownie uwierzytelnić i skojarzyć sesję programu PowerShell z tą subskrypcją za pomocą polecenia, takiego jak `Connect-AzAccount –Subscription $subs[0].id` . Aby dowiedzieć się więcej o sposobie uwierzytelniania na platformie Azure za pomocą programu PowerShell, w tym nieinteraktywnie, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+Możesz ponownie uwierzytelnić i skojarzyć sesję programu PowerShell z tą subskrypcją za pomocą polecenia, takiego jak `Connect-AzAccount –Subscription $subs[0].id` . Aby dowiedzieć się więcej o sposobie uwierzytelniania na platformie Azure za pomocą programu PowerShell, w tym nieinteraktywnie, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Jeśli masz wiele obszarów roboczych Log Analytics w tej subskrypcji, polecenie cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) zwraca listę obszarów roboczych. Następnie można znaleźć taki, który zawiera dzienniki usługi Azure AD. `CustomerId`Pole zwrócone przez to polecenie cmdlet jest takie samo jak wartość "identyfikator obszaru roboczego" wyświetlaną w Azure Portal w obszarze roboczym log Analytics Omówienie.
  

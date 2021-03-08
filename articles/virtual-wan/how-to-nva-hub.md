@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f02edf8e192f4d32f8bd2583d46bbb17c86d2049
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258069"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454808"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Jak utworzyć sieciowe urządzenie wirtualne w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
@@ -22,6 +22,8 @@ W tym artykule pokazano, jak używać wirtualnej sieci WAN do łączenia się z 
 Kroki opisane w tym artykule ułatwiają tworzenie wirtualnego urządzenia sieciowego **Barracuda CLOUDGEN WAN** w koncentratorze sieci WAN. Aby wykonać to ćwiczenie, musisz mieć urządzenie lokalne w chmurze Barracuda (CPE) i licencję na urządzenie sieci WAN CloudGen Barracuda, które zostało wdrożone w centrum przed rozpoczęciem.
 
 Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w ramach wirtualnej sieci WAN platformy Azure — zobacz [Cisco Cloud Onpochylni dla chmury wielochmurowej](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
+
+Aby zapoznać się z dokumentacją dotyczącą wdrażania oprogramowania **VMware SD-WAN** w ramach wirtualnej sieci WAN platformy Azure — zobacz [Przewodnik wdrażania oprogramowania VMware SD-WAN w wirtualnym koncentratorze sieci WAN](https://kb.vmware.com/s/article/82746) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
