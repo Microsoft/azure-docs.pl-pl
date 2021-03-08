@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c693c9e972cdfc66cce0d52323c113b6006bd97
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999352"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445005"
 ---
 Wprowadzenie do rozpoznawania twarzy przy użyciu biblioteki klienta twarzy dla języka go. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -31,8 +31,8 @@ Korzystanie z biblioteki klienta usługi Front Service dla języka go:
 
 * Najnowsza wersja języka [go](https://golang.org/dl/)
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API rozpoznawania twarzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z Face API. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 * Po otrzymaniu klucza i punktu końcowego [Utwórz zmienne środowiskowe](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, `FACE_SUBSCRIPTION_KEY` odpowiednio nazwane i `FACE_ENDPOINT` .
 
@@ -195,7 +195,7 @@ Po przypisaniu twarzy nauczysz się, że ta **osoba** będzie mogła identyfikow
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
 > [!TIP]
-> Interfejs API rozpoznawania twarzy jest uruchamiany na zestawie wstępnie skompilowanych modeli, które są statyczne według natury (wydajność modelu nie będzie przechodząca ani ulepszana, gdy usługa jest uruchamiana). Wyniki generowane przez model mogą ulec zmianie, jeśli firma Microsoft zaktualizuje zaplecze modelu bez migracji do zupełnie nowej wersji modelu. Aby skorzystać z nowszej wersji modelu, możesz ponownie przeprowadzić uczenie swojej **osoby**, określając nowszy model jako parametr z tymi samymi obrazami rejestracji.
+> Face API jest uruchamiany na zestawie wstępnie skompilowanych modeli, które są statyczne według natury (wydajność modelu nie będzie przechodząca ani ulepszana, gdy usługa jest uruchamiana). Wyniki generowane przez model mogą ulec zmianie, jeśli firma Microsoft zaktualizuje zaplecze modelu bez migracji do zupełnie nowej wersji modelu. Aby skorzystać z nowszej wersji modelu, możesz ponownie przeprowadzić uczenie swojej **osoby**, określając nowszy model jako parametr z tymi samymi obrazami rejestracji.
 
 ## <a name="identify-a-face"></a>Identyfikowanie kroju
 
@@ -275,7 +275,7 @@ Jeśli w tym przewodniku szybki start utworzono **osobę** , która ma zostać u
 W tym przewodniku szybki start pokazano, jak używać biblioteki klienta twarzy do wykonywania zadań rozpoznawania twarzy. Następnie zapoznaj się z dokumentacją referencyjną, aby dowiedzieć się więcej o bibliotece.
 
 > [!div class="nextstepaction"]
-> [Odwołanie interfejs API rozpoznawania twarzy (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
+> [Odwołanie Face API (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
 
 * [Co to jest usługa rozpoznawania twarzy?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/FaceQuickstart.go).

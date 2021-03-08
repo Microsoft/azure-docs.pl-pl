@@ -9,17 +9,17 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c3269d771c43e6233459b9c194c1bab4f3602728
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231484"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444874"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-* Gdy masz subskrypcję platformy Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Utwórz zasób klasyfikatora metryk "  target="_blank"> Utwórz zasób klasyfikatora metryk <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby wdrożyć wystąpienie usługi Advisor metryk.  
+* Gdy masz subskrypcję platformy Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title=" Utwórz zasób klasyfikatora metryk "  target="_blank"> Utwórz zasób klasyfikatora metryk </a> w Azure Portal, aby wdrożyć wystąpienie usługi Advisor metryk.  
 * Bieżąca wersja programu [zwinięcie](https://curl.haxx.se/). W tym artykule opisano kilka przełączników wiersza polecenia, które zostały zanotowane w [dokumentacji](https://curl.haxx.se/docs/manpage.html)programu.
     * Poniższe przykłady BASH używają `\` znaku kontynuacji wiersza. Jeśli konsola lub terminal używa innego znaku kontynuacji wiersza, użyj tego znaku.
 

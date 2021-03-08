@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2020
 ms.author: mbullwin
-ms.openlocfilehash: a75962105a7640f4a3c73df80f5ba516565c7076
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a7579bb53f82dfdfe82c4eba64d2c6984152c875
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705045"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102444255"
 ---
 W tym przewodniku szybki start dowiesz się, jak wykrywać anomalie w partii danych szeregów czasowych przy użyciu usługi wykrywania anomalii i jej zwinięcia.
 
@@ -18,7 +18,7 @@ Aby zapoznać się ze szczegółami dotyczącymi wykrywania anomalii, zobacz art
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
-- Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na wdrożenie i wybierz przycisk **Przejdź do zasobu** .
+- Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Zaczekaj na wdrożenie i wybierz przycisk **Przejdź do zasobu** .
     - Wymagany jest klucz i adres punktu końcowego z zasobu, który został utworzony w celu użycia interfejsu API REST. 
     Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 

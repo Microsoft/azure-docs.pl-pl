@@ -112,7 +112,7 @@
           href: exempt-resource.md
         - name: Tworzenie niestandardowych inicjatyw i zasad zabezpieczeń
           href: custom-security-policies.md
-    - name: Ochrona maszyn przy użyciu usługi Defender dla serwerów
+    - name: Ochrona maszyn
       displayName: 'hybrid, arc, Azure Defender for machines'
       items:
         - name: Omówienie usługi Azure Defender dla serwerów

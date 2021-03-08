@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ca6ef57db062ff22b20a8e968eaac39388b9551f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 70287a837b17268f2cddebfb2cf3344a8fe66ffe
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750950"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102445591"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -66,17 +66,27 @@ Dowiedz się więcej o [tokenach dostępu użytkowników](../../access-tokens.md
 
 Ten przewodnik Szybki Start nie obejmuje tworzenia warstwy usług w celu zarządzania tokenami dla aplikacji czatu, chociaż jest to zalecane. Dowiedz się więcej o [architekturze rozmowy](../../../concepts/chat/concepts.md)
 
+Skopiuj następujące fragmenty kodu i wklej je do pliku źródłowego: **program.cs**
 ```csharp
 using Azure.Communication.Identity;
 using Azure.Communication.Chat;
 using Azure;
-using Azure.Communication
+using Azure.Communication;
 
-// Your unique Azure Communication service endpoint
-Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+namespace ChatQuickstart
+{
+    class Program
+    {
+        static async System.Threading.Tasks.Task Main(string[] args)
+        {
+            // Your unique Azure Communication service endpoint
+            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+            CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+            ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+        }
+    }
+}
 ```
 
 ## <a name="start-a-chat-thread"></a>Rozpocznij wątek rozmowy
