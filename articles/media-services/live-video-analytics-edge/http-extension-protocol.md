@@ -3,16 +3,16 @@ title: Protokół HTTP Extension — Azure
 description: Ten artykuł zawiera informacje na temat używania protokołu HTTP Extension do wysyłania komunikatów między modułami analizy wideo na żywo a modułem AI lub OKS.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: c3a9b5b70467479fdb9b1473a1f6738eaa8a7e1b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399149"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455894"
 ---
 # <a name="http-extension-protocol"></a>Protokół rozszerzenia HTTP
 
-Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą [węzła rozszerzenia grafu](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Jeśli używasz procesora rozszerzenia HTTP jako węzła rozszerzenia, komunikacja między modułem analizy wideo na żywo a modułem AI lub OKS jest za pośrednictwem protokołu HTTP
+Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą [węzła rozszerzenia grafu](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Jeśli używasz procesora rozszerzenia HTTP jako węzła rozszerzenia, komunikacja między modułem analizy wideo na żywo a modułem AI lub OKS jest za pośrednictwem protokołu HTTP
 
 Ten artykuł zawiera informacje na temat używania protokołu HTTP Extension do wysyłania komunikatów między modułami analizy wideo na żywo a modułem AI lub OKS. 
 
@@ -87,11 +87,11 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustanowionym schematem zdefiniowanym zgodnie z [modelem obiektu schematu metadanych wnioskowania](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
+Zdecydowanie zaleca się, aby odpowiedzi są zwracane przy użyciu prawidłowych dokumentów JSON, zgodnie ze wstępnie ustanowionym schematem zdefiniowanym zgodnie z [modelem obiektu schematu metadanych wnioskowania](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). Pozwoli to lepiej zapewnić współdziałanie z innymi składnikami i możliwymi przyszłymi możliwościami dodanymi do modułu analizy wideo na żywo.
 
 Jeśli moduł zwróci odpowiedź, gdy typem zawartości nie jest "Application/JSON", analiza wideo na żywo będzie kodować komunikat jako podstawową zawartość 64 i serializować go jako nieprzezroczysty ładunek JSON.
 
-Jeśli moduł zwróci odpowiedź z typem zawartości jako "Application/JSON", ale schemat JSON nie postępuje zgodnie ze schematem metadanych wnioskowania opisanym poniżej, ładunek wiadomości zostanie przekazany przez potok, ale współdziałanie zostanie zredukowane. Zapoznaj się z [tym](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update) artykułem, aby zapoznać się ze szczegółowymi informacjami dotyczącymi schematu metadanych wnioskowania.
+Jeśli moduł zwróci odpowiedź z typem zawartości jako "Application/JSON", ale schemat JSON nie postępuje zgodnie ze schematem metadanych wnioskowania opisanym poniżej, ładunek wiadomości zostanie przekazany przez potok, ale współdziałanie zostanie zredukowane. Zapoznaj się z [tym](/azure/media-services/live-video-analytics-edge/inference-metadata-schema) artykułem, aby zapoznać się ze szczegółowymi informacjami dotyczącymi schematu metadanych wnioskowania.
 
 > [!NOTE]
 > Jeśli moduł nie wygenerował żadnego wyniku, powinien zwrócić kod stanu HTTP 204 (brak zawartości) z pustą treścią odpowiedzi. Analiza filmów wideo na żywo będzie zrozumieć ten element jako pusty wynik i nie spowoduje przekazanie zdarzenia w toku.
