@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108675"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448648"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -148,13 +148,13 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **ver_sent** | Kod weryfikacyjny został wysłany do: |
-| **ver_but_default** | Domyślny |
+| **ver_but_default** | Domyślne |
 | **cancel_message** | Użytkownik anulował wprowadzanie niepotwierdzonych informacji |
 | **preloader_alt** | Czekaj |
 | **ver_but_send** | Wyślij kod weryfikacyjny |
 | **alert_yes** | Tak |
 | **error_fieldIncorrect** | Co najmniej jedno pole jest wypełniane nieprawidłowo. Sprawdź swoje wpisy i spróbuj ponownie. |
-| **czteroletniego** | Rok |
+| **czteroletniego** | Year (Rok) |
 | **verifying_blurb** | Zaczekaj na przetworzenie informacji. |
 | **button_cancel** | Anuluj |
 | **ver_fail_no_retry** | Wykonano zbyt wiele nieudanych prób. Spróbuj ponownie później. |
@@ -357,7 +357,7 @@ Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacyjnej](d
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 |intro_msg| Konieczna jest weryfikacja. Kliknij przycisk Wyślij.|
-|success_send_code_msg | Kod weryfikacyjny został wysłany do Twojej skrzynki odbiorczej. Skopiuj ją do poniższego pola wejściowego.|
+|success_send_code_msg | Kod weryfikacyjny został wysłany. Skopiuj ją do poniższego pola wejściowego.|
 |failure_send_code_msg | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie.|
 |success_verify_code_msg | Zweryfikowano adres E-mail. Teraz można kontynuować.|
 |failure_verify_code_msg | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Spróbuj ponownie.|

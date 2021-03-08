@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a43551adf8dbe1a03ac7f7b22d58d63aa8c2c503
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952678"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448425"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konta w usłudze Facebook przy użyciu Azure Active Directory B2C
 
@@ -79,7 +79,11 @@ Aby włączyć Logowanie użytkowników przy użyciu konta w serwisie Facebook w
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
 1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
+1. Wybierz przycisk **Uruchom przepływ użytkownika** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **Facebook** , aby zalogować się przy użyciu konta w serwisie Facebook.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
+
 
 ::: zone-end
 
@@ -118,7 +122,10 @@ Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez 
 1. Przekaż plik *TrustFrameworkExtensions.xml* do dzierżawy.
 1. W obszarze **zasady niestandardowe** wybierz pozycję **B2C_1A_signup_signin**.
 1. W obszarze **Wybierz aplikację** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Wybierz pozycję **Uruchom teraz** i wybierz pozycję Facebook, aby zalogować się za pomocą usługi Facebook i przetestować zasady niestandardowe.
+1. Wybierz przycisk **Uruchom teraz** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **Facebook** , aby zalogować się przy użyciu konta w serwisie Facebook.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end
 

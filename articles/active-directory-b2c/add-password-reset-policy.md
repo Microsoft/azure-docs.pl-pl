@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171658"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447932"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Konfigurowanie przepływu resetowania hasła w Azure Active Directory B2C
 
@@ -203,6 +203,24 @@ W trakcie podróży użytkownika można reprezentować niezapomniane podjazdę h
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Dodaj następujący krok aranżacji między bieżącym krokiem i następnym krokiem. Nowy krok aranżacji, który zostanie dodany, sprawdza, czy `isForgotPassword` istnieje takie stwierdzenie. Jeśli takie stwierdzenie istnieje, wywołuje [podjazdę resetowania hasła](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. Po dodaniu nowego kroku aranżacji ponownie przystąpi kolejne kroki bez pomijania wartości całkowitych z zakresu od 1 do N.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Ustawianie przebiegu użytkownika do wykonania
 
@@ -262,7 +280,7 @@ Na poniższym diagramie:
 1. Użytkownik wybierze link "nie **pamiętasz hasła?** ". Azure AD B2C zwraca do aplikacji kod błędu AADB2C90118.
 1. Aplikacja obsługuje kod błędu i Inicjuje nowe żądanie autoryzacji. Żądanie autoryzacji określa nazwę zasad resetowania hasła, na przykład **B2C_1_pwd_reset**.
 
-![Przepływ resetowania hasła](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Przepływ użytkownika resetowania starszego hasła](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 Aby zobaczyć przykład, zapoznaj się z [prostym](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)przykładem ASP.NET, który pokazuje łączenie przepływów użytkowników.
 

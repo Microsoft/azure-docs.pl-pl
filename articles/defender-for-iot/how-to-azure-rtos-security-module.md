@@ -4,44 +4,57 @@ description: Dowiedz się więcej o konfigurowaniu i dostosowywaniu modułu zabe
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: fb2b7810c0829859f4a104c62b6df2ca0495bac7
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 03/07/2021
+ms.author: shhazam
+ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809205"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449819"
 ---
-# <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Konfigurowanie i dostosowywanie modułu zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Konfigurowanie i dostosowywanie usługi Defender-IoT-Micro-Agent for Azure RTO GA
+
+W tym artykule opisano sposób konfigurowania usługi Defender-IoT-Micro-Agent dla urządzenia z systemem Azure RTO w celu spełnienia wymagań dotyczących sieci, przepustowości i pamięci.
+
+Musisz wybrać docelowy plik dystrybucji `*.dist` z rozszerzeniem z `netxduo/addons/azure_iot/azure_iot_security_module/configs` katalogu.  
+
+W przypadku korzystania ze środowiska kompilacji CMake należy ustawić parametr wiersza polecenia na `IOT_SECURITY_MODULE_DIST_TARGET` dla wybranej wartości. Na przykład `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`.
+
+W IAR lub innym środowisku kompilacji innym niż CMake, należy dodać `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` ścieżkę do wszystkich znanych ścieżek uwzględnionych. Na przykład `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`.
 
 Użyj poniższego pliku, aby skonfigurować zachowanie urządzenia.
 
-## <a name="azure_iot_security_moduleincasc_porth"></a>azure_iot_security_module/Inc/asc_port. h
+**netxduo/Dodatki/azure_iot/azure_iot_security_module/Inc/configs/ \<target distribution> /asc_config. h**
 
- Domyślne zachowanie każdej konfiguracji podano w następujących tabelach: 
+W środowisku kompilacji CMake należy zmienić konfigurację domyślną, edytując `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` plik. Użyj następującego formatu CMake `set(ASC_XXX ON)` lub poniższego pliku `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` dla wszystkich innych środowisk. Na przykład `#define ASC_XXX`.
 
-### <a name="general"></a>Ogólne
+Domyślne zachowanie każdej konfiguracji podano w następujących tabelach: 
 
-| Nazwa | Typ | Domyślne | Szczegóły |
-| - | - | - | - |
-| ASC_SECURITY_MODULE_ID | Ciąg | --- | Unikatowy identyfikator urządzenia  |
-| ASC_SECURITY_MODULE_PENDING_TIME  | Liczba | 300 | Czas oczekiwania modułu zabezpieczeń (w sekundach). Jeśli czas przekroczy zmianę stanu na wstrzymanie. |
-
-#### <a name="collection"></a>Kolekcja
+## <a name="general"></a>Ogólne
 
 | Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
-| ASC_HIGH_PRIORITY_INTERVAL | Liczba | 10 | Interwał grupy modułów zbierających o wysokim priorytecie (w sekundach). |
-| ASC_MEDIUM_PRIORITY_INTERVAL | Liczba | 30 | Zakres modułów zbierających średni priorytet grupy (w sekundach). |
-| ASC_LOW_PRIORITY_INTERVAL | Liczba | 145 440  | Interwał grupy modułów zbierających niski priorytet (w sekundach). |
+| ASC_SECURITY_MODULE_ID | Ciąg | Defender-IoT-Micro-Agent | Unikatowy identyfikator urządzenia.  |
+| SECURITY_MODULE_VERSION_ (GŁÓWNY) (POMOCNICZY) (POPRAWKA)  | Liczba | 3.2.1 | Wersja. |
+| ASC_SECURITY_MODULE_SEND_MESSAGE_RETRY_TIME  | Liczba  | 3 | Czas, przez jaki usługa Defender-IoT-Micro-agent będzie wysyłać komunikat zabezpieczeń po awarii. (w sekundach) |
+| ASC_SECURITY_MODULE_PENDING_TIME  | Liczba | 300 | Czas oczekiwania na usługę Defender-IoT-Micro-Agent (w sekundach). Jeśli czas zostanie przekroczony, stan zmieni się na wstrzymanie. |
+
+## <a name="collection"></a>Kolekcja
+
+| Nazwa | Typ | Domyślne | Szczegóły |
+| - | - | - | - |
+| ASC_FIRST_COLLECTION_INTERVAL | Liczba  | 30  | Przesunięcie interwału kolekcji początkowej modułu zbierającego. Podczas uruchamiania wartość zostanie dodana do kolekcji systemu w celu uniknięcia jednoczesnego wysyłania komunikatów z wielu urządzeń.  |
+| ASC_HIGH_PRIORITY_INTERVAL | Liczba | 10 | Interwał grupy wysokiego priorytetu modułu zbierającego (w sekundach). |
+| ASC_MEDIUM_PRIORITY_INTERVAL | Liczba | 30 | Interwał grupy średnich priorytetów modułu zbierającego (w sekundach). |
+| ASC_LOW_PRIORITY_INTERVAL | Liczba | 145 440  | Interwał grupy o niskim priorytecie modułu zbierającego (w sekundach). |
 
 #### <a name="collector-network-activity"></a>Aktywność sieci modułu zbierającego
 
@@ -49,34 +62,32 @@ Aby dostosować konfigurację działania sieci modułu zbierającego, użyj nast
 
 | Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | fałsz | Filtrowanie `TCP` aktywności sieciowej |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | fałsz | Filtruj `UDP` zdarzenia aktywności sieciowej |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | fałsz | Filtruj `ICMP` zdarzenia aktywności sieciowej |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Wartość logiczna | true | Przechwyć tylko pakiety przychodzące emisji pojedynczej, gdy ustawione na FAŁSZ przechwytywanie również emitują i multiemisję |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Liczba | 64 | Maksymalna liczba zdarzeń sieciowych IPv4 do przechowywania w pamięci |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Liczba | 64  | Maksymalna liczba zdarzeń sieciowych IPv6 do przechowywania w pamięci |
-
-
-## <a name="compile-flags"></a>Kompiluj flagi
-Flagi kompilacji umożliwiają przesłonięcie wstępnie zdefiniowanych konfiguracji.
+| ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | fałsz | Filtruje `TCP` aktywność sieci. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | fałsz | Filtruje `UDP` zdarzenia działania sieci. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | fałsz | Filtruje `ICMP` zdarzenia działania sieci. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Wartość logiczna | true | Przechwytuje tylko pakiety przychodzące emisji pojedynczej. Ustawienie wartości false spowoduje również przechwycenie emisji i multiemisji. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_SEND_EMPTY_EVENTS  | Boolean  | fałsz  | Wysyła puste zdarzenia modułu zbierającego. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Liczba | 64 | Maksymalna liczba zdarzeń sieciowych IPv4 do przechowywania w pamięci. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Liczba | 64  | Maksymalna liczba zdarzeń sieciowych IPv6 do przechowywania w pamięci. |
 
 ### <a name="collectors"></a>Moduły zbierające
 | Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
-| collector_heartbeat_enabled | Wartość logiczna | ON | Włączanie modułu zbierającego pulsu |
-| collector_network_activity_enabled | Wartość logiczna | ON | Włączanie modułu zbierającego działania sieciowe |
-| collector_system_information_enabled | Wartość logiczna | ON | Włączanie modułu zbierającego informacje o systemie |
+| ASC_COLLECTOR_HEARTBEAT_ENABLED | Wartość logiczna | ON | Włącza moduł zbierający puls. |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_ENABLED  | Wartość logiczna | ON | Włącza moduł zbierający działania sieciowe. |
+| ASC_COLLECTOR_SYSTEM_INFORMATION_ENABLED | Wartość logiczna | ON | Włącza moduł zbierający informacje o systemie.  |
 
+Inne flagi konfiguracji są zaawansowane i mają Nieobsługiwane funkcje. Skontaktuj się z pomocą techniczną, aby to zmienić, lub aby uzyskać więcej informacji.
+ 
 ## <a name="supported-security-alerts-and-recommendations"></a>Obsługiwane alerty i zalecenia dotyczące zabezpieczeń
 
-Moduł zabezpieczeń usługi Azure RTO obsługuje określone alerty zabezpieczeń i zalecenia. Pamiętaj, aby [przejrzeć i dostosować odpowiednie wartości alertu i rekomendacji](concept-rtos-security-alerts-recommendations.md) dla usługi.
+Defender-IoT-Micro-Agent for Azure RTO obsługuje określone alerty zabezpieczeń i zalecenia. Pamiętaj, aby [przejrzeć i dostosować odpowiednie wartości alertu i rekomendacji](concept-rtos-security-alerts-recommendations.md) dla usługi.
 
 ## <a name="log-analytics-optional"></a>Log Analytics (opcjonalnie)
 
-Chociaż opcjonalne i niewymagane, Włączanie i Konfigurowanie Log Analytics może być przydatne, gdy chcesz dokładniej zbadać zdarzenia i działania urządzeń. Dowiedz się więcej na temat sposobu instalowania i używania [log Analytics z usługą Defender for IoT](how-to-security-data-access.md#log-analytics) , aby dowiedzieć się więcej. 
+Log Analytics można włączać i konfigurować w celu zbadania zdarzeń i działań związanych z urządzeniami. Dowiedz się więcej na temat sposobu instalacji i używania [log Analytics z usługą Defender for IoT](how-to-security-data-access.md#log-analytics) , aby dowiedzieć się więcej. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj i Dostosuj moduł zabezpieczeń dla [alertów zabezpieczeń i zaleceń](concept-rtos-security-alerts-recommendations.md) usługi Azure RTO
 - W razie potrzeby zapoznaj się z [modułem zabezpieczeń dla interfejsu API usługi Azure RTO](azure-rtos-security-module-api.md) .
-

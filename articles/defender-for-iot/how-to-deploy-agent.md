@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 89ecf26778433a3f075f76905183f3fe866cb5db
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339969"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447269"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Wybieranie i wdrażanie agenta zabezpieczeń na urządzeniu IoT
 
@@ -28,11 +28,9 @@ Aby dowiedzieć się więcej, zobacz [Architektura referencyjna agenta zabezpiec
 Agenci są opracowani jako projekty open source i są dostępne w dwóch wersjach: <br> [C](https://aka.ms/iot-security-github-c)i [C#](https://aka.ms/iot-security-github-cs).
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
-
-> [!div class="checklist"]
-> * Porównanie wersji agentów zabezpieczeń
-> * Odkryj obsługiwane platformy agentów
-> * Wybieranie odpowiedniego elementu agenta dla rozwiązania
+- Porównanie wersji agentów zabezpieczeń
+- Odkryj obsługiwane platformy agentów
+- Wybieranie odpowiedniego elementu agenta dla rozwiązania
 
 ## <a name="understand-security-agent-options"></a>Omówienie opcji agenta zabezpieczeń
 

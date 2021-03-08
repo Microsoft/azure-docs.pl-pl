@@ -1,5 +1,5 @@
 ---
-title: Dodawanie zasobów platformy Azure do rozwiązania IoT
+title: 'Szybki Start: Dodawanie zasobów platformy Azure do rozwiązania IoT'
 description: W tym przewodniku szybki start dowiesz się, jak skonfigurować kompleksowe rozwiązanie IoT przy użyciu usługi Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 8912e8d66ae0cc1b5dba80ee9aabb0fbd288e3c6
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809036"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449717"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Szybki Start: Konfigurowanie rozwiązania Azure Defender for IoT
 
 Ten artykuł zawiera wyjaśnienie, jak przeprowadzić początkową konfigurację rozwiązania do zabezpieczeń IoT przy użyciu usługi Defender dla IoT.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Brak
 
 ## <a name="what-is-defender-for-iot"></a>Co to jest usługa Defender for IoT?
 

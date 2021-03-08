@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 8af8d92ca66cfbd3d6223bc9a73125c457164d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70afa0a02f4e303105aec1884b966796854c6f49
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735548"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Samouczek: integracja Azure Active Directory z administratorem dostępu do Internetu rozwiązania Zscaler
 
@@ -28,10 +28,10 @@ W tym samouczku dowiesz się, jak zintegrować usługę rozwiązania Zscaler Int
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do skonfigurowania integracji usługi Azure AD z aplikacją Zscaler Internet Access Administrator potrzebne są następujące elementy:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja aplikacji Zscaler Internet Access Administrator
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi rozwiązania Zscaler dostępu do Internetu.
 
 > [!NOTE]
 > Ta integracja jest również dostępna do użycia w środowisku chmury dla instytucji rządowych USA usługi Azure AD. Tę aplikację można znaleźć w galerii aplikacji w chmurze dla instytucji rządowych USA usługi Azure AD i skonfigurować ją w taki sam sposób, jak w przypadku chmury publicznej.
@@ -40,9 +40,9 @@ Do skonfigurowania integracji usługi Azure AD z aplikacją Zscaler Internet Acc
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Aplikacja Zscaler Internet Access Administrator obsługuje logowanie jednokrotne inicjowane przez **IDP**
+* Administrator dostępu do Internetu rozwiązania Zscaler obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne.
 
-## <a name="adding-zscaler-internet-access-administrator-from-the-gallery"></a>Dodawanie aplikacji Zscaler Internet Access Administrator z galerii
+## <a name="add-zscaler-internet-access-administrator-from-the-gallery"></a>Dodawanie administratora rozwiązania Zscaler dostępu do Internetu z galerii
 
 Aby skonfigurować integrację aplikacji Zscaler Internet Access Administrator w usłudze Azure AD, należy dodać aplikację Zscaler Internet Access Administrator z galerii do listy zarządzanych aplikacji SaaS.
 
@@ -64,7 +64,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
     1. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 2. **[Skonfiguruj Logowanie jednokrotne w usłudze rozwiązania Zscaler dostępu do Internetu](#configure-zscaler-internet-access-administrator-sso)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
     1. **[Tworzenie użytkownika testowego aplikacji Zscaler Internet Access Administrator](#create-zscaler-internet-access-administrator-test-user)** — aby w aplikacji Zscaler Internet Access Administrator utworzyć odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL zgodnie z wymaganiami:
+    a. W polu tekstowym **Identyfikator** wpisz jeden z następujących adresów URL zgodnie z wymaganiami:
 
     | Identyfikator |
     |------------|
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL zgodnie z wymaganiami:
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz jeden z następujących adresów URL zgodnie z wymaganiami:
 
     | Adres URL odpowiedzi |
     |-----------|
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 5. Aplikacja Zscaler Internet Access Administrator oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty i oświadczenia użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty i oświadczenia użytkownika**.
 
-    ![Link do atrybutu](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
+    ![Link do atrybutu](./media/zscaler-internet-access-administrator-tutorial/attributes.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej, i wykonaj następujące czynności:
 
@@ -153,14 +153,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli skonfigurowano role zgodnie z opisem w powyższej tabeli, można wybrać ją z listy rozwijanej **Wybierz rolę** .
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-
 ## <a name="configure-zscaler-internet-access-administrator-sso"></a>Konfigurowanie logowania jednokrotnego administratora dostępu do Internetu rozwiązania Zscaler
 
 1. W innym oknie przeglądarki internetowej zaloguj się do interfejsu użytkownika aplikacji Zscaler Internet Access Administrator.
 
 2. Przejdź do pozycji **Administracja > Zarządzanie administratorami** i wykonaj następujące kroki, po czym kliknij przycisk Zapisz:
 
-    ![Zrzut ekranu przedstawia zarządzanie administratorami z opcjami umożliwiającymi włączenie uwierzytelniania przy użyciu protokołu SAML, przekazywanie certyfikatu S S i określanie wystawcy.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administracja")
+    ![Zrzut ekranu przedstawia zarządzanie administratorami z opcjami umożliwiającymi włączenie uwierzytelniania przy użyciu protokołu SAML, przekazywanie certyfikatu S S i określanie wystawcy.](./media/zscaler-internet-access-administrator-tutorial/management.png "Administracja")
 
     a. Zaznacz pozycję **Włącz uwierzytelnianie SAML**.
 
@@ -170,7 +169,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. W interfejsie użytkownika administratora wykonaj następujące kroki:
 
-    ![Zrzut ekranu przedstawia administrator I miejsce, w którym można wykonać te czynności.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![Zrzut ekranu przedstawia administrator I miejsce, w którym można wykonać te czynności.](./media/zscaler-internet-access-administrator-tutorial/activation.png)
 
     a. Umieść kursor nad menu **Aktywacja** w lewym dolnym rogu.
 
@@ -183,7 +182,7 @@ Instrukcje dotyczące sposobu tworzenia konta administratora można znaleźć w 
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji.
 

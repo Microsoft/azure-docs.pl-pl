@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
-ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691913"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447473"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -30,7 +30,11 @@ Azure SQL Database i wystąpienie zarządzane SQL współużytkują wspólną ba
 - Funkcje zabezpieczeń — [role aplikacji](/sql/relational-databases/security/authentication-access/application-roles), [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking) ([Zobacz przewodnik wprowadzenie](dynamic-data-masking-overview.md)), [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security)i wykrywanie zagrożeń — Zobacz przewodniki wprowadzenie dla [SQL Database](threat-detection-configure.md) i [wystąpienia zarządzanego SQL](../managed-instance/threat-detection-configure.md).
 - Możliwości wielomodelowe — [Przetwarzanie grafów](/sql/relational-databases/graphs/sql-graph-overview), [dane JSON](/sql/relational-databases/json/json-data-sql-server) ([Zobacz przewodnik wprowadzający](json-features.md)), indeksy [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [przestrzenne](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql)i [XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-Platforma Azure zarządza bazami danych i gwarantuje wysoką dostępność. Niektóre funkcje, które mogą mieć wpływ na wysoką dostępność lub nie mogą być używane w PaaS świecie, mają ograniczone funkcje w SQL Database i wystąpieniu zarządzanym SQL. Te funkcje są opisane w poniższych tabelach. Jeśli potrzebujesz więcej szczegółowych informacji na temat różnic, możesz je znaleźć na oddzielnych stronach dla [Azure SQL Database](../managed-instance/transact-sql-tsql-differences-sql-server.md) lub [wystąpienia zarządzanego Azure SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+Platforma Azure zarządza bazami danych i gwarantuje wysoką dostępność. Niektóre funkcje, które mogą mieć wpływ na wysoką dostępność lub nie mogą być używane w PaaS świecie, mają ograniczone funkcje w SQL Database i wystąpieniu zarządzanym SQL. Te funkcje są opisane w poniższych tabelach.
+
+Jeśli potrzebujesz więcej szczegółowych informacji o różnicach, możesz je znaleźć na oddzielnych stronach:
+- [Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
+- [Wystąpienie zarządzane Azure SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Funkcje SQL Database i wystąpienia zarządzanego SQL
 

@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dee9a845df305b06153d99c2bafe6d74524a139
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75563364"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449207"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentacja metryk i obciążenia w Service Fabric
 Domyślna strategia zarządzania metrykami obciążenia w klastrze Service Fabric Menedżer zasobów klastra polega na rozproszeniu obciążenia. Upewnienie się, że węzły są z bezwzględnie wykorzystane, pozwala uniknąć gorąca i zimnych punktów, które prowadzą do rywalizacji o zawartość i zasoby. Rozkładanie obciążeń w klastrze jest również najbezpieczniejszą wartością w przypadku awarii, ponieważ gwarantuje to, że błąd nie zajmie znaczną częścią danego obciążenia. 
@@ -89,7 +89,7 @@ za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsn
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Klaster Menedżer zasobów ma opcje Man dotyczące opisywania klastra. Aby dowiedzieć się więcej na ten temat, zapoznaj się z tym artykułem na temat [opisywania Service Fabric klastra](service-fabric-cluster-resource-manager-cluster-description.md)
+- Klaster Menedżer zasobów ma wiele opcji opisywania klastra. Aby dowiedzieć się więcej na ten temat, zapoznaj się z tym artykułem na temat [opisywania Service Fabric klastra](service-fabric-cluster-resource-manager-cluster-description.md)
 - Metryki to sposób, w jaki Menedżer zasobów klastra Service Fabric zarządza zużyciem i pojemnością w klastrze. Aby dowiedzieć się więcej o metrykach i sposobach ich konfigurowania, zapoznaj się z [tym artykułem](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

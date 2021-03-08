@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388276"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448340"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą usługi OpenID Connect Connect przy użyciu Azure Active Directory B2C
 
@@ -28,6 +28,7 @@ ms.locfileid: "85388276"
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, klikając filtr **Directory + Subscription** w górnym menu i wybierając katalog zawierający dzierżawcę.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
+1. Wprowadź **nazwę**. Na przykład wprowadź *contoso*.
 
 ## <a name="configure-the-identity-provider"></a>Konfigurowanie dostawcy tożsamości
 
@@ -71,3 +72,16 @@ Gdy niestandardowy dostawca tożsamości wyśle token identyfikatora z powrotem 
 * Imię i **nazwisko**: wprowadź wartość, która zawiera *imię* użytkownika.
 * **Nazwisko**: wprowadź wartość, która zawiera *nazwisko* użytkownika.
 * **Adres e-mail**: wprowadź wartość, która zawiera *adres e-mail* użytkownika.
+
+## <a name="add-the-identity-provider-to-a-user-flow"></a>Dodawanie dostawcy tożsamości do przepływu użytkownika 
+
+1. W dzierżawie Azure AD B2C wybierz pozycję **przepływy użytkownika**.
+1. Kliknij przepływ użytkownika, do którego chcesz dodać dostawcę tożsamości. 
+1. W obszarze **dostawcy tożsamości społecznościowej** wybierz dodany dostawca tożsamości. Na przykład *contoso*.
+1. Wybierz pozycję **Zapisz**.
+1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
+1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz przycisk **Uruchom przepływ użytkownika** .
+1. Na stronie rejestracji lub logowania wybierz dostawcę tożsamości, który ma być zalogowany. Na przykład *contoso*.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.

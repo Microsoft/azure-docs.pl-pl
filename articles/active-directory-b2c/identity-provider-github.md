@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 22548703b456eb28a30c2d210d21f810d7b3ae6e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952702"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448374"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu konta usługi GitHub za pomocą Azure Active Directory B2C
 
@@ -68,7 +68,10 @@ Aby włączyć logowanie się przy użyciu konta usługi GitHub w Azure Active D
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
 1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
+1. Wybierz przycisk **Uruchom przepływ użytkownika** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **GitHub** , aby zalogować się przy użyciu konta usługi GitHub.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end
 
@@ -199,6 +202,13 @@ Profil techniczny usługi GitHub wymaga dodania do listy ClaimsTransformations p
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
+
+1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz przycisk **Uruchom teraz** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **GitHub** , aby zalogować się przy użyciu konta usługi GitHub.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end

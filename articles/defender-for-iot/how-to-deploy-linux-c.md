@@ -13,24 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8c03f6b882c8b1a64c9f256493c5d586b5fa0f89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d3f96ed60ca784402b6d24eea7234f37c4fb959
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940051"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449785"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Wdrażanie usługi Defender dla agenta zabezpieczeń opartego na usłudze IoT C dla systemu Linux
 
 W tym przewodniku wyjaśniono, jak zainstalować i wdrożyć agenta zabezpieczeń opartego na usłudze Defender for IoT C w systemie Linux.
 
-Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Zainstaluj
-> * Weryfikowanie wdrożenia
-> * Odinstalowywanie agenta
-> * Rozwiązywanie problemów
+- Instalowanie
+- Weryfikowanie wdrożenia
+- Odinstalowywanie agenta
+- Rozwiązywanie problemów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

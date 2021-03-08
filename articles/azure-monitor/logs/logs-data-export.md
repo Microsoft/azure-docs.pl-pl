@@ -1,17 +1,18 @@
 ---
 title: Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 description: Log Analytics eksportu danych umożliwia ciągłe eksportowanie danych z wybranych tabel z obszaru roboczego Log Analytics do konta usługi Azure Storage lub Event Hubs platformy Azure w miarę ich zbierania.
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048815"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449496"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -75,7 +76,7 @@ Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmienn
 Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
 
 > [!IMPORTANT]
-> [Liczba obsługiwanych centrów zdarzeń na przestrzeń nazw wynosi 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Jeśli eksportujesz więcej niż 10 tabel, podaj własną nazwę centrum zdarzeń, aby wyeksportować wszystkie tabele do tego centrum zdarzeń. 
+> [Liczba obsługiwanych centrów zdarzeń na przestrzeń nazw wynosi 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Jeśli eksportujesz więcej niż 10 tabel, podaj własną nazwę centrum zdarzeń, aby wyeksportować wszystkie tabele do tego centrum zdarzeń.
 
 Zagadnienia do rozważenia:
 1. Jednostka SKU centrum zdarzeń "Basic" obsługuje dolny [Limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) rozmiaru zdarzenia, a niektóre dzienniki w obszarze roboczym mogą przekraczać tę wartość i zostać porzucone. Zalecamy używanie "standardowego" lub "dedykowanego" centrum zdarzeń jako miejsca docelowego eksportu.
@@ -113,10 +114,14 @@ Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wy
 
 [![Zapory i sieci wirtualne konta magazynu](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>Utwórz lub zaktualizuj regułę eksportu danych
-Reguła eksportu danych definiuje dane, które mają zostać wyeksportowane dla zestawu tabel w jednym miejscu docelowym. Dla każdego miejsca docelowego można utworzyć pojedynczą regułę.
+Reguła eksportu danych definiuje tabele, dla których dane są eksportowane i miejsce docelowe. Dla każdego miejsca docelowego można utworzyć pojedynczą regułę.
 
+Jeśli potrzebujesz listy tabel w workapce na potrzeby konfiguracji reguł eksportu, Uruchom to zapytanie w obszarze roboczym.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -127,12 +132,6 @@ Nie dotyczy
 Nie dotyczy
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-Poniższe polecenie interfejsu wiersza polecenia służy do wyświetlania tabel w obszarze roboczym. Może to pomóc w skopiowaniu żądanych tabel i uwzględnieniu w regule eksportowania danych.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Użyj poniższego polecenia, aby utworzyć regułę eksportu danych do konta magazynu przy użyciu interfejsu wiersza polecenia.
 

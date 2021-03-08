@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016766"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449632"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
@@ -103,10 +103,10 @@ Poniżej przedstawiono inne kluczowe różnice między łącznikiem SFTP-SSH a �
   >
   > * **Odcisk palca**: MD5
   >
-  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu prywatnego klucza SSH dla tego połączenia **_nie wprowadzaj ręcznie ani nie edytuj klucza_* _, co może spowodować niepowodzenie połączenia. Zamiast tego należy _*_skopiować klucz_*_ z pliku prywatnego klucza SSH i _*_wkleić_*_ go do szczegółów połączenia. 
+  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu klucza prywatnego SSH dla tego połączenia ***nie wprowadzaj ręcznie ani nie edytuj klucza***, co może spowodować niepowodzenie połączenia. Zamiast tego należy ***skopiować klucz*** z pliku prywatnego klucza SSH i ***wkleić*** go do szczegółów połączenia. 
   > Aby uzyskać więcej informacji, zobacz sekcję [łączenie się](#connect) z PROTOKOŁem SSH w dalszej części tego artykułu.
 
-Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Aplikacja logiki, w której chcesz uzyskać dostęp do konta SFTP. Aby rozpocząć pracę z wyzwalaczem SFTP-SSH, [Utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji SFTP-SSH, uruchom aplikację logiki z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
 
@@ -170,7 +170,15 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-W tej sekcji opisano zagadnienia dotyczące wyzwalaczy i akcji tego łącznika.
+W tej sekcji opisano zagadnienia, które należy wziąć pod uwagę podczas korzystania z wyzwalaczy i akcji tego łącznika.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Używanie innych folderów SFTP do przekazywania i przetwarzania plików
+
+Na serwerze SFTP upewnij się, że używasz oddzielnych folderów, w których są przechowywane przekazane pliki, a wyzwalacz monitoruje te pliki do przetworzenia, co oznacza, że konieczna jest metoda przenoszenia plików między tymi folderami. W przeciwnym razie wyzwalacz nie zostanie uruchomiony i nie będzie działać w sposób nieprzewidziany, na przykład pomijając losową liczbę plików przetwarzanych przez wyzwalacz.
+
+Jeśli ten problem wystąpi, Usuń pliki z folderu monitorowanego przez wyzwalacz i użyj innego folderu do przechowywania przekazanych plików.
 
 <a name="create-file"></a>
 
@@ -208,9 +216,9 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
 
    1. Wybierz pozycję **Edytuj**  >  **kopię**.
 
-   1. W wyzwalaczu SFTP-SSH lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy.  **_Upewnij się, że wkleisz_* klucz. _*_Nie wprowadzaj ręcznie ani nie edytuj klucza_*_.
+   1. W wyzwalaczu SFTP-SSH lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy.  **_Upewnij się, że wkleisz_*klawisz _. _*_nie wprowadzaj ręcznie ani nie edytuj klucza_**.
 
-1. Po zakończeniu wprowadzania szczegółów połączenia wybierz _ * Utwórz * *.
+1. Po zakończeniu wprowadzania szczegółów połączenia wybierz pozycję **Utwórz**.
 
 1. Podaj teraz niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 

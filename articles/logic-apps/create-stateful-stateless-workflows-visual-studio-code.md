@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440993"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449734"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe i bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -312,6 +312,9 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
 Możesz utworzyć własne wbudowane łączniki dla dowolnej usługi, której potrzebujesz, za pomocą [struktury rozszerzalności wersji zapoznawczej](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Podobnie jak wbudowane łączniki, takie jak Azure Service Bus i SQL Server, te łączniki zapewniają wyższą przepływność, małe opóźnienia, łączność lokalną i działają natywnie w tym samym procesie co środowisko uruchomieniowe w wersji zapoznawczej.
 
 Możliwość tworzenia jest obecnie dostępna tylko w Visual Studio Code, ale nie jest domyślnie włączona. Aby utworzyć te łączniki, należy najpierw przekonwertować projekt z opartego na zbiorze rozszerzeń (Node.js) na oparty na pakiecie NuGet (.NET).
+
+> [!IMPORTANT]
+> Ta akcja jest operacją jednokierunkową, której nie można cofnąć.
 
 1. W okienku Eksploratora, w katalogu głównym projektu, Przenieś wskaźnik myszy nad pusty obszar poniżej wszystkich innych plików i folderów, otwórz menu skrótów i wybierz polecenie **Konwertuj na projekt aplikacji logiki opartej na NuGet**.
 

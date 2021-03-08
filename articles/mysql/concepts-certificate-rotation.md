@@ -6,18 +6,20 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 9ad2566188256dd23b0f479c2576636750e33b02
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715109"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449887"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure Database for MySQL pojedynczego serwera
 
 Azure Database for MySQL jeden serwer pomyślnie ukończył zmianę certyfikatu głównego od **15 lutego 2021 (02/15/2021)** w ramach standardowej konserwacji i najlepszych rozwiązań w zakresie zabezpieczeń. Ten artykuł zawiera więcej szczegółów na temat zmian, odpowiednich zasobów i czynności, które należy wykonać w celu zapewnienia, że aplikacja utrzymuje łączność z serwerem bazy danych.
 
 > [!NOTE]
+> Ten artykuł ma zastosowanie tylko do [Azure Database for MySQL-jednego serwera](single-server-overview.md) . W przypadku [serwera Azure Database for MySQL-elastyczny](flexible-server/overview.md)certyfikat wymagany do komunikacji za pośrednictwem protokołu SSL jest [DigiCert globalny główny urząd certyfikacji](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
+> 
 > Ten artykuł zawiera odwołania do warunku _podrzędnego_, termin, który nie jest już wykorzystywany przez firmę Microsoft. Gdy termin zostanie usunięty z oprogramowania, usuniemy go z tego artykułu.
 >
 

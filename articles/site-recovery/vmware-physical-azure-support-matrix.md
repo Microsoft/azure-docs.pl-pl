@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 3b658a0dd2522b1ca1ad2d46b5f778351b271a27
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212431"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449258"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -295,10 +295,10 @@ Lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wyma
 --- | --- | ---
 System operacyjny gościa | Sprawdź [obsługiwane systemy operacyjne](#replicated-machines) dla replikowanych maszyn. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku systemu operacyjnego | Do 2 048 GB. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
+Rozmiar dysku systemu operacyjnego | Do 2 048 GB w przypadku maszyn pierwszej generacji 1. <br> Do 4 095 GB dla komputerów generacji 2. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Liczba dysków systemu operacyjnego | 1 </br> partycja rozruchowa i systemowa na różnych dyskach nie jest obsługiwana | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Liczba dysków danych | 64 lub mniej. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku danych | Do 8 192 GB podczas replikowania na dysk zarządzany (wersja 9,26)<br> Do 4 095 GB podczas replikowania na konto magazynu </br> Minimalny wymagany rozmiar dysku — co najmniej 1024 MB| Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
+Rozmiar dysku danych | Do 32 767 GB podczas replikowania na dysk zarządzany (wersja 9,41)<br> Do 4 095 GB podczas replikowania na konto magazynu </br> Minimalny wymagany rozmiar dysku — co najmniej 1024 MB| Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Karty sieciowe | Obsługiwane są wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.

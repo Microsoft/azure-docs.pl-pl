@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e344d85bbdac92aa372fc5d5e59ef90b11dfac6c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3082c249b04b5efc71187dd03515bc8c875b7c2f
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095735"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448595"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -71,10 +71,10 @@ Konto AD FS można zdefiniować jako dostawcę oświadczeń, dodając je do elem
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -199,8 +199,10 @@ Otwórz przeglądarkę i przejdź do adresu URL. Upewnij się, że wpisany adres
 1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
 1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](tutorial-register-applications.md)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz przycisk **Uruchom teraz** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **Contoso AD FS** , aby zalogować się przy użyciu dostawcy tożsamości contoso AD FS.
 
 Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
+
 ## <a name="troubleshooting-ad-fs-service"></a>Rozwiązywanie problemów z usługą AD FS  
 
 AD FS jest skonfigurowany do korzystania z dziennika aplikacji systemu Windows. W przypadku wystąpienia problemów z konfigurowaniem AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w programie Azure AD B2C warto sprawdzić dziennik zdarzeń AD FS:

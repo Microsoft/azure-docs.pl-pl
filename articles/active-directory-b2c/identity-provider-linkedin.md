@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1ce9c00cb58253e2cca9a7d60c4cce9b77709688
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ce5e8cfda4a9f51a90c8f26133a710f4d1c258b6
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953856"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448272"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -69,7 +69,10 @@ Aby włączyć Logowanie użytkowników przy użyciu konta LinkedIn w Azure Acti
 1. Wybierz pozycję **Zapisz**.
 1. Aby przetestować zasady, wybierz pozycję **Uruchom przepływ użytkownika**.
 1. W przypadku **aplikacji** wybierz aplikację sieci Web o nazwie *testapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
-1. Kliknij pozycję **Uruchom przepływ użytkownika**
+1. Wybierz przycisk **Uruchom przepływ użytkownika** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **LinkedIn** , aby zalogować się przy użyciu konta usługi LinkedIn.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ::: zone-end
 
@@ -96,8 +99,8 @@ Aby umożliwić użytkownikom logowanie się przy użyciu konta LinkedIn, należ
 
 Zdefiniuj konto serwisu LinkedIn jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad.
 
-1. Otwórz plik * SocialAndLocalAccounts/**TrustFrameworkExtensions.xml** _ w edytorze. Ten plik znajduje się w [pakiecie startowym zasad niestandardowych][starter-pack] pobranym jako część jednego z wymagań wstępnych.
-1. Znajdź element _ *ClaimsProviders**. Jeśli nie istnieje, Dodaj ją do elementu głównego.
+1. Otwórz plik *SocialAndLocalAccounts/* * TrustFrameworkExtensions.xml** * w edytorze. Ten plik znajduje się w [pakiecie startowym zasad niestandardowych][starter-pack] pobranym jako część jednego z wymagań wstępnych.
+1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
 1. Dodaj nową **ClaimsProvider** w następujący sposób:
 
     ```xml
@@ -213,7 +216,14 @@ Dodaj element **BuildingBlocks** w górnej części pliku *TrustFrameworkExtensi
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testowanie zasad niestandardowych
+
+1. Na przykład wybierz zasady jednostek uzależnionych `B2C_1A_signup_signin` .
+1. W przypadku **aplikacji** wybierz [wcześniej zarejestrowaną](troubleshoot-custom-policies.md#troubleshoot-the-runtime)aplikację sieci Web. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
+1. Wybierz przycisk **Uruchom teraz** .
+1. Na stronie rejestracji lub logowania wybierz pozycję **LinkedIn** , aby zalogować się przy użyciu konta usługi LinkedIn.
+
+Jeśli proces logowania powiedzie się, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 ## <a name="migration-from-v10-to-v20"></a>Migracja z wersji 1.0 do programu v 2.0
 
