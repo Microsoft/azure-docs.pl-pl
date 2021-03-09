@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: banders
-ms.openlocfilehash: 0f30c90bf81a837b1e78ca5f91450cf085cc91bc
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102495143"
+ms.locfileid: "102508524"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Przypisywanie ról do nazw głównych usługi Azure Enterprise Agreement
 
@@ -23,7 +23,7 @@ Rejestracją Enterprise Agreement (EA) można zarządzać w [witrynie Azure Ente
 Przed rozpoczęciem upewnij się, że znasz następujące artykuły:
 
 - [Role umów Enterprise Agreement](understand-ea-roles.md)
-- [Logowanie się w programie Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-5.5.0&preserve-view=true)
+- [Logowanie się w programie Azure PowerShell](/powershell/azure/authenticate-azureps)
 - [Jak wywołać interfejsy API REST za pomocą programu Poster](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
 ## <a name="create-and-authenticate-your-service-principal"></a>Tworzenie i uwierzytelnianie nazwy głównej usługi
@@ -89,7 +89,7 @@ Parametr jest IDENTYFIKATORem konta rozliczeniowego. Można go znaleźć w Azure
 
 **billingRoleAssignmentName**
 
-Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) programu PowerShell.
+Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid) programu PowerShell.
 
 Możesz również użyć witryny sieci Web [identyfikatora GUID/UUID](https://guidgenerator.com/) w celu wygenerowania unikatowego identyfikatora GUID.
 
@@ -141,7 +141,7 @@ Jest to identyfikator konta rozliczeniowego. Można go znaleźć w Azure Portal 
 
 **billingRoleAssignmentName**
 
-Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) programu PowerShell.
+Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid) programu PowerShell.
 
 Możesz również użyć witryny sieci Web [identyfikatora GUID/UUID](https://guidgenerator.com/) w celu wygenerowania unikatowego identyfikatora GUID.
 
@@ -199,7 +199,7 @@ Parametr jest IDENTYFIKATORem konta rozliczeniowego. Można go znaleźć w Azure
 
 **billingRoleAssignmentName**
 
-Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) programu PowerShell.
+Parametr jest unikatowym identyfikatorem GUID, który należy podać. Identyfikator GUID można wygenerować za pomocą polecenia [New-GUID](/powershell/module/microsoft.powershell.utility/new-guid) programu PowerShell.
 
 Możesz również użyć witryny sieci Web [identyfikatora GUID/UUID](https://guidgenerator.com/) w celu wygenerowania unikatowego identyfikatora GUID.
 **enrollmentAccountName**

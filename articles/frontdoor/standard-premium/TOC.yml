@@ -11,6 +11,10 @@
   items:
     - name: Tworzenie portalu w warstwie Standardowa/Premium — Portal
       href: create-front-door-portal.md
+- name: Samples
+  items:
+    - name: Szablony usługi Resource Manager
+      href: resource-manager-template-samples.md
 - name: Pojęcia
   items:
     - name: Często zadawane pytania na temat usługi Front Door

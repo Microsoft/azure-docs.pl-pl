@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 11/16/2020
-ms.openlocfilehash: 78f8d6d216659eaad01d512dd45696dd31035885
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 648dbe6b8d275c832f219cb6f3119ac0bc518a54
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695388"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508473"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Co to są środowiska Azure Machine Learning?
 
@@ -78,13 +78,13 @@ Jeśli definicja środowiska nie istnieje już w obszarze roboczym ACR, zostanie
  1. Pobieranie obrazu podstawowego i wykonywanie wszelkich kroków platformy Docker
  2. Kompilowanie środowiska Conda zgodnie z zależnościami Conda określonymi w definicji środowiska.
 
-Drugi krok zostanie pominięty w przypadku określenia [zależności zarządzanych przez użytkownika](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py). W takim przypadku użytkownik jest odpowiedzialny za instalację dowolnych pakietów języka Python, dołączając je do obrazu podstawowego lub określając niestandardowe kroki platformy Docker w pierwszym kroku. Użytkownik jest również odpowiedzialny za określenie prawidłowej lokalizacji pliku wykonywalnego języka Python. Istnieje również możliwość użycia [niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md).
+Drugi krok zostanie pominięty w przypadku określenia [zależności zarządzanych przez użytkownika](/python/api/azureml-core/azureml.core.environment.pythonsection). W takim przypadku użytkownik jest odpowiedzialny za instalację dowolnych pakietów języka Python, dołączając je do obrazu podstawowego lub określając niestandardowe kroki platformy Docker w pierwszym kroku. Użytkownik jest również odpowiedzialny za określenie prawidłowej lokalizacji pliku wykonywalnego języka Python. Istnieje również możliwość użycia [niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md).
 
 ### <a name="image-caching-and-reuse"></a>Buforowanie i ponowne użycie obrazu
 
 Jeśli używasz tej samej definicji środowiska dla innego uruchomienia, usługa Azure Machine Learning ponownie używa buforowanego obrazu z obszaru roboczego ACR. 
 
-Aby wyświetlić szczegóły buforowanego obrazu, użyj metody [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) .
+Aby wyświetlić szczegóły buforowanego obrazu, użyj metody [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) .
 
 Aby określić, czy ponownie użyć buforowanego obrazu, czy utworzyć nowy, usługa oblicza [wartość skrótu](https://en.wikipedia.org/wiki/Hash_table) z definicji środowiska i porównuje ją z skrótami istniejących środowisk. Skrót jest oparty na:
  
@@ -107,10 +107,10 @@ Na poniższym diagramie przedstawiono trzy definicje środowiska. Dwa z nich maj
 Aby zaktualizować pakiet, określ numer wersji, aby wymusić Odbudowywanie obrazu ```numpy==1.18.1``` . Zostaną zainstalowane nowe zależności, w tym zagnieżdżone, które mogą spowodować uszkodzenie wcześniej działającego scenariusza. 
 
 > [!WARNING]
->  Metoda [Environment. Build](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) spowoduje odbudowanie buforowanego obrazu z możliwym efektem ubocznym aktualizowania przypiętych pakietów i przerwaniem odtwarzalności dla wszystkich definicji środowiska odpowiadających danemu z pamięci podręcznej.
+>  Metoda [Environment. Build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) spowoduje odbudowanie buforowanego obrazu z możliwym efektem ubocznym aktualizowania przypiętych pakietów i przerwaniem odtwarzalności dla wszystkich definicji środowiska odpowiadających danemu z pamięci podręcznej.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się [, jak tworzyć środowiska i korzystać](how-to-use-environments.md) z nich w Azure Machine Learning.
-* Zobacz dokumentację referencyjną zestawu SDK języka Python dla [klasy Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py).
+* Zobacz dokumentację referencyjną zestawu SDK języka Python dla [klasy Environment](/python/api/azureml-core/azureml.core.environment%28class%29).
 * Zobacz dokumentację referencyjną języka R SDK dla [środowisk](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

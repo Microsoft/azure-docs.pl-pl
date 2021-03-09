@@ -9,12 +9,12 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 2/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 35376fcba585288475d549b7f2d9d9a19039b569
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ed6bad4e81a1af654357912f6fe0cd03a3fcd62e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102185457"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500839"
 ---
 # <a name="media-services-basic-encoding-with-python"></a>Media Services podstawowe kodowanie przy użyciu języka Python
 
@@ -229,4 +229,4 @@ Po zakończeniu korzystania z przewodnika Szybki Start Usuń zasoby utworzone w 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [Media Services Python SDK](https://docs.microsoft.com/python/api/azure-mgmt-media/?view=azure-python)
+Zapoznaj się z [Media Services Python SDK](https://docs.microsoft.com/python/api/azure-mgmt-media/)

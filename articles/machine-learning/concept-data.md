@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659719"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503593"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -67,7 +67,7 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 + Azure Database for MySQL
 
 >[!TIP]
-> Ogólnie dostępne funkcje tworzenia magazynów danych wymagają uwierzytelniania opartego na poświadczeniach w celu uzyskiwania dostępu do usług magazynu, takich jak nazwa główna usługi lub token sygnatury dostępu współdzielonego (SAS). Dostęp do tych poświadczeń mogą uzyskać użytkownicy, którzy mają dostęp *czytelnika* do obszaru roboczego. <br><br>Jeśli jest to problem,  [Utwórz magazyn danych, który używa dostępu opartego na tożsamościach do usług magazynu (wersja zapoznawcza)](how-to-identity-based-data-access.md). Ta funkcja jest [eksperymentalną](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
+> Ogólnie dostępne funkcje tworzenia magazynów danych wymagają uwierzytelniania opartego na poświadczeniach w celu uzyskiwania dostępu do usług magazynu, takich jak nazwa główna usługi lub token sygnatury dostępu współdzielonego (SAS). Dostęp do tych poświadczeń mogą uzyskać użytkownicy, którzy mają dostęp *czytelnika* do obszaru roboczego. <br><br>Jeśli jest to problem,  [Utwórz magazyn danych, który używa dostępu opartego na tożsamościach do usług magazynu (wersja zapoznawcza)](how-to-identity-based-data-access.md). Ta funkcja jest [eksperymentalną](/python/api/overview/azure/ml/#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Dane referencyjne w magazynie z zestawami danych
@@ -86,9 +86,9 @@ Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych a
 
 Istnieją dwa typy zestawów danych: 
 
-+ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
++ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
 
-+ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Dodatkowe możliwości zestawów danych można znaleźć w następującej dokumentacji:
 

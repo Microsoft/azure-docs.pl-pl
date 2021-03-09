@@ -5,16 +5,16 @@ description: Dowiedz się, jak zaktualizować lub zresetować poświadczenia naz
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84cadc54a11c2e57d73fd1f06e98deb3d599d648
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389012"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501179"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aktualizowanie lub obracanie poświadczeń usługi Azure Kubernetes Service (AKS)
 
-Domyślnie klastry AKS są tworzone za pomocą jednostki usługi, która ma okres ważności jednoletniej. Gdy zbliżasz się do daty wygaśnięcia, możesz zresetować poświadczenia, aby zwiększyć jednostkę usługi przez dodatkowy okres czasu. Możesz również zaktualizować lub obrócić poświadczenia w ramach zdefiniowanych zasad zabezpieczeń. W tym artykule szczegółowo opisano, jak zaktualizować te poświadczenia dla klastra AKS.
+Klastry AKS utworzone za pomocą jednostki usługi mają okres ważności jeden rok. Gdy zbliżasz się do daty wygaśnięcia, możesz zresetować poświadczenia, aby zwiększyć jednostkę usługi przez dodatkowy okres czasu. Możesz również zaktualizować lub obrócić poświadczenia w ramach zdefiniowanych zasad zabezpieczeń. W tym artykule szczegółowo opisano, jak zaktualizować te poświadczenia dla klastra AKS.
 
 Możesz również [zintegrować klaster AKS z Azure Active Directory][aad-integration]i używać go jako dostawcy uwierzytelniania dla klastra. W takim przypadku dla klastra zostanie utworzonych 2 więcej tożsamości, aplikacja serwera usługi AAD i aplikacja kliencka usługi AAD mogą również zresetować te poświadczenia.
 

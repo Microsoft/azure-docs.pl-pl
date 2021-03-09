@@ -6,12 +6,12 @@ ms.author: crtreasu
 ms.date: 02/17/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 5b84bfae4a338a15b75e4f61114869aab1e94f87
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da3be6e3d97e50b27ded29ba017164fdbd9a0a5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747130"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503049"
 ---
 # <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -28,6 +28,8 @@ Zalecamy wypróbowanie niektórych z tych kroków w celu uzyskania najlepszych w
 - Nasza usługa konwersji modeli może zająć dużo czasu, aby przetwarzać duży, wysoki model LOD (poziom szczegółowości). W celu uzyskania skuteczności można wstępnie przetworzyć model 3D w celu usunięcia wnętrza twarzy.
 
 ## <a name="detection"></a>Wykrywanie
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
 
 - Udostępniony zestaw SDK środowiska uruchomieniowego wymaga regionu wyszukiwania dostarczonego przez użytkownika w celu wyszukania i wykrycia obiektów fizycznych. Region wyszukiwania może być polem ograniczenia, sferą, frustum widoku lub dowolną kombinacją tych elementów. Aby uniknąć fałszywego wykrywania, preferowane jest ustawienie regionu wyszukiwania wystarczająco duże, aby pokryć obiekt. Gdy korzystasz z dostarczonych przykładowych aplikacji, możesz przystąpić po jednej stronie obiektu około 2 metrów od najbliższej powierzchni i uruchomić aplikację.
 - Przed uruchomieniem aplikacji obiekt zakotwiczony na urządzeniu HoloLens 2 Usuń hologramy w sąsiedztwie miejsca pracy przy użyciu ustawień głównych urządzeń za pomocą ***ustawień->hologramów systemu >***

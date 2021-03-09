@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 30587fac7d7be37d7595a78502b7999adee9a30f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dd078205989872179b0b2474974a29cf6b88dad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665314"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507844"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące rozmiarów maszyn wirtualnych platformy Azure, które nie mają lokalnego dysku tymczasowego (tj. braku lokalnego dysku tymczasowego). Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, zobacz [specyfikacje dla serii Dv4 i Dsv4 (ogólnego przeznaczenia obciążeń)](dv4-dsv4-series.md) lub [specyfikacji dla Ev4 i Esv4 (obciążenia zoptymalizowane pod kątem pamięci)](ev4-esv4-series.md).
@@ -40,8 +40,22 @@ Nie. Jedyne kombinacje dozwolone do zmiany rozmiarów to:
 1. Maszyna wirtualna (z lokalnym dyskiem tymczasowym) — > VM (z lokalnym dyskiem tymczasowym); lub 
 2. Maszyna wirtualna (bez lokalnego dysku tymczasowego) — > VM (bez lokalnego dysku tymczasowego). 
 
+Jeśli chcesz obejść, zapoznaj się z następnym pytaniem.
+
 > [!NOTE]
 > Jeśli obraz zależy od dysku zasobu lub plik stronicowania lub swapfile istnieje na lokalnym dysku tymczasowym, obrazy bezdyskowe nie będą działały — zamiast tego użyj alternatywy "z dyskiem". 
+
+## <a name="how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk"></a>Jak mogę przeprowadzić migrację z rozmiaru maszyny wirtualnej z lokalnym dyskiem tymczasowym do rozmiaru maszyny wirtualnej bez lokalnego dysku tymczasowego?  
+Można przeprowadzić migrację, wykonując następujące czynności: 
+
+1. Nawiąż połączenie z maszyną wirtualną, która ma lokalny dysk tymczasowy (na przykład dysk D:) jako administrator lokalny.
+2. Postępuj zgodnie z zaleceniami w sekcji "tymczasowe przenoszenie pagefile.sys do dysku C" w temacie [Używanie dysku D: jako dysku danych na maszynie wirtualnej z systemem Windows](./windows/change-drive-letter.md) , aby przenieść plik stronicowania z lokalnego dysku tymczasowego (D: Drive) do dysku C:.
+
+   > [!NOTE]
+   > Postępuj zgodnie z zaleceniami w sekcji "tymczasowe przenoszenie pagefile.sys do dysku C" w temacie Używanie dysku D: jako dysku danych na maszynie wirtualnej z systemem Windows, aby przenieść plik stronicowania z lokalnego dysku tymczasowego (D: Drive) do dysku C: Disk. **Odróżnienie od pokreślonych kroków spowoduje wyświetlenie komunikatu o błędzie — "nie można zmienić rozmiaru maszyny wirtualnej, ponieważ zmiana z dysku zasobów na dysk nienależący do zasobów nie jest dozwolona, a na odwrót nie jest dozwolone.**
+
+3. Wykonaj migawkę maszyny wirtualnej, wykonując czynności opisane w temacie [Tworzenie migawki przy użyciu portalu lub interfejsu wiersza polecenia platformy Azure](./linux/snapshot-copy-managed-disk.md). 
+4. Użyj migawki, aby utworzyć nową maszynę wirtualną bezdyskową (na przykład Dv4, Dsv4, Ev4, Seria Esv4), wykonując kroki opisane w temacie [Tworzenie maszyny wirtualnej na podstawie migawki przy użyciu interfejsu wiersza polecenia](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Czy te rozmiary maszyn wirtualnych obsługują systemy operacyjne Linux i Windows (OS)?
 Tak.

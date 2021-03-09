@@ -4,12 +4,12 @@ description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyj
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 60a7e36039500ccb8a46fd1f5998c23c37174689
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4b1c311132cc812ccb2bbbc95c4b7414b108008c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728139"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499207"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Po dodaniu nowych pul węzłów do klastra utworzonego powyżej klucz zarządzan
 Klucz szyfrowania dysku systemu operacyjnego będzie używany do szyfrowania dysku danych, jeśli nie podano klucza dla dysku danych z programu v 1.17.2. można także szyfrować dyski danych AKS z innymi kluczami.
 
 > [!IMPORTANT]
-> Upewnij się, że masz odpowiednie poświadczenia AKS. Jednostka usługi musi mieć dostęp współautora do grupy zasobów, w której wdrożono diskencryptionset. W przeciwnym razie zostanie wyświetlony komunikat o błędzie z sugestią, że jednostka usługi nie ma uprawnień.
+> Upewnij się, że masz odpowiednie poświadczenia AKS. Tożsamość zarządzana musi mieć dostęp współautora do grupy zasobów, w której wdrożono diskencryptionset. W przeciwnym razie zostanie wyświetlony komunikat o błędzie z sugestią, że zarządzana tożsamość nie ma uprawnień.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below

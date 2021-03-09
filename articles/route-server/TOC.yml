@@ -26,7 +26,7 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: /powershell/module/az.network/?view=azps-5.5.0#route
+      href: /powershell/module/az.network/#route
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/network/routeserver
     - name: REST

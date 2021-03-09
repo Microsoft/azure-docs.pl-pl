@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969708"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507910"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii dla dysków usługi Azure IaaS
 
@@ -48,7 +48,7 @@ Ze względu na tę architekturę platforma Azure stale dostarcza trwałość kla
 
 Zlokalizowane błędy sprzętu na hoście obliczeniowym lub na platformie magazynu mogą czasami spowodować tymczasową niedostępność maszyny wirtualnej, która jest objęta umową [SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) na potrzeby dostępności maszyny wirtualnej. Platforma Azure oferuje również wiodącą w branży umowę SLA dotyczącą pojedynczych wystąpień maszyn wirtualnych, które korzystają z usługi Azure Premium dysków SSD.
 
-Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](./manage-availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
+Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](./availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
 
 Ze względu na te oddzielne domeny błędów zlokalizowane awarie sprzętu zazwyczaj nie mają wpływu na wiele maszyn wirtualnych w zestawie w tym samym czasie. Posiadanie oddzielnych domen błędów zapewnia wysoką dostępność aplikacji. Jest to dobre rozwiązanie, aby korzystać z zestawów dostępności, gdy wymagana jest wysoka dostępność. W następnej sekcji omówiono aspekt odzyskiwania po awarii.
 
@@ -62,7 +62,7 @@ Aby pomóc w ochronie obciążeń IaaS od awarii, należy zaplanować nadmiarowo
 
 Zagadnienia dotyczące odzyskiwania po awarii mogą obejmować następujące aspekty:
 
-- Wysoka dostępność: zdolność aplikacji do kontynuowania działania w dobrej kondycji bez znaczących przestojów. W *dobrej kondycji*ten stan oznacza, że aplikacja jest w stanie reakcji, a użytkownicy mogą łączyć się z aplikacją i korzystać z niej. Niektóre aplikacje i bazy danych o kluczowym znaczeniu mogą być zawsze dostępne, nawet w przypadku awarii na platformie. W przypadku tych obciążeń może być konieczne zaplanowanie nadmiarowości aplikacji, a także danych.
+- Wysoka dostępność: zdolność aplikacji do kontynuowania działania w dobrej kondycji bez znaczących przestojów. W *dobrej kondycji* ten stan oznacza, że aplikacja jest w stanie reakcji, a użytkownicy mogą łączyć się z aplikacją i korzystać z niej. Niektóre aplikacje i bazy danych o kluczowym znaczeniu mogą być zawsze dostępne, nawet w przypadku awarii na platformie. W przypadku tych obciążeń może być konieczne zaplanowanie nadmiarowości aplikacji, a także danych.
 
 - Trwałość danych: w niektórych przypadkach głównym zagadnieniem jest upewnienie się, że dane są zachowywane w przypadku awarii. W związku z tym może być wymagana kopia zapasowa danych w innej lokacji. W przypadku takich obciążeń może nie być potrzebna pełna nadmiarowość dla aplikacji, ale tylko zwykła kopia zapasowa dysków.
 
@@ -147,7 +147,7 @@ Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych maszyn wi
 
     b. W menu **magazyny Recovery Services** kliknij pozycję **Dodaj** i postępuj zgodnie z instrukcjami, aby utworzyć nowy magazyn w tym samym regionie co maszyna wirtualna. Na przykład jeśli maszyna wirtualna znajduje się w regionie zachodnie stany USA, wybierz pozycję zachodnie stany USA dla magazynu.
 
-1.  Sprawdź replikację magazynu dla nowo utworzonego magazynu. Uzyskaj dostęp do magazynu w obszarze **magazyny Recovery Services** i przejdź do **Właściwości**  >  **kopia zapasowa**  >  **Aktualizacja**konfiguracji. Upewnij się, że opcja **Magazyn Geograficznie nadmiarowy** jest zaznaczona domyślnie. Ta opcja zapewnia, że magazyn zostanie automatycznie zreplikowany do dodatkowego centrum danych. Na przykład magazyn w regionie zachodnie stany USA jest automatycznie replikowany do regionu Wschodnie stany USA.
+1.  Sprawdź replikację magazynu dla nowo utworzonego magazynu. Uzyskaj dostęp do magazynu w obszarze **magazyny Recovery Services** i przejdź do **Właściwości**  >  **kopia zapasowa**  >  **Aktualizacja** konfiguracji. Upewnij się, że opcja **Magazyn Geograficznie nadmiarowy** jest zaznaczona domyślnie. Ta opcja zapewnia, że magazyn zostanie automatycznie zreplikowany do dodatkowego centrum danych. Na przykład magazyn w regionie zachodnie stany USA jest automatycznie replikowany do regionu Wschodnie stany USA.
 
 1.  Skonfiguruj zasady tworzenia kopii zapasowych i wybierz maszynę wirtualną z tego samego interfejsu użytkownika.
 
@@ -201,7 +201,7 @@ Kolejną opcją tworzenia spójnych kopii zapasowych jest zamknięcie maszyny wi
 
 1. Utwórz migawkę każdego obiektu BLOB wirtualnego dysku twardego, który zajmuje zaledwie kilka sekund.
 
-    Aby utworzyć migawkę, można użyć [programu PowerShell](/powershell/module/az.storage), [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/Snapshot-Blob)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob). [Azure CLI](/cli/azure/)
+    Aby utworzyć migawkę, można użyć [programu PowerShell](/powershell/module/az.storage), [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/Snapshot-Blob)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob). [](/cli/azure/)
 
 1. Uruchom maszynę wirtualną, która skończy przestoje. Zwykle cały proces kończy się w ciągu kilku minut.
 

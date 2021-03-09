@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 55d110501d5e0273ebf8cbc666920cacb87cf5cf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434988"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501995"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB załączników
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB załączniki to specjalne elementy, które zawierają odwołania do skojarzonych metadanych z zewnętrznym obiektem BLOB lub plikiem multimedialnym.
 
@@ -40,6 +40,11 @@ Zarządzane załączniki Azure Cosmos DB są różne od ich obsługi dla element
 - Załączniki nie są obsługiwane we wszystkich wersjach zestawów SDK Azure Cosmos DB.
 - Zarządzane załączniki są ograniczone do 2 GB przestrzeni dyskowej na konto bazy danych.
 - Zarządzane załączniki nie są zgodne z dystrybucją globalną Azure Cosmos DB i nie są replikowane między regionami.
+
+> [!NOTE]
+> Azure Cosmos DB API for MongoDB w wersji 3,2 wykorzystuje zarządzane załączniki dla GridFS, które podlegają takim samym ograniczeniom jak zarządzane załączniki Azure Cosmos DB.
+>
+> Zaleca się, aby deweloperzy korzystali z zestawu funkcji MongoDB GridFS w celu uaktualnienia do Azure Cosmos DB API dla MongoDB w wersji 3,6 lub nowszej, która jest oddzielona od załączników i zapewnia silniejsze i bardziej niezawodne środowisko. Deweloperzy korzystający z zestawu funkcji MongoDB GridFS powinni również rozważyć użycie Blob Storage platformy Azure, która jest tworzona specjalnie do przechowywania zawartości obiektów blob i oferuje rozszerzoną funkcję przy niższych kosztach w porównaniu z GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrowanie załączników do usługi Azure Blob Storage
 

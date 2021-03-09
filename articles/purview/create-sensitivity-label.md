@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
-ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/09/2021
+ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049552"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502450"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Automatyczne etykietowanie danych w usłudze Azure kontrolą
 
@@ -114,6 +114,14 @@ Na przykład:
 Po dodaniu etykietowania do elementów zawartości w usłudze Azure kontrolą można wybrać etykiety, które mają być dostępne w kontrolą. Aby uzyskać więcej informacji, zobacz [Tworzenie nowych etykiet o czułości lub modyfikowanie istniejących etykiet](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### <a name="creating-new-sensitivity-labels-or-modifying-existing-labels"></a>Tworzenie nowych etykiet o czułości lub modyfikowanie istniejących etykiet
 
+Gdy używasz etykiet czułości dla aplikacji pakietu Office w systemach Windows, macOS, iOS i Android, użytkownicy widzą nowe etykiety w ciągu czterech godzin i w ciągu godziny dla pakietu Office w sieci Web. Można jednak zezwolić na maksymalnie 24 godziny na Replikowanie zmian do wszystkich aplikacji i usług.
+
+> [!IMPORTANT]
+> Nie usuwaj etykiety, chyba że rozumiesz wpływ użytkowników. Aby uzyskać więcej informacji, zobacz [usuwanie i usuwanie etykiet](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) w dokumentacji Microsoft 365.
+>
+
+**Aby utworzyć nowe etykiety czułości lub zmodyfikować istniejące etykiety**:
+
 1. Otwórz [Centrum zabezpieczeń i zgodności Microsoft 365](https://protection.office.com/homepage). 
 
 1. W obszarze **rozwiązania** wybierz pozycję **Ochrona informacji**, a następnie wybierz pozycję **Utwórz etykietę**. 
@@ -152,10 +160,6 @@ Po dodaniu etykietowania do elementów zawartości w usłudze Azure kontrolą mo
 
     Aby uzyskać więcej informacji, zobacz [priorytet etykiety (kwestie w porządku)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) w dokumentacji Microsoft 365.
 
-> [!IMPORTANT]
-> Nie usuwaj etykiety, chyba że rozumiesz wpływ użytkowników. 
->
-> Aby uzyskać więcej informacji, zobacz [usuwanie i usuwanie etykiet](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) w dokumentacji Microsoft 365.
 
 Kontynuuj [skanowanie danych, aby automatycznie zastosować etykiety](#scan-your-data-to-apply-labels-automatically), a następnie:
 
@@ -194,7 +198,7 @@ Skanuj dane w usłudze Azure kontrolą, aby automatycznie zastosować utworzone 
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania skanowania dla różnych zasobów w usłudze Azure kontrolą, zobacz:
 
-|Element źródłowy  |Odwołanie  |
+|Element źródłowy  |Dokumentacja  |
 |---------|---------|
 |**Azure Blob Storage**     |[Rejestrowanie i skanowanie Blob Storage platformy Azure](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Rejestruj i Skanuj Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Rejestruj i Skanuj Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |

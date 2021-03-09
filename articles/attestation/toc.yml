@@ -54,7 +54,7 @@
     - name: REST
       href: /rest/api/attestation/
     - name: Azure PowerShell
-      href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+      href: /powershell/module/az.attestation/#attestation
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/attestation/attestation
     - name: Biblioteka Azure DCAP dla systemu Windows

@@ -3,17 +3,17 @@ title: Zarządzanie kosztami platformy Azure przy użyciu automatyzacji
 description: W tym artykule wyjaśniono, jak zarządzać kosztami platformy Azure za pomocą automatyzacji.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 03/08/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051789"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499683"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -46,6 +46,8 @@ Rozważ zastosowanie [interfejsu API szczegółów użycia](/rest/api/consumptio
 ## <a name="automate-retrieval-with-usage-details-api"></a>Automatyzacja pobierania za pomocą interfejsu API szczegółów użycia
 
 [Interfejs API szczegółów użycia](/rest/api/consumption/usageDetails) zapewnia łatwy sposób uzyskiwania nieprzetworzonych, niezagregowanych danych kosztów, które odnoszą się do rachunku za platformę Azure. Interfejs API jest przydatny, gdy organizacja potrzebuje rozwiązania pobierającego dane w sposób programistyczny. Rozważ użycie interfejsu API, jeśli chcesz analizować mniejsze zestawy danych kosztów. W przypadku większych zestawów danych powinno się jednak korzystać z innych rozwiązań wskazanych wcześniej. Dane szczegółów użycia są udostępniane dla poszczególnych liczników i dni. Są stosowane do obliczania rachunków miesięcznych. Ogólnie dostępna wersja tych interfejsów API to `2019-10-01`. Użyj wersji `2019-04-01-preview`, aby uzyskać dostęp do wersji zapoznawczej dla rezerwacji i zakupów w witrynie Azure Marketplace przy użyciu interfejsów API.
+
+Jeśli chcesz regularnie uzyskać duże ilości wyeksportowanych danych, zobacz temat szybkie [pobieranie dużych kosztów z eksportu](ingest-azure-usage-at-scale.md).
 
 ### <a name="usage-details-api-suggestions"></a>Sugestie dotyczące interfejsu API szczegółów użycia
 
@@ -101,81 +103,19 @@ Jeśli potrzebujesz rzeczywistych kosztów, aby pokazać zakupy w miarę ich nal
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-## <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>Cykliczne pobieranie dużych zestawów danych kosztów za pomocą eksportów
-
-Za pomocą eksportów z usługi Cost Management można regularnie eksportować duże ilości danych. Eksportowanie jest zalecanym sposobem pobierania niezagregowanych danych dotyczących kosztów. Szczególnie gdy pliki użycia są zbyt duże, aby można było w niezawodny sposób wywoływać je i pobierać przy użyciu interfejsu API szczegółów użycia. Wyeksportowane dane są umieszczane na wybranym koncie usługi Azure Storage. Stamtąd możesz ładować je do własnych systemów i analizować zgodnie z potrzebami. Aby skonfigurować eksporty w witrynie Azure Portal, zobacz [Eksportowanie danych](tutorial-export-acm-data.md).
-
-Jeśli chcesz zautomatyzować eksporty w różnych zakresach, dobrym punktem wyjścia jest przykładowe żądanie interfejsu API w następnej sekcji. Za pomocą interfejsu API eksportów możesz tworzyć automatyczne eksporty w ramach ogólnej konfiguracji środowiska. Automatyczne eksporty pomagają upewnić się, że masz potrzebne dane. W miarę rozszerzania zakresu zastosowań platformy Azure możesz używać ich w systemach swojej organizacji.
-
-### <a name="common-export-configurations"></a>Typowe konfiguracje eksportu
-
-Zanim utworzysz pierwszy eksport, rozważ scenariusz i opcje konfiguracji niezbędne do jego realizacji. Rozważ następujące opcje eksportu:
-
-- **Cykl** — określa częstotliwość uruchamiania zadania eksportu oraz moment umieszczenia pliku na koncie usługi Azure Storage. Do wyboru są opcje Codziennie, Co tydzień i Co miesiąc. Spróbuj skonfigurować cykl w taki sposób, aby pasował do zadań importu danych używanych przez wewnętrzny system w organizacji.
-- **Okres cyklu** — określa, jak długo eksport pozostaje ważny. Pliki są eksportowane tylko w okresie cyklu.
-- **Horyzont czasowy** — określa ilość danych wygenerowanych przez eksport w danym przebiegu. Typowe opcje to Bieżący miesiąc i Bieżący tydzień.
-- **Data rozpoczęcia** — konfiguruje czas rozpoczęcia harmonogramu eksportu. Eksport jest tworzony w dniu rozpoczęcia i później, w zależności od ustawień cyklu.
-- **Typ** — istnieją trzy typy eksportu:
-  - Koszt rzeczywisty — pokazuje łączne użycie i koszty dla określonego okresu, gdy są naliczane i widoczne na rachunku.
-  - Koszt amortyzowany — pokazuje łączne użycie i koszty dla określonego okresu z zastosowaną amortyzacją obowiązujących kosztów zakupu rezerwacji.
-  - Użycie — wszystkie eksporty utworzone przed 20 lipca 2020 r. mają typ Użycie. Zaktualizuj wszystkie zaplanowane eksporty jako Koszt rzeczywisty lub Koszt amortyzowany.
-- **Kolumny** — definiuje pola danych, które mają być uwzględnione w pliku eksportu. Odpowiadają one polom dostępnym w interfejsie API szczegółów użycia. Aby uzyskać więcej informacji, zobacz [Interfejs API szczegółów użycia](/rest/api/consumption/usagedetails/list).
-
-### <a name="create-a-daily-month-to-date-export-for-a-subscription"></a>Tworzenie codziennego eksportu z bieżącego miesiąca na potrzeby subskrypcji
-
-Adres URL żądania: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
-
-```json
-{
-  "properties": {
-    "schedule": {
-      "status": "Active",
-      "recurrence": "Daily",
-      "recurrencePeriod": {
-        "from": "2020-06-01T00:00:00Z",
-        "to": "2020-10-31T00:00:00Z"
-      }
-    },
-    "format": "Csv",
-    "deliveryInfo": {
-      "destination": {
-        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
-        "container": "{yourContainer}",
-        "rootFolderPath": "{yourDirectory}"
-      }
-    },
-    "definition": {
-      "type": "ActualCost",
-      "timeframe": "MonthToDate",
-      "dataSet": {
-        "granularity": "Daily",
-        "configuration": {
-          "columns": [
-            "Date",
-            "MeterId",
-            "ResourceId",
-            "ResourceLocation",
-            "Quantity"
-          ]
-        }
-      }
-    }
-}
-```
-
-### <a name="automate-alerts-and-actions-with-budgets"></a>Automatyzowanie alertów i akcji przy użyciu budżetów
+## <a name="automate-alerts-and-actions-with-budgets"></a>Automatyzowanie alertów i akcji przy użyciu budżetów
 
 Istnieją dwa kluczowe składniki umożliwiające maksymalizowanie wartości inwestycji w chmurze. Jednym z nich jest automatyczne tworzenie budżetu. Drugi to konfigurowanie aranżacji opartej na kosztach w odpowiedzi na alerty budżetowe. Tworzenie budżetu platformy Azure można zautomatyzować dwiema różnymi metodami. Po przekroczeniu skonfigurowanych progów alertów zdarzają się różne odpowiedzi na alerty.
 
 W poniższych sekcjach opisano dostępne opcje i przedstawiono przykładowe żądania interfejsu API umożliwiające rozpoczęcie pracy z automatyzacją budżetu.
 
-#### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>Sposób oceniania kosztów względem progu budżetu
+### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>Sposób oceniania kosztów względem progu budżetu
 
 Koszty są oceniane względem progu budżetu raz dziennie. Po utworzeniu nowego budżetu lub w dniu resetowania budżetu koszty w porównaniu z progiem będą równe zero/null, ponieważ ocena mogła jeszcze nie zostać przeprowadzona.
 
 Gdy platforma Azure wykryje, że koszty przekroczyły wartość progową, w ciągu godziny od wykrycia zostanie wyzwolone powiadomienie.
 
-#### <a name="view-your-current-cost"></a>Wyświetlanie bieżącego kosztu
+### <a name="view-your-current-cost"></a>Wyświetlanie bieżącego kosztu
 
 Aby wyświetlić bieżące koszty, musisz wykonać wywołanie GET przy użyciu [interfejsu API zapytania](/rest/api/cost-management/query).
 
@@ -185,7 +125,7 @@ Wywołanie GET do interfejsu API budżetów nie zwróci bieżących kosztów wy�
 
 Tworzenie budżetu można zautomatyzować za pomocą [interfejsu API budżetów](/rest/api/consumption/budgets). Można również utworzyć budżet za pomocą [szablonu budżetu](quick-create-budget-template.md). Szablony to łatwy sposób na ustandaryzowanie wdrożeń platformy Azure z zapewnieniem prawidłowej konfiguracji i wymuszania kontroli kosztów.
 
-#### <a name="supported-locales-for-budget-alert-emails"></a>Ustawienia regionalne obsługiwane w przypadku wiadomości e-mail z alertami budżetowymi
+### <a name="supported-locales-for-budget-alert-emails"></a>Ustawienia regionalne obsługiwane w przypadku wiadomości e-mail z alertami budżetowymi
 
 W przypadku budżetów otrzymasz alert, gdy koszty przekroczą ustawiony próg. Możesz skonfigurować maksymalnie pięciu adresatów wiadomości e-mail na budżet. Adresaci będą otrzymywać alerty e-mail w ciągu 24 godzin od przekroczenia progu budżetu. Może być jednak konieczne wysłanie do adresata wiadomości e-mail w innym języku. W interfejsie API budżetów można używać następujących kodów kultur języków. Ustaw kod kultury przy użyciu parametru `locale` podobnie jak w poniższym przykładzie.
 
@@ -249,7 +189,7 @@ Języki obsługiwane przez kod kultury:
 | pt-pt | Portugalski (Portugalia) |
 | sv-se | Szwedzki (Szwecja) |
 
-#### <a name="common-budgets-api-configurations"></a>Typowe konfiguracje interfejsu API budżetów
+### <a name="common-budgets-api-configurations"></a>Typowe konfiguracje interfejsu API budżetów
 
 Istnieje wiele sposobów konfigurowania budżetu w środowisku platformy Azure. Najpierw rozważ scenariusz, a następnie zidentyfikuj opcje konfiguracji, które pozwolą go zrealizować. Zapoznaj się z następującymi opcjami:
 

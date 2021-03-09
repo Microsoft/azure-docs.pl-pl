@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: a33ba6813b4a67de7f46f3576a44fa7411278ba7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 861463b13c6ce8b29911432ad96f98fed527745b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031790"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501060"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Samouczek: używanie tożsamości zarządzanej do wywoływania Azure Functions z aplikacji w chmurze platformy Azure
 
@@ -175,4 +175,4 @@ Ten przykład wywoła funkcję wyzwalaną przez protokół HTTP przez pierwsze �
 
 * [Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Dowiedz się więcej o tożsamościach zarządzanych dla zasobów platformy Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Konfigurowanie aplikacji klienckiej demona dla wywołań Service to Service](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)
+* [Skonfiguruj aplikacje klienckie, aby uzyskiwać dostęp do App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

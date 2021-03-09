@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 622ebfed8294dbcb441aa509fc4f6ba75114f28d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571344"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499360"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Zalecenia dotyczące zabezpieczeń maszyn wirtualnych na platformie Azure
 
@@ -33,7 +33,7 @@ Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to je
 | Podczas tworzenia niestandardowych obrazów maszyn wirtualnych należy zastosować najnowsze aktualizacje. | Przed utworzeniem obrazów Zainstaluj najnowsze aktualizacje systemu operacyjnego i dla wszystkich aplikacji, które będą częścią obrazu.  | - |
 | Utrzymuj aktualność maszyn wirtualnych. | [Update Management](../automation/update-management/overview.md) rozwiązanie w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego na komputerach z systemem Windows i Linux na platformie Azure. | [Tak](../security-center/asset-inventory.md) |
 | Utwórz kopię zapasową maszyn wirtualnych. | [Azure Backup](../backup/backup-overview.md) pomaga chronić dane aplikacji i ma minimalne koszty operacyjne. Błędy aplikacji mogą uszkodzić dane, a błędy ludzkie mogą wprowadzać usterki do aplikacji. Azure Backup chroni maszyny wirtualne z systemem Windows i Linux. | - |
-| Używaj wielu maszyn wirtualnych w celu uzyskania większej odporności i dostępności. | Jeśli na maszynie wirtualnej są uruchomione aplikacje, które muszą mieć wysoką dostępność, Użyj wielu maszyn wirtualnych lub [zestawów dostępności](./manage-availability.md). | - |
+| Używaj wielu maszyn wirtualnych w celu uzyskania większej odporności i dostępności. | Jeśli na maszynie wirtualnej są uruchomione aplikacje, które muszą mieć wysoką dostępność, Użyj wielu maszyn wirtualnych lub [zestawów dostępności](./availability.md). | - |
 | Zastosuj strategię ciągłości działania i odzyskiwania po awarii (BCDR). | Azure Site Recovery umożliwia wybór spośród różnych opcji, które są przeznaczone do obsługi ciągłości biznesowej. Obsługuje inne scenariusze replikacji i trybu failover. Aby uzyskać więcej informacji, zobacz  [Informacje o Site Recovery](../site-recovery/site-recovery-overview.md). | - |
 
 ## <a name="data-security"></a>Bezpieczeństwo danych
@@ -58,7 +58,7 @@ Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to je
 |-|----|--|
 | Monitoruj maszyny wirtualne. | Za pomocą [Azure monitor dla maszyn wirtualnych](../azure-monitor/vm/vminsights-overview.md) można monitorować stan maszyn wirtualnych platformy Azure i zestawów skalowania maszyn wirtualnych. Problemy z wydajnością maszyny wirtualnej mogą prowadzić do przerw w działaniu usługi, co narusza zasadę zabezpieczeń. | - |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|

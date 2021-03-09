@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 1a73b56c5ed8b15b9bbcf344e91fdd5fdf4b78cc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 609649c533b184b2ccc3d3a5fee79d75d1b66f5b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592199"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506688"
 ---
 # <a name="azure-queue-storage-reference"></a>Dokumentacja usługi Azure Queue Storage
 
@@ -107,7 +107,7 @@ Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 
 | Wersja | Platforma |
 | ------- | -------- |
-|  4.x | [Program PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  4.x | [Program PowerShell](/powershell/module/az.storage/?view=azps-4.8.0&preserve-view=true) |
 |  wersji | [Program PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
 |  2.x | [Program PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 

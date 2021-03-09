@@ -4,19 +4,19 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 190da8fc98f3a03499188ab173f058d15cd2dafe
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4983c1e1e7f235fa7a5b748a0ce5b1c79176c849
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025769"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511069"
 ---
-Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AciWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
+Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AciWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
 
 | Jednostka JSON | Parametr metody | Opis |
 | ----- | ----- | ----- |
-| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. Dla ACI wartość musi być `ACI` . |
-| `containerResourceRequirements` | Nie dotyczy | Kontener dla jednostek procesora i pamięci. |
+| `computeType` | NA | Docelowy zasób obliczeniowy. Dla ACI wartość musi być `ACI` . |
+| `containerResourceRequirements` | NA | Kontener dla jednostek procesora i pamięci. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Liczba rdzeni procesora CPU do przydzielenia. Wartości domyślne `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci Web. Wartooć `0.5` |
 | `location` | `location` | Region świadczenia usługi Azure, w którym ma zostać wdrożona ta usługa sieci Web. Jeśli nie zostanie określona, zostanie użyta Lokalizacja obszaru roboczego. Więcej szczegółów na temat dostępnych regionów można znaleźć tutaj: [regiony ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |

@@ -48,6 +48,8 @@
           href: understand/analyze-unexpected-charges.md
         - name: Zarządzanie kosztami przy użyciu automatyzacji
           href: costs/manage-automation.md
+        - name: Pobierz duże zestawy danych z eksportami
+          href: costs/ingest-azure-usage-at-scale.md
         - name: Usługa Cost Management dla partnerów
           href: costs/get-started-partners.md
         - name: Migracja z systemu EA Reporting do interfejsów Azure Resource Manager API
@@ -278,6 +280,8 @@
           href: manage/cost-management-budget-scenario.md
         - name: Korzystanie z alertów dotyczących kosztów
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
+        - name: Eksportowanie danych kosztów za pomocą klucza SAS magazynu
+          href: costs/export-cost-data-storage-account-sas-key.md
         - name: Alokowanie kosztów
           href: costs/allocate-costs.md
         - name: Nawiązywanie połączenia za pomocą programu Power BI Desktop

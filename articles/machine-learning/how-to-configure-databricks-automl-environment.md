@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 43e503105eb9d59de5de2fe26e024cc473c61af6
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9bf167f5be9aeb65f0d7c1d69e6687589ebea8a4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430500"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498884"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Skonfiguruj środowisko deweloperskie za pomocą Azure Databricks i AutoML w Azure Machine Learning 
 
@@ -172,4 +172,4 @@ Wypróbuj:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie.
-- Zapoznaj się z informacjami w [Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- Zapoznaj się z informacjami w [Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro).

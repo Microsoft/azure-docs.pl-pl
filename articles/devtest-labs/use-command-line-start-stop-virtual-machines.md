@@ -3,12 +3,12 @@ title: Korzystanie z narzędzi wiersza polecenia do uruchamiania i zatrzymywania
 description: Dowiedz się, jak uruchamiać i zatrzymywać maszyny wirtualne w Azure DevTest Labs przy użyciu narzędzi wiersza polecenia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2b9be3d09c488fdae211d81daf88e8807bc7b4dc
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 2ddc1620cf86fa203b2f0e31359f9fd262df8916
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201196"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499547"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Uruchamianie i zatrzymywanie Azure DevTest Labs maszyn wirtualnych przy użyciu narzędzi wiersza polecenia
 W tym artykule pokazano, jak używać Azure PowerShell lub interfejsu wiersza polecenia platformy Azure do uruchamiania lub zatrzymywania maszyn wirtualnych w laboratorium w Azure DevTest Labs. Aby zautomatyzować te operacje, można utworzyć skrypty środowiska PowerShell/interfejsu wiersza polecenia. 
@@ -29,7 +29,7 @@ Jednak w niektórych scenariuszach można zautomatyzować uruchamianie i zatrzym
 > [!NOTE]
 > Poniższy skrypt używa Azure PowerShell AZ module. 
 
-Poniższy skrypt programu PowerShell uruchamia maszynę wirtualną w laboratorium. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) jest podstawowym fokusem dla tego skryptu. Parametr **ResourceID** to w pełni kwalifikowany identyfikator zasobu dla maszyny wirtualnej w laboratorium. W parametrze **akcji** jest ustawiana opcja **uruchamiania** lub **zatrzymywania** w zależności od tego, co jest potrzebne.
+Poniższy skrypt programu PowerShell uruchamia maszynę wirtualną w laboratorium. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) jest podstawowym fokusem dla tego skryptu. Parametr **ResourceID** to w pełni kwalifikowany identyfikator zasobu dla maszyny wirtualnej w laboratorium. W parametrze **akcji** jest ustawiana opcja **uruchamiania** lub **zatrzymywania** w zależności od tego, co jest potrzebne.
 
 ```powershell
 # The id of the subscription

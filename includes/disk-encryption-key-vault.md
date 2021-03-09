@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 26a9e931c42822218e7935f50c1f222ac33c34f2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6f8cfc314c75221a88b58095cc71ea685280ac49
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210103"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501021"
 ---
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -161,7 +161,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 ###  <a name="azure-powershell"></a>Azure PowerShell 
 
-Użyj polecenia cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey?view=azps-2.5.0) , aby wygenerować nowy KEK i zapisać go w magazynie kluczy.
+Użyj polecenia cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) , aby wygenerować nowy KEK i zapisać go w magazynie kluczy.
 
  ```powershell-interactive
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
@@ -169,7 +169,7 @@ Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destin
 
 Zamiast tego możesz zaimportować klucz prywatny przy użyciu polecenia Azure PowerShell [AZ Key magazynu klucz import](/cli/azure/keyvault/key#az-keyvault-key-import) .
 
-W obu przypadkach należy podać identyfikator magazynu kluczy KEK oraz adres URL KEK do parametrów Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.5.0) -KeyEncryptionKeyVaultId i-KeyEncryptionKeyUrl. Należy pamiętać, że w tym przykładzie założono, że używasz tego samego magazynu kluczy zarówno dla klucza szyfrowania dysku, jak i dla KEK.
+W obu przypadkach należy podać identyfikator magazynu kluczy KEK oraz adres URL KEK do parametrów Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) -KeyEncryptionKeyVaultId i-KeyEncryptionKeyUrl. Należy pamiętać, że w tym przykładzie założono, że używasz tego samego magazynu kluczy zarówno dla klucza szyfrowania dysku, jak i dla KEK.
 
  ```powershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup"

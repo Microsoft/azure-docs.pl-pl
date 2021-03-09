@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420873"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508490"
 ---
 # <a name="convert-to-dataset"></a>Konwertowanie na zestaw danych
 
@@ -35,18 +35,18 @@ Zalecamy użycie modułu [Edytowanie metadanych](edit-metadata.md) w celu przygo
 
 2. Połącz ją z dowolnym modułem, który wyprowadza zestaw danych.   
 
-    Tak długo, jak dane są [tabelaryczne](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), można przekonwertować ją na zestaw danych. Obejmuje to dane załadowane przez [dane importu](import-data.md), dane utworzone za poorednictwem [wprowadzania danych ręcznie](enter-data-manually.md)lub zestawy danych przekształcane przez [zastosowanie transformacji](apply-transformation.md).
+    Tak długo, jak dane są [tabelaryczne](/python/api/azureml-core/azureml.data.tabulardataset), można przekonwertować ją na zestaw danych. Obejmuje to dane załadowane przez [dane importu](import-data.md), dane utworzone za poorednictwem [wprowadzania danych ręcznie](enter-data-manually.md)lub zestawy danych przekształcane przez [zastosowanie transformacji](apply-transformation.md).
 
 3.  Z listy rozwijanej **Akcja** wskaż, czy chcesz przeprowadzić oczyszczanie danych przed zapisaniem zestawu danych:  
   
-    - **Brak** : Użyj danych jako.  
+    - **Brak**: Użyj danych jako.  
   
-    - **SetMissingValue** : Ustaw określoną wartość na brakującą wartość w zestawie danych. Domyślny symbol zastępczy jest znakiem zapytania (?), ale można użyć niestandardowej opcji  **braku wartości** , aby wprowadzić inną wartość. Jeśli na przykład wprowadzisz **taksówkę** dla **niestandardowej brakującej wartości** , wszystkie **wystąpienia w zestawie** danych zostaną zmienione na brakującą wartość.
+    - **SetMissingValue**: Ustaw określoną wartość na brakującą wartość w zestawie danych. Domyślny symbol zastępczy jest znakiem zapytania (?), ale można użyć niestandardowej opcji  **braku wartości** , aby wprowadzić inną wartość. Jeśli na przykład wprowadzisz **taksówkę** dla **niestandardowej brakującej wartości**, wszystkie **wystąpienia w zestawie** danych zostaną zmienione na brakującą wartość.
   
-    - **ReplaceValues** : Użyj tej opcji, aby określić pojedynczą dokładną wartość, która zostanie zamieniona na inną dokładną wartość. Brakujące wartości lub wartości niestandardowe można zastąpić, ustawiając metodę **replace** :
+    - **ReplaceValues**: Użyj tej opcji, aby określić pojedynczą dokładną wartość, która zostanie zamieniona na inną dokładną wartość. Brakujące wartości lub wartości niestandardowe można zastąpić, ustawiając metodę **replace** :
 
-      - **Brak** : Wybierz tę opcję, aby zastąpić brakujące wartości w wejściowym zestawie danych. Dla opcji **Nowa wartość** wprowadź wartość, aby zastąpić brakujące wartości wartościami.
-      - **Niestandardowe** : Wybierz tę opcję, aby zastąpić wartości niestandardowe w wejściowym zestawie danych. W polu **wartość niestandardowa** wprowadź wartość, która ma zostać znaleziona. Na przykład, jeśli dane zawierają ciąg `obs` używany jako symbol zastępczy dla brakujących wartości, należy wprowadzić `obs` . Dla **nowej wartości** wprowadź nową wartość, aby zastąpić oryginalny ciąg ciągiem.
+      - **Brak**: Wybierz tę opcję, aby zastąpić brakujące wartości w wejściowym zestawie danych. Dla opcji **Nowa wartość** wprowadź wartość, aby zastąpić brakujące wartości wartościami.
+      - **Niestandardowe**: Wybierz tę opcję, aby zastąpić wartości niestandardowe w wejściowym zestawie danych. W polu **wartość niestandardowa** wprowadź wartość, która ma zostać znaleziona. Na przykład, jeśli dane zawierają ciąg `obs` używany jako symbol zastępczy dla brakujących wartości, należy wprowadzić `obs` . Dla **nowej wartości** wprowadź nową wartość, aby zastąpić oryginalny ciąg ciągiem.
   
     Należy pamiętać, że operacja **ReplaceValues** ma zastosowanie tylko do dokładnych dopasowań. Na przykład nie wpłynie to na te ciągi: `obs.` , `obsolete` .  
  

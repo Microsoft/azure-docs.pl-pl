@@ -10,12 +10,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8813b2cad5800bd4ede6e64119117df57c230fdc
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 32777d9f8313457036b103777f251329687b3997
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071225"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508014"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Zarządzanie modelami, wdrażanie i monitorowanie za pomocą Azure Machine Learning
 
@@ -160,7 +160,7 @@ Usługa Azure ML oferuje możliwość śledzenia kompleksowego dziennika inspekc
 > [!TIP]
 > Niektóre informacje o modelach i zestawach danych są przechwytywane automatycznie, ale można dodać dodatkowe informacje za pomocą __tagów__. Podczas wyszukiwania zarejestrowanych modeli i zestawów danych w obszarze roboczym można używać tagów jako filtru.
 >
-> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) .
+> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](/python/api/azureml-core/azureml.core.model%28class%29) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Powiadamianie, Automatyzowanie i wyzwalanie alertów dotyczących zdarzeń w cyklu życia w ML
