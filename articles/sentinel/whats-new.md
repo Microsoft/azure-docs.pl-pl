@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453805"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485388"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nowości w platformie Azure — Wskaźnikowanie
 
@@ -29,6 +29,32 @@ Notowane funkcje są obecnie dostępne w wersji zapoznawczej. [Postanowienia uzu
 >
 > Możesz również współtworzyć. Dołącz do nas w [społeczności usługi GitHub](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
+
+## <a name="march-2021"></a>Marzec 2021
+
+- [Integracja zdarzeń Microsoft 365 Defender](#microsoft-365-defender-incident-integration) (publiczna wersja zapoznawcza)
+- [Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+
+### <a name="microsoft-365-defender-incident-integration"></a>Integracja zdarzeń Microsoft 365 Defender
+
+Integracja zdarzeń Microsoft 365 usługi Azure wskaźnikowej [(M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) to usługa, która umożliwia przesyłanie strumieniowe wszystkich zdarzeń M365D do usługi Azure wskaźnikowej i utrzymywanie synchronizacji między obydwoma portalami. Zdarzenia z usługi M365D (dawniej znany jako Microsoft Threat Protection lub MTP) obejmują wszystkie skojarzone alerty, jednostki i istotne informacje, dzięki czemu można wykonać Klasyfikacja i wstępną badanie na platformie Azure. Gdy dane są wskazywane przez program, Zdarzenia nadal będą dwukierunkowe zsynchronizowane z usługą M365D, co pozwala korzystać z zalet obu portali w badaniu zdarzeń.
+
+Jednoczesne korzystanie z platformy Azure i usługi Microsoft 365 Defender zapewnia najlepsze rozwiązanie obu tych rozwiązań. Uzyskasz szeroki wgląd w to, że SIEM udostępnia użytkownikowi cały zakres zasobów informacyjnych w organizacji, a także głębokość dostosowanej i dopasowanej mocy dochodzeniowej, którą XDR oferuje do ochrony zasobów Microsoft 365, zarówno w przypadku skoordynowanego, jak i zsynchronizowanego działania, które można bezproblemowo SOC.
+
+Aby uzyskać więcej informacji, zobacz [integracja z usługą Microsoft 365 Defender z platformą Azure — wskaźnikiem](microsoft-365-defender-sentinel-integration.md).
+
+### <a name="new-microsoft-service-connectors-using-azure-policy"></a>Nowe łączniki usługi firmy Microsoft korzystające z Azure Policy
+
+[Azure Policy](../governance/policy/overview.md) to usługa platformy Azure, która umożliwia korzystanie z zasad w celu wymuszania i kontrolowania właściwości zasobu. Korzystanie z zasad zapewnia, że zasoby pozostają zgodne ze standardami zarządzania IT.
+
+Wśród właściwości zasobów, które mogą być kontrolowane przez zasady, jest tworzenie i obsługa dzienników diagnostycznych i inspekcji. Wskaźnik na platformie Azure używa teraz Azure Policy, aby umożliwić stosowanie wspólnego zestawu ustawień dzienników diagnostycznych do wszystkich (bieżących i przyszłych) zasobów określonego typu, których dzienników chcesz pozyskać na platformie Azure. Dziękujemy za Azure Policy, nie trzeba już ustawiać zasobów ustawień dzienników diagnostycznych według zasobu.
+
+Łączniki oparte na Azure Policy są teraz dostępne dla następujących usług platformy Azure:
+- [Azure Key Vault](connect-azure-key-vault.md) (publiczna wersja zapoznawcza)
+- [Usługa Azure Kubernetes](connect-azure-kubernetes-service.md) (publiczna wersja zapoznawcza)
+- Bazy danych i serwery usługi Azure SQL Database (wersja ogólnie dostępna)
+
+Klienci nadal będą mogli ręcznie wysyłać dzienniki dla określonych wystąpień i nie muszą używać aparatu zasad.
 
 ## <a name="february-2021"></a>Luty 2021 r.
 
@@ -86,7 +112,7 @@ Nasza kolekcja integracji innych firm nadal rośnie, a w ciągu ostatnich dwóch
 - [Endpoint Protection firmy Symantec](connect-data-sources.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro XDR](connect-data-sources.md)
-- [ESXi VMWare](connect-vmware-esxi.md)
+- [VMware ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>UEBA szczegółowych informacji na stronie jednostki
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432948"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487152"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Utwórz zapytanie semantyczne w Wyszukiwanie poznawcze
 
@@ -177,7 +177,7 @@ Poniższa tabela zawiera podsumowanie parametrów zapytania używanych w kwerend
 | Znak | Ciąg | Prawidłowe wartości to proste, pełne i semantyczne. Dla zapytań semantycznych jest wymagana wartość "semantyka". |
 | queryLanguage | Ciąg | Wymagane dla zapytań semantycznych. Obecnie jest zaimplementowana tylko wartość "en-us". |
 | searchFields | Ciąg | Rozdzielana przecinkami lista pól do przeszukiwania. Opcjonalne, ale zalecane. Określa pola, w których występuje Klasyfikacja semantyczna. </br></br>W przeciwieństwie do prostych i pełnych typów zapytań, kolejność, w której pola są wyświetlane, określa pierwszeństwo.|
-| uzyskiwan |Ciąg | Pole opcjonalne, aby określić, czy w wyniku mają być uwzględniane semantyki odpowiedzi. Obecnie tylko "Wyodrębnianie" jest implementowane. Odpowiedzi można skonfigurować tak, aby zwracały maksymalnie pięć. Ten przykład "Wyodrębnianie|count3 "" pokazuje liczbę trzech odpowiedzi. Wartość domyślna to 1.|
+| uzyskiwan |Ciąg | Pole opcjonalne, aby określić, czy w wyniku mają być uwzględniane semantyki odpowiedzi. Obecnie tylko "Wyodrębnianie" jest implementowane. Odpowiedzi można skonfigurować tak, aby zwracały maksymalnie pięć. Wartość domyślna to 1. Ten przykład przedstawia liczbę trzech odpowiedzi: "Extract \| count3" ". |
 
 ## <a name="query-with-search-explorer"></a>Wykonywanie zapytań przy użyciu Eksploratora wyszukiwania
 
@@ -186,7 +186,7 @@ Następujące zapytanie odwołuje się do wbudowanego przykładu hoteli w hotela
 ### <a name="with-querytypesemantic"></a>Z semantyką querytype =
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 Poniżej przedstawiono kilka pierwszych wyników.

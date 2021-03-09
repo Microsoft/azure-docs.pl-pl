@@ -9,99 +9,76 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: a1f000572badcaa09c958c7ca19ed81c4d0603bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 26d9321f028bc8b9293e9d7d46616fff2f3b60ce
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459513"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Samouczek: integracja Azure Active Directory z pomocą techniczną Jitbit
 
-W tym samouczku dowiesz się, jak zintegrować pomoc techniczną Jitbit z usługą Azure Active Directory (Azure AD).
-Integracja pomocy technicznej Jitbit z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować pomoc techniczną Jitbit z usługą Azure Active Directory (Azure AD). Po zintegrowaniu pomocy technicznej Jitbit z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do pomocy technicznej Jitbit.
-* Możesz pozwolić użytkownikom na automatyczne logowanie do Jitbit pomocy technicznej (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+* Kontrolka w usłudze Azure AD, która ma dostęp do pomocy technicznej Jitbit.
+* Zezwól użytkownikom na automatyczne logowanie do Jitbit pomocy technicznej przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z pomocą techniczną Jitbit, potrzebne są następujące elementy:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w Jitbit pomocy technicznej
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja obsługująca Logowanie jednokrotne (SSO) usługi Jitbit.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Pomoc techniczna Jitbit obsługuje zainicjowane przez usługę **SP** SSO
+* Pomoc techniczna Jitbit obsługuje usługę **SP** zainicjowaną przez usługę SSO.
 
-## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Dodawanie pomocy technicznej Jitbit z galerii
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+
+## <a name="add-jitbit-helpdesk-from-the-gallery"></a>Dodaj pomoc techniczną Jitbit z galerii
 
 Aby skonfigurować integrację pomocy technicznej Jitbit z usługą Azure AD, musisz dodać do listy zarządzanych aplikacji SaaS pomoc techniczną Jitbit z galerii.
 
-**Aby dodać pomoc techniczną Jitbit z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **Jitbit pomocy technicznej** w polu wyszukiwania.
+1. Wybierz pozycję Jitbit Help ( **Pomoc techniczna** ) w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-jitbit-helpdesk"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Jitbit pomocy technicznej
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Jitbit pomocy technicznej przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w pomocy technicznej Jitbit.
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pomocy technicznej Jitbit, wykonaj następujące czynności:
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-jitbit-helpdesk-sso)** w usłudze Jitbit, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego pomocy technicznej Jitbit](#create-jitbit-helpdesk-test-user)** , aby dysponować odpowiednikiem B. Simon w pomocy technicznej Jitbit, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-4. W polu wyszukiwania wpisz Jitbit Help (pomoc **techniczna**), wybierz pozycję **Pomoc techniczna** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+1. W Azure Portal na stronie integracja aplikacji **pomocy technicznej Jitbit** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-     ![Jitbit pomoc techniczną na liście wyników](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
-
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą pomocy technicznej Jitbit w oparciu o użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Jitbit.
-
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pomocy technicznej Jitbit, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w **[Jitbit pomocy technicznej](#configure-jitbit-helpdesk-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego pomocy technicznej Jitbit](#create-jitbit-helpdesk-test-user)** , aby dysponować odpowiednikiem Britta Simon w pomocy technicznej Jitbit, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy technicznej Jitbit, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **pomocy technicznej Jitbit** wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o rejestracji jednokrotnej w domenie i adresach URL Jitbit pomocy technicznej](common/sp-identifier.png)
-
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: 
+    a. W polu tekstowym **adres URL logowania** wpisz jeden z adresów URL, używając następującego wzorca:
     | |
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -111,7 +88,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
     > [!NOTE] 
     > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej programu Jitbit](https://www.jitbit.com/support/) w celu uzyskania tej wartości.
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL w następujący sposób: `https://www.jitbit.com/web-helpdesk/`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: `https://www.jitbit.com/web-helpdesk/`
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -121,27 +98,45 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-    b. Identyfikator usługi Azure AD
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-    c. Adres URL wylogowywania
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij pozycję **Utwórz**.
 
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurowanie Sign-On pomocy technicznej Jitbit
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do pomocy technicznej Jitbit.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **Pomoc techniczna Jitbit**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+## <a name="configure-jitbit-helpdesk-sso"></a>Konfigurowanie rejestracji jednokrotnej w Jitbit pomocy technicznej
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny pomocy technicznej Jitbit jako administrator.
 
 1. Na pasku narzędzi u góry kliknij pozycję **Administracja**.
 
-    ![Administracja](./media/jitbit-helpdesk-tutorial/ic777681.png "Administracja")
+    ![Administracja](./media/jitbit-helpdesk-tutorial/settings.png "Administracja")
 
 1. Kliknij pozycję **Ustawienia ogólne**.
 
-    ![Zrzut ekranu przedstawia link Ustawienia ogólne.](./media/jitbit-helpdesk-tutorial/ic777680.png "Użytkownicy, firmy i uprawnienia")
+    ![Zrzut ekranu przedstawia link Ustawienia ogólne.](./media/jitbit-helpdesk-tutorial/general.png "Użytkownicy, firmy i uprawnienia")
 
 1. W sekcji Konfiguracja **ustawień uwierzytelniania** wykonaj następujące czynności:
 
-    ![Ustawienia uwierzytelniania](./media/jitbit-helpdesk-tutorial/ic777683.png "Ustawienia uwierzytelniania")
+    ![Ustawienia uwierzytelniania](./media/jitbit-helpdesk-tutorial/authentication.png "Ustawienia uwierzytelniania")
 
     a. Wybierz pozycję Włącz logowanie jednokrotne w protokole **SAML 2,0**, aby zalogować się przy użyciu jednego Sign-On (SSO) z **OneLogin**.
 
@@ -150,57 +145,6 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą pomocy tech
     c. Otwórz certyfikat zakodowany w formacie **Base-64** w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikatu X. 509** .
 
     d. Kliknij przycisk **Zapisz zmiany**.
-
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
-
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
-
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-
-    ![Przycisk Nowy użytkownik](common/new-user.png)
-
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
-    Na przykład BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij pozycję **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do pomocy technicznej Jitbit.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Pomoc techniczna Jitbit**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **Pomoc techniczna Jitbit**.
-
-    ![Link do pomocy technicznej Jitbit na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-jitbit-helpdesk-test-user"></a>Utwórz użytkownika testowego pomocy technicznej Jitbit
 
@@ -212,19 +156,19 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do pomocy technicz
 
 1. W menu u góry kliknij pozycję **Administracja**.
 
-    ![Administracja](./media/jitbit-helpdesk-tutorial/ic777681.png "Administracja")
+    ![Administracja](./media/jitbit-helpdesk-tutorial/settings.png "Administracja")
 
 1. Kliknij pozycję **Użytkownicy, firmy i uprawnienia**.
 
-    ![Użytkownicy, firmy i uprawnienia](./media/jitbit-helpdesk-tutorial/ic777682.png "Użytkownicy, firmy i uprawnienia")
+    ![Użytkownicy, firmy i uprawnienia](./media/jitbit-helpdesk-tutorial/users.png "Użytkownicy, firmy i uprawnienia")
 
 1. Kliknij pozycję **Dodaj użytkownika**.
 
-    ![Dodaj użytkownika](./media/jitbit-helpdesk-tutorial/ic777685.png "Dodaj użytkownika")
+    ![Dodaj użytkownika](./media/jitbit-helpdesk-tutorial/add.png "Dodaj użytkownika")
 
 1. W sekcji Tworzenie wpisz dane konta usługi Azure AD, które chcesz udostępnić w następujący sposób:
 
-    ![Utwórz](./media/jitbit-helpdesk-tutorial/ic777686.png "Utwórz")
+    ![Utwórz](./media/jitbit-helpdesk-tutorial/create-section.png "Utwórz")
 
    a. W polu tekstowym **Nazwa** użytkownika wpisz nazwę użytkownika, na przykład **BrittaSimon**.
 
@@ -239,16 +183,16 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do pomocy technicz
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników i interfejsów API usługi Jitbit.
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka pomocy technicznej Jitbit w panelu dostępu należy automatycznie zalogować się do pomocy technicznej Jitbit, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do pomocy technicznej Jitbit, w którym można zainicjować przepływ logowania. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+* Przejdź do adresu URL logowania pomocy technicznej Jitbit bezpośrednio i zainicjuj w nim przepływ logowania.
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+* Możesz korzystać z aplikacji Microsoft my Apps. Po kliknięciu kafelka pomocy technicznej Jitbit w obszarze Moje aplikacje zostanie on przekierowany do adresu URL logowania działu pomocy technicznej Jitbit. Aby uzyskać więcej informacji o moich aplikacjach, zobacz [wprowadzenie do aplikacji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+Po skonfigurowaniu pomocy technicznej Jitbit można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

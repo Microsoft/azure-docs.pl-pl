@@ -9,14 +9,17 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ef013d97be8a5decbee46d25752ced7bd622a646
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9611a854c6dad29842f1652580da5fd1d449cb3f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657778"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485848"
 ---
 # <a name="chat-client-library-overview"></a>Omówienie biblioteki klienta czatu
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Za pomocą bibliotek klienckich czatu usługi Azure Communication Services można dodawać rozbudowane rozmowy w czasie rzeczywistym do aplikacji.
 
@@ -42,7 +45,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Wysyłać i odbierać powiadomienia o wpisywaniu, gdy członek aktywnie pisze komunikat w wątku rozmowy <br/> *Niedostępne, gdy w wątku rozmowy znajduje się więcej niż 20 elementów członkowskich*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Pobierz wszystkie komunikaty w wątku rozmowy <br/> *Obsługiwane znaki emoji Unicode*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Wyślij emojis jako część zawartości komunikatu                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Sygnalizowanie w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnałów * *)| Otrzymuj powiadomienia, gdy użytkownik odbierze nową wiadomość w wątku rozmowy, do której należy.                                     | ✔️   | ❌    | ❌  | ❌  |
+|Sygnalizowanie w czasie rzeczywistym (włączone przez zastrzeżony pakiet sygnalizowania * *)| Otrzymuj powiadomienia, gdy użytkownik odbierze nową wiadomość w wątku rozmowy, do której należy.                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Otrzymuj powiadomienia, gdy komunikat był edytowany przez innego członka w wątku rozmowy, do którego należy                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Otrzymuj powiadomienia, gdy wiadomość została usunięta przez innego członka w wątku rozmowy, do której należy.                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Otrzymuj powiadomienia, gdy zostanie wpisany inny element członkowski wątku rozmowy                                                             | ✔️   | ❌    | ❌    | ❌  |

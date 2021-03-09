@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e292aeb116bd33ce935c951b39015c54dd1a8bc
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690587"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486696"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,9 @@ Strefa z nadmiarową wersją architektury wysokiej dostępności dla warstwy us�
 
 > [!NOTE]
 > Ogólnego przeznaczenia bazy danych o rozmiarze 80 rdzeń wirtualny mogą powodować spadek wydajności dzięki konfiguracji nadmiarowej strefy. Ponadto operacje, takie jak tworzenie kopii zapasowej, przywracanie, Kopiowanie bazy danych i Konfigurowanie relacji Geo-DR mogą mieć mniejszą wydajność dla wszystkich baz danych większych niż 1 TB. 
+> 
+> [!NOTE]
+> Wersja zapoznawcza nie jest objęta wystąpieniem zarezerwowanym
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Warstwa usług premium i Krytyczne dla działania firmy lokalnie nadmiarowa dostępność
 

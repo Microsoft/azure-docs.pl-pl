@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c5bdab2038f2f41c7240addaff99bd831d29f489
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d4c9d2e290f6a8f07878a019b755c8add2ab69ea
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101643817"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488448"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Dropbox Business z Azure Active Directory
 
@@ -38,9 +38,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-* W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Usługa Dropbox firmy obsługuje logowanie jednokrotne w usłudze **SP**
+* W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym. Usługa Dropbox firmy obsługuje logowanie jednokrotne z użyciem usługi **SP** .
 
-* Usługa Dropbox firmy obsługuje [Automatyczne Inicjowanie obsługi i cofanie aprowizacji użytkowników](dropboxforbusiness-tutorial.md)
+* Usługa Dropbox firmy obsługuje [Automatyczne Inicjowanie obsługi użytkowników i](dropboxforbusiness-tutorial.md)cofanie aprowizacji.
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -82,11 +82,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na stronie **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://www.dropbox.com/sso/<id>`
-
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz wartość: `Dropbox`
-
+    
+     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz wartość: `Dropbox`
+    
     > [!NOTE]
-    > Podana wyżej wartość adresu URL logowania nie jest prawdziwa. Ta wartość zostanie zaktualizowana przy użyciu rzeczywistego adresu URL logowania, co objaśniono w dalszej części tego samouczka.
+    > **Identyfikator logowania JEDNOkrotnego** dla usługi Dropbox można znaleźć w witrynie Dropbox w obszarze usługi Dropbox > konsoli administracyjnej > ustawienia > logowania jednokrotnego > adresem URL logowania jednoosobowego.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -137,23 +137,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Kliknij **ikonę użytkownika** i wybierz kartę **Settings** (Ustawienia).
 
-    ![Zrzut ekranu pokazujący akcję "ikona użytkownika" i "Ustawienia" wybrane.](./media/dropboxforbusiness-tutorial/configure1.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący akcję "ikona użytkownika" i "Ustawienia" wybrane.](./media/dropboxforbusiness-tutorial/configure-1.png "Konfigurowanie logowania jednokrotnego")
 
 5. W okienku nawigacji po lewej stronie kliknij pozycję **Admin console** (Konsola administracyjna).
 
-    ![Zrzut ekranu przedstawiający wybraną wartość "Konsola administracyjna".](./media/dropboxforbusiness-tutorial/configure2.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający wybraną wartość "Konsola administracyjna".](./media/dropboxforbusiness-tutorial/configure-2.png "Konfigurowanie logowania jednokrotnego")
 
 6. W obszarze **Admin console** (Konsola administracyjna) kliknij pozycję **Settings** (Ustawienia) w okienku nawigacji po lewej stronie.
 
-    ![Zrzut ekranu pokazujący wybrane ustawienia.](./media/dropboxforbusiness-tutorial/configure3.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący wybrane ustawienia.](./media/dropboxforbusiness-tutorial/configure-3.png "Konfigurowanie logowania jednokrotnego")
 
 7. Wybierz opcję **Single sign-on** (Logowanie jednokrotne) w sekcji **Authentication** (Uwierzytelnianie).
 
-    ![Zrzut ekranu przedstawiający sekcję "Authentication" z wybraną pozycją "Logowanie jednokrotne".](./media/dropboxforbusiness-tutorial/configure4.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu przedstawiający sekcję "Authentication" z wybraną pozycją "Logowanie jednokrotne".](./media/dropboxforbusiness-tutorial/configure-4.png "Konfigurowanie logowania jednokrotnego")
 
 8. W sekcji **Logowanie** jednokrotne wykonaj następujące czynności:  
 
-    ![Zrzut ekranu pokazujący ustawienia konfiguracji logowania jednokrotnego.](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurowanie logowania jednokrotnego")
+    ![Zrzut ekranu pokazujący ustawienia konfiguracji logowania jednokrotnego.](./media/dropboxforbusiness-tutorial/configure-5.png "Konfigurowanie logowania jednokrotnego")
 
     a. Wybierz pozycję **wymagane** jako opcję z listy rozwijanej dla **logowania jednokrotnego**.
 
@@ -174,7 +174,7 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w usłudze Dropbox 
 >[!Note]
 >Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z działem [pomocy technicznej usługi Dropbox Business Client](https://www.dropbox.com/business/contact) .
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
@@ -186,4 +186,4 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu usługi Dropbox można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu usługi Dropbox można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358898"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488957"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Przewodnik migracji: SQL Server do wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -57,6 +57,8 @@ Alternatywnie możesz ocenić bieżącą infrastrukturę IT przy użyciu [zest
 Aby uzyskać więcej informacji o narzędziach dostępnych do użycia w fazie odnajdywania, zobacz temat [usługi i narzędzia dostępne dla scenariuszy migracji danych](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Ocena 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Po odnalezieniu źródeł danych Oceń wszystkie lokalne wystąpienia SQL Server, które można migrować do wystąpienia zarządzanego usługi Azure SQL, aby zidentyfikować blokowania lub problemy ze zgodnością. 
 
@@ -102,7 +104,7 @@ Jeśli potrzebujesz porównać wydajność obciążeń z wystąpieniem zarządza
 Na podstawie informacji w fazie odnajdywania i oceniania Utwórz odpowiednie docelowe wystąpienie zarządzane SQL. Można to zrobić przy użyciu szablonu [Azure Portal](../../managed-instance/instance-create-quickstart.md), [programu PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)lub [Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Po ukończeniu zadań skojarzonych z etapem wstępnej migracji można przystąpić do wykonywania migracji schematu i danych. 
 
@@ -117,7 +119,7 @@ Aby przeprowadzić migrację za pomocą usługi DMS, wykonaj następujące czynn
 1. Zarejestruj dostawcę zasobów **Microsoft. datamigration** w ramach subskrypcji, jeśli wykonujesz tę operację po raz pierwszy.
 1. Utwórz wystąpienie Azure Database Migration Service w wybranej lokalizacji (najlepiej w tym samym regionie, w którym znajduje się docelowe wystąpienie zarządzane Azure SQL) i wybierz istniejącą sieć wirtualną lub Utwórz nową, aby hostować wystąpienie usługi DMS.
 1. Po utworzeniu wystąpienia DMS Utwórz nowy projekt migracji i określ typ serwera źródłowego jako **SQL Server** i docelowy typ serwera jako **Azure SQL Database wystąpienie zarządzane**. Wybierz typ działania w bloku tworzenia projektu — migracja danych w trybie online lub offline. 
-1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz pozycję **Dalej**.
+1.  Określ szczegóły SQL Server źródłowej na stronie szczegółów **źródła migracji** oraz szczegóły docelowego wystąpienia zarządzanego Azure SQL na stronie Szczegóły **lokalizacji docelowej migracji** . Wybierz opcję **Dalej**.
 1. Wybierz bazę danych, którą chcesz zmigrować. 
 1. Podaj ustawienia konfiguracji, aby określić **udział sieciowy SMB** zawierający pliki kopii zapasowej bazy danych. Użyj poświadczeń użytkownika systemu Windows z usługą DMS, która może uzyskać dostęp do udziału sieciowego. Podaj **szczegóły konta usługi Azure Storage**. 
 1. Przejrzyj podsumowanie migracji, a następnie wybierz pozycję **Uruchom migrację**. Następnie można monitorować działanie migracji i sprawdzać postęp migracji bazy danych.

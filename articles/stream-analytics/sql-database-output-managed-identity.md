@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 4246ad48624eb0ca53fbe6bb747f02daa32119bf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e491c421f4af256b2e74fa61eb442d269bdb9e34
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432455"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487920"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Korzystanie z tożsamości zarządzanych do uzyskiwania dostępu do Azure SQL Database lub analizy Synapse Azure z poziomu zadania Azure Stream Analytics (wersja zapoznawcza)
 
@@ -52,6 +52,8 @@ Do korzystania z tej funkcji wymagane są następujące elementy:
 - Pula SQL usługi Azure Synapse Analytics.
 
 - Konto usługi Azure Storage, które jest [skonfigurowane na potrzeby zadania Stream Analytics](azure-synapse-analytics-output.md).
+
+- Uwaga: Stream Analytics plik MSI magazynu kont zintegrowany z programem Synapse SQL MSI jest obecnie niedostępny.
 
 ---
 
@@ -171,7 +173,7 @@ Alternatywnie możesz kliknąć prawym przyciskiem myszy bazę danych Azure SQL 
 Aby zapoznać się ze wszystkimi uprawnieniami dodanymi do użytkownika *ASA_JOB_NAME* , uruchom następujące polecenie w programie SSMS w ramach powiązanej bazy danych: 
 
 ```sql
-SELECT dprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
+SELECT dbprin.name, dbprin.type_desc, dbperm.permission_name, dbperm.state_desc, dbperm.class_desc, object_name(dbperm.major_id) 
 FROM sys.database_principals dbprin 
 LEFT JOIN sys.database_permissions dbperm 
 ON dbperm.grantee_principal_id = dbprin.principal_id 

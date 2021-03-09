@@ -9,16 +9,17 @@ ms.author: mikben
 ms.date: 03/04/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 54f3f075e9bf8bce9d8fb01a28f0f81dd3a930aa
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218421"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489280"
 ---
 # <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Istnieją dwie oddzielne rodziny wywołujących biblioteki klienckie dla *klientów* i *usług.* Obecnie dostępne biblioteki klienckie są przeznaczone dla środowiska użytkownika końcowego: witryny sieci Web i aplikacje natywne.
 
@@ -28,12 +29,12 @@ Biblioteki klienta usługi nie są jeszcze dostępne i zapewniają dostęp do ni
 
 Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne w bibliotekach klienta wywołujących usługi komunikacyjne Azure.
 
-| Grupa funkcji | Możliwość                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Grupa funkcji | Możliwość                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Podstawowe możliwości | Umieszczanie wywołania jeden-do-jednego między dwoma użytkownikami                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Umieść połączenie grupy z więcej niż dwoma użytkownikami (do 350 użytkowników)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Podnieś poziom wywołania "jeden do jednego" z dwoma użytkownikami do wywołania grupy z więcej niż dwoma użytkownikami                                 | ✔️   | ✔️            | ✔️ 
-|                   | Dołącz do wywołania grupy po jego rozpoczęciu                                                                              | ✔️   | ✔️            | ✔️ 
+| Podstawowe możliwości | Umieszczanie wywołania jeden-do-jednego między dwoma użytkownikami                                                                           | ✔️   | ✔️            | ✔️
+|                   | Umieść połączenie grupy z więcej niż dwoma użytkownikami (do 350 użytkowników)                                                       | ✔️   | ✔️            | ✔️
+|                   | Podnieś poziom wywołania "jeden do jednego" z dwoma użytkownikami do wywołania grupy z więcej niż dwoma użytkownikami                                 | ✔️   | ✔️            | ✔️
+|                   | Dołącz do wywołania grupy po jego rozpoczęciu                                                                              | ✔️   | ✔️            | ✔️
 |                   | Zapraszanie innego uczestnika VoIP do dołączenia do trwającego wywołania grupy                                                       | ✔️   | ✔️            | ✔️
 |  Środkowy formant wywołania | Włącz/Wyłącz wideo                                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Wycisz/Wyłącz mikrofon                                                                                                     | ✔️   | ✔️            | ✔️         

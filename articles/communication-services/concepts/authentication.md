@@ -9,12 +9,12 @@ ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1267fc53bd6dcbae504b01610267059545353dc5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b702afe9c4359d9f8711846d93fd79df9fc2f42e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655908"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485965"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
 
@@ -25,7 +25,7 @@ Usługa SMS usługi Azure Communication Services akceptuje również *klucze dos
 Każdą opcję autoryzacji można krótko opisać poniżej:
 
 - **Uzyskaj dostęp do uwierzytelniania klucza** dla SMS i operacji tożsamości. Uwierzytelnianie klucza dostępu jest odpowiednie dla aplikacji usługi działających w środowisku zaufanej usługi. Klucz dostępu można znaleźć w portalu usługi Azure Communications Services. Aby uwierzytelnić się przy użyciu klucza dostępu, aplikacja usługi używa klucza dostępu jako poświadczenia do inicjowania odpowiednich bibliotek programu SMS lub klienta tożsamości, zobacz [Tworzenie tokenów dostępu i zarządzanie nimi](../quickstarts/access-tokens.md). Ponieważ klucz dostępu jest częścią parametrów połączenia zasobu, zobacz [Tworzenie zasobów usług komunikacyjnych i zarządzanie nimi](../quickstarts/create-communication-resource.md), uwierzytelnianie za pomocą parametrów połączenia jest równoważne z uwierzytelnianiem przy użyciu klucza dostępu.
-- Uwierzytelnianie **tożsamości zarządzanej** na potrzeby operacji SMS i tożsamości. Tożsamość zarządzana, zobacz [tożsamość zarządzana](../quickstarts/managed-identity.md), jest odpowiednia dla aplikacji usługi działających w środowisku zaufanej usługi. Aby można było uwierzytelnić się przy użyciu tożsamości zarządzanej, aplikacja usługi tworzy poświadczenia z identyfikatorem i kluczem tajnym tożsamości zarządzanej, a następnie inicjuje odpowiednie biblioteki klienta programu SMS lub tożsamości, zobacz temat [Tworzenie tokenów dostępu i zarządzanie nimi](../quickstarts/access-tokens.md).
+- Uwierzytelnianie **tożsamości zarządzanej** na potrzeby operacji SMS i tożsamości. Tożsamość zarządzana, zobacz [tożsamość zarządzana](../quickstarts/managed-identity.md), jest odpowiednia dla aplikacji usługi działających w środowisku zaufanej usługi. Aby można było uwierzytelnić się przy użyciu tożsamości zarządzanej, aplikacja usługi tworzy poświadczenia z IDENTYFIKATORem i kluczem tajnym tożsamości zarządzanej, a następnie inicjuje odpowiednie biblioteki klienta programu SMS lub tożsamości, zobacz temat [Tworzenie tokenów dostępu i zarządzanie nimi](../quickstarts/access-tokens.md).
 - Uwierzytelnianie **tokenu dostępu użytkownika** na potrzeby rozmowy i wywoływania. Tokeny dostępu użytkowników pozwalają aplikacjom klienckim uwierzytelniać się w usłudze Azure Communication chat i usłudze wywołującej. Te tokeny są generowane w postaci "usługa dostępu do użytkowników zaufanych", którą tworzysz. Są one następnie udostępniane urządzeniom klienckim, które używają tokenu do inicjowania rozmowy i wywoływania bibliotek klienckich. Aby uzyskać więcej informacji, zobacz [Dodawanie rozmowy do aplikacji](../quickstarts/chat/get-started.md) na przykład.
 
 ## <a name="next-steps"></a>Następne kroki

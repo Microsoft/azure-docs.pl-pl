@@ -5,20 +5,20 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
-ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 08d50b18605fd833e6b0efca987338d0ca1eef8d
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336730"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488515"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Skonfiguruj operacje zapisu obejmujące wiele regionów w aplikacjach korzystających z Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Po utworzeniu konta z włączoną obsługą wielu regionów zapisu należy wprowadzić dwie zmiany w aplikacji do ConnectionPolicy dla DocumentClient, aby umożliwić zapis wieloregionowy i możliwości wielu multihostingu w Azure Cosmos DB. W ConnectionPolicy Ustaw UseMultipleWriteLocations na true i przekaż nazwę regionu, w którym aplikacja jest wdrażana na SetCurrentLocation. Spowoduje to wypełnienie właściwości PreferredLocations w oparciu o bliskość geograficzną z przekazaną lokalizacją. Jeśli nowy region zostanie później dodany do konta, aplikacja nie musi być aktualizowana ani ponownie wdrażana, a w przypadku wystąpienia zdarzenia regionalnego zostanie automatycznie wykryta bliższy region.
+Po utworzeniu konta z włączoną obsługą wielu regionów zapisu należy wprowadzić dwie zmiany w aplikacji do ConnectionPolicy klienta Cosmos, aby umożliwić zapis w wielu regionach w Azure Cosmos DB. W ConnectionPolicy Ustaw UseMultipleWriteLocations na true i przekaż nazwę regionu, w którym aplikacja jest wdrażana na ApplicationRegion. Spowoduje to wypełnienie właściwości PreferredLocations w oparciu o bliskość geograficzną z przekazaną lokalizacją. Jeśli nowy region zostanie później dodany do konta, aplikacja nie musi być aktualizowana ani ponownie wdrażana, a w przypadku wystąpienia zdarzenia regionalnego zostanie automatycznie wykryta bliższy region.
 
 > [!Note]
 > Konta Cosmos początkowo skonfigurowane z pojedynczym regionem zapisu można skonfigurować w wielu regionach zapisu z nierównym czasem w dół. Aby dowiedzieć się więcej, zobacz [Konfigurowanie regionów wielokrotnego zapisu](how-to-manage-database-account.md#configure-multiple-write-regions)
@@ -126,7 +126,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="python-sdk"></a><a id="python"></a>Zestaw SDK dla języka Python
+## <a name="python-sdk"></a><a id="python"></a>Zestaw SDK języka Python
 
 Aby włączyć w aplikacji zapisy wieloregionowe, ustaw wartość `connection_policy.UseMultipleWriteLocations` `true` . Ponadto ustaw `connection_policy.PreferredLocations` na region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana.
 
