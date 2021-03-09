@@ -1,22 +1,22 @@
 ---
-title: Tworzenie maszyny wirtualnej z systemem Windows w strefie przy użyciu Azure Portal
+title: Tworzenie maszyny wirtualnej z strefą przy użyciu Azure Portal
 description: Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu Azure Portal
 documentationcenter: virtual-machines
-author: cynthn
-ms.service: virtual-machines-windows
+author: mimckitt
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 339c093e5444839f9b106cd08980438a864c0474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87828918"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501689"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Utwórz maszynę wirtualną z systemem Windows w strefie dostępności przy użyciu Azure Portal
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Tworzenie maszyny wirtualnej w strefie dostępności przy użyciu Azure Portal
 
 W tym artykule opisano sposób tworzenia maszyny wirtualnej w strefie dostępności platformy Azure przy użyciu Azure Portal. [Strefa dostępności](../../availability-zones/az-overview.md) to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Strefy dostępności chronią aplikacje i dane, zmniejszając prawdopodobieństwo wystąpienia awarii lub utraty całego centrum danych.
 
@@ -40,7 +40,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
     ![Wybierz rozmiar maszyny wirtualnej](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. W obszarze **Ustawienia**  >  **wysoka dostępność**wybierz jedną z numerowanych stref na liście rozwijanej **strefa dostępności** , Zachowaj pozostałe wartości domyślne i kliknij przycisk **OK**.
+5. W obszarze **Ustawienia**  >  **wysoka dostępność** wybierz jedną z numerowanych stref na liście rozwijanej **strefa dostępności** , Zachowaj pozostałe wartości domyślne i kliknij przycisk **OK**.
 
     ![Wybierz strefę dostępności](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

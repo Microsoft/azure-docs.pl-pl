@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: fcb4113a4dab1e3de17eb022b1ad386cbc6a9583
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2d186463f340be14113228baa583fdcf6ff55401
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109043"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510705"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Azure Active Directory
 
@@ -25,13 +25,13 @@ W poniższych sekcjach użyjesz środowiska Azure Cloud Shell lub interfejsu wie
 
 Pierwszym krokiem jest utworzenie niestandardowej domeny podrzędnej. Jeśli chcesz użyć istniejącego zasobu Cognitive Services, który nie ma niestandardowej nazwy domeny podrzędnej, postępuj zgodnie z instrukcjami w temacie [Cognitive Services Custom subpoddomens](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) , aby włączyć niestandardową domenę poddomenową dla zasobu.
 
-1. Zacznij od otworzenia Azure Cloud Shell. Następnie [Wybierz subskrypcję](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
+1. Zacznij od otworzenia Azure Cloud Shell. Następnie [Wybierz subskrypcję](/powershell/module/az.accounts/set-azcontext):
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Następnie [Utwórz zasób Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) z poddomeną niestandardową. Nazwa poddomeny musi być globalnie unikatowa i nie może zawierać znaków specjalnych, takich jak: ".", "!", ",".
+2. Następnie [Utwórz zasób Cognitive Services](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) z poddomeną niestandardową. Nazwa poddomeny musi być globalnie unikatowa i nie może zawierać znaków specjalnych, takich jak: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -47,7 +47,7 @@ Teraz, gdy masz niestandardową poddomenę skojarzoną z zasobem, musisz przypis
 > [!NOTE]
 > Należy pamiętać, że propagacja ról platformy Azure może potrwać do 5 minut.
 
-1. Najpierw Zarejestrujmy [aplikację usługi AAD](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. Najpierw Zarejestrujmy [aplikację usługi AAD](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -57,7 +57,7 @@ Teraz, gdy masz niestandardową poddomenę skojarzoną z zasobem, musisz przypis
 
    Będziesz potrzebować **aplikacji** w następnym kroku.
 
-2. Następnie musisz [utworzyć nazwę główną usługi](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) dla aplikacji AAD.
+2. Następnie musisz [utworzyć nazwę główną usługi](/powershell/module/az.resources/new-azadserviceprincipal) dla aplikacji AAD.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -66,7 +66,7 @@ Teraz, gdy masz niestandardową poddomenę skojarzoną z zasobem, musisz przypis
    >[!NOTE]
    > Po zarejestrowaniu aplikacji w Azure Portal ten krok zostanie ukończony.
 
-3. Ostatnim krokiem jest [przypisanie roli "Cognitive Services użytkownika"](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) do nazwy głównej usługi (w zakresie do zasobu). Przypisując rolę, przyznasz jednostce usługi dostęp do tego zasobu. Można przyznać tej samej jednostce usługi dostęp do wielu zasobów w ramach subskrypcji.
+3. Ostatnim krokiem jest [przypisanie roli "Cognitive Services użytkownika"](/powershell/module/az.Resources/New-azRoleAssignment) do nazwy głównej usługi (w zakresie do zasobu). Przypisując rolę, przyznasz jednostce usługi dostęp do tego zasobu. Można przyznać tej samej jednostce usługi dostęp do wielu zasobów w ramach subskrypcji.
    >[!NOTE]
    > Identyfikator ObjectId nazwy głównej usługi jest używany, a nie ObjectId dla aplikacji.
    > ACCOUNT_ID będzie identyfikatorem zasobu platformy Azure utworzonego przez Ciebie konto Cognitive Services. Identyfikator zasobu platformy Azure można znaleźć z "właściwości" zasobu w Azure Portal.

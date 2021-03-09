@@ -3,12 +3,12 @@ title: Rozszerzając Azure DevTest Labs przy użyciu Azure Functions | Microsoft
 description: Dowiedz się, jak rozciągnąć Azure DevTest Labs przy użyciu Azure Functions.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7a51f0935540df18cfb8805902bbe2c4ec365291
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 620cda83094ee65f421a5529a9d5b51e505ec48e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203678"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501162"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Rozszerzanie usługi DevTest Labs za pomocą usługi Azure Functions
 Za pomocą Azure Functions można obsługiwać dodatkowe scenariusze wykraczające poza te, które są już obsługiwane przez DevTest Labs. Azure Functions może służyć do rozbudowania wbudowanych funkcji usługi w celu spełnienia wymagań specyficznych dla firmy. Poniższa lista zawiera niektóre z możliwych scenariuszy. W tym artykule przedstawiono sposób implementacji jednego z tych przykładowych scenariuszy.
@@ -44,7 +44,7 @@ Istnieje dodatkowa akcja, która może zostać podjęta w przypadku maszyn wirtu
 Ta sekcja zawiera instrukcje krok po kroku dotyczące konfigurowania zasobów platformy Azure wymaganych do zaktualizowania wewnętrznej strony **pomocy technicznej** . Ten Instruktaż zawiera jeden przykład rozszerzania laboratoriów DevTest. Tego wzorca można użyć dla innych scenariuszy.
 
 ### <a name="step-1-create-a-service-principal"></a>Krok 1. Tworzenie nazwy głównej usługi 
-Pierwszym krokiem jest uzyskanie jednostki usługi z uprawnieniami do subskrypcji zawierającej laboratorium. Nazwa główna usługi musi korzystać z uwierzytelniania opartego na hasłach. Można to zrobić za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0)lub [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md). Jeśli masz już jednostkę usługi do użycia, możesz pominąć ten krok.
+Pierwszym krokiem jest uzyskanie jednostki usługi z uprawnieniami do subskrypcji zawierającej laboratorium. Nazwa główna usługi musi korzystać z uwierzytelniania opartego na hasłach. Można to zrobić za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)lub [Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md). Jeśli masz już jednostkę usługi do użycia, możesz pominąć ten krok.
 
 Zanotuj **Identyfikator aplikacji**, **klucz** i **Identyfikator dzierżawy** dla jednostki usługi. Będą one potrzebne w dalszej części tego przewodnika. 
 

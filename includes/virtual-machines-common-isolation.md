@@ -2,18 +2,18 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: virtual-machines
-author: styli365
+author: rishabv90
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/05/2020
-ms.author: sttsinar
+ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102473713"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511099"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
 
@@ -42,12 +42,12 @@ Izolowane rozmiary maszyn wirtualnych mają ograniczoną cykl życia sprzętową
 
 | Rozmiar | Data wycofania izolacji | 
 | --- | --- |
-| Standard_DS15_v2 | 15 maja 2020 |
-| Standard_D15_v2  | 15 maja 2020 |
-| Standard_G5  | 15 lutego 2021 |
-| Standardowa_GS5  | 15 lutego 2021 |
-| Standard_E64i_v3  | 15 lutego 2021 |
-| Standard_E64is_v3  | 15 lutego 2021 |
+| Standard_DS15_v2 | 15 maja 2021 |
+| Standard_D15_v2  | 15 maja 2021 |
+| Standard_G5  | 15 lutego 2022 |
+| Standardowa_GS5  | 15 lutego 2022 |
+| Standard_E64i_v3  | 15 lutego 2022 |
+| Standard_E64is_v3  | 15 lutego 2022 |
 
 
 ## <a name="faq"></a>Często zadawane pytania
@@ -71,8 +71,8 @@ Odp **.:**
  
 | Date (Data) | Akcja |
 |---|---| 
-| 15 maja, 2019<sup>1</sup> | Anons dotyczący oddalenia izolacji D/DS15_v2| 
-| 15 maja 2020 | Gwarancja izolacji D/DS15_v2 usunięta| 
+| 15 maja, 2020<sup>1</sup> | Anons dotyczący oddalenia izolacji D/DS15_v2| 
+| 15 maja 2021 | Gwarancja izolacji D/DS15_v2 usunięta| 
 
 <sup>1</sup> istniejący klient korzystający z tych rozmiarów otrzyma wiadomość e-mail z powiadomieniem ze szczegółowymi instrukcjami dotyczącymi następnych kroków.  
 
@@ -81,8 +81,8 @@ Odp **.:**
  
 | Date (Data) | Akcja |
 |---|---|
-| 15 lutego, 2020<sup>1</sup> | Anons dotyczący wycofania/GS5/E64i_v3/E64is_v3 |
-| 15 lutego 2021 | Usunięto gwarancję izolacji/GS5/E64i_v3/E64is_v3 |
+| 15 lutego, 2021<sup>1</sup> | Anons dotyczący wycofania/GS5/E64i_v3/E64is_v3 |
+| 15 lutego 2022 | Usunięto gwarancję izolacji/GS5/E64i_v3/E64is_v3 |
 
 <sup>1</sup> istniejący klient korzystający z tych rozmiarów otrzyma wiadomość e-mail z powiadomieniem ze szczegółowymi instrukcjami dotyczącymi następnych kroków.  
 

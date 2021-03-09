@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cef2636aeecf78a12c48b31b384af2cf76903879
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660288"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498833"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -82,7 +82,10 @@ Podpis e-mail zawiera nazwę dzierżawy Azure AD B2C podaną podczas pierwszego 
 1. Zmień wartość pola **Nazwa** .
 1. Kliknij przycisk **Zapisz** w górnej części strony.
 
-Obecnie nie ma możliwości zmiany pola "from:" w wiadomości e-mail.
+Obecnie nie można zmienić pola "from:" w wiadomości e-mail.
+
+> [!TIP]
+> Przy użyciu [zasad niestandardowych](custom-policy-overview.md)Azure AD B2C można dostosować Azure AD B2C wiadomości e-mail wysyłanych do użytkowników, w tym pole "z:" w wiadomości e-mail. Niestandardowa Weryfikacja poczty e-mail wymaga użycia dostawcy poczty e-mail innej firmy, takiego jak [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md)lub [SparkPost](https://sparkpost.com).
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Jak można migrować istniejące nazwy użytkowników, hasła i profile z mojej bazy danych do Azure AD B2C?
 

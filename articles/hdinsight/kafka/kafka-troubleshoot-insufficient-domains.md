@@ -4,12 +4,12 @@ description: Tworzenie klastra nie powiodło się z powodu niewystarczających d
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
-ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939056"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501349"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Scenariusz: Tworzenie klastra nie powiodło się z powodu `not sufficient fault domains in region` usługi Azure HDInsight
 
@@ -23,7 +23,7 @@ Podczas próby utworzenia klastra Apache Kafka należy otrzymać komunikat o bł
 
 Domena błędów to logiczna grupa bazowego sprzętu w centrum danych platformy Azure. Wszystkie domeny błędów korzystają ze wspólnego źródła zasilania i przełącznika sieciowego. Maszyny wirtualne i dyski zarządzane, które implementują węzły w klastrze usługi HDInsight są rozdzielone między te domeny błędów. Taka architektura ogranicza wpływ potencjalnych awarii sprzętu fizycznego.
 
-W każdym regionie świadczenia usługi Azure znajduje się określona liczba domen błędów. Aby uzyskać listę domen i liczbę zawartych w nich domen błędów, zapoznaj się z dokumentacją dotyczącą [zestawów dostępności](../../virtual-machines/manage-availability.md).
+W każdym regionie świadczenia usługi Azure znajduje się określona liczba domen błędów. Aby uzyskać listę domen i liczbę zawartych w nich domen błędów, zapoznaj się z dokumentacją dotyczącą [zestawów dostępności](../../virtual-machines/availability.md).
 
 W usłudze HDInsight Klastry Kafka są wymagane do aprowizacji w regionie z co najmniej trzema domenami błędów.
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 78829ae52d74cf6ec58c12779c51bca9a98e0af1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 787f7727e18b7055055ed2b764ddce5be20f5afc
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450787"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503440"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 
@@ -33,7 +33,7 @@ Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla 
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](how-to-manage-workspace.md) .
 
-* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install).
 
 * [Rozszerzenie interfejsu wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -142,4 +142,4 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, zobacz [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) odwołanie do klasy.
+Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, zobacz [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29) odwołanie do klasy.

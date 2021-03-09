@@ -280,28 +280,26 @@
           href: ./linux/spot-template.md
         - name: Kody błędów
           href: error-codes-spot.md
-    - name: Opcje zakupu
+    - name: Korzyść użycia hybrydowego platformy Azure
       items:
-        - name: Korzyść użycia hybrydowego platformy Azure
+        - name: Linux
+          href: ./linux/azure-hybrid-benefit-linux.md
+        - name: Windows
           items:
-            - name: Linux
-              href: ./linux/azure-hybrid-benefit-linux.md
-            - name: Windows
-              items:
-                - name: Używanie licencji korzyści użycia hybrydowego platformy Azure
-                  href: ./windows/hybrid-use-benefit-licensing.md
-                - name: Korzystanie z praw hostingu wielodostępnego dla systemu Windows 10
-                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-        - name: Wystąpienia zarezerwowane
-          items:
-            - name: Opłacanie maszyn wirtualnych z góry
-              href: ./prepay-reserved-vm-instances.md
-            - name: Opłacanie dedykowanych hostów z góry
-              href: prepay-dedicated-hosts-reserved-instances.md
-            - name: Co to są rezerwacje platformy Azure?
-              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-            - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
-              href: reserved-vm-instance-size-flexibility.md
+            - name: Używanie licencji korzyści użycia hybrydowego platformy Azure
+              href: ./windows/hybrid-use-benefit-licensing.md
+            - name: Korzystanie z praw hostingu wielodostępnego dla systemu Windows 10
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Wystąpienia zarezerwowane
+      items:
+        - name: Opłacanie maszyn wirtualnych z góry
+          href: ./prepay-reserved-vm-instances.md
+        - name: Opłacanie dedykowanych hostów z góry
+          href: prepay-dedicated-hosts-reserved-instances.md
+        - name: Co to są rezerwacje platformy Azure?
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+        - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
+          href: reserved-vm-instance-size-flexibility.md
     - name: Tworzenie maszyn wirtualnych z systemem Linux
       items:
         - name: Dystrybucje zatwierdzone
@@ -783,41 +781,52 @@
           href: ./windows/build-image-with-packer.md
 - name: Dostępność i skala
   items:
-    - name: Zestawy skalowania
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-    - name: Dostępność
+    - name: Omówienie
       href: availability.md
-    - name: Współlokacja
-      href: co-location.md
-    - name: Wydajność sieci
-      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-    - name: Stany i cykl życia
-      href: states-lifecycle.md
-    - name: Automatyczne skalowanie
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Wysoka dostępność
-      href: manage-availability.md
     - name: Zestawy dostępności
       items:
-        - name: Linux
+        - name: Omówienie
+          href: availability-set-overview.md
+        - name: Interfejs wiersza polecenia
           href: ./linux/tutorial-availability-sets.md
-        - name: Windows
-          items:
-            - name: Tworzenie zestawu dostępności
-              href: ./windows/tutorial-availability-sets.md
-            - name: Zmienianie zestawu dostępności
-              href: ./windows/change-availability-set.md
-    - name: Tworzenie grupy umieszczania w pobliżu
-      displayName: PPG aligned colocation co-location
+        - name: PowerShell
+          href: ./windows/tutorial-availability-sets.md
+        - name: Zmień zestaw dostępności
+          href: ./windows/change-availability-set.md
+    - name: Strefy dostępności
       items:
+        - name: Omówienie
+          href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+        - name: Interfejs wiersza polecenia
+          href: ./linux/create-cli-availability-zone.md
+        - name: PowerShell
+          href: ./windows/create-powershell-availability-zone.md
+        - name: Portal
+          href: ./windows/create-portal-availability-zone.md
+    - name: Grupy umieszczania zbliżeniowe
+      items:
+        - name: Omówienie
+          href: co-location.md
         - name: Interfejs wiersza polecenia
           href: ./linux/proximity-placement-groups.md
-        - name: Portal
-          href: ./windows/proximity-placement-groups-portal.md
         - name: PowerShell
           href: ./windows/proximity-placement-groups.md
-    - name: Tworzenie maszyny wirtualnej w strefie dostępności
-      href: ./linux/create-cli-availability-zone.md
+        - name: Portal
+          href: ./windows/proximity-placement-groups-portal.md
+    - name: Virtual Machine Scale Sets
+      items:
+        - name: Omówienie
+          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Automatyczne skalowanie
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+        - name: Tryby aranżacji
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Opis ponownych uruchomień maszyn wirtualnych
+      href: understand-vm-reboots.md
+    - name: Stany i cykl życia
+      href: states-lifecycle.md
+    - name: Regiony platformy Azure
+      href: regions.md
 - name: Dyski
   items:
     - name: Wprowadzenie do dysków zarządzanych
@@ -1101,7 +1110,7 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
             - name: Tworzenie migawki z dysku VHD
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
-- name: Sieć
+- name: Networking
   items:
     - name: Omówienie
       href: network-overview.md

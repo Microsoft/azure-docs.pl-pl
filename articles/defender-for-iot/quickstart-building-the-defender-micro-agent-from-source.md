@@ -1,5 +1,5 @@
 ---
-title: Tworzenie agenta Defender Micro z kodu źródłowego
+title: Kompilowanie programu Defender Micro Agent z kodu źródłowego (wersja zapoznawcza)
 titleSuffix: Azure Defender for IoT
 description: Micro Agent obejmuje infrastrukturę, która może służyć do dostosowywania dystrybucji.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/18/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 57360d939ea0cda513732cfbcc35c1d22a899f6c
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 29cac544c858b030cff8e9101737b30e96b863bf
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124537"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506603"
 ---
-# <a name="build-the-defender-micro-agent-from-source-code"></a>Tworzenie agenta Defender Micro z kodu źródłowego
+# <a name="build-the-defender-micro-agent-from-source-code-preview"></a>Kompilowanie programu Defender Micro Agent z kodu źródłowego (wersja zapoznawcza)
 
 Micro Agent obejmuje infrastrukturę, która może służyć do dostosowywania dystrybucji. Aby wyświetlić listę dostępnych parametrów konfiguracji, spójrz na `configs/LINUX_BASE.conf` plik.
 

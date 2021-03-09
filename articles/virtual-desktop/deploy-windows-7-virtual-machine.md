@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d245b780acee59afbc6cb8bde6c916bfd1046e3c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007577"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508558"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Wdrażanie maszyny wirtualnej z systemem Windows 7 w usłudze Windows Virtual Desktop
 
@@ -37,7 +37,7 @@ Aby skonfigurować MASZYNę wirtualną z systemem Windows 7 na pulpicie wirtualn
 5. Przejdź do Windows Update na maszynie wirtualnej.
 6. Zainstaluj wszystkie aktualizacje systemu Windows w ważnej kategorii.
 7. Zainstaluj wszystkie aktualizacje systemu Windows w opcjonalnej kategorii (z wyjątkiem pakietów językowych). Ten proces służy do instalowania Remote Desktop Protocol 8,0 Update ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35387)), które należy wykonać w celu wykonania tych instrukcji.
-8. Otwórz Edytor lokalnych zasad grupy i przejdź do **konfiguracji komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **Remote Desktop Session Host**  >  **środowisku sesji zdalnej**hosta sesji pulpit zdalny.
+8. Otwórz Edytor lokalnych zasad grupy i przejdź do **konfiguracji komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >    >  **środowisku sesji zdalnej** hosta sesji pulpit zdalny.
 9. Włącz zasady Remote Desktop Protocol 8,0.
 10. Dołącz tę maszynę wirtualną do domeny Active Directory.
 11. Uruchom ponownie maszynę wirtualną, uruchamiając następujące polecenie:
@@ -46,7 +46,7 @@ Aby skonfigurować MASZYNę wirtualną z systemem Windows 7 na pulpicie wirtualn
      shutdown /r /t 0
      ```
 
-12. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) , aby uzyskać token rejestracji.
+12. Postępuj zgodnie z instrukcjami znajdującymi się [tutaj](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo) , aby uzyskać token rejestracji.
 
       - Jeśli wolisz używać Azure Portal, możesz również przejść do strony Przegląd puli hostów, do której chcesz dodać maszynę wirtualną, i utworzyć token w tym miejscu.
 

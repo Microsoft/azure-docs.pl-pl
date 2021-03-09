@@ -3,14 +3,18 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173967"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499598"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
+
+> [!NOTE]
+>
+> W przypadku tworzenia niestandardowych widoków raportów zaleca się używanie [funkcji systemowych na Azure monitor dziennikach](backup-reports-system-functions.md) zamiast pracy z nieprzetworzonymi tabelami wymienionymi poniżej.
 
 ## <a name="coreazurebackup"></a>CoreAzureBackup
 
@@ -55,7 +59,7 @@ Ta tabela zawiera informacje o podstawowych jednostkach kopii zapasowych, takich
 | ResourceGroupName                 | Tekst          | Grupa zasobów zasobu (na przykład magazyn Recovery Services) dla zbieranych danych |
 | SchemaVersion                     | Tekst          | To pole oznacza bieżącą wersję schematu. Jest to **wersja 2** |
 | SecondaryBackupProtectionState    | Tekst          | Czy dla elementu kopii zapasowej jest włączona ochrona pomocnicza  |
-| State                             | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
+| Stan                             | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
 | StorageReplicationType            | Tekst          | Typ replikacji magazynu dla magazynu. Na przykład nadmiarowy |
 | SubscriptionId                    | Tekst          | Identyfikator subskrypcji zasobu (na przykład magazyn Recovery Services), dla którego zbierane są dane |
 | VaultName                         | Tekst          | Nazwa magazynu                                            |
@@ -88,7 +92,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z alertami.
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego serwera skojarzony z alertem |
 | RecommendedAction              | Tekst          | Akcja zalecana w celu rozwiązania alertu                      |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| State                          | Tekst          | Bieżący stan obiektu alertu, na przykład aktywny, usunięty |
+| Stan                          | Tekst          | Bieżący stan obiektu alertu, na przykład aktywny, usunięty |
 | StorageUniqueId                | Tekst          | Unikatowy identyfikator używany do identyfikowania jednostki magazynu                |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator używany do identyfikowania magazynu związanego z alertem    |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
@@ -108,7 +112,7 @@ Ta tabela zawiera podstawowe pola powiązane z chronionymi wystąpieniami.
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator identyfikujący chroniony kontener, w którym jest uruchamiane zadanie |
 | ProtectedInstanceCount         | Tekst          | Liczba chronionych wystąpień dla skojarzonego elementu kopii zapasowej lub chronionego kontenera w tej dacie i godzinie |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| State                          | Tekst          | Stan obiektu elementu kopii zapasowej, na przykład aktywny, usunięty |
+| Stan                          | Tekst          | Stan obiektu elementu kopii zapasowej, na przykład aktywny, usunięty |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z chronionym wystąpieniem |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
@@ -139,7 +143,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z zadaniami.
 | RecoveryJobLocation            | Tekst          | Lokalizacja, w której zapisano odzyskiwany punkt odzyskiwania |
 | RecoveryLocationType           | Tekst          | Typ lokalizacji odzyskiwania                                |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| State                          | Tekst          | Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
+| Stan                          | Tekst          | Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
 | VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z zadaniem |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
@@ -177,7 +181,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | RetentionDuration               | Tekst           | Czas przechowywania skonfigurowanych kopii zapasowych                    |
 | Czas przechowywania                   | Tekst           | Typ przechowywania                                            |
 | SchemaVersion                   | Tekst           | To pole oznacza bieżącą wersję schematu, to **v2** |
-| State                           | Tekst           | Bieżący stan obiektu zasad. Na przykład aktywne, usunięte |
+| Stan                           | Tekst           | Bieżący stan obiektu zasad. Na przykład aktywne, usunięte |
 | SynchronisationFrequencyPerDay  | Liczbowy całkowity   | Liczba przypadków synchronizacji kopii zapasowej plików dla programu SC DPM i serwera usługi MAB |
 | VaultUniqueId                   | Tekst           | Unikatowy identyfikator magazynu, do którego należą te zasady          |
 | WeeklyRetentionDaysOfTheWeek    | Tekst           | Dni tygodnia wybrane do przechowywania tygodniowego               |
@@ -207,7 +211,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | PreferredWorkloadOnVolume      | Tekst          | Obciążenie, dla którego ten wolumin jest preferowanym magazynem      |
 | ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego kontenera skojarzonego z elementem kopii zapasowej |
 | SchemaVersion                  | Tekst          | Wersja schematu. Na przykład **v2**                   |
-| State                          | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
+| Stan                          | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
 | StorageAllocatedInMBs          | Liczba        | Rozmiar magazynu przydzielonego przez odpowiedni element kopii zapasowej w odpowiednim magazynie typu dysk |
 | StorageConsumedInMBs           | Liczba        | Rozmiar magazynu zużywanego przez odpowiedni element kopii zapasowej w odpowiednim magazynie |
 | StorageName                    | Tekst          | Nazwa jednostki magazynowej. Na przykład E:\                      |
@@ -233,7 +237,7 @@ Każdy rekord w powyższych tabelach ma skojarzoną **nazwę operacji**. Nazwa o
 | CoreAzureBackup | RecoveryPoint | Reprezentuje rekord zawierający najstarszy i najnowszy punkt odzyskiwania dla danego elementu kopii zapasowej. |
 | AddonAzureBackupJobs | Zadanie |  Reprezentuje rekord zawierający wszystkie szczegóły danego zadania. Na przykład operacja zadania, czas rozpoczęcia, stan itd. |
 | AddonAzureBackupAlerts | Alerty | Reprezentuje rekord zawierający wszystkie szczegóły danego alertu. Na przykład czas utworzenia alertu, ważność, stan itd.  |
-| AddonAzureBackupStorage | Magazyn | Reprezentuje rekord zawierający wszystkie szczegóły danej jednostki magazynu. Na przykład nazwa magazynu, typ itp. |
+| AddonAzureBackupStorage | Storage | Reprezentuje rekord zawierający wszystkie szczegóły danej jednostki magazynu. Na przykład nazwa magazynu, typ itp. |
 | AddonAzureBackupStorage | StorageAssociation | Reprezentuje mapowanie między elementem kopii zapasowej a łącznym magazynem w chmurze zużywanym przez element kopii zapasowej. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Reprezentuje rekord zawierający liczbę chronionych wystąpień dla każdego kontenera lub elementu kopii zapasowej. W przypadku kopii zapasowej maszyny wirtualnej platformy Azure liczba chronionych wystąpień jest dostępna na poziomie elementu kopii zapasowej dla innych obciążeń, które są dostępne na chronionym poziomie kontenera. |
 | AddonAzureBackupPolicy | Zasady |  Reprezentuje rekord zawierający wszystkie szczegóły zasad tworzenia kopii zapasowej i przechowywania. Na przykład identyfikator, nazwa, ustawienia przechowywania itp. |

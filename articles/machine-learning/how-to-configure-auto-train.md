@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 98260b909514febf80ea6a1a33b0f9e3d2d1446b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: e8e904511178f494890b25764a84df8ca64a6b6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431894"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498867"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
 
-W tym przewodniku dowiesz się, jak definiować różne ustawienia konfiguracji zautomatyzowanych eksperymentów uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Automatyczne Uczenie maszynowe wybiera algorytm i parametry i tworzy model gotowy do wdrożenia. Istnieje kilka opcji, których można użyć do skonfigurowania zautomatyzowanych eksperymentów w usłudze Machine Learning.
+W tym przewodniku dowiesz się, jak definiować różne ustawienia konfiguracji zautomatyzowanych eksperymentów uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](/python/api/overview/azure/ml/intro). Automatyczne Uczenie maszynowe wybiera algorytm i parametry i tworzy model gotowy do wdrożenia. Istnieje kilka opcji, których można użyć do skonfigurowania zautomatyzowanych eksperymentów w usłudze Machine Learning.
 
 Aby wyświetlić przykłady zautomatyzowanych eksperymentów dotyczących uczenia maszynowego, zobacz [Samouczek: uczenie modelu klasyfikacji przy użyciu zautomatyzowanego uczenia maszynowego](tutorial-auto-train-models.md) lub [modeli szkoleń z automatycznym uczeniem maszynowym w chmurze](how-to-auto-train-remote.md).
 
@@ -46,7 +46,7 @@ W tym artykule należy
     Aby zainstalować zestaw SDK, można 
     * Utwórz wystąpienie obliczeniowe, które automatycznie zainstaluje zestaw SDK i jest wstępnie skonfigurowany dla przepływów pracy usługi ML. Aby uzyskać więcej informacji [, zobacz Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim](how-to-create-manage-compute-instance.md) . 
 
-    * [Zainstaluj `automl` pakiet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), który obejmuje [domyślną instalację](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install) zestawu SDK.
+    * [Zainstaluj `automl` pakiet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), który obejmuje [domyślną instalację](/python/api/overview/azure/ml/install#default-install) zestawu SDK.
 
 ## <a name="select-your-experiment-type"></a>Wybieranie typu eksperymentu
 
@@ -69,7 +69,7 @@ Wymagania dotyczące danych szkoleniowych w usłudze Machine Learning:
 - Dane muszą być w formie tabelarycznej.
 - Wartość do przewidywania, kolumna docelowa, musi znajdować się w danych.
 
-**W przypadku eksperymentów zdalnych** dane szkoleniowe muszą być dostępne ze zdalnych obliczeń. Zautomatyzowane uczenie maszynowe akceptuje [tabelaryczne zestawy danych usługi Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) tylko podczas pracy na zdalnych zasobach obliczeniowych. 
+**W przypadku eksperymentów zdalnych** dane szkoleniowe muszą być dostępne ze zdalnych obliczeń. Zautomatyzowane uczenie maszynowe akceptuje [tabelaryczne zestawy danych usługi Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset) tylko podczas pracy na zdalnych zasobach obliczeniowych. 
 
 Zestawy danych usługi Azure Machine Learning udostępniają następujące funkcje:
 

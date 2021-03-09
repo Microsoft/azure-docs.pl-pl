@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216975"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508337"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Dodawanie interfejsów sieciowych do maszyn wirtualnych lub ich usuwanie
 
@@ -28,7 +28,7 @@ Dowiedz się, jak dodać istniejący interfejs sieciowy podczas tworzenia maszyn
 
 Jeśli musisz dodać, zmienić lub usunąć adresy IP dla interfejsu sieciowego, zobacz [Zarządzanie adresami IP interfejsu sieciowego](virtual-network-network-interface-addresses.md). Aby tworzyć, zmieniać lub usuwać interfejsy sieciowe, zobacz [Zarządzanie interfejsami sieciowymi](virtual-network-network-interface.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -143,7 +143,7 @@ Aby dowiedzieć się więcej o ustawieniach interfejsu sieciowego i sposobach ic
 
 - Można kontrolować, do którego interfejsu sieciowego wysyłany jest ruch wychodzący. Jednak maszyna wirtualna domyślnie wysyła cały ruch wychodzący do adresu IP przypisanego do podstawowej konfiguracji adresu IP podstawowego interfejsu sieciowego.
 
-- W przeszłości wszystkie maszyny wirtualne w tym samym zestawie dostępności musiały mieć jeden lub wiele interfejsów sieciowych. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą teraz istnieć w tym samym zestawie dostępności, do liczby obsługiwanej przez rozmiar maszyny wirtualnej. Możesz dodać maszynę wirtualną do zestawu dostępności, gdy zostanie on utworzony. Aby dowiedzieć się więcej o zestawach dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- W przeszłości wszystkie maszyny wirtualne w tym samym zestawie dostępności musiały mieć jeden lub wiele interfejsów sieciowych. Maszyny wirtualne z dowolną liczbą interfejsów sieciowych mogą teraz istnieć w tym samym zestawie dostępności, do liczby obsługiwanej przez rozmiar maszyny wirtualnej. Możesz dodać maszynę wirtualną do zestawu dostępności, gdy zostanie on utworzony. Aby dowiedzieć się więcej o zestawach dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 - Interfejsy sieciowe można podłączyć do różnych podsieci w sieci wirtualnej. Jednak wszystkie interfejsy sieciowe muszą być połączone z tą samą siecią wirtualną.
 

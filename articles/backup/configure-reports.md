@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710621"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509373"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -22,8 +22,8 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-- Raporty kopii zapasowych są obsługiwane na maszynach wirtualnych platformy Azure, na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, w Microsoft Azure Recovery Services (MARS) Agent, Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). W przypadku kopii zapasowej udziału plików platformy Azure dane są wyświetlane dla wszystkich rekordów utworzonych w dniu lub po 1 czerwca 2020.
-- W przypadku kopii zapasowej udziału plików platformy Azure dane na wystąpieniach chronionych nie są obecnie wyświetlane w raportach (wartość domyślna to zero dla wszystkich elementów kopii zapasowej).
+- Raporty kopii zapasowych są obsługiwane na maszynach wirtualnych platformy Azure, na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, w Microsoft Azure Recovery Services (MARS) Agent, Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). W przypadku kopii zapasowej udziału plików platformy Azure dane są wyświetlane dla rekordów utworzonych w dniu lub po 1 czerwca 2020.
+- W przypadku kopii zapasowej udziału plików platformy Azure dane dotyczące chronionych wystąpień są wyświetlane dla rekordów utworzonych po 1 lutego 2021 (wartość domyślna to zero w przypadku starszych rekordów).
 - W przypadku obciążeń programu DPM raporty kopii zapasowych są obsługiwane w programie DPM w wersji 5.1.363.0 i nowszych oraz w wersji agent 2.0.9127.0 i nowszych.
 - W przypadku obciążeń serwera usługi MAB raporty kopii zapasowych są obsługiwane dla serwera usługi MAB wersji 13.0.415.0 i nowszych oraz do wersji agenta 2.0.9170.0 i nowszych.
 - Raporty kopii zapasowych można wyświetlać w ramach wszystkich elementów kopii zapasowych, magazynów, subskrypcji i regionów, o ile ich dane są wysyłane do obszaru roboczego Log Analytics, do którego użytkownik ma dostęp. Aby wyświetlić raporty dla zbioru magazynów, musisz mieć dostęp do czytnika do obszaru roboczego Log Analytics, do którego magazyny wysyłają swoje dane. Nie musisz mieć dostępu do poszczególnych magazynów.
@@ -142,17 +142,31 @@ Filtr **Typ zarządzania kopiami zapasowymi** w górnej części karty powinien 
 
 ###### <a name="policy-adherence"></a>Przestrzeganie zasad
 
-Za pomocą tej karty można sprawdzić, czy wszystkie wystąpienia kopii zapasowej mają co najmniej jedną pomyślną kopię zapasową codziennie. Można wyświetlić zasady przestrzegania czasu lub wystąpienia kopii zapasowej.
+Za pomocą tej karty można sprawdzić, czy wszystkie wystąpienia kopii zapasowej mają co najmniej jedną pomyślną kopię zapasową codziennie. W przypadku elementów mających cotygodniowe zasady tworzenia kopii zapasowych można użyć tej karty, aby określić, czy wszystkie wystąpienia kopii zapasowej mają co najmniej jedną pomyślną kopię zapasową tygodnia.
+
+Dostępne są dwa typy widoków przestrzegania zasad:
+
+* **Zasady przestrzegania przez okres**: za pomocą tego widoku można sprawdzić, ile elementów ma co najmniej jedną pomyślną kopię zapasową w danym dniu i ile nie miało pomyślnej kopii zapasowej w danym dniu. Możesz kliknąć wiersz, aby wyświetlić szczegółowe informacje o wszystkich zadaniach tworzenia kopii zapasowych, które zostały wyzwolone w wybranym dniu. Należy pamiętać, że w przypadku zwiększenia zakresu czasu do większej wartości, na przykład w ciągu ostatnich 60 dni, siatka jest renderowana w widoku tydzień i wyświetlana jest liczba wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w danym tygodniu. Podobnie istnieje miesięczny widok dla większych zakresów czasu.
+
+W przypadku elementów, których kopia zapasowa jest wykonywana co tydzień, ta siatka ułatwia identyfikację wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w danym tygodniu. W przypadku większego przedziału czasu, takiego jak ostatnie 120 dni, siatka jest renderowana w widoku miesięcznym i zawiera liczbę wszystkich elementów, które mają co najmniej jedną pomyślną kopię zapasową w każdym tygodniu w danym miesiącu. [Konwencje odwołania używane w raportach usługi Backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) zawierają więcej informacji na temat codziennych, tygodniowych i miesięcznych widoków.
+
+![Przestrzeganie zasad według przedziału czasu](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Zasady przestrzegania wystąpienia kopii zapasowej**: korzystając z tego widoku, można posłużyć się szczegółami gotowości na poziomie wystąpienia kopii zapasowej. Komórka, która jest zielona oznacza, że wystąpienie kopii zapasowej miało co najmniej jedną pomyślną kopię zapasową w danym dniu. Komórka, która ma kolor czerwony oznacza, że wystąpienie kopii zapasowej nie miało nawet jednej pomyślnej kopii zapasowej w danym dniu. Agregacje dzienne, tygodniowe i miesięczne są zgodne z tym samym zachowaniem, co w widoku okresów zasad. Możesz kliknąć dowolny wiersz, aby wyświetlić wszystkie zadania tworzenia kopii zapasowej w danym wystąpieniu kopii zapasowej w wybranym zakresie czasu.
+
+![Zasady przestrzegania przez wystąpienie kopii zapasowej](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### <a name="email-azure-backup-reports"></a>Raporty Azure Backup e-mail
 
 Za pomocą funkcji **raportów e-mail** dostępnej w raportach usługi Backup można utworzyć automatyczne zadania do otrzymywania raportów okresowych za pośrednictwem poczty e-mail. Ta funkcja działa przez wdrożenie aplikacji logiki w środowisku platformy Azure, która wysyła zapytania do danych z wybranych obszarów roboczych Log Analytics (LA) na podstawie wprowadzonych danych wejściowych.
 
-Po utworzeniu aplikacji logiki należy autoryzować połączenia z dziennikami Azure Monitor i pakietem Office 365. W tym celu przejdź do **Logic Apps** w Azure Portal i wyszukaj nazwę utworzonego zadania. Wybranie elementu menu **połączenia interfejsu API** spowoduje otwarcie listy połączeń interfejsu API wymaganych do autoryzacji.
+Po utworzeniu aplikacji logiki należy autoryzować połączenia z dziennikami Azure Monitor i pakietem Office 365. W tym celu przejdź do **Logic Apps** w Azure Portal i wyszukaj nazwę utworzonego zadania. Wybranie elementu menu **połączenia interfejsu API** spowoduje otwarcie listy połączeń interfejsu API wymaganych do autoryzacji. [Dowiedz się więcej o konfigurowaniu wiadomości e-mail i rozwiązywaniu](backup-reports-email.md)problemów.
 
 ###### <a name="customize-azure-backup-reports"></a>Dostosowywanie raportów Azure Backup
 
-Raporty kopii zapasowych korzystają z funkcji na Azure Monitor dziennikach. Te funkcje działają na danych w nieprzetworzonych tabelach Azure Backup w LA i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań.
+Raporty kopii zapasowych korzystają [z funkcji systemowych na Azure monitor dziennikach](backup-reports-system-functions.md). Te funkcje działają na danych w nieprzetworzonych tabelach Azure Backup w LA i zwracają sformatowane dane, które ułatwiają uzyskiwanie informacji o wszystkich jednostkach związanych z kopiami zapasowymi przy użyciu prostych zapytań. 
+
+Aby utworzyć własne skoroszyty raportowania przy użyciu raportów kopii zapasowych, można przejść do raportów kopii zapasowych, kliknąć pozycję **Edytuj** u góry raportu i wyświetlić/edytować zapytania używane w raportach. Zapoznaj się z [dokumentacją dotyczącą skoroszytów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) , aby dowiedzieć się więcej na temat tworzenia raportów niestandardowych. 
 
 ## <a name="export-to-excel"></a>Eksportuj do programu Excel
 
@@ -175,6 +189,8 @@ Jeśli używasz [usługi Azure Lighthouse](../lighthouse/index.yml) z delegowany
 - Raport przedstawia szczegóły zadań (poza zadaniami dziennika), które zostały *wyzwolone* w wybranym przedziale czasu.
 - Wartości wyświetlane dla **magazynu w chmurze** i **chronionych wystąpień** są na *końcu* wybranego zakresu czasu.
 - Elementy kopii zapasowej wyświetlane w raportach to elementy, które istnieją na *końcu* wybranego zakresu czasu. Elementy kopii zapasowej, które zostały usunięte w środku wybranego zakresu czasu, nie są wyświetlane. Ta sama Konwencja dotyczy również zasad tworzenia kopii zapasowych.
+- Jeśli wybrany zakres czasu przekroczy 30-dniowy okres, wykresy są renderowane w widoku codziennym, w którym jeden punkt danych jest dla każdego dnia. Jeśli zakres czasu obejmuje okres dłuższy niż 30 dni i krótszy niż (lub równy) 90 dni, wykresy są renderowane w widoku tydzień. W przypadku większych zakresów czasu wykresy są renderowane w widoku miesięcznym. Agregowanie danych cotygodniowych lub miesięcznych pomaga w lepszej wydajności zapytań i łatwiejszej czytelności danych na wykresach.
+- Siatki przestrzegania zasad są również zgodne z podobną logiką agregacji, zgodnie z powyższym opisem. Istnieje jednak kilka drobnych różnic. Pierwsza różnica polega na tym, że w przypadku elementów mających cotygodniowe zasady tworzenia kopii zapasowych nie ma widoku dziennego (dostępne są tylko widoki cotygodniowe i miesięczne). Ponadto w siatkach dla elementów mających cotygodniowe zasady tworzenia kopii zapasowych "miesiąc" jest traktowany jako okres 4-tygodniowy (28 dni), a nie 30 dni, aby wyeliminować częściowe tygodnie przed rozważeniam.
 
 ## <a name="query-load-times"></a>Czasy ładowania zapytania
 

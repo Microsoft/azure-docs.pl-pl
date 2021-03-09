@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 3f96549c73c231db63360891dd0705b649097c80
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3b497a8507fb82bfb69fbe7396e5a0d34006a7f1
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218102"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502080"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorowanie Blob Storage platformy Azure
 
@@ -110,6 +110,8 @@ Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płaci
 
 2. Z listy rozwijanej **konto magazynu** wybierz konto magazynu, w którym mają być archiwizowane dzienniki, kliknij przycisk **OK** , a następnie kliknij przycisk **Zapisz** .
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Przed wybraniem konta magazynu jako miejsca docelowego eksportu Zobacz sekcję [Archiwizowanie dzienników zasobów platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) , aby poznać wymagania wstępne na koncie magazynu.
 
@@ -154,12 +156,14 @@ Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płaci
 Włącz dzienniki przy użyciu polecenia cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) programu PowerShell wraz z `StorageAccountId` parametrem.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu identyfikatorem zasobu usługi BLOB. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
 
 Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Oto przykład:
 
@@ -216,16 +220,18 @@ Jeśli zdecydujesz się na archiwizowanie dzienników na koncie magazynu, płaci
 Włącz dzienniki przy użyciu polecenia [AZ monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
 Zastąp `<storage-service-resource--id>` symbol zastępczy w tym fragmencie kodu nazwą zasobu usługi BLOB Storage. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
 
 Można użyć `StorageRead` , `StorageWrite` i `StorageDelete` dla wartości parametru **kategorii** .
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Oto przykład:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite}]'`
 
 Aby zapoznać się z opisem każdego parametru, zobacz [archiwum dzienników zasobów za pośrednictwem interfejsu wiersza polecenia platformy Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 

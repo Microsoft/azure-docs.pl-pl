@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183628"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499700"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Wdróż model uczenia maszynowego w celu Azure Functions z użyciem usługi Azure cache for Redis 
 
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowa
 Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
-> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
+> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](/python/api/azureml-core/azureml.core.environment%28class%29) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -161,7 +161,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Aby utworzyć obraz platformy Docker wdrożony w Azure Functions, Użyj usługi [Azure. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) lub określonej funkcji pakietu dla wyzwalacza, którego chcesz używać. Poniższy fragment kodu pokazuje, jak utworzyć nowy pakiet z wyzwalaczem HTTP z poziomu konfiguracji modelu i wnioskowania:
+Aby utworzyć obraz platformy Docker wdrożony w Azure Functions, Użyj usługi [Azure. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions) lub określonej funkcji pakietu dla wyzwalacza, którego chcesz używać. Poniższy fragment kodu pokazuje, jak utworzyć nowy pakiet z wyzwalaczem HTTP z poziomu konfiguracji modelu i wnioskowania:
 
 > [!NOTE]
 > W fragmencie kodu założono `model` , że zawiera zarejestrowany model i `inference_config` zawiera konfigurację środowiska wnioskowania. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -317,5 +317,5 @@ Po krótkim czasie grupa zasobów i wszystkie jej zasoby zostaną usunięte.
 
 * Dowiedz się więcej o [usłudze Azure cache for Redis](./cache-overview.md)
 * Dowiedz się, jak skonfigurować aplikację funkcji w dokumentacji [funkcji](../azure-functions/functions-create-function-linux-custom-image.md) .
-* [Dokumentacja interfejsu API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* [Dokumentacja interfejsu API](/python/api/azureml-contrib-functions/azureml.contrib.functions) 
 * Tworzenie aplikacji w języku [Python korzystającej z usługi Azure cache for Redis](./cache-python-get-started.md)

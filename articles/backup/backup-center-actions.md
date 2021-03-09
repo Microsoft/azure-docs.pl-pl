@@ -3,14 +3,14 @@ title: Wykonywanie akcji przy użyciu centrum kopii zapasowych
 description: W tym artykule wyjaśniono, jak wykonywać akcje przy użyciu centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894579"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506494"
 ---
-# <a name="perform-actions-using-backup-center-preview"></a>Wykonywanie akcji przy użyciu centrum kopii zapasowych (wersja zapoznawcza)
+# <a name="perform-actions-using-backup-center"></a>Wykonywanie akcji przy użyciu centrum kopii zapasowych
 
 Centrum kopii zapasowych umożliwia wykonywanie akcji związanych z tworzeniem kopii zapasowej z poziomu centralnego interfejsu bez konieczności nawigowania do pojedynczego magazynu. Niektóre akcje, które można wykonać z poziomu centrum kopii zapasowych, to:
 

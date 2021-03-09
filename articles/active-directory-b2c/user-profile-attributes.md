@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db2715f0827203dac505fa4dc15c22bdab953010
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120219"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500533"
 ---
 # <a name="user-profile-attributes"></a>Atrybuty profilu użytkownika
 
@@ -69,8 +69,8 @@ W poniższej tabeli wymieniono atrybuty [typu zasobu użytkownika](/graph/api/re
 |passwordPolicies     |Ciąg|Zasady dotyczące hasła. Jest to ciąg składający się z różnych nazw zasad oddzielonych przecinkami. Na przykład "DisablePasswordExpiration, DisableStrongPassword".|Nie|Nie|Utrwalony, wyjściowy|
 |physicalDeliveryOfficeName (officeLocation)|Ciąg|Lokalizacja biura w miejscu pracy użytkownika. Maksymalna długość 128.|Tak|Nie|Utrwalony, wyjściowy|
 |postalCode      |Ciąg|Kod pocztowy dla adresu pocztowego użytkownika. Kod pocztowy jest specyficzny dla kraju/regionu użytkownika. W Stany Zjednoczone w Ameryce ten atrybut zawiera kod pocztowy. Maksymalna długość 40.|Tak|Nie|Utrwalony, wyjściowy|
-|preferredLanguage    |Ciąg|Preferowany język użytkownika. Powinien być zgodny z kodem ISO 639-1. Przykład: "en-US".|Nie|Nie|Utrwalony, wyjściowy|
-|refreshTokensValidFromDateTime|DateTime|Wszystkie tokeny odświeżania wystawione przed tym czasem są nieprawidłowe, a w przypadku korzystania z nieprawidłowego tokenu odświeżania aplikacje będą otrzymywać błędy. W takim przypadku aplikacja będzie musiała uzyskać nowy token odświeżania, wysyłając żądanie do punktu końcowego autoryzacji. Tylko do odczytu.|Nie|Nie|Dane wyjściowe|
+|preferredLanguage    |Ciąg|Preferowany język użytkownika. Preferowany format języka jest oparty na dokumencie RFC 4646. Nazwa jest kombinacją kodu ISO 639 2 literą małymi literami związanymi z językiem i litery ISO 3166 2 z wielką literą połączoną z krajem lub regionem. Przykład: "en-US" lub "es-ES".|Nie|Nie|Utrwalony, wyjściowy|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Wszystkie tokeny odświeżania wystawione przed tym czasem są nieprawidłowe, a w przypadku korzystania z nieprawidłowego tokenu odświeżania aplikacje będą otrzymywać błędy. W takim przypadku aplikacja będzie musiała uzyskać nowy token odświeżania, wysyłając żądanie do punktu końcowego autoryzacji. Tylko do odczytu.|Nie|Nie|Dane wyjściowe|
 |signInNames ([tożsamości](#identities-attribute)) |Ciąg|Unikatowa nazwa logowania użytkownika konta lokalnego dowolnego typu w katalogu. Użyj tego atrybutu, aby uzyskać użytkownika z wartością logowania bez określenia typu konta lokalnego.|Nie|Nie|Dane wejściowe|
 |signInNames. userName ([tożsamości](#identities-attribute)) |Ciąg|Unikatowa nazwa użytkownika konta lokalnego w katalogu. Użyj tego atrybutu, aby utworzyć lub pobrać użytkownika z określoną nazwą użytkownika logowania. Określenie tej opcji w PersistedClaims samej podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|
 |signInNames. numer telefonu ([tożsamości](#identities-attribute)) |Ciąg|Unikatowy numer telefonu użytkownika konta lokalnego w katalogu. Użyj tego atrybutu, aby utworzyć lub pobrać użytkownika z określonym numerem telefonu logowania. Określenie tego atrybutu w PersistedClaims samo podczas operacji patch spowoduje usunięcie innych typów signInNames. Jeśli chcesz dodać nowy typ signInNames, musisz również zachować istniejące signInNames.|Nie|Nie|Dane wejściowe, utrwalone i wyjściowe|

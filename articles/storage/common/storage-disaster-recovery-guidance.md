@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737651"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506705"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -132,7 +132,7 @@ Ponieważ dostawca zasobów usługi Azure Storage nie przejdzie w tryb failover,
 
 ### <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
 
-Usługi Azure Virtual Machines (VM) nie są przełączane w tryb failover w ramach pracy awaryjnej konta. Jeśli region podstawowy stał się niedostępny i przejdziesz w tryb failover do regionu pomocniczego, należy ponownie utworzyć wszystkie maszyny wirtualne po przejściu w tryb pracy awaryjnej. Ponadto istnieje potencjalna utrata danych skojarzona z trybem failover konta. Firma Microsoft zaleca następujące wskazówki dotyczące [wysokiej dostępności](../../virtual-machines/manage-availability.md) i [odzyskiwania po awarii](../../virtual-machines/backup-recovery.md) dotyczące maszyn wirtualnych na platformie Azure.
+Usługi Azure Virtual Machines (VM) nie są przełączane w tryb failover w ramach pracy awaryjnej konta. Jeśli region podstawowy stał się niedostępny i przejdziesz w tryb failover do regionu pomocniczego, należy ponownie utworzyć wszystkie maszyny wirtualne po przejściu w tryb pracy awaryjnej. Ponadto istnieje potencjalna utrata danych skojarzona z trybem failover konta. Firma Microsoft zaleca następujące wskazówki dotyczące [wysokiej dostępności](../../virtual-machines/availability.md) i [odzyskiwania po awarii](../../virtual-machines/backup-recovery.md) dotyczące maszyn wirtualnych na platformie Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Dyski niezarządzane platformy Azure
 

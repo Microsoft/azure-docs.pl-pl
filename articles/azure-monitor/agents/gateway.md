@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 2c8b77e480f3a4f9ba342c6793a708ca6723ec34
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036575"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509034"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
 
@@ -205,7 +205,7 @@ Aby dowiedzieć się, jak projektować i wdrażać klaster równoważenia obcią
 Aby dowiedzieć się, jak projektować i wdrażać Azure Load Balancer, zobacz [co to jest Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Aby wdrożyć podstawowy moduł równoważenia obciążenia, wykonaj czynności opisane w tym [przewodniku szybki start](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , z wyjątkiem kroków opisanych w sekcji **Tworzenie serwerów zaplecza**.   
 
 > [!NOTE]
-> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU** wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/manage-availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Skonfigurowanie Azure Load Balancer przy użyciu **podstawowej jednostki SKU** wymaga, aby maszyny wirtualne platformy Azure należały do zestawu dostępności. Aby dowiedzieć się więcej na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/availability.md). Aby dodać istniejące maszyny wirtualne do zestawu dostępności, zapoznaj się z poleceniem [set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Po utworzeniu modułu równoważenia obciążenia należy utworzyć pulę zaplecza, która dystrybuuje ruch do jednego lub większej liczby serwerów bramy. Wykonaj kroki opisane w sekcji artykuł szybkiego startu [Tworzenie zasobów dla modułu równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  

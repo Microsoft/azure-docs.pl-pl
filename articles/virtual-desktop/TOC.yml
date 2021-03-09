@@ -223,7 +223,7 @@
 - name: Zasoby
   items:
     - name: PowerShell
-      href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+      href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
     - name: Dokumentacja interfejsu API REST
       href: /rest/api/desktopvirtualization/
     - name: Narzędzie do szacowania środowiska

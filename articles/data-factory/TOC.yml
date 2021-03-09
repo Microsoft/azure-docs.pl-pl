@@ -586,6 +586,8 @@
           href: control-flow-system-variables.md
         - name: Parametryzacja przepływów mapowania danych
           href: parameters-data-flow.md
+        - name: Jak Sparametryzuj
+          href: how-to-expression-language-functions.md
     - name: Zabezpieczenia
       items:
         - name: Zagadnienia związane z zabezpieczeniami podczas przenoszenia danych

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3b40ad6c8ef7cc9446f0b60e4cda2efd70b8ed32
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451578"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503168"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Krok 3 — Konfigurowanie do migracji do interfejsu API REST v3 lub zestawu SDK klienta
 
@@ -50,7 +50,7 @@ Wykonaj kroki przewodnika Szybki Start dotyczące [konfigurowania środowiska](h
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Pobierz wybrany zestaw SDK klienta i Skonfiguruj swoje środowisko
 
-- Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)i [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
 - [Interfejs wiersza polecenia](/cli/azure/ams)   platformy Azure Integracja z obsługą obsługi skryptów prostych.
 
 > [!NOTE]

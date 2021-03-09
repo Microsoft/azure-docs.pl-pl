@@ -3,12 +3,12 @@ title: Tworzenie maszyny wirtualnej w DevTest Labs przy użyciu Azure PowerShell
 description: Dowiedz się, jak używać Azure DevTest Labs do tworzenia maszyn wirtualnych i zarządzania nimi przy użyciu Azure PowerShell.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bcc1b8cfe1da7e5eafbee0af008a1defbe6f49d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79b6ff92d633cf63477cddaabec918df352bec8
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85484115"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499258"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Tworzenie maszyny wirtualnej za pomocą DevTest Labs przy użyciu Azure PowerShell
 W tym artykule pokazano, jak utworzyć maszynę wirtualną w Azure DevTest Labs przy użyciu Azure PowerShell. Za pomocą skryptów programu PowerShell można zautomatyzować tworzenie maszyn wirtualnych w laboratorium w Azure DevTest Labs. 
@@ -17,10 +17,10 @@ W tym artykule pokazano, jak utworzyć maszynę wirtualną w Azure DevTest Labs 
 Przed rozpoczęciem:
 
 - [Utwórz laboratorium](devtest-lab-create-lab.md) , jeśli nie chcesz używać istniejącego laboratorium do testowania skryptu lub poleceń w tym artykule. 
-- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) lub użyj Azure Cloud Shell zintegrowanych w Azure Portal. 
+- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps) lub użyj Azure Cloud Shell zintegrowanych w Azure Portal. 
 
 ## <a name="powershell-script"></a>Skrypt programu PowerShell
-Przykładowy skrypt w tej sekcji używa polecenia cmdlet [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) .  To polecenie cmdlet pobiera identyfikator zasobu laboratorium, nazwę akcji do wykonania ( `createEnvironment` ), a parametry niezbędne do wykonania tej akcji. Parametry znajdują się w tabeli skrótów, która zawiera wszystkie właściwości opisu maszyny wirtualnej. 
+Przykładowy skrypt w tej sekcji używa polecenia cmdlet [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) .  To polecenie cmdlet pobiera identyfikator zasobu laboratorium, nazwę akcji do wykonania ( `createEnvironment` ), a parametry niezbędne do wykonania tej akcji. Parametry znajdują się w tabeli skrótów, która zawiera wszystkie właściwości opisu maszyny wirtualnej. 
 
 ```powershell
 [CmdletBinding()]

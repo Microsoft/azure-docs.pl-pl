@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880948"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500414"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -41,13 +41,13 @@ Każda z tych metod szkoleniowych może używać różnych typów zasobów oblic
 
 Zestaw Azure Machine Learning SDK dla języka Python umożliwia tworzenie i uruchamianie przepływów pracy uczenia maszynowego przy użyciu Azure Machine Learning. Można korzystać z usługi z interaktywnej sesji języka Python, Jupyter notesów, Visual Studio Code lub innego środowiska IDE.
 
-* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Instalowanie/aktualizowanie zestawu SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro)
+* [Instalowanie/aktualizowanie zestawu SDK](/python/api/overview/azure/ml/install)
 * [Skonfiguruj środowisko programistyczne dla Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Uruchom konfigurację
 
-Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). Następnie zostanie użyta konfiguracja uruchomienia skryptu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
+Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). Następnie zostanie użyta konfiguracja uruchomienia skryptu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
 
 Możesz rozpocząć od konfiguracji uruchamiania komputera lokalnego, a następnie w razie potrzeby przełączyć się na jeden dla docelowej wartości obliczeniowej opartej na chmurze. Podczas zmieniania elementu docelowego obliczeń można zmienić tylko używaną konfigurację uruchamiania. Uruchomienie rejestruje również informacje o zadaniu szkoleniowym, takie jak dane wejściowe, wyjściowe i dzienniki.
 

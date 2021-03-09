@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972071"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500006"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Konserwacja maszyn wirtualnych na platformie Azure
 
@@ -23,7 +23,7 @@ Aktualizacje rzadko wpływają na hostowane maszyny wirtualne. Gdy aktualizacje 
 - Jeśli aktualizacja nie wymaga ponownego uruchomienia komputera, maszyna wirtualna jest wstrzymana podczas aktualizowania hosta lub maszyna wirtualna jest migrowana na żywo do już zaktualizowanego hosta. 
 - Jeśli konserwacja wymaga ponownego uruchomienia, zostanie powiadomiona o planowanej konserwacji. Platforma Azure udostępnia również przedział czasu, w którym można samodzielnie uruchomić konserwację, w odpowiednim czasie. Okno samoobsługowe jest zwykle 35 dni, chyba że konserwacji są pilne. Platforma Azure jest inwestować w technologie, aby ograniczyć liczbę przypadków, w których konserwacja planowanej platformy wymaga ponownego uruchomienia maszyn wirtualnych. Aby uzyskać instrukcje dotyczące zarządzania zaplanowaną konserwacją, zobacz Obsługa planowanych powiadomień konserwacyjnych za pomocą [interfejsu wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md).
 
-Na tej stronie opisano, jak platforma Azure wykonuje oba typy konserwacji. Aby uzyskać więcej informacji o nieplanowanych zdarzeniach (przestoju), zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./manage-availability.md) lub odpowiednim artykule dla systemu [Linux](./manage-availability.md).
+Na tej stronie opisano, jak platforma Azure wykonuje oba typy konserwacji. Aby uzyskać więcej informacji o nieplanowanych zdarzeniach (przestoju), zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./availability.md) lub odpowiednim artykule dla systemu [Linux](./availability.md).
 
 W ramach maszyny wirtualnej można otrzymywać powiadomienia o nadchodzącej konserwacji przy [użyciu Scheduled Events dla systemu Windows](./windows/scheduled-events.md) lub [Linux](./linux/scheduled-events.md).
 
@@ -87,7 +87,7 @@ W ramach zestawu dostępności poszczególne maszyny wirtualne są rozłożone w
 
 *Zestawy skalowania* maszyn wirtualnych to zasób obliczeniowy platformy Azure służący do wdrażania zestawu identycznych maszyn wirtualnych jako jednego zasobu i zarządzania nimi. Zestaw skalowania jest automatycznie wdrażany w ramach tej funkcji, np. maszyn wirtualnych w zestawie dostępności. Podobnie jak w przypadku zestawów dostępności, w przypadku korzystania z zestawów skalowania w danym momencie w trakcie zaplanowanej konserwacji jest aktualizowana tylko jedna UD.
 
-Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych pod kątem wysokiej dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./manage-availability.md) lub odpowiednim artykule dla systemu [Linux](./manage-availability.md).
+Aby uzyskać więcej informacji o konfigurowaniu maszyn wirtualnych pod kątem wysokiej dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./availability.md) lub odpowiednim artykule dla systemu [Linux](./availability.md).
 
 #### <a name="availability-zones"></a>Strefy dostępności
 

@@ -1,22 +1,22 @@
 ---
-title: 'PowerShell: używanie grup umieszczania w sąsiedztwie'
+title: Tworzenie grupy położenia zbliżeniowe przy użyciu Azure PowerShell
 description: Dowiedz się więcej na temat tworzenia i używania grup umieszczania w sąsiedztwie przy użyciu Azure PowerShell.
 services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 3/8/2021
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 742ce6e9937fbe0f67e61b7b96b1289030e7e148
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 26921b3d102032cb36f47c3be7a79c2b596a1d0c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677205"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503678"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania sąsiedztwa przy użyciu programu PowerShell
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-powershell"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania zbliżeniowe przy użyciu Azure PowerShell
 
 
 Aby zapewnić, że maszyny wirtualne będą możliwie jak najbliżej, osiągając najniższe możliwe opóźnienie, należy wdrożyć je w obrębie [grupy umieszczania sąsiedztwa](../co-location.md#proximity-placement-groups).

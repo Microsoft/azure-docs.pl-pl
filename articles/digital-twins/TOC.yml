@@ -166,7 +166,7 @@
             - name: Zestaw SDK dla języka JavaScript
               href: /javascript/api/@azure/digital-twins-core/
             - name: Zestaw SDK dla języka Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: Interfejs wiersza polecenia usługi Digital Twins
       href: /cli/azure/ext/azure-iot/dt
 - name: Zasoby
