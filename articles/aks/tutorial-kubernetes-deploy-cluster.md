@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250642"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509425"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Samouczek: wdrażanie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Klastry AKS mogą korzystać z kontroli dostępu opartej na rolach Kubernetes (K
 
 Utwórz klaster usługi AKS za pomocą polecenia [az aks create][]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. Ta grupa zasobów została utworzona w [poprzednim samouczku][aks-tutorial-prepare-acr] w regionie *wschodnim* . W poniższym przykładzie nie określono regionu, więc klaster AKS jest tworzony również w regionie *wschodnim* . Aby uzyskać więcej informacji, zobacz limity [przydziału, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)][quotas-skus-regions] , aby uzyskać więcej informacji na temat limitów zasobów i dostępności regionów dla AKS.
 
-Aby umożliwić klastrowi AKS współdziałanie z innymi zasobami platformy Azure, zostanie automatycznie utworzona jednostka usługi Azure Active Directory, ponieważ nie została ona określona. W tym miejscu ta jednostka usługi ma uprawnienia [do ściągania obrazów][container-registry-integration] z wystąpienia Azure Container Registry (ACR) utworzonego w poprzednim samouczku. Aby pomyślnie wykonać polecenie, musisz mieć rolę **właściciela** lub **administratora konta platformy Azure** w ramach subskrypcji platformy Azure.
+Aby umożliwić klastrowi AKS współdziałanie z innymi zasobami platformy Azure, tożsamość klastra zostanie utworzona automatycznie, ponieważ nie została ona określona. W tym miejscu ten klaster ma [uprawnienia do ściągania obrazów][container-registry-integration] z wystąpienia Azure Container Registry (ACR) utworzonego w poprzednim samouczku. Aby pomyślnie wykonać polecenie, musisz mieć rolę **właściciela** lub **administratora konta platformy Azure** w ramach subskrypcji platformy Azure.
 
 ```azurecli
 az aks create \

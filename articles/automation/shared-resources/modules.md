@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3f8e23fdeb0a05d2c19f131cf79a079426a9b494
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae3329401a138bc0566ea93a8fbf2071fd44f02c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726499"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503423"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Zarządzanie modułami w usłudze Azure Automation
 
@@ -142,7 +142,7 @@ Importowanie modułu AZ module do konta usługi Automation nie powoduje automaty
 
 * Gdy element Runbook wywołuje polecenie cmdlet z modułu.
 * Gdy element Runbook importuje moduł jawnie za pomocą polecenia cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module) .
-* Gdy element Runbook importuje moduł jawnie za pomocą instrukcji [using module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using?view=powershell-7.1#module-syntax) . Instrukcja using jest obsługiwana począwszy od programu Windows PowerShell 5,0 i obsługuje klasy i typ wyliczenia.
+* Gdy element Runbook importuje moduł jawnie za pomocą instrukcji [using module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . Instrukcja using jest obsługiwana począwszy od programu Windows PowerShell 5,0 i obsługuje klasy i typ wyliczenia.
 * Gdy element Runbook importuje inny moduł zależny.
 
 Można zaimportować moduły AZ w Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie cały moduł AZ. Automation. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.

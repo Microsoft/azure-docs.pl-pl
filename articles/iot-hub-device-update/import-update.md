@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442948"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507283"
 ---
 # <a name="import-new-update"></a>Importuj nową aktualizację
 Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia dla IoT Hub. Jeśli jeszcze tego nie zrobiono, pamiętaj o zapoznaniu się z podstawowymi [pojęciami dotyczącymi importu](import-concepts.md).
@@ -57,8 +57,8 @@ Dowiedz się, jak zaimportować nową aktualizację do aktualizacji urządzenia 
 
     | Parametr | Opis |
     | --------- | ----------- |
-    | deviceManufacturer | Producent urządzenia, z którym jest zgodna aktualizacja, na przykład contoso
-    | deviceModel | Model urządzenia, z którym jest zgodna aktualizacja, na przykład wyskakujące powiadomienia
+    | deviceManufacturer | Producent urządzenia, z którym jest zgodna aktualizacja, na przykład contoso. Musi być zgodna z [właściwością urządzenia](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _producenta_
+    | deviceModel | Model urządzenia, z którym jest zgodna aktualizacja, na przykład wyskakujące powiadomienia. Musi być zgodna z [właściwością urządzenia](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) _modelu_
     | updateProvider | Jednostka, która jest tworzona lub bezpośrednio odpowiedzialna za aktualizację. Często będzie to nazwa firmy.
     | aktualizacjaname | Identyfikator klasy aktualizacji. Klasa może być dowolna. Często będzie to nazwa urządzenia lub modelu.
     | updateVersion | Numer wersji odróżniający tę aktualizację od innych, które mają tego samego dostawcę i nazwę. Może być niezgodna z wersją pojedynczego składnika oprogramowania na urządzeniu.

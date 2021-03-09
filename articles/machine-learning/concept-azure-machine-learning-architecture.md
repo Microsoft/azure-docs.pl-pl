@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091673"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503695"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -102,7 +102,7 @@ Podczas przesyłania skryptu w celu uczenia modelu należy utworzyć przebieg. U
 
 [Obszar roboczy](#workspace)  >  [Eksperymenty](#experiments)  >  [Uruchom](#runs)  >  **Uruchom konfigurację**
 
-Konfiguracja przebiegu definiuje sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja służy do określania skryptu, lokalizacji docelowej obliczeń i środowiska Azure ML do uruchomienia, wszystkich rozdystrybuowanych konfiguracji specyficznych dla zadań i pewnych dodatkowych właściwości. Aby uzyskać więcej informacji na temat pełnego zestawu konfigurowalnych opcji dla przebiegów, zobacz [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+Konfiguracja przebiegu definiuje sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja służy do określania skryptu, lokalizacji docelowej obliczeń i środowiska Azure ML do uruchomienia, wszystkich rozdystrybuowanych konfiguracji specyficznych dla zadań i pewnych dodatkowych właściwości. Aby uzyskać więcej informacji na temat pełnego zestawu konfigurowalnych opcji dla przebiegów, zobacz [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 Konfigurację przebiegu można utrwalić do pliku znajdującego się w katalogu zawierającym skrypt szkoleniowy.   Lub może być skonstruowany jako obiekt w pamięci i używany do przesyłania przebiegu.
 
@@ -282,7 +282,7 @@ W programie Studio znajduje się również dostęp do interaktywnych narzędzi, 
 > Narzędzia oznaczone poniżej (wersja zapoznawcza) są obecnie dostępne w publicznej wersji zapoznawczej.
 > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro).
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Za pomocą [projektanta Azure Machine Learning](concept-designer.md) wykonaj kroki przepływu pracy bez pisania kodu. 
 + Użyj [interfejsu wiersza polecenia Azure Machine Learning](./reference-azure-machine-learning-cli.md) do automatyzacji.

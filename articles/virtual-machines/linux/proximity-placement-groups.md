@@ -1,19 +1,19 @@
 ---
-title: Korzystanie z grup umieszczania w pobliżu
+title: Tworzenie grupy umieszczania w sąsiedztwie przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się więcej na temat tworzenia i używania grup umieszczania sąsiedztwa dla maszyn wirtualnych na platformie Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 3/8/2021
 ms.author: cynthn
-ms.openlocfilehash: 21f657af60fa0012c517e4788a5d087b3924823f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a347c9284608340811f9c2388df26129baeb8837
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666237"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505651"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Wdrażanie maszyn wirtualnych w grupach umieszczania w pobliżu przy użyciu interfejsu wiersza polecenia platformy Azure
 

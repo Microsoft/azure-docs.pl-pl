@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392327"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503508"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
 
-W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
+W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](/python/api/overview/azure/ml/). 
 
 W tym celu wykonasz następujące czynności: 
 
@@ -120,7 +120,7 @@ Dowiedz się więcej o tym, jak AutoML stosuje krzyżowe sprawdzanie poprawnośc
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
-[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre modele, opcje konfiguracji i cechowania czynności istnieją w odniesieniu do danych szeregów czasowych. 
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre modele, opcje konfiguracji i cechowania czynności istnieją w odniesieniu do danych szeregów czasowych. 
 
 ### <a name="supported-models"></a>Obsługiwane modele
 Automatyczne Uczenie maszynowe automatycznie próbuje różne modele i algorytmy w ramach procesu tworzenia i dostrajania modelu. Jako użytkownik nie ma potrzeby określania algorytmu. Do prognozowania eksperymentów zarówno natywna seria czasowa, jak i modele uczenia głębokiego są częścią systemu rekomendacji. W poniższej tabeli zestawiono ten podzbiór modeli. 
@@ -138,7 +138,7 @@ ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaproje
 
 Podobnie jak w przypadku problemu z regresją, definiuje się standardowe parametry szkolenia, takie jak typ zadania, liczba iteracji, dane szkoleniowe i liczba operacji krzyżowych. W przypadku zadań prognozowania należy ustawić dodatkowe parametry, które mają wpływ na eksperyment. 
 
-Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj się z [dokumentacją](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) dotyczącą wzorców projektu składni.
+Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj się z [dokumentacją](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) dotyczącą wzorców projektu składni.
 
 | &nbsp;Nazwa parametru | Opis | Wymagane |
 |-------|-------|-------|
@@ -154,7 +154,7 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zapoznaj si�
 
 
 Poniższy kod, 
-* Wykorzystuje [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) klasę do definiowania parametrów prognozowania dla szkolenia eksperymentu
+* Wykorzystuje [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) klasę do definiowania parametrów prognozowania dla szkolenia eksperymentu
 * Ustawia `time_column_name` do `day_datetime` pola w zestawie danych. 
 * Definiuje `time_series_id_column_names` parametr do `"store"` . Zapewnia to, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** . jeden dla sklepu A i B.
 * Ustawia wartość `forecast_horizon` na 50, aby przewidzieć cały zestaw testów. 
@@ -298,7 +298,7 @@ Zobacz przykład kodu w języku Python, wykorzystując [funkcję agregacji przed
 
 ### <a name="short-series-handling"></a>Obsługa krótkich serii
 
-Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji referencyjnej short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Automatyczna część ML traktuje serię czasową jako **krótką serię** , jeśli nie ma wystarczającej liczby punktów danych do przeprowadzenia fazy tworzenia i weryfikacji modelu. Liczba punktów danych jest różna dla każdego eksperymentu i zależy od max_horizon, liczby podziałów wzajemnego sprawdzania poprawności oraz długości modelu lookback, który jest maksymalną historią, która jest wymagana do skonstruowania funkcji szeregów czasowych. Dokładne obliczenie można znaleźć w [dokumentacji referencyjnej short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
 
 Zautomatyzowanej ML oferuje obsługę krótkich serii domyślnie przy użyciu `short_series_handling_configuration` parametru w `ForecastingParameters` obiekcie. 
 

@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690383"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503525"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -79,7 +79,7 @@ Podczas tworzenia i uruchamiania `Pipeline` obiektu należy wykonać następują
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Kompilowanie potoków przy użyciu zestawu SDK języka Python
 
-W [zestawie Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)potok jest obiektem języka Python zdefiniowanym w `azureml.pipeline.core` module. Obiekt [potoku](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) zawiera uporządkowaną sekwencję co najmniej jednego obiektu [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) . `PipelineStep`Klasa jest abstrakcyjna i rzeczywiste kroki będą podklasami, takimi jak [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py)lub [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). Klasa [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) przechowuje sekwencję kroków wielokrotnego użytku, które mogą być współużytkowane między potokami. `Pipeline`Działa jako część elementu `Experiment` .
+W [zestawie Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install)potok jest obiektem języka Python zdefiniowanym w `azureml.pipeline.core` module. Obiekt [potoku](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) zawiera uporządkowaną sekwencję co najmniej jednego obiektu [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep) . `PipelineStep`Klasa jest abstrakcyjna i rzeczywiste kroki będą podklasami, takimi jak [EstimatorStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep)lub [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep). Klasa [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep) przechowuje sekwencję kroków wielokrotnego użytku, które mogą być współużytkowane między potokami. `Pipeline`Działa jako część elementu `Experiment` .
 
 Potok usługi Azure Machine Learning jest skojarzony z obszarem roboczym Azure Machine Learning, a krok potoku jest skojarzony z elementem docelowym obliczeń dostępnym w tym obszarze roboczym. Aby uzyskać więcej informacji, zobacz temat [Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi w Azure Portal](./how-to-manage-workspace.md) lub [co to są cele obliczeniowe w Azure Machine Learning?](./concept-compute-target.md).
 
@@ -123,7 +123,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `prepped_data_path` . `input_data`Jest wystąpieniem elementu [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) i `prepped_data_path` jest wystąpieniem elementu [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). W przypadku `OutputFileDatasetConfig` domyślnego zachowania należy skopiować dane wyjściowe do magazynu danych `workspaceblobstore` pod ścieżką `/dataset/{run-id}/{output-name}` , gdzie `run-id` jest identyfikatorem uruchomienia i `output-name` jest wartością wygenerowaną automatycznie, jeśli nie została określona przez dewelopera.
+Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `prepped_data_path` . `input_data`Jest wystąpieniem elementu [FileDataset](/python/api/azureml-core/azureml.data.filedataset) i `prepped_data_path` jest wystąpieniem elementu [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig). W przypadku `OutputFileDatasetConfig` domyślnego zachowania należy skopiować dane wyjściowe do magazynu danych `workspaceblobstore` pod ścieżką `/dataset/{run-id}/{output-name}` , gdzie `run-id` jest identyfikatorem uruchomienia i `output-name` jest wartością wygenerowaną automatycznie, jeśli nie została określona przez dewelopera.
 
 Kod przygotowywania danych (niepokazywany) — zapisuje pliki rozdzielane do `prepped_data_path` . Te wyjścia z kroku przygotowywania danych są przenoszone `prepped_data` do etapu szkolenia. 
 
@@ -162,6 +162,6 @@ Potoki Azure Machine Learning są zaawansowaną funkcją, która rozpoczyna dost
 
 + Dowiedz się, jak [uruchamiać przewidywania wsadowe w przypadku dużych ilości danych](tutorial-pipeline-batch-scoring-classification.md ).
 
-+ Zapoznaj się z dokumentacją zestawu SDK dotyczącej głównych [kroków i etapów](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) [potoku](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) .
++ Zapoznaj się z dokumentacją zestawu SDK dotyczącej głównych [kroków i etapów](/python/api/azureml-pipeline-steps/) [potoku](/python/api/azureml-pipeline-core/) .
 
 + Wypróbuj przykładowe notesy Jupyter, które przedstawiają [potoki Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Dowiedz się, jak [uruchamiać notesy w celu eksplorowania tej usługi](samples-notebooks.md).

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9e8ef5bf9d5d8000bfdd581cd7e9ae1a1a775fc9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178137"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503202"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Tak, możesz. Aby uzyskać instrukcje, zobacz [przenoszenie zasobów między reg
 
 **Jak mogę usunąć moje wystąpienie zarządzane?**
 
-Wystąpienia zarządzane można usunąć za pomocą Azure Portal, [programu PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/mi#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](/rest/api/sql/managedinstances/delete).
+Wystąpienia zarządzane można usunąć za pomocą Azure Portal, [programu PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/mi#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](/rest/api/sql/managedinstances/delete).
 
 **Ile czasu zajmuje utworzenie lub zaktualizowanie wystąpienia lub przywrócenie bazy danych?**
 

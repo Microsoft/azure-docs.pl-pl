@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 04492abc0f235c2dc6139adbe543bcce82f7f7b3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 46f117b13909c2d9624b88e9f5d9a62c4c646e51
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646901"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500296"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Samouczek: Konfigurowanie Arkose Labs przy użyciu Azure Active Directory B2C
 
-W tym samouczku dowiesz się, jak zintegrować uwierzytelnianie Azure Active Directory (AD) B2C z usługą [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs pomagają organizacjom przed atakami bot, atakami polegającymi na przejęciu kont i oszustwem.  
+W tym przykładowym samouczku dowiesz się, jak zintegrować uwierzytelnianie Azure Active Directory (AD) B2C z [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs pomagają organizacjom przed atakami bot, atakami polegającymi na przejęciu kont i oszustwem.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -196,7 +196,7 @@ Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/azure-function
 
 [Utwórz łącznik interfejsu API](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) i włącz go dla przepływu użytkownika. Konfiguracja łącznika interfejsu API powinna wyglądać następująco:
 
-![Obraz przedstawia wyszukiwanie według identyfikatora aplikacji](media/partner-arkose-labs/configure-api-connector.png)
+![Obraz przedstawia sposób konfigurowania łącznika interfejsu API](media/partner-arkose-labs/configure-api-connector.png)
 
 - **Adres URL punktu końcowego** — jest to adres URL funkcji skopiowany wcześniej podczas wdrażania funkcji platformy Azure.
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 6fe43c39b17e574e1913cd9e7b4292a71f1e418d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031763"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501621"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne języka Python dla Azure Machine Learning
 
@@ -55,7 +55,7 @@ Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, j
 
 Ten plik JSON musi znajdować się w strukturze katalogów zawierającej skrypty języka Python lub notesy Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure* lub w katalogu nadrzędnym.
 
-Aby użyć tego pliku z kodu, użyj [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) metody. Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
+Aby użyć tego pliku z kodu, użyj [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace#from-config-path-none--auth-none---logger-none---file-name-none-) metody. Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
 
 Utwórz plik konfiguracji obszaru roboczego w jednej z następujących metod:
 
@@ -67,7 +67,7 @@ Utwórz plik konfiguracji obszaru roboczego w jednej z następujących metod:
 
 * Azure Machine Learning Python SDK
 
-    Utwórz skrypt, aby połączyć się z obszarem roboczym Azure Machine Learning i użyć [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metody do wygenerowania pliku i zapisania go jako *. azure/config.jsw systemie*. Pamiętaj o zamianie `subscription_id` , `resource_group` , i `workspace_name` ze swoimi własnymi.
+    Utwórz skrypt, aby połączyć się z obszarem roboczym Azure Machine Learning i użyć [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) metody do wygenerowania pliku i zapisania go jako *. azure/config.jsw systemie*. Pamiętaj o zamianie `subscription_id` , `resource_group` , i `workspace_name` ze swoimi własnymi.
 
     ```python
     from azureml.core import Workspace
@@ -99,7 +99,7 @@ Aby skonfigurować lokalne środowisko programistyczne lub zdalną maszynę wirt
     > Jeśli korzystasz z systemu Linux lub macOS i używasz powłoki innej niż bash (na przykład ZSH), podczas uruchamiania niektórych poleceń mogą pojawić się błędy. Aby obejść ten problem, użyj `bash` polecenia w celu uruchomienia nowej powłoki bash i uruchomienia w niej poleceń.
 
 1. Aktywuj nowo utworzone środowisko wirtualne języka Python.
-1. Zainstaluj [zestaw Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+1. Zainstaluj [zestaw Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install).
 1. Aby skonfigurować lokalne środowisko do korzystania z obszaru roboczego Azure Machine Learning, [Utwórz plik konfiguracji obszaru roboczego](#workspace) lub Użyj istniejącego.
 
 Teraz, po skonfigurowaniu lokalnego środowiska, możesz rozpocząć pracę z Azure Machine Learning. Zapoznaj się [Azure Machine Learning z przewodnikiem wprowadzenie](tutorial-1st-experiment-sdk-setup-local.md) do języka Python, aby rozpocząć pracę.
@@ -174,7 +174,7 @@ Aby użyć Data Science VM jako środowiska deweloperskiego:
 
     * Użyj Azure Portal, aby utworzyć [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) lub DSVM [systemu Windows](data-science-virtual-machine/provision-vm.md) .
     * [Utwórz Data Science VM przy użyciu szablonów usługi ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Korzystanie z interfejsu wiersza polecenia platformy Azure
+    * Używanie interfejsu wiersza polecenia platformy Azure
 
         Aby utworzyć Ubuntu Data Science VM, użyj następującego polecenia:
 
@@ -217,4 +217,4 @@ Aby uzyskać więcej informacji, zobacz [Virtual Machines analizy danych](https:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie.
-- Zapoznaj się z informacjami w [Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 
+- Zapoznaj się z informacjami w [Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro). 

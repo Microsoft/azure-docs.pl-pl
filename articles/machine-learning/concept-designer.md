@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: b439c5f084c762d3a256806d2e45dab96832bb78
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6738bf944c5a80d0cb54432ade7555ebdcfbd51
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661090"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503544"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Co to jest projektant usługi Azure Machine Learning? 
 
@@ -114,7 +114,7 @@ Opublikowane potoki są elastyczne, ale mogą być używane do uczenia lub ponow
 
 Opublikowany potok jest uruchamiany na zasobach obliczeniowych zdefiniowanych w wersji roboczej potoku dla każdego modułu.
 
-Projektant tworzy ten sam obiekt [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) , co zestaw SDK.
+Projektant tworzy ten sam obiekt [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) , co zestaw SDK.
 
 ## <a name="next-steps"></a>Następne kroki
 

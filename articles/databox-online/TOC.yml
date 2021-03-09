@@ -313,7 +313,7 @@
     - name: Wspólna dokumentacja
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: Interfejs API REST
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET
@@ -406,7 +406,7 @@
     - name: Dokumentacja
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: Interfejs API REST
           href: /rest/api/databoxedgegateway
         - name: Zestaw SDK .NET

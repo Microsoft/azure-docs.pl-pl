@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 53459ad766ffcf156d2906a38666a14c4883b5e8
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 461c50bca53286cedcbb9ac21fc44467885e3d18
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215939"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500448"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
 
@@ -178,7 +178,7 @@ Zarejestrowane informacje zawierają tekst podobny do następującego:
 
 ### <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
-Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) . `properties`Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
+Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](/python/api/azureml-core/azureml.core.run%28class%29) . `properties`Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
 
 ```python
 run.properties['azureml.git.commit']

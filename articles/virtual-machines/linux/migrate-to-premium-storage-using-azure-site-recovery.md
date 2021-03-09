@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5f8f72ec296be3127a2f8c1ddc87d883d7e2deed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806176"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504579"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Użyj Site Recovery, aby przeprowadzić migrację do Premium Storage
 
@@ -165,7 +165,7 @@ Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z zasadami
 
    ![Włącz okienko replikacji z wybranym źródłem][13]
 
-Podczas projektowania środowiska usługi Azure Storage zalecamy używanie osobnych kont magazynu dla każdej maszyny wirtualnej w zestawie dostępności. Zalecamy przestrzeganie najlepszych rozwiązań z warstwy magazynowania w celu [użycia wielu kont magazynu dla każdego zestawu dostępności](../manage-availability.md). Dystrybuowanie dysków maszyn wirtualnych do wielu kont magazynu pomaga w zwiększeniu dostępności magazynu i rozproszeniu we/wy między infrastrukturą usługi Azure Storage.
+Podczas projektowania środowiska usługi Azure Storage zalecamy używanie osobnych kont magazynu dla każdej maszyny wirtualnej w zestawie dostępności. Zalecamy przestrzeganie najlepszych rozwiązań z warstwy magazynowania w celu [użycia wielu kont magazynu dla każdego zestawu dostępności](../availability.md). Dystrybuowanie dysków maszyn wirtualnych do wielu kont magazynu pomaga w zwiększeniu dostępności magazynu i rozproszeniu we/wy między infrastrukturą usługi Azure Storage.
 
 Jeśli maszyny wirtualne znajdują się w zestawie dostępności, a nie replikowania dysków wszystkich maszyn wirtualnych na jedno konto magazynu, zdecydowanie zalecamy Migrowanie wielu maszyn wirtualnych wiele razy. Dzięki temu maszyny wirtualne w tym samym zestawie dostępności nie współużytkują jednego konta magazynu. Za pomocą okienka **Włączanie replikacji** można skonfigurować docelowe konto magazynu dla każdej maszyny wirtualnej, po jednej naraz.
  

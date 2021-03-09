@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 4443ccfe8d570e50352cbb70c83d6094132038cc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4d870f458607ceb0f05812b5c0c066ce810448e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736901"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508320"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -106,7 +106,7 @@ Maszyny wirtualne, magazyn i sieci platformy Azure mają różne cechy operacyjn
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Węzły wysokiej dostępności w zestawie dostępności
 Zestawy dostępności na platformie Azure umożliwiają umieszczenie węzłów o wysokiej dostępności w oddzielnych domenach błędów i domenach aktualizacji. Platforma Azure przypisuje domenę aktualizacji i domenę błędów do każdej maszyny wirtualnej w zestawie dostępności. Ta konfiguracja w centrum danych gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji co najmniej jedna maszyna wirtualna będzie dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,95% czasu. 
 
-Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
+Aby skonfigurować konfigurację wysokiej dostępności, należy umieścić wszystkie uczestniczące SQL Server maszyny wirtualne w tym samym zestawie dostępności, aby uniknąć utraty dostępu do aplikacji lub danych podczas zdarzenia konserwacji. Tylko węzły w tej samej usłudze w chmurze mogą uczestniczyć w tym samym zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Węzły wysokiej dostępności w strefie dostępności
 Strefy dostępności są unikatowymi lokalizacjami fizycznymi w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależną moc, chłodzenie i sieci. Fizyczne rozdzielenie stref dostępności w regionie pomaga chronić aplikacje i dane przed awariami centrów danych, co zapewnia, że co najmniej jedna maszyna wirtualna jest dostępna i spełnia warunki umowy SLA platformy Azure wynoszącą 99,99% czasu. 

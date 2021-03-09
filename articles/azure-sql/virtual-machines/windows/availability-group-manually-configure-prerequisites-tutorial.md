@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951720"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508762"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Samouczek: wymagania wstępne dotyczące tworzenia grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -145,7 +145,7 @@ Poniższa tabela zawiera podsumowanie ustawień konfiguracji sieci:
 
 ## <a name="create-availability-sets"></a>Tworzenie zestawów dostępności
 
-Przed utworzeniem maszyn wirtualnych należy utworzyć zestawy dostępności. Zestawy dostępności zmniejszają czas przestoju planowanych lub nieplanowanych zdarzeń konserwacji. Zestaw dostępności platformy Azure to logiczna Grupa zasobów, którą usługa Azure umieszcza w fizycznych domenach błędów i domenach aktualizacji. Domena błędów zapewnia, że członkowie zestawu dostępności mają osobne zasoby dotyczące mocy i sieci. Domena aktualizacji zapewnia, że członkowie zestawu dostępności nie są w tym samym czasie przełączane do trybu konserwacji. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
+Przed utworzeniem maszyn wirtualnych należy utworzyć zestawy dostępności. Zestawy dostępności zmniejszają czas przestoju planowanych lub nieplanowanych zdarzeń konserwacji. Zestaw dostępności platformy Azure to logiczna Grupa zasobów, którą usługa Azure umieszcza w fizycznych domenach błędów i domenach aktualizacji. Domena błędów zapewnia, że członkowie zestawu dostępności mają osobne zasoby dotyczące mocy i sieci. Domena aktualizacji zapewnia, że członkowie zestawu dostępności nie są w tym samym czasie przełączane do trybu konserwacji. Aby uzyskać więcej informacji, zobacz [Manage the availability of virtual machines](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Zarządzanie dostępnością maszyn wirtualnych).
 
 Potrzebne są dwa zestawy dostępności. Jeden z nich jest przeznaczony dla kontrolerów domeny. Sekunda jest dla SQL Server maszyn wirtualnych.
 
@@ -205,7 +205,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Konto magazynu diagnostyki** |*Utworzone automatycznie* |
 
    >[!IMPORTANT]
-   >Maszynę wirtualną można umieścić w zestawie dostępności tylko podczas jej tworzenia. Nie można zmienić zestawu dostępności po utworzeniu maszyny wirtualnej. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../../virtual-machines/manage-availability.md).
+   >Maszynę wirtualną można umieścić w zestawie dostępności tylko podczas jej tworzenia. Nie można zmienić zestawu dostępności po utworzeniu maszyny wirtualnej. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../../virtual-machines/availability.md).
 
 Platforma Azure tworzy maszyny wirtualne.
 
@@ -383,7 +383,7 @@ Przed rozpoczęciem należy wziąć pod uwagę następujące decyzje dotyczące 
 
 * **Magazyn — Managed Disks platformy Azure**
 
-   W przypadku magazynu maszyn wirtualnych Użyj usługi Azure Managed Disks. Firma Microsoft zaleca Managed Disks dla SQL Server maszyn wirtualnych. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../../../virtual-machines/managed-disks-overview.md). Aby uzyskać szczegółowe informacje o dyskach zarządzanych w zestawie dostępności, zobacz [używanie Managed disks w przypadku maszyn wirtualnych w zestawie dostępności](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   W przypadku magazynu maszyn wirtualnych Użyj usługi Azure Managed Disks. Firma Microsoft zaleca Managed Disks dla SQL Server maszyn wirtualnych. Funkcja Dyski zarządzane obsługuje magazyn w tle. Ponadto jeśli maszyny wirtualne z funkcją Dyski zarządzane znajdują się w tym samym zestawie dostępności, platforma Azure dystrybuuje zasoby magazynu w celu zapewnienia odpowiedniej nadmiarowości. Aby uzyskać więcej informacji, zobacz [Omówienie funkcji Dyski zarządzane platformy Azure](../../../virtual-machines/managed-disks-overview.md). Aby uzyskać szczegółowe informacje o dyskach zarządzanych w zestawie dostępności, zobacz [używanie Managed disks w przypadku maszyn wirtualnych w zestawie dostępności](../../../virtual-machines/availability.md).
 
 * **Prywatne adresy IP sieci w środowisku produkcyjnym**
 

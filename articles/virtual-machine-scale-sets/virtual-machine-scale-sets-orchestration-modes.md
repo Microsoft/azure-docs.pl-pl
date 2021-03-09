@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043715"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502420"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Wersja zapoznawcza: tryby aranżacji dla zestawów skalowania maszyn wirtualnych na platformie Azure 
 
@@ -322,7 +322,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Przyczyna:** `platformFaultDomainCount` Parametr jest nieprawidłowy dla wybranego regionu lub strefy. 
 
-**Rozwiązanie:** Musisz wybrać prawidłową `platformFaultDomainCount` wartość. Dla wdrożeń strefowych `platformFaultDomainCount` wartość maksymalna to 1. W przypadku wdrożeń regionalnych, w których żadna strefa nie jest określona, wartość maksymalna `platformFaultDomainCount` różni się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych pod kątem skryptów](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) , aby określić maksymalną liczbę domen błędów na region. 
+**Rozwiązanie:** Musisz wybrać prawidłową `platformFaultDomainCount` wartość. Dla wdrożeń strefowych `platformFaultDomainCount` wartość maksymalna to 1. W przypadku wdrożeń regionalnych, w których żadna strefa nie jest określona, wartość maksymalna `platformFaultDomainCount` różni się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych pod kątem skryptów](../virtual-machines/availability.md) , aby określić maksymalną liczbę domen błędów na region. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.

@@ -1,19 +1,19 @@
 ---
-title: Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Tworzenie maszyny wirtualnej z strefą przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Tworzenie maszyny wirtualnej w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 964d2b5d89fd91aca68e9b47b0049529fe284848
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fbed3e7ac3e809658da532ccc27e78230cc0b581
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016407"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102509136"
 ---
-# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-cli"></a>Tworzenie maszyny wirtualnej w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule opisano, jak utworzyć maszynę wirtualną z systemem Linux w strefie dostępności platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. [Strefa dostępności](../../availability-zones/az-overview.md) to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Strefy dostępności chronią aplikacje i dane, zmniejszając prawdopodobieństwo wystąpienia awarii lub utraty całego centrum danych.
 

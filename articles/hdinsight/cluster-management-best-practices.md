@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 7ab113a9c7ab03a477f387c5599b55d67c99c6fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 40222b6a108976de9c82ffccee119b1c1c55f334
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433900"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505753"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania klastrem usługi HDInsight
 
@@ -28,7 +28,7 @@ Poznaj najlepsze rozwiązania dotyczące zarządzania klastrami usługi HDInsigh
 | Interfejs wiersza polecenia platformy Azure | [Tworzenie klastrów usługi HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Tworzenie klastrów Apache Hadoop przy użyciu interfejsu API REST platformy Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| Zestawy SDK (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight), [Przejdź](./hdinsight-go-sdk-overview.md) |
+| Zestawy SDK (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight), [Python](/python/api/overview/azure/hdinsight), [Java](/java/api/overview/azure/hdinsight), [Przejdź](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > W przypadku tworzenia klastra i ponownego użycia nazwy klastra z wcześniej utworzonego klastra poczekaj na ukończenie poprzedniego usuwania klastra przed utworzeniem klastra.

@@ -5,18 +5,18 @@ author: neilpeterson
 ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 97f956c1b1c1ea18242dc656c533451eda29dc6d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3e41d4f6f8b8aeb2be376ae1385189fe02e9b897
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179055"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504661"
 ---
 # <a name="quickstart-create-arm-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów ARM przy użyciu Visual Studio Code
 
 Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę języków, fragmenty zasobów i Autouzupełnianie zasobów. Te narzędzia ułatwiają tworzenie i weryfikowanie szablonów Azure Resource Manager (szablony ARM). W tym przewodniku szybki start użyjesz rozszerzenia, aby utworzyć szablon ARM od podstaw. Podczas wykonywania tych czynności są dostępne funkcje rozszerzeń, takie jak fragmenty szablonów ARM, Walidacja, uzupełnianie i obsługa plików parametrów.
 
-Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
+Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](/cli/azure/) lub [moduł Azure PowerShell](/powershell/azure/new-azureps-module-az) zainstalowany i uwierzytelniony.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 

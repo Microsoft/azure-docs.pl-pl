@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny wirtualnej z systemem Windows za pomocą Azure PowerShell
-description: Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu programu Azure PowerShell
+title: Tworzenie maszyny wirtualnej z strefą przy użyciu Azure PowerShell
+description: Tworzenie maszyny wirtualnej w strefie dostępności przy użyciu Azure PowerShell
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02897add4f3ca51fa7e172bc200af2c7b9065ed4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825246"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502641"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu programu PowerShell
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-powershell"></a>Tworzenie maszyny wirtualnej w strefie dostępności przy użyciu Azure PowerShell
 
 W tym artykule przedstawiono szczegółowe informacje dotyczące tworzenia maszyny wirtualnej z systemem Windows Server 2016 w strefie dostępności platformy Azure przy użyciu programu Azure PowerShell. [Strefa dostępności](../../availability-zones/az-overview.md) to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Strefy dostępności chronią aplikacje i dane, zmniejszając prawdopodobieństwo wystąpienia awarii lub utraty całego centrum danych.
 

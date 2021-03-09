@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627819"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504734"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -35,7 +35,7 @@ Korzystając z usługi Managed disks, można utworzyć do 50 000 **dysków** mas
 
 ### <a name="integration-with-availability-sets"></a>Integracja z zestawami dostępności
 
-Dyski zarządzane są zintegrowane z zestawami dostępności, aby upewnić się, że dyski [maszyn wirtualnych w zestawie dostępności](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) są wystarczająco odizolowane od siebie, aby uniknąć Single Point of Failure. Dyski są automatycznie umieszczane w różnych jednostkach skalowania magazynu (sygnatury). Jeśli sygnatura nie powiedzie się z powodu awarii sprzętu lub oprogramowania, tylko wystąpienia maszyn wirtualnych z dyskami w tych sygnaturach kończą się niepowodzeniem. Załóżmy na przykład, że aplikacja działa na pięciu maszynach wirtualnych, a maszyny wirtualne znajdują się w zestawie dostępności. Dyski dla tych maszyn wirtualnych nie będą przechowywane w tej samej sygnaturze, więc jeśli jedna sygnatura przestanie działać, inne wystąpienia aplikacji nadal będą uruchamiane.
+Dyski zarządzane są zintegrowane z zestawami dostępności, aby upewnić się, że dyski [maszyn wirtualnych w zestawie dostępności](./availability-set-overview.md) są wystarczająco odizolowane od siebie, aby uniknąć Single Point of Failure. Dyski są automatycznie umieszczane w różnych jednostkach skalowania magazynu (sygnatury). Jeśli sygnatura nie powiedzie się z powodu awarii sprzętu lub oprogramowania, tylko wystąpienia maszyn wirtualnych z dyskami w tych sygnaturach kończą się niepowodzeniem. Załóżmy na przykład, że aplikacja działa na pięciu maszynach wirtualnych, a maszyny wirtualne znajdują się w zestawie dostępności. Dyski dla tych maszyn wirtualnych nie będą przechowywane w tej samej sygnaturze, więc jeśli jedna sygnatura przestanie działać, inne wystąpienia aplikacji nadal będą uruchamiane.
 
 ### <a name="integration-with-availability-zones"></a>Integracja z usługą Strefy dostępności
 
@@ -100,7 +100,7 @@ Ten dysk ma maksymalną pojemność wynoszącą 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
+Większość maszyn wirtualnych zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowy magazyn dla aplikacji i procesów, który jest przeznaczony tylko do przechowywania danych, takich jak pliki stron lub plików wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas [zdarzenia konserwacji](./understand-vm-reboots.md) lub po ponownym [wdrożeniu maszyny wirtualnej](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Po pomyślnym przeprowadzeniu standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane. Aby uzyskać więcej informacji o maszynach wirtualnych bez dysków tymczasowych, zobacz [rozmiary maszyn wirtualnych platformy Azure, na których nie ma lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).
 
 Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera, chyba że zostanie włączone szyfrowanie na hoście.
 

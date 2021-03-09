@@ -27,12 +27,12 @@
         - name: Dołączanie do usługi Defender dla rozwiązania IoT na podstawie agenta
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: Instalowanie usługi Defender dla programu IoT Micro Agent
+        - name: Instalowanie usługi Defender for IoT Micro Agent (wersja zapoznawcza)
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
-        - name: Tworzenie sznurka modułu programu Defender IoT Micro Agent
+        - name: Tworzenie sznurka modułu programu Defender IoT Micro Agent (wersja zapoznawcza)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Tworzenie usługi Defender for IoT Micro Agent na podstawie kodu źródłowego
+        - name: Tworzenie usługi Defender for IoT Micro Agent na podstawie kodu źródłowego (wersja zapoznawcza)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
         - name: Konfigurowanie modułu zabezpieczeń dla usługi Azure RTO
@@ -56,18 +56,18 @@
           href: concept-key-concepts.md
     - name: Rozwiązanie oparte na agencie dla konstruktorów urządzeń
       items:
-        - name: Omówienie portfolio agentów i obsługa systemu operacyjnego
+        - name: Omówienie portfolio agentów i obsługa systemu operacyjnego (wersja zapoznawcza)
           displayName: 'standalone agent, micro agent, RTOS'
           href: concept-agent-portfolio-overview-os-support.md
-        - name: Omówienie autonomicznej Micro Agent
+        - name: Omówienie autonomicznej Micro Agent (wersja zapoznawcza)
           displayName: 'endpoint, posture, distribution, flexible, model'
           href: concept-standalone-micro-agent-overview.md
-        - name: Uwierzytelnianie agenta zabezpieczeń
+        - name: Uwierzytelnianie agenta zabezpieczeń (wersja zapoznawcza)
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
         - name: Security stan — test porównawczy CIS
           href: concept-security-posture.md
-        - name: Agregacja zdarzeń
+        - name: Agregacja zdarzeń (wersja zapoznawcza)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
         - name: Wbudowane alerty dla IoT Hub
@@ -297,7 +297,7 @@
               href: how-to-investigate-device.md
 - name: Rozwiązywanie problemów
   items:
-    - name: Rozwiązywanie problemów z usługą Defender IoT Micro Agent
+    - name: Rozwiązywanie problemów z usługą Defender IoT Micro Agent (wersja zapoznawcza)
       displayName: 'service status, review logs'
       href: troubleshoot-defender-micro-agent.md
 - name: Obsługa i wycofanie funkcji

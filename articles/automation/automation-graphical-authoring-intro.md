@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051585"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501232"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Tworzenie graficznych elementów Runbook w Azure Automation
 
@@ -61,7 +61,7 @@ Wybierz działanie na kanwie, aby skonfigurować jego właściwości i parametry
 
 Zestaw parametrów definiuje obowiązkowe i opcjonalne parametry, które akceptują wartości dla konkretnego polecenia cmdlet. Wszystkie polecenia cmdlet mają co najmniej jeden zestaw parametrów, a niektóre z nich mają kilka zestawów. Jeśli polecenie cmdlet ma wiele zestawów parametrów, należy wybrać tę, która ma zostać użyta, zanim będzie można skonfigurować parametry. Zestaw parametrów używany przez działanie można zmienić, wybierając pozycję **zestaw parametrów** i wybierając inny zestaw. W takim przypadku wszystkie wartości parametrów, które zostały już skonfigurowane, zostaną utracone.
 
-W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet** z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
+W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet** z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
 
 ![Zestaw parametrów](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -435,4 +435,4 @@ Istnieje możliwość przywrócenia opublikowanej wersji elementu Runbook. Ta op
 * Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz [Samouczek: Tworzenie graficznego elementu Runbook](learn/automation-tutorial-runbook-graphical.md).
 * Aby dowiedzieć się więcej o typach elementów Runbook i ich zaletach i ograniczeniach, zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).
 * Aby zrozumieć sposób uwierzytelniania przy użyciu konta Uruchom jako usługi Automation, zobacz [konto Uruchom jako](automation-security-overview.md#run-as-account).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/#automation).

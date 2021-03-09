@@ -3,12 +3,12 @@ title: Dostęp do zasobów społeczności za pomocą centrum kopii zapasowych
 description: Korzystanie z centrum kopii zapasowych w celu uzyskiwania dostępu do przykładowych szablonów, skryptów i żądań funkcji
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 23892c11df26bd3799ca247ef31a7d4c1b6e8bf5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b5173f916341497620d521af1bc7e973e0b6e507
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100036"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506274"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Dostęp do zasobów społeczności za pomocą centrum kopii zapasowych
 

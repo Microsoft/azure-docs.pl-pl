@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7a40acf7dea11781a0381e93ea180c5185b7818b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671926"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505940"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Przewodnik wdrażania platformy SAP BusinessObjects BI dla systemu Linux na platformie Azure
 
@@ -603,7 +603,7 @@ Aby zmniejszyć wpływ przestoju ze względu na jedno lub więcej zdarzeń, zale
 - Użyj Managed Disks dla maszyn wirtualnych w zestawie dostępności.
 - Skonfiguruj poszczególne warstwy aplikacji w osobnych zestawach dostępności.
 
-Aby uzyskać więcej informacji, sprawdź [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](../../manage-availability.md)
+Aby uzyskać więcej informacji, sprawdź [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](../../availability.md)
 
 #### <a name="high-availability-for-cms-database"></a>Wysoka dostępność dla bazy danych CMS
 

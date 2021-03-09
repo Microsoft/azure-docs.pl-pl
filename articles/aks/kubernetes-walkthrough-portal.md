@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: mvc, seo-javascript-october2019, contperfq3
-ms.openlocfilehash: 63d23b01eddc70dedd849560248dd053c80e0037
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5f758c0bc50b2d4f22b3dbf0efaa4ecbc3f334cb
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181418"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507810"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
@@ -47,13 +47,11 @@ Aby utworzyć klaster AKS, wykonaj następujące czynności:
 
 4. Na stronie **Pule węzłów** Zachowaj ustawienia domyślne. W dolnej części ekranu kliknij przycisk **Dalej: uwierzytelnianie**.
     > [!CAUTION]
-    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź stronę [Rozwiązywanie typowych problemów z usługą Azure Kubernetes](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) w celu rozwiązania problemu.
+    > Utworzenie nowej tożsamości klastra może potrwać kilka minut, aby można było rozpropagować i stać się dostępne, powodując błędy jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź stronę [Rozwiązywanie typowych problemów z usługą Azure Kubernetes](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) w celu rozwiązania problemu.
 
 5. Na stronie **Uwierzytelnianie** skonfiguruj następujące opcje:
-    - Utwórz nową nazwę główną usługi, pozostawiając w polu **Nazwa główna usługi** **domyślną nazwę główną usługi (nowa)**. Możesz też wybrać opcję *Skonfiguruj nazwę główną usługi*, aby użyć istniejącej usługi. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
+    - Utwórz nową tożsamość klastra, pozostawiając pole **Authentication** przy użyciu **tożsamości zarządzanej system-assinged**. Alternatywnie możesz wybrać jednostkę **usługi** , aby użyć jednostki usługi. Wybierz *(Nowa) domyślną nazwę główną* usługi, aby utworzyć domyślną nazwę główną usługi, lub *Skonfiguruj nazwę główną usługi* , aby używała istniejącej. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
     - Włącz opcję Kubernetes kontroli dostępu opartej na rolach (Kubernetes RBAC). Zapewni to dokładniejszą kontrolę dostępu do zasobów Kubernetes wdrożonych w klastrze AKS.
-
-    Alternatywnie można użyć tożsamości zarządzanej zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz temat [Używanie tożsamości zarządzanych](use-managed-identity.md) .
 
 Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij opcję **Przejrzyj i utwórz**, a następnie **Utwórz** po zakończeniu walidacji.
 

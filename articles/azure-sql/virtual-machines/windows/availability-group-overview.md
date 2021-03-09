@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d879039e6d3ad94e55ed7f7bd283f8b99a5b2161
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042457"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504171"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Na poniższym diagramie przedstawiono grupę dostępności dla SQL Server na mas
 
 ## <a name="vm-redundancy"></a>Nadmiarowość maszyny wirtualnej 
 
-Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtualne powinny znajdować się w tym samym [zestawie dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)lub w różnych [strefach dostępności](../../../availability-zones/az-overview.md).
+Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtualne powinny znajdować się w tym samym [zestawie dostępności](../../../virtual-machines/availability-set-overview.md)lub w różnych [strefach dostępności](../../../availability-zones/az-overview.md).
 
 Umieszczenie zestawu maszyn wirtualnych w tym samym zestawie dostępności chroni przed awarią w centrum danych z powodu awarii sprzętu (maszyny wirtualne w zestawie dostępności nie udostępniają zasobów) lub z aktualizacji (maszyny wirtualne w zestawie dostępności nie są aktualizowane w tym samym czasie). Strefy dostępności chronić przed awarią całego centrum danych, z każdą strefą reprezentującą zestaw centrów danych w regionie.  Dzięki zapewnieniu, że zasoby są umieszczane w różnych Strefy dostępnościach, awarie na poziomie centrum danych mogą przełączeć wszystkie maszyny wirtualne w tryb offline.
 

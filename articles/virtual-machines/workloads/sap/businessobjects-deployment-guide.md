@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671909"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505906"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Przewodnik planowania i implementacji platformy SAP BusinessObjects BI na platformie Azure
 
@@ -222,7 +222,7 @@ Platforma SAP BI zawiera wiele różnych składników i podczas projektowania ar
 
 Ponadto liczba domen aktualizacji i błędów, które mogą być używane przez zestaw dostępności platformy Azure w ramach jednostki skalowania platformy Azure, jest ograniczona. Dlatego jeśli dodajesz maszyny wirtualne do jednego zestawu dostępności, co najmniej dwie maszyny wirtualne będą ostatecznie kończyć się w tej samej domenie błędów lub aktualizacji. Aby uzyskać więcej informacji, zobacz sekcję [zestawy dostępności platformy Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) w dokumencie planowanie i wdrażanie dla oprogramowania SAP na maszynach wirtualnych platformy Azure.
 
-Aby zrozumieć koncepcję zestawów dostępności platformy Azure i sposób, w jaki zestawy dostępności odnoszą się do domen błędów i uaktualnień, przeczytaj artykuł [Zarządzanie dostępnością](../../manage-availability.md) .
+Aby zrozumieć koncepcję zestawów dostępności platformy Azure i sposób, w jaki zestawy dostępności odnoszą się do domen błędów i uaktualnień, przeczytaj artykuł [Zarządzanie dostępnością](../../availability.md) .
 
 > [!Important]
 > Pojęcia dotyczące Strefy dostępności platformy Azure i zestawów dostępności platformy Azure wykluczają się wzajemnie. Oznacza to, że można wdrożyć parę lub wiele maszyn wirtualnych w określonej strefie dostępności lub w zestawie dostępności platformy Azure. Ale nie obu.
@@ -255,7 +255,7 @@ Usługa Azure Storage ma różne typy magazynów dostępne dla klientów i szcze
 
 ![Układ magazynu oprogramowania SAP BusinessObjects BI platform na platformie Azure](media/businessobjects-deployment-guide/businessobjects-storage-layout.png)
 
-### <a name="networking"></a>Sieć
+### <a name="networking"></a>Networking
 
 SAP BOBI to platforma raportowania i analizy analizy biznesowej, która nie przechowuje żadnych danych biznesowych. Dlatego system jest połączony z innymi serwerami baz danych z lokalizacji, w którym pobiera wszystkie dane, i zapewnia wgląd użytkownikom. Platforma Azure udostępnia infrastrukturę sieciową, która umożliwia mapowanie wszystkich scenariuszy, które mogą być realizowane przy użyciu platformy SAP BI, takich jak łączenie się z systemem lokalnym, systemami w różnych sieciach wirtualnych i innych. Aby uzyskać więcej informacji, sprawdź [Microsoft Azure sieci dla obciążeń SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 

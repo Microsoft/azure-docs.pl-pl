@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40d22a410054f17676c4d9db639fd5e32da18531
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665993"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504307"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -138,7 +138,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
         - Jeśli używasz Azure Load Balancer razem z systemami operacyjnymi gościa z systemem Linux, sprawdź, czy parametr sieci systemu Linux **net.IPv4.tcp_timestamps** ma wartość **0**. To zalecenie powoduje konflikt z zaleceniami we wcześniejszych wersjach programu [SAP uwagi #2382421](https://launchpad.support.sap.com/#/notes/2382421). Uwaga dotycząca oprogramowania SAP jest teraz aktualizowana do stanu, w którym ten parametr musi być ustawiony na **wartość 0** , aby pracować z modułami równoważenia obciążenia platformy Azure.
         - W celu uzyskania optymalnego opóźnienia sieci należy rozważyć użycie [grup umieszczania usługi Azure zbliżeniowe](../../co-location.md) . Aby uzyskać więcej informacji, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
    4. Wdrożenia wysokiej dostępności i odzyskiwania po awarii.
-        - W przypadku wdrażania warstwy aplikacji SAP bez definiowania określonej strefy dostępności platformy Azure upewnij się, że wszystkie maszyny wirtualne, które uruchamiają wystąpienia okna dialogowego SAP lub wystąpienia oprogramowania pośredniczącego pojedynczego systemu SAP są wdrożone w [zestawie dostępności](../../manage-availability.md).
+        - W przypadku wdrażania warstwy aplikacji SAP bez definiowania określonej strefy dostępności platformy Azure upewnij się, że wszystkie maszyny wirtualne, które uruchamiają wystąpienia okna dialogowego SAP lub wystąpienia oprogramowania pośredniczącego pojedynczego systemu SAP są wdrożone w [zestawie dostępności](../../availability-set-overview.md).
         - Jeśli nie potrzebujesz wysokiej dostępności dla usług SAP Central i systemu DBMS, możesz wdrożyć te maszyny wirtualne w tym samym zestawie dostępności co warstwa aplikacji SAP.
         - W przypadku ochrony usług SAP Central i warstwy DBMS w celu zapewnienia wysokiej dostępności przy użyciu replikacji pasywnej należy umieścić dwa węzły dla usług SAP Central w jednym osobnym zestawie dostępności i dwóch węzłach systemu DBMS w innym zestawie dostępności.
         - W przypadku wdrażania w Strefy dostępności platformy Azure nie można używać zestawów dostępności. Należy jednak upewnić się, że węzły Active i pasywny Central Services są wdrażane w dwóch różnych Strefy dostępnościach. Użyj Strefy dostępności, które mają najmniejsze opóźnienia między nimi.

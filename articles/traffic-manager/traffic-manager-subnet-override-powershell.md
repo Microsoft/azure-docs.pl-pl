@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7dd7f43044a9643eb7e9d5296dfb209e425d5fb6
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183789"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504784"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Traffic Manager przesłonięcia podsieci przy użyciu programu Azure PowerShell
 
@@ -43,7 +43,7 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
 
 1. **Pobierz punkt końcowy Traffic Manager:**
 
-    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Zastąp nazwę, nazwa pliku i ResourceGroupName wartościami punktów końcowych, które są zmieniane.
 
@@ -54,7 +54,7 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
     ```
 2. **Dodaj zakres adresów IP do punktu końcowego:**
     
-    Aby dodać zakres adresów IP do punktu końcowego, użyj polecenie [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) , aby dodać zakres.
+    Aby dodać zakres adresów IP do punktu końcowego, użyj polecenie [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange) , aby dodać zakres.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Po dodaniu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) , aby zaktualizować punkt końcowy.
+    Po dodaniu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) , aby zaktualizować punkt końcowy.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Usuwanie zakresu adresów IP można wykonać za pomocą polecenia [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Usuwanie zakresu adresów IP można wykonać za pomocą polecenia [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange).
 
 1.  **Pobierz punkt końcowy Traffic Manager:**
 
-    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Aby włączyć przesłonięcie podsieci, Pobierz punkt końcowy, do którego chcesz dodać przesłonięcie, i Zapisz go w zmiennej przy użyciu polecenia [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Zastąp nazwę, nazwa pliku i ResourceGroupName wartościami punktów końcowych, które są zmieniane.
 
@@ -102,7 +102,7 @@ Usuwanie zakresu adresów IP można wykonać za pomocą polecenia [Remove-AzTraf
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Po usunięciu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) , aby zaktualizować punkt końcowy.
+     Po usunięciu zakresów Użyj polecenie [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) , aby zaktualizować punkt końcowy.
 
     ```powershell
 

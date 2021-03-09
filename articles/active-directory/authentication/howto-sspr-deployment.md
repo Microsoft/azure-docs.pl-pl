@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424125"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500516"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -25,7 +25,7 @@ ms.locfileid: "102424125"
 >
 > **Jeśli jesteś użytkownikiem końcowym i chcesz wrócić do swojego konta, przejdź do [https://aka.ms/sspr](https://aka.ms/sspr)** strony.
 
-[Samoobsługowe resetowanie hasła (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) to funkcja Azure Active Directory (AD), która umożliwia użytkownikom resetowanie haseł bez kontaktowania się z pracownikami działu IT w celu uzyskania pomocy. Użytkownicy mogą szybko odblokować siebie i kontynuować pracę niezależnie od tego, gdzie się znajdują. Dzięki umożliwieniu pracownikom odblokowania, organizacja może skrócić czas nieproduktywny i wysokie koszty obsługi typowych problemów związanych z hasłami.
+[Samoobsługowe resetowanie hasła (SSPR)](https://www.youtube.com/watch?v=pS3XwfxJrMo) to funkcja Azure Active Directory (AD), która umożliwia użytkownikom resetowanie haseł bez kontaktowania się z pracownikami działu IT w celu uzyskania pomocy. Użytkownicy mogą szybko odblokować siebie i kontynuować pracę niezależnie od tego, gdzie się znajdują. Dzięki umożliwieniu pracownikom odblokowania, organizacja może skrócić czas nieproduktywny i wysokie koszty obsługi typowych problemów związanych z hasłami.
 
 SSPR ma następujące kluczowe możliwości:
 

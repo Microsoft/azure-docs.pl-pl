@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186392"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507725"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: Słownik terminologii w chmurze na platformie Azure
 
@@ -41,7 +41,7 @@ Zasoby obliczeniowe [Azure App Service](app-service/overview.md) umożliwiają h
 
 ## <a name="availability-set"></a>zestaw dostępności
 Kolekcja maszyn wirtualnych, które są zarządzane razem w celu zapewnienia nadmiarowości i niezawodności aplikacji. Użycie zestawu dostępności gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji co najmniej jedna maszyna wirtualna jest dostępna.  
-Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Klasyczny model wdrażania platformy Azure
 Jeden z dwóch [modeli wdrażania](./azure-resource-manager/management/deployment-models.md) używanych do wdrażania zasobów na platformie Azure (nowy model to Azure Resource Manager). Niektóre usługi platformy Azure obsługują tylko Menedżer zasobów model wdrażania, ale niektóre obsługują tylko klasyczny model wdrażania, a niektóre obsługują obie te funkcje. Dokumentacja dla każdej usługi platformy Azure określa, które modele obsługują.
@@ -58,7 +58,7 @@ Jeden z dwóch [modeli wdrażania](./azure-resource-manager/management/deploymen
 
 ## <a name="fault-domain"></a>Domena błędów
 Kolekcja maszyn wirtualnych w zestawie dostępności, która może być niemożliwa w tym samym czasie. Przykładem jest Grupa maszyn w stojaku, która udostępnia wspólne źródło napięcia i przełącznik sieciowy. Na platformie Azure maszyny wirtualne w zestawie dostępności są automatycznie oddzielane w wielu domenach błędów.  
-Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>geograficznie
 Zdefiniowana granica miejsca zamieszkania danych, która zwykle zawiera co najmniej dwa regiony. Granice mogą znajdować się poza granicami narodowymi i mieć wpływ na regulację podatkową. Każde geograficzne ma co najmniej jeden region. Przykłady georegionyów to Azja i Pacyfik i Japonia. Nazywana również *geografią*.  
@@ -135,7 +135,7 @@ Zobacz [Używanie tagów do organizowania zasobów platformy Azure](./azure-reso
 
 ## <a name="update-domain"></a>Aktualizuj domenę
 Kolekcja maszyn wirtualnych w zestawie dostępności, które są aktualizowane w tym samym czasie. Maszyny wirtualne w tej samej domenie aktualizacji są uruchamiane ponownie wraz z zaplanowaną konserwacją. Platforma Azure nigdy nie uruchamia ponownie więcej niż jednej domeny aktualizacji jednocześnie. Nazywana również domeną uaktualnienia.  
-Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>Maszyna wirtualna
 Implementacja oprogramowania komputera fizycznego z uruchomionym systemem operacyjnym. Na tym samym sprzęcie można uruchamiać wiele maszyn wirtualnych jednocześnie. Na platformie Azure maszyny wirtualne są dostępne w różnych rozmiarach.  
